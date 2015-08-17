@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/20/2015" 
 	ms.author="glenga"/>
+
 
 
 # Compilare un servizio che usa un database SQL esistente con il back-end .NET per Servizi mobili
@@ -615,4 +617,4 @@ Tenere presente che entrambe le implementazioni del controller usano esclusivame
 
 Come passaggio successivo, sarà possibile compilare l'app client per accedere al servizio. Per altre informazioni, vedere [Aggiungere Servizi mobili a un'app esistente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

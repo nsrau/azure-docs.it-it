@@ -147,4 +147,4 @@ Se le impostazioni proxy Web sono state configurate in modo non corretto, verran
 ## Passaggi successivi
 Se si riscontrano problemi durante la distribuzione del dispositivo o la configurazione delle impostazioni proxy Web, fare riferimento a [Risoluzione dei problemi del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,12 @@
 <properties
-   pageTitle="manage-vms-azure-powershell"
-   description="Gestire le macchine virtuali con Azure PowerShell"
+   pageTitle="Gestire le macchine virtuali tramite Azure PowerShell | Microsoft Azure"
+   description="Informazioni su comandi che è possibile utilizzare per automatizzare le attività di gestione delle macchine virtuali."
    services="virtual-machines"
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
    editor=""/>
+
 
    <tags
    ms.service="virtual-machines"
@@ -16,11 +17,12 @@
    ms.date="06/24/2015"
    ms.author="kasing"/>
 
+
 # Gestire le macchine virtuali con Azure PowerShell
 
 Molte attività che è possibile eseguire ogni giorno per gestire le macchine virtuali possono essere automatizzate utilizzando i cmdlet di Azure PowerShell. In questo articolo offre esempi di comandi per le attività più semplici e collegamenti ad articoli in cui visualizzare i comandi per attività più complesse.
 
->[AZURE.NOTE]Se non ancora stato installato e configurato Azure PowerShell, è possibile ottenere istruzioni [qui](../install-configure-powershell.md).
+>[AZURE.NOTE]Se non è ancora stato installato e configurato Azure PowerShell, è possibile ottenere le istruzioni nell'articolo [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
 
 ## Come utilizzare i comandi di esempio
 È necessario sostituire una parte del testo nei comandi con il testo appropriato per l'ambiente. Il < and > simboli indicano è necessario sostituire il testo. Quando si sostituisce il testo, rimuovere i simboli ma mantenere le virgolette.
@@ -36,7 +38,7 @@ Per archiviare l'output in una variabile $vm, eseguire:
 
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Accedere a una macchina virtuale Windows
+## Accedere a una macchina virtuale basata su Windows
 
 Eseguire i comandi seguenti.
 
@@ -63,7 +65,7 @@ Eseguire questo comando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Collegamento di un disco dati
-Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto la * * * Add-AzureDataDisk * * * cmdlet per aggiungere il disco per l'oggetto $vm, quindi si utilizza il cmdlet Update-AzureVM per aggiornare la configurazione della macchina virtuale.
+Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto la cmdlet****Aggiungi-DiscoDatiAzure**** per aggiungere il disco per l'oggetto $vm. Quindi è possibile utilizzare il cmdlet **Aggiorna-MacchinaVirtualeAzure** per aggiornare la configurazione della macchina virtuale.
 
 È inoltre necessario decidere se collegare un nuovo disco o uno che contiene già dati. Per un nuovo disco, il comando permette di creare il file con estensione VHD e contemporaneamente di collegarlo.
 
@@ -84,13 +86,13 @@ Per collegare dischi dati da un file con estensione vhd esistente nell'archiviaz
               -DiskLabel "<main>" -LUN <0> `
               | Update-AzureVM
 
-## Creare un'app Windows
+## Creare una macchina virtuale basata su Windows
 
-Per creare una nuova macchina virtuale basata su Windows in Azure, utilizzare le istruzioni in [utilizzare Azure PowerShell per creare e preconfigurare le macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Passaggi in questo argomento è illustrata la creazione di un set di comandi di PowerShell consente di creare una macchina virtuale di Windows che può essere preconfigurata con:
+Per creare una nuova macchina virtuale basata su Windows in Azure, utilizzare le istruzioni in [utilizzare Azure PowerShell per creare e preconfigurare le macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Questo argomento illustra la creazione di un set di comandi di PowerShell che consente di creare una macchina virtuale di Windows che può essere preconfigurata con:
 
-- Appartenenza al dominio di Active Directory
-- Dischi aggiuntivi
-- Imposta un membro di un oggetto esistente con carico bilanciato
-- Un indirizzo IP statico
+- Con l’appartenenza al dominio di Active Directory
+- Con Dischi aggiuntivi
+- Come membro di un set esistente con carico bilanciato
+- Con un indirizzo IP statico
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

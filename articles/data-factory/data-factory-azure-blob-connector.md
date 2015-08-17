@@ -1,0 +1,484 @@
+<properties 
+	pageTitle="Connettore BLOB di Azure - Spostamento dei dati da e verso BLOB di Azure" 
+	description="Informazioni sul connettore file BLOB di Azure per il servizio Data factory che consente di spostare i dati da e verso Archivio BLOB di Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
+
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/29/2015" 
+	ms.author="spelluru"/>
+
+# Connettore BLOB di Azure - Spostamento dei dati da e verso BLOB di Azure
+Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati nel BLOB di Azure da un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l’attività di copia e le combinazioni di archivio dati supportate.
+
+## Esempio: Copiare i dati dal BLOB di Azure in SQL Azure
+L'esempio seguente mostra:
+
+1.	Un servizio collegato di tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md).
+2.	Un servizio collegato di tipo [AzureStorage](#LinkedService).
+3.	Un set di dati di input di tipo [AzureBlob](#Dataset).
+4.	Un set di dati di input di tipo [AzureSqlTable](data-factory-azure-sql-connector.md).
+4.	Una pipeline con attività di copia che utilizza [BlobSource](#CopyActivity) e [SqlSink](data-factory-azure-sql-connector.md).
+
+L'esempio copia i dati appartenenti a una serie temporale da un BLOB di Azure a una tabella nel database di SQL Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
+
+**Servizio collegato SQL Azure:**
+
+	{
+	  "name": "AzureSqlLinkedService",
+	  "properties": {
+	    "type": "AzureSqlDatabase",
+	    "typeProperties": {
+	      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+	    }
+	  }
+	}
+
+**Servizio collegato Archiviazione di Azure:**
+
+	{
+	  "name": "StorageLinkedService",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	    }
+	  }
+	}
+
+**Set di dati di input del BLOB di Azure:**
+
+I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+
+	{
+	  "name": "AzureBlobInput",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "fileName": "{Hour}.csv",
+	      "partitionedBy": [
+	        {
+	          "name": "Year",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "yyyy"
+	          }
+	        },
+	        {
+	          "name": "Month",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%M"
+	          }
+	        },
+	        {
+	          "name": "Day",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%d"
+	          }
+	        },
+	        {
+	          "name": "Hour",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%H"
+	          }
+	        }
+	      ],
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": "\n"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
+	    }
+	  }
+	}
+
+**Set di dati di output SQL Azure:**
+
+L'esempio copia i dati in una tabella denominata "MyTable" in un database SQL Azure. È necessario creare la tabella nel database SQL Azure con lo stesso numero di colonne di quelle previste nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
+
+	{
+	  "name": "AzureSqlOutput",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyOutputTable"
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
+	}
+
+**Pipeline con un’attività di copia:**
+
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su**SqlSink**.
+
+	{  
+	    "name":"SamplePipeline",
+	    "properties":{  
+	    "start":"2014-06-01T18:00:00",
+	    "end":"2014-06-01T19:00:00",
+	    "description":"pipeline with copy activity",
+	    "activities":[  
+	      {
+	        "name": "AzureBlobtoSQL",
+	        "description": "Copy Activity",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "AzureBlobInput"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "AzureSqlOutput"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "BlobSource",
+	            "blobColumnSeparators": ","
+	          },
+	          "sink": {
+	            "type": "SqlSink"
+	          }
+	        },
+	       "scheduler": {
+	          "frequency": "Hour",
+	          "interval": 1
+	        },
+	        "policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "OldestFirst",
+	          "retry": 0,
+	          "timeout": "01:00:00"
+	        }
+	      }
+	      ]
+	   }
+	}
+
+## Esempio: Copiare i dati da SQL Azure al BLOB di Azure
+L'esempio seguente mostra:
+
+1.	Un servizio collegato di tipo AzureSqlDatabase.
+2.	Un servizio collegato di tipo AzureStorage.
+3.	Un set di dati di input di tipo AzureSqlTable.
+4.	Un set di dati di output di tipo AzureBlob.
+4.	Una pipeline con attività di copia che usa SqlSource e BlobSink.
+
+L'esempio copia i dati appartenenti a una serie temporale da una tabella nel database di SQL Azure a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
+
+**Servizio collegato SQL Azure:**
+
+	{
+	  "name": "AzureSqlLinkedService",
+	  "properties": {
+	    "type": "AzureSqlDatabase",
+	    "typeProperties": {
+	      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+	    }
+	  }
+	}
+
+**Servizio collegato Archiviazione di Azure:**
+
+	{
+	  "name": "StorageLinkedService",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	    }
+	  }
+	}
+
+**Set di dati di input SQL Azure:**
+
+L'esempio presuppone che sia stata creata una tabella "MyTable" in SQL Azure e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
+
+Impostando "external" su "true" e specificando i criteri externalData, si comunica al servizio Data factory di Azure che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
+
+	{
+	  "name": "AzureSqlInput",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
+	    }
+	  }
+	}
+
+**Set di dati di output del BLOB di Azure:**
+
+I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
+	
+	{
+	  "name": "AzureBlobOutput",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "partitionedBy": [
+	        {
+	          "name": "Year",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "yyyy"
+	          }
+	        },
+	        {
+	          "name": "Month",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%M"
+	          }
+	        },
+	        {
+	          "name": "Day",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%d"
+	          }
+	        },
+	        {
+	          "name": "Hour",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%H"
+	          }
+	        }
+	      ],
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": "\t",
+	        "rowDelimiter": "\n"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
+	}
+
+**Pipeline con l’attività di copia:**
+
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlSource** e il tipo di **sink** è impostato su**BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare dall'ultima ora.
+
+
+	{  
+	    "name":"SamplePipeline",
+	    "properties":{  
+	    	"start":"2014-06-01T18:00:00",
+	    	"end":"2014-06-01T19:00:00",
+	    	"description":"pipeline for copy activity",
+	    	"activities":[  
+	      		{
+	        		"name": "AzureSQLtoBlob",
+		    	    "description": "copy activity",
+		    	    "type": "Copy",
+		    	    "inputs": [
+		    	      {
+		    	        "name": "AzureSQLInput"
+		    	      }
+		    	    ],
+		    	    "outputs": [
+		    	      {
+		    	        "name": "AzureBlobOutput"
+		    	      }
+		    	    ],
+		    	    "typeProperties": {
+		    	    	"source": {
+		            		"type": "SqlSource",
+			            	"SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+		          		},
+		          		"sink": {
+		            		"type": "BlobSink"
+		          		}
+		        	},
+		       		"scheduler": {
+		          		"frequency": "Hour",
+		          		"interval": 1
+		        	},
+		        	"policy": {
+		          		"concurrency": 1,
+		          		"executionPriorityOrder": "OldestFirst",
+		          		"retry": 0,
+		          		"timeout": "01:00:00"
+		        	}
+		      	}
+		     ]
+		}
+	}
+
+## <a name="LinkedService"></a> Proprietà del servizio collegato Archiviazione di Azure
+
+È possibile collegare un account di archiviazione di Azure a una data factory di Azure tramite un servizio collegato Archiviazione di Azure. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Archiviazione di Azure.
+
+| Proprietà | Descrizione | Obbligatorio |
+| -------- | ----------- | -------- |
+| type | La proprietà del tipo deve essere impostata su: **AzureStorage** | Sì |
+| connectionString | Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. È possibile ottenere la proprietà connectionString per l'archivio Azure dal Portale di Azure. | Sì |
+
+## <a name="Dataset"></a> Proprietà del tipo del set di dati BLOB di Azure
+
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell’archivio dati. La sezione typeProperties per il set di dati di tipo **AzureBlob** presenta le proprietà seguenti.
+
+| Proprietà | Descrizione | Obbligatorio |
+| -------- | ----------- | -------- | 
+| folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\\myblobfolder\\ | Sì |
+| filename | <p>Nome del BLOB. fileName è facoltativo. </p><p>Se si specifica un nome file, l’attività (inclusa la copia) funziona sul BLOB specifico.</p><p>Quando fileName non è specificato, la copia include tutti i BLOB nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
+| partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione della proprietà partitionedBy Leverage di seguito per informazioni dettagliate ed esempi. | No
+| format | Sono supportati due tipi di formati: **TextFormat**, **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Vedere la sezione relativa alla [specifica di TextFormat](#specifying-textformat) di seguito per ulteriori dettagli. | No
+
+### Uso della proprietà partionedBy
+Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data Factory e variabili di sistema: SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
+
+Per conoscere informazioni dettagliate sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli sulla [creazione dei set di dati](data-factory-create-datasets.md) e sulla [pianificazione ed esecuzione](data-factory-scheduling-and-execution.md).
+
+#### Esempio 1
+
+	"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+	"partitionedBy": 
+	[
+	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+	],
+
+Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile di sistema Data Factory SliceStart nel formato (AAAAMMGGHH) specificato. SliceStart fa riferimento all'ora di inizio della sezione. La proprietà folderPath è diversa per ogni sezione. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104
+
+#### Esempio 2
+
+	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+	"fileName": "{Hour}.csv",
+	"partitionedBy": 
+	 [
+	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+	],
+
+Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
+
+### Specifica di TextFormat
+
+Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format**.
+
+| Proprietà | Descrizione | Obbligatorio |
+| -------- | ----------- | -------- |
+| columnDelimiter | Caratteri usati come separatori di colonne in un file. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
+| rowDelimiter | Caratteri usati come separatore di riga in un file. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: [“\\r\\n”, “\\r”,” \\n”]. | No |
+| escapeChar | <p>Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. È necessario specificare non più di un carattere per questa proprietà.</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire nel testo un carattere virgola (ad esempio: "Hello, world"), è possibile definire ‘$’ come carattere di escape e usare la stringa "Hello$, world" nell’origine.</p><p>Si noti che non è possibile specificare si escapeChar che quoteChar per una tabella.</p> | No | 
+| quoteChar | <p>Il carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. È necessario specificare non più di un carattere per questa proprietà.</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire ‘"’ come carattere virgolette e usare la stringa <"Hello, world"> nell’origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare si escapeChar che quoteChar per una tabella.</p> | No |
+| nullValue | <p>I caratteri usati per rappresentare il valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".</p><p>Ad esempio, in base al precedente esempio, "NaN" BLOB verrà tradotto come valore null durante la copia in SQL Server.</p> | No |
+| encodingName | Specificare il nome della codifica. Per l’elenco dei nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. | No | 
+
+#### Esempi
+L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
+
+	"typeProperties":
+	{
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myblobname"
+	    "format":
+	    {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "quoteChar": """,
+	        "NullValue": "NaN"
+	    }
+	},
+
+Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con la stringa seguente:
+
+	"escapeChar": "$",
+
+### Specifica di AvroFormat
+Se il formato è impostato su AvroFormat, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+
+	"format":
+	{
+	    "type": "AvroFormat",
+	}
+
+Per usare il formato Avro in una tabella Hive, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+## <a name="CopyActivity"></a> Proprietà del tipo di attività di copia BLOB di Azure  
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+
+Le proprietà disponibili nella sezione typeProperties dell'attività variano, invece, per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
+
+**BlobSource** supporta le seguenti proprietà della sezione **typeProperties**sezione:
+
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| -------- | ----------- | -------------- | -------- | 
+| treatEmptyAsNull | Specifica se considerare una stringa vuota o null come valore null. | TRUE<br/>FALSE | No |
+| skipHeaderLineCount | Indicare quante righe devono essere ignorate. È applicabile solo quando il set di dati input utilizza **TextFormat**. | Numero intero compreso tra 0 e Max. | No | 
+
+
+**BlobSink** supporta le seguenti proprietà della sezione **typeProperties**:
+
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| -------- | ----------- | -------------- | -------- |
+| blobWriterAddHeader | Specifica se aggiungere l'intestazione delle definizioni di colonna. | TRUE<br/>FALSE (impostazione predefinita) | No |
+
+[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+
+[AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
+
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
+<!---HONumber=August15_HO6-->

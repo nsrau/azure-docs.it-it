@@ -400,4 +400,4 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

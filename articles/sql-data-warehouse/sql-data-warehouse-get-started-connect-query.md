@@ -7,14 +7,16 @@
    manager="barbkess"
    editor=""/>
 
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
    
 # Introduzione: Connettersi a SQL Data Warehouse
 Questo breve articolo introduttivo illustra la connessione e l'esecuzione di query in un'istanza con provisioning di SQL Data Warehouse con due strumenti diversi:
@@ -105,9 +107,7 @@ Per stabilire la connessione è sufficiente aprire Esplora oggetti di SQL Server
 
 3. Fare clic su "Aggiungi server" in Esplora oggetti di SQL Server, come evidenziato nella figura seguente:
 
-4. Popolare la finestra di dialogo Connetti al server.
-
-Usare i valori scelti durante la creazione del server logico.
+4. Popolare la finestra di dialogo Connetti al Server con i valori scelti durante la creazione del server logico. Inoltre, fare clic sul pulsante Opzioni e specificare il database a cui si desidera connettersi (l'istanza di SQL Data Warehouse) prima della connessione.
 
 È anche possibile selezionare la casella "Memorizza password", se si vuole, che permette di risparmiare tempo. Occorre però ricordare che consente a chiunque possa accedere fisicamente al profilo di eseguire query usando questo account.
 
@@ -185,6 +185,7 @@ Dopo avere registrato il server, è possibile scrivere una query.
 	Per eseguire la query, fare clic sulla freccia verde seguente oppure usare il collegamento seguente `CTRL`+`SHIFT`+`F5`:
 
 ## Passaggi successivi ##
+[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

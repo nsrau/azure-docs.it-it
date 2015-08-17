@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/01/2015"
 	ms.author="piyushjo" />
 
@@ -285,7 +285,7 @@ Questo è solo un esempio per illustrare la sintassi. È ovviamente consigliabil
 
 ###Abilitare l'app per la ricezione delle notifiche push GCM
 
-1. Immettere i metadati gcm:sender copiando e incollando il codice seguente nel file Manifest.xml tra i tag `<application>` e `</application>`. Il valore nascosto nel codice seguente (rappresentato da asterischi) è il valore di `project number` ottenuto dalla console Google Play. L'uso di \n è intenzionale. Assicurarsi di inserirlo alla fine del numero di progetto.
+1. Immettere i metadati gcm:sender copiando e incollando il codice seguente nel file Manifest.xml tra i tag `<application>` e `</application>`. Il valore nascosto nel codice seguente (rappresentato da asterischi) è il valore di `project number` ottenuto dalla console Google Play. L'uso di \\n è intenzionale. Assicurarsi di inserirlo alla fine del numero di progetto.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -394,4 +394,4 @@ A questo punto si creerà una campagna di notifica push semplice che invierà un
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

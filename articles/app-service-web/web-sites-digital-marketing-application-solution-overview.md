@@ -7,6 +7,7 @@
 	services="app-service\web" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
+
 
 # Creare una campagna di marketing digitale in App Web di Azure App Service
 App Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) offre una soluzione ottimale per le campagne di marketing digitali. Le campagne di questo tipo in genere sono di breve durata e hanno la funzione di realizzare obiettivi di marketing a breve termine. È necessario prendere in considerazione due scenari principali. Nel primo scenario una società di marketing di terze parti crea e gestisce la campagna per conto del cliente, per l'intera durata della promozione. Nel secondo scenario la società di marketing crea la campagna marketing digitale, quindi trasferisce al cliente la proprietà delle risorse corrispondenti. La campagna di marketing digitale verrà quindi eseguita e gestita autonomamente dal cliente. Siti Web di Azure è la soluzione perfetta in entrambi gli scenari.
@@ -31,7 +33,7 @@ Di seguito è riportato un esempio di una campagna di marketing digitale multica
 
 È possibile creare nuove app Web rapidamente da un CMS di uso comune nella raccolta o trasferire asset Web esistenti nelle app Web di App Service da linguaggi e framework diversi.
 
-Azure Marketplace fornisce i modelli dei sistemi di gestione dei contenuti (CMS) di siti Web di uso comune, ad esempio [Orchard], [Umbraco], [Drupal] e [WordPress]. È possibile creare un'app Web usando il CMS desiderato. In base alle proprie esigenze è possibile scegliere tra diversi back-end di database, tra cui il [database SQL di Azure] e [MySQL].
+Azure Marketplace fornisce modelli di noti sistemi di gestione dei contenuti (CMS) di siti Web, ad [Orchard], [Umbraco], Drupal e [WordPress]. È possibile creare un'app Web usando il CMS desiderato. In base alle proprie esigenze è possibile scegliere tra diversi back-end di database, tra cui il [database SQL di Azure] e [MySQL].
 
 Le app Web supportano l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile spostare gli asset in App Web mediante strumenti [FTP] con cui si ha familiarità. Se si creano spesso campagne di marketing digitali, è possibile che alcune risorse Web esistenti siano disponibili in un sistema di gestione del controllo del codice sorgente. App Web supporta la distribuzione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
 
@@ -97,7 +99,6 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 
 [Orchard]: web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]: web-sites-gallery-umbraco.md
-[Drupal]: web-sites-php-migrate-drupal.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -141,4 +142,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

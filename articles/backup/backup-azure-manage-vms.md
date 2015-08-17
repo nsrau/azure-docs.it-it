@@ -152,4 +152,4 @@ Nella pagina **Dashboard** è possibile esaminare le informazioni sulle macchine
 
   ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

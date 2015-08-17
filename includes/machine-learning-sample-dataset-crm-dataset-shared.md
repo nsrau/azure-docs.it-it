@@ -1,3 +1,3 @@
-Questi dati vengono dalla competizione KDD Cup 2009 di previsione delle relazioni con i clienti (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).<p> </p>Il set di dati contiene 50.000 clienti della società di telecomunicazioni francese Orange. Ogni cliente dispone di 230 elementi resi anonimi, 190 dei quali numerici e 40 categorici. Gli elementi sono molto sparsi.
+Questi dati vengono dalla competizione KDD Cup 2009 di previsione delle relazioni con i clienti (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange\_small\_train.data.zip</a>).<p> </p>Il set di dati contiene 50.000 clienti della società di telecomunicazioni francese Orange. Ogni cliente dispone di 230 elementi resi anonimi, 190 dei quali numerici e 40 categorici. Gli elementi sono molto sparsi.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

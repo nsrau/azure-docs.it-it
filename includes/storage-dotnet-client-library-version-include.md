@@ -1,1 +1,3 @@
->[AZURE.NOTE] We recommend that you use the latest version of the Azure Storage Client Library for .NET to complete this tutorial. The latest version of the library is 5.x, available for download on [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/). The source for the client library is available on [GitHub](https://github.com/Azure/azure-storage-net). 
+>[AZURE.NOTE]È consigliabile utilizzare l’ultima versione della libreria client di Archiviazione di Azure per .NET per completare questa esercitazione. La versione più recente della libreria è la 5. x ed è disponibile per il download su [Nuget](https://www.nuget.org/packages/WindowsAzure.Storage/). L'origine per la libreria client è disponibile su [GitHub](https://github.com/Azure/azure-storage-net).
+
+<!---HONumber=August15_HO6-->

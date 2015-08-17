@@ -40,7 +40,7 @@ Installare [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
 
 Accertarsi di scegliere il file con estensione whl corretto.
 
-Ad esempio, se si usa Python 2.7 su un computer a 64 bit, scegliere pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Una volta scaricato il file con estensione whl, posizionarlo nella cartella C:/Python27.
+Ad esempio, se si usa Python 2.7 su un computer a 64 bit, scegliere pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Una volta scaricato il file con estensione whl, posizionarlo nella cartella C:/Python27.
 
 A questo punto, installare il driver pymssql tramite pip dalla riga di comando. Eseguire cd in C:/Python27 e quindi il comando seguente:
 	
@@ -100,11 +100,11 @@ Nel database SQL, per generare automaticamente i valori di [chiave primaria](htt
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
 
 
--Avvio di una transazione
+\-Avvio di una transazione
 
--Inserimento di una riga di dati
+\-Inserimento di una riga di dati
 
--Rollback della transazione per annullare l'inserimento
+\-Rollback della transazione per annullare l'inserimento
 
 
 	import pymssql
@@ -116,4 +116,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -72,4 +72,4 @@ Gestione risorse di Azure semplifica la distribuzione e la gestione di applicazi
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

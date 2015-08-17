@@ -176,4 +176,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

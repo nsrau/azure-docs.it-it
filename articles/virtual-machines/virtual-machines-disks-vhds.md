@@ -65,4 +65,4 @@ Macchine virtuali di Windows:
 -  [Acquisire una macchina virtuale di Windows](virtual-machines-capture-image-windows-server.md)
 -  [Scollegare un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

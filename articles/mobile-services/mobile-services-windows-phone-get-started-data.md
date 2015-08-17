@@ -119,9 +119,9 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	Questo codice consente di creare una raccolta di binding compatibile con Servizi mobili (\*\*items\*\*) e una classe proxy per la tabella di database SQL **TodoItem** (\*\*todoTable\*\*).
+   	Questo codice consente di creare una raccolta di binding compatibile con Servizi mobili (**items**) e una classe proxy per la tabella di database SQL **TodoItem** (**todoTable**).
 
-7. Nel metodo **InsertTodoItem** rimuovere la riga di codice per l'impostazione della proprietà **TodoItem**.\*\*Id\*\*, aggiungere il modificatore **async** al metodo e rimuovere il commento dalla riga di codice seguente:
+7. Nel metodo **InsertTodoItem** rimuovere la riga di codice per l'impostazione della proprietà **TodoItem**.**Id**, aggiungere il modificatore **async** al metodo e rimuovere i simboli di commento dalla riga di codice seguente:
 
         await todoTable.InsertAsync(todoItem);
 
@@ -193,4 +193,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
@@ -107,4 +107,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

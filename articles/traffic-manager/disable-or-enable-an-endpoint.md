@@ -50,4 +50,4 @@
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

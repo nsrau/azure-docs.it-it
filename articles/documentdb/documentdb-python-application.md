@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Build a web app with Python and Flask using DocumentDB | Azure"
+    pageTitle="Creare un'app Web con Python e Flask usando DocumentDB | Microsoft Azure"
     description="Informazioni sull'uso di DocumentDB per archiviare e accedere ai dati da un'applicazione Web Python e Flask (MVC) ospitata in Azure."
     services="documentdb"
     documentationCenter="python"
@@ -56,7 +56,7 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si disp
 
 ## Passaggio 2: Creare una nuova applicazione Web Python Flask
 
-1. Aprire Visual Studio, quindi fare clic su **File** -\\> **Nuovo progetto** -\\> **Python** -\\>, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
+1. Aprire Visual Studio, quindi fare clic su **File** -\> **Nuovo progetto** -\> **Python** -\>, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
 
 	Se è la prima volta che si usa Flask, si tratta di un framework Web che consente di creare applicazioni Web in Python più velocemente. [Fare clic qui per accedere alle esercitazioni per Flask][].
 
@@ -313,7 +313,7 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
 
 3. Fare quindi clic su **voto** e selezionare un'opzione.
 
-	![Schermata dell'applicazione web con una domanda voto poste](./media/documentdb-python-application/image18.png)
+	![Schermata dell'applicazione Web con una domanda relativa al voto](./media/documentdb-python-application/image18.png)
 
 4. Ogni voto espresso andrà a incrementare il contatore appropriato.
 
@@ -326,7 +326,7 @@ Ora che l'applicazione completa funziona correttamente con DocumentDB, sarà pos
 
 1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni (assicurarsi che il progetto non sia ancora in esecuzione localmente) quindi selezionare Pubblica. Selezionare quindi Siti Web di Microsoft Azure.
 
- 	![Schermata dell'esercitazioneaselezionato in Esplora soluzioni, con l'opzione Pubblica evidenziata](./media/documentdb-python-application/image20.png)
+ 	![Schermata dell'esercitazione selezionata in Esplora soluzioni, con l'opzione Pubblica evidenziata](./media/documentdb-python-application/image20.png)
 
 2. Configurare il sito Web di Azure fornendo le credenziali e fare clic su **Pubblica**.
 
@@ -350,4 +350,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

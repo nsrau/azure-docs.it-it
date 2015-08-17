@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors - Modello di progettazione Reti distribuite e grafici"
-   description="Modello di progettazione sull'uso di Service Fabric Actors per modellare un'applicazione come reti distribuite e grafici"
+   pageTitle="Modello di progettazione delle reti distribuite e dei grafici di Reliable Actors"
+   description="Modello di progettazione sull'uso di Service Fabric Reliable Actors per modellare un'applicazione come reti distribuite e grafici"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Modello di progettazione di Service Fabric Actors: reti distribuite e grafici
-Azure Fabric Service Actors è la scelta naturale per la modellazione di soluzioni complesse che contengono relazioni e per la modellazione di tali relazioni come oggetti.
+# Modello di progettazione di Reliable Actors: reti distribuite e grafici
+Service Fabric Reliable Actors è la scelta naturale per la modellazione di soluzioni complesse che contengono relazioni e per la modellazione di tali relazioni come oggetti.
 
 ![][1]
 
@@ -223,6 +223,5 @@ In questo caso si sfrutta semplicemente la capacità di Reliable Actors di conse
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

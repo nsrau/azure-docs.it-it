@@ -5,9 +5,9 @@
 
 - **Computer locale** <br/>È possibile eseguire Hybrid Connection Manager nello stesso computer come istanza di SQL Server locale oppure è possibile eseguirne ciascuna istanza in un computer separato. Il computer in cui viene eseguito Hybrid Connection Manager deve soddisfare i seguenti criteri
 
-	- Deve essere in grado di connettersi ad Azure usando la porta 5671.
-	- Essere in grado di accedere al *nomehost*: *numeroporta* del computer su cui è n esecuzione l'istanza di SQL Server.  
+	- Essere in grado di connettersi ad Azure usando la porta 5671.
+	- Essere in grado di accedere al *nomehost*:*numeroporta* del computer su cui è n esecuzione l'istanza di SQL Server.  
 
 	Per ulteriori informazioni, vedere [Panoramica sulle connessioni ibride](../articles/integration-hybrid-connection-overview.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

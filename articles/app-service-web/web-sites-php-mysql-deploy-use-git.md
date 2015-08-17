@@ -8,14 +8,16 @@
 	editor="mollybos"
 	tags="mysql"/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
+
 
 #Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
 
@@ -41,17 +43,11 @@ In questa esercitazione si presuppone che siano presenti [PHP][install-php], lo 
 Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 
 1. Eseguire l'accesso al [portale Azure][management-portal].
-2. Fare clic sull'icona **New** nella parte inferiore sinistra del portale.
-
-	![Creazione di un nuovo sito Web di Azure][new-website]
+2. Fare clic sull'icona **Nuovo**.
 
 3. Fare clic su **Web + Mobile**, quindi **Azure Marketplace**.
 
-	![Creazione personalizzata di un nuovo sito Web][custom-create]
-
 4. Fare clic su **App Web**, quindi **Web app + MySQL**. Fare quindi clic su **Crea**.
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. Immettere un nome valido per il gruppo di risorse.
 
@@ -66,8 +62,6 @@ Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 	![Creazione di un nuovo database MySQL][new-mysql-db]
 
 7. Una volta creata l'app Web, verrà visualizzato il nuovo gruppo di risorse. Fare clic sul nome dell'app Web per configurarne le impostazioni.
-
-	![Applicazione web Open][go-to-webapp]
 
 7. Fare clic su **Configurare la distribuzione continua**.
 
@@ -147,9 +141,12 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 		<h1>Register here!</h1>
 		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/></br>
-		      Email <input type="text" name="email" id="email"/></br>
+		      Name  <input type="text" name="name" id="name"/>
+</br>
+		      Email <input type="text" name="email" id="email"/>
+</br>
 		      <input type="submit" name="submit" value="Submit" />
+
 		</form>
 		<?php
 			// DB connection info
@@ -210,7 +207,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 		</body>
 		</html>
 
-A questo punto è possibile passare a **http://localhost/registration/index.php** per testare l'applicazione.
+A questo punto è possibile passare a ****http://localhost/registration/index.php** per testare l'applicazione.
 
 
 ##Pubblicare l'app
@@ -296,4 +293,4 @@ Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguent
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,8 +3,8 @@
    description="Terminologia del Catalogo dati di Azure"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 # Terminologia del Catalogo dati di Azure
 
@@ -42,6 +42,15 @@ I metadati strutturali sono metadati estratti da un'origine dati che descrive la
 
 I metadati descrittivi sono metadati che descrivono lo scopo o l'intenzione di un asset di dati. In genere i metadati descrittivi vengono aggiunti dagli utenti del catalogo tramite il portale del Catalogo dati di Azure, ma possono anche essere estratti durante la registrazione dell'origine dati. Lo strumento di registrazione del Catalogo dati di Azure estrae le descrizioni dalla proprietà Description in SQL Server Analysis Services e SQL Server Reporting Services e dalla [proprietà estesa ms\_description](https://technet.microsoft.com/library/ms190243.aspx) nei database di SQL Server, se queste proprietà sono popolate con valori.
 
+## Richiedere l'accesso
+
+I metadati descrittivi dell'asset di dati possono includere informazioni su come richiedere l'accesso a asset di dati o origine dati. Queste informazioni vengono visualizzate con la posizione degli asset di dati e possono includere una o più delle seguenti opzioni:
+
+- Indirizzo di posta elettronica dell'utente o del team responsabile della concessione dell'accesso all'origine dati.
+- L'URL della procedura documentata che gli utenti devono seguire per ottenere l'accesso all'origine dati.
+- L'URL di un'identità e lo strumento di gestione dell’accesso (ad esempio Microsoft Identity Manager) che può essere utilizzato per accedere all'origine dati.
+- Una voce di testo libero che descrive come gli utenti possono accedere all'origine dati.
+
 ## Anteprime
 
 L'anteprima nel Catalogo dati di Azure è uno snapshot di 20 record al massimo che possono essere estratti dall'origine dati durante la registrazione e archiviati nel catalogo con i metadati dell’asset di dati. L'anteprima può aiutare gli utenti a individuare un asset di dati per comprenderne meglio lo scopo e la funzione. In altre parole, i dati di esempio possono essere più importanti dei soli nomi di colonna e tipi di dati. Le anteprime sono supportate solo per tabelle e viste e devono essere selezionate in modo esplicito dall'utente durante la registrazione.
@@ -60,7 +69,7 @@ Un esperto è un utente che è stato identificato come avente una prospettiva in
 
 Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asset di dati nel Catalogo dati di Azure. Gli utenti possono diventare proprietari di dati registrati e i proprietari possono aggiungere altri utenti come comproprietari.
 > [AZURE.NOTE]La gestione e la proprietà sono disponibili solo nel Catalogo dati di Azure Standard Edition.
- 
+
 ## Registrazione
 
 La registrazione è l'atto di estrazione dei metadati di asset di dati da un'origine dati e di copia nel servizio Catalogo dati di Azure. Gli asset di dati registrati possono essere annotati e individuati.
@@ -68,7 +77,7 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 ## Vedere anche
 
 - [Che cos'è il catalogo dei dati di Azure?](data-catalog-what-is-data-catalog.md). In questo articolo viene fornita una panoramica del servizio Catalogo dati di Azure, il valore restituito e gli scenari supportati.
-
+  
 - [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end in che illustra come utilizzare il Catalogo dati di Azure per l'individuazione dell’origine dati.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

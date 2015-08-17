@@ -50,4 +50,4 @@ Si intende approfondire la conoscenza delle modalità di gestione di Azure AD? C
 * [Identità di Azure](fundamentals-identity.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

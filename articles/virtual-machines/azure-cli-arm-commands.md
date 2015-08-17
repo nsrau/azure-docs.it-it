@@ -7,6 +7,7 @@
 	manager="timlt"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
+
 
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
 
@@ -1737,4 +1739,4 @@ Opzioni dei parametri:
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

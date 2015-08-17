@@ -297,4 +297,4 @@ Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello 
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

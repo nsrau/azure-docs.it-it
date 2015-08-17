@@ -67,4 +67,4 @@ Per altre informazioni, vedere [Configurazione dell'autenticazione Intranet basa
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -19,7 +19,7 @@
 # Usare attività personalizzate in una pipeline di Data factory di Azure
 Data factory di Azure supporta attività incorporate, ad esempio **attività di copia** e **attività HDInsight** da utilizzare nelle pipeline al fine di spostare ed elaborare i dati. È inoltre possibile creare un'attività .NET personalizzata con logica di elaborazione/trasformazione da utilizzare in una pipeline. È possibile configurare l'attività da eseguire utilizzando un cluster **Azure HDInsight** o un servizio **Azure Batch**.
 
-Questo articolo descrive come creare un'attività personalizzata e usarla in una pipeline di Data factory di Azure. Fornisce anche una procedura dettagliata con istruzioni complete per creare e usare un'attività personalizzata. Nella procedura dettagliata viene usato il servizio HDInsight collegato. Per usare il servizio Azure Batch collegato, si crea un servizio collegato di tipo **AzureBatchLinkedService** e lo si utilizza nella sezione relativa alle attività della pipeline JSON (\*\*linkedServiceName\*\*). Per altre informazioni sull'uso di Azure Batch con l'attività personalizzata, vedere la sezione [Servizi collegati ad Azure Batch](#AzureBatch).
+Questo articolo descrive come creare un'attività personalizzata e usarla in una pipeline di Data factory di Azure. Fornisce anche una procedura dettagliata con istruzioni complete per creare e usare un'attività personalizzata. Nella procedura dettagliata viene usato il servizio HDInsight collegato. Per usare il servizio Azure Batch collegato, si crea un servizio collegato di tipo **AzureBatch** e lo si utilizza nella sezione relativa alle attività della pipeline JSON (**linkedServiceName**). Per altre informazioni sull'uso di Azure Batch con l'attività personalizzata, vedere la sezione [Servizi collegati ad Azure Batch](#AzureBatch).
 
 
 ## <a name="walkthrough" /> Procedura dettagliata
@@ -49,7 +49,7 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 2.  Fare clic su <b>Strumenti</b>, puntare a <b>Gestione pacchetti NuGet</b>, quindi fare clic sulla <b>console di gestione pacchetti</b>.
 3.	Nella <b>console di gestione pacchetti</b>, eseguire il seguente comando per importare <b>Microsoft.Azure.Management.DataFactories</b>. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.Azure.Management.DataFactories
 
 4. Importare il pacchetto NuGet di archiviazione di Azure nel progetto.
 
@@ -77,16 +77,22 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 
 8. Implementare (aggiungere) il metodo **Execute** dell'interfaccia **IDotNetActivity** nella classe **MyDotNetActivity** e copiare il seguente codice di esempio nel metodo.
 
-	I parametri **inputTables** e **outputTables** rappresentano le tabelle di input e di output per l'attività, come suggeriscono i nomi. È possibile visualizzare i messaggi registrati usando l'oggetto **logger** nel file di log che è possibile scaricare dal portale di Azure o usando i cmdlet. Il dizionario **extendedProperties** contiene l'elenco delle proprietà estese specificate nel file JSON per l'attività e i relativi valori.
 
 	Il seguente codice di esempio consente di contare il numero di righe nel BLOB di input e di generare il seguente contenuto nel BLOB di output: percorso al BLOB, numero di righe nel BLOB, computer in cui viene eseguita l'attività, data/ora corrente.
 
-        public IDictionary<string, string> Execute(
-          IEnumerable<DataSet> inputTables,
-          IEnumerable<DataSet> outputTables,
-          IDictionary<string, string> extendedProperties,
-          IActivityLogger logger)
+        public IDictionary<string, string> Execute(IEnumerable<LinkedService> linkedServices, IEnumerable<Table> tables, Activity activity, IActivityLogger logger)
         {
+            IDictionary<string, string> extendedProperties = ((DotNetActivity)activity.TypeProperties).ExtendedProperties;
+
+            AzureStorageLinkedService inputLinkedService, outputLinkedService;
+            CustomDataset inputLocation;
+            AzureBlobDataset outputLocation;
+
+            Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
+            inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
+            inputLinkedService = linkedServices.Single(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+
+
             string output = string.Empty;
 
             logger.Write("Before anything...");
@@ -97,97 +103,82 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
                 logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
             }
 
-            foreach (DataSet inputTable in inputTables)
+            string connectionString = GetConnectionString(inputLinkedService);
+            string folderPath = GetFolderPath(inputTable);
+
+            logger.Write("Reading blob from: {0}", folderPath);
+
+            CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
+            CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
+
+            BlobContinuationToken continuationToken = null;
+
+            do
             {
-                string connectionString = GetConnectionString(inputTable.LinkedService);
-                string folderPath = GetFolderPath(inputTable.Table);
-
-                if (String.IsNullOrEmpty(connectionString) ||
-                    String.IsNullOrEmpty(folderPath))
+                BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath,
+                                            true,
+                                            BlobListingDetails.Metadata,
+                                            null,
+                                            continuationToken,
+                                            null,
+                                            null);
+                foreach (IListBlobItem listBlobItem in result.Results)
                 {
-                    continue;
-                }
-
-                logger.Write("Reading blob from: {0}", folderPath);
-
-                CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
-                CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
-
-                BlobContinuationToken continuationToken = null;
-
-                do
-                {
-                    BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath,
-                                                true,
-                                                BlobListingDetails.Metadata,
-                                                null,
-                                                continuationToken,
-                                                null,
-                                                null);
-                    foreach (IListBlobItem listBlobItem in result.Results)
+                    CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
+                    int count = 0;
+                    if (inputBlob != null)
                     {
-                        CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
-                        int count = 0;
-                        if (inputBlob != null)
+                        using (StreamReader sr = new StreamReader(inputBlob.OpenRead()))
                         {
-                            using (StreamReader sr = new StreamReader(inputBlob.OpenRead()))
+                            while (!sr.EndOfStream)
                             {
-                                while (!sr.EndOfStream)
+                                string line = sr.ReadLine();
+                                if (count == 0)
                                 {
-                                    string line = sr.ReadLine();
-                                    if (count == 0)
-                                    {
-                                        logger.Write("First line: [{0}]", line);
-                                    }
-                                    count++;
+                                    logger.Write("First line: [{0}]", line);
                                 }
-
+                                count++;
                             }
 
                         }
-                        output += string.Format(CultureInfo.InvariantCulture,
-                                        "{0},{1},{2},{3},{4}\n",
-                                        folderPath,
-                                        inputBlob.Name,
-                                        count,
-                                        Environment.MachineName,
-                                        DateTime.UtcNow);
 
                     }
-                    continuationToken = result.ContinuationToken;
+                    output += string.Format(CultureInfo.InvariantCulture,
+                                    "{0},{1},{2},{3},{4}\n",
+                                    folderPath,
+                                    inputBlob.Name,
+                                    count,
+                                    Environment.MachineName,
+                                    DateTime.UtcNow);
 
-                } while (continuationToken != null);
-            }
-
-            foreach (DataSet outputTable in outputTables)
-            {
-                string connectionString = GetConnectionString(outputTable.LinkedService);
-                string folderPath = GetFolderPath(outputTable.Table);
-
-                if (String.IsNullOrEmpty(connectionString) ||
-                    String.IsNullOrEmpty(folderPath))
-                {
-                    continue;
                 }
+                continuationToken = result.ContinuationToken;
 
-                logger.Write("Writing blob to: {0}", folderPath);
+            } while (continuationToken != null);
 
-                CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-                Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + Guid.NewGuid() + ".csv");
+            Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
+            outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
+            outputLinkedService = linkedServices.Single(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
-                CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-                outputBlob.UploadText(output);
+            connectionString = GetConnectionString(outputLinkedService);
+            folderPath = GetFolderPath(outputTable);
 
-            }
+            logger.Write("Writing blob to: {0}", folderPath);
+
+            CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
+            Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + Guid.NewGuid() + ".csv");
+
+            CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+            outputBlob.UploadText(output);
+
             return new Dictionary<string, string>();
 
         }
-    } }
 
 9. Aggiungere i seguenti metodi helper. Il metodo **Execute** richiama questi metodi helper. Il metodo **GetConnectionString** consente di recuperare la stringa di connessione dell'archiviazione di Azure, mentre il metodo **GetFolderPath** consente di recuperare il percorso BLOB.
 
 
-        private static string GetConnectionString(LinkedService asset)
+        private static string GetConnectionString(AzureStorageLinkedService asset)
         {
 
             if (asset == null)
@@ -195,16 +186,10 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
                 return null;
             }
 
-            AzureStorageLinkedService storageAsset = asset.Properties.TypeProperties as AzureStorageLinkedService;
-          
-            if (storageAsset == null)
-            {
-                return null;
-            }
-
-            return storageAsset.ConnectionString;
+            return asset.ConnectionString;
         }
 
+        
         private static string GetFolderPath(Table dataArtifact)
         {
             if (dataArtifact == null || dataArtifact.Properties == null)
@@ -222,11 +207,10 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
         }
    
 
-
 10. Compilare il progetto. Fare clic su **Compila** dal menu e scegliere **Compila soluzione**.
 11. Avviare **Esplora risorse** e passare alla cartella **bin\\debug** o **bin\\release**, a seconda del tipo di compilazione.
 12. Creare un file ZIP **MyDotNetActivity.zip** contenente tutti i file binari nella cartella <project folder>\\bin\\Debug.
-13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB: **customactivitycontainer** nell'archiviazione BLOB di Azure usata dal servizio collegato **MyBlobStore** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **blobcustomactivitycontainer**. 
+13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB: **customactivitycontainer** nell'archiviazione BLOB di Azure usata dal servizio collegato **StorageLinkedService** negli utilizzi **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**. 
 
 
 ## Passaggio 2: usare l'attività personalizzata in una pipeline
@@ -255,17 +239,7 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 	4. Per la proprietà **version**, specificare la versione di HDInsight da utilizzare. Se si esclude questa proprietà, verrà usata la versione più recente.  
 	5. Per **linkedServiceName**, specificare l'oggetto **StorageLinkedService** creato nell'esercitazione introduttiva. 
 
-			{
-		    	"name": "HDInsightOnDemandLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.1",
-		    	    "linkedServiceName": "StorageLinkedService"
-		    	}
-			}
+		{ "name": "HDInsightOnDemandLinkedService", "properties": { "type": "HDInsightOnDemand", "typeProperties": { "clusterSize": "1", "timeToLive": "00:05:00", "version": "3.1", "linkedServiceName": "StorageLinkedService" } } }
 
 2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
    
@@ -287,25 +261,29 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 2. Sostituire lo script JSON nel riquadro a destra con il seguente script JSON:
 
 		{
-    		"name": "OutputTableForCustom",
-    		"properties":
-    		{
-        		"location": 
-        		{
-					"type": "AzureBlobLocation",
-					"folderPath": "adftutorial/customactivityoutput/{Slice}",
-					"partitionedBy": [ { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }],
-
-					"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1
-        		}   
-    		}
+		  "name": "OutputTableForCustom",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/customactivityoutput/{Slice}",
+		      "partitionedBy": [
+		        {
+		          "name": "Slice",
+		          "value": {
+		            "type": "DateTime",
+		            "date": "SliceStart",
+		            "format": "yyyyMMddHH"
+		          }
+		        }
+		      ]
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
-
 
  	Il percorso di output è **adftutorial/customactivityoutput/AAAMMGGHH/** dove AAAMMGGHH corrisponde ad anno, mese, data e ora della sezione generata. Per informazioni dettagliate, vedere la [guida di riferimento per gli sviluppatori][adf-developer-reference].
 
@@ -316,45 +294,48 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
    
 1. Nell'Editor di Data factory fare clic su **Nuova pipeline** sulla barra dei comandi. Se non viene visualizzato il comando, fare clic su **... (puntini di sospensione)** per visualizzarlo. 
 2. Sostituire lo script JSON nel riquadro a destra con lo script JSON seguente. Per usare il proprio cluster dopo aver seguito i passaggi per creare il servizio collegato **HDInsightLinkedService**, sostituire **HDInsightOnDemandLinkedService** con **HDInsightLinkedService** nel codice JSON seguente. 
-
+		
 		{
-    		"name": "ADFTutorialPipelineCustom",
-    		"properties":
-    		{
-        		"description" : "Use custom activity",
-        		"activities":
-        		[
-					{
-                		"Name": "MyDotNetActivity",
-                     	"Type": "DotNetActivity",
-                     	"Inputs": [{"Name": "EmpTableFromBlob"}],
-                     	"Outputs": [{"Name": "OutputTableForCustom"}],
-						"LinkedServiceName": "HDInsightLinkedService",
-                     	"Transformation":
-                     	{
-                        	"AssemblyName": "MyDotNetActivity.dll",
-                            "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-                            "PackageLinkedService": "StorageLinkedService",
-                            "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-                            "ExtendedProperties":
-							{
-								"SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-							}
-                      	},
-                        "Policy":
-                        {
-                        	"Concurrency": 1,
-                            "ExecutionPriorityOrder": "OldestFirst",
-                            "Retry": 3,
-                            "Timeout": "00:30:00",
-                            "Delay": "00:00:00"		
-						}
-					}
-        		],
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-			}
+		  "name": "ADFTutorialPipelineCustom",
+		  "properties": {
+		    "description": "Use custom activity",
+		    "activities": [
+		      {
+		        "Name": "MyDotNetActivity",
+		        "Type": "DotNetActivity",
+		        "Inputs": [
+		          {
+		            "Name": "EmpTableFromBlob"
+		          }
+		        ],
+		        "Outputs": [
+		          {
+		            "Name": "OutputTableForCustom"
+		          }
+		        ],
+		        "LinkedServiceName": "HDInsightOnDemandLinkedService",
+		        "typeProperties": {
+		          "AssemblyName": "MyDotNetActivity.dll",
+		          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+		          "PackageLinkedService": "StorageLinkedService",
+		          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+		          "extendedProperties": {
+		            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
+		          }
+		        },
+		        "Policy": {
+		          "Concurrency": 1,
+		          "ExecutionPriorityOrder": "OldestFirst",
+		          "Retry": 3,
+		          "Timeout": "00:30:00",
+		          "Delay": "00:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z",
+		    "isPaused": false
+		  }
 		}
 
 	Sostituire il valore **StartDateTime** con la data di tre giorni fa e il valore **EndDateTime** con il giorno corrente. StartDateTime ed EndDateTime devono essere in [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni.
@@ -392,28 +373,44 @@ Per aggiornare il codice dell'attività personalizzata, compilarlo e caricare il
 ## <a name="AzureBatch"></a> Uso del servizio collegato Azure Batch 
 > [AZURE.NOTE]Per una panoramica del servizio Azure Batch, vedere [Panoramica tecnica di Azure Batch][batch-technical-overview]; per iniziare subito a usare il servizio Azure Batch, vedere [Introduzione alla libreria di Azure Batch per .NET][batch-get-started].
 
+È possibile eseguire le attività .NET personalizzate utilizzando Azure Batch come risorsa di calcolo. È necessario creare il proprio pool di Batch di Azure e specificare il numero di macchine virtuali e altre configurazioni. I pool di Batch Azure fornisce ai clienti le funzionalità seguenti:
+
+1. Creare pool che contengano da una singola memoria centrale a migliaia di memorie centrali.
+2. Numero di VM a scalabilità automatica basato su una formula
+3. Macchine virtuali di supporto di qualsiasi dimensione
+4. Numero configurabile di attività per ogni macchina virtuale
+5. Numero illimitato della coda di attività
+
+
 Di seguito sono riportati i passaggi generali per usare il servizio collegato Azure Batch nella procedura dettagliata descritta nella sezione precedente:
 
 1. Creare un account di Azure Batch usando il portale di gestione di Azure. Per le istruzioni, consultare l'articolo [Panoramica tecnica di Azure Batch][batch-create-account]. Annotare il nome e la chiave dell'account Azure Batch. 
 
 	Inoltre, è possibile usare il cmdlet [New-AzureBatchAccount][new-azure-batch-account] per creare un account di Azure Batch. Per istruzioni dettagliate sull'utilizzo del cmdlet, consultare [Utilizzo di Azure PowerShell per gestire l'account di Azure Batch][azure-batch-blog]. 
-2. Creare un pool di Azure Batch. Per creare un pool di Azure Batch, è possibile scaricare e usare lo [strumento di esplorazione di Azure Batch][batch-explorer] oppure la [libreria di Azure Batch per .NET][batch-net-library]. Per istruzioni dettagliate sull'uso dello strumento di esplorazione di Azure Batch, vedere la [procedura dettagliata di esempio relativa allo strumento di esplorazione di Azure Batch][batch-explorer-walkthrough].
+2. Creare un pool di Azure Batch. Per creare un pool di Azure Batch, è possibile scaricare il codice origine per lo [strumento di esplorazione di Azure Batch][batch-explorer], generarlo e utilizzarlo oppure usare la [libreria di Azure Batch per .NET][batch-net-library]. Per istruzioni dettagliate sull'uso dello strumento di esplorazione di Azure Batch, vedere la [procedura dettagliata di esempio relativa allo strumento di esplorazione di Azure Batch][batch-explorer-walkthrough].
 	
 	Inoltre, è possibile utilizzare [New-AzureBatchPool][new-azure-batch-pool] per creare un pool di Azure Batch.
 
 2. Creare un servizio collegato di Azure Batch usando il seguente modello JSON. L'Editor di Data factory mostra un modello simile con cui iniziare. Specificare il nome dell'account Azure Batch, la chiave account e il nome del pool nel frammento JSON.
 
 		{
-		    "name": "AzureBatchLinkedService",
-		    "properties": {
-		        "type": "AzureBatchLinkedService",
-		        "accountName": "<Azure Batch account name>",
-		        "accessKey": "<Azure Batch account key>",
-		        "poolName": "<Azure Batch pool name>",
-		        "linkedServiceName": "<Specify associated storage linked service reference here>"
+		  "name": "AzureBatchLinkedService",
+		  "properties": {
+		    "type": "AzureBatch",
+		    "typeProperties": {
+		      "accountName": "<Azure Batch account name>",
+		      "accessKey": "<Azure Batch account key>",
+		      "poolName": "<Azure Batch pool name>",
+		      "linkedServiceName": "<Specify associated storage linked service reference here>"
+		    }
 		  }
 		}
 
+	> [AZURE.NOTE]Aggiungere "**.<region name**" al nome dell'account batch per la proprietà **accountName**. Esempio: "mybatchaccount.eastus". Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di seguito.
+
+		accountName: "adfteam",
+		batchUri: "https://eastus.batch.azure.com",
+ 
 	Per le descrizioni di queste proprietà, vedere l'[argomento MSDN sul servizio collegato di Azure Batch](https://msdn.microsoft.com/library/mt163609.aspx).
 
 2.  Nell'Editor di Data factory, aprire la definizione JSON per la pipeline creata nella procedura dettagliata e sostituire **HDInsightLinkedService** con **AzureBatchLinkedService**.
@@ -421,6 +418,8 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 4.  È possibile visualizzare le attività di Azure Batch associate all'elaborazione delle sezioni nello strumento di esplorazione di Azure Batch, come illustrato nel diagramma seguente.
 
 	![Attività di Azure Batch][image-data-factory-azure-batch-tasks]
+
+> [AZURE.NOTE]Il servizio Data Factory non supporta un'opzione su richiesta per il Batch di Azure come accade per HDInsight. È possibile utilizzare solo il proprio pool di Batch di Azure in una data factory di Azure.
 
 ## Vedere anche
 
@@ -464,4 +463,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

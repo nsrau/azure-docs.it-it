@@ -61,7 +61,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Funzione:**<br> Append(source, suffix)
 
-**Descrizione:**<br> accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
+**Descrizione:**<br> Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
  
 **Parametri:**<br>
 
@@ -76,13 +76,13 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Funzione:**<br> Coalesce(source1, source2, …)
 
-**Descrizione:**<br> restituisce il primo valore non vuoto dall'elenco di parametri di origine.
+**Descrizione:**<br> Restituisce il primo valore non vuoto dall'elenco di parametri di origine.
  
 **Parametri:**<br>
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
-| **source1 .. sourceN \*\* | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori del parametro **source** tra cui scegliere |
+| ****source1 .. sourceN ** | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori del parametro **source** tra cui scegliere |
 
 
 
@@ -91,7 +91,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Funzione:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Descrizione:**<br> accetta una stringa data in un formato e la converte in un formato diverso.
+**Descrizione:**<br> Accetta una stringa data in un formato e la converte in un formato diverso.
  
 **Parametri:**<br>
 
@@ -118,7 +118,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obbligatorio | String | Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| **source1 … sourceN \*\* | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori di stringa da unire. |
+| ****source1 … sourceN ** | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori di stringa da unire. |
 
 
 
@@ -166,7 +166,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Funzione:**<br> Not(source)
 
-**Descrizione:**<br> inverte il valore booleano di **source**. Se il valore di **source** è "\*True\*", restituisce "\*False\*". In caso contrario, restituisce "\*True\*".
+**Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
 
 **Parametri:**<br>
@@ -212,11 +212,11 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 |--- | ---                 | ---  | ---   |
 | **source** | Obbligatorio | String | In genere è il nome dell'attributo dell'oggetto di origine. |
 | **oldValue** | Facoltativo | String | Valore da sostituire in **source** o **template**. |
-| **regexPattern** | Facoltativo | String | Modello Regex per il valore da sostituire in **source**. Se invece si usa replacementPropertyName, corrisponde al modello usato per estrarre il valore dalla proprietà di sostituzione. |
+| **regexPattern** | Facoltativo | String | Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa replacementPropertyName, corrisponde al modello usato per estrarre il valore dalla proprietà di sostituzione. |
 | **regexGroupName** | Facoltativo | String | Nome del gruppo in **regexPattern**. Solo se viene usato replacementPropertyName, il valore di questo gruppo verrà estratto come replacementValue dalla proprietà di sostituzione. |
 | **replacementValue** | Facoltativo | String | Nuovo valore con cui sostituire il precedente. |
 | **replacementAttributeName** | Facoltativo | String | Nome dell'attributo da usare per il valore di sostituzione, se non sono presenti valori per source. |
-| **template** | Facoltativo | String | Se viene fornito il valore **template**, il valore **oldValue** verrà cercato nel modello e verrà sostituito con il valore source. |
+| **template** | Facoltativo | String | Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore source. |
 
 
 
@@ -225,7 +225,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Funzione:**<br> Replace(source, find, replace)
 
-**Descrizione:**<br> sostituisce tutte le occorrenze del valore **find** nella stringa **source** con il valore del parametro **replace**.
+**Descrizione:**<br> Sostituisce tutte le occorrenze del valore **find** nella stringa **source** con il valore del parametro **replace**.
 
 **Parametri:**<br>
 
@@ -242,7 +242,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Funzione:**<br> ReplaceRegex(source, find, replace, group)
 
-**Descrizione:**<br> all'interno della stringa **source** sostituisce tutte le sottostringhe corrispondenti all'espressione regolare **find** con il valore del parametro **replace**. Se è specificato **group**, viene sostituito solo il valore del gruppo RegEx specifico.
+**Descrizione:**<br> All'interno della stringa **source** sostituisce tutte le sottostringhe corrispondenti all'espressione regolare **find** con il valore del parametro **replace**. Se è specificato **group**, viene sostituito solo il valore del gruppo RegEx specifico.
 
 **Parametri:**<br>
 
@@ -267,7 +267,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
-| **source** | Obbligatorio | String | Valore **source** da aggiornare. |
+| **source** | Obbligatorio | String | Valore del parametro **source** da aggiornare. |
 
 
 
@@ -276,13 +276,13 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descrizione:**<br> quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore di **source** non corrisponde ad alcuna chiave, verrà restituito un valore **defaultValue**. I parametri **Key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
+**Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**. I parametri **Key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
 
 **Parametri:**<br>
 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
-| **source** | Obbligatorio | String | Valore **source** da aggiornare. |
+| **source** | Obbligatorio | String | Valore del parametro **source** da aggiornare. |
 | **defaultValue** | Facoltativo | String | Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
 | **key** | Obbligatorio | String | Parametro **Key** con cui confrontare il valore di **source**. |
 | **value** | Obbligatorio | String | Valore di sostituzione per il valore **source** corrispondente al parametro key. |
@@ -380,11 +380,6 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> ad ese
 - **OUTPUT**: "Australia/Brisbane"
 
 
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-## Risorse aggiuntive
-
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-
-<!--Image references-->
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

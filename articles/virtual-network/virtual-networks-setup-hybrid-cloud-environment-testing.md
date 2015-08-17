@@ -53,7 +53,7 @@ Questa configurazione richiede una subnet di test di fino a quattro computer con
 
 Utilizzare le istruzioni nella sezione "Passaggi per configurare la Subnet Corpnet" del [Guida dell'ambiente di Test: Base configurazione per Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) per configurare i computer DC1, APP1 e CLIENT1 in una subnet denominata Corpnet. **Questa subnet deve essere isolata dalla rete dell'organizzazione perché verrà connessa direttamente a Internet tramite il computer RRAS1.**
 
-Accedere a DC1 con le credenziali CORP\User1. Per configurare il dominio CORP in modo che i computer e gli utenti usino il controller di dominio locale per l'autenticazione, eseguire questi comandi da un prompt dei comandi di Windows PowerShell a livello di amministratore.
+Accedere a DC1 con le credenziali CORP\\User1. Per configurare il dominio CORP in modo che i computer e gli utenti usino il controller di dominio locale per l'autenticazione, eseguire questi comandi da un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -129,7 +129,7 @@ In primo luogo, accedere al [Portale di gestione di Azure](https://manage.window
 
 Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per installare Azure PowerShell nel computer locale.
 
-Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome TestCS-*UniqueSequence*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome TestVNET-Tailspin al servizio cloud.
+Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome TestVNET-*UniqueSequence*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome TestVNET-Tailspin al servizio cloud.
 
 Per verificare l'univocità del nome, è possibile usare il seguente comando di Azure PowerShell nel computer locale.
 
@@ -268,7 +268,7 @@ Configurare quindi DC2 come controller di dominio di replica per il dominio corp
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Si noti che viene richiesto di specificare sia la password per CORP\User1 che la password per la Modalità ripristino servizi directory (DSRM, Directory Services Restore Mode) e quindi di riavviare DC2.
+Si noti che viene richiesto di specificare sia la password per CORP\\User1 che la password per la Modalità ripristino servizi directory (DSRM, Directory Services Restore Mode) e quindi di riavviare DC2.
 
 Quando la rete virtuale TestVNET è stata associata a un server DNS specifico (DC2), sarà necessario configurare la rete virtuale TestVNET per l'uso di tale server DNS.
 
@@ -304,7 +304,7 @@ L'ambiente cloud ibrido è ora pronto per il testing.
 
 ## Ridurre al minimo i costi di esercizio dell'ambiente
 
-Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nella rete virtuale Test_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md).
+Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nella rete virtuale Test\_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md).
 
 Il gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](http://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi del gateway VPN, creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare il gateway seguendo questa procedura.
 
@@ -326,4 +326,4 @@ Accedere ora a RRAS1 come amministratore locale ed eseguire questi comandi in un
 Passare quindi al portale di gestione di Azure nel computer locale e attendere che per la rete virtuale TestVNET venga visualizzato lo stato Connessa.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

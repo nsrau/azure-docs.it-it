@@ -84,7 +84,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 	![Selezionare Single Sign-On di Microsoft Azure AD.][7]
 
-	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](https://msdn.microsoft.com/library/azure/dn308588.aspx).
+	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. Nella pagina **Configurare le impostazioni applicazione** specificare l'**URL di accesso**, immettendo l'URL del dominio di Salesforce nel formato seguente:
  - Account aziendale: `https://<domain>.my.salesforce.com`
@@ -216,15 +216,11 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Se si esegue il provisioning in un ambiente *sviluppatore* di Salesforce, l'utente disporrà di un numero limitato di licenze per ogni profilo. Pertanto, si consiglia di eseguire il provisioning nel profilo *Utente Chatter gratuito*, dal momento che dispone di 4.999 licenze.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **Salesforce**.
 
-##Vedere anche
-
-- [Elenco di esercitazioni sull'integrazione di applicazioni SaaS](active-directory-saas-tutorial-list.md)
-- [Accesso all'applicazione in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -257,4 +253,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -55,4 +55,4 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 - `EngagementPageOverlay.cs`: codice di visualizzazione annunci e notifiche di `Overlay`.
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

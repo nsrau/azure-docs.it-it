@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/24/2015" 
 	ms.author="riande"/>
+
 
 
 # Stato della sessione con Cache Redis di Azure in Servizio app di Azure
@@ -28,7 +30,7 @@ Se l'app Web ASP.NET usa lo stato della sessione, sarà necessario usare un prov
 Per creare la cache, attenersi a [queste istruzioni](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache).
 
 ##<a id="configureproject"></a>Aggiungere il pacchetto NuGet RedisSessionStateProvider all'app Web
-Installare il pacchetto NuGet `RedisSessionStateProvider`. Usare il comando seguente per effettuare l'installazione dalla Console di Gestione pacchetti (\*\*Strumenti\*\* > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
+Installare il pacchetto NuGet `RedisSessionStateProvider`. Usare il comando seguente per effettuare l'installazione dalla Console di Gestione pacchetti (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
@@ -44,14 +46,14 @@ Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge
 1. Immettere i valori relativi a `host`, `accessKey`, `port` (la porta SSL deve essere 6380) e impostare `SSL` su `true` Questi valori possono essere ottenuti dal pannello del [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) per l'istanza della cache. Per altre informazioni, vedere [Connettersi alla cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Si tenga presente che per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per altre informazioni sull'abilitazione della porta senza SSL, vedere la sezione relativa alle [porte di accesso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) nell'argomento [Configurare una cache in Cache Redis di Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). Il markup seguente mostra le modifiche al file *web.config*.
 
 
-  <pre class="prettyprint">  
-    &lt;system.web>
-    &lt;customErrors mode="Off" />
-    &lt;authentication mode="None" />
-    &lt;compilation debug="true" targetFramework="4.5" />
-    &lt;httpRuntime targetFramework="4.5" />
-  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider">
-      &lt;providers>  
+```  
+    &lt;system.web&gt;
+    &lt;customErrors mode="Off" /&gt;
+    &lt;authentication mode="None" /&gt;
+    &lt;compilation debug="true" targetFramework="4.5" /&gt;
+    &lt;httpRuntime targetFramework="4.5" /&gt;
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
+      &lt;providers&gt;  
           &lt;!--&lt;add name="RedisSessionProvider" 
             host = "127.0.0.1" [String]
             port = "" [number]
@@ -61,20 +63,23 @@ Oltre a creare riferimenti ad assembly per la cache, il pacchetto NuGet aggiunge
             retryTimeoutInMilliseconds = "0" [number]
             databaseId = "0" [number]
             applicationName = "" [String]
-          />-->
+          /&gt;--&gt;
          &lt;add name="RedisSessionProvider" 
               type="Microsoft.Web.Redis.RedisSessionStateProvider" 
               <mark>port="6380"
               host="movie2.redis.cache.windows.net" 
               accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> />
-      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />-->
-      &lt;/providers>
-    &lt;/sessionState>
-  &lt;/system.web></pre>
+              ssl="true"</mark> /&gt;
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
+      &lt;/providers&gt;
+    &lt;/sessionState&gt;
+  &lt;/system.web&gt;
+```
 
 
-<a id="usesessionobject"></a>Usare l'oggetto Session nel codice Il passaggio finale consiste nell'iniziare a usare l'oggetto Session nel codice ASP.NET. Aggiungere oggetti allo stato sessione utilizzando il metodo **Session.Add** che utilizza coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
+
+##<a id="usesessionobject"></a> Utilizzo dell'oggetto Session nel codice
+Il passaggio finale consiste nell'iniziare a utilizzare l'oggetto Session nel proprio codice ASP.NET. Aggiungere oggetti allo stato sessione utilizzando il metodo **Session.Add** che utilizza coppie chiave-valore per memorizzare elementi nella cache di stato sessione.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -108,4 +113,4 @@ Il codice seguente recupera questo valore dallo stato sessione.
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

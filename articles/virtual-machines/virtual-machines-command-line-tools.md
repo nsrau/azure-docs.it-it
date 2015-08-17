@@ -65,7 +65,7 @@ Questo comando importa un file di impostazioni di pubblicazione o un certificato
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]Il file di impostazioni di pubblicazione può contenere dettagli (ovvero nome e ID sottoscrizione) di più di una sottoscrizione. Quando si importa il file di impostazioni di pubblicazione, la prima sottoscrizione viene usata come descrizione predefinita. Per utilizzare una sottoscrizione diversa, eseguire il comando riportato di seguito. <code>~$ azure config set subscription &lt;id-altra-sottoscrizione&gt;</code>
+> [AZURE.NOTE]Il file di impostazioni di pubblicazione può contenere dettagli (ovvero nome e ID sottoscrizione) di più di una sottoscrizione. Quando si importa il file di impostazioni di pubblicazione, la prima sottoscrizione viene usata come descrizione predefinita. Per utilizzare una sottoscrizione diversa, eseguire il comando riportato di seguito. <code>\~$ azure config set subscription &lt;id-altra-sottoscrizione&gt;</code>
 
 **account clear [opzioni]**
 
@@ -206,9 +206,9 @@ Per le macchine virtuali Windows, è possibile abilitare RDP in un secondo momen
 
 Per questo comando sono supportati i seguenti parametri facoltativi:
 
-**-c, --connect** Crea la macchina virtuale all'interno di una distribuzione già creata in un servizio di hosting. Se -vmname non viene usato con questa opzione, il nome della nuova macchina virtuale sarà generato automaticamente.<br /> **-n, --vm-name** Specificare il nome della macchina virtuale. Per impostazione predefinita, questo parametro prende il nome del servizio di hosting. Se -vmname non è specificato, il nome della nuova macchina virtuale viene generato come &lt;nome-servizio>&lt;id>, dove &lt;id> è il numero delle macchine virtuali esistenti nel servizio più 1. Ad esempio, se si utilizza questo comando per aggiungere una nuova macchina virtuale al servizio di hosting MyService che dispone di una sola macchina virtuale, la nuova macchina virtuale viene denominata MyService2.<br /> **-u, --blob-url** Specificare l’URL di archiviazione del BLOB in cui creare il disco di sistema della macchina virtuale. <br /> **-z, --vm-size** Specificare la dimensione della macchina virtuale. I valori validi sono: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic_A0", "Basic_A1", "Basic_A2", "Basic_A3", "Basic_A4", "Standard_D1", "Standard_D2", "Standard_D3", "Standard_D4", "Standard_D11", "Standard_D12", "Standard_D13", "Standard_D14", "Standard_DS1", "Standard_DS2", "Standard_DS3", "Standard_DS4", "Standard_DS11", "Standard_DS12", "Standard_DS13", "Standard_DS14", "Standard_G1", "Standard_G2", "Standard_G3", "Standard_G4", "Standard_G55". Il valore predefinito è "Small". <br /> **-r** Aggiunge la connettività RDP a un macchina virtuale Windows. <br /> **-e, --ssh** Aggiunge la connettività SSH a una macchina virtuale Windows. <br /> **-t, --ssh-cert** Specifica il certificato SSH. <br /> **-s** La sottoscrizione <br /> **-o, --community** L’immagine specificata è un’immagine della community<br /> **-w** Il nome della rete virtuale<br/> **-l, --location** specifica la posizione (ad esempio "North Central US"). <br /> **-a, --affinity-group** specifica il gruppo di affinità.<br /> **-w, --virtual-network-name** Specificare la rete virtuale in cui aggiungere la nuova macchina virtuale. Le reti virtuali possono essere configurate e gestite dal portale di Azure.<br /> **-b, --subnet-names** Specifica i nomi delle subnet da assegnare alla macchina virtuale.
+**-c, --connect** Crea la macchina virtuale all'interno di una distribuzione già creata in un servizio di hosting. Se -vmname non viene usato con questa opzione, il nome della nuova macchina virtuale sarà generato automaticamente.<br /> **-n, --vm-name** Specificare il nome della macchina virtuale. Per impostazione predefinita, questo parametro prende il nome del servizio di hosting. Se -vmname non è specificato, il nome della nuova macchina virtuale viene generato come &lt;nome-servizio>&lt;id>, dove &lt;id> è il numero delle macchine virtuali esistenti nel servizio più 1. Ad esempio, se si utilizza questo comando per aggiungere una nuova macchina virtuale al servizio di hosting MyService che dispone di una sola macchina virtuale, la nuova macchina virtuale viene denominata MyService2.<br /> **-u, --blob-url** Specificare l’URL di archiviazione del BLOB in cui creare il disco di sistema della macchina virtuale. <br /> **-z, --vm-size** Specificare la dimensione della macchina virtuale. I valori validi sono: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". Il valore predefinito è "Small". <br /> **-r** Aggiunge la connettività RDP a un macchina virtuale Windows. <br /> **-e, --ssh** Aggiunge la connettività SSH a una macchina virtuale Windows. <br /> **-t, --ssh-cert** Specifica il certificato SSH. <br /> **-s** La sottoscrizione <br /> **-o, --community** L’immagine specificata è un’immagine della community<br /> **-w** Il nome della rete virtuale<br/> **-l, --location** specifica la posizione (ad esempio "North Central US"). <br /> **-a, --affinity-group** specifica il gruppo di affinità.<br /> **-w, --virtual-network-name** Specificare la rete virtuale in cui aggiungere la nuova macchina virtuale. Le reti virtuali possono essere configurate e gestite dal portale di Azure.<br /> **-b, --subnet-names** Specifica i nomi delle subnet da assegnare alla macchina virtuale.
 
-Nell'esempio seguente MSFT__Win2K8R2SP1-120514-1520-141205-01-it-it-30GB è un'immagine fornita dalla piattaforma. Per ulteriori informazioni sulle immagini del sistema operativo, vedere il comando vm image list.
+Nell'esempio seguente MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-it-it-30GB è un'immagine fornita dalla piattaforma. Per ulteriori informazioni sulle immagini del sistema operativo, vedere il comando vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -787,7 +787,7 @@ Questo comando scambia gli slot di due app Web.
 
 Il comando supporta l'opzione aggiuntiva seguente:
 
-**-q or **--quiet**: non chiedere alcuna conferma. Usare questa opzione negli script automatici.
+****-q or **--quiet**: non chiedere conferma. Utilizzare questa opzione negli script automatici.
 
 
 **site start [opzioni] [nome]**
@@ -810,7 +810,7 @@ Questo comando consente di arrestare un’app Web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [opzioni] [nome]
+****site restart [opzioni] [nome]
 
 Questo comando consente di arrestare e quindi avviare un’app Web specificata.
 
@@ -1167,7 +1167,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-l `<location>`** or **--location `<location>`**: creare il servizio in una posizione specifica, specificata come `<location>`. Eseguire il comando azure mobile locations per ottenere le ubicazioni disponibili.
 + **--sqlLocation `<location>`**: creare il server SQL in una specifica `<location>`; per impostazione predefinita la posizione del servizio mobile.
 
-**mobile delete [opzioni] [nome_servizio]**
+**mobile delete [opzioni] [nome\_servizio]**
 
 Questo comando elimina un servizio mobile insieme al relativo database SQL e server SQL Server.
 
@@ -1202,7 +1202,7 @@ Questo comando elenca i servizi mobili.
 	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
 	info:    mobile list command OK
 
-**mobile show [opzioni] [nome_servizio]**
+**mobile show [opzioni] [nome\_servizio]**
 
 Questo comando visualizza i dettagli relativi a un servizio mobile.
 
@@ -1228,7 +1228,7 @@ Questo comando visualizza i dettagli relativi a un servizio mobile.
 	data:    tables TodoItem
 	info:    mobile show command OK
 
-**mobile restart [opzioni] [nome_servizio]**
+**mobile restart [opzioni] [nome\_servizio]**
 
 Questo comando riavvia un'istanza di un servizio mobile.
 
@@ -1238,7 +1238,7 @@ Questo comando riavvia un'istanza di un servizio mobile.
 	info:    Service was restarted.
 	info:    mobile restart command OK
 
-**mobile log [opzioni] [nome_servizio]**
+**mobile log [opzioni] [nome\_servizio]**
 
 Questo comando restituisce i log del servizio mobile, escludendo tutti i tipi di log ad eccezione di `error`.
 
@@ -1261,7 +1261,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 
 > [AZURE.NOTE]Il parametro **--query** ha la precedenza sui parametri **--type**, **--skip** e **--top**.
 
-**mobile recover [opzioni] [nome_servizio_nonintegro] [nome_servizio_integro]**
+**mobile recover [opzioni] [nome\_servizio\_nonintegro] [nome\_servizio\_integro]**
 
 Questo comando ripristina un servizio mobile non integro spostandolo in un servizio mobile integro in un'area geografica differente.
 
@@ -1269,7 +1269,7 @@ Il comando supporta l'opzione aggiuntiva seguente:
 
 **-q** o **--quiet**: elimina la richiesta di conferma di ripristino.
 
-**mobile key regenerate [opzioni] [nome_servizio] [tipo]**
+**mobile key regenerate [opzioni] [nome\_servizio] [tipo]**
 
 Questo comando rigenera la chiave applicazione del servizio mobile.
 
@@ -1282,14 +1282,14 @@ I tipi di chiave sono `master` e `application`.
 
 > [AZURE.NOTE]Quando si rigenerano le chiavi, i client che usano la vecchia chiave potrebbero non essere più in grado di accedere al servizio mobile. Quando si rigenera la chiave applicazione, è necessario aggiornare l'app con il nuovo valore della chiave.
 
-**mobile key set [opzioni] [nome_servizio] [tipo] [valore]**
+**mobile key set [opzioni] [nome\_servizio] [tipo] [valore]**
 
 Questo comando imposta un valore specifico per la chiave del servizio mobile.
 
 
 ### <a name="Mobile_Configuration"></a>Comandi per la gestione della configurazione di Servizi mobili
 
-**mobile config list [opzioni] [nome_servizio]**
+**mobile config list [opzioni] [nome\_servizio]**
 
 Questo comando elenca le opzioni di configurazione per un servizio mobile.
 
@@ -1311,7 +1311,7 @@ Questo comando elenca le opzioni di configurazione per un servizio mobile.
 	data:    apnsCertifcate Not configured
 	info:    mobile config list command OK
 
-**mobile config get [opzioni] [nome_servizio] [chiave]**
+**mobile config get [opzioni] [nome\_servizio] [chiave]**
 
 Questo comando ottiene un'opzione di configurazione specifica per un servizio mobile, in questo caso lo schema dinamico.
 
@@ -1320,7 +1320,7 @@ Questo comando ottiene un'opzione di configurazione specifica per un servizio mo
 	data:    dynamicSchemaEnabled true
 	info:    mobile config get command OK
 
-**mobile config set [opzioni] [nome_servizio] [chiave] [valore]**
+**mobile config set [opzioni] [nome\_servizio] [chiave] [valore]**
 
 Questo comando imposta un'opzione di configurazione specifica per un servizio mobile, in questo caso lo schema dinamico.
 
@@ -1331,7 +1331,7 @@ Questo comando imposta un'opzione di configurazione specifica per un servizio mo
 
 ### <a name="Mobile_Tables"></a>Comandi per la gestione delle tabelle di Servizi mobili
 
-**mobile table list [opzioni] [nome_servizio]**
+**mobile table list [opzioni] [nome\_servizio]**
 
 Questo comando elenca tutte le tabelle nel servizio mobile desiderato.
 
@@ -1343,7 +1343,7 @@ Questo comando elenca tutte le tabelle nel servizio mobile desiderato.
 	data:    TodoItem  1        0
 	info:    mobile table list command OK
 
-**mobile table show [opzioni] [nome_servizio] [nome_tabella]**
+**mobile table show [opzioni] [nome\_servizio] [nome\_tabella]**
 
 Questo comando restituisce i dettagli relativi a una tabella specifica.
 
@@ -1367,7 +1367,7 @@ Questo comando restituisce i dettagli relativi a una tabella specifica.
 	data:    complete  boolean
 	info:    mobile table show command OK
 
-**mobile table create [opzioni] [nome_servizio] [nome_tabella]**
+**mobile table create [opzioni] [nome\_servizio] [nome\_tabella]**
 
 Questo comando crea una tabella.
 
@@ -1380,7 +1380,7 @@ Il comando supporta l'opzione aggiuntiva seguente:
 
 + **-p `&lt;permissions>`** o **--permissions `&lt;permissions>`**: elenco delimitato da virgole di coppie `<operation>`=`<permission>`, dove `<operation>` è `insert`, `read`, `update` o `delete` e `&lt;permissions>` è `public`, `application` (predefinito), `user` o `admin`.
 
-**mobile data read [opzioni] [nome_servizio] [nome_tabella] [query]**
+**mobile data read [opzioni] [nome\_servizio] [nome\_tabella] [query]**
 
 Questo comando legge i dati da una tabella.
 
@@ -1400,7 +1400,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-t `<top>`** o **--top `<top>`**: restituisce uno specifico numero di righe specificato da `<top>`.
 + **-l** o **--list**: restituisce i dati in formato elenco.
 
-**mobile table update [opzioni] [nome_servizio] [nome_tabella]**
+**mobile table update [opzioni] [nome\_servizio] [nome\_tabella]**
 
 Questo comando modifica le autorizzazioni di eliminazione per una tabella concedendole solo agli amministratori.
 
@@ -1418,7 +1418,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **--addIndex `<columns>`**: elenco delimitato da virgole di colonne da includere nell’indice.
 + **--deleteIndex `<columns>`**: elenco delimito da colonne da escludere dall’indice.
 
-**mobile table delete [opzioni] [nome_servizio] [nome_tabella]**
+**mobile table delete [opzioni] [nome\_servizio] [nome\_tabella]**
 
 Questo comando elimina una tabella.
 
@@ -1430,7 +1430,7 @@ Questo comando elimina una tabella.
 
 Specificare il parametro -q per eliminare la tabella senza conferma. Ciò consente di evitare il blocco degli script di automazione.
 
-**mobile data truncate [opzioni] [nome_servizio] [nome_tabella]**
+**mobile data truncate [opzioni] [nome\_servizio] [nome\_tabella]**
 
 Questo comando rimuove tutte le righe di dati dalla tabella.
 
@@ -1446,7 +1446,7 @@ Questo comando rimuove tutte le righe di dati dalla tabella.
 
 I comandi in questa sezione vengono usati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili](../mobile-services/mobile-services-how-to-use-server-scripts.md).
 
-**mobile script list [opzioni] [nome_servizio]**
+**mobile script list [opzioni] [nome\_servizio]**
 
 Questo comando elenca gli script registrati, compresi gli script tabella e quelli relativi all'utilità di pianificazione.
 
@@ -1466,7 +1466,7 @@ Questo comando elenca gli script registrati, compresi gli script tabella e quell
 	data:    scheduler/undefined  undefined  undefined  undefined  undefined
 	info:    mobile script list command OK
 
-**mobile script download [opzioni] [nome_servizio] [nome_script]**
+**mobile script download [opzioni] [nome\_servizio] [nome\_script]**
 
 Questo comando scarica lo script insert dalla tabella TodoItem in un file denominato `todoitem.insert.js` nella sottocartella `table`.
 
@@ -1482,7 +1482,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-o** o **--override**: sovrascrivere un file esistente.
 + **-c** o **--console**: scrivere lo script nella console anziché in un file.
 
-**mobile script upload [opzioni] [nome_servizio] [nome_script]**
+**mobile script upload [opzioni] [nome\_servizio] [nome\_script]**
 
 Questo comando carica un nuovo script denominato `todoitem.insert.js` dalla sottocartella `table`.
 
@@ -1493,7 +1493,7 @@ Questo comando carica un nuovo script denominato `todoitem.insert.js` dalla sott
 Il nome del file deve essere composto dai nomi della tabella e dell'operazione e deve trovarsi nella sottocartella table relativa al percorso in cui viene eseguito il comando. È anche possibile usare il parametro **-f `<file>`** o **--file `<file>`** per specificare un nome file diverso e un percorso di file che contiene lo script da registrare.
 
 
-**mobile script delete [opzioni] [nome_servizio] [nome_script]**
+**mobile script delete [opzioni] [nome\_servizio] [nome\_script]**
 
 Questo comando rimuove lo script insert esistente dalla tabella TodoItem.
 
@@ -1505,7 +1505,7 @@ Questo comando rimuove lo script insert esistente dalla tabella TodoItem.
 
 I comandi in questa sezione vengono usati per gestire i processi pianificati appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Pianificare i processi](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
-**mobile job list [opzioni] [nome_servizio]**
+**mobile job list [opzioni] [nome\_servizio]**
 
 Questo comando elenca i processi pianificati.
 
@@ -1518,7 +1518,7 @@ Questo comando elenca i processi pianificati.
 	info:    You can manipulate scheduled job scripts using the 'azure mobile script' command.
 	info:    mobile job list command OK
 
-**mobile job create [opzioni] [nome_servizio] [nome_processo]**
+**mobile job create [opzioni] [nome\_servizio] [nome\_processo]**
 
 Questo comando crea un nuovo processo denominato `getUpdates` pianificato per essere eseguito ogni ora.
 
@@ -1541,7 +1541,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 
 > [AZURE.NOTE]I nuovi processi vengono creati con stato disabilitato perché uno script deve ancora essere caricato. Utilizzare il comando **mobile script upload** per caricare uno script e il comando **mobile job update** per abilitare il processo.
 
-**mobile job update [opzioni] [nome_servizio] [nome_processo]**
+**mobile job update [opzioni] [nome\_servizio] [nome\_processo]**
 
 Il comando seguente abilita il processo `getUpdates` disabilitato.
 
@@ -1561,7 +1561,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-t `<time>`** **--startTime `<time>`** l'ora di inizio della prima esecuzione dello script, in formato ISO. Il valore predefinito è `now`.
 + **-a `<status>`** o **--status `<status>`**: lo stato del processo, che può essere `enabled` o `disabled`.
 
-**mobile job delete [opzioni] [nome_servizio] [nome_processo]**
+**mobile job delete [opzioni] [nome\_servizio] [nome\_processo]**
 
 Questo comando rimuove il processo pianificato getUpdates dal server TodoList.
 
@@ -1575,7 +1575,7 @@ Questo comando rimuove il processo pianificato getUpdates dal server TodoList.
 
 I comandi in questa sezione vengono usati per ridimensionare un servizio mobile. Per ulteriori informazioni, vedere [Ridimensionamento di un servizio mobile](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
-**mobile scale show [opzioni] [nome_servizio]**
+**mobile scale show [opzioni] [nome\_servizio]**
 
 Questo comando visualizza informazioni di scalabilità, compresa l'attuale modalità di calcolo e il numero di istanze.
 
@@ -1586,7 +1586,7 @@ Questo comando visualizza informazioni di scalabilità, compresa l'attuale modal
 	data:    numberOfInstances 1
 	info:    mobile scale show command OK
 
-**mobile scale change [opzioni] [nome_servizio]**
+**mobile scale change [opzioni] [nome\_servizio]**
 
 Questo comando modifica la scala del servizio mobile da modalità gratuita a modalità Premium.
 
@@ -1605,7 +1605,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 
 ###Comandi per abilitare le funzionalità di anteprima per il servizio mobile
 
-**mobile preview list [opzioni] [nome_servizio]**
+**mobile preview list [opzioni] [nome\_servizio]**
 
 Questo comando visualizza le funzionalità di anteprima disponibili sul servizio specificato e indica se sono abilitate.
 
@@ -1619,13 +1619,13 @@ Questo comando visualizza le funzionalità di anteprima disponibili sul servizio
 	info:    You can enable preview features using the 'azure mobile preview enable' command.
 	info:    mobile preview list command OK
 
-**mobile preview enable [opzioni] [nome_servizio] [nome_funzioanltià]**
+**mobile preview enable [opzioni] [nome\_servizio] [nome\_funzioanltià]**
 
 Questo comando abilita la funzionalità di anteprima specificata per un servizio mobile. Una volta abilitate, le funzionalità di anteprima non possono essere disabilitate per un servizio mobile.
 
 ###Comandi per la gestione delle API del servizio mobile
 
-**mobile api list [opzioni] [nome_servizio]**
+**mobile api list [opzioni] [nome\_servizio]**
 
 Questo comando visualizza l'elenco di API personalizzate create per il servizio mobile.
 
@@ -1639,7 +1639,7 @@ Questo comando visualizza l'elenco di API personalizzate create per il servizio 
 	info:    You can manipulate API scripts using the 'azure mobile script' command.
 	info:    mobile api list command OK
 
-**mobile api create [opzioni] [nome_servizio] [nome_api]**
+**mobile api create [opzioni] [nome\_servizio] [nome\_api]**
 
 Questo comando crea un'API personalizzata per il servizio mobile.
 
@@ -1653,7 +1653,7 @@ Il comando supporta l'opzione aggiuntiva seguente:
 
 **-p** o **--permissions** &lt;autorizzazioni>: un elenco delimitato da virgole di coppie &lt;metodo>=&lt;autorizzazione>.
 
-**mobile api update [opzioni] [nome_servizio] [nome_api]**
+**mobile api update [opzioni] [nome\_servizio] [nome\_api]**
 
 Questo comando aggiorna l'API personalizzata specificata del servizio mobile.
 
@@ -1664,7 +1664,7 @@ Il comando supporta le opzioni aggiuntive seguenti:
 + **-p** o **--permissions** &lt;autorizzazioni>: un elenco delimitato da virgole di coppie &lt;metodo>=&lt;autorizzazione>.
 + **-f** o **--force**: sovrascrive qualsiasi cambiamento personalizzato del file dei metadati delle autorizzazioni.
 
-**mobile api delete [opzioni] [nome_servizio] [nome_api]**
+**mobile api delete [opzioni] [nome\_servizio] [nome\_api]**
 
 	~$ azure mobile api delete mysite myCustomRetrieveAPI
 	info:    Executing command mobile api delete
@@ -1675,7 +1675,7 @@ Questo comando elimina l'API personalizzata specificata del servizio mobile.
 
 ###Comandi per la gestione delle impostazioni delle applicazioni mobili
 
-**mobile appsetting list [opzioni] [nome_servizio]**
+**mobile appsetting list [opzioni] [nome\_servizio]**
 
 Questo comando visualizza le impostazioni delle applicazioni mobili per il servizio specificato.
 
@@ -1687,7 +1687,7 @@ Questo comando visualizza le impostazioni delle applicazioni mobili per il servi
 	data:    enablebetacontent  true
 	info:    mobile appsetting list command OK
 
-**mobile appsetting add [opzioni] [nome_servizio] [nome] [valore]**
+**mobile appsetting add [opzioni] [nome\_servizio] [nome] [valore]**
 
 Questo comando aggiunge un'impostazione di applicazione personalizzata per il servizio mobile.
 
@@ -1697,7 +1697,7 @@ Questo comando aggiunge un'impostazione di applicazione personalizzata per il se
 	+ Adding app setting
 	info:    mobile appsetting add command OK
 
-**mobile appsetting delete [opzioni] [nome_servizio] [nome]**
+**mobile appsetting delete [opzioni] [nome\_servizio] [nome]**
 
 Questo comando visualizza l'impostazione di applicazione specificata per il servizio mobile.
 
@@ -1707,7 +1707,7 @@ Questo comando visualizza l'impostazione di applicazione specificata per il serv
 	+ Removing app setting 'enablebetacontent'
 	info:    mobile appsetting delete command OK
 
-**mobile appsetting show [opzioni] [nome_servizio] [nome]**
+**mobile appsetting show [opzioni] [nome\_servizio] [nome]**
 
 Questo comando visualizza l'impostazione di applicazione specificata per il servizio mobile.
 
@@ -2346,4 +2346,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,20 +1,12 @@
 <properties
-	pageTitle="Scaricare le credenziali dell'insieme di credenziali di Backup di Azure | Microsoft Azure"
-	description="Informazioni sull'uso delle credenziali di insieme per l'autenticazione del computer con l'insieme di credenziali di backup e con il servizio Backup di Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
-
-<tags 
-	ms.service="backup" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="storage-backup-recovery" 
-	ms.date="07/01/2015" 
-	ms.author="jimpark"; "aashishr"/>
+   pageTitle="Scaricare le credenziali dell'insieme di credenziali di Backup di Azure | Microsoft Azure"
+   description="Informazioni sull'uso delle credenziali di insieme per l'autenticazione del computer con l'insieme di credenziali di backup e con il servizio Backup di Azure"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
+<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Uso delle credenziali di insieme per l'autenticazione con il servizio Backup di Azure
 Per poter eseguire il backup dei dati in Azure, è necessario autenticare il server locale (Windows client, Windows Server o server SCDPM) con un insieme di credenziali per il backup. L'autenticazione viene eseguita mediante le "credenziali di insieme". Il concetto di credenziali di insieme è simile al concetto di un file di "impostazioni di pubblicazione" usato in Azure PowerShell.
@@ -49,4 +41,4 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 ## Passaggi successivi
 [Scaricare, registrare e installare l'agente Azure Backup](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

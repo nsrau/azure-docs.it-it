@@ -40,18 +40,9 @@ Wait Connector può essere usato come azione. Non include trigger.
 
 	![Azione configurata][3]
 
-<table>
-	<tr>
-		<th>Parametro</th>
-		<th>Tipo</th>
-		<th>Descrizione del parametro</th>
-	</tr>
-	<tr>
-		<td>Duration In Minutes</td>
-		<td>numero intero</td>
-		<td>Durata del ritardo in minuti</td>
-	</tr>
-</table>
+Parametro|Tipo|Descrizione del parametro
+---|---|---
+Duration In Minutes|numero intero|Durata del ritardo in minuti
 
 
 ## Più vantaggi con il connettore
@@ -64,4 +55,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

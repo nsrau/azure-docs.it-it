@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare un'applicazione Web con MVC ASP.NET usando DocumentDB | Azure" 
+	pageTitle="Creare un'applicazione Web con MVC ASP.NET usando DocumentDB | Microsoft Azure" 
 	description="Informazioni su come usare DocumentDB con .NET per creare un'applicazione Web per un elenco azioni. È possibile archiviare dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -447,7 +447,7 @@ Aprire ***App\\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defau
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
-A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\\\*\*Item\*\*\\\*\*Index\*\*.
+A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **ItemController** che eseguirà una chiamata alla classe di tipo archivio e userà il metodo GetItems per restituire tutti gli elementi incompleti alla visualizzazione **Views**\**Item**\**Index**.
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.
 
@@ -492,7 +492,7 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 		}
 	Tale codice chiama DocumentDBRepository e utilizza il metodo CreateItemAsync per rendere persistente la nuova voce al database.
  
-	**Nota sulla sicurezza**: l’attributo**ValidateAntiForgeryToken**viene utilizzato di seguito per proteggere l'applicazione da attacchi di richiesta intersito false. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per ulteriori informazioni sull'oggetto e sugli esempi di come implementarla correttamente, vedere[impedendo Cross-Site Request Forgery][]. Il codice sorgente fornito in[GitHub][] permette l'implementazione completa.
+	**Nota sulla sicurezza**: l’attributo**ValidateAntiForgeryToken**viene utilizzato di seguito per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per ulteriori informazioni sull'oggetto e sugli esempi di come implementarla correttamente, vedere[impedendo Cross-Site Request Forgery][]. Il codice sorgente fornito in[GitHub][] permette l'implementazione completa.
 
 	**Nota sulla sicurezza**: È possibile utilizzare l’attributo**associare**sul parametro del metodo per proteggersi da attacchi di registrazione eccessiva. Per ulteriori informazioni, vedere[operazioni CRUD di base in ASP.NET MVC][].
 
@@ -630,7 +630,7 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 
 3. Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio 2013, fare clic con il pulsante destro del mouse sulla soluzione todo in **Esplora soluzioni** e quindi fare clic sul comando per **abilitare il ripristino del pacchetto NuGet**.
 
-4. Recuperare i valori**URI**e la **chiave primaria**o**chiave SECONDARIA**dal blade **chiavi** dell'account di DocumentDB nel[portale Azure Preview](https://portal.azure.com/).
+4. Recuperare i valori**URI**e la **chiave primaria**o**chiave SECONDARIA**dal blade **chiavi** dell'account di DocumentDB nel[portale di anteprima di Azure](https://portal.azure.com/).
 
 	
 	Se non si dispone di un account, vedere [Creare un account di database](documentdb-create-account.md) per configurarne uno.
@@ -650,7 +650,7 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 7. È ora possibile [eseguire l'applicazione localmente](#_Toc395637773) e quindi [distribuirla in Siti Web di Azure](#_Toc395637774).
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +658,4 @@ Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione com
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

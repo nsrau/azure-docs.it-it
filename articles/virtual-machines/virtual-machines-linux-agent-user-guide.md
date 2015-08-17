@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/30/2015" 
 	ms.author="szark"/>
 
 
@@ -211,7 +211,7 @@ Tipo: Boolean Predefinito: y
 
 Consente all'utente di attivare o disattivare la funzionalità di provisioning nell'agente. I valori validi sono "y" o "n". Se il provisioning è disabilitato, le chiavi utente e host SSH nell'immagine vengono mantenute e qualsiasi configurazione specificata nell'API di provisioning di Azure viene ignorata.
 
-	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+**Si noti:** questo parametro viene impostato su "n" nelle immagini Ubuntu Cloud che utilizzano cloud-inizializzazione per il provisioning.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -317,4 +317,4 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

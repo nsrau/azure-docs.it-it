@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
@@ -48,7 +48,7 @@ Per completare questa esercitazione, è necessario disporre di:
    	![][8]
 
 	- **Nome dell'applicazione**: digitare il nome dell'applicazione. È possibile usare qualsiasi carattere.
-	- **Piattaforma**: selezionare la piattaforma di destinazione (\*\*Universale di Windows\*\*) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
+	- **Piattaforma**: selezionare la piattaforma di destinazione (**Windows Universal**) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
 	- **Nome della risorsa dell'applicazione**: nome usato per rendere accessibile l'applicazione mediante API e URL. È necessario usare solo caratteri di URL convenzionali. Il nome generato automaticamente dovrebbe fornire una buona base di partenza. È anche necessario aggiungere il nome della piattaforma per evitare conflitti in quanto questo nome deve essere univoco.
 	- **Percorso**: selezionare il data center in cui verrà ospitata l'app (e soprattutto la relativa raccolta).
 	- **Raccolta**: se è già stata creata un'applicazione, selezionare una raccolta creata in precedenza, in caso contrario selezionare Nuova raccolta.
@@ -210,7 +210,7 @@ A questo punto si creerà una campagna di notifica push semplice che invierà un
 
 1. Passare alla scheda **REACH** nel portale di Mobile Engagement.
 
-2. Fare clic su **Nuovo annuncio** per creare la campagna di push. ![][37]
+2. Fare clic su **Nuovo annuncio** per creare una campagna di push. ![][37]
 
 3. Impostare il primo campo della campagna completando i passaggi seguenti: ![][38]
 
@@ -259,4 +259,4 @@ Dovrebbe essere possibile visualizzare una notifica popup inviata dalla campagna
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

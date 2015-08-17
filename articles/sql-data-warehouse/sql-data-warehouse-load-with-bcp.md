@@ -71,7 +71,7 @@ Aprire il Blocco note e copiare le righe di dati seguenti in un nuovo file.
 20150101,1,3
 ```
 
-Salvare il file nella directory temporanea locale, C:\Temp\DimDate2.txt.
+Salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt.
 
 > [AZURE.NOTE]È importante ricordare che bcp.exe non supporta la codifica UTF-8 del file. Utilizzare i file codificati ASCII o la codifica UTF-16 per i file quando si utilizza bcp.exe.
 
@@ -107,7 +107,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 ## Esportare i dati da SQL Data Warehouse
-In questa esercitazione verrà creato un file di dati da una tabella in SQL Data Warehouse. I dati creati in precedenza verranno esportati in un nuovo file denominato DimDate2_export.txt.
+In questa esercitazione verrà creato un file di dati da una tabella in SQL Data Warehouse. I dati creati in precedenza verranno esportati in un nuovo file denominato DimDate2\_export.txt.
 
 ### Passaggio 1: Esportare i dati
 
@@ -152,4 +152,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

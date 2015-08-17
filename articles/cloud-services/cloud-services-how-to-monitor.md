@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="08/04/2014" 
 	ms.author="robb"/>
 
 
@@ -111,7 +111,7 @@ I dati non elaborati del contatore di prestazioni e i dati aggregati di monitora
  
 4. Per eliminare una metrica dalla tabella, fare clic sulla metrica per selezionarla e quindi fare clic su **Delete Metric**. (Selezionando una metrica viene visualizzata solo l'opzione **Delete Metric**.)
 
-###Per aggiungere metriche alla relativa tabella###
+###Per aggiungere metriche personalizzate alla relativa tabella###
 Il livello di monitoraggio **Dettagliato** fornisce un elenco delle metriche predefinite che è possibile monitorare nel portale. Oltre a queste metriche, è possibile monitorare le metriche personalizzate o i contatori delle prestazioni definiti dall'applicazione tramite il portale.
 
 Nei passaggi seguenti si presuppone che sia stato attivato il livello di monitoraggio **Dettagliato** e che si stia configurando l’applicazione per raccogliere e trasferire i contatori delle prestazioni personalizzati.
@@ -124,7 +124,7 @@ Per visualizzare i contatori delle prestazioni personalizzati nel portale è nec
 2. Passare al percorso del BLOB usando il modello **DeploymentId/RoleName/RoleInstance** per trovare la configurazione per l'istanza del ruolo. 
 
 	![Esplora archivi di Visual Studio.](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Scaricare il file di configurazione per l'istanza del ruolo e aggiornarlo in modo da includere eventuali contatori delle prestazioni personalizzati. Ad esempio, per monitorare *Byte scritti su disco/sec* per l’*unità C* aggiungere quanto segue nel nodo **PerformanceCounters\Subscriptions**
+3. Scaricare il file di configurazione per l'istanza del ruolo e aggiornarlo in modo da includere eventuali contatori delle prestazioni personalizzati. Ad esempio, per monitorare *Byte scritti su disco/sec* per l’*unità C* aggiungere quanto segue nel nodo **PerformanceCounters\\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -179,7 +179,7 @@ dove:
 
 - *deploymentID* è il GUID assegnato alla distribuzione del servizio cloud
 
-- *aggregation_interval* = 5M, 1H o 12H
+- *aggregation\_interval* = 5M, 1H o 12H
 
 - aggregazioni a livello di ruolo = R
 
@@ -192,4 +192,4 @@ Ad esempio, nelle seguenti tabelle sarebbero archiviati dati di monitoraggio det
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

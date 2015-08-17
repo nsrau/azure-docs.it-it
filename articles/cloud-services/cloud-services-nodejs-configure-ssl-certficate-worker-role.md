@@ -68,7 +68,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 
 -   Il certificato deve includere una chiave privata.
 -   Il certificato deve essere creato per lo scambio di chiave (file con estensione **pfx**).
--   Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL per il dominio cloudapp.net. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio, __sitoprotetto.cloudapp.net__.
+-   Il nome del soggetto del certificato deve corrispondere al dominio utilizzato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL per il dominio cloudapp.net. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio, __sitoprotetto.cloudapp.net__.
 -   Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
 Il file con estensione **pfx** contenente il certificato verrà aggiunto al progetto di servizio e verrà distribuito in Azure nei passaggi seguenti.
@@ -77,9 +77,9 @@ Il file con estensione **pfx** contenente il certificato verrà aggiunto al prog
 
 Quando un'applicazione Node.js viene distribuita in un ruolo di lavoro, il certificato del server e la connessione SSL vengono gestiti da Node.exe. Per gestire il traffico SSL, è necessario usare il modulo "https" invece di "http". Eseguire la procedura seguente per aggiungere il certificato SSL al progetto e quindi modificare l'applicazione in modo che usi il certificato.
 
-1.   Salvare il file con estensione **pfx** fornito dall'Autorità di certificazione (CA, Certificate Authority) nella directory contenente l'applicazione. Ad esempio, **c:\node\securesite\workerrole1** è la directory che include l'applicazione usata in questo articolo.
+1.   Salvare il file con estensione **pfx** fornito dall'Autorità di certificazione (CA, Certificate Authority) nella directory contenente l'applicazione. Ad esempio, **c:\\node\\securesite\\workerrole1** è la directory che include l'applicazione usata in questo articolo.
 
-2.   Aprire il file **c:\node\securesite\workerrole1\server.js** usando Notepad.exe e quindi sostituire i contenuti del file con il codice seguente:
+2.   Aprire il file **c:\\node\\securesite\\workerrole1\\server.js** usando Notepad.exe e quindi sostituire i contenuti del file con il codice seguente:
 
 		var https = require('https');
 		var fs = require('fs');
@@ -173,4 +173,4 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
   
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

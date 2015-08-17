@@ -6,6 +6,7 @@
    authors="SharS"
    manager="carolz"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="06/25/2015"
    ms.author="v-sharos" />
+
 
 # Gestire l’account di archiviazione di StorSimple
 
@@ -97,7 +99,7 @@ Durante il salvataggio dell'account di archiviazione, il servizio tenta di comun
 
 2. Nell'elenco tabulare di account di archiviazione, passare il mouse sull'account che si desidera eliminare.
 
-3. Un'icona di eliminazione (* * x * *) verrà visualizzata nella colonna all'estrema destra di tale account di archiviazione. Fare clic sull’icona **x** per eliminare le credenziali.
+3. Un'icona di eliminazione (**x**) verrà visualizzata nella colonna all'estrema destra di tale account di archiviazione. Fare clic sull’icona **x** per eliminare le credenziali.
 
 4. Quando viene richiesta la conferma, fare clic su **Sì** per continuare con l'eliminazione. L’elenco tabulare verrà aggiornato per riflettere le modifiche.
 
@@ -150,6 +152,6 @@ Per informare il servizio StorSimple Manager della modifica, sarà necessario ac
 
 ## Passaggi successivi
 
-Altre informazioni sulla [sicurezza di StorSimple](storsimple-security.md)
+Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

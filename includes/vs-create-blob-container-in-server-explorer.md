@@ -12,4 +12,4 @@ Per impostazione predefinita, il nuovo contenitore è privato ed è necessario s
 
 [Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

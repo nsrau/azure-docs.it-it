@@ -7,6 +7,7 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.date="05/08/2015"
 	ms.author="raynew"/>
+
 
 # Procedure consigliate per la distribuzione di Site Recovery
 
@@ -103,7 +105,12 @@ I provider e gli agenti vengono installati su server locali in modo che possano 
 
 	- Configurare il server proxy personalizzato prima di installare il provider.
 	- Consentire i seguenti URL attraverso il firewall:
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Se si distribuisce Site Recovery con VMM e si utilizza un proxy personalizzato, verrà creato automaticamente un account RunAs VMM (DRAProxyAccount) utilizzando le credenziali proxy specificate nelle impostazioni del proxy personalizzato nel portale di Site Recovery. È necessario configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione.
 
 
@@ -189,4 +196,4 @@ Dopo aver esaminato queste procedure consigliate, è possibile avviare la distri
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

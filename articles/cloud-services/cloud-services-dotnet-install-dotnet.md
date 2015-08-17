@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/23/2015"
+   ms.date="08/03/2015"
    ms.author="saurabh"/>
 
 # Installare .NET in un ruolo del servizio cloud 
 
-Questo articolo descrive come installare .NET Framework in ruoli Web e di lavoro del servizio cloud. È possibile usare questi passaggi per installare .NET framework 4.5.2 sulla famiglia del sistema operativo Guest 4 di Azure. Per le informazioni più recenti sulle versioni del sistema operativo guest vedere [Rilasci del sistema operativo guest Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).
+Questo articolo descrive come installare .NET Framework in ruoli Web e di lavoro del servizio cloud. È possibile usare questi passaggi per installare .NET framework 4.5.2 o .NET 4.6 sulla famiglia del sistema operativo Guest 4 di Azure. Per le informazioni più recenti sulle versioni del sistema operativo guest vedere [Rilasci del sistema operativo guest Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).
 
 Il processo di installazione di .NET in ruoli Web e di lavoro prevede l'inclusione del pacchetto del programma di installazione .NET come parte del progetto cloud e l'avvio del programma di installazione come parte delle attività di avvio del ruolo.
 
 ## Aggiungere al progetto il programma di installazione .NET
-1. Scaricare il [programma di installazione Web .NET 4.5.2](http://www.microsoft.com/it-it/download/details.aspx?id=42643)
+1. Scaricare il programma di installazione web per installare il .NET framework necessario
+	- [Programma di installazione web .NET 4.5.2](http://go.microsoft.com/fwlink/p/?LinkId=397703)
+	- [Programma di installazione web di .NET 4.6](http://go.microsoft.com/fwlink/?LinkId=528259)
 2. Per un ruolo web
   1. In **Esplora soluzioni** in **Ruoli** nel progetto del servizio cloud fare clic con il pulsante destro del mouse sul ruolo e quindi selezionare **Aggiungi>Nuova cartella**. Creare una cartella denominata *bin*
   2. Fare clic sulla cartella **bin** e selezionare **Aggiungi>Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo alla cartella bin.
@@ -37,7 +39,7 @@ I file aggiunti in questo modo alla cartella Contenuto ruolo verranno automatica
 ## Definire le attività di avvio per i ruoli
 Le attività di avvio consentono di eseguire operazioni prima dell'avvio di un ruolo. Per assicurarsi che sia installato il framework prima di eseguire qualsiasi codice dell'applicazione, installare .NET Framework come parte dell'attività di avvio. Per altre informazioni sull'avvio di attività, vedere: [Eseguire attività di avvio in Azure](https://msdn.microsoft.com/library/azure/hh180155.aspx).
 
-1. Aggiungere quanto segue al file *ServiceDefinition.csdef* nel nodo *WebRole* o *WorkerRole* per tutti i ruoli:
+1. Aggiungere quanto segue al file *ServiceDefinition.csdef* nel nodo **WebRole** o **WorkerRole** per tutti i ruoli:
 	
 	```xml
 	 <LocalResources>
@@ -56,36 +58,59 @@ Le attività di avvio consentono di eseguire operazioni prima dell'avvio di un r
 
 	La configurazione precedente eseguirà il comando della console *install.cmd* con privilegi di amministratore in modo da poter installare .NET Framework. La configurazione creerà anche un LocalStorage con il nome *InstallLogs* per archiviare tutte le informazioni di log create dallo script di installazione. Per altre informazioni, vedere: [Usare le risorse di archiviazione locale per archiviare i file durante l'avvio](https://msdn.microsoft.com/library/azure/hh974419.aspx)
 
-2. Creare il file install.cmd con il contenuto seguente:
+2. Creare un file**Install.cmd**e aggiungerlo a tutti i ruoli tramite clic sul tasto destro del mouse sul ruolo e selezionando**Aggiungi > elemento esistente...**. In questo modo tutti i ruoli avranno a disposizione il file del programma di installazione .NET, nonché il file install.cmd.
+	
+	![Contenuto ruolo con tutti i file][2]
+
+	> [AZURE.NOTE]Usare un semplice editor di testo, come il blocco note, per creare questo file. Se si usa Visual Studio per creare un file di testo e quindi lo si rinomina con estensione "cmd", il file potrebbe continuare a contenere un BOM UTF-8 e verrà generato un errore eseguendo la prima riga dello script. Se si prevede di usare Visual Studio per creare il file, aggiungere un REM (commento) nella prima riga del file in modo che venga ignorato durante l'esecuzione.
+
+3. Aggiungere il seguente script al file**Install.cmd**:
 
 	```
-	REM install.cmd to install .NET Framework
+	REM Set the value of netfx to install appropriate .NET Framework. 
+	REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
+	REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
+	set netfx="NDP452"
+	
+	REM ***** Setup .NET filenames and registry keys *****
+	if %netfx%=="NDP46" goto NDP46
+		set netfxinstallfile="NDP452-KB2901954-Web.exe"
+		set netfxregkey="0x5cbf5"
+		goto logtimestamp
+	:NDP46
+	set netfxinstallfile="NDP46-KB3045560-Web.exe"
+	set netfxregkey="0x60051"
+	
+	:logtimestamp
+	REM ***** Setup LogFile with timestamp *****
 	set timehour=%time:~0,2%
 	set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
-	set startuptasklog=%PathToInstallLogs%\startuptasklog-%timestamp%.txt
-	set netfxinstallerlog = %PathToInstallLogs%\NetFXInstallerLog-%timestamp%
+	set startuptasklog=%PathToInstallLogs%startuptasklog-%timestamp%.txt
+	set netfxinstallerlog = %PathToInstallLogs%NetFXInstallerLog-%timestamp%
 	echo Logfile generated at: %startuptasklog% >> %startuptasklog%
-	echo Checking if .NET 4.5.2 is installed >> %startuptasklog%
-	reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release | Find "0x5cbf5"
+	
+	REM ***** Check if .NET is installed *****
+	echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
+	reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release | Find %netfxregkey%
 	if %ERRORLEVEL%== 0 goto end
-	echo Installing .NET 4.5.2. Log: %netfxinstallerlog% >> %startuptasklog%
-	start /wait %~dp0NDP452-KB2901954-Web.exe /q /serialdownload /log %netfxinstallerlog%
+	
+	REM ***** Installing .NET *****
+	echo Installing .NET. Logfile: %netfxinstallerlog% >> %startuptasklog%
+	start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% >> %startuptasklog% 2>>&1
+	
 	:end
 	echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
 	```
-
-	Lo script di installazione verifica se .NET 4.5.2 è già installato nel computer eseguendo una query sul registro. Se .NET 4.5.2 non è installato, viene avviato il programma di installazione Web .Net. Per la risoluzione di eventuali problemi, lo script registrerà tutte le attività in un file denominato *startuptasklog-(currentdatetime).txt* archiviato nella risorsa di archiviazione locale *InstallLogs*.
-
-	> [AZURE.NOTE]Usare un semplice editor di testo, come il blocco note, per creare questo file. Se si usa Visual Studio per creare un file di testo e quindi lo si rinomina con estensione "cmd", il file potrebbe continuare a contenere un BOM UTF-8 e verrà generato un errore eseguendo la prima riga dello script. Se si prevede di usare Visual Studio per creare il file, aggiungere un REM (commento) nella prima riga del file in modo che venga ignorato durante l'esecuzione.
+	> [AZURE.IMPORTANT]Aggiornare il valore del*netfx*variabile nello script affinché corrisponda alla versione di framework che si desidera installare. Per installare .NET 4.5.2 il*netfx*variabile deve essere impostato su*"NDP452"*e per installare .NET 4.6 il*netfx*variabile deve essere impostato su*"NDP46"*
+		
+	Lo script di installazione verifica se la versione .NET framework specificata è già installata nel computer eseguendo una query sul registro. Se la versione .NET non è installata, viene avviato il programma di installazione Web di .Net. Per la risoluzione di eventuali problemi, lo script registrerà tutte le attività in un file denominato *startuptasklog-(currentdatetime).txt* archiviato nella risorsa di archiviazione locale *InstallLogs*.
+ 
       
-3. Aggiungere il file install.cmd a tutti i ruoli facendo clic con il pulsante destro del mouse sul ruolo e selezionando **Aggiungi>Elemento esistente...**. In questo modo tutti i ruoli avranno a disposizione il file del programma di installazione .NET, nonché il file install.cmd.
-	
-	![Contenuto ruolo con tutti i file][2]
 
 ## Configurare la diagnostica per trasferire i log delle attività di avvio all'archiviazione BLOB (facoltativo)
 È anche possibile configurare la diagnostica Azure per trasferire eventuali file di log generati tramite lo script di avvio o il programma di installazione .NET nell'archiviazione BLOB. Con questo approccio è possibile visualizzare i log semplicemente scaricando i file di log dall'archiviazione BLOB anziché collegarsi con il desktop remoto al ruolo.
 
-Per configurare la diagnostica aprire *diagnostics.wadcfgx* e aggiungere quanto segue sotto il nodo *<Directories>*:
+Per configurare la diagnostica aprire *diagnostics.wadcfgx* e aggiungere quanto segue sotto il nodo **Directory**:
 
 ```xml 
 <DataSources>
@@ -117,4 +142,4 @@ Quando si distribuisce il servizio, le attività di avvio eseguiranno e installe
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

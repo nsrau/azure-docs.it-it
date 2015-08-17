@@ -255,7 +255,7 @@ Per caricare i BLOB in un contenitore, è possibile usare il cmdlet [Set-AzureSt
 
 Nell'esempio seguente viene eseguito il cmdlet [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) per ottenere tutti i file nella cartella specificata, e poi passarli al cmdlet successivo usando l'operatore pipeline. Il cmdlet [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) consente di caricare i file locali nel contenitore:
 
-    Get-ChildItem –Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
+    Get-ChildItem –Path C:\Images* | Set-AzureStorageBlobContent -Container "yourcontainername"
 
 ### Come scaricare i BLOB da un contenitore
 Nell'esempio seguente viene mostrato come scaricare i BLOB da un contenitore. Innanzitutto viene stabilita una connessione ad Archiviazione di Azure usando il contesto dell'account di archiviazione che include il nome dell'account di archiviazione e la relativa chiave di accesso primaria. Quindi, l'esempio recupera un riferimento BLOB usando il cmdlet [Get AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx). Nell'esempio viene usato il cmdlet [Get-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806418.aspx) per scaricare i BLOB nella cartella di destinazione locale.
@@ -736,4 +736,4 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

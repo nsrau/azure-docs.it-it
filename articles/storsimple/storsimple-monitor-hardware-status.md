@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/28/2015"
+   ms.date="07/31/2015"
    ms.author="alkohli" />
 
 # Stato e componenti hardware di StorSimple
@@ -63,7 +63,7 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 |Componente|Modulo|Tipo|Location|Unità sostituibile sul campo (FRU)?|Descrizione|
 |---|---|---|---|---|---|
-|Unità in slot *n*|Unità disco|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale.|
+|Unità in slot [0-11]|Unità disco|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale.|
 |Sensore di temperatura ambientale|Chassis|Fisico|Condiviso|No|Misura la temperatura all'interno dello chassis.|
 |Sensore di temperatura piano intermedio|Chassis|Fisico|Condiviso|No|Misura la temperatura del piano intermedio.|
 |Allarme acustico|Chassis|Fisico|Condiviso|No|Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale.|
@@ -72,9 +72,9 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 |Sensori di tensione linea|PCM|Fisico|Condiviso|No|Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza.|
 |Sensori di corrente linea|PCM|Fisico|Condiviso|No|Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza.|
 |Sensori di temperatura in PCM|PCM|Fisico|Condiviso|No|Numerosi sensori di temperatura come i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza.|
-|Alimentazione n|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo.|
-|Raffreddamento *n*|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM.|
-|Batteria *n*|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ognuno dei moduli della batteria di backup inseriti nel PCM.|
+|Alimentazione [0-1]|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo.|
+|Raffreddamento [0-1]|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM.|
+|Batteria [0-1]|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ognuno dei moduli della batteria di backup inseriti nel PCM.|
 |Metis|N/D|Logico|Condiviso|N/D|Visualizza lo stato delle batterie: se devono essere messe in carica e se si stanno avvicinando alla fine del ciclo di vita.|
 |HDInsight|N/D|Logico|Condiviso|N/D|Visualizza lo stato del cluster creato tra i due moduli controller integrato.|
 |Nodo del cluster|N/D|Logico|Condiviso|N/D|Indica lo stato del controller come parte del cluster.|
@@ -87,10 +87,10 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 |Spazio NVRAM SSD|N/D|Logico|Condiviso|N/D|Lo spazio di archiviazione nel pool di archiviazione di unità SSD dedicato per la logica NVRAM.|
 |Pool di archiviazione di unità disco rigido|N/D|Logico|Condiviso|N/D|Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD.|
 |Pool di archiviazione di unità SSD|N/D|Logico|Condiviso|N/D|Visualizza lo stato del pool di archiviazione logica creato dal dispositivo SSD.|
-|Controller *n* [stato]|I/O|Fisico|Controller|Sì|Visualizza lo stato del controller e se è in modalità attiva o standby all'interno dello chassis.|
+|Controller [0-1] [stato]|I/O|Fisico|Controller|Sì|Visualizza lo stato del controller e se è in modalità attiva o standby all'interno dello chassis.|
 |Sensori di temperatura nel controller|I/O|Fisico|Controller|No|Numerosi sensori di temperatura, ad esempio modulo I/O, temperatura CPU, sensori DIMM e PCIe hanno lo stato visualizzato, che indica se la temperatura rilevata è compresa o meno nella tolleranza.|
 |Espansore SAS|I/O|Fisico|Controller|No|Indica lo stato dell'espansore SCSI associato seriale (SAS), che viene utilizzato per connettere al controller l'archiviazione integrata.|
-|Connettore SAS *n*|I/O|Fisico|Controller|No|Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS.|
+|Connettore SAS [0-1]|I/O|Fisico|Controller|No|Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS.|
 |Interconnessione piano intermedio SBB|I/O|Fisico|Controller|No|Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio.|
 |Core del processore|I/O|Fisico|Controller|No|Indica lo stato dei core del processore all'interno di ogni controller.|
 |Alimentatore elettronica dello chassis|I/O|Fisico|Controller|No|Indica lo stato del sistema di alimentazione dello chassis.|
@@ -103,7 +103,7 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 |Componente|Modulo|Tipo|Location|FRU?|Descrizione|
 |---|---|---|---|---|---|
-|Unità in slot *n*|Unità disco|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD.|
+|Unità in slot [0-11]|Unità disco|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD.|
 |Sensore di temperatura ambientale|Chassis|Fisico|Condiviso|No|Misura la temperatura all'interno dello chassis.|
 |Sensore di temperatura piano intermedio|Chassis|Fisico|Condiviso|No|Misura la temperatura del piano intermedio.|
 |Allarme acustico|Chassis|Fisico|Condiviso|No|Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale.|
@@ -112,23 +112,23 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 |Sensori di tensione linea|PCM|Fisico|Condiviso|No|Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza.|
 |Sensori di corrente linea|PCM|Fisico|Condiviso|No|Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza.|
 |Sensori di temperatura in PCM|PCM|Fisico|Condiviso|No|Numerosi sensori di temperatura, ad esempio i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza.|
-|Alimentazione *n*|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo.|
-|Raffreddamento *n*|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM.|
+|Alimentazione [0-1]|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo.|
+|Raffreddamento [0-1]|PCM|Fisico|Condiviso|Sì|Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM.|
 |Archiviazione locale [HDD]|N/D|Logico|Condiviso|N/D|Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD.|
-|Controller *n* [stato]|I/O|Fisico|Controller|Sì|Visualizza lo stato dei controller nel modulo EBOD.|
+|Controller [0-1] [stato]|I/O|Fisico|Controller|Sì|Visualizza lo stato dei controller nel modulo EBOD.|
 |Sensori di temperatura in EBOD|I/O|Fisico|Controller|No|Numerosi sensori di temperatura di ogni controller hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza.|
 |Espansore SAS|I/O|Fisico|Controller|No|Indica lo stato dell'espansore SAS, che viene utilizzato per connettere al controller l'archiviazione integrata.|
-|Connettore SAS *n*|I/O|Fisico|Controller|No|Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS.|
+|Connettore SAS [0-2]|I/O|Fisico|Controller|No|Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS.|
 |Interconnessione piano intermedio SBB|I/O|Fisico|Controller|No|Indica lo stato del connettore del piano intermedio, che viene utilizzato per connettere ogni controller al piano intermedio.|
 |Alimentatore elettronica dello chassis|I/O|Fisico|Controller|No|Indica lo stato del sistema di alimentazione dello chassis.|
 |Diagnostica elettronica dello chassis|I/O|Fisico|Controller|No|Indica lo stato dei sottosistemi di diagnostica fornite dal controller.|
 |Connessione al controller del dispositivo|I/O|Fisico|Controller|No|Indica lo stato della connessione tra il modulo I/O EBOD e il controller del dispositivo.|
 
 ## Passaggio successivo
-Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o in errore, fare riferimento a [Risoluzione dei problemi con gli indicatori di monitoraggio](storsimple-monitoring-indicators).
+Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o guasto, fare riferimento a [Risoluzione dei problemi relativi agli indicatori di monitoraggio](storsimple-monitoring-indicators).
 
-Per sostituire un componente hardware in errore, vedere la [Guida alla sostituzione di componenti hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+Per sostituire un componente hardware guasto, vedere la [Guida alla sostituzione di componenti hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

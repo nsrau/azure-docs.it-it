@@ -134,40 +134,12 @@ Nell'esempio seguente viene illustrato il corpo di una richiesta parziale per un
 
 Successivamente, considerare le seguenti richieste CORS:
 
-<table>
-<tr>
-<td colspan=3><b>Richiesta</b></td>
-<td colspan=2><b>Risposta</b></td>
-</tr>
-<tr>
-<td><b>Metodo</b></td>
-<td><b>Origine</b></td>
-<td><b>Intestazioni della richiesta</b></td>
-<td><b>Corrispondenza regola</b></td>
-<td><b>Risultato</b></td>
-</tr>
-<tr>
-<td><b>PUT</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Prima regola</td>
-<td>Esito positivo</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Seconda regola</td>
-<td>Esito positivo</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Seconda regola</td>
-<td>Esito negativo</td>
-</tr>
-</table>
+Richiesta||| Response||
+---|---|---|---|---
+**Metodo** |**Origine** |**Intestazioni della richiesta** |**Corrispondenza regola** |**Risultato**
+**PUT** | http://www.contoso.com |x-ms-blob-content-type | Prima regola |Esito positivo
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Seconda regola |Esito positivo
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Seconda regola | Esito negativo
 
 La prima richiesta corrisponde alla prima regola (il dominio di origine corrisponde alle origini consentite, il metodo corrisponde ai metodi consentiti e l'intestazione corrisponde alle intestazioni consentite), pertanto ha esito positivo.
 
@@ -185,7 +157,7 @@ Quando la risposta a una richiesta CORS viene memorizzata nella cache dal browse
 
 Nel servizio di archiviazione di Azure l'intestazione *Vary* viene impostata su **Origin** per le richieste GET/HEAD effettive nei seguenti casi:
 
-- Quando l'origine della richiesta corrisponde esattamente all'origine consentita definita da una regola CORS. Affinché una corrispondenza sia esatta, la regola CORS non può includere il carattere jolly "*".
+- Quando l'origine della richiesta corrisponde esattamente all'origine consentita definita da una regola CORS. Affinché una corrispondenza sia esatta, la regola CORS non può includere il carattere jolly ' * '.
 
 - Non esiste alcuna regola corrispondente all'origine della richiesta, ma la condivisione CORS è abilitata per il servizio di archiviazione.
 
@@ -195,85 +167,17 @@ Per le richieste che utilizzano metodi diversi da GET/HEAD, nei servizi di archi
 
 Nella tabella seguente viene indicata la risposta del servizio di archiviazione di Azure alle richieste GET/HEAD in base ai casi riportati in precedenza:
 
-<table>
-<tr>
-<td><b>Richiesta</b></td>
-<td colspan=3><b>Impostazione account e risultato della valutazione della regola</b></td>
-<td colspan=3><b>Risposta</b></td>
-</tr>
-<tr>
-<td><b>Intestazione di origine presente sulla richiesta</b></td>
-<td><b>Regole CORS specificate per questo servizio </b></td>
-<td><b>Presenza di una regola di corrispondenza che consente tutte le origini(*)</b></td>
-<td><b>Presenza di una regola per l'esatta corrispondenza dell'origine</b></td>
-<td><b>Risposta che include l'intestazione Vary impostata su Origin</b></td>
-<td><b>Risposta che include Access-Control-Allowed-Origin: "*"</b></td>
-<td><b>Risposta che include Access-Control-Exposed-Headers</b></td>
-</tr>
-<tr>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>No</td>
-<td>Sì</td>
-<td>No</td>
-<td>No</td>
-<td>Sì</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>No</td>
-<td>Sì</td>
-<td>Sì</td>
-<td>No</td>
-<td>No</td>
-<td>Sì</td>
-<td>Sì</td>
-</tr>
-<tr>
-<td>Sì</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Sì</td>
-<td>Sì</td>
-<td>No</td>
-<td>Sì</td>
-<td>Sì</td>
-<td>No</td>
-<td>Sì</td>
-</tr>
-<tr>
-<td>Sì</td>
-<td>Sì</td>
-<td>No</td>
-<td>No</td>
-<td>Sì</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Sì</td>
-<td>Sì</td>
-<td>Sì</td>
-<td>No</td>
-<td>No</td>
-<td>Sì</td>
-<td>Sì</td>
-</tr>
-</table>
+Richiesta|Impostazione account e risultato della valutazione della regola|||Response|||
+---|---|---|---|---|---|---|---|---
+**Intestazione di origine presente sulla richiesta** | **Regole CORS specificate per questo servizio** | **Presenza di una regola di corrispondenza che consente tutte le origini(*)** | **Presenza di una regola per l'esatta corrispondenza dell'origine** | **Risposta che include l'intestazione Vary impostata su Origin** | **Risposta che include Access-Control-Allowed-Origin: "*"** | **Risposta che include Access-Control-Exposed-Headers**
+No|No|No|No|No|No|No
+No|Sì|No|No|Sì|No|No
+No|Sì|Sì|No|No|Sì|Sì
+Sì|No|No|No|No|No|No
+Sì|Sì|No|Sì|Sì|No|Sì
+Sì|Sì|No|No|Sì|No|No
+Sì|Sì|Sì|No|No|Sì|Sì
+
 
 ## Fatturazione per le richieste CORS
 
@@ -292,4 +196,4 @@ Le richieste preliminari con esito negativo non verranno fatturate.
 [Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

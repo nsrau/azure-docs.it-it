@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creazione di un'applicazione Web Java con DocumentDB" 
+	pageTitle="Creare un'applicazione web Java utilizzando DocumentDB | Microsoft Azure" 
 	description="Questa esercitazione illustra come usare il servizio Azure DocumentDB per memorizzare e accedere ai dati da un'applicazione Java ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter="java" 
@@ -118,7 +118,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 
 	In questo progetto viene usato [Project Lombok](http://projectlombok.org/) per generare il costruttore, getter, setter e un generatore. In alternativa, è possibile scrivere il codice manualmente o farlo generare da IDE.
 
-2. Per richiamare il servizio DocumentDB, è necessario creare un'istanza di un nuovo client **DocumentClient**. È in genere preferibile riutilizzare il client **DocumentClient** anziché creare un nuovo client per ogni richiesta successiva. È possibile riutilizzare il client eseguendo il wrapping del client in una factory **DocumentClientFactory**. Questo è anche il punto in cui è necessario incollare i valori URI e CHIAVE PRIMARIA salvati negli Appunti al [passaggio 1](#CreateDB). Sostituire [YOUR_ENDPOINT_HERE] con l'URI e sostituire [YOUR_KEY_HERE] con la CHIAVE PRIMARIA.
+2. Per richiamare il servizio DocumentDB, è necessario creare un'istanza di un nuovo client **DocumentClient**. È in genere preferibile riutilizzare il client **DocumentClient** anziché creare un nuovo client per ogni richiesta successiva. È possibile riutilizzare il client eseguendo il wrapping del client in una factory **DocumentClientFactory**. Questo è anche il punto in cui è necessario incollare i valori URI e CHIAVE PRIMARIA salvati negli Appunti al [passaggio 1](#CreateDB). Sostituire [YOUR\_ENDPOINT\_HERE] con l'URI e sostituire [YOUR\_KEY\_HERE] con la CHIAVE PRIMARIA.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -747,7 +747,7 @@ Con Siti Web di Azure la procedura di distribuzione di applicazioni Java è molt
 3. A questo punto, è sufficiente caricare il file nella directory **webapps** di Siti Web di Azure. Per istruzioni sul caricamento del file, vedere [Aggiunta di un'applicazione a un sito Web Java in Azure](../web-sites-java-add-app.md).
 
 	Dopo aver caricato il file con estensione war nella directory webapps, l'ambiente di runtime identificherà il file aggiunto e lo caricherà automaticamente.
-4. Per visualizzare il prodotto finito, passare a http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/ e iniziare ad aggiungere le attività.
+4. Per visualizzare il prodotto finito, passare a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ e iniziare ad aggiungere le attività.
 
 ##<a id="GetProject"></a>Ottenere il progetto da GitHub##
 
@@ -763,7 +763,7 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 8. Nella schermata **Local Destination** fare clic su click **Browse** per selezionare una cartella in cui sia possibile copiare il repository e quindi fare clic su **Next**.
 9. Nella schermata **Select a wizard to use for importing projects** assicurarsi che l'opzione **Import existing projects** sia selezionata e quindi fare clic su **Next**.
 10. Nella schermata **Import Projects** deselezionare il progetto **DocumentDB** e quindi fare clic su **Finish**. Il progetto DocumentDB contiene DocumentDB Java SDK, che verrà aggiunto invece come dipendenza.
-11. In **Project Explorer**, passare a azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e sostituire i valori HOST e MASTER_KEY con i valori URI e CHIAVE PRIMARIA dell'account DocumentDB, quindi salvare il file. Per altre informazioni, vedere il [passaggio 1. Creare un account di database di DocumentDB](#CreateDB).
+11. In **Project Explorer**, passare a azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e sostituire i valori HOST e MASTER\_KEY con i valori URI e CHIAVE PRIMARIA dell'account DocumentDB, quindi salvare il file. Per altre informazioni, vedere il [passaggio 1. Creare un account di database di DocumentDB](#CreateDB).
 12. In **Project Explorer**, fare clic con il pulsante destro del mouse su** azure-documentdb-java-sample**, fare clic su **Build Path** e quindi su **Configure Build Path**.
 13. Nella schermata **Java Build Path**, nel riquadro a destra, selezionare la scheda **Libraries** e quindi fare clic su **Add External JARs**. Passare al percorso del file lombok.jar e fare clic su **Open** e quindi su **OK**.
 14. Usare il passaggio 12 per aprire nuovamente la finestra **Properties** e quindi, nel riquadro a sinistra, fare clic su **Targeted Runtimes**.
@@ -779,4 +779,4 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

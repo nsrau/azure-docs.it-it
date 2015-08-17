@@ -111,7 +111,7 @@ Quando si crea un servizio cloud, un servizio di archiviazione o un gruppo di af
 - Stati Uniti occidentali
 - Stati Uniti Orientali
 
-Nei seguenti esempi di codice le località vengono passate ai metodi sotto forma di stringhe. È tuttavia possibile passarle sotto forma di enumerazioni usando la classe <code>WindowsAzure\ServiceManagement\Models\Locations</code>. Ad esempio, anziché passare "West US" a un metodo che accetta una località è possibile passare <code>Locations::WEST_US</code>.
+Nei seguenti esempi di codice le località vengono passate ai metodi sotto forma di stringhe. È tuttavia possibile passarle sotto forma di enumerazioni usando la classe <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Ad esempio, anziché passare "West US" a un metodo che accetta una località è possibile passare <code>Locations::WEST\_US</code>.
 
 ## Procedura: Creare un servizio cloud
 
@@ -485,7 +485,7 @@ Per creare un gruppo di affinità, sono necessari un nome, un'etichetta (con cod
 
 Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anziché una località) durante la [creazione di un gruppo di archiviazione](#CreateStorageService).
 
-È possibile elencare gruppi di affinità e ispezionarne le proprietà chiamando il metodo **listAffinityGroups** e quindi chiamando i metodi appropriati sulla classe [AffinityGroup]:
+È possibile elencare gruppi di affinità e ispezionarne le proprietà chiamando il metodo **listAffinityGroups** e quindi chiamando i metodi appropriati sulla classe [AffinityGroup]\:
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
 
@@ -555,4 +555,4 @@ Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anz
 
 [Schema di configurazione dei servizi di Azure (con estensione cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

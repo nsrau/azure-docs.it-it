@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Che cosa è successo al progetto?
 
@@ -59,11 +59,13 @@ Se nel progetto è già presente una classe Startup, il metodo **Configuration**
 
 ###Il file app.config o web.config include nuovi valori di configurazione.
 
-Sono state aggiunte le voci di configurazione seguenti. <pre> `<appSettings>
+Sono state aggiunte le voci di configurazione seguenti. ```
+	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###È stata creata un'app Azure AD
 
@@ -101,13 +103,17 @@ Per ognuno dei seguenti file è stato eseguito il backup prima della sostituzion
 
 ###Sono state apportate altre modifiche al file app.config o web.config
 
-Sono state aggiunte le voci di configurazione aggiuntive seguenti. <pre> `<appSettings>
+Sono state aggiunte le voci di configurazione aggiuntive seguenti.
+
+```
+	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###È stata aggiornata l'app Azure Active Directory
 L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione *Leggi i dati della directory* ed è stata creata una chiave aggiuntiva che è stata quindi usata come *ida:Password* nel file `web.config`.
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

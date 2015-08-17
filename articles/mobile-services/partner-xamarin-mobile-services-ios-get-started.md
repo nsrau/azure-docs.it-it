@@ -7,6 +7,7 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
+
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -78,7 +80,7 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 
 2. Fare clic su **Esegui** per compilare il progetto e avviare l'applicazione nell'emulatore iPhone, che è l'impostazione predefinita per questo progetto.
 
-3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic sull'icona con il segno PIÙ (\*\*+\*\*).
+3. Nell'app digitare un testo significativo, ad esempio _Complete the tutorial_, quindi fare clic sull'icona con il segno PIÙ (**+**).
 
 	![][10]
 
@@ -98,13 +100,17 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 ## Passaggi successivi
 Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
 
-* [iniziare a usare i dati]<br/>informazioni su come aggiungere una nuova tabella a un servizio mobile, quindi leggere e scrivere in tale tabella.
+* [iniziare a usare i dati] <br/>
+informazioni su come aggiungere una nuova tabella a un servizio mobile, quindi leggere e scrivere in tale tabella.
 
-* [Introduzione alla sincronizzazione dei dati offline] <br/>Informazioni sull'uso della sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+* [Introduzione alla sincronizzazione dei dati offline] <br/>
+Informazioni sull'uso della sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
-* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Introduzione all'autenticazione] <br/>
+Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Introduzione alle notifiche push] <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Introduzione alle notifiche push] <br/>
+Informazioni sull'invio di una notifica push di base all'app.
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -134,4 +140,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

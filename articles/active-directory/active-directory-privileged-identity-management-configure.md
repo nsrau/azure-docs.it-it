@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Gestione identità con privilegi di Azure AD" 
-	description="Questo argomento fornisce informazioni sull'estensione Gestione identità con privilegi di Azure AD e spiega come configurarla." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Gestione identità con privilegi di Azure AD"
+	description="Questo argomento fornisce informazioni sull'estensione Gestione identità con privilegi di Azure AD e spiega come configurarla."
+	services="active-directory"
+	documentationCenter=""
+	authors="IHenkel"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="inhenk"/>
 
 # Gestione identità con privilegi di Azure AD
 
@@ -26,18 +26,18 @@ Gestione identità con privilegi di Azure AD disponibile in anteprima permette d
 
 - Individuare gli utenti amministratori di Azure AD
 - Abilitare l'accesso amministrativo su richiesta "just-in-time" alle risorse della directory
-- Ottenere i report sulla cronologia di accesso degli amministratori e sulle modifiche alle assegnazioni degli amministratori 
-- Ricevere avvisi relativi all'accesso a un ruolo con privilegi 
+- Ottenere i report sulla cronologia di accesso degli amministratori e sulle modifiche alle assegnazioni degli amministratori
+- Ricevere avvisi relativi all'accesso a un ruolo con privilegi
 
 In questa versione di anteprima, Gestione identità con privilegi di Azure AD è in grado di gestire i ruoli aziendali predefiniti di Azure Active Directory:
 
-- Amministratore globale 
-- Amministratore fatturazione 
+- Amministratore globale
+- Amministratore fatturazione
 - Amministratore del servizio  
-- Amministratore utenti 
-- Amministratore password 
+- Amministratore utenti
+- Amministratore password
 
-## Accesso amministratore just-in-time 
+## Accesso amministratore just-in-time
 
 In passato, si poteva assegnare un utente a un ruolo amministrativo tramite il portale di gestione di Azure o Windows PowerShell. Di conseguenza, l'utente diventava un **amministratore permanente**, sempre attivo nel ruolo assegnato. In questa versione di anteprima è stato aggiunto il supporto per un **amministratore temporaneo**, ovvero un utente che deve completare un processo di attivazione per il ruolo assegnato. Il processo di attivazione cambia l'assegnazione di un ruolo all'utente in Azure AD da inattiva ad attiva.
 
@@ -49,28 +49,28 @@ Per iniziare a usare Gestione identità con privilegi di Azure AD, accedere al [
 
 Al termine dell'inizializzazione di questa estensione, l'utente diventerà il primo **Amministratore della sicurezza** della directory. Solo l'amministratore della sicurezza può accedere a questa estensione per gestire l'accesso per gli altri amministratori. Durante l'inizializzazione, verrà aggiunto un riquadro di Gestione identità con privilegi d Azure AD nella schermata iniziale del portale di anteprima di Azure.
 
-## Dashboard di Gestione identità con privilegi 
+## Dashboard di Gestione identità con privilegi
 
 In Gestione identità con privilegi di Azure AD è disponibile un dashboard che visualizza informazioni importanti, tra cui:
 
 - Numero di utenti assegnati a ogni ruolo con privilegi  
-- Numero di amministratori permanenti e temporanei 
-- Cronologia di accesso dell'amministratore 
+- Numero di amministratori permanenti e temporanei
+- Cronologia di accesso dell'amministratore
 
 ![][2]
 
-## Gestione dei ruoli con privilegi 
+## Gestione dei ruoli con privilegi
 
 Gestione identità con privilegi di Azure AD consente di gestire gli amministratori tramite l'aggiunta o la rimozione di amministratori permanenti o temporanei a ogni ruolo.
 
 ![][3]
 
-## Configurare le impostazioni di attivazione del ruolo 
+## Configurare le impostazioni di attivazione del ruolo
 
 L'impostazione di attivazione del ruolo consente di configurare le proprietà di attivazione del ruolo temporaneo, ad esempio:
 
 - Durata del periodo di attivazione del ruolo
-- Notifica di attivazione del ruolo 
+- Notifica di attivazione del ruolo
 - Informazioni che l'utente deve specificare durante il processo di attivazione del ruolo  
 
 ![][4]
@@ -82,7 +82,7 @@ Per attivare un ruolo, un amministratore temporaneo deve richiedere un'"attivazi
 Un amministratore che vuole attivare un ruolo deve inizializzare Gestione identità con privilegi di Azure AD nel portale di anteprima di Azure.
 
 Qualsiasi tipo di amministratore può usare Gestione identità con privilegi di Azure AD per attivare il suo ruolo.
- 
+
 L'attivazione del ruolo ha un vincolo di tempo. Nelle impostazioni di attivazione del ruolo è possibile configurare la durata dell'attivazione e le informazioni che l'amministratore dovrà fornire per attivare il ruolo.
 
 ![][5]
@@ -105,6 +105,4 @@ Gestione identità con privilegi di Azure AD consente anche di rilevare le modif
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

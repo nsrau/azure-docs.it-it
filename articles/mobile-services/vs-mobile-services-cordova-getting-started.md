@@ -93,4 +93,4 @@ Eliminare una riga da una tabella dati usando il metodo **del**. Chiamare il met
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

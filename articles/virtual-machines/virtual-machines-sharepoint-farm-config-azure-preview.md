@@ -139,4 +139,4 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

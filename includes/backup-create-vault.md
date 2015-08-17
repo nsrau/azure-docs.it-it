@@ -39,4 +39,4 @@ Se si usa Azure come endpoint terziario di archiviazione dei backup (se ad esemp
 
 ![Archiviazione con ridondanza locale](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

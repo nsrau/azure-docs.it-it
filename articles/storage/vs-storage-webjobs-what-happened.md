@@ -42,4 +42,4 @@ Nel file App.config del progetto gli elementi `AzureWebJobsStorage` e `AzureWebJ
 
 Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

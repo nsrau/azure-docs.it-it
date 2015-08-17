@@ -100,4 +100,4 @@ Per SQL Server sono supportate per l'analisi le edizioni seguenti a 32 bit e a 6
 
 È inoltre supportata l'edizione a 32 bit di SQL Server eseguita nell'implementazione WOW64.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

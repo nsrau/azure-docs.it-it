@@ -55,7 +55,7 @@ Il nome e la chiave dell'autorità emittente del Controllo di accesso vengono us
 
 Nel pannello di navigazione sinistro è inoltre possibile selezionare **Active Directory** per recuperare i valori del Controllo di accesso.
 
-> [AZURE.IMPORTANT]Quando si crea uno spazio dei nomi del Controllo di accesso usando <strong>Active Directory</strong>, **non** viene creata automaticamente un'identità del servizio. Quando si esegue il provisioning di un Servizio BizTalk, vengono creati automaticamente lo spazio dei nomi del Controllo di accesso, un'identità del servizio con nome "owner" (Nome dell'autorità emittente), una password (Chiave dell'autorità emittente) e una chiave simmetrica.<br /> L'articolo [Procedura: Usare il servizio di gestione ACS per la configurazione delle identità del servizio](http://go.microsoft.com/fwlink/p/?LinkID=303942) fornisce altre informazioni sulle identità del Servizio di controllo di accesso.
+> [AZURE.IMPORTANT]Quando si crea uno spazio dei nomi del Controllo di accesso utilizzando **Active Directory**, **non** viene creata automaticamente un'identità del servizio. Quando si esegue il provisioning di un Servizio BizTalk, vengono creati automaticamente lo spazio dei nomi del Controllo di accesso, un'identità del servizio con nome "owner" (Nome dell'autorità emittente), una password (Chiave dell'autorità emittente) e una chiave simmetrica.<br /> L'articolo [Procedura: Usare il servizio di gestione ACS per la configurazione delle identità del servizio](http://go.microsoft.com/fwlink/p/?LinkID=303942) fornisce altre informazioni sulle identità del Servizio di controllo di accesso.
 
 
 ## Nome e chiave dell'autorità emittente del bus di servizio
@@ -86,4 +86,4 @@ Ulteriori argomenti relativi a Servizi BizTalk di Azure:
 - [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

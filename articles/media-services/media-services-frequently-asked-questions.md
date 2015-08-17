@@ -45,4 +45,4 @@ D: Come è possibile copiare gli asset da un account di Servizi multimediali a u
 
 R: Per copiare gli asset da un account di Servizi multimediali a un altro, usare il metodo di estensione [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponibile nel repository [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Per altre informazioni, vedere [questo](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) thread del forum.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

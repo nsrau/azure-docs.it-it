@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/09/2015"
    ms.author="v-sharos" />
+
 
 # Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
 
@@ -235,7 +237,7 @@ Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i v
 
     ![Messaggi di conversione del disco dinamico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. In Gestione disco, verificare che il disco 1 e disco 2 vengono mostrati come i volumi dinamici con mirroring. (\* \* Dinamico \* \* dovrebbe essere visualizzato nella colonna di stato e il colore della barra di capacità dovrebbe cambia in rosso per indicare un volume con mirroring.)
+10. In Gestione disco, verificare che il disco 1 e il disco 2 vengano visualizzati come volumi con mirroring dinamico. (**Dinamico** dovrebbe essere visualizzato nella colonna dello stato e le barre di capacità dovrebbero diventare rosse ad indicare un volume con mirroring.)
 
     ![Gestione Disco dischi dinamici con mirroring di](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -247,21 +249,21 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 
 1. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Verrà visualizzata la finestra di gestione StorSimple Snapshot Manager. 
 
-2. Nel**riquadro**ambito, cliccare col destro il nodo**volumi**e selezionare**Ripeti analisi dei volumi**. Al termine dell’analisi, un elenco di volumi dovrebbe apparire nel riquadro **Risultati**. Il volume con mirroring dinamico viene elencato come un singolo volume.
+2. Nel riquadro **Ambito**, cliccare con il tasto destro del mouse il nodo **Volumi**e selezionare**Ripeti analisi dei volumi**. Al termine dell’analisi, un elenco di volumi dovrebbe apparire nel riquadro **Risultati**. Il volume con mirroring dinamico viene elencato come un singolo volume.
 
-3. Nel**riquadro**risultati, cliccare col tasto destro del mouse sul volume con mirroring dinamico e quindi fare clic su**Crea gruppo di volumi**.
+3. Nel riquadro **Risultati**, cliccare col tasto destro del mouse sul volume con mirroring dinamico e quindi fare clic su **Crea gruppo di volumi**.
 
-4. Nella finestra di dialogo **Crea gruppo di volumi**digitare un nome per il gruppo di volumi, assegnare il volume con mirroring dinamico al gruppo e quindi fare clic su**OK**.
+4. Nella finestra di dialogo **Crea gruppo di volumi** digitare un nome per il gruppo di volumi, assegnare il volume con mirroring dinamico al gruppo e quindi fare clic su **OK**.
 
 5. Nel riquadro **Ambito**, espandere il nodo **Gruppi di volumi**. Il nuovo gruppo di volumi dovrebbe essere visualizzato sotto il nodo **Gruppi di volumi**.
 
 6. Fare clic sul nome del gruppo di volumi.
 
-    - Per avviare un processo di backup interattivo (su richiesta), fare clic su**Esegui Backup**. 
+    - Per avviare un processo di backup interattivo (su richiesta), fare clic su **Esegui Backup**. 
 
-    - Per pianificare un backup automatico, fare clic su**Crea criteri di Backup**. Nella Pagina**Generale**, selezionare il gruppo di volumi dall'elenco. Nella pagina **Programmazione**, immettere i dettagli del programma. Al termine, fare clic su**OK**.
+    - Per pianificare un backup automatico, fare clic su **Crea criteri di Backup**. Nella pagina **Generale**, selezionare il gruppo di volumi dall'elenco. Nella pagina **Programmazione**, immettere i dettagli del programma. Al termine, fare clic su **OK**.
 
-7. È possibile monitorare il processo di backup durante l'esecuzione. Nel**riquadro**ambito, espandere il**nodo**processi e quindi fare clic su**in esecuzione**, vengono visualizzati i dettagli del processo nel**riquadro**risultati. Al termine del processo di backup, i dettagli vengono trasferiti nella lista**ultime 24 ore**.
+7. È possibile monitorare il processo di backup durante l'esecuzione. Nel riquadro **Ambito**, espandere il nodo **Processi** e quindi fare clic su **In esecuzione**, vengono visualizzati i dettagli del processo nel riquadro **Risultati**. Al termine del processo di backup, i dettagli vengono trasferiti nella lista dei processi **Ultime 24 ore**.
 
 ## Passaggi successivi
 
@@ -270,4 +272,4 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

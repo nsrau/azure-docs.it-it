@@ -211,4 +211,4 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -129,8 +129,8 @@ Al termine di queste operazioni, è necessario sostituire i riferimenti di Cappt
 
 In Package.appxmanifest `File Type Associations` è stato aggiornato da:
 
- -   capptain_reach_content a engagement_reach_content
- -   capptain_log_file a engagement_log_file
+ -   capptain\_reach\_content a engagement\_reach\_content
+ -   capptain\_log\_file a engagement\_log\_file
 
 ### ID applicazione / chiave SDK
 
@@ -169,4 +169,4 @@ Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

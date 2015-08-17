@@ -242,4 +242,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Eventi di Azure Service Fabric Actors"
-   description="Introduzione agli eventi per Azure Service Fabric Actors."
+   pageTitle="Eventi di Reliable Actors"
+   description="Introduzione agli eventi per Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-In caso di failover, l'attore può eseguire il failover su un processo o un nodo diverso. Il proxy dell'attore gestisce le sottoscrizioni attive e le rieffettua in modo automatico. È possibile controllare l'intervallo di risottoscrizione tramite l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Per annullare la sottoscrizione utilizza l’`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`API.
+In caso di failover, l'attore può eseguire il failover su un processo o un nodo diverso. Il proxy dell'attore gestisce le sottoscrizioni attive e le rieffettua in modo automatico. È possibile controllare l'intervallo di risottoscrizione tramite l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Per annullare la sottoscrizione usa l'`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`API.
 
 Nell'attore pubblicare semplicemente gli eventi man mano che si verificano. Se vi sono sottoscrittori che hanno sottoscritto l'evento, il runtime di Actors invierà loro la notifica.
 
@@ -72,4 +72,4 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

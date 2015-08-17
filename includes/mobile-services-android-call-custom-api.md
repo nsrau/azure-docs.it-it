@@ -1,7 +1,7 @@
 
 ##<a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
 
-1. Verrà aggiunto un pulsante denominato "Complete All" accanto al pulsante esistente ed entrambi i pulsanti verranno spostati di una riga verso il basso. In Android Studio aprire il file *res\layout\activity_to_do.xml* nel progetto di guida introduttiva e individuare l'elemento **LinearLayout** che contiene l'elemento **Button** denominato `buttonAddToDo`. Copiare l'elemento **LinearLayout** e incollarlo immediatamente dopo l'originale. Eliminare l'elemento **Button** dal primo elemento **LinearLayout**.
+1. Verrà aggiunto un pulsante denominato "Complete All" accanto al pulsante esistente ed entrambi i pulsanti verranno spostati di una riga verso il basso. In Android Studio aprire il file *res\\layout\\activity\_to\_do.xml* nel progetto di guida introduttiva e individuare l'elemento **LinearLayout** che contiene l'elemento **Button** denominato `buttonAddToDo`. Copiare l'elemento **LinearLayout** e incollarlo immediatamente dopo l'originale. Eliminare l'elemento **Button** dal primo elemento **LinearLayout**.
 
 2. Nel secondo elemento **LinearLayout** eliminare l'elemento **EditText** e aggiungere il codice seguente immediatamente dopo l'elemento **Button** esistente:
 
@@ -36,7 +36,7 @@
 	    </LinearLayout>
 	
 
-4. Aprire il file res\values\string.xml e aggiungere la riga di codice seguente:
+4. Aprire il file res\\values\\string.xml e aggiungere la riga di codice seguente:
 
     	<string name="complete_button_text">Complete All</string>
 
@@ -112,4 +112,4 @@
 
 	Verrà visualizzata una finestra di dialogo con messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata verrà eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

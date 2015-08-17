@@ -157,4 +157,4 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 
 [Scaricare asset](media-services-deliver-asset-download.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

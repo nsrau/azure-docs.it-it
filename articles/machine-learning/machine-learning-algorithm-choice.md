@@ -195,7 +195,8 @@ Tuttavia, esistono alcuni svantaggi legati all'uso degli alberi delle decisioni:
 
 <a name="anchor-6g"></a> **[Regressione delle foreste delle decisioni][decision-forest-regression]** Le foreste delle decisioni possono essere usate per applicazioni di classificazione (variabili categoriche) o regressione (variabili continue). Le foreste di regressione possono essere usate per la regressione non lineare di variabili dipendenti dato un input indipendente e sia gli input che gli output possono essere multidimensionali. Le foreste di regressione non vengono usate tanto quanto le relative controparti di classificazione. La differenza principale è che le etichette di output delle foreste delle decisioni associate ai dati di input (e alle etichette di training) devono essere continue. Di conseguenza, la funzione dell'obiettivo deve essere adattata in modo appropriato. Le foreste di regressione condividono molti dei vantaggi delle foreste di classificazione, ad esempio l'efficienza e la flessibilità.
 
-La regressione lineare è ampiamente usata per modellare la relazione tra una variabile dipendente scalare Y e una o più variabili esplicative contrassegnate X. Può essere, e solitamente lo è, applicata per stime, previsioni o riduzione. Può essere utilizzata per adattare un modello di stima a un set di dati osservati dei valori X e Y. La regressione lineare presuppone che la struttura sottostante di Y sia una combinazione lineare delle variabili di X. Se un valore aggiuntivo di X viene quindi specificato senza il relativo valore y, il modello di regressione lineare adattato può essere utilizzato per stimare il valore di Y. I modelli di regressione lineare vengono in genere adattati tramite l'approccio dei minimi quadrati. Esistono tuttavia anche altre opzioni per misurare l'adattamento migliore. \[[Regressione lineare]](http://en.wikipedia.org/wiki/Bayesian_linear_regression) \([Wikipedia](http://en.wikipedia.org)\)\]
+<a name="anchor-6a"></a> **[Regressione lineare][linear-regression]** 
+La regressione lineare è ampiamente usata per modellare la relazione tra una variabile dipendente scalare Y e una o più variabili esplicative contrassegnate X. Può essere, e solitamente lo è, applicata per stime, previsioni o riduzione. Può essere utilizzata per adattare un modello di stima a un set di dati osservati dei valori X e Y. La regressione lineare presuppone che la struttura sottostante di Y sia una combinazione lineare delle variabili di X. Se un valore aggiuntivo di X viene quindi specificato senza il relativo valore y, il modello di regressione lineare adattato può essere utilizzato per stimare il valore di Y. I modelli di regressione lineare vengono in genere adattati tramite l'approccio dei minimi quadrati. Esistono tuttavia anche altre opzioni per misurare l'adattamento migliore. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
 
 <a name="anchor-6c"></a> **[Regressione della rete neurale][neural-network-regression]** 
 Le reti neurali sono uno strumento statistico utile per la regressione non parametrica. La regressione non parametrica risolve il problema del tentativo di adattamento di un modello per una variabile Y su un set di variabili esplicative possibili X1; : : : ;Xp e dove la relazione tra X e Y può essere più complicata di una relazione lineare semplice. \[[Articolo su una struttura per la regressione non parametrica con reti neurali](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee \(ISDS, Duke University\)\]
@@ -247,9 +248,9 @@ Per informazioni più dettagliate su tutti i tipi di algoritmi di Machine Learni
 
 Vedere anche:
 
-* [Foglio informativo sugli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-cheat-sheet.md) \(Microsoft\).
+* [Foglio informativo sugli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-cheat-sheet.md) (Microsoft).
 
-* [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/) \([scikit-learn](http://scikit-learn.org/stable/index.html)\).
+* [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/) ([scikit-learn](http://scikit-learn.org/stable/index.html)).
 
 
 <!-- Module References -->
@@ -265,4 +266,4 @@ Vedere anche:
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

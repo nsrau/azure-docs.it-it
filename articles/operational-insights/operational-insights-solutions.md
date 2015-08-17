@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/05/2015"
 	ms.author="alfran"/>
 
 # Soluzioni disponibili in Operational Insights
@@ -24,7 +24,7 @@ Le soluzioni sono un insieme di **logica**, **visualizzazione** e **regole per l
 
 Questa guida illustra in modo dettagliato le diverse soluzioni disponibili e il relativo uso.
 
->[AZURE.NOTE]Per altre informazioni sull'*aggiunta* di soluzioni, vedere l'articolo relativo all'[aggiunta di soluzioni](operational-insights-add-solution.md).
+>[AZURE.NOTE]Per altre informazioni sull'*aggiunta* di soluzioni, vedere l'articolo relativo all'[aggiunta di soluzioni](operational-insights-setup-workspace.md).
 
 ## SQL Assessment
 
@@ -129,4 +129,4 @@ I risultati della ricerca per il server comprendono:
 - Giorni trascorsi dall'ultimo aggiornamento
 - Versione dell'agente di Windows Update
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

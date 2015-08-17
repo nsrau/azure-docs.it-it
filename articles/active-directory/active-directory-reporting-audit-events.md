@@ -103,4 +103,4 @@ L'evento di controllo di aggiornamento dell'utente include informazioni aggiunti
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](http://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

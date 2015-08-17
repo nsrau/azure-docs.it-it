@@ -102,7 +102,7 @@ Per recuperare il file RDP, è possibile usare il cmdlet [Get-AzureRemoteDesktop
 ### Usare Visual Studio per scaricare il file RDP
 In Visual Studio è possibile usare Esplora server per creare una connessione Desktop remoto.
 
-1.  In Esplora server espandere il nodo **Azure\Cloud Services\[nome servizio cloud]**.
+1.  In Esplora server espandere il nodo **Azure\\Cloud Services\\[nome servizio cloud]**.
 2.  Espandere **Gestione temporanea** o **Produzione**.
 3.  Espandere il singolo ruolo.
 4.  Fare clic con il pulsante destro del mouse su una delle istanze del ruolo, scegliere **Connetti mediante Desktop remoto** e quindi immettere il nome utente e la password.
@@ -113,4 +113,4 @@ In Visual Studio è possibile usare Esplora server per creare una connessione De
 ## Passaggi successivi
 Potrebbe essere necessario [creare il pacchetto](cloud-services-model-and-package.md) dell'applicazione oppure [caricarla (distribuirla)](cloud-services-how-to-create-deploy-portal.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

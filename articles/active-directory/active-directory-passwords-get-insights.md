@@ -69,47 +69,9 @@ L'elenco seguente descrive le colonne del report in modo dettagliato:
 ### Descrizione dei valori del report
 La tabella seguente descrive i valori consentiti per ogni colonna:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Colonna</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valori consentiti e relativi significati</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Dati registrati</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Indirizzo di posta elettronica alternativo</strong>: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Telefono ufficio</strong>: l'utente ha usato il telefono dell'ufficio per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Telefono cellulare</strong>: l'utente ha usato il telefono cellulare o di autenticazione per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Domande di sicurezza</strong>: l'utente ha usato le domande di sicurezza per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Qualsiasi combinazione dei valori precedenti (ad esempio Indirizzo di posta elettronica alternativo + Telefono cellulare)</strong>: si verifica quando viene specificato un criterio di 2 controlli e indica i due metodi usati dall'utente per l'autenticazione della richiesta di reimpostazione della propria password.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+Colonna|Valori consentiti e relativi significati
+---|---
+Dati registrati| **Indirizzo di posta elettronica alternativo** - l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p><p>**Telefono ufficio** – l’utente ha utilizzato il telefono ufficio per autenticarsi <p>**Cellulare** - l’utente ha utilizzato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza** – domande di sicurezza usate dall’utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi utilizzati dall’utente nell'autenticazione per richiedere la reimpostazione della password.
 
 ## Visualizzare le attività di reimpostazione delle password nell'organizzazione
 
@@ -124,404 +86,63 @@ Questo report illustra tutti i tentativi di reimpostazione delle password che si
 ### Descrizione delle colonne del report
 L'elenco seguente descrive le colonne del report in modo dettagliato:
 
-1. **Utente**: l'utente che ha provato a eseguire un'operazione di reimpostazione delle password (in base al campo ID utente specificato quando l'utente accede per reimpostare una password).
+1. **Utente**: l'utente che ha provato a eseguire un'operazione di reimpostazione della password (in base al campo ID utente specificato quando l'utente accede per reimpostare una password).
 2. **Ruolo**: il ruolo dell'utente nella directory.
 3. **Data e ora**: la data e l'ora del tentativo.
 4. **Metodi usati**: i metodi di autenticazione usati dall'utente per questa operazione di reimpostazione.
-5. **Risultato**: il risultato finale dell'operazione di reimpostazione delle password.
-6. **Dettagli**: i dettagli del motivo per cui la reimpostazione delle password ha restituito un determinato valore. Sono inoltre inclusi eventuali passaggi che è possibile eseguire per risolvere un errore imprevisto.
+5. **Risultato**: il risultato finale dell'operazione di reimpostazione della password.
+6. **Dettagli**: i dettagli del motivo per cui la reimpostazione della password ha restituito un determinato valore. Sono inoltre inclusi eventuali passaggi che è possibile eseguire per risolvere un errore imprevisto.
 
 ### Descrizione dei valori del report
 La tabella seguente descrive i valori consentiti per ogni colonna:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Colonna</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valori consentiti e relativi significati</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Metodi usati</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Indirizzo di posta elettronica alternativo</strong>: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Telefono ufficio</strong>: l'utente ha usato il telefono dell'ufficio per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Telefono cellulare</strong>: l'utente ha usato il telefono cellulare o di autenticazione per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Domande di sicurezza</strong>: l'utente ha usato le domande di sicurezza per autenticarsi<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Qualsiasi combinazione dei valori precedenti (ad esempio Indirizzo di posta elettronica alternativo + Telefono cellulare)</strong>: si verifica quando viene specificato un criterio di 2 controlli e indica i due metodi usati dall'utente per l'autenticazione della richiesta di reimpostazione della propria password.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Risultato</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Operazione abbandonata</strong> - l'utente ha iniziato l'operazione di reimpostazione delle password, ma l'ha interrotta senza completarla<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Bloccato</strong> - all'account utente è stato impedito l'uso della reimpostazione delle password per aver provato a usare la pagina di reimpostazione delle password o un singolo controllo di reimpostazione delle password troppe volte in un periodo di 24 ore<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Operazione annullata</strong> - l'utente ha iniziato l'operazione di reimpostazione delle password, ma poi ha fatto clic sul pulsante Annulla per annullare la sessione mentre era in corso <br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Amministratore contattato</strong> - l'utente ha riscontrato un problema durante la sessione che non è riuscito a risolvere e ha quindi selezionato il collegamento "Contattare l'amministratore" invece di portare a termine il flusso di reimpostazione delle password<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Operazione non riuscita</strong> - l'utente non è stato in grado di reimpostare una password, probabilmente perché non è stato configurato per usare questa funzionalità (ad esempio, non dispone di licenza, non sono presenti informazioni di autenticazione, la password è gestita in locale, ma il writeback non è attivo).<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Operazione completata</strong> - l'operazione di reimpostazione delle password è stata eseguita correttamente.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Dettagli</p>
-              </td>
-              <td>
-                <p>Vedere la tabella seguente</p>
-              </td>
-            </tr>
-          </tbody></table>
+
+Colonna|Valori consentiti e relativi significati
+---|---
+Metodi usati|**Indirizzo di posta elettronica alternativo** - l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p>**Telefono ufficio** – l’utente ha utilizzato il telefono ufficio per autenticarsi<p>**Cellulare** - l’utente ha utilizzato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza** – domande di sicurezza usate dall’utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi utilizzati dall’utente nell'autenticazione per richiedere la reimpostazione della password.
+Risultato|**Operazione abbandonata** - l'utente ha iniziato l'operazione di reimpostazione della password, ma l'ha interrotta senza completarla<p>** Operazione bloccata** - è stato impedito all’account utente di utilizzare la pagina di reimpostazione della password poiché ha tentanto troppe volte di utilizzare tale pagina o un singolo criterio di reimpostazione password in 24 ore <p>**Operazione annullata** – l’utente ha avviato la reimpostazione della password, ma ha poi annullato la sessione tramite il pulsante Annulla<p>**E’ stato contattato l’amministratore** – l’utente ha riscontrato problemi durante la sessione che non è stato in grado di risolvere e ha contattato l’amministratore tramite il collegamento “Contatta l’amministratore” invece di terminare la sessione di reimpostazione della password<p>**Operazione non riuscita** – l’utente non è riuscito a reimpostare la password, probabilmente perché non era configurato per utilizzare tale funzionalità (ad esempio, mancanza di licenza o di informazioni di autenticazione, gestione della password locale ma senza writeback).<p>**Operazione riuscita** – la reimpostazione della password è stata eseguita correttamente.
+Dettagli|Vedere la tabella seguente
 
 ### Valori consentiti per la colonna dettagli
 Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il report relativo alle attività per la reimpostazione delle password:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Dettagli</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Tipo di risultato</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite posta elettronica.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite SMS al numero di cellulare.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero di cellulare.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite risposta alle domande di sicurezza.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere immesso il proprio ID utente.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite posta elettronica.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite SMS al numero di cellulare.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite chiamata vocale al numero di cellulare.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite risposta alle domande di sicurezza.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato prima di selezionare una nuova password.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha abbandonato durante la selezione di una nuova password.</p>
-              </td>
-              <td>
-                <p>Operazione abbandonata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha immesso troppi codici di verifica tramite posta elettronica non validi e rimarrà bloccato per 24 ore.</p>
-              </td>
-              <td>
-                <p>Bloccato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha immesso troppi codici di verifica SMS non validi a e rimarrà bloccato per 24 ore.</p>
-              </td>
-              <td>
-                <p>Bloccato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha superato il numero di tentativi consentiti per la verifica tramite chiamata vocale al telefono cellulare e rimarrà bloccato per 24 ore.</p>
-              </td>
-              <td>
-                <p>Bloccato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha superato il numero di tentativi consentiti per la verifica tramite chiamata vocale al telefono dell'ufficio e rimarrà bloccato per 24 ore.</p>
-              </td>
-              <td>
-                <p>Bloccato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha superato il numero di tentativi consentiti per le risposte alle domande di sicurezza e rimarrà bloccato per 24 ore.</p>
-              </td>
-              <td>
-                <p>Bloccato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha superato il numero di tentativi consentiti per la verifica del numero di telefono e rimarrà bloccato per 24 ore.</p>
-              </td>
-              <td>
-                <p>Bloccato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha annullato prima di passare i metodi di autenticazione necessari.</p>
-              </td>
-              <td>
-                <p>Operazione annullata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha annullato prima di inviare una nuova password.</p>
-              </td>
-              <td>
-                <p>Operazione annullata</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite posta elettronica.</p>
-              </td>
-              <td>
-                <p>Amministratore contattato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite SMS al numero di cellulare.</p>
-              </td>
-              <td>
-                <p>Amministratore contattato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite chiamata vocale al numero di cellulare.</p>
-              </td>
-              <td>
-                <p>Amministratore contattato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio.</p>
-              </td>
-              <td>
-                <p>Amministratore contattato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica della domanda di sicurezza.</p>
-              </td>
-              <td>
-                <p>Amministratore contattato</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La reimpostazione della password non è abilitata per questo utente. Per risolvere il problema, abilitare la reimpostazione della password nella scheda Configura.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>All'utente non sono assegnate licenze. Per risolvere il problema, assegnare una licenza all'utente.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>L'utente ha tentato di reimpostare la password da un dispositivo senza i cookie abilitati.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Il numero di metodi di autenticazione definito per l'account dell'utente non è sufficiente. Per risolvere il problema, aggiungere le informazioni di autenticazione.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La password dell'utente è gestita in locale. Per risolvere il problema, è possibile abilitare il writeback delle password.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Non è stato possibile raggiungere il servizio di reimpostazione della password locale. Verificare il log eventi del computer di sincronizzazione.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Si è verificato un problema durante la reimpostazione della password locale dell'utente. Verificare il log eventi del computer di sincronizzazione.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Questo utente non è un membro del gruppo di utenti autorizzati alla reimpostazione della password. Per risolvere il problema, aggiungere l'utente al gruppo.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La reimpostazione della password è stata completamente disabilitata per questo tenant. Per risolvere il problema, vedere <a href="http://aka.ms/ssprtroubleshoot">http://aka.ms/ssprtroubleshoot</a>.</p>
-              </td>
-              <td>
-                <p>Operazione non riuscita</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La reimpostazione della password dell'utente è riuscita.</p>
-              </td>
-              <td>
-                <p>Operazione completata</p>
-              </td>
-            </tr>
-          </tbody></table>
-
-<br/> <br/> <br/>
+Dettagli | Tipo di risultato 
+----|----
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite posta elettronica. | Operazione abbandonata
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite SMS al numero di cellulare.|Operazione abbandonata 
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero di cellulare. | Operazione abbandonata 
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio. | Operazione abbandonata
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite risposta alle domande di sicurezza.|Operazione abbandonata 
+L'utente ha abbandonato dopo avere immesso il proprio ID utente.| Operazione abbandonata 
+L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite posta elettronica.|Operazione abbandonata
+L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite SMS al numero di cellulare.|Operazione abbandonata
+L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite chiamata vocale al numero di cellulare.|Operazione abbandonata
+L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio.|Operazione abbandonata
+L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite risposta alle domande di sicurezza.| Operazione abbandonata
+L'utente ha abbandonato prima di selezionare una nuova password.| Operazione abbandonata
+L'utente ha abbandonato durante la selezione di una nuova password.| Operazione abbandonata
+L'utente ha immesso troppi codici di verifica SMS non validi a e rimarrà bloccato per 24 ore.|Bloccato
+L'utente ha superato il numero di tentativi consentiti per la verifica tramite chiamata vocale al telefono cellulare e rimarrà bloccato per 24 ore.|Bloccato
+L'utente ha superato il numero di tentativi consentiti per la verifica tramite chiamata vocale al telefono dell'ufficio e rimarrà bloccato per 24 ore. |Bloccato
+L'utente ha superato il numero di tentativi consentiti per le risposte alle domande di sicurezza e rimarrà bloccato per 24 ore.| Bloccato
+L'utente ha superato il numero di tentativi consentiti per la verifica del numero di telefono e rimarrà bloccato per 24 ore.|Bloccato
+L'utente ha annullato prima di passare i metodi di autenticazione necessari.|Operazione annullata
+L'utente ha annullato prima di inviare una nuova password.|Operazione annullata
+L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite posta elettronica. |Amministratore contattato
+L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite SMS al numero di cellulare.|Amministratore contattato
+L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite chiamata vocale al numero di cellulare.|Amministratore contattato
+L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio. |Amministratore contattato
+L'utente ha contattato un amministratore dopo aver tentato l'opzione di verifica della domanda di sicurezza.|Amministratore contattato
+La reimpostazione della password non è abilitata per questo utente. Per risolvere il problema, abilitare la reimpostazione della password nella scheda Configura.| Operazione non riuscita
+All'utente non sono assegnate licenze. Per risolvere il problema, assegnare una licenza all'utente.|Operazione non riuscita
+L'utente ha tentato di reimpostare la password da un dispositivo senza i cookie abilitati.| Operazione non riuscita
+Il numero di metodi di autenticazione definito per l'account dell'utente non è sufficiente. Per risolvere il problema, aggiungere le informazioni di autenticazione.|Operazione non riuscita
+La password dell'utente è gestita in locale. Per risolvere il problema, è possibile abilitare il writeback delle password.|Operazione non riuscita
+Non è stato possibile raggiungere il servizio di reimpostazione della password locale. Verificare il log eventi del computer di sincronizzazione.|Operazione non riuscita
+Si è verificato un problema durante la reimpostazione della password locale dell'utente. Verificare il log eventi del computer di sincronizzazione. | Operazione non riuscita
+Questo utente non è un membro del gruppo di utenti autorizzati alla reimpostazione della password. Per risolvere il problema, aggiungere l'utente al gruppo.|Operazione non riuscita
+La reimpostazione della password è stata completamente disabilitata per questo tenant. Vedere[qui](http://aka.ms/ssprtroubleshoot)per risolvere il problema. | Failed 
+La reimpostazione della password dell'utente è riuscita.|Succeeded
 
 **Risorse aggiuntive**
 
@@ -543,4 +164,4 @@ Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

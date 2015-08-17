@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/09/2015"
    ms.author="v-sharos" />
+
 
 # Interfaccia utente di Gestione snapshot StorSimple
 
@@ -540,4 +542,4 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 
 Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

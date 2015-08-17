@@ -63,4 +63,4 @@ Per configurare il client LDAP, seguire queste linee guida:
 - Impostare il timeout di LDAP su un valore compreso tra 30 e 60 secondi in modo da rendere disponibile una quantità di tempo sufficiente per convalidare le credenziali dell'utente con la directory LDAP, eseguire l'autenticazione basata su un secondo fattore, ricevere la risposta e quindi rispondere alla richiesta di accesso LDAP. 
 - Se si usa LDAPS, il dispositivo o il server che esegue le query LDAP deve considerare attendibile il certificato SSL installato nel server Azure Multi-Factor Authentication.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

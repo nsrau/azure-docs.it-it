@@ -1,11 +1,14 @@
 <properties
-	pageTitle="Come connettersi a un database SQL di Azure tramite SQL Server Management Studio"
+	urlDisplayName="How to connect to an Azure SQL database using SSMS"
+	pageTitle="Come connettersi a un database SQL di Azure tramite SQL Server Management Studio" metaKeywords=""
 	description="Informazioni su come connettersi a un database SQL di Azure tramite SQL Server Management Studio."
+	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh" 
-	manager="jhubbard" 
-	editor="" />
+	title="How to connect to an Azure SQL database using SSMS"
+	authors="sidneyh" solutions=""
+	manager="jhubbard" editor="" />
+
 
 <tags
 	ms.service="sql-database"
@@ -15,6 +18,7 @@
 	ms.topic="get-started-article" 
 	ms.date="07/15/2015"
 	ms.author="sidneyh" />
+
 
 # Connettersi con SQL Server Management Studio
 
@@ -33,23 +37,23 @@ Questi sono i passaggi per installare SQL Server Management Studio (SSMS) e util
 
 ## Connettersi al database SQL
 1. Aprire SQL Server Management Studio.
-2. Nella finestra**Connetti al Server**, nella casella**nome Server**, digitare il nome del server nel formato *&lt;servername>*. **database.windows.net**
+2. Nella finestra **Connetti al server**, nella casella **Nome server**, digitare il nome del server nel formato *&lt;servername>*.**database.windows.net**
 3. Nella casella con menu a discesa **Autenticazione** selezionare **Autenticazione di SQL Server**.
-4. Immettere il**nome di accesso**e**Password**specificati quando è stato creato il server di Database SQL.
+4. Immettere il **nome di accesso** e la **password**specificati quando è stato creato il server di Database SQL.
 
 	![Finestra di dialogo Connetti al server][2]
 5. Fare clic sul pulsante **Opzioni**.
-6. Nella casella**Connetti al database**immettere**AdventureWorks**e fare clic su**Connetti**.
+6. Nella casella **Connetti al database** immettere **AdventureWorks**e fare clic su **Connetti**.
 
 	![Connetti al database][3]
 
 ### Se la connessione ha esito negativo
-Assicurarsi che il firewall del server logico che è stato creato consenta le connessioni dal computer locale. Vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx)
+Assicurarsi che il firewall del server logico che è stato creato consenta le connessioni dal computer locale. Vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
 
 ## Eseguire query di esempio
 
-1. In**Esplora**passare al database**AdventureWorks**.
-2. Fare clic sul database e selezionare fare clic su**Nuova Query**.
+1. In **Esplora** passare al database **AdventureWorks**.
+2. Fare clic sul database e selezionare fare clic su **Nuova Query**.
 
 	![Nuova query][4]
 3. Nella finestra della query appena aperta, copiare e incollare il codice seguente:
@@ -62,8 +66,7 @@ Assicurarsi che il firewall del server logico che è stato creato consenta le co
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Fare clic sul pulsante**Esegui**. Se l'operazione ha esito positivo, si otterrà un risultato analogo al seguente:
-	![Operazione riuscita][5]
+4. Fare clic sul pulsante **Esegui**. Se l'operazione ha esito positivo, si otterrà un risultato analogo al seguente:![Operazione riuscita][5]
 
 
 ## Passaggi successivi
@@ -78,4 +81,4 @@ Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Vede
 [5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

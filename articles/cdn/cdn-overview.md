@@ -67,7 +67,7 @@ La memorizzazione nella cache per i servizi cloud presenta i vincoli seguenti:
 
 - la rete CDN deve essere usata per memorizzare nella cache solo contenuto statico.
 
-	>[AZURE.WARNING]
+	>[AZURE.WARNING]La memorizzazione nella cache di contenuto estremamente volatile o dinamico può avere effetti negativi sulle prestazioni o causare problemi, con il conseguente aumento dei costi.
 - Il servizio cloud deve essere distribuito in una distribuzione di produzione.
 - Il servizio cloud deve fornire l'oggetto sulla porta 80 tramite HTTP.
 - Il servizio cloud deve posizionare il contenuto in modo che venga memorizzato nella cache nella, o distribuito dalla, cartella /cdn del servizio cloud.
@@ -114,4 +114,4 @@ Per altre informazioni sul mapping di un dominio personalizzato, vedere [Come es
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

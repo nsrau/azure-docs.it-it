@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Visualizzare e gestire gli avvisi di StorSimple
@@ -53,7 +53,7 @@ Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determ
 
 >[AZURE.NOTE]È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
-Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply@mail.windowsazure.com* e contengono una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da * *storsimple-alerts-noreply@mail.windowsazure.com* e contengono una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
 
 #### Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo
 
@@ -63,9 +63,9 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
 
     1. Nel campo **INVIA NOTIFICA DI POSTA ELETTRONICA**, selezionare **SÌ**.
 
-    2. Nel campo **INVIA MESSAGGIO DI POSTA ELETTRONICA AGLI AMMINISTRATORI DEL SERVIZIO**, selezionare **SÌ** se si desidera che l'amministratore del servizio e tutti i coamministratori ricevano le notifiche di avviso.
+    2. Nel campo **INVIA MESSAGGIO DI POSTA ELETTRONICA AGLI AMMINISTRATORI DEL SERVIZIO**, selezionare **SÌ** se si desidera che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
 
-    3. Nel campo **ALTRI DESTINATARI DI POSTA ELETTRONICA** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
+    3. Nel campo **ALTRI DESTINATARI DI POSTA ELETTRONICA** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato **someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
     ![Pagina di configurazione della notifica degli avvisi](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig.png)
 
@@ -137,56 +137,56 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Non è possibile stabilire la connessione a <\*nome credenziali cloud\*>.|Impossibile connettersi all'account di archiviazione.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet **Test-HcsmConnection** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema. Se le impostazioni sono corrette, il problema potrebbe essere relativo alle credenziali dell'account di archiviazione per cui è stato generato l'avviso. In questo caso, utilizzare il cmdlet **Test-HcsStorageAccountCredential** per determinare se sono presenti problemi che possono essere risolti. <ul><li>Controllare le impostazioni di rete.</li><li>Controllare le credenziali dell'account di archiviazione.</li></ul>|
-|Nessun heartbeat ricevuto dal dispositivo negli ultimi <\*number\*> minuti.|Impossibile connettersi al dispositivo.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet **Test-HcsmConnection** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema oppure contattare l'amministratore della rete.|
+|Non è possibile stabilire la connessione a <*nome credenziali cloud*>.|Impossibile connettersi all'account di archiviazione.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet **Test-HcsmConnection** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema. Se le impostazioni sono corrette, il problema potrebbe essere relativo alle credenziali dell'account di archiviazione per cui è stato generato l'avviso. In questo caso, utilizzare il cmdlet **Test-HcsStorageAccountCredential** per determinare se sono presenti problemi che possono essere risolti. <ul><li>Controllare le impostazioni di rete.</li><li>Controllare le credenziali dell'account di archiviazione.</li></ul>|
+|Nessun heartbeat ricevuto dal dispositivo negli ultimi <*numero*> minuti.|Impossibile connettersi al dispositivo.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet **Test-HcsmConnection** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema oppure contattare l'amministratore della rete.|
 
 ### Avvisi di cluster
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Failover del dispositivo su <\*device name\*>.|Il dispositivo è in modalità di manutenzione.|Failover del dispositivo a causa dell'ingresso o dell'uscita dalla modalità manutenzione. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi.|
-|Failover del dispositivo su <\*device name\*>.|Il software o il firmware del dispositivo è stato appena aggiornato.|Failover del cluster a causa di un aggiornamento. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi.|
-|Failover del dispositivo su <\*device name\*>.|Il controller è stato arrestato o riavviato.|Failover del dispositivo a causa dell'arresto o del riavvio del controller attivo da parte di un amministratore. Non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi.|
-|Failover del dispositivo su <\*device name\*>.|Failover pianificato.|Verificare che si tratta di un failover pianificato. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
-|Failover del dispositivo su <\*device name\*>.|Failover non pianificato.|StorSimple è progettato per eseguire il ripristino automatico dai failover non pianificati. Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft.|
-|Failover del dispositivo su <\*device name\*>.|Causa diversa/sconosciuta.|Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft. Dopo aver risolto il problema, cancellare questo avviso dalla pagina degli avvisi.|
+|Failover del dispositivo su <*nome dispositivo*>.|Il dispositivo è in modalità di manutenzione.|Failover del dispositivo a causa dell'ingresso o dell'uscita dalla modalità manutenzione. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi.|
+|Failover del dispositivo su <*nome dispositivo*>.|Il software o il firmware del dispositivo è stato appena aggiornato.|Failover del cluster a causa di un aggiornamento. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi.|
+|Failover del dispositivo su <*nome dispositivo*>.|Il controller è stato arrestato o riavviato.|Failover del dispositivo a causa dell'arresto o del riavvio del controller attivo da parte di un amministratore. Non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi.|
+|Failover del dispositivo su <*nome dispositivo*>.|Failover pianificato.|Verificare che si tratta di un failover pianificato. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
+|Failover del dispositivo su <*nome dispositivo*>.|Failover non pianificato.|StorSimple è progettato per eseguire il ripristino automatico dai failover non pianificati. Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft.|
+|Failover del dispositivo su <*nome dispositivo*>.|Causa diversa/sconosciuta.|Se viene visualizzato un numero elevato di questi avvisi, contattare il supporto tecnico Microsoft. Dopo aver risolto il problema, cancellare questo avviso dalla pagina degli avvisi.|
 
 ### Avvisi di ripristino di emergenza
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Non è possibile ripristinare tutte le impostazioni per questo servizio. I dati di configurazione del dispositivo si trovano in uno stato incoerente per alcuni dispositivi.|Incoerenza dei dati rilevata dopo il ripristino di emergenza.|I dati crittografati del servizio non sono sincronizzati con quelli sul dispositivo. Autorizzare il dispositivo <\*device name\*> da StorSimple Manager per avviare il processo di sincronizzazione. Utilizzare l'interfaccia di Windows PowerShell per StorSimple per eseguire il cmdlet **Restore-HcsmEncryptedServiceData nel dispositivo <\*device name\*>**, fornire la vecchia password come input di questo cmdlet per ripristinare il profilo di sicurezza. Eseguire quindi il cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** per aggiornare la chiave DEK del servizio. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
+|Non è possibile ripristinare tutte le impostazioni per questo servizio. I dati di configurazione del dispositivo si trovano in uno stato incoerente per alcuni dispositivi.|Incoerenza dei dati rilevata dopo il ripristino di emergenza.|I dati crittografati del servizio non sono sincronizzati con quelli sul dispositivo. Autorizzare il dispositivo <*nome dispositivo*> da StorSimple Manager per avviare il processo di sincronizzazione. Utilizzare l'interfaccia di Windows PowerShell per StorSimple per eseguire il cmdlet **Restore-HcsmEncryptedServiceData nel dispositivo <*nome dispositivo*>, **fornire la vecchia password come input di questo cmdlet per ripristinare il profilo di sicurezza. Eseguire quindi il cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** per aggiornare la chiave DEK del servizio. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
 |Failover del servizio in un data center secondario a causa di un errore imprevisto.|Causa diversa/sconosciuta.|Per continuare, è necessario verificare le impostazioni di configurazione nel servizio StorSimple Manager. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. Per ulteriori informazioni su StorSimple Manager, vedere la [Guida dell'amministratore di StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772401.aspx).|
 
 ### Avvisi di hardware
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Lo stato del componente hardware <\*component ID\*> è segnalato come <\*status\*>.||Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft.|
+|Lo stato del componente hardware <*ID componente*> è segnalato come <*status*>.||Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft.|
 |Malfunzionamento del controller passivo.|Il controller passivo (secondario) non funziona.|Il dispositivo è operativo, ma uno dei controller non funziona correttamente. Provare a riavviare il controller. Se il problema persiste, contattare il supporto tecnico Microsoft.|
 
 ### Avvisi di errore di processo
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Backup di <\*ID gruppo di volumi di origine\*> non riuscito.|Il processo di backup non è riuscito.|Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il numero massimo di backup consentiti. Eliminare i backup non più necessari e ripetere l'operazione. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
-|Clonazione di <\*ID elemento backup origine\*> su <\*numeri di serie volume destinazione\*> non riuscita.|Il processo di clonazione non è riuscito.|Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di clonazione. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi.|
-|Ripristino di <\*ID elemento backup origine\*> non riuscito.|Il processo di ripristino non è riuscito.|Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di ripristino. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi.|
+|Backup di <*ID gruppo di volumi di origine*> non riuscita.|Il processo di backup non è riuscito.|Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il numero massimo di backup consentiti. Eliminare i backup non più necessari e ripetere l'operazione. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
+|Clonazione di <*ID elemento backup di origine*> a <*numeri di serie volume di destinazione*> non riuscita.|Il processo di clonazione non è riuscito.|Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di clonazione. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi.|
+|Ripristino di <*ID elemento backup di origine*> non riuscita.|Il processo di ripristino non è riuscito.|Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di ripristino. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi.|
 
 ### Avvisi di prestazioni
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Il carico del dispositivo ha superato il limite di <\*threshold\*>.|Tempi di risposta più lenti del previsto.|Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di essi non sono più necessari o possono essere spostati in un altro dispositivo.|
+|Il carico del dispositivo ha superato <*threshold*>.|Tempi di risposta più lenti del previsto.|Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di essi non sono più necessari o possono essere spostati in un altro dispositivo.|
 
 ### Avvisi di sicurezza
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
 |La sessione del supporto tecnico Microsoft è stata avviata.|Sessione di supporto per l'accesso di terze parti.|Verificare che l'accesso sia autorizzato. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
-|La password per <\*element\*> scadrà tra <\*length of time\*> giorni.||Modificare la password prima della scadenza.|
-|Informazioni sulla configurazione di sicurezza mancanti per <\*element ID\*>.||Non è possibile usare i volumi associati a questo contenitore del volume per replicare la configurazione StorSimple. Per garantire che i dati vengano archiviati in modo sicuro, è consigliabile eliminare il contenitore del volume e gli eventuali volumi ad esso associati. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
-|<\*number\*> tentativi di accesso per <\*element ID\*> non riusciti.|Più tentativi di accesso non riusciti.|È possibile che il dispositivo sia vittima di un attacco o che un utente autorizzato stia tentando di connettersi con una password non corretta.<ul><li>Contattare gli utenti autorizzati e verificare che questi tentativi provengano da un'origine legittima. Se viene rilevato un numero elevato di tentativi di accesso, provare a disabilitare la gestione remota e a contattare l'amministratore di rete. Dopo avere eseguito l'operazione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li><li>Verificare che le istanze di Gestione snapshot siano configurate con la password corretta. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li></ul>|
+|Password per <*elemento*> scadrà tra <*periodo di tempo*>.||Modificare la password prima della scadenza.|
+|Informazioni sulla configurazione di protezione mancanti per <*ID elemento*>.||Non è possibile usare i volumi associati a questo contenitore del volume per replicare la configurazione StorSimple. Per garantire che i dati vengano archiviati in modo sicuro, è consigliabile eliminare il contenitore del volume e gli eventuali volumi ad esso associati. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
+|<*numero*> tentativi di accesso non riusciti per <*ID elemento*>.|Più tentativi di accesso non riusciti.|È possibile che il dispositivo sia vittima di un attacco o che un utente autorizzato stia tentando di connettersi con una password non corretta.<ul><li>Contattare gli utenti autorizzati e verificare che questi tentativi provengano da un'origine legittima. Se viene rilevato un numero elevato di tentativi di accesso, provare a disabilitare la gestione remota e a contattare l'amministratore di rete. Dopo avere eseguito l'operazione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li><li>Verificare che le istanze di Gestione snapshot siano configurate con la password corretta. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li></ul>|
 |Si sono verificati uno o più errori durante la modifica della chiave DEK del servizio.||Si sono verificati errori durante la modifica della chiave DEK del servizio. Dopo avere risolto le condizioni di errore, eseguire il cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per aggiornare il servizio. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo aver risolto il problema, cancellare questo avviso dalla pagina degli avvisi.|
 
 ### Avvisi del pacchetto per il supporto
@@ -199,7 +199,7 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Si tratta di un messaggio di prova inviato dal dispositivo StorSimple. L'amministratore di StorSimple ha aggiunto l'utente come destinatario delle notifiche di avviso per il dispositivo: <\*device name\*>.|Messaggio di posta elettronica di prova della notifica di avviso.|Se si ritiene di aver ricevuto per errore questo messaggio, contattare l'amministratore di StorSimple.|
+|Si tratta di un messaggio di prova inviato dal dispositivo StorSimple. L'amministratore di StorSimple ha aggiunto l'utente come destinatario delle notifiche di avviso per il dispositivo: <*nome dispositivo*>.|Messaggio di posta elettronica di prova della notifica di avviso.|Se si ritiene di aver ricevuto per errore questo messaggio, contattare l'amministratore di StorSimple.|
 
 ### Avvisi di aggiornamento
 
@@ -211,10 +211,10 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 |Impossibile installare gli aggiornamenti.|Gli aggiornamenti non sono stati installati correttamente.|Non è stato possibile installare gli aggiornamenti. È possibile installare questi aggiornamenti dalla pagina **Manutenzione** o tramite l'interfaccia di Windows PowerShell per StorSimple nel dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft.|
 |Non è possibile verificare automaticamente la disponibilità di aggiornamenti.|Verifica automatica non riuscita.|È possibile verificare manualmente la disponibilità di aggiornamenti dalla pagina **Manutenzione**.|
 |È disponibile un nuovo aggiornamento dell'agente di Windows.|Notifica di aggiornamento disponibile.|Scaricare la versione più recente dell'agente di Windows Update e installala dall'interfaccia di Windows PowerShell.|
-|La versione del componente <\*component ID\*> del firmware non corrisponde a quella dell'hardware.|Gli aggiornamenti del firmware non sono stati installati correttamente.|Contattare il supporto tecnico Microsoft.|
+|La versione del componente <*ID componente*> del firmware non corrisponde a quella dell'hardware.|Gli aggiornamenti del firmware non sono stati installati correttamente.|Contattare il supporto tecnico Microsoft.|
 
 ## Passaggi successivi
 
 [Ulteriori informazioni sugli errori di StorSimple](storsimple-troubleshoot-operational-device.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -99,4 +99,4 @@ Spark in HDInsight fornisce inoltre un [driver ODBC](http://go.microsoft.com/fwl
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

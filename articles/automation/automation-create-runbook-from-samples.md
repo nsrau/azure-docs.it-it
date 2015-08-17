@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -26,7 +26,7 @@ Automazione di Microsoft Azure offre agli utenti la possibilità di automatizzar
 ## Esercitazione
 In questa esercitazione vengono illustrati i passaggi per creare un account di automazione, nonché importare un Runbook "Hello World" di esempio in Automazione di Azure, eseguirlo e quindi visualizzarne l'output.
 
-Per completare l'esercitazione, sarà necessaria una sottoscrizione di Azure. Se non si dispone ancora di un account, è possibile <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/pricing/free-trial/" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>.
+Per completare l'esercitazione, sarà necessaria una sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](../pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per ottenere una versione di valutazione gratuita](../pricing/free-trial.md)</a>.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,7 +138,7 @@ Microsoft e la community di Automazione di Azure mettono a disposizione Runbook 
 
 ## Commenti e suggerimenti
 
-<strong>Gli utenti sono invitati a fornire commenti e suggerimenti.</strong> Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
+**Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

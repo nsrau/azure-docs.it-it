@@ -7,6 +7,7 @@
 	editor=""
 	services="app-service\mobile"/>
 
+
 <tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
+
 
 # Abilitare la sincronizzazione offline per l'app mobile per iOS
 
@@ -114,10 +116,10 @@ Questa sezione illustra il codice correlato alla sincronizzazione offline nell'e
 Quando si usa l'archivio offline Core Data, è necessario definire particolari tabelle e campi all'interno del modello di dati. L'app di esempio include già un modello di dati nel formato corretto. In questa sezione vengono illustrate le tabelle e il relativo uso.
 
 - Aprire **QSDataModel.xcdatamodeld**. Sono presenti le definizioni di quattro tabelle, tre usate dall'SDK e una per gli elementi todo:
-      * MS_TableOperations: per tenere traccia degli elementi da sincronizzare con il server
-      * MS_TableOperationErrors: per tenere traccia di eventuali errori verificatisi durante la sincronizzazione offline
-      * MS_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
-      * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **ms_createdAt**, **ms_updatedAt** e **ms_version** sono proprietà di sistema facoltative.
+      * MS\_TableOperations: per tenere traccia degli elementi da sincronizzare con il server
+      * MS\_TableOperationErrors: per tenere traccia di eventuali errori verificatisi durante la sincronizzazione offline
+      * MS\_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
+      * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** sono proprietà di sistema facoltative.
 
 >[AZURE.NOTE]Mobile App SDK riserva i nomi di colonna che iniziano con "**`ms_`**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto i nomi di colonna verranno modificati.
 
@@ -125,7 +127,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
     ### Tabelle di sistema
 
-    **MS_TableOperations**
+    **MS\_TableOperations**
 
     ![][defining-core-data-tableoperations-entity]
 
@@ -137,7 +139,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | tabella | String |
     | tableKind | Valore integer 16 |
 
-    <br>**MS_TableOperationErrors**
+    <br>**MS\_TableOperationErrors**
 
     ![][defining-core-data-tableoperationerrors-entity]
 
@@ -148,7 +150,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | properties | Dati binari |
     | tableKind | Valore integer 16 |
 
-    <br>**MS_TableConfig**
+    <br>**MS\_TableConfig**
 
     ![][defining-core-data-tableconfig-entity]
 
@@ -172,7 +174,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | id | String | chiave primaria nell'archivio remoto |
     | complete | Boolean | campo elemento ToDo |
     | text | String | campo elemento ToDo |
-    | ms_createdAt | Data | (optional) maps to __createdAt system property | | ms_updatedAt | Date | (optional) maps to __updatedAt system property | | ms_version | String | (optional) used to detect conflicts, maps to __version |
+    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | | ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
 
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
@@ -282,4 +284,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

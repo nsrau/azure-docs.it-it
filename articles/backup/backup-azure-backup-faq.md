@@ -1,20 +1,13 @@
 <properties
-	pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
-	description="Domande frequenti sul servizio Backup di Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
+   description="Domande frequenti sul servizio Backup di Azure"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
-	ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Backup di Azure - Domande frequenti
 Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -54,7 +47,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D10. Cosa accade se si rinomina un server Windows che esegue il backup dei dati in Azure?** <br/> R10. Tutti i backup attualmente configurati verranno arrestati. Il server dovrà essere nuovamente registrato nell'insieme di credenziali per il backup e verrà considerato come un nuovo server da Servizi di ripristino, pertanto la prima operazione che si verificherà in seguito alla registrazione consisterà in un backup completo di tutti i dati inclusi nel backup e non solo delle modifiche apportate dall'ultimo backup. Se tuttavia è necessario eseguire un'operazione di ripristino, è possibile ripristinare i dati sottoposti a backup mediante l'apposita opzione per il ripristino da un altro server. Per altre informazioni, vedere Rinominare un server.
 
-**D11. Da quali tipi di unità è possibile eseguire il backup di file e cartelle?** <br/> R11. È possibile eseguire il backup del set di unità/volumi seguente:
+**D11. Da quali tipi di unità è possibile eseguire il backup di file e cartelle?** <br/> R11. Non è possibile eseguire il backup del set di unità/volumi seguente:
 
 - Supporti rimovibili: l'unità deve essere segnalata come fissa per poter essere usata come origine di backup.
 - Volumi di sola lettura: il volume deve essere accessibile in scrittura per garantire il funzionamento del servizio Copia Shadow del volume (VSS).
@@ -93,10 +86,10 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 **D20. Quali regole del firewall devono essere configurate per il backup di Azure Backup?** <br/> R20. Assicurarsi che le regole del firewall consentano la comunicazione con gli URL seguenti per facilitare il backup locale per la protezione in Azure e la protezione del carico di lavoro in Azure:
 
 - www.msftncsi.com
-- \*.Microsoft.com
+- *.Microsoft.com
 - windowsazure.com
-- \*.microsoftonline.com
-- \*.windows.net
+- *.microsoftonline.com
+- *.windows.net
 
 
 ## Backup e conservazione
@@ -148,4 +141,4 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D4. Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli?** <br/> R4. La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

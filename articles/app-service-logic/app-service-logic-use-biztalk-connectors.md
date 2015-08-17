@@ -124,4 +124,4 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 [BizTalk Transform Service]: app-service-logic-transform-xml-documents.md
 [Connettore Wait]: app-service-logic-wait.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

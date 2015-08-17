@@ -198,4 +198,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 
 [Installazione guidata piattaforma Web]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

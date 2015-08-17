@@ -129,11 +129,11 @@ Benché il portale raccolga le informazioni sullo stato dall'interno dei data ce
 
 ### <a name="monitoring-capacity"></a>Monitoraggio della capacità
 
-Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati (attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code). Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Metriche di archiviazione registrano i dati una volta al giorno ed è possibile utilizzare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione usato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e oggetti BLOB (**ObjectCount**) usati nell'account di archiviazione. Per altre informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
+Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati (attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code). Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Metriche di archiviazione registrano i dati una volta al giorno ed è possibile utilizzare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione utilizzato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e oggetti BLOB (**ObjectCount**) utilizzati nell'account di archiviazione. Per altre informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
 
 > [AZURE.NOTE]È necessario monitorare questi valori per essere avvisati tempestivamente quando si stanno raggiungendo i limiti di capacità dell'account di archiviazione. Nel portale di Azure, nella pagina **Monitor** dell'account di archiviazione, è possibile aggiungere regole di avviso per ricevere una notifica nel caso in cui l'archiviazione degli aggregati superi o sia inferiore alle soglie specificate.
 
-Per sapere come stimare le dimensioni dei vari oggetti di archiviazione, ad esempio gli oggetti BLOB, vedere il post del blog <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">Informazioni sulla fatturazione di Archiviazione di Azure - Larghezza di banda, transazioni e capacità.</a>
+Per sapere come stimare le dimensioni dei vari oggetti di archiviazione, ad esempio gli oggetti BLOB, vedere il post del blog <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">Informazioni sulla fatturazione di Archiviazione di Azure - Larghezza di banda, transazioni e capacità</a>.
 
 ### <a name="monitoring-availability"></a>Monitoraggio della disponibilità
 
@@ -178,7 +178,7 @@ Normalmente i problemi correlati ai servizio di archiviazione Azure rientrano in
 
 Nelle sezioni che seguono vengono descritte le procedure da adottare per la diagnosi e la risoluzione dei problemi in ciascuna delle quattro categorie. La sezione "[Guida alla risoluzione dei problemi]" più avanti in questa guida fornisce maggiori dettagli su alcuni dei problemi che si possono verificare più di frequente.
 
-### <a name="service-health-issues"></a>Problemi di stato del servizio
+### <a name="service-health-issues"></a>Problemi di integrità del servizio
 
 I problemi di stato del servizio di solito sono al di fuori del controllo dell'utente. Il portale di Azure fornisce informazioni sui problemi che si possono verificare utilizzando i servizi Azure, inclusi i servizi di archiviazione. Se si è scelta un'archiviazione con accesso in lettura e ridondanza geografica durante la creazione dell'account, nel caso in cui i dati non siano disponibili nella posizione primaria, l'applicazione può passare temporaneamente alla copia di sola lettura nella posizione secondaria. Per fare ciò, l'applicazione deve essere in grado di passare dalla posizione primaria a quella secondaria e viceversa nonché di gestire i dati di sola lettura in una modalità con funzionalità ridotta. Le librerie client del servizio di archiviazione Azure consentono di definire criteri di ripetizione per leggere i dati da un'archiviazione secondaria nel caso in cui quella primaria non funzioni. L'applicazione deve inoltre essere in grado di stabilire se i dati nella posizione secondaria risultano coerenti. Per altre informazioni, vedere il post del blog <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Opzioni di ridondanza di Archiviazione di Azure e Archiviazione con ridondanza geografica e accesso in lettura</a>.
 
@@ -222,7 +222,7 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 È possibile acquisire il traffico tra client e server per fornire informazioni dettagliate sui dati scambiati da client e server e sulle condizione della rete sottostante. Sono disponibili alcuni strumenti utili per la registrazione in rete:
 
 - Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) è un proxy di debug Web gratuito che consente di esaminare le intestazioni e i dati di payload dei messaggi HTTP e HTTPS di richiesta e risposta. Per ulteriori informazioni, vedere "[Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS]".
-- Microsoft Network Monitor (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/it-it/download/details.aspx?id=4865</a>) e Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) sono strumenti gratuiti per l'analisi dei protocolli di rete che consentono di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di prodotti di rete. Per ulteriori informazioni su Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]".
+- Microsoft Network Monitor (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) e Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) sono strumenti gratuiti per l'analisi dei protocolli di rete che consentono di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di prodotti di rete. Per ulteriori informazioni su Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]".
 - Microsoft Message Analyzer è uno strumento di Microsoft che sostituisce Netmon e che, oltre ad acquisire i dati dei pacchetti di rete, consente di visualizzare e analizzare i dati di log acquisiti da altri strumenti. Per ulteriori informazioni, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete]".
 - Per eseguire un test di base delle connessioni per verificare che il computer client sia in grado di connettersi al servizio di archiviazione Azure in rete, non è possibile utilizzare il normale strumento **ping** sul client. Tuttavia, è possibile utilizzare lo strumento **tcping** per verificare la connettività. **Tcping** può essere scaricato all'indirizzo <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
 
@@ -357,7 +357,7 @@ L'illustrazione dello strumento di monitoraggio del portale mostra un esempio in
 
 ![][4]
 
-Si noti che il servizio di archiviazione calcola solo la metrica **AverageE2ELatency** per le richieste eseguite correttamente e, a differenza di **AverageServerLatency**, include il tempo impiegato dal client per inviare i dati e ricevere una conferma dal servizio di archiviazione. Di conseguenza, una differenza tra **AverageE2ELatency** e **AverageServerLatency** potrebbe essere dovuta al fatto che l'applicazione è lenta a rispondere oppure alle alle condizioni della rete.
+Si noti che il servizio di archiviazione calcola solo la metrica **AverageE2ELatency** per le richieste eseguite correttamente e, a differenza di **AverageServerLatency**, include il tempo impiegato dal client per inviare i dati e ricevere una conferma dal servizio di archiviazione. Di conseguenza, una differenza tra **AverageE2ELatency** e **AverageServerLatency** potrebbe essere dovuta al fatto che l'applicazione è lenta a rispondere oppure alle condizioni della rete.
 
 > [AZURE.NOTE]È inoltre possibile visualizzare i valori **E2ELatency** e **ServerLatency** per le singole operazioni di archiviazione nei dati dei file di log della registrazione dell'archiviazione.
 
@@ -365,7 +365,7 @@ Si noti che il servizio di archiviazione calcola solo la metrica **AverageE2ELat
 
 I motivi possibili per cui il client risponde lentamente includono la quantità limitata di connessioni o thread disponibili. Il problema può essere risolto modificando il codice del client in modo che sia più efficiente (ad esempio usando chiamate asincrone al servizio di archiviazione) o usando una macchina virtuale più grande (con più core e più memoria).
 
-Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare la presenza di un valore **AverageE2ELatency** elevato rispetto al valore **AverageServerLatency**: per altre informazioni, vedere il post relativo al <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">comportamento dell'algoritmo Nagle nei confronti delle piccole richieste</a> nel blog del team di Archiviazione di Microsoft Azure. È possibile disabilitare l'algoritmo Nagle nel codice utilizzando la classe **ServicePointManager** nello spazio dei nomi **System.Net**. Eseguire questa operazione prima di effettuare chiamate ai servizi di tabelle o accodamento nell'applicazione poiché non ha effetto sulle connessioni già aperte. L'esempio seguente è ricavato dal metodo **Application_Start** in un ruolo di lavoro.
+Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare la presenza di un valore **AverageE2ELatency** elevato rispetto al valore **AverageServerLatency**: per altre informazioni, vedere il post relativo al <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">comportamento dell'algoritmo Nagle nei confronti delle piccole richieste</a> nel blog del team di Archiviazione di Microsoft Azure. È possibile disabilitare l'algoritmo Nagle nel codice utilizzando la classe **ServicePointManager** nello spazio dei nomi **System.Net**. Eseguire questa operazione prima di effettuare chiamate ai servizi di tabelle o accodamento nell'applicazione poiché non ha effetto sulle connessioni già aperte. L'esempio seguente è ricavato dal metodo **Application\_Start** in un ruolo di lavoro.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -379,7 +379,7 @@ Controllare i file di log lato client per vedere quante richieste vengono inviat
 
 In genere la latenza end-to-end elevata causata dalla rete è dovuta a condizioni temporanee. Per l'analisi dei problemi transitori e persistenti della rete, ad esempio le interruzioni della trasmissione dei pacchetti, sono disponibili strumenti come Wireshark o Microsoft Message Analyzer.
 
-Per ulteriori informazioni sull'utilizzo di Wireshark per la risoluzione dei problemi di rete, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]".
+Per ulteriori informazioni sull'utilizzo di Wireshark per risolvere i problemi di rete, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]."
 
 Per ulteriori informazioni sull'utilizzo di Microsoft Message Analyzer per risolvere i problemi di rete, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete]."
 
@@ -457,7 +457,7 @@ I timeout del server indicano un problema con il servizio di archiviazione che d
 
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Le metriche indicano un aumento di PercentNetworkError
 
-Le metriche indicano un aumento di **PercentNetworkError** per uno dei servizi di archiviazione. La metrica **PercentNetworkError** è una combinazione delle metriche seguenti: **NetworkError**, **AnonymousNetworkError**, e **SASNetworkError**. L'errore si verifica se il servizio di archiviazione rileva un errore della rete quando il client esegue una richiesta di archiviazione.
+Le metriche indicano un aumento di **PercentNetworkError** per uno dei servizi di archiviazione. La metrica **PercentNetworkError** è una combinazione delle metriche seguenti: **NetworkError**, **AnonymousNetworkError** e **SASNetworkError**. L'errore si verifica se il servizio di archiviazione rileva un errore della rete quando il client esegue una richiesta di archiviazione.
 
 La causa più comune dell'errore è la disconnessione del client prima della scadenza del timeout nel servizio di archiviazione. È necessario esaminare il codice nel client per capire perché e quando il client si disconnette dal servizio di archiviazione. Per esaminare i problemi di connessione dal client, è possibile utilizzare anche Wireshark, Microsoft Message Analyzer o Tcping. Questi strumenti sono descritti nelle [Appendici].
 
@@ -465,142 +465,17 @@ La causa più comune dell'errore è la disconnessione del client prima della sca
 
 Se l'applicazione client genera errori HTTP 403 (Accesso negato), probabilmente il client sta usando una firma di accesso condiviso (SAS, Shared Access Signature) scaduta per inviare una richiesta di archiviazione (benché esistano altre cause possibili, come sfasamento di orario, chiavi non valide e intestazioni vuote). Se la causa è una chiave SAS scaduta, non si vedrà alcuna voce nei dati di log della registrazione dell'archiviazione lato server. La tabella che segue mostra un esempio del file di log lato client generato da Storage Client Library in cui è illustrato il problema in corso:
 
-<table>
- <tr>
-    <td><b>Origine</b></td>
-    <td><b>Livello di dettaglio</b></td>
-    <td><b>Livello di dettaglio</b></td>
-    <td><b>ID richiesta client</b></td>
-    <td><b>Testo operazione</b></td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Informazioni</td>
-    <td>3</td>
-    <td>85d077ab-…</td>
-    <td>Avvio operazione con posizione primaria in base alla modalità di posizionamento PrimaryOnly.</td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Informazioni</td>
-    <td>3</td>
-    <td>85d077ab-…</td>
-    <td>Avvio richiesta sincrona a https://domemaildist.blob.core.windows.netazure<br>imblobcontainer/blobCreatedViaSAS.txt?
-	    <br>sv=2014-02-14&amp;sr=c&amp;si=mypolicy
-	    <br>&amp;sig=OFnd4Rd7z01fIvh%
-	    <br>2BmcR6zbudIH2F5Ikm%
-	    <br>2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.</td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Informazioni</td>
-    <td>3</td>
-    <td>85d077ab-…</td>
-    <td>In attesa di risposta.</td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Avviso 
-  </td>
-  <td>
-  2 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (403) Accesso negato.. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Informazioni 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Risposta ricevuta. Codice stato = 403, ID richiesta = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Avviso 
-  </td>
-  <td>
-  2 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (403) Accesso negato.. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Informazioni 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: (403) Accesso negato.. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Informazioni 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  La posizione successiva è stata impostata come primaria, in base alla modalità di posizionamento. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Errore 
-  </td>
-  <td>
-  1 
-  </td>
-  <td>
-  85d077ab-… 
-  </td>
-  <td>
-  Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (403) Accesso negato.. 
-  </td>
- </tr>
-</table>
+Sorgente|Livello di dettaglio|Livello di dettaglio|ID richiesta client|Testo operazione
+---|---|---|---|---
+Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|Avvio operazione con posizione primaria in base alla modalità di posizionamento PrimaryOnly.
+Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|Avvio richiesta sincrona a https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.
+Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|In attesa di risposta.
+Microsoft.WindowsAzure.Storage|Avviso|2|85d077ab-…|Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (403) Accesso negato..
+Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|Risposta ricevuta. Codice stato = 403, ID richiesta = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = .
+Microsoft.WindowsAzure.Storage|Avviso|2|85d077ab-…|Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (403) Accesso negato..
+Microsoft.WindowsAzure.Storage|Informazioni|3 |85d077ab-…|Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: (403) Accesso negato.. 
+Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|La posizione successiva è stata impostata come primaria, in base alla modalità di posizionamento.
+Microsoft.WindowsAzure.Storage|Errore|1|85d077ab-…|Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (403) Accesso negato..
 
 In questo scenario, è necessario verificare perché il token SAS scade prima che il client invii il token al server:
 
@@ -628,196 +503,54 @@ Utilizzare il log lato client generato da Storage Client Library per avere maggi
 
 Il seguente file di log lato client generato da Storage Client Library illustra il problema che si verifica quando il client non è in grado di trovare il contenitore per il BLOB che sta creando. Il file di log include dettagli relativi alle seguenti operazioni di archiviazione:
 
-<table>
-  <tr>
-    <td>
-      <b>ID richiesta</b>
-    </td>
-    <td>
-      <b>Operazione</b>
-    </td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td>
-    Metodo <b>DeleteIfExists</b> per eliminare il contenitore BLOB. Notare che questa operazione include una richiesta <b>HEAD</b> per verificare l'esistenza del contenitore.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78…</td>
-    <td>
-    Metodo <b>CreateIfNotExists</b> per creare il contenitore BLOB. Si noti che questa operazione include una richiesta <b>HEAD</b> che verifica l'esistenza del contenitore. <b>HEAD</b> restituisce un messaggio 404 ma continua.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td>
-    Metodo <b>UploadFromStream</b> per creare l'oggetto BLOB. <b>PUT</b> ha esito negativo con messaggio 404</td>
-  </tr>
-</table>
+ID richiesta|Operazione
+---|---
+07b26a5d-...|Metodo **DeleteIfExists** per eliminare il contenitore BLOB. Notare che questa operazione include una richiesta **HEAD** per verificare l'esistenza del contenitore.
+e2d06d78…|Metodo **CreateIfNotExists** per creare il contenitore BLOB. Si noti che questa operazione include una richiesta **HEAD** che verifica l'esistenza del contenitore. **HEAD** restituisce un messaggio 404 ma continua.
+de8b1c3c-...|Metodo **UploadFromStream** per creare l'oggetto BLOB. **PUT** ha esito negativo con messaggio 404
 
 Voci del log:
 
-<table>
-  <tr>
-    <td>
-      <b>ID richiesta</b>
-    </td>
-    <td>
-      <b>Testo operazione</b>
-    </td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Avvio richiesta sincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> In attesa di risposta.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Risposta ricevuta. Codice di stato = 200, ID richiesta = eeead849-...Content-MD5 = , ETag = "0x8D14D2DC63D059B".</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Download del corpo della risposta.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Operazione completata correttamente.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Avvio richiesta sincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> In attesa di risposta.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Risposta ricevuta. Codice stato = 202, ID richiesta = 6ab2a4cf-..., Content-MD5 = , ETag =.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Download del corpo della risposta.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Operazione completata correttamente.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Avvio richiesta asincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> In attesa di risposta.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Avvio richiesta sincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Preparazione della scrittura dei dati della richiesta.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato..</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Risposta ricevuta. Codice stato = 404, ID richiesta = 353ae3bc-..., Content-MD5 = , ETag =.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Download del corpo della risposta.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Operazione completata correttamente.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Avvio richiesta asincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> In attesa di risposta.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Scrittura dei dati della richiesta.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> In attesa di risposta.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (409) Conflitto..</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Risposta ricevuta. Codice stato = 409, ID richiesta = c27da20e-..., Content-MD5 = , ETag =.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Download del corpo della risposta con errore.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato..</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Risposta ricevuta. Codice stato = 404, ID richiesta = 0eaeab3e-..., Content-MD5 = , ETag =.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (404) Non trovato..</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (404) Non trovato..</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (409) Conflitto..</td>
-  </tr>
-</table>
+ID richiesta | Testo operazione
+---|---
+07b26a5d-...|Avvio richiesta sincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+07b26a5d-...|StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+07b26a5d-...|In attesa di risposta.
+07b26a5d-... | Risposta ricevuta. Codice di stato = 200, Request ID = eeead849-...Content-MD5 = , ETag = ";0x8D14D2DC63D059B";.
+07b26a5d-... | Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione.
+07b26a5d-... | Download del corpo della risposta.
+07b26a5d-... | Operazione completata correttamente.
+07b26a5d-... | Avvio richiesta sincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+07b26a5d-... | StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+07b26a5d-... | In attesa di risposta.
+07b26a5d-... | Risposta ricevuta. Codice stato = 202, ID richiesta = 6ab2a4cf-..., Content-MD5 = , ETag =.
+07b26a5d-... | Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione.
+07b26a5d-... | Download del corpo della risposta.
+07b26a5d-... | Operazione completata correttamente.
+e2d06d78-... | Avvio richiesta asincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+e2d06d78-... | StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+e2d06d78-...| In attesa di risposta.
+de8b1c3c-... | Avvio richiesta sincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.
+de8b1c3c-... | StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.
+de8b1c3c-... | Preparazione della scrittura dei dati della richiesta.
+e2d06d78-... | Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato..
+e2d06d78-... | Risposta ricevuta. Codice stato = 404, ID richiesta = 353ae3bc-..., Content-MD5 = , ETag =.
+e2d06d78-... | Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione.
+e2d06d78-... | Download del corpo della risposta.
+e2d06d78-... | Operazione completata correttamente.
+e2d06d78-... | Avvio richiesta asincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+e2d06d78-... | In attesa di risposta.
+de8b1c3c-... | Scrittura dei dati della richiesta.
+de8b1c3c-... | In attesa di risposta. 
+e2d06d78-... | Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (409) Conflitto..
+e2d06d78-... | Risposta ricevuta. Codice stato = 409, ID richiesta = c27da20e-..., Content-MD5 = , ETag =.
+e2d06d78-... | Download del corpo della risposta con errore.
+de8b1c3c-... | Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato..
+de8b1c3c-... | Risposta ricevuta. Codice stato = 404, ID richiesta = 0eaeab3e-..., Content-MD5 = , ETag =.
+de8b1c3c-...| Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (404) Non trovato..
+de8b1c3c-... | Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (404) Non trovato..
+e2d06d78-... | Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (409) Conflitto..
 
 In questo esempio, il log indica che il client sta eseguendo un'interfoliazione delle richieste del metodo **CreateIfNotExists** (ID richiesta e2d06d78…) con le richieste del metodo **UploadFromStream** (de8b1c3c-...); ciò accade perché l'applicazione client sta richiamando questi metodi in modo asincrono. È necessario modificare il codice asincrono nel client per assicurarsi che crei il contenitore prima di tentare di caricare dati in un BLOB in tale contenitore. La soluzione migliore sarebbe creare prima tutti i contenitori.
 
@@ -914,53 +647,12 @@ Se questo problema si verifica di frequente, è necessario capire perché il cli
 
 Nella tabella seguente viene illustrato un estratto dal log lato server per due operazioni client: **DeleteIfExists** immediatamente seguito da **CreateIfNotExists** utilizzando lo stesso nome di contenitore di BLOB. Si noti che ogni operazione del client determina l'invio di due richieste al server, prima una richiesta **GetContainerProperties** per verificare se il contenitore esiste, quindi una richiesta **DeleteContainer** o **CreateContainer**.
 
-<table>
-  <tr>
-    <td>
-      <b>Timestamp</b>
-    </td>
-    <td>
-      <b>Operazione</b>
-    </td>
-    <td>
-      <b>Risultato</b>
-    </td>
-    <td>
-      <b>Nome del contenitore</b>
-    </td>
-    <td>
-      <b>ID richiesta client</b>
-    </td>
-  </tr>
-  <tr>
-    <td>05:10:13.7167225</td>
-    <td>GetContainerProperties</td>
-    <td>200</td>
-    <td>mmcont</td>
-    <td>c9f52c89-…</td>
-  </tr>
-  <tr>
-    <td>05:10:13.8167325</td>
-    <td>DeleteContainer</td>
-    <td>202</td>
-    <td>mmcont</td>
-    <td>c9f52c89-…</td>
-  </tr>
-  <tr>
-    <td>05:10:13.8987407</td>
-    <td>GetContainerProperties</td>
-    <td>404</td>
-    <td>mmcont</td>
-    <td>bc881924-…</td>
-  </tr>
-  <tr>
-    <td>05:10:14.2147723</td>
-    <td>CreateContainer</td>
-    <td>409</td>
-    <td>mmcont</td>
-    <td>bc881924-…</td>
-  </tr>
-</table>
+Timestamp|Operazione|Risultato|Nome contenitore|ID richiesta client
+---|---|---|---|---
+05:10:13.7167225|GetContainerProperties|200|mmcont|c9f52c89-…
+05:10:13.8167325|DeleteContainer|202|mmcont|c9f52c89-…
+05:10:13.8987407|GetContainerProperties|404|mmcont|bc881924-…
+05:10:14.2147723|CreateContainer|409|mmcont|bc881924-…
 
 Il codice nell'applicazione client elimina e quindi immediatamente ricrea un contenitore BLOB usando lo stesso nome: il metodo **CreateIfNotExists** (ID richiesta client bc881924-…) ha esito negativo con errore HTTP 409 (Conflitto). Quando un client elimina contenitori BLOB, tabelle o code, trascorre un breve periodo di tempo prima che il nome sia di nuovo disponibile.
 
@@ -1058,7 +750,7 @@ Questa appendice descrive brevemente la procedura di configurazione di Fiddler p
 Dopo l'avvio, Fiddler inizia ad acquisire il traffico HTTP e HTTPS sul computer locale. Di seguito sono riportati alcuni comandi utili per il controllo di Fiddler:
 
 - Interruzione e avvio dell'acquisizione del traffico. Nel menu principale, accedere a **File** e fare clic su **Capture Traffic** per attivare e disattivare l'acquisizione.
-- Salvare i dati del traffico acquisiti. Nel menu principale, accedere a **File**, fare clic su **Save** e quindi su **All Sessions**: in questo modo il traffico viene salvato in un file di archivio sessione. Tale file potrà essere ricaricato successivamente per l'analisi o inviato al Supporto Microsoft, se richiesto.
+- Salvare i dati del traffico acquisiti. Nel menu principale, accedere a **File**, fare clic su **Save** e quindi su **Tutte le sessioni**: in questo modo il traffico viene salvato in un file di archivio sessione. Tale file potrà essere ricaricato successivamente per l'analisi o inviato al Supporto Microsoft, se richiesto.
 
 Per limitare il volume del traffico acquisito da Fiddler, utilizzare i filtri configurabili nella scheda **Filters**. La schermata che segue mostra un esempio di filtro che acquisisce solo il traffico inviato all'endpoint di archiviazione **contosoemaildist.table.core.windows.net**:
 
@@ -1105,7 +797,7 @@ Per configurare una sessione di traccia Web per il traffico HTTP e HTTPS utilizz
 
 Quando si è pronti a iniziare a raccogliere i dati di traccia, fare clic sul pulsante **Start With**.
 
-Per altre informazioni sulla traccia **Web Proxy** di Microsoft Message Analyzer, vedere <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF-WebProxy Provider</a> su TechNet.
+Per altre informazioni sulla traccia di **Web Proxy** di Microsoft Message Analyzer, vedere <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF-WebProxy Provider</a> su TechNet.
 
 La traccia **Web Proxy** integrata in Microsoft Message Analyzer è basata su Fiddler; è in grado di acquisire il traffico HTTPS lato client e di visualizzare i messaggi HTTPS non crittografati. **Web Proxy** funziona mediante la configurazione di un proxy locale per tutto il traffico HTTP e HTTPS che fornisce l'accesso ai messaggi non crittografati.
 
@@ -1121,7 +813,7 @@ Quando si crea la sessione di traccia in Microsoft Message Analyzer, è possibil
 
 ![][10]
 
-Per altre informazioni sulla traccia Local Link Layer di Microsoft Message Analyzer, vedere l'argomento <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture Provider</a> su TechNet.
+Per altre informazioni sulla traccia di Local Link Layer di Microsoft Message Analyzer, vedere l'argomento <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture Provider</a> su TechNet.
 
 ### <a name="appendix-4"></a>Appendice 4: Uso di Excel per la visualizzazione di metriche e dati di log
 
@@ -1219,4 +911,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

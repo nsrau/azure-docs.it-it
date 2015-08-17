@@ -7,6 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -16,11 +17,15 @@
 	ms.date="05/28/2015" 
 	ms.author="jgao"/>
 
+
 # Analizzare i dati di Twitter con Hive in HDInsight
 
 I siti Web di social networking rappresentano una delle principali forze trainanti per l'adozione di Big Data. Le API pubbliche offerte da siti quali Twitter costituiscono un'utile origine di dati per l'analisi e la comprensione delle tendenze più popolari. In questa esercitazione si userà l'API di streaming di Twitter per ricevere tweet e quindi si userà Apache Hive in Azure HDInsight per ottenere un elenco di utenti di Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
-> [AZURE.NOTE]Un esempio simile è disponibile nella raccolta di esempi di HDInsight. Guardare il video di Channel 9 relativo all'<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">analisi delle tendenze di Twitter con Apache Hive in HDInsight</a>.
+> [AZURE.NOTE]I passaggi descritti in questo articolo si basano sull'uso di un cluster HDInsight basato su Windows. Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md).
+
+Un esempio simile è disponibile nella raccolta di esempi di HDInsight. Guardare il video di Channel 9 relativo all'<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">analisi delle tendenze di Twitter con Apache Hive in HDInsight</a>.
+
 
 ###Prerequisiti
 
@@ -52,7 +57,7 @@ Di seguito è riportata la sintassi dell'archivio BLOB di Azure:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]Nel cluster HDInsight versione 3.0 è supportata solo la sintassi *wasb://*. La sintassi meno recente *asv://* è supportata nei cluster HDInsight 2.1 e 1.6, ma non nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
+> [AZURE.NOTE]Nel cluster HDInsight versione 3.0 è supportata solo la sintassi **wasb://*. La sintassi meno recente **asv://* è supportata nei cluster HDInsight 2.1 e 1.6, ma non nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
 
 > Il percorso dell'archivio BLOB di Azure è un percorso virtuale. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
@@ -113,7 +118,7 @@ In questa esercitazione si userà Windows PowerShell per effettuare la chiamata 
 
 **Per ricevere tweet**
 
-1. Aprire Windows PowerShell Integrated Scripting Environment (ISE). Nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Vedere l'articolo relativo all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
+1. Aprire Windows PowerShell Integrated Scripting Environment (ISE). Nella schermata Start di Windows 8 digitare **PowerShell\_ISE** e quindi fare clic su **Windows PowerShell ISE**. Vedere l'articolo relativo all'[avvio di Windows PowerShell in Windows 8 e Windows][powershell-start].
 
 2. Copiare lo script seguente nel riquadro di script:
 
@@ -269,11 +274,11 @@ Azure PowerShell consente di eseguire più istruzioni HiveQL contemporaneamente 
 
 Il file di script HiveQL eseguirà le operazioni seguenti:
 
-1. **Eliminazione della tabella tweets_raw** nel caso in cui la tabella esista già.
-2. **Creazione della tabella tweets_raw Hive**. Questa tabella Hive strutturata e temporanea contiene i dati per altri processi di estrazione, trasformazione e caricamento (ETL, Extraction, Transformation, and Loading). Per informazioni sulle partizioni, vedere la pagina relativa all'[esercitazione su Hive][apache-hive-tutorial].  
+1. **Eliminazione della tabella tweets\_raw** nel caso in cui la tabella esista già.
+2. **Creazione della tabella tweets\_raw Hive**. Questa tabella Hive strutturata e temporanea contiene i dati per altri processi di estrazione, trasformazione e caricamento (ETL, Extraction, Transformation, and Loading). Per informazioni sulle partizioni, vedere la pagina relativa all'[esercitazione su Hive][apache-hive-tutorial].  
 3. **Caricare i dati** dalla cartella di origine /tutorials/twitter/data. Il set di dati di tweet di grandi dimensioni in formato JSON annidato è stato trasformato in una struttura di tabella Hive temporanea.
 3. **Eliminare la tabella tweets** nel caso esista già.
-4. **Creare la tabella tweets**. Prima di eseguire query sul set di dati di tweet tramite Hive, è necessario eseguire un altro processo ETL. Il processo ETL definisce uno schema di tabella più dettagliato per i dati archiviati nella tabella "twitter_raw".  
+4. **Creare la tabella tweets**. Prima di eseguire query sul set di dati di tweet tramite Hive, è necessario eseguire un altro processo ETL. Il processo ETL definisce uno schema di tabella più dettagliato per i dati archiviati nella tabella "twitter\_raw".  
 5. **Inserire la tabella di sovrascrittura**. Questo script Hive complesso avvia una serie di processi MapReduce dal cluster Hadoop. In base al set di dati e alla dimensione del cluster, tale operazione potrebbe richiedere circa 10 minuti.
 6. **Inserire la directory di sovrascrittura**. Eseguire una query e inviare il set di dati a un file. Questa query restituirà un elenco di utenti di Twitter che hanno inviato il maggior numero di tweet contenenti la parola "Azure".
 
@@ -520,7 +525,7 @@ Usare lo script di Windows PowerShell seguente per controllare l'output del proc
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]La tabella Hive usa \001 come delimitatore di campo. Il delimitatore non è visibile nell'output.
+> [AZURE.NOTE]La tabella Hive usa \\001 come delimitatore di campo. Il delimitatore non è visibile nell'output.
 
 Dopo che i risultati dell'analisi sono stati inserivi in un archivio BLOB di Azure, è possibile esportare i dati in un database SQL o un server SQL di Azure, esportare i dati in Excel tramite Power Query oppure connettere l'applicazione ai dati usando Hive ODBC Driver. Per altre informazioni, vedere [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop], [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-delay-data], [Connettere Excel a HDInsight mediante Power Query][hdinsight-power-query] e [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver][hdinsight-hive-odbc].
 
@@ -559,4 +564,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

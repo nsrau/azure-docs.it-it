@@ -46,28 +46,11 @@ Dopo la configurazione, gli utenti possono fare clic su *->* e scegliere un'azio
 
 ![Elenco di azioni di BizTalk Flat File Encoder][5]
 
-<table>
-	<tr>
-		<th>Parametro</th>
-		<th>Tipo</th>
-		<th>Descrizione del parametro</th>
-	</tr>
-	<tr>
-		<td>File flat</td>
-		<td>stringa</td>
-		<td>Contenuto del file flat di input</td>
-	</tr>
-	<tr>
-		<td>Nome schema</td>
-		<td>stringa</td>
-		<td>Nome dello schema che rappresenta il file flat di input</td>
-	</tr>
-	<tr>
-		<td>Nome radice</td>
-		<td>stringa</td>
-		<td>Nome del nodo radice dello schema di file flat</td>
-	</tr>
-</table>
+Parametro|Tipo|Descrizione del parametro
+---|---|---
+File flat|stringa|Contenuto del file flat di input
+Nome schema|stringa|Nome dello schema che rappresenta il file flat di input
+Nome radice|stringa|Nome del nodo radice dello schema di file flat
 
 
 L'azione restituisce l'output sotto forma di stringa - XML di output. XML di output contiene la rappresentazione XML del contenuto del file flat di input
@@ -76,18 +59,9 @@ L'azione restituisce l'output sotto forma di stringa - XML di output. XML di out
 
 ![Elenco di azioni di BizTalk Flat File Encoder][6]
 
-<table>
-	<tr>
-		<th>Parametro</th>
-		<th>Tipo</th>
-		<th>Descrizione del parametro</th>
-	</tr>
-	<tr>
-		<td>XML di input</td>
-		<td>stringa</td>
-		<td>Contenuto XML di input</td>
-	</tr>
-</table>
+Parametro|Tipo|Descrizione del parametro
+---|---|---
+XML di input|stringa|Contenuto XML di input
 
 L'azione restituisce l'output sotto forma di stringa - File flat. XML di output contiene la rappresentazione file flat del contenuto XML di input
 
@@ -100,4 +74,4 @@ L'azione restituisce l'output sotto forma di stringa - File flat. XML di output 
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

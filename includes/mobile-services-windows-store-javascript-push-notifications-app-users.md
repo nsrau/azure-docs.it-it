@@ -78,4 +78,4 @@ Con questo metodo il codice di registrazione è stato aggiunto direttamente dall
 		    });
 		}  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

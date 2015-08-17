@@ -236,4 +236,4 @@ Nei passaggi seguenti verrà effettuata una richiesta Get al connettore Dropbox 
 [portale di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

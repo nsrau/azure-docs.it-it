@@ -359,8 +359,8 @@ Questi metodi possono essere usati per recuperare dati di esempio.
           <li><p><b>doubleVec GetSample(double count)</b>: specifica il numero di campioni richiesti dai campioni più recenti.</p>
 				  <p>Un campione rappresenta 5 secondi di dati di metrica. GetSample(1) restituisce l'ultimo campione disponibile, ma per le metriche come $CPUPercent non è consigliabile usarlo perché non è possibile sapere quando è stato raccolto il campione. Potrebbe essere recente o a causa di problemi di sistema, potrebbe essere molto meno recente. È preferibile usare un intervallo di tempo, come illustrato di seguito.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>: specifica un intervallo di tempo per la raccolta di dati campione e facoltativamente specifica la percentuale di campioni che deve essere compresa nell'intervallo richiesto.</p>
-          <p>$CPUPercent.GetSample(TimeInterval\_Minute\*10) dovrebbe restituire 200 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi dieci minuti. Se l'ultimo minuto di cronologia non è ancora presente, vengono restituiti solo 180 campioni.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute\*10, 80) ha esisto positivo e $CPUPercent.GetSample(TimeInterval_Minute\*10,95) ha esito negativo.</p></li>
+          <p>$CPUPercent.GetSample(TimeInterval\_Minute*10) dovrebbe restituire 200 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi dieci minuti. Se l'ultimo minuto di cronologia non è ancora presente, vengono restituiti solo 180 campioni.</p>
+					<p>$CPUPercent.GetSample(TimeInterval\_Minute*10, 80) ha esisto positivo e $CPUPercent.GetSample(TimeInterval_Minute*10,95) ha esito negativo.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>: specifica un intervallo di tempo per la raccolta di dati con un'ora di inizio e un'ora di fine.</p></li></ul></td>
   </tr>
   <tr>
@@ -407,9 +407,9 @@ Queste metriche possono essere definite in una formula.
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>In questo esempio viene mostrata una formula che consente di impostare il numero di nodi di calcolo nel pool sul 110% del numero di nodi di destinazione corrente se l'utilizzo della CPU medio minimo negli ultimi 10 minuti è superiore al 70%:</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute\*10)) > 0,7) ? ($CurrentDedicated \* 1,1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute*10)) > 0,7) ? ($CurrentDedicated * 1,1) : $CurrentDedicated;</b></p>
     <p>In questo esempio viene mostrata una formula che consente di impostare il numero di nodi di calcolo nel pool sul 90% del numero di destinazione corrente di nodi, se l'utilizzo medio della CPU negli ultimi 60 minuti è inferiore al 20%:</p>
-    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute\*60)) &lt; 0,2) ? ($CurrentDedicated \* 0,9) : totalTVMs;</b></p>
+    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute*60)) &lt; 0,2) ? ($CurrentDedicated * 0,9) : totalTVMs;</b></p>
     <p>Questo esempio imposta il numero di nodi di calcolo dedicati di destinazione su un massimo di 400:</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -424,7 +424,7 @@ Queste metriche possono essere definite in una formula.
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>In questo esempio viene illustrata una formula che rileva se è stato registrato il 70% dei campioni negli ultimi 15 minuti. In caso contrario, viene usato l'ultimo campione. Tenta di aumentare il numero di nodi di calcolo in modo che corrisponda al numero di attività attive, con un massimo di 3. Imposta il numero di nodi su 1/4 del numero di attività attive perché la proprietà MaxTasksPerVM del pool è impostata su 4. Imposta inoltre l'opzione DeallocationOption su "taskcompletion" per mantenere la macchina fino alla fine dell'attività.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute \* 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute \* 15))); $Cores = $TargetDedicated \* 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +476,4 @@ Se è già stato configurato un pool con un numero specificato di nodi di calcol
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): questo cmdlet recupera il file RDP dal nodo di calcolo specificato e lo salva nel percorso di file specificato oppure in un flusso.
 2.	Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

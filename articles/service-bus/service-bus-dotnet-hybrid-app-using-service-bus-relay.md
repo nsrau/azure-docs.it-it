@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
@@ -33,9 +33,9 @@ Si acquisiranno le nozioni seguenti:
 
 Le soluzioni aziendali sono in genere costituite da una combinazione di codice personalizzato appositamente scritto in risposta a specifici requisiti aziendali e da funzionalità esistenti fornite da soluzioni e sistemi già implementati.
 
-Da qualche tempo gli architetti di soluzioni hanno iniziato a utilizzare il cloud per semplificare la gestione dei requisiti di scalabilità e ridurre i costi operativi. Nell'adottare un tale approccio hanno quindi scoperto che le risorse di servizi esistenti che desiderano sfruttare come blocchi predefiniti delle soluzioni si trovano all'interno del firewall aziendale e quindi non sono facilmente raggiungibili dalla soluzione cloud. Molti servizi interni non sono creati né vengono ospitati in modo tale da consentirne una agevole esposizione al perimetro della rete aziendale.
+Da qualche tempo gli architetti di soluzioni hanno iniziato a usare il cloud per semplificare la gestione dei requisiti di scalabilità e ridurre i costi operativi. Nell'adottare un tale approccio hanno quindi scoperto che le risorse di servizi esistenti che desiderano sfruttare come blocchi predefiniti delle soluzioni si trovano all'interno del firewall aziendale e quindi non sono facilmente raggiungibili dalla soluzione cloud. Molti servizi interni non sono creati né vengono ospitati in modo tale da consentirne una agevole esposizione al perimetro della rete aziendale.
 
-Il servizio *Inoltro del bus di servizio* è progettato per i casi di utilizzo in cui servizi Web WCF (Windows Communication Foundation) vengono resi accessibili in modo sicuro a soluzioni che risiedono all'esterno del perimetro aziendale senza richiedere modifiche di notevole impatto all'infrastruttura di rete aziendale. Tali servizi di Inoltro del bus di servizio sono comunque ospitati all'interno dell'ambiente esistente, ma delegano l'ascolto delle sessioni e delle richieste in ingresso al bus di servizio ospitato nel cloud. Bus di servizio protegge questi servizi dall’accesso non autorizzato tramite l’autenticazione con [firma di accesso condiviso](https://msdn.microsoft.com/library/dn170478.aspx) (SAS).
+Il servizio *Inoltro del bus di servizio* è progettato per i casi d'uso in cui servizi Web WCF (Windows Communication Foundation) vengono resi accessibili in modo sicuro a soluzioni che risiedono all'esterno del perimetro aziendale senza richiedere modifiche di notevole impatto all'infrastruttura di rete aziendale. Tali servizi di Inoltro del bus di servizio sono comunque ospitati all'interno dell'ambiente esistente, ma delegano l'ascolto delle sessioni e delle richieste in ingresso al bus di servizio ospitato nel cloud. Bus di servizio protegge questi servizi dall'accesso non autorizzato tramite l'autenticazione con [firma di accesso condiviso](https://msdn.microsoft.com/library/dn170478.aspx).
 
 ##Scenario della soluzione
 
@@ -73,17 +73,17 @@ Prima di iniziare a sviluppare l'applicazione Azure, è necessario ottenere gli 
 
 ## Creare uno spazio dei nomi del servizio
 
-Per iniziare a usare le funzionalità del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi servizio Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
+Per iniziare a usare le funzionalità del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-È possibile gestire gli spazi dei nomi e le entità di messaggistica del bus di servizio utilizzando il [portale di gestione di Azure][] o Esplora server di Visual Studio, ma è possibile creare spazi dei nomi nuovi solo all'interno del portale.
+È possibile gestire gli spazi dei nomi e le entità di messaggistica del bus di servizio usando il [portale di gestione di Azure][] o Esplora server di Visual Studio, ma è possibile creare spazi dei nomi nuovi solo all'interno del portale.
 
-### Per creare uno spazio dei nomi servizio tramite il portale:
+### Per creare uno spazio dei nomi del servizio tramite il portale:
 
 1.  Accedere al [portale di gestione di Azure][].
 
 2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.![][5]
+3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**. ![][5]
 
 4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![][6]
 
@@ -101,7 +101,7 @@ Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione e s
 
 Per eseguire operazioni di gestione nel nuovo spazio dei nomi, ad esempio creare entità di messaggistica, è necessario ottenere le credenziali per lo spazio dei nomi.
 
-1.  Fare clic sullo spazio dei nomi servizio nella finestra principale.
+1.  Fare clic sullo spazio dei nomi del servizio nella finestra principale.
 
 	![][39]
 
@@ -122,7 +122,7 @@ Per eseguire operazioni di gestione nel nuovo spazio dei nomi, ad esempio creare
 
 In primo luogo, si creerà un sistema di catalogo prodotti locale fittizio. Si tratta di un sistema locale abbastanza semplice che intende rappresentare un catalogo prodotti effettivo che include una superficie completa di servizi da integrare.
 
-Questo progetto si avvia come applicazione console di Visual Studio. Usa il pacchetto NuGet del bus di servizio per includere le librerie e le impostazioni di configurazione del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e sul pacchetto del bus di servizio, vedere la pagina relativa all'[utilizzo del pacchetto NuGet del bus di servizio][].
+Questo progetto si avvia come applicazione console di Visual Studio. Usa il pacchetto NuGet del bus di servizio per includere le librerie e le impostazioni di configurazione del bus di servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e sul pacchetto del bus di servizio, vedere la pagina relativa all'[uso del pacchetto NuGet del bus di servizio][].
 
 ### Creare il progetto
 
@@ -250,7 +250,7 @@ Questo progetto si avvia come applicazione console di Visual Studio. Usa il pacc
             }
         }
 
-13. In **Esplora soluzioni** fare doppio clic sul file **App.config** per aprirlo nell'editor di **Visual Studio**. Sostituire il contenuto di **system.ServiceModel** con il codice XML seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi servizio e *yourKey* con la chiave SAS recuperata in precedenza dal portale di gestione di Azure:
+13. In **Esplora soluzioni** fare doppio clic sul file **App.config** per aprirlo nell'editor di **Visual Studio**. Sostituire il contenuto di **system.ServiceModel** con il codice XML seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi del servizio e *yourKey* con la chiave di firma di accesso condiviso recuperata in precedenza dal portale di gestione di Azure:
 
         <system.serviceModel>
           <extensions>
@@ -340,11 +340,11 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
             }
         }
 
-3.  In **Esplora soluzioni** espandere Views\Shared:
+3.  In **Esplora soluzioni** espandere Views\\Shared:
 
     ![][18]
 
-4.  Fare quindi doppio clic su _Layout.cshtml per aprirlo nell'editor di Visual Studio.
+4.  Fare quindi doppio clic su \_Layout.cshtml per aprirlo nell'editor di Visual Studio.
 
 5.  Modificare tutte le occorrenze di **My ASP.NET Application** in **LITWARE's Products**.
 
@@ -352,7 +352,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 	![][41]
 
-7.  In **Esplora soluzioni** espandere Views\Home:
+7.  In **Esplora soluzioni** espandere Views\\Home:
 
     ![][20]
 
@@ -416,7 +416,7 @@ Per distribuire l'applicazione a un servizio cloud, è necessario aggiungere all
 
 2.  Per testare l'applicazione, premere **F5**.
 
-3.  Verrà avviato l'emulatore di calcolo di Azure. Tale emulatore utilizza il computer locale per emulare l'applicazione in esecuzione in Azure. Per verificare se l'emulatore è stato avviato, osservare la barra delle applicazioni:
+3.  Verrà avviato l'emulatore di calcolo di Azure. Tale emulatore usa il computer locale per emulare l'applicazione in esecuzione in Azure. Per verificare se l'emulatore è stato avviato, osservare la barra delle applicazioni:
 
        ![][23]
 
@@ -438,7 +438,7 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
 
 	![][24]
 
-6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il codice seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi servizio e *yourKey* con la chiave SAS. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
+6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il codice seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi del servizio e *yourKey* con la chiave di firma di accesso condiviso. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
 
             namespace ProductsWeb.Controllers
             {
@@ -514,7 +514,7 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
 3.  Accedere usando l'account Microsoft.
 
 
-8.  Fare clic su **Next**. Se la sottoscrizione non contiene già servizi ospitati, verrà chiesto di crearne uno. Il servizio ospitato funge da contenitore per l'applicazione all'interno della sottoscrizione di Azure. Immettere un nome che identifichi l'applicazione e selezionare l'area per la quale ottimizzare l'applicazione. I tempi di caricamento saranno presumibilmente più rapidi per gli utenti che accedono dall'area specificata.
+8.  Fare clic su **Avanti**. Se la sottoscrizione non contiene già servizi ospitati, verrà chiesto di crearne uno. Il servizio ospitato funge da contenitore per l'applicazione all'interno della sottoscrizione di Azure. Immettere un nome che identifichi l'applicazione e selezionare l'area per la quale ottimizzare l'applicazione. I tempi di caricamento saranno presumibilmente più rapidi per gli utenti che accedono dall'area specificata.
 
 9.  Selezionare il servizio ospitato in cui pubblicare l'applicazione. Mantenere i valori predefiniti illustrati di seguito per le rimanenti impostazioni. Fare clic su **Avanti**:
 
@@ -577,7 +577,7 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 
 
 
-  [utilizzo del pacchetto NuGet del bus di servizio]: http://go.microsoft.com/fwlink/?LinkId=234589
+  [uso del pacchetto NuGet del bus di servizio]: http://go.microsoft.com/fwlink/?LinkId=234589
   [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [12]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
@@ -620,4 +620,4 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -17,7 +17,7 @@
 
 # Connessione di reti virtuali classiche a nuove reti virtuali
 
-Azure attualmente ha due modalità di gestione: Service Manager di Azure (detta classica) e Gestione risorse di Azure. Se si usa Azure da qualche tempo, si hanno probabilmente macchine virtuali e ruoli di istanza di Azure eseguiti in una rete virtuale classica. Le macchine virtuali e le istanze del ruolo più recenti potrebbero invece essere eseguite in una rete virtuale creata in Gestione risorse di Azure.
+Azure attualmente ha due modalità di gestione: Service Manager di Azure (detta classica) e Gestione risorse di Azure. Se si utilizza Azure da qualche tempo, si dispone probabilmente di macchine virtuali e ruoli di istanza di Azure in esecuzione su una rete virtuale classica. Le macchine virtuali e le istanze del ruolo più recenti potrebbero invece essere in esecuzione su una rete virtuale creata in Gestione risorse di Azure.
 
 In queste situazioni è consigliabile accertarsi che la nuova infrastruttura sia in grado di comunicare con le risorse classiche. A questo scopo è possibile creare una connessione VPN tra le due reti virtuali. La figura seguente illustra un ambiente di esempio con due reti virtuali (classica e di Gestione risorse di Azure), con connettività tramite un tunnel sicuro tra le reti virtuali.
 
@@ -363,4 +363,4 @@ Ora che le due reti virtuali sono connesse, è opportuno testarne la connettivit
 - Altre informazioni sul [Provider di risorse di rete per Gestione risorse di Azure](../resource-groups-networking.md).
 - Visualizzare le linee guida generali su come [creare una connessione VPN S2S tra una rete virtuale classica e una rete virtuale di Gestione risorse di Azure](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -66,4 +66,4 @@ A questo punto, la password amministratore del dispositivo dovrebbe essere aggio
 
 [Ulteriori informazioni su come modificare la configurazione del dispositivo](storsimple-modify-device-config.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

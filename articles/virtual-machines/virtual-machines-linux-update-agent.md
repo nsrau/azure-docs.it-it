@@ -43,7 +43,7 @@ Per Oracle Linux, assicurarsi che il repository del componente aggiuntivo sia ab
 In genere è sufficiente, ma se per qualche motivo è necessario installarla da https://github.com direttamente, attenersi alla seguente procedura.
 
 
-## 5.2 Installare wget
+## 5\.2 Installare wget
 
 Account di accesso alla macchina virtuale tramite SSH.
 
@@ -100,4 +100,4 @@ Per ulteriori informazioni relative all'agente Linux di Azure, visitare [Azure L
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

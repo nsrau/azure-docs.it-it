@@ -7,26 +7,30 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
+
 
 
 
 #Selezione dei nomi utente per Linux su Azure#
 
-Quando si crea un'istanza di macchina virtuale Linux, è possibile scegliere il nome utente o accettare il nome utente predefinito, *azureuser*. Nella maggior parte dei casi questo nuovo utente non esiste nell'immagine di base e viene creato durante il processo di provisioning. Se l'utente esiste nell'immagine della VM di base, l'agente Linux di Azure configura la password (e/o la chiave SSH) per tale utente in base alle informazioni specificate durante la creazione della VM.
+Durante il provisioning di una macchina virtuale Linux in Azure è necessario specificare il nome di un utente non radice, che in un secondo momento è possibile utilizzare per accedere alla macchina virtuale. È possibile scegliere il nome del nuovo utente o se il provisioning avviene tramite il portale di gestione è possibile accettare il nome predefinito "azureuser".
+
+Nella maggior parte dei casi questo nuovo utente non esiste nell'immagine di base e viene creato durante il processo di provisioning. Se l'utente esiste nell'immagine della VM di base, l'agente Linux di Azure configura la password (e/o la chiave SSH) per tale utente in base alle informazioni specificate durante la creazione della VM.
 
 **Tuttavia**, Linux definisce un set di nomi utente che non devono essere usati. Se si prova a eseguire il provisioning di una macchia virtuale Linux usando un utente di sistema esistente, definito come utente con un valore UID compreso tra 0 e 99, il processo avrà **esito negativo**. Un esempio tipico è rappresentato dall'utente `root`, il cui valore UID è 0.
 
  - Vedere anche: [Base standard di Linux - Intervalli ID utente](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-Di seguito sono riportati i nomi utente da non usare quando si esegue il provisioning di una macchina virtuale Linux. Si consiglia di **non usare questi nomi utente** per evitare che il processo di provisioning abbia esito negativo.
+Di seguito sono riportati i nomi utente da non usare quando si esegue il provisioning di una macchina virtuale Linux. Si consiglia di **non usare questi nomi utente** per evitare che il processo di provisioning della macchina virtuale abbia esito negativo.
 
 
 ## openSUSE
@@ -246,4 +250,4 @@ Di seguito sono riportati i nomi utente da non usare quando si esegue il provisi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

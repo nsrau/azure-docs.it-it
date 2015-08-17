@@ -118,14 +118,14 @@ Configurare quindi SQL Server 2014 in modo che usi l'unità F: per i nuovi datab
 3.	Nel riquadro dell'albero Esplora oggetti, fare doppio clic su **SQL1**, quindi fare clic su **Proprietà**.
 4.	Nella finestra **Proprietà server**, fare clic su **Impostazioni database**.
 5.	Individuare **Percorsi predefiniti del Database** e impostare i valori seguenti: 
-	- Per **Dati**, digitare il percorso **f:\Data**.
-	- Per **Log**, digitare il percorso **f:\Log**.
-	- Per **Backup**, digitare il percorso **f:\Backup**.
+	- Per **Dati**, digitare il percorso **f:\\Data**.
+	- Per **Log**, digitare il percorso **f:\\Log**.
+	- Per **Backup**, digitare il percorso **f:\\Backup**.
 	- Nota: Solo i nuovi database utilizzeranno questi percorsi.
 6.	Fare clic su **OK** per chiudere la finestra.
 7.	Nel riquadro dell'albero **Esplora oggetti** aprire **Sicurezza**.
 8.	Fare clic con il pulsante destro del mouse su **Account di accesso**, quindi scegliere **Nuovo account di accesso**.
-9.	In **Nome account di accesso**, digitare **CORP\User1**.
+9.	In **Nome account di accesso**, digitare **CORP\\User1**.
 10.	Nella pagina **Ruoli server** fare clic su **sysadmin**, quindi su **OK**.
 11.	Chiudere Microsoft SQL Server Management Studio.
 
@@ -146,7 +146,7 @@ Innanzitutto, creare una macchina virtuale di Azure per LOB1 con questi comandi 
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-Successivamente, connettersi alla macchina virtuale LOB1 con le credenziali dell'account CORP\User1.
+Successivamente, connettersi alla macchina virtuale LOB1 con le credenziali dell'account CORP\\User1.
 
 Configurare quindi una regola di Windows Firewall per permettere il traffico per il test della connettività di base. Da un prompt dei comandi di Windows PowerShell a livello di amministratore in LOB1 eseguire questi comandi.
 
@@ -168,8 +168,9 @@ Configurare LOB1 per IIS e verificare l'accesso da CLIENT1.
 9.	Nella pagina Selezione servizi ruolo selezionare o deselezionare le caselle di controllo per i servizi necessari per i test dell'applicazione LOB, quindi fare clic su**Avanti**.
 10.	Nella pagina Conferma selezioni per l'installazione fare clic su **Installa**.
 11.	Attendere il completamento dell'installazione dei componenti, quindi fare clic su **Chiudi**.
-12.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\User1, quindi avviare Internet Explorer.
-13.	Nella barra degli indirizzi digitare **http://lob1/**, quindi premere INVIO. Viene visualizzata la pagina Web IIS 8 predefinita.
+12.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
+13.	Nella barra degli indirizzi digitare ****http://lob1/** e quindi premere INVIO. Viene visualizzata la pagina Web IIS 8 predefinita.
+
 Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_3.png)
@@ -195,4 +196,4 @@ Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web i
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

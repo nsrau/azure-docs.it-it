@@ -22,7 +22,11 @@
 
 ### D: Che cos'è Data factory di Azure?
 
-Data factory è un servizio completamente gestito per gli sviluppatori per comporre i servizi di archiviazione, trasferimento ed elaborazione dei dati in pipeline di dati a disponibilità elevata e a tolleranza di errore. Data factory funziona tramite archiviazione dei dati locale e nel cloud. Una pipeline è un set di input di dati, le attività di elaborazione e output di dati e viene definita con semplici script JSON e attivata tramite comandi di PowerShell. Una volta attivato, Data factory organizza e pianifica l'esecuzione delle pipeline in HDInsight (Hadoop) con opzioni per la gestione automatica dei cluster per conto dell'utente. Data factory consente anche la gestione visiva e il monitoraggio attraverso il portale di anteprima di Azure, per monitorare tutte le pipeline con informazioni complete su operatività e integrità del servizio in un unico dashboard.
+Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Data factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso.
+
+Data factory usa origini dati nel cloud e locali, oltre ai servizi SaaS, per inserire, preparare, trasformare, analizzare e pubblicare i dati. È possibile usare Data factory per la composizione di servizi in pipeline di flussi di dati gestite per trasformare i dati mediante servizi quali [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Azure Batch](http://azure.microsoft.com/documentation/services/batch/) per le esigenze di calcolo relative ai Big Data e tramite [Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/) per rendere operative le soluzioni di analisi, in modo da superare le visualizzazioni di monitoraggio tabulari e avvalersi delle visualizzazioni avanzate offerte da Data factory per visualizzare rapidamente le derivazioni e le dipendenze tra le pipeline di dati. Data factory permette di monitorare tutte le pipeline dei flussi di dati da un'unica visualizzazione unificata per individuare rapidamente i problemi e configurare avvisi di monitoraggio.
+
+Vedere[Panoramica e concetti chiave](data-factory-introduction.md)per ulteriori dettagli.
  
 ### D: Quali esigenze del cliente soddisfa Data factory?
 
@@ -57,15 +61,12 @@ I clienti possono accedere a Data factory tramite il [portale di anteprima di Az
 
 ### D: In quali aree è disponibile Data factory?
 
-In anteprima pubblica, Data factory è disponibile solo negli Stati Uniti occidentali. I servizi di calcolo e di archiviazione usati dalle istanze di Data factory possono essere disponibili in altri paesi.
+Data Factory è disponibile in Europa settentrionale e negli Stati Uniti occidentali. I servizi di calcolo e di archiviazione usati dalle istanze di Data factory possono essere disponibili in altri paesi.
  
-### D: Quali sono i limiti per il numero di Data factory/pipeline/attività/set di dati? 
+### D: Quali sono i limiti per il numero di Data factory/pipeline/attività/set di dati?
+ 
+Vedere la sezione** Limiti di Azure Data Factory** dell'articolo [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](azure-subscription-service-limits.md/#data-factory-limits).
 
-
-- Numero di Data factory all'interno di una sottoscrizione: 50
-- Numero di pipeline all'interno di un'istanza di Data factory: 100
-- Numero di attività all'interno di una pipeline: 10
-- Numero di set di dati all'interno di un'istanza di Data factory: 100
 
 ### D: Quale esperienza di creazione/sviluppo offre il servizio Data factory di Azure?
 
@@ -73,6 +74,7 @@ In anteprima pubblica, Data factory è disponibile solo negli Stati Uniti occide
 
 - **Portale di anteprima di Azure**. I pannelli di Data factory nel portale di anteprima di Azure offrono una ricca interfaccia per creare data factory e servizi collegati. L'**editor di Data factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Vedere [Editor di Data factory di Azure][data-factory-editor] per una panoramica dell'editor e [Introduzione a Data factory di Azure][datafactory-getstarted] per un esempio dell'uso del portale o dell'editor per creare e distribuire un'istanza di Data factory.   
 - **Azure PowerShell**. Gli utenti di PowerShell potrebbero voler usare PowerShell invece dell'interfaccia utente del portale. In tal caso, i cmdlet di Data factory di Azure disponibili in Azure PowerShell consentono di creare e distribuire data factory. Per un semplice esempio, vedere l'articolo relativo alla [creazione e monitoraggio di Data factory di Azure con Azure PowerShell][create-data-factory-using-powershell]. Per un esempio avanzato relativo all'uso dei cmdlet di PowerShell per creare e distribuire un'istanza di Data factory, vedere [Esercitazione: Spostare ed elaborare i file di log con Data factory][adf-tutorial]. Per la documentazione completa dei cmdlet di Data factory, vedere le [informazioni di riferimento sui cmdlet di Data factory][adf-powershell-reference] in MSDN Library.  
+- **Visual Studio** È inoltre possibile utilizzare Visual Studio per creare, monitorare e gestire le factory di dati a livello di programmazione. Vedere l’articolo [Creazione, monitoraggio e gestione di data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically)per maggiori dettagli.  
 - **Libreria di classi .NET**. È possibile creare data factory a livello di codice usando .NET SDK per Data factory. Per la procedura dettagliata per la creazione di un'istanza di Data factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante .NET SDK][create-factory-using-dotnet-sdk]. Per la documentazione completa di Data Factory .NET SDK, vedere le [informazioni di riferimento sulla libreria di classi per Data factory][msdn-class-library-reference].  
 - **API REST**. Per creare e distribuire data factory, è anche possibile usare l'API REST esposta dal servizio Data factory di Azure. Per la documentazione completa, vedere [Informazioni di riferimento sull'API REST di Data factory][msdn-rest-api-reference]. 
 
@@ -82,24 +84,7 @@ No. Come per le altre risorse di Azure, non è possibile modificare il nome di u
 ## Attività - Domande frequenti
 ### D: Quali sono le origini dati e le attività supportate?
 
-- **Origini dati supportate:** 
-	- Archiviazione di Azure (BLOB e tabelle)
-	- SQL di Azure
-	- Azure DocumentDB
-	- Server SQL locale
-	- Oracle in locale 
-	- File System locale
-	- MySQL in locale
-	- DB2 locale
-	- Teradati locali
-	- Sybase locale
-	- PostgreSQL locale.  
-- **Attività supportate:**: 
-	- Attività di copia (da locale a cloud e da cloud a locale)
-	- Attività HDInsight (trasformazioni Pig, Hive, MapReduce, Hadoop Streaming)
-	- Attività di assegnazione dei punteggi di batch di Azure Machine Learning
-	- Attività di stored procedure SQL di Azure
-	- Attività .NET personalizzate.
+Vedere gli articoli[Attività di spostamento dati](data-factory-data-movement-activities.md)e[Attività di trasformazione dati](data-factory-data-transformation-activities.md)articoli per le origini dati e le attività supportate.
 
 ### Quando viene eseguita un'attività?
 L'impostazione di configurazione **availability** della tabella dati di output determina quando viene eseguita l'attività. Prima dell'inizio dell'esecuzione, l'attività verifica se sono state soddisfatte tutte le dipendenze dei dati di input, ovvero lo stato **Pronto**.
@@ -115,14 +100,6 @@ Area di destinazione della copia | Area usata per il routing
 -------------------------- | -----------------------
 Asia orientale | Asia sudorientale
 Giappone occidentale | Giappone orientale
-
-### In che modo è possibile eseguire la copia in più tabelle di output?
-È possibile avere più tabelle di output in una pipeline, come illustrato nell'esempio seguente:
-
-	"outputs":  [ 
-		{ "name": “outputtable1” }, 
-		{ "name": “outputtable2” }  
-	],
  
 ### È consigliabile avere una pipeline con più attività o una pipeline distinta per ogni attività? 
 Le pipeline sono state progettate per aggregare attività correlate. È logicamente possibile mantenere le attività in un'unica pipeline se le tabelle che le connettono non vengono usate da altre attività esterne alla pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
@@ -215,4 +192,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -31,4 +31,4 @@ Se l'applicazione può funzionare temporaneamente in modalità di sola lettura, 
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

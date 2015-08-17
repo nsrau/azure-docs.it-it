@@ -22,7 +22,7 @@ Nelle esercitazioni di questa sezione vengono fornite indicazioni sulle attivit√
 
 -	[Personalizzazione del portale per sviluppatori in Gestione API di Azure][]. Questa esercitazione descrive come modificare l'aspetto del portale per sviluppatori per mantenere l'uniformit√† con il proprio marchio.
 -	[Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure][]. Questa esercitazione descrive come usare Controllo API per tenere traccia e raccogliere informazioni sulle chiamate alle operazioni.
--	[Proteggere l'API con i limiti di frequenza mediante Gestione API di Azure][]: questa esercitazione illustra come configurare i criteri relativi ai limiti di frequenza e alle quote e mostra come richiamare le operazioni fino a quando il limite di frequenza non viene superato.
+-	[Proteggere l'API con i limiti di frequenza mediante Gestione API di Azure][]\: questa esercitazione illustra come configurare i criteri relativi ai limiti di frequenza e alle quote e mostra come richiamare le operazioni fino a quando il limite di frequenza non viene superato.
 -	[Come delegare la registrazione utente e la sottoscrizione ai prodotti][]. Questa esercitazione illustra come gli amministratori possono usare il sito Web esistente per gestire l'accesso, l'iscrizione e la sottoscrizione ai prodotti invece di usare la funzionalit√† incorporata nel portale per sviluppatori.
 
 
@@ -36,4 +36,4 @@ Nelle esercitazioni di questa sezione vengono fornite indicazioni sulle attivit√
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

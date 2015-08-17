@@ -25,7 +25,7 @@ Nel seguente diagramma viene illustrato il cluster HPC Pack che verrà creato, a
 
 ## Distribuzione di un cluster HPC Pack con nodi di calcolo Linux
 
-Verrà utilizzato lo script di distribuzione Microsoft HPC Pack IaaS (\*\* New-HpcIaaSCluster.ps1\*\*) per automatizzare la distribuzione di cluster in servizi di infrastruttura di Azure (IaaS). In questo script di Azure PowerShell viene utilizzata un'immagine di macchina virtuale di HPC Pack in Azure Marketplace per accelerare la distribuzione e viene fornito un set completo di parametri di configurazione per rendere la distribuzione semplice e flessibile. È possibile utilizzare lo script per distribuire: rete virtuale di Azure, account di archiviazione, servizi cloud, controller di dominio, server di database SQL Server separato facoltativo, nodo head del cluster, nodi di calcolo, nodi broker, nodi di Azure PaaS ("burst") e nodi di calcolo Linux (supporto di Linux introdotto in[HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
+Verrà utilizzato lo script di distribuzione Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) per automatizzare la distribuzione di cluster in servizi di infrastruttura di Azure (IaaS). In questo script di Azure PowerShell viene utilizzata un'immagine di macchina virtuale di HPC Pack in Azure Marketplace per accelerare la distribuzione e viene fornito un set completo di parametri di configurazione per rendere la distribuzione semplice e flessibile. È possibile utilizzare lo script per distribuire: rete virtuale di Azure, account di archiviazione, servizi cloud, controller di dominio, server di database SQL Server separato facoltativo, nodo head del cluster, nodi di calcolo, nodi broker, nodi di Azure PaaS ("burst") e nodi di calcolo Linux (supporto di Linux introdotto in [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
 
 Per una panoramica delle opzioni di distribuzione del cluster HPC Pack, vedere la [Guida introduttiva per HPC Pack 2012 R2 e HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
 
@@ -110,7 +110,7 @@ Di seguito sono riportate brevi descrizioni degli elementi del file di configura
 
 * HPC Pack supporta attualmente le seguenti distribuzioni Linux per nodi di calcolo: Ubuntu Server 14.10, CentOS 6.6, CentOS 7.0 e SUSE Linux Enterprise Server 12.
 
-* Nell'esempio riportato in questo articolo viene utilizzata una versione specifica di CentOS disponibile in Azure Marketplace per creare il cluster. Se si desidera utilizzare altre immagini disponibili, utilizzare il cmdlet di Azure PowerShell **get-azurevmimage** per trovare l’immagine necessaria Per elencare tutte le immagini CentOS 7.0, ad esempio, eseguire il comando seguente:```
+* Nell'esempio riportato in questo articolo viene utilizzata una versione specifica di CentOS disponibile in Azure Marketplace per creare il cluster. Se si desidera utilizzare altre immagini disponibili, utilizzare il cmdlet di Azure PowerShell **get-azurevmimage** per trovare l’immagine necessaria Per elencare tutte le immagini CentOS 7.0, ad esempio, eseguire il comando seguente: ```
     get-azurevmimage | ?{$_.Label -eq "OpenLogic 7.0"}
     ```
 
@@ -189,7 +189,7 @@ In questo esempio, verrà creata una condivisione di File di Azure denominata rd
 
 In questo esempio, allvhdsje è il nome dell’account di archiviazione, storageaccountkey è la chiave dell’account di archiviazione e rdma è il nome della condivisione di File di Azure. La condivisione di File di Azure verrà montata su Z: nel nodo head.
 
-Per il mount della condivisione di File di Azure su nodi di Linux, eseguire un comando **clusrun** sul nodo head. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**è uno strumento di HPC Pack utile per eseguire attività amministrative su più nodi. (Vedere anche [CLusrun per nodi Linux](#CLusrun-for-Linux-nodes) in questo articolo).
+Per il mount della condivisione di File di Azure su nodi di Linux, eseguire un comando **clusrun** sul nodo head. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** è uno strumento di HPC Pack utile per eseguire attività amministrative su più nodi. Vedere anche [CLusrun per nodi Linux](#CLusrun-for-Linux-nodes) in questo articolo.
 
 Aprire una finestra di Windows PowerShell e immettere i seguenti comandi:
 
@@ -230,7 +230,7 @@ Il primo comando crea una cartella denominata /openfoam su tutti i nodi del grup
 
 Il servizio NFS consente agli utenti di condividere e migrare i file tra computer che eseguono il sistema operativo Windows Server 2012 utilizzando il protocollo SMB e i computer basati su Linux mediante il protocollo NFS. Il server NFS e tutti gli altri nodi devono essere distribuiti nella stessa rete virtuale. Consente di migliorare la compatibilità con i nodi di Linux rispetto a una condivisione SMB; ad esempio, supporta il collegamento di file.
 
-1. Per installare e configurare un server NFS, seguire la procedura riportata in [Server per condivisione primo Network File System end-to-end](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
+1. Per installare e configurare un server NFS, seguire la procedura riportata in [Server per condivisione file system di rete end-to-end](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
 
     Ad esempio, creare una condivisione NFS denominata nfs con le seguenti proprietà.
 
@@ -311,4 +311,4 @@ Lo strumento **clusrun** di HPC Pack può essere utilizzato per eseguire comandi
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -44,7 +44,7 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
 3. Da un annuncio Reach, se l'URL dell'azione associato all'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo che attiva l'azione. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata verrà sostituito da: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
 4. Da un annuncio Web Reach, se il codice HTML dell'annuncio contiene il modello {deviceid}, questo verrà sostituito automaticamente dall'identificatore del dispositivo di visualizzazione dell'annuncio Web. Ecco l'identificatore del dispositivo: {deviceid} verrà sostituito da: Ecco l'identificatore del dispositivo: XXXXXXXXXXXXXXXX
 5.  Aprire l'applicazione sul dispositivo ed eseguire un evento nell'app contrassegnata. Da "Interfaccia utente - app - Monitoraggio - Eventi - Dettagli", trovare l'evento eseguito nell'elenco. Fare clic su questo evento in Monitoraggio. L'ID del dispositivo sarà presente nell'elenco dei dispositivi che hanno eseguito l'evento. Quindi, è possibile copiare tale ID del dispositivo e registrarlo in "Interfaccia utente - Account personale - Dispositivi - Nuovo dispositivo - Seleziona la piattaforma del dispositivo".
->
+>Tenere presente che quando IDFA è disabilitato per iOS, l'ID del dispositivo potrebbe cambiare nel tempo se si disinstalla e si reinstalla l'app.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +145,4 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

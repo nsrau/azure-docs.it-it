@@ -165,4 +165,4 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

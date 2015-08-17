@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
+
 
 # Connettersi a un'istanza di SQL Server locale da un'app Web di Azure App Service mediante Connessioni ibride
 
@@ -49,26 +51,12 @@ Il computer in cui si installa l'agente Hybrid Connection Manager locale:
 
 - Deve avere una connettività in uscita ad Azure usando:
 
-> <table border="1">
-    <tr>
-       <th><strong>Porta</strong></th>
-        <th>Motivo</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td><strong>Obbligatorio</strong> per la porta HTTP per la convalida del certificato e, facoltativamente, per la connettività dati.</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td><strong>Facoltativo</strong> per la connettività dei dati. Se la connettività in uscita alla porta 443 non è disponibile, viene usata la porta TCP 80.</td>
-    </tr>
-	<tr>
-        <td>5671 e 9352</td>
-        <td><strong>Consigliato</strong> ma facoltativo per la connettività dei dati. Notare che questa modalità normalmente genera una maggiore velocità effettiva. Se la connettività in uscita a questa porta non è disponibile, viene usata la porta TCP 443.</td>
-	</tr>
-</table>
-
-- Deve essere in grado di raggiungere il *nome host*: *numero di porta* della risorsa locale. 
+Porta|Motivo
+---|---
+80|**Obbligatorio** per la porta HTTP per la convalida del certificato e, facoltativamente, per la connettività dati.
+443|**Facoltativo** per la connettività dei dati. Se la connettività in uscita alla porta 443 non è disponibile, viene usata la porta TCP 80.
+5671 e 9352|**Consigliato** ma facoltativo per la connettività dei dati. Notare che questa modalità normalmente genera una maggiore velocità effettiva. Se la connettività in uscita a questa porta non è disponibile, viene usata la porta TCP 443.
+- Deve essere in grado di raggiungere il *nome host*:* numero di porta* della risorsa locale. 
 
 I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
@@ -81,7 +69,7 @@ In questa sezione viene illustrato come installare SQL Server Express, abilitare
 
 ### Installare SQL Server Express ###
 
-1. Per installare SQL Server Express, eseguire il file **SQLEXPRWT_x64_ENU.exe** o **SQLEXPR_x86_ENU.exe** scaricato. Viene visualizzata la procedura guidata Centro installazione SQL Server.
+1. Per installare SQL Server Express, eseguire il file **SQLEXPRWT\_x64\_ENU.exe** o **SQLEXPR\_x86\_ENU.exe** scaricato. Viene visualizzata la procedura guidata Centro installazione SQL Server.
 	
 	![Installare SQL Server][SQLServerInstall]
 	
@@ -218,7 +206,7 @@ In questo passaggio verrà modificata la stringa di connessione che comunica all
 	
 	Quando si compone la stringa di connessione, tenere presente quanto segue:
 	
-	- Se si effettua la connessione a un'istanza denominata invece che a un'istanza predefinita (ad esempio, Server\SQLEXPRESS), è necessario configurare l'istanza di SQL Server in modo che usi le porte statiche. Per informazioni sulla configurazione di porte statiche, vedere [Come configurare SQL Server per l'ascolto su una porta specifica](http://support.microsoft.com/kb/823938). Per impostazione predefinita le istanze denominate usano UDP e le porte dinamiche, che non sono supportate dalle connessioni ibride. 
+	- Se si effettua la connessione a un'istanza denominata invece che a un'istanza predefinita (ad esempio, Server\\SQLEXPRESS), è necessario configurare l'istanza di SQL Server in modo che usi le porte statiche. Per informazioni sulla configurazione di porte statiche, vedere [Come configurare SQL Server per l'ascolto su una porta specifica](http://support.microsoft.com/kb/823938). Per impostazione predefinita le istanze denominate usano UDP e le porte dinamiche, che non sono supportate dalle connessioni ibride. 
 	
 	- Si consiglia di specificare la porta (1433 per impostazione predefinita, come mostrato nell'esempio) nella stringa di connessione in modo da assicurarsi che TCP sia abilitato sull'istanza di SQL Server locale e usi la porta corretta.
 	
@@ -378,4 +366,4 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -149,4 +149,4 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -144,4 +144,4 @@ Aggiungere elementi **Import** al file di definizione del servizio (.csdef) per 
 			
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

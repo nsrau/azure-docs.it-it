@@ -38,56 +38,15 @@ Poiché **Redis è a thread singolo**, la disponibilità di più di due core non
 
 La tabella seguente mostra i valori massimi per la larghezza di banda osservati durante il test di diverse dimensioni della Cache Redis di Azure usando `redis-benchmark.exe` da una VM IaaS nell'endpoint della Cache Redis di Azure. Si noti che questi valori non sono garantiti e che non è disponibile alcun Contratto di servizio per questi numeri, che dovrebbero essere tuttavia tipici. È consigliabile testare l'applicazione per determinare le dimensioni di cache ottimali per l'applicazione specifica.
 
-<table>
-  <tr>
-    <th>Nome cache</th>
-    <th>Dimensioni cache</th>
-    <th>Get/sec (semplici chiamate GET con valori di 1 KB)</th>
-    <th>Larghezza di banda (MBit/sec)</th>
-  </tr>
-  <tr>
-    <td>C0</td>
-    <td>250 MB</td>
-    <td>610</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>C1</td>
-    <td>1 GB</td>
-    <td>12.200</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>C2</td>
-    <td>2,5 GB</td>
-    <td>24.300</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>C3</td>
-    <td>6 GB</td>
-    <td>48.875</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>C4</td>
-    <td>13 GB</td>
-    <td>61.350</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>C5</td>
-    <td>26 GB</td>
-    <td>112.275</td>
-    <td>1000</td>
-  </tr>
-  <tr>
-    <td>C6</td>
-    <td>53 GB</td>
-    <td>153.219</td>
-    <td>1000+</td>
-  </tr>
-</table>
+Nome cache|Dimensioni cache|Get/sec (semplici chiamate GET con valori di 1 KB)|Larghezza di banda (MBit/sec)
+---|---|---|---
+C0|250 MB|610|5
+C1|1 GB|12\.200|100
+C2|2,5 GB|24\.300|200
+C3|6 GB|48\.875|400
+C4|13 GB|61\.350|500
+C5|26 GB|112\.275|1000
+C6|53 GB|153\.219|1000+
 
 Per istruzioni sul download degli strumenti Redis quali `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
 
@@ -134,28 +93,11 @@ Di seguito sono riportati alcuni motivi comuni per la disconnessione di una cach
 
 StackExchange.Redis include diverse opzioni. Questa sezione illustra alcune impostazioni comuni. Per informazioni più dettagliate sulle opzioni StackExchange.Redis, vedere la pagina relativa alla [configurazione di StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
 
-<table>
-  <tr>
-    <th>Opzioni configurazione</th>
-    <th>Descrizione</th>
-    <th>Raccomandazione</th>
-  </tr>
-  <tr>
-    <td>AbortOnConnectFail</td>
-    <td>Se impostata su true, la connessione non verrà ristabilita dopo un errore di rete.</td>
-    <td>Impostare su false, per permettere a StackExchange.Redis di riconnettersi automaticamente.</td>
-  </tr>
-  <tr>
-    <td>ConnectRetry</td>
-    <td>Numero di nuovi tentativi di connessione durante la connessione iniziale.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ConnectTimeout</td>
-    <td>Timeout in millisecondi per le operazioni di connessione.</td>
-    <td></td>
-  </tr>
-</table>
+Opzioni configurazione|Descrizione|Raccomandazione
+---|---|---
+AbortOnConnectFail|Se impostata su true, la connessione non verrà ristabilita dopo un errore di rete.|Impostare su false, per permettere a StackExchange.Redis di riconnettersi automaticamente.
+ConnectRetry|Numero di nuovi tentativi di connessione durante la connessione iniziale.||
+ConnectTimeout|Timeout in millisecondi per le operazioni di connessione.|
 
 Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. È possibile ottimizzare le opzioni in base al carico di lavoro specifico.
 
@@ -233,4 +175,4 @@ La Cache Redis di Microsoft Azure è basata sulla popolare cache Redis open sour
 
 Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre invece documentazione di riferimento specifica. Oltre alla documentazione di riferimento, nella pagina relativa alla [documentazione sulla Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/) sono disponibili alcune esercitazioni su Azure.com, che illustrano come iniziare a usare la Cache Redis di Azure Redis con linguaggi e client di cache diversi.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

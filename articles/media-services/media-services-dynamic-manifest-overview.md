@@ -163,7 +163,7 @@ Oltre a fornire il supporto per gli annunci pubblicitari, LiveBackoff consente a
 
 
 
-![livebackoff_filter][livebackoff_filter]
+![livebackoff\_filter][livebackoff_filter]
 
 
 ###Combinazione di più regole in un unico filtro
@@ -209,4 +209,4 @@ L'argomento seguente descrive le entità di Servizi multimediali correlati ai fi
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

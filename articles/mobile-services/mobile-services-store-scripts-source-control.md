@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/24/2015" 
 	ms.author="ggailey777"/>
+
 
 # Archiviare il codice del progetto nel controllo del codice sorgente
 
@@ -94,15 +96,15 @@ Ora che il repository locale è stato creato, è possibile apportare modifiche a
 	
 	Dovrebbe essere visualizzata una serie di comandi che indica che il commit è stato distribuito nel servizio mobile.
 
-6. Nel portale di gestione, fare clic sulla scheda **Dati**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**.
+6. Nel portale di gestione, fare clic sulla scheda **Data**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**.
 7. 
 	Si noti che lo script dell'operazione insert visualizzato è lo stesso del codice JavaScript appena caricato nell'archivio.
 
 ##<a name="use-npm"></a>Usare codice condiviso e moduli Node.js negli script del server
 
-Servizi mobili offre l'accesso al set completo di moduli Node.js di base che è possibile usare nel codice tramite la funzione **require**. Il servizio mobile può inoltre usare moduli Node.js che non fanno parte del pacchetto Node.js di base ed è perfino possibile definire il codice condiviso personalizzato come moduli Node.js. Per altre informazioni sulla creazione di moduli, vedere la sezione relativa ai [moduli] nella documentazione di riferimento all'API Node.js.
+Servizi mobili offre l'accesso al set completo di moduli Node.js di base che è possibile utilizzare nel codice tramite la funzione **require**. Il servizio mobile può inoltre usare moduli Node.js che non fanno parte del pacchetto Node.js di base ed è perfino possibile definire il codice condiviso personalizzato come moduli Node.js. Per ulteriori informazioni sulla creazione di moduli, vedere la sezione relativa ai [moduli] nella documentazione di riferimento all'API Node.js.
 
-Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste nell'aggiunta di riferimenti al file package.json del servizio. Si aggiungerà quindi il modulo Node.js [node-uuid] al servizio mobile aggiornando il file package.json. Quando viene eseguito il push dell'aggiornamento ad Azure, il servizio mobile viene riavviato e il modulo viene installato. Questo modulo verrà quindi usato per creare un nuovo valore GUID per la proprietà **uuid** sugli oggetti inseriti.
+Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste nell'aggiunta di riferimenti al file package.json del servizio. Si aggiungerà quindi il modulo Node.js [node-uuid] al servizio mobile aggiornando il file package.json. Quando viene eseguito il push dell'aggiornamento ad Azure, il servizio mobile viene riavviato e il modulo viene installato. Questo modulo verrà quindi utilizzato per creare un nuovo valore GUID per la proprietà **uuid** sugli oggetti inseriti.
 
 2. Passare alla cartella `.\service` del repository Git locale e aprire il file package.json in un editor di testo, quindi aggiungere il campo seguente all'oggetto **dependencies**:
 
@@ -158,10 +160,9 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-ios-get-started-data.md
 [Utilizzo degli script del server in Servizi mobili]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Chiamare un'API personalizzata dal client]: mobile-services-ios-call-custom-api.md
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

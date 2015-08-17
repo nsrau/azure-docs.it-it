@@ -115,4 +115,4 @@ Una volta che i clienti hanno avuto l'opportunità di ricevere gli aggiornamenti
 [processo Web]: ../app-service-web/websites-webjobs-resources.md
 [Inviare notifiche push multipiattaforma]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

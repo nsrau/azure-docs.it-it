@@ -61,18 +61,18 @@ Se le classificazioni sono configurate correttamente in VMM quando si selezionan
 
 **Posizione** | **Server VMM** | **Condivisione file (origine)** | **Classificazione (origine)** | **Mappata a** | **Condivisione file (destinazione)**
 ---|---|--- |---|---|---
-New York | VMM_Source| SourceShare1 | GOLD | GOLD_TARGET | TargetShare1
- | | SourceShare2 | SILVER | SILVER_TARGET | TargetShare2
- | | SourceShare3 | BRONZE | BRONZE_TARGET | TargetShare3
-Chicago | VMM_Target | | GOLD_TARGET | Non mappato |
-| | | SILVER_TARGET | Non mappato |
- | | | BRONZE_TARGET | Non mappato
+New York | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
+ | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
+ | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3
+Chicago | VMM\_Target | | GOLD\_TARGET | Non mappato |
+| | | SILVER\_TARGET | Non mappato |
+ | | | BRONZE\_TARGET | Non mappato
 
 È possibile configurare questi elementi nella scheda **Archiviazione server** della pagina **Risorse** del portale Site Recovery.
 
 ![Configurare il mapping di archiviazione](./media/site-recovery-storage-mapping/StorageMapping1.png)
 
-In questo esempio: quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione GOLD (SourceShare1), tale macchina verrà replicata in una risorsa di archiviazione GOLD_TARGET (TargetShare1). Quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione SILVER (SourceShare2), tale macchina verrà replicata in una risorsa di archiviazione SILVER_TARGET (TargetShare2) e così via.
+In questo esempio: quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione GOLD (SourceShare1), tale macchina verrà replicata in una risorsa di archiviazione GOLD\_TARGET (TargetShare1). Quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione SILVER (SourceShare2), tale macchina verrà replicata in una risorsa di archiviazione SILVER\_TARGET (TargetShare2) e così via.
 
 Le condivisioni di file effettive e le classificazioni assegnate in VMM sono simili a quanto illustrato di seguito.
 
@@ -86,24 +86,24 @@ Nella tabella seguente viene illustrato come la classificazione di archiviazione
 
 **Posizione** | **Classificazione** | **Risorsa di archiviazione associata**
 ---|---|---
-New York | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p>
- | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
-Chicago | GOLD_TARGET | <p>C:\ClusterStorage\TargetVolume1</p><p>\FileServer\TargetShare1</p>
- | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\FileServer\TargetShare2</p>
+New York | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p>
+ | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
+Chicago | GOLD\_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
+ | SILVER\_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
 
 In questa tabella viene riepilogato il comportamento quando si abilita la protezione per le macchine virtuali (VM1 - VM5) in questo ambiente di esempio.
 
 **Macchina virtuale** | **Risorsa di archiviazione di origine** | **Classificazione di origine** | **Risorsa di archiviazione di destinazione mappata**
 ---|---|---|---
-VM1 | C:\ClusterStorage\SourceVolume1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p><p>Both GOLD_TARGET</p>
-VM2 | \FileServer\SourceShare1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p> <p>Both GOLD_TARGET</p>
-VM3 | C:\ClusterStorage\SourceVolume2 | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
-VM4 | \FileServer\SourceShare2 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p>
-VM5 | C:\ClusterStorage\SourceVolume3 | N/D | Nessun mapping, per cui viene utilizzata la posizione di archiviazione predefinita dell'host Hyper-V
+VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Both GOLD\_TARGET</p>
+VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Both GOLD\_TARGET</p>
+VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
+VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Both SILVER\_TARGET</p>
+VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nessun mapping, per cui viene utilizzata la posizione di archiviazione predefinita dell'host Hyper-V
 
 ## Passaggi successivi
 
 Ora che si dispone di maggiori informazioni sul mapping di archiviazione, iniziare a leggere le [procedure consigliate](site-recovery-best-practices.md) di preparazione alla distribuzione.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

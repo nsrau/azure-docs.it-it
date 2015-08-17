@@ -437,4 +437,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster?"
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

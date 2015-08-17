@@ -21,4 +21,4 @@ Questa esercitazione è basata sull'app [GetStartedWithMobileServices](http://go
 
 7. Ripetere i passaggi 3 e 4 per verificare se l'esempio si comport anello stesso modo.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="jhubbard"
    editor=""/>
 
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="data-services"
    ms.date="05/23/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+
 
 # Che cos'è SQL Data Warehouse?
 
@@ -63,15 +65,17 @@ SQL Data Warehouse è facile da distribuire e la procedura richiede pochi second
 
 
 ## Passaggi successivi
-Scoprire cosa si intende per [carico di lavoro del data warehouse].
+Scoprire cosa si intende per [carico di lavoro del data warehouse]. Eseguire il[Provisioning]e caricare[dati di esempio]per iniziare.
 
 <!--Image references-->
 
 <!--Article references-->
 [carico di lavoro del data warehouse]: ./sql-data-warehouse-overview-workload.md
+[dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
+[Provisioning]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

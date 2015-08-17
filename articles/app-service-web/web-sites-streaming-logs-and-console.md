@@ -92,4 +92,4 @@ Per acquisire familiarità con la console, provare ad eseguire semplici comandi 
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

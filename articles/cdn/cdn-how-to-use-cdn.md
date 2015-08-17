@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/19/2015" 
 	ms.author="mazha"/>
 
@@ -54,4 +54,4 @@ Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL de
 [Panoramica della Rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

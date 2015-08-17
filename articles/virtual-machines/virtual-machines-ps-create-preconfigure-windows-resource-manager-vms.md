@@ -387,4 +387,4 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

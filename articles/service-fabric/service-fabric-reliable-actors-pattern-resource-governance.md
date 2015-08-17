@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors - Modello di progettazione Governance delle risorse"
-   description="Modello di progettazione sull'uso di Service Fabric Actors per modellare un'applicazione su cui sia possibile applicare la scalabilità ma che usi risorse vincolate"
+   pageTitle="Modello di progettazione della governance delle risorse di Reliable Actors"
+   description="Modello di progettazione sull'uso di Reliable Actors per modellare un'applicazione su cui sia possibile applicare la scalabilità, ma che usi risorse vincolate"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Modello di progettazione di Azure Service Fabric Actors: governance delle risorse
+# Modello di progettazione di Reliable Actors: governance delle risorse
 Questo modello e i relativi scenari sono facilmente riconoscibili dagli sviluppatori (aziendali e non solo) che dispongono di risorse vincolate in locale o nel cloud, non immediatamente scalabili, e che desiderano inviare nel cloud dati e applicazioni su larga scala.
 
 Nelle organizzazioni, queste risorse vincolate, ad esempio i database, vengono eseguite su hardware ad alta scalabilità verticale. Chiunque disponga di una lunga esperienza in azienda sa che si tratta di una situazione comune a livello locale. A livello di cloud, invece, questa situazione si verifica quando un servizio cloud tenta di superare il limite TCP di 64 KB per le connessioni tra un indirizzo e una tupla di porta o quando si tenta di connettersi a un database basato su cloud che limita il numero di connessioni simultanee.
@@ -48,7 +48,7 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Semplice ma non molto flessibile. È possibile, a questo punto, esaminare un approccio più utile e avanzato. È necessario, in primo luogo, modellare l'affinità tra risorse fisiche e attori. Questa operazione può essere eseguita tramite un attore denominato Resolver in grado di riconoscere il mapping tra utenti, partizioni logiche e risorse fisiche. Resolver mantiene i dati in un archivio permanente ma, per agevolarne la ricerca, li trasferisce anche nella cache. Come illustrato nell'esempio del tasso di cambio relativo al modello Smart Cache, Resolver è in grado di recuperare dinamicamente le informazioni più recenti mediante un timer. Dopo aver risolto le risorse che deve usare, l'attore utente le memorizza nella cache in una variabile locale denominata _resolution e le usa per tutta la propria durata. È stata preferita una risoluzione basata su ricerca (illustrata di seguito) rispetto all'hashing semplice o di intervallo per la flessibilità che è in grado di offrire a livello di scalabilità e di spostamento di un utente da una risorsa a un'altra.
+Semplice ma non molto flessibile. È possibile, a questo punto, esaminare un approccio più utile e avanzato. È necessario, in primo luogo, modellare l'affinità tra risorse fisiche e attori. Questa operazione può essere eseguita tramite un attore denominato Resolver in grado di riconoscere il mapping tra utenti, partizioni logiche e risorse fisiche. Resolver mantiene i dati in un archivio permanente ma, per agevolarne la ricerca, li trasferisce anche nella cache. Come illustrato nell'esempio del tasso di cambio relativo al modello Smart Cache, Resolver è in grado di recuperare dinamicamente le informazioni più recenti mediante un timer. Dopo aver risolto le risorse che deve usare, l'attore utente le memorizza nella cache in una variabile locale denominata \_resolution e le usa per tutta la propria durata. È stata preferita una risoluzione basata su ricerca (illustrata di seguito) rispetto all'hashing semplice o di intervallo per la flessibilità che è in grado di offrire a livello di scalabilità e di spostamento di un utente da una risorsa a un'altra.
 
 ![][2]
 
@@ -416,6 +416,5 @@ Questo modello è molto comune negli scenari in cui gli sviluppatori dispongono 
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

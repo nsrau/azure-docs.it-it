@@ -78,7 +78,9 @@ In entrambi i casi, le credenziali vengono archiviate in formato crittografato n
 
 Single Sign-On basato su password si basa su un'estensione del browser per recuperare in modo sicuro le informazioni specifiche dell’applicazione e dell'utente da Azure AD e applicarle al servizio. La maggior parte delle applicazioni SaaS di terze parti supportate da Azure AD supportano questa funzionalità.
 
-Per Single Sign-On basato su password, il browser dell'utente finale può essere: \* Internet Explorer 8, Internet Explorer 9 e Internet Explorer 10 in Windows 7 o versione successiva \* Chrome in Windows 7 o versione successiva oppure MacOS X o versione successiva
+Per Single Sign-On basato su password, il browser dell'utente finale può essere: Internet Explorer 8, Internet Explorer 9 e Internet Explorer 10 in Windows 7 o versione successiva, Chrome in Windows 7 o versione successiva oppure MacOS X o versione successiva
+
+**Nota:** l'estensione SSO basata su password diventerà disponibile per Edge in Windows 10, quando le estensioni del browser saranno supportate per Edge.
 
 ###Single Sign-On esistente
 
@@ -120,10 +122,10 @@ Se l'applicazione non è presente nella raccolta di applicazioni Azure AD, sono 
 
 
 *	**Aggiungere la propria applicazione che si sta sviluppando**: se l'applicazione è stata sviluppata personalmente, seguire le linee guida nella documentazione per sviluppatori di Azure AD per implementare Single Sign-On federato o il provisioning mediante l’API Graph di Azure AD. Per ulteriori informazioni, vedere le risorse:
-  * https://msdn.microsoft.com/library/azure/dn499820.aspx
-  * https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
+  * [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
 *	**Richiedere l'integrazione di un'applicazione**: richiedere il supporto per l'applicazione necessaria utilizzando il [forum dei commenti di Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -162,13 +164,13 @@ I metodi che è possibile scegliere per la distribuzione nell'organizzazione son
 
 ###Pannello di accesso di Azure AD
 
-Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul Web che permette a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx), è inoltre possibile utilizzare le funzionalità di gestione di gruppi in modalità self-service tramite il Pannello di accesso.
+Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul Web che permette a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), è inoltre possibile utilizzare le funzionalità di gestione di gruppi in modalità self-service tramite il Pannello di accesso.
 
 ![][3]
 
 Il Pannello di accesso è separato dal portale di gestione di Azure e non richiede agli utenti di disporre di una sottoscrizione di Azure o della sottoscrizione a Office 365.
 
-Per ulteriori informazioni sul Pannello di accesso di Azure AD, vedere l’[Introduzione al pannello di accesso](https://msdn.microsoft.com/library/azure/dn308586.aspx).
+Per ulteriori informazioni sul Pannello di accesso di Azure AD, vedere l’[Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 ###Applicazione di avvio di Office 365
 
@@ -194,15 +196,17 @@ Questi collegamenti sono URL realizzati appositamente che inviano un utente attr
 
 Questi collegamenti possono essere copiati e incollati ovunque per fornire un collegamento di accesso all'applicazione selezionata. Questo potrebbe essere all’interno di un messaggio di posta elettronica o in qualsiasi portale personalizzato basato sul Web configurato per l'accesso alle applicazioni dell’utente. Di seguito è riportato un esempio di URL Single Sign-On diretto di Azure AD per Twitter:
 
-https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 Analogamente agli URL specifici dell'organizzazione per il pannello di accesso, è possibile personalizzare ulteriormente questo URL mediante l'aggiunta di uno dei domini attivi o verificati per la directory dopo il dominio myapps.microsoft.com. Questo assicura che eventuali personalizzazioni dell’organizzazione vengano caricate immediatamente nella pagina di accesso senza che l'utente debba immettere prima l'ID utente:
 
-https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 Quando un utente autorizzato fa clic su uno di questi collegamenti specifici dell'applicazione, per prima cosa vede le pagina di accesso aziendale (presupponendo che non abbia già effettuato l’accesso) e dopo l’accesso viene reindirizzato alla propria applicazione senza passare prima dal pannello di accesso. Se l'utente non dispone dei prerequisiti per l'accesso all'applicazione, ad esempio l'estensione browser di accesso singolo basato su password, il collegamento richiederà all'utente di installare l'estensione mancante. L'URL del collegamento rimane costante se la configurazione Single Sign-On per l'applicazione viene modificata.
 
 Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso come il pannello di accesso e Office 365 e solo gli utenti o i gruppi che sono stati assegnati all'applicazione nel portale di gestione di Azure potranno eseguire l'autenticazione. Tuttavia, gli utenti non autorizzati vedranno un messaggio che indica che non sono autorizzati all’accesso e verrà fornito loro un collegamento per caricare il pannello di accesso per visualizzare le applicazioni disponibili per cui dispongono dell’accesso.
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -212,4 +216,4 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

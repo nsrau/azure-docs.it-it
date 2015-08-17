@@ -98,9 +98,9 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
     	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    L'input per questo processo viene letto da **wasb:///example/data/gutenberg/davinci.txt**.
+    L'input per questo processo viene letto da ****wasb:///example/data/gutenberg/davinci.txt**.
 
-    L'output per questo esempio verrà archiviato in **wasb:///example/data/davinciwordcount**.
+    L'output per questo esempio verrà archiviato in ****wasb:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE]Come indicato nelle informazioni della guida per l'esempio wordcount, è anche possibile specificare più file di input. Ad esempio, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` eseguirebbe il conteggio delle parole in davinci.txt e in ulysses.txt.
 
@@ -127,7 +127,7 @@ L'esempio Sudoku include istruzioni di utilizzo alquanto inutili, ovvero "includ
 
 - Nove righe di nove colonne.
 
-- Ogni colonna può contenere un numero o `?` (che indica una cella vuota).
+- Ogni colonna può contenere un numero o `?` (che indica una cella vuota)
 
 - Le celle sono separate da uno spazio.
 
@@ -185,20 +185,21 @@ In questo esempio vengono utilizzati tre set di programmi MapReduce:
 
 - **TeraGen**: programma MapReduce che genera righe di dati da ordinare.
 
-- **TeraSort** esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale.
+- **TeraSort**: esegue il campionamento dei dati di input e utilizza MapReduce per ordinare i dati in un ordine totale
 
     TeraSort è un ordinamento standard di funzioni MapReduce, ad eccezione di un partitioner personalizzato che usa un elenco ordinato di N-1 chiavi sottoposte a campionamento che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi corrispondenti al criterio sample[i-1]<= chiave < sample[i] vengono inviate alla funzione reduce i. Ciò garantisce che tutti gli output di reduce i siano inferiori all'output della funzione reduce i+1.
 
-- **TeraValidate** è un programma MapReduce che convalida l'ordinamento globale dell'output.
+- **TeraValidate**: un programma MapReduce che convalida l'ordinamento globale dell'output
 
     Crea una funzione map per ogni file nella directory di output e ogni funzione map assicura che ogni chiave sia inferiore o uguale alla precedente. La funzione map genera inoltre record della prima e dell'ultima chiave di ogni file, mentre la funzione reduce assicura che la prima chiave del file sia superiore all'ultima chiave di file i-1. Eventuali problemi vengono segnalati come output della funzione reduce insieme alle chiavi che non rispettano l'ordinamento.
 
 Usare i passaggi seguenti per generare dati, ordinarli e quindi convalidare l'output:
 
-1. Generare 10 GB di dati che verranno archiviati nell'archiviazione predefinita del cluster HDInsight in **wasb:///example/data/10GB-sort-input**: 
+1. Generare 10 GB di dati che verranno archiviati nell'archiviazione predefinita del cluster HDInsight in ****wasb:///example/data/10GB-sort-input**:
+
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks` indica ad Hadoop quante attività di mapping usare per questo processo. I due parametri finali indicano al processo di creare 10 GB di dati e di archiviarli in **wasb:///example/data/10GB-sort-input**.
+	`-Dmapred.map.tasks` indica ad Hadoop quante attività di mapping usare per questo processo. I due parametri finali indicano al processo di creare 10 GB di dati e di archiviarli in ****wasb:///example/data/10GB-sort-input**.
 
 2. Eseguire il comando seguente per ordinare i dati:
 
@@ -241,4 +242,4 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

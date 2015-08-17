@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/09/2015"
    ms.author="v-sharos" />
+
 
 # Utilizzo di Gestione snapshot StorSimple per creare e gestire gruppi di volumi
 
@@ -118,7 +120,7 @@ Utilizzare la procedura seguente per modificare un gruppo di volumi.
 
 2. Nel riquadro **Ambito**, espandere il nodo **Gruppi di volumi**, fare clic con il pulsante destro del mouse sul nome di un gruppo di volumi, quindi fare clic su **Modifica**.
 
-3. Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**. È possibile modificare le voci **Nome**, **Applicazioni** e **Volumi**. 
+3. Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**. È possibile modificare le voci **Nome**, **Applicazioni** e **Volumi**.
 
 4. Fare clic su **OK** per salvare le modifiche.
 
@@ -140,6 +142,6 @@ Utilizzare la procedura seguente per eliminare un gruppo di volumi.
 
 ## Passaggi successivi
 
-[Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md)
+[Utilizzare Gestione Snapshot StorSimple per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

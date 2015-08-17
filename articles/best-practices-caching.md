@@ -777,4 +777,4 @@ Il modello seguente può essere importante per il proprio scenario anche quando 
 - Pagina [Transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nell'archivio Stackexchange.Redis.
 - [Guida partizionamento dati](http://msdn.microsoft.com/library/dn589795.aspx) sul sito Web di Microsoft.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -56,36 +56,14 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 2.	Scegliere **Nuovo** dal menu **FILE**, quindi fare clic su **Progetto**.
 3.	Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
-	<table border="1">
-<tr>
-	<th>Nome</th>
-	<th>Valore</th>
-</tr>
-<tr>
-	<td>Gruppo dei modelli di progetto</td>
-	<td>Installato/Modelli/Visual C#/Windows Store</td>
-</tr>
-<tr>
-	<td>Modello</td>
-	<td>Applicazione vuota (XAML)</td>
-</tr>
-<tr>
-	<td>Nome</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Percorso</td>
-	<td>C:\SSTutorials</td>
-</tr>
-<tr>
-	<td>Nome soluzione</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Crea directory per soluzione</td>
-	<td>(selezionata)</td>
-</tr>
-</table>
+Nome|Valore
+---|---
+Gruppo dei modelli di progetto|Installato/Modelli/Visual C#/Windows Store
+Modello|Applicazione vuota (XAML)
+Nome|SSPlayer
+Percorso|C:\\SSTutorials
+Nome soluzione|SSPlayer
+Crea directory per soluzione|(selezionata)
 
 4.	Fare clic su **OK**.
 
@@ -94,23 +72,12 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 1.	In Esplora soluzioni fare clic con il pulsante destro del mouse su **SSPlayer**, quindi scegliere **Aggiungi riferimento**.
 2.	Digitare o selezionare i valori seguenti:
 
-	<table border="1">
-<tr>
-	<th>Nome</th>
-	<th>Valore</th>
-</tr>
-<tr>
-	<td>Gruppo di riferimenti</td>
-	<td>Windows/Estensioni</td>
-</tr>
-<tr>
-	<td>Riferimento</td>
-	<td>Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. 
-	</td>
-</tr>
-</table>
+Nome|Valore
+---|---
+Gruppo di riferimenti|Windows/Estensioni
+Riferimento|Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package.
 	
-3.	Fare clic su **OK**.
+3.	Fare clic su **OK**. 
 
 Dopo avere aggiunto i riferimenti, è necessario selezionare la piattaforma di destinazione (x64 o x86). L'aggiunta di riferimenti non funzionerà per la configurazione di piattaforma Qualsiasi CPU. In Esplora soluzioni verrà visualizzato un simbolo di avviso giallo per i riferimenti aggiunti.
 
@@ -228,7 +195,7 @@ Nel file XAML alcuni gestori di eventi sono associati ai controlli. Sarà quindi
 		}
 		#endregion
 
-	Il gestore di eventi sliderProgress_PointerPressed viene definito qui. Per renderlo funzionante, è tuttavia necessario eseguire ulteriori attività che verranno illustrate nella lezione successiva di questa esercitazione.
+	Il gestore di eventi sliderProgress\_PointerPressed viene definito qui. Per renderlo funzionante, è tuttavia necessario eseguire ulteriori attività che verranno illustrate nella lezione successiva di questa esercitazione.
 6.	Premere **CTRL+S** per salvare il file.
 
 Il file code-behind finito avrà un aspetto simile al seguente:
@@ -320,7 +287,7 @@ In questa lezione sono incluse le procedure seguenti:
 
 4.	Alla fine del costruttore **MainPage** aggiungere la riga seguente per effettuare la sottoscrizione all'evento di apertura dell'origine adattiva:
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.	Premere **CTRL+S** per salvare il file.
 
@@ -352,7 +319,7 @@ In questa lezione sono incluse le procedure seguenti:
 		}
 		#endregion Adaptive Source Level Events
 
-4.	Alla fine del metodo <strong>mediaElement AdaptiveSourceOpened</strong> aggiungere il codice seguente per sottoscrivere gli eventi:
+4.	Alla fine del metodo **mediaElement AdaptiveSourceOpened** aggiungere il codice seguente per eseguire la sottoscrizione agli eventi:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -498,7 +465,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	Alla fine del metodo **mediaElement_AdaptiveSourceStatusUpdated** aggiungere il codice seguente:
+6.	Alla fine del metodo **mediaElement\_AdaptiveSourceStatusUpdated** aggiungere il codice seguente:
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -762,7 +729,7 @@ Smooth Streaming consente di trasmettere contenuto in streaming con tracce audio
 		}
 		#endregion stream selection
 
-5. Individuare il metodo mediaElement_ManifestReady e aggiungere il codice seguente alla fine della funzione:
+5. Individuare il metodo mediaElement\_ManifestReady e aggiungere il codice seguente alla fine della funzione:
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -788,7 +755,7 @@ Smooth Streaming consente di trasmettere contenuto in streaming con tracce audio
 2.	Premere **F5** per eseguire l'applicazione.
 3.	Nella parte superiore dell'applicazione, è possibile utilizzare l'URL di Smooth Streaming predefinito o immetterne uno nuovo. 
 4.	Fare clic su **Imposta origine**. 
-5.	La lingua predefinita è audio_eng. Provare a passare da audio_eng ad audio_es e viceversa. Ogni volta che si seleziona un nuovo flusso, è necessario fare clic sul pulsante Invia.
+5.	La lingua predefinita è audio\_eng. Provare a passare da audio\_eng ad audio\_es e viceversa. Ogni volta che si seleziona un nuovo flusso, è necessario fare clic sul pulsante Invia.
 
 La lezione 3 è stata completata. In questa lezione è stata aggiunta la funzionalità per la selezione dei flussi.
 
@@ -967,7 +934,7 @@ Una presentazione Smooth Streaming può contenere più file video codificati con
         }
         #endregion track selection
 
-5. Individuare il metodo mediaElement_ManifestReady e aggiungere il codice seguente alla fine della funzione:
+5. Individuare il metodo mediaElement\_ManifestReady e aggiungere il codice seguente alla fine della funzione:
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
@@ -1004,4 +971,4 @@ La lezione 4 è stata completata. In questa lezione è stata aggiunta la funzion
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

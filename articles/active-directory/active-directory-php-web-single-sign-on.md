@@ -125,7 +125,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato usando W
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-> [AZURE.NOTE]I valori **audienceuris** e **realm** devono essere preceduti da "spn:".
+	> [AZURE.NOTE]I valori **audienceuris** e **realm** devono essere preceduti da "spn:".
 
 4. In Eclipse fare clic con il pulsante destro del mouse sul progetto **phpSample**, scegliere **New** e quindi fare clic su **PHP File**.
 
@@ -181,7 +181,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato usando W
 		</body>
 		</html> 
 
-8. Scegliere **Run** dal menu **Run**. Si verrà reindirizzati automaticamente alla pagina del provider di identità di Office 365, dove è possibile effettuare l'accesso usando le credenziali del tenant della directory. Ad esempio: *john.doe@fabrikam.onmicrosoft.com*.
+8. Scegliere **Run** dal menu **Run**. Si verrà reindirizzati automaticamente alla pagina del provider di identità di Office 365, dove è possibile effettuare l'accesso usando le credenziali del tenant della directory. Ad esempio, **john.doe@fabrikam.onmicrosoft.com*.
 
 ## Riepilogo
 In questa esercitazione è stato illustrato come creare e configurare un'applicazione PHP a singolo tenant che usa le funzionalità Single Sign-On di Azure Active Directory.
@@ -203,4 +203,4 @@ Un esempio che mostra l'uso di Azure Active Directory e Single Sign-On per i sit
 [Codice di esempio PHP per Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

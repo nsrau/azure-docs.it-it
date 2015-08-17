@@ -162,7 +162,7 @@ Il seguente script JSON definisce una tabella di input che fa riferimento a una 
  		}
 	}
 
-Il comando PowerShell di Azure di esempio seguente usa **New-AzureDataFactoryTable** che usa un file JSON contenente lo script sopra riportato per creare una tabella (**MyOnPremTable**) in una Data factory di Azure: **CopyFactory**.
+Il comando Azure PowerShell dell’esempio seguente usa **New-AzureDataFactoryTable** che usa un file JSON contenente lo script sopra riportato per creare una tabella (**MyOnPremTable**) in una Data factory di Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -198,7 +198,7 @@ Il seguente script JSON definisce una tabella di output: **MyDemoBlob**, che fa 
    		}
 	}
 
-Il comando PowerShell di Azure di esempio seguente usa **New-AzureDataFactoryTable** che usa un file JSON contenente lo script sopra riportato per creare una tabella (**MyDemoBlob**) in una Data factory di Azure: **CopyFactory**.
+Il comando Azure PowerShell dell’esempio seguente usa **New-AzureDataFactoryTable** che usa un file JSON contenente lo script sopra riportato per creare una tabella (**MyDemoBlob**) in una Data factory di Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
@@ -243,7 +243,7 @@ In questo esempio, una pipeline **CopyActivityPipeline** è definita con le prop
 		}
 
 
- Il comando PowerShell di Azure di esempio seguente usa **New-AzureDataFactoryPipeline** che usa un file JSON contenente lo script sopra riportato per creare una pipeline (**CopyActivityPipeline**) in una Data factory di Azure: **CopyFactory**.
+ Il comando Azure PowerShell dell’esempio seguente usa **New-AzureDataFactoryPipeline** che usa un file JSON contenente lo script sopra riportato per creare una pipeline (**CopyActivityPipeline**) in una Data factory di Azure: **CopyFactory**.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
@@ -299,4 +299,4 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

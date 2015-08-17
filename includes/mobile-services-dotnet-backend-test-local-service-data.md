@@ -14,8 +14,8 @@ In questa sezione si utilizzerà Visual Studio per ospitare il servizio mobile i
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png)
 
-5. In Visual Studio è possibile visualizzare le modifiche nel database creato per il servizio back-end aprendo Esplora server ed espandendo Connessioni dati. Fare clic con il pulsante destro del mouse sulla tabella TodoItems in **MS_TableConnectionString** e scegliere **Mostra dati tabella**
+5. In Visual Studio è possibile visualizzare le modifiche nel database creato per il servizio back-end aprendo Esplora server ed espandendo Connessioni dati. Fare clic con il pulsante destro del mouse sulla tabella TodoItems in **MS\_TableConnectionString** e scegliere **Mostra dati tabella**
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

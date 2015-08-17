@@ -19,4 +19,4 @@ In questa sezione la nuova app verrà testata nel servizio mobile in esecuzione 
 
 	Verrà inviata una richiesta POST al servizio mobile locale. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	services="virtual-machines"
 	authors="gbowerman"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="02/23/2015"
 	ms.author="guybo"/>
+
 
 #Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux#
 
@@ -56,7 +58,8 @@ Questo script consente di installare uno stack LAMP in Ubuntu (inclusa l'imposta
 	apt-get -y install apache2 mysql-server php5 php5-mysql  
 
 	# write some PHP
-	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
+	echo <center><h1>My Demo App</h1><br/>
+</center> > /var/www/html/phpinfo.php
 	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
 
 	# restart Apache
@@ -64,11 +67,11 @@ Questo script consente di installare uno stack LAMP in Ubuntu (inclusa l'imposta
 
 **Caricamento**
 
-Salvare lo script come file di testo, ad esempio *lamp_install.sh*, e quindi caricarlo nell'archiviazione di Azure. È possibile eseguire facilmente questa operazione con l’interfaccia della riga di comando di Azure. Nell'esempio seguente il file viene caricato in un contenitore di archiviazione denominato "scripts". Nota: se il contenitore non esiste, è necessario prima crearlo.
+Salvare lo script come file di testo, ad esempio *lamp\_install.sh*, e quindi caricarlo nell'archiviazione di Azure. È possibile eseguire facilmente questa operazione con l’interfaccia della riga di comando di Azure. Nell'esempio seguente il file viene caricato in un contenitore di archiviazione denominato "scripts". Nota: se il contenitore non esiste, è necessario prima crearlo.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-Creare inoltre un file JSON che descrive la procedura di download dello script dall'archiviazione di Azure. Salvare il file come *public_config.json* (sostituendo "mystorage" con il nome dell'account di archiviazione in uso):
+Creare inoltre un file JSON che descrive la procedura di download dello script dall'archiviazione di Azure. Salvare il file come *public\_config.json* (sostituendo "mystorage" con il nome dell'account di archiviazione in uso):
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -79,7 +82,7 @@ A questo punto, è possibile distribuire l'estensione CustomScript di Linux alla
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-In tal modo verrà scaricato ed eseguito lo script *lamp_install.sh* su una macchina virtuale denominata *lamp-vm*.
+In tal modo verrà scaricato ed eseguito lo script *lamp\_install.sh* su una macchina virtuale denominata *lamp-vm*.
 
 Poiché l'applicazione include un server Web, ricordarsi di aprire una porta di ascolto HTTP nella macchina virtuale remota:
 
@@ -92,7 +95,7 @@ Poiché l'applicazione include un server Web, ricordarsi di aprire una porta di 
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-Al termine dell'esecuzione dell'estensione CustomScript è possibile passare alla pagina PHP creata (in questo esempio: *http://lamp-vm.cloudapp.net/phpinfo.php*.).
+Al termine dell'esecuzione dell'estensione CustomScript è possibile passare alla pagina PHP creata, che in questo esempio potrebbe essere: **http://lamp-vm.cloudapp.net/phpinfo.php*.
 
 ## Risorse aggiuntive
 
@@ -107,4 +110,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

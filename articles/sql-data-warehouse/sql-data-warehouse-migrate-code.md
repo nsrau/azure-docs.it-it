@@ -60,8 +60,8 @@ Anche alcune funzioni di sistema non sono supportate. Alcune di queste funzioni 
 - @@NESTLEVEL()
 - @@IDENTITY()
 - @@ROWCOUNT()
-- ROWCOUNT_BIG
-- ERROR_LINE()
+- ROWCOUNT\_BIG
+- ERROR\_LINE()
 
 Anche per questi problemi è possibile trovare una soluzione.
 
@@ -100,4 +100,4 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

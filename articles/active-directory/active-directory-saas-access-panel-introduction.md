@@ -38,7 +38,7 @@ Il pannello di accesso consente agli utenti di modificare alcune delle impostazi
 
 - Visualizzare e avviare applicazioni basate sul cloud per le quali l'amministratore di Azure AD ha concesso all'utente l'accesso. Per altre informazioni sul Pannello di accesso dal punto di vista dell'utente finale, vedere [Uso del pannello di accesso](https://msdn.microsoft.com/library/azure/dn756411.aspx).
 
-- Gestire i gruppi in modalità self-service. In particolare, è possibile creare e gestire gruppi di sicurezza e richiedere appartenenze a gruppi di sicurezza in Azure AD. Per altre informazioni, vedere [Gestione dei gruppi in modalità self-service per gli utenti in Azure AD](https://msdn.microsoft.com/library/azure/dn641267.aspx) e [Gestione dei gruppi](https://msdn.microsoft.com/library/azure/dn641268.aspx).
+- Gestire i gruppi in modalità self-service. In particolare, è possibile creare e gestire gruppi di sicurezza e richiedere appartenenze a gruppi di sicurezza in Azure AD. Per altre informazioni, vedere [Gestione dei gruppi in modalità self-service per gli utenti in Azure AD](active-directory-accessmanagement-self-service-group-management.md) e [Gestione dei gruppi](active-directory-manage-groups.md).
 
 
 
@@ -46,9 +46,9 @@ Il pannello di accesso consente agli utenti di modificare alcune delle impostazi
 ## Apertura del pannello di accesso
 
 
-Per usare il pannello di accesso, specificare il seguente URL in un Web browser: <br> **http://myapps.microsoft.com**
+Per usare il pannello di accesso, è necessario specificare il seguente URL in un Web browser: <br> ****http://myapps.microsoft.com**
 
-Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle per impostazione predefinita aggiungendo il dominio dell'organizzazione alla fine dell'URL: <br> **http://myapps.microsoft.com/contosobuild.com**
+Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle per impostazione predefinita aggiungendo il dominio dell'organizzazione alla fine dell'URL: <br> ****http://myapps.microsoft.com/contosobuild.com**
 
 In questo caso, è possibile usare qualsiasi nome di dominio attivo o verificato che sia stato configurato nella scheda Domini della directory nel portale di gestione di Azure, come illustrato nella schermata seguente.
 
@@ -95,7 +95,7 @@ Per poter accedere alle applicazioni SSO basate su password sui dispositivi iOS 
 ### App personali per Android
 
 
-App personali per Android è supportata su qualsiasi dispositivo Android che esegua Android versione 4.1 e successive ed è oggi disponibile sul [Play Store di Google](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
+App personali per Android è supportata su qualsiasi dispositivo Android che esegua Android versione 4.1 e successive ed è oggi disponibile nel [Play Store di Google](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
 
 
 ![App personali][3]
@@ -116,7 +116,7 @@ App personali per iOS è supportata su qualsiasi iPhone o iPad che esegua iOS ve
 
 
 
-> [AZURE.NOTE]È possibile accedere alle applicazioni che supportano la federazione con Azure AD (tra cui Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e più di 70 altre applicazioni) praticamente in qualsiasi Web browser su qualsiasi dispositivo, senza richiedere un plug-in o un'app per dispositivi mobili. Anche la parte restante del pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/) non richiede l'uso dell'app App personali su un dispositivo mobile.
+> [AZURE.NOTE]È possibile accedere alle applicazioni che supportano la federazione con Azure AD (tra cui Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e più di 70 altre applicazioni) praticamente in qualsiasi Web browser su qualsiasi dispositivo, senza richiedere un plug-in o un'app per dispositivi mobili. Anche la parte restante del pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/) non richiede l'uso di App personali da un dispositivo mobile.
  
 
 
@@ -128,52 +128,41 @@ Gli amministratori di Azure che hanno eseguito l'accesso al portale di gestione 
 
 **Per eseguire il test con un account utente diverso:**
 
-1. Scegliere "\*\*Disconnetti\*\*" dal menu utente nell'angolo superiore destro del portale di Azure o del portale di accesso. In questo modo verrà effettuata la disconnessione da Azure AD.
+1. Scegliere "**Disconnetti**" dal menu utente nell'angolo superiore destro del portale di Azure o del portale di accesso. In questo modo verrà effettuata la disconnessione da Azure AD.
 
-2. Passare al pannello di accesso all'indirizzo **http://myapps.microsoft.com**.
+2. Passare al pannello di accesso all'indirizzo ****http://myapps.microsoft.com**.
 
 3. Nella pagina di accesso immettere il nome utente e la password dell'account nella directory da testare.
-
-
-
  
 ## Avvio delle applicazioni
 
 Nel pannello di accesso possono essere visualizzati diversi tipi di applicazioni.
  
-
 ### Applicazioni di Office 365
 
 Se un'organizzazione usa applicazioni di Office 365 e l'utente ha le relative licenze, tali applicazioni vengono visualizzate nel pannello di accesso dell'utente.
 
 Quando fa clic sul riquadro di un'applicazione di Office 365, l'utente viene reindirizzato a tale applicazione e l'accesso viene eseguito automaticamente.
- 
-
 
 ### Applicazioni Microsoft e di terze parti configurate con il servizio Single Sign-On basato su federazione
 
-Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "\*Single Sign-On di Microsoft Azure AD\*". Un utente visualizzerà queste applicazioni solo se gli è stato esplicitamente concesso l'accesso dall'amministratore.
+Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "*Single Sign-On di Microsoft Azure AD*". Un utente visualizzerà queste applicazioni solo se gli è stato esplicitamente concesso l'accesso dall'amministratore.
 
 Quando fa clic sul riquadro di una di queste applicazioni, l'utente viene reindirizzato a tale applicazione e l'accesso viene eseguito automaticamente.
- 
 
 ### Single Sign-On basato su password senza provisioning delle identità
 
-Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "\*Single Sign-On basato su password\*". <br> Tutti gli utenti della directory visualizzeranno tutte le applicazioni che sono state configurate in questa modalità.
+Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "*Single Sign-On basato su password*". <br> Tutti gli utenti della directory visualizzeranno tutte le applicazioni che sono state configurate in questa modalità.
 
 La prima volta che fa clic sul riquadro di una di queste applicazioni, l'utente visualizza un messaggio in cui viene chiesto se desidera installare il plug-in Single Sign-On basato su password per Internet Explorer o Chrome. Questa operazione può richiedere il riavvio del Web browser. Quando torna nel pannello di accesso e fa clic di nuovo sul riquadro dell'applicazione, l'utente visualizza un messaggio in cui viene chiesto di specificare un nome utente e una password per l'applicazione. Dopo aver immesso il nome utente e la password, queste credenziali vengono archiviate in modo sicuro in Azure AD e collegate all'account in Azure AD. Il pannello di accesso automatizzerà quindi l'accesso dell'utente all'applicazione usando queste credenziali.
 
 La volta successiva in cui l'utente fa clic sul riquadro dell'applicazione, l'accesso viene eseguito automaticamente senza dover immettere di nuovo le credenziali o reinstallare il plug-in Single Sign-On basato su password.
 
 Se le credenziali dell'utente sono cambiate nell'applicazione di terze parti di destinazione, l'utente deve aggiornare anche le credenziali archiviate in Azure AD. Per aggiornare le credenziali, un utente deve fare clic sull'icona nell'angolo inferiore destro del riquadro dell'applicazione e selezionare l'opzione di aggiornamento delle credenziali per immettere di nuovo il nome utente e la password per l'applicazione.
- 
-
-
-
 
 ### Single Sign-On basato su password con provisioning delle identità
 
-Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "\*Single Sign-On basato su password\*" e il provisioning delle identità.
+Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su "*Single Sign-On basato su password*" e il provisioning delle identità.
 
 La prima volta che fa clic sul riquadro di una di queste applicazioni, l'utente visualizza un messaggio in cui viene chiesto se desidera installare il plug-in Single Sign-On basato su password per Internet Explorer o Chrome. Questa operazione può richiedere il riavvio del Web browser. Quando l'utente torna nel pannello di accesso e fa clic di nuovo sul riquadro dell'applicazione, l'accesso viene eseguito automaticamente.
 
@@ -181,21 +170,15 @@ La prima volta che fa clic sul riquadro di una di queste applicazioni, l'utente 
 
 ### Applicazione con soluzioni SSO esistenti
 
-Quando si configura Single Sign-On per un'applicazione, il portale di gestione di Azure fornisce una terza opzione di "Single Sign-On esistente". Questa opzione consente semplicemente all'amministratore di creare un collegamento a un'applicazione e di posizionarlo nel pannello di accesso per gli utenti selezionati. Ad esempio, se è presente un'applicazione configurata per l'autenticazione degli utenti tramite Active Directory Federation Services 2.0, un amministratore può usare l'opzione "Single Sign-On esistente" per creare un collegamento al pannello di accesso. Quando gli utenti accedono al collegamento, vengono autenticati usando Active Directory Federation Services 2.0 o qualunque soluzione Single Sign-On esistente fornita dall'applicazione.
+Quando si configura Single Sign-On per un'applicazione, il portale di gestione di Azure fornisce una terza opzione di "Single Sign-On esistente". Questa opzione consente semplicemente all'amministratore di creare un collegamento a un'applicazione e di posizionarlo nel pannello di accesso per gli utenti selezionati. Ad esempio, se è presente un'applicazione configurata per l'autenticazione degli utenti tramite Active Directory Federation Services 2.0, un amministratore può utilizzare l'opzione "Single Sign-On esistente" per creare un collegamento al pannello di accesso. Quando gli utenti accedono al collegamento, vengono autenticati utilizzando Active Directory Federation Services 2.0 o qualunque soluzione Single Sign-On esistente fornita dall'applicazione.
 
 
-
-
-
-## Risorse aggiuntive
-
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

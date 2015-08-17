@@ -1,7 +1,6 @@
 <properties
     pageTitle="Cos'è Machine Learning in Azure? | Microsoft Azure"
     description="Illustra i concetti di base del servizio Machine Learning completamente gestito, una tecnologia cloud che è possibile usare per creare, rendere operative e monetizzare le soluzioni."
-	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -116,4 +115,4 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

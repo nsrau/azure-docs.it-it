@@ -86,9 +86,9 @@ Per esporre la funzione `CustomAddRows` come modulo di Azure Machine Learning, �
 	</Module>
 
  
-Si noti che il valore degli attributi **id** degli elementi **Input** e **Arg** nel file XML deve corrispondere esattamente ai nomi dei parametri di funzione del codice R (\*dataset1\*, *dataset2* e *swap* nell'esempio). Analogamente, il valore dell'attributo **entryPoint** dell'elemento **Language** deve corrispondere esattamente al nome della funzione nello script R (\*CustomAddRows\* nell'esempio). Al contrario, l'attributo **id** per gli elementi di **Output** non corrisponde a nessuna variabile nello script R. Quando è necessario più di un output, restituire semplicemente un elenco dalla funzione R con i risultati posizionati nello stesso ordine in cui sono dichiarati gli output nel file XML.
+Si noti che il valore degli attributi **id** degli elementi **Input** e **Arg** nel file XML deve corrispondere esattamente ai nomi dei parametri di funzione del codice R (*dataset1*, *dataset2* e *swap* nell'esempio). Analogamente, il valore dell'attributo **entryPoint** dell'elemento **Language** deve corrispondere esattamente al nome della funzione nello script R (*CustomAddRows* nell'esempio). Al contrario, l'attributo **id** per gli elementi di **Output** non corrisponde a nessuna variabile nello script R. Quando è necessario più di un output, restituire semplicemente un elenco dalla funzione R con i risultati posizionati nello stesso ordine in cui sono dichiarati gli output nel file XML.
 
-Salvare questi due file come *CustomAddRows.R* e *CustomAddRows.xml*, quindi comprimerli insieme nel file *CustomAddRows.zip*.
+Salvare questi due file come *CustomAddRows.R* e *CustomAddRows.xml* e quindi comprimerli insieme nel file *CustomAddRows.zip*.
 
 Per registrarli nell'area di lavoro di Machine Learning, accedere all'area di lavoro in Machine Learning Studio, fare clic sul pulsante **+NUOVO** in fondo e scegliere **MODULO -> DA PACCHETTO ZIP** per caricare il nuovo modulo personalizzato Add Rows.
 
@@ -106,15 +106,15 @@ L'elemento **Module** viene usato per definire un modulo personalizzato nel file
 		<Description>Appends one dataset to another...</Description>/> 
 
 
-All'interno dell'elemento **Module**, è possibile specificare un elemento **Owner** facoltativo incorporato nel modulo, nonché un elemento **Description** il cui testo viene visualizzato nella Guida rapida per il modulo e quando si passa il mouse sul modulo nell'interfaccia utente di Machine Learning.
+All'interno dell'elemento **Module** è possibile specificare un elemento **Owner** facoltativo incorporato nel modulo, nonché un elemento **Description** il cui testo viene visualizzato nella Guida rapida per il modulo e quando si passa il mouse sul modulo nell'interfaccia utente di Machine Learning.
 
 **Regole per i limiti di caratteri negli elementi Module**:
 
-* Il valore dell'attributo **Name** nell'elemento **Module** non deve superare i 64 caratteri. 
+* Il valore dell'attributo **name** nell'elemento **Module** non deve superare i 64 caratteri. 
 * Il contenuto dell'elemento **Description** non deve superare i 128 caratteri.
 * Il contenuto dell'elemento **Owner** non deve superare i 32 caratteri.
 
-\*\* Indica se i risultati di un modulo sono deterministici o non deterministici
+** Indica se i risultati di un modulo sono deterministici o non deterministici
 
 Per impostazione predefinita, tutti i moduli sono considerati deterministici. Ovvero, dato un set di parametri non modificabile, il modulo deve restituire gli stessi risultati ogni volta che viene eseguito. In base a tale comportamento, Azure Machine Learning Studio non esegue nuovamente i moduli contrassegnati come deterministici a meno che non sia stato modificato un parametro o i dati di input. Vengono restituiti i risultati memorizzati nella cache con un'esecuzione più rapida dell'esperimento.
 
@@ -127,11 +127,11 @@ L'elemento **Language** nel file di definizione XML viene usato per specificare 
 
 
 ### Porte
-Le porte di input e di output per un modulo personalizzato vengono specificate negli elementi figlio della sezione **Ports** del file di definizione XML. L'ordine di questi elementi determina il layout visualizzato (UX) dagli utenti. Il primo **input** o **output** figlio elencato nell'elemento **Ports** del file XML sarà la porta di input più a sinistra nell'esperienza utente di Machine Learning. Ogni porta di input e di output può disporre di un elemento figlio **Description** che specifica il testo visualizzato quando l'utente passa il cursore del mouse sulla porta nell'interfaccia utente di Machine Learning.
+Le porte di input e di output per un modulo personalizzato vengono specificate negli elementi figlio della sezione **Ports** del file di definizione XML. L'ordine di questi elementi determina il layout visualizzato (UX) dagli utenti. Il primo **input** o **output** figlio elencato nell'elemento **Ports** del file XML file sarà la porta di input più a sinistra nell'esperienza utente di Machine Learning. Ogni porta di input e di output può disporre di un elemento figlio **Description** che specifica il testo visualizzato quando l'utente passa il cursore del mouse sulla porta nell'interfaccia utente di Machine Learning.
 
 **Regole porte**:
 
-* Il numero massimo di **porte di input e di output** è 8 per ciascuno.
+* Il numero massimo di **porte di input e di output** è 8 per ciascuna.
 
 ### Elementi di input
 Le porte di input consentono agli utenti di passare i dati all'area di lavoro e alla funzione R. I **tipi di dati** supportati dalle porte di input e output sono i seguenti:
@@ -142,7 +142,7 @@ Le porte di input consentono agli utenti di passare i dati all'area di lavoro e 
         	<Description>Input Dataset 1</Description>
        	</Input>
 
-L'attributo **id** associato a ogni porta di input **DataTable** deve avere un valore univoco che deve corrispondere al relativo parametro denominato nella funzione R. Le porte **DataTable** facoltative che non vengono passate come input in un esperimento passeranno un valore **NULL** alla funzione R e i file ZIP facoltativi verranno ignorati se l'input non è connesso. L'attributo **isOptional** è facoltativo per i tipi **DataTable** e **Zip** ed è *false* per impostazione predefinita.
+L'attributo **id** associato a ogni porta di input **DataTable** deve avere un valore univoco che deve corrispondere al relativo parametro denominato nella funzione R. Le porte **DataTable** facoltative che non vengono passate come input in un esperimento passeranno un valore **NULL** alla funzione R e le porte Zip facoltative verranno ignorate se l'input non è connesso. L'attributo **isOptional** è facoltativo per i tipi **DataTable** e **Zip** ed è *false* per impostazione predefinita.
 	   
 **Zip:** i moduli personalizzati possono accettare un file ZIP come input. Tale input viene decompresso in una directory di esecuzione R della funzione
 
@@ -158,12 +158,12 @@ Per i moduli personalizzati R, non è necessario che l'ID di una porta Zip corri
 * Il valore dell'attributo **id** dell'elemento **Input** non deve superare i 64 caratteri.
 * Il valore dell'attributo **name** dell'elemento **Input** non deve superare i 64 caratteri.
 * Il contenuto dell'elemento **Description** non deve superare i 128 caratteri.
-* Il valore dell'attributo **type** dell'elemento **Input** deve essere *Zip* o *DataTable*.
+* Il valore dell'elemento **type** dell'elemento **Input** deve essere *Zip* o *DataTable*.
 * Il valore dell'attributo **isOptional** dell'elemento **Input** non è obbligatorio (ed è *false* per impostazione predefinita quando non è specificato), ma, se è specificato, deve essere *true* o *false*.
 
 ### Elementi di output
 
-**Porte di output standard:** le porte output corrispondono ai valori restituiti dalla funzione R, che può quindi essere usata dai moduli successivi. *DataTable* è l'unico tipo di porta di output standard attualmente supportato. Il supporto per *Learners* e *Transforms* è di prossima introduzione. Un output *DataTable* viene definito come:
+**Porte di output standard:** le porte di output corrispondono ai valori restituiti dalla funzione R, che può quindi essere usata dai moduli successivi. *DataTable* è l'unico tipo di porta di output standard attualmente supportato. Il supporto per *Learners* e *Transforms* è di prossima introduzione. Un output *DataTable* è definito come:
 
 	<Output id="dataset" name="Dataset" type="DataTable">
 		<Description>Combined dataset</Description>
@@ -173,7 +173,7 @@ Per gli output in moduli R personalizzati, il valore dell'attributo **id** non d
  
 Ad esempio, se si desidera restituire un set di dati, Dataset1 e Dataset2 in un set di dati di porte di output, dataset1 e dataset2 da sinistra a destra, rispettivamente, definire le porte di output nel file 'CustomAddRows.xmll' come segue:
 
-Ad esempio, se si desidera modificare il modulo **Add rows personalizzato** per l'output dei due set di dati originali, *dataset1* e *dataset2*, oltre al nuovo set di dati *dataset* unito (in un ordine da sinistra a destra, del tipo *dataset*, *dataset1*, *dataset2*), definire le porte di output nel file CustomAddRows.xml come segue:
+Ad esempio, se si vuole modificare il modulo **Add Rows personalizzato** per l'output dei due seti di dati originali, *dataset1* e *dataset2*, oltre al nuovo set di dati *dataset* (in un ordine da sinistra a destra, del tipo *dataset*, *dataset1*, *dataset2*), definire le porte di output nel file CustomAddRows.xml come segue:
 
 	<Ports> 
 		<Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -203,7 +203,7 @@ Restituire quindi gli oggetti in un elenco con l'ordine corretto in 'CustomAddRo
 	return (list(dataset, dataset1, dataset2)) 
 	} 
 	
-**Output di visualizzazione:** è inoltre possibile specificare una porta di output di tipo *Visualization* che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type**:
+**Output di visualizzazione:** è anche possibile specificare una porta di output di tipo *Visualization* che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type**:
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -217,10 +217,10 @@ Restituire quindi gli oggetti in un elenco con l'ordine corretto in 'CustomAddRo
 * Il valore dell'attributo **type** dell'elemento **Output** deve essere *Visualization*.
 
 ### Argomenti
-Dati aggiuntivi possono essere passati alla funzione R tramite i parametri del modulo definiti nell'elemento **Arguments**. Questi parametri vengono visualizzati nel riquadro delle proprietà più a destra dell'interfaccia utente di Machine Learning quando viene selezionato il modulo. Gli argomenti possono essere uno qualsiasi dei tipi supportati. In alternativa, è possibile creare un enumeratore personalizzato, se necessario. Analogamente agli elementi **Ports**, gli elementi **Arguments** possono presentare un elemento **Description** facoltativo che specifica il testo visualizzato quando si posiziona il mouse sul nome del parametro. Le proprietà facoltative per un modulo, quali defaultValue, minValue e maxValue possono essere aggiunte a qualsiasi argomento come attributi di un elemento **Properties**. Le proprietà valide per l'elemento **Properties** dipendono dal tipo di argomento e vengono descritte con i tipi di argomento supportati riportati di seguito. Così come con input e output, è fondamentale che ogni parametro presenti valori ID univoci associati. Inoltre, i valori ID devono corrispondere ai parametri denominati nella funzione R. Nell'esempio di avvio rapido il parametro/id associato era *swap*.
+Dati aggiuntivi possono essere passati alla funzione R con i parametri del modulo definiti nell'elemento **Arguments**. Questi parametri vengono visualizzati nel riquadro delle proprietà più a destra dell'interfaccia utente di Machine Learning quando viene selezionato il modulo. Gli argomenti possono essere uno qualsiasi dei tipi supportati. In alternativa, è possibile creare un enumeratore personalizzato, se necessario. Analogamente agli elementi **Ports**, gli elementi **Arguments** possono presentare un elemento **Description** facoltativo che specifica il testo visualizzato quando si posiziona il mouse sul nome del parametro. Le proprietà facoltative per un modulo, quali defaultValue, minValue e maxValue possono essere aggiunte a qualsiasi argomento come attributi di un elemento **Properties**. Le proprietà valide per l'elemento **Properties** dipendono dal tipo di argomento e vengono descritte con i tipi di argomento supportati riportati di seguito. Così come con input e output, è fondamentale che ogni parametro presenti valori ID univoci associati. Inoltre, i valori ID devono corrispondere ai parametri denominati nella funzione R. Nell'esempio di avvio rapido il parametro/id associato era *swap*.
 
 ### Elemento Arg
-Un parametro del modulo viene definito mediante l'elemento figlio **Arg** della sezione **Arguments** del file di definizione XML. Come con gli elementi figlio nella sezione **Ports**, l'ordine dei parametri nella sezione **Arguments** definisce il layout riscontrato nell'esperienza utente. I parametri vengono visualizzati dall'alto verso il basso nell'interfaccia utente nello stesso ordine in cui sono definiti nel file XML. I tipi supportati da Machine Learning per i parametri sono elencati di seguito.
+Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezione **Arguments** del file di definizione XML. Come con gli elementi figlio nella sezione **Ports**, l'ordine dei parametri nella sezione **Arguments** definisce il layout riscontrato nell'esperienza utente. I parametri vengono visualizzati dall'alto verso il basso nell'interfaccia utente nello stesso ordine in cui sono definiti nel file XML. I tipi supportati da Machine Learning per i parametri sono elencati di seguito.
 
 **int**: parametro di tipo Integer (32 bit).
 
@@ -308,7 +308,7 @@ Un parametro del modulo viene definito mediante l'elemento figlio **Arg** della 
 		* Tutti
 
                             							
-**DropDown**: elenco enumerato specificato dall'utente (elenco a discesa). Gli elementi dell'elenco a discesa vengono specificati all'interno dell'elemento **Properties** usando un elemento **Item**. L'**ID** per ogni **elemento** deve essere univoco e una variabile R valida e il nome dell'elemento è sia il testo visualizzato dagli utenti che il valore passato alla funzione R.
+**DropDown**: elenco enumerato specificato dall'utente (elenco a discesa). Gli elementi dell'elenco a discesa vengono specificati all'interno dell'elemento **Properties** usando un elemento **Item**. L'**id** per ogni **elemento** deve essere univoco e una variabile R valida e il nome dell'elemento è sia il testo visualizzato dagli utenti che il valore passato alla funzione R.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
@@ -363,4 +363,4 @@ Le **limitazioni dell'ambiente di esecuzione** includono:
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

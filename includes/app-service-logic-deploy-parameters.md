@@ -53,4 +53,4 @@ Dimensioni dell'istanza dell'app.
 
 Il modello definisce i valori consentiti per questo parametro (0, 1 o 2) e assegna un valore predefinito (0) nel caso in cui non venga specificato alcun valore. I valori corrispondono a piccole, medie e grandi dimensioni.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

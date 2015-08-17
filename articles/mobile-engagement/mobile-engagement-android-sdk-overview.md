@@ -35,7 +35,7 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk
 
 ##Note sulla versione
 
-###4.0.0 (06/07/2015)
+###4\.0.0 (06/07/2015)
 
 -   Modifiche al protocollo interno per rendere più affidabili le analisi e il push.
 -   Il push nativo (GCM/ADM) viene ora usato anche per le notifiche in-app. È quindi necessario configurare le credenziali del push nativo per qualsiasi tipo di campagna push.
@@ -118,4 +118,4 @@ Con
 
 Incorporare il nuovo file `res/layout/engagement_loading.xml` nel progetto.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

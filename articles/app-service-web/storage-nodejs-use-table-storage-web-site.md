@@ -8,6 +8,7 @@
 	manager="wpickett"
 	editor=""/>
 
+
 <tags
 	ms.service="storage"
 	ms.workload="storage"
@@ -16,6 +17,7 @@
 	ms.topic="article"
 	ms.date="04/28/2015"
 	ms.author="mwasson"/>
+
 
 
 
@@ -39,7 +41,7 @@ Di seguito è riportata l'applicazione completata:
 
 ![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
->[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
 ## Prerequisiti
@@ -92,7 +94,7 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE] Il parametro "-g" consente di installare il modulo a livello globale. In questo modo, è possibile usare **express** per generare lo scaffolding dell'app Web senza dover inserire informazioni aggiuntive sul percorso.
+	> [AZURE.NOTE]Il parametro "-g" consente di installare il modulo a livello globale. In questo modo, è possibile usare **express** per generare lo scaffolding dell'app Web senza dover inserire informazioni aggiuntive sul percorso.
 
 4. Per creare lo scaffolding per l'applicazione, immettere il comando **express**:
 
@@ -145,7 +147,7 @@ L'output di questo comando dovrebbe essere simile al seguente:
     [...]
 
 
-Successivamente, immettere il comando riportato di seguito per installare i moduli [azure], [node-uuid], [nconf] e [async]:
+Successivamente, immettere il comando riportato di seguito per installare i moduli [azure], [node-uuid], [nconf] e [async]\:
 
 	npm install azure-storage node-uuid async nconf --save
 
@@ -340,7 +342,7 @@ Un *controller* consente di gestire le richieste HTTP ed eseguire il rendering d
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE] nconf caricherà i valori di configurazione dalle variabili di ambiente oppure dal file **config.json**, che verrà creato più avanti.
+	> [AZURE.NOTE]nconf caricherà i valori di configurazione dalle variabili di ambiente oppure dal file **config.json**, che verrà creato più avanti.
 
 3. Nel file app.js scorrere verso il basso fino a individuare la riga seguente:
 
@@ -427,7 +429,7 @@ Dalla cartella **views** aprire **layout.jade** e sostituire l'intero contenuto 
 
 ### Creare un file config
 
-Per eseguire l'app a livello locale, verranno inserite le credenziali di Archiviazione di Azure in un file config. Creare un file denominato **config.json* *con il seguente contenuto:
+Per eseguire l'app a livello locale, verranno inserite le credenziali di Archiviazione di Azure in un file config. Creare un file denominato **config.json* *con il seguente JSON:
 
 	{
 		"STORAGE_NAME": "<storage account name>",
@@ -481,7 +483,7 @@ Anche se l'applicazione è in esecuzione in locale, i dati vengono archiviati ne
 
 Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di Azure per creare una nuova app Web nel servizio app e viene usato Git per distribuire l'applicazione. Per questa procedura, è necessario disporre di una sottoscrizione di Azure.
 
-> [AZURE.NOTE] È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
+> [AZURE.NOTE]È possibile eseguire queste procedure anche nel [Portale di Azure](https://portal.azure.com). Vedere [Creazione e distribuzione di un'app Web Node.js nel Azure App Service].
 >
 > Se questa è la prima app Web di Azure che si crea, per distribuire l'applicazione è necessario utilizzare il portale di Azure.
 
@@ -499,9 +501,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-
-	Il download del file dovrebbe iniziare automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
+	<!-- ![The download page][download-publishing-settings] -->Il download del file dovrebbe iniziare automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
 2. Immettere il seguente comando per importare le impostazioni:
 
@@ -523,7 +523,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Il parametro `--git` consente di creare un archivio GIT per l'app Web in Azure. Inoltre consente di inizializzare un archivio GIT nella directory corrente, se non ne esiste nessuno, e di aggiungere un [GIT remoto] denominato "azure", usato per pubblicare l'applicazione in Azure. Infine, consente di creare un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node.
 
-	> [AZURE.NOTE] Se la directory contiene già un archivio GIT, la directory non verrà reinizializzata dal comando. Inoltre, se il parametro `--git` viene omesso ma la directory contiene un archivio GIT, il comando consente di creare comunque l'archivio "azure".
+	> [AZURE.NOTE]Se la directory contiene già un archivio GIT, la directory non verrà reinizializzata dal comando. Inoltre, se il parametro `--git` viene omesso ma la directory contiene un archivio GIT, il comando consente di creare comunque l'archivio "azure".
 
 	Dopo il completamento di questo comando, verrà visualizzato un output simile al seguente. Si noti che la riga che inizia con **Website created at** contiene l'URL dell'app Web.
 
@@ -644,4 +644,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

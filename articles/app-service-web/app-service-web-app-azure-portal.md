@@ -7,6 +7,7 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="03/24/2015"
 	ms.author="jaime-espinosa"/>
+
 
 # Informazioni di riferimento per l'esplorazione del portale di Azure
 
@@ -86,4 +88,4 @@ Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinomina
 * Per informazioni su cosa è cambiato nel passaggio dal portale precedente a quello nuovo, vedere: [Informazioni di riferimento per la navigazione nel nuovo portale](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

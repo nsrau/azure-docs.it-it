@@ -1,34 +1,34 @@
-<properties 
-	pageTitle="Come usare l'archiviazione BLOB da Python | Microsoft Azure" 
-	description="Informazioni su come usare il servizio BLOB di Azure da Python per caricare, elencare, scaricare, elencare ed eliminare BLOB." 
-	services="storage" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Come usare l'archiviazione BLOB da Python | Microsoft Azure"
+	description="Informazioni su come usare il servizio BLOB di Azure da Python per caricare, elencare, scaricare, elencare ed eliminare BLOB."
+	services="storage"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="05/11/2015"
 	ms.author="huvalo"/>
 
-# Come usare l'archiviazione BLOB da Python
+# Come usare l'archiviazione BLOB di Azure da Python
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Panoramica
 
-In questa guida verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB di Azure. Gli esempi sono scritti in Python e usano il [pacchetto Python di Azure][]. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB.
+In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB. Gli esempi sono scritti in Python e usano il [pacchetto Python di Azure][]. Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Procedura: creare un contenitore
+## Creare un contenitore
 
 > [AZURE.NOTE]Se è necessario installare Python o il [pacchetto Python di Azure][], vedere la [guida all'installazione di Python](../python-how-to-install.md).
 
@@ -36,19 +36,19 @@ L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice
 
 	from azure.storage import BlobService
 
-Il codice seguente consente di creare un oggetto **BlobService** usando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
+Il codice seguente consente di creare un oggetto **BlobService** utilizzando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-È possibile utilizzare un oggetto **BlobService** per creare il contenitore, se non esiste:
+Nell’esempio di codice seguente, è possibile utilizzare un oggetto **BlobService** per creare il contenitore, se non esiste:
 
 	blob_service.create_container('mycontainer')
 
 Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione, come già fatto in precedenza, per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile creare il contenitore e passare il livello di accesso pubblico usando il codice seguente:
 
-	blob_service.create_container('mycontainer', x_ms_blob_public_access='container') 
+	blob_service.create_container('mycontainer', x_ms_blob_public_access='container')
 
 In alternativa è possibile modificare un contenitore dopo averlo creato usando il codice seguente:
 
@@ -56,7 +56,7 @@ In alternativa è possibile modificare un contenitore dopo averlo creato usando 
 
 Dopo questa modifica, i BLOB in un contenitore pubblico saranno visibili a tutti gli utenti di Internet, tuttavia solo l'utente che li ha creati sarà in grado di modificarli o eliminarli.
 
-## Procedura: caricare un BLOB in un contenitore
+## Caricare un BLOB in un contenitore
 
 Per caricare i dati in un BLOB, usare i metodi **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** o **put\_block\_blob\_from\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
@@ -71,15 +71,9 @@ Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel BL
         x_ms_blob_content_type='image/png'
     )
 
-## Procedura: elencare i BLOB in un contenitore
+## Elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, utilizzare il metodo **list\_blobs** con un ciclo **for** per visualizzare il nome di ogni BLOB nel contenitore. Il codice seguente consente di inviare alla console il valore **name** di ogni BLOB in un contenitore.
-
-	blobs = blob_service.list_blobs('mycontainer')
-	for blob in blobs:
-		print(blob.name)
-
-**list\_blobs** restituirà solo un numero massimo di 5000 BLOB. Se il contenitore include più di 5000 BLOB utilizzare il codice seguente.
+Per elencare i BLOB in un contenitore, usare il metodo **list\_blobs**. Ogni chiamata a **list\_blobs** restituirà un segmento di risultati. Per ottenere tutti i risultati, controllare il **next\_marker** dei risultati e chiamare **list\_blobs** nuovamente in base alle esigenze. Il codice seguente consente di inviare alla console il valore **name** di ogni BLOB in un contenitore.
 
 	blobs = []
 	marker = None
@@ -92,7 +86,9 @@ Per elencare i BLOB in un contenitore, utilizzare il metodo **list\_blobs** con 
 	for blob in blobs:
 		print(blob.name)
 
-## Procedura: scaricare i BLOB
+## Scaricare BLOB
+
+Ogni segmento di risultati può contenere un numero variabile di BLOB con un massimo di 5000. Se**next\_marker**esiste per un particolare segmento, possono esistere più BLOB nel contenitore.
 
 Per scaricare i dati da un BLOB, usare **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** o **get\_blob\_to\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
@@ -100,11 +96,11 @@ Nell'esempio seguente viene illustrato l'uso di **get\_blob\_to\_path** per scar
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
-## Procedura: eliminare un BLOB
+## Eliminare un BLOB
 
 Per eliminare un BLOB, infine, chiamare **delete\_blob**.
 
-	blob_service.delete_blob('mycontainer', 'myblob') 
+	blob_service.delete_blob('mycontainer', 'myblob')
 
 ## Passaggi successivi
 
@@ -116,6 +112,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

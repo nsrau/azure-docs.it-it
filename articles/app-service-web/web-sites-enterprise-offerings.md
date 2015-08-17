@@ -4,8 +4,10 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
+	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
+
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +15,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/04/2015" 
 	ms.author="apwestgarth"/>
+
 
 # Servizio di applicazione Azure Web App offerte per white paper aziendali #
 
@@ -32,13 +35,14 @@ Siti Web di Microsoft Azure è una piattaforma ideale in cui ospitare servizi e 
 
 ## Definizione del problema ## ##
 
-Il panorama IT è in rapida evoluzione a causa dell'abbandono dell'hosting su server tradizionali, con i loro elevati costi di capitale su lead time lunghi; il nuovo approccio prevede l'uso di servizi su richiesta scalabili automaticamente per gestire il carico. Ai reparti IT viene chiesto di ridurre i costi e il footprint delle spese relative all'infrastruttura e alla manutenzione, con l'obiettivo di ridurre le spese in conto capitale aumentando contemporaneamente la flessibilità. L'imminente termine del ciclo di vita delle piattaforme di infrastruttura più obsolete, ad esempio Windows Server 2003, costringe i reparti IT a rivedere la migrazione verso il cloud come un potenziale mezzo per evitare nuovi costi di capitale a lungo termine. In passato erano i CIO a prendere le decisioni di acquisto per altri reparti. Oggi, un numero crescente di CMO e di capi di altre business unit assumono un ruolo più attivo nella gestione della spesa del budget e nella determinazione del ritorno sull'investimento. Le aziende hanno più che mai bisogno che la forza lavoro sia mobile, richiedendo ai propri dipendenti di lavorare in remoto e dedicando maggior tempo ai clienti che vogliono accedere ai sistemi senza alcun inconveniente.
+Il panorama IT è in rapida evoluzione a causa dell'abbandono dell'hosting su server tradizionali, con i loro elevati costi di capitale su lead time lunghi; il nuovo approccio prevede l'uso di servizi su richiesta scalabili automaticamente per gestire il carico. Ai reparti IT viene chiesto di ridurre i costi e il footprint delle spese relative all'infrastruttura e alla manutenzione, con l'obiettivo di ridurre le spese in conto capitale aumentando contemporaneamente la flessibilità. Il termine del ciclo di vita delle piattaforme di infrastruttura più obsolete, ad esempio Windows Server 2003, costringe i reparti IT a rivedere la migrazione verso il cloud come un potenziale mezzo per evitare nuovi costi di capitale a lungo termine. In passato erano i CIO a prendere le decisioni di acquisto per altri reparti. Oggi, un numero crescente di CMO e di capi di altre business unit assumono un ruolo più attivo nella gestione della spesa del budget e nella determinazione del ritorno sull'investimento. Le aziende hanno più che mai bisogno che la forza lavoro sia mobile, richiedendo ai propri dipendenti di lavorare in remoto e dedicando maggior tempo ai clienti che vogliono accedere ai sistemi senza alcun inconveniente.
 
 Variare delle esigenze aziendali mensile, settimanale, ogni giorno. Le esigenze aziendali cambiano ogni mese, settimana e giorno: le aziende richiedono una scalabilità globale istantanea, con servizi aggiornati regolarmente, ricchi di nuove funzionalità, forniti da una terza parte o sviluppati internamente. Gli utenti hanno aspettative superiore, con molti mediante l'uso dei servizi nella vita privata come Office365. Si aspettano di avere accesso ai servizi avanzate funzionalità simili, aggiornato in tutto il periodo di lavoro. Per far fronte a questa domanda, i reparti IT devono mirare ad aiutare le aziende a conseguire questo scopo attraverso la selezione e l'integrazione con servizi di terze parti, l'attenta selezione delle piattaforme che possono adattarsi alle esigenze aziendali, garantendo contemporaneamente l'affidabilità e un costo totale di proprietà ridotto.
 
 Team di sviluppo sono cercando di fornire vantaggi aziendali immediato, distribuzione di nuove funzionalità in modo frequente. Si stanno cercando una piattaforma conveniente e affidabile che si integra con i test di strumenti e procedure consigliate: sviluppo di applicazioni, esistente, rilasciare; e l'utilizzo con i reparti IT automatizza la distribuzione, gestione e avviso, tutti i dati con l'obiettivo di tempi di inattività.
 
 <a href="highlevel" />
+
 ## Soluzione di alto livello ## ##
 
 Si fa un uso sempre più frequente di piattaforme Web e framework per sviluppare, testare e ospitare applicazioni line-of-business. Una tipica applicazione line-of-business potrebbe essere, ad esempio, un sistema interno per la registrazione delle note spese dei dipendenti, spesso costituito unicamente da un sito Web con un database di backup per archiviare i dati connessi all'applicazione.
@@ -153,4 +157,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

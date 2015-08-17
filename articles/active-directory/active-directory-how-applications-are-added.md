@@ -7,14 +7,16 @@
    manager="kbrint"
    editor=""/>
 
+
    <tags
       ms.service="active-directory"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/23/2015"
+      ms.date="07/30/2015"
       ms.author="shoatman"/>
+
 
 # Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -36,7 +38,7 @@ Le applicazioni vengono aggiunte in Azure AD in modo che sia possibile sfruttare
 
 Le applicazioni sono rappresentate in Azure AD tramite 2 oggetti: un oggetto applicazione e un oggetto entità servizio. Esiste un oggetto applicazione, registrato in una directory "home"/"proprietario" o "pubblicazione" e uno o più oggetti entità servizio che rappresentano l'applicazione in ogni directory in cui opera.
 
-L'oggetto applicazione descrive l'app ad Azure AD (servizio multitenant) e può includere gli elementi seguenti: (*Nota: questo elenco potrebbe non essere completo)
+L'oggetto applicazione descrive l'app ad Azure AD (servizio multitenant) e può includere gli elementi seguenti: (*Nota*: questo elenco potrebbe non essere completo)
 
 * Nome, logo e autore
 * Segreti (chiavi simmetriche e/o asimmetriche usate per autenticare l'app)
@@ -65,7 +67,7 @@ L'entità servizio è un record dell'applicazione in ogni directory in cui quest
 ![Diagramma che illustra gli oggetti applicazione e le entità servizio presenti all'interno delle istanze di Azure AD.][apps_service_principals_directory]
 
 Come si può notare nel diagramma, Microsoft mantiene internamente due directory (a sinistra) usate per pubblicare le applicazioni.
- 
+
 * Una per le app Microsoft (directory di servizi Microsoft)
 * Una per le app di terze parti preintegrate (directory Raccolta app)
 
@@ -145,6 +147,5 @@ Altre informazioni su come aggiungere applicazioni in Azure AD e su come configu
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

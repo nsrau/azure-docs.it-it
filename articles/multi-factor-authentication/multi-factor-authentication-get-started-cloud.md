@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
@@ -156,4 +156,4 @@ Dopo avere attivato gli utenti, si consiglia di inviare agli utenti un messaggio
 ## Passaggi successivi
 Ora che è stata impostata la modalità Multi-Factor Authentication nel cloud, è possibile passare alla fase successiva andando alla sezione [Configurazione di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md). Da qui sarà possibile apprendere come creare report, segnalare avvisi di illecito, personalizzare i messaggi vocali e tutte le funzionalità offerte da Azure multi-Factor Authentication.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

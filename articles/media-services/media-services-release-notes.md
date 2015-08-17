@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/20/2015" 
 	ms.author="juliako"/>
+
 
 
 # Note sulla versione di Servizi multimediali di Azure
@@ -54,11 +56,19 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 ### <a id="general_issues"></a>Problemi generali di Servizi multimediali
 
-<table border="1"> <tr><th>Problema</th><th>Descrizione</yt></tr> <tr><td>Nell'API REST non sono fornite alcune intestazioni HTTP comuni.</td><td>Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento.</td></tr> <tr><td>La codifica di un asset con un nome di file contenente caratteri di escape, ad esempio %20, genera un errore simile al seguente "MediaProcessor: File non trovato."</td><td>I nomi di file da aggiungere a un asset e da codificare devono contenere solo caratteri alfanumerici e spazi. Il problema verrà risolto in un futuro aggiornamento.</td></tr> <tr><td>Il metodo ListBlobs di Azure Storage SDK versione 3. x non riesce.</td><td>Servizi multimediali genera URL SAS basati sulla versione <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a>. Per elencare tutti i BLOB in un contenitore BLOB con Azure Storage SDK, usare il metodo <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> contenuto in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà.</td></tr> <tr><td>Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503).</td><td>Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Codici di errore di Servizi multimediali di Azure</a>.</td></tr> </table><br/>
- 
+Problema|Descrizione
+---|---
+Nell'API REST non sono fornite alcune intestazioni HTTP comuni.|Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento.
+La codifica di un asset con un nome di file contenente caratteri di escape, (ad esempio %20), genera un errore simile al seguente "MediaProcessor: File non trovato.”|I nomi di file da aggiungere a un asset e da codificare devono contenere solo caratteri alfanumerici e spazi. Il problema verrà risolto in un futuro aggiornamento.
+Il metodo ListBlobs di Azure Storage SDK versione 3.x non riesce.|Servizi multimediali genera URL di firma di accesso condiviso basati sulla versione [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se si vuol usare Azure Storage SDK per elencare oggetti BLOB in un contenitore dello stesso tipo, usare il metodo [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) disponibile in Azure Storage SDK versione 2.x. Il metodo ListBlobs disponibile in Azure Storage SDK versione 3.x non riuscirà.
+Il meccanismo di limitazione delle richieste di Servizi multimediali limita l'uso delle risorse per le applicazioni che inviano un numero elevato di richieste al servizio. Il servizio può restituire il codice di stato HTTP di servizio non disponibile (503).|Per altre informazioni, vedere la descrizione del codice di stato HTTP 503 nell'argomento [Codici di errore di Servizi multimediali di Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+
+
 ### <a id="dotnet_issues"></a>Problemi relativi all'SDK di Servizi multimediali per .NET
 
-<table border="1"> <tr><th>Problema</th><th>Descrizione</yt></tr> <tr><td>Gli oggetti di Servizi multimediali nell’SDK non possono essere serializzati e di conseguenza non funzionano con Caching di Azure.</td><td>Se si prova a serializzare l'oggetto AssetCollection dell’SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione.</td></tr> </table><br/>
+Problema|Descrizione
+---|---
+Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializzati e di conseguenza non funzionano con Caching di Azure.|Se si prova a serializzare l'oggetto AssetCollection del modulo SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione.
 
 ##<a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 
@@ -68,7 +78,7 @@ Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali
 
 È stata annunciata la disponibilità generale del codificatore multimediale standard. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium \*\*. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
+Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium**. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
 
 
 ###Aggiornamenti dell'SDK di Servizi multimediali per .NET
@@ -282,7 +292,7 @@ Le seguenti correzioni di bug sono state introdotte per lo strumento per la crea
 
 ### <a id="may_14_changes"></a>Aggiornamenti generali di Servizi multimediali
 
-È ora possibile usare la funzionalità [Dynamic Packaging] per riprodurre in streaming elementi di HTTP Live Streaming (HLS) v3. A tale scopo, aggiungere il seguente formato al percorso del localizzatore di origine: *.ism/manifest(format=m3u8-aapl-v3). Per altre informazioni, vedere il [blog di Nick Drouin].
+È ora possibile usare la funzionalità [Dynamic Packaging] per riprodurre in streaming elementi di HTTP Live Streaming (HLS) v3. A tale scopo, aggiungere il seguente formato al percorso del localizzatore di origine: * .ism/manifest(format=m3u8-aapl-v3). Per altre informazioni, vedere il [blog di Nick Drouin].
 
 La funzionalità Dynamic Packaging supporta attualmente la distribuzione di HTTP Live Streaming (v3 e v4) con crittografia PlayReady basata sulla funzionalità Smooth Streaming crittografata staticamente con PlayReady. Per informazioni su come crittografare Smooth Streaming con PlayReady, vedere l'argomento [Protezione di Smooth Streaming e MPEG DASH con PlayReady].
 
@@ -331,7 +341,7 @@ Nella versione 3.0.0.3 sono state introdotte le seguenti modifiche:
 
 * Dipendenze dell'archiviazione di Azure aggiornate per usare la versione 3.0.3.0. 
 
-* È stato risolto il problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.\*.\*.
+* Problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.*.* risolto.
 
 
 ##<a id="december_changes_13"></a>Versione di dicembre 2013
@@ -554,4 +564,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

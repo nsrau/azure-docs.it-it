@@ -7,6 +7,7 @@
    manager="jeffreyg" 
    editor=""/>
 
+
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="data-management" 
    ms.date="07/28/2015"
    ms.author="adamkr; sstein"/>
+
 
 # Creare e gestire un database di pool elastici di database SQL tramite PowerShell
 
@@ -59,7 +61,7 @@ Dopo aver effettuato l’accesso, sullo schermo dovrebbero essere visualizzate i
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome della sottoscrizione (\*\*-SubscriptionName\*\*), che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
+Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**) che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -234,4 +236,4 @@ Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

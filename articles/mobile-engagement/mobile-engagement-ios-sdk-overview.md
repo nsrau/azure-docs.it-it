@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Panoramica di Azure Mobile Engagement iOS SDK" 
+<properties
+	pageTitle="Panoramica di Azure Mobile Engagement iOS SDK"
 	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #iOS SDK per Azure Mobile Engagement
 
@@ -32,9 +32,9 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-ios-sdk-con
 
 ##Note sulla versione
 
-###2\.2.0 (21/05/2015)
+##3\.0.0 (05/08/2015)
 
--   L'ID del dispositivo di Mobile Engagement per dispositivi < iOS 6 è ora basato su un GUID generato in fase di installazione.
+-   Mobile Enagement usa le notifiche push Silent.
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-ios-release-notes.md).
 
@@ -48,6 +48,5 @@ Per ogni nuova versione dell'SDK è necessario innanzitutto sostituire (rimuover
 
 ###Dalla versione 2.0.0 alla 2.1.0
 Nessuna.
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

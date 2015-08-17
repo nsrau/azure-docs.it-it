@@ -136,4 +136,4 @@ La procedura è stata completata e la raccolta ibrida RemoteApp è stata creata 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

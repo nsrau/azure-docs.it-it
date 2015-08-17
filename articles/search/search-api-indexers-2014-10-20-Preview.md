@@ -1,19 +1,6 @@
-<properties 
-	pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" 
-	description="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" />
+<properties pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" description="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article"  
-	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
-	ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2014-10-20-Preview)
 
@@ -670,4 +657,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

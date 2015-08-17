@@ -115,7 +115,7 @@ Tali direttive fanno riferimento alle API appena definite nel codice seguente. I
 A questo punto, è possibile usare il client di cronologia delle applicazioni per elencare le applicazioni completate, filtrare le applicazioni in base ai propri criteri e scaricare i log applicazioni rilevanti. Il frammento di codice seguente mostra come viene eseguita questa operazione a livello di codice:
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\YarnApplicationLogs";
+	string downloadLocation = "E:\\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -137,7 +137,7 @@ A questo punto, è possibile usare il client di cronologia delle applicazioni pe
 
 Il codice sopra riportato elenca/individua le applicazioni di interesse usando il client di cronologia delle applicazioni e quindi scarica i log relativi a tali applicazioni in una cartella locale.
 
-In alternativa, il frammento di codice seguente scarica i log relativi a un'applicazione con ID noto. L'ID applicazione è un identificatore univoco globale di un'applicazione, assegnato dall'oggetto RM. Tale identificatore viene creato usando l'ora di avvio dell'oggetto RM insieme a un contatore a incremento progressivo costante per le applicazioni inviate. L'ID applicazione ha il formato "applicazione_&lt;ora-avvio-RM&gt;_&lt;Contatore&gt;". Si noti che ID applicazione e ID processo sono distinti. L'ID processo è un concetto specifico del framework MapReduce, mentre l'ID applicazione è un concetto YARN indipendente dal framework. In YARN un ID processo identifica un processo MapReduce specifico, gestito dall'oggetto AM di un'applicazione MapReduce inviata all'oggetto RM.
+In alternativa, il frammento di codice seguente scarica i log relativi a un'applicazione con ID noto. L'ID applicazione è un identificatore univoco globale di un'applicazione, assegnato dall'oggetto RM. Tale identificatore viene creato usando l'ora di avvio dell'oggetto RM insieme a un contatore a incremento progressivo costante per le applicazioni inviate. L'ID applicazione ha il formato "applicazione\_&lt;ora-avvio-RM&gt;\_&lt;Contatore&gt;". Si noti che ID applicazione e ID processo sono distinti. L'ID processo è un concetto specifico del framework MapReduce, mentre l'ID applicazione è un concetto YARN indipendente dal framework. In YARN un ID processo identifica un processo MapReduce specifico, gestito dall'oggetto AM di un'applicazione MapReduce inviata all'oggetto RM.
 
 	// Download application logs for an application whose application ID is known
 	string applicationId = "application_1416017767088_0028";
@@ -173,4 +173,4 @@ Se necessario, è possibile anche scaricare i log per tutti i contenitori, o per
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

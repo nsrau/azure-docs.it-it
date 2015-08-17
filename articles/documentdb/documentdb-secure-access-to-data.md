@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Informazioni su come proteggere l'accesso ai dati in DocumentDB | Azure" 
+	pageTitle="Informazioni su come proteggere l'accesso ai dati in DocumentDB | Microsoft Azure" 
 	description="Informazioni sui concetti di controllo di accesso in DocumentDB, tra cui chiavi master, chiavi di sola lettura, utenti e autorizzazioni." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -163,4 +163,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

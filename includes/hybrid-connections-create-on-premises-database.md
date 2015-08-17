@@ -5,7 +5,7 @@ In questa sezione viene illustrato come installare SQL Server Express, abilitare
 
 Per usare un'istanza di SQL Server locale o un database SQL Server Express con una connessione ibrida, TCP/IP deve essere abilitato su una porta statica. A differenza delle istanze denominate, le istanze predefinite di SQL Server usano la porta statica 1433. Per questo motivo, verrà installata l'istanza predefinita. Se si dispone già dell'istanza predefinita di SQL Server Express installata, è possibile ignorare questa sezione.
 
-1. Per installare SQL Server Express, eseguire il file **SQLEXPRWT_x64_ENU.exe** o **SQLEXPR_x86_ENU.exe** scaricato. Viene visualizzata la procedura guidata Centro installazione SQL Server.
+1. Per installare SQL Server Express, eseguire il file **SQLEXPRWT\_x64\_ENU.exe** o **SQLEXPR\_x86\_ENU.exe** scaricato. Viene visualizzata la procedura guidata Centro installazione SQL Server.
 	
 2. Scegliere **Nuova installazione autonoma di SQL Server o aggiunta di funzionalità a un'installazione esistente**, quindi seguire le istruzioni, accettando le scelte predefinite finché non viene visualizzata la pagina **Configurazione istanza**.
 	
@@ -78,4 +78,4 @@ Infine, si creerà un nuovo account di accesso di SQL Server con autorizzazioni 
 
 4. **Eseguire** la query per creare il nuovo account di accesso e concedere le autorizzazioni necessarie nel database locale.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

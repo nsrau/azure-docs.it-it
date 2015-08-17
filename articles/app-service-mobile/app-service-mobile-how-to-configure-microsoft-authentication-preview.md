@@ -68,4 +68,4 @@ Questo argomento descrive come configurare i servizi app di Azure per usare l'ac
 [portale di gestione di Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

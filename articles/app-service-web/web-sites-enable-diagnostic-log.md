@@ -135,7 +135,7 @@ Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informaz
 
 > [AZURE.NOTE]Alcuni tipi di buffer di registrazione scrivono nel file di log, producendo nel caso eventi di "fuori servizio" nel flusso. Ad esempio, una voce del log di applicazione che si verifica quando un utente visita una pagina può essere visualizzata nel flusso prima della corrispondente voce di log HTTP per la richiesta della pagina.
 
-> [AZURE.NOTE]Lo streaming del log trasmetterà inoltre le informazioni scritte in qualsiasi file di testo memorizzato nella cartella **D:\\home\\LogFiles\\**
+> [AZURE.NOTE]Lo streaming del log trasmetterà inoltre le informazioni scritte in qualsiasi file di testo memorizzato nella cartella **D:\\home\\LogFiles\**
 
 ### Streaming con Azure PowerShell
 
@@ -197,107 +197,35 @@ __Archiviazione tabelle__
 
 Durante la registrazione nell'archiviazione tabelle verranno utilizzate proprietà aggiuntive per facilitare la ricerca dei dati memorizzati nella tabella, oltre a informazioni più granulari sull'evento. Verranno utilizzate le proprietà seguenti (colonne) per ogni entità (riga) memorizzata nella tabella.
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nome proprietà</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valore/formato</th>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">Data/ora dell'evento nel formato aaaaMMggHH</td>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Valore GUID che identifica questa entità in modo univoco</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Timestamp</td>
-<td style="border:1px solid black;vertical-align:top">Data e ora in cui si è verificato l'evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Data e ora in cui si è verificato l'evento, in formato Tick (maggiore precisione)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">Nome dell'app Web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Livello dell'evento (ad esempio, errore, avviso, informazione)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">ID evento di questo evento<br>Se non specificato, il valore predefinito è 0</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Istanza dell'app Web sulla quale si è verificato l'evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">ID di processo</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">ID del thread che ha prodotto l'evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Messaggio dettagliato sull'evento</td>
-</tr>
-</table>
+Nome proprietà|Valore/formato
+---|---
+PartitionKey|Data/ora dell'evento nel formato aaaaMMggHH
+RowKey|Valore GUID che identifica questa entità in modo univoco
+Timestamp|Data e ora in cui si è verificato l'evento
+EventTickCount|Data e ora in cui si è verificato l'evento, in formato Tick (maggiore precisione)
+ApplicationName|Nome dell'app Web
+Level|Livello dell'evento (ad esempio, errore, avviso, informazione)
+EventId|ID evento di questo evento<p><p>Se non specificato, il valore predefinito è 0
+InstanceId|Istanza dell'app Web sulla quale si è verificato l'evento
+Pid|ID di processo
+Tid|ID del thread che ha prodotto l'evento
+Message|Messaggio dettagliato sull'evento
 
 __Archiviazione BLOB__
 
 Durante la registrazione sull'archiviazione BLOB, i dati vengono memorizzati in formato file con valori delimitati da virgole (CSV). In maniera analoga all'archiviazione tabelle, verranno registrati ulteriori campi per fornire informazioni più granulari sull'evento. Verranno utilizzate le proprietà seguenti per ogni riga memorizzata nel file CSV:
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nome proprietà</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valore/formato</th>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Date</td>
-<td style="border:1px solid black;vertical-align:top">Data e ora in cui si è verificato l'evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Livello dell'evento (ad esempio, errore, avviso, informazione)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">Nome dell'app Web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Istanza dell'app Web sulla quale si è verificato l'evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Data e ora in cui si è verificato l'evento, in formato Tick (maggiore precisione)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">ID evento di questo evento<br>Se non specificato, il valore predefinito è 0</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">ID di processo</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">ID del thread che ha prodotto l'evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Messaggio dettagliato sull'evento</td>
-</tr>
-</table>
+Nome proprietà|Valore/formato
+---|---
+Date|Data e ora in cui si è verificato l'evento
+Level|Livello dell'evento (ad esempio, errore, avviso, informazione)
+ApplicationName|Nome dell'app Web
+InstanceId|Istanza dell'app Web sulla quale si è verificato l'evento
+EventTickCount|Data e ora in cui si è verificato l'evento, in formato Tick (maggiore precisione)
+EventId|ID evento di questo evento<p><p>Se non specificato, il valore predefinito è 0
+Pid|ID di processo
+Tid|ID del thread che ha prodotto l'evento
+Message|Messaggio dettagliato sull'evento
 
 L'aspetto dei dati memorizzati in un BLOB sarà simile al seguente:
 
@@ -335,4 +263,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

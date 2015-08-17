@@ -7,6 +7,7 @@
 	manager="douge" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -14,7 +15,8 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="07/02/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
+
 
 # Che cosa è successo al progetto?
 
@@ -22,7 +24,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###Che cosa è successo al progetto?</id>
+###Che cosa è successo al progetto?
 
 #####Aggiunta del pacchetto NuGet
 
@@ -46,4 +48,4 @@ Nella cartella dei servizi sono stati aggiunti file di configurazione dei serviz
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

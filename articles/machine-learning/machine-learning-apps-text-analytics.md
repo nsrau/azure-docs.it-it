@@ -201,4 +201,4 @@ Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate a
 Gli ID immessi nel sistema corrispondono agli ID restituiti dal sistema. Il servizio Web non verifica che gli ID siano univoci. È responsabilità del chiamante verificarne l'univocità.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

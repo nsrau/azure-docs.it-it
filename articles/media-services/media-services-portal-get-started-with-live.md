@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/16/2015"
+	ms.date="08/03/2015"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un **canale** riceve un flusso live a più velocità in bit da un codificatore live locale. Per una panoramica più dettagliata dell'uso dei canali e dei componenti correlati, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](../media-services-channels-overview.md).
+Questa esercitazione illustra la procedura per implementare un'applicazione di streaming live di Servizi multimediali di base in cui un **canale** riceve un flusso live a più velocità in bit da un codificatore live locale. Per una panoramica più dettagliata dell'uso dei canali e dei componenti correlati, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
 
 In questa esercitazione il portale di gestione di Azure viene usato per eseguire le attività seguenti:
 
@@ -163,7 +163,7 @@ Se si passa alla pagina **CONTENUTO**, sarà possibile visualizzare gli asset cr
 
 Per fornire all'utente un URL che consente di trasmettere il contenuto in streaming, è necessario innanzitutto "pubblicare" l'asset (come descritto nella sezione precedente) creando un localizzatore (quando si pubblica un asset tramite il portale, i localizzatori vengono creati automaticamente). I localizzatori forniscono l'accesso ai file contenuti nell'asset.
 
-A seconda del protocollo di streaming che si vuole usare per la riproduzione del contenuto, potrebbe essere necessario modificare l'URL che si ottiene mediante il collegamento **URL DI PUBBLICAZIONE** in canale\programma.
+A seconda del protocollo di streaming che si vuole usare per la riproduzione del contenuto, potrebbe essere necessario modificare l'URL che si ottiene mediante il collegamento **URL DI PUBBLICAZIONE** in canale\\programma.
 
 La creazione dinamica dei pacchetti si occuperà di inserire il flusso live in un pacchetto nel protocollo specificato.
 
@@ -210,4 +210,4 @@ Ottenere altre informazioni sulla compilazione di applicazioni Live Streaming [C
 
 <!-- Images -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

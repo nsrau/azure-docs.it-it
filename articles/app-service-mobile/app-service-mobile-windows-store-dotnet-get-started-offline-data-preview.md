@@ -278,4 +278,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

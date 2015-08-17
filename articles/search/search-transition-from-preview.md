@@ -144,4 +144,4 @@ La versione dell'API `2015-02-28` è nel contratto di servizio. Utilizzare le op
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

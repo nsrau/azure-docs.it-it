@@ -116,4 +116,4 @@ A questo punto, l'applicazione è pronta e l'entità servizio è stata creata ne
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

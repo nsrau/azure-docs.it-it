@@ -7,6 +7,7 @@
    manager="dwrede"
    editor=""/>
 
+
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
@@ -17,16 +18,32 @@
    ms.author="sameerch"/>
 
 
+
 #Uso di QuickBooks Connector nell'app per la logica#
 
 Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. QuickBooks Connector consente di creare e modificare diverse entità QuickBooks. Di seguito è riportato un elenco di entità QuickBooks supportate da QuickBooks Connector.
 
-<Table>
-<TR><TD><B>Entità</TD><TD><B>Descrizione</TR> <TR> <TD> Account </TD> <TD>Si tratta di un componente di un piano dei conti ed è parte di una contabilità generale. Viene usato per registrare un importo monetario totale a fronte di un uso specifico.</TD> </TR> <TR> <TD> CreditMemo </TD> <TD> Si tratta di una transazione finanziaria che rappresenta un rimborso o un credito di pagamento per merci o servizi venduti. </TD> </TR> <TR> <TD> Customer </TD> <TD> È il consumatore del servizio o del prodotto offerto dall'azienda. </TD> </TR> <TR> <TD> Estimate </TD> <TD> Rappresenta una proposta di transazione finanziaria tra un'azienda e un cliente riguardo alla vendita di merci o servizi, inclusa l'indicazione dei prezzi. </TD> </TR> <TR> <TD> Invoice </TD> <TD> È un documento di vendita a fronte del quale il cliente paga un prodotto o un servizio. Altre informazioni sull'uso del modello di dati Invoice sono disponibili qui. </TD> </TR> <TR> <TD> Item </TD> <TD> Un articolo che l'azienda acquista, vende o rivende, ad esempio prodotti, spese di spedizione e movimentazione, sconti e IVA (se applicabile). Su una fattura o su un altro documento di vendita un articolo viene visualizzato come riga. </TD> </TR> <TR> <TD> SalesReceipt </TD> <TD>Questa entità rappresenta la ricevuta di vendita fornita al cliente. </TD> </TR> </Table>
+Entità|Descrizione
+---|---
+Account|Si tratta di un componente di un piano dei conti ed è parte di una contabilità generale. Viene usato per registrare un importo monetario totale a fronte di un utilizzo specifico.
+CreditMemo|Si tratta di una transazione finanziaria che rappresenta un rimborso o un credito di pagamento per merci o servizi acquistati.
+Customer|È il consumatore del servizio o del prodotto offerto dall'azienda.
+Estimate|Rappresenta una proposta di transazione finanziaria tra un'azienda e un cliente riguardo alla vendita di merci o servizi, inclusa l'indicazione dei prezzi.
+Invoice|È un documento di vendita a fronte del quale il cliente paga un prodotto o un servizio. Altre informazioni sull'uso del modello di dati Invoice sono disponibili qui.
+Item|Un elemento che l'azienda acquista, vende o rivende, ad esempio prodotti, spese di spedizione e movimentazione, sconti e IVA (se applicabile). Su una fattura o su un altro documento di vendita un articolo viene visualizzato come riga.
+SalesReceipt|Questa entità rappresenta la ricevuta di vendita fornita al cliente.
+
 
 
 ##Azioni QuickBooks ##
-Di seguito sono indicate le diverse azioni disponibili in QuickBooks Connector. <table> <tbody> <tr><td> <strong>Azione</strong> </td> <td> <strong>Descrizione</strong> </td> </tr> <tr> <td> Read Entity </td> <td> Oggetto lettura entità. </td> </tr> <tr> <td> Create Or Update Entity </td> <td> Oggetto creazione o aggiornamento entità. Se l'oggetto esiste già, viene aggiornato. In caso contrario, viene creato un nuovo oggetto. </td> </tr> <tr> <td> Delete </td> <td> Questa azione elimina dall'entità selezionata l'oggetto specificato. </td> </tr> <tr> <td> Query </td> <td> L'operazione di query è il metodo per la creazione di una query guidata su un'entità.</td> </tr> </tbody> </table>
+Di seguito sono indicate le diverse azioni disponibili in QuickBooks Connector.
+
+Azione|Descrizione
+---|---
+Read Entity|Legge l'oggetto entità
+Create Or Update Entity|Crea o aggiorna un oggetto entità. Se l'oggetto esiste già, viene aggiornato. In caso contrario, viene creato un nuovo oggetto
+Elimina|Questa azione elimina l'oggetto specificato dall'entità selezionata
+Query|L'operazione di query è il metodo per la creazione di una query guidata su un'entità.
 
 ##Creare un'app per le API QuickBooks Connector##
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a destra nel portale di Azure.
@@ -119,4 +136,4 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

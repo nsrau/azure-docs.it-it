@@ -185,4 +185,4 @@ Per ulteriori informazioni sugli scenari di Hub eventi, visitare i collegamenti 
 - [Esempi di codice di Hub eventi] (http://code.msdn.microsoft.com/site/search?query=eventhub & f [0]. Valore = hub eventi & f [0]. Digitare = SearchText & CA = 5)
 - [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -118,4 +118,4 @@ Per altre procedure e impostazioni di configurazione di Rete virtuale, vedere [A
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

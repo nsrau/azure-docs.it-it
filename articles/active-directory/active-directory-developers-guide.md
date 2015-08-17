@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="06/10/2015"
@@ -132,4 +132,4 @@ Queste presentazioni sullo sviluppo di applicazioni con Azure Active Directory s
 
 - **[Azure AD su Twitter](https://twitter.com/azuread)**: annunci su Azure AD in 140 caratteri o meno.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

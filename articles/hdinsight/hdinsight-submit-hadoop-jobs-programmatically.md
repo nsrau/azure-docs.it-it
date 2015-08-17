@@ -7,6 +7,7 @@
 	documentationCenter="" 
 	authors="mumian"/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/15/2015" 
 	ms.author="jgao"/>
+
 
 # Inviare processi Hadoop in HDInsight
 
@@ -38,7 +40,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 ##Inviare processi MapReduce mediante Azure PowerShell
 Azure PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Gestire cluster Hadoop in HDInsight tramite Azure PowerShell][hdinsight-admin-powershell].
 
-Hadoop MapReduce è un framework software per la scrittura di applicazioni in grado di elaborare ingenti quantità di dati. I cluster HDInsight includono un file con estensione jar, situato nella cartella *\example\jars\hadoop-mapreduce-examples.jar*, che contiene numerosi esempi di MapReduce.
+Hadoop MapReduce è un framework software per la scrittura di applicazioni in grado di elaborare ingenti quantità di dati. I cluster HDInsight includono un file con estensione jar, situato nella cartella *\\example\\jars\\hadoop-mapreduce-examples.jar*, che contiene numerosi esempi di MapReduce.
 
 Uno degli esempi è relativo al conteggio della frequenza delle parole nei file di origine. In questa sessione si apprenderà come usare Azure PowerShell da una workstation per eseguire l'esempio relativo al conteggio di parole. Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare Hadoop MapReduce in HDInsight][hdinsight-use-mapreduce].
 
@@ -111,7 +113,7 @@ Uno degli esempi è relativo al conteggio della frequenza delle parole nei file 
 
 	La cartella *example/data/WordCountOutput* è la cartella di output specificata durante l'esecuzione del processo MapReduce. Il valore *part-r-00000* corrisponde al nome file predefinito per l'output del processo MapReduce. Il file verrà scaricato nella stessa struttura di cartelle nella cartella locale. Ad esempio, nella schermata seguente la cartella corrente è la cartella radice C:. Il file verrà scaricato nella cartella:
 
-*C:\example\data\WordCountOutput* 
+**C:\\example\\data\\WordCountOutput*
 
 5. Per stampare il file di output del processo MapReduce, eseguire il comando seguente:
 
@@ -300,7 +302,7 @@ Vedere [Introduzione all'uso di HDInsight Tools per Visual Studio][hdinsight-vis
 Vedere [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop].
 
 ##Inviare processi MapReduce mediante HDInsight .NET SDK
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. I cluster HDInsight includono un file con estensione jar, situato nella cartella *\example\jars\hadoop-mapreduce-examples.jar*, che contiene numerosi esempi di MapReduce. Uno degli esempi è relativo al conteggio della frequenza delle parole nei file di origine. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole. Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare Hadoop MapReduce in HDInsight][hdinsight-use-mapreduce].
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. I cluster HDInsight includono un file con estensione jar, situato nella cartella *\\example\\jars\\hadoop-mapreduce-examples.jar*, che contiene numerosi esempi di MapReduce. Uno degli esempi è relativo al conteggio della frequenza delle parole nei file di origine. In questa sessione si apprenderà come creare un'applicazione .NET per eseguire l'esempio relativo al conteggio di parole. Per altre informazioni sullo sviluppo e l'esecuzione di processi MapReduce, vedere [Usare Hadoop MapReduce in HDInsight][hdinsight-use-mapreduce].
 
 
 Le procedure seguenti sono necessarie per effettuare il provisioning di un cluster HDInsight usando l'SDK:
@@ -729,4 +731,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

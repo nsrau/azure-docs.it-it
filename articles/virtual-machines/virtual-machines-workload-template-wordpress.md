@@ -104,4 +104,4 @@ Al termine, si disporrà di un nuovo server WordPress in Ubuntu nel gruppo di ri
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

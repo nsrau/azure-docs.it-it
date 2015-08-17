@@ -51,4 +51,4 @@ In questo argomento è stato illustrato come usare il metodo **invokeApi** per c
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

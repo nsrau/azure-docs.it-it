@@ -131,4 +131,4 @@ A seconda del piano tariffario, sono disponibili le seguenti funzionalità orien
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

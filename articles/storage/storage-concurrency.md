@@ -93,10 +93,7 @@ Get Container Properties|	Sì|	No|
 Get Container Metadata|	Sì|	No|
 Set Container Metadata|	Sì|	Sì|
 Get Container ACL|	Sì|	No|
-Set Container ACL|	Sì|	Sì (*)|
-Delete Container|	No|	Sì|
-Lease Container|	Sì|	Sì|
-List Blobs|	No|	No  
+Set Container ACL|	Sì|	Sì (*)|Delete Container| No| Sì|Lease Container| Sì| Sì|List Blobs| No| No 
 
 (*) Le autorizzazioni definite da SetContainerACL sono memorizzate nella cache e la propagazione degli aggiornamenti a queste autorizzazioni richiede 30 secondi durante i quali la coerenza degli aggiornamenti non è garantita.
 
@@ -110,16 +107,7 @@ Get Blob Properties|	Sì|	Sì|
 Set Blob Properties|	Sì|	Sì|
 Get Blob Metadata|	Sì|	Sì|
 Set Blob Metadata|	Sì|	Sì|
-Lease Blob (*)|	Sì|	Sì|
-Snapshot Blob|	Sì|	Sì|
-Copy Blob|	Sì|	Sì (per il BLOB di origine e destinazione)|
-Abort Copy Blob|	No|	No|
-Delete Blob|	No|	Sì|
-Put Block|	No|	No|
-Put Block List|	Sì|	Sì|
-Get Block List|	Sì|	No|
-Put Page|	Sì|	Sì|
-Get Page Ranges|	Sì|	Sì
+Lease Blob (*)| Sì| Sì| Snapshot Blob| Sì| Sì| Copy Blob| Sì| Sì (per BLOB di origine e di destinazione)| Abort Copy Blob| No| No| Delete Blob| No| Sì| Put Block| No| No| Put Block List| Sì| Sì| Get Block List| Sì| No| Put Page| Sì| Sì| Get Page Ranges| Sì| Sì
 
 (*) Lease Blob non modifica l'ETag in un BLOB.
 
@@ -205,7 +193,7 @@ Per usare la concorrenza ottimistica e controllare se un altro processo ha modif
 2.	Quando si aggiorna l'entità, includere il valore ETag ricevuto al passaggio 1 nell'intestazione **If-Match** obbligatoria della richiesta inviata al servizio.
 3.	Il servizio confronta il valore ETag nella richiesta con il valore ETag corrente dell'entità.
 4.	Se il valore ETag corrente del BLOB è diverso dall'ETag nell'intestazione **If-Match** obbligatoria nella richiesta, il servizio restituisce un errore 412 al client. Ciò indica al cliente che un altro processo ha aggiornato l'entità da quando questa è stata recuperata dal client.
-5.	Se il valore ETag corrente dell'entità è uguale all'ETag nell'intestazione **If-Match** obbligatoria della richiesta o se l'intestazione **If-Match** contiene il carattere jolly (*), il servizio esegue l'operazione richiesta e aggiorna il valore ETag corrente dell'entità per indicare che è stato aggiornato.  
+5.	Se il valore ETag corrente dell'entità è uguale all'ETag nell'intestazione **If-Match** obbligatoria della richiesta o se l'intestazione **If-Match** contiene il carattere jolly (*), il servizio esegue l'operazione richiesta e aggiorna il valore ETag corrente dell'entità per indicare che è stato aggiornato.
 
 Si noti che, a differenza del servizio BLOB, il servizio tabelle richiede che il client includa un'intestazione **If-Match** nelle richieste di aggiornamento. Tuttavia, è possibile forzare un aggiornamento condizionale (strategia della prevalenza dell'ultima scrittura) e ignorare i controlli della concorrenza se il client imposta l'intestazione **If-Match** sul carattere jolly (*) nella richiesta.
 
@@ -285,4 +273,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

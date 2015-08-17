@@ -8,14 +8,16 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="06/10/2015"
 	ms.author="jgao"/>
+
 
 
 #Usare l'archiviazione BLOB di Azure compatibile con HDFS con Hadoop in HDInsight
@@ -26,7 +28,7 @@ L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con 
 
 L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
-> [AZURE.NOTE]La sintassi *asv://* non è supportata nei cluster HDInsight versione 3.0. Questo significa che i processi inviati a un cluster HDInsight 3.0 che usano esplicitamente la sintassi *asv://* avranno esito negativo. Sarà pertanto necessario usare la sintassi *wasb://*. Avrà inoltre esito negativo qualsiasi processo inviato a un cluster HDInsight 3.0 e creato con un metastore esistente che contiene riferimenti espliciti a risorse che usano la sintassi asv://. Sarà necessario ricreare i metastore in modo da fare riferimento alle risorse usando la sintassi wasb://.
+> [AZURE.NOTE]La sintassi **asv://* non è supportata nei cluster HDInsight versione 3.0. Questo significa che i processi inviati a un cluster HDInsight 3.0 che usano esplicitamente la sintassi **asv://* avranno esito negativo. Sarà pertanto necessario usare la sintassi **wasb://*. Avrà inoltre esito negativo qualsiasi processo inviato a un cluster HDInsight 3.0 e creato con un metastore esistente che contiene riferimenti espliciti a risorse che usano la sintassi asv://. Sarà necessario ricreare i metastore in modo da fare riferimento alle risorse utilizzando la sintassi wasb://.
 
 > In HDInsight sono attualmente supportati solo i BLOB in blocchi.
 
@@ -62,7 +64,7 @@ Oltre a questo account di archiviazione, durante il processo di provisioning è 
 - **Contenitori privati negli account di archiviazione NON connessi a un cluster:** non è possibile accedere ai BLOB nei contenitori a meno che non sia stato definito l'account di archiviazione quando sono stati inviati i processi WebHCat. Questo concetto verrà spiegato più avanti nell'articolo.
 
 
-Gli account di archiviazione definiti durante il processo di provisioning, con le rispettive chiavi, sono archiviati in %HADOOP_HOME%/conf/core-site.xml nei nodi del cluster. Il comportamento predefinito di HDInsight consiste nell'usare gli account di archiviazione definiti nel file core-site.xml. Non è consigliabile modificare il file core-site.xml poiché è possibile che venga ricreata l'immagine del nodo head del cluster (master) oppure che ne venga eseguita la migrazione in qualsiasi momento, e le eventuali modifiche apportate al file andranno perse.
+Gli account di archiviazione definiti durante il processo di provisioning, con le rispettive chiavi, sono archiviati in %HADOOP\_HOME%/conf/core-site.xml nei nodi del cluster. Il comportamento predefinito di HDInsight consiste nell'usare gli account di archiviazione definiti nel file core-site.xml. Non è consigliabile modificare il file core-site.xml poiché è possibile che venga ricreata l'immagine del nodo head del cluster (master) oppure che ne venga eseguita la migrazione in qualsiasi momento, e le eventuali modifiche apportate al file andranno perse.
 
 Più processi WebHCat, inclusi Hive, MapReduce, lo streaming Hadoop e Pig, possono includere una descrizione degli account di archiviazione e dei metadati (questo è valido solo per Pig con account di archiviazione, non per i metadati). La sezione [Accedere all'archiviazione BLOB tramite Azure PowerShell](#powershell) di questo articolo contiene un esempio di questa funzionalità. Per altre informazioni, vedere [Uso di un cluster HDInsight con account di archiviazione e metastore alternativi](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -328,4 +330,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

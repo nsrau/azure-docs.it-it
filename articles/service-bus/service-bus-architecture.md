@@ -69,4 +69,4 @@ A questo punto, dopo aver letto una panoramica del funzionamento del bus di serv
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - Una [soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

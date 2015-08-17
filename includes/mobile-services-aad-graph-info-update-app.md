@@ -65,4 +65,4 @@ Le istruzioni seguenti si applicano all'aggiornamento di un'applicazione client 
 
 4. Salvare le modifiche e compilare il servizio per verificare che non vi siano errori di sintassi.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -220,4 +220,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

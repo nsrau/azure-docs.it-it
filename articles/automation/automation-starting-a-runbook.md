@@ -232,4 +232,4 @@ Presupponendo che il nome utente nelle credenziali sia *jsmith*, si ottiene l'ou
 
 - [Avvio di un Runbook da un altro Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

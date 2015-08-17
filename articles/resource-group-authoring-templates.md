@@ -7,6 +7,7 @@
    manager="wpickett"
    editor=""/>
 
+
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="na"
    ms.date="07/24/2015"
    ms.author="tomfitz"/>
+
 
 # Creazione di modelli di Gestione risorse di Azure
 
@@ -117,7 +119,7 @@ I valori e i tipi consentiti sono:
 - string o secureString: tutte le stringhe JSON valide
 - int: tutti i valori integer JSON validi
 - bool: tutti i valori booleani JSON validi
-- object: tutti gli oggetti JSON validi
+- object o secureObject - tutti gli oggetti JSON sono validi
 - array: tutte le matrici JSON valide
 
 
@@ -405,4 +407,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

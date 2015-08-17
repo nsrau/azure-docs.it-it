@@ -40,7 +40,7 @@ Nella risorsa nel [portale di Azure][portal], aprire Avvio rapido per ottenere i
 
 ![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
-Inserire il codice in una pagina master, ad esempio (in .NET) _Layout.cshtml, o in un file di inclusione per assicurarsi che il codice sia incluso in tutte le pagine.
+Inserire il codice \_Layout.cshtml in una pagina master, ad esempio (in .NET), o in un file di inclusione per assicurarsi che il codice sia incluso in tutte le pagine.
 
 Il frammento di codice include la chiave di strumentazione (iKey) che identifica la risorsa. Per inviare dati a una risorsa diversa, ad esempio durante i test, è sufficiente sostituire la iKey.
 
@@ -371,4 +371,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

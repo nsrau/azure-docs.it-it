@@ -12,7 +12,7 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/03/2015"
 	ms.author="mandia"/>
 
@@ -133,7 +133,7 @@ Come parte del provisioning del servizio BizTalk, un certificato autofirmato vie
 Il certificato autofirmato creato automaticamente durante la creazione dei Servizi BizTalk è destinato all'uso solo negli ambienti di sviluppo. Per gli scenari di produzione, è necessario sostituirlo con un certificato di produzione.
 
 1. Nella scheda **Dashboard** fare clic su **Aggiorna certificato SSL**.
-2. Cercare il certificato SSL privato (*NomeCertificato*.pfx) che include il nome del Servizio BizTalk, immettere la password e selezionare il segno di spunta.
+2. Cercare il certificato SSL privato (*NomeCertificato*.pfx) che include il nome del servizio BizTalk, immettere la password e selezionare il segno di spunta.
 
 #### <a name="ACS"></a>Ottenere lo spazio dei nomi ACS
 
@@ -238,4 +238,4 @@ Dopo la creazione del Servizio BizTalk, è possibile acquisire familiarità con 
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

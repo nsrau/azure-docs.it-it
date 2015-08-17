@@ -347,4 +347,4 @@ Dopo avere provato il cluster, è possibile usare HPC Cluster Manager per interr
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

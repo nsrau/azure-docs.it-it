@@ -57,7 +57,7 @@ Seguire questi passaggi per creare un cluster Spark utilizzando un modello di Ge
 
 ### Passaggio 1-a: Scaricare i file di modello utilizzando Azure PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\Spark).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\Spark).
 
 Sostituire il nome di cartella della cartella locale ed eseguire questi comandi:
 
@@ -91,7 +91,7 @@ Clonare l’intero repository dei modelli utilizzando un client Git a propria sc
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Una volta completata la clonazione, cercare la cartella **spark-on-ubuntu** nella directory C:\Azure\Templates.
+Una volta completata la clonazione, cercare la cartella **spark-on-ubuntu** nella directory C:\\Azure\\Templates.
 
 ### Passaggio 2: (facoltativo) Comprendere i parametri del modello
 
@@ -416,7 +416,7 @@ In questo diagramma sono illustrate le relazioni tra tutti i file scaricati da G
 
 In questa sezione viene fornita una descrizione della struttura del file azuredeploy.json per il cluster Spark.
 
-Se non è ancora stata scaricata una copia del file di modello, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\Azure\Templates\Spark). Sostituire il nome della cartella, quindi eseguire questi comandi.
+Se non è ancora stata scaricata una copia del file di modello, specificare una cartella locale come posizione per il file e crearlo (ad esempio, C:\\Azure\\Templates\\Spark). Sostituire il nome della cartella, quindi eseguire questi comandi.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -843,4 +843,4 @@ Scoprire altri [framework di applicazioni](virtual-machines-app-frameworks.md).
 
 [Risoluzione dei problemi relativi alle distribuzioni dei modelli](resource-group-deploy-debug.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

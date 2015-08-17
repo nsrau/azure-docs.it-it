@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come usare l'archiviazione di accodamento da PHP | Microsoft Azure" 
-	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in PHP." 
-	documentationCenter="php" 
-	services="storage" 
-	authors="tfitzmac" 
-	manager="adinah" 
+<properties
+	pageTitle="Come usare l'archiviazione di accodamento da PHP | Microsoft Azure"
+	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in PHP."
+	documentationCenter="php"
+	services="storage"
+	authors="tfitzmac"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="tomfitz"/>
 
 # Come usare l'archiviazione di accodamento da PHP
@@ -22,7 +22,7 @@
 
 ## Panoramica
 
-Questa guida illustra diversi scenari di utilizzo comuni del Servizio di accodamento di Azure. Gli esempi sono scritti utilizzando le classi di Windows SDK per PHP Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi](#NextSteps).
+Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Gli esempi sono scritti utilizzando le classi di Windows SDK per PHP Gli scenari presentati includono l'inserimento, la visualizzazione, il recupero e l'eliminazione dei messaggi in coda, oltre alle procedure di creazione ed eliminazione di code.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -38,9 +38,9 @@ In questa guida si useranno le funzionalità del Servizio di accodamento che pos
 
 [AZURE.INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## Configurare l'applicazione per accedere al Servizio di accodamento
+## Configurare l'applicazione per l'accesso all'archiviazione di accodamento
 
-Per usare le API del Servizio di accodamento di Azure, è necessario:
+Per utilizzare le API per l'archiviazione di accodamento di Azure, è necessario:
 
 1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
@@ -68,11 +68,11 @@ Per accedere alla memoria dell'emulatore:
 	UseDevelopmentStorage=true
 
 
-Per creare un client di servizio di Azure, è necessario usare la classe **ServicesBuilder**. È possibile:
+Per creare un client di servizio di Azure, è necessario usare la classe **ServicesBuilder**. È possibile utilizzare le tecniche seguenti:
 
-* passare la stringa di connessione direttamente a essa o
-* utilizzare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
-	* per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
+* Passare la stringa di connessione direttamente.
+* Utilizzare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
+	* Per impostazione predefinita, viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
 	* è possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**
 
 Per gli esempi illustrati in questo articolo, la stringa di connessione verrà passata direttamente.
@@ -84,7 +84,7 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
 
-## Procedura: creare una coda
+## Creare una coda
 
 Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo **createQueue**. Quando si crea una coda, è possibile impostare le opzioni per la coda, anche se tale operazione non è necessaria. Nell'esempio seguente viene illustrato come impostare i metadati in una coda.
 
@@ -93,22 +93,22 @@ Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Queue\Models\CreateQueueOptions;
-	
+
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// OPTIONAL: Set queue metadata.
 	$createQueueOptions = new CreateQueueOptions();
 	$createQueueOptions->addMetaData("key1", "value1");
 	$createQueueOptions->addMetaData("key2", "value2");
-	
+
 	try	{
 		// Create queue.
 		$queueRestProxy->createQueue("myqueue", $createQueueOptions);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -118,7 +118,7 @@ Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo 
 > [AZURE.NOTE]Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
 
 
-## Procedura: aggiungere un messaggio a una coda
+## Aggiungere un messaggio a una coda
 
 Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy->createMessage**. Il metodo usa il nome della coda, il testo del messaggio e le opzioni messaggio (facoltative).
 
@@ -130,7 +130,7 @@ Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy->createMessa
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	try	{
 		// Create message.
 		$builder = new ServicesBuilder();
@@ -138,16 +138,16 @@ Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy->createMessa
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedura: visualizzare il messaggio successivo
+## Visualizzare il messaggio successivo
 
-È possibile visualizzare il messaggio successivo (o i messaggi successivi) di una coda senza rimuoverlo dalla coda chiamando il metodo **QueueRestProxy->peekMessages**. Per impostazione predefinita, il metodo **peekMessage** restituisce un solo messaggio, ma è possibile modificare tale valore con il metodo **PeekMessagesOptions->setNumberOfMessages**
+È possibile visualizzare il messaggio successivo (o i messaggi successivi) di una coda senza rimuoverlo dalla coda chiamando il metodo **QueueRestProxy->peekMessages**. Per impostazione predefinita, il metodo **peekMessage** restituisce un solo messaggio, ma è possibile modificare tale valore con il metodo **PeekMessagesOptions->setNumberOfMessages**.
 
 	require_once 'vendor\autoload.php';
 
@@ -157,23 +157,23 @@ Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy->createMessa
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// OPTIONAL: Set peek message options.
 	$message_options = new PeekMessagesOptions();
 	$message_options->setNumberOfMessages(1); // Default value is 1.
-	
+
 	try	{
 		$peekMessagesResult = $queueRestProxy->peekMessages("myqueue", $message_options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
+
 	$messages = $peekMessagesResult->getQueueMessages();
 
 	// View messages.
@@ -190,9 +190,9 @@ Per aggiungere un messaggio a una coda, utilizzare **QueueRestProxy->createMessa
 		}
 	}
 
-## Procedura: rimuovere il messaggio successivo dalla coda
+## Rimuovere il messaggio successivo dalla coda
 
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamare innanzitutto **QueueRestProxy->listMessages**, per rendere il messaggio invisibile a tutte le altre letture del codice dalla coda. Per impostazione predefinita, il messaggio resta invisibile per 30 secondi (se il messaggio non viene eliminato in questo intervallo di tempo, sarà di nuovo visibile nella coda). Per completare la rimozione del messaggio dalla coda, è necessario chiamare **QueueRestProxy->deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamare innanzitutto **QueueRestProxy->listMessages**, per rendere il messaggio invisibile a tutte le altre letture del codice dalla coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. (Se il messaggio non viene eliminato in questo periodo di tempo, diventerà nuovamente visibile nella coda.) Per completare la rimozione del messaggio dalla coda, è necessario chiamare **QueueRestProxy->deleteMessage**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **deleteMessage** immediatamente dopo l'elaborazione del messaggio.
 
 	require_once 'vendor\autoload.php';
 
@@ -201,69 +201,69 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// Get message.
 	$listMessagesResult = $queueRestProxy->listMessages("myqueue");
 	$messages = $listMessagesResult->getQueueMessages();
 	$message = $messages[0];
-	
+
 	/* ---------------------
 		Process message.
 	   --------------------- */
-	
-	// Get message Id and pop receipt.
+
+	// Get message ID and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
-	
+
 	try	{
 		// Delete message.
 		$queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedura: cambiare il contenuto di un messaggio accodato
+## Cambiare il contenuto di un messaggio in coda
 
-È possibile modificare il contenuto di un messaggio inserito nella coda chiamando **QueueRestProxy->updateMessage**. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a disposizione un altro minuto per continuare l'elaborazione del messaggio. È possibile utilizzare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di n tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
+È possibile modificare il contenuto di un messaggio inserito nella coda chiamando **QueueRestProxy->updateMessage**. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a disposizione un altro minuto per continuare l'elaborazione del messaggio. È possibile utilizzare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di *n* tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
 
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;	
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// Get message.
 	$listMessagesResult = $queueRestProxy->listMessages("myqueue");
 	$messages = $listMessagesResult->getQueueMessages();
 	$message = $messages[0];
-	
+
 	// Define new message properties.
 	$new_message_text = "New message text.";
-	$new_visibility_timeout = 5; // Measured in seconds. 
-	
-	// Get message Id and pop receipt.
+	$new_visibility_timeout = 5; // Measured in seconds.
+
+	// Get message ID and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
-	
+
 	try	{
 		// Update message.
-		$queueRestProxy->updateMessage("myqueue", 
-									$messageId, 
-									$popReceipt, 
-									$new_message_text, 
+		$queueRestProxy->updateMessage("myqueue",
+									$messageId,
+									$popReceipt,
+									$new_message_text,
 									$new_visibility_timeout);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -282,42 +282,42 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
-	// Set list message options. 
+
+	// Set list message options.
 	$message_options = new ListMessagesOptions();
-	$message_options->setVisibilityTimeoutInSeconds(300); 
+	$message_options->setVisibilityTimeoutInSeconds(300);
 	$message_options->setNumberOfMessages(16);
-	
+
 	// Get messages.
 	try{
-		$listMessagesResult = $queueRestProxy->listMessages("myqueue", 
-														 $message_options); 
-		$messages = $listMessagesResult->getQueueMessages(); 
+		$listMessagesResult = $queueRestProxy->listMessages("myqueue",
+														 $message_options);
+		$messages = $listMessagesResult->getQueueMessages();
 
 		foreach($messages as $message){
-			
+
 			/* ---------------------
 				Process message.
 			--------------------- */
-		
+
 			// Get message Id and pop receipt.
 			$messageId = $message->getMessageId();
 			$popReceipt = $message->getPopReceipt();
-			
+
 			// Delete message.
-			$queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);   
+			$queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
 		}
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedura: recuperare la lunghezza delle code
+## Recuperare la lunghezza della coda
 
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **QueueRestProxy->getQueueMetadata** chiede al servizio di accodamento di restituire i metadati relativi alla coda. La chiamata al metodo **getApproximateMessageCount** sull'oggetto restituito fornisce il numero di messaggi presenti in una coda. Il conteggio è solo approssimativo, poiché è possibile aggiungere o rimuovere messaggi dopo la risposta del servizio di accodamento.
 
@@ -328,7 +328,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	try	{
 		// Get queue metadata.
 		$queue_metadata = $queueRestProxy->getQueueMetadata("myqueue");
@@ -336,16 +336,16 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
+
 	echo $approx_msg_count;
 
-## Procedura: eliminare una coda
+## Eliminare una coda
 
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **QueueRestProxy->deleteQueue**.
 
@@ -356,14 +356,14 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Que
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	try	{
 		// Delete queue.
 		$queueRestProxy->deleteQueue("myqueue");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -373,15 +373,14 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Que
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base del Servizio di accodamento di Azure, usare i collegamenti seguenti per altre informazioni su attività di archiviazione più complesse.
+A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle code, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 - Vedere la documentazione MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- Visitare il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -4,7 +4,7 @@
 
 		var todoTable = <yourClient>.getTable('TodoItem');
 
-   	Questo codice crea un oggetto proxy (**todoTable**) per la nuova tabella di database, usando il filtro per la memorizzazione nella cache.
+   	Questo codice crea un oggetto proxy (**todoTable**) per la nuova tabella di database, utilizzando il filtro per la memorizzazione nella cache.
 
 2. Sostituire la funzione **InsertTodoItem** con il codice seguente:
 
@@ -45,4 +45,4 @@
 
 Una volta aggiornata l'app per consentire l'utilizzo di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

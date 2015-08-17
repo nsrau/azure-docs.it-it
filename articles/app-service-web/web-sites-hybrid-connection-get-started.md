@@ -30,7 +30,7 @@
 - Il computer in cui si installa l'agente Hybrid Connection Manager locale descritto più avanti in questo articolo:
 
 	- Deve essere in grado di connettersi ad Azure usando la porta 5671
-	- Deve essere in grado di raggiungere il *nome host*:*numero di porta* della risorsa locale. 
+	- Deve essere in grado di raggiungere il *nome host*:* numero di porta* della risorsa locale. 
 
 > [AZURE.NOTE]I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
@@ -207,4 +207,4 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

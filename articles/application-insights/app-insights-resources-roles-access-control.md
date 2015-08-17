@@ -34,14 +34,14 @@ Innanzitutto prendere nota di alcune definizioni:
 
 <a name="resource-group"></a>
 
-* [**Gruppo di risorse**][group]: ogni risorsa appartiene a un gruppo. Un gruppo è un modo pratico per gestire risorse correlate, in particolare per il controllo di accesso. In un gruppo di risorse, ad esempio, è possibile inserire un'app Web, una risorsa di Application Insights per monitorare l'app e una risorsa di archiviazione per conservare i dati esportati.
+* [**Gruppo di risorse**][group]\: ogni risorsa appartiene a un gruppo. Un gruppo è un modo pratico per gestire risorse correlate, in particolare per il controllo di accesso. In un gruppo di risorse, ad esempio, è possibile inserire un'app Web, una risorsa di Application Insights per monitorare l'app e una risorsa di archiviazione per conservare i dati esportati.
 
     
     ![Scegliere Sfoglia, gruppi di risorse e quindi scegliere un gruppo](./media/app-insights-resources-roles-access-control/11-group.png)
 
 
 * [**Sottoscrizione**](https://manage.windowsazure.com): per usare Application Insights o altre risorse di Azure, accedere a una sottoscrizione di Azure. Ogni gruppo di risorse appartiene a una sottoscrizione di Azure, dove si sceglie il pacchetto di prezzo e, se è la sottoscrizione di un'organizzazione, si scelgono i membri e le relative autorizzazioni di accesso.
-* [**Account Microsoft**][account]: il nome utente e password usati per accedere a sottoscrizioni Microsoft Azure, XBox Live, Outlook.com e altri servizi Microsoft.
+* [**Account Microsoft**][account]\: il nome utente e password usati per accedere a sottoscrizioni Microsoft Azure, XBox Live, Outlook.com e altri servizi Microsoft.
 
 
 ## <a name="access"></a> Controllare l'accesso nel gruppo di risorse
@@ -111,4 +111,4 @@ Se l'utente desiderato non è nella directory, è possibile invitare chiunque di
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

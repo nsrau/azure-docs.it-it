@@ -39,7 +39,7 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 Per usare le API del bus di servizio:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require-once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require-once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServiceBusService**.
@@ -332,4 +332,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -40,3 +40,5 @@ Se si desidera utilizzare il telefono cellulare come metodo di contatto principa
 <center>![Installazione](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
 <!------HONumber=July15_HO4-->
+
+<!---HONumber=August15_HO6-->

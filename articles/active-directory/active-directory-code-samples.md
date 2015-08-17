@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="Esempi di codice di Azure Active Directory" 
-   description="Indice di esempi di codice di Azure Active Directory, organizzati in base allo scenario." 
-   services="active-directory" 
-   documentationCenter="dev-center-name" 
-   authors="msmbaldwin" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Esempi di codice di Azure Active Directory"
+   description="Indice di esempi di codice di Azure Active Directory, organizzati in base allo scenario."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
-   ms.service="azure"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/06/2015"
+   ms.workload="identity"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
-# Esempi di codice di Azure Active Directory 
+# Esempi di codice di Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -26,7 +26,7 @@ Per comprendere lo scenario di base di ogni tipo di esempio, vedere Scenari di a
 
 È possibile contribuire agli esempi su GitHub: [Esempi e documentazione su Microsoft Azure Active Directory](https://github.com/AzureADSamples).
 
-## Da Web browser ad applicazione Web 
+## Da Web browser ad applicazione Web
 
 Questi esempi illustrano come scrivere un'applicazione Web che indirizza il browser dell'utente per l'accesso a Azure AD.
 
@@ -53,9 +53,9 @@ Questo esempio illustra come scrivere un'applicazione a singola pagina protetta 
 
 
 ## Da applicazione nativa ad API Web
- 
+
 Questi esempi di codice illustrano come creare applicazioni client native che chiamano API Web protette da Azure AD. Vengono usati [Azure AD Authentication Library (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) e [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
- 
+
 | Linguaggio/Piattaforma | Esempio | Descrizione
 | ----------------- | ------ | -----------
 | JavaScript | [NativeClient-MultiTarget-Cordova](https://github.com/AzureADSamples/NativeClient-MultiTarget-Cordova) | Viene usato il plug-in ADAL per Apache Cordova per creare un'app Apache Cordova che chiama un'API Web e usa Azure AD per l'autenticazione.
@@ -71,7 +71,7 @@ Questi esempi di codice illustrano come creare applicazioni client native che ch
 | C#/Xamarin | [NativeClient-MultiTarget-DotNet](http://github.com/AzureADSamples/NativeClient-MultiTarget-DotNet) | Progetto Xamarin destinato a cinque piattaforme che chiama un'API Web protetta mediante Azure AD.
 | C#/.NET | [NativeClient-Headless-DotNet](http://github.com/AzureADSamples/NativeClient-Headless-DotNet) | Applicazione nativa che esegue l'autenticazione non interattiva e chiama un'API Web protetta mediante Azure AD.
 
-   
+
 
 ## Da applicazione Web ad API Web
 
@@ -150,9 +150,4 @@ PHP | [App di esempio PHP per l'API Graph di Azure AD](http://code.msdn.microsof
 
 [Sviluppo di applicazioni moderne con OAuth e Active Directory Federation Services](http://msdn.microsoft.com/library/dn633593.aspx)
 
-
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

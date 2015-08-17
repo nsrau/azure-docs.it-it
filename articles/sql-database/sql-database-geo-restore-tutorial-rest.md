@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/17/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Ripristinare un database SQL di Azure mediante Ripristino geografico con l'API REST
@@ -57,4 +57,4 @@ Per altre informazioni, vedere quanto segue:
 [Riferimento dell'API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

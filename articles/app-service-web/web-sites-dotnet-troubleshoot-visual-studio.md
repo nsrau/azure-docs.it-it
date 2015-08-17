@@ -764,4 +764,4 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'ap
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

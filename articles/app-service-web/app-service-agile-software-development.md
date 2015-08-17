@@ -105,7 +105,7 @@ In uno scenario tipico di sviluppo, in Azure è in esecuzione un'applicazione a 
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	Al termine dello script, tornare indietro per passare all'indirizzo del front-end (http://ToDoApp*&lt;unique_string>\*master.azurewebsites.net/) per visualizzare l'applicazione in esecuzione nell'ambiente di produzione.
+7.	Al termine dello script, tornare indietro per passare all'indirizzo del front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) per visualizzare l'applicazione in esecuzione nell'ambiente di produzione.
  
 5.	Accedere al [portale di anteprima di Azure](https://portal.azure.com) per vedere gli elementi creati.
 
@@ -279,4 +279,4 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

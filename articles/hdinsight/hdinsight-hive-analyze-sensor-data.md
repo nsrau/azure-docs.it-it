@@ -37,7 +37,7 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=it-it&rs=it-it&ad=US).
+	> [AZURE.NOTE]Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -53,4 +53,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

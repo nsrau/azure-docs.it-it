@@ -35,7 +35,13 @@ In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
 > [AZURE.NOTE]il formato VHDX non è supportato in Microsoft Azure. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). È possibile trovare un'esercitazione relativa alla procedura di conversione in [questo articolo](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
- Sono supportate le seguenti versioni di Windows Server<P> <TABLE BORDER="1" WIDTH="600"> <TR BGCOLOR="#E9E7E7"> <TH>Sistema operativo</TH> <TH>SKU</TH> <TH>Service Pack</TH> <TH>Architettura</TH> </TR> <TR> <TD>Windows Server 2012 R2</TD> <TD>Tutte le edizioni</TD> <TD>N/D</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2012</TD> <TD>Tutte le edizioni</TD> <TD>N/D</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2008 R2</TD> <TD>Tutte le edizioni</TD> <TD>SP1</TD> <TD>x64</TD> </TR> </TABLE> </P>
+ Sono supportate le versioni di Windows Server seguenti:
+
+SO|SKU|Service Pack|Architettura
+---|---|---|---
+Windows Server 2012 R2|Tutte le edizioni|N/D|x64
+Windows Server 2012|Tutte le edizioni|N/D|x64
+Windows Server 2008 R2|Tutte le edizioni|SP1|x64
 
 
 Questa attività include i passaggi seguenti:
@@ -53,7 +59,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 1. Accedere al sistema operativo.
 
-2. Aprire una finestra del Prompt dei comandi come amministratore. Impostare la directory su **%windir%\system32\sysprep**, quindi eseguire `sysprep.exe`.
+2. Aprire una finestra del Prompt dei comandi come amministratore. Impostare la directory su **%windir%\\system32\\sysprep**, quindi eseguire `sysprep.exe`.
 
 	![Apertura della finestra del Prompt dei comandi](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +217,4 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Passaggio 4: caricare il file VHD]: #upload
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -38,51 +38,17 @@ Per un confronto più dettagliato, vedere [Confronto tra le versioni di Diagnost
 
 Diagnostica Azure può raccogliere i tipi di telemetria seguenti:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Origine dati</strong></td>
-			<td><strong>Descrizione</strong></td>
-	</tr>
-	<tr>
-		<td>Log di IIS</td>
-		<td>Informazioni sui siti Web di IIS.</td>            
-	</tr>
-	<tr>
-		<td>Log dell'infrastruttura diagnostica di Azure</td>
-		<td>Informazioni su Diagnostica.</td>            
-	</tr>
-	<tr>
-		<td>Log delle richieste non riuscite di IIS	</td>
-		<td>Informazioni sulle richieste non riuscite a un sito o a un'applicazione di IIS.</td>            
-	</tr>
-	<tr>
-		<td>Registri eventi di Windows</td>
-		<td>Informazioni inviate al sistema di registrazione eventi di Windows.</td>            
-	</tr>
-	<tr>
-		<td>Contatori delle prestazioni</td>
-		<td>Contatori delle prestazioni personalizzati e del sistema operativo.</td>            
-	</tr>
-	<tr>
-		<td>Dump di arresto anomalo del sistema</td>
-		<td>Informazioni sullo stato del processo in caso di arresto anomalo dell'applicazione.</td>            
-	</tr>
-	<tr>
-		<td>Log degli errori personalizzati</td>
-		<td>Log creati dall'applicazione o dal servizio.</td>            
-	</tr>
-	<tr>
-		<td>EventSource .NET</td>
-		<td>Eventi generati dal codice con la <a href="http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">classe EventSource</a> .NET.</td>            
-	</tr>
-	<tr>
-		<td>ETW basato su manifesto</td>
-		<td>Eventi ETW generati da un processo qualsiasi.</td>            
-	</tr>
-		
-</tbody>
-</table>
+Origine dati|Descrizione
+---|---
+Log di IIS|Informazioni sui siti Web di IIS.
+Log dell'infrastruttura diagnostica di Azure|Informazioni su Diagnostica.
+Log delle richieste non riuscite di IIS|Informazioni sulle richieste non riuscite a un sito o a un'applicazione di IIS.
+Registri eventi di Windows|Informazioni inviate al sistema di registrazione eventi di Windows.
+Contatori delle prestazioni|Contatori delle prestazioni personalizzati e del sistema operativo.
+Dump di arresto anomalo del sistema|Informazioni sullo stato del processo in caso di arresto anomalo dell'applicazione.
+Log degli errori personalizzati|Log creati dall'applicazione o dal servizio.
+EventSource .NET |Eventi generati dal codice con .NET <a href="http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">classe EventSource</a>
+ETW basato su manifesto|Eventi ETW generati da un processo qualsiasi.
 
 ## Come abilitare la diagnostica in un ruolo di lavoro
 
@@ -197,17 +163,18 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
 
 2.	Aggiungere un file XML al progetto **WorkerRole1** facendo clic con il pulsante destro del mouse sul progetto **WorkerRole1** e scegliendo **Aggiungi** -> **Nuovo elemento…** -> **Elementi Visual C#** -> **Dati** -> **File XML**. Assegnare al file il nome "WadExample.xml".
 
-	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
+	![CloudServices\_diag\_add\_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
 3.	Associare WadConfig.xsd al file di configurazione. Assicurarsi che la finestra dell'editor di WadExample.xml sia la finestra attiva. Premere **F4** per aprire la finestra **Proprietà**. Fare clic sulla proprietà **Schemi** nella finestra **Proprietà**. Fare clic su **…** nella proprietà **Schemi**. Fare clic sul pulsante **Aggiungi**, passare al percorso in cui si è salvato il file XSD e selezionare il file WadConfig.xsd. Fare clic su **OK**.
 4.	Sostituire i contenuti del file di configurazione WadExample.xml con il codice XML seguente e salvare il file. Questo file di configurazione definisce due contatori delle prestazioni per la raccolta: uno per l'uso della CPU e uno per l'uso della memoria. La configurazione definisce quindi quattro eventi corrispondenti ai metodi della classe SampleEventSourceWriter.
 
+```
 		<?xml version="1.0" encoding="utf-8"?>
 		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -222,6 +189,7 @@ Sostituire il contenuto del file WorkerRole.cs con il codice seguente. La classe
     			</DiagnosticMonitorConfiguration>
   			</WadCfg>
 		</PublicConfig>
+```
 
 ### Passaggio 5: Installare la diagnostica nel ruolo di lavoro
 I cmdlet di PowerShell per la gestione della diagnostica in un ruolo Web o di lavoro sono: : Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
@@ -238,7 +206,7 @@ I cmdlet di PowerShell per la gestione della diagnostica in un ruolo Web o di la
 
 
 ### Passaggio 6: Esaminare i dati di telemetria
-In **Esplora server** di Visual Studio passare all'account di archiviazione di wadexample. Dopo 5 minuti dall'inizio dell'esecuzione del servizio cloud, si dovrebbero visualizzare le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria raccolti. ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+In **Esplora server** di Visual Studio passare all'account di archiviazione di wadexample. Dopo 5 minuti dall'inizio dell'esecuzione del servizio cloud, si dovrebbero visualizzare le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria raccolti. ![CloudServices\_diag\_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## Come abilitare la diagnostica in una macchina virtuale
 
@@ -258,7 +226,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
 
 ### Passaggio 2: Creare l'applicazione
 1.	Nel computer di sviluppo avviare Visual Studio 2013.
-2.	Creare una nuova applicazione console Visual C# per .NET Framework 4.5. Assegnare al progetto il nome "WadExampleVM". ![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
+2.	Creare una nuova applicazione console Visual C# per .NET Framework 4.5. Assegnare al progetto il nome "WadExampleVM". ![CloudServices\_diag\_new\_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
 3.	Sostituire il contenuto del file Program.cs con il codice seguente. La classe **SampleEventSourceWriter** implementa quattro metodi di registrazione: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. Il primo parametro per il metodo WriteEvent definisce l'ID per il rispettivo evento. Il metodo Run implementa un ciclo infinito che chiama ognuno dei metodi di registrazione implementati nella classe **SampleEventSourceWriter** ogni 10 secondi.
 
 		using System;
@@ -332,7 +300,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
 
 ### Passaggio 3: Distribuire l'applicazione
 1.	Fare clic con il pulsante destro del mouse sul progetto **WadExampleVM** in **Esplora soluzioni** e scegliere **Apri cartella in Esplora file**.
-2.	Passare alla cartella *bin\Debug* e copiare tutti i file (WadExampleVM.*).
+2.	Passare alla cartella *bin\\Debug* e copiare tutti i file (WadExampleVM.*).
 3.	In **Esplora server** fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Connessione tramite desktop remoto**.
 4.	Una volta connessi alla macchina virtuale, creare una cartella denominata WadExampleVM e incollare i file dell'applicazione nella cartella.
 5.	Avviare l'applicazione WadExampleVM.exe. Verrà visualizzata una finestra della console vuota.
@@ -346,12 +314,13 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
 3.	Associare WadConfig.xsd al file di configurazione. Assicurarsi che la finestra dell'editor di WadExample.xml sia la finestra attiva. Premere **F4** per aprire la finestra **Proprietà**. Fare clic sulla proprietà **Schemi** nella finestra **Proprietà**. Fare clic su **…** nella proprietà **Schemi**. Fare clic sul pulsante **Aggiungi**, passare al percorso in cui si è salvato il file XSD e selezionare il file WadConfig.xsd. Fare clic su **OK**.
 4.	Sostituire i contenuti del file di configurazione WadExample.xml con il codice XML seguente e salvare il file. Questo file di configurazione definisce due contatori delle prestazioni per la raccolta: uno per l'uso della CPU e uno per l'uso della memoria. La configurazione definisce quindi quattro eventi corrispondenti ai metodi della classe SampleEventSourceWriter.
 
+```
 		<?xml version="1.0" encoding="utf-8"?>
 		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -366,7 +335,7 @@ In questa procedura si presuppone che l'utente abbia una sottoscrizione di Azure
     			</DiagnosticMonitorConfiguration>
   			</WadCfg>
 		</PublicConfig>
-
+```
 
 ### Passaggio 5: Installare in remoto la diagnostica nella macchina virtuale di Azure
 I cmdlet di PowerShell per la gestione della diagnostica in una macchina virtuale sono: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension e Remove-AzureVMDiagnosticsExtension.
@@ -386,7 +355,7 @@ I cmdlet di PowerShell per la gestione della diagnostica in una macchina virtual
 
 
 ### Passaggio 6: Esaminare i dati di telemetria
-In **Esplora server** di Visual Studio passare all'account di archiviazione di wadexample. Dopo che la macchina virtuale è rimasta in esecuzione per circa 5 minuti, vengono visualizzate le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria raccolti. ![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
+In **Esplora server** di Visual Studio passare all'account di archiviazione di wadexample. Dopo che la macchina virtuale è rimasta in esecuzione per circa 5 minuti, vengono visualizzate le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria raccolti. ![CloudServices\_diag\_wadexamplevm\_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
 ## Schema del file di configurazione
 
@@ -397,120 +366,32 @@ Il file di configurazione di Diagnostica definisce i valori usati per inizializz
 ### Mancato avvio di Diagnostica Azure
 La diagnostica è costituita da due componenti: un plug-in agente guest e l'agente di monitoraggio. I file di log del plug-in dell'agente guest si trovano nel file seguente:
 
-*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<VersioneDiagnostica>*\CommandExecution.log
+*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<VersioneDiagnostica>*\\CommandExecution.log
 
 Il plug-in restituisce i seguenti codici di errore:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Codice di uscita</strong></td>
-			<td><strong>Descrizione</strong></td>
-	</tr>
-    <tr>
-		<td>0</td>
-		<td>Completamento della procedura.</td>            
-	</tr>
-    <tr>
-		<td>-1</td>
-        <td>Errore generico.</td>		            
-	</tr>
-    <tr>
-		<td>-2</td>
-        <td><p>Impossibile caricare il file rcf.</p>
-<p>Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.</p></td>		            
-	</tr>
-    <tr>
-		<td>-3</td>
-        <td><p>Impossibile caricare il file di configurazione di Diagnostica.</p>
-<p>Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema.</p></td>		            
-	</tr>
-    <tr>
-		<td>-4</td>
-        <td><p>La directory delle risorse locali è già usata da un'altra istanza dell'agente di monitoraggio di Diagnostica.</p>
-<p>Soluzione: specificare un valore diverso per <strong>LocalResourceDirectory</strong>.</p></td>		            
-	</tr>
-    <tr>
-		<td>-6</td>
-        <td><p>L'utilità di avvio del plug-in dell'agente guest ha tentato di avviare Diagnostica con una riga di comando non valida.</p>
-<p>Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.</p></td>		            
-	</tr>
-    <tr>
-		<td>-10</td>
-        <td>Il plug-in di Diagnostica ha generato un'eccezione non gestita.</td>		            
-	</tr>
-    <tr>
-		<td>-11</td>
-        <td><p>L'agente guest non è stato in grado di creare il processo responsabile dell'avvio e del monitoraggio dell'agente di monitoraggio.</p>
+Codice di uscita|Descrizione
+---|---
+0|Completamento della procedura.
+\-1|Errore generico.
+\-2|Impossibile caricare il file rcf. <p>Questo è un errore interno che si dovrebbe verificare solo se il programma di avvio del plug-in agente guest viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.
+\-3|Impossibile caricare il file di configurazione di Diagnostica. <p> <p> Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema.
+\-4|Un'altra istanza della diagnostica dell'agente di monitoraggio sta già usando la directory delle risorse locali. <p> <p> Soluzione: specificare un valore diverso per **LocalResourceDirectory**.
+\-6|L’utilità di avvio del plug-in dell’agente guest ha tentato di avviare la Diagnostica con una riga di comando non valida. <p><p>Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
+\-10|Il plug-in di Diagnostica ha generato un'eccezione non gestita.
+\-11|L'agente guest non è stato in grado di creare il processo responsabile dell'avvio e del monitoraggio dell'agente di monitoraggio. <p><p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.<p>
+\-101|Argomenti non validi durante la chiamata del plug-in di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
+\-102|Il processo del plug-in non è in grado di inizializzarsi. <p><p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
+\-103|Il processo del plug-in non è in grado di inizializzarsi. In particolare, non è in grado di creare l'oggetto logger. <p> <p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
+\-104|Impossibile caricare il file rcf fornito dall'agente guest. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.
+\-105|Il plug-in di Diagnostica non è in grado di aprire il file di configurazione di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.
+\-106|Impossibile caricare il file di configurazione di Diagnostica. <p><p> Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. Il file XML fornito all'estensione Diagnostica si trova nella cartella *%SystemDrive%\\WindowsAzure\\Config* sulla macchina virtuale. Aprire il file XML appropriato e cercare prima **Microsoft.Azure.Diagnostics**, quindi il campo **xmlCfg**. I dati sono codificati in base64, pertanto sarà necessario [decodificarli](http://www.bing.com/search?q=base64+decoder) per visualizzare il codice XML che è stato caricato da Diagnostica. <p>
+\-107|La directory delle risorse passata all'agente di monitoraggio non è valida. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se l'agente di monitoraggio viene richiamato manualmente, in modo non corretto, sulla macchina virtuale. </p>
+\-108 |Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio. <p><p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.
+\-110|Errore di configurazione generale di Diagnostica. <p> <p> Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.
+\-111|Impossibile avviare l'agente di monitoraggio. <p> <p> Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.
+\-112|Errore generale:
 
-<p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.</p></td>		            
-	</tr>
-    <tr>
-		<td>-101</td>
-        <td><p>Argomenti non validi durante la chiamata del plug-in di Diagnostica.</p>
-
-<p>Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.</p></td>		            
-	</tr>
-    <tr>
-		<td>-102</td>
-        <td><p>Il processo del plug-in non è in grado di inizializzarsi.</p> 
-
-<p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.</p></td>		            
-	</tr>
-    <tr>
-		<td>-103</td>
-        <td><p>Il processo del plug-in non è in grado di inizializzarsi. In particolare, non è in grado di creare l'oggetto logger.</p>
-
-<p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti per avviare nuovi processi.</p></td>		            
-	</tr>
-    <tr>
-		<td>-104</td>
-        <td><p>Impossibile caricare il file rcf fornito dall'agente guest.</p>
-
-<p>Questo è un errore interno che dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente, in modo non corretto, sulla macchina virtuale.</p></td>		            
-	</tr>
-    <tr>
-		<td>-105</td>
-        <td><p>Il plug-in di Diagnostica non è in grado di aprire il file di configurazione di Diagnostica.</p>
-
-<p>Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.</p></td>		            
-	</tr>
-    <tr>
-		<td>-106</td>
-        <td><p>Impossibile leggere il file di configurazione di Diagnostica.</p>
-
-<p>Soluzione: questo errore è causato da un file di configurazione che non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. Il file XML fornito all'estensione Diagnostica si trova nella cartella <i>%SystemDrive%\WindowsAzure\Config</i> sulla macchina virtuale. Aprire il file XML appropriato e cercare prima <strong>Microsoft.Azure.Diagnostics</strong>, quindi il campo <strong>xmlCfg</strong>. Poiché i dati hanno codifica base64, per visualizzare il file XML caricato da Diagnostica è necessario <a href="http://www.bing.com/search?q=base64+decoder">decodificarli</a>.</p></td>		            
-	</tr>
-    <tr>
-		<td>-107</td>
-        <td><p>La directory delle risorse passata all'agente di monitoraggio non è valida.</p>
-
-<p>Questo è un errore interno che dovrebbe verificarsi solo se l'agente di monitoraggio viene richiamato manualmente, in modo non corretto, sulla macchina virtuale.</p></td>		            
-	</tr>
-    <tr>
-		<td>-108	</td>
-        <td><p>Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio.</p>
-
-<p>Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.</p></td>		            
-	</tr>
-    <tr>
-		<td>-110</td>
-        <td><p>Errore di configurazione generale di Diagnostica.</p>
-
-<p>Questo è un errore interno che dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido.</p></td>		            
-	</tr>
-    <tr>
-		<td>-111</td>
-        <td><p>Impossibile avviare l'agente di monitoraggio.</p>
-
-<p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti.</p></td>		            
-	</tr>
-    <tr>
-		<td>-112</td>
-        <td>Errore generale:</td>		            
-	</tr>    
-</tbody>
-</table>
 
 ### I dati di Diagnostica non vengono registrati nella risorsa di archiviazione
 La causa più comune della mancanza di dati degli eventi è la definizione non corretta delle informazioni sull'account di archiviazione.
@@ -535,7 +416,7 @@ Di seguito sono riportate alcune domande frequenti e le relative risposte:
 
 **D.** Se l'estensione Diagnostica 1.1 è già installata nel ruolo o nella macchina virtuale, come si esegue l'aggiornamento a Diagnostica 1.2 o 1.3?
 
-**R.** Se si è specificato "–Version "1.*"" al momento dell'installazione di Diagnostica 1.1, la prossima volta che il ruolo o la macchina virtuale verrà riavviata, sarà aggiornata automaticamente alla versione più recente corrispondente all'espressione regolare "1.*". Se si è specificato "–Version "1.1"" al momento dell'installazione di Diagnostics 1.1, è possibile aggiornare una versione più recente rieseguendo il cmdlet Set- e specificando la versione da installare.
+**R.** Se si è specificato "–Version "1. *“” al momento dell'installazione di Diagnostica 1.1, la prossima volta che il ruolo o la macchina virtuale verrà riavviata, sarà aggiornata automaticamente alla versione più recente corrispondente all'espressione regolare "1.*" Se si è specificato "–Version "1.1"" al momento dell'installazione di Diagnostics 1.1, è possibile aggiornare una versione più recente rieseguendo il cmdlet Set- e specificando la versione da installare.
 
 **D.** Come vengono denominate le tabelle?
 
@@ -563,188 +444,41 @@ Di seguito è fornito un esempio:
 
 Verranno generate quattro tabelle:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Evento</strong></td>
-			<td><strong>Nome tabella</strong></td>			
-	</tr>
-	<tr>
-			<td>provider=”prov1” &lt;Event id=”1” /></td>
-			<td>WADEvent+MD5(“prov1”)+”1”</td>			
-	</tr>
-	<tr>
-			<td>provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /></td>
-			<td>WADdest1</td>			
-	</tr>
-	<tr>
-			<td>provider=”prov1” &lt;DefaultEvents /></td>
-			<td>WADDefault+MD5(“prov1”)</td>			
-	</tr>
-	<tr>
-			<td>provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /></td>
-			<td>WADdest2</td>			
-	</tr>
-	
-
-</table>
-</tbody>
+Evento|Nome tabella
+---|---
+provider=”prov1” &lt;Event id=”1” /&gt;|WADEvent+MD5(“prov1”)+”1”
+provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt;|WADdest1
+provider=”prov1” &lt;DefaultEvents /&gt;|WADDefault+MD5(“prov1”)
+provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt;|WADdest2
 
 ## Confronto tra versioni di Diagnostica Azure
 
 La seguente tabella confronta le funzionalità supportate da Diagnostica Azure versioni 1.0 e 1.1/1.2/1.3:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Tipi di ruolo supportati</strong></td>
-			<td><strong>Diagnostica 1.0</strong></td>
-			<td><strong>Diagnostica 1.1/1.2/1.3</strong></td>
-	</tr>
+Tipi di ruolo supportati|Diagnostica 1.0|Diagnostica 1.1/1.2/1.3
+---|---
+Ruolo Web|Sì|Sì
+Ruolo di lavoro|Sì|Sì
+IaaS|No|Sì
 
-	<tr>
-			<td>Ruolo Web</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Ruolo di lavoro</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>IaaS</td>
-			<td>No</td>
-			<td>Sì</td>
-	</tr>
-</tbody>
-</table>
+Configurazione e distribuzione|Diagnostica 1.0|Diagnostica 1.1/1.2/1.3
+---|---|---
+Integrazione con Visual Studio - Integrata nell'esperienza di sviluppo di ruoli Web o di lavoro di Azure.|Sì|No
+Script di PowerShell - Script per gestire l'installazione e la configurazione di Diagnostica nel ruolo.|Sì|Sì
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Configurazione e distribuzione</strong></td>
-			<td><strong>Diagnostica 1.0</strong></td>
-			<td><strong>Diagnostica 1.1/1.2/1.3</strong></td>
-	</tr>
+Origine dati|Raccolta predefinita|Formato|Descrizione|Diagnostica 1.0|Diagnostica 1.1/1.2|Diagnostica 1.3
+---|---|---|---|---|---|---
+Log System.Diagnostics.Trace|Sì|Tabella|Registra messaggi di traccia inviati dal codice al listener di traccia (è necessario aggiungere un listener di traccia al file web.config o app.config). I dati del log verranno trasferiti alla tabella di archiviazione WADLogsTable in base all'intervallo di trasferimento scheduledTransferPeriod.|Sì|No (usare EventSource)|Sì
+Log di IIS|Sì|BLOB|Registra informazioni sui siti IIS. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.|Sì|Sì|Sì
+Log dell'infrastruttura diagnostica di Azure|Sì|Tabella|Registra informazioni sull'infrastruttura di diagnostica e sui moduli RemoteAccess e RemoteForwarder. I dati del log verranno trasferiti alla tabella di archiviazione WADDiagnosticInfrastructureLogsTable in base all'intervallo di trasferimento scheduledTransferPeriodtransfer.|Sì|Sì|Sì
+Log delle richieste non riuscite di IIS|No|BLOB|Registra informazioni sulle richieste non riuscite inviate a un'applicazione o a un sito IIS. È anche necessario eseguire l'abilitazione impostando le opzioni di traccia sotto system.WebServer in Web.config. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.|Sì|Sì|Sì
+Registri eventi di Windows|No|Tabella|Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.|Sì|Sì|Sì
+Contatori delle prestazioni|No|Tabella|Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.|Sì|Sì|Sì
+Dump di arresto anomalo del sistema|No|BLOB|Registra informazioni sullo stato del sistema operativo in caso di arresto anomalo del sistema. I minidump di arresto anomalo vengono raccolti localmente. È possibile abilitare i dump completi. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod. Poiché la maggior parte delle eccezioni è gestita da ASP.NET, questo è in genere utile solo per un ruolo di lavoro o una macchina virtuale.|Sì|Sì|Sì
+Log degli errori personalizzati|No|BLOB|Grazie all'uso di risorse di archiviazione locali, i dati personalizzati possono essere registrati e trasferiti immediatamente al contenitore specificato.|Sì|Sì|Sì
+EventSource|No|Tabella|Registra gli eventi generati dal codice usando la classe EventSource .NET.|No|Sì|Sì
+ETW basato su manifesto|No|Tabella|Eventi ETW generati da un processo qualsiasi.|No|Sì|Sì
 
-	<tr>
-			<td>Integrazione con Visual Studio - Integrata nell'esperienza di sviluppo di ruoli Web o di lavoro di Azure.</td>
-			<td>Sì</td>
-			<td>No</td>
-	</tr>
-	<tr>
-			<td>Script di PowerShell - Script per gestire l'installazione e la configurazione di Diagnostica nel ruolo.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	
-</tbody>
-</table>
-
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Origine dati</strong></td>
-			<td><strong>Raccolta predefinita</strong></td>
-			<td><strong>Formato</strong></td>
-			<td><strong>Descrizione</strong></td>
-			<td><strong>Diagnostica 1.0</strong></td>
-			<td><strong>Diagnostica 1.1/1.2</strong></td>
-			<td><strong>Diagnostica 1.3</strong></td>
-	</tr>
-	<tr>
-			<td>Log System.Diagnostics.Trace</td>
-			<td>Sì</td>
-			<td>Tabella</td>
-			<td>Registra messaggi di traccia inviati dal codice al listener di traccia (è necessario aggiungere un listener di traccia al file web.config o app.config). I dati del log verranno trasferiti alla tabella di archiviazione WADLogsTable in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
-			<td>Sì</td>
-			<td>No (usare EventSource)</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Log di IIS</td>
-			<td>Sì</td>
-			<td>BLOB</td>
-			<td>Registra informazioni sui siti IIS. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Log dell'infrastruttura diagnostica di Azure</td>
-			<td>Sì</td>
-			<td>Tabella</td>
-			<td>Registra informazioni sull'infrastruttura di diagnostica e sui moduli RemoteAccess e RemoteForwarder. I dati del log verranno trasferiti alla tabella di archiviazione WADDiagnosticInfrastructureLogsTable in base all'intervallo di trasferimento scheduledTransferPeriodtransfer.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Log delle richieste non riuscite di IIS</td>
-			<td>No</td>
-			<td>BLOB</td>
-			<td>Registra informazioni sulle richieste non riuscite inviate a un'applicazione o a un sito IIS. È anche necessario eseguire l'abilitazione impostando le opzioni di traccia sotto system.WebServer in Web.config. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Registri eventi di Windows</td>
-			<td>No</td>
-			<td>Tabella</td>
-			<td>Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Contatori delle prestazioni</td>
-			<td>No</td>
-			<td>Tabella</td>
-			<td>Registra le informazioni sulle prestazioni del sistema operativo, dell'applicazione o del driver. I contatori delle prestazioni devono essere specificati in modo esplicito. Quando i contatori vengono aggiunti, i dati corrispondenti vengono trasferiti nella tabella di archiviazione WADPerformanceCountersTable in base all'intervallo di trasferimento scheduledTransferPeriod.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Dump di arresto anomalo del sistema</td>
-			<td>No</td>
-			<td>BLOB</td>
-			<td>Registra informazioni sullo stato del sistema operativo in caso di arresto anomalo del sistema. I minidump di arresto anomalo vengono raccolti localmente. È possibile abilitare i dump completi. I dati del log verranno trasferiti al contenitore specificato in base all'intervallo di trasferimento scheduledTransferPeriod. Poiché la maggior parte delle eccezioni è gestita da ASP.NET, questo è in genere utile solo per un ruolo di lavoro o una macchina virtuale.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>Log degli errori personalizzati</td>
-			<td>No</td>
-			<td>BLOB</td>
-			<td>Grazie all'uso di risorse di archiviazione locali, i dati personalizzati possono essere registrati e trasferiti immediatamente al contenitore specificato.</td>
-			<td>Sì</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>EventSource</td>
-			<td>No</td>
-			<td>Tabella</td>
-			<td>Registra gli eventi generati dal codice usando la classe EventSource .NET.</td>
-			<td>No</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-	<tr>
-			<td>ETW basato su manifesto</td>
-			<td>No</td>
-			<td>Tabella</td>
-			<td>Eventi ETW generati da un processo qualsiasi.</td>
-			<td>No</td>
-			<td>Sì</td>
-			<td>Sì</td>
-	</tr>
-</tbody>
-</table>
 
 ## Risorse aggiuntive
 
@@ -777,4 +511,4 @@ La seguente tabella confronta le funzionalità supportate da Diagnostica Azure v
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

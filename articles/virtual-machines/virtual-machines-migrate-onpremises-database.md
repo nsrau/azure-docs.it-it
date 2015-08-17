@@ -161,4 +161,4 @@ Utilizzare questo metodo per eseguire la migrazione di tutti i database di siste
 
 Utilizzare il [metodo del servizio di Importazione/Esportazione di Windows](../storage-import-export-service/) per trasferire grandi quantità di dati di file sull'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è possibile. Con questo servizio, è possibile inviare uno o più dischi rigidi contenenti tali dati a un datacenter di Azure, dove i dati verranno caricati sull'account di archiviazione.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

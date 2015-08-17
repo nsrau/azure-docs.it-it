@@ -53,8 +53,9 @@ Per una procedura dettagliata completa sulla creazione di un account di archivia
 
 ## Componenti di SQL Server
 
-* URL: un URL specifica un URI (Uniform Resource Identifier) per un file di backup specifico. L'URL viene usato per fornire il percorso e il nome del file di backup di SQL Server. In questa implementazione l'unico URL valido è un URL che punta a un BLOB di pagine in un account di archiviazione di Azure. L'URL deve puntare a un BLOB effettivo e non a un contenitore. Se il BLOB non esiste, verrà creato. Se viene specificato un BLOB esistente, il comando BACKUP non riuscirà a meno che non sia specificata l'opzione WITH FORMAT. Di seguito è riportato un esempio di URL che verrebbe specificato in un comando BACKUP: **`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>` 
-<b>Nota</b>: HTTPS non è obbligatorio ma è consigliato. <b>Importante</b>: se si sceglie di copiare e caricare un file di backup nel servizio di archiviazione BLOB di Azure, e si prevede di utilizzarlo per operazioni di ripristino, è necessario utilizzare il tipo di BLOB di pagine. Il comando RESTORE da un tipo di BLOB in blocchi non riuscirà e restituirà un errore.
+* URL: un URL specifica un URI (Uniform Resource Identifier) per un file di backup specifico. L'URL viene usato per fornire il percorso e il nome del file di backup di SQL Server. In questa implementazione l'unico URL valido è un URL che punta a un BLOB di pagine in un account di archiviazione di Azure. L'URL deve puntare a un BLOB effettivo e non a un contenitore. Se il BLOB non esiste, verrà creato. Se viene specificato un BLOB esistente, il comando BACKUP non riuscirà a meno che non sia specificata l'opzione WITH FORMAT. Di seguito è riportato un esempio di URL che verrebbe specificato in un comando BACKUP: ****`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+
+<b>Nota</b>: HTTPS non è obbligatorio ma è consigliato. <b>Importante</b>: se si sceglie di copiare e caricare un file di backup nel servizio di archiviazione BLOB di Azure e si prevede di utilizzarlo per operazioni di ripristino, è necessario utilizzare il tipo di BLOB di pagine. Il comando RESTORE da un tipo di BLOB in blocchi non riuscirà e restituirà un errore.
 
 * Credenziali: le informazioni necessarie per la connessione e l'autenticazione a un servizio di archiviazione BLOB di Azure vengono archiviate in una credenziale. Per fare in modo che SQL Server sia in grado di scrivere backup in un BLOB di Azure o di eseguire un ripristino da quest'ultimo, è necessario creare una credenziale di SQL Server. Nella credenziale viene archiviato il nome dell'account di archiviazione e la relativa chiave di accesso. Una volta creata la credenziale, è necessario specificarla mediante l'opzione WITH CREDENTIAL quando si eseguono le istruzioni BACKUP e RESTORE. Per istruzioni dettagliate su come creare una credenziale di SQL Server, vedere [Introduzione al servizio di archiviazione di Azure per il backup e ripristino di SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615).
 
@@ -72,4 +73,4 @@ Per una procedura dettagliata completa sulla creazione di un account di archivia
 
 [Procedure consigliate relative al backup e al ripristino (servizio di archiviazione BLOB di Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

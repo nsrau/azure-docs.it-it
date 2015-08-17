@@ -70,7 +70,7 @@ La convenzione di denominazione dei file viene specificata mediante l'attributo 
 	   </OutputFormat>
 	</MediaFile>
 
-Il codificatore inserisce caratteri di sottolineatura tra una macro e l'altra, ad esempio la configurazione sopra darebbe come risultato un nome file simile al seguente: MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
+Il codificatore inserisce caratteri di sottolineatura tra una macro e l'altra, ad esempio la configurazione sopra darebbe come risultato un nome file simile al seguente: MyVideo\_H264\_4500kpbs\_AAC\_und\_ch2\_128kbps.mp4.
 
 
 ##Creazione di sovrimpressioni
@@ -458,11 +458,11 @@ Per impedire l'amplificazione del rumore di fondo, effettuare le seguenti operaz
 
 1. Salvare il file del set di impostazioni modificato nell'unità disco rigido locale e usare codice simile al seguente per eseguire la codifica con il set di impostazioni personalizzato:
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
 	 
-	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
-	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
+	IJob job = \_context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
 	Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Per impedire l'amplificazione del rumore di fondo, effettuare le seguenti operaz
 
 [Schema XML del Codificatore multimediale di Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

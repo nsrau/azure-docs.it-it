@@ -202,7 +202,7 @@ Il writeback delle password è disponibile nelle versioni di Azure AD Connect o 
 
     ![][021]
 
-Se il numero di versione è uguale o superiore a **1.0.0419.0911** oppure se sita eseguendo l'installazione di Azure AD Connect, è possibile andare direttamente al [Passaggio 2: Abilitare il writeback delle password in Azure AD Connect tramite l'interfaccia utente o PowerShell e verificare il risultato](#step-2-enable-password-writeback-in-azure-ad-connect).
+Se il numero di versione è uguale o superiore a **1.0.0419.0911** oppure se si sta eseguendo l'installazione di Azure AD Connect, è possibile andare direttamente al [Passaggio 2: Abilitare il writeback delle password in Azure AD Connect tramite l'interfaccia utente o PowerShell e verificare il risultato](#step-2-enable-password-writeback-in-azure-ad-connect).
 
  >[AZURE.NOTE]Se è la prima volta che si installa lo strumento Azure AD Connect, è opportuno seguire alcune procedure consigliate per preparare l'ambiente per la sincronizzazione della directory. Prima di installare lo strumento Azure AD Connect, è necessario attivare la sincronizzazione della directory nel [portale dell'amministratore di Office 365](https://portal.microsoftonline.com) o nel [portale di gestione di Azure](https://manage.windowsazure.com). Per altre informazioni, vedere [Gestione di Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
@@ -345,4 +345,4 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

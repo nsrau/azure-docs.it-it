@@ -87,4 +87,4 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 6. Creare l'app e testare l'autenticazione con un account valido. Eseguirla almeno due volte. Durante la prima esecuzione, si riceverà un prompt di accesso per creare la cache dei token. Successivamente, a ogni esecuzione verrà effettuato un tentativo di caricare la cache dei token per l'autenticazione e non sarà più richiesto di eseguire l'accesso.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

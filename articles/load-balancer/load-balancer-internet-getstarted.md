@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Introduzione alla configurazione del bilanciamento del carico Internet
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 I servizi di bilanciamento del carico in Microsoft Azure funzionano con tutti i tipi di tenant (IaaS o PaaS) e tutte le versioni dei sistemi operativi (Windows o qualsiasi sistema operativo basato su Linux).
 
@@ -135,4 +139,4 @@ Nell'esempio seguente, si aggiungerà un servizio di bilanciamento del carico de
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

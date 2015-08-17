@@ -51,9 +51,9 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-L'account di amministrazione del server a cui ci si sta connettendo è un membro del ruolo db_owner, che è autorizzato a eseguire qualsiasi operazione all'interno del database. Salvare questo account per la distribuzione degli aggiornamenti allo schema e altre operazioni di gestione. Usare l'account "ApplicationUser" con autorizzazioni più limitate per la connessione dall'applicazione al database con i privilegi minimi richiesti dall'applicazione.
+L'account di amministrazione del server a cui ci si sta connettendo è un membro del ruolo db\_owner, che è autorizzato a eseguire qualsiasi operazione all'interno del database. Salvare questo account per la distribuzione degli aggiornamenti allo schema e altre operazioni di gestione. Usare l'account "ApplicationUser" con autorizzazioni più limitate per la connessione dall'applicazione al database con i privilegi minimi richiesti dall'applicazione.
 
-Esistono diversi modi per limitare ulteriormente le operazioni che un utente può eseguire con il database SQL di Azure: - È possibile usare [ruoli del database][] diversi da db_datareader e db_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti. - È possibile usare [autorizzazioni][] granulari per controllare le operazioni consentite per le singole colonne, tabelle, viste, procedure e altri oggetti nel database. - È possibile usare [stored procedure][] per limitare le operazioni che possono essere eseguite sul database.
+Esistono diversi modi per limitare ulteriormente le operazioni che un utente può eseguire con il database SQL di Azure: - È possibile usare [ruoli del database][] diversi da db\_datareader e db\_datawriter per creare account utente dell'applicazione più potenti o account di gestione meno potenti. - È possibile usare [autorizzazioni][] granulari per controllare le operazioni consentite per le singole colonne, tabelle, viste, procedure e altri oggetti nel database. - È possibile usare [stored procedure][] per limitare le operazioni che possono essere eseguite sul database.
 
 La gestione di database e server logici dal portale di gestione di Azure o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni su questo argomento, vedere l'articolo relativo al [controllo degli accessi in base al ruolo nel portale di anteprima di Azure][].
 
@@ -78,4 +78,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 <!--Other Web references-->
 [controllo degli accessi in base al ruolo nel portale di anteprima di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -79,4 +79,4 @@ Tutte le risorse dell'applicazione vengono gestite tramite il singolo gruppo di 
 
 [Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -140,4 +140,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

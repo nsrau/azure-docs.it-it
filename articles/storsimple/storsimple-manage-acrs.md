@@ -6,6 +6,7 @@
    authors="alkohli"
    manager="carolz"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -14,6 +15,7 @@
    ms.workload="na"
    ms.date="06/10/2015"
    ms.author="alkohli" />
+
 
 # Gestire i record di controllo di accesso in StorSimple
 
@@ -94,4 +96,4 @@ Ulteriori informazioni su [la gestione di volumi StorSimple](storsimple-manage-v
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

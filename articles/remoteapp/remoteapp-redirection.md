@@ -83,7 +83,7 @@ Usare il cmdlet seguente per abilitare il reindirizzamento USB a livello di racc
 Per configurare le impostazioni di reindirizzamento USB sul computer:
 
 1. Aprire l'Editor Criteri di gruppo locali (GPEDIT.MSC) (eseguire gpedit.msc da un prompt dei comandi).
-2. Aprire **Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Client di connessione desktop remoto\Reindirizzamento dispositivo USB RemoteFX**.
+2. Aprire **Configurazione computer\\Criteri\\Modelli amministrativi\\Componenti di Windows\\Servizi Desktop remoto\\Client di connessione desktop remoto\\Reindirizzamento dispositivo USB RemoteFX**.
 3. Fare doppio clic su **Consenti il reindirizzamento RDP di altri dispositivi USB RemoteFX supportati da questo computer**.
 4. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
 5. Aprire un prompt dei comandi con autorizzazioni amministrative ed eseguire il comando seguente: 
@@ -97,9 +97,9 @@ Per configurare le impostazioni di reindirizzamento USB sul computer:
 2. Aprire Console Gestione criteri di gruppo (fare clic su **Start > Strumenti di amministrazione > Gestione criteri di gruppo**).
 3. Passare al dominio o unità organizzativa per cui si desidera creare il criterio.
 4. Fare clic con il pulsante destro del mouse su **Criterio dominio predefinito** e quindi fare clic su **Modifica**.
-5. Aprire **Configurazione computer\Criteri\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Client di connessione desktop remoto\Reindirizzamento dispositivo USB RemoteFX**.
+5. Aprire **Configurazione computer\\Criteri\\Modelli amministrativi\\Componenti di Windows\\Servizi Desktop remoto\\Client di connessione desktop remoto\\Reindirizzamento dispositivo USB RemoteFX**.
 6. Fare doppio clic su **Consenti il reindirizzamento RDP di altri dispositivi USB RemoteFX supportati da questo computer**.
 7. Selezionare **Attivato** e quindi selezionare **Amministratori e utenti nei diritti di accesso del reindirizzamento USB RemoteFX**.
 8. Fare clic su **OK**.  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

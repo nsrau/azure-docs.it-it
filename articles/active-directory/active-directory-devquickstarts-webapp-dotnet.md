@@ -123,7 +123,7 @@ public void SignOut()
 }
 ```
 
--	Ora aprire `Views\Shared_LoginPartial.cshtml`, dove si mostreranno all'utente i collegamenti di accesso e disconnessione e si visualizzerà il nome dell'utente.
+-	Ora aprire `Views\Shared\_LoginPartial.cshtml`, dove si mostreranno all'utente i collegamenti di accesso e disconnessione e si visualizzerà il nome dell'utente.
 
 ```HTML
 @if (Request.IsAuthenticated)
@@ -148,7 +148,7 @@ else
 ```
 
 ## *4. Visualizzare le informazioni utente*
-Quando si autenticano gli utenti con OpenID Connect, Azure AD restituisce un id_token all'applicazione contenente "attestazioni", o asserzioni, sull'utente. È possibile usare queste attestazioni per personalizzare l'app:
+Quando si autenticano gli utenti con OpenID Connect, Azure AD restituisce un id\_token all'applicazione contenente "attestazioni", o asserzioni, sull'utente. È possibile usare queste attestazioni per personalizzare l'app:
 
 - Aprire il file `Controllers\HomeController.cs`. È possibile accedere alle attestazioni dell'utente nei controller tramite l'oggetto di entità di sicurezza `ClaimsPrincipal.Current`.
 
@@ -176,4 +176,4 @@ Ora è possibile passare ad argomenti più avanzati. È possibile:
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

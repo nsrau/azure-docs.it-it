@@ -1,5 +1,5 @@
 
-1. In Esplora soluzioni di Visual Studio espandere la cartella App_Start e aprire il file di progetto WebApiConfig.cs.
+1. In Esplora soluzioni di Visual Studio espandere la cartella App\_Start e aprire il file di progetto WebApiConfig.cs.
 
 2. Aggiungere la riga di codice seguente al metodo Register dopo la definizione **ConfigOptions**:
 
@@ -92,4 +92,4 @@
 A questo punto il servizio usa il tag di ID utente per inviare una notifica push (con il testo dell'elemento inserito) a tutte le registrazioni di app di Windows Store create dall'utente connesso.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

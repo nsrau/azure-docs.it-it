@@ -18,30 +18,20 @@
 
 # Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure (Azure CLI)#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Interfaccia della riga di comando di Azure">Interfaccia della riga di comando di Azure</a></div>
-
 Nel portale di Azure e nell'API di Gestione risorse di Azure, il controllo di accesso basato sui ruoli (RBAC) consente di gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
 In questa esercitazione vengono fornite informazioni sull'utilizzo dell’interfaccia della riga di comando di Azure per la gestione di RBAC. Verrà inoltre descritto il processo di creazione e controllo delle assegnazioni dei ruoli.
 
 **Tempo previsto per il completamento:** 15 minuti
 
-## Prerequisiti ##
+## Prerequisiti
 
 Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre dei programmi seguenti:
 
 - Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare](xplat-cli-install.md).
 - Si consiglia di leggere anche le seguenti esercitazioni per acquisire familiarità con la configurazione e l'uso di Gestione risorse di Azure nell'interfaccia della riga di comando di Azure: [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md)
 
-## Contenuto dell'esercitazione: ##
-
-* [Connettersi alle sottoscrizioni](#connect)
-* [Controllare le assegnazioni di ruoli esistenti](#check)
-* [Creare un'assegnazione di ruolo](#create)
-* [Verificare le autorizzazioni](#verify)
-* [Passaggi successivi](#next)
-
-## <a id="connect"></a>Connettersi alle sottoscrizioni ##
+## Connettersi alle sottoscrizioni 
 
 Poiché RBAC funziona solo con Gestione risorse di Azure, occorre innanzitutto passare alla modalità Gestione risorse di Azure digitando:
 
@@ -86,7 +76,7 @@ Verranno restituite tutte le assegnazioni di ruolo per un determinato utente nel
 
 Tutti i parametri di questo cmdlet sono facoltativi. È possibile combinarli per controllare le assegnazioni dei ruoli con filtri diversi.
 
-## <a id="create"></a>Creare un'assegnazione di ruolo ##
+## Creare un'assegnazione di ruolo 
 
 Per creare un'assegnazione di ruolo è necessario prendere in considerazione quanto segue
 
@@ -124,7 +114,7 @@ Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo.
 
     `azure role assignment create --mail <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
-## <a id="verify"></a>Verificare le autorizzazioni ##
+## Verificare le autorizzazioni 
 
 Dopo aver controllato che l'account disponga di alcune assegnazioni di ruoli, è possibile visualizzare le autorizzazioni accordate da tali assegnazioni di ruoli eseguendo
 
@@ -135,7 +125,7 @@ Questi due cmdlet restituiranno solo i gruppi di risorse o le risorse in cui si 
 
 Quando si proverà a eseguire un altro cmdlet, ad esempio `azure group create`, verrà restituito un errore di accesso negato se non si dispone dell'autorizzazione necessaria.
 
-## <a id="next"></a>Passaggi successivi ##
+## Passaggi successivi 
 
 Per altre informazioni sulla gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure e per gli argomenti correlati:
 
@@ -143,4 +133,4 @@ Per altre informazioni sulla gestione del controllo degli accessi in base al ruo
 - [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md)
 - [Uso dei gruppi di risorse per la gestione delle risorse di Azure](resource-groups-overview.md): informazioni su come creare e gestire gruppi di risorse nel portale di gestione di Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

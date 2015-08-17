@@ -315,7 +315,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\\_).
 
 #### Dimensione
 
@@ -349,7 +349,7 @@ Ogni chiave dell'oggetto deve corrispondere all'espressione regolare seguente:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\_).
+Questo significa che le chiavi devono iniziare con almeno una lettera, seguita da lettere, cifre o caratteri di sottolineatura (\\\_).
 
 #### Dimensione
 
@@ -360,4 +360,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			{"birthdate":"1983-12-07","gender":"female"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,7 +3,7 @@
     pageTitle="Provare Azure RemoteApp nel proprio dispositivo per tre minuti o meno"
     description="Provare la versione di test delle funzionalità di Azure RemoteApp senza installare il servizio." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -37,4 +37,4 @@ Le opinioni dei nostri utenti sono importanti. Alla fine di ogni sessione viene 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

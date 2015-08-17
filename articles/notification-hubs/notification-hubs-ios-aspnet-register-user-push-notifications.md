@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 # Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+
+
 
 ##Panoramica
 
@@ -27,7 +29,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 ##Aggiornamento dell'app  
 
-1. Nel file MainStoryboard_iPhone.storyboard aggiungere i seguenti componenti dalla libreria di oggetti:
+1. Nel file MainStoryboard\_iPhone.storyboard aggiungere i seguenti componenti dalla libreria di oggetti:
 
 	+ **Etichetta**: "Push to User with Notification Hubs"
 	+ **Etichetta**: "InstallationId"
@@ -236,4 +238,4 @@ Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica
 [Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

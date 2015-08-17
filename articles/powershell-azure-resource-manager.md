@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
+
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
 
@@ -372,29 +374,9 @@ Il modulo AzureResourceManager include cmdlet che aiutano a evitare gli errori.
 
 
 ## Passaggi successivi
-Introduzione
 
-- [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md)
-- [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](./xplat-cli-azure-resource-manager.md)
-- [Uso del portale di Azure per gestire le risorse di Azure](./resource-group-portal.md)
+- Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
+- Per ulteriori informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di gestione risorse di Azure](./resource-group-template-deploy.md).
+- Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservices in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Creazione e distribuzione delle applicazioni
-
-- [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resource-group-template-deploy.md)
-- [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-group-deploy-debug.md)
-- [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)
-- [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)
-
-Organizzazione delle risorse
-
-- [Uso dei tag per organizzare le risorse di Azure](./resource-group-using-tags.md)
-
-Gestione e controllo dell'accesso
-
-- [Gestione e controllo dell'accesso alle risorse](./resource-group-rbac.md)
-- [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md)
-- [Creare una nuova entità servizio di Azure usando il portale classico di Azure](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

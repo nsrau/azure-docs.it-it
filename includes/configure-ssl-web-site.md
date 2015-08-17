@@ -448,7 +448,7 @@ Il servizio app di Azure *non* applica HTTPS. I visitatori possono comunque acce
 
 Le regole di Riscrittura URL sono definite in un file **web.config** archiviato nella radice dell'applicazione. Il seguente esempio contiene una regole di Riscrittura URL di base che forza l'uso di HTTPS per tutto il traffico in ingresso.
 
-<a name="example"></a>\*\*Esempio di Riscrittura URL Web.Config\*\*
+<a name="example"></a>**Esempio di Riscrittura URL Web.Config**
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -544,4 +544,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

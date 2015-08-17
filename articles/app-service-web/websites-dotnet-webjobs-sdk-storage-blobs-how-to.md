@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
+
 
 # Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK
 
@@ -232,4 +234,4 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di BLOB di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

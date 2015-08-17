@@ -29,4 +29,4 @@ Nell'esempio precedente viene illustrato l'accesso standard, che richiede al cli
 
 				[self loadAuthInfo];
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

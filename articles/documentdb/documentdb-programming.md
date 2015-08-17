@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Programmazione di DocumentDB: Stored procedure, trigger e funzioni definite dall'utente | Azure" 
+	pageTitle="Programmazione di DocumentDB: Stored procedure, trigger e funzioni definite dall'utente | Microsoft Azure" 
 	description="Informazioni su come usare Microsoft Azure DocumentDB per scrivere stored procedure, trigger e funzioni definite dall'utente (UDF) in modo nativo in JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -629,7 +629,7 @@ Si desidera condividere la stored procedure awesome? Inviare una richiesta di pu
 
 ## Passaggi successivi
 
-Quando si dispone di uno o più stored procedure, trigger e funzioni definite dall'utente create, è possibile caricarli e visualizzarli nel portale di anteprima di Azure utilizzando Esplora Script. Per maggiori informazioni, vedere [Visualizzare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB](documentdb-view-scripts.md).
+Quando si dispone di uno o più stored procedure, trigger e funzioni definite dall'utente create, è possibile caricarli e visualizzarli nel portale di anteprima di Azure usando Esplora Script. Per maggiori informazioni, vedere [Visualizzare stored procedure, trigger e funzioni definite dall'utente usando Esplora script di DocumentDB](documentdb-view-scripts.md).
 
 È inoltre possibile trovare i seguenti riferimenti e risorse utili per il percorso per ulteriori informazioni sulla programmazione sul lato server DocumentDB:
 
@@ -641,4 +641,4 @@ Quando si dispone di uno o più stored procedure, trigger e funzioni definite da
 -	[Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

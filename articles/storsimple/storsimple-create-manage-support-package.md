@@ -199,4 +199,4 @@ Di seguito è riportato un esempio che illustra come decrittografare, modificare
 
 Informazioni su come [utilizzare i pacchetti per il supporto e i registri del dispositivo per risolvere i problemi di distribuzione del dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

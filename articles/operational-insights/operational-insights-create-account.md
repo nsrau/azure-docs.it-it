@@ -40,4 +40,4 @@ Per altre informazioni sulle operazioni iniziali con Operational Insights, veder
 
 - [installare e configurare l'area di lavoro](operational-insights-setup-workspace.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

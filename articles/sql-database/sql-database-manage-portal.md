@@ -25,26 +25,26 @@ Il [portale di gestione di Azure][Management Portal] consente di creare, monitor
 
 ![Panoramica dei database](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
-## 1. Azioni di gestione del database
+## 1\. Azioni di gestione del database
 ![Azioni di gestione del database](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
 Il portale di gestione di Azure fornisce un set di azioni di database comuni accessibile nella parte superiore del pannello di un database. È possibile ripristinare un database a un momento precedente, aprire un database in Visual Studio, copiare un database in un nuovo server ed esportare il database a un account di archiviazione di Azure.
 
-## 2. Monitoraggio del database
+## 2\. Monitoraggio del database
 ![Monitoraggio del database](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
 
 Per impostazione predefinita, i database SQL di Azure dispongono di grafici di monitoraggio per unità di velocità effettiva database (DTU), dimensioni del database e stato della connessione. Questi grafici di monitoraggio possono essere personalizzati ed estesi per indicare la percentuale di CPU, la percentuale di IO dei dati, i deadlock, la percentuale di IO del log o persino la percentuale di richieste bloccate dal firewall. Ulteriori informazioni su come personalizzare i grafici di monitoraggio sono disponibili [qui][Azure part monitoring].
 
 Inoltre, è possibile configurare regole di avviso per monitorare una metrica specificata e avvisare un amministratore designato e un co-amministratore quando vengono raggiunte le soglie predefinite. Ulteriori informazioni su come configurare regole di avviso nel portale di gestione di Azure sono disponibili [qui][Azure part monitoring].
 
-## 3. Protezione del database e controllo
+## 3\. Protezione del database e controllo
 ![Protezione del database](./media/sql-database-manage-portal/sqldatabase_security.png)
 
 I database SQL di Azure possono essere configurati per tenere traccia di tutti gli eventi di database e scriverli in un log di controllo nell'account di archiviazione di Azure. Tale funzionalità consente di mantenere la conformità alle normative, comprendere l’attività del database e ottenere informazioni su eventuali discrepanze che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. Ulteriori informazioni sul controllo dei database SQL di Azure sono reperibili [qui][AzureDb Auditing]
 
 I database SQL di Azure possono essere configurati anche per mascherare i dati sensibili agli utenti che non dispongono di privilegi. Ulteriori informazioni sulla funzionalità di mascheramento dinamico dei dati dei database SQL di Azure sono reperibili [qui][AzureDb datamasking]
 
-## 4. Replica geografica
+## 4\. Replica geografica
 ![Replica geografica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
 I database SQL di Azure possono essere configurati per replicare in modo asincrono le transazioni sottoposte a commit in un database secondario. La parte della replica geografica del portale di gestione consente di selezionare l'area di Azure in cui si desidera far risiedere il database secondario. Ulteriori informazioni sulla replica geografica di database in Azure sono reperibili [qui][Database geo-replication]
@@ -70,4 +70,4 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

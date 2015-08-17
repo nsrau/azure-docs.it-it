@@ -4,7 +4,7 @@
 
 1. Installare il pacchetto NuGet [WindowsAzure.MobileServices.Backend.Security](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Security).
 
-2. In Visual Studio espandere App_Start e aprire il file WebApiConfig.cs. Aggiungere l'istruzione `using` seguente nella parte superiore:
+2. In Visual Studio espandere App\_Start e aprire il file WebApiConfig.cs. Aggiungere l'istruzione `using` seguente nella parte superiore:
 
         using Microsoft.WindowsAzure.Mobile.Service.Security.Providers;
 
@@ -13,4 +13,4 @@
         options.LoginProviders.Remove(typeof(AzureActiveDirectoryLoginProvider));
         options.LoginProviders.Add(typeof(AzureActiveDirectoryExtendedLoginProvider));
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

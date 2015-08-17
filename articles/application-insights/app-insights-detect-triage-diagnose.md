@@ -4,15 +4,15 @@
 	authors="alancameronwills"
 	services="application-insights"
     documentationCenter=""
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.topic="article" 
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # Rilevare, valutare e diagnosticare con Application Insights
@@ -48,7 +48,7 @@ Application Insights funziona per le app di dispositivi e le applicazioni Web. I
 ## Rilevare scarsa disponibilità
 
 
-Marcela Markova è uno specialista di test nel team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta diversi [test Web][availability]:
+Marcela Markova è uno specialista di test nel team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta diversi [test Web][availability]\:
 
 * Un test con singolo URL per la pagina di destinazione principale per l'app http://fabrikambank.com/onlinebanking/. Imposta i criteri del codice HTTP 200 e il testo 'Benvenuto'. Se il test ha esito negativo, è presente un grave problema relativo alla rete o ai server o forse un problema di distribuzione, oppure un utente ha modificato il messaggio Benvenuto nella pagina senza comunicarlo.
 
@@ -59,7 +59,7 @@ Marcela Markova è uno specialista di test nel team di OBS e accetta di essere r
 Con questi test impostati, Marcela è certa che il team verrà rapidamente a conoscenza di ogni interruzione.
 
 
-Gli errori vengono visualizzati come punti rossi nel grafico della panoramica di test Web:
+Gli errori vengono visualizzati come punti rossi nel grafico del test Web:
 
 ![Visualizzazione dei test Web eseguiti nel periodo precedente](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
@@ -70,22 +70,21 @@ Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori m
 ## Monitorare le metriche delle prestazioni
 
 
-Nella stessa pagina della panoramica del grafico di disponibilità, è presente un grafico che mostra una serie di [metriche chiave][perf].
-
+Nella stessa pagina della panoramica d Application Insights è presente un grafico che mostra una serie di [metriche chiave][perf].
 
 ![Alcuni criteri di misurazione](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Il tempo di elaborazione del client deriva dai dati di telemetria inviati direttamente dalle pagine Web. Gli altri mostrano metriche calcolate nel server Web.
+Il tempo di caricamento della pagina del browser deriva dai dati di telemetria inviati direttamente dalle pagine Web. Il tempo di risposta del server, il numero di richieste al server e il numero di richieste non riuscite sono tutti misurati nel server Web e inviati direttamente ad Application Insights.
 
 
 Il numero di richieste non riuscite indica i casi in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato un messaggio che indica che non è possibile aggiornare i dettagli al momento o, addirittura peggio, un dump dello stack sullo schermo dell'utente dovuto al server Web.
 
 
-Marcela esamina questi grafici di tanto in tanto. È un po' sconfortante lo scenario costante di richieste non riuscite, ma si riferisce a un bug che il team sta analizzando, pertanto dovrebbe verificarsi al rilascio della correzione. Se tuttavia si verifica un improvviso picco di richieste non riuscite o di alcune delle altre metriche come il tempo di risposta del server, Marcela vuole ricevere immediatamente informazioni. Potrebbe indicare un problema imprevisto causato da una versione di codice o un errore in una dipendenza, ad esempio un database, o forse una reazione anomala a un carico di richieste elevato.
+Marcela esamina questi grafici di tanto in tanto. L'assenza di richieste non riuscite è incoraggiante, anche se quando si modifica l'intervallo del grafico per coprire la settimana precedente vengono visualizzati errori occasionali. Si tratta di un livello accettabile in un server occupato. Se tuttavia si verifica un improvviso picco di errori o in alcune delle altre metriche, come il tempo di risposta del server, Marcela vuole saperlo immediatamente. Potrebbe indicare un problema imprevisto causato da una versione di codice o un errore in una dipendenza, ad esempio un database, o forse una reazione anomala a un carico di richieste elevato.
 
 #### Avvisi
 
-Marcella pertanto imposta due [avvisi][metrics]: uno per tempi di risposta maggiori di una soglia tipica e l'altro per una frequenza di richieste non riuscite maggiore dello scenario corrente.
+Marcella pertanto imposta due [avvisi][metrics]\: uno per tempi di risposta maggiori di una soglia tipica e l'altro per una frequenza di richieste non riuscite maggiore dello scenario corrente.
 
 
 Con l'avviso di disponibilità avrà la sicurezza di venire informata sulle situazioni insolite non appena si verificano.
@@ -103,7 +102,7 @@ Con l'avviso di disponibilità avrà la sicurezza di venire informata sulle situ
 ## Rilevamento di eccezioni
 
 
-Le eccezioni vengono segnalate in Application Insights chiamando [TrackException()][api]:
+Con una configurazione minima, le [eccezioni](app-insights-asp-net-exceptions.md) vengono segnalate automaticamente ad Application Insights. Possono anche essere acquisite in modo esplicito con l'inserimento di chiamate a [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) nel codice:
 
     var telemetry = new TelemetryClient();
     ...
@@ -144,19 +143,20 @@ Eccezioni ed eventi vengono visualizzati nel pannello [Ricerca diagnostica][diag
 
 ![In Ricerca diagnostica usare i filtri per visualizzare determinati tipi di dati](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Monitoraggio degli eventi con esito positivo
+## Monitoraggio dell'attività dell'utente
+
+Quando il tempo di risposta è coerentemente buono e sono presenti poche eccezioni, il team di sviluppo può pensare a migliorare l'esperienza degli utenti e a incoraggiare più utenti perché raggiungano gli obiettivi previsti.
 
 
-Il team di sviluppo Fabrikam terrà traccia degli eventi di esito positivo nonché di quelli con esito negativo. In parte perché è opportuno sapere quanti eventi positivi sono in corso e dove e, in secondo luogo, perché è una situazione negativa quando eventi positivi improvvisamente non si verificano più.
+Ad esempio, per un tipico percorso utente nel sito Web è disponibile un grafico chiaro. Molti clienti esaminano diversi tipi di prestito; alcuni compilano il modulo di offerta e, tra quelli che ricevono un'offerta, alcuni procedono con il prestito.
 
+![](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Ad esempio, per molti percorsi utente è disponibile un grafico chiaro. Molti clienti esaminano diversi tipi di prestito; alcuni compilano il modulo offerta e, tra quelli che ricevono un'offerta, alcuni procedono con il prestito.
+Considerando il punto in cui la maggior parte degli utenti abbandona, l'azienda può valutare come fare in modo che più utenti completino il percorso fino alla fine. In alcuni casi potrebbe trattarsi di un errore dell'esperienza utente, ad esempio, è difficile trovare il pulsante "Avanti" o le istruzioni non sono intuitive. Più probabilmente, esistono motivi aziendali più significativi per gli abbandoni: forse i tassi di prestito sono troppo alti.
 
+Qualunque sia il motivo, i dati consentono al team di valutare l'attività degli utenti. È possibile inserire più chiamate di rilevamento per scoprire altri dettagli. Si può usare TrackEvent() per contare tutte le azioni utente, dai piccoli dettagli come i singoli clic sui pulsanti, ai risultati più significativi come il pagamento di un prestito.
 
-Il team di sviluppo inserisce chiamate TrackMetric() in ogni fase del grafico. In Esplora metriche, Brian, un Business Architect, può confrontare i valori di ogni metrica per stimare l'andamento del sistema nella vendita dei prestiti.
-
-
-Ursula, lo specialista UX, presta anche particolare attenzione alle metriche positive. Se il grafico mostra un calo improvviso in qualsiasi fase del grafico, significa che si è verificato un problema. Forse è difficile trovare il pulsante giusto o forse il testo non è molto invitante. Forse è presente un bug: gli utenti premono un pulsante, ma non si verifica l'operazione prevista.
+Il team si sta abituando ad avere informazioni sull'attività degli utenti. Attualmente, quando progetta una nuova funzionalità, valuta in che modo potrà ricevere commenti e suggerimenti sull'utilizzo. Progetta quindi chiamate di rilevamento che vengono incorporate nella funzionalità fin dall'inizio. I commenti e suggerimenti saranno usati per migliorare la funzionalità in ogni ciclo di sviluppo.
 
 
 ## Monitoraggio proattivo  
@@ -260,4 +260,4 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,25 +1,26 @@
 <properties
-	pageTitle="Backup di Azure: Creare un insieme di credenziali per il backup e specificare la ridondanza di archiviazione"
-	description="Informazioni su come creare un insieme di credenziali per il backup e specificare le opzioni di ridondanza di archiviazione in Backup di Azure"
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Backup di Azure: Creare un insieme di credenziali per il backup e specificare la ridondanza di archiviazione"
+   description="Informazioni su come creare un insieme di credenziali per il backup e specificare le opzioni di ridondanza di archiviazione in Backup di Azure"
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="shreeshd"
+   editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="prvijay"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
 
 # Creare un insieme di credenziali per il backup
 Per eseguire in Azure il backup di file e dati da Windows Server o da System Center Data Protection Manager (SCDPM) oppure il backup di macchine virtuali IaaS, è necessario creare un insieme di credenziali per il backup nell'area geografica in cui si desidera archiviare i dati.
 
 Questa esercitazione illustra la creazione dell'insieme di credenziali da usare per archiviare i backup.
+
+## Procedura dettagliata video
+
+Di seguito è riportata una procedura dettagliata di questa esercitazione.
+
+[AZURE.VIDEO azure-backup-vault-creation]
+
+## Creazione di credenziali per il Backup
 
 1. Accedere al [portale di gestione](https://manage.windowsazure.com/).
 2. Fare clic su **Nuovo** -> **Servizi dati** -> **Servizi di ripristino** -> **Insieme di credenziali per il backup** e scegliere **Creazione rapida**.
@@ -69,4 +70,4 @@ Se si usa Azure come endpoint terziario di archiviazione dei backup (se ad esemp
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -335,4 +335,4 @@ Per ottenere altre informazioni sui cmdlet ILB, eseguire i comandi seguenti in u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

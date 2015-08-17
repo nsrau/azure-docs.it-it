@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/28/2015"
 	ms.author="yuaxu"/>
 
@@ -480,4 +480,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

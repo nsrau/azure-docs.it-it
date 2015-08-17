@@ -81,4 +81,4 @@ Ora è possibile iniziare a usare [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

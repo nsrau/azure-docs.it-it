@@ -66,7 +66,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 	>[AZURE.NOTE]In questa esercitazione il servizio mobile invia una notifica di tipo avviso popup al dispositivo. Quando si invia una notifica di tipo riquadro, è invece necessario chiamare il metodo **BindToShellTile** sul canale.
 
-4. All'inizio del gestore dell'evento **Application_Launching** in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo **AcquirePushChannel**:
+4. All'inizio del gestore dell'evento **Application\_Launching** in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo **AcquirePushChannel**:
 
         AcquirePushChannel();
 
@@ -74,7 +74,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 5. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup con la chiave di registrazione.
   
-6.	In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID___CAP___PUSH_NOTIFICATION** sia selezionata.
+6.	In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** sia selezionata.
 
    	![Abilitazione delle notifiche in Visual Studio](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -180,4 +180,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

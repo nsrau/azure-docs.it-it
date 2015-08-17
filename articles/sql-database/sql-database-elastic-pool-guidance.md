@@ -7,6 +7,7 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
@@ -15,6 +16,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Considerazioni di prezzo e prestazioni per un pool di database flessibile
@@ -110,16 +112,16 @@ L'euristica indicata di seguito consentono di stimare se un pool elastico è pi�
 
 1. Stima le Dtu necessarie per il pool dagli elementi seguenti:
     
-    MAX (* numero totale di database * * *DTU utilizzo per DB medio*, *numero di picco contemporaneamente DBs* * *utilizzo di DTU di picco per DB*)
+    MAX (* numero totale di database* * *utilizzo medio di DTU per DB*, *numero di database in picco contemporaneamente * * *picco di utilizzo di DTU per DB*)
 
-2. Selezionare il valore più piccolo disponibile DTU per il pool è maggiore della stima del passaggio 1. Per le scelte DTU disponibili, vedere i valori validi per Dtu elencati di seguito: [limiti di archiviazione e di DTU di pool elastico e database elastici](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+2. Selezionare il valore più piccolo disponibile DTU per il pool è maggiore della stima del passaggio 1. Per le scelte DTU disponibili, vedere i valori validi per DTU elencati di seguito: [limiti di archiviazione e di DTU per pool elastici e database elastici](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     
 
 
 3. Calcolare il prezzo per il pool come segue:
 
-    prezzo pool = (* pool Dtu * * *prezzo unitario DTU pool*) + (* totale numero DBs * * *prezzo unitario pool DB*)
+    prezzo pool = (*DTU del pool* * *prezzo unitario DTU del pool*) + (*numero totale di database* * *prezzo unitario DB del pool*)
 
     Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -141,9 +143,9 @@ Si noti che per il livello di servizio Standard, 1 GB di spazio di archiviazione
 
 STA e viste a gestione dinamica offrono opzioni diversi strumenti e funzionalità per il ridimensionamento di un pool elastico. Indipendentemente dall'opzione di strumenti utilizzato, la stima delle dimensioni deve essere utilizzata solo per la creazione di pool elastico e valutazione iniziale. Una volta creato un pool elastico, l'utilizzo delle risorse deve essere monitorato in modo accurato e le impostazioni delle prestazioni del pool di regolato su e giù in base alle esigenze.
 
-**STA**<br>STA è uno strumento incorporato nel portale di Azure che valuta l'utilizzo delle risorse cronologico dei database in un server di Database SQL esistente e consiglia una configurazione appropriata pool elastica automaticamente.
+**STA**<br>STA è uno strumento incorporato nel portale di Azure che valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di Database SQL esistente e consiglia una configurazione appropriata del pool elastico.
 
-**Lo strumento di dimensionamento DMV**<br>lo strumento di dimensionamento DMV viene fornito come uno script di PowerShell e consente di personalizzare le stime di ridimensionamento di un pool flessibile per i database esistenti in un server.
+**Strumento di dimensionamento DMV**<br>Lo strumento di dimensionamento DMV viene fornito come uno script di PowerShell e consente di personalizzare le stime di dimensionamento di un pool elastico per i database esistenti in un server.
 
 ### Scelta tra strumenti STA e DMV 
 
@@ -165,7 +167,7 @@ Quando si aggiunge un pool elastico a un server esistente, è disponibile nel po
 
 ### Stima delle dimensioni del pool elastica utilizzando viste a gestione dinamica (DMV) 
 
-Il [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV misura l'utilizzo delle risorse di un singolo database. Questa DMV fornisce l'utilizzo di CPU, i/o, log e log di un database come percentuale del limite del livello delle prestazioni del database. Questi dati possono essere utilizzati per calcolare l'utilizzo del valore di DTU di un database di ogni 15 secondi.
+Il DMV [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) misura l'utilizzo delle risorse di un singolo database. Questa DMV fornisce l'utilizzo di CPU, i/o, log e log di un database come percentuale del limite del livello delle prestazioni del database. Questi dati possono essere utilizzati per calcolare l'utilizzo del valore di DTU di un database di ogni 15 secondi.
 
 L'aggregazione DTU utilizzo per un pool elastico in un intervallo può essere stimato sommando l'utilizzo di DTU per tutti i database candidati durante tale periodo di 15 secondi. A seconda degli obiettivi di prestazioni specifici, è consigliabile annullare una piccola percentuale dei dati di esempio. Novantanovesimo valore percentile Dtu aggregato in tutti gli intervalli di tempo, ad esempio, può essere applicato per escludere gli outlier e fornire un pool elastico DTU per occupare il 99% degli intervalli di tempo campione.
 
@@ -181,14 +183,14 @@ Lo script raccoglie solo i dati mentre è in esecuzione. Per un carico di lavoro
 
 Installare i componenti seguenti prima di eseguire lo script.:
 
-- con gli strumenti della riga di [comando di PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+- La versione più recente di [Strumenti della riga di comando di PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
 - Il [feature pack di SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 
 ### Dettagli script
 
 
-È possibile eseguire lo script dal computer locale o una macchina virtuale nel cloud. Se viene eseguito dal computer locale, si possono causare costi di uscita di dati perché lo script deve scaricare dati da database di destinazione. Di seguito viene illustrata la stima di volume dati basata sul numero di database di destinazione e la durata dell'esecuzione dello script. Per dati di Azure i costi di trasferimento fare riferimento a [Dettagli prezzi di trasferimento dati](http://azure.microsoft.com/pricing/details/data-transfers/).
+È possibile eseguire lo script dal computer locale o una macchina virtuale nel cloud. Se viene eseguito dal computer locale, si possono causare costi di uscita di dati perché lo script deve scaricare dati da database di destinazione. Di seguito viene illustrata la stima di volume dati basata sul numero di database di destinazione e la durata dell'esecuzione dello script. Per i costi di trasferimento dei dati di Azure, fare riferimento a [Dettagli prezzi di trasferimento dati](http://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     1 database all'ora = 38KB
  -     1 database al giorno = 900KB
@@ -402,4 +404,4 @@ Non tutti i singoli database sono candidati ottimali per pool database elastica.
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

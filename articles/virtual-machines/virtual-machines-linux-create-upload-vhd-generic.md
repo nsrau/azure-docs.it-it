@@ -91,7 +91,7 @@ Se l'ambiente è diverso da Windows, si consiglia di usare qemu-img per converti
 		rounded_size=$((($size/$MB + 1)*$MB))
 		echo "Rounded Size = $rounded_size"
 
- 3. Ridimensionare il disco RAW usando $rounded_size, come impostato nello script precedente:
+ 3. Ridimensionare il disco RAW usando $rounded\_size, come impostato nello script precedente:
 
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
@@ -123,9 +123,9 @@ Se è necessario un kernel personalizzato, è consigliabile usare una versione p
 
 Come minimo, l'assenza delle seguenti patch causa problemi in Azure e quindi tali patch devono essere incluse nel kernel. L'elenco non è esaustivo o completo per tutte le distribuzioni:
 
-- [ata_piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
+- [ata\_piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 - [storvsc: Account for in-transit packets in the RESET path](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
-- [storvsc: avoid usage of WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc: avoid usage of WRITE\_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
 - [storvsc: Disable WRITE SAME for RAID and virtual host adapter drivers](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc: NULL pointer dereference fix](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc: ring buffer failures may result in I/O freeze](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
@@ -189,4 +189,4 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Arrestare la macchina virtuale e caricare il VHD in Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

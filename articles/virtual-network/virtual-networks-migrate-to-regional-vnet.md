@@ -64,4 +64,4 @@ Le macchine virtuali attualmente incluse in un gruppo di affinità non devono es
 Quando si esegue la distribuzione, una macchina virtuale viene distribuita in una singola unità di scala. I gruppi di affinità possono limitare il set di dimensioni di macchine virtuali disponibili per una nuova distribuzione, ma qualsiasi macchina virtuale esistente che venga distribuita è già limitata al set di dimensioni disponibile nell'unità di scala in cui avviene la distribuzione. Per questo motivo, la rimozione di una macchina virtuale dal gruppo di affinità non avrà alcun effetto.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

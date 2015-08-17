@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Eseguire qualsiasi app su qualsiasi dispositivo con RemoteApp"
-   description="Informazioni su come condividere con gli utenti qualsiasi applicazione tramite RemoteApp."
+   pageTitle="Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp"
+   description="Informazioni su come condividere con gli utenti qualsiasi applicazione Windows tramite Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="lizap"
@@ -13,16 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/28/2015"
+   ms.date="08/03/2015"
    ms.author="elizapo"/>
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con RemoteApp
 
 Questa esercitazione illustrerà come eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo. Che si tratti di Internet Explorer 6, un'applicazione personalizzata scritta 10 anni fa, o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo (come Windows XP) per quelle poche applicazioni.
 
-Grazie a RemoteApp, gli utenti possono usare dispositivi Android o Apple e usufruire della stessa esperienza che ottengono in Windows (o con i dispositivi Windows Phone). A questo scopo, occorre ospitare l'applicazione Windows in una raccolta di macchine virtuali Windows in Azure, dove gli utenti possono ottenere l'accesso ovunque sia disponibile una connessione Internet. Ecco come procedere.
+Grazie ad Azure RemoteApp, gli utenti possono usare dispositivi Android o Apple e usufruire della stessa esperienza che ottengono in Windows (o con i dispositivi Windows Phone). A questo scopo, occorre ospitare l'applicazione Windows in una raccolta di macchine virtuali Windows in Azure, dove gli utenti possono ottenere l'accesso ovunque sia disponibile una connessione Internet.
 
-Per questa esercitazione si condividerà Access con tutti gli utenti. Poiché Access è un database e come tale è necessario che sia utile, si eseguiranno alcuni passaggi aggiuntivi per consentire agli utenti di accedere alla condivisione dei dati di Access.
+Per questa esercitazione si condividerà Access con tutti gli utenti. Tuttavia, è possibile usare QUALSIASI app. Poiché è possibile installare l'app in un computer Windows Server 2012 R2, è possibile condividerla usando la procedura seguente. È possibile esaminare i [requisiti dell'app](remoteapp-appreqs), per assicurarsi che l'app funzionerà.
+
+Si noti che poiché Access è un database e come tale è necessario che sia utile, si eseguiranno alcuni passaggi aggiuntivi per consentire agli utenti di accedere alla condivisione dei dati di Access. Se l'app non è un database o non è necessario che gli utenti siano in grado di accedere a una condivisione di file, è possibile ignorare tali passaggi nell'esercitazione.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -115,4 +117,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

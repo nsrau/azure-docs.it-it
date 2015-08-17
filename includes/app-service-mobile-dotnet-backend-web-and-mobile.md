@@ -32,7 +32,7 @@ In questa sezione, si creerà una nuova app Web usando una soluzione applicazion
 
     - Nel pannello visualizzato selezionare **Tutte le impostazioni**, quindi **Impostazioni applicazione**.
 
-    - In **Stringhe di connessione** fare clic su **Mostra stringhe di connessione**. Copiare il valore per l'impostazione **MS_TableConnectionString**. Questa è la stringa di connessione usata dall'app mobile per connettersi al database SQL.
+    - In **Stringhe di connessione** fare clic su **Mostra stringhe di connessione**. Copiare il valore per l'impostazione **MS\_TableConnectionString**. Questa è la stringa di connessione usata dall'app mobile per connettersi al database SQL.
 
 5. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto API Web e selezionare **Pubblica**. Selezionare **App Web Azure** come destinazione di pubblicazione e selezionare l'app Web creata in precedenza. Fare clic su **Avanti** fino alla sezione **Impostazioni** della procedura guidata Pubblica sito Web.
 
@@ -77,4 +77,4 @@ In questo esempio è stato illustrato come usare lo stesso database di base per 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Creare un'app per dispositivi mobili]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

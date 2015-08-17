@@ -58,16 +58,17 @@ Questa è la configurazione corrente.
 
 Per avviare la versione di valutazione di Office 365 FastTrack, sono necessari il nome di una società fittizia e un account Microsoft. È consigliabile usare una variante del nome dell'azienda Contoso per il nome della società, cioè una società fittizia usata nei contenuti di esempio di Microsoft, ma non è obbligatorio.
 
-Successivamente, iscriversi per ottenere un nuovo account Microsoft. Andare a **http://outlook.com** e creare un account con un indirizzo di posta elettronica come user123@outlook.com. Verrà eseguita l'iscrizione a una versione di prova di Office 365 FastTrack con questo account.
+Successivamente, iscriversi per ottenere un nuovo account Microsoft. Andare a ****http://outlook.com** e creare un account con un indirizzo di posta elettronica come user123@outlook.com. Verrà eseguita l'iscrizione a una versione di valutazione di Office 365 FastTrack con questo account.
 
 Quindi, iscriversi per ottenere una nuova versione di valutazione di Office 365 FastTrack.
 
 1.	Accedere a CLIENT1 con le credenziali dell'account CORP\\User1.
-2.	Aprire Internet Explorer e passare a **http://fasttrack.office.com**. 3.	Fare clic su **Introduzione a Fast Track**.
-4.	Nella pagina introduttiva di FastTrack, sotto **Innanzitutto, iscriviti per ottenere una versione di prova di Office 365**fare clic su **Per le aziende, cliccare qui per l’iscrizione**.
+2.	Aprire Internet Explorer e passare a ****http://fasttrack.office.com**.
+3.	Fare clic su **Introduzione a Fast Track**.
+4.	Nella pagina introduttiva di FastTrack, sotto **Innanzitutto, iscriviti per ottenere una versione di prova di Office 365**, fare clic su **Per le aziende, cliccare qui per l’iscrizione**.
 5.	Nella pagina Passaggio 1, compilare i campi specificando il nuovo account Microsoft in **Indirizzo e-mail aziendale**, quindi fare clic su **Avanti**.
 6.	Nella pagina Step 2, digitare il nome di un account Office 365 iniziale nel primo campo, il nome della società fittizia, quindi una password. Annotare l'indirizzo di posta elettronica risultante (ad esempio user123@contoso123.onmicrosoft.com) e la password in un luogo sicuro. Queste informazioni saranno necessarie per completare la configurazione guidata dello strumento di sincronizzazione di Active Directory nella fase 3. Fare clic su **Avanti**.
-7.	Nella pagina Passaggio 3, digitare il numero di telefono di un cellulare o di uno Smartphone in grado di ricevere SMS e quindi fare clic su **Invia messaggio al mio numero**.
+7.	Nella pagina Passaggio 3, digitare il numero di telefono di un cellulare o di uno smartphone in grado di ricevere SMS e quindi fare clic su **Invia messaggio al mio numero**.
 8.	Dopo aver ricevuto l'SMS sul telefono, digitare il codice di verifica e quindi fare clic su **Crea il mio account**. 
 9.	Al termine della creazione dell'account Office 365, fare clic su **Sei pronto per iniziare**.
 10.	Verrà visualizzata la pagina principale del portale di Office 365. Nella barra multifunzione superiore fare clic su **Admin**, quindi fare clic su **Office 365**. Verrà visualizzata la pagina dell'area di amministrazione di Office 365. Tenere aperta questa pagina in CLIENT1.
@@ -91,7 +92,7 @@ Innanzitutto, creare una macchina virtuale di Azure per DS1 con questi comandi a
 
 Successivamente, connettersi alla macchina virtuale DS1.
 
-1.	Nella pagina Macchine virtuali del portale di gestione Azure, fare clic su **In esecuzione** nella colonna Stato relativa alla macchina virtuale DS1.
+1.	Nella pagina Macchine virtuali del portale di gestione Azure, fare clic su **In esecuzione** nella colonna STATO relativa alla macchina virtuale DS1.
 2.	Nella barra delle applicazioni fare clic su **Connetti**. 
 3.	Quando viene richiesto di aprire DS1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
@@ -113,7 +114,8 @@ Quindi, installare .NET 3.5 in DS1 con questo comando al prompt dei comandi di W
 
 Successivamente, installare Directory Sync in DS1.
 
-1.	Eseguire Internet Explorer, digitare **http://go.microsoft.com/fwlink/?LinkID=278924** nella barra degli indirizzi e quindi premere INVIO. Quando viene richiesto di eseguire dirsync.exe, fare clic sulla freccia accanto a **Salva**, fare clic su **Salva con nome**, quindi fare clic su **Salva** per salvare il file nella cartella download. Per ulteriori informazioni sull'installazione dello strumento, vedere [Installare o aggiornare lo strumento di sincronizzazione della Directory](http://technet.microsoft.com/library/jj151800). 2.	Aprire la cartella **Download**, fare doppio clic sul file **dirsync** e quindi fare clic su **Esegui come amministratore**.
+1.	Eseguire Internet Explorer, digitare ****http://go.microsoft.com/fwlink/?LinkID=278924** nella barra degli indirizzi e quindi premere INVIO. Quando viene richiesto di eseguire dirsync.exe, fare clic sulla freccia accanto a **Salva**, fare clic su **Salva con nome**, quindi fare clic su **Salva** per salvare il file nella cartella download. Per ulteriori informazioni sull'installazione dello strumento, vedere [Installare o aggiornare lo strumento di sincronizzazione della Directory](http://technet.microsoft.com/library/jj151800).
+2.	Aprire la cartella **Download**, fare doppio clic sul file **dirsync** e quindi fare clic su **Esegui come amministratore**.
 3.	Nella pagina iniziale della procedura guidata di installazione di sincronizzazione di Active Directory, fare clic su **Avanti**. 
 4.	Nella pagina Condizioni di licenza, fare clic su **Accetto**, quindi fare clic su **Avanti**.
 5.	Nella pagina Selezione cartella installazione, fare clic su **Avanti**. Il completamento dell'installazione potrebbe richiedere alcuni minuti.
@@ -160,11 +162,12 @@ La colonna **Stato** indica che l'account è stato ottenuto tramite la sincroniz
 Quindi, eseguire una dimostrazione della sincronizzazione delle password di Office 365 con l'account di Active Directory di Lynda Meyer.
 
 1.	In CLIENT1 nella pagina **Utenti attivi**, seleziona l’account **Lynda Meyer**.
-2.	Nelle proprietà dell'account Lynda Meyer sotto **Licenza assegnata**, fare clic su **Modifica**.
+2.	Nelle proprietà dell'account Lynda Meyer, in **Licenza assegnata**, fare clic su **Modifica**.
 3.	Nella scheda **Assegna licenza**, selezionare un percorso in **Impostazione località utente** (ad esempio Stati Uniti).
 4.	Selezionare **Microsoft Office 365 Piano E3**, quindi fare clic su **Salva**.
 5.	Chiudere Internet Explorer.
-6.	Eseguire Internet Explorer e passare a **http://portal.microsoftonline.com**. 7.	Accedere con le credenziali di Office 365 di Lynda Meyer. Il nome utente sarà lyndam @< \* il nome fittizio \* >. onmicrosoft. La password è la password dell'account utente di Active Directory di Lynda Meyer.
+6.	Eseguire Internet Explorer e passare a ****http://portal.microsoftonline.com**.
+7.	Accedere con le credenziali di Office 365 di Lynda Meyer. Il nome utente sarà lyndam @<*il nome fittizio*>.onmicrosoft. La password è la password dell'account utente di Active Directory di Lynda Meyer.
 8.	Dopo aver eseguito l'accesso correttamente, viene visualizzata la pagina principale del portale di Office 365 con **Creiamo una differenza oggi**.
 
 Questa è la configurazione corrente.
@@ -194,4 +197,4 @@ Questo ambiente è ora pronto per eseguire il test delle applicazioni di Office 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

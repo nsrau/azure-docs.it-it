@@ -44,25 +44,24 @@ castLabs e Servizi multimediali di Azure supportano entrambi il formato di token
 
 La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure.
 
-<table border="1">
-<tr><td>Issuer</td><td>Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto</td></tr>
-<tr><td>Audience</td><td>Stringa dei destinatari rilasciata dal servizio token di sicurezza usato</td></tr>
-<tr><td>Claims</td><td>Set di attestazioni</td></tr>
-<tr><td>NotBefore</td><td>Validità di inizio del token</td></tr>
-<tr><td>Expires</td><td>Validità di fine del token</td></tr>
-<tr><td>SigningCredentials</td><td>Chiave condivisa tra il server licenze PlayReady, il server licenze castLabs e il servizio token di sicurezza (STS); può essere una chiave simmetrica o asimmetrica.</td></tr>
-</table>
+Issuer|Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto
+---|---
+Audience|Stringa dei destinatari rilasciata dal servizio token di sicurezza usato
+Claims|Set di attestazioni
+NotBefore|Validità di inizio del token
+Expires|Validità di fine del token
+SigningCredentials|Chiave condivisa tra il server licenze PlayReady, il server licenze castLabs e il servizio token di sicurezza (STS); può essere una chiave simmetrica o asimmetrica.
 
 ###Token JWT in castLabs
 
 La tabella seguente descrive il token JWT usato in castLabs.
 
-<table border="1">
-<tr><td>optData</td><td>Stringa JSON contenente informazioni relative all'utente. </td></tr>
-<tr><td>crt</td><td>Stringa JSON contenente informazioni sull'asset, sulla relativa licenza e sui diritti di riproduzione.</td></tr>
-<tr><td>iat</td><td>Data e ora corrente nel periodo.</td></tr>
-<tr><td>jti</td><td>Identificatore univoco per il token (ogni token può essere usato una sola volta nel sistema castLabs).</td></tr>
-</table>
+Nome|Descrizione
+---|---
+optData|Stringa JSON contenente informazioni relative all'utente. 
+crt|Stringa JSON contenente informazioni sull'asset, sulla relativa licenza e sui diritti di riproduzione.
+iat|Data e ora corrente nel periodo.
+jti|Identificatore univoco per il token (ogni token può essere usato una sola volta nel sistema castLabs).
 
 ##Configurazione della soluzione di esempio 
 
@@ -114,4 +113,4 @@ Per riprodurre il video protetto in HTML5 con Chrome tramite il lettore castLabs
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

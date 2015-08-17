@@ -2,7 +2,7 @@ Poiché lo sviluppo è ancora in corso, è possibile che la versione di Android 
 
 Due sintomi di una mancata corrispondenza delle versioni sono i seguenti:
 
-1. Esaminare la console di Eclipse nel riquadro inferiore. È possibile che vengano visualizzati messaggi di errore indicanti che non è possibile risolvere la destinazione di tipo 'android-n'."****"
+1. Esaminare la console di Eclipse nel riquadro inferiore. È possibile che vengano visualizzati messaggi di errore indicanti che non è possibile risolvere la destinazione di tipo 'android-n'.
 
 2. Gli oggetti Android standard nel codice che dovrebbero risolversi in base a istruzioni `import` potrebbero generare messaggi di errore.
 
@@ -19,4 +19,4 @@ Se si manifesta uno di questi sintomi, la versione di Android SDK installata in 
 	
 3. In Eclipse Package Explorer fare clic con il pulsante destro del mouse sul nodo di progetto, scegliere **Properties** e quindi nella colonna sinistra scegliere **Android**. Assicurarsi che il valore di **Project Build Target** sia impostato sulla stessa versione dell'SDK di **targetSdkVersion**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

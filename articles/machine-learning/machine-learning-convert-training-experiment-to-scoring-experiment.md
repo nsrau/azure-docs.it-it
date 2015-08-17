@@ -78,7 +78,7 @@ I dati di input forniti tramite il servizio Web ora passano direttamente al modu
 
 In modo analogo, per impostazione predefinita, **Create Scoring Experiment** inserisce il modulo di output del servizio Web nella parte inferiore del flusso di dati. In questo esempio il servizio Web restituisce all'utente l'output del modulo [Score Model][score-model] che include il vettore dei dati di input completo, oltre ai risultati dell'assegnazione del punteggio.
 
-Tuttavia, se si preferisce restituire un valore diverso, ad esempio, solo i risultati dell'assegnazione del punteggio e non l'intero vettore di dati di input, è possibile inserire un modulo [Project Columns][project-columns] per escludere tutte le colonne tranne i risultati dell'assegnazione del punteggio. Spostare poi il modulo **Web service output** nell'output del modulo [Project Columns][project-columns]:
+Tuttavia, se si preferisce restituire un valore diverso, ad esempio, solo i risultati dell'assegnazione del punteggio e non l'intero vettore di dati di input, è possibile inserire un modulo [Project Columns][project-columns] per escludere tutte le colonne tranne i risultati dell'assegnazione del punteggio. Spostare poi il modulo **Web service output** nell'output del modulo [Project Columns][project-columns]\:
 
 ![Spostamento del modulo web service output][figure5]
 
@@ -132,4 +132,4 @@ Per altre informazioni sul processo di pubblicazione completo, vedere [Pubblicar
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="sdanie"/>
 
 # Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure
@@ -70,7 +70,7 @@ Per un server OAuth 2.0 di Azure Active Directory, il **Token endpoint URL** avr
 
 L'impostazione predefinita di **Client authentication methods** è **Basic**, mentre quella di **Access token sending method** è **Authorization header**. Questi valori vengono configurati in questa sezione del modulo, insieme a **Default scope**.
 
-La sezione **Client credentials** contiene il **Client ID** e il **Client secret**, che vengono ricavati durante il processo di creazione e configurazione del server OAuth 2.0. Una volta specificati l'**ID client** e il **segreto client**, viene generato il **redirect_uri** per il **codice autorizzazione**. Questo URI viene usato per configurare l'URL di risposta nella configurazione del server OAuth 2.0.
+La sezione **Client credentials** contiene il **Client ID** e il **Client secret**, che vengono ricavati durante il processo di creazione e configurazione del server OAuth 2.0. Una volta specificati l'**ID client** e il **segreto client**, viene generato il **redirect\_uri** per il **codice autorizzazione**. Questo URI viene usato per configurare l'URL di risposta nella configurazione del server OAuth 2.0.
 
 ![Nuovo server][api-management-oauth2-server-4]
 
@@ -120,7 +120,7 @@ A questo punto è possibile configurare i valori desiderati per i restanti param
 
 ## Passaggi successivi
 
-Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video seguente.
+Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video seguente e l’[articolo](api-management-howto-protect-backend-with-aad.md)correlato.
 
 > [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -160,4 +160,4 @@ Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

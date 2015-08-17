@@ -66,7 +66,7 @@ Al termine del backup verrà creato un contenitore con il nome di backup indicat
 
 1. Nel portale di gestione di Azure selezionare **Servizi BizTalk**, selezionare il nome del servizio BizTalk di cui si desidera pianificare il backup e quindi la scheda **Configura**.
 2. Impostare **Stato backup** su **Automatico**. 
-3. Selezionare l'**Account di archiviazione** per archiviare il backup, immettere un valore in **Frequenza** per creare i backup e specificare la durata di conservazione dei backup (**Giorni di conservazione**):
+3. Selezionare **Account di archiviazione** per archiviare il backup, immettere un valore in **Frequenza** per la creazione dei backup e specificare la durata di mantenimento dei backup (**Giorni di conservazione**):
 
 	![][AutomaticBU]
 
@@ -233,4 +233,4 @@ Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Cr
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

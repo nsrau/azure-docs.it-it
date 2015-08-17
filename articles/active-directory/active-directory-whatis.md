@@ -12,7 +12,7 @@
                 ms.workload="identity" 
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
-                ms.topic="hero-article" 
+                ms.topic="article" 
                 ms.date="07/14/2015" 
                 ms.author="markusvi"/>
 
@@ -92,4 +92,4 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 - [Usare il cloud per migliorare e monitorare i sistemi di identità locali](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Piattaforma basata su standard avanzati per gli sviluppatori](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -6,6 +6,7 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="traffic-manager"
    ms.devlang="na"
@@ -15,17 +16,18 @@
    ms.date="05/27/2015"
    ms.author="joaoma;cherylmc" />
 
+
 # Test delle impostazioni di Gestione traffico
 
 Il modo migliore per testare le impostazioni di Gestione traffico consiste nel configurare un determinato numero di client e, successivamente, nell'arrestare uno alla volta gli endpoint nel profilo, costituiti da servizi cloud e siti Web. Per assistenza nella verifica del profilo di Gestione traffico, consultare i suggerimenti riportati di seguito.
 
 ## Passaggi di test di base
 
--**Impostare una durata (TTL) DNS molto bassa** in modo che le modifiche si propaghino velocemente, ad esempio 30 secondi.
+\-**Impostare una durata TTL DNS molto bassa** in modo che le modifiche si propaghino velocemente, ad esempio 30 secondi.
 
--**Prendere nota degli indirizzi IP dei servizi cloud e dei siti Web di Azure** nel profilo da testare.
+\-**Prendere nota degli indirizzi IP dei servizi cloud e dei siti Web di Azure** nel profilo da testare.
 
--**Usare strumenti che consentono di risolvere un nome DNS in un indirizzo IP** e visualizzare l'indirizzo. Si esegue un controllo per verificare che il nome del dominio aziendale venga risolto negli indirizzi IP degli endpoint nel profilo. La risoluzione deve essere coerente con il metodo di bilanciamento del carico del profilo di Gestione traffico. Se si sta usando un computer su cui è in esecuzione Windows, è possibile usare lo strumento Nslookup.exe da un prompt dei comandi o di Windows PowerShell. Altri strumenti disponibili pubblicamente che consentono di visualizzare i dettagli di un indirizzo IP sono disponibili su Internet.
+\-**Utilizzare strumenti che consentono di risolvere un nome DNS in un indirizzo IP** e visualizzare l'indirizzo. Si esegue un controllo per verificare che il nome del dominio aziendale venga risolto negli indirizzi IP degli endpoint nel profilo. La risoluzione deve essere coerente con il metodo di bilanciamento del carico del profilo di Gestione traffico. Se si sta usando un computer su cui è in esecuzione Windows, è possibile usare lo strumento Nslookup.exe da un prompt dei comandi o di Windows PowerShell. Altri strumenti disponibili pubblicamente che consentono di visualizzare i dettagli di un indirizzo IP sono disponibili su Internet.
 
 ### Per controllare il profilo di Gestione traffico con nslookup
 
@@ -57,4 +59,4 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Gestione traffico](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

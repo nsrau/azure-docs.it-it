@@ -9,7 +9,7 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/21/2015"
@@ -102,13 +102,13 @@ Le tabelle seguenti elencano le porte associate a queste attività.
 |*.ods.opinsights.azure.com|Porta 443| |service.systemcenteradvisor.com|Porta 443| |scadvisor.accesscontrol.windows.net|Porta 443| |scadvisorservice.accesscontrol.windows.net|Porta 443| |*.blob.core.windows.net/*|Porta 443|
 |data.systemcenteradvisor.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
-|*.systemcenteradvisor.com|Porta 443|
+|**.systemcenteradvisor.com|Porta 443|
 
 
 |**Risorsa della console di Operational Insights e Operations Manager**|**Porte**|
 |---|---|
 |*.systemcenteradvisor.com|Porte 80 e 443| |*.live.com|Porte 80 e 443|
-|*.microsoftonline.com|Porte 80 e 443| |login.windows.net|Porte 80 e 443|
+|**.microsoftonline.com|Porte 80 e 443| |login.windows.net|Porte 80 e 443|
 
 
 Usare le procedure seguenti per registrare il gruppo di gestione di Operations Manager con il servizio Operational Insights. Se si verificano problemi di comunicazione tra il gruppo di gestione e il servizio Operational Insights, usare le procedure di convalida per risolvere i problemi relativi alla trasmissione dei dati al servizio Operational Insights.
@@ -129,7 +129,7 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 
 3. Nella visualizzazione Operational Insights Connection fare clic su **Configure Proxy Server**. ![Operational Insights Connection - Operations Manager - Configure Proxy Server](./media/operational-insights-proxy-firewall/proxy-om02.png)
 
-4. In Operational Insights Settings Wizard: Proxy Server selezionare **Use a proxy server to access the Operational Insights Web Service**, quindi digitare l'URL con il numero di porta, ad esempio **http://myproxy:80**. ![Operational Insights - Operations Manager - Indirizzo del proxy](./media/operational-insights-proxy-firewall/proxy-om03.png)
+4. In Operational Insights Settings Wizard: Proxy Server selezionare **Use a proxy server to access the Operational Insights Web Service**, quindi digitare l'URL con il numero di porta, ad esempio ****http://myproxy:80**. ![Operational Insights - Operations Manager - Indirizzo del proxy](./media/operational-insights-proxy-firewall/proxy-om03.png)
 
 
 ### Per specificare le credenziali se è necessaria l'autenticazione per il server proxy
@@ -143,8 +143,8 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 4. In Creazione guidata profilo RunAs, fare clic su **Aggiungi** per usare un account RunAs. È possibile creare un nuovo account RunAs oppure usare un account esistente. L'account deve avere autorizzazioni sufficienti per passare attraverso il server proxy.![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
 5. Per impostare l'account da gestire scegliere **Classe, gruppo o oggetto selezionato** per aprire la finestra Ricerca oggetti. ![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. Cercare e quindi selezionare**Microsoft System Center Advisor Monitoring Server Group**.![Immagine della finestra Ricerca oggetti](./media/operational-insights-proxy-firewall/proxyacct3.png)
-7. Fare clic su **OK** per chiudere la finestra di dialogo Aggiungi account RunAs ![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct4.png)
+6. Cercare e quindi selezionare **Microsoft System Center Advisor Monitoring Server Group**. ![Immagine della finestra Ricerca oggetti](./media/operational-insights-proxy-firewall/proxyacct3.png)
+7. Fare clic su **OK** per chiudere la finestra di dialogo Aggiungi account RunAs. ![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. Completare la procedura guidata e salvare le modifiche. ![Immagine della Creazione guidata profilo RunAs](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
 
@@ -166,4 +166,4 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 3. Aggiungere tutti i contatori che iniziano con **HTTP**. ![Aggiungi contatori](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se la configurazione di Operations Manager è valida, verrà visualizzata l'attività dei contatori di gestione Servizio integrità per gli eventi e altri elementi di dati in base ai Management Pack aggiunti a Operational Insights e ai criteri di raccolta del log configurati. ![Attività di Monitoraggio prestazioni](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

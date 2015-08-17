@@ -80,4 +80,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

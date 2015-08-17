@@ -35,6 +35,11 @@
    <td valign="middle"><p>1200 all'ora</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Dimensioni delle richieste API di gestione delle risorse</p></td>
+   <td valign="middle"><p>4194304 byte</p></td>
+   <td valign="middle"><p>4194304 byte</p></td>
+</tr>
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Servizi cloud</a> per sottoscrizione</p></td>
    <td valign="middle"><p>Deprecato<sup>3</sup></p></td>
    <td valign="middle"><p>Deprecato<sup>3</sup></p></td>
@@ -52,4 +57,4 @@
 
 <sup>3</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse di Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

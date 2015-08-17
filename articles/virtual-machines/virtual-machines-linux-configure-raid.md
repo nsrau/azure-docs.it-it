@@ -4,8 +4,10 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
+	writer="szark" 
 	manager="timlt" 
 	editor=""/>
+
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,8 +15,9 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
+
 
 
 
@@ -108,20 +111,20 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
 2. Creare il file system nel nuovo dispositivo RAID
 
-	**CentOS, Oracle Linux, openSUSE e Ubuntu**
+	**CentOS, Oracle Linux, SLES 12, openSUSE e Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
-	**SLES**
+	**SLES 11**
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES e openSUSE**: abilitare boot.md e creare mdadm.conf
+3. **SLES 11 & openSUSE** - abilitare boot.md e creare mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]Dopo aver apportato queste modifiche nei sistemi SUSE può essere necessario il riavvio.
+	>[AZURE.NOTE]Dopo aver apportato queste modifiche nei sistemi SUSE può essere necessario il riavvio. Questo passaggio *non* è obbligatorio su SLES 12.
 
 
 ## Aggiungere il nuovo file a /etc/fstab
@@ -142,7 +145,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	Oppure, in **SLES e openSUSE**:
+	O su **SLES 11 & openSUSE**:
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -178,4 +181,4 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

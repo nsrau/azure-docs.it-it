@@ -114,4 +114,4 @@ Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messagg
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

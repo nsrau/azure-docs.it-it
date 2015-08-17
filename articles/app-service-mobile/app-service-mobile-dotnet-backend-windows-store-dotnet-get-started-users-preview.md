@@ -7,14 +7,16 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="app-service"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="06/22/2015"
 	ms.author="mahender"/>
+
 
 # Aggiungere l'autenticazione all'app Windows
 
@@ -52,7 +54,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)]
 
 
->[AZURE.NOTE]Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con il servizio app, è necessario chiamare il metodo <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> specificando il valore <strong>true</strong> per il parametro <em>useSingleSignOn</em>. In caso contrario, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
+>[AZURE.NOTE]Se le informazioni del pacchetto dell'app di Windows Store sono state registrate con il servizio app, è necessario chiamare il metodo <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> specificando il valore **true** per il parametro <em>useSingleSignOn</em>. In caso contrario, gli utenti dovranno comunque specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso.
 
 
 ##<a name="tokens"></a>Archiviare il token di autenticazione sul client
@@ -75,4 +77,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [Introduzione al servizio per app per dispositivi mobili]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creare o modificare utenti in Azure AD" 
-	description="Argomento che descrive come creare o modificare account utente in Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Creare o modificare utenti in Azure AD"
+	description="Argomento che descrive come creare o modificare account utente in Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="curtand"/>
 
 # Creare o modificare utenti in Azure AD
 
@@ -24,10 +24,10 @@
 
 1. Fare clic su **Active Directory**, quindi sul nome della directory dell'organizzazione.
 2. Nella pagina **Utenti** fare clic su **Aggiungi utente**.
-3. Nella pagina **Informazioni sull'utente** per **Tipo di utente** selezionare: 
+3. Nella pagina **Informazioni sull'utente** per **Tipo di utente** selezionare:
 	1. **Nuovo utente nell'organizzazione**: indica che si vuole creare un nuovo account utente da gestire nella directory.
-	2. **Utente con account Microsoft esistente**: indica che si vuole aggiungere un account Microsoft esistente alla directory per collaborare su risorse di Azure con un coamministratore che accede ad Azure con un account Microsoft.	
-	3. **Utente in un'altra directory di Microsoft Azure AD**: indica che si vuole aggiungere alla directory un account utente originato da un'altra directory di Azure AD. Per selezionare un utente dall'altra directory, è necessario esserne membro. 
+	2. **Utente con account Microsoft esistente**: indica che si vuole aggiungere un account Microsoft esistente alla directory per collaborare su risorse di Azure con un coamministratore che accede ad Azure con un account Microsoft.
+	3. **Utente in un'altra directory di Microsoft Azure AD**: indica che si vuole aggiungere alla directory un account utente originato da un'altra directory di Azure AD. Per selezionare un utente dall'altra directory, è necessario esserne membro.
 4. A seconda dell'opzione selezionata, digitare un nome utente o un nome dell'account Microsoft con il quale l'utente eseguirà l'accesso.
 5. Nella pagina **Profilo** dell'utente specificare il nome e il cognome dell'utente, un nome descrittivo e un ruolo dal menu a discesa Ruoli. Per altre informazioni sui ruoli utente e di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure AD](active-directory-assign-admin-roles.md). Specificare eventualmente **Abilita Multi-Factor Authentication**.
 6. Nella pagina **Ottieni password temporanea** fare clic su **Crea**.
@@ -40,7 +40,7 @@ Se l'organizzazione usa più di un dominio, è opportuno essere a conoscenza dei
 ## Modificare un utente
 
 Se l'utente che si sta tentando di modificare è sincronizzato con il servizio Active Directory locale, verrà visualizzato un messaggio di errore e non sarà possibile modificare l'utente con questa procedura. Per modificare l'utente, usare gli strumenti di gestione del servizio Active Directory locale.
- 
+
 Per modificare un utente nel portale di gestione di Azure:
 
 1. Fare clic su **Active Directory**, quindi sul nome della directory dell'organizzazione.
@@ -110,6 +110,5 @@ La possibilità per gli ospiti di visualizzare dettagli limitati di un utente o 
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

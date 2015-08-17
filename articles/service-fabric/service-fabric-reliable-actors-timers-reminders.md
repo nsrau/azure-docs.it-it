@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Timer e promemoria di Azure Service Fabric Actors"
-   description="Introduzione ai timer e ai promemoria di Azure Service Fabric Actors."
+   pageTitle="Promemoria e timer di Reliable Actors"
+   description="Introduzione ai timer e ai promemoria di Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Come indicato nell'esempio, il metodo `UnregisterReminder` accetta un'interfaccia `IActorReminder`. La classe base dell'attore supporta un metodo `GetReminder` che può essere usato per recuperare l'interfaccia `IActorReminder` passando il nome del promemoria. Questo metodo è utile perché l'attore non deve rendere persistente l'interfaccia `IActorReminder` restituita dalla chiamata al metodo `RegisterReminder`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

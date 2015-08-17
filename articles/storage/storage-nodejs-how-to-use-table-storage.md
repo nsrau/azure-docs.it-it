@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="03/11/2015" 
 	ms.author="mwasson"/>
+
 
 
 # Come usare l'archiviazione tabelle da Node.js
@@ -58,7 +60,7 @@ Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK pe
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules**. All'interno di questa cartella si trova il pacchetto **azure-storage**, che contiene le librerie necessarie per accedere all'archiviazione.
+3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. All'interno di questa cartella si trova il pacchetto **azure-storage**, che contiene le librerie necessarie per accedere all'archiviazione.
 
 ### Importare il pacchetto
 
@@ -68,7 +70,7 @@ Aggiungere il codice seguente all'inizio del file **server.js** nell'applicazion
 
 ## Configurare una connessione di archiviazione di Azure
 
-Il modulo di Azure leggerà le variabili di ambiente AZURE_STORAGE_ACCOUNT e AZURE_STORAGE_ACCESS_KEY o AZURE_STORAGE_CONNECTION_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**.
+Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**.
 
 Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione]
 
@@ -148,7 +150,7 @@ Se l'operazione ha esito positivo, `result` conterrà l'[ETag](http://en.wikiped
 
 Esempio di risposta:
 
-	{ '.metadata': { etag: 'W/"datetime'2015-02-25T01%3A22%3A22.5Z'"' } }
+	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
 > [AZURE.NOTE]Per impostazione predefinita, **insertEntity** non restituisce l'entità inserita come parte delle informazioni di `response`. Se si prevede di eseguire altre operazioni su questa entità o si intende memorizzare le informazioni nella cache, è opportuno che l'entità venga restituita insieme a `result`. A tale scopo, abilitare **echoContent** come segue:
 >
@@ -275,7 +277,7 @@ Poiché **select** non viene usato, vengono restituiti tutti i campi. Per esegui
 	  }
 	});
 
-Se la query ha esito positivo, `result.entries` conterrà una matrice delle entità che corrispondono alla query. Se la query non è in grado di restituire tutte le entità, `result.continuationToken` sarà un valore diverso da *null* e potrà essere usato come terzo parametro di **queryEntities** per recuperare più risultati. Per la query iniziale, il terzo parametro deve essere *null*.
+Se la query ha esito positivo, `result.entries` conterrà una matrice delle entità che corrispondono alla query. Se la query non è in grado di restituire tutte le entità, `result.continuationToken` sarà un valore diverso da -*null* e potrà essere usato come terzo parametro di **queryEntities** per recuperare più risultati. Per la query iniziale, il terzo parametro deve essere *null*.
 
 ### Come eseguire query su un subset di proprietà di entità
 
@@ -431,7 +433,7 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
--   Vedere la documentazione MSDN: [Archiviazione e accesso ai dati in Azure][].
+-   Vedere la documentazione MSDN: [Archiviazione e accesso ai dati in Azure][]
 -   [Blog del team di Archiviazione di Azure][]
 -   Archivio [Azure SDK for Node][] su GitHub.
 
@@ -449,4 +451,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

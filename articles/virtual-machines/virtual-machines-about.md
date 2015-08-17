@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
@@ -50,3 +50,5 @@ Se le macchine virtuali di Azure sono un argomento ancora relativamente nuovo, l
 [Servizi cloud]: cloud-services-choose-me.md
 
 <!-----HONumber=July15_HO5-->
+
+<!---HONumber=August15_HO6-->

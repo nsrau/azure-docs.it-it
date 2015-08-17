@@ -1,11 +1,13 @@
-﻿<properties 
+<properties 
 	pageTitle="Dashboard di Power BI su Analisi di flusso| Microsoft Azure" 
 	description="Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso." 
-services="stream-analytics"	
-documentationCenter="" 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	services="stream-analytics" 
+	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
+
 
 <tags 
 	ms.service="stream-analytics" 
@@ -13,8 +15,9 @@ documentationCenter=""
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
+
 	
 # Analisi di flusso di Azure e Power BI: dashboard dinamico per analisi in tempo reale del flusso di dati
 
@@ -30,7 +33,7 @@ In questo articolo viene descritto come creare strumenti di business intelligenc
 
 * Account di Microsoft Azure
 * Un input per il processo di Analisi di flusso da cui utilizzare il flusso di dati. Analisi di flusso accetta l'input dall'hub eventi di Azure o dell’archiviazione BLOB di Azure.  
-* ID organizzazione di Microsoft Power BI
+* Account aziendale o dell'istituto di istruzione per Power BI
 
 ## Creare processi di Analisi di flusso di Azure ##
 
@@ -77,20 +80,20 @@ Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di event
 
 1.  Fare clic su **Output** nella parte superiore della pagina, quindi scegliere **Aggiungi output**. Verrà visualizzato Power BI come opzione di output nell’elenco.
 
-![graphic2][graphic2]
+    ![graphic2][graphic2]
 
 2.  Selezionare **Power BI**, quindi fare clic sul pulsante destro.
 3.  Verrà visualizzata una schermata analoga a quella seguente:
 
-![graphic3][graphic3]
+    ![graphic3][graphic3]
 
-4.  In questo passaggio, fornire un ID Ord per l'output del processo di analisi di flusso. Se si dispone già di account Power BI, selezionare **Autorizza ora**. In caso contrario, scegliere **Effettua l’iscrizione ora**. [In questo blog sono riportati passo passo i dettagli di registrazione a Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  In questo passaggio, fornire un account aziendale o dell’istituto di istruzione per l'output del processo di analisi di flusso. Se si dispone già di un account Power BI, selezionare **Autorizza ora**. In caso contrario, scegliere **Effettua l’iscrizione ora**. [In questo blog sono riportati passo passo i dettagli di registrazione a Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
 
-![graphic11][graphic11]
+    ![graphic11][graphic11]
 
 5.  Successivamente verrà visualizzata una schermata analoga a quella seguente:
 
-![graphic4][graphic4]
+    ![graphic4][graphic4]
 
 Fornire i valori come mostrato di seguito:
 
@@ -128,7 +131,7 @@ Avviare il processo. Confermare che l’hub eventi riceve eventi e che la query 
 
 ## Creare il dashboard in Power BI ##
 
-Andare al sito [Powerbi.com](https://powerbi.com) e accedere con l’ID organizzazione. Se la query del processo di Analisi di flusso produce risultati, verrà visualizzato il set di dati già creato:
+Andare al sito [Powerbi.com](https://powerbi.com) e accedere con l’account aziendale o dell’istituto di istruzione. Se la query del processo di Analisi di flusso produce risultati, verrà visualizzato il set di dati già creato:
 
 ![graphic5][graphic5]
 
@@ -188,7 +191,7 @@ Pertanto sarà necessario modificare la query originale in:
 
 
 ## Ottenere aiuto ##
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi ##
 
@@ -211,4 +214,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

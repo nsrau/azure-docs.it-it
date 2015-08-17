@@ -98,4 +98,4 @@ Per altre informazioni su come ottenere e usare queste librerie con il bus di se
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [Guida per gli sviluppatori di AMQP per il bus di servizio]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

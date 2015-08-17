@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="05/19/2015"
 	ms.author="garye" />
 
@@ -25,7 +25,7 @@ Un determinato numero di set di dati di esempio sono disponibili in Machine Lear
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Per usare i propri dati in Machine Learning Studio, è possibile caricare un file di dati in anticipo dal disco rigido locale per creare un modulo di set di dati nell'area di lavoro. Oppure, è possibile accedere ai dati da una delle diverse origini dati online mentre l'esperimento viene eseguito tramite il modulo [Lettore][reader]:
+Per usare i propri dati in Machine Learning Studio, è possibile caricare un file di dati in anticipo dal disco rigido locale per creare un modulo di set di dati nell'area di lavoro. Oppure, è possibile accedere ai dati da una delle diverse origini dati online mentre l'esperimento viene eseguito tramite il modulo [Lettore][reader]\:
 
 - Archiviazione BLOB di Azure, tabella o database SQL
 - Hadoop tramite HiveQL
@@ -143,4 +143,4 @@ Al termine del salvataggio, il set di dati sarà disponibile per l'uso in qualsi
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

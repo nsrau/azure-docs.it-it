@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/05/2015"
    ms.author="banders"/>
 # Analizzare i dati dai server in Microsoft Azure
 
@@ -21,9 +21,9 @@
 
 Operational Insights usa i dati provenienti dai server nell'infrastruttura locale o cloud. È possibile raccogliere i dati del computer dall'archiviazione di Azure quando vengono generati dalla diagnostica di Azure.
 
-Utilizzando i dati raccolti dall’archiviazione di Azure, è possibile cercare rapidamente in log di eventi e IIS per i servizi cloud e le macchine virtuali abilitando la [diagnostica di Azure](operational-insights-log-collection.md). È inoltre possibile ottenere informazioni aggiuntive dalle macchine virtuali mediante l'installazione di Microsoft Monitoring Agent.
+Usando i dati raccolti dall'archiviazione di Azure, è possibile cercare rapidamente in log di eventi e IIS i servizi cloud e le macchine virtuali. È inoltre possibile ottenere informazioni aggiuntive dalle macchine virtuali mediante l'installazione di Microsoft Monitoring Agent.
 
-Le soluzioni di valutazione aggiornamento, rilevamento delle modifiche e valutazione SQL funzionano con Microsoft Monitoring Agent per fornire informazioni approfondite sulle macchine virtuali. Se non è già stato fatto, è possibile [aggiungere soluzioni](operational-insights-add-solution.md) dopo avere effettuato l'accesso al [portale di Operational Insights](https://preview.opinsights.azure.com/).
+Le soluzioni di valutazione aggiornamento, rilevamento delle modifiche e valutazione SQL funzionano con Microsoft Monitoring Agent per fornire informazioni approfondite sulle macchine virtuali. Se non è già stato fatto, è possibile [aggiungere soluzioni](operational-insights-setup-workspace.md) dopo avere effettuato l'accesso al [portale di Operational Insights](https://www.microsoft.com/oms/).
 
 Per Macchine virtuali di Azure, sono disponibili due semplici modi per abilitare la raccolta di dati basata su agente:
 
@@ -31,23 +31,23 @@ Per Macchine virtuali di Azure, sono disponibili due semplici modi per abilitare
 
 - Uso di PowerShell
 
-Quando si usa la raccolta basata su agente per i dati di log, è necessario configurare i log per la raccolta nella pagina di configurazione Log Management nel [portale di Operational Insights](https://preview.opinsights.azure.com/).
+Quando si usa la raccolta basata su agente per i dati di log, è necessario configurare i log per la raccolta nella pagina di configurazione Log Management nel [portale di Operational Insights](https://www.microsoft.com/oms/).
 
  >[AZURE.NOTE]Se si è configurato Operational Insights per indicizzare i dati di log mediante la diagnostica di Azure e si configura l'agente per la raccolta di log, gli stessi log saranno indicizzati due volte. Verranno addebitati velocità dati normali per entrambe le origini dati. Se è installato l'agente, è necessario raccogliere i dati di log mediante l'agente e non indicizzare i log raccolti dalla diagnostica di Azure.
 
 ## Portale di gestione di Microsoft Azure
 
-È possibile installare l'agente per Operational Insights dal [Portale di Azure](https://manage.windowsazure.com/#Workspaces/OperationalInsightExtension/Workspaces).
+È possibile installare l'agente per Operational Insights dal [portale di Azure](https://manage.windowsazure.com/#Workspaces/OperationalInsightExtension/Workspaces).
 
 ### Per installare l'agente per Operational Insights
-1. Nel portale di Azure, andare all'area di lavoro di Operational Insights e selezionare la scheda **Servers**.
+1. Nel portale di Azure andare all'area di lavoro di Operational Insights e selezionare la scheda **Servers**.
 2. Nella scheda verrà visualizzato l'elenco delle macchine virtuali. Selezionare la macchina virtuale in cui si vuole installare l'agente e fare clic sul pulsante **Enable Op Insights**.
 
 L'agente viene automaticamente installato e configurato per l'area di lavoro di Operational Insights.
 
 ![Immagine della pagina dei server di Operational Insights](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]L’[agente VM di Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) deve essere installato per installare automaticamente Operational Insights.
+ >[AZURE.NOTE]L'[agente VM di Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) deve essere installato per installare automaticamente Operational Insights.
 
 
 
@@ -72,7 +72,7 @@ Quando si esegue la configurazione tramite PowerShell, è necessario specificare
 
 ![origini](./media/operational-insights-analyze-data-azure/sources01.png)
 
-## Raccogliere i dati utilizzando la diagnostica di Azure
+## Raccogliere i dati usando la diagnostica di Azure
 
 Operational Insights consente di analizzate i dati scritti dagli strumenti di diagnostica di Azure nella risorsa di archiviazione di Azure. I passaggi da eseguire sono due:
 
@@ -88,7 +88,7 @@ Diagnostica di Azure è un'estensione di Azure che consente di raccogliere i dat
 Diagnostica Azure può raccogliere i tipi di telemetria seguenti:
 
 Origine dati|Descrizione
- ---|--- 
+ ---|---
 Log di IIS|Informazioni sui siti Web di IIS.
 Log dell'infrastruttura diagnostica di Azure|Informazioni su Diagnostica.
 Log delle richieste non riuscite di IIS |Informazioni sulle richieste non riuscite a un sito o a un'applicazione di IIS.
@@ -96,7 +96,7 @@ Registri eventi di Windows|Informazioni inviate al sistema di registrazione even
 Contatori delle prestazioni|Contatori delle prestazioni personalizzati e del sistema operativo.
 Dump di arresto anomalo del sistema|Informazioni sullo stato del processo in caso di arresto anomalo dell'applicazione.
 Log degli errori personalizzati|Log creati dall'applicazione o dal servizio.
-EventSource .NET|Eventi generati dal codice con la classe .NET [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
+EventSource .NET|Eventi generati dal codice con .NET [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
 ETW basato su manifesto|Eventi ETW generati da qualsiasi processo
 Syslog|Eventi inviati ai daemon Syslog o Rsyslog
 
@@ -115,9 +115,9 @@ I log devono trovarsi nei percorsi seguenti:
 
  >[AZURE.NOTE]I log IIS provenienti dai siti Web di Azure non sono attualmente supportati.
 
-Per le macchine virtuali è anche possibile installare [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) nella macchina virtuale per abilitare Informazioni operative. In questo modo sarà possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
+Per le macchine virtuali è anche possibile installare [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) nella macchina virtuale per abilitare la raccolta di informazioni aggiuntive. In questo modo sarà possibile analizzare i log IIS e i registri eventi, oltre che eseguire ulteriori analisi, tra cui il rilevamento delle modifiche alla configurazione, la valutazione degli aggiornamenti e la valutazione di SQL.
 
-È possibile classificare in ordine di priorità i log da aggiungere a quelli supportati per l'analisi in Informazioni operative nella pagina dei [commenti e suggerimenti](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+È possibile classificare in ordine di priorità i log da aggiungere a quelli supportati per l'analisi in Operational Insights nella pagina dei [commenti e suggerimenti](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
 ## Abilitare Diagnostica di Azure in un ruolo Web per la raccolta di eventi e log IIS
 
@@ -131,7 +131,7 @@ Con Diagnostica di Azure abilitata:
 
 ### Per abilitare la diagnostica
 
-Per abilitare i registri eventi di Windows o per modificare scheduledTransferPeriod, configurare la diagnostica di Azure usando il file di configurazione XML (diagnostics.wadcfg), come illustrato in [Passaggio 2: aggiungere il file diagnostics.wadcfg alla soluzione Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) e [Passaggio 3: Configurare la diagnostica per l'applicazione](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) nell’argomento Come abilitare la diagnostica in un servizio cloud. Il file di configurazione di esempio seguente raccoglie i log IIS e tutti gli eventi dai log di applicazione e sistema:
+Per abilitare i registri eventi di Windows o per modificare scheduledTransferPeriod, configurare la diagnostica di Azure usando il file di configurazione XML (diagnostics.wadcfg), come illustrato in [Passaggio 2: aggiungere il file diagnostics.wadcfg alla soluzione Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) e [Passaggio 3: Configurare la diagnostica per l'applicazione](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) nell'argomento Come abilitare la diagnostica in un servizio cloud. Il file di configurazione di esempio seguente raccoglie i log IIS e tutti gli eventi dai log di applicazione e sistema:
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -154,7 +154,7 @@ Per abilitare i registri eventi di Windows o per modificare scheduledTransferPer
     </DiagnosticMonitorConfiguration>
 
 
-In [Passaggio 4: Configurare l’archiviazione dei dati di diagnostica](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) dell'argomento Come abilitare la diagnostica in un servizio cloud, assicurarsi che ConfigurationSettings specifichi un account di archiviazione, come nell'esempio seguente:
+In [Passaggio 4: Configurare l'archiviazione dei dati di diagnostica](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) dell'argomento Come abilitare la diagnostica in un servizio cloud, assicurarsi che ConfigurationSettings specifichi un account di archiviazione, come nell'esempio seguente:
 
 
     <ConfigurationSettings>
@@ -168,7 +168,7 @@ Dopo che la configurazione della diagnostica aggiornata è stata applicata al se
 
 ## Abilitare la diagnostica di Azure in una macchina virtuale per la raccolta di log eventi e IIS
 
-Utilizzare la procedura seguente per abilitare la diagnostica di Azure in una macchina virtuale per la raccolta di log di eventi e IIS tramite il portale di gestione di Microsoft Azure.
+Usare la procedura seguente per abilitare la diagnostica di Azure in una macchina virtuale per la raccolta di log di eventi e IIS tramite il portale di gestione di Microsoft Azure.
 
 ### Per abilitare la diagnostica di Azure in una macchina virtuale con il portale di gestione di Azure
 
@@ -182,11 +182,11 @@ Utilizzare la procedura seguente per abilitare la diagnostica di Azure in una ma
 	1. Selezionare la macchina virtuale.
 	2. Fare clic su **Monitoraggio**.
 	3. Fare clic su **Diagnostica**.
-	4. Impostare **Stato** su **ATTIVA**.
+	4. Impostare **Stato** su **ATTIVO**.
 	5. Selezionare ogni metrica di diagnostica che si desidera usare. Operational Insights può analizzare log eventi del sistema di Windows, log eventi dell'applicazione di Windows e log di IIS.
 	7. Fare clic su **OK**.
 
-Con Azure PowerShell è possibile specificare in modo più preciso gli eventi che vengono scritti nell'Archiviazione di Azure. Fare riferimento allo Schema di configurazione di Diagnostica di Azure 1.2 per un file di configurazione di esempio e la documentazione dettagliata sullo schema. Assicurarsi di installare e configurare Azure PowerShell versione 0.8.7 o successiva da [Come installare e configurare Azure PowerShell](powershell-install-configure). Se è installata una versione di Diagnostica di Microsoft Azure precedente alla versione 1.2, non è possibile usare il nuovo portale per abilitare o configurare la diagnostica.
+Con Azure PowerShell è possibile specificare in modo più preciso gli eventi che vengono scritti nell'Archiviazione di Azure. Fare riferimento allo Schema di configurazione di Diagnostica di Azure 1.2 per un file di configurazione di esempio e la documentazione dettagliata sullo schema. Assicurarsi di installare e configurare Azure PowerShell 0.8.7 o versione successiva da [Come installare e configurare Azure PowerShell](powershell-install-configure). Se è installata una versione di Diagnostica di Microsoft Azure precedente alla versione 1.2, non è possibile usare il nuovo portale per abilitare o configurare la diagnostica.
 
 È possibile abilitare e aggiornare l'agente con il seguente script di PowerShell. È possibile usare questo script anche con la configurazione della registrazione personalizzata. Sarà necessario modificare lo script per impostare l'account di archiviazione, il nome del servizio e il nome della macchina virtuale.
 
@@ -231,14 +231,14 @@ Per configurare Operational Insights per la lettura dall'account di archiviazion
 
 ### Per abilitare l'analisi con Operational Insights
 
-1. Nel portale di Azure predefinito, passare all'area di lavoro di Informazioni operative e selezionare la scheda **Archiviazione**. ![scheda archiviazione dell'area di lavoro](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
+1. Nel portale di Azure predefinito, passare all'area di lavoro di Operational Insights e selezionare la scheda **Archiviazione**. ![scheda archiviazione dell'area di lavoro](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
 2. Fare clic su **Aggiungi un account di archiviazione** per aprire la casella **Aggiungi un account di archiviazione**.
 3. Selezionare l'account di archiviazione che si desidera usare.
-4. Nell’elenco **Tipo di dati** selezionare un tipo di dati: **Eventi**, **Log IIS** o **Syslog (Linux)**.
-5. Fare clic sull’immagine **OK**.<br> ![casella account di archiviazione](./media/operational-insights-analyze-data-azure/storage-account.png)
+4. Nell'elenco **Tipo di dati** selezionare un tipo di dati: **Eventi**, **Log IIS** o **Syslog (Linux)**.
+5. Fare clic sull'immagine **OK**.<br> ![casella account di archiviazione](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. Ripetere i passaggi precedenti per ogni combinazione di tipo di dati e account di archiviazione che si vuole raccogliere.
 
-Entro 1 ora circa i dati dell'account di archiviazione inizieranno a essere disponibili per l'analisi in Operational Insights.
+Entro un'ora circa i dati dell'account di archiviazione inizieranno a essere disponibili per l'analisi in Operational Insights.
 
 ## Contenuti correlati
 
@@ -249,4 +249,4 @@ Entro 1 ora circa i dati dell'account di archiviazione inizieranno a essere disp
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

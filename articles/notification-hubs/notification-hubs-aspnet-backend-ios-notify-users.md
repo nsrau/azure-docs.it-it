@@ -69,7 +69,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 		- (IBAction)LogInAction:(id)sender;		
 
-4. In ViewController.h aggiungere l'elemento `#define` seguente sotto le istruzioni di importazione. Sostituire il segnaposto *<Enter Your Backend Endpoint>* con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio: *http://you_backend.azurewebsites.net*.
+4. In ViewController.h aggiungere l'elemento `#define` seguente sotto le istruzioni di importazione. Sostituire il segnaposto *<Enter Your Backend Endpoint>* con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio, **http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -454,7 +454,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 	![][3]
 
-4. Nel **campo di testo Recipient username tag* immettere il tag del nome utente usato con la registrazione da un altro dispositivo.
+4. Nel campo di testo **Recipient username tag* immettere il tag del nome utente usato con la registrazione da un altro dispositivo.
 5. Immettere un messaggio di notifica e fare clic su **Send Notification**. Solo i dispositivi che hanno una registrazione con il tag del nome utente del destinatario riceveranno il messaggio di notifica. Viene inviato solo a tali utenti.
 
 	![][4]
@@ -466,4 +466,4 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

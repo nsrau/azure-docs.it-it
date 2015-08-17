@@ -141,4 +141,4 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

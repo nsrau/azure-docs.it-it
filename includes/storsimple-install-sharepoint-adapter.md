@@ -25,4 +25,4 @@
 
 8. Andare al passaggio successivo:[Configurare RBS](#configure-rbs).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

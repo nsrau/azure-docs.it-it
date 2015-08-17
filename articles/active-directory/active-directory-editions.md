@@ -122,4 +122,4 @@ Le funzionalità seguenti sono attualmente disponibili in anteprima pubblica e v
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

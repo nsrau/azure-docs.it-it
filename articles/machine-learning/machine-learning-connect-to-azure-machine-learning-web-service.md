@@ -106,4 +106,4 @@ Per connettersi a un servizio Web di Azure ML, usare la libreria **urllib2** per
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

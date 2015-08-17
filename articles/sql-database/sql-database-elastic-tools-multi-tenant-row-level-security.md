@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga" 
 	description="Informazioni su come utilizzare gli strumenti di database elastici insieme alla sicurezza a livello di riga per compilare un’applicazione con un livello dati altamente scalabile in un database SQL di Azure che supporta partizioni multi-tenant." 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter="" 
 	manager="jeffreyg" 
 	authors="tmullaney"/>
 
@@ -46,17 +47,17 @@ Compilare ed eseguire l'applicazione. In tal modo verrà eseguito il bootstrap d
 
 Si noti che poiché RLS non è stato ancora abilitato nei database di partizionamento, ciascuno di questi test rivela un problema: i tenant sono in grado di visualizzare i blog non appartenenti ad essi, e all'applicazione non viene impedito di inserire un blog per il tenant errato. Nella parte restante di questo articolo viene descritto come risolvere questi problemi mediante l'isolamento dei tenant con RLS. Sono disponibili due passaggi:
 
-1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre CONTEXT_INFO sul TenantId corrente dopo l'apertura di una connessione. Nel progetto di esempio questa operazione è già stata eseguita. 
-2. **Livello dati**: creare un criterio di protezione RLS in ciascun database di partizionamento per filtrare le righe in base al valore di CONTEXT_INFO. È necessario eseguire questa operazione per ciascun database di partizionamento, altrimenti le righe nelle partizioni multi-tenant non verranno filtrate. 
+1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre CONTEXT\_INFO sul TenantId corrente dopo l'apertura di una connessione. Nel progetto di esempio questa operazione è già stata eseguita. 
+2. **Livello dati**: creare un criterio di protezione RLS in ciascun database di partizionamento per filtrare le righe in base al valore di CONTEXT\_INFO. È necessario eseguire questa operazione per ciascun database di partizionamento, altrimenti le righe nelle partizioni multi-tenant non verranno filtrate. 
 
 
-## Passaggio 1) Livello applicazione: impostare CONTEXT_INFO su TenantId
+## Passaggio 1) Livello applicazione: impostare CONTEXT\_INFO su TenantId
 
-Dopo la connessione a un database di partizionamento tramite le API di routing dipendente dai dati della libreria dei client di database elastico, l'applicazione dovrà comunque indicare al database quale TenantId utilizza tale connessione, in modo che un criterio di protezione RLS sia in grado di filtrare le righe appartenenti ad altri tenant. Il metodo consigliato per passare queste informazioni consiste nell'impostare [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125) sul TenantId corrente per tale connessione. Si noti che nel database SQL di Azure, CONTEXT_INFO viene prepopolato con un GUID specifico della sessione, pertanto si *deve* impostare CONTEXT_INFO sul TenantId corretto prima di eseguire qualunque query su una nuova connessione per assicurarsi che nessuna riga vada perduta inavvertitamente.
+Dopo la connessione a un database di partizionamento tramite le API di routing dipendente dai dati della libreria dei client di database elastico, l'applicazione dovrà comunque indicare al database quale TenantId utilizza tale connessione, in modo che un criterio di protezione RLS sia in grado di filtrare le righe appartenenti ad altri tenant. Il metodo consigliato per passare queste informazioni consiste nell'impostare [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125) sul TenantId corrente per tale connessione. Si noti che nel database SQL di Azure, CONTEXT\_INFO viene prepopolato con un GUID specifico della sessione, pertanto si *deve* impostare CONTEXT\_INFO sul TenantId corretto prima di eseguire qualunque query su una nuova connessione per assicurarsi che nessuna riga vada perduta inavvertitamente.
 
 ### Entity Framework
 
-Per le applicazioni che utilizzano Entity Framework, l'approccio più semplice consiste nell'impostare CONTEXT_INFO all'interno dell'override ElasticScaleContext descritto in [Routing dipendente dai dati tramite EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Prima di restituire la connessione negoziata tramite il routing dipendente dai dati, creare ed eseguire in modo semplice un SqlCommand che imposti CONTEXT_INFO su shardingKey (TenantId) specificato per tale connessione. In questo modo, è sufficiente scrivere una sola volta il codice per impostare CONTEXT_INFO.
+Per le applicazioni che utilizzano Entity Framework, l'approccio più semplice consiste nell'impostare CONTEXT\_INFO all'interno dell'override ElasticScaleContext descritto in [Routing dipendente dai dati tramite EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Prima di restituire la connessione negoziata tramite il routing dipendente dai dati, creare ed eseguire in modo semplice un SqlCommand che imposti CONTEXT\_INFO su shardingKey (TenantId) specificato per tale connessione. In questo modo, è sufficiente scrivere una sola volta il codice per impostare CONTEXT\_INFO.
 
 ```
 // ElasticScaleContext.cs 
@@ -102,7 +103,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Ora CONTEXT_INFO viene impostato automaticamente sul TenantId specificato ogni volta che viene richiamato ElasticScaleContext:
+Ora CONTEXT\_INFO viene impostato automaticamente sul TenantId specificato ogni volta che viene richiamato ElasticScaleContext:
 
 ```
 // Program.cs 
@@ -125,7 +126,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### ADO.NET SqlClient 
 
-Per le applicazioni che utilizzano ADO.NET SqlClient, l'approccio consigliato consiste nel creare una funzione wrapper intorno a ShardMap.OpenConnectionForKey() che imposti automaticamente CONTEXT_INFO sul TenantId corretto prima della restituzione di una connessione. Per garantire che CONTEXT_INFO sia sempre impostato correttamente, è consigliabile aprire le connessioni utilizzando solo questa funzione wrapper.
+Per le applicazioni che utilizzano ADO.NET SqlClient, l'approccio consigliato consiste nel creare una funzione wrapper intorno a ShardMap.OpenConnectionForKey() che imposti automaticamente CONTEXT\_INFO sul TenantId corretto prima della restituzione di una connessione. Per garantire che CONTEXT\_INFO sia sempre impostato correttamente, è consigliabile aprire le connessioni utilizzando solo questa funzione wrapper.
 
 ```
 // Program.cs
@@ -187,9 +188,9 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### Creare un criterio di protezione per filtrare le query SELECT, UPDATE e DELETE 
 
-Ora che l'applicazione imposta CONTEXT_INFO sul TenantId corrente prima di eseguire la query, un criterio di protezione RLS è in grado di filtrare le query ed escludere le righe che contengono un TenantId diverso.
+Ora che l'applicazione imposta CONTEXT\_INFO sul TenantId corrente prima di eseguire la query, un criterio di protezione RLS è in grado di filtrare le query ed escludere le righe che contengono un TenantId diverso.
 
-RLS viene implementata in T-SQL: una funzione predicativa definita dall'utente definisce la logica di filtro e un criterio di protezione associa questa funzione a un numero qualsiasi di tabelle. Per questo progetto, la funzione predicativa verificherà semplicemente che l'applicazione, anziché un altro utente SQL, sia connessa al database e che il valore di CONTEXT_INFO corrisponda al TenantId di una determinata riga. Alle righe che soddisfano queste condizioni verrà consentito il passaggio attraverso il filtro per le query SELECT, UPDATE e DELETE. Se CONTEXT_INFO non è stato impostato, non verrà restituita alcuna riga.
+RLS viene implementata in T-SQL: una funzione predicativa definita dall'utente definisce la logica di filtro e un criterio di protezione associa questa funzione a un numero qualsiasi di tabelle. Per questo progetto, la funzione predicativa verificherà semplicemente che l'applicazione, anziché un altro utente SQL, sia connessa al database e che il valore di CONTEXT\_INFO corrisponda al TenantId di una determinata riga. Alle righe che soddisfano queste condizioni verrà consentito il passaggio attraverso il filtro per le query SELECT, UPDATE e DELETE. Se CONTEXT\_INFO non è stato impostato, non verrà restituita alcuna riga.
 
 Per abilitare RLS, eseguire l'istruzione T-SQL seguente in tutte le partizioni utilizzando Visual Studio (SSDT), SSMS o lo script di PowerShell incluso nel progetto (o se si utilizzano i [processi dei database elastici](sql-database-elastic-jobs-overview.md), è possibile utilizzarli per automatizzare l'esecuzione di questa istruzione T-SQL in tutte le partizioni):
 
@@ -261,7 +262,7 @@ Ora l'applicazione non può inserire righe che appartengono a tenant diversi da 
 
 ### Aggiungere vincoli predefiniti per inserire automaticamente il TenantId per le operazioni INSERT 
 
-Oltre a utilizzare i vincoli CHECK per bloccare gli inserimenti per i tenant errati, è possibile inserire un vincolo predefinito su ciascuna tabella per popolare automaticamente il TenantId con il valore corrente di CONTEXT_INFO al momento dell’inserimento delle righe. Ad esempio:
+Oltre a utilizzare i vincoli CHECK per bloccare gli inserimenti per i tenant errati, è possibile inserire un vincolo predefinito su ciascuna tabella per popolare automaticamente il TenantId con il valore corrente di CONTEXT\_INFO al momento dell’inserimento delle righe. Ad esempio:
 
 ```
 -- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
@@ -290,7 +291,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Se si utilizzano i vincoli predefiniti per un progetto Entity Framework, è consigliabile NON includere la colonna TenantId nel modello di dati EF. La ragione è che le query Entity Framework forniscono automaticamente valori predefiniti che sostituiranno i vincoli predefiniti creati in T-SQL che utilizzano CONTEXT_INFO. Per utilizzare i vincoli predefiniti nel progetto di esempio, ad esempio, è necessario rimuovere TenantId da DataClasses.cs (ed eseguire Add-Migration nella console di Gestione pacchetti) e utilizzare T-SQL per garantire che il campo esista unicamente nelle tabelle del database. In questo modo, Entity Framework non fornirà automaticamente valori predefiniti errati durante l'inserimento dei dati.
+> [AZURE.NOTE]Se si utilizzano i vincoli predefiniti per un progetto Entity Framework, è consigliabile NON includere la colonna TenantId nel modello di dati EF. La ragione è che le query Entity Framework forniscono automaticamente valori predefiniti che sostituiranno i vincoli predefiniti creati in T-SQL che utilizzano CONTEXT\_INFO. Per utilizzare i vincoli predefiniti nel progetto di esempio, ad esempio, è necessario rimuovere TenantId da DataClasses.cs (ed eseguire Add-Migration nella console di Gestione pacchetti) e utilizzare T-SQL per garantire che il campo esista unicamente nelle tabelle del database. In questo modo, Entity Framework non fornirà automaticamente valori predefiniti errati durante l'inserimento dei dati.
 
 ### (Facoltativo) Abilitare un "superuser" per accedere a tutte le righe
 Alcune applicazioni potrebbero creare un "superuser" che possa accedere a tutte le righe, ad esempio, per abilitare la creazione di rapporti fra tutti i tenant in tutte le partizioni o per eseguire operazioni di suddivisione/unione in partizioni che comportano lo spostamento di righe del tenant tra database. A tale scopo, è necessario creare un nuovo utente SQL ("superuser" in questo esempio) in ogni database di partizionamento. Modificare quindi i criteri di sicurezza con una nuova funzione di predicato che consenta a questo utente di accedere a tutte le righe:
@@ -339,4 +340,4 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

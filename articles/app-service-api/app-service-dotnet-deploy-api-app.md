@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="07/31/2015" 
+	ms.author="bradyg"/>
 
 # Distribuire un'app per le API nel servizio app di Azure 
 
@@ -92,4 +92,4 @@ In questa sezione si visualizzeranno le impostazioni di base disponibili nel por
 Si è appreso come le funzionalità di distribuzione diretta in Visual Studio consentono di eseguire rapidamente le attività di iterazione e distribuzione e di testare il corretto funzionamento dell'API. Nell'[esercitazione successiva](../app-service-dotnet-remotely-debug-api-app.md) verrà illustrato come eseguire il debug dell'app per le API mentre è in esecuzione in Azure.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

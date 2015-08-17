@@ -28,9 +28,9 @@ Per usare il codice in questo argomento è necessario eseguire le operazioni seg
 2. Ottenere la libreria Twilio per PHP. È possibile scaricarla da Github ([https://github.com/twilio/twilio-php][twilio_php_github]) o installarla come pacchetto PEAR. Per ulteriori informazioni, vedere [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 3. Installare Azure SDK per PHP. Per informazioni generali sull'SDK e istruzioni per installarlo, vedere la pagina relativa alla [configurazione di Azure SDK per PHP][setup_php_sdk].
 
-## Creare un modulo Web per l'esecuzione di una chiamata
+## Creazione di un modulo Web per l'esecuzione di una chiamata
 
-Il codice HTML seguente mostra come creare una pagina Web (**callform.html**) che recupera i dati utente per effettuare una chiamata:
+Il codice HTML seguente mostra come creare una pagina Web (**callform.html**) che consente di recuperare i dati utente per l'effettuazione di una chiamata:
 
     <html>
 	<head>
@@ -63,7 +63,7 @@ Il codice HTML seguente mostra come creare una pagina Web (**callform.html**) ch
 	</html>
 
 ## Creare il codice per l'esecuzione della chiamata
-Il codice seguente illustra come creare una pagina Web (**makecall.php**), che viene chiamata quando l'utente invia il modulo visualizzato da **callform.html**. Il codice seguente crea il messaggio di chiamata e genera la chiamata. Nel codice seguente sostituire i valori segnaposto assegnati a **$sid** e **$token** con il proprio account e il token di autenticazione Twilio.
+Nel codice seguente viene illustrato come creare una pagina Web (**makecall.php**), che viene chiamata quando l'utente invia il form visualizzato da **callform.html**. Il codice seguente crea il messaggio di chiamata e genera la chiamata. Nel codice seguente sostituire i valori segnaposto assegnati a **$sid** e **$token** con il proprio account e il token di autenticazione Twilio.
 
     <html>
 	<head><title>Making call...</title></head>
@@ -143,4 +143,4 @@ Per ulteriori informazioni su Twilio, vedere [https://www.twilio.com/docs][twili
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -49,7 +49,7 @@ Dopo aver effettuato l’accesso, sullo schermo dovrebbero essere visualizzate i
 
 ## Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione con cui lavorare, è necessario l’ID sottoscrizione (\*\*-SubscriptionId\*\*) o il nome della sottoscrizione (\*\*-SubscriptionName\*\*), che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati.
+Per selezionare la sottoscrizione con cui lavorare, è necessario l’ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati.
 
 Eseguire il cmdlet seguente con le informazioni della sottoscrizione per impostare la sottoscrizione corrente:
 
@@ -118,7 +118,7 @@ Per creare un database, utilizzare il comando [New-AzureSqlDatabase](https://msd
 
 Se si prevede di creare nuovamente queste risorse SQL di Azure o risorse simili, è possibile:
 
-- Salvare il codice come file di script di PowerShell (\*.ps1).
+- Salvare il codice come file di script di PowerShell (*.ps1).
 - Salvare il codice come runbook di Automazione di Azure nella sezione Automazione del portale di gestione di Azure. 
 
 ## Passaggi successivi
@@ -137,4 +137,4 @@ Combinare i comandi e automatizzare. Ad esempio, sostituire tutto ciò che si tr
 - [Cmdlet di Gestione servizi del database SQL di Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

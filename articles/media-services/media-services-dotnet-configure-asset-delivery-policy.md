@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/24/2015" 
 	ms.author="juliako"/>
+
 
 #Procedura: Configurare i criteri di distribuzione degli asset
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -107,7 +109,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 
 ##Criteri di distribuzione degli asset DynamicEnvelopeEncryption 
 
-Il metodo **CreateAssetDeliveryPolicy**** seguente crea l'oggetto **AssetDeliveryPolicy configurato in modo da applicare la crittografia envelope dinamica (**DynamicEnvelopeEncryption**) ai protocolli HLS e DASH (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, l'asset a cui applicare i criteri di distribuzione, e **IContentKey**, la chiave simmetrica del tipo **EnvelopeEncryption**. Per altre informazioni, vedere l'articolo relativo alla [creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#envelope_contentkey).
+Il metodo **CreateAssetDeliveryPolicy** seguente crea l'oggetto **AssetDeliveryPolicy** configurato in modo da applicare la crittografia envelope dinamica (**DynamicEnvelopeEncryption**) ai protocolli HLS e DASH (gli altri protocolli vengono esclusi dallo streaming). Il metodo accetta due parametri: **Asset**, l'asset a cui applicare i criteri di distribuzione, e **IContentKey**, la chiave simmetrica del tipo **EnvelopeEncryption**. Per altre informazioni, vedere l'articolo relativo alla [creazione di una chiave simmetrica](media-services-dotnet-create-contentkey.md#envelope_contentkey).
 
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere la sezione [Tipi usati durante la definizione di AssetDeliveryPolicy](#types).
@@ -150,7 +152,7 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
     }
 
 
-##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
+##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
 
 ###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
@@ -291,4 +293,4 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         EnvelopeEncryptionIV,
     } 
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

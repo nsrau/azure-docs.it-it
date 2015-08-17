@@ -7,6 +7,7 @@
    manager="timlt"
    editor=""/>
 
+
    <tags
    ms.service="virtual-machines"
    ms.devlang="nodejs"
@@ -16,6 +17,7 @@
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
 
+
 # Creare una distribuzione di più macchine virtuali utilizzando l'interfaccia della riga di comando di Azure
 
 Lo script seguente descrive come configurare una distribuzione di servizio di più cloud, con più macchine virtuali, in una rete virtuale, usando l'interfaccia della riga di comando di Azure (Azure CLI).
@@ -24,7 +26,7 @@ Nell'immagine seguente viene illustrato l'aspetto della distribuzione al complet
 
 ![](./media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
-Lo script crea una macchina virtuale (**servervm**) nel servizio cloud **servercs** con due dischi dati collegati e due macchine virtuali (**clientvm1, clientvm2**) nel servizio **cloud workercs**. Entrambi i servizi cloud vengono posizionati nella rete virtuale **samplevnet**. Il servizio cloud **servercs** dispone anche di un endpoint configurato per la connettività esterna.
+Lo script crea una macchina virtuale (**servervm**) nel servizio cloud **servercs** con due dischi dati collegati e due macchine virtuali (**clientvm1, clientvm2**) nel servizio cloud **workercs**. Entrambi i servizi cloud vengono posizionati nella rete virtuale **samplevnet**. Il servizio cloud **servercs** dispone anche di un endpoint configurato per la connettività esterna.
 
 ## Script CLI per l'esecuzione dell'operazione
 Il codice per impostare questa funzionalità è relativamente semplice:
@@ -67,4 +69,4 @@ Nonostante sia possibile trovare altre informazioni usando l'opzione -help in qu
 * [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

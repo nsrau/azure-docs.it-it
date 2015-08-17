@@ -4,4 +4,4 @@
   > 
   > + È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

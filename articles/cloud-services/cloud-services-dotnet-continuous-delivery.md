@@ -33,7 +33,7 @@ L'installazione di Visual Studio nel server di compilazione non è necessaria. S
 1.  Nel server di compilazione installare [.NET Framework 4][], [.NET Framework 4.5][] o [.NET Framework 4.5.2][] che include MSBuild.
 2.  Installare gli [strumenti di creazione di Azure][] (cercare MicrosoftAzureAuthoringTools-x86.msi o MicrosoftAzureAuthoringTools-x64.msi, a seconda del processore del server di compilazione). Nel nome file delle versioni precedenti potrebbe essere indicato WindowsAzure.
 3. Installare le [librerie di Azure][] (cercare MicrosoftAzureLibsForNet-x86.msi o MicrosoftAzureLibsForNet-x64.msi).
-4.  Copiare il file Microsoft.WebApplication.targets da un'installazione di Visual Studio nel server di compilazione. In un computer con installato Visual Studio, il file si trova nella directory C:\Programmi(x86)\MSBuild\Microsoft\VisualStudio\v11.0\WebApplications (v12.0 per Visual Studio 2013). Copiare il file nella stessa cartella del server di compilazione.
+4.  Copiare il file Microsoft.WebApplication.targets da un'installazione di Visual Studio nel server di compilazione. In un computer con installato Visual Studio, il file si trova nella directory C:\\Programmi(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 per Visual Studio 2013). Copiare il file nella stessa cartella del server di compilazione.
 5.  Installare gli [strumenti di Azure per Visual Studio][]. Cercare MicrosoftAzureTools.VS110.exe per compilare progetti di Visual Studio 2012, MicrosoftAzureTools.VS120.exe per compilare progetti di Visual Studio 2013 e MicrosoftAzureTools.VS140.exe per compilare progetti di Visual Studio 2015 Preview.
 
 ## Passaggio 2: Compilare un pacchetto usando i comandi MSBuild
@@ -42,7 +42,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
 1.  Se Visual Studio è installato nel server di compilazione, fare clic su **Start**, scegliere **Tutti i programmi**, quindi individuare e fare clic su **Prompt dei comandi di Visual Studio** nella cartella **Strumenti di Visual Studio**.
 
-    Se Visual Studio non è installato nel server di compilazione, aprire un prompt dei comandi e verificare che MSBuild.exe sia accessibile nel percorso. MSBuild viene installato con .NET Framework nel percorso %WINDIR%\Microsoft.NET\Framework\*Versione*. Per aggiungere MSBuild.exe alla variabile di ambiente PATH quando .NET Framework 4 è stato installato, ad esempio, digitare il comando seguente al prompt dei comandi:
+    Se Visual Studio non è installato nel server di compilazione, aprire un prompt dei comandi e verificare che MSBuild.exe sia accessibile nel percorso. MSBuild viene installato con .NET Framework nel percorso %WINDIR%\\Microsoft.NET\\Framework\*Versione*. Per aggiungere MSBuild.exe alla variabile di ambiente PATH quando .NET Framework 4 è stato installato, ad esempio, digitare il comando seguente al prompt dei comandi:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,7 +56,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
     Facoltativamente, è possibile specificare il nome del progetto come parametro di MSBuild. Se non specificato, viene usata la directory corrente. Per altre informazioni sui parametri della riga di comando di MSBuild, vedere [Riferimenti alla riga di comando di MSBuild][1].
 
-4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *DirProgetto*\bin\*Configurazione*\app.publish\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
+4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *DirProgetto*\\bin\*Configurazione*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -67,9 +67,9 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  Specificare il percorso per l'output. Impostare il percorso usando l'opzione /p:PublishDir=*Directory*\, compreso il separatore barra rovesciata finale, come nell'esempio seguente:
+6.  Specificare il percorso per l'output. Impostare il percorso usando l'opzione /p:PublishDir=*Directory*\\, compreso il separatore barra rovesciata finale, come nell'esempio seguente:
 
-        MSBuild /target:Publish /p:PublishDir=\myserver\drops\
+        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
     Una volta creata e testata una riga di comando di MSBuild appropriata per compilare i progetti e combinarli in un pacchetto di Azure, è possibile aggiungere tale riga di comando agli script di compilazione. Se il server di compilazione usa script personalizzati, questo processo dipende dalle specifiche del processo personalizzato di compilazione. Se si usa TFS come ambiente di compilazione, è possibile seguire le istruzioni nel prossimo passaggio per aggiungere la compilazione del pacchetto di Azure al proprio processo di compilazione.
 
@@ -79,7 +79,7 @@ Se si dispone di Team Foundation Server (TFS) configurato come controller di com
 
 Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedura seguente:
 
-1.  In Visual Studio, nel computer di sviluppo, scegliere **Team Explorer** dal menu Visualizza oppure premere CTRL+\, CTRL+M. Nella finestra di Team Explorer espandere il nodo **Compilazioni** o scegliere la pagina **Compilazioni** e fare clic su **Nuova definizione di compilazione**.
+1.  In Visual Studio, nel computer di sviluppo, scegliere **Team Explorer** dal menu Visualizza oppure premere CTRL+\\, CTRL+M. Nella finestra di Team Explorer espandere il nodo **Compilazioni** o scegliere la pagina **Compilazioni** e fare clic su **Nuova definizione di compilazione**.
 
     ![][0]
 
@@ -91,7 +91,7 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 5.  Fare clic sulla scheda **Processo**. Nella scheda Processo scegliere il modello predefinito in **Compilazione**, scegliere il progetto se non è già selezionato ed espandere la sezione **Avanzate** nella sezione **Compilazione** della griglia.
 
-6.  Scegliere **Argomenti MSBuild** e impostare gli argomenti della riga di comando MSBuild appropriati come descritto al precedente punto 2. Immettere ad esempio **/t:Publish /p:PublishDir=\\myserver\drops\** per compilare un pacchetto e copiare i relativi file nel percorso \\myserver\drops\:
+6.  Scegliere **Argomenti MSBuild** e impostare gli argomenti della riga di comando MSBuild appropriati come descritto al precedente punto 2. Immettere ad esempio **/t:Publish /p:PublishDir=\\\\myserver\\drops\** per compilare un pacchetto e copiare i relativi file nel percorso \\\\myserver\\drops\\:
 
     ![][2]
 
@@ -113,7 +113,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
 4.  Verificare che sia possibile connettersi alla propria sottoscrizione Azure importando le proprie informazioni di sottoscrizione dal file con estensione .publishsettings come segue:
 
-    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
+    Import-AzurePublishSettingsFile c:\\scripts\\WindowsAzure\\default.publishsettings
 
     Digitare quindi il comando seguente:
 
@@ -121,7 +121,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
     Verranno visualizzate le informazioni relative alla sottoscrizione. Verificarne la correttezza.
 
-4.  Salvare il modello di script fornito alla [fine di questo articolo][] nella cartella degli script, ad esempio c:\script\WindowsAzure\**PublishCloudService.ps1**.
+4.  Salvare il modello di script fornito alla [fine di questo articolo][] nella cartella degli script, ad esempio c:\\script\\WindowsAzure\**PublishCloudService.ps1**.
 
 5.  Rivedere la sezione dello script relativa ai parametri. Aggiungere o modificare i valori predefiniti. Questi valori possono sempre essere sostituiti mediante il passaggio di parametri espliciti.
 
@@ -325,11 +325,11 @@ In questo passaggio verrà collegato TFS Team Build con lo script creato nel pas
 
 9.  Impostare i valori delle proprietà dei parametri nella sezione Varie come indicato di seguito:
 
-    1.  CloudConfigLocation ='c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg' *Questo valore deriva da: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *Questo valore deriva da: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = 'c:\drops\app.publish\ContactManager.Azure.cspkg' *Questo valore deriva da: ($PublishDir)($ProjectName).cspkg*
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *Questo valore deriva da: ($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation = 'c:\scripts\WindowsAzure\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
     4.  ServiceName = 'mycloudservicename' * Qui usare il nome del servizio cloud appropriato*
 
@@ -337,7 +337,7 @@ In questo passaggio verrà collegato TFS Team Build con lo script creato nel pas
 
     6.  StorageAccountName = 'mystorageaccountname' *Qui usare il nome dell'account di archiviazione appropriato*
 
-    7.  SubscriptionDataFileLocation = 'c:\scripts\WindowsAzure\Subscription.xml'
+    7.  SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
 
     8.  SubscriptionName = 'default'
 
@@ -578,4 +578,4 @@ Per abilitare il debug remoto con la distribuzione continua, vedere [queste istr
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

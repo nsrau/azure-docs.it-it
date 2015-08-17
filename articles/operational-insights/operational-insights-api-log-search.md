@@ -19,17 +19,17 @@
 
 # Panoramica e riferimenti relativi all’API di ricerca di Operational Insights
 
-In questa guida viene fornita un'esercitazione di base che descrive come è possibile utilizzare l'API di ricerca di log di Operational Insight e vengono forniti esempi che illustrano come utilizzare i comandi.
+Questa guida fornisce un'esercitazione di base che descrive come è possibile usare l'API di ricerca di log di Operational Insight e fornisce esempi che illustrano come usare i comandi.
 
 ## Panoramica dell'API di ricerca di log
 
-L'API di ricerca log di Operational Insights è RESTful e accessibile tramite l'API di Gestione risorse di Azure. In questo documento sono disponibili esempi in cui viene utilizzata l'API tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento di riga di comando open source che semplifica la chiamata dell'API di Gestione risorse di Azure. L'utilizzo di ARMClient e PowerShell è una delle numerose opzioni per accedere all'API di ricerca di log di Operational Insights. Con questi strumenti è possibile utilizzare l'API di Gestione risorse di Azure RESTful per effettuare chiamate alle aree di lavoro di Operational Insights ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di utilizzare i risultati della ricerca in molti modi diversi a livello di codice.
+L'API di ricerca log di Operational Insights è RESTful e accessibile tramite l'API di Gestione risorse di Azure. In questo documento sono disponibili esempi in cui viene usata l'API tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento di riga di comando open source che semplifica la chiamata dell'API di Gestione risorse di Azure. L'utilizzo di ARMClient e PowerShell è una delle numerose opzioni per accedere all'API di ricerca di log di Operational Insights. Con questi strumenti è possibile usare l'API di Gestione risorse di Azure RESTful per effettuare chiamate alle aree di lavoro di Operational Insights ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
 
-È possibile utilizzare Gestione risorse di Azure tramite una [libreria per .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) nonché una [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Esaminare le pagine Web per ulteriori informazioni.
+È possibile usare Gestione risorse di Azure tramite una [libreria per .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) nonché una [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Esaminare le pagine Web per altre informazioni.
 
 ## Esercitazione per API di ricerca di base
 
-### Utilizzare il client ARM
+### Usare il client ARM
 
 1. Installare [Chocolatey](https://chocolatey.org/), ovvero un Machine Package Manager open source per Windows.
 2. Aprire una finestra di PowerShell come amministratore ed eseguire il comando seguente:
@@ -44,7 +44,7 @@ L'API di ricerca log di Operational Insights è RESTful e accessibile tramite l'
     choco install armclient
     ```
 
-### Per eseguire una ricerca semplice utilizzando ARMClient
+### Per eseguire una ricerca semplice usando ARMClient
 
 1. Accedere al proprio account Microsoft o OrgID:
 
@@ -92,14 +92,14 @@ L'API di ricerca log di Operational Insights è RESTful e accessibile tramite l'
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}”;
     ```
-4. Eseguire la ricerca utilizzando la nuova variabile di ricerca. Ad esempio:
+4. Eseguire la ricerca usando la nuova variabile di ricerca. Ad esempio:
 
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
     ```
 
 ## Esempi di riferimento per l’API di ricerca
-I codici di esempio seguenti mostrano come utilizzare l’API di ricerca.
+I codici di esempio seguenti mostrano come usare l’API di ricerca.
 
 ### Ricerca - Azione/Lettura
 
@@ -130,10 +130,10 @@ La tabella seguente descrive le proprietà disponibili.
 |**Proprietà**|**Descrizione**|
 |---|---|
 |top|Il numero massimo di risultati da restituire.|
-|highlight|Contiene i parametri pre e post, in genere utilizzati per evidenziare i campi corrispondenti|
+|highlight|Contiene i parametri pre e post, in genere usati per evidenziare i campi corrispondenti|
 |pre|Antepone la stringa specificata ai campi corrispondenti.|
 |post|Appone la stringa specificata ai campi corrispondenti.|
-|query|La query di ricerca utilizzata per raccogliere e restituire i risultati.|
+|query|La query di ricerca usata per raccogliere e restituire i risultati.|
 |start|L’inizio dell'intervallo di tempo da cui si desidera trovare risultati.|
 |end|La fine dell'intervallo di tempo da cui si desidera trovare risultati.|
 
@@ -205,52 +205,52 @@ La tabella seguente descrive le proprietà disponibili.
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
-Supported methods: GET PUT DELETE
+Metodi supportati: GET PUT DELETE
 
-Supported collection methods: GET
+Metodi di raccolta supportati: GET
 
-The following table describes the properties that are available.
+La tabella seguente descrive le proprietà disponibili.
 
-|Property|Description|
+|Proprietà|Descrizione|
 |---|---|
-|Id|The unique identifier.|
-|Etag|**Required for Patch**. Updated by server on each write. Value must be equal to the current stored value or ‘*’ to update. 409 returned for old/invalid values.|
-|properties.query|**Required**. The search query.|
-|properties.displayName|**Required**. The user defined display name of the query. If modeled as an Azure resource, this would be a Tag.|
-|properties.category|**Required**. The user defined category of the query. If modeled as an Azure resource this would be a Tag.|
+|ID|Identificatore univoco.|
+|ETag|**Obbligatoria per l'applicazione di patch**. Aggiornata dal server a ogni scrittura. Il valore deve essere uguale al valore archiviato attuale o a "*" per effettuare l'aggiornamento. Viene restituito il codice 409 per i valori obsoleti/non validi.|
+|properties.query|**Obbligatoria**. Query di ricerca.|
+|properties.displayName|**Obbligatoria**. Nome visualizzato della query, definito dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag.|
+|properties.category|**Obbligatoria**. Categoria della query, definita dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag.|
 
->[AZURE.NOTE]The Operational Insights Search API currently returns user-created saved searches when polled for saved searches in a workspace. The API will not return saved searches provided by solutions at this time. This functionality will be added at a later date.
+>[AZURE.NOTE]L'API di Ricerca di Operational Insights restituisce attualmente le ricerche create dall'utente quando viene eseguito il polling di ricerche salvate in un'area di lavoro. L'API non restituirà attualmente le ricerche salvate fornite dalle soluzioni. Questa funzionalità verrà aggiunta in un secondo momento.
 
-### Delete saved searches
+### Eliminare le ricerche salvate
 
-**Request:**
+**Richiesta:**
 
 ```
 	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
 ```
 
-### Update saved searches
+### Aggiornare le ricerche salvate
 
- **Request:**
+ **Richiesta:**
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
 	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
 ```
 
-### Metadata - JSON only
+### Metadati - Solo JSON
 
-Here’s a way to see the fields for all log types for the data collected in your workspace. For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.
+Ecco come visualizzare i campi per tutti i tipi di log per i dati raccolti nell'area di lavoro. Ad esempio, se si vuole sapere se il tipo di evento include un campo denominato Computer, è possibile procedere in questo modo per la verifica e la conferma.
 
-**Request for Fields:**
+**Richiesta di campi:**
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
 ```
 
-**Response:**
+**Risposta:**
 
 ```
 	{
@@ -281,29 +281,28 @@ Here’s a way to see the fields for all log types for the data collected in you
 	}
 ```
 
-The following table describes the properties that are available.
+La tabella seguente descrive le proprietà disponibili.
 
-|**Property**|**Description**|
+|**Proprietà**|**Descrizione**|
 |---|---|
-|name|Field name.|
-|displayName|The display name of the field.|
-|type|The Type of the field value.|
-|facetable|Combination of current ‘indexed’, ‘stored ‘and ‘facet’ properties.|
-|display|Current ‘display’ property. True if field is visible in search.|
-|ownerType|Reduced to only Types belonging to onboarded IP’s.|
+|name|Nome del campo.|
+|displayName|Nome visualizzato del campo.|
+|type|Tipo del valore del campo.|
+|facetable|Combinazione delle proprietà "indexed", "stored" e "facet" attuali.|
+|display|Proprietà "display" attuale. True se il campo è visibile nella ricerca.|
+|ownerType|Ridotta solo ai tipi appartenenti agli indirizzi IP caricati.|
 
 
-## Optional parameters
-The following information describes optional parameters available.
+## Parametri facoltativi
+Le informazioni seguenti illustrano i parametri facoltativi disponibili.
 
-### Highlighting
+### Evidenziazione
 
-The “Highlight” parameter is an optional parameter you may use to request the search subsystem include a set of markers in its response.
+Il parametro "Highlight" è un parametro facoltativo che può essere usato per richiedere che il sottosistema di ricerca includa un set di marcatori nella risposta.
 
-These markers indicate the start and end highlighted text that matches the terms provided in your search query.
-You may specify the start and end markers that will be used by search to wrap the highlighted term.
+Questi marcatori indicano l'inizio e la fine del testo evidenziato che corrisponde ai termini forniti nella query di ricerca. È possibile specificare i marcatori di inizio e di fine che verranno usati dalla ricerca per eseguire il wrapping del termine evidenziato.
 
-**Example search query**
+**Query di ricerca di esempio**
 
 ```
 	$savedSearchParametersJson =
@@ -320,7 +319,7 @@ You may specify the start and end markers that will be used by search to wrap th
 	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
 ```
 
-**Sample result:**
+**Risultati di esempio:**
 
 ```
 	{
@@ -346,4 +345,4 @@ You may specify the start and end markers that will be used by search to wrap th
 
 Si noti che il risultato precedente contiene un messaggio di errore con prefisso e suffisso.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

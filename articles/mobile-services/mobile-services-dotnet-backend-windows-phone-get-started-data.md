@@ -195,7 +195,7 @@ In questa sezione si userà Visual Studio per testare l'app e il servizio mobile
 
 9. Immettere il testo di un nuovo oggetto todoitem. Fare quindi clic su **Salva**. Un nuovo elemento TodoItem verrà inserito nel database creato dal servizio mobile ospitato localmente in IIS Express. Fare clic sulla casella di controllo relativa a uno degli elementi per contrassegnarlo come completato.
 
-10. In Visual Studio interrompere il debug dell'app. È possibile visualizzare le modifiche nel database creato per il servizio back-end aprendo Esplora server ed espandendo Connessioni dati. Fare clic con il pulsante destro del mouse sulla tabella TodoItems in **MS_TableConnectionString** e scegliere **Mostra dati tabella**
+10. In Visual Studio interrompere il debug dell'app. È possibile visualizzare le modifiche nel database creato per il servizio back-end aprendo Esplora server ed espandendo Connessioni dati. Fare clic con il pulsante destro del mouse sulla tabella TodoItems in **MS\_TableConnectionString** e scegliere **Mostra dati tabella**
 
     ![Visualizzazione di dati nella tabella]([14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png)
 
@@ -272,4 +272,4 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

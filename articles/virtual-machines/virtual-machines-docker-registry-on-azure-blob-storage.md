@@ -1,4 +1,4 @@
-<properties 
+<properties title="Deploying Your Own Private Docker Registry on Azure"
   pageTitle="Distribuzione del registro Docker privato in Azure"
   description="Descrive come usare il registro Docker per ospitare immagini di contenitori nel servizio di archiviazione BLOB di Azure."
   services="virtual-machines"
@@ -92,4 +92,4 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

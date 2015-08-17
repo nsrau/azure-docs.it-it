@@ -76,9 +76,9 @@ Prima di usare il database SQL di Azure nel codice Java, è necessario creare un
     ![Determinazione della stringa di connessione JDBC][get_jdbc_connection_string]
 
 6. Fare clic con il pulsante destro del mouse sul contenuto evidenziato della stringa di connessione **JDBC** e scegliere **Copia**.
-7. È ora possibile incollare questo valore nel file di codice per creare una stringa di connessione con il formato seguente. Sostituire *your_server* (due occorrenze) con il testo copiato nel passaggio precedente, quindi sostituire *your_password* con il valore della password specificata al momento della creazione dell'account per il database SQL. Se sono stati utilizzati valori diversi da **gettingstarted** e **MySQLAdmin** sarà inoltre necessario modificare i valori assegnati rispettivamente a **database=** e **user=**. 
+7. È ora possibile incollare questo valore nel file di codice per creare una stringa di connessione con il formato seguente. Sostituire *your\_server* (due occorrenze) con il testo copiato nel passaggio precedente, quindi sostituire *your\_password* con il valore della password specificata al momento della creazione dell'account per il database SQL. Se sono stati utilizzati valori diversi da **gettingstarted** e **MySQLAdmin** sarà inoltre necessario modificare i valori assegnati rispettivamente a **database=** e **user=**. 
 
-    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your_server*" + ";" + "password=*your_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
+    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your\_server*" + ";" + "password=*your\_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
 
 Questa stringa verrà usata in seguito in questa guida; per il momento sono stati illustrati i passaggi per determinare la stringa di connessione. A seconda delle esigenze dell'applicazione, potrebbe inoltre essere necessario utilizzare le impostazioni **encrypt** e **hostNameInCertificate**, nonché modificare l'impostazione **loginTimeout**.
 
@@ -117,7 +117,7 @@ Questa stringa verrà usata in seguito in questa guida; per il momento sono stat
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
 
-5. Specificare la stringa di connessione. Di seguito è fornito un esempio. Come nei passaggi precedenti, sostituire *your_server* (due occorrenze), *your_user* e *your_password* con i valori appropriati per il server di database SQL.
+5. Specificare la stringa di connessione. Di seguito è fornito un esempio. Come nei passaggi precedenti, sostituire *your\_server* (due occorrenze), *your\_user* e *your\_password* con i valori appropriati per il server di database SQL.
 
         String connectionString =
         	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
@@ -726,4 +726,4 @@ Per ulteriori informazioni su Microsoft JDBC Driver per SQL Server, vedere [Pano
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

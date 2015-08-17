@@ -69,4 +69,4 @@ Il video del giorno 3 riguarda:
 
 [Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

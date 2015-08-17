@@ -27,8 +27,8 @@ Aumentando il numero di nodi di lavoro in un cluster è possibile usare più map
 
 - In fase di provisioning, è possibile specificare il numero di nodi di lavoro usando il portale di Azure, Azure PowerShell o l’interfaccia della riga di comando multipiattaforma. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight](hdinsight-provision-clusters.md). La schermata seguente mostra la configurazione dei nodi di lavoro nel portale di Azure:
 
-	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-- In fase di esecuzione, è inoltre possibile scalare orizzontalmente un cluster senza ricreare uno, come illustrato di seguito. ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+- In fase di esecuzione, è inoltre possibile scalare orizzontalmente un cluster senza ricreare uno, come illustrato di seguito. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
 Per ulteriori informazioni sulle diverse macchine virtuali supportate da HDInsight, vedere [Dettagli prezzi di HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -36,7 +36,7 @@ Per ulteriori informazioni sulle diverse macchine virtuali supportate da HDInsig
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) è un motore di esecuzione alternativo al motore di MapReduce:
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez_1]
 
 
 Tez è più veloce perché:
@@ -215,4 +215,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -6,14 +6,16 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
+
 
 # Aggiornare il dispositivo StorSimple
 
@@ -58,7 +60,7 @@ Per informazioni dettagliate su come installare gli aggiornamenti in modalità m
 
 In alternativa, è possibile utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti regolari (modalità normale).
 
-> [AZURE.IMPORTANT]Sebbene sia possibile installare aggiornamenti regolari tramite Windows PowerShell per StorSimple, è consigliabile installare gli aggiornamenti periodici tramite il portale di gestione. A partire dall'aggiornamento 1, vengono eseguiti controlli preliminari prima di installare gli aggiornamenti dal portale, che consentono di prevenire errori e garantiscono un'esperienza più lineare.
+> [AZURE.IMPORTANT]Sebbene sia possibile installare aggiornamenti regolari tramite Windows PowerShell per StorSimple, è consigliabile installare gli aggiornamenti periodici tramite il portale di gestione. A partire dall’aggiornamento 1, verranno eseguiti controlli preliminari prima di installare gli aggiornamenti dal portale. Questi controlli preliminari preverranno errori e garantiranno un'esperienza più uniforme.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -119,4 +121,4 @@ Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli ag
 Altre informazioni su [Windows PowerShell per StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

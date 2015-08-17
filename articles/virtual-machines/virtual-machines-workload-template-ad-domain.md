@@ -106,4 +106,4 @@ Una volta completata l'esecuzione del modello, si dispone di un nuovo, dominio d
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

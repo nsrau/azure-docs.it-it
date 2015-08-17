@@ -63,7 +63,7 @@ Si presuppone che se viene trovato un account utente disabilitato, non verrà tr
 
 ## Modifica dell'attributo sourceAnchor
 
-Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modificarne l'attributo sourceAnchor.. Dopo che l'oggetto è stato esportato, l'attributo metaverse **cloudSourceAnchor**viene impostato sul valore **sourceAnchor** accettato da Azure AD. Se **sourceAnchor** viene modificato e non corrisponde a **cloudSourceAnchor**, la regola\*\*In uscita ad Azure AD - Aggiunta utente\*\* genera l'errore che indica che **l'attributo sourceAnchor è stato modificato**. In questo caso, è necessario correggere la configurazione o i dati in modo che lo stesso attributo sourceAnchor sia di nuovo presente nell'oggetto metaverse prima che l'oggetto venga sincronizzato di nuovo.
+Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modificarne l'attributo sourceAnchor.. Dopo che l'oggetto è stato esportato, l'attributo metaverse **cloudSourceAnchor**viene impostato sul valore **sourceAnchor** accettato da Azure AD. Se **sourceAnchor** viene modificato e non corrisponde a **cloudSourceAnchor**, la regola**In uscita ad Azure AD - Aggiunta utente** genera l'errore che indica che **l'attributo sourceAnchor è stato modificato**. In questo caso, è necessario correggere la configurazione o i dati in modo che lo stesso attributo sourceAnchor sia di nuovo presente nell'oggetto metaverse prima che l'oggetto venga sincronizzato di nuovo.
 
 
 
@@ -75,4 +75,4 @@ Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modifi
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

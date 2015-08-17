@@ -7,14 +7,16 @@
    manager="carolz" 
    editor=""/>
 
+
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/24/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos@microsoft.com"/>
+
 
 # Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple
 
@@ -131,4 +133,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
  
      
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

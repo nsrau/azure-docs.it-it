@@ -7,6 +7,7 @@
 	editor="" 
 	services="mobile-services"/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/16/2015" 
 	ms.author="wesmc;donnam"/>
+
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
 
@@ -59,7 +61,7 @@ In questa sezione viene usato SQLite come archivio locale per le funzionalità o
 
     >[AZURE.NOTE]Quando si fa clic sul collegamento di installazione di SQLite in Internet Explorer, è possibile che venga chiesto di scaricare il file con estensione vsix come zip. Salvare il file in un percorso del disco rigido utilizzando l'estensione .vsix invece di .zip. Quindi, fare doppio clic sul file con estensione vsix in Esplora risorse per eseguire l'installazione.
 
-2. In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati]. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** sotto il progetto e aggiungere un riferimento a **SQLite per Windows Phone** in **Windows Phone**>**Estensioni**.
+2. In Visual Studio aprire il progetto completato nell'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati]. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** sotto il progetto e aggiungere un riferimento a **SQLite for Windows Phone** in **Windows Phone**>**Estensioni**.
 
     ![][1]
 
@@ -178,7 +180,7 @@ In questa sezione verrà interrotta la connessione dell'app al servizio mobile p
 Si noti che in questa sezione l'app non deve essere connessa ad alcun servizio mobile. Pertanto, se vengono testati, i pulsanti **Push** e **Pull** genereranno eccezioni. Nella sezione successiva verrà effettuata di nuovo la connessione di questa app client al servizio mobile per testare le operazioni **push** e **pull** allo scopo di sincronizzare l'archivio con il database del servizio mobile.
 
 
-1. In Esplora soluzioni di Visual Studio aprire il file App.xaml.cs. Modificare l'inizializzazione di **MobileServiceClient** impostandola su un indirizzo non valido mediante la sostituzione di "**azure-mobile.net**" con "**azure-mobile.xxx**" per l'URL. Salvare il file.
+1. In Esplora soluzioni di Visual Studio aprire il file App.xaml.cs. Modificare l'inizializzazione di **MobileServiceClient** impostandola su un indirizzo non valido mediante la sostituzione di ""**azure-mobile.net**" con "**azure-mobile.xxx**" per l'URL. Salvare il file.
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://your-mobile-service.azure-mobile.xxx/",
@@ -292,4 +294,4 @@ In questa sezione verrà effettuato il test delle operazioni push e pull per sin
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

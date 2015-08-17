@@ -121,4 +121,4 @@ Vista la semplicit√† dell'uso dell'archiviazione tabelle con il back-end .NET, √
 [pagina del componente aggiuntivo MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

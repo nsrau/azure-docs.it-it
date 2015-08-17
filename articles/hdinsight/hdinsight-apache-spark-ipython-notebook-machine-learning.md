@@ -32,7 +32,7 @@ Informazioni su come creare un'applicazione che utilizza un cluster Apache Spark
 
 Prima di iniziare la compilazione dell'applicazione, possiamo comprendere la struttura dei dati e il tipo di analisi che facciamo sui dati.
 
-In questo articolo, è possibile utilizzare l'esempio file dati **HVAC.csv** è disponibile in tutti i cluster HDInsight per impostazione predefinita in **\HdiSamples\SensorSampleData\hvac**. Scaricare e aprire il file CSV per ottenere uno snapshot dei dati.
+In questo articolo, è possibile utilizzare l'esempio file dati **HVAC.csv** è disponibile in tutti i cluster HDInsight per impostazione predefinita in **\\HdiSamples\\SensorSampleData\\hvac**. Scaricare e aprire il file CSV per ottenere uno snapshot dei dati.
 
 ![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "Snapshot dei dati HVAC")
 
@@ -204,7 +204,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 		Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
 		Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
 
-	La prima riga di stima, si noterà che per un sistema HVAC con ID 20 e validità del sistema di 25 anni, l’edificio sarà caldo (* * stima = 1.0 * *). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0,0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima = 1.0**.
+	La prima riga di stima, si noterà che per un sistema HVAC con ID 20 e validità del sistema di 25 anni, l’edificio sarà caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0,0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima = 1.0**.
 
 11. È ora possibile chiudere il notebook riavviando il kernel. Dalla barra del menu superiore, fare clic su **Kernel**, quindi fare clic su **Riavvia**, quindi fare clic su **Riavvia** nuovamente al prompt.
 
@@ -213,7 +213,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 ##<a name="anaconda"></a>Usare la libreria Anaconda scikit-informazioni per machine learning
 
-I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-informazioni** per l'apprendimento automatico. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'utilizzo della libreria scikit-informazioni, vedere [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-informazioni** per l'apprendimento automatico. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'utilizzo della libreria scikit-informazioni, vedere [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ##<a name="seealso"></a>Vedere anche
 
@@ -240,4 +240,4 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

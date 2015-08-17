@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Informazioni su come gestire i servizi Web di AzureML con Gestione API | Microsoft Azure"
 	description="Guida che mostra come gestire i servizi Web di AzureML con Gestione API."
-	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -38,7 +37,7 @@ Per completare questa guida, è necessario:
 
 * Un account Azure. Se non si dispone di un account Azure, fare clic [qui](http://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
 * Un account AzureML. Se non si dispone di un account AzureML, fare clic [qui](https://studio.azureml.net/) per informazioni dettagliate su come creare un account di prova gratuito.
-* L'area di lavoro, il servizio e l'api_key per un esperimento di AzureML pubblicato come servizio web. Per informazioni dettagliate su come creare un esperimento di AzureML, fare clic [qui](machine-learning/machine-learning-create-experiment.md). Per informazioni dettagliate su come pubblicare un esperimento di AzureML come servizio Web, fare clic [qui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md). In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e pubblicarlo come servizio Web.
+* L'area di lavoro, il servizio e l'api\_key per un esperimento di AzureML pubblicato come servizio web. Per informazioni dettagliate su come creare un esperimento di AzureML, fare clic [qui](machine-learning/machine-learning-create-experiment.md). Per informazioni dettagliate su come pubblicare un esperimento di AzureML come servizio Web, fare clic [qui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md). In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e pubblicarlo come servizio Web.
 
 ##Creare un'istanza di Gestione API
 
@@ -72,7 +71,7 @@ Fare clic su **API** dal menu **Gestione API** sulla sinistra, quindi scegliere 
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Digitare **AzureML Demo API** in **Nome API Web**. Digitare **https://ussouthcentral.services.azureml.net** in **URL del servizio Web**. Digitare **azureml-demo** in **Suffisso dell'URL dell'API Web**. Selezionare **HTTPS** come schema dell'**URL dell'API Web**. Selezionare **Starter** in **Prodotti**. Al termine, fare clic su **Salva** per creare l'API.
+Digitare **AzureML Demo API** in **Nome API Web**. Digitare ****https://ussouthcentral.services.azureml.net** in **URL del servizio Web**. Digitare **azureml-demo** in **Suffisso dell'URL dell'API Web**. Selezionare **HTTPS** come schema dell'**URL dell'API Web**. Selezionare **Starter** in **Prodotti**. Al termine, fare clic su **Salva** per creare l'API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -100,19 +99,19 @@ Non sono incluse schermate per le operazioni di BES perché sono molto simili a 
 
 ###Inviare (ma non avviare) un processo di esecuzione in batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Submit** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Submit** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ###Avviare un processo di esecuzione in batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}/start?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Start** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}/start?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Start** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ###Ottenere lo stato o il risultato di un processo di esecuzione del Batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **GET** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Status** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **GET** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Status** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ###Eliminare un processo di esecuzione in batch
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **DELETE** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Delete** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **DELETE** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Delete** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
 
 ##Chiamare un'operazione dal portale per sviluppatori
 
@@ -130,7 +129,7 @@ Selezionare **RRS Execute** come operazione. Fare clic su **Prova**.
 
 Per i parametri della richiesta, digitare l'**area di lavoro**, il **servizio**, **2.0** per la **versione API** e **true** per i **dettagli**. È possibile trovare l'**area di lavoro** e il **servizio** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
 
-Per le intestazioni della richiesta, fare clic su **Aggiungi intestazione** e digitare **Content-Type** e **application/json**, quindi fare clic su **Aggiungi intestazione** e digitare **Authorization** e **Bearer <YOUR AZUREML SERVICE API-KEY>**. È possibile trovare la **chiave API** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
+Per le intestazioni della richiesta, fare clic su **Aggiungi intestazione** e digitare **Content-Type** e **application/json**, quindi fare clic su **Aggiungi intestazione** e digitare **Authorization** e **Bearer <YOUR AZUREML SERVICE API-KEY>**. È possibile trovare la **chiave API** nel dashboard del servizio Web di Azure ML (vedere **Testare il servizio Web** nell'Appendice A).
 
 Digitare **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}** come corpo della richiesta.
 
@@ -146,7 +145,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 
 ##Appendice A - Creazione e test di un semplice servizio Web di AzureML
 
-###Creazione dell'esperimento
+###Creazione di un esperimento
 
 Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e pubblicarlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio:
 
@@ -166,7 +165,7 @@ Espandere **Data Transformation** e **Manipulation** e trascinare **Project Colu
 
 ![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Fare clic su **Project Columns** e quindi fare clic su **Launch column selector** e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
+Fare clic su **Project Columns**, quindi su **Launch column selector** e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
@@ -272,8 +271,8 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 	storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
 	storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
 	storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
-	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\mydata.csv
-	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\myresults.csv
+	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
+	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
 	input_blob_name = "mydatablob.csv"
 	output_blob_name = "myresultsblob.csv"
 	def printHttpError(httpError):
@@ -384,4 +383,4 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

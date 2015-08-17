@@ -27,7 +27,7 @@ Il monitoraggio predefinito delle dipendenze è attualmente disponibile per:
 * App Web e servizi di ASP.NET in esecuzione su un server IIS oppure su Azure
 * [Applicazioni web Java](app-insights-java-agent.md)
 
-Per altri tipi, ad esempio app Web Java o applicazioni per dispositivi, è possibile scrivere il proprio codice di monitoraggio usando l'API TrackDependency.
+Per altri tipi, ad esempio applicazioni per dispositivi, è possibile scrivere il proprio codice di monitoraggio usando l'[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seguenti tipi di dipendenze:
 
@@ -37,7 +37,7 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
  * Chiamate HTTP locali o remote
  * Azure DocumentDB, tabelle, archivio BLOB e coda
 * Java
- * Chiamate a un database tramite un[JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)driver, ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
+ * Chiamate a un database tramite un driver[JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
 
 Anche in questo caso, è possibile scrivere le proprie chiamate SDK per monitorare altre dipendenze.
 
@@ -129,4 +129,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

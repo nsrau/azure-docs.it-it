@@ -172,4 +172,4 @@ Per usare servizi di Azure dall'applicazione Ruby, vedere:
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

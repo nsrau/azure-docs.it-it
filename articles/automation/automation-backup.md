@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Backup di Automazione di Azure
@@ -44,4 +44,4 @@ Non è possibile esportare certificati da Automazione di Azure. È necessario as
 - [Asset di automazione](https://msdn.microsoft.com/library/dn939988.aspx)
 - [Cmdlet di Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

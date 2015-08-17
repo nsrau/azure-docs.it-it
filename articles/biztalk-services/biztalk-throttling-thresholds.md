@@ -28,29 +28,7 @@ Servizi BizTalk di Azure implementa la limitazione del servizio sulla base di du
 
 Nella tabella seguente sono elencate le origini e le soglie di limitazione:
 
-<table border="1">
-
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <td><strong>Descrizione</strong></td>
-        <td><strong>Soglia inferiore</strong></td>
-        <td><strong>Soglia superiore</strong></td>
-</tr>
-    <tr>
-        <td>Memoria</td>
-        <td>Percentuale di memoria totale del sistema disponibile/byte file di paging. 
-<br/><br/>
-I byte totali disponibili del file di paging sono il doppio della RAM del sistema.</td>
-        <td>60%</td>
-        <td>70%</td>
-    </tr>
-    <tr>
-        <td>Elaborazione di messaggi</td>
-        <td>Numero di messaggi elaborati simultaneamente</td>
-        <td>40 * numero di memorie centrali</td>
-        <td>100 * numero di memorie centrali</td>
-    </tr>
-</table>
+|| Descrizione | Threshold bassa \\ Threshold elevata| |---|---|---|---| | Memoria| % del sistema della memoria totale disponibile/byte file della pagina. <p><p>Totale byte file di pagina disponibile corrisponde a circa 2 volte la quantità di RAM del sistema. | 60% |70% | | Messaggi elaborati| Numero di messaggi elaborati simultaneamente|40 * numero di memorie centrali|100 * numero di memorie centrali|
 
 Quando viene raggiunta una soglia superiore, Servizi BizTalk di Azure inizia la limitazione. La limitazione viene interrotta quando viene raggiunta la soglia inferiore. Se ad esempio il servizio utilizza il 65% della memoria di sistema, non viene applicata la limitazione. Se invece il servizio inizia a utilizzare il 70% della memoria di sistema, viene applicata la limitazione, che continua fino a quando il servizio non utilizzerà il 60% (soglia inferiore) della memoria di sistema.
 
@@ -88,4 +66,4 @@ Quando Servizi BizTalk di Azure entra nello stato di limitazione, si verifica qu
 - [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

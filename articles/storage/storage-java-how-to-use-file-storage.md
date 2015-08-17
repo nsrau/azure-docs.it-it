@@ -50,7 +50,7 @@ Per utilizzare la condivisione di file, è necessario connettersi all'account di
 	    "AccountName=your_storage_account_name;" + 
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Sostituire your_storage_account_name e your_storage_account_key con i valori effettivi dell'account di archiviazione.
+> [AZURE.NOTE]Sostituire your\_storage\_account\_name e your\_storage\_account\_key con i valori effettivi dell'account di archiviazione.
 
 ## Connessione a un account di archiviazione di Azure
 
@@ -97,7 +97,7 @@ Il primo passaggio del caricamento di un file consiste nell'ottenere un riferime
 Ora che si dispone di un riferimento alla directory radice della condivisione, è possibile caricarvi un file mediante il codice seguente.
 
 	// Define the path to a local file.
-	final String filePath = "C:\temp\Readme.txt";
+	final String filePath = "C:\\temp\\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -222,4 +222,4 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

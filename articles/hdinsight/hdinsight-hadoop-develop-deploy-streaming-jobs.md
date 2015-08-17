@@ -7,6 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/08/2015" 
 	ms.author="jgao"/>
+
 
 
 
@@ -149,8 +151,8 @@ La soluzione per il conteggio delle parole include due progetti di applicazione 
 
 I file eseguibili di mapper e reducer si trovano nei percorsi seguenti:
 
-- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
-- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
+- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
+- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
 ##<a name="test"></a>Testare il programma nell'emulatore
@@ -167,9 +169,9 @@ Per impostazione predefinita, HDInsight Emulator usa HDFS (Hadoop Distributed Fi
 
 In questa esercitazione viene utilizzata la struttura di cartelle seguente:
 
-<table border="1"> <tr><td>Cartella</td><td>Nota</td></tr> <tr><td>\WordCount</td><td>Cartella radice per il progetto di conteggio delle parole. </td></tr> <tr><td>\WordCount\Apps</td><td>Cartella per i file eseguibili di mapper e reducer.</td></tr> <tr><td>\WordCount\Input</td><td>Cartella dei file di origine di MapReduce.</td></tr> <tr><td>\WordCount\Output</td><td>Cartella dei file di output di MapReduce.</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>Cartella di output del processo.</td></tr> </table></br>
+<table border="1"> <tr><td>Cartella</td><td>Nota</td></tr> <tr><td>\\WordCount</td><td>Cartella radice per il progetto di conteggio delle parole. </td></tr> <tr><td>\\WordCount\\Apps</td><td>Cartella per i file eseguibili di mapper e reducer.</td></tr> <tr><td>\\WordCount\\Input</td><td>Cartella dei file di origine di MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>Cartella dei file di output di MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>Cartella di output del processo.</td></tr> </table></br>
 
-In questa esercitazione vengono utilizzati i file con estensione txt disponibili nella directory %hadoop_home%.
+In questa esercitazione vengono utilizzati i file con estensione txt disponibili nella directory %hadoop\_home%.
 
 > [AZURE.NOTE]I comandi HDFS di Hadoop rispettano la distinzione tra maiuscole e minuscole.
 
@@ -263,7 +265,8 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 
 **Per verificare lo stato del processo**
 
-1. Sul desktop fare clic su **Hadoop YARN Status** oppure passare a **http://localhost:50030/jobtracker.jsp**. 2. Trovare il processo usando l'ID processo nella categoria **RUNNING** o **FINISHED**. 
+1. Sul desktop fare clic su **Hadoop YARN Status** oppure passare a ****http://localhost:50030/jobtracker.jsp**.
+2. Trovare il processo usando l'ID processo nella categoria **RUNNING** o **FINISHED**. 
 3. Se un processo ha avuto esito negativo, sarà possibile trovarlo nella categoria **FAILED**. Sarà anche possibile visualizzare i dettagli relativi al processo e trovare informazioni utili per il debug.
 
 
@@ -278,7 +281,7 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 	È possibile aggiungere "|more" alla fine del comando per ottenere la visualizzazione della pagina
 
 ##<a id="upload"></a>Caricare dati nell'archivio BLOB di Azure
-Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. È possibile configurare un cluster HDInsight per l'utilizzo di archiviazione BLOB aggiuntiva per i file di dati. In questa sezione verrà creato un account di archiviazione di Azure e i file di dati verranno caricati nell'archivio BLOB. I file di dati sono file con estensione txt disponibili nella directory %hadoop_home%\share\doc\hadoop\common.
+Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. È possibile configurare un cluster HDInsight per l'utilizzo di archiviazione BLOB aggiuntiva per i file di dati. In questa sezione verrà creato un account di archiviazione di Azure e i file di dati verranno caricati nell'archivio BLOB. I file di dati sono file con estensione txt disponibili nella directory %hadoop\_home%\\share\\doc\\hadoop\\common.
 
 
 **Per creare un account di archiviazione e un contenitore**
@@ -316,7 +319,7 @@ Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. 
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	Si noti che la cartella di file di origine locale è **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** e la cartella di destinazione è **WordCount/Input**. Il percorso di origine è il percorso dei file txt nell'emulatore HDInsight. La destinazione è la struttura di cartelle che sarà rispecchiata nel contenitore BLOB di Azure.
+	Si noti che la cartella di file di origine locale è **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** e la cartella di destinazione è **WordCount/Input**. Il percorso di origine è il percorso dei file txt nell'emulatore HDInsight. La destinazione è la struttura di cartelle che sarà rispecchiata nel contenitore BLOB di Azure.
 
 3. Eseguire i comandi seguenti per ottenere un elenco dei file con estensione txt disponibili nella cartella di file di origine:
 
@@ -468,7 +471,7 @@ Questa sezione fornisce uno script di Azure PowerShell che esegue tutte le attiv
 
 3. Impostare le prime quattro variabili nello script. La variabile **$stringPrefix** verrà usata per aggiungere la stringa specificata come prefisso del nome del cluster HDInsight, del nome dell'account di archiviazione e del nome del contenitore di archiviazione BLOB. Poiché la lunghezza di questi nomi deve essere compresa tra 3 e 24 caratteri, assicurarsi che la stringa specificata e i nomi usati dallo script non superino, una volta combinati, il limite di caratteri fissato per il nome. Per **$stringPrefix** è necessario usare tutte lettere minuscole.
 
-	Le variabili **$storageAccountName_Data** e **$containerName_Data** corrispondono all'account e al contenitore di archiviazione già creati nei passaggi precedenti, quindi è necessario specificarne i nomi. Vengono usati per archiviare i file di dati e le applicazioni. La variabile **$location** deve corrispondere alla posizione dell'account di archiviazione dei dati.
+	Le variabili **$storageAccountName\_Data** e **$containerName\_Data** corrispondono all'account e al contenitore di archiviazione già creati nei passaggi precedenti, quindi è necessario specificarne i nomi. Vengono usati per archiviare i file di dati e le applicazioni. La variabile **$location** deve corrispondere alla posizione dell'account di archiviazione dei dati.
 
 4. Esaminare le variabili rimanenti.
 5. Salvare il file di script.
@@ -551,4 +554,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

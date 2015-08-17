@@ -14,7 +14,7 @@ Gli argomenti e le sottoscrizioni del bus di servizio garantiscono scalabilità,
 
 Per iniziare a usare gli argomenti e le sottoscrizioni del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio che fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-Per creare uno spazio dei nomi servizio:
+Per creare uno spazio dei nomi del servizio:
 
 1.  Accedere al [portale di gestione di Azure][].
 
@@ -28,7 +28,7 @@ Per creare uno spazio dei nomi servizio:
 
 	IMPORTANTE: selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
-6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+6. 	Non modificare i valori predefiniti negli altri campi della finestra di dialogo (**Messaggistica** e **Livello Standard**), quindi fare clic sul segno di spunta. A questo punto, lo spazio dei nomi del servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 	![][6]
 
@@ -64,4 +64,4 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

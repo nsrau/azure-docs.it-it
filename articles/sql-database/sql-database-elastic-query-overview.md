@@ -92,7 +92,7 @@ Una credenziale rappresenta l'ID utente e password che verrà utilizzata la quer
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
-Assicurarsi che il & lt; shard_map_username > non include un suffisso "@servername".
+Assicurarsi che il & lt; shard\_map\_username > non include un suffisso "@servername".
 
 Per eliminare la chiave master e le credenziali, è possibile utilizzare la sintassi seguente:
 
@@ -204,9 +204,9 @@ Dopo aver definito l'origine dati esterna e le tabelle esterne, è possibile uti
     where w_id > 100 and w_id < 200
     group by w_id, o_c_id
 
-### Stored procedure sp _ EXECUTE_FANOUT
+### Stored procedure sp \_ EXECUTE\_FANOUT
 
-SP_EXECUTE_FANOUT è una stored procedure che fornisce l'accesso ai database rappresentato da una mappa di partizionamento. La stored procedure accetta i parametri seguenti:
+SP\_EXECUTE\_FANOUT è una stored procedure che fornisce l'accesso ai database rappresentato da una mappa di partizionamento. La stored procedure accetta i parametri seguenti:
 
 -    **Nome server** (nvarchar): nome completo del server logico che ospita il mapping della partizione.
 -    **Nome del database mappa partizionamento** (nvarchar): il nome del database di mappa di partizionamento.
@@ -240,7 +240,7 @@ La query di Database flessibile è inclusa il costo del database di SQL Azure. S
 Esistono alcuni aspetti da tenere a mente dell'anteprima:
 
 *    La funzionalità di query di Database elastica sarà inizialmente solo essere disponibili nel livello di prestazioni Premium v12 DB SQL, anche se database remoti di accedere a una query di database flessibile possono essere di qualsiasi livello.
-* Tabelle esterne a cui fa riferimento l'origine dati esterna supportano solo operazioni di lettura sul database remoti. È possibile, tuttavia, puntare tutte le funzionalità Transact-SQL nel database di query di database elastica cui si trova la definizione della tabella esterna. Può trattarsi utile, ad esempio, per rendere persistenti i risultati temporanei utilizzando SELECT elenco_colonne INTO local_table o per definire stored procedure nel database database elastica query che fanno riferimento a tabelle esterne.
+* Tabelle esterne a cui fa riferimento l'origine dati esterna supportano solo operazioni di lettura sul database remoti. È possibile, tuttavia, puntare tutte le funzionalità Transact-SQL nel database di query di database elastica cui si trova la definizione della tabella esterna. Può trattarsi utile, ad esempio, per rendere persistenti i risultati temporanei utilizzando SELECT elenco\_colonne INTO local\_table o per definire stored procedure nel database database elastica query che fanno riferimento a tabelle esterne.
 *    Parametri nelle query attualmente non possono essere inseriti ai database remoti. Sarà necessario recuperare tutti i dati del nodo head e query con parametri potrebbe subire un peggioramento delle prestazioni in base alla dimensione dei dati. È una soluzione temporanea per evitare di parametri nelle query o per utilizzare l'opzione RECOMPILE per disporre di parametri automaticamente sostituiti con i relativi valori correnti.
 * Statistiche a livello di colonna sulle tabelle esterne non sono attualmente supportate.
 * La query di Database flessibile, attualmente non esegue eliminazione partizione quando predicati tramite la chiave di partizionamento orizzontale consente di escludere in modo sicuro determinati database remoti dall'elaborazione. Di conseguenza, le query verranno cancellati sempre tutti i database remoti, rappresentati da origini dati esterne della query.
@@ -263,4 +263,4 @@ Per iniziare a esplorare le query di Database elastico, provare la nostra eserci
 
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

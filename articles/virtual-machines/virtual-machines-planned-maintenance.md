@@ -110,4 +110,4 @@ Ad esempio, durante una manutenzione pianificata, Azure non implementerà un agg
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

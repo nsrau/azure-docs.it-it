@@ -184,4 +184,4 @@ o
 Per un esempio della procedura dettagliata end-to-end in cui viene usato ADAPT (Advanced Analytics Process and Technology) con un set di dati pubblici, vedere [Advanced Analytics Process and Technology in azione: uso di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

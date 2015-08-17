@@ -38,7 +38,7 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 Per usare le API delle code del bus di servizio di Azure, effettuare quanto segue:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
@@ -213,4 +213,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

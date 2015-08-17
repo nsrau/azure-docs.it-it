@@ -18,9 +18,12 @@
 
 # Gestione di Azure AD Connect 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="Che cos&apos;è">Che cos'è</a> <a href="../active-directory-aadconnect-how-it-works/" title="Come funziona">Come funziona</a> <a href="../active-directory-aadconnect-get-started/" title="Introduzione">Introduzione</a> <a href="../active-directory-aadconnect-whats-next/" title="Passaggi successivi" class="current">Passaggi successivi</a> <a href="../active-directory-aadconnect-learn-more/" title="Altre informazioni">Altre informazioni</a>
-</div>
+> [AZURE.SELECTOR]
+- [What is It](../active-directory-aadconnect/)
+- [How it Works](../active-directory-aadconnect-how-it-works/)
+- [Getting Started](../active-directory-aadconnect-get-started/)
+- [What's Next](../active-directory-aadconnect-whats-next/) 
+- [Learn More](../active-directory-aadconnect-learn-more/)
 
 Di seguito sono riportati argomenti operativi avanzati che permettono di personalizzare Azure Active Directory Connect per soddisfare le esigenze e i requisiti dell'organizzazione.
 
@@ -30,13 +33,12 @@ Dopo avere sincronizzato gli utenti nel cloud, occorre assegnare loro una licenz
 
 ### Per assegnare una licenza Azure AD Premium o Enterprise Mobility Suite
 --------------------------------------------------------------------------------
-<ol>
-<li>Accesso al portale di Azure come amministratore.</li>
-<li>A sinistra selezionare **Active Directory**.</li>
-<li>Nella pagina Active Directory fare doppio clic sulla directory con gli utenti da abilitare.</li>
-<li>Nella parte superiore della pagina della directory selezionare **Licenses**.</li>
-<li>Nella pagina Licenze selezionare Active Directory Premium o Enterprise Mobility Suite, quindi fare clic su **Assegna**.</li>
-<li>Nella finestra di dialogo selezionare gli utenti a cui assegnare le licenze, quindi fare clic sull'icona con il segno di spunta per salvare le modifiche.</li>
+1. Accesso al portale di Azure come amministratore.
+2. A sinistra, selezionare **Active Directory**.
+3. Nella pagina Active Directory fare doppio clic sulla directory con gli utenti da abilitare.
+4. Nella parte superiore della pagina della directory selezionare **Licenses**.
+5. Nella pagina Licenze selezionare Active Directory Premium o Enterprise Mobility Suite, quindi fare clic su **Assegna**.
+6. Nella finestra di dialogo selezionare gli utenti a cui assegnare le licenze, quindi fare clic sull'icona con il segno di spunta per salvare le modifiche.
 
 
 ## Verificare l'attività di sincronizzazione pianificata
@@ -66,7 +68,8 @@ Dopo l'installazione iniziale di Azure AD Connect è sempre possibile riavviare 
 
 La tabella seguente include un riepilogo di tali attività e una breve descrizione di ognuna di esse.
 
-<center>![Join Rule](./media/active-directory-aadconnect-whats-next/addtasks.png) </center>
+![Regola di aggiunta](./media/active-directory-aadconnect-whats-next/addtasks.png)
+
 
 Attività aggiuntive | Descrizione 
 ------------- | ------------- |
@@ -85,6 +88,7 @@ Abilitazione modalità di gestione temporanea | Consente di inserire in un'area 
 ## Documentazione aggiuntiva
 Per altra documentazione sull'uso di Azure AD Connect vedere gli articoli seguenti:
 
+- [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 - [Modifica della configurazione predefinita di Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Uso dell'Editor regole di sincronizzazione di Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Uso del provisioning dichiarativo](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -94,4 +98,4 @@ Parte della documentazione creata per Azure AD Sync è comunque pertinente e si 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

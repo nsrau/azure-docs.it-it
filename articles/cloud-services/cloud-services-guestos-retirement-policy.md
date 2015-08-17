@@ -59,7 +59,7 @@ Le versioni del sistema operativo guest vengono rilasciate ogni mese. A causa de
 
 Allo scadere del periodo di 60 giorni una versione viene "*disabilitata*". "Disabilitata" significa che la versione viene rimossa dal portale di gestione di Azure. Inoltre non può più essere impostata dal file di configurazione CSCFG. Le distribuzioni esistenti vengono mantenute in esecuzione, ma non è consentito eseguire nuove distribuzioni e aggiornamenti di configurazione e di codice alle distribuzioni esistenti.
 
-In un momento successivo, la versione del sistema operativo guest "*scade*", viene forzato l'aggiornamento delle installazioni in cui è ancora in esecuzione la versione in questione e viene impostato l'aggiornamento automatico del sistema operativo guest per il futuro. La scadenza è un processo graduale, per cui il periodo che intercorre tra la disabilitazione e la scadenza può variare.
+In un momento successivo, la versione del sistema operativo guest "*scade*", e viene forzato l'aggiornamento delle installazioni che ancora eseguono la versione in questione e viene impostato l'aggiornamento automatico del sistema operativo Guest per il futuro. La scadenza è un processo graduale, per cui il periodo che intercorre tra la disabilitazione e la scadenza può variare.
 
 Questi periodi possono essere resi più lunghi a discrezione di Microsoft per facilitare le transizioni del cliente. Le modifiche vengono comunicate nella [matrice di compatibilità di SDK e delle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md).
 
@@ -88,4 +88,4 @@ Per progettare i Servizi cloud è consigliabile usare la famiglia di sistemi ope
 Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

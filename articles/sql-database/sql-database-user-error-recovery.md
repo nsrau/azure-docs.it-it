@@ -109,4 +109,4 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 Dopo aver completato il ripristino, sarà possibile configurare il database ripristinato da utilizzare seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

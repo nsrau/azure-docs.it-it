@@ -65,28 +65,11 @@ Il connettore X12 può essere usato come trigger o come azione.
 
 	![Configurazione di Encode][10]
 
-<table>
-	<tr>
-		<th>Parametro</th>
-		<th>Tipo</th>
-		<th>Descrizione del parametro</th>
-	</tr>
-	<tr>
-		<td>Content</td>
-		<td>stringa</td>
-		<td>Messaggio XML</td>
-	</tr>
-	<tr>
-		<td>Agreement ID</td>
-		<td>stringa</td>
-		<td>ID del contratto</td>
-	</tr>
-	<tr>
-		<td>Is Batched Message</td>
-		<td>stringa</td>
-		<td>Indicazione dell'invio del messaggio in batch</td>
-	</tr>
-</table>
+Parametro|Tipo|Descrizione del parametro
+---|---|---
+Content|stringa|Messaggio XML
+Agreement ID|stringa|ID del contratto
+Is Batched Message|stringa|Indicazione dell'invio del messaggio in batch
 
 L'azione restituisce un oggetto contenente il payload X12.
 
@@ -109,4 +92,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

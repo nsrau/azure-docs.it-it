@@ -62,12 +62,12 @@ Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Sta
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
 ## Recuperare la stringa di connessione
-Per rappresentare le informazioni dell'account di archiviazione, è possibile utilizzare la classe **cloud_storage_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse**.
+Per rappresentare le informazioni dell'account di archiviazione, è possibile utilizzare la classe **cloud\_storage\_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Successivamente, ottenere un riferimento alla classe **cloud_blob_client**, in quanto consente di recuperare oggetti che rappresentano contenitori e BLOB archiviati nel servizio di archiviazione BLOB. Il codice seguente consente di creare un oggetto **cloud_blob_client** utilizzando l'oggetto account di archiviazione recuperato in precedenza:
+Successivamente, ottenere un riferimento alla classe **cloud\_blob\_client**, in quanto consente di recuperare oggetti che rappresentano contenitori e BLOB archiviati nel servizio di archiviazione BLOB. Il codice seguente consente di creare un oggetto **cloud\_blob\_client** utilizzando l'oggetto account di archiviazione recuperato in precedenza:
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -109,7 +109,7 @@ I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, 
 ## Procedura: caricare un BLOB in un contenitore
 In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.
 
-Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo **upload_from_stream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore e si presuppone che il contenitore sia già stato creato.
+Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo **upload\_from\_stream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore e si presuppone che il contenitore sia già stato creato.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -137,10 +137,10 @@ Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un conteni
 	azure::storage::cloud_block_blob blob3 = container.get_block_blob_reference(U("my-directory/my-sub-directory/my-blob-3"));
 	blob3.upload_text(U("other text"));  
 
-In alternativa, è possibile utilizzare il metodo **upload_from_file** per caricare un file in un BLOB in blocchi.
+In alternativa, è possibile utilizzare il metodo **upload\_from\_file** per caricare un file in un BLOB in blocchi.
 
 ## Procedura: elencare i BLOB in un contenitore
-Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **list_blobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set completo di proprietà e metodi per un **list_blob_item** restituito, è necessario richiamare il metodo **list_blob_item.as_blob** per ottenere un oggetto **cloud_blob** o il metodo **list_blob.as_directory** per ottenere un oggetto cloud_blob_directory. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ciascun elemento del contenitore **my-sample-container**:
+Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **list\_blobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set completo di proprietà e metodi per un **list\_blob\_item** restituito, è necessario richiamare il metodo **list\_blob\_item.as\_blob** per ottenere un oggetto **cloud\_blob** o il metodo **list\_blob.as\_directory** per ottenere un oggetto cloud\_blob\_directory. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ciascun elemento del contenitore **my-sample-container**:
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -168,7 +168,7 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
 Per ulteriori informazioni sull'elenco di operazioni, vedere[elenco risorse di archiviazione Azure in C++](storage-c-plus-plus-enumeration.md).
 
 ## Procedura: scaricare i BLOB
-Per scaricare i BLOB, recuperare innanzitutto un riferimento al BLOB, quindi chiamare il metodo **download_to_stream**. Nell'esempio seguente viene utilizzato il metodo **download_to_stream** per trasferire il contenuto del BLOB in un oggetto stream che è quindi possibile rendere persistente in un file locale.
+Per scaricare i BLOB, recuperare innanzitutto un riferimento al BLOB, quindi chiamare il metodo **download\_to\_stream**. Nell'esempio seguente viene utilizzato il metodo **download\_to\_stream** per trasferire il contenuto del BLOB in un oggetto stream che è quindi possibile rendere persistente in un file locale.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -193,7 +193,7 @@ Per scaricare i BLOB, recuperare innanzitutto un riferimento al BLOB, quindi chi
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
-In alternativa, è possibile utilizzare il metodo **download_to_file** per scaricare il contenuto di un BLOB in un file. Inoltre, è possibile utilizzare il metodo **download_text** per scaricare il contenuto di un BLOB come stringa di testo.
+In alternativa, è possibile utilizzare il metodo **download\_to\_file** per scaricare il contenuto di un BLOB in un file. Inoltre, è possibile utilizzare il metodo **download\_text** per scaricare il contenuto di un BLOB come stringa di testo.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -211,7 +211,7 @@ In alternativa, è possibile utilizzare il metodo **download_to_file** per scari
 	utility::string_t text = text_blob.download_text();
 
 ## Procedura: eliminare i BLOB
-Per eliminare un BLOB, ottenere innanzitutto un riferimento al BLOB, quindi chiamare il metodo **delete_blob** sul riferimento.
+Per eliminare un BLOB, ottenere innanzitutto un riferimento al BLOB, quindi chiamare il metodo **delete\_blob** sul riferimento.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -243,4 +243,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

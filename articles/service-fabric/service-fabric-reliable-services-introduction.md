@@ -7,6 +7,7 @@
    manager="timlt"
    editor="jessebenson; mani-ramaswamy"/>
 
+
 <tags
    ms.service="Service-Fabric"
    ms.devlang="dotnet"
@@ -15,6 +16,7 @@
    ms.workload="NA"
    ms.date="07/17/2015"
    ms.author="masnider;jesseb"/>
+
 
 # Panoramica di Reliable Services
 Service Fabric semplifica la scrittura e la gestione di servizi affidabili con e senza stato. In questo documento verranno illustrate:
@@ -121,7 +123,7 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 
 - Si desidera utilizzare provider di stato di terze parti o svilupparne di personalizzati*
 
-> [AZURE.NOTE]*La disponibilità di queste funzionalità è legata alla disponibilità generale di SDK
+> [AZURE.NOTE]* Caratteristiche disponibili per la disponibilità generale di SDK
 
 
 ## Passaggi successivi
@@ -130,4 +132,4 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 + [Modello di programmazione Reliable Actors](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -65,68 +65,19 @@ Il connettore Edifact può essere usato come trigger o come azione.
 
 	![Configurazione di Encode][10]
 
-<table>
-	<tr>
-		<th>Parametro</th>
-		<th>Tipo</th>
-		<th>Descrizione del parametro</th>
-	</tr>
-	<tr>
-		<td>Content</td>
-		<td>stringa</td>
-		<td>Messaggio XML</td>
-	</tr>
-	<tr>
-		<td>Agreement ID</td>
-		<td>numero intero</td>
-		<td>ID del contratto</td>
-	</tr>
-	<tr>
-		<td>Is Batched Message</td>
-		<td>booleano</td>
-		<td>Indicazione dell'invio del messaggio in batch</td>
-	</tr>
-	<tr>
-		<td>Data Element Separator</td>
-		<td>stringa</td>
-		<td>Separatore di elementi dati</td>
-	</tr>
-	<tr>
-		<td>Component Separator</td>
-		<td>stringa</td>
-		<td>Separatore di componenti</td>
-	</tr>
-	<tr>
-		<td>Segment Terminator</td>
-		<td>stringa</td>
-		<td>Carattere di terminazione di segmento</td>
-	</tr>
-	<tr>
-		<td>Decimal Point Indicator</td>
-		<td>stringa</td>
-		<td>Indicatore del separatore decimale</td>
-	</tr>
-	<tr>
-		<td>Repetition Separator</td>
-		<td>stringa</td>
-		<td>Separatore di ripetizioni</td>
-	</tr>
-	<tr>
-		<td>Escape Character</td>
-		<td>stringa</td>
-		<td>Carattere di escape</td>
-	</tr>
-	<tr>
-		<td>Replacement Character</td>
-		<td>stringa</td>
-		<td>Carattere di sostituzione</td>
-	</tr>
-	<tr>
-		<td>Segment Terminator Suffix</td>
-		<td>stringa</td>
-		<td>Suffisso del carattere di terminazione di segmento</td>
-	</tr>
-</table>
+Parametro|Tipo|Descrizione del parametro
+---|---|---
+Content|stringa|Messaggio XML
+Agreement ID|numero intero|ID del contratto
+Is Batched Message|booleano|Indicazione dell'invio del messaggio in batch
+Data Element Separator|stringa|Separatore di elementi dati
+Component Separator|stringa|Separatore di componenti
+Segment Terminator|stringa|Carattere di terminazione di segmento
+Decimal Point Indicator|stringa|Indicatore del separatore decimale
+Repetition Separator|stringa|Separatore di ripetizioni
+Escape Character|stringa|Carattere di escape
+Replacement Character|stringa|Carattere di sostituzione
+Segment Terminator Suffix|stringa|Suffisso del carattere di terminazione di segmento
 
 L'azione restituisce un oggetto contenente il payload EDIFACT al termine dell'esecuzione.
 
@@ -148,4 +99,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

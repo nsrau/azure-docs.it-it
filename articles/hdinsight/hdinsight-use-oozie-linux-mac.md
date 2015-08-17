@@ -109,7 +109,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisca una query, 
 
 	Il file di definizione del flusso di lavoro (workflow.xml in questa esercitazione) passa questi valori allo script HiveQL in fase di esecuzione.
 
-2. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome file **useooziewf.hql**.
+2. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
 
 3. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasb:///tutorials/useoozie/useooziewf.hql**:
 
@@ -182,11 +182,11 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 	- **RunHiveScript**: questa è l'azione di avvio ed esegue lo script Hive **useooziewf.hql**
 
-	- **RunSqoopExport**: esporta i dati creati dallo script Hive nel database SQL tramite Sqoop. Viene eseguita solo se l'azione **RunHiveScript** riesce.
+	- **RunSqoopExport**: esporta i dati creati dallo script Hive nel database SQL tramite Sqoop. Viene eseguita solo se l'azione **RunHiveScript** ha esito positivo.
 
 		> [AZURE.NOTE]Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
 
-	Il flusso di lavoro include diverse voci, ad esempio `${jobTracker}`, che vengono sostituite da valori usati nella definizione del processo più avanti in questo documento.
+	Si noti che il flusso di lavoro include diverse voci, ad esempio `${jobTracker}`, che vengono sostituite da valori usati nella definizione del processo più avanti in questo documento.
 
 	Notare anche la voce `<archive>sqljdbc4.jar</arcive>` nella sezione Sqoop. Indica a Oozie di rendere disponibile questo archivio per Sqoop quando l'azione viene eseguita.
 
@@ -215,9 +215,9 @@ La procedura seguente crea il database SQL di Azure in cui saranno esportati i d
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Si noti il nome del server restituito da questo comando (\*\*i1qwc540ts\*\* nell'esempio precedente). è il nome breve del server di database SQL che è stato creato. Il nome di dominio completo è **&lt;nomebreve&gt;.database.windows.net**. Nel caso dell'esempio precedente, l'FQDN è **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Si noti il nome del server restituito da questo comando (**i1qwc540ts** nell'esempio precedente). è il nome breve del server di database SQL che è stato creato. Il nome di dominio completo è **&lt;nomebreve&gt;.database.windows.net**. Nel caso dell'esempio precedente, l'FQDN è **i1qwc540ts.database.windows.net**.
 
-2. Usare il comando seguente per creare un database denominato **oozietest** nel server di database SQL:
+2. Usare il comando seguente per creare un database denominato **oozietest** nel server del database SQL:
 
         azure sql db create [options] <serverName> oozietest <adminLogin> <adminPassword>
 
@@ -229,13 +229,13 @@ La procedura seguente crea il database SQL di Azure in cui saranno esportati i d
 
 ###Creare la tabella
 
-> [AZURE.NOTE]Sono disponibili diversi modi per connettersi al database SQL per creare una tabella. Nei seguenti passaggi viene utilizzato [FreeTDS](http://www.freetds.org/) dal cluster HDInsight.
+> [AZURE.NOTE]Sono disponibili diversi modi per connettersi al database SQL per creare una tabella. Nei seguenti passaggi viene usato [FreeTDS](http://www.freetds.org/) dal cluster HDInsight.
 
 3. Usare il comando seguente per installare FreeTDS nel cluster HDInsight:
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-4. Dopo aver installato  FreeTDS, utilizzare il comando seguente per connettersi al server di database SQL creato in precedenza:
+4. Dopo aver installato FreeTDS, usare il comando seguente per connettersi al server del database SQL creato in precedenza:
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
 
@@ -258,7 +258,7 @@ La procedura seguente crea il database SQL di Azure in cui saranno esportati i d
 
     Dopo aver immesso l'istruzione `GO`, verranno valutate le istruzioni precedenti. Verrà creata una nuova tabella denominata **mobiledata**, in cui Sqoop effettuerà la scrittura.
 
-    Per verificare la corretta creazione della tabella, utilizzare quanto segue:
+    Per verificare la corretta creazione della tabella, usare il comando seguente:
 
         SELECT * FROM information_schema.tables
         GO
@@ -403,7 +403,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 
 		oozie job -config job.xml -submit
 
-	Carica le informazioni sul processo da **job.xml** e le invia a Oozie, ma senza eseguirle.
+	In questo modo, vengono caricate le informazioni sul processo da **job.xml** e inviate a Oozie, ma senza eseguirle.
 
 	Dopo il completamento, il comando dovrebbe restituire l'ID del processo, ad esempio `0000005-150622124850154-oozie-oozi-W`. Verrà usato per gestire il processo.
 
@@ -462,13 +462,13 @@ Per altre informazioni sul comando Oozie, vedere [Strumento da riga di comando d
 
 L'API REST di Oozie consente di compilare strumenti personalizzati che funzionano con Oozie. Di seguito sono riportate informazioni specifiche di HDInsight sull'uso dell'API REST di Oozie:
 
-* **URI**: è possibile accedere all'API REST all'esterno del cluster in `https://CLUSTERNAME.azurehdinsight.net/oozie`
+* **URI**: è possibile accedere all'API REST all'esterno del cluster in `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
 * **Autenticazione**: è necessario autenticarsi all'API con l'account (admin) e la password HTTP del cluster. Ad esempio:
 
 		curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
 
-Per altre informazioni sull'uso dell’API REST di Oozie, vedere la pagina relativa all'[API dei servizi Web di Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Per altre informazioni sull'uso dell'API REST di Oozie, vedere la pagina relativa all'[API dei servizi Web di Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ##Interfaccia utente Web di Oozie
 
@@ -502,7 +502,7 @@ Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura segue
 
 		![Log del processo](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-	* **JobDAG**: il DAG è una rappresentazione grafica dei percorsi dati rilevati nel flusso di lavoro
+	* **JobDAG**: il DAG è una rappresentazione grafica dei percorsi dati rilevati nel flusso di lavoro.
 
 		![DAG del processo](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
@@ -647,7 +647,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 
 ###ERRORE dell'utilità di avvio (Sqoop)
 
-**Sintomi**: lo stato del processo cambia in **KILLLED**. I dettagli del processo mostreranno lo stato di RunSqoopExport come **ERROR**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
+**Sintomi**: lo stato del processo cambia in **KILLED**. I dettagli del processo mostreranno lo stato di RunSqoopExport come **ERROR**. Selezionando l'azione verrà visualizzato il messaggio di errore seguente:
 
 	Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
@@ -668,7 +668,7 @@ Ad esempio, per il processo in questo documento si useranno i passaggi seguenti:
 		<archive>sqljdbc4.jar</archive>
 
 ##Passaggi successivi
-In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie e come eseguire un processo Oozie. Per altre informazioni sull'utilizzo di HDInsight, vedere gli articoli seguenti:
+In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie e come eseguire un processo Oozie. Per altre informazioni sull'uso di HDInsight, vedere gli articoli seguenti:
 
 - [Usare il coordinatore Oozie basato sul tempo con HDInsight][hdinsight-oozie-coordinator-time]
 - [Caricare dati per processi Hadoop in HDInsight][hdinsight-upload-data]
@@ -724,4 +724,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

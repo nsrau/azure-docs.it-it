@@ -20,9 +20,9 @@
 
 ##Panoramica
 
-Le tabelle create con il back-end JavaScript o .NET possono facoltativamente avere l'eliminazione temporanea abilitata. Quando si usa l'eliminazione temporanea, viene aggiunta al database una nuova colonna chiamata *__deleted* di [tipo bit SQL]. Con l'eliminazione temporanea abilitata, un'operazione di eliminazione non elimina fisicamente le righe dal database, ma imposta il valore della colonna eliminata su TRUE.
+Le tabelle create con il back-end JavaScript o .NET possono facoltativamente avere l'eliminazione temporanea abilitata. Quando si usa l'eliminazione temporanea, viene aggiunta al database una nuova colonna chiamata *\_\_deleted* di [tipo bit SQL]. Con l'eliminazione temporanea abilitata, un'operazione di eliminazione non elimina fisicamente le righe dal database, ma imposta il valore della colonna eliminata su TRUE.
 
-Quando si esegue una query dei record in una tabella con l'eliminazione temporanea abilitata, le righe eliminate non vengono restituite nella query per impostazione predefinita. Per richiedere queste righe, è necessario passare un parametro di query *__includeDeleted=true* nell'[operazione di query REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). Nell'SDK del client .NET, è anche possibile usare il metodo helper `IMobileServiceTable.IncludeDeleted()`.
+Quando si esegue una query dei record in una tabella con l'eliminazione temporanea abilitata, le righe eliminate non vengono restituite nella query per impostazione predefinita. Per richiedere queste righe, è necessario passare un parametro di query *\_\_includeDeleted=true* nell'[operazione di query REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). Nell'SDK del client .NET, è anche possibile usare il metodo helper `IMobileServiceTable.IncludeDeleted()`.
 
 Il supporto dell'eliminazione temporanea per il back-end .NET è stato rilasciato per la prima volta con la versione 1.0.402 del back-end .NET per Servizi mobili di Microsoft Azure. Gli ultimi pacchetti NuGet sono disponibili in [Back-end .NET per Servizi mobili di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -66,11 +66,11 @@ Se si sta creando una nuova tabella per il servizio mobile, è possibile abilita
 Per abilitare l'eliminazione temporanea in una tabella esistente nel back-end JavaScript:
 
 1. Nel [portale di gestione] fare clic sul servizio mobile, quindi fare clic sulla scheda Dati.
-2. Nella pagina dei dati fare clic per selezionare la tabella desiderata, quindi fare clic sul pulsante **Abilita eliminazione temporanea** nella barra dei comandi. Se l'eliminazione temporanea è già abilitata per la tabella, questo pulsante non verrà visualizzato, ma sarà possibile vedere la colonna *__deleted* facendo clic sulle schede **Sfoglia** o **Colonne**.
+2. Nella pagina dei dati fare clic per selezionare la tabella desiderata, quindi fare clic sul pulsante **Abilita eliminazione temporanea** nella barra dei comandi. Se l'eliminazione temporanea è già abilitata per la tabella, questo pulsante non verrà visualizzato, ma sarà possibile vedere la colonna *\_\_deleted* facendo clic sulle schede **Sfoglia** o **Colonne**.
 
     ![][0]
 
-    Per disabilitare l'eliminazione temporanea per la tabella, fare clic sulla scheda **Colonne** e quindi fare clic sulla colonna *__deleted* e sul pulsante **Elimina**.
+    Per disabilitare l'eliminazione temporanea per la tabella, fare clic sulla scheda **Colonne** e quindi fare clic sulla colonna *\_\_deleted* e sul pulsante **Elimina**.
 
     ![][1]
 
@@ -126,7 +126,7 @@ Per includere in uno script i record eliminati nel risultato di una query, impos
         }
     });
 
-Per recuperare i record eliminati con una richiesta HTTP, aggiungere il parametro della query "__includedeleted=true":
+Per recuperare i record eliminati con una richiesta HTTP, aggiungere il parametro della query "\_\_includedeleted=true":
 
     http://youservice.azure-mobile.net/tables/todoitem?__includedeleted=true
 
@@ -163,4 +163,4 @@ Per altre informazioni sui processi pianificati con il back-end JavaScript di Se
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

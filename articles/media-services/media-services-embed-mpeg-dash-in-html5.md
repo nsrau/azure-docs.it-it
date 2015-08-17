@@ -106,4 +106,4 @@ Per riprodurre un video, passare nel browser al file basicPlayback.html e fare c
 
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Creazione di un cluster Oracle WebLogic Server 12c in Azure" 
-	description="Seguire un esempio di creazione di un cluster Oracle WebLogic Server 12c in Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Creazione di un cluster Oracle WebLogic Server 12c in Azure" description="Seguire un esempio di creazione di un cluster Oracle WebLogic Server 12c in Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Creazione di un cluster Oracle WebLogic Server 12c in Azure
 Nell'esempio seguente viene mostrato come creare un cluster Oracle WebLogic Server in Azure, basato su un'immagine Oracle WebLogic Server 12c fornita da Microsoft in esecuzione su Windows Server 2012.
 
@@ -113,7 +99,7 @@ Creare macchine virtuali aggiuntive che verranno gestite dal server di amministr
 
 	2. Nella finestra di dialogo **Crea un nuovo server**:
 
-		1. Per **Nome server**, immettere il nome del primo server gestito. Ad esempio\*\*, MYVM2-MANAGED.\*\*
+		1. Per **Nome server**, immettere il nome del primo server gestito. Ad esempio**, MYVM2-MANAGED.**
 
 		2. Per **Indirizzo di ascolto server**, immettere nuovamente il nome.
 
@@ -191,7 +177,7 @@ Creare macchine virtuali aggiuntive che verranno gestite dal server di amministr
 
 	6. Modificare la directory corrente del prompt dei comandi in **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin**.
 
-	7. Eseguire start<<\*NOMEMACCHINA\*>>.cmd, dove <<\*NOMEMACCHINA\*>> è il nome del computer gestito. Ad esempio, **startMYVM2-MANAGED**.
+	7. Eseguire start<<*NOMEMACCHINA*>>.cmd, dove <<*NOMEMACCHINA*>> è il nome del computer gestito. Ad esempio, **startMYVM2-MANAGED.**
 
 	8. Quando richiesto, fornire il nome utente e la password WebLogic Server.
 
@@ -203,14 +189,15 @@ Creare macchine virtuali aggiuntive che verranno gestite dal server di amministr
 
 16. Creare un endpoint con carico bilanciato impostato per le macchine virtuali gestite:
 
-	1. All'interno del [portale di Azure](https://ms.portal.azure.com/), nella sezione **Macchine virtuali **, selezionare la prima macchina virtuale gestita (come **MYVM2-MANAGED)**. 
+	1. All'interno del [portale di Azure](https://ms.portal.azure.com/), nella sezione **Macchine virtuali **, selezionare la prima macchina virtuale gestita (come **MYVM2-MANAGED)**.
+
 	2. Fare clic su **Impostazioni**, su **Endpoint**, quindi su **Aggiungi**.
 
 	3. Specificare un nome per l'endpoint, **TCP** per il protocollo, la porta pubblica **80** e la porta privata **7008**. Lasciare le altre opzioni invariate.
 
 	4. Selezionare **Crea un set con carico bilanciato**, quindi fare clic su **Operazione completata**.
 
-	5. Specificare un nome per il set con carico bilanciato, accettare le impostazioni predefinite per gli altri parametri, quindi fare clic su **Operazione completata. \* \*
+	5. Specificare un nome per il set con carico bilanciato, accettare le impostazioni predefinite per gli altri parametri, quindi fare clic su **Operazione completata. **
 
 17. Per creare un endpoint per la macchina virtuale:
 
@@ -222,7 +209,7 @@ Creare macchine virtuali aggiuntive che verranno gestite dal server di amministr
 
 	4. Selezionare la macchina virtuale.
 
-	5. Fare clic su **Impostazioni**.
+	5. Fare clic su **Impostazioni**
 
 	6. Fare clic su **Set con carico bilanciato**.
 
@@ -248,7 +235,7 @@ Creare macchine virtuali aggiuntive che verranno gestite dal server di amministr
 
 ##Distribuzione di un'applicazione nel cluster
 
-A questo punto, è possibile distribuire l'applicazione utilizzando la procedura seguente. Si supponga che si distribuisce l'applicazione ShoppingCart di Oracle, disponibile per il download all'indirizzo <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>.
+A questo punto, è possibile distribuire l'applicazione utilizzando la procedura seguente. Si supponga che si distribuisca l'applicazione ShoppingCart di Oracle, disponibile per il download all'indirizzo <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>.
 
 1. Accedere alla macchina virtuale che funge da amministratore per il cluster di WebLogic Server (ad esempio, **MYVM1-ADMIN**). 
 
@@ -262,7 +249,7 @@ A questo punto, è possibile distribuire l'applicazione utilizzando la procedura
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image004.png)
 
-	Fare clic su **Next**.
+	Fare clic su **Avanti**.
 
 6. Selezionare **Installa questa distribuzione come applicazione**, quindi fare clic su **Avanti**.
 
@@ -319,4 +306,4 @@ Dopo aver configurato il cluster che esegue Oracle WebLogic Server, vedere gli a
 
 - [Oracle WebLogic Server 12c con Linux su Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

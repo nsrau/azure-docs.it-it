@@ -6,6 +6,7 @@
    authors="alkohli"
    manager="carolz"
    editor=""/>
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -14,6 +15,7 @@
    ms.workload="TBD"
    ms.date="07/20/2015"
    ms.author="alkohli" />
+
 
 # Consente di visualizzare e gestire i processi di StorSimple
 
@@ -27,7 +29,7 @@ La pagina**processi**fornisce un unico portale centralizzato per la visualizzazi
 
 - **Stato**– i processi possono essere in esecuzione, pianificati, non riusciti, completati, in fase di annullamento o annullati.
 
-- **Tipo**– i processi possono essere creati come risultato di un backup su richiesta o pianificato (* * eseguire Backup * *), di una clonazione, di un ripristino del dispositivo o di un'operazione di aggiornamento.
+- **Tipo**: i processi possono essere creati come risultato di un backup su richiesta o pianificato (**eseguire Backup**), di una clonazione, di un ripristino del dispositivo o di un'operazione di aggiornamento.
 
 - **Dispositivi**: i processi vengono avviati in un determinato dispositivo connesso al servizio.
 
@@ -35,11 +37,11 @@ La pagina**processi**fornisce un unico portale centralizzato per la visualizzazi
 
 I processi filtrati vengono quindi elaborati in base ai seguenti attributi:
 
-- **Tipo**: Backup, clonazione, ripristino, failover o aggiornamento.
+- **Tipo**: backup, clonazione, ripristino, failover o aggiornamento.
 
 - **Stato**: in esecuzione, pianificato, non è riuscito, completato, in fase di annullamento o annullato.
 
-- **Entità**: I processi possono essere associati a un volume, un criterio di backup o un dispositivo. Un processo di clonazione è associato a un volume, mentre un processo di backup pianificato è associato a un criterio di backup. Viene creato un processo di dispositivo a causa di un ripristino di emergenza (DR) o di un'operazione di ripristino.
+- **Entità**: i processi possono essere associati a un volume, un criterio di backup o un dispositivo. Un processo di clonazione è associato a un volume, mentre un processo di backup pianificato è associato a un criterio di backup. Viene creato un processo di dispositivo a causa di un ripristino di emergenza (DR) o di un'operazione di ripristino.
 
 - **Dispositivo**: il nome del dispositivo su cui è stato avviato il processo.
 
@@ -67,7 +69,7 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
 
 3. Nella parte inferiore della pagina, fare clic su **Dettagli**.
 
-4. Nella finestra di dialogo**Dettagli dei processi di Backup**è possibile visualizzare la stato, i dettagli, le statistiche temporali e le statistiche sui dati.
+4. Nella finestra di dialogo **Dettagli dei processi di Backup** è possibile visualizzare la stato, i dettagli, le statistiche temporali e le statistiche sui dati.
 
 ## Annullare un processo
 
@@ -75,7 +77,7 @@ Eseguire la procedura seguente per annullare un processo in esecuzione.
 
 ### Per annullare un processo
 
-1. Nella pagina**processi**, visualizzare i processi in esecuzione che si desidera annullare eseguendo una query con filtri appropriati.
+1. Nella pagina **processi**, visualizzare i processi in esecuzione che si desidera annullare eseguendo una query con filtri appropriati.
 
 1. Selezionare il processo.
 
@@ -89,4 +91,4 @@ Questo processo ora viene annullato.
 
 [Informazioni su come gestire i criteri di backup di StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -25,7 +25,7 @@ Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, 
 
 > [AZURE.NOTE]La procedura in questa pagina consente di aggiungere il SDK all'applicazione web in fase di esecuzione. Ciò è utile se non si desidera aggiornare o ricompilare il codice sorgente. Ma se possibile, è consigliabile[aggiungere l’SDK al codice sorgente](app-insights-java-get-started.md)invece. Che offre ulteriori opzioni, ad esempio la scrittura di codice per tenere traccia delle attività dell'utente.
 
-## 1. Ottenere una chiave di strumentazione di Application Insights
+## 1\. Ottenere una chiave di strumentazione di Application Insights
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com)
 2. Creare una nuova risorsa di Application Insights
@@ -38,13 +38,13 @@ Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, 
 
     ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)
 
-## 2. Scaricare l'SDK
+## 2\. Scaricare l'SDK
 
 1. Scaricare [Application Insights SDK per Java](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
 2. Sul server, estrarre i contenuti SDK nella directory da cui vengono caricati i file binari del progetto. Se si utilizza Tomcat, in genere il risultato sarà in`webapps<your_app_name>\WEB-INF\lib`
 
 
-## 3. Aggiungere un file XML di Application Insights
+## 3\. Aggiungere un file XML di Application Insights
 
 Creare ApplicationInsights.xml nella cartella in cui è stato aggiunto il SDK. Copiarvi il seguente file XML.
 
@@ -86,7 +86,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 * La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica](app-insights-diagnostic-search.md).
 
 
-## 4. Aggiungere un filtro HTTP
+## 4\. Aggiungere un filtro HTTP
 
 Individuare e aprire il file web.xml nel progetto e unire il frammento di codice seguente al di sotto del nodo app-web, in cui sono configurati i filtri dell'applicazione.
 
@@ -103,9 +103,9 @@ Per ottenere risultati più accurati, il filtro deve essere mappato prima di tut
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-## 5. Riavviare la propria app web.
+## 5\. Riavviare la propria app web.
 
-## 6. Visualizzare i dati di telemetria in Application Insights
+## 6\. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
@@ -139,4 +139,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

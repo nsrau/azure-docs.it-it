@@ -28,7 +28,7 @@ Il **criteri di Backup** pagina consente inoltre di filtrare i criteri di backup
 - **Nome criterio** : il nome associato al criterio. I diversi tipi di criteri includono:
 
    - Criteri pianificati, vengono creati esplicitamente dall'utente.
-   - Criteri automatici, che vengono creati quando il backup predefinito per questa opzione è stato abilitato al momento della creazione del volume. Questi criteri sono denominati VolumeName_Default dove nome Volume si riferisce al nome del volume StorSimple configurato dall'utente nel portale di gestione. I criteri automatici generare gli snapshot cloud giornalieri a partire da 22:30 ora del dispositivo.
+   - Criteri automatici, che vengono creati quando il backup predefinito per questa opzione è stato abilitato al momento della creazione del volume. Questi criteri sono denominati VolumeName\_Default dove nome Volume si riferisce al nome del volume StorSimple configurato dall'utente nel portale di gestione. I criteri automatici generare gli snapshot cloud giornalieri a partire da 22:30 ora del dispositivo.
    - Criteri importati, che sono stati originariamente creati in Gestione Snapshot StorSimple. Hanno un tag che descrive l'host di gestione Snapshot StorSimple che i criteri sono stati importati da.
 
 - **Volumi** – i volumi associati al criterio. Tutti i volumi associati a un criterio di backup vengono raggruppati quando vengono creati i backup.
@@ -84,4 +84,4 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un criterio di b
 
 Informazioni su come gestire i backup di StorSimple con il [Gestione Snapshot StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

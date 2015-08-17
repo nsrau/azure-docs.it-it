@@ -245,7 +245,7 @@ Il modello di risorse facoltative contiene risorse distribuite a livello di codi
 
 **Modello di risorse facoltative**
 
-Ad esempio, è possibile utilizzare un modello di risorse facoltative per configurare un jumpbox che consente l'accesso indiretto a un ambiente distribuito dalla rete Internet pubblica. È possibile utilizzare un parametro o una variabile per stabilire se il jumpbox deve essere abilitato o meno e identificare la funzione di *contatto* per compilare il nome di destinazione per il modello, ad esempio*jumpbox_enabled.json*. Il collegamento al modello utilizza la variabile risultante per installare il jumpbox.
+Ad esempio, è possibile utilizzare un modello di risorse facoltative per configurare un jumpbox che consente l'accesso indiretto a un ambiente distribuito dalla rete Internet pubblica. È possibile utilizzare un parametro o una variabile per stabilire se il jumpbox deve essere abilitato o meno e identificare la funzione di *contatto* per compilare il nome di destinazione per il modello, ad esempio*jumpbox\_enabled.json*. Il collegamento al modello utilizza la variabile risultante per installare il jumpbox.
 
 È possibile collegare il modello di risorse facoltative da più posizioni:
 
@@ -309,7 +309,7 @@ Verrà creato un modello principale denominato azuredeploy.json.
 
 Verrà creato un modello di risorse condivise denominato shared-resources.json
 
-Verrà creato un modello di risorsa facoltativa per abilitare la distribuzione di un jumpbox denominato jumpbox_enabled.json
+Verrà creato un modello di risorsa facoltativa per abilitare la distribuzione di un jumpbox denominato jumpbox\_enabled.json
 
 Redis utilizzerà solo un tipo di nodo singolo, in modo che venga creato un unico modello di risorsa membro denominato node-resources.json.
 
@@ -319,9 +319,9 @@ Con Redis, è opportuno installare ogni singolo nodo e quindi, una volta install
 
 Utilizzando il collegamento di modello, il modello principale si collega al modello di risorse condivise, stabilendo in tal modo la rete virtuale.
 
-All’interno del modello principale viene aggiunta la logica per consentire ai consumer del modello di specificare se un jumpbox dovrà essere distribuito o meno. Un valore *abilitato* per il parametro *EnableJumpbox* indica che il cliente desidera distribuire un jumpbox. Quando questo valore viene specificato, il modello concatena *_abilitato* come suffisso al nome di un modello di base per la funzionalità di jumpbox.
+All’interno del modello principale viene aggiunta la logica per consentire ai consumer del modello di specificare se un jumpbox dovrà essere distribuito o meno. Un valore *abilitato* per il parametro *EnableJumpbox* indica che il cliente desidera distribuire un jumpbox. Quando questo valore viene specificato, il modello concatena *\_abilitato* come suffisso al nome di un modello di base per la funzionalità di jumpbox.
 
-Il modello principale utilizza il valore di parametro *large* come suffisso del nome di un modello di base per le taglie, quindi utilizza tale valore nel collegamento di un modello a *technology_on_os_large.json*.
+Il modello principale utilizza il valore di parametro *large* come suffisso del nome di un modello di base per le taglie, quindi utilizza tale valore nel collegamento di un modello a *technology\_on\_os\_large.json*.
 
 La topologia sarà simile a questa illustrazione.
 
@@ -378,7 +378,7 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 ## Passaggi successivi
 
 - Per vedere esempi contestuali di come implementare i principi di progettazione presentati in questo argomento, vedere [Esempi contestuali delle procedure consigliate per l’implementazione di modelli](best-practices-resource-manager-examples.md).
-- Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
-- Per ulteriori informazioni sulla condivisione dello stato interno ed esterno dei modelli, vedere [Condivisione dello stato in modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md).
+- Per consigli su come gestire la sicurezza in Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
+- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

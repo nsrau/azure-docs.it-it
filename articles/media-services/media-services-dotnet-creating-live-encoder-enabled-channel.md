@@ -501,4 +501,4 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

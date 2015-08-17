@@ -41,4 +41,4 @@ Usare l'URL recuperato sopra per recuperare il messaggio archiviato dall'archivi
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

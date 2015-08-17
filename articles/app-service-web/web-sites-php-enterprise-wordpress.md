@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #WordPress di livello aziendale nel servizio app di Azure
@@ -165,17 +165,17 @@ Se si usano... | Effettuare l'operazione seguente:
 
 	2. Nel backup di WordPress individuare il file **wp-config.php** e aprirlo in un editor. Sostituire le voci seguenti con le informazioni del nuovo database MySQL.
 
-		* **DB_NAME**: nome utente del database
+		* **DB\_NAME**: nome utente del database
 
-		* **DB_USER**: nome utente per accedere al database
+		* **DB\_USER**: nome utente per accedere al database
 
-		* **DB_PASSWORD**: password utente
+		* **DB\_PASSWORD**: password utente
 
 		Dopo aver cambiato queste voci, salvare e chiudere il file **wp-config.php**.
 
 	3. Fare riferimento alle informazioni disponibili in [Distribuire un'app Web nel servizio app di Azure][deploy] per abilitare il metodo di distribuzione che si desidera usare, quindi distribuire il backup di WordPress nell'app Web nel servizio app di Azure.
 
-5. Dopo la distribuzione del sito WordPress, dovrebbe essere possibile accedere al nuovo sito (come app Web del servizio app) usando l'URL *.azurewebsite.net.
+5. Dopo la distribuzione del sito WordPress, dovrebbe essere possibile accedere al nuovo sito (come app Web di Servizio app di Azure) usando l'URL *.azurewebsite.net.
 
 ###Configurare il sito
 
@@ -184,7 +184,7 @@ Dopo la creazione o la migrazione del sito WordPress, usare le informazioni segu
 Per | Opzione
 ------------- | -----------
 **Impostare la modalità del piano e le dimensioni del servizio app e abilitare la scalabilità** | [Scalare un'app Web in Azure App Service][websitescale]
-**Abilitare connessioni di database permanenti** <p>Per impostazione predefinita, WordPress non usa connessioni di database permanenti, che potrebbero causare rallentamenti dopo numerose connessioni.</p> | <ol><li><p>Modificare il file <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Individuare la riga seguente.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Sostituire la riga precedente con il codice seguente.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Individuare la riga seguente.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Sostituire la riga precedente con il codice seguente.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); </code></li><li><p>Salvare il file <strong>wp-includes/wp-db.php</strong> e ridistribuire il sito.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Queste modifiche possono essere sovrascritte all'aggiornamento di WordPress.</p><p>Per impostazioni predefinita, WordPress usa gli aggiornamenti automatici, che possono essere disattivati modificando il file <strong>wp-config.php</strong> e aggiungendo <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Un altro modo di gestire gli aggiornamenti consiste nell'usare un processo Web che esegue il monitoraggio del file <strong>wp-db.php</strong> ed esegue le modifiche precedenti ogni volta che il file viene aggiornato. Per altre informazioni, vedere <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Introduzione ai processi Web</a>.</p></div>
+**Abilitare connessioni di database permanenti** <p>Per impostazione predefinita, WordPress non usa connessioni di database permanenti, che potrebbero causare rallentamenti dopo numerose connessioni.</p> | <ol><li><p>Modificare il file <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Individuare la riga seguente.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>Sostituire la riga precedente con il codice seguente.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>Individuare la riga seguente.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>Sostituire la riga precedente con il codice seguente.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p>Salvare il file <strong>wp-includes/wp-db.php</strong> e ridistribuire il sito.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Queste modifiche possono essere sovrascritte all'aggiornamento di WordPress.</p><p>Per impostazioni predefinita, WordPress usa gli aggiornamenti automatici, che possono essere disattivati modificando il file <strong>wp-config.php</strong> e aggiungendo <code>define ( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>Un altro modo di gestire gli aggiornamenti consiste nell'usare un processo Web che esegue il monitoraggio del file <strong>wp-db.php</strong> ed esegue le modifiche precedenti ogni volta che il file viene aggiornato. Per altre informazioni, vedere <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Introduzione ai processi Web</a>.</p></div>
 **Migliorare le prestazioni** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Disabilitare il cookie ARR</a>. In questo modo è possibile migliorare le prestazioni quando si esegue WordPress in più istanze delle app Web</p></li><li><p>Abilitare la memorizzazione nella cache. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">La cache Redis</a> (anteprima) può essere usata con il <a href="https://wordpress.org/plugins/redis-object-cache/">plug-in WordPress della cache di oggetti Redis</a>. In alternativa, usare una delle altre opzioni di memorizzazione nella cache disponibili da <a href="/gallery/store/">Azure Store</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Aumentare la velocità di WordPress con Wincache</a> Wincache è abilitata per impostazione predefinita per le app Web</p></li><li><p><a href="../web-sites-scale/">Scalare un'app web nel servizio app di Azure</a> e usare il <a href="http://www.cleardb.com/developers/cdbr/introduction">routing ClearDB a disponibilità elevata</a> o <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
 **Usare i BLOB per l'archiviazione** | <ol><li><p><a href="../storage-create-storage-account/">Creare un account di archiviazione di Azure</a></p></li><li><p>Informazioni su come <a href="../cdn-how-to-use/">usare la rete di distribuzione contenuti (CDN)</a> per distribuire geograficamente i dati archiviati in BLOB.</p></li><li><p>Installare e configurare l'<a href="https://wordpress.org/plugins/windows-azure-storage/">archiviazione di Azure per il plug-in WordPress</a>.</p><p>Per informazioni dettagliate sull'installazione e sulla configurazione del plug-in, vedere il <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">manuale dell'utente</a>.</p> </li></ol>
 **Abilitare la posta elettronica** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Abilitare SendGrid usando Azure Store</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Installare il plug-in SendGrid per WordPress</a></p></li></ol>
@@ -283,4 +283,4 @@ Per | Opzione
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

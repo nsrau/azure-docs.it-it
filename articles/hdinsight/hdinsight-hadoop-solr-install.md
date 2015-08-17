@@ -7,6 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
+
 
 # Installare e usare Solr nei cluster Hadoop di HDInsight
 
@@ -62,7 +64,7 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 
 1. **Usare RDP (Remote Desktop Protocol) per accedere in remoto al cluster HDInsight con Solr installato**. Dal portale di Azure abilitare il desktop remoto per il cluster creato con Solr installato, quindi accedere in remoto al cluster. Per istruzioni, vedere <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.
 
-2. **Indicizzare Solr mediante il caricamento di file di dati**. Quando si indicizza Solr, si inseriscono documenti su cui potrebbe essere necessario eseguire ricerche. Per indicizzare Solr, usare RDP per accedere in remoto al cluster, passare al desktop, aprire la riga di comando di Hadoop e quindi passare a **C:\apps\dist\solr-4.7.2\example\exampledocs**. Eseguire il comando seguente:
+2. **Indicizzare Solr mediante il caricamento di file di dati**. Quando si indicizza Solr, si inseriscono documenti su cui potrebbe essere necessario eseguire ricerche. Per indicizzare Solr, usare RDP per accedere in remoto al cluster, passare al desktop, aprire la riga di comando di Hadoop e quindi passare a **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Eseguire il comando seguente:
 	
 		java -jar post.jar solr.xml monitor.xml
 
@@ -76,7 +78,7 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 
 	L'utilità post.jar indicizza Solr con due documenti di esempio, **solr.xml** e **monitor.xml**. L'utilità post.jar e i documenti di esempio sono disponibili con l'installazione di Solr.
 
-3. **Usare il dashboard di Solr per eseguire ricerche nei documenti indicizzati**. Nella sessione RDP per il cluster HDInsight, aprire Internet Explorer, quindi avviare il dashboard di Solr all'indirizzo **http://headnodehost:8983/solr/#/**. Nel riquadro a sinistra selezionare **collection1** dal menu a discesa **Core Selector** e quindi fare clic su **Query**. Ad esempio, per selezionare e restituire tutti i documenti in Solr, specificare i valori seguenti:
+3. **Usare il dashboard di Solr per eseguire ricerche nei documenti indicizzati**. Nella sessione RDP per il cluster HDInsight, aprire Internet Explorer, quindi avviare il dashboard di Solr all'indirizzo ****http://headnodehost:8983/solr/#/**. Nel riquadro a sinistra selezionare **collection1** dal menu a discesa **Core Selector** e quindi fare clic su **Query**. Ad esempio, per selezionare e restituire tutti i documenti in Solr, specificare i valori seguenti:
 	1. Nella casella di testo **q** immettere ***:***. Verranno restituiti tutti i documenti indicizzati in Solr. Per cercare una stringa specifica nei documenti, è possibile immettere qui la stringa.
 	2. Selezionare il formato di output nella casella di testo **wt**. Il valore predefinito è **json**. Fare clic su **Esegui query**.
 
@@ -154,7 +156,7 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 			  <str name="status">OK</str>
 			</response>
 
-	2. Nella sessione remota passare a {SOLR_HOME}{Collection}\data. Per il cluster creato tramite lo script di esempio, sarà uguale a **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. In questo percorso dovrebbe essere creata una cartella snapshot con nome simile a **snapshot.*timestamp***.
+	2. Nella sessione remota passare a {SOLR\_HOME}{Collection}\\data. Per il cluster creato tramite lo script di esempio, sarà uguale a **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**. In questo percorso dovrebbe essere creata una cartella snapshot con nome simile a **snapshot.*timestamp***.
 	
 	3. Comprimere la cartella snapshot e caricarla nell'archivio BLOB di Azure. Dalla riga di comando di Hadoop passare al percorso della cartella snapshot usando il comando seguente:
 
@@ -344,7 +346,7 @@ Creare un certificato autofirmato, installarlo nella workstation e caricarlo nel
 
 **Per eseguire l'applicazione**
 
-Aprire una console di Windows PowerShell o di Azure PowerShell, passare al percorso in cui è stato salvato il progetto Visual Studio, spostarsi nella directory \bin\debug all'interno del progetto stesso, quindi eseguire il comando seguente:
+Aprire una console di Windows PowerShell o di Azure PowerShell, passare al percorso in cui è stato salvato il progetto Visual Studio, spostarsi nella directory \\bin\\debug all'interno del progetto stesso, quindi eseguire il comando seguente:
 
 	.\CreateSolrCluster <cluster-name>
 
@@ -365,4 +367,4 @@ Specificare un nome per il cluster e premere INVIO per effettuare il provisionin
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -10,4 +10,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione delle co
   - Per archiviare dati strutturati, usare [Archiviazione tabelle](./storage-dotnet-how-to-use-tables.md).
   - Per archiviare dati relazionali, utilizzare [Database SQL](../sql-database/sql-database-dotnet-how-to-use.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -10,4 +10,4 @@ Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure 
 | Pannello di accesso | <ul><li>Non esiste alcun limite al numero di applicazioni che è possibile visualizzare nel Pannello di accesso per l'utente finale per gli utenti con licenze assegnate per Azure AD Premium o Enterprise Mobility Suite.</li><li>Al massimo 10 riquadri di app (ad esempio, Box, Salesforce o Dropbox) possono essere visualizzati nel Pannello di accesso per ogni utente finale per utenti con licenze assegnate per le edizioni Free o Basic di Azure Active Directory. Questo limite non si applica agli account di amministratore.</li></ul> |
 | Report | È possibile visualizzare o scaricare in qualsiasi report un massimo di 1.000 righe. Eventuali dati aggiuntivi vengono troncati. |
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

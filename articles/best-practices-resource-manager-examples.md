@@ -252,4 +252,4 @@ Infine, si potrebbe voler garantire che determinate risorse non vengano eliminat
 - Per consigli su come gestire la sicurezza in Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
 - Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1355,7 +1355,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
-
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

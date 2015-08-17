@@ -363,4 +363,4 @@ La configurazione di Proguard può essere influenzata dal re-branding. Le regole
 			}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

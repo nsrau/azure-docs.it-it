@@ -148,4 +148,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

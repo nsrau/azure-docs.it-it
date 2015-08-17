@@ -12,7 +12,7 @@
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="raynew"/>
 
@@ -111,8 +111,11 @@ Il provider viene eseguito nei server VMM, nei server host Hyper-V se non si dis
 - Se si desidera che il server in cui il provider viene eseguito si connetta a Internet tramite un server proxy, è possibile utilizzare le impostazioni del proxy esistente oppure specificare un proxy personalizzato.
 - Il proxy deve autorizzare questi indirizzi attraverso il firewall:
 
-	-  *.accesscontrol.windows.net -  .backup.windowsazure.com
-	-  *.blob.core.windows.net -  *.store.core.windows.net 	
+	-  **.accesscontrol.windows.net
+-  .backup.windowsazure.com
+	-  **.blob.core.windows.net
+-  **.store.core.windows.net
+	
 - Se nel firewall sono disponibili le regole basate sull'indirizzo IP, verificare che autorizzino la comunicazione tra il server di configurazione e gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) e per HTTPS (443). È necessario inserire in un elenco di elementi consentiti gli indirizzi IP compresi negli intervalli dell'area di Azure che si prevede di utilizzare e per Stati Uniti occidentali.
 - Se si distribuisce Site Recovery con VMM e si utilizza un proxy personalizzato, verrà creato automaticamente un account RunAs VMM (DRAProxyAccount) utilizzando le credenziali proxy specificate nelle impostazioni del proxy personalizzato nel portale di Site Recovery. È necessario configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione.
 - Se si utilizza il traffico proxy inviato dal provider installato in un server host Hyper-V al proxy, è necessario utilizzare HTTP per l’invio.
@@ -149,8 +152,8 @@ Viene installato in macchine virtuali VMware o in server fisici. I computer e i 
 
 - **Server Windows**:
 	-  Sistema operativo a 64 bit: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 o successivo.
-	-  Il nome host, i punti di montaggio, i nomi dei dispositivi e il percorso di sistema di Windows (ad esempio, C:\Windows) devono essere specificati solo con caratteri dell'alfabeto latino.
-	-  Il sistema operativo nell'unità C:\.
+	-  Il nome host, i punti di montaggio, i nomi dei dispositivi e il percorso di sistema di Windows (ad esempio, C:\\Windows) devono essere specificati solo con caratteri dell'alfabeto latino.
+	-  Il sistema operativo nell'unità C:\\.
 	-  Sono supportati solo i dischi di base. Non sono supportati i dischi dinamici.
 
 - **Server Linux**:
@@ -167,12 +170,12 @@ Per informazioni dettagliate sulla pianificazione di questi componenti, leggere 
 
 **Componente** | **Come aggiornare** 
 --- | --- 
-<p>**Provider di Azure Site Recovery per VMM**</p><p>**Agente di Servizi di ripristino di Azure**</p> | <p></p>**Installazione iniziale**: scaricare la versione più recente dalla pagina Avvio rapido<p></p>**In esecuzione**: è possibile scaricare le versioni più recenti e quelle precedenti dal dashboard di Ripristino sito. In alternativa, se è stato fornito il consenso esplicito per Microsoft Updates, la versione più recente del provider e dell’agente verrà installata automaticamente nel server.
+<p>**Provider di Azure Site Recovery per VMM**</p><p>**Agente di Servizi di ripristino di Azure**</p> | <p></p>**Installazione iniziale**: scaricare la versione più recente dalla pagina Avvio rapido<p></p>**In esecuzione**: è possibile scaricare le versioni più recenti e quelle precedenti dal dashboard di Site Recovery. In alternativa, se è stato fornito il consenso esplicito per Microsoft Updates, la versione più recente del provider e dell’agente verrà installata automaticamente nel server.
 <p>**Server di elaborazione**</p><p>**Server di configurazione**</p><p>**Server master di destinazione**</p> | Cercare gli aggiornamenti nel dashboard di Ripristino sito. 
-**Servizio Mobility** | <p>Assicurarsi di disporre degli ultimi aggiornamenti del servizio Mobility in ogni computer che si desidera proteggere.<p><p>È possibile scaricare gli aggiornamenti più recenti:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>In alternativa, dopo aver verificato che il server di elaborazione è aggiornato, è possibile scaricare la versione più recente del servizio Mobility dalla cartella C:\pushinstallsvc\repository del server di elaborazione</p>  
+**Servizio Mobility** | <p>Assicurarsi di disporre degli ultimi aggiornamenti del servizio Mobility in ogni computer che si desidera proteggere.<p><p>È possibile scaricare gli aggiornamenti più recenti:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>In alternativa, dopo aver verificato che il server di elaborazione è aggiornato, è possibile scaricare la versione più recente del servizio Mobility dalla cartella C:\\pushinstallsvc\\repository del server di elaborazione</p>  
 
 ## Passaggi successivi
 
 Iniziare a configurare i componenti per lo scenario di distribuzione. [Altre informazioni](site-recovery-overview.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

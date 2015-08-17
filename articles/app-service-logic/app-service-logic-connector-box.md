@@ -166,4 +166,4 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

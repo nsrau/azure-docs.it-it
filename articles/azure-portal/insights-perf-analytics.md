@@ -83,4 +83,4 @@ Dopo aver visualizzato il pannello, per Application Insights, ad esempio, è pos
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

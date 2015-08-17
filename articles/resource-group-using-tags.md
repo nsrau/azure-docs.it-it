@@ -7,28 +7,29 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tomfitz"/>
+
 
 
 # Uso dei tag per organizzare le risorse di Azure
 
-Il portale di Azure e il componente Gestione risorse sottostante consentono di organizzare le risorse e personalizzare le proprie modalità d'uso adattandole alle esigenze personali.
+La Gestione risorse consente di organizzare logicamente le risorse tramite l'applicazione di tag. I tag sono costituiti da coppie chiave/valore che identificano le risorse con le proprietà definite. Per contrassegnare le risorse come appartenenti alla stessa categoria, applicare lo stesso tag a tali risorse.
 
-Nel portale di Azure classico le sottoscrizioni rappresentano l'unico metodo per classificare e raggruppare le risorse. Con il portale di Azure [sono stati introdotti i gruppi di risorse](./resource-group-portal.md), che consentono il raggruppamento di entità correlate. Questa funzionalità si è rivelata ancora più utile quando [è stato introdotto l'accesso basato sui ruoli](./role-based-access-control-configure.md). Adesso, secondo lo stesso principio, è possibile aggiungere alle proprie risorse tag con coppie chiave-valore in modo da poterle ulteriormente classificare e visualizzare anche se sparse tra vari gruppi di risorse e, all'interno del portale, tra varie sottoscrizioni.
+Quando si visualizzano le risorse con un tag specifico, vengono visualizzate le risorse da tutti i gruppi di risorse. Non si è limitati unicamente alle risorse che appartengono allo stesso gruppo di risorse, cosa che consente di organizzare le risorse in modo indipendente rispetto alle relazioni di distribuzione. I tag possono essere particolarmente utili quando è necessario organizzare le risorse per la fatturazione o la gestione.
 
-Sarà così possibile raggruppare risorse per team, progetto o anche per ambiente per concentrarsi esattamente su ciò che più interessa al momento più opportuno.
+> [AZURE.NOTE]È possibile applicare dei tag solo alle risorse che supportano le operazioni di gestione delle risorse. Se è stato creata una macchina virtuale, una rete virtuale o un’archiviazione tramite il modello di distribuzione classico (ad esempio tramite il portale di Azure o [Gestione del Servizio API](https://msdn.microsoft.com/library/azure/dn948465.aspx)), non è possibile applicare un tag a tale risorsa. È necessario distribuire nuovamente tali risorse tramite Gestione risorse per supportare l'assegnazione di tag. Tutte le altre risorse supportano l'assegnazione di tag.
 
+## I tag nel portale di anteprima
 
-## Tag nel portale di Azure
-
-Aggiungere tag alle risorse e ai gruppi di risorse nel portale è facile. Usare l'hub Sfoglia per passare alla risorsa o al gruppo di risorse a cui aggiungere i tag e fare clic sull'area Tag nella sezione Panoramica nella parte superiore del pannello.
+Aggiungere tag alle risorse e ai gruppi di risorse nel portale di anteprima è facile. Usare l'hub Sfoglia per passare alla risorsa o al gruppo di risorse a cui aggiungere i tag e fare clic sull'area Tag nella sezione Panoramica nella parte superiore del pannello.
 
 ![Parte relativa ai tag nella risorsa e nei pannelli relativi ai gruppi di risorse](./media/resource-group-using-tags/rgblade.png)
 
@@ -62,7 +63,7 @@ Il processo è lo stesso per le risorse, ad eccezione del fatto che si useranno 
 ![Recupero di risorse e gruppi di risorse con tag con Get-AzureResource e Get-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
 
 
-## Assegnazione di tag con Gestione risorse
+## Tag con l'API REST
 
 Sia il portale che PowerShell usano l'[API REST di Gestione risorse](http://msdn.microsoft.com/library/azure/dn790568.aspx) dietro le quinte. Se è necessario integrare l'assegnazione di tag in un altro ambiente, è possibile ottenere i tag con un'operazione GET sull'ID di risorsa e aggiornare il set di tag con una chiamata PATCH.
 
@@ -100,26 +101,12 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 ![Vedere i tag della fatturazione](./media/resource-group-using-tags/billing_csv.png)
 
 ## Passaggi successivi
-Introduzione
 
-- [Panoramica di Gestione risorse di Azure](./resource-group-overview.md)  
-- [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md)
-- [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](./xplat-cli-azure-resource-manager.md)  
-- [Uso del portale di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
-  
-Creazione e distribuzione delle applicazioni
-  
-- [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md)  
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](./resource-group-template-deploy.md)  
-- [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-group-deploy-debug.md)  
-- [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)  
-- [Operazioni avanzate con i modelli](./resource-group-advanced-template.md)  
-  
-Gestione e controllo dell'accesso
-  
-- [Gestione e controllo dell'accesso alle risorse](./resource-group-rbac.md)  
-- [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md)  
-- [Creare una nuova entità servizio di Azure usando il portale classico di Azure](./resource-group-create-service-principal-portal.md)  
+- Per un'introduzione all'utilizzo di Azure PowerShell durante la distribuzione di risorse, vedere[Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md).
+- Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
+- Per un’introduzione all'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](./resource-group-portal.md).  
   
 
-<!---HONumber=July15_HO5-->
+  
+
+<!---HONumber=August15_HO6-->

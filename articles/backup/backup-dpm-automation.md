@@ -75,6 +75,7 @@ Per poter eseguire la registrazione con il servizio Backup di Azure, è necessar
 - Disporre di una sottoscrizione di Azure valida
 - Creare un insieme di credenziali per il backup
 - Scaricare le credenziali dell'insieme di credenziali e archiviarle in un percorso comodo, ad esempio *C:\Downloads*. Per comodità, è possibile rinominare le credenziali dell'insieme di credenziali. 
+
 La registrazione del computer con l'insieme di credenziali viene eseguita utilizzando il cmdlet [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787):
 
 ```
@@ -189,7 +190,7 @@ Ripetere questo passaggio il numero di volte necessario per aggiungere tutte le 
 Una volta aggiunte le origini dati al gruppo protezione dati, il passaggio successivo consiste nello specificare il metodo di protezione usando il cmdlet [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725). In questo esempio il gruppo protezione dati verrà configurato per il backup su disco locale e nel cloud.
 
 ```
-PS C:\> Set-DPMProtectionType -ProtectionGroup $PG -ShortTerm Disk –LongTerm Online
+PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
 ```
 
 ### Impostazione del periodo di mantenimento dati
@@ -216,7 +217,7 @@ PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList
 Se si specifica l'obiettivo di protezione usando il cmdlet ```Set-DPMPolicyObjective```, DPM imposta automaticamente una pianificazione dei backup predefinita. Per modificare le pianificazioni predefinite, utilizzare il cmdlet [Get DPMPolicySchedule](https://technet.microsoft.com/library/hh881749), seguito da quello [Set DPMPolicySchedule](https://technet.microsoft.com/library/hh881723).
 
 ```
-PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTermOnline
+PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTerm Online
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[0] -TimesOfDay 02:00
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[1] -TimesOfDay 02:00 -DaysOfWeek Sa,Su –Interval 1
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[2] -TimesOfDay 02:00 -RelativeIntervals First,Third –DaysOfWeek Sa
@@ -280,4 +281,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 ## Passaggi successivi
 Per ulteriori informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di Azure DPM](backup-azure-dpm-introduction.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

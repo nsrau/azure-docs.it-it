@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor="tysonn"/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.workload="backup-recovery" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/07/2015" 
 	ms.author="raynew"/>
+
 
 # Configurare la protezione tra siti VMM locali con SAN
 
@@ -217,7 +219,12 @@ Dopo l'installazione del provider, continuare con il programma di installazione 
 
 	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider.
 	- Gli URL seguenti dovranno essere accessibili dal server VMM
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali. 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali. 
 	
 	- Se si sceglie di usare un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione.
 	- Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
@@ -356,4 +363,4 @@ Per altre informazioni sull'interazione con i processi e il dashboard, vedere la
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

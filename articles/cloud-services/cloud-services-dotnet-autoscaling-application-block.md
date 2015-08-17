@@ -162,7 +162,7 @@ Accedere al portale di gestione.
 
     1.  Nel portale di gestione di Azure fare clic su **Cloud Services**.
 
-    2.  Nell'elenco dei servizi cloud fare clic sul servizio che ospita l'applicazione in cui si desidera usare la scalabilità automatica, quindi fare clic su **Instances**. La colonna **Role* contiene il nome del ruolo di destinazione.
+    2.  Nell'elenco dei servizi cloud fare clic sul servizio che ospita l'applicazione in cui si desidera usare la scalabilità automatica, quindi fare clic su **Instances**. La colonna **Ruolo* contiene il nome del ruolo di destinazione.
 
         ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
@@ -236,7 +236,7 @@ Nel codice seguente è illustrato un set di regole di esempio in un file **rules
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -246,7 +246,7 @@ In questo esempio sono incluse tre regole di scalabilità automatica (una **rego
 
 -   La regola di vincolo è sempre attiva e imposta il numero minimo di istanze del ruolo su due e il numero massimo di istanze del ruolo su sei.
 
--   Entrambe le regole reattive usano un **operando** denominato **WebRoleA_CPU_Avg_5m** che calcola l'utilizzo medio della CPU negli ultimi cinque minuti per un ruolo di Azure denominato **AutoscalingApplicationRole.** Questo ruolo è definito nel **modello del servizio**.
+-   Entrambe le regole reattive usano un **operando** denominato **WebRoleA\_CPU\_Avg\_5m** che calcola l'utilizzo medio della CPU negli ultimi cinque minuti per un ruolo di Azure denominato **AutoscalingApplicationRole.** Questo ruolo è definito nel **modello del servizio**.
 
 -   La regola reattiva denominata **ScaleUpOnHighUtilization** incrementa il numero di istanze del ruolo di destinazione di un'unità se l'utilizzo medio della CPU negli ultimi cinque minuti è stato maggiore o uguale al 60%.
 
@@ -380,4 +380,4 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

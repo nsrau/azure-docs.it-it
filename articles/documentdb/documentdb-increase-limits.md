@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Richiedere un aumento dei limiti di account DocumentDB | Azure" 
+	pageTitle="Richiedere un aumento dei limiti di account DocumentDB | Microsoft Azure" 
 	description="Informazioni su come richiedere una modifica ai limiti di DocumentDB, ad esempio il numero di raccolte consentite, di stored procedure e di clausole di query." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
@@ -91,4 +91,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

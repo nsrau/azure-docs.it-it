@@ -270,4 +270,4 @@ Le funzionalità di base di IPython sono anche disponibili all'interno di Visual
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=July15_HO5---->
+<!---HONumber=August15_HO6-->

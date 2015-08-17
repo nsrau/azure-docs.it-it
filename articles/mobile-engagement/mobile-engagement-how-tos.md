@@ -75,7 +75,7 @@ Dopo l'integrazione completa dell'SDK nell'app, è possibile iniziare a usare la
  
 ![Personalize1][11]
 
-La personalizzazione viene ottenuta sostituendo un marcatore da un tag app info, quindi sarà necessario assicurarsi che prima siano stati definiti i valori app-info appropriati per l'utente. In questo esempio, per gli utenti di destinazione verrà definito un tag app info denominato rebate_code. Come si può vedere sopra, il contenuto della notifica push include il marker ${rebate_code} che indicherà che deve essere sostituito dal contenuto effettivo del tag app info.
+La personalizzazione viene ottenuta sostituendo un marcatore da un tag app info, quindi sarà necessario assicurarsi che prima siano stati definiti i valori app-info appropriati per l'utente. In questo esempio, per gli utenti di destinazione verrà definito un tag app info denominato rebate\_code. Come si può vedere sopra, il contenuto della notifica push include il marker ${rebate\_code} che indicherà che deve essere sostituito dal contenuto effettivo del tag app info.
 
 > Avviso: se il tag app info non è definito per l'utente, quest'ultimo non riceverà la notifica push.
 
@@ -293,4 +293,4 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

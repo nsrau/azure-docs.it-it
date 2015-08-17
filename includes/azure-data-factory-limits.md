@@ -1,32 +1,32 @@
-Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each others workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support. 
+Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ogni altro carico di lavoro. Molti dei limiti possono essere facilmente aumentati per la sottoscrizione fino al limite massimo contattando il supporto tecnico.
 
-**Resource** | **Default Limit** | **Maximum Limit**
+**Risorsa** | **Limite predefinito** | **Limite massimo**
 -------- | ------------- | -------------
-pipelines within a data factory | 100 | 2500
-datasets within a data factory | 500 | 5000
-concurrent slices per dataset | 10 | 10
-bytes per object for pipeline objects <sup>1</sup> | 200 KB | 2000 KB
-bytes per object for dataset and linkedservice objects <sup>1</sup> | 30 KB | 2000 KB
-fields per object | 100 | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-bytes per field name or identifier | 2 KB | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-bytes per field | 30 KB | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-HDInsight on-demand cluster cores within a subscription <sup>2</sup> | 48 | [Contact support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-Retry count for pipeline activity runs | 1000 | MaxInt (32 bit)
+pipeline all'interno di una factory di dati | 100 | 2500
+set di dati all'interno di una factory di dati | 500 | 5000
+sezioni simultanee per ogni set di dati | 10 | 10
+byte per oggetto per gli oggetti pipeline<sup>1</sup> | 200 KB | 2000 KB
+byte per oggetto per oggetti set di dati e linkedservice<sup>1</sup> | 30 KB | 2000 KB
+campi per oggetto | 100 | [Contattare il supporto tecnico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+byte per nome di campo o identificatore | 2 KB | [Contattare il supporto tecnico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+byte per campo | 30 KB | [Contattare il supporto tecnico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+Memorie centrali del cluster HDInsight su richiesta con una sottoscrizione<sup>2</sup> | 48 | [Contattare il supporto tecnico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+Numero di tentativi delle esecuzioni di attività pipeline | 1000 | MaxInt (32 bit)
 
-<sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.
+<sup>1</sup>pipeline, set di dati e oggetti servizio collegato rappresentano un raggruppamento logico del carico di lavoro. I limiti per questi oggetti non riguardano le quantità di dati che è possibile spostare ed elaborare con il servizio di Azure Data Factory. Data Factory è progettato per la scalabilità e la gestione di petabyte di dati.
 
-<sup>2</sup>On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
+<sup>2</sup>memorie centrali HDInsight su richiesta vengono distribuite al di fuori della sottoscrizione che contiene la factory di dati. Di conseguenza, il limite massimo è il limite principale imposto dalla Data Factory per le memorie centrali HDInsight su richiesta e che è diverso dal limite principale associato alla sottoscrizione Azure.
 
 
-**Resource** | **Default lower limit** | **Minimum limit**
+**Risorsa** | **Limite inferiore predefinito** | **Limite minimo**
 -------- | ------------------- | -------------
-Scheduling interval | 15 minutes | 5 minutes
-Interval between retry attempts | 1 second | 1 second
-Retry timeout value | 1 second | 1 second
+Intervallo di pianificazione | 15 minuti | 5 minuti
+Intervallo tra tentativi | 1 secondo | 1 secondo
+Valore di timeout del tentativo | 1 secondo | 1 secondo
 
 
-### Web service call limits
+### Limiti di chiamata del servizio Web
 
-Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](azure-subscription-service-limits/#resource-group-limits). 
+Gestione risorse di Azure presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](azure-subscription-service-limits/#resource-group-limits).
 
-
+<!---HONumber=August15_HO6-->

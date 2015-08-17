@@ -70,15 +70,11 @@ In base a questo filtro per la definizione dell'ambito, affinché sia possibile 
 3. La sede di lavoro deve trovarsi a San Francisco o in Canada.
 
 
-## Risorse aggiuntive
-
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
- 
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

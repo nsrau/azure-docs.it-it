@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per iOS" 
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per iOS"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Integrazione di Azure Mobile Engagement SDK per iOS"
+	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Come integrare Engagement in iOS
 
-> [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Questa procedura descrive il modo più semplice per attivare le funzioni di analisi e monitoraggio di Engagement in un'applicazione per iOS.
 
-> [AZURE.IMPORTANT] L'SDK di Engagement richiede iOS4+: la destinazione della distribuzione dell'applicazione deve essere almeno iOS 4.
+> [AZURE.IMPORTANT]L'SDK di Engagement richiede iOS5 o versione successiva: la destinazione della distribuzione dell'applicazione deve essere almeno iOS 5.
 
 I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Engagement in iOS](mobile-engagement-ios-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
 
@@ -43,7 +43,7 @@ Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'are
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA \<ios-sdk-engagement-idfa\> per conformarsi ai nuovi criteri Apple relativi a questo ID.
+> [AZURE.NOTE]È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA <ios-sdk-engagement-idfa> per conformarsi ai nuovi criteri Apple relativi a questo ID.
 
 ##Inizializzare l'SDK di Engagement
 
@@ -51,17 +51,17 @@ Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'are
 
 -   Nella parte superiore del file di implementazione importare l'agente di Engagement:
 
-			[...]
-			#import "EngagementAgent.h"
+		[...]
+		#import "EngagementAgent.h"
 
 -   Inizializzare Engagement all'interno del metodo '**applicationDidFinishLaunching:**' o '**application:didFinishLaunchingWithOptions:**':
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
-			  [...]
-			}
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		{
+		  [...]
+		  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
+		  [...]
+		}
 
 ##Segnalazione di base
 
@@ -71,34 +71,34 @@ Per attivare la segnalazione di tutti i log richiesti da Engagement per il calco
 
 **Senza Engagement:**
 
-			#import <UIKit/UIKit.h>
-			
-			@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+
+	@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 **Con Engagement:**
 
-			#import <UIKit/UIKit.h>
-			#import "EngagementViewController.h"
-			
-			@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+	#import "EngagementViewController.h"
+
+	@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 ### Metodo alternativo: chiamare `startActivity()` manualmente
 
 Se non si può o non si vuole eseguire l'overload delle classi `UIViewController`, è possibile avviare le attività chiamando direttamente i metodi di `EngagementAgent`.
 
-> [AZURE.IMPORTANT] iOS SDK chiama automaticamente il metodo `endActivity()` quando viene chiusa l'applicazione. Di conseguenza, è *ALTAMENTE* consigliabile chiamare il metodo `startActivity` ogni volta che l'attività dell'utente cambia e non chiamare *MAI* il metodo `endActivity` poiché questo metodo forza la chiusura della sessione corrente.
+> [AZURE.IMPORTANT]iOS SDK chiama automaticamente il metodo `endActivity()` quando viene chiusa l'applicazione. Di conseguenza, è *ALTAMENTE* consigliabile chiamare il metodo `startActivity` ogni volta che l'attività dell'utente cambia e non chiamare *MAI* il metodo `endActivity` poiché questo metodo forza la chiusura della sessione corrente.
 
 ##Segnalazione della posizione
 
@@ -114,12 +114,12 @@ Le aree segnalate vengono usate per calcolare statistiche geografiche relative a
 
 Per abilitare la segnalazione differita della posizione, aggiungere la riga seguente dopo l'inizializzazione dell'agente di Engagement:
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
-			  [...]
-			}
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	{
+	  [...]
+	  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
+	  [...]
+	}
 
 ### Segnalazione della posizione in tempo reale
 
@@ -129,19 +129,19 @@ Le posizioni in tempo reale *NON* sono usate per calcolare dati statistici. Il l
 
 Per abilitare la segnalazione della posizione in tempo reale, aggiungere la riga seguente dopo l'inizializzazione dell'agente di Engagement:
 
-			[[EngagementAgent shared] setRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setRealtimeLocationReport:YES];
 
 #### Segnalazione basata su GPS
 
 Per impostazione predefinita, la segnalazione della posizione in tempo reale usa solo posizioni di rete. Per abilitare l'uso di posizioni basate su GPS (che sono molto più precise), aggiungere:
 
-			[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
 
 #### Segnalazione in background
 
 Per impostazione predefinita, la segnalazione della posizione in tempo reale è attiva solo quando l'applicazione viene eseguita in primo piano, ad esempio durante una sessione. Per abilitare la segnalazione anche in background, aggiungere:
 
-			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
+	[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
 > [AZURE.NOTE] Quando l'applicazione viene eseguita in background, vengono segnalate solo le posizioni basate sulla rete, anche se è abilitato il GPS.
 
@@ -159,8 +159,8 @@ Per impostazione predefinita, Engagement usa l'identificatore [IDFA] per identif
 
 Integrazione nel file **prefix.pch**:
 
-			#define ENGAGEMENT_DISABLE_IDFA
-			...
+	#define ENGAGEMENT_DISABLE_IDFA
+	...
 
 È possibile verificare la corretta disabilitazione della raccolta IDFA nell'applicazione controllando i log di test di Engagement. Per altre informazioni, vedere la documentazione sul test di integrazione <ios-sdk-engagement-test-idfa>.
 
@@ -170,7 +170,7 @@ Integrazione nel file **prefix.pch**:
 
 Se si vuole che Engagement non invii più log, è possibile chiamare:
 
-			[[EngagementAgent shared] setEnabled:NO];
+	[[EngagementAgent shared] setEnabled:NO];
 
 Questa chiamata è persistente: usa `NSUserDefaults` per archiviare le informazioni.
 
@@ -182,23 +182,23 @@ Anziché chiamare questa funzione, è possibile integrare questa impostazione di
 
 L'esempio seguente di `Settings.bundle` mostra come implementarla:
 
-			<dict>
-			    <key>PreferenceSpecifiers</key>
-			    <array>
-			        <dict>
-			            <key>DefaultValue</key>
-			            <true/>
-			            <key>Key</key>
-			            <string>engagement_agent_enabled</string>
-			            <key>Title</key>
-			            <string>Log reporting enabled</string>
-			            <key>Type</key>
-			            <string>PSToggleSwitchSpecifier</string>
-			        </dict>
-			    </array>
-			    <key>StringsTable</key>
-			    <string>Root</string>
-			</dict>
+	<dict>
+	    <key>PreferenceSpecifiers</key>
+	    <array>
+	        <dict>
+	            <key>DefaultValue</key>
+	            <true/>
+	            <key>Key</key>
+	            <string>engagement_agent_enabled</string>
+	            <key>Title</key>
+	            <string>Log reporting enabled</string>
+	            <key>Type</key>
+	            <string>PSToggleSwitchSpecifier</string>
+	        </dict>
+	    </array>
+	    <key>StringsTable</key>
+	    <string>Root</string>
+	</dict>
 
 <!-- URLs. -->
 [API del dispositivo]: http://go.microsoft.com/?linkid=9876094
@@ -206,6 +206,5 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 [NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
- 
 
-<!--------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

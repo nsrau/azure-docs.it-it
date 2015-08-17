@@ -36,7 +36,7 @@ Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub
 
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente allo storyboard esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione nell'hub di notifica con le categorie selezionate come tag.
 
-1. Nel file MainStoryboard_iPhone.storyboard aggiungere i componenti seguenti dalla libreria di oggetti:
+1. Nel file MainStoryboard\_iPhone.storyboard aggiungere i componenti seguenti dalla libreria di oggetti:
 	+ Un'etichetta con il testo "Breaking News".
 	+ Etichette con il testo relativo alle categorie "World", "Politics", "Business", "Technology", "Science", "Sports".
 	+ Sei opzioni, una per ogni categoria, impostare lo **stato** di ogni opzione su **Off** per impostazione predefinita.
@@ -346,8 +346,7 @@ In genere potrebbero essere inviate le notifiche da un servizio back-end ma per 
 
 3. Ogni dispositivo iscritto alle notizie riceverà le notifiche relative alle ultime notizie appena inviate.
 
-	![][4]
-	![][5]
+	![][4] ![][5]
 
 
 ## Passaggi successivi
@@ -388,4 +387,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

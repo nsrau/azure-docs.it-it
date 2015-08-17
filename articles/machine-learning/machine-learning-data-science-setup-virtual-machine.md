@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configurare una macchina virtuale come server IPython Notebook | Microsoft Azure"
 	description="Configurare una macchina virtuale di Azure per usarla in un ambiente di analisi scientifica dei dati con IPython Server per le analisi avanzate."
-	services="machine-learning"
+	services="machine-learning" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -66,13 +66,13 @@ Se la macchina virtuale già esiste ed è necessario aggiungere un endpoint per 
 
 ## <a name="run-commands"></a>Passaggio 3: Installare IPython Notebook e altri strumenti di supporto
 
-Dopo aver creato la macchina virtuale, usare Remote Desktop Protocol (RDP) per accedere alla macchina virtuale di Windows. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines-log-on-windows-server.md). Aprire il **prompt dei comandi** (\*\*non la finestra di comando di Powershell) come **amministratore** ed eseguire il comando seguente.
+Dopo aver creato la macchina virtuale, usare Remote Desktop Protocol (RDP) per accedere alla macchina virtuale di Windows. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines-log-on-windows-server.md). Aprire il **prompt dei comandi** (**non la finestra di comando di Powershell**) come **amministratore** ed eseguire il comando seguente.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Al termine dell'installazione, il server IPython Notebook viene avviato automaticamente nella directory *C:\\Utenti\\<nome utenti>\\Documenti\\IPython Notebooks*.
+Al termine dell'installazione, il server IPython Notebook viene avviato automaticamente nella directory *C:\\Users\\<nome utente>\\Documenti\\IPython Notebooks*.
 
 Quando richiesto, immettere una password per IPython Notebook e la password dell'amministratore del computer. In questo modo IPython Notebook viene abilitato in modo da essere eseguito come servizio sul computer.
 
@@ -83,7 +83,7 @@ Il *&#60;nome DNS della macchina virtuale>* è disponibile nel portale di gestio
 
 ![Creare un'area di lavoro][19]
 
-Viene visualizzato un avviso che indica che _è stato riscontrato un problema con il certificato di sicurezza del sito Web_ (Internet Explorer) oppure che _la connessione non è privata_ (Chrome), come riportato nelle figure seguenti. Fare clic su **Continuare con il sito Web (scelta non consigliata)** (Internet Explorer) oppure **Avanzate** e quindi **Passare a &#60;\*Nome DNS\*> (non sicuro)** (Chrome) per continuare. Inserire quindi la password specificata in precedenza per accedere a IPython Notebook.
+Viene visualizzato un avviso che indica che _è stato riscontrato un problema con il certificato di sicurezza del sito Web_ (Internet Explorer) oppure che _la connessione non è privata_ (Chrome), come riportato nelle figure seguenti. Fare clic su **Continuare con il sito Web (scelta non consigliata)** (Internet Explorer) oppure **Avanzate** e quindi **Passare a &#60;*Nome DNS*> (non sicuro)** (Chrome) per continuare. Inserire quindi la password specificata in precedenza per accedere a IPython Notebook.
 
 Internet Explorer: ![Creare un'area di lavoro][20]
 
@@ -93,7 +93,7 @@ Dopo aver eseguito l'accesso a IPython Notebook, nel browser verrà visualizzata
 
 ## <a name="upload"></a>Passaggio 5: Caricare un IPython Notebook esistente da un computer locale nel server IPython Notebook
 
-Con IPython Notebook si consente agli utenti di caricare con facilità un IPython Notebook locale sul server di IPython Notebook nelle macchine virtuali. Dopo aver eseguito l'accesso a IPython Notebook in un Web browser, fare clic sulla **directory** in cui verrà caricato IPython Notebook. Selezionare quindi un file con estensione IPYNB di IPython Notebook da caricare dal computer locale in **Esplora file** e trascinarlo nella directory di IPython Notebook nel Web browser. Fare clic sul pulsante **Carica** per caricare il file IPYNB nel server IPython Notebook. Gli altri utenti potranno quindi iniziare a usarlo dai Web browser di cui dispongono.
+Con IPython Notebook si consente agli utenti di caricare con facilità un IPython Notebook locale sul server di IPython Notebook nelle macchine virtuali. Dopo aver eseguito l'accesso a IPython Notebook in un Web browser, fare clic sulla **directory** in cui verrà caricato IPython Notebook. Selezionare quindi un file con estensione ipynb di IPython Notebook da caricare dal computer locale in **Esplora file** e trascinarlo nella directory di IPython Notebook nel Web browser. Fare clic sul pulsante **Carica** per caricare il file con estensione ipynb nel server IPython Notebook. Gli altri utenti potranno quindi iniziare a usarlo dai Web browser di cui dispongono.
 
 ![Creare un'area di lavoro][22]
 
@@ -104,7 +104,7 @@ Con IPython Notebook si consente agli utenti di caricare con facilità un IPytho
 
 Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non ricevere addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)**.
 
-> [AZURE.NOTE]Se si arresta la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non continuare a ricevere addebiti, arrestare sempre le macchine virtuali dal [portale di gestione di Azure](http://manage.windowsazure.com/). È anche possibile arrestare la macchina virtuale tramite Powershell chiamando il metodo **ShutdownRoleOperation** con il valore "StoppedDeallocated" per l'oggetto "PostShutdownAction".
+> [AZURE.NOTE]Se si arresta la macchina virtuale dall'interno (usando le opzioni di risparmio energia di Windows), la macchina virtuale viene arrestata ma rimane allocata. Per assicurarsi di non continuare a ricevere addebiti, arrestare sempre le macchine virtuali dal [portale di gestione di Azure](http://manage.windowsazure.com/). È anche possibile arrestare la macchina virtuale tramite Powershell chiamando il metodo **ShutdownRoleOperation** con il valore "PostShutdownAction" corrispondente a "StoppedDeallocated".
 
 Per arrestare e deallocare la macchina virtuale:
 
@@ -143,4 +143,4 @@ I passaggi successivi del processo di analisi avanzata dei dati sono illustrati 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

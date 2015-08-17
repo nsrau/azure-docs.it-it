@@ -89,7 +89,7 @@ PolyBase richiede file di dati con la codifica UTF-8. Ciò significa che quando 
 Tutti i file codificati con UTF-16 dovranno essere riscritti ***prima*** del trasferimento dei dati.
 
 ### Formato dei file di dati
-PolyBase impone un carattere di terminazione di riga fisso \n o una nuova riga. I file di dati devono essere conformi a questo standard. Non esistono restrizioni per i caratteri di terminazione di colonna o stringa.
+PolyBase impone un carattere di terminazione di riga fisso \\n o una nuova riga. I file di dati devono essere conformi a questo standard. Non esistono restrizioni per i caratteri di terminazione di colonna o stringa.
 
 Sarà necessario definire ogni colonna nel file come parte della tabella esterna in PolyBase. Assicurarsi che tutte le colonne esportate siano necessarie e che i tipi siano conformi agli standard richiesti.
 
@@ -193,4 +193,4 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 [versione di anteprima]: http://aka.ms/downloadazcopypr/
 [documentazione relativa a SSIS]: https://msdn.microsoft.com/it-it/library/ms141026.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

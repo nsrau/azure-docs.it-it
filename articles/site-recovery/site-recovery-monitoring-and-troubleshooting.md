@@ -142,7 +142,7 @@ Per generare il ticket di supporto per il ripristino automatico di sistema, ragg
 ## Articoli correlati
 
 -   [Come conservare la lettera di unità per le macchine virtuali protette]
-    > http://support.microsoft.com/kb/3031135
+    > di cui è stato eseguito il failover o che sono migrate in Azure] (http://support.microsoft.com/kb/3031135)
 
 -   [Come risolvere i problemi dei servizi di ripristino
     > di Azure](http://support.microsoft.com/kb/3005185)
@@ -222,4 +222,4 @@ Server di configurazione, server di elaborazione, server master di destinazione
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. Utilizzare il documento sulla risoluzione dei problemi per RDP nella macchina virtuale. [Collegamento al documento](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

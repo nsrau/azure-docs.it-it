@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Accessi da più aree geografiche"
-	description="Un report che indica agli utenti laddove due accessi avere avuto luogo da diverse aree e l’intervallo tra i due accessi fa sì che sia impossibile che l'utente si sia spostato tra tali aree.""
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
-	editor=""/>
+< proprietà pageTitle = "Accessi da più aree geografiche" description = "Un report che indica agli utenti laddove due accessi avere avuto luogo da diverse aree e l’intervallo tra i due accessi fa sì che sia impossibile che l'utente si sia spostato tra tali aree." "servizi ="active directory"documentationCenter =" "autori ="kenhoff"gestore ="ilanas"editor =" "/ >
 
 <tags
 	ms.service="active-directory"
@@ -24,4 +17,4 @@
 
 ![Accessi da più aree geografiche](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

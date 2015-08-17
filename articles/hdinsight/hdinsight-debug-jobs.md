@@ -7,6 +7,7 @@
 	authors="mumian" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/08/2015" 
 	ms.author="jgao"/>
+
 
 # Eseguire il debug di Hadoop in HDInsight: interpretare i messaggi di errore
 
@@ -197,10 +199,12 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descrizione**: impossibile risolvere il DNS *UrlDns*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.  
-- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con *http://* e finire con *.com*. L'URL completo di solito si trova nella scheda Archiviazione del portale manage.windowsazure.com. 
+- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con **http://* e finire con *.com*. L'URL completo di solito si trova nella scheda Storage del portale di gestione di Azure.
+
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descrizione**: non è possibile verificare il percorso della risorsa *UrlDns*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.  
-- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con *http://* e finire con *.com*. L'URL completo di solito si trova nella scheda Archiviazione del portale manage.windowsazure.com. 
+- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con **http://* e finire con *.com*. L'URL completo di solito si trova nella scheda Storage del portale di gestione di Azure.
+
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descrizione**: la funzionalità relativa alla versione non è disponibile per la versione *VersioneSpecificata* e l'ID sottoscrizione *IDSottoscrizione*.  
 - **Soluzione**: scegliere una versione disponibile e riprovare. 
@@ -232,4 +236,4 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure so
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -125,9 +125,9 @@ Eseguire la ricerca di termini, non di sottostringhe. I termini sono stringhe al
 
 Termine|*non* corrisponde a|ma corrisponde a
 ---|---|---
-ControllerHome.Info|info<br/>home|h\*info<br/>home\*
-ÈLocale|locale<br/>è<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n\* AND r\*
+ControllerHome.Info|info<br/>home|h*info<br/>home*
+ÈLocale|locale<br/>è<br/>*local|isl*<br/>islocal<br/>i*l*
+Nuovo ritardo|o r|nuovo<br/>ritardo<br/>n* AND r*
 
 
 È possibile usare espressioni di ricerca quali le seguenti:
@@ -136,12 +136,12 @@ Query di esempio | Effetto
 ---|---
 lento|Individuazione di tutti gli eventi nell'intervallo di dati i cui campi includono il termine "lento".
 database??|Trova la corrispondenza con database01, databaseAB,...<br/>Il punto interrogativo (?) non è consentito all'inizio di un termine di ricerca.
-database\*|Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (\*) non è consentito all'inizio di un termine di ricerca.
+database*|Trova la corrispondenza con database, database01, databaseNNNN<br/>L'asterisco (*) non è consentito all'inizio di un termine di ricerca.
 mela AND banana|Individuazione di eventi che contengono entrambi i termini. Usare "AND" in lettere maiuscole, non "and".
 mela OR banana<br/>mela banana|Individuazione degli eventi che contengono uno dei termini. Usare "OR", non "or".</br/>Forma breve.
 mela NOT banana<br/>mela -banana|Individuare eventi che contengono un termine ma non l'altro.<br/>Forma breve.
-me\* AND banana-(uva pera)|Operatori logici e parentesi.
-"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | Trovare gli eventi che contengono la misura denominata all'interno dell'intervallo di valori.
+me* AND banana-(uva pera)|Operatori logici e parentesi.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Trovare gli eventi che contengono la misura denominata all'interno dell'intervallo di valori.
 
 
 ## Salvare la ricerca
@@ -198,4 +198,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

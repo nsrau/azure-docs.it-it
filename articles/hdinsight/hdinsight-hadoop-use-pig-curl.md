@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 #Eseguire processi Pig con Hadoop in HDInsight mediante Curl
 
@@ -57,7 +59,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **-u**: il nome utente e la password usati per autenticare la richiesta.
     * **-G**: indica che si tratta di una richiesta GET.
 
-    L'inizio dell'URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà lo stesso per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire lo stato di WebHCat (noto anche come Templeton) per il server.
+    L'inizio dell'URL, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà lo stesso per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire lo stato di WebHCat (noto anche come Templeton) per il server.
 
 2. Usare il seguente codice per inviare un processo Pig Latin al cluster:
 
@@ -87,7 +89,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="results"></a>Visualizzare risultati
 
-Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasb:///example/pigcurl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/pigcur** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
+Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso ****wasb:///example/pigcurl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/pigcur** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
 È possibile elencare e scaricare questi file usando l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md). Ad esempio, per elencare i file contenuti in **example/pigcurl**, usare il comando seguente:
 
@@ -97,7 +99,7 @@ Per scaricare un file, usare il comando seguente:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY**.
+> [AZURE.NOTE]È necessario specificare il nome dell'account di archiviazione contenente il BLOB usando i parametri `-a` e `-k` oppure impostare le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**.
 
 ##<a id="summary"></a>Riepilogo
 
@@ -117,4 +119,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

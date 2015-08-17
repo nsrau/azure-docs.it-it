@@ -18,10 +18,7 @@
 
 # Panoramica della libreria client dei database elastici
 
-La **libreria client dei database elastici** consente di compilare applicazioni client in grado di gestire raccolte di centinaia, o anche migliaia, di database SQL di Azure ospitati in Microsoft Azure. Tali raccolte vengono comunemente usate per le applicazioni SaaS (Software as a Service), in genere architetture single-tenant, dove ogni tenant è dotato di un database. La compilazione e la gestione di un'applicazione è un obiettivo della libreria.
-
-La libreria client è una libreria di .NET Framework che può essere installata in un progetto di applicazione tramite Visual Studio e Nuget. La libreria client fa parte di un set di [strumenti di database elastici](sql-azure-database-elastic-scale-introduction.md).
-
+La **libreria client dei database elastici** aiuta a sviluppare facilmente applicazioni partizionate usando centinaia, o anche migliaia, di database SQL di Azure ospitati in Microsoft Azure. Tali progettazioni vengono comunemente usate per le applicazioni SaaS (Software as a Service), in genere architetture single-tenant, dove ogni tenant è dotato di un database. La compilazione e la gestione di un'applicazione è un obiettivo della libreria.  La libreria client è una libreria di .NET Framework che può essere installata in un progetto di applicazione tramite [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) e [Nuget](http://go.microsoft.com/?linkid=9862605). La libreria client fa parte degli strumenti di database elastici che sono specificatamente una [funzionalità di database elastici](sql-database-elastic-scale-introduction.md).
 
 ## Funzionalità client
 
@@ -54,4 +51,4 @@ Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panorami
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

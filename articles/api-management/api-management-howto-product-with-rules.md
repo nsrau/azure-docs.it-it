@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/18/2015"
+	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
 # Proteggere le API con limiti di frequenza usando Gestione API di Azure
@@ -292,4 +292,4 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamati al minut
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

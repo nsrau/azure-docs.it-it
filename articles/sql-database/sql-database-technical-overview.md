@@ -29,4 +29,4 @@ Il database SQL è disponibile nei [livelli di servizio](sql-database-service-ti
 Iniziare con una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/), quindi [creare un database SQL](sql-database-get-started.md) in pochi minuti.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

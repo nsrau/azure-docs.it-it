@@ -81,4 +81,4 @@ Assicurarsi che i dettagli del dominio forniti siano validi e che il controller 
 
 Il nome di dominio creato o aggiunto deve essere un nome di dominio interno (non il nome di dominio Active Directory di Azure) e deve essere nel formato DNS risolvibile (contoso.local). Ad esempio, si dispone di un nome interno di Active Directory (contoso.local) e di un UPN di Directory Active (contoso.com): è necessario utilizzare il nome interno quando si crea la raccolta.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

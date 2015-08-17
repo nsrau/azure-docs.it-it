@@ -474,4 +474,4 @@ Per esercitazioni che descrivono l'esecuzione di altri esempi e forniscono istru
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

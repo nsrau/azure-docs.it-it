@@ -102,7 +102,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 ## Come creare un'applicazione Java che esegue un'attività a elevato utilizzo di calcolo
 
 1. Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK for Java](http://azure.microsoft.com/develop/java/).
-2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your_service_bus_namespace**, **your_service_bus_owner** e **your_service_bus_key** per usare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
+2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
 3. Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.jar** come nome dell'archivio JAR generato.
 
 <p/>
@@ -265,7 +265,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\TSP\cities.txt", numCities);
+	            buildDistances("c:\\TSP\\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -292,7 +292,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 ## Come creare un'applicazione Java per monitorare lo stato dell'attività a elevato utilizzo di calcolo
 
-1. Nel computer di sviluppo creare un'applicazione console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPClient.java** come nome del file Java. Come sopra, modificare i segnaposto **your_service_bus_namespace**, **your_service_bus_owner** e **your_service_bus_key** immettendo rispettivamente lo **spazio dei nomi** del bus di servizio e i valori indicati in **Default Issuer** e **Default Key**.
+1. Nel computer di sviluppo creare un'applicazione console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPClient.java** come nome del file Java. Come sopra, modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** immettendo rispettivamente lo **spazio dei nomi** del bus di servizio e i valori indicati in **Default Issuer** e **Default Key**.
 2. Esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà utilizzato **TSPClient.jar** come nome dell'archivio JAR generato.
 
 <p/>
@@ -413,9 +413,9 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 ### Come eseguire l'applicazione a elevato utilizzo di calcolo
 
 1. Accedere alla macchina virtuale.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
-3. Copiare **TSPSolver.jar** in **c:\TSP**,
-4. Creare un file denominato **c:\TSP\cities.txt** con il seguente contenuto:
+2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\\TSP**.
+3. Copiare **TSPSolver.jar** in **c:\\TSP**,
+4. Creare un file denominato **c:\\TSP\\cities.txt** con il seguente contenuto:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. Al prompt dei comandi passare alla directory c:\TSP.
+5. Al prompt dei comandi passare alla directory c:\\TSP.
 6. Assicurarsi che la cartella Bin si trovi nella variabile di ambiente PATH.
 7. Sarà necessario creare la coda del bus di servizio prima di eseguire le permutazioni del risolutore TSP. Eseguire il comando seguente per creare la coda del bus di servizio:
 
@@ -484,10 +484,10 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
  
 ### Come eseguire l'applicazione client di monitoraggio
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
-2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\TSP**.
-3. Copiare **TSPClient.jar** in **c:\TSP**,
+2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\\TSP**.
+3. Copiare **TSPClient.jar** in **c:\\TSP**,
 4. Assicurarsi che la cartella Bin si trovi nella variabile di ambiente PATH.
-5. Al prompt dei comandi passare alla directory c:\TSP.
+5. Al prompt dei comandi passare alla directory c:\\TSP.
 6. Eseguire il comando seguente:
 
         java -jar TSPClient.jar
@@ -519,4 +519,4 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="rest-api"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="05/13/2015"
    ms.author="masashin"/>
+
 
 # Guida all'implementazione API
 
@@ -46,11 +48,11 @@ In un servizio implementato utilizzando l'API Web ASP.NET, ogni richiesta viene 
 	);
 	```
 
-	Le route possono essere generiche e comprendere valori letterali, ad esempio _api_, e variabili, ad esempio _{controller}_ e _{id}_. Il routing basato su convenzioni prevede che alcuni elementi della route possano essere facoltativi. Il framework API Web determina quale metodo richiamare nel controller creando una corrispondenza tra il metodo HTTP nella richiesta per la parte iniziale del nome del metodo dell'API, quindi creando una corrispondenza tra i parametri facoltativi. Ad esempio, se un controller denominato _ordini_ contiene i metodi _GetAllOrders()_ o _GetOrderByInt (id int)_ la richiesta GET _http://www.adventure-works.com/api/orders/_ verrà indirizzata al metodo _GetAlllOrders()_ e la richiesta GET _http://www.adventure-works.com/api/orders/99_ verrà indirizzata al metodo _GetOrderByInt (id int)_. Se non esiste alcun metodo corrispondente che inizia con il prefisso Get nel controller, il framework API Web risponde con un messaggio HTTP 405 (metodo non consentito). Inoltre, il nome del parametro (id) specificato nella tabella di routing deve essere lo stesso nome del parametro per il metodo_GetOrderById_, in caso contrario il framework API Web risponderà con un messaggio HTTP 404 (non trovato).
+	Le route possono essere generiche e comprendere valori letterali, ad esempio _api_, e variabili, ad esempio _{controller}_ e _{id}_. Il routing basato su convenzioni prevede che alcuni elementi della route possano essere facoltativi. Il framework API Web determina quale metodo richiamare nel controller creando una corrispondenza tra il metodo HTTP nella richiesta per la parte iniziale del nome del metodo dell'API, quindi creando una corrispondenza tra i parametri facoltativi. Ad esempio, se un controller denominato _ordini_ contiene i metodi _GetAllOrders()_ o _GetOrderByInt (id int)_ la richiesta GET \__http://www.adventure-works.com/api/orders/_ verrà indirizzata al metodo _GetAlllOrders()_ e la richiesta GET \__http://www.adventure-works.com/api/orders/99_ verrà indirizzata al metodo _GetOrderByInt(int id)_. Se non esiste alcun metodo corrispondente che inizia con il prefisso Get nel controller, il framework API Web risponde con un messaggio HTTP 405 (metodo non consentito). Inoltre, il nome del parametro (id) specificato nella tabella di routing deve essere lo stesso nome del parametro per il metodo _GetOrderById_, in caso contrario il framework API Web risponderà con un messaggio HTTP 404 (non trovato).
 
-	Le stesse regole si applicano alle richieste POST, PUT e DELETE HTTP: una richiesta PUT che aggiorna i dettagli dell'ordine 101 verrebbe indirizzata all'URI _http://www.adventure-works.com/api/orders/101_, il corpo del messaggio conterrà i nuovi dettagli dell'ordine e queste informazioni verranno passate come parametro a un metodo nel controller degli ordini con un nome che inizia con il prefisso _Put_, ad esempio _PutOrder_.
+	Le stesse regole si applicano alle richieste POST, PUT e DELETE HTTP: una richiesta PUT che aggiorna i dettagli dell'ordine 101 verrebbe indirizzata all'URI \__http://www.adventure-works.com/api/orders/101_, il corpo del messaggio conterrà i nuovi dettagli dell'ordine e queste informazioni verranno passate come parametro a un metodo nel controller degli ordini con un nome che inizia con il prefisso _Put_, ad esempio _PutOrder_.
 
-	La tabella di routing predefinito non corrisponderà a una richiesta che fa riferimento a risorse figlio di un’API Web RESTful API, ad esempio _http://www.adventure-works.com/api/customers/1/orders_ (trovare i dettagli di tutti gli ordini effettuati dal cliente 1). Per gestire questi casi, è possibile aggiungere route personalizzate alla tabella di routing:
+	La tabella di routing predefinito non corrisponderà a una richiesta che fa riferimento a risorse figlio di un’API Web RESTful API, ad esempio \__http://www.adventure-works.com/api/customers/1/orders_ (trovare i dettagli di tutti gli ordini effettuati dal cliente 1). Per gestire questi casi, è possibile aggiungere route personalizzate alla tabella di routing:
 
 	```C#
 	config.Routes.MapHttpRoute(
@@ -145,7 +147,7 @@ In un servizio implementato utilizzando l'API Web ASP.NET, ogni richiesta viene 
 
 - **Considerare vantaggi e compromessi della collocazione dell'API in un sottodominio**.
 
-	Per impostazione predefinita, l'API Web ASP.NET consente di organizzare le API nella directory _/api_ in un dominio, ad esempio _http://www.adventure-works.com/api/orders_. Questa directory si trova nello stesso dominio come tutti gli altri servizi esposti dallo stesso host. Può essere utile suddividere l'API Web in un proprio sottodominio in esecuzione su un host separato, con URI come _http://api.adventure-works.com/orders_. Questa separazione consente di partizionare e scalare in modo più efficace l'API Web senza influire sulle altre applicazioni web o servizi in esecuzione nel dominio _www.adventure-works.com_.
+	Per impostazione predefinita, l'API Web ASP.NET consente di organizzare le API nella directory _/api_ in un dominio, ad esempio \__http://www.adventure-works.com/api/orders_ Questa directory si trova nello stesso dominio come tutti gli altri servizi esposti dallo stesso host. Può essere utile suddividere l'API Web in un proprio sottodominio in esecuzione su un host separato, con URI come \__http://api.adventure-works.com/orders_. Questa separazione consente di partizionare e scalare in modo più efficace l'API Web senza influire sulle altre applicazioni web o servizi in esecuzione nel dominio _www.adventure-works.com_.
 
 	La collocazione di un'API Web in un sottodominio diverso può causare problemi di sicurezza. Tutte le applicazioni web o i servizi ospitati in _www.adventure-works.com_ che richiamano un'API web in esecuzione altrove, potrebbero violare i criteri della stessa origine di molti browser web. In questo caso, sarà necessario abilitare la condivisione di risorse tra origini (CORS) tra gli host. Per ulteriori informazioni, vedere il documento Linee guida alla sicurezza API.
 
@@ -302,14 +304,15 @@ Una volta che una richiesta è stata inviata correttamente da un’applicazione 
 
 	I collegamenti HATEOAS illustrati nell'esempio di risposta HTTP indicano che un'applicazione client è in grado di eseguire le operazioni seguenti:
 
-	- Una richiesta HTTP GET all'URI _http://adventure-works.com/customers/2_ per recuperare i dettagli del cliente (di nuovo). I dati possono essere restituiti come XML or JSON. 
-	- Una richiesta HTTP PUT all'URI _http://adventure-works.com/customers/2_ per modificare i dettagli del cliente. I nuovi dati devono essere forniti nel messaggio di richiesta nel formato x-www-form-urlencoded.
+	- Una richiesta HTTP GET all'URI \__http://adventure-works.com/customers/2_ per recuperare i dettagli del cliente (di nuovo). I dati possono essere restituiti come XML o JSON.
 
-	- Una richiesta HTTP DELETE all'URI _http://adventure-works.com/customers/2_ per eliminare il cliente. La richiesta non prevede informazioni aggiuntive o la restituzione dei dati nel corpo del messaggio di risposta.
+	- Una richiesta HTTP PUT all'URI \__http://adventure-works.com/customers/2_ per modificare i dettagli del cliente. I nuovi dati devono essere forniti nel messaggio di richiesta nel formato x-www-form-urlencoded.
 
-	- Una richiesta HTTP GET all'URI _http://adventure-works.com/customers/2/orders_ per trovare tutti gli ordini del cliente. I dati possono essere restituiti come XML o JSON.
+	- Una richiesta HTTP DELETE all'URI \__http://adventure-works.com/customers/2_ per eliminare il cliente. La richiesta non prevede informazioni aggiuntive o la restituzione dei dati nel corpo del messaggio di risposta.
 
-	- Una richiesta HTTP PUT all'URI _http://adventure-works.com/customers/2/orders_ per creare un nuovo ordine per il cliente. I dati devono essere forniti nel messaggio di richiesta nel formato x-www-form-urlencoded.
+	- Una richiesta HTTP GET all'URI \__http://adventure-works.com/customers/2/orders_ per trovare tutti gli ordini del cliente. I dati possono essere restituiti come XML o JSON.
+
+	- Una richiesta HTTP PUT all'URI \__http://adventure-works.com/customers/2/orders_ per creare un nuovo ordine per il cliente. I dati devono essere forniti nel messaggio di richiesta nel formato x-www-form-urlencoded.
 
 ## Considerazioni sulla gestione delle eccezioni
 Per impostazione predefinita, nel framework API Web ASP.NET, se un'operazione genera un'eccezione non rilevata, il framework restituisce un messaggio di risposta con codice di stato HTTP 500 (errore interno del server). In molti casi, questo approccio semplicistico non è utile in isolamento e rende difficile determinare la causa dell'eccezione. Pertanto è consigliabile adottare un approccio più completo per la gestione delle eccezioni e considerare i seguenti punti:
@@ -923,7 +926,7 @@ Si possono verificare casi in cui un’applicazione client deve emettere richies
 	}
 	```
 
-	Un'applicazione client può emettere una richiesta per recuperare 30 ordini a partire dall'offset 50 utilizzando l'URI _http://www.adventure-works.com/api/orders?limit=30&offset=50_.
+	Un'applicazione client può emettere una richiesta per recuperare 30 ordini a partire dall'offset 50 utilizzando l'URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_.
 
 	> [AZURE.TIP]Evitare di abilitare le applicazioni client per specificare le stringhe di query che generano un URI con più di 2000 caratteri. Molti client Web e server non possono gestire URI di questa lunghezza.
 
@@ -1151,4 +1154,4 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

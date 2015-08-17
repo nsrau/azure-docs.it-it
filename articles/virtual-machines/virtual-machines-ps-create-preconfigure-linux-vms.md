@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux"
+	pageTitle="Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux"
 	description="Informazioni su come usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="07/09/2015"
 	ms.author="kathydav"/>
 
-# Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux
+# Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
@@ -42,7 +42,7 @@ Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo ques
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-È possibile ottenere il nome della sottoscrizione corretto dalla proprietà SubscriptionName dell'output del comando **Get-AzureSubscription**. È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà Label dell'output del comando **Get AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**. È anche possibile archiviare questi comandi in un file di testo per un uso futuro.
+È possibile ottenere il nome della sottoscrizione corretto dalla proprietà **SubscriptionName** del comando **Get-AzureSubscription**. È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà **Label** dell'output del comando **Get-AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**. È anche possibile archiviare questi comandi in un file di testo per un uso futuro.
 
 ## Passaggio 3: determinare il valore ImageFamily
 
@@ -61,9 +61,9 @@ Aprire una nuova istanza dell'editor di testo preferito oppure l'istanza preferi
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## Passaggio 4: compilare il set di comandi
+## Passaggio 4: Compilare il set di comandi
 
-Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo o in PowerShell ISE, quindi compilando i valori delle variabili e rimuovendo i caratteri < and >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
+Compilare il resto del set di comandi copiando uno dei seguenti blocchi di set di comando nel nuovo file di testo o in PowerShell ISE, quindi compilando i valori delle variabili e rimuovendo i caratteri < and >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
 
 Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi (obbligatorio).
 
@@ -82,7 +82,7 @@ Opzione 2: specificare un nome, la dimensione e il nome del set di disponibilit�
 
 Per i valori InstanceSize per le macchine virtuali di serie D-, DS- o G-, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Specificare il nome utente e la password Linux iniziali (obbligatorio). Scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Utilizzare i comandi seguenti per specificare il nome utente Linux iniziale e una password (obbligatorio). Scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
@@ -103,7 +103,7 @@ Facoltativamente, assegnare alla macchina virtuale un indirizzo IP specifico, no
 
 	$vm1 | Set-AzureStaticVNetIP -IPAddress <IP address>
 
-È possibile verificare la disponibilità di uno specifico indirizzo IP con:
+È possibile verificare la disponibilità di uno specifico indirizzo IP con il comando seguente:
 
 	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
@@ -157,8 +157,8 @@ Dopo aver creato la macchina virtuale, vedere [Come accedere a una macchina virt
 
 Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
-- Salvare questo set di comandi come file di script di PowerShell (\*.ps1)
-- Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di gestione di Azure
+- Salvare questo set di comandi come file di script di PowerShell (*.ps1)
+- Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di gestione di Azure.
 
 ## <a id="examples"></a>Esempi:
 
@@ -170,10 +170,10 @@ Un set di comandi di PowerShell è necessario per creare la macchina virtuale Li
 
 - Usa l'immagine Ubuntu Server 12.10
 - È denominato AZMYSQL1
-- Ha un disco dati aggiuntivo di 500 GB
+- Dispone di un disco dati aggiuntivo di 500 GB.
 - Ha l'indirizzo IP statico 192.168.244.4
-- Si trova nella subnet BackEnd della rete virtuale AZDatacenter
-- Si trova nel servizio cloud Azure-TailspinToys
+- Si trovi nella subnet BackEnd della rete virtuale AZDatacenter.
+- Si trovi nel servizio cloud Azure-TailspinToys.
 
 Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina virtuale, con righe vuote tra ogni blocco per migliorare la leggibilità.
 
@@ -206,11 +206,11 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 Un set di comandi di PowerShell è necessario per creare una macchina virtuale Linux per un server Apache che:
 
 - Usa l'immagine SUSE Linux Enterprise Server 12
-- È denominato LOB1
-- Ha un disco dati aggiuntivo di 50 GB
+- Sia denominato LOB1.
+- Disponga di un disco dati aggiuntivo di 50 GB.
 - È membro del set di bilanciamento del carico LOBServers per il traffico Web standard
-- Si trova nella subnet FrontEnd della rete virtuale AZDatacenter
-- Si trova nel servizio cloud Azure-TailspinToys
+- Si trovi nella subnet FrontEnd della rete virtuale AZDatacenter.
+- Si trovi nel servizio cloud Azure-TailspinToys.
 
 Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina virtuale.
 
@@ -260,4 +260,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Utilizzo di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

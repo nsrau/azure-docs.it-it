@@ -83,7 +83,7 @@ Se è stato avviata la sessione di 1 ora, attenersi alla seguente procedura per 
 
 
 ##Prime operazioni da eseguire
-Poiché l'indice di ricerca è completamente operativo, un buon primo passo consiste nel provare alcune query. La Ricerca di Azure è compatibile con tutti gli operatori di ricerca standard (+, -, |), virgolette per corrispondenze letterali, il carattere jolly (\*) e operatori di priorità. È possibile esaminare il riferimento della sintassi della query per l'elenco completo degli operatori.
+Poiché l'indice di ricerca è completamente operativo, un buon primo passo consiste nel provare alcune query. La Ricerca di Azure è compatibile con tutti gli operatori di ricerca standard (+, -, |), virgolette per corrispondenze letterali, il carattere jolly (*) e operatori di priorità. È possibile esaminare il riferimento della sintassi della query per l'elenco completo degli operatori.
 
 - Iniziare con una ricerca che utilizza il carattere jolly, aggiungendo un asterisco (`*`). Questo indica il numero di documenti presenti nell'indice: 2,262,578.
 - Successivamente, immettere "Yellowstone", quindi aggiungere "+ centro", "+ compilazione" e "-ND" per restringere progressivamente i risultati della ricerca solo su Centro visitatori di Yellowstone, escludendo quelli del Nord Dakota:`Yellowstone +center +building -ND`.  
@@ -157,7 +157,7 @@ I filtri vengono specificati utilizzando la sintassi di OData e vengono spesso u
 
 3. Aprire l'applicazione.
 
-4. Digitare il carattere jolly (\*) per restituire un numero. Si noti che i risultati sono ora limitati a 42,411 elementi, che sono tutti i documenti per tutte le funzionalità geografiche nello stato di Washington.
+4. Digitare il carattere jolly (*) per restituire un numero. Si noti che i risultati sono ora limitati a 42,411 elementi, che sono tutti i documenti per tutte le funzionalità geografiche nello stato di Washington.
 
    ![][12]
 
@@ -529,4 +529,4 @@ Nella istantanea video che seguente viene illustrato lo schema utilizzato per cr
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

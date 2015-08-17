@@ -76,7 +76,7 @@ L'input è "Oggi è un buon giorno". L'output è "1", che indica un sentimento p
 >Questo servizio Web è stato creato tramite Azure Machine Learning. Per una versione di valutazione gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](machine-learning-publish-a-machine-learning-web-service.md), vedere [azure.com/ml](http://azure.com/ml). La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
 
 
-In Azure Machine Learning è stato creato un nuovo esperimento vuoto. La figura seguente mostra il flusso dell'esperimento di un'analisi del sentimento basata sul lessico. Il file "sent_dict.csv" è il lessico di soggettività MPQA ed è configurato come uno degli input di ["Execute R Script"][execute-r-script]. Un altro input è costituito da una revisione campionata dal set di dati di revisioni Amazon per la verifica, in cui sono state eseguite operazioni di selezione, modifica del nome di colonna e suddivisione. Un pacchetto di hash viene usato per archiviare il lessico di soggettività in memoria e accelerare il processo di calcolo del punteggio. L'intero testo verrà suddiviso in token dal pacchetto "tm" e verrà confrontato con le parole disponibili nel dizionario di sentiment. Verrà infine calcolato un punteggio tramite la somma dei pesi di ogni parola soggettiva nel testo.
+In Azure Machine Learning è stato creato un nuovo esperimento vuoto. La figura seguente mostra il flusso dell'esperimento di un'analisi del sentimento basata sul lessico. Il file "sent\_dict.csv" è il lessico di soggettività MPQA ed è configurato come uno degli input di ["Execute R Script"][execute-r-script]. Un altro input è costituito da una revisione campionata dal set di dati di revisioni Amazon per la verifica, in cui sono state eseguite operazioni di selezione, modifica del nome di colonna e suddivisione. Un pacchetto di hash viene usato per archiviare il lessico di soggettività in memoria e accelerare il processo di calcolo del punteggio. L'intero testo verrà suddiviso in token dal pacchetto "tm" e verrà confrontato con le parole disponibili nel dizionario di sentiment. Verrà infine calcolato un punteggio tramite la somma dei pesi di ogni parola soggettiva nel testo.
 
 ###Flusso dell'esperimento:
 
@@ -89,7 +89,7 @@ In Azure Machine Learning è stato creato un nuovo esperimento vuoto. La figura 
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
  
-   # Install hash package install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
+   # Install hash package install.packages("src/hash\_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
 
     #create sentiment dictionary
     negation_word <- c("not","nor", "no")
@@ -153,4 +153,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

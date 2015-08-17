@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/05/2015"
+   ms.date="08/04/2015"
    ms.author="bwren" />
 
 # Webhook di Automazione di Azure
@@ -37,8 +37,6 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 
 ### Parametri
 Un webhook può definire valori per parametri di Runbook usati quando il Runbook viene avviato dal webhook. Il webhook deve includere valori per tutti i parametri obbligatori del Runbook e può includere valori per i parametri facoltativi. Se esistono più webhook collegati a un singolo Runbook, ognuno di essi potrà usare valori di parametri diversi.
-
->[AZURE.NOTE]I valori di parametri impostati da un webhook attualmente non possono essere modificati dopo la creazione del webhook. In questo caso sarà necessario creare un altro webhook che usa valori di parametri diversi.
 
 Quando avvia un Runbook con un webhook, un client non può eseguire l'override dei valori di parametri definiti nel webhook. Per ricevere dati dal client, il Runbook può accettare un singolo parametro denominato **$WebhookData** di tipo [object] che conterrà i dati inclusi dal client nella richiesta POST.
 
@@ -92,7 +90,7 @@ Il client riceverà uno dei codici restituiti seguenti dalla richiesta POST.
 |:---|:----|:---|
 | 202 | Accepted | La richiesta è stata accettata e il Runbook è stato accodato. |
 | 400 | Bad Request | La richiesta non è stata accettata per uno dei motivi seguenti. <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li> </ul>|
-| 404 | Non trovato | La richiesta non è stata accettata per uno dei motivi seguenti. <ul><li>Il webhook non è stato trovato.</li> <li>Il Runbook non è stato trovato.</li> <li>L'account non è stato trovato.</li></ul> |
+| 404 | Non trovato | La richiesta non è stata accettata per uno dei motivi seguenti. <ul><li>Il webhook non è stato trovato.</li> <li>Il runbook non è stato trovato.</li> <li>L'account non è stato trovato.</li></ul> |
 | 500 | Internal Server Error | L'URL è valido, ma si è verificato un errore. Inviare di nuovo la richiesta. |
 
 Presupponendo che la richiesta riesca, la risposta del webhook conterrà l'ID processo in formato JSON come indicato di seguito. Conterrà un singolo ID processo, ma il formato JSON consente potenziali miglioramenti futuri.
@@ -174,4 +172,4 @@ Il Runbook di esempio seguente accetta la richiesta di esempio precedente e avvi
 - [Avvio di un Runbook](automation-starting-a-runbook.md)
 - [Visualizzazione dello stato di un processo di Runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

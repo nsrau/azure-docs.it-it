@@ -48,4 +48,4 @@ Quando si attiva l'account, l'operazione avrà effetto su tutte le raccolte Remo
 Se non si esegue la transizione alla modalità di produzione entro la scadenza della versione di valutazione, le raccolte RemoteApp verranno disabilitate. Ciò non sarà comunque un problema: le impostazioni e i dati degli utenti verranno salvati per altri 90 giorni, in modo che sia comunque possibile attivare il servizio e passare alla modalità di produzione senza alcuna perdita di dati.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

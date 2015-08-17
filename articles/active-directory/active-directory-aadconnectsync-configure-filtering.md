@@ -162,22 +162,22 @@ Nell'esempio seguente verranno filtrati tutti gli utenti in cui il valore di ext
 1. Eseguire l'accesso al computer che esegue il servizio di sincronizzazione Azure AD Connect usando un account membro del gruppo di sicurezza ADSyncAdmins.
 2. Aprire **Synchronization Rules Editor** dal **menu Start**.
 3. Assicurarsi che**Inbound** sia selezionato e fare clic su **Add New Rule**.
-4. Immettere un nome descrittivo per la regola, ad esempio "\*In ingresso da AD - Utente DoNotSyncFilter\*", selezionare la foresta corretta, **User** come **CS object type** e **Person** come **MV object type**. Selezionare **Join** come **Link Type** e in precedence type un valore che non sia attualmente usato da un'altra regola di sincronizzazione, ad esempio 50. Fare clic su **Next**.
-5. In **Scoping filter** fare clic su **Add Group**, fare clic su **Add Clause** e in attribute selezionare **ExtensionAttribute15**. Assicurarsi che l'operatore sia impostato su **EQUAL** e **digitare** il valore NoSync nella casella Value. Fare clic su **Next**.
+4. Assegnare alla regola un nome descrittivo, ad esempio "*In ingresso da AD - Utente DoNotSyncFilter*", selezionare la foresta corretta, quindi selezionare il **tipo di oggetto CS** per **User** e il **tipo di oggetto MV** per **Person**. In **Link Type** selezionare **Join** e in Precedence Type immettere un valore che non sia attualmente usato da un'altra regola di sincronizzazione, ad esempio 50, quindi fare clic su **Next**.
+5. In **Scoping filter** fare clic su **Add Group**, quindi su **Add Clause** e in attribute selezionare **ExtensionAttribute15**. Assicurarsi che Operator sia impostato su **EQUAL** e **digitare** il valore NoSync nella casella Value. Fare clic su **Next**.
 6. Lasciare vuote le regole **Join** e quindi fare clic su **Next**.
 7. Fare clic su **Add Transformation**, impostare **FlowType** su **Constant**, selezionare l'attributo di destinazione cloudFiltered e nella casella di testo Source digitare True. Fare clic su Add per salvare la regola.
 8. Eseguire una sincronizzazione completa. A tale scopo, nella scheda **Connectors** fare clic con il pulsante destro del mouse su **SourceAD**, scegliere **Run**, fare clic su **Full Synchronization** e quindi su **OK**. 
 
 
-L'attributo **sourceObjectType** effettuerà il provisioning di un elemento **User** o **Contact** ad Azure AD se questo attributo ha rispettivamente il valore **User** o **Contact**. Creando una regola di sincronizzazione con una precedenza maggiore rispetto a quella predefinita, è possibile ignorare il comportamento predefinito. Questo metodo offre anche l'opportunità di esprimere regole sia positive che negative.
+L'attributo **sourceObjectType** effettuerà il provisioning di un elemento **User** o **Contact** in Azure AD se questo attributo ha rispettivamente il valore **User** o **Contact**. Creando una regola di sincronizzazione con una precedenza maggiore rispetto a quella predefinita, è possibile ignorare il comportamento predefinito. Questo metodo offre anche l'opportunità di esprimere regole sia positive che negative.
 
-Nell'esempio seguente si sincronizzeranno gli utenti solo quando l'attributo department è "\*Sales\*" oppure è vuoto:
+Nell'esempio seguente si sincronizzeranno gli utenti solo quando l'attributo department è "*Sales*" oppure è vuoto:
 
 1. Eseguire l'accesso al computer che esegue il servizio di sincronizzazione Azure AD Connect usando un account membro del gruppo di sicurezza ADSyncAdmins.
 2. Aprire **Synchronization Rules Editor** dal **menu Start**.
-3. Assicurarsi che**Inbound** sia selezionato e quindi fare clic su **Add New Rule**.
-4. Immettere un nome descrittivo per la regola (ad esempio "\*In ingresso da AD - Utente DoNotSyncFilter\*"), selezionare la foresta corretta, **User** come **CS object type** e **Person** come **MV object type**. Selezionare **Join** come **Link Type** e in **precedence type** un valore che non sia attualmente usato da un'altra regola di sincronizzazione, ad esempio 60. Fare clic su **Next**.
-5. Lasciare vuoti **scoping filter** e **join rules** e fare clic su **Next** due volte.
+3. Assicurarsi che l'opzione **Inbound** sia selezionata e quindi fare clic su **Add New Rule**.
+4. Assegnare alla regola un nome descrittivo, ad esempio "*In ingresso da AD - Utente DoNotSyncFilter*", selezionare la foresta corretta, quindi selezionare il **tipo di oggetto CS** per **User** e il **tipo di oggetto MV** per **Person**. In **Link Type** selezionare **Join** e in **precedence type** immettere un valore che non sia attualmente usato da un'altra regola di sincronizzazione, ad esempio 60. Fare clic su **Next**.
+5. Lasciare vuoti i campi **scoping filter** e **join rules** e fare clic su **Next** due volte.
 6. Fare clic su **Add Transformation**, impostare **FlowType** su **Expression** e impostare **Target Attribute** su **sourceObjectType**. In **Source** digitare l'espressione seguente:<br>`IIF(IsNullOrEmpty([department]),NULL,IIF([department]<>”Sales”,”DoNotSync”,NULL))`
 7. Fare clic su Add per salvare la regola.
 8. Eseguire una sincronizzazione completa. A tale scopo, nella scheda **Connectors** fare clic con il pulsante destro del mouse su **SourceAD**, scegliere **Run**, fare clic su **Full Synchronization** e quindi su **OK**. Di seguito è illustrato il possibile risultato:<br>
@@ -213,4 +213,4 @@ In questo esempio il filtro verrà modificato in modo che vengano sincronizzati 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

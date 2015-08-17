@@ -1,20 +1,12 @@
 <properties
-	pageTitle="Backup di Azure: Backup offline o seeding iniziale tramite il servizio di importazione/esportazione di Azure"
-	description="Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio di importazione/esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio di importazione/esportazione di Azure"
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
-
-<tags 
-	ms.service="backup" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="storage-backup-recovery" 
-	ms.date="07/14/2015" 
-	ms.author="aashishr"; "jimpark"/>
+   pageTitle="Backup di Azure: Backup offline o seeding iniziale tramite il servizio di importazione/esportazione di Azure"
+   description="Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio di importazione/esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio di importazione/esportazione di Azure"
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="shreeshd"
+   editor=""/>
+<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flusso di lavoro di Backup offline in Backup di Azure
 
@@ -72,20 +64,20 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 2. Decomprimere il file *WAImportExport.zip*. Eseguire lo strumento *WAImportExport* che consente di formattare l'unità SATA, scrivere i dati di backup nell'unità SATA e crittografarli. Prima di eseguire il comando seguente, verificare che BitLocker sia abilitato nel computer. <br/>
 
-    *.\\WAImportExport.exe PrepImport /j:<\*JournalFile*>.jrn /id: <\*SessionId\*> /sk:<\*StorageAccountKey\*> /BlobType:\*\*PageBlob\*\* /t:<\*TargetDriveLetter\*> /format /encrypt /srcdir:<\*staging location\*> /dstdir: <\*DestinationBlobVirtualDirectory\*>/\*
+    *.\\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
 
 
 | Parametro | Descrizione
 |-------------|-------------|
-| /j:<\*JournalFile\*>| Percorso del file journal. Ogni unità deve contenere esattamente un file journal. Si noti che il file journal non deve trovarsi nell'unità di destinazione. Il file journal ha estensione jrn e viene creato durante l'esecuzione del comando.|
-|/id:<\*SessionId\*> | L'ID di sessione identifica una *sessione di copia*. Viene usato per garantire il recupero accurato di una sessione di copia interrotta. I file copiati in una sessione di copia vengono archiviati in una directory denominata in base all'ID di sessione nell'unità di destinazione.|
-| /sk:<\*StorageAccountKey\*> | Chiave account per l'account di archiviazione in cui verranno importati i dati. |
+| /j:<*JournalFile*>| Percorso del file journal. Ogni unità deve contenere esattamente un file journal. Si noti che il file journal non deve trovarsi nell'unità di destinazione. Il file journal ha estensione jrn e viene creato durante l'esecuzione del comando.|
+|/id:<*SessionId*> | L'ID di sessione identifica una *sessione di copia*. Viene usato per garantire il recupero accurato di una sessione di copia interrotta. I file copiati in una sessione di copia vengono archiviati in una directory denominata in base all'ID di sessione nell'unità di destinazione.|
+| /sk:<*StorageAccountKey*> | Chiave account per l'account di archiviazione in cui verranno importati i dati. |
 | /BlobType | Specificare **PageBlob**. Il flusso di lavoro avrà esito positivo solo se viene specificata l'opzione PageBlob. Questa non è l'opzione predefinita e deve essere indicata nel comando. |
-|/t:<\*TargetDriveLetter\*> | Lettera di unità del disco rigido di destinazione per la sessione di copia corrente, senza i due punti finali.|
+|/t:<*TargetDriveLetter*> | Lettera di unità del disco rigido di destinazione per la sessione di copia corrente, senza i due punti finali.|
 |/format | Specificare questo parametro se è necessario formattare l'unità. In caso contrario, ometterlo. Prima di formattare l'unità, verrà chiesta una conferma dalla console. Per evitare questa richiesta di conferma, specificare il parametro /silentmode.|
 |/encrypt | Specificare questo parametro se l'unità non è ancora stata crittografata con BitLocker e deve essere crittografata tramite lo strumento. Se l'unità è già stata crittografata con BitLocker, omettere questo parametro e specificare il parametro /bk, fornendo la chiave BitLocker esistente. Se si specifica il parametro /format, sarà necessario specificare anche il parametro /encrypt. |
-|/srcdir:<\*SourceDirectory\*> | Directory di origine contenente i file da copiare nell'unità di destinazione. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo.|
-|/dstdir:<\*DestinationBlobVirtualDirectory\*> | Percorso della directory virtuale di destinazione nell'account di archiviazione di Microsoft Azure. Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole.|
+|/srcdir:<*SourceDirectory*> | Directory di origine contenente i file da copiare nell'unità di destinazione. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo.|
+|/dstdir:<*DestinationBlobVirtualDirectory*> | Percorso della directory virtuale di destinazione nell'account di archiviazione di Microsoft Azure. Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole.|
 
   >[AZURE.NOTE]Nella cartella WAImportExport viene creato un file journal che acquisisce tutte le informazioni relative al flusso di lavoro. Questo file sarà necessario durante la creazione di un processo di importazione nel portale di Azure.
 
@@ -116,4 +108,4 @@ Dopo che i dati del backup iniziale sono disponibili nell'account di archiviazio
 - Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage-import-export-service.md).
 - Per domande sul flusso di lavoro, fare riferimento alla sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

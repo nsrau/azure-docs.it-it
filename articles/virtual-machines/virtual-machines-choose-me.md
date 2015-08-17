@@ -29,4 +29,4 @@ Informazioni su [Macchine virtuali](https://msdn.microsoft.com/library/azure/jj1
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

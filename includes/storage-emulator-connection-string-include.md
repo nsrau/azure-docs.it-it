@@ -33,4 +33,4 @@ Questo valore è identico al collegamento mostrato in precedenza, `UseDevelopmen
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

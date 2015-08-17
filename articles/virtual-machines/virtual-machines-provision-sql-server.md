@@ -60,7 +60,8 @@ Per le informazioni più aggiornate sulle immagini di SQL Server supportate in A
 5. Nella seconda pagina di **Configurazione macchina virtuale** configurare le risorse per la rete, l'archiviazione e la disponibilità:
 	- Nella casella **Servizio cloud** scegliere **Crea un nuovo servizio cloud**.
 	- Nella casella **Nome DNS del servizio cloud** specificare la prima parte del nome DNS desiderato, in modo che completi un nome nel formato **TESTNAME.cloudapp.net**. 
-	- Selezionare una **SOTTOSCRIZIONE** se sono presenti più sottoscrizioni. La scelta determina quali **account di archiviazione** saranno disponibili. - Nella casella **REGIONE/GRUPPO DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
+	- Selezionare una **SOTTOSCRIZIONE** se sono presenti più sottoscrizioni. La scelta determina quali **account di archiviazione** saranno disponibili.
+- Nella casella **REGIONE/GRUPPO DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
 	- Nella casella **Account di archiviazione** generare automaticamente un account o selezionarne uno dall'elenco. Modificare la **SOTTOSCRIZIONE** per visualizzare altri account. 
 	- Nella casella **AVAILABILITY SET** selezionare **(none)**.
 	- Leggere e accettare le note legali.
@@ -92,7 +93,7 @@ Per le informazioni più aggiornate sulle immagini di SQL Server supportate in A
 
 Dopo avere eseguito la connessione alla macchina virtuale con Desktop remoto Windows, la macchina virtuale funziona come qualsiasi altro computer. Eseguire normalmente la connessione all'istanza predefinita di SQL Server con SQL Server Management Studio (in esecuzione nella macchina virtuale).
 
-##<a id="SSMS">Connettersi all'istanza di VM e SQL Server da SQL Server Management Studio in un altro computer</a>
+##<a id="SSMS">Connettersi all'istanza di VM e SQL Server da SQL Server Management Studio da un altro computer</a>
 
 I seguenti passaggi illustrano come connettersi all'istanza di SQL Server su internet utilizzando SQL Server Management Studio (SSMS). Tuttavia, gli stessi passaggi si applicano per rendere accessibile la macchina virtuale di SQL Server per le applicazioni in esecuzione sia in locale che in Azure.
 
@@ -143,7 +144,7 @@ Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere
 
 3. Nella finestra di dialogo **Creazione guidata nuova regola connessioni in entrata**, nella sezione **Tipo di regola**, selezionare **Porta** e quindi fare clic su **Avanti**.
 
-4. Nella finestra di dialogo **Protocollo e porte** usare il valore predefinito per **TCP**. Selezionare la casella **Porte locali specifiche** e quindi digitare il numero di porta dell'istanza del motore di database (\*\*1433\*\* per l'istanza predefinita o il numero di porta specificato per la porta privata nel passaggio di creazione dell'endpoint).
+4. Nella finestra di dialogo **Protocollo e porte** usare il valore predefinito per **TCP**. Selezionare la casella **Porte locali specifiche** e quindi digitare il numero di porta dell'istanza del motore di database (**1433** per l'istanza predefinita o il numero di porta specificato per la porta privata nel passaggio di creazione dell'endpoint).
 
 	![Porta TCP 1433][Image14]
 
@@ -180,7 +181,7 @@ Aprire altre porte per altri componenti in base alle esigenze. Per ulteriori inf
 
 	![Abilitazione del protocollo TCP][Image10]
 
-5. Nel riquadro console fare clic su **Servizi di SQL Server**. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **SQL Server (\_nome istanza\_)** (l'istanza predefinita è **SQL Server (MSSQLSERVER)**), quindi fare clic su **Riavvia** per arrestare e riavviare l'istanza di SQL Server.
+5. Nel riquadro console fare clic su **Servizi di SQL Server**. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **SQL Server (_nome istanza_)** (l'istanza predefinita è **SQL Server (MSSQLSERVER)**) e quindi scegliere **Riavvia** per arrestare e riavviare l'istanza di SQL Server.
 
 	![Riavvio del motore di database][Image11]
 
@@ -274,7 +275,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 ### <a id="cde">Eseguire la connessione al motore di database da un altro computer</a>
  
 1. In un computer connesso a Internet aprire SQL Server Management Studio.
-2. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database**, nella casella \*\*Server name\*\* immettere il nome DNS della macchina virtuale (determinato nell'attività precedente) e un numero di porta di endpoint pubblica nel formato *NomeDNS,Numeroporta*, ad esempio **tutorialtestVM.cloudapp.net,57500**. Per ottenere il numero di porta, accedere al portale di gestione di Azure e trovare la macchina virtuale. Nel dashboard fare clic su **ENDPOINTS** e usare il valore di **PUBLIC PORT** assegnato a **MSSQL**. ![Public Port][Image36]
+2. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database**, nella casella **Server name** immettere il nome DNS della macchina virtuale (determinato nell'attività precedente) e un numero di porta di endpoint pubblica nel formato *NomeDNS,Numeroporta*, ad esempio **tutorialtestVM.cloudapp.net,57500**. Per ottenere il numero di porta, accedere al portale di gestione di Azure e trovare la macchina virtuale. Nel dashboard fare clic su **ENDPOINTS** e usare il valore di **PUBLIC PORT** assegnato a **MSSQL**. ![Public Port][Image36]
 3. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 5. Nella casella **Account di accesso** digitare il nome di un account di accesso creato in una delle attività precedenti.
 6. Nella casella **Password** digitare la password dell'account di accesso creato in una delle attività precedenti.
@@ -364,4 +365,4 @@ Oltre a queste risorse, è consigliabile seguire le linee guida dettagliate forn
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

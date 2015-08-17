@@ -89,4 +89,4 @@ Per una descrizione completa delle API, vedere la documentazione di Microsoft Az
 L'app di esempio non è destinata all'esecuzione in un ambiente di produzione. I dati forniti nel catalogo sono molto limitati e non offrono un modello di raccomandazione significativo. Vengono forniti per fini dimostrativi.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

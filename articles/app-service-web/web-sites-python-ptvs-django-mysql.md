@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/16/2015" 
 	ms.author="huguesv"/>
+
 
 
 
@@ -134,7 +136,7 @@ In questa sezione verrà configurata l'app Web per usare il database MySQL appen
 
 1.  In Esplora soluzioni, in **Python Environments** fare clic con il pulsante destro del mouse sull'ambiente virtuale e scegliere **Install Python Package**.
 
-1. Installare il pacchetto `mysql-python` usando **easy_install**.
+1. Installare il pacchetto `mysql-python` usando **easy\_install**.
 
   	![Finestra di dialogo per l'installazione del pacchetto](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -211,4 +213,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

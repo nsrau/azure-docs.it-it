@@ -158,4 +158,4 @@ Se l'interfaccia della riga di comando di Azure per Mac, Linux e Windows non è 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

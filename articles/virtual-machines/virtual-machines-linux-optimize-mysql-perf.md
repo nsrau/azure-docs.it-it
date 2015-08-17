@@ -210,13 +210,13 @@ Per ottimizzare le impostazioni del server MySQL, è possibile aggiornare il fil
 
 I seguenti elementi di configurazione sono i principali fattori che influiscono sulle prestazioni di MySQL:
 
--	**innodb_buffer_pool_size**: il pool di buffer contiene i dati memorizzati nel buffer e l'indice. In genere è impostato al 70% della memoria fisica.
--	**innodb_log_file_size**: la dimensione del log di ripristino. È possibile usare i log di ripristino per assicurare che le operazioni di scrittura siano veloci, affidabili e recuperabili dopo un arresto anomalo. È impostato su 512 MB, pertanto sarà disponibile una notevole quantità di spazio per la registrazione delle operazioni di scrittura.
--	**max_connections**: in alcuni casi le applicazioni non chiudono correttamente le connessioni. Un valore più elevato garantirà al server più tempo per riciclare le connessioni inattive. Il numero massimo di connessioni è 10.000, ma quello consigliato è 5000.
--	**Innodb_file_per_table**: questa impostazione consente di abilitare o disabilitare la capacità di InnoDB di archiviare le tabelle in file separati. Una volta attiva, l'opzione assicura che le diverse operazioni avanzate di amministrazione vengano eseguite in modo efficiente. Dal punto di vista delle prestazioni, può velocizzare la trasmissione degli spazi di tabella e ottimizzare le prestazioni della gestione dei detriti. L'impostazione consigliata è quindi ON.</br> Da MySQL 5.6, l'impostazione predefinita è ON. Non è pertanto necessaria alcuna azione. Per le versioni precedenti alla 5.6, l'impostazione predefinita è OFF. L'opzione deve essere quindi attivata ed è necessario farlo prima del caricamento dati, in quanto si applica solo alle tabelle appena create.
--	**innodb_flush_log_at_trx_commit**: il valore predefinito è 1, con l'ambito impostato su 0~2. Il valore predefinito è l'opzione più adatta per il database MySQL come pacchetto autonomo. Se impostato su 2, il valore assicura la massima integrità dei dati ed è appropriato per il server Master nel cluster MySQL. Se impostato su 0, il valore tollera la perdita di dati e questo può influire sulla affidabilità, garantendo in alcuni casi prestazioni migliori. Il valore 0 è appropriato per il server Slave nel cluster MySQL.
--	**Innodb_log_buffer_size**: il buffer del log consente l'esecuzione delle transazioni senza scaricare il log sul disco prima del commit delle transazioni. Tuttavia, se è presente un oggetto binario o un campo di testo di grandi dimensioni, la cache verrà usata molto rapidamente e verrà attivato un I/O frequente del disco. Se la variabile di stato Innodb_log_waits è diversa da 0, è consigliabile aumentare le dimensioni del buffer.
--	**query_cache_size**: è consigliabile disabilitare questa opzione fin dall'inizio. Impostare query_cache_size su 0 (in MySQL 5.6 questa è l'impostazione predefinita) e usare altri metodi per velocizzare le query.  
+-	**innodb\_buffer\_pool\_size**: il pool di buffer contiene i dati memorizzati nel buffer e l'indice. In genere è impostato al 70% della memoria fisica.
+-	**innodb\_log\_file\_size**: la dimensione del log di ripristino. È possibile usare i log di ripristino per assicurare che le operazioni di scrittura siano veloci, affidabili e recuperabili dopo un arresto anomalo. È impostato su 512 MB, pertanto sarà disponibile una notevole quantità di spazio per la registrazione delle operazioni di scrittura.
+-	**max\_connections**: in alcuni casi le applicazioni non chiudono correttamente le connessioni. Un valore più elevato garantirà al server più tempo per riciclare le connessioni inattive. Il numero massimo di connessioni è 10.000, ma quello consigliato è 5000.
+-	**Innodb\_file\_per\_table**: questa impostazione consente di abilitare o disabilitare la capacità di InnoDB di archiviare le tabelle in file separati. Una volta attiva, l'opzione assicura che le diverse operazioni avanzate di amministrazione vengano eseguite in modo efficiente. Dal punto di vista delle prestazioni, può velocizzare la trasmissione degli spazi di tabella e ottimizzare le prestazioni della gestione dei detriti. L'impostazione consigliata è quindi ON.</br> Da MySQL 5.6, l'impostazione predefinita è ON. Non è pertanto necessaria alcuna azione. Per le versioni precedenti alla 5.6, l'impostazione predefinita è OFF. L'opzione deve essere quindi attivata ed è necessario farlo prima del caricamento dati, in quanto si applica solo alle tabelle appena create.
+-	**innodb\_flush\_log\_at\_trx\_commit**: il valore predefinito è 1, con l'ambito impostato su 0\~2. Il valore predefinito è l'opzione più adatta per il database MySQL come pacchetto autonomo. Se impostato su 2, il valore assicura la massima integrità dei dati ed è appropriato per il server Master nel cluster MySQL. Se impostato su 0, il valore tollera la perdita di dati e questo può influire sulla affidabilità, garantendo in alcuni casi prestazioni migliori. Il valore 0 è appropriato per il server Slave nel cluster MySQL.
+-	**Innodb\_log\_buffer\_size**: il buffer del log consente l'esecuzione delle transazioni senza scaricare il log sul disco prima del commit delle transazioni. Tuttavia, se è presente un oggetto binario o un campo di testo di grandi dimensioni, la cache verrà usata molto rapidamente e verrà attivato un I/O frequente del disco. Se la variabile di stato Innodb\_log\_waits è diversa da 0, è consigliabile aumentare le dimensioni del buffer.
+-	**query\_cache\_size**: è consigliabile disabilitare questa opzione fin dall'inizio. Impostare query\_cache\_size su 0 (in MySQL 5.6 questa è l'impostazione predefinita) e usare altri metodi per velocizzare le query.  
   
 Vedere [Appendice D](#AppendixD) per il confronto delle prestazioni dopo l'ottimizzazione.
 
@@ -303,20 +303,20 @@ Si noti che le dimensioni del file usato per il test sono pari rispettivamente a
 
 |Parametri |Default |optmization
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |Nessuno |7G
-|**innodb_log_file_size** |5M |512M
-|**max_connections** |100 |5000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8 MB |128M
-|**query_cache_size** |16M |0
+|**innodb\_buffer\_pool\_size** |Nessuno |7G
+|**innodb\_log\_file\_size** |5M |512M
+|**max\_connections** |100 |5000
+|**innodb\_file\_per\_table** |0 |1
+|**innodb\_flush\_log\_at\_trx\_commit** |1 |2
+|**innodb\_log\_buffer\_size** |8 MB |128M
+|**query\_cache\_size** |16M |0
 
 
 Per parametri di configurazione dell'ottimizzazione più dettagliati, fare riferimento alle istruzioni ufficiali di MySQL.
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)
 
-[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
+[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar\_innodb\_flush\_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
 **Ambiente di test**
 
@@ -345,4 +345,4 @@ Per parametri di configurazione dell'ottimizzazione più dettagliati, fare rifer
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

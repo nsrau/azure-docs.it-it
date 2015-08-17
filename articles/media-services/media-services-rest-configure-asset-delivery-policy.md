@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/05/2015" 
 	ms.author="juliako"/>
+
 
 #Procedura: Configurare i criteri di distribuzione degli asset
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -205,7 +207,7 @@ Richiesta:
 	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
 	Host: media.windows.net
 	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https://amsaccount1.keydelivery.mediaservices.windows.net/"}]"}
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]"}
 
 	
 Risposta:
@@ -224,7 +226,7 @@ Risposta:
 	Strict-Transport-Security: max-age=31536000; includeSubDomains
 	Date: Mon, 09 Feb 2015 05:24:38 GMT
 	
-	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https://amsaccount1.keydelivery.mediaservices.windows.net/"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
 ###Collegare un asset ai criteri di distribuzione
@@ -263,7 +265,7 @@ Richiesta:
 	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
 	Host: media.windows.net
 	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https://amsaccount1.keydelivery.mediaservices.windows.net/PlayReady/"}]"}
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
 ###Collegare un asset ai criteri di distribuzione
@@ -413,4 +415,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
     }
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

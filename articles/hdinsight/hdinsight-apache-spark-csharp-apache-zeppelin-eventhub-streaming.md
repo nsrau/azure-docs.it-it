@@ -52,7 +52,7 @@ In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, co
 <tr><th>Nome</th><th>Autorizzazioni</th></tr>
 <tr><td>mysendpolicy</td><td>Invio</td></tr>
 <tr><td>myreceivepolicy</td><td>Attesa</td></tr>
-</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che verranno utilizzati per inviare (\* \* mysendpolicy \* \*) e di ascolto (\* \* myreceivepolicy \* \*) per l'Hub eventi.
+</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che verranno utilizzati per inviare (**mysendpolicy**) e di ascolto (**myreceivepolicy**) per l'Hub eventi.
 
 	![criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Creare criteri di Hub di eventi")
 
@@ -61,7 +61,7 @@ In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, co
 
 	![chiavi dei criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "Salvare le chiavi dei criteri")
 
-6. Nella pagina **Dashboard** fare clic su **informazioni di connessione** dal basso per recuperare e salvare le stringhe di connessione per l'Hub di eventi utilizzando due criteri.
+6. Nella pagina **Dashboard** fare clic su **Informazioni di connessione** dal basso per recuperare e salvare le stringhe di connessione per l'Hub di eventi utilizzando due criteri.
 
 	![chiavi dei criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "Salvare le stringhe di connessione criteri")
 
@@ -164,4 +164,4 @@ Istruzioni su come eseguire questi passaggi e un flusso applicazione di esempio 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

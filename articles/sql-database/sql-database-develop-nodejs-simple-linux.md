@@ -171,4 +171,4 @@ L'esempio di codice in questa sezione applica parametri a un'istruzione SQL INSE
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

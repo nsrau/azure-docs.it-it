@@ -69,7 +69,7 @@ In questo esercizio si utilizzerà lo strumento di registrazione del Catalogo da
 
     ![register4][4]
 
-    c. Fare clic sulla freccia per lo spostamento dell’elemento selezionato (\*\*>\*\*). In tal modo si spostano tutti gli oggetti Product nell’elenco **Da registrare**.
+    c. Fare clic sulla freccia per lo spostamento dell’elemento selezionato (**>**). In tal modo si spostano tutti gli oggetti Product nell’elenco **Da registrare**.
 
     ![register5][5]
 
@@ -109,18 +109,18 @@ Il **Catalogo dati di Azure** ha le seguenti opzioni di ricerca:
 
 Per questo esempio, si utilizzerà una ricerca per parola chiave. La ricerca del **Catalogo dati di Azure** dispone di diverse tecniche di query. In questo esempio viene utilizzato una query di ricerca **raggruppamento**.
 
-**Tecniche di query**<table><tr><td><b>Tecnica</b></td><td><b>Utilizzo</b></td><td><b>Esempio</b></td></tr><tr><td>Ambito proprietà</td><td>Restituire solo le origini di dati in cui viene trovato il termine di ricerca corrispondente nella proprietà specificata</td><td>name:product</td></tr><tr><td>Operatori logici</td><td>Ampliare o limitare una ricerca utilizzando operazioni booleane, come descritto nella sezione Operatori booleani in questa pagina</td><td>finance NOT corporate</td></tr><tr><td>Raggruppamento con parentesi</td><td>Utilizzare le parentesi per raggruppare parti della query per ottenere l'isolamento logico , soprattutto in combinazione con operatori booleani</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>Operatori di confronto</td><td>Utilizzare confronti diversi dall'uguaglianza per le proprietà che contengono dati di tipo data o numerici</td><td>creationTime:&gt;11/05/14</td></tr></table>
+**Tecniche di query**<table><tr><td><b>Tecnica</b></td><td><b>Utilizzo</b></td><td><b>Esempio</b></td></tr><tr><td>Proprietà ambito</td><td>Restituire solo le origini dati in cui viene confrontato il termine di ricerca nella proprietà specificata</td><td>Nome:prodotto</td></tr><tr><td>Operatori logici</td><td>Allargare o limitare una ricerca utilizzando operazioni booleane, come descritto nella sezione operatori booleani in questa pagina</td><td>Finanza NON aziendali</td></tr><tr><td>Con parentesi di raggruppamento</td><td>Utilizzare le parentesi per parti di gruppo della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani</td><td>Nome:prodotto AND (tag:illustrazione O tag:foto)</td></tr><tr><td>Operatori di confronto</td><td>Utilizzare confronti e non uguaglianza per proprietà che dispongono di tipi di dati numerici e date</td><td>DataDiCreazione:&gt; 05/11/14</td></tr></table>
 
-In questo esempio, eseguire una ricerca nel **raggruppamento** degli asset di dati dove name è product e tags è illustration o photo.
+In questo esempio, eseguire una ricerca nel **raggruppamento** degli asset di dati dove nome è prodotto e tags è illustrazione o foto.
 
 1.	Accedere al portale del **Catalogo dati di Azure**.
 2.	Fare clic su **Individua**.
-3.	Nella casella **Cerca** immettere una query di **raggruppamento**: (tags:description OR tags:photo). 
+3.	Nella casella **Cerca** immettere una query di **raggruppamento**: (tags:descrizione O tags:foto). 
 4.	Fare clic sull'icona di ricerca o premere INVIO. Nel **Catalogo dati di Azure** vengono visualizzati gli asset di dati per questa query di ricerca.
     
     ![cerca][8]
 
-In questo esercizio è stato utilizzato il portale del **Catalogo dati si Azure** per individuare e visualizzare gli asset di dati registrati nel catalogo.
+In questo esercizio è stato utilizzato il portale del **Catalogo dati di Azure** per individuare e visualizzare gli asset di dati registrati nel catalogo.
 
 ## Esercizio 4: annotazione delle origini dati registrate
 
@@ -130,8 +130,8 @@ In questo esercizio si utilizza il portale del **Catalogo dati di Azure** per an
 
 1.	Accedere al portale del **Catalogo dati di Azure**.
 2.	Fare clic su **Individua**.
-3.	Scegliere uno o più **asset di dati**. In questo esempio, scegliere **ProductPhoto** e immettere "Foto di prodotti per materiale di marketing".
-4.	Immettere una **descrizione** che consente ad altri di individuare e comprendere perché e come utilizzare l’asset di dati selezionato. Ad esempio, immettere "Immagini di prodotto". È inoltre possibile aggiungere ulteriori tag e visualizzare le colonne.
+3.	Scegliere uno o più **Asset di dati**. In questo esempio, scegliere **ProductPhoto** e immettere "Foto di prodotti per materiale di marketing".
+4.	Immettere una **Descrizione** che consente ad altri di individuare e comprendere perché e come utilizzare l’asset di dati selezionato. Ad esempio, immettere "Immagini di prodotto". È inoltre possibile aggiungere ulteriori tag e visualizzare le colonne.
 5.	Ora è possibile provare a usare la ricerca e il filtro per individuare gli asset di dati utilizzando i metadati descrittivi aggiunti al catalogo.
 
     ![annotare][9]
@@ -148,7 +148,7 @@ In questo esercizio si utilizza un altro utente per aggiungere i metadati agli a
 
 Chiedere a un collega di ripetere l’esercizio precedente **Annotazione delle origini dati registrate**. Dopo che il collega ha aggiunto una descrizione a un asset di dati, ad esempio ProductPhoto, verranno visualizzate più annotazioni.
 
-In questo esercizio si sono utilizzate le funzionalità del Catalogo dati di Azure per i metadati crowdsourced, dove qualsiasi utente del catalogo può annotare gli asset di dati individuati. Esercizio: connessione alle origini dati In questo esercizio si utilizzerà il portale del **Catalogo dati di Azure** per la connessione alle origini dati utilizzando Microsoft Excel.
+In questo esercizio si sono utilizzate le funzionalità del Catalogo dati di Azure per i metadati crowdsourced, dove qualsiasi utente del catalogo può annotare gli asset di dati individuati. Esercizio: connessione alle origini dati. In questo esercizio si utilizzerà il portale del **Catalogo dati di Azure** per la connessione alle origini dati utilizzando Microsoft Excel.
 
 > [AZURE.NOTE]È importante ricordare che il **Catalogo dati di Azure** non consente agli utenti di accedere all'origine dati effettiva, ma ne semplifica per gli utenti l’individuazione e la comprensione. Quando gli utenti si connettono a un'origine dati, l'applicazione client scelta utilizza le credenziali di Windows o richiede le credenziali necessarie. Se l'utente non ha già ottenuto l'accesso all'origine dati, dovrà essere concesso l'accesso prima che possa connettersi.
 
@@ -189,7 +189,7 @@ In questo esercizio sono stati rimossi asset di dati registrati dal catalogo.
 
 In questo esercizio si utilizzerà la funzionalità di gestione del **Catalogo dati di Azure** per assumere la proprietà di asset di dati e per controllare quali utenti possono individuare e gestire tali asset.
 
-Nota: le funzionalità di gestione descritte in questo esercizio sono disponibili solo nel Catalogo dati di Azure Standard Edition e non nella versione gratuita. Nel **Catalogo dati di Azure** è possibile assumere la proprietà di asset di dati, aggiungere coproprietari ad asset di dati e impostare la visibilità degli asset di dati.
+Nota: le funzionalità di gestione descritte in questo esercizio sono disponibili solo nel Catalogo dati di Azure Standard Edition e non nella versione gratuita. Nel **Catalogo dati di Azure** è possibile assumere la proprietà di asset di dati, aggiungere co-proprietari ad asset di dati e impostare la visibilità degli asset di dati.
 
 ### Ecco come si assume la proprietà di asset di dati si limita la visibilità
 
@@ -222,4 +222,4 @@ In questa esercitazione sono state analizzate le funzionalità essenziali dell�
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -47,7 +47,7 @@ New-AzureDnsRecordSet restituisce un oggetto locale che rappresenta il set di re
 ### Record con caratteri jolly
 DNS di Azure supporta[record jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Questi dati vengono restituiti per le query con un nome corrispondente (a meno che non esiste una corrispondenza più vicina da un set di record non jolly).
 
->[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "\*", o un nome con la prima etichetta è "\*", ad esempio, "\*.foo".
+>[AZURE.NOTE]Per creare un set di record con caratteri jolly, utilizzare il nome del set di record "*", o un nome con la prima etichetta è "*", ad esempio, "*.foo".
 
 >I set di record con caratteri jolly sono supportati per tutti i tipi di record tranne NS e SOA.
 
@@ -122,7 +122,7 @@ In questo esempio viene usato il nome del set di record "@" per creare il record
 	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
 ### Creare un set di record SRV con un singolo record
 
-Se si crea un record SRV nella radice della zona, specificare solo _servizio_ e protocollo nel nome del record, non è necessario includere anche ".@" nel nome del record
+Se si crea un record SRV nella radice della zona, specificare solo \_servizio e \_protocollo nel nome del record, non è necessario includere anche ".@" nel nome del record
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
 	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
@@ -265,4 +265,4 @@ L'oggetto del set di record può essere anche reindirizzato invece che passato c
 [Introduzione alla creazione di set di record e di record](../dns-getstarted-create-recordset)<BR> [Eseguire operazioni sulle zone DNS](../dns-operations-dnszones)<BR> [Automatizzare le operazioni usando .NET SDK](../dns-sdk)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

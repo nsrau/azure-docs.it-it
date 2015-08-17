@@ -3,7 +3,7 @@
     pageTitle="Modificare il tenant di Azure Active Directory in RemoteApp di Azure"
     description="Informazioni su come modificare il tenant di Azure Active Directory associato a RemoteApp di Azure"
     services="remoteapp"
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap"
     manager="mbaldwin" />
 
@@ -48,4 +48,4 @@ Se si desidera usare un tenant differente, completare i seguenti passaggi per mo
 
 È ora possibile usare il nuovo tenant di Azure AD per controllare l'accesso alla sottoscrizione di Azure e configurare l'accesso utente in RemoteApp.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

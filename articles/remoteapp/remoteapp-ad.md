@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 
@@ -21,12 +21,12 @@
 # Configurare Active Directory per Azure RemoteApp
 
 
-Per una raccolta ibrida di RemoteApp, è necessario configurare un'infrastruttura di dominio Active Directory locale e un tenant di Azure Active Directory con l'integrazione della directory (e, facoltativamente Single Sign-On). Inoltre, è necessario creare alcuni oggetti Active Directory nella directory locale. Usare le informazioni seguenti per configurare Active Directory locale e Azure AD, quindi integrare i due.
+Per una raccolta ibrida di Azure RemoteApp, è necessario configurare un'infrastruttura di dominio di Active Directory locale e un tenant di Azure Active Directory con l'integrazione della directory (e, facoltativamente, Single Sign-On). Inoltre, è necessario creare alcuni oggetti Active Directory nella directory locale. Usare le informazioni seguenti per configurare Active Directory locale e Azure AD, quindi integrare i due.
 
 ## Configurare Active Directory locale
 Iniziare configurando Active Directory locale. È necessario identificare il suffisso del dominio UPN da usare e quindi creare oggetti Active Directory per RemoteApp.
 
-Se non si è ancora aggiunto Servizi di dominio Active Directory al proprio ambiente Windows Server 2012 R2, consultare [queste istruzioni](https://technet.microsoft.com/library/cc731053.aspx) per informazioni su come eseguire tale operazione.
+Se non si è ancora aggiunto Servizi di dominio di Active Directory al proprio ambiente Windows Server 2012 R2, consultare [queste istruzioni](https://technet.microsoft.com/library/cc731053.aspx) per informazioni su come eseguire tale operazione.
 ### Esaminare e configurare il suffisso di dominio UPN
 Se la foresta non è configurata con un suffisso UPN che corrisponde al dominio di Azure AD che verrà usato per RemoteApp, sarà necessario aggiungerne uno. Determinare se il suffisso necessario è configurato:
 
@@ -91,7 +91,7 @@ Ora che Active Directory locale è stato configurato, passare ad Azure AD. È ne
 Usare le informazioni seguenti per configurare Azure Active Directory
 
 
-- [Aggiungere il proprio dominio](http://technet.microsoft.com/library/hh969247.aspx): usare queste informazioni per aggiungere un dominio che corrisponda al suffisso di dominio UPN del dominio Active Directory locale.
+- [Aggiungere il proprio dominio](http://technet.microsoft.com/library/hh969247.aspx): usare queste informazioni per aggiungere un dominio che corrisponda al suffisso di dominio UPN del dominio di Active Directory locale.
 - [Integrazione directory](http://technet.microsoft.com/library/jj573653.aspx): usare queste informazioni per scegliere un'opzione di integrazione directory: [DirSync con sincronizzazione password](http://technet.microsoft.com/library/dn441214.aspx) o [DirSync con federazione](http://technet.microsoft.com/library/dn441213.aspx).
 
 È anche possibile configurare l'[autenticazione a più fattori](http://technet.microsoft.com/library/dn249466.aspx) (MFA, Multi-Factor Authentication).
@@ -105,7 +105,7 @@ Se si riscontrano problemi durante la configurazione della sincronizzazione dell
 -	In **Active Directory -> Directory predefinita -> Utenti** si aggiunge un nuovo utente in tale dominio (ad esempio myAzureSyncUser@mydomain.com).
 -	Nel dominio in Active Directory è stato aggiunto un nuovo utente di dominio ed è stato inserito nel gruppo Enterprise Admins (ad esempio myDomainSyncUser@mydomain.com).
 
-Avviare ora lo strumento Sincronizzazione directory di Azure e usare le credenziali **myAzureSyncUser@mydomain.com**per la prima richiesta (Credenziali di amministratore di Microsoft Azure Active Directory), quindi usare **myDomainSyncUser@mydomain.com** per la seconda richiesta.
+Avviare ora lo strumento Sincronizzazione directory di Azure e usare le credenziali ****myAzureSyncUser@mydomain.com** per la prima richiesta (Credenziali di amministratore di Microsoft Azure Active Directory), quindi usare ****myDomainSyncUser@mydomain.com** per la seconda richiesta.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

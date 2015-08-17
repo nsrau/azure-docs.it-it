@@ -279,4 +279,4 @@ Vedere la sezione [Inviare processi MapReduce](#mapreduce) in questo articolo.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

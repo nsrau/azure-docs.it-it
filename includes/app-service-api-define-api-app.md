@@ -71,7 +71,7 @@ Il modello di nuovo progetto di app per le di Azure, tuttavia, disabilita la pag
 
 **Nota:** se si distribuisce l'app per le API come *anonima pubblica* e con l'interfaccia utente di Swagger abilitata, tutti potranno usare tale interfaccia utente per individuare e chiamare le API.
 
-1. Aprire il file *App_Start/SwaggerConfig.cs* e cercare **EnableSwaggerUI**:
+1. Aprire il file *App\_Start/SwaggerConfig.cs* e cercare **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
 
@@ -97,4 +97,4 @@ Per visualizzare la pagina di test dell'API, eseguire i passaggi seguenti.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

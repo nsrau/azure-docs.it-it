@@ -76,4 +76,4 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

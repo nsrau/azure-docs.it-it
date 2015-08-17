@@ -138,7 +138,7 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
     * **repository**: i repository che contengono i file di dipendenza usati da questo progetto
 
-    * **scalding-core_2.11** e **hadoop-core**: questo progetto dipende da pacchetti di base Scalding e Hadoop
+    * **scalding-core\_2.11** e **hadoop-core**: questo progetto dipende da pacchetti di base Scalding e Hadoop
 
     * **maven-scala-plugin**: plug-in per compilare le applicazioni di scala
 
@@ -168,7 +168,7 @@ In questo documento vengono fornite informazioni sull'uso di Maven per creare un
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -289,4 +289,4 @@ Dopo aver appreso come usare Scalding per creare processi MapReduce per HDInsigh
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

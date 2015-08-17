@@ -110,16 +110,16 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
  
 5. Nella sezione **Post-build Actions** della configurazione del processo fare clic su **Upload artifacts to Microsoft Azure Blob storage**.
 6. In **Storage Account Name** scegliere l'account di archiviazione da usare.
-7. In **Container Name** specificare il nome del contenitore. Il contenitore verrà creato se non esiste già al momento del caricamento degli elementi di compilazione. È possibile utilizzare variabili di ambiente, pertanto in questo esempio immettere **${JOB_NAME}** come nome del contenitore.
+7. In **Container Name** specificare il nome del contenitore. Il contenitore verrà creato se non esiste già al momento del caricamento degli elementi di compilazione. È possibile utilizzare variabili di ambiente, pertanto in questo esempio immettere **${JOB\_NAME}** come nome del contenitore.
 
     **Suggerimento**
     
-    Sotto la sezione **Command** in cui è stato immesso uno script per **Execute Windows batch command** è presente un collegamento alle variabili di ambiente riconosciute da Hudson. Fare clic sul collegamento per ottenere dettagli sui nomi e le descrizioni delle variabili di ambiente. Si noti che le variabili di ambiente che contengono caratteri speciali come la variabile di ambiente **BUILD_URL** non sono ammesse come nome di contenitore o come percorso virtuale comune.
+    Sotto la sezione **Command** in cui è stato immesso uno script per **Execute Windows batch command** è presente un collegamento alle variabili di ambiente riconosciute da Hudson. Fare clic sul collegamento per ottenere dettagli sui nomi e le descrizioni delle variabili di ambiente. Si noti che le variabili di ambiente che contengono caratteri speciali come la variabile di ambiente **BUILD\_URL** non sono ammesse come nome di contenitore o come percorso virtuale comune.
 
 8. Ai fini di questo esempio, fare clic su **Make new container public by default**. Se si intende utilizzare un contenitore privato, è necessario creare una firma di accesso condiviso per consentire l'accesso. Questa operazione non rientra nell'ambito di questo argomento. Per ulteriori informazioni sulle firme di accesso condiviso, vedere [Creare e utilizzare una firma di accesso condiviso](http://go.microsoft.com/fwlink/?LinkId=279889).
 9. [Facoltativo] Fare clic su **Clean container before uploading** se si vuole cancellare i contenuti dal contenitore prima di caricare gli elementi di compilazione (lasciare questa casella deselezionata se non si vuole pulire i contenuti del contenitore).
 10. In **List of Artifacts to upload** immettere **text/*.txt**.
-11. In **Common virtual path for uploaded artifacts** immettere **${BUILD_ID}/${BUILD_NUMBER}**.
+11. In **Common virtual path for uploaded artifacts** immettere **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Per salvare le impostazioni, fare clic su **Save**.
 13. Nel dashboard di Hudson fare clic su **Build Now** per eseguire **MyJob**. Esaminare l'output di console per ottenere informazioni sullo stato. I messaggi di stato per il servizio di archiviazione di Azure verranno inclusi nell'output della console quando l'operazione post-compilazione avvierà il caricamento degli elementi di compilazione.
 14. Dopo avere completato il processo, è possibile esaminare gli elementi di compilazione aprendo il BLOB pubblico.
@@ -158,7 +158,7 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
     
     Il formato riportato sopra si riferisce al servizio Cloud Azure pubblico. Se si usa un servizio Cloud Azure diverso, usare l'endpoint specificato nel portale di gestione di Azure per determinare l'endpoint dell'URL.
 
-    Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome del contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore utilizzato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD_ID}/${BUILD_NUMBER}** è stato utilizzato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
+    Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome del contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/**. Il nome di contenitore utilizzato come esempio in questa esercitazione è **MyJob**, mentre **${BUILD\_ID}/${BUILD\_NUMBER}** è stato utilizzato per il percorso virtuale comune, di conseguenza l'URL del BLOB ha il formato seguente:
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -168,4 +168,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

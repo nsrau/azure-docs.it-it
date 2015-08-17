@@ -221,4 +221,4 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 Se si verificano problemi con i controller del dispositivo StorSimple che non si risolvono utilizzando le procedure elencate in questa esercitazione, [contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -62,7 +62,7 @@ Questa funzione **OpenConnection** viene chiamata nella parte superiore in tutte
 
 ## Eseguire una query e recuperare il set di risultati
 
-Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php). Questa funzione accetta essenzialmente qualsiasi query e l'oggetto connection e restituisce un set di risultati su cui è possibile eseguire l'iterazione usando [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php). Questa funzione accetta essenzialmente qualsiasi query e l'oggetto connection e restituisce un set di risultati su cui è possibile eseguire l'iterazione usando [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	function ReadData()
 	{
@@ -126,11 +126,11 @@ Nel database SQL, per generare automaticamente i valori di [chiave primaria](htt
 
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
 
--Avvio di una transazione
+\-Avvio di una transazione
 
--Inserimento di una riga di dati, aggiornamento di un'altra riga di dati
+\-Inserimento di una riga di dati, aggiornamento di un'altra riga di dati
 
--Commit della transazione se l'inserimento e l'aggiornamento vengono eseguiti correttamente e il rollback della transazione se una di tali operazioni non è riuscita
+\-Commit della transazione se l'inserimento e l'aggiornamento vengono eseguiti correttamente e il rollback della transazione se una di tali operazioni non è riuscita
 
 
 	function Transactions()
@@ -180,4 +180,4 @@ Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai dat
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

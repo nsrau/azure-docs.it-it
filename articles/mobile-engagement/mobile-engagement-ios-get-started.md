@@ -3,7 +3,7 @@
 	description="Informazioni sull'uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app per iOS."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="piyushjo"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -12,9 +12,9 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article" 
-	ms.date="04/30/2015"
-	ms.author="piyushjo" />
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 # Introduzione a Azure Mobile Engagement per app per iOS in Objective C
 
@@ -52,28 +52,28 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 2. Fare clic su **Servizi app**, quindi su **Mobile Engagement** e infine su **Crea**.
 
-   	![][7]
+	![][7]
 
 3. Nella finestra popup che viene visualizzata, immettere le informazioni seguenti:
 
-   	![][8]
+   ![][8]
 
-	- **Nome dell'applicazione**: digitare il nome dell'applicazione. È possibile usare qualsiasi carattere.
-	- **Piattaforma**: selezionare la piattaforma di destinazione (\*\*iOS\*\*) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
-	- **Nome della risorsa dell'applicazione**: nome usato per rendere accessibile l'applicazione mediante API e URL. È necessario usare solo caratteri di URL convenzionali. Il nome generato automaticamente dovrebbe fornire una buona base di partenza. È anche necessario aggiungere il nome della piattaforma per evitare conflitti in quanto questo nome deve essere univoco.
-	- **Percorso**: selezionare il data center in cui verrà ospitata l'app (e soprattutto la relativa raccolta).
-	- **Raccolta**: se è già stata creata un'applicazione, selezionare una raccolta creata in precedenza, in caso contrario selezionare Nuova raccolta.
-	- **Nome della raccolta**: nome che identifica il gruppo di applicazioni. Garantisce, inoltre, che tutte le app siano incluse in un gruppo per consentire calcoli aggregati delle metriche. Se applicabile, è possibile usare il nome della società o del reparto.
+   - **Nome dell'applicazione**: digitare il nome dell'applicazione. È possibile usare qualsiasi carattere.
+   - **Piattaforma**: selezionare la piattaforma di destinazione (**iOS**) per l'app. Se l'app è destinata a più piattaforme, ripetere questa esercitazione per ogni piattaforma.
+   - **Nome della risorsa dell'applicazione**: nome usato per rendere accessibile l'applicazione mediante API e URL. È necessario usare solo caratteri di URL convenzionali. Il nome generato automaticamente dovrebbe fornire una buona base di partenza. È anche necessario aggiungere il nome della piattaforma per evitare conflitti in quanto questo nome deve essere univoco.
+   - **Percorso**: selezionare il data center in cui verrà ospitata l'app (e soprattutto la relativa raccolta).
+   - **Raccolta**: se è già stata creata un'applicazione, selezionare una raccolta creata in precedenza, in caso contrario selezionare Nuova raccolta.
+   - **Nome della raccolta**: nome che identifica il gruppo di applicazioni. Garantisce, inoltre, che tutte le app siano incluse in un gruppo per consentire calcoli aggregati delle metriche. Se applicabile, è possibile usare il nome della società o del reparto.
 
 4. Selezionare l'app appena creata nella scheda **Applicazioni**.
 
 5. Fare clic su **Informazioni di connessione** per visualizzare le impostazioni di connessione da inserire nell'integrazione dell'SDK nell'app per dispositivi mobili.
 
-   	![][10]
+	![][10]
 
 6. Copiare la **stringa di connessione**, che è necessaria per identificare l'app nel codice dell'applicazione e connettersi a Mobile Engagement dall'app per il telefono.
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>Connessione dell'app al back-end di Mobile Engagement
 
@@ -87,21 +87,21 @@ Se si ha già un'app e si ha familiarità con lo sviluppo per iOS, è possibile 
 
 1. Avviare Xcode e nella finestra popup selezionare **Create a new Xcode project**.
 
-   	![][12]
+	![][12]
 
 2. Selezionare **Single View Application** e fare clic su Next.
 
-   	![][14]
+	![][14]
 
 3. Specificare **nome prodotto**, **nome organizzazione** e **identificatore organizzazione**. Assicurarsi di aver selezionato **Objective-C** per la voce relativa al linguaggio.
 
-   	![][13]
+	![][13]
 
 Xcode creerà l'app demo in cui si integrerà Mobile Engagement.
 
 ###Connettere l'app al back-end di Mobile Engagement
 
-1. Scaricare [Mobile Engagement iOS SDK].
+1. Scaricare [Mobile Engagement SDK per iOS].
 2. Estrarre il file con estensione tar.gz in una cartella nel computer.
 3. Fare clic con il pulsante destro del mouse sul progetto e scegliere "Add files to ..."
 
@@ -172,6 +172,11 @@ Questa sezione descrive come assicurarsi che l'app si connetta al back-end di Mo
 
 Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite notifiche push e messaggistica in-app nel contesto di campagne. Questo modulo è denominato REACH nel portale di Mobile Engagement. Le sezioni seguenti consentono di configurare l'app per la ricezione.
 
+### Abilitare l'app per la ricezione delle notifiche push Silent
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
+
+
 ### Aggiungere la libreria Reach al progetto
 
 1. Fare clic con il pulsante destro del mouse sul progetto.
@@ -186,7 +191,7 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 		#import "AEReachModule.h"
 
-2. In `application:didFinishLaunchingWithOptions` creare un modulo di copertura e passarlo alla riga di inizializzazione di Engagement esistente:
+2. In `application:didFinishLaunchingWithOptions` creare un modulo Reach e passarlo alla riga di inizializzazione di Engagement esistente:
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 			AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
@@ -210,16 +215,16 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 2. Aggiungere il metodo `application:didRegisterForRemoteNotificationsWithDeviceToken` come illustrato di seguito:
 
-		(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+		- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
 		}
 
-3. Aggiungere il metodo `didReceiveRemoteNotification` come illustrato di seguito:
+3. Aggiungere il metodo `didReceiveRemoteNotification:fetchCompletionHandler` come illustrato di seguito:
 
-		(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 		{
-		    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
+			[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 		}
 
 ###Concedere a Mobile Engagement l'accesso al certificato push
@@ -248,7 +253,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 1. Passare alla scheda Reach nel portale di Mobile Engagement.
 
-2. Fare clic su **Nuovo annuncio** per creare la campagna push.
+2. Fare clic su **Nuovo annuncio** per creare una campagna di push.
 
 	![][35]
 
@@ -274,6 +279,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 <!-- URLs. -->
 [Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
+[Mobile Engagement SDK per iOS]: http://go.microsoft.com/?linkid=9864553
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
 
 <!-- Images. -->
@@ -299,6 +305,5 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

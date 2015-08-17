@@ -141,4 +141,4 @@ Per completare questa esercitazione, è necessario disporre di:
 [estensione Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

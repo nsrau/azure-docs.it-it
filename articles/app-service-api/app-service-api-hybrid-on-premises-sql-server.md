@@ -3,7 +3,7 @@
 	description="Creare un'app per le API in Microsoft Azure e connetterla a un database SQL Server locale"
 	services="app-service\api" 
 	documentationCenter="" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -22,7 +22,7 @@ Le connessioni ibride possono connettere le app per le API del [servizio app di 
 
 In questa esercitazione si apprenderà come creare un'app per le API del servizio app nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) che si connette a un database locale di SQL Server mediante la funzionalità Connessione ibrida. Questa esercitazione presuppone che l'utente non abbia mai usato Azure o SQL Server.
 
-[AZURE.INCLUDE app-service-web-try-app-service.md]
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Prerequisiti
 
@@ -31,8 +31,6 @@ Per completare l'esercitazione, sono necessari i prodotti seguenti. Sono tutti d
 - **Sottoscrizione di Azure**: per una sottoscrizione gratuita, vedere [Versione di valutazione gratuita di Azure](/pricing/free-trial/). 
 
 - **Visual Studio**: per scaricare una versione di valutazione gratuita di Visual Studio 2013 o Visual Studio 2015, vedere [Download di Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installare una di queste versioni prima di continuare. Le schermate di questa esercitazione sono state create in Visual Studio 2013.
-
-- **Microsoft .NET Framework 3.5 Service Pack 1**: se si usa il sistema operativo Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 o Windows Server 2008 R2, è possibile abilitare questo service pack in Pannello di controllo > Programmi e funzionalità > Attivazione o disattivazione delle funzionalità Windows. In alternativa, è possibile scaricarlo dall'[Area download Microsoft](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
 
 - **SQL Server 2014 Express with Tools**: scaricare Microsoft SQL Server Express gratuitamente dalla [pagina del database della piattaforma Web Microsoft](https://www.microsoft.com/it-it/download/details.aspx?id=42299). Più avanti nell'esercitazione verrà illustrato come [installare SQL Server](#InstallSQLDB) per assicurare che sia configurato correttamente.
 
@@ -66,7 +64,7 @@ Il computer in cui si installa l'agente Hybrid Connection Manager locale:
 	</tr>
 </table>
 
-- Deve essere in grado di raggiungere il *nome host*: \*numero di porta\* della risorsa locale. 
+- Deve essere in grado di raggiungere il *nome host*:* numero di porta* della risorsa locale. 
 
 I passaggi indicati in questo articolo presuppongono che l'utente usi il browser dal computer che ospiterà l'agente di connessione ibrida locale.
 
@@ -118,7 +116,7 @@ Per abilitare TCP/IP, si userà Gestione configurazione SQL Server, installato a
 
 	![Connetti al server](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	Se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su **Connetti**, e quindi su **Motore di database**.
+	Se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro a sinistra, fare clic su **Connetti** e quindi su **Motore di database**.
 	
 2. Per creare un nuovo database usando SQL Server Management Studio, fare clic con il pulsante destro del mouse su **Database** in Esplora oggetti, quindi fare clic su **Nuovo database**.
 	
@@ -411,7 +409,7 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/try-it-out-azure.png)
 	
-**Congratulazioni**. È stata creata un'app per le API che viene eseguita su Azure e usa una connessione ibrida per connettersi a un database SQL Server locale.
+**Congratulazioni** È stata creata un'app per le API che viene eseguita su Azure e usa una connessione ibrida per connettersi a un database SQL Server locale.
 
 ## Vedere anche
 [Panoramica delle connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274)
@@ -432,4 +430,4 @@ Dopo avere completato l'infrastruttura della connessione ibrida, sarà possibile
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -163,18 +163,18 @@ Per impostazione predefinita tutti gli utenti autenticati hanno il diritto **Rea
 
 ## API REST
 
-Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere utilizzate per controllare i ruoli e le autorizzazioni: oltre alle due proprietà di sistema di payload dell’elemento è possibile specificare **__ruoli\*\* e **__autorizzazioni\*\*.
+Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere utilizzate per controllare i ruoli e le autorizzazioni: oltre alle due proprietà di sistema di payload dell’elemento è possibile specificare **\_ruoli** e **\_autorizzazioni**.
 
 > [AZURE.NOTE]
 >
-> **__permissions\*\* si applica solo a un elemento radice.
+> **__**\_autorizzazioni** si applica solo a un elemento radice.
 >
-> Il ruolo **Owner** si applica solo a un elemento radice.
+> Il ruolo **Proprietario** si applica solo a un elemento radice.
 >
-> Per impostazione predefinita quando viene creato un elemento nel catalogo, il relativo**Contributor** è impostato sull'utente attualmente autenticato. Se l'elemento deve essere aggiornabile da tutti, **Contributor**deve essere impostato sull’entità di sicurezza speciale <Everyone> nella proprietà **__roles\*\* quando è il primo elemento pubblicato (vedere l'esempio riportato di seguito). **Contributor** non può essere modificato e rimane invariato durante la durata di un elemento (ad esempio neanche l’**amministratore** o il **proprietario** hanno il diritto di modificare **Contributor**). L'unico valore supportato per l'impostazione esplicita di **Contributor** è <Everyone>: ad esempio, **Contributor** può essere solo un utente che ha creato un elemento o <Everyone>.
+> Per impostazione predefinita quando viene creato un elemento nel catalogo, il relativo**Collaboratore** è impostato sull'utente attualmente autenticato. Se l'elemento deve essere aggiornabile da tutti, **Collaboratore**deve essere impostato sull’entità di sicurezza speciale <Everyone> nella proprietà **\_ruoli** quando è il primo elemento pubblicato (vedere l'esempio riportato di seguito). **Collaboratore** non può essere modificato e rimane invariato durante la durata di un elemento (ad esempio neanche l’**Amministratore** o il **Proprietario** hanno il diritto di modificare il **Collaboratore**). L'unico valore supportato per l'impostazione esplicita di **Collaboratore** è <Everyone>: ad esempio, **Collaboratore** può essere solo un utente che ha creato un elemento o <Everyone>.
 
 ###esempi
-**Impostare Contributor su <Everyone> quando si pubblica un elemento.** Entità di sicurezza speciale <Everyone> ha objectId "00000000-0000-0000-0000-000000000201". **POST**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview**Corpo**
+**Impostare collaboratore<Everyone>durante la pubblicazione di un elemento.** Entità di sicurezza speciale <Everyone> ha come objectId "00000000-0000-0000-0000-000000000201". **POST**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview**Corpo**
 
 	{
 	    "__roles": [
@@ -239,4 +239,4 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere ut
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

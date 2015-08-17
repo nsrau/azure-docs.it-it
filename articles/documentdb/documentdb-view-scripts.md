@@ -3,7 +3,7 @@
 	description="Informazioni su Esplora script, uno strumento del portale di anteprima di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
@@ -75,11 +75,11 @@ Esplora script consente di visualizzare facilmente gli elementi di programmazion
 
 	![Schermata della vista delle proprietà dello script di Esplora script](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]La proprietà timestamp (_ts) viene rappresentata internamente come epoch time, ma Esplora script consente di visualizzare il valore in formato GMT leggibile.
+	> [AZURE.NOTE]La proprietà timestamp (\_ts) viene rappresentata internamente come epoch time, ma Esplora script consente di visualizzare il valore in formato GMT leggibile.
 
 ## Passaggi successivi
 
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

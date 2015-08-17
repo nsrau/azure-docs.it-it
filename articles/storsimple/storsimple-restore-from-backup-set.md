@@ -1,4 +1,5 @@
-<properties pageTitle="Ripristinare un volume StorSimple da un set di backup" | Microsoft Azure description="Informazioni su come usare il catalogo di backup per ripristinare un volume StorSimple da un set di backup." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
+<properties pageTitle="Ripristinare un volume StorSimple da un set di backup" | Microsoft Azure description="Informazioni su come usare il catalogo di backup per ripristinare un volume StorSimple da un set di backup." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -74,4 +75,4 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

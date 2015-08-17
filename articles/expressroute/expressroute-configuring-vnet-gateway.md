@@ -73,4 +73,4 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

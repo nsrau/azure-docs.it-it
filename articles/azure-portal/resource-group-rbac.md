@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gestione e controllo dell'accesso alle risorse"
-   description="Utilizzare il controllo di accesso basato sui ruoli (RBAC) per gestire le autorizzazioni utente per le risorse di distribuzione in Azure."
+   description="Usare il controllo di accesso basato sui ruoli (RBAC) per gestire le autorizzazioni utente per le risorse di distribuzione in Azure."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -24,7 +24,7 @@ Con Gestione risorse di Azure, è possibile assicurarsi che gli utenti dell'orga
 
 Esistono alcuni concetti fondamentali sul controllo di accesso in base ai ruoli:
 
-1. Entità: l’entità che ha concesso l'autorizzazione, ad esempio un utente, un gruppo di sicurezza o un'applicazione.
+1. Entità: l'entità che ha concesso l'autorizzazione, ad esempio un utente, un gruppo di sicurezza o un'applicazione.
 2. Ruolo: il set di azioni consentite
 3. Ambito: il livello a cui viene applicato un ruolo, ad esempio la sottoscrizione, il gruppo di risorse o la risorsa.
 3. Assegnazione dei ruoli: il processo di aggiunta di un'entità a un ruolo e l'impostazione dell'ambito.
@@ -34,18 +34,18 @@ Per comprendere i concetti di controllo di accesso in base ai ruoli, vengono rip
 
 | Ruolo | Azioni consentite |
 | ------- | ----------------- |
-| Lettore | */read (Leggere qualsiasi elemento) | | Owner | * (Leggere/scrivere qualsiasi elemento) |
+| Lettore | **/read (Leggere qualsiasi elemento) | | Proprietario | * (Leggere/scrivere qualsiasi elemento) |
 
-Per assegnare il ruolo **Lettore** all’**Utente A** per il gruppo di risorse denominato **ExampleGroup** e il ruolo **Proprietario** all’**Utente B** per l'intera sottoscrizione, verrà assegnato quanto segue:
+Per assegnare il ruolo **Lettore** all'**Utente A** per il gruppo di risorse denominato **ExampleGroup** e il ruolo **Proprietario** all'**Utente B** per l'intera sottoscrizione, verrà assegnato quanto segue:
 
 | Ruolo | Entità | Ambito |
 | --------|-------------|---------- |
-| Lettore | Utente A | /subscriptions/{subscriptionId}/resourceGroups/examplegroup |
-| Proprietario | Utente B | /subscriptions/{subscriptionId} |
+| Lettore | Utente A | /subscriptions/{IDsottoscrizione}/resourceGroups/examplegroup |
+| Proprietario | Utente B | /subscriptions/{IDsottoscrizione} |
 
 ## Scenari di esempio
 
-In questo argomento, verrà illustrato come eseguire i seguenti scenari comuni tramite Azure PowerShell, l’interfaccia della riga di comando di Azure per Mac, Linux e Windows e API REST.
+In questo argomento, verrà illustrato come eseguire gli scenari comuni seguenti tramite Azure PowerShell, l'interfaccia della riga di comando di Azure per Mac, Linux e Windows e API REST.
 
 1. Visualizzare i ruoli disponibili in una sottoscrizione e le azioni consentite per tali ruoli.
 2. Concedere le autorizzazioni di Lettore ai membri di un gruppo nella sottoscrizione.
@@ -57,7 +57,7 @@ In questo argomento, verrà illustrato come eseguire i seguenti scenari comuni t
 ## Come usare PowerShell per gestire l'accesso
 Se la versione più recente di Azure PowerShell non è ancora installata, vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md). Aprire la console di Azure PowerShell.
 
-1. Accedere all’account Azure con le proprie credenziali. Il comando restituisce le informazioni relative all'account.
+1. Accedere all'account Azure con le proprie credenziali. Il comando restituisce le informazioni relative all'account.
 
         PS C:\> Add-AzureAccount
           
@@ -110,12 +110,12 @@ Per visualizzare tutti i ruoli disponibili per la sottoscrizione, eseguire il co
         Scope              : /subscriptions/####
         ObjectId           : ####
 
-###Concedere l’autorizzazione di Collaboratore a un'applicazione per un gruppo di risorse.
+###Concedere l'autorizzazione di Collaboratore a un'applicazione per un gruppo di risorse.
 1. Esaminare la definizione di ruolo **Collaboratore** fornendo il nome del ruolo quando si esegue il comando **Get-AzureRoleDefinition**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
 
         PS C:\> Get-AzureRoleDefinition Contributor
 
-2. Ottenere l’ID dell’oggetto entità servizio eseguendo il comando **Get-AzureADServicePrincipal** e specificando il nome dell'applicazione nella sottoscrizione. Di seguito è riportato ExampleApplication.
+2. Ottenere l'ID dell'oggetto entità servizio eseguendo il comando **Get-AzureADServicePrincipal** e specificando il nome dell'applicazione nella sottoscrizione. Di seguito è riportato ExampleApplication.
 
         PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
@@ -142,9 +142,9 @@ Per ottenere il registro di controllo per un gruppo di risorse, eseguire il coma
 
 ## Come usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows
 
-Se l’interfaccia della riga di comando per Mac, Linux e Windows non è installata oppure se è non stato configurato l'account dell'organizzazione per l'uso con l’interfaccia della riga di comando di Azure, vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+Se l'interfaccia della riga di comando per Mac, Linux e Windows non è installata oppure se è non stato configurato l'account dell'organizzazione per l'uso con l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-1. Accedere all’account Azure con le proprie credenziali. Il comando restituisce il risultato dell'accesso dell'utente.
+1. Accedere all'account Azure con le proprie credenziali. Il comando restituisce il risultato dell'accesso dell'utente.
 
         azure login
 
@@ -201,7 +201,7 @@ Consente di visualizzare tutti i ruoli disponibili per la sottoscrizione. Restit
         info:    role assignment create command OK
 
 
-### Concedere l’autorizzazione di Collaboratore a un'applicazione per un gruppo di risorse.
+### Concedere l'autorizzazione di Collaboratore a un'applicazione per un gruppo di risorse.
 1. Ottenere la definizione di ruolo per il ruolo **Collaboratore**. Verificare che le operazioni consentite siano quelle che si intende assegnare.
 
         azure role show Contributor
@@ -210,7 +210,7 @@ Consente di visualizzare tutti i ruoli disponibili per la sottoscrizione. Restit
 
         azure ad sp show --search ExampleApplicationName
 
-2. Creare l'assegnazione dei ruoli per il l’applicazione.
+2. Creare l'assegnazione dei ruoli per il l'applicazione.
 
         azure role assignment create --ObjectId {service-principal-object-id} -o Contributor -c /subscriptions/{subscriptionId}/
 
@@ -220,7 +220,7 @@ Consente di visualizzare tutti i ruoli disponibili per la sottoscrizione. Restit
 
         azure role show Owner
 
-2. Creare l’assegnazione dei ruoli per l'utente.
+2. Creare l'assegnazione dei ruoli per l'utente.
 
         azure role assignment create --mail "someone@example.com" -o Owner -c /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Web/sites/{mySiteName}
 
@@ -232,7 +232,7 @@ Per ottenere il registro di controllo per un gruppo di risorse, eseguire il coma
 
 
 ## Come usare l'API REST
-Per gestire il controllo di accesso in base ai ruoli tramite l’API REST di Gestione risorse di Azure, è necessario impostare le intestazioni e parametri comuni (inclusi i token di autenticazione) quando si inviano le richieste. Per informazioni vedere [Parametri e intestazioni comuni](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Per gestire il controllo di accesso in base ai ruoli tramite l'API REST di Gestione risorse di Azure, è necessario impostare le intestazioni e parametri comuni (inclusi i token di autenticazione) quando si inviano le richieste. Per informazioni vedere [Parametri e intestazioni comuni](https://msdn.microsoft.com/library/azure/dn906885.aspx).
    
 Per individuare le versioni di api supportate, eseguire:
 
@@ -270,4 +270,4 @@ Creare l'assegnazione dei ruoli.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

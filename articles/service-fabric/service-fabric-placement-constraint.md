@@ -39,4 +39,4 @@ NodeProperty. Mapping definito dall'utente o dal sistema tra una stringa e un va
 Per altre informazioni, vedere l'articolo relativo agli [scenari applicativi](../service-fabric-application-scenarios).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

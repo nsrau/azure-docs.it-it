@@ -97,7 +97,7 @@ In un token SAML viene visualizzato il nome (o "nome specificato") in un'attesta
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
     <AttributeValue>Frank<AttributeValue>
 
-In un token JWT il nome viene visualizzato nell'attestazione given_name.
+In un token JWT il nome viene visualizzato nell'attestazione given\_name.
 
     "given_name": "Frank"
 
@@ -156,7 +156,7 @@ L'attestazione Cognome fornisce il cognome dell'utente, come definito nell'ogget
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
     <AttributeValue>Miller<AttributeValue>
 
-In un token JWT il cognome viene visualizzato nell'attestazione family_name.
+In un token JWT il cognome viene visualizzato nell'attestazione family\_name.
 
     "family_name": "Miller"
 
@@ -167,7 +167,7 @@ Fornisce un valore leggibile che identifica il soggetto del token. Questo valore
     <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
     <AttributeValue>frankm@contoso.com<AttributeValue>
 
-In un'attestazione JWT il nome viene visualizzato nell'attestazione unique_name.
+In un'attestazione JWT il nome viene visualizzato nell'attestazione unique\_name.
 
     "unique_name": "frankm@contoso.com"
 
@@ -195,7 +195,7 @@ In un token JWT l'attestazione roles viene visualizzata nell'attestazione roles.
 
 ### Scope
 
-L'ambito del token indica le autorizzazioni di rappresentazione concesse all'applicazione client. L'autorizzazione predefinita è user_impersonation. Il proprietario della risorsa protetta può registrare valori aggiuntivi in Azure AD.
+L'ambito del token indica le autorizzazioni di rappresentazione concesse all'applicazione client. L'autorizzazione predefinita è user\_impersonation. Il proprietario della risorsa protetta può registrare valori aggiuntivi in Azure AD.
 
 In un token JWT l'ambito del token viene specificato in un'attestazione scp.
 
@@ -413,4 +413,4 @@ Questo è un esempio di un tipico token Web JSON (JWT) usato in un flusso Web di
 [Protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

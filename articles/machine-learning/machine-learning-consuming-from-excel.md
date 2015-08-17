@@ -23,9 +23,9 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Passaggi
+## Passi
 
-1. Pubblicare un servizio Web. [Questa pagina](machine-learning-walkthrough-5-publish-web-service.md) spiega come eseguire tale operazione. Attualmente la funzionalità Cartella di lavoro di Excel è supportata solo per i servizi di richiesta/risposta con un unico output cioè, una singola etichetta di valutazione. 
+1. Pubblicazione di un servizio Web. [Questa pagina](machine-learning-walkthrough-5-publish-web-service.md) spiega come eseguire tale operazione. Attualmente la funzionalità Cartella di lavoro di Excel è supportata solo per i servizi di richiesta/risposta con un unico output cioè, una singola etichetta di valutazione. 
  
 2. Dopo aver creato un servizio Web, fare clic sulla sezione **WEB SERVICES** sulla sinistra di Studio e quindi selezionare il servizio Web da utilizzare tramite Excel.
 
@@ -70,4 +70,4 @@ Una chiamata RRS viene effettuata nei due casi seguenti:
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -248,4 +248,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
   [Code, argomenti e sottoscrizioni del bus di servizio]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

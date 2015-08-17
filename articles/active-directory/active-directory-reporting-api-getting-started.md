@@ -137,4 +137,4 @@ Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'out
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
 - Per informazioni dettagliate sul servizio REST dell'API Graph, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

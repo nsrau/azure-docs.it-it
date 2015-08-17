@@ -79,7 +79,7 @@ Creare prima di tutto una nuova rete virtuale denominata TestVNET.
 
 Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell per installare Azure PowerShell nel computer locale](../install-configure-powershell.md).
 
-Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome *TestVNET-*\*UniqueSequence\*, in cui **UniqueSequence** è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome **TestVNET-Tailspin** al servizio cloud.
+Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome **TestVNET-***UniqueSequence*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome **TestVNET-Tailspin** al servizio cloud.
 
 Per verificare l'univocità del nome, è possibile usare questo comando di Azure PowerShell nel computer locale.
 
@@ -171,7 +171,7 @@ Accedere quindi alla nuova macchina virtuale DC2.
 3.	Quando viene richiesto di aprire DC2.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Quando vengono richieste le credenziali, usare le seguenti:
-- Nome: **DC2\\**[Nome dell'account amministratore locale]
+- Nome: **DC2\**[Nome dell'account amministratore locale]
 - Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -205,7 +205,7 @@ Si noti che viene richiesto di specificare sia la password per CORP\\User1 che l
 Quando la rete virtuale TestVNET è stata associata a un server DNS specifico (DC2), sarà necessario configurare la rete virtuale TestVNET per l'uso di tale server DNS.
 
 1.	Nel riquadro sinistro del portale di gestione di Azure fare clic su **Reti** e quindi su **TestVNET**.
-2.	Fare clic su **Configura**.
+2.	Fare clic su **Configure**.
 3.	In **Server DNS** rimuovere la voce 10.0.0.4.
 4.	In **Server DNS** aggiungere una voce con **DC2** come nome e **192.168.0.4** come indirizzo IP. 
 5.	Nella barra dei comandi in basso fare clic su **Salva** e quindi su **Sì**, quando richiesto. Attendere fino al completamento dell'aggiornamento della rete TestVNet.
@@ -273,4 +273,4 @@ Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino l
 Nella pagina Rete del portale di gestione di Azure fare clic sulla rete virtuale **TestLab** e quindi su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete locale TestVNET.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

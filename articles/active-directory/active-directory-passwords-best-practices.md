@@ -138,4 +138,4 @@ Microsoft sta attualmente lavorando al materiale di formazione di esempio che è
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

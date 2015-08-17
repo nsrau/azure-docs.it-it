@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/01/2015" 
 	ms.author="cephalin;riande"/>
 
 
@@ -560,6 +560,7 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+[Visual Studio 2015]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
 [EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx
@@ -617,4 +618,4 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -8,4 +8,4 @@
 2. Nel browser viene chiesto di salvare il file .csv. Aprire o salvare il file.
 3. Aprire il file in Excel o in un'altra applicazione. Esaminare e personalizzare i dati come si preferisce. ![Risultati di Excel](./media/operational-insights-export/export-excel.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

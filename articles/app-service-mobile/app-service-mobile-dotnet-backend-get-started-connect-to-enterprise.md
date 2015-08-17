@@ -47,11 +47,11 @@ Per poter effettuare una chiamata a SharePoint, è necessario specificare gli en
 
 3. Nella sezione relativa al codice dell'app mobile del portale di gestione passare alla scheda Configura e scorrere verso il basso fino a Impostazioni app. In questa finestra è possibile fornire una coppia chiave-valore per facilitare il riferimento alle credenziali necessarie.
 
-* Impostare SP_Authority come endpoint dell'autorità del tenant AAD. Questo valore deve essere identico a quello usato per l'app client ed è espresso nel formato `https://login.windows.net/contoso.onmicrosoft.com`
+* Impostare SP\_Authority come endpoint dell'autorità del tenant AAD. Questo valore deve essere identico a quello usato per l'app client ed è espresso nel formato `https://login.windows.net/contoso.onmicrosoft.com`
 
-* Impostare SP_ClientSecret specificando il valore del segreto client ottenuto in precedenza.
+* Impostare SP\_ClientSecret specificando il valore del segreto client ottenuto in precedenza.
 
-* Impostare SP_SharePointURL specificando l'URL del sito di SharePoint ed è espresso nel formato `https://contoso-my.sharepoint.com`
+* Impostare SP\_SharePointURL specificando l'URL del sito di SharePoint ed è espresso nel formato `https://contoso-my.sharepoint.com`
 
 A questo punto sarà possibile ottenere di nuovo i valori nel codice usando ApiServices.Settings.
 
@@ -187,4 +187,4 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

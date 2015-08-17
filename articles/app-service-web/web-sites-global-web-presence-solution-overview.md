@@ -7,6 +7,7 @@
 	services="app-service\web" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
+
 
 
 # Creare una presenza Web globale in App Web del servizio app di Azure
@@ -33,7 +35,7 @@ Di seguito è riportato un esempio di un sito Web .COM in esecuzione su App Web 
 
 È possibile creare rapidamente nuovi siti da un CMS molto usato disponibile nella raccolta o spostare in App Web del servizio app di Azure gli asset Web esistenti da diversi linguaggi e framework.
 
-Azure Marketplace fornisce modelli di noti sistemi di gestione dei contenuti (CMS) di siti Web, ad [Orchard], [Umbraco], [Drupal] e [WordPress]. È possibile creare un'app Web usando il CMS desiderato. In base alle proprie esigenze è possibile scegliere tra diversi back-end di database, tra cui il [database SQL di Azure] e [MySQL].
+Azure Marketplace fornisce modelli di noti sistemi di gestione dei contenuti (CMS) di siti Web, ad [Orchard], [Umbraco], Drupal e [WordPress]. È possibile creare un'app Web usando il CMS desiderato. In base alle proprie esigenze è possibile scegliere tra diversi back-end di database, tra cui il [database SQL di Azure] e [MySQL].
 
 In App Web del servizio app di Azure è supportata l'esecuzione di asset Web esistenti scritti in .NET, PHP, Java, Node.js o Python. È possibile trasferirle nelle app Web utilizzando gli [FTP] abituali o il proprio sistema di controllo del codice sorgente. App Web supporta la pubblicazione diretta dalle opzioni di controllo del codice sorgente più diffuse, ad esempio [Visual Studio], [Visual Studio Online] e [Git] (locale, GitHub, BitBucket, DropBox, Mercurial e così via).
 
@@ -49,9 +51,9 @@ Inoltre, durante la pianificazione di modifiche da apportare a un sito Web attiv
 
 È possibile usare gratuitamente un dominio di App Web del servizio app di Azure o eseguire il mapping al nome di dominio registrato e proteggere il proprio marchio con il certificato SSL firmato da un'Autorità di certificazione.
 
-Quando si esegue il proprio sito Web su App Web, il dominio **\*.azurewebsites.net** è gratuito. In alternativa, è possibile eseguire il mapping del sito Web a un [dominio personalizzato], ad esempio contoso.com, ottenuto da qualsiasi registro DNS come GoDaddy.
+Quando si esegue il proprio sito Web su App Web, il dominio ***.azurewebsites.net** è gratuito. In alternativa, è possibile eseguire il mapping del sito Web a un [dominio personalizzato], ad esempio contoso.com, ottenuto da qualsiasi registro DNS come GoDaddy.
 
-Se si raccolgono informazioni sugli utenti, si pratica l'e-commerce o si gestiscono altri dati di natura sensibile, è possibile proteggere l'immagine del marchio e i propri clienti mediante [HTTPS]. Il nome di dominio **\*.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL in App Web. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi del servizio app di Azure].
+Se si raccolgono informazioni sugli utenti, si pratica l'e-commerce o si gestiscono altri dati di natura sensibile, è possibile proteggere l'immagine del marchio e i propri clienti mediante [HTTPS]. Il nome di dominio ***.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL in App Web. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi del servizio app di Azure].
 
 ## Operare a livello internazionale
 
@@ -99,7 +101,6 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
 [Orchard]: web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]: web-sites-gallery-umbraco.md
-[Drupal]: web-sites-php-migrate-drupal.md
 [WordPress]: web-sites-php-web-site-gallery.md
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
 [database SQL di Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
@@ -140,4 +141,4 @@ Nel piano di hosting **Standard**, grazie al monitoraggio della velocità di ris
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

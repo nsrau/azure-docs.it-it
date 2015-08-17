@@ -276,4 +276,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [API .NET per il bus di servizio]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

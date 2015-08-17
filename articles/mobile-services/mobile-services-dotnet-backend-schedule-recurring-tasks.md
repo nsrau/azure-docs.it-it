@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/21/2015" 
 	ms.author="glenga"/>
+
 
 # Pianificare i processi ricorrenti in Servizi mobili 
 
@@ -41,7 +43,9 @@ Questa esercitazione descrive come usare la pianificazione processi per creare u
 &nbsp;&nbsp;8. Nella stessa sezione, aggiungere le nuove impostazioni dell'app elencate di seguito, sostituendo i segnaposto con i valori di token di accesso e di segreto token di accesso configurati come impostazioni app nel portale:
 
 	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+
 	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
+
 
 Il servizio mobile utilizza le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il processo pianificato prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile utilizza invece i valori configurati nel portale, ignorando le impostazioni di progetto.
 
@@ -86,7 +90,7 @@ In seguito, verrà aggiunta una nuova tabella in cui archiviare i tweet.
 	        public DateTime Date { get; set; }
     	}
 
-4. Espandere la cartella Models, aprire il file del contesto modello di dati (denominato *nome\_servizio\*Context.cs) e aggiungere la proprietà seguente che restituisce una classe **DbSet**tipizzata:
+4. Espandere la cartella Models, aprire il file del contesto modello di dati (denominato *nome\_servizio*Context.cs) e aggiungere la proprietà seguente che restituisce una classe **DbSet** tipizzata:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -213,7 +217,7 @@ Sarà quindi possibile creare l'attività pianificata che accede a Twitter e arc
 		    }
 		}
 
-	Nel codice precedente è necessario sostituire le stringhe _todolistService_ e _todolistContext_ con lo spazio dei nomi e la classe DbContext del progetto scaricato, che sono rispettivamente *nome&#95;servizio&#95;mobile\*Servizio e *nome&#95;servizio&#95;mobile\*Contesto. 
+	Nel codice precedente è necessario sostituire le stringhe _todolistService_ e _todolistContext_ con lo spazio dei nomi e la classe DbContext del progetto scaricato, che sono rispettivamente *nome&#95;servizio&#95;mobile*Servizio e nome&#95;servizio&#95;mobile*Contesto.
    	
 	Inoltre, il metodo di override **ExecuteAsync** chiama l'API query Twitter usando le credenziali archiviate per richiedere i tweet recenti contenenti l'hashtag `#mobileservices`. I tweet duplicati e le risposte sono rimossi dai risultati prima di essere archiviati nella tabella.
 
@@ -300,4 +304,4 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

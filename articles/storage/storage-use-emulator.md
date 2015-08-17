@@ -6,6 +6,7 @@
 	authors="tamram" 
 	manager="adinah" 
 	editor=""/>
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -14,6 +15,7 @@
 	ms.topic="article" 
 	ms.date="07/08/2015" 
 	ms.author="tamram"/>
+
 
 # Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -49,7 +51,7 @@ Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamar
 
 1. Installare Azure PowerShell, se non è stato già installato. È consigliabile usare l'ultima versione dei cmdlet di Azure PowerShell. Per istruzioni per l'installazione, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md#Install).
 
-2. Aprire Azure PowerShell ed eseguire i comandi riportati di seguito. Ricordarsi di sostituire *ACCOUNT_NAME* e *ACCOUNT_KEY==* con le credenziali personali. Sostituire *CONTAINER_NAME* con un nome a scelta.
+2. Aprire Azure PowerShell ed eseguire i comandi riportati di seguito. Ricordarsi di sostituire *ACCOUNT\_NAME* e *ACCOUNT\_KEY==* con le credenziali personali. Sostituire *CONTAINER\_NAME* con un nome a scelta.
 
 		$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
 		
@@ -80,7 +82,7 @@ Quando la finestra della riga di comando viene chiusa, l'emulatore di archiviazi
 
 La prima volta che si esegue l'emulatore di archiviazione, l'ambiente di archiviazione locale viene inizializzato automaticamente. Il processo di inizializzazione crea un database in LocalDB e riserva le porte HTTP per ogni servizio di archiviazione locale.
 
-L'emulatore di archiviazione viene installato per impostazione predefinita nella directory C:\Programmi (x86)\Microsoft SDKs\Azure\Storage Emulator.
+L'emulatore di archiviazione viene installato per impostazione predefinita nella directory C:\\Programmi (x86)\\Microsoft SDKs\\Azure\\Storage Emulator.
 
 ### Inizializzare l'emulatore di archiviazione per l'uso di un database SQL diverso
 
@@ -89,11 +91,11 @@ L'emulatore di archiviazione viene installato per impostazione predefinita nella
 1. Fare clic sul pulsante **Start** o premere il tasto **WINDOWS**. Iniziare a digitare `Azure Storage Emulator` e selezionarlo quando compare, per visualizzare lo strumento da riga di comando emulatore di archiviazione.
 2. Nella finestra del prompt dei comandi digitare il seguente comando dove `<SQLServerInstance>` è il nome dell'istanza di SQL Server. Per usare LocalDB, specificare `(localdb)\v11.0` come istanza di SQL Server.
 
-		AzureStorageEmulator init /sqlInstance <SQLServerInstance> 
+		AzureStorageEmulator init /server <SQLServerInstance> 
     
 	Per indicare all'emulatore di usare l'istanza di SQL Server predefinita, digitare il comando seguente:
 
-    	AzureStorageEmulator init /server .\ 
+    	AzureStorageEmulator init /server .\\ 
 
 	In alternativa, è possibile usare il comando seguente, che consente di inizializzare nuovamente l'istanza predefinita LocalDB:
 
@@ -143,7 +145,7 @@ A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene
 
 ### Sintassi della riga di comando
 
-	AzureStorageEmulator [/start] [/stop] [/status] [/clear] [/init] [/help]
+	AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
 
 ### Opzioni
 
@@ -154,8 +156,14 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 | **Inizia** | Avvia l'emulatore di archiviazione. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Arresto** | Interrompe l'emulatore di archiviazione. | `AzureStorageEmulator stop` | |
 | **Stato** | Stampa lo stato dell'emulatore di archiviazione. | `AzureStorageEmulator status` | |
-| **Cancella** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: cancella i dati blob. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
-| **Init** | Esegue l'inizializzazione una tantum per configurare l'emulatore. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server nomeServer*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Ciò richiede che il processo corrente sia stato avviato con autorizzazioni elevate. |
+| **Cancella** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: cancella i dati blob. <br/>
+*queue*: cancella i dati della coda. <br/>
+*table*: cancella i dati delle tabelle. <br/>
+*all*: cancella tutti i dati in tutti i servizi. |
+| **Init** | Esegue l'inizializzazione una tantum per configurare l'emulatore. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>
+*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>
+*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>
+*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. È necessario avviare il processo corrente con autorizzazioni elevate per eseguire l'inizializzazione. |
                                                                                                                   
 ## Differenze tra l'emulatore di archiviazione e Archiviazione di Azure
 
@@ -173,6 +181,8 @@ Poiché l'emulatore di archiviazione è un ambiente emulato eseguito in un'istan
 
 - Gli endpoint del servizio file e del servizio protocollo SMB non sono attualmente supportati nell'emulatore di archiviazione.
 
+- Se si utilizza una versione dei servizi di archiviazione che non è ancora supportata dalla versione dell'emulatore in uso, l'emulatore di archiviazione restituisce un errore di VersionNotSupportedByEmulator (codice di stato HTTP 400 - richiesta non valida).
+
 ### Differenze per l'archiviazione BLOB 
 
 All'archiviazione BLOB nell'emulatore si applicano le seguenti differenze:
@@ -181,17 +191,19 @@ All'archiviazione BLOB nell'emulatore si applicano le seguenti differenze:
 
 - Un'operazione Put Blob potrebbe avere esito positivo su un BLOB esistente nell'emulatore di archiviazione e che presenta un lease attivo, anche se l'ID del lease non è stato specificato come parte della richiesta.
 
+- Le operazioni del BLOB di accodamento non sono supportate dall'emulatore. Se si tenta un'operazione su un blob di Accodamento restituisce un errore FeatureNotSupportedByEmulator (codice di stato HTTP 400 - richiesta non valida).
+
 ### Differenze per l'archiviazione tabelle 
 
 All'archiviazione tabelle nell'emulatore si applicano le seguenti differenze:
 
-- Le proprietà di data nel servizio tabelle nell'emulatore di archiviazione supportano solo l'intervallo supportato da SQL Server 2005 (ovvero, è necessario che le date siano successive a 1 gennaio 1753). Tutte le date precedenti a 1 gennaio 1753 vengono modificate in questo valore. La precisione delle date è limitata alla precisione di SQL Server 2005, ovvero le date sono precise a 1/300 di secondo.
+- Le proprietà di data nel servizio tabelle nell'emulatore di archiviazione supportano solo l'intervallo supportato da SQL Server 2005 (*ovvero*, è necessario che le date siano successive al 1 gennaio 1753). Tutte le date precedenti a 1 gennaio 1753 vengono modificate in questo valore. La precisione delle date è limitata alla precisione di SQL Server 2005, ovvero le date sono precise a 1/300 di secondo.
 
 - L'emulatore di archiviazione supporta valori di proprietà chiave di riga e chiave di partizione con dimensioni minori di 512 byte ognuno. Inoltre, le dimensioni totali del nome dell'account, del nome della tabella e dei nomi delle proprietà chiave non possono superare i 900 byte.
 
 - Le dimensioni totali di una riga in una tabella nell'emulatore di archiviazione sono limitate a meno di 1 MB.
 
-- Nell'emulatore di archiviazione le proprietà con tipo di dati `Edm.Guid` o `Edm.Binary` supportano solo gli operatori di confronto `Equal (eq)` e `NotEqual (ne)` nelle stringhe di filtro delle query.
+- Nell'emulatore di archiviazione, le proprietà con tipo di dati `Edm.Guid` o `Edm.Binary` supportano solo gli operatori di confronto `Equal (eq)` e `NotEqual (ne)` nelle stringhe di filtro delle query.
 
 ### Differenze per l'archiviazione di accodamento
 
@@ -199,9 +211,17 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ## Note sulla versione dell'emulatore di archiviazione
 
+### Versione 4.1
+
+- L'emulatore di archiviazione supporta ora la versione 2015-02-21 di servizi di archiviazione su BLOB, code ed endpoints di servizio tabelle, fatta eccezione per le nuove funzionalità di BLOB di Accodamento . 
+
+- L'emulatore di archiviazione restituisce ora un messaggio di errore significativo se si utilizza una versione dei servizi di archiviazione che non è ancora supportata da tale versione dell'emulatore. È consigliabile utilizzare la versione più recente dell'emulatore. Se si verifica un errore VersionNotSupportedByEmulator (codice di stato HTTP 400 - richiesta non valida), è necessario scaricare la versione più recente dell'emulatore di archiviazione.
+
+- Sistemare un bug in cui un race condition ha fatto sì che i dati di entità della tabella non siano corretti durante le operazioni di fusione simultanee.
+
 ### Versione 4.0
 
-L'eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorageEmulator.exe*.
+- L'emulatore di archiviazione eseguibile è stato rinominato in *AzureStorageEmulator.exe*.
 
 ### Versione 3.2
 - L'emulatore di archiviazione supporta ora la versione 2014-02-14 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle. Si noti che gli endpoint del servizio file non sono attualmente supportati nell'emulatore di archiviazione. Vedere [Controllo delle versioni per i servizi di archiviazione Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) per informazioni dettagliate sulla versione 2014-02-14.
@@ -216,8 +236,4 @@ L'eseguibile dell'emulatore di archiviazione è stato rinominato in *AzureStorag
 
 - La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

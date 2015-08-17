@@ -54,8 +54,8 @@ Pertanto non è pratico elencare tutti gli oggetti in un'unica risposta. Al cont
 
 La risposta per un'operazione elenco segmentato include:
 
--	<i>_segment</i>che contiene il set di risultati restituiti per una singola chiamata all'elenco API. 
--	*continuation_token*che viene passato alla chiamata successiva per ottenere la pagina successiva dei risultati. Quando non sono presenti ulteriori risultati da restituire, il token di continuazione è nullo.
+-	<i>\_segment</i>che contiene il set di risultati restituiti per una singola chiamata all'elenco API. 
+-	*continuation\_token*che viene passato alla chiamata successiva per ottenere la pagina successiva dei risultati. Quando non sono presenti ulteriori risultati da restituire, il token di continuazione è nullo.
 
 Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un contenitore può essere simile al seguente frammento di codice. Il codice è disponibile nei nostri[esempi](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
@@ -80,15 +80,15 @@ Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un con
 	}
 	while (!token.empty());
 
-Si noti che il numero di risultati restituiti in una pagina può essere controllato dal parametro*max_results*nell'overload di ogni API, ad esempio:
+Si noti che il numero di risultati restituiti in una pagina può essere controllato dal parametro*max\_results*nell'overload di ogni API, ad esempio:
 	
 	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
 		blob_listing_details::values includes, int max_results, const continuation_token& token, 
 		const blob_request_options& options, operation_context context)
 
-Se non si specifica il parametro*max_results*, il valore massimo predefinito di 5000 risultati viene restituito in un'unica pagina.
+Se non si specifica il parametro*max\_results*, il valore massimo predefinito di 5000 risultati viene restituito in un'unica pagina.
 
-Si noti inoltre che una query sull'archiviazione di tabelle di Azure può non restituire alcun record o record di numero inferiore al valore del parametro*max_results*specificato, anche se il token di continuazione non è vuoto. Una delle cause potrebbe essere il fatto che la query non può essere completata in cinque secondi. Fino a quando il token di continuazione non è vuoto, la query dovrebbe continuare e il codice non dovrebbe presupporre le dimensioni dei risultati del segmento.
+Si noti inoltre che una query sull'archiviazione di tabelle di Azure può non restituire alcun record o record di numero inferiore al valore del parametro*max\_results*specificato, anche se il token di continuazione non è vuoto. Una delle cause potrebbe essere il fatto che la query non può essere completata in cinque secondi. Fino a quando il token di continuazione non è vuoto, la query dovrebbe continuare e il codice non dovrebbe presupporre le dimensioni dei risultati del segmento.
 
 Il modello di codifica consigliato per la maggior parte degli scenari è l’elenco segmentato, che fornisce lo stato di avanzamento esplicito di elenco o di una query e informazioni su come il servizio risponde a ciascuna richiesta. In particolare per le applicazioni o i servizi C++, il controllo a basso livello dello stato dell'elenco può aiutare a controllare memoria e prestazioni.
 
@@ -128,7 +128,7 @@ Se il codice chiama tali API greedy:
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
-Specificando il parametro*max_results*del segmento, è possibile bilanciare numero di richieste e utilizzo della memoria per soddisfare le considerazioni sulle prestazioni dell'applicazione.
+Specificando il parametro*max\_results*del segmento, è possibile bilanciare numero di richieste e utilizzo della memoria per soddisfare le considerazioni sulle prestazioni dell'applicazione.
 
 Inoltre, se si utilizzano API ad elenco segmentato ma si memorizzano i dati in una raccolta locale in stile "greedy", è consigliabile eseguire il refactoring del codice per gestire l'archiviazione dei dati in una raccolta locale facendo attenzione alla scalabilità.
 
@@ -138,7 +138,7 @@ Benché l’elenco greedy generi potenziali problemi, è conveniente non avere t
 
 Se inoltre si utilizza C# o Oracle Java SDK, è necessario conoscere il modello di programmazione enumerabile, che offre un elenco a stile-lazy, dove dati a un determinato offset vengono recuperati solo se necessario. In C++, il modello basato sull’iteratore offre inoltre un approccio simile.
 
-Un’API tipica ad elenco lazy, che utilizza**list_blobs**ad esempio, è simile a quanto segue:
+Un’API tipica ad elenco lazy, che utilizza**list\_blobs**ad esempio, è simile a quanto segue:
 
 	list_blob_item_iterator list_blobs() const;
 
@@ -184,4 +184,4 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 -	[Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentazione di Archiviazione di Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

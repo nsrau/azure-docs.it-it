@@ -51,7 +51,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
 
 	* Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **returnUrl** e **salt** ([il codice di esempio è fornito di seguito]):
-        > **returnUrl**
+        > HMAC(**salt** + '\\n' + **returnUrl**)
 		 
 	* Confrontare l'hash sopra calcolato con il valore del parametro di query **sig**. Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
 
@@ -107,7 +107,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
 
 	* Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **productId**, **userId** e **salt**:
-		> **productId****userId**
+		> HMAC(**salt** + '\\n' + **productId** + '\\n' + **userId**)
 		 
 	* Confrontare l'hash sopra calcolato con il valore del parametro di query **sig**. Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
 	
@@ -168,4 +168,4 @@ Per altre informazioni sulla delega, vedere il video seguente.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

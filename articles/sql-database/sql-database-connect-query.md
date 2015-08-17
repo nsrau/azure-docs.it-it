@@ -127,7 +127,7 @@ Nel pannello delle stringhe di connessione per il database sono presenti le stri
 ## Passaggio 4: Sostituire con informazioni di connessione reali
 
 
-- Nel codice sorgente incollato sostituire il segnaposto *[Your_Connection_String]* con la stringa di connessione e assicurarsi di sostituire *your_password_here* in tale stringa con la password effettiva.
+- Nel codice sorgente incollato sostituire il segnaposto *[Your\_Connection\_String]* con la stringa di connessione e assicurarsi di sostituire *your\_password\_here* in tale stringa con la password effettiva.
 
 
 ## Passaggio 5: Eseguire l'applicazione
@@ -137,4 +137,4 @@ Nel pannello delle stringhe di connessione per il database sono presenti le stri
 2. I risultati della query vengono visualizzati nella finestra della console.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

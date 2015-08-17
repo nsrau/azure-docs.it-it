@@ -145,4 +145,4 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

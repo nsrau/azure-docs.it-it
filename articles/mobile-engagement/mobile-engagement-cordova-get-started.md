@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/02/2015"
 	ms.author="piyushjo" />
 
@@ -233,7 +233,7 @@ Modificare **www/js/index.js** in modo da aggiungere la chiamata a Mobile Engage
 
 **[iOS]**
 
-1. Verrà usato XCode per sviluppare e distribuire l'app nel dispositivo per testare le notifiche push, poiché iOS consente solo notifiche push in un dispositivo effettivo. Passare al percorso in cui è stato creato il progetto Cordova, quindi passare al percorso **...\platforms\ios**. Aprire il file nativo con estensione xcodeproj file in XCode. 
+1. Verrà usato XCode per sviluppare e distribuire l'app nel dispositivo per testare le notifiche push, poiché iOS consente solo notifiche push in un dispositivo effettivo. Passare al percorso in cui è stato creato il progetto Cordova, quindi passare al percorso **...\\platforms\\ios**. Aprire il file nativo con estensione xcodeproj file in XCode. 
 	
 2. Sviluppare e distribuire l'app Cordova nel dispositivo iOS usando l'account con il profilo di provisioning contenente il certificato appena caricato nel portale di Mobile Engagement e l'ID app corrispondente a quello specificato durante la creazione dell'app Cordova. È possibile verificare l'*identificatore di aggregazione* nel file **Resources*-info.plist** in XCode per individuare una corrispondenza.
 
@@ -251,7 +251,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 1. Passare alla scheda Reach nel portale di Mobile Engagement.
 
-2. Fare clic su **Nuovo annuncio** per creare la campagna push.
+2. Fare clic su **Nuovo annuncio** per creare una campagna di push.
 
 	![][13]
 
@@ -273,9 +273,9 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 	![][15]
 
-5. [Facoltativo] È anche possibile specificare un URL di azione. Assicurarsi che usi uno schema di URL fornito durante la configurazione della variabile **AZME REDIRECT URL** del plug-in, ad esempio *myapp://test*. 
+5. [Facoltativo] È anche possibile specificare un URL di azione. Assicurarsi che usi uno schema di URL fornito durante la configurazione della variabile **AZME REDIRECT URL** del plug-in, ad esempio **myapp://test*.
 
-5. L'impostazione della campagna più semplice possibile è stata completata. Scorrere ancora verso il basso e fare clic su **Crea** per la campagna per salvarla.
+5. L'impostazione della campagna più semplice possibile è stata completata. Scorrere ancora verso il basso e **creare** la campagna per salvarla.
 	
 	![][16]
 
@@ -312,4 +312,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

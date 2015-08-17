@@ -93,7 +93,7 @@ Connettersi tramite putty alla macchina virtuale Linux creata. Se è la prima vo
     >[Azure.NOTE]Per motivi di sicurezza, PostgreSQL usa un utente non ROOT per inizializzare, avviare o arrestare il database.
 
 
-4. Modificare il file *bash_profile* immettendo i comandi seguenti. Queste righe verranno aggiunte alla fine del file *bash_profile*:
+4. Modificare il file *bash\_profile* immettendo i comandi seguenti. Queste righe verranno aggiunte alla fine del file *bash\_profile*:
 
 		cat >> ~/.bash_profile <<EOF
 		export PGPORT=1999
@@ -108,7 +108,7 @@ Connettersi tramite putty alla macchina virtuale Linux creata. Se è la prima vo
 		alias ll='ls -lh'
 		EOF
 
-5. Eseguire il file *bash_profile*:
+5. Eseguire il file *bash\_profile*:
 
 		$ source .bash_profile
 
@@ -142,7 +142,7 @@ Eseguire i comandi seguenti:
 
 	# cp linux /etc/init.d/postgresql
 
-Modificare due variabili nel file /etc/init.d/postgresql. Il prefisso (prefix) è impostato sul percorso di installazione di PostgreSQL: **/opt/pgsql**. PGDATA è impostato sul percorso di archiviazione dati di PostgreSQL: **/opt/pgsql_data**.
+Modificare due variabili nel file /etc/init.d/postgresql. Il prefisso (prefix) è impostato sul percorso di installazione di PostgreSQL: **/opt/pgsql**. PGDATA è impostato sul percorso di archiviazione dati di PostgreSQL: **/opt/pgsql\_data**.
 
 	# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
@@ -251,4 +251,4 @@ Per aggiornare dati in una tabella, usare il comando seguente: In questo caso, S
 ##Altre informazioni su PostgreSQL
 L'installazione di PostgreSQL in una macchina virtuale Linux di Microsoft Azure è stata così completata ed è ora possibile iniziare a farne uso in Microsoft Azure. Per altre informazioni su PostgreSQL, fare clic [qui](http://www.postgresql.org/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -91,4 +91,4 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -65,4 +65,4 @@ Questo argomento contiene collegamenti alle note sulla versione di Azure SDK per
 [Note sulla versione di Azure SDK su MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

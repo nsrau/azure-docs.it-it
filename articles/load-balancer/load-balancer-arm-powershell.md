@@ -9,17 +9,17 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure
 
 
 > [AZURE.SELECTOR]
-- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Azure Classic steps](load-balancer-internet-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 
@@ -251,4 +251,4 @@ Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

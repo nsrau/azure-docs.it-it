@@ -107,4 +107,4 @@ Dopo che uno sviluppatore è stato associato a un gruppo, potrà visualizzare i 
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [sfruttare i gruppi esterni nei tenant di Azure Active Directory associati]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

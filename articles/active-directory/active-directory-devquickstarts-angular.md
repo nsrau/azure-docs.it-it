@@ -111,7 +111,7 @@ adalProvider.init(
 ...
 ```
 
-A questo punto è disponibile un'applicazione a singola pagina sicura, in grado di concedere l'accesso agli utenti e rilasciare richieste di token di connessione protette all'API back-end. Quando un utente fa clic sul collegamento `TodoList`, viene reindirizzato automaticamente da adal.js ad Azure AD per l'accesso, se necessario. Inoltre, adal.js collegherà automaticamente un access_token a tutte le richieste AJAX inviate al back-end dell'applicazione. Quanto illustrato sopra è il minimo necessario per compilare un'applicazione a singola pagina con adal.js, ma sono disponibili molte altre funzionalità utili nelle applicazioni a singola pagina:
+A questo punto è disponibile un'applicazione a singola pagina sicura, in grado di concedere l'accesso agli utenti e rilasciare richieste di token di connessione protette all'API back-end. Quando un utente fa clic sul collegamento `TodoList`, viene reindirizzato automaticamente da adal.js ad Azure AD per l'accesso, se necessario. Inoltre, adal.js collegherà automaticamente un access\_token a tutte le richieste AJAX inviate al back-end dell'applicazione. Quanto illustrato sopra è il minimo necessario per compilare un'applicazione a singola pagina con adal.js, ma sono disponibili molte altre funzionalità utili nelle applicazioni a singola pagina:
 
 - Per generare in modo esplicito richieste di accesso e disconnessione, è possibile definire funzioni nei controller per richiamare adal.js. In `App/Scripts/homeCtrl.js`:
 
@@ -151,4 +151,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

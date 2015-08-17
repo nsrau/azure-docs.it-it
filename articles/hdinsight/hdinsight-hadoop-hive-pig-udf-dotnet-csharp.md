@@ -122,7 +122,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 
 6. Fare doppio clic su **Contenitore predefinito** per il cluster. Verrà aperta una nuova finestra che mostra i contenuti del contenitore predefinito.
 
-7. Fare clic sull'icona per il caricamento, quindi passare alla cartella **bin\debug** per il progetto **HiveCSharp**. Selezionare infine il file **HiveCSharp.exe** e fare clic su **OK**.
+7. Fare clic sull'icona per il caricamento, quindi passare alla cartella **bin\\debug** per il progetto **HiveCSharp**. Selezionare infine il file **HiveCSharp.exe** e fare clic su **OK**.
 
 	![icona relativa al caricamento](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -195,7 +195,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 
 1. Lo streaming Pig si aspetta che l'applicazione sia locale nel file system del cluster. Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo le istruzioni fornite in [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-2. Dopo la connessione, copiare **PigUDF.exe** dalla directory **bin/debug** per il progetto PigUDF nel computer locale, quindi incollarlo nella directory **%PIG_HOME%** nel cluster.
+2. Dopo la connessione, copiare **PigUDF.exe** dalla directory **bin/debug** per il progetto PigUDF nel computer locale, quindi incollarlo nella directory **%PIG\_HOME%** nel cluster.
 
 ###Usare l'applicazione da Pig Latin
 
@@ -240,4 +240,4 @@ Per informazioni su altri modi per usare Pig e Hive e sull'uso di MapReduce, ved
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

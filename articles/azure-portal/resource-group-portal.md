@@ -66,32 +66,13 @@ Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le r
 ## Passaggi successivi
 Introduzione
 
-- [Panoramica di Gestione risorse di Azure](../resource-group-overview.md)  
-- [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
-- [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](../xplat-cli-azure-resource-manager.md)  
-  
-Creazione e distribuzione delle applicazioni
-  
-- [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)  
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
-- [Distribuire un'applicazione complessa in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../resource-group-deploy-debug.md)  
-- [Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md)  
-- [Operazioni avanzate con i modelli](../resource-group-advanced-template.md)  
-- [Distribuire le risorse di Azure usando le librerie .NET e un modello](../arm-template-deployment.md)
-  
-Organizzazione delle risorse
-  
-- [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md)  
-  
-Gestione e controllo dell'accesso
-  
-- [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)  
-- [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md)  
-- [Creare una nuova entità servizio di Azure usando il portale di Azure classico](../resource-group-create-service-principal-portal.md)  
+- Per un'introduzione ai concetti di Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).  
+- Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+- Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md). 
+- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
   
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

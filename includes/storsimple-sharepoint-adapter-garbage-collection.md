@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Adattatore StorSimple per SharePoint - processo di garbage collection | Microsoft Azure"
+   description="Viene descritto come eliminare i BLOB immediatamente quando si utilizza l'adattatore StorSimple per SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/10/2015"
+   ms.author="v-sharos" />
+
 
 In questa procedura, si apprenderà come:
 
@@ -7,7 +25,7 @@ In questa procedura, si apprenderà come:
 
 3. [Eseguire Maintainer.exe](#to-run-the-maintainer).
 
-4. [Ripristinare il database del contenuto e le impostazioni del Cestino](to-revert-the-content-database-and-recycle-bin-settings).
+4. [Ripristinare il database del contenuto e le impostazioni del Cestino](#to-revert-the-content-database-and-recycle-bin-settings).
 
 #### Per preparare l'esecuzione di Maintainer
 
@@ -21,7 +39,8 @@ In questa procedura, si apprenderà come:
 
 5. Nel file web.config decrittografato sotto al nodo**<connectionStrings>**, aggiungere la stringa di connessione per l'istanza di SQL server e il nome del database del contenuto. Vedere l'esempio seguente.
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />
+`
 
 6. Utilizzare`aspnet_regiis –pef connectionStrings`per crittografare nuovamente il file web.config.
 
@@ -63,4 +82,4 @@ In questa procedura, si apprenderà come:
 
 2. Sul server web front-end, in**Amministrazione centrale**modificare le **Impostazioni generali dell’applicazione Web**per il database del contenuto desiderato per abilitare nuovamente il Cestino. A tale scopo, fare clic su**Amministrazione centrale** -> **Gestione dell’applicazione** -> **Applicazioni Web (Gestisci applicazioni web)** -> **SharePoint - 80** -> **Impostazioni generali dell’applicazione**. Impostare lo stato del Cestino su**ON**.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -47,4 +47,4 @@ Un altro esempio è se si desidera bloccare l'accesso a internet per una partico
 - [Criteri di office 2013](https://technet.microsoft.com/library/cc178969.aspx) (inclusi [come personalizzare la barra degli strumenti di Office](https://technet.microsoft.com/library/cc179143.aspx)).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

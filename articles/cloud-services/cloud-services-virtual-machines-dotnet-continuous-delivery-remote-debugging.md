@@ -95,4 +95,4 @@ Contenuto dell'argomento:
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

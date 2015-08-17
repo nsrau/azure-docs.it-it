@@ -228,4 +228,4 @@ Esempio: il codice seguente richiede 8 raccomandazioni per l'elemento "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

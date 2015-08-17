@@ -174,4 +174,4 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

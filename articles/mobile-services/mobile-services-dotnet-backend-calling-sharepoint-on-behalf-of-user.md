@@ -69,11 +69,11 @@ Per poter effettuare una chiamata a SharePoint, è necessario specificare gli en
 
     ![][3]
 
-4. Impostare SP_Authority come endpoint dell'autorità del tenant AAD. Questo valore deve essere identico a quello usato per l'app client ed è espresso nel formato https://login.windows.net/contoso.onmicrosoft.com
+4. Impostare SP\_Authority come endpoint dell'autorità del tenant AAD. Questo valore deve essere identico a quello usato per l'app client ed è espresso nel formato https://login.windows.net/contoso.onmicrosoft.com
 
-5. Impostare SP_ClientSecret specificando il valore del segreto client ottenuto in precedenza.
+5. Impostare SP\_ClientSecret specificando il valore del segreto client ottenuto in precedenza.
 
-6. Impostare SP_SharePointURL specificando l'URL del sito di SharePoint che deve essere espresso nel formato https://contoso-my.sharepoint.com
+6. Impostare SP\_SharePointURL specificando l'URL del sito di SharePoint che deve essere espresso nel formato https://contoso-my.sharepoint.com
 
 A questo punto sarà possibile ottenere di nuovo i valori nel codice usando ApiServices.Settings.
 
@@ -219,4 +219,4 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

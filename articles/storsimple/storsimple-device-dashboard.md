@@ -96,4 +96,4 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 
 [Ulteriori informazioni sul dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

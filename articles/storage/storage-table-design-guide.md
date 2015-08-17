@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="06/12/2015"
+   ms.date="08/03/2015"
    ms.author="tamram"/>
 
 # Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni
@@ -26,9 +26,9 @@ Per progettare tabelle scalabili ed efficienti, è necessario tenere in consider
 
 Questa sezione evidenzia alcune funzionalità chiave del servizio tabelle, di particolare importanza per la progettazione a livello di prestazioni e scalabilità. Se non si ha familiarità con Archiviazione di Azure e con il servizio tabelle, prima di proseguire con la lettura di questo articolo, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md). Anche se l'argomento principale di questa guida è il servizio tabelle, sono incluse alcune informazioni sui servizi di accodamento e BLOB di Azure e su come sia possibile usarli con il servizio tabelle in una soluzione.
 
-Cos'è il servizio tabelle? Come indica il nome stesso, il servizio tabelle usa un formato tabulare per archiviare i dati. In base alla terminologia standard, ogni riga della tabella rappresenta un'entità le cui diverse proprietà sono archiviate nelle colonne. Ogni entità ha una coppia di chiavi che la identificano in modo univoco e una colonna di tipo timestamp usata dal servizio tabelle per tenere traccia dell'ultimo aggiornamento dell'entità. Questa operazione è automatica e non è possibile sovrascrivere manualmente il timestamp con un valore arbitrario. Il servizio tabelle usa questo ultimo timestamp modificato (LMT, Last Modified Timestamp) per gestire la concorrenza ottimistica.
+Cos'è il servizio tabelle? Come indica il nome stesso, il servizio tabelle usa un formato tabulare per archiviare i dati. In base alla terminologia standard, ogni riga della tabella rappresenta un'entità le cui diverse proprietà sono archiviate nelle colonne. Ogni entità ha una coppia di chiavi che la identificano in modo univoco e una colonna di tipo timestamp usata dal servizio tabelle per tenere traccia dell'ultimo aggiornamento dell'entità. Questa operazione è automatica e non è possibile sovrascrivere manualmente il timestamp con un valore arbitrario. Il servizio tabelle usa il timestamp dell’ultima modifica (LMT, Last Modified Timestamp) per gestire la concorrenza ottimistica.
 
->[AZURE.NOTE]Le operazioni API REST del servizio tabelle restituiscono anche un valore**ETag** derivato dal timestamp LMT. In questo documento i termini ETag ed LMT verranno usati in modo intercambiabile perché si riferiscono agli stessi dati sottostanti.
+>[AZURE.NOTE]Le operazioni API REST del servizio tabelle restituiscono anche un valore **ETag** derivato dal timestamp LMT. In questo documento i termini ETag ed LMT verranno usati in modo intercambiabile perché si riferiscono agli stessi dati sottostanti.
 
 L'esempio seguente mostra la progettazione di una semplice tabella in cui archiviare le entità dei dipendenti e dei reparti. Molti degli esempi illustrati più avanti in questa guida si basano su questo tipo di progettazione semplice.
 
@@ -231,9 +231,11 @@ Per esempi di codice lato client che possono gestire più tipi di entità archiv
 
 La scelta di **PartitionKey** deve soddisfare sia la necessità di abilitare l'uso di transazioni EGT (per assicurare la coerenza) sia il requisito di distribuzione delle entità tra più partizioni (per assicurare una soluzione scalabile).
 
-Da una parte, pur essendo possibile archiviare tutte le entità in una singola partizione, questo potrebbe limitare la scalabilità della soluzione e impedirebbe al servizio tabelle di bilanciare il carico delle richieste. D'altra parte, pur essendo possibile archiviare un'entità per partizione, ottenendo così la scalabilità e consentendo al servizio tabelle di bilanciare il carico delle richieste, questo impedirebbe di usare le transazioni EGT.
+Da una parte, pur essendo possibile archiviare tutte le entità in una singola partizione, questo potrebbe limitare la scalabilità della soluzione e impedirebbe al servizio tabelle di bilanciare il carico delle richieste. D'altra parte, pur essendo possibile archiviare un'entità per partizione, ottenendo così la scalabilità elevata e consentendo al servizio tabelle di bilanciare il carico delle richieste, questo impedirebbe di usare le transazioni del gruppo di entità.
 
 Il valore **PartitionKey** ideale consente di usare query efficienti e ha un numero sufficiente di partizioni per garantire la scalabilità della soluzione. Di solito le entità dispongono una proprietà apposita che le distribuisce in un numero sufficiente di partizioni.
+
+>[AZURE.NOTE]Ad esempio, in un sistema che archivia le informazioni sugli utenti o i dipendenti, l'ID utente può essere un valore PartitionKey valido. È possibile avere più entità che utilizzano un ID utente specificato come chiave di partizione. Ogni entità che archivia i dati su un utente è raggruppata in una singola partizione e quindi queste entità sono accessibili tramite gruppi di entità, mantenendo la scalabilità elevata.
 
 Gli altri aspetti da considerare per la scelta di **PartitionKey** riguardano l'inserimento, l'aggiornamento e l'eliminazione delle entità: vedere la sezione [Progettazione per la modifica dei dati](#design-for-data-modification) qui di seguito.
 
@@ -253,7 +255,7 @@ Il servizio tabelle restituisce le entità in ordine crescente in base a **Parti
 
 In molte applicazioni è necessario usare i dati ordinandoli in modo diverso, ad esempio ordinando i dipendenti per nome o per data di assunzione. I modelli seguenti nella sezione [Modelli di progettazione tabella](#table-design-patterns) descrivono come alternare l'ordinamento per le entità:
 
--	[Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori.  
+-	[Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori RowKey diversi.  
 -	[Modello per indice secondario intrapartizione](#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori RowKey.
 -	[Modello della parte finale del log](#log-tail-pattern) - Recupera le entità *n* aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
 
@@ -284,7 +286,7 @@ I modelli seguenti nella sezione [Modelli di progettazione tabella](#table-desig
 -	[Modello di denormalizzazione](#denormalization-pattern) - Combina i dati correlati in una singola entità per consentire di recuperare tutti i dati necessari con un sola query di tipo punto.  
 -	[Modello di serie di dati](#data-series-pattern) - Archivia serie di dati complete in un'unica entità per ridurre al minimo il numero di richieste effettuate.  
 
-Per informazioni sulle transazioni EGT, vedere la sezione [Transazioni dei gruppi di entità](#entity-group-transactions).
+Per informazioni sulle transazioni di gruppi di entità, vedere la sezione [Transazioni di gruppi di entità](#entity-group-transactions).
 
 ### Verifica della capacità della progettazione per modifiche efficienti di facilitare query efficienti  
 
@@ -406,7 +408,7 @@ Le sezioni precedenti illustrano in dettaglio come ottimizzare la progettazione 
 
 ![][5]
 
-La mappa dei modelli nella figura precedente evidenzia alcune relazioni tra i modelli (blu) e gli anti-modelli (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per il servizio tabelle è l'archiviazione di [Viste Materializzate](https://msdn.microsoft.com/library/azure/dn589782.aspx) dal modello [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).
+La mappa dei modelli nella figura precedente evidenzia alcune relazioni tra i modelli (blu) e gli anti-modelli (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per il servizio tabelle è l'archiviazione di [viste materializzate](https://msdn.microsoft.com/library/azure/dn589782.aspx) dal modello [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).
 
 ### Modello per indice secondario intrapartizione
 Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi. Gli aggiornamenti tra copie possono essere mantenuti coerenti usando transazioni ETG.
@@ -419,19 +421,19 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey**.
 
 #### Soluzione
-Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso il **RowKey**, "empid_" e "email_" consentono di eseguire una query per un singolo dipendente o un intervallo di dipendenti utilizzando un intervallo di indirizzi di posta elettronica o ID dipendente.
+Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia un valore **RowKey** diverso. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso il **RowKey**, "empid\_" e "email\_" consentono di eseguire una query per un singolo dipendente o un intervallo di dipendenti utilizzando un intervallo di indirizzi di posta elettronica o ID dipendente.
 
 ![][7]
 
 I due criteri di filtro seguenti (uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica) specificano entrambi query di tipo punto:
 
--	$filter=(PartitionKey eq 'Sales') e (RowKey eq 'empid_000223)  
+-	$filter=(PartitionKey eq 'Sales') e (RowKey eq 'empid\_000223)  
 -	$filter=(PartitionKey eq 'Sales') e (RowKey eq 'email_jonesj@contoso.com')  
 
 Se si esegue una query su un intervallo di entità dipendente, è possibile specificare un intervallo ordinato per ID dipendente o un intervallo ordinato per indirizzo di posta elettronica eseguendo la query sulle entità con il prefisso appropriato in **RowKey**.
 
--	Per trovare tutti i dipendenti nel reparto vendite con un id dipendente in uso nell'intervallo che va da 000100 a 000199 utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge'empid_000100') e (RowKey le 'empid_000199')  
--	Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con la lettera "a" utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge 'email_a') e (RowKey It'email_b')  
+-	Per trovare tutti i dipendenti nel reparto vendite con un id dipendente in uso nell'intervallo che va da 000100 a 000199 utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge'empid\_000100') e (RowKey le 'empid\_000199')  
+-	Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con la lettera "a" utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge 'email\_a') e (RowKey It'email\_b')  
 
  Si noti che la sintassi del filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) su MSDN.
 
@@ -476,19 +478,19 @@ Se si desidera poter trovare un'entità dipendente anche in base al valore di un
 Si prevede un volume molto elevato di transazioni su queste entità e si vuole ridurre al minimo il rischio che il servizio tabelle esegua la limitazione del client.
 
 #### Soluzione  
-Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia valori **PartitionKey** e **RowKey** diversi. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso per il **PartitionKey**, "empid_" e "email_" consentono di identificare quale indice si desidera utilizzare per una query.
+Per ovviare alla mancanza di indici secondari, è possibile archiviare più copie di ogni entità usando per ogni copia valori **PartitionKey** e **RowKey** diversi. Se si archivia un'entità con le strutture riportate di seguito, è possibile recuperare in modo efficiente entità dipendente in base all'id dipendente o all’indirizzo di posta elettronica. I valori di prefisso per il **PartitionKey**, "empid\_" e "email\_" consentono di identificare quale indice si desidera utilizzare per una query.
 
 ![][10]
 
 I due criteri di filtro seguenti (uno che ricerca per ID dipendente e uno che ricerca per indirizzo di posta elettronica) specificano entrambi query di tipo punto:
 
--	$filter=(PartitionKey 'empid_Sales') e (RowKey eq '000223')
--	$filter = (PartitionKey eq ' email_Sales') e (RowKey eq 'jonesj@contoso.com')  
+-	$filter=(PartitionKey 'empid\_Sales') e (RowKey eq '000223')
+-	$filter = (PartitionKey eq ' email\_Sales') e (RowKey eq 'jonesj@contoso.com')  
 
 Se si esegue una query su un intervallo di entità dipendente, è possibile specificare un intervallo ordinato per ID dipendente o un intervallo ordinato per indirizzo di posta elettronica eseguendo la query sulle entità con il prefisso appropriato in **RowKey**.
 
--	Per trovare tutti i dipendenti del reparto vendite con un id dipendente nell'intervallo che va da **000100** a **000199** ordinati in base all’ID dipendente utilizzare: $filter = (PartitionKey eq ' empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
--	Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con 'a' ordinato in base all’indirizzo di posta elettronica utilizzare: $filter = (PartitionKey eq ' email_Sales') e (RowKey ge 'a') e (RowKey lt "b")  
+-	Per trovare tutti i dipendenti del reparto vendite con un id dipendente nell'intervallo che va da **000100** a **000199** ordinati in base all’ID dipendente utilizzare: $filter = (PartitionKey eq ' empid\_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+-	Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con 'a' ordinato in base all’indirizzo di posta elettronica utilizzare: $filter = (PartitionKey eq ' email\_Sales') e (RowKey ge 'a') e (RowKey lt "b")  
 
 Si noti che la sintassi del filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) su MSDN.
 
@@ -582,11 +584,11 @@ Per attivare la ricerca per cognome con la struttura delle entità illustrata in
 -	Creare entità di indice nella stessa partizione delle entità dipendente.  
 -	Creare entità di indice in una tabella o una partizione separata.  
 
-<u>Opzione #1: Usare l'archiviazione BLOB</u>
+<u>Opzione 1: usare l'archiviazione BLOB</u>
 
 Per la prima opzione è necessario creare un BLOB per ogni cognome univoco e archiviare in ogni BLOB un elenco dei valori **PartitionKey** (reparto) e **RowKey** (ID dipendente) per i dipendenti con questo cognome. Quando si aggiunge o elimina un dipendente, è necessario verificare la coerenza finale tra il contenuto del BLOB pertinente e le entità dipendente.
 
-<u>Opzione 2:</u> Creare entità di indice nella stessa partizione
+<u>Opzione 2:</u> creare entità di indice nella stessa partizione
 
 Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:
 
@@ -594,9 +596,9 @@ Per la seconda opzione, usare entità di indice che archiviano i dati seguenti:
 
 La proprietà **EmployeeIDs** contiene un elenco di ID dipendente per i dipendenti con il cognome archiviato in **RowKey**.
 
-I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio si aggiunge al reparto vendite un dipendente con ID 000152 e cognome Jones: 1. Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones". Salvare il valore ETag dell'entità per utilizzarlo nel passaggio 2. 2. Creare una transazione EGT che inserisca la nuova entità dipendente (con valore **PartitionKey** e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. 3. Se la transazione ETG ha esito negativo a causa di un errore di concorrenza ottimistica (un altro utente ha appena modificato l'entità di indice), è necessario ricominciare dal passaggio 1.
+I passaggi seguenti illustrano il processo da seguire per aggiungere un nuovo dipendente se si usa la seconda opzione. In questo esempio si aggiunge al reparto vendite un dipendente con ID 000152 e cognome Jones: 1. Recuperare l'entità di indice con il valore **PartitionKey** "Sales" e il valore **RowKey** "Jones". Salvare il valore ETag dell'entità per utilizzarlo nel passaggio 2. 2. Creare una transazione del gruppo di entità che inserisca la nuova entità dipendente (con valore **PartitionKey** e valore **RowKey** "000152") e aggiorni l'entità di indice (con valore **PartitionKey** "Sales" e valore **RowKey** "Jones") aggiungendo il nuovo ID dipendente all'elenco nel campo EmployeeIDs. Per informazioni sulle transazioni di gruppi di entità, vedere la sezione [Transazioni di gruppi di entità](#entity-group-transactions). 3. Se la transazione del gruppo di entità ha esito negativo a causa di un errore di concorrenza ottimistica (un altro utente ha appena modificato l'entità di indice), è necessario ricominciare dal passaggio 1.
 
-Se si usa la seconda opzione, è possibile adottare un approccio simile per l'eliminazione di un dipendente. Modificare il cognome del dipendente è un'operazione leggermente più complessa, in quanto è necessario eseguire una transazione EGT che aggiorna tre entità: l'entità dipendente, l'entità di indice per il cognome precedente e l'entità di indice per il nuovo cognome. È necessario recuperare ogni entità prima di apportare qualsiasi modifica, per recuperare i valori ETag da usare in seguito per eseguire gli aggiornamenti usando la concorrenza ottimistica.
+Se si usa la seconda opzione, è possibile adottare un approccio simile per l'eliminazione di un dipendente. Modificare il cognome del dipendente è un'operazione leggermente più complessa, in quanto è necessario eseguire una transazione del gruppo di entità che aggiorna tre entità: l'entità dipendente, l'entità di indice per il cognome precedente e l'entità di indice per il nuovo cognome. È necessario recuperare ogni entità prima di apportare qualsiasi modifica, per recuperare i valori ETag da usare in seguito per eseguire gli aggiornamenti usando la concorrenza ottimistica.
 
 I passaggi seguenti illustrano il processo da seguire per cercare tutti i dipendenti di un reparto con un determinato cognome se si usa la seconda opzione. In questo esempio si cercano tutti i dipendenti del reparto vendite il cui cognome è Jones:
 
@@ -684,12 +686,12 @@ Si noti che ora il valore **RowKey** è una chiave composta costituita dall'ID d
 
 L'esempio seguente illustra come recuperare tutti i dati di valutazione per uno specifico dipendente (ad esempio il dipendente 000123 del reparto vendite):
 
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
+$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000123') and (RowKey lt 'empid\_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
 
 #### Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:
 
--	È consigliabile usare un carattere separatore appropriato che semplifichi l'analisi del valore **RowKey**, ad esempio **000123_2012**.  
+-	È consigliabile usare un carattere separatore appropriato che semplifichi l'analisi del valore **RowKey**, ad esempio **000123\_2012**.  
 -	Inoltre, si sta archiviando l'entità nella stessa partizione di altre entità che contengono dati correlati per lo stesso dipendente, dunque è possibile usare transazioni EGT per mantenere la coerenza assoluta.
 -	Per determinare se questo modello è appropriato, considerare la frequenza con cui si eseguiranno query sui dati. Ad esempio, se si accederà raramente ai dati di valutazione e spesso ai dati principali sul dipendente, è consigliabile conservarli come entità separate.  
 
@@ -711,7 +713,7 @@ recupera le *e*ntità aggiunte più di recente a una partizione in base a un val
 
 #### Contesto e problema  
 
-Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *e*ntità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.
+Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *n* entità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.
 
 #### Soluzione  
 
@@ -807,7 +809,7 @@ Con questa progettazione è possibile usare un'operazione di unione per aggiorna
 
 #### Considerazioni e problemi  
 
-Tenere presente quanto segue prima di decidere come implementare questo modello: se le serie complete di dati non rientrano in una singola entità (un'entità può contenere fino a 252 proprietà), utilizzare un archivio dati alternativo, ad esempio un blob. Se si dispone di più client di aggiornamento di un'entità contemporaneamente, è necessario utilizzare **ETag** per implementare la concorrenza ottimistica. Se si dispone di molti client, potrebbe verificarsi un conflitto elevato.
+Tenere presente quanto segue prima di decidere come implementare questo modello: se le serie complete di dati non rientrano in una singola entità (un'entità può contenere fino a 252 proprietà), utilizzare un archivio dati alternativo, ad esempio un BLOB. Se si dispone di più client di aggiornamento di un'entità contemporaneamente, è necessario utilizzare **ETag** per implementare la concorrenza ottimistica. Se si dispone di molti client, potrebbe verificarsi un conflitto elevato.
 
 #### Quando usare questo modello  
 
@@ -1205,7 +1207,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*; ciò significa che
 
 Si noti che ogni entità deve disporre comunque dei valori **PartitionKey**, **RowKey** e **Timestamp**, ma può avere qualsiasi set di proprietà. Inoltre, non esiste alcuna indicazione relativa al tipo di un'entità, a meno che non si scelga di memorizzare le informazioni in una posizione. Esistono due opzioni per identificare il tipo di entità:
 
--	Anteporre il tipo di entità per il valore **RowKey** (o eventualmente il valore **PartitionKey**). Ad esempio, **EMPLOYEE_000123** o **DEPARTMENT_SALES** come valori **RowKey**.  
+-	Anteporre il tipo di entità per il valore **RowKey** (o eventualmente il valore **PartitionKey**). Ad esempio, **EMPLOYEE\_000123** o **DEPARTMENT\_SALES** come valori **RowKey**.  
 -	Usare una proprietà separata per registrare il tipo di entità come illustrato nella tabella seguente.  
 
 <table>
@@ -1548,4 +1550,4 @@ I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi c
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
+
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="identity"
    ms.date="05/30/2015"
    ms.author="mbaldwin"/>
+
 
 # Metadati di federazione
 Azure Active Directory (Azure AD) pubblica un documento di metadati di federazione per i servizi configurati per accettare i token di sicurezza rilasciati da Azure Active Directory. Il formato del documento dei metadati di federazione è descritto nel documento sul [linguaggio WS-Federation (Web Services Federation) versione 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), che estende la pubblicazione relativa ai [metadati per il linguaggio SAML (Security Assertion Markup Language) OASIS v 2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -39,7 +41,7 @@ Per gli **endpoint specifici del tenant**, <TenantDomainName> può essere uno de
 
 Per gli **endpoint indipendenti dal tenant**, <TenantDomainName> è **common**. Questo nome indica che solo gli elementi dei metadati di federazione che sono comuni a tutti i tenant di Azure AD sono in hosting in login.windows.net.
 
-Ad esempio, un endpoint specifico del tenant potrebbe essere *https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. L'endpoint indipendente dal tenant è *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
+Ad esempio, un endpoint specifico del tenant potrebbe essere **https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. L'endpoint indipendente dal tenant è **https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
 
 ## Contenuto dei metadati di federazione
 
@@ -133,7 +135,9 @@ Gli URL di accesso e disconnessione sono presenti negli elementi **SingleSignOnS
     <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     …
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.windows.net/contoso.onmicrosoft.com/saml2" />
+
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https:// login.windows.net/contoso.onmicrosoft.com /saml2" />
+
     </IDPSSODescriptor>
 
 Allo stesso modo, gli endpoint per gli endpoint del protocollo SAML 2.0 comune vengono pubblicati nei metadati di federazione indipendenti dal tenant, come illustrato nell'esempio seguente.
@@ -141,7 +145,9 @@ Allo stesso modo, gli endpoint per gli endpoint del protocollo SAML 2.0 comune v
     <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     …
     <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.windows.net/common/saml2" />
+
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.windows.net/common/saml2" />
+
     </IDPSSODescriptor>
 
 ## Vedere anche
@@ -149,4 +155,4 @@ Allo stesso modo, gli endpoint per gli endpoint del protocollo SAML 2.0 comune v
 
 [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

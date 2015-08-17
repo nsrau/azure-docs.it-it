@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/29/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (C#)
@@ -532,17 +532,17 @@ EventHubSpout controlla periodicamente il proprio stato nel nodo Zookeeper, oper
 
 * La topologia viene arrestata e riavviata **con lo stesso nome**.
 
-È inoltre possibile esportare e importare i checkpoint persistenti in WASB (servizio Archiviazione di Azure usato dal cluster HDInsight.) Gli script per eseguire questa operazione si trovano in Storm, nel cluster HDInsight, in **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**.
+È inoltre possibile esportare e importare i checkpoint persistenti in WASB (servizio Archiviazione di Azure usato dal cluster HDInsight.) Gli script per eseguire questa operazione si trovano in Storm, nel cluster HDInsight, in **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**.
 
 >[AZURE.NOTE]Il numero di versione indicato nel percorso può essere diverso, poiché la versione di Storm installata nel cluster può cambiare.
 
 Gli script presenti in questa directory sono:
 
-* **stormmeta_import.cmd**: importa tutti i metadati Storm dal contenitore di archiviazione predefinito del cluster in Zookeeper.
+* **stormmeta\_import.cmd**: importa tutti i metadati Storm dal contenitore di archiviazione predefinito del cluster in Zookeeper.
 
-* **stormmeta_export.cmd**: esporta tutti i metadati Storm da Zookeeper al contenitore di archiviazione predefinito del cluster.
+* **stormmeta\_export.cmd**: esporta tutti i metadati Storm da Zookeeper al contenitore di archiviazione predefinito del cluster.
 
-* **stormmeta_delete.cmd**: elimina tutti i metadati Storm da Zookeeper.
+* **stormmeta\_delete.cmd**: elimina tutti i metadati Storm da Zookeeper.
 
 L'esportazione di un'importazione consente di rendere persistenti i dati del punto di controllo quando è necessario eliminare il cluster ma si desidera riprendere l'elaborazione dall'offset corrente nell'hub quando si riporta un nuovo cluster online.
 
@@ -557,4 +557,4 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

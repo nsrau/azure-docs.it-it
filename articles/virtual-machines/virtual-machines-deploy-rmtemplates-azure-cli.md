@@ -7,6 +7,7 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
+
 
 # Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
 
@@ -76,7 +78,7 @@ con il nome della sottoscrizione o l'ID che dispone di risorse che si desidera g
 
 ### Passare alla modalità gruppo di risorse dell'interfaccia della riga di comando di Azure
 
-Per impostazione predefinita, l'interfaccia della riga di comando viene avviata in modalità di Gestione servizi (** modalità asm**). Tipo
+Per impostazione predefinita, l'interfaccia della riga di comando viene avviata in modalità di Gestione servizi (modalità **asm**). Tipo
 
 	azure config mode arm
 
@@ -125,23 +127,23 @@ In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l'inter
 
 | PublisherName | Offerta | Sku | Versione |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7.0.201503 |
-| OpenLogic | CentOS | 7.1 | 7.1.201504 |
-| CoreOS | CoreOS | Beta | 647.0.0 |
-| CoreOS | CoreOS | Stabile | 633.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12.0.2430 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
-| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
-| Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
+| OpenLogic | CentOS | 7 | 7\.0.201503 |
+| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
+| CoreOS | CoreOS | Beta | 647\.0.0 |
+| CoreOS | CoreOS | Stabile | 633\.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1\.0.0 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12\.0.2430 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
+| Canonical | UbuntuServer | 12\.04.5-LTS | 12\.04.201504230 |
+| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4\.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5\.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
 Creare la macchina virtuale immettendo il `azure vm quick-create command` e prepararsi a seguire le istruzioni visualizzate. Dovrebbe essere visualizzata una schermata analoga alla seguente:
 
@@ -1315,4 +1317,4 @@ Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Az
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

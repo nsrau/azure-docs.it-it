@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Iscrizione ad Azure come organizzazione" 
-	description="Informazioni sull'uso di un account di lavoro o di scuola per sfruttare gli account utente, i criteri e le impostazioni esistenti o le distribuzioni del server locali già configurate e migliorare l'efficienza tra l'infrastruttura di identità locale aziendale e Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="Lisatoft"/>
+<properties
+	pageTitle="Iscrizione ad Azure come organizzazione"
+	description="Informazioni sull'uso di un account di lavoro o di scuola per sfruttare gli account utente, i criteri e le impostazioni esistenti o le distribuzioni del server locali già configurate e migliorare l'efficienza tra l'infrastruttura di identità locale aziendale e Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="terrylan"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/30/2015"
+	ms.author="markvi"/>
 
 
 # Iscrizione ad Azure come organizzazione
@@ -27,13 +27,12 @@ Fino a poco tempo fa, era possibile richiedere una nuova sottoscrizione di Micro
 
 	Dopo aver creato la directory, un amministratore può creare gli utenti e assegnare loro le licenze in base alle sottoscrizioni del servizio cloud a cui devono accedere, ad esempio Azure.
 
-Per iscriversi ad Azure come organizzazione [**Effettua l'iscrizione ora**](http://go.microsoft.com/fwlink/?LinkId=269967)
+Per iscriversi ad Azure come organizzazione [**Effettua l'iscrizione ora**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Risorse aggiuntive**
 
-* [Blog di Microsoft Azure](http://azure.microsoft.com/blog/) 
+* [Blog di Microsoft Azure](http://azure.microsoft.com/blog/)
 * [Informazioni su Azure AD](active-directory-whatis.md)
 * [Usare l'infrastruttura di identità locale nel cloud](active-directory-aadconnect.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

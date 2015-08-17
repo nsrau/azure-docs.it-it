@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 5: Creare il gruppo di disponibilità e aggiungere i database SharePoint." 
-	description="In questa fase finale della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità AlwaysOn di SQL Server nei servizi di infrastruttura di Azure, si crea un nuovo gruppo di disponibilità e si aggiungono i database della farm di SharePoint." 
+<properties
+	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 5: Creare il gruppo di disponibilità e aggiungere i database SharePoint."
+	description="In questa fase finale della distribuzione di una farm di SharePoint 2013 solo intranet, creare un gruppo di disponibilità e aggiungervi i database di SharePoint."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro di farm intranet di SharePoint Fase 5: Creare il gruppo di disponibilità e aggiungere i database SharePoint.
@@ -34,43 +34,43 @@ Una volta che i database sono stati sottoposti a backup e ripristino, possono es
 
 ### Condividere le cartelle di backup
 
-Per abilitare il backup e il ripristino, i file di backup (.bak) devono essere accessibili dalla macchina virtuale del server SQL secondario. Utilizzare la procedura seguente:
+Per abilitare il backup e il ripristino, assicurarsi che i file di backup (.bak) siano accessibili dalla macchina virtuale del server SQL secondario. Utilizzare la procedura seguente:
 
-1.	Accedere al computer host SQL Server principale come [domain]**\sp_farm_db**. 
-2.	Passare al disco F:\. 
-3.	Fare con il pulsante destro del mouse sulla cartella **Backup**, quindi scegliere **Condividi con** e fare clic su **Utenti specifici**.
-4.	Nella finestra di dialogo **condivisione File** digitare **[domain]\sqlservice**, quindi fare clic su **Aggiungi**.
-5.	Scegliere la colonna **Livello di autorizzazione** relativa al nome account **sqlservice**, quindi fare clic su **Lettura/scrittura**. 
+1.	Accedere al computer host SQL Server principale come **[domain]\\sp\_farm\_db**.
+2.	Passare al disco F:\\.
+3.	Fare click con il pulsante destro del mouse sulla cartella **Backup**, quindi scegliere **Condividi con** e fare clic su **Utenti specifici**.
+4.	Nella finestra di dialogo **condivisione File** digitare **[domain]\\sqlservice**, quindi fare clic su **Aggiungi**.
+5.	Scegliere la colonna **Livello di autorizzazione** relativa al nome account **sqlservice**, quindi fare clic su **Lettura/scrittura**.
 6.	Fare clic su **Condividi** e quindi su **Operazione completata**.
 
-Eseguire la procedura sopra riportata nell'host SQL Server secondario, ad eccezione del fatto che all'account sqlservice viene assegnata l'autorizzazione in **lettura** per la cartella F:\Backup creata nella fase 5.
+Eseguire la procedura sopra riportata nell'host SQL Server secondario, ad eccezione del fatto che all'account sqlservice viene assegnata l'autorizzazione in **lettura** per la cartella F:\\Backup creata nella fase 5.
 
-### Backup e ripristino di un database
+### Eseguire il backup e ripristinare un database
 
 Le procedure seguenti devono essere ripetute per ogni database che deve essere aggiunto al gruppo di disponibilità. Alcuni database di SharePoint 2013 non supportano i gruppi di disponibilità AlwaysOn di SQL Server. Per ulteriori informazioni, vedere [Opzioni di disponibilità elevata e di ripristino di emergenza supportate per i database SharePoint](http://technet.microsoft.com/library/jj841106.aspx).
 
-Utilizzare questi passaggi per il backup del database.
+Utilizzare questi passaggi per il backup del database:
 
 1.	Dalla schermata Start del computer SQL Server principale, digitare**SQL Studio** quindi fare clic su **SQL Server Management Studio**.
 2.	Fare clic su **Connect**.
 3.	Nel riquadro sinistro, espandere il nodo **Database**.
 4.	Fare doppio clic su un database per eseguire il backup, scegliere **Attività**, quindi fare clic su **Backup**.
 5.	Nella **Destinazione** fare clic su **Rimuovi** per rimuovere il percorso predefinito per il file di backup.
-6.	Fare clic su **Aggiungi**. In **Nome File** digitare **\ [machineName]\backup[databaseName].bak**, dove machineName è il nome del computer SQL server principale e databaseName è il nome del database. Fare clic su **OK**, quindi fare clic su **OK** dopo che è stato visualizzato il messaggio relativo al completamento del backup.
+6.	Fare clic su **Aggiungi**. In **Nome File** digitare **\\ [machineName]\\backup[databaseName].bak**, dove machineName è il nome del computer SQL server principale e databaseName è il nome del database. Fare clic su **OK**, quindi fare clic su **OK** dopo che è stato visualizzato il messaggio relativo al completamento del backup.
 7.	Nel riquadro sinistro,fare clic con il pulsante del mouse destro ** [databaseName]**, scegliere **Attività**, quindi fare clic su **Backup**.
 8.	In **Tipo di Backup**, selezionare **Log delle transazioni**, quindi fare clic su **OK** per due volte.
 9.	Mantenere aperta la sessione Desktop remoto.
 
-Utilizzare questi passaggi per il ripristino del database.
+Utilizzare questi passaggi per il ripristino del database:
 
-1.	Accedere al computer SQL Server secondario come [domainName]\sp_farm_db.
+1.	Accedere al computer SQL Server secondario come **[domainName]\\sp\_farm\_db**.
 2.	Nella schermata Start digitare **SQL Studio**, quindi fare clic su **SQL Server Management Studio**.
 3.	Fare clic su **Connect**.
 4.	Nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Database**, quindi fare clic su **Ripristina database**.
 5.	Nella sezione **Origine** selezionare **Dispositivo** e fare clic sul pulsante dei puntini di sospensione (...)
 6.	In **Seleziona dispositivi di backup**, fare clic su **Aggiungi**.
-7.	In **Percorso del file di Backup**, digitare **\[machineName]\backup**, premere **INVIO**, selezionare **[databaseName].bak**, quindi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
-8.	In **Selezione pagina**, fare clic su **Opzioni**. Nella sezione **Opzioni di ripristino** in **Stato di recupero**, selezionare **RESTORE WITH NORECOVERY**, quindi fare clic su **OK**. 
+7.	In **Percorso del file di Backup**, digitare **\\[machineName]\\backup**, premere Invio, selezionare **[databaseName].bak**, e poi fare clic su **OK** per due volte. A questo punto dovrebbero essere visualizzati il backup completo e il backup del log nella sezione **Set di Backup da ripristinare**.
+8.	In **Selezione pagina**, fare clic su **Opzioni**. Nella sezione **Opzioni di ripristino** in **Stato di recupero**, selezionare **RESTORE WITH NORECOVERY**, quindi fare clic su **OK**.
 9.	Quando richiesto, fare clic su **OK**.
 
 ### Creare un set di disponibilità
@@ -79,14 +79,14 @@ Dopo che è stato preparato almeno un database (tramite il metodo di backup e ri
 
 1.	Tornare alla sessione Desktop remoto del computer SQL Server principale.
 2.	In **SQL Server Management Studio**, nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Disponibilità elevata AlwaysOn**, quindi fare clic su **Creazione guidata nuovo Gruppo di disponibilità**.
-3.	Nella pagina Introduzione fare clic su **Avanti**. 
-4.	Nella pagina Specifica nome del gruppo di disponibilità, digitare il nome del gruppo di disponibilità in **Nome gruppo di disponibilità** (esempio: AG1), quindi fare clic su **Avanti**.
-5.	Nella pagina Selezione database, selezionare i database della farm di SharePoint di cui è stato eseguito il backup e fare clic su **Avanti**. Questi database soddisfano i prerequisiti per un gruppo di disponibilità in quanto è stato eseguito almeno un backup completo nella replica principale utilizzata.
-6.	Nella pagina Specifica repliche, fare clic su **Aggiungi replica**.
-7.	In **Connetti al Server**, digitare il nome del computer SQL Server secondario, quindi fare clic su **Connetti**. 
-8.	Nella pagina Specifica repliche l'host SQL Server secondario è elencato in **Repliche di disponibilità**. Per entrambe le istanze, impostare i valori delle opzioni seguenti: 
+3.	Nella pagina **Introduzione**, fare clic su **Avanti**.
+4.	Nella pagina **Specifica nome del gruppo di disponibilità**, digitare il nome del gruppo di disponibilità in **Nome gruppo di disponibilità** (esempio: AG1), quindi fare clic su **Avanti**.
+5.	Nella pagina **Selezionare database**, selezionare i database della farm di SharePoint di cui è stato eseguito il backup e fare clic su **Avanti**. Questi database soddisfano i prerequisiti per un gruppo di disponibilità in quanto è stato eseguito almeno un backup completo nella replica principale utilizzata.
+6.	Nella pagina **Specifica repliche**, fare clic su **Aggiungi replica**.
+7.	In **Connetti al Server**, digitare il nome del computer SQL Server secondario, quindi fare clic su **Connetti**.
+8.	Nella pagina **Specifica repliche** l'host SQL Server secondario è elencato in **Repliche di disponibilità**. Per entrambe le istanze, impostare i valori delle opzioni seguenti:
 
-Ruolo iniziale | Opzione | Valore 
+Ruolo iniziale | Opzione | Valore
 --- | --- | ---
 Primaria | Failover automatico (fino a 2) | Selezionato
 Secondaria | Failover automatico (fino a 2) | Selezionato
@@ -94,12 +94,12 @@ Primaria | Commit sincrono (fino a 3) | Selezionato
 Secondaria | Commit sincrono (fino a 3) | Selezionato
 Primaria | Secondario leggibile | Sì
 Secondaria | Secondario leggibile | Sì
-		
-9.	Fare clic su **Avanti**.
-10.	Nella pagina Seleziona sincronizzazione dati iniziale, fare clic su **Solo join**, quindi su **Avanti**. La sincronizzazione dei dati viene eseguita manualmente eseguendo i backup completi e delle transazioni nel server principale e ripristinandola nel backup. È possibile scegliere di selezionare **Completo** per permettere la sincronizzazione dei dati automatica. Tuttavia, la sincronizzazione non è consigliata per database di grandi dimensioni presenti in alcune organizzazioni.
-11.	Nella pagina di conferma, fare clic su **Avanti**. Poiché non è configurato un listener del gruppo di disponibilità viene visualizzato un avviso in cui viene indicata la mancanza di un listener. 
-12.	Nella pagina Riepilogo fare clic su **Fine**. Al termine della procedura guidata, controllare la pagina **Risultati**per verificare che il gruppo di disponibilità sia stato creato correttamente. In tal caso, fare clic su **Chiudi** per uscire dalla procedura guidata. 
-13.	Dalla schermata Start digitare **Failover**, quindi fare clic su **Gestione cluster di failover**. Nel riquadro sinistro, aprire il nome del cluster e fare clic su **Ruoli**. Un nuovo ruolo con il nome del gruppo di disponibilità deve essere presente.
+
+9.	Fare clic su **Avanti**.  
+10.	Nella pagina **Seleziona sincronizzazione dati iniziale**, fare clic su **Solo join**, quindi su **Avanti**. La sincronizzazione dei dati viene eseguita manualmente eseguendo i backup completi e delle transazioni nel server principale e ripristinandola nel backup. È possibile scegliere di selezionare **Completo** per permettere la sincronizzazione dei dati automatica. Tuttavia, la sincronizzazione non è consigliata per database di grandi dimensioni presenti in alcune organizzazioni.  
+11.	Nella pagina di **Conferma**, fare clic su **Avanti**. Poiché non è configurato un listener del gruppo di disponibilità viene visualizzato un avviso in cui viene indicata la mancanza di un listener.
+12.	Nella pagina **Riepilogo** fare clic su **Fine**. Al termine della procedura guidata, controllare la pagina **Risultati**per verificare che il gruppo di disponibilità sia stato creato correttamente. In tal caso, fare clic su **Chiudi** per uscire dalla procedura guidata.
+13.	Dalla schermata Start digitare **Failover**, quindi fare clic su **Gestione cluster di failover**. Nel riquadro sinistro, aprire il nome del cluster e fare clic su **Ruoli**. Un nuovo ruolo con il nome del gruppo di disponibilità deve essere presente.  
 
 È stato configurato correttamente un gruppo di disponibilità AlwaysOn di SQL Server per i database di SharePoint.
 
@@ -123,6 +123,5 @@ Per ulteriori informazioni su SharePoint con gruppi di disponibilità di SQL Ser
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,28 +1,30 @@
-<properties 
-	pageTitle="Introduzione all'Archiviazione di Azure" 
-	description="Spiega cosa succede quando si crea un archivio di Azure in un progetto di servizio cloud di Visual Studio." 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Introduzione all'Archiviazione di Azure"
+	description="Spiega cosa succede quando si crea un archivio di Azure in un progetto di servizio cloud di Visual Studio."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
+
 
 # Che cosa è successo al progetto?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
-> - [What Happened](vs-storage-cloud-services-what-happened.md)
+> - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What happened](vs-storage-cloud-services-what-happened.md)
 
-###Che cosa è successo al progetto?</span>
+###Che cosa è successo al progetto?
 
 ###### Aggiunta di riferimenti
 
@@ -37,13 +39,11 @@ Il pacchetto NuGet per l'Archiviazione di Azure è stato aggiunto al progetto di
 - `System.Data`
 - `System.Spatial`
 
-######Aggiunta di stringa di connessione per l'Archiviazione di Azure 
+######Aggiunta di stringa di connessione per l'Archiviazione di Azure
 Sono stati creati elementi con la stringa di connessione e la chiave dell'account di archiviazione selezionato. Sono state apportate modifiche ai file seguenti:
 
 - `ServiceDefinition.csdef`
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
- 
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

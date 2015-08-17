@@ -70,7 +70,7 @@ Il primo passaggio per la creazione di un'app consiste nella creazione dell'app 
 
 Di seguito viene fornita una panoramica dei file contenuti nel repository Git iniziale, che saranno clonati nella sezione successiva.
 
-    \FlaskWebProject__init__.py
+    \FlaskWebProject\__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\
@@ -401,4 +401,4 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

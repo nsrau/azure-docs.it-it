@@ -119,4 +119,4 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

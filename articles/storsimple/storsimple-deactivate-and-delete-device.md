@@ -91,4 +91,4 @@ Per ripristinare il dispositivo disattivato sulle impostazioni predefinite di fa
 
 Per assistenza tecnica,[contattare il supporto Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

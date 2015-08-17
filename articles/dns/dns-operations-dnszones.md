@@ -103,4 +103,4 @@ L'oggetto di zona può essere anche reindirizzato invece che passato come parame
 
 [Automatizzare le operazioni usando .NET SDK](../dns-sdk)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

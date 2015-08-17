@@ -3,7 +3,7 @@
 	description="Informazioni su Esplora documenti di DocumentDB, uno strumento del portale di anteprima di Azure per visualizzare, modificare, creare e caricare documenti JSON con DocumentDB."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -113,7 +113,7 @@ Esplora documenti consente di creare, modificare ed eliminare facilmente i docum
 
 	![Schermata di visualizzazione delle proprietà del documento di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]La proprietà timestamp (_ts) viene rappresentata internamente come periodo, ma Esplora documenti consente di visualizzare il valore in un formato GMT leggibile.
+	> [AZURE.NOTE]La proprietà timestamp (\_ts) viene rappresentata internamente come periodo, ma Esplora documenti consente di visualizzare il valore in un formato GMT leggibile.
 
 ##<a id="BulkAdd"></a>Aggiungere documenti in blocco con Esplora documenti##
 
@@ -140,4 +140,4 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

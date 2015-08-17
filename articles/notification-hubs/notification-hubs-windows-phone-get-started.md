@@ -12,9 +12,10 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
+	
 # Introduzione ad Hub di notifica
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -94,7 +95,7 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-5. Nel codice seguente aggiungere quanto segue all'inizio del metodo **Application_Launching** in App.xaml.cs:
+5. Nel codice seguente aggiungere quanto segue all'inizio del metodo **Application\_Launching** in App.xaml.cs:
 
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -114,7 +115,7 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
 
 	>[AZURE.NOTE]In questa esercitazione viene inviata una notifica di tipo avviso popup al dispositivo. Quando si invia una notifica di tipo riquadro, è invece necessario chiamare il metodo **BindToShellTile** sul canale. Per supportare sia la notifica di tipo riquadro che quella di tipo avviso popup, chiamare sia **BindToShellTile** che **BindToShellToast**.
 
-6. In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID__CAP__PUSH_NOTIFICATION** sia selezionata.
+6. In Esplora soluzioni espandere **Proprietà**, aprire il file WMAppManifest.xml, fare clic sulla scheda **Funzionalità** e assicurarsi che la funzionalità **ID\_\_CAP\_\_PUSH\_NOTIFICATION** sia selezionata.
 
    	![][14]
 
@@ -215,4 +216,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Esercitazione su Hub di notifica - WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

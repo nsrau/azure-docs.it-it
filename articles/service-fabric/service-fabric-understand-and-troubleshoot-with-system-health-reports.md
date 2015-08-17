@@ -74,7 +74,7 @@ HealthEvents          :
 
 
 ### Scadenza dei certificati
-System.FabricNode segnala una condizione di avviso quando i certificati utilizzati dal nodo sono vicini alla scadenza. Esistono tre certificati per ogni nodo: Certificate_cluster, Certificate_server e Certificate_default_client. Quando la scadenza è almeno dopo due settimane, il tipo di report è OK. Se la scadenza è entro due settimane, il tipo di report è Warning. Il valore TTL di questi eventi è infinito, vengono rimossi quando un nodo abbandona il cluster.
+System.FabricNode segnala una condizione di avviso quando i certificati utilizzati dal nodo sono vicini alla scadenza. Esistono tre certificati per ogni nodo: Certificate\_cluster, Certificate\_server e Certificate\_default\_client. Quando la scadenza è almeno dopo due settimane, il tipo di report è OK. Se la scadenza è entro due settimane, il tipo di report è Warning. Il valore TTL di questi eventi è infinito, vengono rimossi quando un nodo abbandona il cluster.
 
 - SourceId: System.FabricNode
 - Proprietà: inizia con "Certificate" e contiene ulteriori informazioni sul tipo di certificato.
@@ -530,4 +530,4 @@ System.Hosting segnala una condizione di errore se si verifica un errore di conv
 [Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

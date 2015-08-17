@@ -30,7 +30,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 - Eseguire il test di una notifica push in-app e una all'esterno dell'app per determinare se sono presenti problemi relativi a una o all'altra tipologia di notifica.
 - Eseguire il test sia dall'interfaccia utente che dall'API, come procedura di risoluzione dei problemi. In questo modo, sarà possibile visualizzare le altre informazioni sull'errore disponibili in entrambe le posizioni.
 - Le notifiche push all'esterno dell'app non funzionano se Azure Mobile Engagement e Reach non sono integrati nell'SDK.
-- Le notifiche push non funzionano se i certificati non sono validi o se usano la versione di produzione piuttosto che di sviluppo in modo corretto (solo per iOS). (**Nota:** è possibile che le notifiche push "all'esterno dell'app" non possano essere recapitate a iOS se la versione di sviluppo e quella di produzione dell'applicazione sono installate sullo stesso dispositivo poiché il token di sicurezza associato al certificato può essere invalidato da Apple. Per risolvere questo problema, disinstallare entrambe le versioni di sviluppo e produzione dell'applicazione e installare nuovamente sul dispositivo solo una delle versioni.
+- Le notifiche push non funzionano se i certificati non sono validi o se usano la versione di produzione piuttosto che di sviluppo in modo corretto (solo per iOS). (**Nota:** è possibile che le notifiche push "all'esterno dell'app" non possano essere recapitate a iOS se la versione di sviluppo e quella di produzione dell'applicazione sono installate sullo stesso dispositivo, poiché il token di sicurezza associato al certificato può essere invalidato da Apple. Per risolvere questo problema, disinstallare entrambe le versioni di sviluppo e produzione dell'applicazione e installare nuovamente sul dispositivo solo una delle versioni.
 - Il conteggio delle notifiche push all'esterno dell'app viene gestito in modo differente, a seconda della piattaforma. In iOS vengono visualizzate meno informazioni rispetto ad Android, se le notifiche push native sono disattivate su un dispositivo, mentre l'API fornisce più informazioni rispetto all'interfaccia per quanto riguarda le statistiche push.
 - Le notifiche push all'esterno dell'app possono essere bloccate dai clienti a livello di sistema operativo (iOS e Android).
 - Le notifiche push all'esterno dell'app verranno visualizzate come disattivate nell'interfaccia utente di Azure Mobile Engagement, se non sono state integrate correttamente. Tuttavia, potrebbero essere nascoste automaticamente dall'API.
@@ -110,4 +110,4 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

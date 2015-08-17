@@ -34,4 +34,4 @@ Quando si creano risorse tramite il portale o tramite la distribuzione di un mod
 - Per ulteriori dettagli sulla creazione di collegamenti tra le risorse, vedere [Collegamento di risorse in Gestione risorse di Azure](../resource-group-link-resources.md).
 - Per ulteriori informazioni sull'uso dei gruppi di risorse tramite il portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

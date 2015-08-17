@@ -167,8 +167,8 @@ Un pacchetto di supporto contiene tutti i registri pertinenti per assistere il t
 
 5. Quando i registri vengono aperti nel Visualizzatore eventi, cercare i registri seguenti dove sono presenti i problemi relativi alla configurazione del dispositivo:
 
-  - hcs_pfconfig/Operational Log
-  - hcs_pfconfig/Config
+  - hcs\_pfconfig/Operational Log
+  - hcs\_pfconfig/Config
 
 6. Nei file di registro, ricercare le stringhe relative ai cmdlet chiamati dalla configurazione guidata. Vedere [Configurazione guidata prima installazione](#first-time-setup-wizard-process) per un elenco di tali cmdlet. 
 
@@ -575,4 +575,4 @@ L'errore potrebbe essere causato da una delle seguenti cause:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

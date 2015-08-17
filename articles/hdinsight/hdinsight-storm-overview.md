@@ -206,4 +206,4 @@ Per altre informazioni sulle soluzioni di analisi in tempo reale con Apache Stor
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

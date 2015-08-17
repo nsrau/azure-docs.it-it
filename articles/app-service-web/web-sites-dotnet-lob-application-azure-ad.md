@@ -375,4 +375,4 @@ Dopo avere configurato le autorizzazioni e le funzionalità line-of-business per
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

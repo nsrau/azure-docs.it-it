@@ -688,4 +688,4 @@ Quindi, nella richiesta `PUT` effettiva per l'app per la logica è possibile for
 
 In ogni ambiente è quindi possibile fornire un valore diverso per il parametro `connection`. Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

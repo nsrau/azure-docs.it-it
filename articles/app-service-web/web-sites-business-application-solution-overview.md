@@ -44,7 +44,7 @@ Le app Web di Servizio app di Azure supportano l'esecuzione di asset Web esisten
 
 È possibile proteggere gli asset mediante crittografia, autenticare gli utenti aziendali locali o remoti e autorizzarli all'uso degli asset.
 
-Proteggere gli asset interni da utenti non autorizzati tramite [HTTPS]. Il nome di dominio **\*.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL nelle app Web del servizio app. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi di Servizio app di Azure].
+Proteggere gli asset interni da utenti non autorizzati tramite [HTTPS]. Il nome di dominio ***.azurewebsites.net** è già dotato di un certificato SSL e, se si usa un dominio personalizzato, è possibile spostare il relativo certificato SSL nelle app Web del servizio app. A ogni certificato SSL è associata una tariffa mensile (ripartita su base oraria). Per altre informazioni, vedere la pagina relativa ai [dettagli sui prezzi di Servizio app di Azure].
 
 [Autenticare gli utenti] nella directory aziendale. Le app Web di Servizio app di Azure sono in grado di autenticare gli utenti con i provider di identità locali, ad esempio Active Directory Federation Services (ADFS) o con un tenant di Azure Active Directory sincronizzato con la distribuzione di Active Directory aziendale. Gli utenti possono accedere alle proprietà Web nella app Web tramite Single Sign-On quando sono in sede e quando sono fuori sede. I servizi esistenti, come Office 365 o Microsoft Intune, usano già Azure Active Directory. Tramite [Easy Auth] è molto semplice attivare l'autenticazione con lo stesso tenant di Azure Active Directory per la propria app Web.
 
@@ -124,4 +124,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

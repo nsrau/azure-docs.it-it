@@ -222,4 +222,4 @@ Il metodo **CreateChainedTaskEncodingJob** seguente crea un processo contenente 
 [Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

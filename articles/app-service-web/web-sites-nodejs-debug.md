@@ -54,7 +54,7 @@ Se nell'ambiente di sviluppo sono installati gli strumenti da riga di comando di
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]Anche se loggingEnabled e devErrorsEnabled sono le opzioni di configurazione più utilizzate di IISNode.yml per acquisire informazioni diagnostiche, è possibile utilizzare IISNode.yml per configurare numerose opzioni per l'ambiente host. Per un elenco completo delle opzioni di configurazione, vedere il file [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
+> [AZURE.NOTE]Anche se loggingEnabled e devErrorsEnabled sono le opzioni di configurazione più utilizzate di IISNode.yml per acquisire informazioni diagnostiche, è possibile utilizzare IISNode.yml per configurare numerose opzioni per l'ambiente host. Per un elenco completo delle opzioni di configurazione, vedere il file [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 <a id="viewlogs"></a>
 ## Accesso ai log
@@ -125,4 +125,4 @@ Per informazioni sulla specifica di una versione di Node.js per l'applicazione, 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

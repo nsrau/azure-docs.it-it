@@ -41,7 +41,7 @@ Prima di iniziare la configurazione, verificare che siano soddisfatti i prerequi
 - Una sottoscrizione di Azure
 - La versione più recente di Azure PowerShell
 
-###  1. Importare il modulo PowerShell per ExpressRoute
+###  1\. Importare il modulo PowerShell per ExpressRoute
 
 Windows PowerShell è un ambiente di scripting potente che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Per altre informazioni, vedere la documentazione relativa a PowerShell in [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx).
 
@@ -52,7 +52,7 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 
-### 2. Configurare un nuovo circuito ExpressRoute con le funzionalità del componente aggiuntivo Premium abilitate
+### 2\. Configurare un nuovo circuito ExpressRoute con le funzionalità del componente aggiuntivo Premium abilitate
 
 È possibile creare un nuovo circuito ExpressRoute con il componente aggiuntivo Premium abilitato al momento della creazione. Seguire le istruzioni su come creare circuiti ExpressRoute con [Provider di servizi di rete (NSP)](expressroute-configuring-nsps.md) o [Provider di Exchange (EXP)](expressroute-configuring-exps.md). Un nuovo parametro facoltativo nel cmdlet New-AzureDedicatedCircuit consente di specificare la SKU. La SKU può essere Standard o Premium. Il valore predefinito è standard. Passando la SKU sul valore Premium verrà abilitato il circuito con le funzionalità del componente aggiuntivo Premium.
 
@@ -60,7 +60,7 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -Sku Premium
 
 
-### 3. Verificare che il componente aggiuntivo ExpressRoute Premium sia abilitato
+### 3\. Verificare che il componente aggiuntivo ExpressRoute Premium sia abilitato
 È possibile controllare e verificare se il componente aggiuntivo ExpressRoute Premium è abilitato per il circuito. Nell'esempio seguente, per il circuito ExpressRoute non sono abilitate le funzionalità del componente aggiuntivo ExpressRoute Premium. La SKU verrà visualizzata come ***Premium*** se il componente aggiuntivo è abilitato.
 
 		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
@@ -177,4 +177,4 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

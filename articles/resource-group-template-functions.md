@@ -388,4 +388,4 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -97,8 +97,8 @@ Nelle sezioni seguenti viene descritta ciascuna di queste opzioni in modo più d
 
 Quando si configura un processo Web:
 
-- Se si desidera che il processo risponda a un trigger basato sugli eventi, deve essere configurato come **Esegui in modo continuo**. Lo script o il programma viene archiviato nella cartella denominata site/wwwroot/app_data/jobs/continuous.
-- Se si desidera che il processo risponda a un trigger basato sulla pianificazione, deve essere configurato come **Esegui in base a una pianificazione**. Lo script o il programma viene archiviato nella cartella denominata site/wwwroot/app_data/jobs/triggered.
+- Se si desidera che il processo risponda a un trigger basato sugli eventi, deve essere configurato come **Esegui in modo continuo**. Lo script o il programma viene archiviato nella cartella denominata site/wwwroot/app\_data/jobs/continuous.
+- Se si desidera che il processo risponda a un trigger basato sulla pianificazione, deve essere configurato come **Esegui in base a una pianificazione**. Lo script o il programma viene archiviato nella cartella denominata site/wwwroot/app\_data/jobs/triggered.
 - Se nella configurazione di un processo si sceglie l’opzione **Esegui su richiesta**, verrà eseguito lo stesso codice eseguito con l’opzione **Esegui in base a una pianificazione** al momento dell’avvio.
 
 I processi Web di Azure vengono eseguiti nella sandbox del sito Web, per cui possono accedere alle variabili di ambiente e condividere informazioni come le stringhe di connessione con il sito Web. Il processo ha accesso all'identificatore univoco del computer che esegue il processo. La stringa di connessione denominata **AzureJobsStorage** fornisce l'accesso a tabelle, BLOB e code di archiviazione di Azure per i dati dell'applicazione e a Bus di servizio per la messaggistica e la comunicazione. La stringa di connessione denominata **AzureJobsDashboard** fornisce l'accesso ai file di log delle azioni del processo.
@@ -108,18 +108,18 @@ I processi Web di Azure presentano le caratteristiche seguenti:
 - **Protezione**: i processi Web sono protetti dalle credenziali di distribuzione del sito Web.
 - **Tipi di file supportati**: i processi Web possono essere definiti utilizzando script dei comandi (.cmd), file batch (.bat), script di PowerShell (.ps1), script di shell bash (.sh), script PHP (.php), script Python (.py), codice JavaScript (.js) e programmi eseguibili (.exe,. jar e così via).
 - **Distribuzione**: script ed eseguibili possono essere distribuiti tramite il portale di Azure, creati e distribuiti mediante il componente aggiuntivo [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) per Visual Studio o [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), utilizzando [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md) o copiandoli direttamente nei percorsi seguenti:
-  - per l’esecuzione con trigger: site/wwwroot/app_data/jobs/triggered/{nome processo}
-  - per l’esecuzione continua: site/wwwroot/app_data/jobs/continuous/{nome processo}
+  - per l’esecuzione con trigger: site/wwwroot/app\_data/jobs/triggered/{nome processo}
+  - per l’esecuzione continua: site/wwwroot/app\_data/jobs/continuous/{nome processo}
 - **Registrazione in file di log**: Console.Out viene considerato (contrassegnato) come INFO e Console.Error come errore. Informazioni di monitoraggio e diagnostica sono accessibili tramite il portale di Azure e i file di log possono essere scaricati direttamente dal sito. Tali file vengono salvati nei percorsi seguenti:
   - per l’esecuzione con trigger: Vfs/data/jobs/continuous/nomeProcesso
   - per l’esecuzione continua: Vfs/data/jobs/triggered/nomeProcesso
 - **Configurazione**: i processi Web possono essere configurati tramite il portale, l'API REST e PowerShell. Un file di configurazione denominato settings.job nella stessa directory radice dello script dei processi può essere utilizzato per fornire informazioni di configurazione per un processo. Ad esempio:
-  - { "stopping_wait_time": 60 }
-  - { "is_singleton": true }
+  - { "stopping\_wait\_time": 60 }
+  - { "is\_singleton": true }
 
 ### Considerazioni
 
-- Per impostazione predefinita, i processi Web sono scalati con il sito Web. Tuttavia, i processi possono essere configurati per l'esecuzione in una singola istanza impostando la proprietà di configurazione **is_singleton** su true. I processi Web a singola istanza sono utili per le attività che non si desidera scalare o eseguire come istanze multiple simultanee, ad esempio la reindicizzazione, l’analisi dei dati e attività simili.
+- Per impostazione predefinita, i processi Web sono scalati con il sito Web. Tuttavia, i processi possono essere configurati per l'esecuzione in una singola istanza impostando la proprietà di configurazione **is\_singleton** su true. I processi Web a singola istanza sono utili per le attività che non si desidera scalare o eseguire come istanze multiple simultanee, ad esempio la reindicizzazione, l’analisi dei dati e attività simili.
 - Per ridurre al minimo l'impatto dei processi sulle prestazioni del sito Web, è consigliabile creare un'istanza vuota di Siti Web di Azure in un nuovo piano di servizio app per ospitare i processi Web che possono essere a esecuzione prolungata o a utilizzo intensivo delle risorse.
 
 ### Ulteriori informazioni
@@ -236,9 +236,9 @@ I ruoli Web e di lavoro attraversano una serie di fasi distinte quando vengono a
 
 - Azure carica l'assembly del ruolo di Azure e vi cerca una classe che deriva da **RoleEntryPoint**.
 - Se viene rilevata questa classe, chiama **RoleEntryPoint.OnStart()**. Si esegue l'override di questo metodo per inizializzare le attività in background.
-- Al termine del metodo **OnStart**, Azure chiama **Application_Start ()** nel file Global dell'applicazione, se presente (ad esempio, Global.asax in un ruolo Web che esegue ASP.NET).
+- Al termine del metodo **OnStart**, Azure chiama **Application\_Start ()** nel file Global dell'applicazione, se presente (ad esempio, Global.asax in un ruolo Web che esegue ASP.NET).
 - Azure chiama **RoleEntryPoint.Run()** in un nuovo thread di primo piano eseguito in parallelo con **OnStart()**. Si esegue l'override di questo metodo per avviare le attività in background.
-- Al termine dell'esecuzione del metodo Run, Azure chiama innanzitutto **Application_End()** nel file Global dell’applicazione, se presente, quindi chiama **RoleEntryPoint.OnStop()**. Si esegue l'override del metodo **OnStop** per interrompere le attività in background, pulire le risorse, eliminare gli oggetti e chiudere le connessioni che possono essere state utilizzate dalle attività.
+- Al termine dell'esecuzione del metodo Run, Azure chiama innanzitutto **Application\_End()** nel file Global dell’applicazione, se presente, quindi chiama **RoleEntryPoint.OnStop()**. Si esegue l'override del metodo **OnStop** per interrompere le attività in background, pulire le risorse, eliminare gli oggetti e chiudere le connessioni che possono essere state utilizzate dalle attività.
 - Il ruolo di lavoro di Azure viene arrestato. A questo punto, il ruolo sarà riciclato e verrà riavviato.
 
 Per ulteriori informazioni e un esempio di utilizzo dei metodi della classe **RoleEntryPoint**, vedere [Modello di consolidamento delle risorse di calcolo](http://msdn.microsoft.com/library/dn589778.aspx).
@@ -290,7 +290,7 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - Se le attività in background hanno una capacità di prestazioni diversa dalle altre parti di un'applicazione di Servizi Cloud (ad esempio l'interfaccia utente o componenti come il livello di accesso ai dati), l’hosting delle attività in background insieme in un ruolo di lavoro separato consente all'interfaccia utente e all’attività in background di scalare in modo indipendente per gestire il carico. Se più attività in background hanno prestazioni notevolmente diverse, è consigliabile dividerle in ruoli di lavoro separati e scalare ogni tipo di ruolo in modo indipendente, ma si noti che ciò potrebbe aumentare i costi di runtime rispetto alla combinazione di tutte le attività in un minor numero di ruoli.
 - Scalare semplicemente i ruoli potrebbe non essere sufficiente ad evitare la perdita di prestazioni in condizioni di carico. Potrebbe essere necessario, inoltre, scalare le code di archiviazione e altre risorse per evitare che un singolo punto dell'intera catena di elaborazione diventi un collo di bottiglia. Considerare inoltre altre limitazioni, ad esempio la velocità effettiva massima di archiviazione e altri servizi su cui si basano l'applicazione e le attività in background.
 - Le attività in background devono essere progettate per la scalabilità. Ad esempio, devono essere in grado di rilevare in modo dinamico il numero di code di archiviazione in uso per attendere o inviare messaggi alla coda appropriata.
-- Per impostazione predefinita, i processi Web vengono scalati con la relativa istanza di Siti Web di Azure associata. Tuttavia, se si desidera che un processo Web venga eseguito come singola istanza, è possibile creare un file Settings.job contenente i dati JSON **{"is_singleton": true}**. In questo modo Azure eseguirà una sola istanza del processo Web anche se sono presenti più istanze del sito Web associato. Questa tecnica può essere utile per i processi pianificati che devono essere eseguiti come singola istanza.
+- Per impostazione predefinita, i processi Web vengono scalati con la relativa istanza di Siti Web di Azure associata. Tuttavia, se si desidera che un processo Web venga eseguito come singola istanza, è possibile creare un file Settings.job contenente i dati JSON **{"is\_singleton": true}**. In questo modo Azure eseguirà una sola istanza del processo Web anche se sono presenti più istanze del sito Web associato. Questa tecnica può essere utile per i processi pianificati che devono essere eseguiti come singola istanza.
 
 ## Modelli correlati
 
@@ -317,4 +317,4 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Come abilitare il modulo Diagnostica in un servizio cloud](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

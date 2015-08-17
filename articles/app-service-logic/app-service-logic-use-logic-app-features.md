@@ -133,4 +133,4 @@ Per avviare l'app per la logica su richiesta, fare clic sul pulsante **Esegui ad
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

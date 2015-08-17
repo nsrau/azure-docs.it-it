@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -79,7 +79,8 @@ Nel portale, aggiungere il segreto client e l'ID client alla scheda **Configure*
 Aggiungere le librerie ADM al progetto Eclipse.
 
 1. Per ottenere la libreria ADM, [scaricare l'SDK]. Estrarre il file zip SDK.
-2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries** nella parte superiore. Fare clic su **Add External Jar**, quindi selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.3. Scaricare NotificationHubs Android SDK (collegamento).
+2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries** nella parte superiore. Fare clic su **Add External Jar**, quindi selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
+3. Scaricare NotificationHubs Android SDK (collegamento).
 4. Decomprimere il pacchetto, quindi trascinare il file `notification-hubs-sdk.jar` nella cartella `libs ` in Eclipse.
 
 Modificare il manifesto dell'app per supportare ADM:
@@ -89,7 +90,7 @@ Modificare il manifesto dell'app per supportare ADM:
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. Aggiungere le autorizzazioni come primo elemento sotto l'elemento manifesto. Sostituire **[YOUR PACKAGE NAME]** con il pacchetto utilizzato per creare l'app.
+2. Aggiungere le autorizzazioni come primo elemento sotto l'elemento manifesto. Sostituire **[YOUR PACKAGE NAME]** con il pacchetto usato per creare l'app.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -106,7 +107,7 @@ Modificare il manifesto dell'app per supportare ADM:
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Inserire l'elemento seguente come primo figlio dell'elemento dell'applicazione. Ricordare di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva (incluso il pacchetto) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto utilizzato per creare l'app.
+3. Inserire l'elemento seguente come primo figlio dell'elemento dell'applicazione. Ricordare di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva (incluso il pacchetto) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto usato per creare l'app.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -241,7 +242,7 @@ Modificare il manifesto dell'app per supportare ADM:
 
 ## Aggiunta della chiave API all'app
 
-1. In Eclipse creare un nuovo file denominato **api_key.txt** negli asset della directory del progetto.
+1. In Eclipse creare un nuovo file denominato **api\_key.txt** negli asset della directory del progetto.
 2. Aprire il file e copiare la **chiave API** generata nel portale per sviluppatori Amazon.
 
 ## Esecuzione dell'app
@@ -281,4 +282,4 @@ Per inviare un messaggio usando .NET:
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

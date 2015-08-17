@@ -138,4 +138,4 @@ In questo documento è stato illustrato come inviare dati da una topologia Storm
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

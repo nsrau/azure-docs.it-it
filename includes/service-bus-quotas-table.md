@@ -25,3 +25,5 @@ La tabella seguente include le informazioni sulle quote specifiche per la messag
 |Dimensioni delle azioni e dei filtri SQL|Intero sistema|Static|Le successive richieste di creazione di filtri aggiuntivi verranno rifiutate e verrà restituita un'eccezione al codice chiamante.|Lunghezza massima della stringa della condizione di filtro: 1024 (1 KB).<br /><br />Lunghezza massima della stringa dell'azione di regola: 1024 (1 KB).<br /><br />Numero massimo di espressioni per azione di regola: 32.|
 
 <!-----HONumber=July15_HO5-->
+
+<!---HONumber=August15_HO6-->

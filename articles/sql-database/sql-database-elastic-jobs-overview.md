@@ -2,7 +2,7 @@
 	pageTitle="Panoramica dei processi di database elastici" 
 	description="Viene illustrato il servizio processo di database elastico" 
 	services="sql-database" 
-	documentationCenter=""  
+	documentationCenter="" 
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -58,4 +58,4 @@ I seguenti componenti interagiscono per creare un servizio Cloud di Azure che co
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -131,4 +131,4 @@ Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.m
 
 [Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

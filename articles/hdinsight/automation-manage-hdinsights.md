@@ -7,6 +7,7 @@
 	manager="eamono"
 	editor=""/>
 
+
 <tags
 	ms.service="HDInsight"
 	ms.workload="identity"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="04/13/2015"
 	ms.author="elcooper"/>
+
 
 
 
@@ -40,7 +42,8 @@ I cmdlet di Azure HDInsight consentono di automatizzare attività quali il provi
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire Azure HDInsight, consultare il collegamento seguente per altre informazioni su Automazione di Azure.
 
 * Vedere l'[esercitazione introduttiva](../automation-create-runbook-from-samples.md) di Automazione di Azure.
+* Visualizzare gli esempi nello [Script Center](http://aka.ms/scriptcentergallery).  
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

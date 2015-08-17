@@ -133,4 +133,4 @@ Per ulteriori informazioni, visitare:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

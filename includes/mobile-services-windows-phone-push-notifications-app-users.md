@@ -1,7 +1,7 @@
 
 È ora necessario modificare la modalità di registrazione delle notifiche push per assicurarsi che l'utente sia autenticato prima che si provi a eseguire la registrazione.
 
-1. In Visual Studio, in Esplora soluzioni aprire il file di progetto app.xaml.cs e nel gestore eventi **Application_Launching** impostare come commento o eliminare la chiamata al metodo **AcquirePushChannel**. 
+1. In Visual Studio, in Esplora soluzioni aprire il file di progetto app.xaml.cs e nel gestore eventi **Application\_Launching** impostare come commento o eliminare la chiamata al metodo **AcquirePushChannel**. 
  
 2. Modificare l'accessibilità del metodo **AcquirePushChannel** da `private` a `public` e aggiungere il modificatore `static`.
 
@@ -14,4 +14,4 @@
             RefreshTodoItems();
         }
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

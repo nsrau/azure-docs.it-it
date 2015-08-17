@@ -198,4 +198,4 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

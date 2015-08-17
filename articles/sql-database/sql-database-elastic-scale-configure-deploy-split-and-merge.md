@@ -1,9 +1,12 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Esercitazione relativa allo strumento divisione-unione del database elastico | Microsoft Azure"
 	description="Suddivisione e unione con gli strumenti di database elastico"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
+
 
 <tags
 	ms.service="sql-database"
@@ -13,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="sidneyh" />
+
 
 # Esercitazione relativa allo strumento divisione-unione del database elastico
 
@@ -99,16 +103,24 @@ Passare al [portale di anteprima di Azure](https://portal.azure.com).
 Incollare l'identificazione personale del certificato copiata sopra nell'attributo identificazione personale/valore delle seguenti impostazioni: Per il ruolo Web:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
 
 Per il ruolo di lavoro:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+
     <Setting name="AllowedClientCertificateThumbprints" value="" />
+
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
 
 
 Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, crittografia, server e client. Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione della sicurezza](sql-database-elastic-scale-split-merge-security-configuration.md).
@@ -141,14 +153,14 @@ Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del 
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Assicurarsi che il nome del server non inizi con **https://**.
+* Assicurarsi che il nome del server non inizi con ****https://**.
 * Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Per eseguire questa operazione, aprire https://manage.windowsazure.com, fare clic su "Database SQL" a sinistra, fare clic su "Server" in alto, quindi selezionare il proprio server. Fare clic su **Configura** nella parte superiore dello schermo e assicurarsi che l'opzione **Servizi di Azure** sia impostata su "Sì" (vedere la sezione Prerequisiti all'inizio di questo articolo).
 
 ## Test della distribuzione del servizio di divisione e unione
 
 ### Connessione a un Web browser
 
-Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di gestione di Azure accedendo al **dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire **http://** con **https://**, poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
+Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di gestione di Azure accedendo al **dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire ****http://** con ****https://**, poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
 
 ### Test con gli script di PowerShell
 
@@ -328,4 +340,4 @@ In questo caso, controllare il file di configurazione, in particolare l'impostaz
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -171,4 +171,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

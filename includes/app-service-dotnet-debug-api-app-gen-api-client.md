@@ -84,4 +84,4 @@ Dopo la scrittura di codice per l'app per le API, è possibile testare il codice
 
 5. Premere **INVIO** per chiudere la finestra della console.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

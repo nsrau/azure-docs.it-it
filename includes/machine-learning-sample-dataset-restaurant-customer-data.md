@@ -1,3 +1,3 @@
 Set di metadati relativi ai clienti, inclusi dati demografici e preferenze.<p> </p><b>Utilizzo:</b> usare questo set di dati, insieme ad altri due set di dati relativi ai ristoranti, per il training e il test di un sistema di raccomandazione. <p> </p><b>Ricerca correlata:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurazione di PHP nelle app Web di Servizio app di Azure"
-	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.";"
+	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.&quot;"
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -69,7 +69,7 @@ Per usare l'interfaccia della riga di comando di Azure, è necessario che **Node
 
 Per qualsiasi runtime PHP incorporato, è possibile modificare le opzioni di configurazione eseguendo la procedura seguente. (per informazioni sulle direttive solo a livello di sistema, vedere la [Lista delle direttive php.ini]).
 
-### PHP_INI_USER, PHP_INI_PERDIR, la modifica delle impostazioni di configurazione PHP_INI_ALL
+### PHP\_INI\_USER, PHP\_INI\_PERDIR, la modifica delle impostazioni di configurazione PHP\_INI\_ALL
 
 1. Aggiungere un file [.user.ini] alla directory radice in uso.
 2. Aggiungere le impostazioni di configurazione al file ￼￼￼ `.user.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera attivare l'impostazione `display_errors` e configurare l'impostazione `upload_max_filesize` su 10M, il file `.user.ini` conterrà il testo seguente:
@@ -81,9 +81,9 @@ Per qualsiasi runtime PHP incorporato, è possibile modificare le opzioni di con
 3. Distribuire l'app Web.
 4. Riavviare l'app Web . Il riavvio è necessario in quanto la frequenza di lettura dei file `.user.ini` a parte di PHP è governata dall'impostazione `user_ini.cache_ttl` configurata a livello di sistema, che per impostazione predefinita corrisponde a 300 secondi (5 minuti). Il riavvio del sito forza PHP a leggere le nuove impostazioni nel file `.user.ini`.
 
-In alternativa a un file `.user.ini` è possibile usare la funzione [ini_set()] negli script per impostare le opzioni di configurazione che non sono direttive a livello di sistema.
+In alternativa a un file `.user.ini` è possibile usare la funzione [ini\_set()] negli script per impostare le opzioni di configurazione che non sono direttive a livello di sistema.
 
-### Modifica delle impostazioni di configurazione PHP_INI_SYSTEM
+### Modifica delle impostazioni di configurazione PHP\_INI\_SYSTEM
 
 1. Aggiungere un'impostazione dell'applicazione all'applicazione Web con la chiave `PHP_INI_SCAN_DIR` e valore `d:\home\site\ini`
 2. Creare un `settings.ini` file utilizzando la Console Kudu (http://&lt;site-name&gt;.scm.azurewebsite.net) nella `d:\home\site\ini` directory.
@@ -120,7 +120,7 @@ Come indicato nella sezione precedente, il modo migliore per visualizzare la ver
 	![Impostazioni app][settings-button]
 
 5. Dal pannello **Impostazioni** selezionare **Impostazioni dell'applicazione** e scorrere fino alla sezione **Impostazioni app**.
-6. Nella sezione **Impostazioni app** creare una chiave **PHP_EXTENSIONS**. Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\your-ext-file**.
+6. Nella sezione **Impostazioni app** creare una chiave **PHP\_EXTENSIONS**. Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\\your-ext-file**.
 
 	![Abilitare le estensioni nelle impostazioni app][php-extensions]
 
@@ -128,7 +128,7 @@ Come indicato nella sezione precedente, il modo migliore per visualizzare la ver
 
 	![Salvare le impostazioni di configurazione][save-button]
 
-Con l'utilizzo di una chiave **PHP_ZENDEXTENSIONS** sono supportate anche le estensioni Zend. Per abilitare più estensioni, includere un elenco separato da virgole di `.dll` file per il valore dell'impostazione dell'app.
+Con l'utilizzo di una chiave **PHP\_ZENDEXTENSIONS** sono supportate anche le estensioni Zend. Per abilitare più estensioni, includere un elenco separato da virgole di `.dll` file per il valore dell'impostazione dell'app.
 
 
 ## Usare un runtime PHP personalizzato
@@ -162,7 +162,7 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lista delle direttive php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[ini\_set()]: http://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png
@@ -176,4 +176,4 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

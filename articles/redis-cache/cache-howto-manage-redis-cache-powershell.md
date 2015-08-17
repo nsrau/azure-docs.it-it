@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple" 
-   ms.date="04/23/2015"
+   ms.date="08/04/2015"
    ms.author="riande"/>
 
 # Gestire Cache Redis di Azure con Azure PowerShell
@@ -95,4 +95,4 @@ Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere
 - [Blog di Windows PowerShell](http://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
 - [Blog "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

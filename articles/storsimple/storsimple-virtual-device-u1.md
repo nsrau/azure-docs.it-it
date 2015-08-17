@@ -387,4 +387,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Informazioni su come [eseguire il ripristino da un set di backup](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

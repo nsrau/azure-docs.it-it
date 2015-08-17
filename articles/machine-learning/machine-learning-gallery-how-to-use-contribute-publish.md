@@ -113,4 +113,4 @@ La funzionalità di rendering per descrizioni dettagliate non è ancora disponib
 **[VAI ALLA RACCOLTA >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

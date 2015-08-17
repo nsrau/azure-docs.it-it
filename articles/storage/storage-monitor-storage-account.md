@@ -72,7 +72,7 @@ Nel dashboard è possibile scegliere fino a sei metriche da tracciare sul grafic
 	
 	- Per nascondere una metrica tracciata sul grafico, deselezionare la casella di controllo colorata accanto alla relativa intestazione.
 	
-		![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+		![Monitoring\_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. Per impostazione predefinita, nel grafico vengono mostrate le tendenze e per ogni metrica viene visualizzato solo il valore corrente, ossia l'opzione **Relative** nella parte superiore del grafico. Per visualizzare un asse Y in modo da vedere i valori assoluti, selezionare **Absolute**.
 
@@ -99,7 +99,7 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
 	Verrà visualizzata la pagina **Monitor**. Per impostazione predefinita, nella tabella viene visualizzato un subset delle metriche disponibili per il monitoraggio. Nella figura è illustrata la visualizzazione predefinita di Monitor per un account di archiviazione con il monitoraggio dettagliato configurato per tutti e tre i servizi. Utilizzare **Add Metrics** per selezionare le metriche da monitorare tra quelle disponibili.
 
 
-	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+	![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
 	> [AZURE.NOTE]Valutare i costi quando si selezionano le metriche. Sono previsti costi di transazione e di uscita associati all'aggiornamento delle visualizzazioni del monitoraggio. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
@@ -159,4 +159,4 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343262.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -237,4 +237,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

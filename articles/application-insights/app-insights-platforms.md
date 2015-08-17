@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
@@ -58,6 +58,7 @@
 +	[Log4Net, NLog o System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J o Logback](app-insights-java-trace-logs.md)
 +   [Registrazione semantica](https://github.com/fidmor89/SLAB_AppInsights): si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)
++   [Test di carico basato su cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Creare un SDK personalizzato
 
@@ -72,4 +73,4 @@ Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibi
 
 <!--Link references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

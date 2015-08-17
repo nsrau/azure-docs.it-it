@@ -7,14 +7,16 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
+
 
 # Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git
 
@@ -49,7 +51,7 @@ Per creare un'app Web di Azure e un database SQL, seguire questa procedura:
 
 5. Dopo aver letto la descrizione dell'app Web e dell'SQL, fare clic su **Crea**.
 
-6. Fare clic sulle singole parti (Gruppo di risorse, **App Web**, **Database** e **Sottoscrizione**) e immettere o selezionare i valori per i campi obbligatori:
+6. Fare clic sulle singole parti (**Gruppo di risorse**, **App Web**, **Database** e **Sottoscrizione**) e immettere o selezionare i valori per i campi obbligatori:
 	
 	- Immettere un nome di URL a scelta.	
 	- Configurare le credenziali del server di database.
@@ -132,7 +134,7 @@ Per eseguire l'applicazione in locale, attenersi alla procedura seguente. Si not
 
 	Si noti che sarà necessario aggiornare i valori per <code>$user</code> e <code>$pwd</code> con il nome utente e la password di SQL Server locali.
 
-4. Aprire un Web browser e passare al sito **http://localhost/registration/createtable.php**. Verrà creata la tabella `registration_tbl` nel database.
+4. Aprire un Web browser e passare a ****http://localhost/registration/createtable.php**. Verrà creata la tabella `registration_tbl` nel database.
 
 5. Aprire il file **index.php** in un editor di testo o IDE e aggiungere il codice HTML e CSS di base per la pagina (il codice PHP verrà aggiunto nei passaggi successivi).
 
@@ -157,9 +159,12 @@ Per eseguire l'applicazione in locale, attenersi alla procedura seguente. Si not
 		<h1>Register here!</h1>
 		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/></br>
-		      Email <input type="text" name="email" id="email"/></br>
+		      Name  <input type="text" name="name" id="name"/>
+</br>
+		      Email <input type="text" name="email" id="email"/>
+</br>
 		      <input type="submit" name="submit" value="Submit" />
+
 		</form>
 		<?php
 
@@ -228,7 +233,7 @@ Per eseguire l'applicazione in locale, attenersi alla procedura seguente. Si not
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-A questo punto è possibile passare a **http://localhost/registration/index.php** per testare l'applicazione.
+A questo punto è possibile passare a ****http://localhost/registration/index.php** per testare l'applicazione.
 
 ##Pubblicare l'applicazione
 
@@ -292,4 +297,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

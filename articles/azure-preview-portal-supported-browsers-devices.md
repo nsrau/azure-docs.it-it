@@ -32,4 +32,4 @@ Sono supportate le versioni più recenti dei browser seguenti:
 
 *Safari 6 e versioni precedenti non sono supportati. Se si utilizza OS X, è possibile utilizzare Chrome o Firefox oppure effettuare l'aggiornamento a OS X Mavericks per ottenere Safari 7.*
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

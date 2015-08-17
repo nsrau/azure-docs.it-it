@@ -67,10 +67,11 @@ Ognuna delle tabelle precedenti è un esempio concettuale di un oggetto **ShardM
 
 Il gestore mappe partizioni nella libreria client è una raccolta di mappe partizioni. I dati gestiti da un oggetto .NET **ShardMapManager** sono archiviati in tre posizioni:
 
-1. **Mappa globale partizioni**: quando si crea un oggetto **ShardMapManager**, si specifica un database da usare come repository per tutte le mappe partizioni e i mapping corrispondenti. Vengono create automaticamente tabelle speciali e stored procedure per la gestione delle informazioni. Si tratta in genere di un database di piccole dimensioni e a cui si accede raramente, ma è consigliabile non usarlo per altre esigenze dell'applicazione. Le tabelle si trovano in uno schema speciale denominato **__ShardManagement\*\*. 
-2. **Mappa locale partizioni**: ogni database specificato per l'uso come partizione in una mappa partizioni verrà modificato in modo da includere alcune tabelle di piccole dimensioni e stored procedure speciali, che includono e gestiscono informazioni sulle mappe partizioni specifiche per la partizione indicata. Queste informazioni sono ridondanti rispetto alle informazioni nella mappa globale partizioni, ma permettono all'applicazione di convalidare le informazioni sulla mappa partizioni memorizzate nella cache, senza sovraccaricare la mappa globale partizioni. L'applicazione usa la mappa locale partizioni per determinare se un mapping memorizzato nella cache è ancora valido. Le tabelle corrispondenti alla mappa locale partizioni in ogni partizione sono disponibili nello schema **__ShardManagement\*\*.
+1. **Mappa globale partizioni**: quando si crea un oggetto **ShardMapManager**, si specifica un database da usare come repository per tutte le mappe partizioni e i mapping corrispondenti. Vengono create automaticamente tabelle speciali e stored procedure per la gestione delle informazioni. Si tratta in genere di un database di piccole dimensioni e a cui si accede raramente, ma è consigliabile non usarlo per altre esigenze dell'applicazione. Le tabelle si trovano in uno schema speciale denominato **\_\_ShardManagement**.
 
-3. **Cache dell'applicazione**: ogni istanza di applicazione che accede a un oggetto **ShardMapManager** gestisce una cache in memoria locale dei rispettivi mapping, in cui vengono archiviate le informazioni di routing appena recuperate.
+2. **Mappa locale partizioni**: ogni database specificato per l'uso come partizione in una mappa partizioni verrà modificato in modo da includere alcune tabelle di piccole dimensioni e stored procedure speciali, che includono e gestiscono informazioni sulle mappe partizioni specifiche per la partizione indicata. Queste informazioni sono ridondanti rispetto alle informazioni nella mappa globale partizioni, ma permettono all'applicazione di convalidare le informazioni sulla mappa partizioni memorizzate nella cache, senza sovraccaricare la mappa globale partizioni. L'applicazione usa la mappa locale partizioni per determinare se un mapping memorizzato nella cache è ancora valido. Le tabelle corrispondenti alla mappa locale partizioni in ogni partizione sono disponibili nello schema **\_\_ShardManagement**.
+
+3. **Cache dell'applicazione**: ogni istanza di applicazione che accede a un oggetto **ShardMapManager** gestisce una cache in memoria locale dei rispettivi mapping. in cui vengono archiviate le informazioni di routing appena recuperate.
 
 ## Creazione di un oggetto ShardMapManager
 La creazione di istanze di un oggetto **ShardMapManager** nell'applicazione viene eseguita tramite un modello factory. Il metodo **ShardMapManagerFactory.GetSqlShardMapManager** accetta credenziali, inclusi il nome del server e il nome del database che include la mappa globale partizioni, sotto forma di oggetto **ConnectionString** e restituisce un'istanza di **ShardMapManager**.
@@ -208,7 +209,7 @@ Il gestore delle mappe partizioni viene usato principalmente dalle applicazioni 
 
 Si noti che queste applicazioni, che usano l'oggetto **ShardMapManager** aperto con credenziali di sola lettura, non potranno apportare modifiche alle mappe o ai mapping. A questo scopo è possibile creare applicazioni specifiche per l'amministrazione o script di PowerShell che forniscono credenziali con privilegi elevati, come illustrato in precedenza.
 
-Per altri dettagli, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md).
+Per ulteriori informazioni dettagliate, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md).
 
 ## Modifica di una mappa partizioni 
 
@@ -246,9 +247,9 @@ Le applicazioni devono spesso aggiungere semplicemente nuove partizioni per gest
 
 Se il nuovo intervallo di valori di chiave non è già incluso in un mapping esistente e non è necessario alcuno spostamento di dati, l'aggiunta della nuova partizione e l'associazione della nuova chiave o dell'intervallo a quella partizione risulteranno molto semplici. Per informazioni dettagliate sull'aggiunta di nuove partizioni, vedere [Aggiunta di una nuova partizione](sql-database-elastic-scale-add-a-shard.md).
 
-Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione-unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso del servizio di suddivisione-unione, vedere la [Panoramica del servizio di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md)
+Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione-unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso del servizio di suddivisione-unione, vedere [Panoramica del servizio di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/12/2015" 
 	ms.author="mwasson"/>
+
 
 #Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
 
@@ -70,4 +72,4 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

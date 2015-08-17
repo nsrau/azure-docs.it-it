@@ -38,7 +38,7 @@ In questo esempio viene illustrato come:
 
 Per ulteriori informazioni, vedere la documentazione [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) in github, mentre per ulteriori scenari di utilizzo, vedere gli unit test [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
 
-In [Come usare Cache Redis di Azure Redis Cache con Node.js](cache-nodejs-get-started.md) viene illustrato come utilizzare Cache Redis di Azure con Node.js e al client [node_redis](https://github.com/mranney/node_redis).
+In [Come usare Cache Redis di Azure Redis Cache con Node.js](cache-nodejs-get-started.md) viene illustrato come utilizzare Cache Redis di Azure con Node.js e al client [node\_redis](https://github.com/mranney/node_redis).
 
 In [Come usare Cache Redis di Azure con Java](cache-java-get-started.md) viene illustrato come utilizzare Cache Redis di Azure Redis con Java e il client [Jedis](https://github.com/xetorthio/jedis).
 
@@ -79,4 +79,4 @@ L’esempio [Retwis](https://github.com/SyntaxC4-MSFT/retwis) rappresenta Hello 
 
 L’esempio relativo al [monitor della larghezza di banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) consente di monitorare la larghezza di banda utilizzata nel client. Per misurare la larghezza di banda, eseguire l'esempio nel computer client della cache, effettuare chiamate alla cache e osservare la larghezza di banda segnalata nell'esempio del monitor della larghezza di banda.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

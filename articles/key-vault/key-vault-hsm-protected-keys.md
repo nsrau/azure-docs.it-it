@@ -116,7 +116,7 @@ Il set di strumenti include gli elementi seguenti:
 - Pacchetto relativo all'ambiente di sicurezza con un nome che inizia con **BYOK-SecurityWorld-pkg-.**
 - Script python denominato v**erifykeypackage.py**.
 - File eseguibile dalla riga di comando denominato **KeyTransferRemote.exe** e DLL associate.
-- Componente Visual C++ Redistributable Package denominato **vcredist_x64.exe.**
+- Componente Visual C++ Redistributable Package denominato **vcredist\_x64.exe.**
 
 Copiare il pacchetto in un'unità USB o in un altro dispositivo di archiviazione portatile.
 
@@ -129,7 +129,7 @@ Per questo secondo passaggio eseguire le procedure seguenti nella workstation no
 
 Installare il software di supporto nCipher (Thales) in un computer Windows, quindi collegare un modulo di protezione hardware Thales a tale computer.
 
-Verificare che gli strumenti Thales si trovino nel percorso locale (**%nfast_home%\bin** e **%nfast_home%\python\bin**). Digitare ad esempio:
+Verificare che gli strumenti Thales si trovino nel percorso locale (**%nfast\_home%\\bin** e **%nfast\_home%\\python\\bin**). Digitare ad esempio:
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -140,7 +140,7 @@ Per altre informazioni, vedere il manuale dell'utente fornito con il modulo di p
 Copiare il pacchetto del set di strumenti BYOK dall'unità USB o da un altro dispositivo di archiviazione portatile, quindi eseguire le operazioni seguenti:
 
 1. Estrarre i file dal pacchetto scaricato in una cartella qualsiasi.
-2. In tale cartella eseguire vcredist_x64.exe.
+2. In tale cartella eseguire vcredist\_x64.exe.
 3. Seguire le istruzioni per installare i componenti di runtime di Visual C++ per Visual Studio 2012.
 
 ##Passaggio 3: Generare la chiave
@@ -153,7 +153,7 @@ Avviare un prompt dei comandi ed eseguire il programma new-world di Thales.
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-Questo programma crea un file di **ambiente di sicurezza** nel percorso %NFAST_KMDATA%\local\world, che corrisponde alla cartella C:\ProgramData\nCipher\Key Management Data\local. È possibile creare valori diversi per il quorum, ma nell'esempio viene chiesto di immettere tre schede vuote e un codice PIN per ogni scheda. Qualsiasi coppia di schede consentirà di accedere in modo completo all'ambiente di sicurezza. Queste schede diventano il **set di schede amministrative** per il nuovo ambiente di sicurezza.
+Questo programma crea un file di **ambiente di sicurezza** nel percorso %NFAST\_KMDATA%\\local\\world, che corrisponde alla cartella C:\\ProgramData\\nCipher\\Key Management Data\\local. È possibile creare valori diversi per il quorum, ma nell'esempio viene chiesto di immettere tre schede vuote e un codice PIN per ogni scheda. Qualsiasi coppia di schede consentirà di accedere in modo completo all'ambiente di sicurezza. Queste schede diventano il **set di schede amministrative** per il nuovo ambiente di sicurezza.
 
 Eseguire quindi le operazioni seguenti:
 
@@ -188,7 +188,7 @@ Per convalidare il pacchetto scaricato:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
-	>[AZURE.TIP]Il software Thales include python nel percorso %NFAST_HOME%\python\bin.
+	>[AZURE.TIP]Il software Thales include python nel percorso %NFAST\_HOME%\\python\\bin.
 	
 2.	Assicurarsi di visualizzare il risultato positivo seguente, che indica il completamento della convalida: **Result: SUCCESS**
 
@@ -210,7 +210,7 @@ Quando si esegue il comando, usare le istruzioni seguenti:
 
 - L'elemento pubexp viene lasciato vuoto in questo esempio (impostazione predefinita), ma è possibile indicare valori specifici. Per altre informazioni, vedere la documentazione di Thales.
 
-Questo comando crea un file di chiave in formato token nella cartella %NFAST_KMDATA%\local con un nome che inizia con **key_simple_** seguito dall'elemento ident specificato nel comando. Ad esempio: **key_simple_contosokey**. Questo file contiene una chiave crittografata.
+Questo comando crea un file di chiave in formato token nella cartella %NFAST\_KMDATA%\\local con un nome che inizia con **key\_simple\_** seguito dall'elemento ident specificato nel comando. Ad esempio, **key\_simple\_contosokey**. Questo file contiene una chiave crittografata.
 
 Eseguire il backup del file di chiave in formato token in un percorso sicuro.
 
@@ -246,7 +246,7 @@ Quando si esegue il comando, sostituire *contosokey* con lo stesso valore specif
 
 Viene chiesto di inserire le schede amministrative relative all'ambiente di sicurezza.
 
-Al completamento del comando, viene visualizzato il messaggio **Result: SUCCESS** e la copia della chiave con autorizzazioni ridotte si troverà nel file denominato key_xferacId_<contosokey>.
+Al completamento del comando, viene visualizzato il messaggio **Result: SUCCESS** e la copia della chiave con autorizzazioni ridotte si troverà nel file denominato key\_xferacId\_<contosokey>.
 
 ###Passaggio 4.2: Verificare la nuova copia della chiave
 
@@ -288,7 +288,7 @@ Quando si esegue il comando, usare le istruzioni seguenti:
 
 - Sostituire *ContosoFirstHSMKey* con un'etichetta che verrà usata per il nome del file di output.
 
-Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente sarà presente un nuovo file con il nome TransferPackage-*ContosoFirstHSMkey*.byok.
+Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente sarà presente un nuovo file con il nome TransferPackage-*ContosoFirstHSMkey*.byok
 
 ###Passaggio 4.4: Copiare il pacchetto di trasferimento della chiave nella workstation connessa a Internet 
 
@@ -296,7 +296,7 @@ Usare un'unità USB o un altro dispositivo di archiviazione portatile per copiar
 
 ##Passaggio 5: Trasferire la chiave all'insieme di credenziali delle chiavi di Azure
 
-Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
+Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
 
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -306,4 +306,4 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet�
 
 È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -92,4 +92,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-html-get-started-data.md
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

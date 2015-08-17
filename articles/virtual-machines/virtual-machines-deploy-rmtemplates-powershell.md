@@ -956,4 +956,4 @@ Verranno visualizzate informazioni come segue:
 
 [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

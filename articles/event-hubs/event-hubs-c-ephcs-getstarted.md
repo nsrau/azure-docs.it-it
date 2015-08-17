@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
@@ -116,4 +116,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

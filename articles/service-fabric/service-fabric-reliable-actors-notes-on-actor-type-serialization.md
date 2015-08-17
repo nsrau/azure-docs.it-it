@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors - Note sulla serializzazione dei tipi"
-   description="requisiti di base per la definizione delle classi serializzabili che possono essere usate per definire le interfacce e lo stato di Azure Fabric Reliable Actor"
+   pageTitle="Service Fabric Reliable Actors - Note sulla serializzazione dei tipi di attori"
+   description="Illustra i requisiti di base per la definizione delle classi serializzabili che possono essere usate per definire le interfacce e lo stato di Azure Fabric Reliable Actor."
    services="service-fabric"
    documentationCenter=".net"
    authors="clca"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 
-# Note sulla serializzazione dei tipi in Azure Service Fabric Actors
+# Note sulla serializzazione dei tipi di Service Fabric Reliable Actors
 
 Durante la definizione dell'interfaccia e dello stato di un attore è necessario tenere conto di alcuni aspetti importanti. I tipi, ad esempio, devono essere serializzabili in base al contratto dati. Altre informazioni sui contratti dati sono disponibili in [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
@@ -82,6 +82,5 @@ public class VoicemailBox
 }
 
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

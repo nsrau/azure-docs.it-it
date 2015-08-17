@@ -19,4 +19,4 @@ Per impostazione predefinita, gli endpoint definiti nell'app per dispositivi mob
 
 4. Ripubblicare il progetto dell'app mobile.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

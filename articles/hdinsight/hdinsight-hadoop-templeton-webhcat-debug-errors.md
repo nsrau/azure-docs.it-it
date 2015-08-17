@@ -38,7 +38,7 @@ Di seguito sono riportati i valori di configurazione predefiniti che possono inf
 
 | Impostazione | Risultato | Valore predefinito |
 | ------- | ------------ | ------------- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | Il numero massimo di processi che possono essere attivi contemporaneamente (in sospeso o in esecuzione) | 10.000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | Il numero massimo di processi che possono essere attivi contemporaneamente (in sospeso o in esecuzione) | 10\.000 |
 | [templeton.exec.max-procs][max-procs] | Il numero massimo di richieste che possono essere gestite contemporaneamente | 20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] | Il numero di giorni durante i quali verrà mantenuta la cronologia del processo | 7 giorni |
 
@@ -85,4 +85,4 @@ Di seguito sono riportati i valori di configurazione predefiniti che possono inf
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

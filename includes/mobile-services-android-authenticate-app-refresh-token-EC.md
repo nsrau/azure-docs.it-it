@@ -206,7 +206,55 @@ In questa sezione viene definito un filtro ServiceFilter che rileva una risposta
 
     Questo filtro del servizio controllerà ogni risposta, alla ricerca del codice di stato HTTP 401 "Non autorizzato". In caso di errore 401, nel thread dell'interfaccia utente sarà configurata una nuova richiesta di accesso per ottenere un nuovo token. Altre chiamate verranno bloccate finché non viene completato l'accesso o dopo 5 tentativi non riusciti. Se si recupera il nuovo token, la richiesta che ha attivato il codice di stato 401 sarà ritentata con il nuovo token ed eventuali chiamate bloccate saranno ritentate con il nuovo token.
 
-7. Nel file ToDoActivity.java aggiornare il metodo `onCreate` come indicato di seguito:
+7. Nel file ToDoActivity.java aggiungere il codice per una nuova classe `ProgressFilter` nella classe ToDoActivity:
+		
+		/**
+		* The ProgressFilter class renders a progress bar on the screen during the time the App is waiting for the response of a previous request.
+		* the filter shows the progress bar on the beginning of the request, and hides it when the response arrived.
+		*/
+		private class ProgressFilter implements ServiceFilter {
+			@Override
+			public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback) {
+
+				final SettableFuture<ServiceFilterResponse> resultFuture = SettableFuture.create();
+
+				runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.VISIBLE);
+					}
+				});
+
+				ListenableFuture<ServiceFilterResponse> future = nextServiceFilterCallback.onNext(request);
+
+				Futures.addCallback(future, new FutureCallback<ServiceFilterResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						resultFuture.setException(e);
+					}
+
+					@Override
+					public void onSuccess(ServiceFilterResponse response) {
+						runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.GONE);
+							}
+						});
+
+						resultFuture.set(response);
+					}
+				});
+
+				return resultFuture;
+			}
+		}
+		
+	Il filtro visualizza l'indicatore di stato all'inizio della richiesta e lo nasconde all'arrivo della risposta.
+	
+8. Nel file ToDoActivity.java aggiornare il metodo `onCreate` come indicato di seguito:
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -239,4 +287,4 @@ In questa sezione viene definito un filtro ServiceFilter che rileva una risposta
 
        `RefreshTokenCacheFilter` viene usato nel codice in aggiunta a `ProgressFilter`. Durante `onCreate` è anche necessario che sia caricata la cache di token. A tale scopo, `false` viene passato al metodo `authenticate`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

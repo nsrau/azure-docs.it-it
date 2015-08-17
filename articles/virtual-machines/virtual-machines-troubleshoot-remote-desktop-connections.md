@@ -3,7 +3,7 @@
 	description="Se non è possibile connettere la macchina virtuale di Azure basata su Windows, è possibile utilizzare questa diagnostica e questi passaggi per isolare l'origine del problema."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows
 
@@ -72,7 +72,7 @@ Possibili soluzioni al problema:
 
 Causa: La macchina virtuale a cui ci si connette non riesce a individuare l'autorità di protezione indicata nella porzione di nome utente delle credenziali.
 
-Quando il nome utente è nel formato *SecurityAuthority*\*UserName* (esempio: CORP\User1), la parte *SecurityAuthority* è o il nome del computer della macchina virtuale (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
+Quando il nome utente è nel formato *SecurityAuthority*\*UserName* (esempio: CORP\\User1), la parte *SecurityAuthority* è o il nome del computer della macchina virtuale (per l'autorità di protezione locale) o un nome di dominio di Active Directory.
 
 Possibili soluzioni al problema:
 
@@ -86,10 +86,10 @@ Causa: impossibile convalidare il nome account e la password inviati dalla macch
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-- Per gli account locali, usare la sintassi *NomeComputer*\*NomeUtente* (ad esempio: SQL1\Admin4798).
-- Per gli account di dominio, utilizzare la sintassi *NomeDominio*\*NomeUtente* (ad esempio: CONTOSO\johndoe).
+- Per gli account locali, usare la sintassi *NomeComputer*\*UserName* (ad esempio: SQL1\\Admin4798).
+- Per gli account di dominio, utilizzare la sintassi *NomeDominio*\*UserName* (ad esempio: CONTOSO\\johndoe).
 
-Per i computer innalzati a controller di dominio in una nuova foresta di Active Directory, l'account amministratore locale al quale è stato effettuato l'accesso al momento dell'innalzamento di livello viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account amministratore locale precedente viene eliminato. Ad esempio, se è stato effettuato l'accesso con l'account amministratore locale DC1\DCAdmin e la macchina virtuale è stata innalzata al livello di controller di dominio in una nuova foresta per il dominio corp.contoso.com, l'account locale DC1\DCAdmin viene eliminato e viene creato un nuovo account di dominio (CORP\DCAdmin) con la stessa password.
+Per i computer innalzati a controller di dominio in una nuova foresta di Active Directory, l'account amministratore locale al quale è stato effettuato l'accesso al momento dell'innalzamento di livello viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account amministratore locale precedente viene eliminato. Ad esempio, se è stato effettuato l'accesso con l'account amministratore locale DC1\\DCAdmin e la macchina virtuale è stata innalzata al livello di controller di dominio in una nuova foresta per il dominio corp.contoso.com, l'account locale DC1\\DCAdmin viene eliminato e viene creato un nuovo account di dominio (CORP\\DCAdmin) con la stessa password.
 
 Controllare il nome dell'account per essere certi che sia un nome che possa essere verificato come account valido dalla macchina virtuale. Controllare la password per assicurarsi che sia quella corretta.
 
@@ -190,7 +190,7 @@ Per eliminare l'endpoint come fonte del problema, rimuovere l'endpoint corrente 
 
 I gruppi di sicurezza di rete consentono di avere un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Esaminare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico di Desktop remoto da Internet.
 
-Per ulteriori informazioni, vedere [Che cos'è un gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
+Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 ### Origine 5: macchina virtuale di Azure basata su Windows
 
@@ -201,7 +201,7 @@ L’ultima serie di problemi possibili si verifica sulla macchina virtuale di Az
 Innanzitutto, se non è stato possibile eseguire il [pacchetto di diagnostica Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) per il problema **Connettività RDP a una macchina virtuale di Azure (riavvio necessario)**, seguire le istruzioni in [Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](virtual-machines-windows-reset-password.md) per reimpostare il servizio Servizi Desktop remoto nella macchina virtuale. In tal modo, si verificheranno i seguenti eventi:
 
 - Verrà abilitata la regola predefinita "Desktop remoto" di Windows Firewall (porta TCP 3389).
-- Verranno abilitate le connessioni Desktop remoto impostando il valore del Registro di sistema HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections su 0.
+- Verranno abilitate le connessioni Desktop remoto impostando il valore del Registro di sistema HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections su 0.
 
 Provare nuovamente la connessione dal computer. Se non riesce, alcuni dei problemi possibili sono:
 
@@ -225,7 +225,7 @@ Successivamente, immettere il nome della sottoscrizione di Azure, il nome del se
 
 È possibile ottenere il nome della sottoscrizione corretto dalla proprietà SubscriptionName della visualizzazione del comando **Get-AzureSubscription**. È possibile ottenere il nome del servizio cloud per la macchina virtuale dalla colonna ServiceName della visualizzazione del comando **Get-AzureVM**.
 
-Per dimostrare che si dispone di questo nuovo certificato, aprire uno snap-in Certificati incentrato sull'utente corrente e cercare nella cartella **Autorità di certificazione radice disponibile nell'elenco locale\Certificati**. Verrà visualizzato un certificato con il nome DNS del servizio cloud nella colonna Rilasciato a (esempio: cloudservice4testing.cloudapp.net).
+Per dimostrare che si dispone di questo nuovo certificato, aprire uno snap-in Certificati incentrato sull'utente corrente e cercare nella cartella **Autorità di certificazione radice disponibile nell'elenco locale\\Certificati**. Verrà visualizzato un certificato con il nome DNS del servizio cloud nella colonna Rilasciato a (esempio: cloudservice4testing.cloudapp.net).
 
 Successivamente, avviare una sessione remota di Azure PowerShell utilizzando questi comandi.
 
@@ -263,7 +263,7 @@ Verificare che anche l'endpoint Desktop remoto per la macchina virtuale di Azure
 
 ## Passaggio 5: Inviare il problema ai forum di supporto tecnico di Azure
 
-Per ottenere assistenza dagli esperti di Azure di tutto il mondo, è possibile inviare il problema ai forum MSDN Azure oppure Overflow dello stack. Per ulteriori informazioni, vedere i [forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
+Per ottenere assistenza dagli esperti di Azure di tutto il mondo, è possibile inviare il problema ai forum MSDN Azure oppure Overflow dello stack. Per ulteriori informazioni vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
 
 ## Passaggio 6: Archiviare un incidente del supporto tecnico di Azure
 
@@ -287,4 +287,4 @@ Per informazioni sull'uso del supporto tecnico di Azure, vedere [Domande frequen
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

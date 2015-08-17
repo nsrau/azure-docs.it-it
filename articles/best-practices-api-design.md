@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="rest-api"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
+
 
 # Linee guida di progettazione dell’API
 
@@ -272,7 +274,7 @@ Se la risorsa non viene trovata, il server Web deve restituire, invece, un messa
 
 Ad esempio, se gli ordini contengono il prezzo pagato per l'ordine, per un'applicazione client che deve recuperare tutti gli ordini con un costo al di sopra di un valore specifico potrebbe essere necessario recuperare tutti gli ordini dall’URI_/orders_ e quindi applicare il filtro a questi ordini localmente. Ovviamente questo processo è particolarmente inefficiente, in quanto comporta uno spreco di potenza di elaborazione e larghezza di banda di rete nel server che ospita l'API Web.
 
-Una soluzione può consistere nel fornire uno schema URI, come _/orders/ordervalue_greater_than_n_, in cui _n_ è il prezzo dell’ordine, sebbene per tutte le risorse, tranne un numero limitato, tale approccio non sia pratico. Inoltre, se è necessario eseguire query sugli ordini in base ad altri criteri, potrebbe essere necessario fornire un lungo elenco di URI con nomi probabilmente non intuitivi.
+Una soluzione può consistere nel fornire uno schema URI, come _/orders/ordervalue\_greater\_than\_n_, in cui _n_ è il prezzo dell’ordine, sebbene per tutte le risorse, tranne un numero limitato, tale approccio non sia pratico. Inoltre, se è necessario eseguire query sugli ordini in base ad altri criteri, potrebbe essere necessario fornire un lungo elenco di URI con nomi probabilmente non intuitivi.
 
 Una strategia migliore per il filtro dei dati consiste nel fornire criteri di filtro nella stringa di query che viene passata all’API Web, ad esempio _/orders?ordervaluethreshold=n_. In questo esempio, l'operazione corrispondente nell'API Web è responsabile della gestione e dell'analisi del `ordervaluethreshold` parametro nella stringa di query e della restituzione dei risultati filtrati nella risposta HTTP.
 
@@ -359,7 +361,7 @@ Accept: application/json
 ...
 ```
 
-Il corpo del messaggio di risposta contiene una matrice `Links` (evidenziata nell’esempio di codice) in cui sono specificati la natura della relazione (_Customer_), l’URI del cliente (_http://adventure-works.com/customers/3_), come recuperare i dettagli di questo cliente (_GET_) e i tipi MIME supportati dal server Web per il recupero di queste informazioni (_text/xml_ e _application/json_). Si tratta di tutte le informazioni di cui necessita un'applicazione client per essere in grado di recuperare i dettagli del cliente. Inoltre, la matrice Links include anche collegamenti per le altre operazioni che è possibile eseguire, come PUT (per modificare il cliente, insieme al formato che il server Web prevede che il client fornisca), e DELETE.
+Il corpo del messaggio di risposta contiene una matrice `Links` (evidenziata nell’esempio di codice) in cui sono specificati la natura della relazione (_Customer_), l’URI del cliente (\__http://adventure-works.com/customers/3_), come recuperare i dettagli di questo cliente (_GET_) e i tipi MIME supportati dal server Web per il recupero di queste informazioni (_text/xml_ e _application/json_). Si tratta di tutte le informazioni di cui necessita un'applicazione client per essere in grado di recuperare i dettagli del cliente. Inoltre, la matrice Links include anche collegamenti per le altre operazioni che è possibile eseguire, come PUT (per modificare il cliente, insieme al formato che il server Web prevede che il client fornisca), e DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -395,7 +397,7 @@ Il controllo delle versioni consente a un’API Web di indicare le funzionalità
 
 Si tratta dell'approccio più semplice e può essere accettabile per alcune API interne. Grandi cambiamenti potrebbero essere rappresentati come nuove risorse o nuovi collegamenti. L’aggiunta di contenuto alle risorse esistenti potrebbe non presentare una modifica sostanziale in quanto le applicazioni client che non prevedono di visualizzare che questo contenuto lo ignoreranno semplicemente.
 
-Ad esempio, una richiesta all'URI _http://adventure-works.com/customers/3_ deve restituire i dettagli di un singolo cliente contenente i campi `Id`, `Name` e `Address` previsti dall'applicazione client:
+Ad esempio, una richiesta all'URI \__http://adventure-works.com/customers/3_ deve restituire i dettagli di un singolo cliente contenente i campi `Id`, `Name`, e `Address` previsti dall'applicazione client:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -440,7 +442,7 @@ Questo meccanismo di controllo delle versioni è molto semplice, ma dipende dal 
 
 ### Controllo delle versioni tramite la stringa di query
 
-Anziché fornire più URI, è possibile specificare la versione della risorsa utilizzando un parametro all'interno della stringa di query aggiunta alla richiesta HTTP, ad esempio _http://adventure-works.com/customers/3?version=2_. Il parametro della versione deve essere impostato su un valore predefinito significativo, ad esempio 1 se viene omesso dalle applicazioni client meno recenti.
+Anziché fornire più URI, è possibile specificare la versione della risorsa utilizzando un parametro all'interno della stringa di query aggiunta alla richiesta HTTP, ad esempio \__http://adventure-works.com/customers/3?version=2_. Il parametro della versione deve essere impostato su un valore predefinito significativo, ad esempio 1 se viene omesso dalle applicazioni client meno recenti.
 
 Questo approccio ha il vantaggio semantico che la stessa risorsa viene sempre recuperata dallo stesso URI, ma dipende dal codice che gestisce la richiesta analizzare la stringa di query e inviare la risposta HTTP appropriata. Questo approccio presenta inoltre le stesse complicazioni per l'implementazione di HATEOAS del meccanismo di controllo delle versioni tramite URI.
 
@@ -523,4 +525,4 @@ Questo approccio è senza dubbio il meccanismo di controllo delle versioni più 
 - La [guida di riferimento dettagliata relativa a RESTful ](http://restcookbook.com/) contiene un’introduzione alla creazione delle API RESTful.
 - L’articolo Web in cui è riportato un [elenco di controllo delle API](https://mathieu.fenniak.net/the-api-checklist/) contiene un elenco utile di elementi da considerare durante la progettazione e l’implementazione di un'API Web.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

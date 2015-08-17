@@ -156,4 +156,4 @@ Indirizzo di posta elettronica [aadreportinghelp@microsoft.com](mailto:aadreport
 
 > [AZURE.TIP]Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

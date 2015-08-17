@@ -199,7 +199,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 In questa sezione verrà creato il pacchetto di un'app di Windows Store per installare l'app in un secondo computer o in una macchina virtuale. L'app verrà quindi eseguita in entrambi i computer, generando un conflitto per testare il codice. Entrambe le istanze dell'app proveranno ad aggiornare la proprietà `text` dello stesso elemento e sarà necessario l'intervento dell'utente per risolvere il conflitto.
 
 
-1. Creare un pacchetto dell'app di Windows Store da installare in un secondo computer o in una macchina virtuale. A questo scopo, fare clic su **Progetto**->**Store**->**Crea pacchetti dell'applicazione** in Visual Studio.
+1. Creare un pacchetto dell'app di Windows Store da installare in un secondo computer o in una macchina virtuale. A questo scopo fare clic su **Progetto**->**Store**->**Crea pacchetti dell'applicazione** in Visual Studio.
 
 	![][0]
 
@@ -215,7 +215,7 @@ In questa sezione verrà creato il pacchetto di un'app di Windows Store per inst
 
    	![][11]
 
-5. Copiare nel secondo computer la cartella del pacchetto, "todolist_1.0.0.0_AnyCPU_Debug_Test". In tale computer aprire la cartella del pacchetto e fare clic con il pulsante destro del mouse sullo script di PowerShell **Add-AppDevPackage.ps1**, quindi scegliere **Esegui con PowerShell** come illustrato di seguito. Attenersi alle istruzioni visualizzate per installare l'app.
+5. Copiare nel secondo computer la cartella del pacchetto, "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test". In tale computer aprire la cartella del pacchetto e fare clic con il pulsante destro del mouse sullo script di PowerShell **Add-AppDevPackage.ps1**, quindi scegliere **Esegui con PowerShell** come illustrato di seguito. Attenersi alle istruzioni visualizzate per installare l'app.
 
 	![][12]
   
@@ -366,4 +366,4 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

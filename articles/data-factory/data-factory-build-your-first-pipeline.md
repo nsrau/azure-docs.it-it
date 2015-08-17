@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 1.	**Sottoscrizione di Azure**: se non si dispone di una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
 
-2.	**Archiviazione di Azure**: in questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md/#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
+2.	**Archiviazione di Azure**: in questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../storage-create-storage-account/#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 ## Contenuto dell'esercitazione	
 Azure Data Factory consente di comporre attività di spostamento dati e di elaborazione dati come flusso di lavoro basato sui dati. Si apprenderà come creare la prima pipeline che userà HDInsight per trasformare e analizzare i blog ogni mese.
@@ -118,7 +118,7 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 		partitioned by ( year int, month int)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
-		LOCATION 'wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata';
+		LOCATION '${hiveconf:partitionedtable}';
 
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
@@ -147,7 +147,7 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 	 
  
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
-	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Vedere [AzCopy](../storage/storage-use-azcopy.md) per informazioni su come usare AzCopy
+	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Vedere l’articolo [Come usare AzCopy](../storage/storage-use-azcopy.md)per istruzioni sull'utilizzo dell'utilità.
 	2. Dopo avere installato AzCopy, è possibile aggiungerlo al percorso del sistema eseguendo il comando seguente al prompt dei comandi. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -173,4 +173,4 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) in alto per eseguire l'esercitazione usando Azure PowerShell.
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio. 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -194,4 +194,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

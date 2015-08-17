@@ -75,4 +75,4 @@ Per organizzare il dashboard, passare alla visualizzazione My Dashboard e fare c
 ## Rimozione di un riquadro
 Per rimuovere un riquadro, passare alla visualizzazione My Dashboard e fare clic sul pulsante con l'ingranaggio **customize** nella parte inferiore della pagina per avviare la modalità di personalizzazione. Selezionare il riquadro che si desidera rimuovere e quindi fare clic su **Remove Tile** nel riquadro di destra. ![Rimozione di un riquadro](./media/operational-insights-use-dashboards/remove-tile.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

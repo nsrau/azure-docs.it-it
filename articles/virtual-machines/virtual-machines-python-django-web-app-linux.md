@@ -129,4 +129,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -165,7 +165,7 @@ Questa sezione confronta le funzionalità avanzate fornite dalle code di Azure e
 
 - Per trovare messaggi "non elaborabili" nelle code di Azure, durante la rimozione di un messaggio dalla coda, tramite l'applicazione viene esaminata la proprietà DequeueCount del messaggio. Se il valore della proprietà DequeueCount supera il valore soglia specificato, il messaggio viene spostato dall'applicazione in una coda di "messaggio non recapitabile" definita dall'applicazione.
 
-- Le code di Azure consentono di ottenere un log dettagliato di tutte le transazioni eseguite nella coda, nonché le metriche di aggregazione. Queste opzioni sono entrambe utili per eseguire il debug e comprendere la modalità di utilizzo delle code di Azure da parte dell'applicazione. Inoltre, sono utili per l'ottimizzazione delle prestazioni dell'applicazione e per la riduzione dei costi di utilizzo delle code.
+- Le code di Azure consentono di ottenere un log dettagliato di tutte le transazioni eseguite nella coda, nonché le metriche di aggregazione. Queste opzioni sono entrambe utili per eseguire il debug e comprendere la modalità d'uso delle code di Azure da parte dell'applicazione. Inoltre, sono utili per l'ottimizzazione delle prestazioni dell'applicazione e per la riduzione dei costi d'uso delle code.
 
 - Il concetto di "sessione di messaggistica" supportato dal bus di servizio consente di associare a uno specifico destinatario i messaggi appartenenti a un determinato gruppo logico. Il destinatario crea a sua volta un'affinità di tipo sessione tra i messaggi e i relativi destinatari. È possibile abilitare questa funzionalità avanzata nel bus di servizio impostando la proprietà [SessionID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) in un messaggio. I destinatari possono quindi restare in ascolto su un ID di sessione specifico e ricevere messaggi in cui viene condiviso l'identificatore di sessione specificato.
 
@@ -204,8 +204,7 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
 |Protocollo di gestione|**REST su HTTP/HTTPS**|**REST su HTTPS**|
-|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**Standard AMQP 1.0 (TCP con TLS)**|
-|API gestita .NET|**Sì**<br/><br/>(API del client di archiviazione gestita .NET)|**Sì**<br/><br/>(API di messaggistica negoziata gestita .NET)|
+|Protocollo runtime|**REST su HTTP/HTTPS**|**REST su HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP con TLS)**| |API gestita .NET|**Sì**<br/><br/>(API client di archiviazione gestita .NET)|**Sì**<br/><br/>(API di messaggistica negoziata gestita .NET)|
 |C++ nativo|**Sì**|**No**|
 |API Java|**Sì**|**Sì**|
 |API PHP|**Sì**|**Sì**|
@@ -225,7 +224,7 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 
 - I nomi delle code di Azure possono avere una lunghezza compresa tra 3 e 63 caratteri e contenere lettere minuscole, numeri e trattini. Per altre informazioni, vedere [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx).
 
-- I nomi delle code del bus di servizio possono avere una lunghezza massima di 260 caratteri e presentano regole di denominazione meno restrittive. I nomi delle code del bus di servizio possono contenere lettere, numeri, punti (.), trattini (-) e caratteri di sottolineatura (_).
+- I nomi delle code del bus di servizio possono avere una lunghezza massima di 260 caratteri e presentano regole di denominazione meno restrittive. I nomi delle code del bus di servizio possono contenere lettere, numeri, punti (.), trattini (-) e caratteri di sottolineatura (\_).
 
 ## Prestazioni
 
@@ -318,4 +317,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

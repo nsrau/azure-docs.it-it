@@ -74,11 +74,11 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 ### Creare il processo di importazione
 
-1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In <strong>Riepilogo rapido</strong> fare clic <strong>su Crea processo di importazione</strong>. 
+1.	Dopo aver preparato l'unità, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In **Quick Glance** fare clic su **Create an Import Job**. 
  
 2.	Nel passaggio 1 della procedura guidata indicare di aver preparato l'unità e che il file journal dell'unità è disponibile.
  
-3.	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di importazione. Per salvare i dati del log dettagliato per il processo di importazione, selezionare l'opzione <strong>Salva log dettagliato nel contenitore Blob 'waimportexport'</strong>.
+3.	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di importazione. Per salvare i dati del log dettagliato per il processo di importazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
 
 4.	Nel passaggio 3 caricare i file journal dell'unità ottenuti durante il passaggio di preparazione dell'unità. È necessario caricare un file per ogni unità preparata.
 
@@ -104,11 +104,11 @@ Lo strumento di importazione/esportazione di Microsoft Azure genera un *file jou
 
 Creare un processo di esportazione per notificare al servizio Importazione/Esportazione che si spedirà una o più unità vuote al data center, in modo che i dati possano essere esportati dall'account di archiviazione alle unità e le unità possano quindi essere spedite all'utente.
 
-1. 	Per creare un processo di esportazione, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In <strong>Riepilogo rapido</strong>, fare clic <strong>su Crea un processo di esportazione </strong>e continuare la procedura guidata.
+1. 	Per creare un processo di esportazione, passare all'account di archiviazione nel portale di gestione e visualizzare il dashboard. In **Quick Glance**, fare clic su **Crea un processo di esportazione** e continuare la procedura guidata.
 
-2. 	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di esportazione. Per salvare i dati del log dettagliato per il processo di esportazione, selezionare l'opzione <strong>Salva log dettagliato nel contenitore BLOB 'waimportexport'</strong>.
+2. 	Nel passaggio 2 fornire le informazioni di contatto per la persona responsabile di questo processo di esportazione. Per salvare i dati del log dettagliato per il processo di esportazione, selezionare l'opzione **Salva log dettagliato nel contenitore BLOB 'waimportexport'**.
 
-3.	Nel passaggio 3 specificare i dati Blob da esportare dall'account di archiviazione a una o più unità vuote. È possibile scegliere di esportare tutti i dati Blob nell'account di archiviazione o specificare singoli Blob o set di Blob.
+3.	Nel passaggio 3 specificare i dati BLOB da esportare dall'account di archiviazione a una o più unità vuote. È possibile scegliere di esportare tutti i dati Blob nell'account di archiviazione o specificare singoli Blob o set di Blob.
 
 	![Creare il processo di esportazione - Passaggio 3][export-job-03]
 
@@ -117,50 +117,15 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 	Nella tabella vengono indicati esempi di percorsi BLOB validi:
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Selettore</strong></td>
-			<td><strong>Percorso BLOB</strong></td>
-			<td><strong>Descrizione</strong></td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/</td>
-			<td>Esporta tutti i BLOB nell'account di archiviazione</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/$root/</td>
-			<td>Esporta tutti i BLOB nel contenitore radice</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/book</td>
-			<td>Esporta tutti i BLOB in qualsiasi contenitore che inizia con il prefisso<strong>book</strong></td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/music/</td>
-			<td>Esporta tutti i BLOB nel contenitore <strong>music</strong></td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/music/love</td>
-			<td>Esporta nel contenitore <strong>music</strong> tutti i BLOB che iniziano con il prefisso <strong>love</strong></td>
-		</tr>
-		<tr>
-			<td>Equal To</td>
-			<td>$root/logo.bmp</td>
-			<td>Esporta il BLOB <strong>logo.bmp</strong> nel contenitore radice</td>
-		</tr>
-		<tr>
-			<td>Equal To</td>
-			<td>videos/story.mp4</td>
-			<td>Esporta il BLOB <strong>story.mp4</strong> nel contenitore <strong>video</strong></td>
-		</tr>
-	</tbody>
-</table>
+	Selettore|Percorso BLOB|Descrizione
+	---|---|---
+	Starts With|/|Esporta tutti i BLOB nell'account di archiviazione
+	Starts With|/$root/|Esporta tutti i BLOB nel contenitore radice
+	Starts With|/book|Esporta tutti i BLOB in qualsiasi contenitore che inizia con il prefisso**book**
+	Starts With|/music/|Esporta tutti i BLOB nel contenitore **music**
+	Starts With|/music/love|Esporta nel contenitore **music** tutti i BLOB che iniziano con il prefisso **love**
+	Equal To|$root/logo.bmp|Esporta il BLOB **logo.bmp** nel contenitore radice
+	Equal To|videos/story.mp4|Esporta il BLOB **story.mp4** nel contenitore **video**
 
 
 4.	Nel passaggio 4 immettere un nome descrittivo per il processo di esportazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi.
@@ -171,7 +136,7 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere <strong>Fornirò le informazioni sulla spedizione per questo processo di esportazione dopo aver spedito il pacchetto</strong>, quindi completare il processo di esportazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **Fornirò le informazioni sulla spedizione per questo processo di esportazione dopo aver spedito il pacchetto**, quindi completare il processo di esportazione.
 
 6. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **/Importazione/Esportazione** dell'account di archiviazione nel portale di gestione, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 	
@@ -187,34 +152,14 @@ Creare un processo di esportazione per notificare al servizio Importazione/Espor
 
 Nella tabella viene descritto il significato di ogni designazione dello stato del processo:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Stato del processo</strong></td>
-			<td><strong>Descrizione</strong></td>
-		</tr>
-		<tr>
-			<td>Creating</td>
-			<td>Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione.</td>
-		</tr>
-		<tr>
-			<td>Shipping</td>
-			<td>Il processo è stato creato e sono state specificate le informazioni per la spedizione.</td>
-		</tr>
-		<tr>
-			<td>Transferring</td>
-			<td>È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione).</td>
-		</tr>
-		<tr>
-			<td>Packaging</td>
-			<td>Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente.</td>
-		</tr>
-		<tr>
-			<td>Complete</td>
-			<td>Il disco rigido è stato spedito all'utente.</td>
-		</tr>
-	</tbody>
-</table>
+Stato processo|Descrizione
+---|---
+Creating|Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione.
+Shipping|Il processo è stato creato e sono state specificate le informazioni per la spedizione.
+Transferring|È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione).
+Packaging|Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente.
+Complete|Il disco rigido è stato spedito all'utente.
+
 
 ## Visualizzazione delle chiavi BitLocker per un processo di esportazione ##
 
@@ -324,4 +269,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

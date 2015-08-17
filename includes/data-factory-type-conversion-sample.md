@@ -1,9 +1,9 @@
-### Type conversion sample
-The following sample is for copying data from a Blob to Azure SQL with type conversions.
+### Esempio di conversione di tipo
+L'esempio seguente riguarda la copia dei dati da un Blob in SQL Azure con conversioni del tipo.
 
-Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week.
+Si supponga che il set di dati Blob sia in formato CSV e contenga 3 colonne. Una di esse è una colonna datetime con un formato datetime personalizzato che utilizza nomi abbreviati francesi per il giorno della settimana.
 
-You will define the Blob Source dataset as follows along with type definitions for the columns.
+Definire il set di dati di origine Blob come indicato di seguito e le definizioni di tipo per le colonne.
 
 	{
 	    "name": " AzureBlobTypeSystemInput",
@@ -42,15 +42,15 @@ You will define the Blob Source dataset as follows along with type definitions f
 	    }
 	}
 
-Given the SQL type to .NET type mapping table above you would define the Azure SQL table with the following schema.
+Dato il precedente tipo SQL per la tabella di mapping di tipo .NET, è possibile definire la tabella di SQL Azure con lo schema seguente.
 
-| Column Name | SQL Type |
+| Nome colonna | Tipo SQL |
 | ----------- | -------- |
 | userid | bigint |
 | name | text |
 | lastlogindate | datetime |
 
-Next you will define the Azure SQL dataset as follows. Note: You do not need to specify “structure” section with type information since the type information is already specified in the underlying data store.
+Quindi si definirà il set di dati di SQL Azure come indicato di seguito. Nota: Non è necessario specificare la sezione "struttura" con informazioni sul tipo perché le informazioni sul tipo sono già state specificate nell'archivio dati sottostante.
 
 	{
 	    "name": "AzureSQLOutput",
@@ -67,6 +67,6 @@ Next you will define the Azure SQL dataset as follows. Note: You do not need to 
 	    }
 	}
 
-In this case data factory will automatically do the type conversions including the Datetime field with the custom datetime format using the fr-fr culture when moving data from Blob to Azure SQL.
+In questo caso Data Factory eseguirà automaticamente la conversione del tipo incluso il campo Datetime con il formato data personalizzato fr-fr quando si spostano dati da Blob a SQL Azure.
 
-
+<!---HONumber=August15_HO6-->

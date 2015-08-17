@@ -1,26 +1,37 @@
-<properties 
-	pageTitle="Procedura di aggiornamento di Azure Mobile Engagement SDK per iOS" 
-	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per iOS"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Procedura di aggiornamento di Azure Mobile Engagement SDK per iOS"
+	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Procedure di aggiornamento
 
 Se nell'applicazione è già stata integrata una versione precedente dell'SDK, è necessario considerare i seguenti punti quando si aggiorna l'SDK.
 
 Per ogni nuova versione dell'SDK è necessario innanzitutto sostituire (rimuovere e importare nuovamente in Xcode) le cartelle EngagementSDK ed EngagementReach.
+
+##Dalla versione 2.0.0 alla 3.0.0
+Se si usa Reach nell'applicazione, è necessario aggiungere il valore `remote-notification` alla matrice `UIBackgroundModes` nel file Info.plist per ricevere notifiche remote.
+
+Il metodo `application:applicationDidReceiveRemoteNotification:` deve essere sostituito da `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` nel delegato dell'applicazione.
+
+I seguenti metodi delegati sono deprecati ed è necessario rimuoverli dal delegato dell'applicazione:
+
+	-(void)willRetrieveLaunchMessage;
+	-(void)didFailToRetrieveLaunchMessage;
+	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
 ##Dalla versione 1.16.0 alla 2.0.0
 La sezione seguente illustra come eseguire la migrazione di un'integrazione dell'SDK dal servizio Capptain offerto da Capptain SAS a un'app basata su Azure Mobile Engagement. Se si esegue la migrazione da una versione precedente, visitare il sito Web di Capptain per eseguire prima la migrazione alla versione 1.16 e quindi applicare la procedura seguente.
@@ -29,7 +40,7 @@ La sezione seguente illustra come eseguire la migrazione di un'integrazione dell
 
 ### Agente
 
-Il metodo `registerApp:` è stato sostituito dal nuovo metodo `init:`. È necessario aggiornare il delegato dell'applicazione di conseguenza e utilizzare la stringa di connessione:
+Il metodo `registerApp:` è stato sostituito dal nuovo metodo `init:`. È necessario aggiornare il delegato dell'applicazione di conseguenza e usare la stringa di connessione:
 
 			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 			{
@@ -58,6 +69,5 @@ Esempi:
 -   La classe `CapptainTableViewController` viene rinominata come `EngagementTableViewController`.
 -   La classe `CapptainUtils` viene rinominata come `EngagementUtils`.
 -   La classe `CapptainViewController` viene rinominata come `EngagementViewController`.
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

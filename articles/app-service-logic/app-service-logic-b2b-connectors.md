@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="mandia"/>
 
 # Connettori Business to Business e app per le API nel servizio app di Microsoft Azure
@@ -49,10 +49,10 @@ Quando si crea un'app per le API B2B sono necessarie alcune risorse. L'utente de
 
 Requisito | Descrizione
 --- | ---
-Database SQL di Azure | Archivia elementi B2B, tra cui partner, schemi, certificati e contratti. Ogni app per le API B2B richiede un proprio database SQL di Azure. <br/><br/>\*\*Nota\*\* Copiare la stringa di connessione al database.<br/><br/>[Creare un database SQL di Azure](../sql-database-create-configure.md)
-Contenitore dell'archiviazione BLOB di Azure | Archivia le proprietà dei messaggi quando è abilitata l'archiviazione AS2. Se l'archiviazione dei messaggi AS2 non è necessaria, il contenitore di archiviazione non è necessario. <br/><br/>\*\*Nota\*\* Se si sta abilitando l'archiviazione, copiare la stringa di connessione all'archivio BLOB.<br/><br/>[Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md)
-Spazio dei nomi del bus di servizio e i relativi valori chiave | Archivia i dati di invio in batch X12 ed EDIFACT. Se non è necessario l'invio in batch, lo spazio dei nomi del bus di servizio non è necessario.<br/><br/>\*\*Nota\*\* Se si abilita l'invio in batch, copiare questi valori.<br/><br/>[Creare uno spazio dei nomi del bus di servizio](http://msdn.microsoft.com/library/azure/hh690931.aspx)
-Istanza di TPM | Per creare un connettore AS2 e un'app per le API X12 o EDIFACT è necessaria un'istanza di BizTalk Trading Partner Management (TPM). Quando si crea l'app per le API TPM, si crea l'istanza di TPM. <br/><br/>\*\*Nota\*\* Prendere nota del nome dell'app per le API TPM. 
+Database SQL di Azure | Archivia elementi B2B, tra cui partner, schemi, certificati e contratti. Ogni app per le API B2B richiede un proprio database SQL di Azure. <br/><br/>**Nota** Copiare la stringa di connessione al database.<br/><br/>[Creare un database SQL di Azure](../sql-database-get-started.md)
+Contenitore dell'archiviazione BLOB di Azure | Archivia le proprietà dei messaggi quando è abilitata l'archiviazione AS2. Se l'archiviazione dei messaggi AS2 non è necessaria, il contenitore di archiviazione non è necessario. <br/><br/>**Nota** Se si sta abilitando l'archiviazione, copiare la stringa di connessione all'archivio BLOB.<br/><br/>[Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md)
+Spazio dei nomi del bus di servizio e i relativi valori chiave | Archivia i dati di invio in batch X12 ed EDIFACT. Se non è necessario l'invio in batch, lo spazio dei nomi del bus di servizio non è necessario.<br/><br/>**Nota** Se si abilita l'invio in batch, copiare questi valori.<br/><br/>[Creare uno spazio dei nomi del bus di servizio](http://msdn.microsoft.com/library/azure/hh690931.aspx)
+Istanza di TPM | Per creare un connettore AS2 e un'app per le API X12 o EDIFACT è necessaria un'istanza di BizTalk Trading Partner Management (TPM). Quando si crea l'app per le API TPM, si crea l'istanza di TPM. <br/><br/>**Nota** Prendere nota del nome dell'app per le API TPM. 
 
 
 ## Creare le app per le API
@@ -205,4 +205,4 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -29,8 +29,8 @@ Application Insights è in grado di monitorare i servizi WCF e le applicazioni W
 
 Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, se ApplicationInsights.config non è presente), scegliere uno dei modi seguenti per iniziare:
 
-* [Aggiungere Application Insights al progetto in Visual Studio][greenbrown]: metodo consigliato. Oltre al monitoraggio passivo delle prestazioni, è possibile inserire registrazioni diagnostiche e tenere traccia dell'uso.
-* [Monitorare ora le prestazioni di un sito Web live][redfield]: in questo modo non è necessario aggiornare il progetto dell'applicazione o ridistribuire il sito Web.
+* [Aggiungere Application Insights al progetto in Visual Studio][greenbrown]\: metodo consigliato. Oltre al monitoraggio passivo delle prestazioni, è possibile inserire registrazioni diagnostiche e tenere traccia dell'uso.
+* [Monitorare ora le prestazioni di un sito Web live][redfield]\: in questo modo non è necessario aggiornare il progetto dell'applicazione o ridistribuire il sito Web.
 * [Per un sito Web di Microsoft Azure](../insights-how-to-customize-monitoring.md) le metriche sono già visibili nel filtro di monitoraggio di tale sito. 
 
 Per visualizzare rapidamente i dati nel pannello della panoramica in Application Insights, usare uno dei metodi seguenti.
@@ -154,11 +154,11 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
 ## <a name="next"></a>Passaggi successivi
 
-[Test Web][availability]: possibilità di inviare richieste Web all'applicazione a intervalli regolari da tutto il mondo.
+[Test Web][availability]\: possibilità di inviare richieste Web all'applicazione a intervalli regolari da tutto il mondo.
 
-[Acquisire e cercare tracce diagnostiche][diagnostic]: possibilità di inserire chiamate di traccia ed esaminare i risultati per individuare i problemi.
+[Acquisire e cercare tracce diagnostiche][diagnostic]\: possibilità di inserire chiamate di traccia ed esaminare i risultati per individuare i problemi.
 
-[Monitoraggio dell'utilizzo][usage]: possibilità di scoprire come le persone usano l'applicazione.
+[Monitoraggio dell'utilizzo][usage]\: possibilità di scoprire come le persone usano l'applicazione.
 
 [Risoluzione dei problemi][qna] e domande e risposte
 
@@ -178,4 +178,4 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

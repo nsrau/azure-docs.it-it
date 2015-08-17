@@ -38,4 +38,4 @@
 
 Per ulteriori informazioni su tutti i comandi di macchina virtuale Azure CLI, leggere [Utilizzare la CLI di Azure con Gestione servizi di Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

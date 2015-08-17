@@ -55,4 +55,4 @@ Dopo avere apportato le modifiche desiderate agli stili dell'elemento selezionat
 [api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

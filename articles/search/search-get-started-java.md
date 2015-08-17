@@ -145,7 +145,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 	![][7]
 
-6. Nella pagina successiva, specificare la directory di installazione di Tomcat. In un computer Windows, sarà probabilmente C:\Programmi\Microsoft Files\Apache Software Foundation\Tomcat *versione*.
+6. Nella pagina successiva, specificare la directory di installazione di Tomcat. In un computer Windows, sarà probabilmente C:\\Programmi\\Microsoft Files\\Apache Software Foundation\\Tomcat *versione*.
 
 6. Fare clic su **Finish**.
 
@@ -232,4 +232,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

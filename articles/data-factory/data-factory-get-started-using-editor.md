@@ -98,7 +98,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 
 	![Impostazioni di SQL di Azure dell'editor][image-editor-azure-sql-settings]
 
-2. Sostituire **servername**, **databasename**, **username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure. 
+2. Sostituire **servername**, **databasename**, ****username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure.
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire AzureSqlLinkedService. 
    
 
@@ -145,15 +145,15 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
 		
      Tenere presente quanto segue:
 	
-	- L'oggetto **type** di location è impostato su **AzureBlob**.
+	- Il set di dati **type** è impostato su **AzureBlob**.
 	- L'oggetto **linkedServiceName** è impostato su **StorageLinkedService**. Questo servizio collegato è stato creato nel passaggio 2.
 	- L'oggetto **folderPath** è impostato sul contenitore **adftutorial**. È anche possibile specificare il nome di un BLOB all'interno della cartella. Poiché non si specifica il nome del BLOB, i dati da tutti i BLOB nel contenitore sono considerati come dati di input.  
 	- L'oggetto **type** di format è impostato su **TextFormat**.
-	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (\*\*columnDelimiter\*\*).	
-	- L'oggetto **availability** è impostato su **hourly** (\*\*frequency\*\* è impostato su **hour** e **interval** è impostato su **1**), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (\*\*adftutorial\*\*) specificato. 
+	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (**columnDelimiter**).	
+	- L'oggetto **availability** è impostato su **hourly** (**frequency** è impostato su **hour** e **interval** è impostato su **1**), in modo che il servizio Data factory cerchi dati di input ogni ora nella cartella radice del contenitore BLOB (**adftutorial**) specificato. 
 	
 
-	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input (\*\*folderPath\*\*) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
+	Se non si specifica un oggetto **fileName** per una **tabella** di **input**, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
  
 	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il formato seguente: Data.&lt;Guid&gt;.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -207,11 +207,11 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 		
      Tenere presente quanto segue:
 	
-	* L'oggetto **type** di location è impostato su **AzureSQLTableLocation**.
+	* Il set di dati **type** è impostato su **AzureSQLTable**.
 	* L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService** (questo servizio collegato è stato creato nel passaggio 2).
 	* L'oggetto **tablename** è impostato su **emp**.
 	* Nella tabella emp del database sono presenti tre colonne, **ID**, **FirstName** e **LastName**, ma ID è una colonna di identità, quindi è necessario specificare solo **FirstName** e **LastName**.
-	* L'oggetto **availability** è impostato su **hourly** (l'oggetto \*\*frequency\*\* è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
+	* L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
 
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la tabella **EmpSQLTable**.
@@ -258,7 +258,6 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 		        "Policy": {
 		          "concurrency": 1,
 		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
 		          "retry": 0,
 		          "timeout": "01:00:00"
 		        }
@@ -279,7 +278,7 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 	
 	Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
-	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
+	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
 	
 	Nell'esempio precedente sono visualizzate 24 sezioni di dati perché viene generata una sezione di dati ogni ora.
 	
@@ -363,7 +362,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 
 	
 12. Fare clic su **X** per chiudere tutti i pannelli finché non viene visualizzato il pannello iniziale per **ADFTutorialDataFactory**.
-14. (Facoltativo) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input (\*\*Utilizzate\*\*) o di output (\*\*Prodotte\*\*).
+14. (Facoltativo) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input (**Utilizzate**) o di output (**Prodotte**).
 15. Avviare **SQL Server Management Studio**, connettersi al database SQL di Azure e verificare che le righe vengano inserite nella tabella **emp** nel database.
 
 	![Risultati della query SQL][image-data-factory-get-started-sql-query-results]
@@ -513,4 +512,4 @@ Articolo | Descrizione
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

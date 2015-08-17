@@ -37,7 +37,7 @@ La valutazione e la convalida incrociata sono due modi standard di misurare le p
 
 Il modulo [Evaluate Model][evaluate-model] presuppone un set di dati con punteggio come input (oppure 2 se si desidera confrontare le prestazioni di 2 modelli diversi). Ciò significa che, prima di poter valutare i risultati, è necessario eseguire il training del modello usando il modulo [Train Model][train-model] e fare stime su alcuni set di dati usando il modulo [Score Model][score-model]. La valutazione è basata sulle probabilità/etichette con punteggio e sulle etichette vere, restituite dal modulo [Score Model][score-model].
 
-In alternativa, è possibile usare la convalida incrociata per eseguire una serie di operazioni di valutazione, punteggio e training (10 sezioni) in modo automatico su diversi subset di dati di input. I dati di input vengono suddivisi in 10 partizioni, di cui una riservata per la convalida e le rimanenti usate per eseguire il training. Tale processo si ripete per 10 volte e viene calcolata una media delle metriche di valutazione. Ciò consente di determinare come verrebbero generalizzati nuovi set di dati da un modello. Il modulo [Cross-Validate Model][cross-validate-model] prende un modello non sottoposto a training e alcuni set di dati con etichetta e restituisce i risultati della valutazione di ognuna delle 10 sezioni, oltre alla media dei risultati.
+In alternativa, è possibile usare la convalida incrociata per eseguire una serie di operazioni di valutazione, punteggio e training (10 sezioni) in modo automatico su diversi subset di dati di input. I dati di input vengono suddivisi in dieci partizioni, di cui una riservata per la convalida e le rimanenti usate per eseguire il training. Tale processo si ripete per 10 volte e viene calcolata una media delle metriche di valutazione. Ciò consente di determinare come verrebbero generalizzati nuovi set di dati da un modello. Il modulo [Cross-Validate Model][cross-validate-model] prende un modello non sottoposto a training e alcuni set di dati con etichetta e restituisce i risultati della valutazione di ognuna delle 10 sezioni, oltre alla media dei risultati.
 
 Nelle sezioni seguenti verranno creati modelli semplici di classificazione e regressione e verranno valutate le relative prestazioni, usando i moduli [Evaluate Model][evaluate-model] e [Cross-Validate Model][cross-validate-model].
 
@@ -189,4 +189,4 @@ Figura 13. Risultati della convalida incrociata di un modello di classificazione
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="carolz"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="storage"
 	ms.workload="storage"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="tamram;selcint"/>
+
 
 
 # Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure
@@ -265,7 +267,7 @@ Fare riferimento alle istruzioni importanti riportate di seguito per configurare
 Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazione Premium. Si consiglia di aggiornare le macchine virtuali ad almeno una di queste versioni (o successive) per prestazioni e stabilità migliori con Archiviazione Premium. Inoltre, alcune delle versioni richiedono i LIS (Linux Integration Services v4.0 per Microsoft Azure) più recenti. Usare il collegamento indicato di seguito per il download e l'installazione. Continueremo ad aggiungere altre immagini all'elenco non appena effettueremo ulteriori convalide. Si noti che le nostre convalide hanno mostrato che le prestazioni variano per queste immagini e che ciò dipende, inoltre, dalle impostazioni e dalle caratteristiche dei carichi di lavoro sulle immagini. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribuzione</strong></td> <td><strong>Versione</strong></td> <td><strong>Kernel supportato</strong></td> <td><strong>Immagine supportata</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12_04_5-LTS-amd64-server-20150119-it-IT-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14_04_1-LTS-amd64-server-20150123-it-IT-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14_10-amd64-server-20150202-it-IT-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15_04-amd64-server-20150422-it-IT-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obbligatorio </a></td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 consigliato </a></td> </tr>
 
 <tr>
-	<td rowspan="2"><strong>Oracle</strong></td>
+	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
 	<td>6.4</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obbligatorio </a></td>
@@ -276,6 +278,16 @@ Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazion
 	<td>Contattare il supporto tecnico per informazioni dettagliate</td>
 </tr>
 </tbody> </table>
+
+
+### Driver LIS per Openlogic CentOS
+
+I clienti che eseguono le macchine virtuali OpenLogic CentOS devono eseguire il comando seguente per installare i driver più recenti:
+
+	sudo yum install microsoft-hyper-v
+
+Sarà quindi necessario riavviare il computer per attivare i nuovi driver.
+
 
 
 ## Prezzi e fatturazione durante l'uso di Archiviazione Premium
@@ -321,7 +333,7 @@ Per una procedura dettagliata completa in un ambiente Azure, vedere [Creare una 
 In questo esempio relativo a PowerShell viene illustrato come creare un nuovo account di Archiviazione Premium e collegare un disco dati che utilizza tale account per una nuova macchina virtuale di Azure.
 
 1. Per configurare l'ambiente PowerShell, attenersi alla procedura riportata in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
-2. Avviare la console di PowerShell, connettersi alla sottoscrizione ed eseguire il cmdlet di PowerShell seguente nella finestra della console. Come illustrato in questa istruzione di PowerShell, quando si crea un account di Archiviazione Premium è necessario specificare il parametro **Type** come **Premium_LRS**.
+2. Avviare la console di PowerShell, connettersi alla sottoscrizione ed eseguire il cmdlet di PowerShell seguente nella finestra della console. Come illustrato in questa istruzione di PowerShell, quando si crea un account di Archiviazione Premium è necessario specificare il parametro **Type** come **Premium\_LRS**.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
@@ -391,4 +403,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -136,4 +136,4 @@ Iniziare a eseguire operazioni sullo swarm. Per trarre ispirazione, vedere [http
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

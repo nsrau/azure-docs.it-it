@@ -8,6 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.devlang="na"
@@ -16,6 +17,7 @@
 	ms.workload="big-data"
 	ms.date="07/21/2015"
 	ms.author="jgao"/>
+
 
 # Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio per eseguire una query Hive
 
@@ -67,7 +69,7 @@ HDInsight Tools per Visual Studio consente di connettersi a cluster HDInsight, e
 2.	Scegliere **Esplora server** dal menu **Visualizza** per aprire la finestra Esplora server.
 3.	Espandere **Azure** e quindi espandere **HDInsight**.
 
-	>[AZURE.NOTE]**Elenco attività HDInsight****Altre finestre****Visualizza****Finestra Elenco attività HDInsight**  
+	>[AZURE.NOTE]Si noti che la finestra **Elenco attività HDInsight** è aperta. Se tale finestra non è visualizzata, selezionare **Altre finestre** dal menu **Visualizza** e fare clic su **Finestra elenco attività HDInsight**.  
 4.	Immettere le credenziali della sottoscrizione di Azure e fare clic su **Accedi**. Questa operazione è necessaria solo se non si è mai eseguita la connessione alla sottoscrizione di Azure da Visual Studio sulla workstation.
 5.	In Esplora server verrà visualizzato un elenco di cluster HDInsight esistenti. Se non si dispone di cluster, è possibile effettuare il provisioning di un cluster usando il portale di Azure, Azure PowerShell o HDInsight SDK. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
 
@@ -141,7 +143,7 @@ Esistono due modi per creare ed eseguire query Hive:
 
 	![Hadoop Tools: IntelliSense di HDInsight Tools per Visual Studio][14]
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]Verranno elencati solo i metadati dei cluster selezionati nella barra degli strumenti HDInsight.
 4. Facoltativo: fare clic su **Convalida script** per verificare la presenza di eventuali errori di sintassi nello script.
 
 	![Hadoop Tools: convalida locale di HDInsight Tools per Visual Studio.][10]
@@ -236,4 +238,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -129,4 +129,4 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 
 È necessario che siano aperte le porte TCP/UDP 80 e 443 perché l'agente di Azure AD Connect Health possa comunicare con gli endpoint del servizio Azure AD Connect Health.
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

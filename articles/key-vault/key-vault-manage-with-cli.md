@@ -133,13 +133,13 @@ Tuttavia, se si ha una chiave esistente in un file con estensione PEM salvato co
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
 
-A questo punto è possibile fare riferimento alla chiave creata o caricata nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere sempre la versione corrente e usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** per ottenere questa versione specifica.
+A questo punto è possibile fare riferimento alla chiave creata o caricata nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere sempre la versione corrente e usare ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** per ottenere questa versione specifica.
 
 Per aggiungere un segreto all'insieme di credenziali, ovvero una password denominata SQLPassword con il valore Pa$$w0rd per l'insieme di credenziali delle chiavi, digitare quanto segue:
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-È ora possibile fare riferimento a questa password aggiunta nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/SQLPassword** per ottenere sempre la versione corrente e usare **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** per ottenere questa versione specifica.
+È ora possibile fare riferimento a questa password aggiunta nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** per ottenere sempre la versione corrente e usare ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** per ottenere questa versione specifica.
 
 Ora si può visualizzare la chiave o il segreto appena creato:
 
@@ -164,7 +164,7 @@ Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire
 Per registrare l'applicazione in Azure Active Directory:
 
 1. Accedere al portale di Azure.
-2. A sinistra fare clic su **Active Directory** e quindi selezionare la directory in cui si registrerà l'applicazione. <br> <br> Nota: è necessario selezionare la stessa directory che contiene la sottoscrizione di Azure con cui si è creato l'insieme di credenziali delle chiavi. Se non si sa quale directory selezionare, fare clic su **Impostazioni**, identificare la sottoscrizione con cui si è creato l'insieme di credenziali delle chiavi e prendere nota del nome della directory visualizzata nell'ultima colonna.
+2. A sinistra fare clic su **Active Directory** e quindi selezionare la directory in cui si registrerà l'applicazione. <br> <br> Nota: è necessario selezionare la stessa directory che contiene la sottoscrizione di Azure con cui si è creato l'insieme di credenziali chiave. Se non si sa quale directory selezionare, fare clic su **Impostazioni**, identificare la sottoscrizione con cui si è creato l'insieme di credenziali chiave e prendere nota del nome della directory visualizzata nell'ultima colonna.
 
 3. Fare clic su **APPLICAZIONI**. Se nessuna app è stata aggiunta alla directory, questa pagina mostrerà solo il collegamento **Aggiungi app**. Fare clic sul collegamento. In alternativa, è possibile fare clic su **AGGIUNGI** sulla barra dei comandi.
 4.	Nella procedura guidata **AGGIUNGI APPLICAZIONE**, nella pagina **Come procedere** fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
@@ -189,7 +189,7 @@ Ad esempio, se il nome dell'insieme di credenziali è ContosoKeyVault e l'applic
 
 ## Per usare un modulo di protezione hardware ##
 
-Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati](#delete-the-key-vault-and-associated-keys-and-secrets).
+Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete-the-key-vault-and-associated-keys-and-secrets).
 
 Per creare queste chiavi HSM protette, è necessaria una sottoscrizione all'insieme di credenziali che supporti le chiavi HSM protette.
 
@@ -209,7 +209,7 @@ Il comando successivo importa un pacchetto "bring your own key" (BYOK). Ciò con
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
 
 
 ## Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati
@@ -250,6 +250,6 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 ## Passaggi successivi
 
-Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API REST dell'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Informazioni di riferimento sull'API client C# dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API REST dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Informazioni di riferimento sull'API client C# dell'insieme di credenziali chiave](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

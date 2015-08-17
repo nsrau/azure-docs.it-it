@@ -86,4 +86,4 @@ In questo articolo è stato illustrato come usare Power Query per recuperare dat
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Note sulla versione di Data factory di Azure
@@ -115,7 +115,7 @@ Tenere presente quanto segue:
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1"
+	            "interval": 1
 	        }
 	    }
 	}
@@ -123,7 +123,7 @@ Tenere presente quanto segue:
 Tenere presente quanto segue:
 
 - La proprietà **type** è stata spostata di un livello verso l'alto e il nome tipo **AzureTableLocation** è stato sostituito da **AzureTable**.
-- **linkedServiceName** è stato spostato di un livello verso l'alto. 
+- L’elemento**linkedServiceName** è stato spostato di un livello verso l'alto. 
 - L'elemento **location** è stato rimosso e le proprietà specifiche del tipo, ad esempio **tableName**, specificate nella sezione **location** vengono specificate nella nuova sezione **typeProperties**.  
 
 ### JSON attività precedente
@@ -355,4 +355,4 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

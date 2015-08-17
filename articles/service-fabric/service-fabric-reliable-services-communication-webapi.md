@@ -449,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-A questo punto si riuniscono l'*applicazione* API Web e l'*host* OWIN: all'*host* (\*\*OwinCommunicationListener\*\*) viene assegnata un'istanza dell'*applicazione* (API Web tramite **Startup**) e Service Fabric gestisce il ciclo di vita. Questo modello può essere seguito con qualsiasi stack di comunicazione.
+A questo punto si riuniscono l'*applicazione* API Web e l'*host* OWIN: all'*host* (**OwinCommunicationListener**) viene assegnata un'istanza dell'*applicazione* (API Web tramite **Startup**) e Service Fabric gestisce il ciclo di vita. Questo modello può essere seguito con qualsiasi stack di comunicazione.
 
 ## Riassumendo
 
@@ -570,7 +570,7 @@ Dopo che tutti gli elementi necessari sono pronti, il progetto sarà simile a un
 Se non lo si è già fatto, [configurare l'ambiente di sviluppo](service-fabric-get-started.md).
 
 
-È ora possibile compilare e distribuire il servizio. Premere **F5** in Visual Studio per compilare l'applicazione. Nella finestra degli eventi di diagnostica verrà visualizzato un messaggio che indica il server Web aperto in **http://localhost:80/api**
+È ora possibile compilare e distribuire il servizio. Premere **F5** in Visual Studio per compilare l'applicazione. Nella finestra degli eventi di diagnostica verrà visualizzato un messaggio che indica il server Web aperto in ****http://localhost:80/api**.
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -614,4 +614,4 @@ In ASP.NET 5 il concetto e il modello di programmazione per la separazione dell'
 
 [Debug dell'applicazione di Service Fabric in Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

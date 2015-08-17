@@ -54,4 +54,4 @@ Per utilizzare la modalità Gestione risorse di Azure con l'interfaccia della ri
 
 > [AZURE.NOTE]È possibile passare nuovamente per l'utilizzo di comandi di gestione del servizio di Azure digitando `azure config mode asm`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

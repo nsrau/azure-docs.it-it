@@ -102,7 +102,7 @@ Assicurarsi di avere le seguenti autorizzazioni nel file `AndroidManifest.xml` (
 
 ##Concedere le credenziali OAuth di Engagement
 
-Inviare le credenziali OAuth (ID e segreto client) a $/#application/YOUR_APPID/native-push.
+Inviare le credenziali OAuth (ID e segreto client) a $/#application/YOUR\_APPID/native-push.
 
 È ora possibile selezionare "In qualsiasi momento" durante la creazione di annunci e sondaggi del servizio Reach.
 
@@ -113,4 +113,4 @@ Inviare le credenziali OAuth (ID e segreto client) a $/#application/YOUR_APPID/n
 [questa procedura]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

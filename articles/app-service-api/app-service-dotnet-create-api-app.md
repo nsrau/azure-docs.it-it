@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bradyg;tarcher"/>
 
@@ -50,4 +50,4 @@ Quando le istruzioni richiedono l'immissione di un nome per il progetto, indicar
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

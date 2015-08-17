@@ -3,9 +3,9 @@
 	description="Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Sono incluse informazioni su come aumentare i limiti e i valori massimi."
 	services=""
 	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettem"
-	editor="cgronlun"/>
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -67,13 +67,15 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-
-### Limiti relativi alle reti - Gestione risorse di Azure
+### Limiti di gestione traffico
 
 I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gruppi di risorse di Azure. I limiti che non cambiano in caso di uso di Gestione risorse di Azure non sono elencati di seguito. Per tali limiti, fare riferimento alla tabella precedente.
 
 [AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
 
+### Limiti DNS
+
+[AZURE.INCLUDE [limiti di dns](../includes/dns-limits.md)]
 
 ## Limiti relativi all'archiviazione
 
@@ -151,6 +153,11 @@ Per altre informazioni sui limiti di Database SQL, vedere gli argomenti seguenti
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
+## Limiti di Data factory
+
+[AZURE.INCLUDE [limiti di data factory Azure](../includes/azure-data-factory-limits.md)]
+
+
 ## Limiti relativi ad Analisi dei flussi
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -202,4 +209,4 @@ Per altre informazioni sui limiti di Database SQL, vedere gli argomenti seguenti
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

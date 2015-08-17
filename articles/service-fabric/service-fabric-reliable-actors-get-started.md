@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/23/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 # Reliable Actors: scenario dettagliato per la creazione di un servizio HelloWorld canonico
@@ -146,7 +146,7 @@ In Service Fabric Tools per Visual Studio è supportato il debug nel computer lo
 
 ## Passaggi successivi
 
-[Introduzione a Service Fabric Actors](service-fabric-reliable-actors-introduction.md) [Documentazione di riferimento delle API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Codice di esempio](https://github.com/Azure/servicefabric-samples)
+[Introduzione a Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md) [Documentazione di riferimento delle API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +156,4 @@ In Service Fabric Tools per Visual Studio è supportato il debug nel computer lo
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

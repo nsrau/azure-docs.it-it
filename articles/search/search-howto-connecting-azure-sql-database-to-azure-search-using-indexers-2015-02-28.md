@@ -277,4 +277,4 @@ A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

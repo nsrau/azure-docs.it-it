@@ -34,7 +34,7 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
 1. Nel [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=256666) fare clic su **Media Services**, quindi sul nome dell'account di Servizi multimediali per aprire il dashboard. 
 
-	![MediaServices_Dashboard][dashboard]
+	![MediaServices\_Dashboard][dashboard]
 
 2. Per monitorare i processi o i dati di codifica è sufficiente iniziare a inviare processi di codifica a Servizi multimediali, oppure iniziare a trasmettere contenuti in streaming ai clienti usando lo streaming on demand di contenuti multimediali di Azure. I dati di monitoraggio dovrebbero iniziare a essere visualizzati nel dashboard dopo circa un'ora.
 
@@ -67,4 +67,4 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

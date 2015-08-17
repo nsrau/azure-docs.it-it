@@ -73,8 +73,8 @@
 
 È possibile calcolare approssimativamente il numero di dischi a elevato utilizzati supportato da un singolo account di archiviazione del limite della transazione. Per una VM di livello base, il numero massimo di dischi a elevato utilizzati è su 66 (20.000/300 di IOPS per disco) e per una macchina virtuale di livello Standard, ad esempio, è circa 40 (IOPS 20.000/500 per disco). Si noti tuttavia che l'account di archiviazione può supportare un numero maggiore di dischi, se non sono tutti molto utilizzato nello stesso momento.
 
-<sup>2</sup>Si intendono in \*ingresso\* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
+<sup>2</sup>Si intendono in *ingresso* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
 
 <sup>3</sup>GRS si intende l'archiviazione con ridondanza geografica, mentre LRS si riferisce a archiviazione con ridondanza locale.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

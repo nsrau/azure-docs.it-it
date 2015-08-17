@@ -55,7 +55,7 @@ La stringa di connessione per l'applicazione viene visualizzata nel portale di A
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   In alcuni modelli di dispositivi non è possibile generare l'identificatore di dispositivo di Engagement a partire da ANDROID_ID (può avere bug o non essere disponibile). In questo caso, l'SDK genera un identificatore di dispositivo casuale e tenta di salvarlo nella risorsa di archiviazione esterna del dispositivo per consentire ad altre applicazioni Engagement di condividere lo stesso identificatore di dispositivo (viene salvato anche come preferenza condivisa per fare in modo che l'applicazione stessa usi sempre lo stesso identificatore di dispositivo, indipendentemente dalla risorsa di archiviazione esterna). Per consentire il funzionamento corretto di questo meccanismo, è necessario aggiungere l'autorizzazione seguente, se mancante, prima del tag `<application>`:
+-   In alcuni modelli di dispositivi non è possibile generare l'identificatore di dispositivo di Engagement a partire da ANDROID\_ID (può avere bug o non essere disponibile). In questo caso, l'SDK genera un identificatore di dispositivo casuale e tenta di salvarlo nella risorsa di archiviazione esterna del dispositivo per consentire ad altre applicazioni Engagement di condividere lo stesso identificatore di dispositivo (viene salvato anche come preferenza condivisa per fare in modo che l'applicazione stessa usi sempre lo stesso identificatore di dispositivo, indipendentemente dalla risorsa di archiviazione esterna). Per consentire il funzionamento corretto di questo meccanismo, è necessario aggiungere l'autorizzazione seguente, se mancante, prima del tag `<application>`:
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -311,4 +311,4 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
 [API del dispositivo]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,8 +3,8 @@
     pageTitle="Dati del profilo utente in Azure RemoteApp"
 	description="Informazioni su come i dati utente vengono archiviati e consultati in Azure RemoteApp"
 	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
+	documentationCenter="" 
+	authors="lizap" 
 	manager="mbaldwin" />
 
 <tags 
@@ -39,11 +39,11 @@ Sì, si salva una copia di backup dei dati utente per ogni posizione geografica.
 
 ## Gli utenti come visualizzano il UPD sul lato server?
 
-Ogni utente dispone di proprie directory nel server associate al proprio UPD: c:\Users\username.
+Ogni utente dispone di proprie directory nel server associate al proprio UPD: c:\\Users\\username.
 
 ## Qual’è il miglior modo di utilizzare Outlook e UPD?
 
-RemoteApp di Azure consente di salvare lo stato di Outlook (cassette postali, file PST) tra le sessioni. A tale scopo, è necessario che PST sia archiviato nei dati di profilo utente (c:\users<nomeutente>). Questo è il percorso predefinito per i dati, quindi fino a quando non si modifica la posizione, i dati verranno mantenuti tra le sessioni.
+RemoteApp di Azure consente di salvare lo stato di Outlook (cassette postali, file PST) tra le sessioni. A tale scopo, è necessario che PST sia archiviato nei dati di profilo utente (c:\\users<nomeutente>). Questo è il percorso predefinito per i dati, quindi fino a quando non si modifica la posizione, i dati verranno mantenuti tra le sessioni.
 
 È inoltre consigliabile utilizzare la modalità "cache" in Outlook e utilizzare la modalità "server/online" per la ricerca.
 
@@ -115,7 +115,7 @@ L'attività pianificata avvierà lo script di avvio, utilizzando le credenziali 
 
 ## Come funziona l'inserimento di uno script di avvio nel menu Start? Funziona?
 
-In altre parole, è possibile creare un file con estensione .bat che esegue uno script di configurazione, salvarlo nella cartella c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp e eseguire quindi lo script ogni volta che un utente avvia una sessione di RemoteApp?
+In altre parole, è possibile creare un file con estensione .bat che esegue uno script di configurazione, salvarlo nella cartella c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp e eseguire quindi lo script ogni volta che un utente avvia una sessione di RemoteApp?
 
 No, tale opzione non è supportata da RemoteApp di Azure, che utilizza host sessione Desktop remoto che inoltre non supporta gli script di avvio nel menu Start.
 
@@ -123,4 +123,4 @@ No, tale opzione non è supportata da RemoteApp di Azure, che utilizza host sess
 
 No, tale opzione non è supportata da Azure RemoteApp.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -90,7 +90,7 @@ public MainPage()
 }
 ```
 
-- Individuare ora il metodo `Search(...)`, che verrà richiamato quando l'utente fa clic sul pulsante "Search" nell'interfaccia utente dell'app. Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato. Per eseguire una query nell'API Graph, è però necessario includere un oggetto access_token nell'intestazione `Authorization` della richiesta, dove entra in gioco ADAL.
+- Individuare ora il metodo `Search(...)`, che verrà richiamato quando l'utente fa clic sul pulsante "Search" nell'interfaccia utente dell'app. Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato. Per eseguire una query nell'API Graph, è però necessario includere un oggetto access\_token nell'intestazione `Authorization` della richiesta, dove entra in gioco ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -111,7 +111,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 - Quando l'app richiede un token chiamando `AcquireTokenAsync(...)`, ADAL tenterà di restituire un token senza chiedere le credenziali all'utente. Se ADAL determina che l'utente deve effettuare l'accesso per ottenere un token, visualizzerà una finestra di dialogo di accesso, raccoglierà le credenziali dell'utente e restituirà un token al termine dell'autenticazione. Se ADAL non può restituire un token per qualsiasi motivo, lo stato di `AuthenticationResult` sarà un errore.
 
-- Ora è possibile usare l'oggetto access_token appena acquisito. Sempre nel metodo `Search(...)` associare il token alla richiesta GET dell'API Graph nell'intestazione dell'autorizzazione:
+- Ora è possibile usare l'oggetto access\_token appena acquisito. Sempre nel metodo `Search(...)` associare il token alla richiesta GET dell'API Graph nell'intestazione dell'autorizzazione:
 
 ```C#
 // Add the access token to the Authorization Header of the call to the Graph API
@@ -147,4 +147,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -73,4 +73,4 @@ Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispo
 
 3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/24/2015" 
 	ms.author="juliako"/>
+
 
 
 #Gestione di asset di Servizi multimediali su più account di archiviazione
@@ -35,7 +37,7 @@ Quando si collegano più account di archiviazione a un account di Servizi multim
 
 Altre considerazioni:
 
-Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione degli URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !\*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione degli URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 ##Per collegare un account di archiviazione con l'API REST di gestione dei servizi di Azure
 
@@ -53,7 +55,7 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 
 	uso di Microsoft.WindowsAzure.MediaServices.Client; uso di System; uso di System.Collections.Generic; uso di System. Configuration; uso di System.IO; uso di LINQ; uso di System. Text; uso di System. Threading; uso di System.Threading.Tasks;
 	
-	spazio dei nomi MultipleStorageAccounts { class Program { // Percorso del file multimediale che si desidera codificare. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
+	spazio dei nomi MultipleStorageAccounts { class Program { // Percorso del file multimediale che si desidera codificare. private static readonly string \_singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -236,4 +238,4 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 	}
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

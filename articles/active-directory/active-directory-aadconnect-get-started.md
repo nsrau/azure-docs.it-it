@@ -79,7 +79,7 @@ La selezione di Impostazioni rapide rappresenta l'opzione predefinita ed è uno 
 8. Nella schermata Connessione a Servizi di dominio di Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. Fare clic su **Next**.
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Nella schermata Pronto per la configurazione fare clic su **Installa**.
-	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "\*\*Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale\*\*". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
+	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "**Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
 	- È anche possibile scegliere di configurare i servizi di sincronizzazione per **Distribuzione ibrida di Exchange** selezionando la casella di controllo corrispondente. Se non si prevede di avere cassette postali di Exchange nel cloud e in locale, non è necessario selezionare questa opzione.
 
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -114,4 +114,4 @@ Dopo avere installato Azure AD Connect, è possibile fare clic [qui](active-dire
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -46,4 +46,4 @@ Questo documento descrive un modello di base per l'uso di Ricerca di Azure con d
 
 [Livello Elaborazione batch](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -55,4 +55,4 @@ Con Cloud App Discovery, l'attività di recupero dei dati viene svolta da agenti
 * [Cloud App Discovery - Log modifiche dell'agente](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 * [Cloud App Discovery - Domande frequenti](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

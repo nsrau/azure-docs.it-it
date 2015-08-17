@@ -46,7 +46,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 
 		C:\mongodb\bin>mongod --logpath F:\MongoLogs\mongolog.log --logappend --dbpath F:\MongoData\ --install
 
-	Verrà creato un servizio denominato "Mongo DB" con la descrizione "Mongo DB". È necessario utilizzare l'opzione **--logpath** per specificare un file di log, poiché il servizio in esecuzione non disporrà di una finestra di comando in cui visualizzare l'output. L'opzione **--logpath** specifica che dopo il riavvio del servizio l'output verrà aggiunto al file di log esistente. L'opzione **--dbpath** specifica il percorso della directory dei dati. Per altre opzioni della riga di comando relative ai servizi, vedere [Opzioni della riga di comando relative ai servizi][MongoWindowsSvcOptions].
+	Verrà creato un servizio denominato "Mongo DB" con la descrizione "Mongo DB". È necessario utilizzare l'opzione **--logpath** per specificare un file di log, poiché il servizio in esecuzione non disporrà di una finestra di comando in cui visualizzare l'output. L'opzione **--logappend** specifica che dopo il riavvio del servizio l'output verrà aggiunto al file di log esistente. L'opzione **--dbpath** specifica il percorso della directory dei dati. Per altre opzioni della riga di comando relative ai servizi, vedere [Opzioni della riga di comando relative ai servizi][MongoWindowsSvcOptions].
 
 	Per avviare il servizio, eseguire questo comando:
 
@@ -82,7 +82,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 
 	![Endpoint][Image7]
 
-13. Fare clic su **Add** nella parte inferiore della pagina. Selezionare**aggiungere un Endpoint della versione autonoma di**e fare clic su**Avanti**.
+13. Fare clic su **Add** nella parte inferiore della pagina. Selezionare **Aggiungi un endpoint autonomo** e fare clic su **Avanti**.
 
 	![Endpoint][Image8]
 
@@ -90,7 +90,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 
 	![Endpoint][Image9]
 
-> [AZURE.NOTE]La porta 27017 è la porta predefinita utilizzata da MongoDB. È possibile modificare questa opzione per la_-porta_sottocomando all'avvio del server mongod.exe. Assicurarsi di assegnare lo stesso numero di porta nel firewall e l'endpoint "Mongo" nelle istruzioni precedenti.
+> [AZURE.NOTE]La porta 27017 è la porta predefinita utilizzata da MongoDB. È possibile modificare questa opzione per il sottocomando _--port_ all'avvio del server mongod.exe. Assicurarsi di assegnare lo stesso numero di porta nel firewall e l'endpoint "Mongo" nelle istruzioni precedenti.
 
 
 [MongoDownloads]: http://www.mongodb.org/downloads
@@ -108,4 +108,4 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

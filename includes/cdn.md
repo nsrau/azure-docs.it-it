@@ -76,7 +76,7 @@ Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o 
 
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache sarà analogo al seguente:
 
-http://<*SpazioDeiNomiCDN*>.vo.msecnd.net/<*ContenitorePubblico*>/<*NomeBLOB*>
+http://<*SpazioDeiNomiCDN*>.vo.msecnd.net/<*ContenitorePubblicoPersonale*>/<*NomeBLOB*>
 
 <a id="Step4"> </a> <h2>Passaggio 4: Rimuovere contenuto dalla rete CDN</h2>
 
@@ -112,4 +112,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

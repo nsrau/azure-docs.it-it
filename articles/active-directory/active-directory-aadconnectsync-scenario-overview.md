@@ -83,4 +83,4 @@ L'immagine seguente descrive questo scenario con un solo account.
 [2]: ./media/active-directory-aadsync-scenario-overview/ic750600.png
 [3]: ./media/active-directory-aadsync-scenario-overview/ic750601.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

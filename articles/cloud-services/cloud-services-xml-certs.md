@@ -70,4 +70,4 @@ Ecco un esempio di certificato definito nella configurazione del servizio.
 ## Passaggi successivi
 Esaminare lo schema [XML di definizione dei servizi](https://msdn.microsoft.com/library/azure/ee758711.aspx) e lo schema [XML di configurazione del servizio](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

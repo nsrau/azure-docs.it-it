@@ -7,6 +7,7 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/28/2015" 
 	ms.author="mwasson"/>
+
 
 
 # Configurare le app Web nel servizio app di Azure #
@@ -36,7 +38,7 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 **Versioni del framework**. Impostare le opzioni seguenti se l'app usa uno dei seguenti framework:
 
 - **.NET Framework**: consente di impostare la versione di .NET Framework. 
-- **PHP**: consente di impostare la versione PHP oppure impostare **DISATTIVATO **per disabilitare la funzionalità PHP.
+- **PHP**: impostare la versione PHP oppure impostare **DISATTIVATO** per disabilitare PHP.
 - **Java**: consente di selezionare la versione di Java oppure **DISATTIVATO** per disabilitare Java. Utilizzare l'opzione **Contenitore Web** per scegliere tra le versioni Tomcat e Jetty.
 - **Python**: consente di selezionare la versione Python oppure impostare **DISATTIVATO** per disabilitare Python.
 
@@ -64,7 +66,7 @@ In questa sezione vengono riportate coppie di nome/valore che verranno caricate 
 
 - Per le app.NET, queste impostazioni verranno inserite nella configurazione .NET `AppSettings` in fase di esecuzione, sostituendo le impostazioni esistenti. 
 
-- Le applicazioni PHP, Python, Java e Node possono accedere a queste impostazioni come variabili di ambiente durante il runtime. Per ciascuna impostazione dell'app vengono create due variabili di ambiente, una con il nome specificato dalla voce dell'impostazione dell'app e l'altra con il prefisso APPSETTING_. Entrambe contengono lo stesso valore.
+- Le applicazioni PHP, Python, Java e Node possono accedere a queste impostazioni come variabili di ambiente durante il runtime. Per ciascuna impostazione dell'app vengono create due variabili di ambiente, una con il nome specificato dalla voce dell'impostazione dell'app e l'altra con il prefisso APPSETTING\_. Entrambe contengono lo stesso valore.
 
 ### Stringhe di connessione
 
@@ -74,10 +76,10 @@ Per le app.NET, tali stringhe vengono inserite nelle impostazioni della configur
 
 Per le applicazioni PHP, Python, Java e Node queste impostazioni saranno disponibili come variabili di ambiente durante il runtime, con il tipo di connessione come prefisso. I prefissi delle variabili di ambiente sono i seguenti:
 
-- SQL Server: SQLCONNSTR_
-- MySQL: MYSQLCONNSTR_
-- SQL Database: SQLAZURECONNSTR_
-- Custom: CUSTOMCONNSTR_
+- SQL Server: SQLCONNSTR\_
+- MySQL: MYSQLCONNSTR\_
+- SQL Database: SQLAZURECONNSTR\_
+- Custom: CUSTOMCONNSTR\_
 
 Ad esempio, se una stringa di connessione MySql venisse denominata `connectionstring1`, l'accesso avverrebbe attraverso la variabile di ambiente`MYSQLCONNSTR_connectionString1`.
 
@@ -91,7 +93,8 @@ Le app Web potrebbero usare moduli che vengono instradati in base all'URL invece
 
 Usare quest'area per aggiungere processori script personalizzati allo scopo di gestire le richieste di estensioni di file specifiche.
 
-- **Estensione**. L'estensione file da gestire, ad esempio *.php o handler.fcgi. - **Percorso processore script**. Il percorso assoluto del processore script. Le richieste di file che corrispondono a questo modello saranno elaborate dal processore script. Utilizzare il percorso `D:\home\site\wwwroot` per fare riferimento alla directory radice della propria app.
+- **Estensione**. L'estensione file da gestire, ad esempio *.php o handler.fcgi.
+- **Percorso processore script**. Il percorso assoluto del processore script. Le richieste di file che corrispondono a questo modello saranno elaborate dal processore script. Utilizzare il percorso `D:\home\site\wwwroot` per fare riferimento alla directory radice della propria app.
 - **Argomenti aggiuntivi**. Argomenti facoltativi della riga dei comando per il processore script 
 
 
@@ -129,7 +132,7 @@ Per visualizzare i file di log, è necessario creare le credenziali FTP, come de
 ![](./media/web-sites-configure/configure03.png)
 
 
-Il nome utente completo FTP è "app\nomeutente", dove *app* è il nome dell'app web. Il nome utente è elencato nel pannello dell'app Web in **Elementi essenziali**.
+Il nome utente completo FTP è "app\\nomeutente", dove *app* è il nome dell'app web. Il nome utente è elencato nel pannello dell'app Web in **Elementi essenziali**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -175,4 +178,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

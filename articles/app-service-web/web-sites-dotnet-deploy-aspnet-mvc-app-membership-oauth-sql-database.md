@@ -539,7 +539,8 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Se si è ancora connessi da una sessione precedente, fare clic sul collegamento **Disconnetti**.
 1. Fare clic sui collegamenti **About** o **Contact**. Si verrà reindirizzati alla pagina di accesso, poiché gli utenti anonimi non sono autorizzati a visualizzare tali pagine. 
-1. Fare clic sul collegamento **Esegui la registrazione come nuovo utente** e aggiungere un utente locale con l'indirizzo di posta elettronica *joe@contoso.com*. Assicurarsi che *Joe* sia in grado di visualizzare le pagine Home, About e Contact.
+1. Fare clic sul collegamento **Esegui la registrazione come nuovo utente** e aggiungere un utente locale con l'indirizzo di posta elettronica **joe@contoso.com*. Assicurarsi che *Joe* sia in grado di visualizzare le pagine Home, About e Contact.
+
 	![Accesso](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. Fare clic sul collegamento *CM Demo* e verificare che i dati siano visibili.
@@ -557,7 +558,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 	Viene visualizzata la procedura guidata **Pubblica sito Web**.
 
-1. Fare clic sulla scheda **Impostazioni** nella parte sinistra della finestra di dialogo **Pubblica sito Web** dialog box. Fare clic sull'icona **v** per selezionare la **stringa di connessione remota** per **ApplicationDbContext**, quindi selezionare **ContactManagerNN_db**.
+1. Fare clic sulla scheda **Impostazioni** nella parte sinistra della finestra di dialogo **Pubblica sito Web** dialog box. Fare clic sull'icona **v** per selezionare la **stringa di connessione remota** per **ApplicationDbContext**, quindi selezionare **ContactManagerNN\_db**.
 
    
 	![Scheda Impostazioni](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
@@ -634,7 +635,7 @@ Se nelle informazioni sull'account Google non sono stati compilati i campi relat
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Prendere nota dell'ID dell'account Google usato per la registrazione nel ruolo **canEdit**t e dell'ID *user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
+1. Prendere nota dell'ID dell'account Google usato per la registrazione nel ruolo **canEdit** e dell'ID **user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -726,4 +727,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

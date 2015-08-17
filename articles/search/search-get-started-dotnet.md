@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione alla prima applicazione Ricerca di Azure in .NET | Microsoft Azure"
-	description="Esercitazione sulla compilazione di una soluzione Visual Studio utilizzando la libreria client .NET da .NET SDK di Ricerca di Azure."
+	description="Esercitazione sulla compilazione di una soluzione Visual Studio usando la libreria client .NET da .NET SDK di Ricerca di Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -18,7 +18,7 @@
 
 #Introduzione alla prima applicazione Ricerca di Azure in .NET#
 
-Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che utilizza Ricerca di Azure per l’esperienza di ricerca. Nell'esercitazione viene utilizzato [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) per compilare le classi per gli oggetti e le operazioni utilizzate nell'esempio, nonché l’API REST del servizio Ricerca di Azure.
+Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che usa Ricerca di Azure per l'esperienza di ricerca. Nell'esercitazione viene usato [.NET SDK di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) per compilare le classi per gli oggetti e le operazioni usate nell'esempio, nonché l'API REST del servizio Ricerca di Azure.
 
 Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com).
 
@@ -26,11 +26,11 @@ Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Az
 
 ##Informazioni sui dati##
 
-L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un’applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
+L'applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno usati per compilare un'applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
 
-In questa applicazione, il programma **DataIndexer** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali e connessioni all’origine dati online. Non è necessaria ulteriore configurazione.
+In questa applicazione, il programma **DataIndexer** compila e carica l'indice usando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali e connessioni all'origine dati online. Non è necessaria ulteriore configurazione.
 
-> [AZURE.NOTE]A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si utilizza il livello standard, questo limite non si applica. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE]A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si usa il livello standard, questo limite non si applica. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ##Creare il servizio##
 
@@ -53,20 +53,20 @@ In questa applicazione, il programma **DataIndexer** compila e carica l'indice u
 
 	- I **gruppi di risorse** sono contenitori per i servizi e le risorse usati per uno scopo comune. Ad esempio, se si intende creare un'applicazione di ricerca personalizzata basata su Ricerca di Azure, Siti Web di Azure, il servizio di archiviazione BLOB di Azure, è possibile creare un gruppo di risorse per raggruppare questi servizi nelle pagine di gestione del portale.
 
-	- L’opzione **Sottoscrizione** consente di scegliere tra più sottoscrizioni, se si dispone di più di una sottoscrizione.
+	- L'opzione **Sottoscrizione** consente di scegliere tra più sottoscrizioni, se si dispone di più di una sottoscrizione.
 
 	- La **posizione** è l'area geografica del data center. Attualmente, tutte le risorse devono essere eseguite nello stesso data center. La distribuzione di risorse tra più data center non è supportata.
 
 4. Fare clic su **Crea** per eseguire il provisioning del servizio.
 
-Controllare le notifiche nell'indice. Quando il servizio è pronto per l'utilizzo, viene visualizzato un avviso.
+Controllare le notifiche nell'indice. Quando il servizio è pronto per l'uso, viene visualizzato un avviso.
 
 <a id="sub-2"></a>
 ##Individuare il nome del servizio e le chiavi API del servizio Ricerca di Azure
 
 Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL o `api-key`. Per le connessioni al servizio di ricerca è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
 
-1. Nell’indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio.
+1. Nell'indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio.
 
 2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
@@ -78,8 +78,8 @@ Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL
 
 Questa soluzione includerà due progetti:
 
-- **DataIndexer**, un’applicazione di console Visual C#, utilizzata per caricare i dati
-- **SimpleSearchMVCApp**, un'applicazione Web MVC ASP.NET Visual C#, utilizzata per eseguire query e restituire i risultati della ricerca.
+- **DataIndexer**, un'applicazione di console Visual C#, usata per caricare i dati.
+- **SimpleSearchMVCApp**, un'applicazione Web MVC ASP.NET Visual C#, usata per eseguire query e restituire i risultati della ricerca.
 
 In questo passaggio saranno creati entrambi i progetti.
 
@@ -87,7 +87,7 @@ In questo passaggio saranno creati entrambi i progetti.
 2. Denominare il progetto **DataIndexer** e la soluzione **AzureSearchDotNetDemo**.
 3. In Esplora soluzioni, nella soluzione, fare clic con il pulsante destro del mouse su **Aggiungi** | **Nuovo progetto** | **Visual C#** | **Applicazione Web ASP.NET**.
 4. Denominare il progetto **SimpleSearchMVCApp**.
-5. Nel nuovo progetto ASP.NET, scegliere il modello MVC e deselezionare le opzioni per evitare di creare elementi di programma che non si desidera utilizzare in questa esercitazione.
+5. Nel nuovo progetto ASP.NET, scegliere il modello MVC e deselezionare le opzioni per evitare di creare elementi di programma che non si desidera usare in questa esercitazione.
 
    Deselezionare le caselle di controllo per Hosting di Azure e Unit test e non impostare alcuna autenticazione.
 
@@ -106,19 +106,19 @@ Al termine della creazione dei progetti, la soluzione dovrebbe apparire simile a
 
 3. Accettare le installazioni di ulteriori pacchetti in modo che vengano installate anche tutte le dipendenze.
 
-4. Successivamente, installare la libreria client .NET di Ricerca di Azure. Assicurarsi di specificare correttamente la ricerca o non sarà possibile trovare facilmente il pacchetto. Fare di nuovo clic con il pulsante destro del mouse sull’opzione **Gestisci pacchetti NuGet**.
+4. Successivamente, installare la libreria client .NET di Ricerca di Azure. Assicurarsi di specificare correttamente la ricerca o non sarà possibile trovare facilmente il pacchetto. Fare di nuovo clic con il pulsante destro del mouse sull'opzione **Gestisci pacchetti NuGet**.
 
 5. Specificare **Online** | **nuget.org** | **Includi versione provvisoria**, quindi cercare *azure.search* e installare la libreria.
 
    ![][12]
 
-Di seguito viene fornito un elenco parziale degli assembly utilizzati in questo esempio.
+Di seguito viene fornito un elenco parziale degli assembly usati in questo esempio.
 
    ![][5]
 
 ##Aggiungere un riferimento all'assembly per System.Configuration.
 
-**DataIndexer** utilizza **Sistem.Configuration** per leggere le impostazioni di configurazione in app.config.
+**DataIndexer** usa **Sistem.Configuration** per leggere le impostazioni di configurazione in app.config.
 
 1. Fare clic con il pulsante destro del mouse su **DataIndexer** | **Aggiungi** | **Riferimento** | **Framework** | **System.Configuration**. Selezionare la casella di controllo.
 2. Fare clic su **OK**.
@@ -127,9 +127,9 @@ Di seguito viene fornito un elenco parziale degli assembly utilizzati in questo 
 
 Ogni progetto include file di configurazione che specificano il nome del servizio e la chiave api.
 
-1. In **DataIndexer**, sostituire App.config con il seguente esempio, aggiornando ancora una volta [SERVICE NAME] e[SERVICE KEY] con i valori validi per il servizio.
+1. In **DataIndexer**, sostituire App.config con il seguente esempio, aggiornando ancora una volta [SERVICE NAME] e [SERVICE KEY] con i valori validi per il servizio.
 
-   Il nome del servizio non è l'URL completo. Ad esempio, se l'endpoint del servizio di ricerca è *https://mysearchsrv.search.microsoft.net*, il nome del servizio da immettere in App.config è *mysearchsrv*.
+   Il nome del servizio non è l'URL completo. Ad esempio, se l'endpoint del servizio di ricerca è **https://mysearchsrv.search.microsoft.net*, il nome del servizio da immettere in App.config è *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -142,7 +142,7 @@ Ogni progetto include file di configurazione che specificano il nome del servizi
 	      </appSettings>
 	    </configuration>
 
-2. In **SimpleSearchMVCApp**, sostituire Web.config con il seguente esempio, aggiornando ancora una volta [SERVICE NAME] e [SERVICE KEY] con i valori validi per il servizio
+2. In **SimpleSearchMVCApp** sostituire Web.config con il seguente esempio, aggiornando ancora una volta [SERVICE NAME] e [SERVICE KEY] con i valori validi per il servizio.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
@@ -270,17 +270,17 @@ Ogni progetto include file di configurazione che specificano il nome del servizi
 
 Questo programma è un'applicazione console che si connette al servizio di ricerca, come specificato nel file app.config, crea l'indice e lo carica con il set di dati dei servizi geologici degli Stati Uniti in un database SQL di Azure.
 
-Attualmente, la versione provvisoria della libreria client non supporta gli indicizzatori, quindi per questa parte dell'esercitazione verrà utilizzata l'API REST per creare e utilizzare un indicizzatore.
+Attualmente, la versione provvisoria della libreria client non supporta gli indicizzatori, quindi per questa parte dell'esercitazione verrà usata l'API REST per creare e usare un indicizzatore.
 
 Prima di poter eseguire questo programma, eseguire due modifiche:
 
-- Aggiungere **AzureSearchhelper.cs**, utilizzato quando si chiama l'API REST per gestire le connessioni e serializzare e deserializzare richieste e risposte JSON.
+- Aggiungere **AzureSearchhelper.cs**, usato quando si chiama l'API REST per gestire le connessioni e serializzare e deserializzare richieste e risposte JSON.
 
-- Sostituire **Program.cs**, utilizzato per creare l'indice, l’indicizzatore, caricare i dati e scrivere i messaggi.
+- Sostituire **Program.cs**, usato per creare l'indice e l'indicizzatore, caricare i dati e scrivere i messaggi.
 
 ###Creare AzureSearchHelper.cs
 
-Il codice che chiama l'API REST deve includere una classe che gestisce le connessioni e la serializzazione e deserializzazione di richieste e risposte JSON. Negli esempi forniti con Ricerca di Azure, questa classe viene in genere chiamata **AzureSearchHelper.cs**. È possibile creare questa classe e aggiungerla a **DataIndexer**, utilizzando il codice seguente.
+Il codice che chiama l'API REST deve includere una classe che gestisce le connessioni e la serializzazione e deserializzazione di richieste e risposte JSON. Negli esempi forniti con Ricerca di Azure, questa classe viene in genere chiamata **AzureSearchHelper.cs**. È possibile creare questa classe e aggiungerla a **DataIndexer**, usando il codice seguente.
 
 1. In Esplora soluzioni, fare clic con il pulsante destro del mouse su **DataIndexer** | **Aggiungi** | **Nuovo elemento** | **Codice** | **Classe**.
 2. Denominare la classe **AzureSearchHelper**.
@@ -555,17 +555,17 @@ Si noterà una finestra della console con questi messaggi.
 
 ![][6]
 
-Nel portale, verrà visualizzato un nuovo indice di **nomi di aree geografiche**. L’aggiornamento del portale può richiedere diversi minuti, pertanto si consiglia di attendere un po' prima di fare clic sui risultati.
+Nel portale, verrà visualizzato un nuovo indice di **nomi di aree geografiche**. L'aggiornamento del portale può richiedere diversi minuti, pertanto si consiglia di attendere un po' prima di fare clic sui risultati.
 
 ![][7]
 
 ##Modificare SimpleSearchMVCApp
 
-**SimpleSearchMVC** è l’app Web che viene eseguita localmente in IIS Express. Fornisce una casella di ricerca e visualizza i risultati della ricerca in una tabella.
+**SimpleSearchMVC** è l'app Web che viene eseguita localmente in IIS Express. Fornisce una casella di ricerca e visualizza i risultati della ricerca in una tabella.
 
 Prima di poter eseguire questo programma, eseguire tre modifiche:
 
-- Sostituire **HomeController.cs**, utilizzato per accettare l'input dell'utente. In questo esempio, il termine di ricerca viene archiviato in una variabile denominata *q*.
+- Sostituire **HomeController.cs**, usato per accettare l'input dell'utente. In questo esempio, il termine di ricerca viene archiviato in una variabile denominata *q*.
 
 - Sostituire **index.cshtml**, una pagina Web che fornisce gli input dei termini di ricerca e visualizza i risultati della ricerca.
 
@@ -774,9 +774,9 @@ Immettendo un termine di ricerca si fornisce al motore di ricerca i criteri per 
 
 ##Passaggi successivi##
 
-Questa è la prima esercitazione di Ricerca di Azure basata su .NET e sul set di dati dei servizi geologici degli Stati Uniti. Nel corso del tempo, l’esercitazione sarà ampliata per illustrare le funzionalità di ricerca aggiuntive che potrebbero essere utili nelle soluzioni personalizzate.
+Questa è la prima esercitazione di Ricerca di Azure basata su .NET e sul set di dati dei servizi geologici degli Stati Uniti. Nel corso del tempo, l'esercitazione sarà ampliata per illustrare le funzionalità di ricerca aggiuntive che potrebbero essere utili nelle soluzioni personalizzate.
 
-Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base di prova per i suggerimenti di alternative (query di suggerimento per la digitazione e completamento automatico), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
+Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile usare questo esempio come base di prova per i suggerimenti di alternative (query di suggerimento per la digitazione e completamento automatico), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
 Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](https://msdn.microsoft.com/library/azure/dn798933.aspx) per accedere a ulteriori informazioni.
 
@@ -798,4 +798,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

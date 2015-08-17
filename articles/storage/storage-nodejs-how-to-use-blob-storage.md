@@ -54,7 +54,7 @@ Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK pe
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules**. All'interno di tale cartella individuare il pacchetto **azure-storage**, che contiene le librerie necessarie per accedere all'archiviazione.
+3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. All'interno di tale cartella individuare il pacchetto **azure-storage**, che contiene le librerie necessarie per accedere all'archiviazione.
 
 ### Importare il pacchetto
 
@@ -376,4 +376,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [riferimento per le API di Azure Storage SDK per Node.js]: http://dl.windowsazure.com/nodestoragedocs/index.html
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

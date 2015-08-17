@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori | Azure" 
+    pageTitle="Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori | Microsoft Azure" 
     description="Questo articolo illustra come usare l'indicizzatore di Ricerca di Azure con DocumentDB come origine dati."
     services="documentdb" 
     documentationCenter="" 
@@ -52,11 +52,11 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 
 - **Credenziali**
 
-    - **connectionString**: richiesto. Specificare le informazioni di connessione al database di Azure DocumentDB nel formato seguente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString**: obbligatorio. Specificare le informazioni di connessione al database di Azure DocumentDB nel formato seguente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 
 - **contenitore**:
 
-    - **name**: richiesto. Specificare la raccolta di DocumentDB da indicizzare. 
+    - **name**: obbligatorio. Specificare la raccolta di DocumentDB da indicizzare. 
 
     - **query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.
 
@@ -132,50 +132,16 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 
 ###Figura A: mapping tra tipi di dati JSON e tipi di dati di Ricerca di Azure
 
-<table style="font-size:12">
-    <tr>
-        <th>Tipo di dati JSON</th>
-        <th>Tipi di campi dell'indice di destinazione compatibili</th>
-    </tr>
-    <tr>
-        <td>Booleano</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Numeri che rappresentano numeri interi</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Numeri che rappresentano numeri a virgola mobile</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Stringa</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Matrici di tipi primitivi<br/>
-            ad esempio, ["a", "b", "c"]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>Stringhe che rappresentano date</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Oggetti GeoJSON<br/>
-            ad esempio, {"type": "Punto", "coordinate": [lunghi, lat]}
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>Altri oggetti JSON</td>
-        <td>N/D</td>
-    </tr>
-</table>
+| TIPO DI DATI JSON|	TIPI DI CAMPI DELL'INDICE DI DESTINAZIONE COMPATIBILI|
+|---|---|
+|Booleano|Edm.Boolean, Edm.String|
+|Numeri che rappresentano numeri interi|Edm.Int32, Edm.Int64, Edm.String|
+|Numeri che rappresentano numeri a virgola mobile|Edm.Double, Edm.String|
+|Stringa|Edm.String|
+|Matrici di tipi primitivi, ad esempio "a", "b", "c" |Collection(Edm.String)|
+|Stringhe che rappresentano date| Edm.DateTimeOffset, Edm.String|
+|Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|Altri oggetti JSON|N/D|
 
 ###<a id="CreateIndexExample"></a>Esempio di corpo della richiesta
 
@@ -212,21 +178,21 @@ Se l'indice è stato creato correttamente, si riceve una risposta HTTP 201 - Cre
 
 Il corpo della richiesta contiene la definizione dell'indicizzatore, che deve includere i campi seguenti:
 
-- **name**: richiesto. Nome dell'indicizzatore.
+- **name**: obbligatorio. Nome dell'indicizzatore.
 
-- **dataSourceName**: richiesto. Nome di un'origine dati esistente.
+- **dataSourceName**: obbligatorio. Nome di un'origine dati esistente.
 
-- **targetIndexName**: richiesto. Nome di un indice esistente.
+- **targetIndexName**: obbligatorio. Nome di un indice esistente.
 
-- **pianificazione**: facoltativa. Vedere la sezione relativa alla [pianificazione dell'indicizzazione](#IndexingSchedule) di seguito.
+- **schedule**: facoltativo. Vedere la sezione relativa alla [pianificazione dell'indicizzazione](#IndexingSchedule) di seguito.
 
 ###<a id="IndexingSchedule"></a>Esecuzione di indicizzatori in base a una pianificazione
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- **intervallo**: richiesto. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore. 
+- **interval**: obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore. 
 
-- **startTime**: richiesto. Valore datetime UTC che specifica quando deve iniziare l'esecuzione dell'indicizzatore.
+- **startTime**: obbligatorio. Valore datetime UTC che specifica quando deve iniziare l'esecuzione dell'indicizzatore.
 
 ###<a id="CreateIndexerExample"></a>Esempio di corpo della richiesta
 
@@ -304,4 +270,4 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
  - Per altre informazioni su Ricerca di Azure, fare clic [qui](/services/search/).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

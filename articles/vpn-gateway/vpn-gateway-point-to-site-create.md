@@ -158,4 +158,4 @@ Se si vuole configurare una connessione VPN da sito a sito, vedere[Configurare u
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

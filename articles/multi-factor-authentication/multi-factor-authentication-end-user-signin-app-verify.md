@@ -39,4 +39,4 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

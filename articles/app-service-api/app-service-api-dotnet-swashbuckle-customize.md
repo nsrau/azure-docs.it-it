@@ -30,7 +30,7 @@ Questo articolo illustra come personalizzare Swashbuckle per gestire scenari com
 
 Swashbuckle genera identificatori di operazione Swagger concatenando il nome del controller e il nome del metodo. Questo modello provoca problemi quando sono presenti più overload di un metodo: Swashbuckle genera ID operazione duplicati, ovvero JSON Swagger non valido.
 
-Ad esempio, il codice seguente del controller provoca la generazione di tre ID operazione Contact_Get da parte di Swashbuckle.
+Ad esempio, il codice seguente del controller provoca la generazione di tre ID operazione Contact\_Get da parte di Swashbuckle.
 
 ![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsincode.png)
 
@@ -74,7 +74,7 @@ I passaggi seguenti illustrano come personalizzare Swashbuckle usando il file *S
 		    }
 		}
 
-2. Nel file *App_Start\SwaggerConfig.cs* chiamare il metodo `OperationFilter` in modo che Swashbuckle usi la nuova implementazione di `IOperationFilter`.
+2. Nel file *App\_Start\\SwaggerConfig.cs* chiamare il metodo `OperationFilter` in modo che Swashbuckle usi la nuova implementazione di `IOperationFilter`.
 
 		c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
@@ -250,4 +250,4 @@ Il codice per questa dimostrazione è disponibile in [questo archivio GitHub](ht
 Questo articolo ha illustrato come personalizzare il modo in cui Swashbuckle genera gli ID operazione e i codici di risposta validi. Per altre informazioni, vedere [Swashbuckle su GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

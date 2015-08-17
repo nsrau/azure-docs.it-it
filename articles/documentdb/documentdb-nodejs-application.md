@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare un'applicazione Node.js con DocumentDB | Azure" 
+	pageTitle="Compilare un'applicazione Node.js con DocumentDB | Microsoft Azure" 
 	description="Informazioni su come usare Microsoft Azure DocumentDB per archiviare e accedere ai dati da un'applicazione Web Node.js Express ospitata in Siti Web di Azure." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
@@ -559,4 +559,4 @@ Il codice sorgente per l'applicazione di riferimento completa è disponibile per
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

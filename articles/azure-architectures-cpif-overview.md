@@ -59,4 +59,4 @@ Per supportare lo sviluppo di architetture della soluzione in Azure, viene forni
 
 [Ricerca di Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

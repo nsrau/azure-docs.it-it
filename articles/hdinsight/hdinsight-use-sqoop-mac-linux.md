@@ -7,6 +7,7 @@
 	documentationCenter=""
 	authors="Blackmist"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/15/2015"
 	ms.author="larryfr"/>
+
 
 #Usare Sqoop con Hadoop in HDInsight (SSH)
 
@@ -49,7 +51,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Informazioni sullo scenario
 
-I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di Hive denominata **hivesampletable** che fa riferimento al file di dati presente in **wasb:///hive/warehouse/hivesampletable**. La tabella contiene alcuni dati relativi al dispositivo mobile. Lo schema della tabella Hive è il seguente:
+I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di Hive denominata **hivesampletable** che fa riferimento al file di dati presente in ****wasb:///hive/warehouse/hivesampletable**. La tabella contiene alcuni dati relativi al dispositivo mobile. Lo schema della tabella Hive è il seguente:
 
 | Campo | Tipo di dati |
 | ----- | --------- |
@@ -65,7 +67,7 @@ I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di H
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel database SQL di Azure o in SQL Server in una tabella denominata **mobiledata**, quindi occorrerà importare nuovamente la tabella in HDInsight nel percorso **wasb:///tutorials/usesqoop/importeddata**.
+Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel database SQL di Azure o in SQL Server in una tabella denominata **mobiledata**, quindi occorrerà importare nuovamente la tabella in HDInsight nel percorso ****wasb:///tutorials/usesqoop/importeddata**.
 
 ##Creare un database
 
@@ -170,7 +172,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    I questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da **wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
+    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da ****wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
 
 5. Al termine dell'esecuzione del comando, utilizzare le informazioni seguenti per connettersi al database tramite TSQL:
 
@@ -185,7 +187,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 ##Importazione con Sqoop
 
-1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight:
+1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory ****wasb:///tutorials/usesqoop/importeddata** in HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -238,14 +240,11 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazioni, vedere:
 
-- [Usare Oozie con HDInsight][hdinsight-use-oozie]: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
-- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
-- [Caricare i dati in HDInsight][hdinsight-upload-data]: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
+- [Usare Oozie con HDInsight][hdinsight-use-oozie]\: usare un'azione di Sqoop nel flusso di lavoro di Oozie.
+- [Analizzare i dati sui ritardi dei voli usando HDInsight][hdinsight-analyze-flight-data]\: usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
+- [Caricare i dati in HDInsight][hdinsight-upload-data]\: per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
 
 
-
-
-[azure-management-portal]: https://manage.windowsazure.com/
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -265,4 +264,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazio
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

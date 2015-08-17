@@ -85,4 +85,4 @@ A questo punto dovrebbero essere elencati due certificati, uno dei quali ha una 
 
 >[AZURE.NOTE]Se è necessario supportare più domini di primo livello, ad esempio contoso.com e fabrikam.com, è necessario utilizzare l'opzione SupportMultipleDomain con tutti i cmdlet. Per ulteriori informazioni, vedere Supporto per più domini di primo livello. Infine, verificare che tutti i server proxy applicazione Web vengano aggiornati con l'aggiornamento cumulativo [Windows Server maggio 2014](http://support.microsoft.com/kb/2955164), in caso contrario i proxy potrebbero non essere aggiornati con il nuovo certificato, con una conseguente interruzione.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -49,4 +49,4 @@ La sezione autenticazione di Windows consente all'amministratore di abilitare e 
 10. Selezionare Subnet se si desidera specificare un intervallo di indirizzi IP utilizzando la notazione di subnet. Immettere l’IP iniziale della subnet e scegliere la mask appropriata dall'elenco a discesa. 
 11. Fare clic sul pulsante OK.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

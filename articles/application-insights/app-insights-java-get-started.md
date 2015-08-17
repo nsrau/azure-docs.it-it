@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/30/2015" 
 	ms.author="awills"/>
  
@@ -35,7 +35,7 @@ Sono necessari gli elementi seguenti:
 *Se si dispone di un'applicazione web che è già attiva, è possibile seguire la procedura alternativa per[aggiungere SDK in fase di esecuzione nel server web](app-insights-java-live.md). Tale alternativa evita di ricompilare il codice, ma non si ottiene l'opzione per scrivere codice per tenere traccia delle attività dell'utente.*
 
 
-## 1. Ottenere una chiave di strumentazione di Application Insights
+## 1\. Ottenere una chiave di strumentazione di Application Insights
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
 2. Creare una nuova risorsa di Application Insights
@@ -48,7 +48,7 @@ Sono necessari gli elementi seguenti:
 
     ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-get-started/03-key.png)
 
-## 2. Aggiungere SDK per Java di Application Insights al progetto
+## 2\. Aggiungere SDK per Java di Application Insights al progetto
 
 *Scegliere il modo più appropriato per il progetto.*
 
@@ -123,7 +123,7 @@ Aggiungere manualmente SDK:
 
 
 
-## 3. Aggiungere un file XML di Application Insights
+## 3\. Aggiungere un file XML di Application Insights
 
 Aggiungere ApplicationInsights.xml alla cartella resources del progetto oppure verificare che sia stato aggiunto al percorso della classe di distribuzione del progetto. Copiarvi il seguente file XML.
 
@@ -164,7 +164,7 @@ Sostituire la chiave di strumentazione recuperata dal portale di Azure.
 * Il componente delle richieste HTTP è facoltativo. Invia automaticamente i dati di telemetria sulle richieste e tempi di risposta al portale.
 * La correlazione di eventi è un'aggiunta al componente delle richieste HTTP. Assegna un identificatore a ogni richiesta ricevuta dal server e lo aggiunge come proprietà per ogni elemento di dati di telemetria come la proprietà 'Operation.Id'. Consente di correlare i dati di telemetria associati a ogni richiesta impostando un filtro in [Ricerca diagnostica][diagnostic].
 
-## 4. Aggiungere un filtro HTTP
+## 4\. Aggiungere un filtro HTTP
 
 L'ultimo passaggio di configurazione consente al componente delle richieste HTTP di registrare ogni richiesta Web. Non necessario se si desidera l'API.
 
@@ -207,7 +207,7 @@ Aggiungere questa voce al file di configurazione Struts (in genere denominato st
 
 Se si dispone di intercettori definiti in uno stack predefinito, l'intercettore può semplicemente essere aggiunto a tale stack.
 
-## 5. Eseguire l'installazione nel server
+## 5\. Eseguire l'installazione nel server
 
 Nei server Windows installare:
 
@@ -215,11 +215,11 @@ Nei server Windows installare:
 
 (Ciò abilita i contatori delle prestazioni).
 
-## 6. Eseguire l'applicazione
+## 6\. Eseguire l'applicazione
 
 Eseguire l'applicazione in modalità debug nel computer di distribuzione oppure pubblicarla nel server.
 
-## 7. Visualizzare i dati di telemetria in Application Insights
+## 7\. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
@@ -373,4 +373,4 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -111,9 +111,9 @@ Per creare un nuovo utente sudo con accesso tramite chiave SSH, usare lo script 
 
 ### <a name="sshconfigresetcli"></a>Reimpostare la configurazione SSH
 
-Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche l'accesso alla macchina virtuale. È possibile usare l'estensione VMAccess per reimpostare la configurazione allo stato predefinito. A tale scopo, è sufficiente impostare la chiave "reset_ssh" su "True". L'estensione riavvia il server SSH, apre la porta SSH nella VM e ripristina la configurazione SSH predefinita. L'account utente (nome, password o chiavi SSH) non verrà modificato.
+Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche l'accesso alla macchina virtuale. È possibile usare l'estensione VMAccess per reimpostare la configurazione allo stato predefinito. A tale scopo, è sufficiente impostare la chiave "reset\_ssh" su "True". L'estensione riavvia il server SSH, apre la porta SSH nella VM e ripristina la configurazione SSH predefinita. L'account utente (nome, password o chiavi SSH) non verrà modificato.
 
-> [AZURE.NOTE]Il file di configurazione SSH che viene reimpostato si trova in /etc/ssh/sshd_config.
+> [AZURE.NOTE]Il file di configurazione SSH che viene reimpostato si trova in /etc/ssh/sshd\_config.
 
 Passaggio 1: creare un file denominato PrivateConf.json con questo contenuto.
 
@@ -228,7 +228,7 @@ Eseguire i comandi seguenti.
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE]Il file di configurazione SSH si trova in /etc/ssh/sshd_config.
+> [AZURE.NOTE]Il file di configurazione SSH si trova in /etc/ssh/sshd\_config.
 
 ### <a name="delete"></a> Eliminare un utente
 
@@ -263,4 +263,4 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

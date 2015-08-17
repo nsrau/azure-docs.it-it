@@ -52,8 +52,8 @@ L'elemento chiave del diagramma dell'architettura è costituito dal bus di servi
 ###Prerequisiti
 È necessario completare le seguenti esercitazioni per acquisire familiarità con i concetti e con i comuni passaggi di creazione e configurazione:
 
-1. [Come usare argomenti/sottoscrizioni del bus di servizio]: illustrati i dettagli relativi all'uso di argomenti/sottoscrizioni del bus di servizio, come creare uno spazio dei nomi che contiene argomenti/sottoscrizioni e come inviare e ricevere messaggi da questi ultimi. 
-2. [Introduzione ad Hub di notifica]: illustra come configurare un'app di Windows Store e usare Hub di notifica per registrare e quindi ricevere le notifiche. 
+1. [Come usare argomenti/sottoscrizioni del bus di servizio]\: illustrati i dettagli relativi all'uso di argomenti/sottoscrizioni del bus di servizio, come creare uno spazio dei nomi che contiene argomenti/sottoscrizioni e come inviare e ricevere messaggi da questi ultimi. 
+2. [Introduzione ad Hub di notifica]\: illustra come configurare un'app di Windows Store e usare Hub di notifica per registrare e quindi ricevere le notifiche. 
 
 ###Codice di esempio
 
@@ -273,4 +273,4 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

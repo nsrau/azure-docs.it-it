@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
+	ms.date="08/02/2015" 
 	ms.author="microsofthelp@twilio.com"/>
 
 
@@ -23,7 +23,7 @@
 
 In questa guida viene illustrato come usare Twilio per effettuare una chiamata da una pagina Web ospitata in Azure. L'applicazione risultante chiede all'utente di inserire i valori relativi alla chiamata telefonica, come illustrato nella schermata seguente.
 
-![Azure call form using Twilio and ASP.NET][twilio\_dotnet\_basic\_f
+![Modulo di chiamata di Azure con Twilio e ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Prerequisiti
 
@@ -192,4 +192,4 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo d
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

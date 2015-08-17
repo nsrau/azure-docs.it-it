@@ -48,19 +48,9 @@ L'azione Validate XML convalida un input XML specificato in base agli schemi pre
 
 ![XML Validate di BizTalk XML Validator][5]
 
-<table>
-	<tr>
-		<th>Parametro</th>
-		<th>Tipo</th>
-		<th>Descrizione del parametro</th>
-	</tr>
-	<tr>
-		<td>XML di input</td>
-		<td>stringa</td>
-		<td>XML di input da convalidare.</td>
-	</tr>
-</table>
-
+Parametro|Tipo|Descrizione del parametro
+---|---|---
+XML di input|stringa|XML di input da convalidare.
 
 L'azione restituisce l'output sotto forma di oggetto. L'output contiene il modello che rappresenta la risposta di BizTalk XML Validator, costituita da risultato, nome dello schema, nodo radice e descrizione dell'errore.
 
@@ -75,4 +65,4 @@ L'azione restituisce l'output sotto forma di oggetto. L'output contiene il model
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

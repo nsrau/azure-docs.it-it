@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Conservazione dei dati di Automazione di Azure
@@ -36,4 +36,4 @@ I criteri di conservazione sono applicabili a tutti gli utenti e non è attualme
 ## Articoli correlati
 - [Backup di Automazione di Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

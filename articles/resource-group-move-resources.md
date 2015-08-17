@@ -96,4 +96,4 @@ Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -271,4 +271,4 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

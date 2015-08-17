@@ -53,7 +53,7 @@ Una delle attività di base svolte da una piattaforma cloud è l'esecuzione di a
 
 ### Macchine virtuali di Azure
 
-![Macchine virtuali di Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: Macchine virtuali offre il controllo completo sulle istanze della macchina virtuale nel cloud.*
+![Macchine virtuali di Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: Macchine virtuali offre il controllo completo sulle istanze della macchina virtuale nel cloud.*
 
 La possibilità di creare una macchina virtuale su richiesta, sia da un'immagine standard che da una fornita dall'utente, può risultare estremamente utile. Questo approccio, comunemente noto come IaaS (Infrastructure as a Service), è quanto fornito da Macchine virtuali di Azure. La figura 2 mostra una combinazione di esecuzione della macchina virtuale (VM) e di creazione di una macchina virtuale da un VHD.
 
@@ -75,7 +75,7 @@ Si tratta di un approccio generale al cloud computing che consente risolvere esi
 
 ### App Web
 
-![Applicazioni Web di Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: App Web di Azure esegue un'applicazione di Sito Web nel cloud senza dover gestire il server Web sottostante.*
+![Applicazioni Web di Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: App Web di Azure esegue un'applicazione di Sito Web nel cloud senza dover gestire il server Web sottostante.*
 
 In genere, il cloud viene usato per eseguire siti Web e applicazioni Web. Macchine virtuali di Azure fornisce questo tipo di servizio, ma lascia all'utente la responsabilità di amministrare uno o più sistemi operativi sottostanti. I ruoli Web dei servizi cloud possono effettuare questa operazione, ma implementarli e distribuirli richiede un'attività amministrativa. Se invece si preferisce evitare di occuparsi delle attività di amministrazione del sito Web,
 
@@ -179,9 +179,9 @@ Potrebbe essere necessario spostare un'elevata quantità di dati in Azure. Quest
 
 
 ### Servizio file
-![Servizio file di Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figura: Servizi file di Azure fornisce percorsi SMB \\server\share per le applicazioni in esecuzione nel cloud.*
+![Servizio file di Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figura: Servizi file di Azure fornisce percorsi SMB \\\\server\\share per le applicazioni in esecuzione nel cloud.*
 
-In locale è frequente la disponibilità di un'elevata quantità di archiviazione di file accessibile tramite il protocollo Server Message Block (SMB) usando un formato \\Server\share. Azure ora offre un servizio che consente di usare questo protocollo nel cloud. Le applicazioni eseguite in Azure possono usarlo per condividere file tra macchine virtuali tramite API del file system note, quali ReadFile e WriteFile. Inoltre, è possibile accedere contemporaneamente ai file tramite un'interfaccia REST, che consente di accedere alle condivisioni in locale quando si imposta anche una rete virtuale. File di Azure si basa sul servizio BLOB, pertanto eredita le stesse caratteristiche di disponibilità, durata, scalabilità e ridondanza geografica integrate nell'archiviazione di Azure.
+In locale è frequente la disponibilità di un'elevata quantità di archiviazione di file accessibile tramite il protocollo Server Message Block (SMB) usando un formato \\\\Server\\share. Azure ora offre un servizio che consente di usare questo protocollo nel cloud. Le applicazioni eseguite in Azure possono usarlo per condividere file tra macchine virtuali tramite API del file system note, quali ReadFile e WriteFile. Inoltre, è possibile accedere contemporaneamente ai file tramite un'interfaccia REST, che consente di accedere alle condivisioni in locale quando si imposta anche una rete virtuale. File di Azure si basa sul servizio BLOB, pertanto eredita le stesse caratteristiche di disponibilità, durata, scalabilità e ridondanza geografica integrate nell'archiviazione di Azure.
 
 **Scenari per File di Azure**
 
@@ -592,4 +592,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

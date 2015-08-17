@@ -219,4 +219,4 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 [archiviazione in code]: storage-python-how-to-use-queue-storage.md
 [archiviazione BLOB]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

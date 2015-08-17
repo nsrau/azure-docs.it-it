@@ -118,7 +118,7 @@ Nel metodo `Configure`:
 
 ## Aggiungere la strumentazione client JavaScript
 
-Se si dispone di un file _Layout.cshtml, inserirvi il codice seguente. In caso contrario, inserire il codice in qualsiasi pagina di cui si vuole tenere traccia.
+Se si dispone di un file \_Layout.cshtml, inserirvi il codice seguente. In caso contrario, inserire il codice in qualsiasi pagina di cui si vuole tenere traccia.
 
 Definire l'inserimento nella parte superiore del file:
 
@@ -171,4 +171,4 @@ Tornare al [portale di Azure][portal] e passare alla risorsa Application Insight
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/24/2015" 
 	ms.author="juliako"/>
+
 
 #Sviluppo di applicazioni di Servizi multimediali con .NET 
 
@@ -56,7 +58,7 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
 
 	4. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere l'articolo relativo al [ripristino del pacchetto NuGet](http://docs.nuget.org/consume/package-restore).
 
-3. Aggiungere un riferimento all'assembly **System.Configuration**, che contiene la classe System.Configuration.**ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
+3. Aggiungere un riferimento all'assembly **System.Configuration**, che contiene la classe System.Configuration.**ConfigurationManager** usata per accedere ai file di configurazione, (ad esempio App.config).
 
 	Per aggiungere riferimenti usando la finestra di dialogo Gestione riferimenti, effettuare le seguenti operazioni:
 
@@ -77,7 +79,9 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
 &lt;configuration>
     &lt;appSettings>
 	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+
     	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+
     &lt;/appSettings>
 &lt;/configuration>
 </code></pre>
@@ -98,4 +102,4 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
 A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Servizi multimediali.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,14 +7,16 @@
 	manager="timlt"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/29/2015"
 	ms.author="dkshir"/>
+
 
 # Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux
 
@@ -66,6 +68,8 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 ### Se si utilizza l'interfaccia della riga di comando di Azure
 
+Utilizzare il metodo di Azure AD per accedere:
+
 1. Aprire una finestra della riga di comando di Azure
 
 2. Digitare:
@@ -74,7 +78,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 	Quando richiesto, digitare nome utente e password.
 
-**OPPURE**, per utilizzare invece un file di impostazioni di pubblicazione:
+**OPPURE**, utilizzare invece un file di impostazioni di pubblicazione:
 
 1. Aprire una finestra della riga di comando di Azure
 
@@ -92,8 +96,22 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 	Dove `<PathToFile>` è il percorso completo del file .publishsettings.
 
+	Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
+
 
 ### Se si utilizza Azure PowerShell
+
+Utilizzare il metodo di Azure AD per accedere:
+
+1. Aprire una finestra di Azure PowerShell.
+
+2. Digitare:
+
+	`Add-AzureAccount`
+
+	Quando richiesto, immettere l'id utente dell'organizzazione e la password.
+
+**O**, in alternativa, utilizzare i file di impostazioni di pubblicazione:
 
 1. Aprire una finestra di Azure PowerShell.
 
@@ -113,6 +131,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 	Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
+> [AZURE.NOTE]È consigliabile che utilizzare il metodo più recente di Azure Active Directory per l'accesso alla sottoscrizione di Azure, dal CLI Azure o Azure PowerShell.
 
 ## <a id="upload"></a>Passaggio 3: Caricare l'immagine in Azure ##
 
@@ -141,4 +160,4 @@ Per altre informazioni, vedere [Add-AzureVhd]((https://msdn.microsoft.com/librar
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

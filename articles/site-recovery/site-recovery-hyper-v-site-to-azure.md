@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor=""/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery" 
 	ms.date="06/08/2015" 
 	ms.author="raynew"/>
+
 
 
 # Configurare la protezione tra un sito di Hyper-V locale e Azure
@@ -61,7 +63,12 @@ Nell’ambito della distribuzione di Azure Site Recovery verranno installati Pro
 - È necessario eseguire le versioni più recenti di Provider e agente.
 - Tutti i server Hyper-V di un insieme devono essere della stessa versione.
 - Il Provider dovrà potersi connettere ad Azure Site Recovery tramite Internet. È possibile scegliere di eseguire questa operazione senza un proxy, utilizzando le impostazioni proxy configurate nel server VMM oppure utilizzando le impostazioni proxy personalizzate configurate durante l'installazione del Provider. Per utilizzare un server proxy esistente, verificare che gli URL per la connessione ad Azure siano consentiti attraverso il firewall:
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 - Per utilizzare un proxy personalizzato, configurare il server proxy prima di installare il Provider. Durante l'installazione del Provider, è necessario specificare l'indirizzo e la porta del server proxy e le credenziali che possono essere utilizzate per l'accesso.
 
 L'immagine seguente illustra i diversi canali e porte di comunicazione usati da Azure Site Recovery per la replica e l'orchestrazione
@@ -139,7 +146,12 @@ Installare provider e agente. Se si desidera eseguire l’installazione in un cl
 	- Se il proxy predefinito sul server Hyper-V richiede l'autenticazione, selezionare l’opzione per l’uso di un server proxy personalizzato. Digitare i dettagli del proxy predefinito e specificare le credenziali.
 	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. 
 	- Gli URL seguenti dovranno essere accessibili dall'host Hyper-V
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Consentire gli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
 9. Nella pagina **Impostazioni insieme di credenziali** fare clic su **Sfoglia** per selezionare il file di chiave. Specificare la sottoscrizione di Azure Site Recovery, il nome dell'insieme di credenziali e il sito Hyper-V a cui appartiene il server Hyper-V.
@@ -157,7 +169,7 @@ Installare provider e agente. Se si desidera eseguire l’installazione in un cl
 
 Si noti che se si desidera installare il provider in Server Core per Windows Server 2012 R2 o server Hyper-V 2012 R2 autonomo, è necessario effettuare le seguenti operazioni:
 
-1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\ASR.
+1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\\ASR.
 2. Estrarre il programma di installazione di Provider digitando:
 
 	    C:\Windows\System32> CD C:\ASR
@@ -218,13 +230,13 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 	Vengono avviati i processi di abilitazione della protezione, Nella scheda **Processi** è possibile monitorare l’avanzamento. Dopo l'esecuzione del processo di finalizzazione della protezione la macchina virtuale è pronta per il failover. 
 3. Dopo la configurazione della protezione è possibile:
 
-	- Visualizzare le macchine virtuali in **Elementi protetti** > **Gruppi protezione dati** > *nome_gruppoprotezione* > **Macchine virtuali** Nella scheda **Proprietà** è possibile eseguire il drill-down fino ai dettagli della macchina.
-	- Configurare le proprietà di failover per una macchina virtuale in **Elementi protetti** > **Gruppi protezione dati** > *nome_gruppodiprotezione* > **Macchine virtuali** *nome_macchina_virtuale* > **Configura**. È possibile configurare:
+	- Visualizzare le macchine virtuali in **Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppoprotezione* > **Macchine virtuali** Nella scheda **Proprietà** è possibile eseguire il drill-down fino ai dettagli della macchina.
+	- Configurare le proprietà di failover per una macchina virtuale in **Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali** *nome\_macchina\_virtuale* > **Configura**. È possibile configurare:
 		- **Nome**: il nome della macchina virtuale in Azure.
 		- **Dimensioni**: le dimensioni della macchina virtuale di destinazione che esegue il failover.
 
 		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione dati** > *nome_gruppodiprotezione* > **Macchine virtuali** *nome_macchina_virtuale* > **Configura**:
+	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali** *nome\_macchina\_virtuale* > **Configura**:
 
 		- **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. 
 			- Large (A3) e A6: 2
@@ -296,4 +308,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

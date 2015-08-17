@@ -107,4 +107,4 @@ Il servizio OMS elabora i dati non elaborati. I dati elaborati aggregati vengono
 
 Per accedere a OMS è possibile usare l'account creato in precedenza. Tutto il traffico tra OMS e il servizio OMS viene inviato tramite un canale HTTPS sicuro.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

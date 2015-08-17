@@ -7,6 +7,7 @@
 	editor=""
 	services="mobile-services"/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
+
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
 
@@ -30,7 +32,7 @@ La sincronizzazione offline presenta diversi vantaggi:
 * Esegue la sincronizzazione dei dati su più dispositivi
 * Rileva i conflitti quando lo stesso record viene modificato da due dispositivi
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Questa esercitazione è basata sull'esercitazione [Guida introduttiva per Servizi mobili], che deve essere completata per prima. È consigliabile esaminare innanzitutto il codice relativo alla sincronizzazione offline già presente nella Guida introduttiva.
 
@@ -110,10 +112,10 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
 - Aprire **QSDataModel.xcdatamodeld**. Sono presenti le definizioni di quattro tabelle, tre usate dall'SDK e una per gli elementi todo:
 
-      * MS_TableOperations: per tenere traccia degli elementi da sincronizzare con il server
-      * MS_TableOperationErrors: per tenere traccia degli errori che si verificano durante la sincronizzazione offline
-      * MS_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
-      * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **ms_createdAt**, **ms_updatedAt** e **ms_version** sono proprietà di sistema facoltative.
+      * MS\_TableOperations: per tenere traccia degli elementi da sincronizzare con il server
+      * MS\_TableOperationErrors: per tenere traccia degli errori che si verificano durante la sincronizzazione offline
+      * MS\_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
+      * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** sono proprietà di sistema facoltative.
 
 >[AZURE.NOTE]Mobile Services SDK riserva i nomi di colonna che iniziano con "**`ms_`**". Non usare questo prefisso in un valore diverso da quello delle colonne di sistema. In caso contrario, quando si usa il servizio remoto vengono modificati i nomi di colonna.
 
@@ -121,7 +123,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
     ### Tabelle di sistema
 
-    #### MS_TableOperations
+    #### MS\_TableOperations
 
     | Attributo | Tipo |
     |-------------- |   ------    |
@@ -131,7 +133,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | tabella | String |
     | tableKind | Integer 16 |
 
-    #### MS_TableOperationErrors
+    #### MS\_TableOperationErrors
 
     | Attributo | Tipo |
     |-------------- | ----------  |
@@ -140,7 +142,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | properties | Dati binari |
     | tableKind | Integer 16 |
 
-    #### MS_TableConfig
+    #### MS\_TableConfig
 
 
     | Attributo | Tipo |
@@ -160,7 +162,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | id (obbligatorio) | Stringa | chiave primaria nell'archivio remoto (obbligatoria) |
     | complete | Boolean | campo elemento ToDo |
     | text | String | campo elemento ToDo |
-    | ms_createdAt | Data | (optional) maps to __createdAt system property | | ms_updatedAt | Date | (optional) maps to __updatedAt system property | | ms_version | String | (optional) used to detect conflicts, maps to __version |
+    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | | ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
 
 
 
@@ -271,4 +273,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

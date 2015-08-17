@@ -213,7 +213,7 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 <tr><th>Elementi che dovrebbero essere visualizzati</th><th>Come ottenerli</th><th>Perché si vuole ottenerli</th></tr>
 <tr><td>Grafici di disponibilità</td><td><a href="../app-insights-monitor-web-app-availability/">Test Web</a></td><td>Stabilire se l'app Web è attiva</td></tr>
 <tr><td>Prestazioni dell'app server: tempi di risposta, ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Aggiungere Application Insights al progetto</a><br/>oppure <br/><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a></td><td>Rilevare i problemi di prestazioni</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Aggiungere Application Insights al progetto</a><br/>oppure <br/><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a> (o scrivere il proprio codice per <a href="../app-insights-api-custom-events-metrics/#track-dependency">il tracciamento delle dipendenze</a>)</td><td>Rilevare i problemi di prestazioni</td></tr>
 <tr><td>Telemetria di dipendenza</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a></td><td>Diagnosticare i problemi relativi a database o altri componenti esterni</td></tr>
 <tr><td>Ricavare analisi dello stack dalle eccezioni</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Inserire chiamate TrackException nel codice</a> (ma alcune sono segnalate automaticamente)</td><td>Rilevare e diagnosticare le eccezioni</td></tr>
 <tr><td>Eseguire la ricerca di tracce dei log</td><td><a href="../app-insights-search-diagnostic-logs/">Aggiungere un adattatore di registrazione</a></td><td>Diagnosticare le eccezioni, problemi di prestazioni</td></tr>
@@ -239,4 +239,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

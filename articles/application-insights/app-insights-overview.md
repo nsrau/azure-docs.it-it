@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Informazioni su Azure Application Insights
@@ -103,12 +103,17 @@ L'impatto sulle prestazioni è molto ridotto. Le chiamate di rilevamento non son
 
 Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra di spostamento a sinistra in questa pagina.
 
+## Esempi
+
+
+[Esempi e procedure dettagliate](app-insights-code-samples.md)
+
 
 ## Supporto, commenti e suggerimenti
 
 * Domande e problemi:
  * [Risoluzione dei problemi][qna]
- * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/it-it/home?forum=ApplicationInsights)
+ * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bug:
  * [Connessione](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -145,4 +150,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

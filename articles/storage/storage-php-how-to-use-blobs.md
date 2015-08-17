@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come usare l'archiviazione BLOB da PHP | Microsoft Azure" 
-	description="Informazioni su come usare il servizio BLOB di Azure per caricare, elencare, scaricare, elencare ed eliminare BLOB. Gli esempi di codice sono scritti in PHP." 
-	documentationCenter="php" 
-	services="storage" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Come usare l'archiviazione BLOB da PHP | Microsoft Azure"
+	description="Informazioni su come usare il servizio BLOB di Azure per caricare, elencare, scaricare, elencare ed eliminare BLOB. Gli esempi di codice sono scritti in PHP."
+	documentationCenter="php"
+	services="storage"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="05/11/2015"
 	ms.author="tomfitz"/>
 
 # Come usare l'archiviazione BLOB da PHP
@@ -42,7 +42,7 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 Per usare le API del servizio BLOB di Azure, è necessario:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require_once][require_once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
@@ -53,7 +53,7 @@ Nell'esempio seguente viene indicato come includere il file autoloader e fare ri
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-Nei seguenti esempi l'istruzione `require_once` verrà sempre visualizzata, ma si farà riferimento solo alle classi necessarie per eseguire l'esempio.
+Nei seguenti esempi l'istruzione `require_once` verrà sempre visualizzata, ma si fa riferimento solo alle classi necessarie per eseguire l'esempio.
 
 ## Configurare una connessione di archiviazione di Azure
 
@@ -72,7 +72,7 @@ Per creare un client di servizio di Azure, è necessario usare la classe **Servi
 
 * passare la stringa di connessione direttamente a essa o
 * utilizzare **CloudConfigurationManager (CCM)** per cercare la stringa di connessione in più origini esterne:
-	* per impostazione predefinita viene fornito con il supporto per un'origine esterna, ovvero le variabili ambientali
+	* per impostazione predefinita viene fornito con il supporto per un'origine esterna - ovvero le variabili ambientali
 	* è possibile aggiungere nuove origini estendendo la classe **ConnectionStringSource**
 
 Per gli esempi illustrati in questo articolo, la stringa di connessione verrà passata direttamente.
@@ -83,11 +83,11 @@ Per gli esempi illustrati in questo articolo, la stringa di connessione verrà p
 
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-## Procedura: creare un contenitore
+## Creare un contenitore
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-Un oggetto **BlobRestProxy** consente di creare un contenitore BLOB con il metodo **createContainer**. Quando si crea un contenitore, è possibile impostare le opzioni per il contenitore, anche se tale operazione non è necessaria. Nell'esempio seguente viene illustrato come impostare l'elenco ACL del contenitore e i metadati del contenitore.
+Un oggetto **BlobRestProxy** consente di creare un contenitore BLOB con il metodo **createContainer**. Quando si crea un contenitore, è possibile impostare le opzioni per il contenitore, anche se tale operazione non è necessaria. (Nell'esempio seguente viene illustrato come impostare l'elenco ACL del contenitore e i metadati del contenitore.)
 
 	require_once 'vendor\autoload.php';
 
@@ -102,46 +102,46 @@ Un oggetto **BlobRestProxy** consente di creare un contenitore BLOB con il metod
 
 	// OPTIONAL: Set public access policy and metadata.
 	// Create container options object.
-	$createContainerOptions = new CreateContainerOptions();	
+	$createContainerOptions = new CreateContainerOptions();
 
-	// Set public access policy. Possible values are 
+	// Set public access policy. Possible values are
 	// PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
-	// CONTAINER_AND_BLOBS: 	
+	// CONTAINER_AND_BLOBS:
 	// Specifies full public read access for container and blob data.
-    // proxys can enumerate blobs within the container via anonymous 
+    // proxys can enumerate blobs within the container via anonymous
 	// request, but cannot enumerate containers within the storage account.
 	//
 	// BLOBS_ONLY:
-	// Specifies public read access for blobs. Blob data within this 
-    // container can be read via anonymous request, but container data is not 
-    // available. proxys cannot enumerate blobs within the container via 
+	// Specifies public read access for blobs. Blob data within this
+    // container can be read via anonymous request, but container data is not
+    // available. proxys cannot enumerate blobs within the container via
 	// anonymous request.
-	// If this value is not specified in the request, container data is 
+	// If this value is not specified in the request, container data is
 	// private to the account owner.
 	$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-	
-	// Set container metadata
+
+	// Set container metadata.
 	$createContainerOptions->addMetaData("key1", "value1");
 	$createContainerOptions->addMetaData("key2", "value2");
-	
+
 	try	{
 		// Create container.
 		$blobRestProxy->createContainer("mycontainer", $createContainerOptions);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Con la chiamata a **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** il contenitore e i dati BLOB diventano accessibili tramite richieste anonime. Con la chiamata a **setPublicAccess(PublicAccessType::BLOBS_ONLY)**, invece, solo i dati BLOB diventano accessibili tramite richieste anonime. Per ulteriori informazioni sugli elenchi ACL del contenitore, vedere [Set Container ACL (API REST)][container-acl].
+Con la chiamata a **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** il contenitore e i dati BLOB diventano accessibili tramite richieste anonime. Con la chiamata a **setPublicAccess(PublicAccessType::BLOBS\_ONLY)**, invece, solo i dati BLOB diventano accessibili tramite richieste anonime. Per ulteriori informazioni sugli elenchi ACL del contenitore, vedere [Set Container ACL (API REST)][container-acl].
 
 Per ulteriori informazioni sui codici di errore del servizio BLOB, vedere [Codici di errore del servizio BLOB][error-codes].
 
-## Procedura: caricare un BLOB in un contenitore
+## Caricare un BLOB in un contenitore
 
 Per caricare un file come BLOB, utilizzare il metodo **BlobRestProxy->createBlockBlob**. Questa operazione consentirà di creare il BLOB se non esistente o di sovrascriverlo se esistente. Nell'esempio di codice seguente si presuppone che il contenitore sia già stato creato e che utilizzi [fopen][fopen] per aprire il file come flusso.
 
@@ -153,28 +153,28 @@ Per caricare un file come BLOB, utilizzare il metodo **BlobRestProxy->createBloc
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-	
+
 	$content = fopen("c:\myfile.txt", "r");
 	$blob_name = "myblob";
-	
+
 	try	{
 		//Upload blob
 		$blobRestProxy->createBlockBlob("mycontainer", $blob_name, $content);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Si noti che nell'esempio precedente un BLOB viene caricato come flusso. Un blob può tuttavia essere caricato anche come stringa, ad esempio mediante la funzione [file_get_contents][file_get_contents]. A questo scopo, sostituire `$content = fopen("c:\myfile.txt", "r");` nell'esempio precedente con `$content = file_get_contents("c:\myfile.txt");`.
+Si noti che l'esempio precedente consente di caricare un BLOB come flusso. Un blob può tuttavia essere caricato anche come stringa, ad esempio mediante la funzione [file\_get\_contents][file_get_contents]. A tale scopo utilizzare l'esempio precedente, modificare `$content = fopen("c:\myfile.txt", "r");` con `$content = file_get_contents("c:\myfile.txt");`.
 
-## Procedura: elencare i BLOB in un contenitore
+## Elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, utilizzare il metodo **BlobRestProxy->listBlobs** con un ciclo **foreach** per eseguire il ciclo nel risultato. Il codice seguente consente di inviare al browser il nome di ogni BLOB in un contenitore e il relativo URI.
+Per elencare i BLOB in un contenitore, utilizzare il metodo **BlobRestProxy->listBlobs** con un ciclo **foreach** per eseguire il ciclo nel risultato. Il codice seguente mostra il nome di ogni BLOB come output in un contenitore e mostra il relativo URI al browser.
 
 	require_once 'vendor\autoload.php';
 
@@ -184,12 +184,12 @@ Per elencare i BLOB in un contenitore, utilizzare il metodo **BlobRestProxy->lis
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-	
+
 	try	{
 		// List blobs.
 		$blob_list = $blobRestProxy->listBlobs("mycontainer");
 		$blobs = $blob_list->getBlobs();
-		
+
 		foreach($blobs as $blob)
 		{
 			echo $blob->getName().": ".$blob->getUrl()."<br />";
@@ -197,7 +197,7 @@ Per elencare i BLOB in un contenitore, utilizzare il metodo **BlobRestProxy->lis
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -205,7 +205,7 @@ Per elencare i BLOB in un contenitore, utilizzare il metodo **BlobRestProxy->lis
 	}
 
 
-## Procedura: Scaricare un Blob
+## Scaricare un BLOB
 
 Per scaricare un BLOB, chiamare il metodo **BlobRestProxy->getBlob**, quindi chiamare il metodo **getContentStream** sull'oggetto **GetBlobResult** risultante.
 
@@ -217,7 +217,7 @@ Per scaricare un BLOB, chiamare il metodo **BlobRestProxy->getBlob**, quindi chi
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-	
+
 	try	{
 		// Get blob.
 		$blob = $blobRestProxy->getBlob("mycontainer", "myblob");
@@ -225,16 +225,16 @@ Per scaricare un BLOB, chiamare il metodo **BlobRestProxy->getBlob**, quindi chi
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Si noti che con l'esempio precedente si ottiene un BLOB come risorsa di flusso (comportamento predefinito). È tuttavia possibile utilizzare la funzione [stream_get_contents][stream-get-contents] per convertire il flusso restituito in una stringa.
+Si noti che con l'esempio precedente si ottiene un BLOB come risorsa di flusso (comportamento predefinito). È tuttavia possibile utilizzare la funzione [stream\_get\_contents][stream-get-contents] per convertire il flusso restituito in una stringa.
 
-## Procedura: eliminare un BLOB
+## Eliminare un BLOB
 
 Per eliminare un BLOB, passare il nome del contenitore e il nome del BLOB a **BlobRestProxy->deleteBlob**.
 
@@ -246,21 +246,21 @@ Per eliminare un BLOB, passare il nome del contenitore e il nome del BLOB a **Bl
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-	
+
 	try	{
 		// Delete container.
 		$blobRestProxy->deleteBlob("mycontainer", "myblob");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedura: eliminare un contenitore BLOB
+## Eliminare un contenitore BLOB
 
 Per eliminare un contenere di BLOB, infine, passare il nome del contenitore a **BlobRestProxy->deleteContainer**.
 
@@ -272,14 +272,14 @@ Per eliminare un contenere di BLOB, infine, passare il nome del contenitore a **
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-	
+
 	try	{
 		// Delete container.
 		$blobRestProxy->deleteContainer("mycontainer");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -291,18 +291,17 @@ Per eliminare un contenere di BLOB, infine, passare il nome del contenitore a **
 A questo punto, dopo aver appreso le nozioni di base del servizio BLOB di Azure, usare i collegamenti seguenti per altre informazioni su attività di archiviazione più complesse.
 
 - Vedere la documentazione MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- Visitare il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Vedere l'esempio relativo al BLOB in blocchi PHP all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>,
 - Vedere l'esempio relativo al BLOB di pagine PHP all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

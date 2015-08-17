@@ -1,4 +1,3 @@
-
 #### Per installare gli aggiornamenti rapidi in modalità di manutenzione tramite Windows PowerShell per StorSimple
 
 > [AZURE.IMPORTANT]In modalità di manutenzione, è necessario applicare l’aggiornamento rapido prima in un controller e quindi nell’altro controller.
@@ -17,4 +16,4 @@
 
 6. Dopo aver applicato gli aggiornamenti rapidi, uscire dalla modalità di manutenzione. Vedere [Uscire dalla modalità di manutenzione](#exit-maintenance-mode) per visualizzare istruzioni.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

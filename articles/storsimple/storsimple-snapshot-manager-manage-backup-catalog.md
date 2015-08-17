@@ -207,4 +207,4 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 Vedere [le attività e i flussi di lavoro di Gestione snapshot StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows) disponibili.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

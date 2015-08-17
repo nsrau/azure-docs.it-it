@@ -128,10 +128,10 @@ In questa sezione è illustrata la parte principale dell'esempio di codice Java.
 Per eseguire effettivamente questo esempio, nella stringa di connessione è necessario inserire i valori reali in sostituzione dei segnaposto:
 
 
-- your_server
-- your_database
-- your_user
-- your_password
+- your\_server
+- your\_database
+- your\_user
+- your\_password
 
 
 ## Inserire due righe nella tabella
@@ -144,7 +144,7 @@ Questo segmento Java esegue un'istruzione Transact-SQL INSERT per inserire due r
  - Includere il parametro `Statement.RETURN_GENERATED_KEYS` in modo da poter ottenere in un secondo momento il valore generato automaticamente per il valore della chiave **id**.
 2. Chiamare il metodo `execute` sull'oggetto `PreparedStatement`.
 3. Ottenere il valore numerico che è stato generato automaticamente per la chiave primaria usando l'oggetto `PreparedStatement`.
- - Questa informazione è correlata alla specifica AUTO_INCREMENT sulla colonna **id** della tabella Person.
+ - Questa informazione è correlata alla specifica AUTO\_INCREMENT sulla colonna **id** della tabella Person.
 
 
 Copiare questo breve segmento Java e incollarlo nell'esempio di codice principale in corrispondenza del commento `// INSERT two rows into the table.`.
@@ -225,4 +225,4 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

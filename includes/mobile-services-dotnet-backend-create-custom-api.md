@@ -54,4 +54,4 @@
 
 	> [AZURE.NOTE]Con le autorizzazioni predefinite, chiunque disponga della chiave dell'app può chiamare l'API personalizzata. La chiave dell'applicazione non è tuttavia considerata una credenziale di sicurezza, in quanto non può essere distribuita o archiviata in modo sicuro. Per maggiore sicurezza, è consigliabile limitare l'accesso ai soli utenti autenticati.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

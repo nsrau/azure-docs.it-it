@@ -24,7 +24,7 @@
 
 Service Fabric fornisce diverse modalità di aggiornamento per supportare cluster di sviluppo e produzione. Ognuna delle opzione di sviluppo è ideale per ambienti diversi. L'aggiornamento in sequenza di applicazioni in modalità Monitored è quello più comune da usare in un ambiente di produzione. Se vengono specificati criteri di aggiornamento, Service Fabric verifica che l'applicazione sia integra prima di procedere con l'aggiornamento. In alcune situazioni in cui sono presenti più criteri di valutazione dell'integrità personalizzati o complessi o in cui è necessario eseguire un aggiornamento non convenzionale (nell'applicazione si è già verificata una perdita di dati e così via), l'amministratore di applicazioni può usare l'aggiornamento in sequenza dell'applicazione in modalità Manual per esercitare il controllo totale sull'avanzamento dell'aggiornamento attraverso i diversi domini di aggiornamento. L'aggiornamento in sequenza automatizzato dell'applicazione infine è utile per ambienti di sviluppo o di testing per garantire un ciclo di iterazione rapido durante lo sviluppo dei servizi.
 
-**Manual** - Arresta l'aggiornamento dell'applicazione in corrispondenza dell'UD corrente e cambia la modalità di aggiornamento in UnmonitoredManual. L'amministratore deve chiamare manualmente **MoveNextApplicationUpgradeDomainAsync** per procedere con l'aggiornamento o per attivare un rollback avviando un nuovo aggiornamento. Quando l'aggiornamento passa alla modalità Manual, resta in tale modalità finché non viene avviato un nuovo aggiornamento. Il comando **GetApplicationUpgradeProgressAsync** restituisce FABRIC_APPLICATION_UPGRADE_STATE_ROLLING_FORWARD_PENDING.
+**Manual** - Arresta l'aggiornamento dell'applicazione in corrispondenza dell'UD corrente e cambia la modalità di aggiornamento in UnmonitoredManual. L'amministratore deve chiamare manualmente **MoveNextApplicationUpgradeDomainAsync** per procedere con l'aggiornamento o per attivare un rollback avviando un nuovo aggiornamento. Quando l'aggiornamento passa alla modalità Manual, resta in tale modalità finché non viene avviato un nuovo aggiornamento. Il comando **GetApplicationUpgradeProgressAsync** restituisce FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
 
 ## Aggiornamento con un pacchetto Diff
 
@@ -51,4 +51,4 @@ L'uso di un pacchetto Diff è consigliato nei casi seguenti:
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/21/2015"
 	ms.author="pakefali"/>
 
@@ -245,4 +245,4 @@ Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio 
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

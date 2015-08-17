@@ -143,4 +143,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

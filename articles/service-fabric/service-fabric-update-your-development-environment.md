@@ -53,4 +53,4 @@ L'operazione è terminata. È ora possibile avviare Visual Studio e continuare l
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

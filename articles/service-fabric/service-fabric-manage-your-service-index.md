@@ -50,4 +50,4 @@ Gli articoli seguenti illustrano la scalabilità e il partizionamento:
 - [Scalabilità delle applicazioni di Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -146,10 +146,10 @@ In questo esempio, viene definita un'attività in una pipeline come indicato di 
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
     		}
 		}
 	}
@@ -170,16 +170,16 @@ In questo esempio, una query SQL (vedere la tabella nell'esempio precedente) vie
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 			},
 			"sink":
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
     		}
 		}
 	}
@@ -194,7 +194,7 @@ I tipi di dati specificati nella sezione Structure della definizione Table vengo
 | ----------- | ------------------------ |
 | SqlSource | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. I tipi di dati definiti nel database SQL sottostante verranno usati per l'estrazione dei dati durante l'attività di copia. |
 | SqlSink | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno confrontati i tipi di dati nell'origine e nella destinazione sottostanti e verrà eseguita la conversione implicita dei tipi se sono presenti tipi non corrispondenti. |
-| BlobSource | Durante il trasferimento da BlobSource a BlobSink, non avviene alcuna trasformazione dei tipi. I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Per destinazioni differenti da BlobSink, i tipi di dati definiti nella sezione Structure della definizione della tabella verranno accettati. Se la sezione Structure non è specificata nella definizione della tabella, la gestione dipende dalla proprietà format della tabella BlobSource: TextFormat: tutti i tipi di colonna vengono considerati come stringa e tutti i nomi di colonna sono impostati come "Prop_<0-N>". AvroFormat: usare i tipi di colonna predefiniti e i nomi nel file Avro.
+| BlobSource | Durante il trasferimento da BlobSource a BlobSink, non avviene alcuna trasformazione dei tipi. I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Per destinazioni differenti da BlobSink, i tipi di dati definiti nella sezione Structure della definizione della tabella verranno accettati. Se la sezione Structure non è specificata nella definizione della tabella, la gestione dipende dalla proprietà formato della tabella BlobSource: TextFormat: tutti i tipi di colonna vengono considerati come stringa e tutti i nomi di colonna sono impostati come "Prop\_<0-N>". AvroFormat: usare i tipi di colonna predefiniti e i nomi nel file Avro.
 | BlobSink | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nell'archivio dati di input sottostante. Le colonne verranno specificate come nullable per la serializzazione Avro. |
 | AzureTableSource | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nella tabella di Azure sottostante. |
 | AzureTableSink | I tipi di dati definiti nella sezione Structure della definizione della tabella vengono ignorati. Verranno usati i tipi di dati definiti nell'archivio dati di input sottostante. |
@@ -261,7 +261,7 @@ Quando si copiano dati nel database SQL Azure o SQL Server, una stored procedure
 La funzionalità di stored procedure sfrutta i [parametri valutati a livello di tabella][table-valued-parameters].
 
 ## Specificare la codifica per i file di testo
-Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di Azure seguono altre codifiche per ragioni storiche. La proprietà **encodingName** consente di specificare la codifica in base al nome di tabella codici per le tabelle di tipo TextFormat. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. Ad esempio: windows-1250 o shift_jis. Il valore predefinito è UTF-8. Vedere [Classe di codifica](https://msdn.microsoft.com/library/system.text.encoding.aspx) per i nomi di codifica validi.
+Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di Azure seguono altre codifiche per ragioni storiche. La proprietà **encodingName** consente di specificare la codifica in base al nome di tabella codici per le tabelle di tipo TextFormat. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. Vedere [Classe di codifica](https://msdn.microsoft.com/library/system.text.encoding.aspx) per i nomi di codifica validi.
 
 ## Vedere anche
 
@@ -289,4 +289,4 @@ Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di 
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

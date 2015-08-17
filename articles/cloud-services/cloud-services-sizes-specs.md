@@ -53,17 +53,27 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 |A9|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |A10|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
 |A11|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|Standard_D1|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 50 GB<br/>App = circa 1,5 GB|
-|Standard_D2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
-|Standard_D3|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
-|Standard_D4|8|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
-|Standard_D11|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
-|Standard_D12|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
-|Standard_D13|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
-|Standard_D14|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 800 GB<br/>App = circa 1,5 GB|
+|Standard\_D1|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 50 GB<br/>App = circa 1,5 GB|
+|Standard\_D2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
+|Standard\_D3|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
+|Standard\_D4|8|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
+|Standard\_D11|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
+|Standard\_D12|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
+|Standard\_D13|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
+|Standard\_D14|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 800 GB<br/>App = circa 1,5 GB|
 
+## Configurare le dimensioni per i servizi Cloud
+
+È possibile specificare la dimensione di un'istanza del ruolo di macchina virtuale come parte del modello del servizio descritto dal file csdef. Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
+
+Di seguito è riportato un esempio per impostare la dimensione ridotta del ruolo per un'istanza del ruolo Web:
+
+
+    <WebRole name="WebRole1" vmsize="Small">
+    …
+    </WebRole>
 ## Passaggi successivi
 
-[Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108) [Configurare le dimensioni dei servizi cloud](https://msdn.microsoft.com/library/ee814754)
+[Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

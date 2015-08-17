@@ -128,4 +128,4 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

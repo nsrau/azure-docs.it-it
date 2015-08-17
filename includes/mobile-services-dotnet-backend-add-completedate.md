@@ -1,6 +1,6 @@
 In questa sezione il modello del database verrà modificato con l'aggiunta di un nuovo campo timestamp denominato **CompleteDate**. In questo campo verrà registrata l'ultima volta in cui l'elemento Todo è stato completato. Entity Framework aggiornerà il database in base alla modifica del modello utilizzando una classe predefinita dell'inizializzatore del database derivata da [DropCreateDatabaseIfModelChanges](http://go.microsoft.com/fwlink/?LinkId=394621).
 
-1. In Esplora soluzioni di Visual Studio espandere la cartella **App_Start** nel progetto di servizio todolist. Aprire il file WebApiConfig.cs.
+1. In Esplora soluzioni di Visual Studio espandere la cartella **App\_Start** nel progetto di servizio todolist. Aprire il file WebApiConfig.cs.
 
 2. Nel file WebApiConfig.cs notare che la classe predefinita dell'inizializzatore del database deriva dalla classe `DropCreateDatabaseIfModelChanges`. Ciò significa che se viene apportata qualsiasi modifica al modello, la tabella verrà eliminata e ricreata per gestire il nuovo modello. Pertanto, i dati della tabella andranno persi e verrà eseguito il reseeding della tabella. Modificare il metodo Seed dell'inizializzatore del database in modo che i dati di seeding siano i seguenti e salvare il file WebApiConfig.cs.
 
@@ -40,4 +40,4 @@ In questa sezione il modello del database verrà modificato con l'aggiunta di un
 
 A questo punto, l'app client verrà aggiornata per visualizzare i nuovi dati **CompleteDate**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

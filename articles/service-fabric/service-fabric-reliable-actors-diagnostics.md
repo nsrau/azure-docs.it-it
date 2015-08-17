@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnostica e monitoraggio delle prestazioni per Azure Service Fabric Actors"
-   description="Questo articolo illustra le funzionalità di diagnostica e monitoraggio delle prestazioni disponibili nel runtime di Fabric Actors, inclusi gli eventi e i contatori delle prestazioni emessi dal runtime."
+   pageTitle="Reliable Actors - Diagnostica e monitoraggio delle prestazioni"
+   description="Questo articolo illustra le funzionalità di diagnostica e monitoraggio delle prestazioni disponibili nel runtime di Reliable Actors, inclusi gli eventi e i contatori delle prestazioni emessi dal runtime."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# Diagnostica e monitoraggio delle prestazioni per Fabric Actors
-Il runtime di Fabric Actors emette eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
+# Diagnostica e monitoraggio delle prestazioni per Reliable Actors
+Il runtime di Reliable Actors emette eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contatori delle prestazioni](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
 
 ## Eventi EventSource
-Il nome di EventSource per il runtime di Fabric Actors è "Microsoft-ServiceFabric-Actors". Gli eventi provenienti da questa origine vengono visualizzati nella finestra degli [eventi di diagnostica](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando l'applicazione attore viene sottoposta a [debug in Visual Studio](service-fabric-debugging-your-application.md).
+Il nome di EventSource per il runtime di Reliable Actors è "Microsoft-ServiceFabric-Actors". Gli eventi provenienti da questa origine vengono visualizzati nella finestra degli [eventi di diagnostica](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando l'applicazione attore viene sottoposta a [debug in Visual Studio](service-fabric-debugging-your-application.md).
 
 Service Fabric consente inoltre di indirizzare questi eventi ad [Application Insights](http://azure.microsoft.com/services/application-insights/). Per altre informazioni, vedere l'articolo relativo alla [configurazione di Application Insights per Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
 
 Altri esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Parole chiave
-Tutti gli eventi appartenenti all'EventSource Fabric Actors sono associati a una o più parole chiave. Questo consente di filtrare gli eventi che vengono raccolti. I bit delle parole chiave definiti sono i seguenti:
+Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a una o più parole chiave. Questo consente di filtrare gli eventi che vengono raccolti. I bit delle parole chiave definiti sono i seguenti:
 
 |Bit|Descrizione|
 |---|---|
@@ -37,7 +37,7 @@ Tutti gli eventi appartenenti all'EventSource Fabric Actors sono associati a una
 |0x8|Set di eventi correlati alla concorrenza basata su turni nell'attore. Per altre informazioni, vedere l'argomento relativo alla [concorrenza](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Contatori delle prestazioni
-Il runtime di Fabric Actors definisce le categorie di contatori delle prestazioni seguenti.
+Il runtime di Reliable Actors definisce le categorie di contatori delle prestazioni seguenti.
 
 |Categoria|Descrizione|
 |---|---|
@@ -88,7 +88,7 @@ Nell'esempio precedente `ivoicemailboxactor.leavemessageasync` è il nome del me
 ## Elenco degli eventi e dei contatori delle prestazioni
 
 ### Eventi dei metodi degli attori e relativi contatori delle prestazioni
-Il runtime di Fabric Actors emette gli eventi seguenti relativi ai [metodi degli attori](service-fabric-reliable-actors-introduction.md#actors).
+Il runtime di Reliable Actors emette gli eventi seguenti relativi ai [metodi degli attori](service-fabric-reliable-actors-introduction.md#actors).
 
 |Nome evento|ID evento|Livello|Parole chiave|Descrizione|
 |---|---|---|---|---|
@@ -96,7 +96,7 @@ Il runtime di Fabric Actors emette gli eventi seguenti relativi ai [metodi degli
 |ActorMethodStop|8|Dettagliato|0x2|È terminata l'esecuzione di un metodo di un attore, ovvero la chiamata asincrona del runtime a tale metodo ha restituito il controllo e l'attività restituita dal metodo stesso è stata completata.|
 |ActorMethodThrewException|9|Avviso|0x3|È stata generata un'eccezione durante l'esecuzione di un metodo di un attore, durante la chiamata asincrona del runtime a tale metodo o durante l'esecuzione dell'attività restituita dal metodo stesso. Questo evento indica un problema relativo al codice dell'attore che deve essere analizzato.|
 
-Il runtime di Fabric Actors pubblica i contatori delle prestazioni seguenti relativi all'esecuzione dei metodi degli attori.
+Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi all'esecuzione dei metodi degli attori.
 
 |Nome categoria|Nome contatore|Descrizione|
 |---|---|---|
@@ -105,34 +105,34 @@ Il runtime di Fabric Actors pubblica i contatori delle prestazioni seguenti rela
 |Service Fabric Actor Method|Exceptions thrown/Sec|Numero di volte in cui il metodo del servizio attore ha generato un'eccezione al secondo|
 
 ### Eventi di concorrenza e relativi contatori delle prestazioni
-Il runtime di Fabric Actors emette gli eventi seguenti relativi alla [concorrenza](service-fabric-reliable-actors-introduction.md#concurrency).
+Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [concorrenza](service-fabric-reliable-actors-introduction.md#concurrency).
 
 |Nome evento|ID evento|Livello|Parole chiave|Descrizione|
 |---|---|---|---|---|
 |ActorMethodCallsWaitingForLock|12|Dettagliato|0x8|Questo evento viene scritto all'inizio di ogni nuovo turno in un attore. Include il numero di chiamate dell'attore in sospeso, in attesa di acquisire il blocco per attore che applica la concorrenza basata su turni.|
 
-Il runtime di Fabric Actors pubblica i contatori delle prestazioni seguenti relativi alla concorrenza.
+Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi alla concorrenza.
 
 |Nome categoria|Nome contatore|Descrizione|
 |---|---|---|
 |Service Fabric Actor|# of actor calls waiting for actor lock|Numero di chiamate dell'attore in sospeso, in attesa di acquisire il blocco per attore che applica la concorrenza basata su turni.|
 
 ### Eventi di gestione dello stato degli attori e relativi contatori delle prestazioni
-Il runtime di Fabric Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-introduction.md#actor-state-management).
+Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-introduction.md#actor-state-management).
 
 |Nome evento|ID evento|Livello|Parole chiave|Descrizione|
 |---|---|---|---|---|
 |ActorSaveStateStart|10|Dettagliato|0x4|Il runtime di Actors sta per salvare lo stato di un attore.|
 |ActorSaveStateStop|11|Dettagliato|0x4|Il runtime di Actors ha finito di salvare lo stato di un attore.|
 
-Il runtime di Fabric Actors pubblica i contatori delle prestazioni seguenti relativi alla gestione dello stato degli attori.
+Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi alla gestione dello stato degli attori.
 
 |Nome categoria|Nome contatore|Descrizione|
 |---|---|---|
 |Service Fabric Actor|Average milliseconds per save state operation|Tempo necessario per salvare lo stato dell'attore in millisecondi|
 
 ### Eventi relativi alle istanze di attori senza stato
-Il runtime di Fabric Actors emette gli eventi seguenti relativi alle [istanze di attori senza stato](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
+Il runtime di Reliable Actors emette gli eventi seguenti relativi alle [istanze di attori senza stato](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
 
 |Nome evento|ID evento|Livello|Parole chiave|Descrizione|
 |---|---|---|---|---|
@@ -140,7 +140,7 @@ Il runtime di Fabric Actors emette gli eventi seguenti relativi alle [istanze di
 |ServiceInstanceClose|4|Informazioni|0x1|Istanza dell'attore senza stato chiusa. Ciò significa che gli attori per questa partizione non verranno più creati all'interno dell'istanza. Non verranno recapitate nuove richieste agli attori già creati all'interno dell'istanza. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso.|
 
 ### Eventi relativi alle repliche di attori con stato
-Il runtime di Fabric Actors emette gli eventi seguenti relativi alle [repliche di attori con stato](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+Il runtime di Reliable Actors emette gli eventi seguenti relativi alle [repliche di attori con stato](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Nome evento|ID evento|Livello|Parole chiave|Descrizione|
 |---|---|---|---|---|
@@ -148,11 +148,11 @@ Il runtime di Fabric Actors emette gli eventi seguenti relativi alle [repliche d
 |ReplicaChangeRoleFromPrimary|2|Informazioni|0x1|Il ruolo della replica dell'attore con stato è cambiato e la replica non è più primaria. Ciò significa che gli attori per questa partizione non verranno più creati all'interno della replica. Non verranno recapitate nuove richieste agli attori già creati all'interno della replica. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso.|
 
 ### Eventi di attivazione e disattivazione degli attori
-Il runtime di Fabric Actors emette gli eventi seguenti relativi all'[attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
+Il runtime di The Reliable Actors runtime emits the following events related emette gli eventi seguenti relativi all'[attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
 
 |Nome evento|ID evento|Livello|Parole chiave|Descrizione|
 |---|---|---|---|---|
 |ActorActivated|5|Informazioni|0x1|Un attore è stato attivato.|
 |ActorDeactivated|6|Informazioni|0x1|Un attore è stato disattivato.|
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -62,4 +62,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

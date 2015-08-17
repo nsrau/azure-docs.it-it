@@ -77,7 +77,7 @@ Le indicazioni sul livello dei prezzi offrono un'esperienza automatizzata per la
 
 ## Passaggi successivi
 
-A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento o di un downgrade in genere non si verifica immediatamente. Il portale di gestione fornirà notifiche come le transizioni del nuovo livello di database o è possibile monitorare lo stato di aggiornamento eseguendo una query della vista [sys.dm_operation_status (database SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx) nel database master del server di Database SQL.
+A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento o di un downgrade in genere non si verifica immediatamente. Il portale di gestione fornirà notifiche come le transizioni del nuovo livello di database o è possibile monitorare lo stato di aggiornamento eseguendo una query della vista [sys.dm\_operation\_status (database SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx) nel database master del server di Database SQL.
 
 
 <!--Image references-->
@@ -90,4 +90,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

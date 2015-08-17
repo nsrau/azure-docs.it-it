@@ -47,7 +47,7 @@ Quando viene creata una macchina virtuale, viene creato anche un elenco di contr
 
 | **N. regola** | **Subnet remota** | **Endpoint** | **Consenti/Nega** |
 |--------|---------------|----------|-------------|
-| 100 | 0.0.0.0/0 | 3389 | Consenti |
+| 100 | 0\.0.0.0/0 | 3389 | Consenti |
 
 ## Consentire e negare
 
@@ -75,8 +75,8 @@ Nell'esempio seguente se si desidera consentire l'accesso all'endpoint RDP solo 
 
 | **N. regola** | **Subnet remota** | **Endpoint** | **Consenti/Nega** |
 |--------|---------------|----------|-------------|
-| 100 | 65.0.0.0/8 | 3389 | Consenti |
-| 200 | 159.0.0.0/8 | 3389 | Consenti |
+| 100 | 65\.0.0.0/8 | 3389 | Consenti |
+| 200 | 159\.0.0.0/8 | 3389 | Consenti |
 
 ### Ordine delle regole
 
@@ -86,8 +86,8 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 | **N. regola** | **Subnet remota** | **Endpoint** | **Consenti/Nega** |
 |--------|---------------|----------|-------------|
-| 100 | 175.1.0.1/24 | 80 | Nega |
-| 200 | 175.0.0.0/8 | 80 | Consenti |
+| 100 | 175\.1.0.1/24 | 80 | Nega |
+| 200 | 175\.0.0.0/8 | 80 | Consenti |
 
 ## Elenchi di controllo di accesso di rete e set con carico bilanciato
 
@@ -99,4 +99,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

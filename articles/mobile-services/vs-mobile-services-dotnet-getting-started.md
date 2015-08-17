@@ -85,4 +85,4 @@ Eliminare una riga nel database. L'elemento di parametro è l'oggetto TodoItem d
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

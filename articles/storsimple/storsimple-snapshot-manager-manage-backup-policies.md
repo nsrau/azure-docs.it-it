@@ -47,7 +47,7 @@ Utilizzare la procedura seguente per creare un nuovo criterio di backup.
 
    1. Nella casella di testo **Nome**, digitare un nome per il criterio.
 
-   2. Nella casella di testo\*\* Gruppo di volumi **, digitare il nome del gruppo di volumi associati al criterio.
+   2. Nella casella di testo** Gruppo di volumi**, digitare il nome del gruppo di volumi associati al criterio.
 
    3. Selezionare **Snapshot locale** o **Snapshot cloud**.
 
@@ -61,11 +61,11 @@ Utilizzare la procedura seguente per creare un nuovo criterio di backup.
 
    1. Fare clic sulla casella di controllo **Abilita** per pianificare il backup successivo.
 
-   2. Sotto **Impostazioni**, selezionare **Una sola volta**, **Giornaliera**, **Settimanale** o **Mensile**.
+   2. In **Impostazioni**, selezionare **Una sola volta**, **Giornaliera**, **Settimanale** o **Mensile**.
 
    3. Nella casella di controllo **Avvio**, fare clic sull'icona del calendario e selezionare una data di avvio.
 
-   4. Sotto **Impostazioni avanzate**, è possibile impostare pianificazioni ripetute facoltative e una data di fine.
+   4. In **Impostazioni avanzate**, è possibile impostare pianificazioni ripetute facoltative e una data di fine.
 
    5. Fare clic su **OK**.
 
@@ -81,7 +81,7 @@ Dopo aver creato un criterio di backup, nel riquadro **Risultati** vengono visua
 
 - **Creato**: la data in cui è stato creato questo criterio.
 
-- **Abilitato**: se il criterio è attualmente attivo (**True** indica che è attivo, **False**indica che non è attivo).
+- **Abilitato**: se il criterio è attualmente attivo (**True** indica che è attivo, **False** indica che non è attivo).
 
 ## Modifica di un criterio di backup
 
@@ -118,4 +118,4 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
 
 [Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

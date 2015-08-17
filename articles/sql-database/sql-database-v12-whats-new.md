@@ -8,14 +8,16 @@
 	editor=""/>
 
 
+
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/21/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
+
 
 
 # Novità della versione 12 del database SQL
@@ -90,9 +92,15 @@ La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero
 
 | Funzionalità per la continuità aziendale | Versione precedente | Versione 12 |
 | :-- | :-- | :-- |
-| Ripristino geografico | • RPO < 24 ore.<br/>• ERT < 12 ore. | • RPO < 1 ora.<br/>• ERT < 12 ore. |
-| Replica geografica standard | • RPO < 30 minuti.<br/>• ERT < 2 ore. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
-| Replica geografica attiva | • RPO < 5 minuti.<br/>• ERT < 1 ora. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
+| Ripristino geografico | • RPO < 24 ore.<br/>
+• ERT < 12 ore. | • RPO < 1 ora.<br/>
+• ERT < 12 ore. |
+| Replica geografica standard | • RPO < 30 minuti.<br/>
+• ERT < 2 ore. | • RPO < 5 secondi.<br/>
+• ERT < 30 secondi. |
+| Replica geografica attiva | • RPO < 5 minuti.<br/>
+• ERT < 1 ora. | • RPO < 5 secondi.<br/>
+• ERT < 30 secondi. |
 
 
 Per altre informazioni, vedere [Continuità aziendale del database SQL](https://msdn.microsoft.com/library/azure/hh852669.aspx).
@@ -150,17 +158,14 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>Aree dell'anteprima
 
 
-La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di [Anteprima](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). Da aprile 2015 la versione 12 è stata promossa al livello Disponibilità generale (GA) nella maggior parte delle aree geografiche.
+La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di Anteprima.
 
 
-La versione 12 è disponibile nella versione di anteprima nelle seguenti aree geografiche:
+- [Vedere le condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-| Area di Azure | Versione corrente<br/>stato della versione 12 | Data di promozione<br/>per GA, stimato |
-| :--- | :--- | :--- |
-| Australia orientale | **Anteprima** | Terzo trimestre del calendario 2015, stimato |
-| Australia sudorientale | **Anteprima** | Terzo trimestre del calendario 2015, stimato |
+Dal 31 luglio 2015, tutte le aree sono state promosse a Disponibilità generale (GA).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

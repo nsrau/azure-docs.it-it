@@ -36,4 +36,4 @@ Per problemi con la password, provare a reimpostarla dal portale. Dal dashboard 
 
 Se questa procedura non funziona, sarà necessario eseguire altre procedure di risoluzione dei problemi. Per istruzioni, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

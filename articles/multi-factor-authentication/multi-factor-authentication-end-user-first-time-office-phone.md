@@ -41,3 +41,5 @@ Se si desidera utilizzare il telefono dell'ufficio come metodo di contatto princ
 <center>![Installazione](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
 <!-----HONumber=July15_HO4-->
+
+<!---HONumber=August15_HO6-->

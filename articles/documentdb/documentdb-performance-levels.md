@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Livelli di prestazioni in DocumentDB | Azure" 
+	pageTitle="Livelli di prestazioni in DocumentDB | Microsoft Azure" 
 	description="Informazioni sul modo in cui i livelli di prestazioni in DocumentDB consentono di riservare la velocità effettiva in base a ogni raccolta." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -63,7 +63,7 @@ DocumentDB consente un'ampia gamma di operazioni di database tra cui query, quer
 > [AZURE.NOTE]I livelli di prestazioni vengono misurati in unità di richiesta. A ogni livello di prestazioni è associata una velocità massima di unità di richiesta al secondo. Il livello di prestazioni di una raccolta può essere modificato tramite le API o il [portale di Azure](https://portal.azure.com/).
 
 ##Impostazione dei livelli di prestazioni per le raccolte
-Una volta creata una raccolta, l'allocazione completa di unità di richiesta in base al livello di prestazioni designato è riservata per la raccolta. Ad esempio, se una raccolta è impostata come S3: la raccolta è in grado di elaborare 2.500 RU al secondo. Ogni raccolta riserva la velocità effettiva designata e 10GB di archiviazione del database. Il prezzo della raccolta varia a seconda del livello delle prestazioni prescelto (S1, S2, S3). Si noti che DocumentDB opera in base alla prenotazione della capacità; con la creazione di una raccolta, un'applicazione riserva la velocità effettiva e riceve l'addebito per l'archiviazione di database e la velocità effettiva riservate, indipendentemente dalla quantità di archiviazione e velocità effettiva usata attivamente.
+Una volta creata una raccolta, l'allocazione completa di unità di richiesta in base al livello di prestazioni designato è riservata per la raccolta. Ad esempio, se una raccolta è impostata come S3: la raccolta è in grado di elaborare 2500 RU al secondo. Ogni raccolta riserva la velocità effettiva designata e 10 GB di archiviazione del database. Il prezzo della raccolta varia a seconda del livello delle prestazioni prescelto (S1, S2, S3). Si noti che DocumentDB opera in base alla prenotazione della capacità; con la creazione di una raccolta, un'applicazione riserva la velocità effettiva e riceve l'addebito per l'archiviazione di database e la velocità effettiva riservate, indipendentemente dalla quantità di archiviazione e velocità effettiva usata attivamente.
 
 Dopo aver creato le raccolte, è possibile modificare il livello di prestazioni tramite gli SDK di DocumentDB o tramite il portale di gestione di Azure.
 
@@ -84,7 +84,7 @@ Le raccolte di DocumentDB consentono di partizionare i dati basati su modelli di
 
 > [AZURE.IMPORTANT]È importante comprendere che la fatturazione avverrà alle tariffe standard complete in base al numero di raccolte create all'interno dell'applicazione.
 
-È consigliabile che l'applicazione utilizzi un numero ridotto di raccolte, a meno che non si dispone di requisiti di archiviazione o throughput elevati. Assicurarsi di avere ben compreso i modelli di applicazione per la creazione di nuove raccolte. È possibile scegliere di riservare la creazione della raccolta come un'azione di gestione gestita all'esterno dell'applicazione. Analogamente, la regolazione del livello delle prestazioni per una raccolta cambierà la tariffa oraria con la quale la raccolta viene fatturata. Se l'applicazione consente di regolarli in modo dinamico, è opportuno monitorare i livelli delle prestazioni della raccolta.
+È consigliabile che l'applicazione usi un numero ridotto di raccolte, a meno che non si dispone di requisiti di archiviazione o throughput elevati. Assicurarsi di avere ben compreso i modelli di applicazione per la creazione di nuove raccolte. È possibile scegliere di riservare la creazione della raccolta come un'azione di gestione gestita all'esterno dell'applicazione. Analogamente, la regolazione del livello delle prestazioni per una raccolta cambierà la tariffa oraria con la quale la raccolta viene fatturata. Se l'applicazione consente di regolarli in modo dinamico, è opportuno monitorare i livelli delle prestazioni della raccolta.
 
 ##Modifica dei livelli di prestazioni tramite il portale di anteprima di Azure
 
@@ -105,7 +105,7 @@ Il portale di anteprima di Azure è una delle opzioni disponibili quando si gest
 
 ##Modifica dei livelli di prestazioni tramite il SDK di .NET
 
-Un'altra opzione per la modifica dei livelli di prestazioni degli insiemi è tramite SDK. Questa sezione riguarda solo la modifica delle prestazioni di una raccolta di livello utilizzando [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) ma il processo è simile per le altre [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se non si conosce il SDK di .NET, visitare la nostra [esercitazione introduttiva](documentdb-get-started.md).
+Un'altra opzione per la modifica dei livelli di prestazioni degli insiemi è tramite SDK. Questa sezione riguarda solo la modifica delle prestazioni di una raccolta di livello usando [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) ma il processo è simile per le altre [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se non si conosce il SDK di .NET, visitare la nostra [esercitazione introduttiva](documentdb-get-started.md).
 
 Di seguito è riportato un frammento di codice per la modifica del tipo di offerta:
 
@@ -141,4 +141,4 @@ Per altre informazioni su DocumentDB, vedere la [documentazione](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

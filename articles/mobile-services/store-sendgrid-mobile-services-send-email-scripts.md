@@ -7,14 +7,16 @@
 	manager="sendgrid" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="07/31/2015" 
 	ms.author="Erikre"/>
+
 
 
 # Invio di posta elettronica da Servizi mobili con SendGrid
@@ -88,7 +90,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 	- **_from-address_**: l'indirizzo di origine del messaggio di posta elettronica. È consigliabile utilizzare l'indirizzo di un dominio registrato appartenente all'organizzazione dell'utente.
 
-     >[AZURE.NOTE]Se non si dispone di un dominio registrato, è possibile usare il dominio del servizio mobile in uso nel formato *notifications@_your-mobile-service_.azure-mobile.net*. I messaggi inviati al dominio del servizio mobile, tuttavia, vengono ignorati.
+     >[AZURE.NOTE]Se non si dispone di un dominio registrato, è possibile usare il dominio del servizio mobile in uso nel formato **notifications@_your-mobile-service_.azure-mobile.net*. I messaggi inviati al dominio del servizio mobile, tuttavia, vengono ignorati.
 
 6. Fare clic sul pulsante **Salva**. È stato configurato uno script per l'invio di un messaggio di posta elettronica ogni volta che viene inserito un record nella tabella **TodoItem**.
 
@@ -136,4 +138,4 @@ Dopo avere sperimentato quanto sia semplice utilizzare il servizio di posta elet
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

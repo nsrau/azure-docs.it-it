@@ -69,7 +69,7 @@ I mapping degli attributi permettono di controllare il modo in cui gli attribuit
 - **Costante:** l'attributo di destinazione viene popolato con una stringa specificata.
 
 
-- **Espressione:** l'attributo di destinazione viene popolato in base al risultato di un'espressione simile a uno script. Per informazioni dettagliate, vedere Scrittura di espressioni per il mapping degli attributi in Azure Active Directory.
+- **Espressione:** l'attributo di destinazione viene popolato in base al risultato di un'espressione simile a uno script. Per informazioni dettagliate, vedere [Scrittura di espressioni per il mapping degli attributi in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
 
 - **Nessuno:** l'attributo di destinazione viene lasciato invariato. Se l'attributo di destinazione viene lasciato vuoto, verrà però popolato con il valore predefinito specificato.
@@ -82,16 +82,12 @@ Microsoft Azure AD offre un'implementazione estremamente efficiente di un proces
 
 
 
-
-## Risorse aggiuntive
-
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

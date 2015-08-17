@@ -71,4 +71,4 @@ Si può modificare il nome host per una macchina virtuale o istanza del ruolo ca
 
 [Configurare una rete virtuale usando un file di configurazione di rete](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -63,13 +63,13 @@ Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Sta
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
 ## Recuperare la stringa di connessione
-Per rappresentare le informazioni dell'account di archiviazione, è possibile utilizzare la classe **cloud_storage_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse**.
+Per rappresentare le informazioni dell'account di archiviazione, è possibile utilizzare la classe **cloud\_storage\_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 ## Procedura: creare una coda
-L’oggetto **cloud_queue_client** consente di ottenere oggetti di riferimento per le code. Il codice seguente consente di creare un oggetto **cloud_queue_client**.
+L’oggetto **cloud\_queue\_client** consente di ottenere oggetti di riferimento per le code. Il codice seguente consente di creare un oggetto **cloud\_queue\_client**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -77,7 +77,7 @@ L’oggetto **cloud_queue_client** consente di ottenere oggetti di riferimento p
 	// Create a queue client.
 	azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-Utilizzare l’oggetto **cloud_queue_client** per ottenere un riferimento alla coda che si desidera utilizzare. È possibile creare la coda se non esiste già.
+Utilizzare l’oggetto **cloud\_queue\_client** per ottenere un riferimento alla coda che si desidera utilizzare. È possibile creare la coda se non esiste già.
 
 	// Retrieve a reference to a queue.
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
@@ -86,7 +86,7 @@ Utilizzare l’oggetto **cloud_queue_client** per ottenere un riferimento alla c
  	queue.create_if_not_exists();  
 
 ## Procedura: inserire un messaggio in una coda
-Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **cloud_queue_message**. Quindi, chiamare il metodo **add_message**. È possibile creare un oggetto **cloud_queue_message** da una stringa o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
+Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo oggetto **cloud\_queue\_message**. Quindi, chiamare il metodo **add\_message**. È possibile creare un oggetto **cloud\_queue\_message** da una stringa o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -105,7 +105,7 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
 	queue.add_message(message1);  
 
 ## Procedura: visualizzare il messaggio successivo
-È possibile visualizzare il messaggio in testa a una coda senza rimuoverlo dalla coda chiamando il metodo **peek_message**.
+È possibile visualizzare il messaggio in testa a una coda senza rimuoverlo dalla coda chiamando il metodo **peek\_message**.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -147,7 +147,7 @@ Per inserire un messaggio in una coda esistente, creare innanzitutto un nuovo og
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## Procedura: rimuovere il messaggio successivo dalla coda
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando **get_message**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **get_message** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete_message** immediatamente dopo l'elaborazione del messaggio.
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando **get\_message**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **get\_message** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete\_message**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete\_message** immediatamente dopo l'elaborazione del messaggio.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -166,7 +166,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	queue.delete_message(dequeued_message); 
 
 ## Procedura: usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
-È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **get_messages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **get_messages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
+È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **get\_messages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for**. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **get\_messages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -192,7 +192,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	}
 
 ## Procedura: recuperare la lunghezza delle code
-È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **download_attributes** chiede al servizio di accodamento di recuperare gli attributi della coda, incluso il numero di messaggi. Il metodo **approximate_message_count** ottiene il numero approssimativo di messaggi nella coda.
+È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **download\_attributes** chiede al servizio di accodamento di recuperare gli attributi della coda, incluso il numero di messaggi. Il metodo **approximate\_message\_count** ottiene il numero approssimativo di messaggi nella coda.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -213,7 +213,7 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
 	std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 
 ## Procedura: eliminare una coda
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **delete_queue_if_exists** sull’oggetto coda.
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **delete\_queue\_if\_exists** sull’oggetto coda.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -239,4 +239,4 @@ A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodament
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

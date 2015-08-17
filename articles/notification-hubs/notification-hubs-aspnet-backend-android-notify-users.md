@@ -35,7 +35,7 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 
 1. Seguire l'esercitazione [Introduzione ad Hub di notifica (Android)](notification-hubs-android-get-started.md) per creare e configurare l'app per la ricezione di notifiche push da GCM.
 
-2. Aprire il file **res/layout/activity_main.xml** e sostituire il contenuto con le definizioni seguenti.
+2. Aprire il file **res/layout/activity\_main.xml** e sostituire il contenuto con le definizioni seguenti.
  
     Verranno aggiunti nuovi controlli EditText per l'accesso come utente. Viene aggiunto anche un campo per un tag username che farà parte delle notifiche inviate:
 			
@@ -133,7 +133,7 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 			Recipient username tag
 		</string>
 
-	A questo punto il layout grafico del file main_activity.xml dovrebbe essere simile al seguente:
+	A questo punto il layout grafico del file main\_activity.xml dovrebbe essere simile al seguente:
 
 	![][A1]
 
@@ -434,4 +434,4 @@ Il passaggio successivo consiste nella creazione dell'applicazione per Android.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

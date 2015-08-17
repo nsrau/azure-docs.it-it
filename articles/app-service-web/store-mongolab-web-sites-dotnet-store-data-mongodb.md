@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/03/2015" 
 	ms.author="chris@mongolab.com"/>
 
 
@@ -500,4 +500,4 @@ Congratulazioni. verrà avviata un'applicazione C# ASP.NET supportata da un data
 
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

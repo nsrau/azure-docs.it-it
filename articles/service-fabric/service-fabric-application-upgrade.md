@@ -66,4 +66,4 @@ Il diagramma di flusso seguente illustra il processo di aggiornamento di un'appl
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

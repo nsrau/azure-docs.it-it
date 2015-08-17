@@ -7,6 +7,7 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="web"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/03/2015"
 	ms.author="robmcm"/>
+
 
 # Come eseguire un server applicazioni Java su una macchina virtuale
 
@@ -40,26 +42,26 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
 3. Nella finestra di dialogo **Seleziona immagine macchina virtuale**, selezionare **JDK 7 Windows Server 2012**. Se si dispone di applicazioni legacy non ancora predisposte per l'esecuzione in JDK 7, è disponibile anche **JDK 6 Windows Server 2012**.
 4. Fare clic su **Next**.
-5. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong>:
+5. Nella finestra di dialogo **Configurazione macchina virtuale**:
     1. Specificare un nome per la macchina virtuale.
     2. Specificare la dimensione da utilizzare per la macchina virtuale.
     3. Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota del nome e della password immesse successivamente, perché verranno utilizzate per l'accesso in remoto alla macchina virtuale.
     4. Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
     5. Fare clic su **Avanti**.
-6. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong> successiva:
+6. Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
     1. Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
     2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
     2. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare un’area come **Stati Uniti Occidentali**.
     2. Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
     3. Nella casella **Availability Set** selezionare **(None)**.
     4. Fare clic su **Avanti**.
-7. Nella finestra di dialogo <strong>Configurazione macchina virtuale</strong> finale:
+7. Nella finestra di dialogo **Configurazione macchina virtuale** finale:
     1. Accettare le voci di endpoint predefinite.
     2. Fare clic su **Complete**.
 
 ## Per accedere in remoto alla macchina virtuale
 
-1. Accedere al [portale di gestione](https://manage.windowsazure.com).
+1. Accedere al [Portale di gestione](https://manage.windowsazure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
 4. Dopo aver avviato la macchina virtuale, è possibile eseguire le connessioni tramite un menu a comparsa nella parte inferiore della pagina.
@@ -91,7 +93,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, è necessario creare un end
 4. Fare clic su **Endpoints**.
 5. Fare clic su **Aggiungi**.
 6. Nella finestra di dialogo **Aggiungi endpoint**, assicurarsi che l'opzione **Aggiungi endpoint autonomo** sia selezionata, quindi fare clic su **Avanti**.
-7. Nella finestra di dialogo <strong>Dettagli nuovo endpoint</strong>:
+7. Nella finestra di dialogo **Dettagli nuovo endpoint**:
     1. Specificare un nome per l'endpoint, ad esempio **HttpIn**.
     2. Specificare **TCP** per il protocollo.
     3. Specificare **80** per la porta pubblica.
@@ -103,31 +105,14 @@ Per vedere Tomcat in esecuzione da macchine esterne, è necessario creare un end
 2. Fare clic sul pulsante **Start** di Windows.
 3. Fare clic su **Pannello di controllo**.
 4. Fare clic su **Sistema e sicurezza**, quindi su **Windows Firewall** e infine su **Impostazioni avanzate**.
-5. Fare clic su **Regole connessioni in entrata**, quindi su **Nuova regola**.
+5. Fare clic su **Regole connessioni in entrata**, quindi su **Nuova regola**. ![Nuova regola connessioni in entrata][NewIBRule]
+6. Per **Tipo regola**, selezionare **Porta**, quindi fare clic su **Avanti**. ![Porta della nuova regola connessioni in entrata][NewRulePort]
+7. Nella schermata **Protocollo e porte**, selezionare **TCP**, specificare **8080** come **Porta locale specifica**, quindi fare clic su **Avanti**. ![Nuova regola connessioni in entrata][NewRuleProtocol]
+8. Nella schermata **Azione**, selezionare **Consenti la connessione**, quindi fare clic su **Avanti**. ![Operazione per nuova regola connessioni in entrata][NewRuleAction]
+9. Nella schermata **Profilo**, verificare che le opzioni **Dominio**, **Privato** e **Pubblico** siano selezionate, quindi fare clic su **Avanti**. ![Profilo per nuova regola connessioni in entrata][NewRuleProfile]
+10. Nella schermata **Nome**, specificare un nome per la regola, come **HttpIn** (non è tuttavia necessario che il nome della regola coincida con quello dell'endpoint), quindi fare clic su **Fine**. ![Nome della nuova regola connessioni in entrata][NewRuleName]
 
- ![Nuova regola connessioni in entrata][NewIBRule]
-
-6. Per **Tipo regola**, selezionare **Porta**, quindi fare clic su **Avanti**.
-
- ![Porta della nuova regola connessioni in entrata][NewRulePort]
-
-7. Nella schermata **Protocollo e porte**, selezionare **TCP**, specificare **8080** come **Porta locale specifica**, quindi fare clic su **Avanti**.
-
- ![Nuova regola connessioni in entrata][NewRuleProtocol]
-
-8. Nella schermata **Azione**, selezionare **Consenti la connessione**, quindi fare clic su **Avanti**.
-
- ![Operazione per nuova regola connessioni in entrata][NewRuleAction]
-
-9. Nella schermata **Profilo**, verificare che le opzioni **Dominio**, **Privato** e **Pubblico** siano selezionate, quindi fare clic su **Avanti**.
-
- ![Profilo per nuova regola connessioni in entrata][NewRuleProfile]
-
-10. Nella schermata **Nome**, specificare un nome per la regola, come **HttpIn** (non è tuttavia necessario che il nome della regola coincida con quello dell'endpoint), quindi fare clic su **Fine**.  
-
- ![Nome della nuova regola connessioni in entrata][NewRuleName]
-
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno utilizzando un URL nel formato **http://*your\_DNS\_name*.cloudapp.net**, dove ***your\_DNS\_name*** è il nome DNS specificato durante la creazione della macchina virtuale.
+A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno utilizzando un URL nel formato ****http://*your\_DNS\_name*.cloudapp.net**, dove ***your\_DNS\_name*** è il nome DNS specificato durante la creazione della macchina virtuale.
 
 ## Considerazioni sul ciclo di vita delle applicazioni
 * È possibile creare il proprio archivio di applicazioni Web (WAR) e aggiungerlo alla cartella **webapps**. Ad esempio, creare un progetto Web dinamico JSP (Java Service Page) di base ed esportarlo come file WAR, quindi copiare il file WAR nella cartella di **webapps** Apache Tomcat sulla macchina virtuale ed eseguirlo in un browser.
@@ -159,4 +144,4 @@ Scoprire di più su altri servizi, come Archiviazione, Bus di servizio e Databas
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

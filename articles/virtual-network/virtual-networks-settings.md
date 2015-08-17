@@ -100,4 +100,4 @@ Dopo aver distribuito la rete virtuale, è possibile modificare solo alcune impo
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

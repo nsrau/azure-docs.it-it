@@ -130,4 +130,4 @@ MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC P
 * Per distribuire e configurare un cluster Linux con istanze A8 e A9 per accedere alla rete RDMA di Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
 * Per iniziare a distribuire e utilizzare istanze A8 e A9 con HPC Pack in Windows, vedere [Istanze a elevato utilizzo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) e [Eseguire applicazioni MPI nelle istanze A8 e A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

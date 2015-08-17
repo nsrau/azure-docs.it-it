@@ -274,4 +274,4 @@ Si sta usando Visual Studio e si vuole...
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/it-it/library/ee405487.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

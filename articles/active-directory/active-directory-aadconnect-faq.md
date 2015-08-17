@@ -40,4 +40,4 @@
 
 Utilizzare le linee guida descritte nell'articolo di seguito per risolvere[qui](active-directory-aadconnect-o365-certs.md)rinnovare il certificato.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

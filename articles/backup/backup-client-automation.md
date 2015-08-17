@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/17/2015"
-	ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server/client Windows mediante Azure PowerShell
@@ -73,7 +66,8 @@ Per poter eseguire la registrazione con il servizio Backup di Azure, è necessar
 
 - Disporre di una sottoscrizione di Azure valida
 - Creare un insieme di credenziali per il backup
-- Scaricare le credenziali dell'insieme di credenziali e archiviarle in un percorso comodo, ad esempio *C:\Downloads*. Per comodità, è possibile rinominare le credenziali dell'insieme di credenziali. 
+- Scaricare le credenziali dell'insieme di credenziali e archiviarle in un percorso comodo (come ad esempio *C:\\Downloads*). Per comodità, è possibile rinominare le credenziali dell'insieme di credenziali.
+
 La registrazione del computer con l'insieme di credenziali viene eseguita utilizzando il cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx):
 
 ```
@@ -384,7 +378,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### Attivazione del processo di ripristino
-Per attivare il processo di ripristino, è prima necessario specificare le opzioni di ripristino. A tale scopo, è possibile usare il cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). Per questo esempio, si supponga di voler ripristinare i file in *C:\temp*. Si supponga inoltre di voler ignorare i file già presenti nella cartella di destinazione *C:\temp*. Per creare un'opzione di ripristino di questo tipo, usare il comando seguente:
+Per attivare il processo di ripristino, è prima necessario specificare le opzioni di ripristino. A tale scopo, è possibile usare il cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). Per questo esempio, si supponga di voler ripristinare i file in *C:\\temp*. Si supponga inoltre di voler ignorare i file già presenti nella cartella di destinazione *C:\\temp*. Per creare un'opzione di ripristino di questo tipo, usare il comando seguente:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -439,8 +433,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 È ora possibile gestire il computer in remoto, a partire dall'installazione dell'agente. Ad esempio, il seguente script copia l'agente nel computer remoto e lo installa.
 
 ```
-PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -451,4 +445,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Passaggi successivi
 Per ulteriori informazioni su Backup di Azure per Windows server/client, vedere [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

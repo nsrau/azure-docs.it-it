@@ -81,7 +81,7 @@ I metodi elencati nella sezione seguente presuppongono che il documento JSON sia
 	
 	SELECT * FROM StudentsOneLine
 
-Il file JSON non elaborato è disponibile in **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive *StudentsRaw* punta al documento JSON non elaborato e non flat.
+Il file JSON non elaborato è disponibile in ****wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive *StudentsRaw* punta al documento JSON non elaborato e non flat.
 
 La tabella Hive *StudentsOneLine* archivierà i dati nel file system predefinito di HDInsight nel percorso */json/students/*.
 
@@ -126,7 +126,7 @@ Il wiki relativo a Hive consiglia quindi di usare json\_tuple, come illustrato p
 
 ### Usare la funzione definita dall'utente JSON\_TUPLE
 
-L'altra funzione definita dall'utente fornita da Hive è denominata [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) e offre prestazioni migliori rispetto a [get\_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Questo metodo accetta un insieme di chiavi e una stringa JSON e restituisce una tupla di valori usando una funzione. La query seguente restituisce l'ID dello studente e il livello dal documento JSON:
+L'altra funzione definita dall'utente fornita da Hive è denominata [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) e offre prestazioni migliori rispetto a [get\_ json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Questo metodo accetta un insieme di chiavi e una stringa JSON e restituisce una tupla di valori usando una funzione. La query seguente restituisce l'ID dello studente e il livello dal documento JSON:
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -261,4 +261,4 @@ Per altri articoli correlati, vedere
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tamram"/>
 
 # Introduzione ad Archiviazione di Microsoft Azure
@@ -93,7 +93,9 @@ Per gli utenti che dispongono di grandi quantità di dati non strutturati da arc
 
 Ogni BLOB è organizzato in un contenitore. I contenitori sono inoltre una soluzione utile per assegnare criteri di sicurezza a gruppi di oggetti. Un account di archiviazione può contenere un numero qualsiasi di contenitori e un contenitore può contenere un numero qualsiasi di BLOB, fino a che non viene raggiunto il limite di capacità di 500 TB dell'account di archiviazione.
 
-Gli archivi BLOB offrono due tipi di BLOB: i BLOB in blocchi e i BLOB di pagine (dischi). I BLOB in blocchi sono ottimizzati per lo streaming e l'archiviazione di oggetti cloud e sono una soluzione adatta per l'archiviazione di documenti, file multimediali, backup e così via. Un BLOB in blocchi può raggiungere una dimensione massima di 200 GB. I BLOB di pagine sono ottimizzati per la rappresentazione di dischi IaaS e per il supporto di scritture casuali. Possono raggiungere una dimensione massima di 1 TB. Un disco IaaS collegato a una rete di macchine virtuali Azure è un disco rigido virtuale archiviato come BLOB di pagine.
+Gli archivi BLOB offrono tre tipi di BLOB: i BLOB in blocchi , i BLOB di accodamento e i BLOB di pagine (dischi). I BLOB in blocchi sono ottimizzati per lo streaming e l'archiviazione di oggetti cloud e sono una soluzione adatta per l'archiviazione di documenti, file multimediali, backup e così via. I BLOB di accodamento sono simili ai BLOB in blocchi, ma ottimizzati per le operazioni di Accodamento. Un BLOB di accodamento può essere aggiornato solo aggiungendo un nuovo blocco alla fine. I BLOB di accodamento sono una buona scelta per scenari quali la registrazione, dove i nuovi dati devono essere scritti solo fino alla fine del BLOB.
+
+I BLOB di pagine sono ottimizzati per la rappresentazione di dischi IaaS e per il supporto di scritture casuali. Possono raggiungere una dimensione massima di 1 TB. Un disco IaaS collegato a una rete di macchine virtuali Azure è un disco rigido virtuale archiviato come BLOB di pagine.
 
 Se si dispone di set di dati molto grandi e i vincoli della rete ne impediscono il caricamento o il download in archivi BLOB tramite una connessione, è possibile spedire un'unità disco rigido a Microsoft per importare o esportare i dati direttamente dal data center tramite il [Servizio Importazione/Esportazione di Azure](storage-import-export-service.md). È inoltre possibile copiare i dati BLOB all'interno del proprio account di archiviazione o tra account di archiviazione diversi.
 
@@ -171,6 +173,7 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Pacchetto NuGet per l'Archiviazione di Azure - Librerie client per .NET, Windows Phone e Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Azure SDK e strumenti](http://azure.microsoft.com/downloads/)
 - [Emulatore di archiviazione di Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
+- [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
 ### Codice sorgente
 
@@ -183,7 +186,9 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Introduzione all'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
 ### Per gli utenti PowerShell
-- [Cmdlet di Archiviazione di Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md)
+- [Cmdlet di archiviazione di Azure per la gestione dei servizi](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Cmdlet di archiviazione di Azure per Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### Per gli sviluppatori .NET
 
@@ -191,6 +196,7 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
 - [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
 - [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
+- [Come usare l'archiviazione file di Azure con PowerShell e .NET](storage-dotnet-how-to-use-files.md)
 
 ### Per sviluppatori Java/Android
 
@@ -224,4 +230,4 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

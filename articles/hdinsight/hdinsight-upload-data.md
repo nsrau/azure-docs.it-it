@@ -279,4 +279,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

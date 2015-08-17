@@ -71,4 +71,4 @@ Il processo di distribuzione può essere suddiviso in due passaggi: esportazione
 ##Alternative
 È inoltre possibile utilizzare l’utilità della riga di comando sqlpackage.exe per distribuire il database oppure esportare e importare un file BACPAC. Sqlpackage.exe utilizza la stessa tecnologia DAC di SSMS, pertanto il risultato è lo stesso. Per ulteriori informazioni vedere [SqlPackage.exe su MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

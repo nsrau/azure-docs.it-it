@@ -33,15 +33,15 @@ L'aggiunta di uno spazio degli indirizzi IP pubblico funziona concettualmente co
 
 Esistono alcuni intervalli di indirizzi IP che non sono consentiti:
 
-- 224.0.0.0/4 (multicast)
+- 224\.0.0.0/4 (multicast)
 
-- 255.255.255.255/32 (broadcast)
+- 255\.255.255.255/32 (broadcast)
 
-- 127.0.0.0/8 (loopback)
+- 127\.0.0.0/8 (loopback)
 
-- 169.254.0.0/16 (locale rispetto al collegamento)
+- 169\.254.0.0/16 (locale rispetto al collegamento)
 
-- 68.63.129.16/32 (DNS interno)
+- 68\.63.129.16/32 (DNS interno)
 
 ## Passaggi successivi
 
@@ -51,4 +51,4 @@ Esistono alcuni intervalli di indirizzi IP che non sono consentiti:
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

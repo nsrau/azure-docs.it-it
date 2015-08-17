@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
@@ -35,15 +35,15 @@ In questa guida alle procedure viene illustrato come usare il servizio Inoltro d
 
 ## Creare uno spazio dei nomi del servizio
 
-Per iniziare a usare il servizio Inoltro del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi servizio. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
+Per iniziare a usare il servizio Inoltro del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi del servizio. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
 Per creare uno spazio dei nomi del servizio:
 
 1.  Accedere al [portale di gestione di Azure][].
 
-2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Service Bus**.
+2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale di gestione fare clic su **Create**.
+3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -90,7 +90,7 @@ Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni segu
 
 ## Come esporre e usare un servizio Web SOAP con TCP tramite il bus di servizio
 
-Per esporre un servizio Web SOAP WCF esistente per l'utilizzo esterno, è necessario apportare modifiche alle associazioni e agli indirizzi del servizio. A seconda di come sono stati installati e configurati i servizi WCF, potrebbe essere necessario modificare il file di configurazione o il codice. Si noti che WCF consente di utilizzare più endpoint di rete con lo stesso servizio, pertanto è possibile continuare a mantenere gli endpoint interni esistenti pur aggiungendo endpoint del bus di servizio per l'accesso esterno.
+Per esporre un servizio Web SOAP WCF esistente per l'utilizzo esterno, è necessario apportare modifiche alle associazioni e agli indirizzi del servizio. A seconda di come sono stati installati e configurati i servizi WCF, potrebbe essere necessario modificare il file di configurazione o il codice. Si noti che WCF consente di usare più endpoint di rete con lo stesso servizio, pertanto è possibile continuare a mantenere gli endpoint interni esistenti pur aggiungendo endpoint del bus di servizio per l'accesso esterno.
 
 In questa attività si creerà un semplice servizio WCF al quale verrà aggiunto un listener del bus di servizio. Per questo esercizio si presuppone una certa conoscenza di Visual Studio, pertanto non è inclusa una spiegazione dettagliata della procedura di creazione di un progetto, ma l'attenzione è rivolta principalmente al codice.
 
@@ -134,7 +134,7 @@ Una volta definito il contratto, l'implementazione è davvero semplice:
 
 ### Come configurare un host del servizio a livello di codice
 
-Una volta definiti il contratto e l'implementazione, è ora possibile ospitare il servizio. Per l'hosting viene utilizzato un oggetto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), che si occupa di gestire le istanze del servizio e ospita gli endpoint che sono in ascolto dei messaggi. Nel seguente codice il servizio viene configurato sia con un endpoint locale normale che con un endpoint del bus di servizio per illustrare l'aspetto di endpoint interni ed esterni affiancati. Sostituire la stringa *namespace* con il nome dello spazio dei nomi e *yourKey* con la chiave di firma di accesso condiviso ottenuta nel passaggio di configurazione precedente.
+Una volta definiti il contratto e l'implementazione, è ora possibile ospitare il servizio. Per l'hosting viene usato un oggetto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), che si occupa di gestire le istanze del servizio e ospita gli endpoint che sono in ascolto dei messaggi. Nel seguente codice il servizio viene configurato sia con un endpoint locale normale che con un endpoint del bus di servizio per illustrare l'aspetto di endpoint interni ed esterni affiancati. Sostituire la stringa *namespace* con il nome dello spazio dei nomi e *yourKey* con la chiave di firma di accesso condiviso ottenuta nel passaggio di configurazione precedente.
 
     ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
 
@@ -167,7 +167,7 @@ Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione de
     Console.ReadLine();
     sh.Close();
 
-Le definizioni dell'endpoint vengono spostate nel file App.config. Si noti che il pacchetto **NuGet** ha già aggiunto al file App.config una serie di definizioni, che sono le estensioni di configurazione necessarie per il bus di servizio. Il seguente frammento di codice, che è l'esatto equivalente del codice riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. In questo frammento di codice si presuppone che il nome dello spazio dei nomi del progetto C# sia "Service". Sostituire i segnaposto con la chiave SAS e lo spazio dei nomi del servizio del bus di servizio.
+Le definizioni dell'endpoint vengono spostate nel file App.config. Si noti che il pacchetto **NuGet** ha già aggiunto al file App.config una serie di definizioni, che sono le estensioni di configurazione necessarie per il bus di servizio. Il seguente frammento di codice, che è l'esatto equivalente del codice riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. In questo frammento di codice si presuppone che il nome dello spazio dei nomi del progetto C# sia "Service". Sostituire i segnaposto con la chiave di firma di accesso condiviso e lo spazio dei nomi del servizio del bus di servizio.
 
     <services>
         <service name="Service.ProblemSolver">
@@ -198,7 +198,7 @@ Dopo aver apportato queste modifiche, il servizio viene avviato come in preceden
 
 #### Come configurare un client a livello di codice
 
-Per usare il servizio, è possibile costruire un client WCF usando un oggetto [`ChannelFactory`](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Il bus di servizio usa un modello di sicurezza basato sui token implementato tramite la firma di accesso condiviso. La classe **TokenProvider** rappresenta un provider di token di sicurezza con metodi factory incorporati che restituiscono alcuni provider di token noti. Nell'esempio seguente viene utilizzato il metodo [`CreateSharedAccessSignatureTokenProvider`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) per gestire l'acquisizione del token di firma di accesso condiviso appropriato. Il nome e la chiave sono quelli ottenuti dal portale come descritto nella sezione precedente.
+Per usare il servizio, è possibile costruire un client WCF usando un oggetto [`ChannelFactory`](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Il bus di servizio usa un modello di sicurezza basato sui token implementato tramite la firma di accesso condiviso. La classe **TokenProvider** rappresenta un provider di token di sicurezza con metodi factory incorporati che restituiscono alcuni provider di token noti. L'esempio seguente usa il metodo [`CreateSharedAccessSignatureTokenProvider`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) per gestire l'acquisizione del token di firma di accesso condiviso appropriato. Il nome e la chiave sono quelli ottenuti dal portale come descritto nella sezione precedente.
 
 In primo luogo, fare riferimento o copiare nel progetto client il codice del contratto `IProblemSolver` del servizio.
 
@@ -228,7 +228,7 @@ Sostituire quindi il codice nel metodo `Main` del client, anche in questo caso s
         Console.WriteLine(ch.AddNumbers(4, 5));
     }
 
-Le definizioni dell'endpoint vengono spostate nel file App.config. Il seguente frammento di codice, che è identico al codice riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. Anche in questo caso, come in precedenza, è necessario sostituire i segnaposto con la chiave SAS e lo spazio dei nomi del bus di servizio.
+Le definizioni dell'endpoint vengono spostate nel file App.config. Il seguente frammento di codice, che è identico al codice riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. Anche in questo caso, come in precedenza, è necessario sostituire i segnaposto con la chiave di firma di accesso condiviso e lo spazio dei nomi del bus di servizio.
 
     <client>
         <endpoint name="solver" contract="Service.IProblemSolver"
@@ -250,7 +250,7 @@ Le definizioni dell'endpoint vengono spostate nel file App.config. Il seguente f
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base del servizio di **inoltro** del bus di servizio, usare i seguenti collegamenti per altre informazioni.
+A questo punto, dopo aver appreso le nozioni di base del servizio di **inoltro** del bus di servizio, usare i seguenti collegamenti per ottenere altre informazioni.
 
 -   Creazione di un servizio: [Creazione di un servizio per il bus di servizio][].
 -   Creazione del client: [Creazione di un'applicazione client del bus di servizio][].
@@ -268,4 +268,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di **inoltro**
   [MSDN]: https://msdn.microsoft.com/it-it/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

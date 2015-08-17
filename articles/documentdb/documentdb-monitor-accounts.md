@@ -90,4 +90,4 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
 Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacità di DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

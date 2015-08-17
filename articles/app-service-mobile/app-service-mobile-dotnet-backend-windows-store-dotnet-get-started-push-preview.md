@@ -195,4 +195,4 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

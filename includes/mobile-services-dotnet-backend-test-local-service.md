@@ -6,4 +6,4 @@ Il progetto di servizio mobile consente di eseguire il nuovo servizio mobile in 
 
 2. Premere **F5** per ricompilare il progetto e avviare il servizio mobile localmente. Al termine dell'avvio del servizio mobile, verrà visualizzata una pagina Web.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

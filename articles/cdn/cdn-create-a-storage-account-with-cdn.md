@@ -84,7 +84,7 @@ Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o 
 
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache sarà analogo al seguente:
 
-http://<*SpazioDeiNomiCDN*>.vo.msecnd.net/<*ContenitorePubblico*>/<*NomeBLOB*>
+http://<*SpazioDeiNomiCDN*>.vo.msecnd.net/<*ContenitorePubblicoPersonale*>/<*NomeBLOB*>
 
 
 ## Passaggio 4: Rimuovere contenuto dalla rete CDN
@@ -121,4 +121,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

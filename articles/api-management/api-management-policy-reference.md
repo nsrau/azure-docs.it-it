@@ -25,34 +25,34 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 ## Indice delle informazioni di riferimento per i criteri
 
 -	[Criteri di limitazione dell'accesso][]
-	-	[check-header][]: impone l'esistenza e/o il valore di un'intestazione HTTP.
-	-	[rate-limit][]: per impedire picchi di utilizzo delle API, limita le chiamate e/o la percentuale di consumo della larghezza di banda.
-	-	[ip-filter][]: filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.
-	-	[quota][]: consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda.
-	-	[validate-JWT][]: impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.
+	-	[check-header][]\: impone l'esistenza e/o il valore di un'intestazione HTTP.
+	-	[rate-limit][]\: per impedire picchi di utilizzo delle API, limita le chiamate e/o la percentuale di consumo della larghezza di banda.
+	-	[ip-filter][]\: filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.
+	-	[quota][]\: consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda.
+	-	[validate-JWT][]\: impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.
 -	[Criteri avanzati][]
-	-	[choose][]: applica in modo condizionale istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni][] booleane.
-	-	[set-variable][]: rende persistente un valore in una variabile [context][] denominata e consente di accedervi successivamente.
+	-	[choose][]\: applica in modo condizionale istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni][] booleane.
+	-	[set-variable][]\: rende persistente un valore in una variabile [context][] denominata e consente di accedervi successivamente.
 -	[Criteri di autenticazione][]
-	-	[authentication-basic][]: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
-	-	[authentication-certificate][]: consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.
+	-	[authentication-basic][]\: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
+	-	[authentication-certificate][]\: consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.
 -	[Criteri di memorizzazione nella cache][] 
-	-	[Recupera dalla cache][]: esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.
-	-	[cache-lookup][]: memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.
+	-	[Recupera dalla cache][]\: esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.
+	-	[cache-lookup][]\: memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.
 -	[Criteri tra domini][] 
-	-	[Permetti chiamate tra i domini][]: rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
-	-	[CORS][]: aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
-	-	[JSONP][]: aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser.
+	-	[Permetti chiamate tra i domini][]\: rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
+	-	[CORS][]\: aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
+	-	[JSONP][]\: aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser.
 -	[Criteri di trasformazione][] 
-	-	[json-to-xml][]: converte il corpo della richiesta o della risposta da JSON a XML.
-	-	[xml-to-json][]: converte il corpo della richiesta o della risposta da XML a JSON.
-	-	[find-and-replace][]: trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
-	-	[redirect-body-urls][]: riscrive (maschera) i collegamenti nel corpo della risposta e nell'intestazione del percorso, in modo che facciano riferimento al collegamento equivalente tramite il proxy.
-	-	[set-backend-service][]: consente di cambiare il servizio back-end per una richiesta in ingresso.
-	-	[set-body][]: consente di impostare il corpo del messaggio per richieste in ingresso e in uscita.
-	-	[Imposta intestazione HTTP][]: assegna un valore a una intestazione di risposta e/o di richiesta esistente oppure aggiunge una nuova intestazione di risposta e/o di richiesta.
-	-	[Imposta parametro di stringa della query][]: aggiunge, sostituisce il valore di o elimina il parametro di stringa della query di richiesta.
-	-	[rewrite-uri][]: converte un URL di richiesta dal formato pubblico al formato previsto dal servizio Web.
+	-	[json-to-xml][]\: converte il corpo della richiesta o della risposta da JSON a XML.
+	-	[xml-to-json][]\: converte il corpo della richiesta o della risposta da XML a JSON.
+	-	[find-and-replace][]\: trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
+	-	[redirect-body-urls][]\: riscrive (maschera) i collegamenti nel corpo della risposta e nell'intestazione del percorso, in modo che facciano riferimento al collegamento equivalente tramite il proxy.
+	-	[set-backend-service][]\: consente di cambiare il servizio back-end per una richiesta in ingresso.
+	-	[set-body][]\: consente di impostare il corpo del messaggio per richieste in ingresso e in uscita.
+	-	[Imposta intestazione HTTP][]\: assegna un valore a una intestazione di risposta e/o di richiesta esistente oppure aggiunge una nuova intestazione di risposta e/o di richiesta.
+	-	[Imposta parametro di stringa della query][]\: aggiunge, sostituisce il valore di o elimina il parametro di stringa della query di richiesta.
+	-	[rewrite-uri][]\: converte un URL di richiesta dal formato pubblico al formato previsto dal servizio Web.
 
 ## Passaggi successivi
 
@@ -105,4 +105,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

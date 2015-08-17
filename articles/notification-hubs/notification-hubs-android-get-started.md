@@ -11,7 +11,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 
@@ -21,7 +21,7 @@
 
 ##Panoramica
 
-In questo argomento viene illustrato come utilizzare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Android. In questa esercitazione verrà creata un'app per Android vuota che riceve notifiche push tramite il servizio Google Cloud Messaging (GCM). Al termine, sarà possibile trasmettere le notifiche push a tutti i dispositivi che eseguono l'app tramite l'hub di notifica.
+Questo argomento illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Android. In questa esercitazione verrà creata un'app per Android vuota che riceve notifiche push tramite il servizio Google Cloud Messaging (GCM). Al termine, sarà possibile trasmettere le notifiche push a tutti i dispositivi che eseguono l'app tramite l'hub di notifica.
 
 In questa esercitazione viene illustrato uno scenario di trasmissione semplice tramite hub di notifica. Seguire anche l'esercitazione successiva per imparare a usare gli hub di notifica destinati a gruppi di dispositivi e a utenti specifici.
 
@@ -66,7 +66,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ###Aggiungere codice
 
-1. Scaricare Notification Hubs Android SDK <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">qui</a>.. Estrarre il file ZIP e copiare **notificationhubs\notification-hubs-0.4.jar** e **notifications\notifications-1.0.1.jar** nella directory **app\libs** del progetto. A questo scopo è possibile trascinare i file direttamente nella cartella **libs** nella finestra Project View di Android Studio. Aggiornare la cartella libs.
+1. Scaricare Notification Hubs Android SDK <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">qui</a>.. Estrarre il file ZIP e copiare **notificationhubs\\notification-hubs-0.4.jar** e **notifications\\notifications-1.0.1.jar** nella directory **app\\libs** del progetto. A questo scopo è possibile trascinare i file direttamente nella cartella **libs** nella finestra Project View di Android Studio. Aggiornare la cartella libs.
 
 
 
@@ -106,7 +106,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 		private String HubListenConnectionString = "<Your default listen connection string>";
 
 
-	Assicurarsi di aggiornare i tre segnaposto: * **SENDER_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: Impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di gestione di Azure]. * **HubName**: nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub (**non** l'URL completo). Ad esempio `"myhub"`.
+	Assicurarsi di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: Impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di gestione di Azure]. * **HubName**: nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub (**non** l'URL completo). ad esempio `"myhub"`.
 
 
 
@@ -259,7 +259,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ![][31]
 
-1. Nella visualizzazione del progetto in Android Studio espandere **App**->**src**->**main**->**res**->**layout**. Aprire il file di layout **activity_main.xml** e fare clic sulla scheda **Text** per aggiornare il contenuto di testo del file. Aggiornarlo con il codice seguente che aggiunge i nuovi controlli `Button` e `EditText` per l'invio di messaggi di notifica all'hub di notifica. Aggiungere questo codice alla fine, subito prima di `</RelativeLayout>`.
+1. Nella visualizzazione del progetto in Android Studio espandere **App**->**src**->**main**->**res**->**layout**. Aprire il file di layout **activity\_main.xml** e fare clic sulla scheda **Text** per aggiornare il contenuto di testo del file. Aggiornarlo con il codice seguente che aggiunge i nuovi controlli `Button` e `EditText` per l'invio di messaggi di notifica all'hub di notifica. Aggiungere questo codice alla fine, subito prima di `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -448,9 +448,9 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 ##Test dell'app
 
 ####Test dell'emulatore
-Per testare un emulatore, assicurarsi che l'immagine dell'emulatore supporti il livello Google API scelto per l'app. Se l'immagine non supporta Google APIs, verrà generata l'eccezione **SERVICE_NOT_AVAILABLE**.
+Per testare un emulatore, assicurarsi che l'immagine dell'emulatore supporti il livello Google API scelto per l'app. Se l'immagine non supporta Google APIs, verrà generata l'eccezione **SERVICE\_NOT\_AVAILABLE**.
 
-Accertarsi anche si avere aggiunto l'account Google all'emulatore in esecuzione in **Settings**->**Accounts**. In caso contrario, i tentativi di registrazione con GCM potrebbero generare l'eccezione **AUTHENTICATION_FAILED**.
+Accertarsi anche di avere aggiunto l'account Google all'emulatore in esecuzione in **Settings**->**Accounts**. In caso contrario, i tentativi di registrazione con GCM potrebbero generare l'eccezione **AUTHENTICATION\_FAILED**.
 
 ####Testare l'app     
 
@@ -511,4 +511,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -81,4 +81,4 @@ L'esercitazione per il ripristino di emergenza verrà effettuata usando un serve
 
 - Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -117,4 +117,4 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
 Informazioni su come usare la pagina Catalogo di backup per [ripristinare il dispositivo da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

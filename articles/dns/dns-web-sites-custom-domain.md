@@ -165,4 +165,4 @@ Ora è possibile continuare a seguire i passaggi in [Configurazione di un nome d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

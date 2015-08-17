@@ -212,4 +212,4 @@ Se si desidera arrestare la protezione di una macchina virtuale VMware o un serv
 	- **Disabilitare la protezione**: se si abilita e si salva questa opzione la macchina virtuale non sarà protetta da Ripristino sito. Le impostazioni di protezione per la macchina virtuale verranno pulite automaticamente.
 	- **Rimuovere dall'insieme di credenziali**: se si seleziona questa opzione la macchina virtuale verrà rimossa solo dall'insieme di credenziali di Ripristino sito. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. Per rimuovere le impostazioni nel computer e per rimuovere la macchina virtuale dalla sottoscrizione di Azure ed è necessario pulire le impostazioni tramite la disinstallazione del servizio Mobility. ![Rimuovere le opzioni](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

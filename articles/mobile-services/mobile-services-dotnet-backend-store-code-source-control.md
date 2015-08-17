@@ -104,4 +104,4 @@ A questo punto, il progetto di servizio mobile viene gestito nel controllo del c
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

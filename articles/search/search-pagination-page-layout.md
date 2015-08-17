@@ -114,4 +114,4 @@ Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.c
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
    manager="timlt"
    editor="tysonn"/>
 
+
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="infrastructure"
    ms.date="05/25/2015"
    ms.author="rasquill"/>
+
 
 # Come usare Docker Machine in Azure
 
@@ -30,7 +32,7 @@ Se gli elementi vengono installati in questo ordine, il computer Ubuntu sarà pr
 
 ## Ottenere Docker Machine o compilarlo
 
-Il modo più rapido per procedere con **Docker Machine** consiste nello scaricare la versione appropriata direttamente dal [sito di condivisione delle versioni](https://github.com/docker/machine/releases). Sul computer client di questa esercitazione è in esecuzione Ubuntu in un computer x64, per cui viene usata l'immagine **docker-machine_linux-amd64**.
+Il modo più rapido per procedere con **Docker Machine** consiste nello scaricare la versione appropriata direttamente dal [sito di condivisione delle versioni](https://github.com/docker/machine/releases). Sul computer client di questa esercitazione è in esecuzione Ubuntu in un computer x64, per cui viene usata l'immagine **docker-machine\_linux-amd64**.
 
 È anche possibile compilare autonomamente la propria **Docker Machine** seguendo i passaggi per [contribuire a machine](https://github.com/docker/machine#contributing). Per eseguire la compilazione sarà necessario scaricare 1 GB o più, ma in questo modo sarà possibile personalizzare la propria esperienza nel modo desiderato.
 
@@ -38,7 +40,8 @@ Il modo più rapido per procedere con **Docker Machine** consiste nello scaricar
 
 <br />
 
->  Indipendentemente dal metodo scelto, è necessario chiamare il nome binario direttamente sulla riga di comando o inserirlo nel percorso, ad esempio **/usr/local/bin**. Verificare che sia contrassegnato come eseguibile digitando `chmod +x` &lt;*`binaryName`*&gt; dove &lt;*`binaryName`*&gt; è il nome di Docker Machine eseguibile. In questa esercitazione viene usato **docker-machine_linux-amd64**.
+
+>  Indipendentemente dal metodo scelto, è necessario chiamare il nome binario direttamente sulla riga di comando o inserirlo nel percorso, ad esempio **/usr/local/bin**. Verificare che sia contrassegnato come eseguibile digitando `chmod +x` &lt;*`binaryName`*&gt; dove &lt;*`binaryName`*&gt; è il nome di Docker Machine eseguibile. In questa esercitazione viene usato **docker-machine\_linux-amd64**.
 
 ## Creare i file di certificato e della chiave per docker, macchina e Azure
 
@@ -210,4 +213,4 @@ Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

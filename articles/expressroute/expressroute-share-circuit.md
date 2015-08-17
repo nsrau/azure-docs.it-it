@@ -102,4 +102,4 @@ Il diagramma seguente illustra il flusso di lavoro di autorizzazione:
 
 Per altre informazioni su ExpressRoute, vedere l'articolo [Panoramica tecnica relativa a ExpressRoute](expressroute-introduction.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

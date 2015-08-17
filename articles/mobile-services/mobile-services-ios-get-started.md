@@ -7,14 +7,16 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/28/2015"
 	ms.author="krisragh"/>
+
 
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
@@ -46,18 +48,22 @@ Per creare una nuova app connessa al servizio mobile, è possibile seguire una f
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>Nel portale di gestione fare clic sulla scheda <strong>DATI</strong>, quindi sulla tabella <strong>TodoItem</strong>. In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.<p></li></ol></p>
+<ol start="4"> <li><p>Di nuovo nel portale di gestione fare clic sulla scheda **DATA** e quindi sulla tabella **TodoItem**. In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Informazioni su come eseguire altre importanti attività in Servizi mobili:
 
-* [Aggiungere Servizi mobili a un'app esistente] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+* [Aggiungere Servizi mobili a un'app esistente] <br/>
+Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
-* [Introduzione alla sincronizzazione dei dati offline] <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+* [Introduzione alla sincronizzazione dei dati offline] <br/>
+Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
-* [Aggiungere l'autenticazione a un'app esistente] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione a un'app esistente] <br/>
+Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Aggiungere notifiche push a un'app esistente] <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere notifiche push a un'app esistente] <br/>
+Informazioni sull'invio di una notifica push di base all'app.
 
 
 <!-- Anchors. -->
@@ -88,4 +94,4 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

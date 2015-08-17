@@ -57,7 +57,7 @@ L'uso di SendGrid in un'applicazione PHP di Azure non richiede speciali attivit�
 
 ### API SMTP
 
-Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][] v5.3.0 (usare [Composer] per installare Swift Mailer). L'invio di messaggi di posta elettronica tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span> e <span class="auto-style2">Swift_Message</span> l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift_Mailer::send</span>.
+Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][] v5.3.0 (usare [Composer] per installare Swift Mailer). L'invio di messaggi di posta elettronica tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e <span class="auto-style2">Swift\_Message</span> l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";
@@ -236,7 +236,7 @@ Di seguito è riportata la riga di codice aggiuntiva:
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-Questa riga di codice chiama il metodo attach sull'oggetto <span class="auto-style2">Swift_Message</span> e usa il metodo statico <span class="auto-style2">fromPath</span> sulla classe <span class="auto-style2">Swift_Attachment</span> per recuperare e allegare un file a un messaggio.
+Questa riga di codice chiama il metodo attach sull'oggetto <span class="auto-style2">Swift\_Message</span> e usa il metodo statico <span class="auto-style2">fromPath</span> sulla classe <span class="auto-style2">Swift\_Attachment</span> per recuperare e allegare un file a un messaggio.
 
 ### API Web
 
@@ -420,4 +420,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [libreria sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

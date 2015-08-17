@@ -209,4 +209,4 @@ Per collegare dischi dati da un file con estensione vhd esistente nell'archiviaz
 
 [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

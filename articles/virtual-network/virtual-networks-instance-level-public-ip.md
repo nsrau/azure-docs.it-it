@@ -26,8 +26,8 @@ Come illustrato nella figura 1, al servizio cloud si accede tramite un indirizzo
 
 Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono creati automaticamente per consentire l'accesso al servizio tramite un nome di dominio completo (FQDN) anziché tramite l'indirizzo VIP effettivo. Lo stesso processo si verifica per ILPIP, che consente l'accesso all'istanza della macchina virtuale o del ruolo mediante FQDN anziché ILPIP. Se ad esempio si crea un servizio cloud denominato *contosoadservice* e si configura un ruolo Web denominato *contosoweb* con due istanze, Azure registrerà i record A seguenti per le istanze:
 
-- contosoweb_IN_0.contosoadservice.cloudapp.net
-- contosoweb_IN_1.contosoadservice.cloudapp.net 
+- contosoweb\_IN\_0.contosoadservice.cloudapp.net
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]È possibile assegnare un solo ILPIP per ogni istanza di macchina virtuale o ruolo. È possibile usare fino a 5 ILPIP per ogni sottoscrizione. Attualmente, ILPIP non è supportato per le macchine virtuali a più NIC.
 
@@ -125,4 +125,4 @@ Per aggiungere un ILPIP alla macchina virtuale creata usando lo script precedent
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

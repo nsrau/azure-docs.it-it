@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
 
@@ -58,4 +58,4 @@ Al termine del test, l'applicazione può essere inserita nella raccolta di appli
 > Allegare il logo dell'applicazione (file PNG, 150x122 pixel, colore di sfondo a tinta unita):
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

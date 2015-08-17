@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Modelli di query di Analisi di flusso in Azure | Microsoft Azure"
-	description="Guida al linguaggio di generazione di query di esempio in Analisi di flusso di Azure"
+	description="Modelli di query comuni di Analisi dei flussi in Azure"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Guida al linguaggio di generazione di query di esempio in Analisi di flusso di Azure #
+# Modelli di query comuni di Analisi dei flussi in Azure  #
 
 ## Introduzione ##
 Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query simile a SQL, documentato [qui](https://msdn.microsoft.com/library/azure/dn834998.aspx). In questo documento vengono descritte soluzioni per vari modelli di query comuni basati su scenari reali. È un lavoro in corso che continuerà a essere aggiornato con nuovi modelli su base continuativa.
@@ -443,7 +443,7 @@ Avvalendosi di quanto appreso su "LEFT Outer Join per includere valori NULL o pe
 L’insieme restituisce valido -> non valido -> valido senza altri eventi non validi intermedi. A questo punto è possibile calcolare la durata tra l'inizio e la fine degli eventi validi ottenendo la durata del bug.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -454,4 +454,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

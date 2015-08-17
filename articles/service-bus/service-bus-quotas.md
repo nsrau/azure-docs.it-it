@@ -23,4 +23,4 @@ In questa sezione vengono elencate le quote di base e le soglie di limitazione d
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

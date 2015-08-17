@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="awills"/>
 
 
@@ -23,13 +23,21 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers]. È possibile usarlo con una vasta gamma di tipi di applicazioni. Può essere usato per app ospitate nei server IIS locali dell'utente o in macchine virtuali di Azure oppure per app Web di Azure, [oltre che per app per dispositivi e server Java][start].
+Visual Studio Application Insights consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni][detect] e [individuare la modalità di uso dell'app][knowUsers]. È possibile usarlo con una vasta gamma di tipi di applicazioni. Può essere usato per app ospitate nei server IIS locali dell'utente o in macchine virtuali di Azure oppure per app Web di Azure,
+
+
 
 ![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-start-monitoring-app-health-usage/10-perf.png)
 
-Per molti tipi di applicazioni [Visual Studio può aggiungere Application Insights all'app](#ide) quasi automaticamente. Tuttavia, poiché si sta leggendo questo articolo per una migliore comprensione, verranno illustrati i passaggi manuali.
+*Vedere anche:*
+
+* [ASP.NET 5](app-insights-asp-net-five.md)
+* [Applicazioni per dispositivi e server Java][platforms]
 
 #### Prima di iniziare
+
+Per molti tipi di applicazioni [Visual Studio può aggiungere Application Insights all'app](#ide) quasi automaticamente. Tuttavia, poiché si sta leggendo questo articolo per una migliore comprensione, verranno illustrati i passaggi manuali.
+
 
 È necessario:
 
@@ -52,10 +60,11 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 
 ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-start-monitoring-app-health-usage/02-props-asp.png)
 
-
+La procedura appena effettuata per creare una nuova risorsa è un buon modo di iniziare a monitorare qualsiasi applicazione. È ora possibile inviare dati a esso.
 
 ## <a name="sdk"></a> 2. Installare l'SDK nell'applicazione
 
+L’nstallazione e la configurazione di Application Insights SDK varia a seconda della piattaforma in cui si sta lavorando. Per le applicazioni ASP.NET, è facile.
 
 1. In Visual Studio è possibile modificare i pacchetti NuGet del progetto di app desktop.
 
@@ -73,6 +82,8 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
     In alternativa, è possibile [impostare la chiave scrivendo codice][apikey] nell'app.
 
 #### Per eseguire l'aggiornamento a future versioni di SDK
+
+Si rilascerà una nuova versione del SDK di tanto in tanto.
 
 Per eseguire l'aggiornamento a una [nuova versione dell'SDK](app-insights-release-notes-dotnet.md), riaprire Gestione pacchetti NuGet e filtrare i pacchetti installati. Selezionare Microsoft.ApplicationInsights.Web e scegliere Aggiorna
 
@@ -122,7 +133,7 @@ L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati da
 
 Accedere al server con diritti di amministratore, quindi installare [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-È anche possibile usare Status Monitor per [instrumentare un'app già in esecuzione](app-insights-monitor-performance-live-website-now.md), anche se non è stata compilata con l'SDK.
+È anche possibile usare Status Monitor per [strumentare un'app già in esecuzione](app-insights-monitor-performance-live-website-now.md), anche se non è stata compilata con l'SDK.
 
 #### Se l'app è un'app Web di Azure
 
@@ -134,7 +145,7 @@ Quest’estensione è applicabile solo a un'app compilata con l'SDK. A differenz
 
 ## Aggiungere il monitoraggio sul lato client
 
-È stato installato l'SDK che invia i dati di telemetria dal lato server dell'applicazione. Ora è possibile aggiungere il monitoraggio sul lato client, che fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel client.
+È stato installato l'SDK che invia i dati di telemetria dal lato server (back-end) dell'applicazione. Ora è possibile aggiungere il monitoraggio sul lato client, che fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel client.
 
 Sarà anche possibile scrivere codice personalizzato per tenere traccia del modi in cui gli utenti interagiscono con l'app, a un livello di dettaglio che include i clic e le sequenze di tasto.
 
@@ -165,9 +176,9 @@ Per ottenere una visione completa a 360 gradi dell'applicazione, è necessario e
 
 ## <a name="ide"></a> Il metodo automatico
 
-Se si preferisce usare Visual Studio per la configurazione, la procedura è molto semplice.
+Nella parte superiore di questo articolo abbiamo detto che avremmo illustrato il metodo manuale per creare una risorsa di Application Insights e quindi installare il SDK. Crediamo sia bene capire le due parti di tale procedura. Ma per le applicazioni ASP.NET (e molti altri) esiste un modo automatico anche più rapido.
 
-Saranno necessari [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) o versione successiva e un account in [Microsoft Azure](http://azure.com).
+Saranno necessari [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 aggiornamento 3 o versione successiva) e un account in [Microsoft Azure](http://azure.com).
 
 #### Se è un nuovo progetto...
 
@@ -194,9 +205,9 @@ In questo caso, non aggiunge l'[SDK JavaScript][client] alle pagine Web; si cons
 
 Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi all'anteprima di Microsoft Azure. Questo account è diverso dall'account Visual Studio Online.
 
-Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di configurazione per inserirla nello stesso gruppo di risorse degli altri componenti.
+Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di **configurazione** per inserirla nello stesso gruppo di risorse degli altri componenti.
 
-*Se non è disponibile alcuna opzione di Application Insights, verificare che si stia usando Visual Studio 2013 Update 3 o versioni successive, che gli Strumenti Application Insights siano abilitati in Estensioni e aggiornamenti e che si stia creando un progetto Web.*
+*Se non è disponibile alcuna opzione di Application Insights, Verificare che si stia usando Visual Studio 2013 aggiornamento 3 o versioni successive, che gli Strumenti Application Insights siano abilitati in Estensioni e aggiornamenti.*
 
 #### Aprire Application Insights dal progetto.
 
@@ -223,6 +234,7 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -231,4 +243,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

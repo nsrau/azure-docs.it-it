@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/09/2015" 
 	ms.author="glenga"/>
+
 
 # Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle invece di un database SQL
 
@@ -53,6 +55,7 @@ Per questa esercitazione è prima di tutto necessario completare l'esercitazione
 8. In Esplora soluzioni in Visual Studio aprire il file Web.config per il progetto di servizio mobile, quindi aggiungere la nuova stringa di connessione seguente:
 
 		<add name="StorageConnectionString" connectionString="<STORAGE_CONNECTION_STRING>" />
+
 
 9. Sostituire il segnaposto `<STORAGE_CONNECTION_STRING>` con la stringa di connessione del passaggio 6.
 
@@ -158,4 +161,4 @@ Vista la semplicità dell'uso dell'archiviazione tabelle con il back-end .NET, �
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

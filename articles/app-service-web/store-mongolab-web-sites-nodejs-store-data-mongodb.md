@@ -575,4 +575,4 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

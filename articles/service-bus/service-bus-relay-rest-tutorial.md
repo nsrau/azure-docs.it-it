@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="07/07/2015"
@@ -298,7 +298,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
   
 	Questo passaggio consente di configurare un servizio che utilizza il valore predefinito definito in precedenza **webHttpRelayBinding**. Viene inoltre utilizzato il valore predefinito **sbTokenProvider**, che viene definito nel passaggio successivo.
 
-6. Dopo l’elemento `<services>`, creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS_KEY" con la chiave di *firma di accesso condiviso* ottenuta dal portale di gestione di Azure nel passaggio 1.
+6. Dopo l’elemento `<services>`, creare un elemento `<behaviors>` con il contenuto seguente, sostituendo "SAS\_KEY" con la chiave di *firma di accesso condiviso* ottenuta dal portale di gestione di Azure nel passaggio 1.
   
 	```xml
 	<behaviors>
@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire l'applicazione:
 
-1. Dal prompt dei comandi, eseguire il servizio (ImageListener\bin\Debug\ImageListener.exe).
+1. Dal prompt dei comandi, eseguire il servizio (ImageListener\\bin\\Debug\\ImageListener.exe).
 
 2. Copiare e incollare l'indirizzo dal prompt dei comandi in un browser per visualizzare l'immagine.
 
@@ -580,4 +580,4 @@ A questo punto, dopo aver creato un'applicazione che utilizza il servizio di ino
 
 - [Come usare il servizio Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

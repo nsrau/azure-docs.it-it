@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Installare aggiornamenti regolari tramite Windows PowerShell per StorSimple"
+   description="Viene illustrato come utilizzare la funzionalità di aggiornamento di StorSimple e Windows PowerShell per StorSimple per installare gli aggiornamenti regolari."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/27/2015"
+   ms.author="v-sharos" />
+
 
 #### Per installare aggiornamenti regolari tramite Windows PowerShell per StorSimple
 
@@ -20,4 +38,4 @@
 > - Questo comando si applica solo agli aggiornamenti regolari. È possibile eseguire questo comando in un solo controller, ma verranno aggiornati entrambi i controller. 
 > - Durante il processo di aggiornamento è possibile che venga eseguito il failover di un controller. Tale failover, tuttavia, non avrà effetti sulla disponibilità o sul funzionamento del sistema.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

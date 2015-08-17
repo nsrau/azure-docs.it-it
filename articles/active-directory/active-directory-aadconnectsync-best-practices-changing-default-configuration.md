@@ -55,4 +55,4 @@ Quando è necessario modificare la configurazione predefinita, eseguire le opera
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

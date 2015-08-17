@@ -262,4 +262,4 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 
 [Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i volumi](storsimple-snapshot-manager-manage-volumes.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

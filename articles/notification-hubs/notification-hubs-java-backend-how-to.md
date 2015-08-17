@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Come usare Hub di notifica da Java
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 Questo argomento descrive le funzionalità principali del nuovo ufficiale SDK per Java di Hub di notifica di Azure, completamente supportato. Si tratta di un progetto open source ed è possibile visualizzare il codice SDK completo nell'articolo relativo all'[SDK per Java].
 
 In generale, è possibile accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Python/Ruby tramite l'interfaccia REST di Hub di notifica, come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/library/dn223264.aspx) di MSDN. L'SDK per Java fornisce un semplice wrapper per le interfacce REST in Java.
@@ -141,7 +143,7 @@ Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono
 Tutte le query di raccolta supportano i token $top e di continuazione.
 
 ### Uso dell'API di installazione
-L'API di installazione rappresenta un meccanismo alternativo per la gestione delle registrazioni. Il mantenimento di più registrazioni non è semplice e può facilmente essere eseguito in maniera errata o inefficace, pertanto ora è possibile usare un SINGOLO oggetto di installazione. L'installazione contiene tutti gli elementi necessari: il canale push (token del dispositivo), tag, modelli, riquadri secondari (per WNS e APN). Non è più necessario chiamare il servizio per ottenere l'Id. È sufficiente generare un GUID o qualsiasi altro identificatore, mantenerlo nel dispositivo e inviarlo al back-end con il canale push (token del dispositivo). Nel backend, effettuare una singola chiamata: CreateOrUpdateInstallation, del tutto idempotente, per cui se necessario è possibile ritentare.
+L'API di installazione rappresenta un meccanismo alternativo per la gestione delle registrazioni. Il mantenimento di più registrazioni non è semplice e può facilmente essere eseguito in maniera errata o inefficace, pertanto ora è possibile usare un SINGOLO oggetto di installazione. L'installazione contiene tutti gli elementi necessari: il canale push (token del dispositivo), tag, modelli, riquadri secondari (per WNS e APN). Non è più necessario chiamare il servizio per ottenere l'Id. È sufficiente generare un GUID o qualsiasi altro identificatore, mantenerlo nel dispositivo e inviarlo al back-end con il canale push (token del dispositivo). Nel back-end, effettuare una singola chiamata: CreateOrUpdateInstallation, del tutto idempotente, per cui se necessario è possibile ritentare.
 
 Un esempio per Amazon Kindle Fire è simile al seguente:
 
@@ -223,7 +225,7 @@ Talvolta è necessario eseguire un'operazione di massa nelle registrazioni. In g
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI con firma SAS**: l'URL di un file BLOB o di un contenitore BLOB con un insieme di parametri come le autorizzazioni e l'ora di scadenza e con la firma di tutte questi elementi effettuata usando la chiave della firma di accesso condiviso dell'account. L'SDK per Java di Archiviazione di Azure dispone di funzionalità avanzate, compresa la creazione di tale tipo di URI. In alternativa è possibile esaminare la classe di test ImportExportE2E (dal percorso Github) che include un'implementazione molto semplice e compatta dell'algoritmo di firma.
+**URI con firma SAS**: l'URL di un file BLOB o di un contenitore BLOB con un insieme di parametri come le autorizzazioni e l'ora di scadenza e con la firma di tutti questi elementi effettuata usando la chiave della firma di accesso condiviso dell'account. L'SDK per Java di Archiviazione di Azure dispone di funzionalità avanzate, compresa la creazione di tale tipo di URI. In alternativa è possibile esaminare la classe di test ImportExportE2E (dal percorso Github) che include un'implementazione molto semplice e compatta dell'algoritmo di firma.
 
 ###Inviare notifiche
 L'oggetto notifica è semplicemente un corpo con intestazioni ed esistono alcuni metodi di utilità che consentono la creazione di notifiche modello e notifiche native.
@@ -305,4 +307,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

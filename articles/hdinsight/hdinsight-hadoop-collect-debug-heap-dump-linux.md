@@ -41,7 +41,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi Hadoop è possibile modificare lo script della shell usato per avviare il servizio.
 
-In ogni script è presente un'esportazione per *** _OPTS**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
+In ogni script è presente un'esportazione per *** \_OPTS**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
 
 I processi di mapping e riduzione sono leggermente diversi, in quanto sono processi figlio del servizio MapReduce. Ogni processo di mapping o riduzione viene eseguito in un contenitore figlio e ci sono due elementi che contengono le opzioni di JVM per questi processi. Entrambi sono contenuti in **mapred-site.xml**:
 
@@ -96,9 +96,9 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
     ![Elenco filtrato](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
-4. Trovare la voce ***_OPTS** per il servizio per cui si vogliono abilitare i dump dell'heap e aggiungere le opzioni da abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP_NAMENODE_OPTS**:
+4. Trovare la voce ***\_OPTS** per il servizio per cui si vogliono abilitare i dump dell'heap e aggiungere le opzioni da abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
 
-    ![HADOOP_NAMENODE_OPTS con -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![HADOOP\_NAMENODE\_OPTS con -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
 	> [AZURE.NOTE]Quando si abilitato i dump dell'heap per il processo figlio di mapping o riduzione, si cercheranno invece i campi con etichetta **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
 
@@ -120,4 +120,4 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Turn Off Maintenance Mode**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

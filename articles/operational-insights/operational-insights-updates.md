@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Aggiornare i server con gli aggiornamenti del sistema
@@ -23,17 +23,17 @@
 
 ## Usare gli aggiornamenti del sistema per aggiornare i server
 
-Prima di poter usare gli aggiornamenti di sistema in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md). Dopo l'installazione, è possibile visualizzare gli aggiornamenti mancanti nei server monitorati usando il riquadro **System Update Assessment** nella pagina **Overview** in Operational Insights.
+Prima di poter usare gli aggiornamenti di sistema in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-setup-workspace.md). Dopo l'installazione, è possibile visualizzare gli aggiornamenti mancanti nei server monitorati usando il riquadro **System Update Assessment** nella pagina **Overview** in Operational Insights.
 
 ### Per usare gli aggiornamenti
 
 1. Nella pagina **Overview** fare clic sul riquadro **System Update Assessment**. ![immagine della pagina Overview](./media/operational-insights-updates/updates01.png)
 2. Nel dashboard **Updates** visualizzare le categorie degli aggiornamenti. ![immagine della pagina Updates](./media/operational-insights-updates/updates02.png)
 3. Scorrere verso destra la pagina per visualizzare il pannello **Type of Updates Missing** e quindi fare clic su **Security Updates**. ![immagine della pagina Updates](./media/operational-insights-updates/updates03.png)
-4. Nella pagina di ricerca, viene visualizzato un elenco di aggiornamenti di sicurezza mancante nei server dell'infrastruttura. Fare clic sull’ID di un articolo della Knowledge Base (KBID) per visualizzare altre informazioni sull'aggiornamento mancante. In questo esempio, *KBID 3032323*. ![immagine della pagina Updates](./media/operational-insights-updates/updates04.png)
-5. Il browser Web apre l’articolo della Knowledge Base che descrive l'aggiornamento. ![immagine della pagina Updates](./media/operational-insights-updates/updates05.png)
+4. Nella pagina di ricerca, viene visualizzato un elenco di aggiornamenti di sicurezza mancante nei server dell'infrastruttura. Fare clic sull'ID di un articolo della Knowledge Base (KBID) per visualizzare altre informazioni sull'aggiornamento mancante. In questo esempio, *KBID 3032323*. ![immagine della pagina Updates](./media/operational-insights-updates/updates04.png)
+5. Il browser Web apre l'articolo della Knowledge Base che descrive l'aggiornamento. ![immagine della pagina Updates](./media/operational-insights-updates/updates05.png)
 6. Con le informazioni trovate, è possibile creare un piano per applicare gli aggiornamenti mancanti.
 
-[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

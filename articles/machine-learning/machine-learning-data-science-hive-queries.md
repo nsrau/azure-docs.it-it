@@ -2,7 +2,6 @@
 	pageTitle="Inviare query Hive ai cluster Hadoop nel processo di analisi avanzata dei dati | Microsoft Azure" 
 	description="Elaborazione dati tabelle Hive" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -257,7 +256,7 @@ Supponendo che la tabella Hive presenti un campo di testo che è una stringa di 
 
 La query descritta in questa sezione può essere applicata direttamente ai dati di viaggio dei taxi di NYC. Lo scopo di questa query è mostrare il modo in cui applicare le funzioni matematiche incorporare in Hive per creare funzionalità.
 
-I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si sale e scende dal taxi, denominati pickup_longitude, pickup_latitude, dropoff_longitude e dropoff_latitude. Le query per calcolare la distanza diretta tra le coordinate dei luoghi in cui si sale e scende sono:
+I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si sale e scende dal taxi, denominati pickup\_longitude, pickup\_latitude, dropoff\_longitude e dropoff\_latitude. Le query per calcolare la distanza diretta tra le coordinate dei luoghi in cui si sale e scende sono:
 
 		set R=3959;
 		set pi=radians(180);
@@ -326,4 +325,4 @@ Le impostazioni predefinite dei parametri del cluster Hive potrebbero non essere
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,6 +7,7 @@
 	manager="dwrede"
 	editor=""/>
 
+
 <tags
 	ms.service="media-services"
 	ms.workload="media"
@@ -15,6 +16,7 @@
 	ms.topic="get-started-article" 
 	ms.date="07/16/2015"
 	ms.author="juliako"/>
+
 
 
 #Introduzione a Distribuzione di Video on Demand (VoD) tramite il portale di gestione di Azure
@@ -141,7 +143,8 @@ Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservat
 Questa sezione descrive la procedura per la codifica di contenuti con Azure Media Encoder tramite il portale di gestione.
 
 1.  Selezionare il file da codificare. Se la codifica è supportata per questo tipo di file, il pulsante ELABORA viene abilitato nella parte inferiore della pagina CONTENUTO.
-4. Nella finestra di dialogo **Elabora** scegliere il ** **processore Azure Media Encoder.5. Scegliere una delle **configurazioni di codifica**.
+4. Nella finestra di dialogo **Elabora** scegliere il processore **Azure Media Encoder**.
+5. Scegliere una delle **configurazioni di codifica**.
 
 	![Process2][process2]
 
@@ -255,4 +258,4 @@ Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compi
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

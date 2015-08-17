@@ -436,4 +436,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

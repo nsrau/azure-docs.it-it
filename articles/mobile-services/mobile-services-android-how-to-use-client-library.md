@@ -562,7 +562,7 @@ Il layout è definito da diversi frammenti di codice XML. Dato un layout esisten
     </ListView>
 	
 
-Nel codice precedente l'attributo *listitem* consente di specificare l'ID del layout per una singola riga dell'elenco. Di seguito è riportato il codice che consente di specificare una casella di controllo e il testo ad essa associato. Per tale codice viene creata una sola istanza per ogni elemento dell'elenco. In un layout più complesso vengono specificati altri campi nella visualizzazione. Il codice è incluso nel file *row_list_to_do.xml*.
+Nel codice precedente l'attributo *listitem* consente di specificare l'ID del layout per una singola riga dell'elenco. Di seguito è riportato il codice che consente di specificare una casella di controllo e il testo ad essa associato. Per tale codice viene creata una sola istanza per ogni elemento dell'elenco. In un layout più complesso vengono specificati altri campi nella visualizzazione. Il codice è incluso nel file *row\_list\_to\_do.xml*.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -579,7 +579,7 @@ Nel codice precedente l'attributo *listitem* consente di specificare l'ID del la
 
 ### <a name="adapter"></a>Procedura: Definire l'adattatore
 	
-Poiché l'origine dati della visualizzazione è una matrice di oggetti *ToDoItem*, verrà creata una sottoclasse per l'adattatore da una classe *ArrayAdapter&lt;ToDoItem&gt;*. Tale sottoclasse consentirà di ottenere una visualizzazione per ogni oggetto *ToDoItem* che utilizza il layout *row_list_to_do*.
+Poiché l'origine dati della visualizzazione è una matrice di oggetti *ToDoItem*, verrà creata una sottoclasse per l'adattatore da una classe *ArrayAdapter&lt;ToDoItem&gt;*. Tale sottoclasse consentirà di ottenere una visualizzazione per ogni oggetto *ToDoItem* che utilizza il layout *row\_list\_to\_do*.
 
 Nel codice viene definita la classe seguente che costituisce un'estensione della classe *ArrayAdapter&lt;E&gt;*:
 
@@ -928,4 +928,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

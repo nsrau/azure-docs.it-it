@@ -365,7 +365,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 4. Installare i driver seriali-USB (forniti con il dispositivo) sul computer.
 
 5. Configurare la connessione seriale come segue:
-   - 115.200 baud
+   - 115\.200 baud
    - 8 bit di dati
    - 1 bit di stop
    - Nessuna parità
@@ -382,4 +382,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

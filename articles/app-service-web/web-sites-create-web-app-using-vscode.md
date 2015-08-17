@@ -7,6 +7,7 @@
    manager="wpickett"
    editor="jimbe"/>
 
+
 <tags
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/14/2015" 
 	ms.author="erikre;tarcher"/>
+
 
 # Creare un'app Web ASP.NET 5 in Visual Studio Code
 
@@ -127,7 +129,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 5. Aprire un browser e passare all'URL seguente.
 
-	**http://localhost:5001**
+	****http://localhost:5001**
 
 	Verrà visualizzata la pagina predefinita dell'app Web, come illustrato di seguito.
 
@@ -187,8 +189,8 @@ Git è un sistema di controllo delle versioni distribuite che è possibile usare
 
 	![Credenziali di distribuzione di Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
-9. Nel pannello dell'app Web fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà eseguita la distribuzione è visualizzato in \*\*
-10.  URL\*\*.
+9. Nel pannello dell'app Web fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà eseguita la distribuzione è visualizzato in **
+10.  URL**.
 
 10. Copiare il valore dell'opzione **URL GIT**, che sarà necessario più avanti nell'esercitazione.
 
@@ -236,7 +238,7 @@ In questa sezione si creerà un repository Git locale e si eseguirà il push dal
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Se si apportano modifiche all'app, è possibile ripetere la pubblicazione direttamente in Visual Studio Code con la funzionalità Git predefinita selezionando l'opzione **Commit All** seguita dall'opzione **Push**. L'opzione **Push** è disponibile nel menu a discesa accanto ai pulsanti **Commit all** e **Refresh**.
+> [AZURE.NOTE]Se si apportano modifiche all'app, è possibile ripetere la pubblicazione direttamente in Visual Studio Code con la funzionalità Git predefinita integrata selezionando l'opzione **Commit All** seguita dall'opzione **Push**. L'opzione **Push** è disponibile nel menu a discesa accanto ai pulsanti **Commit all** e **Refresh**.
 
 Se è necessario collaborare a un progetto, considerare la possibilità di effettuare il push in GitHub mentre si effettua il push in Azure.
 
@@ -256,4 +258,4 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ## Riepilogo
 In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo sui [vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

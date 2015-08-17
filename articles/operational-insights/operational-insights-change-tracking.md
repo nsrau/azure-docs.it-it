@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Identificare le differenze con la funzionalità di rilevamento modifiche
@@ -25,7 +25,7 @@ Installare la soluzione per aggiornare l'agente Operations Manager e il modulo d
 
 ## Uso di Change Tracking
 
-Prima di poter usare Change Tracking in Operational Insights, è necessario avere installato la soluzione. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md).
+Prima di poter usare Change Tracking in Operational Insights, è necessario avere installato la soluzione. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-setup-workspace.md).
 
 Dopo l'installazione, è possibile visualizzare il riepilogo delle modifiche relative ai server monitorati tramite il riquadro **Change Tracking** nella pagina **Overview** in Operational Insights.
 
@@ -52,6 +52,6 @@ Dopo l'installazione, è possibile visualizzare il riepilogo delle modifiche rel
 3. In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati in base all'ora, ai dettagli e alla cronologia di ricerca. È anche possibile filtrare per facet in modo da limitare i risultati.
 
 
-[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

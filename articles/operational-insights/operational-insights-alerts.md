@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Prima di poter usare Alert Management in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md). La soluzione funziona solo quando si usano server monitorati dagli agenti di Operations Manager. Per altre informazioni sull'uso di Operations Manager con Operational Insights, vedere [Connettersi a Operational Insights da System Center Operations Manager](operational-insights-connect-scom.md).
+Prima di poter usare Alert Management in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere l'articolo relativo all'[installazione dell'area di lavoro](operational-insights-setup-workspace.md). La soluzione funziona solo quando si usano server monitorati dagli agenti di Operations Manager. Per altre informazioni sull'uso di Operations Manager con Operational Insights, vedere [Connettersi a Operational Insights da System Center Operations Manager](operational-insights-connect-scom.md).
 
 Dopo l'installazione della soluzione, è possibile visualizzare gli avvisi per i server monitorati usando il riquadro **Gestione avvisi** del dashboard **Panoramica** in Operational Insights.
 
@@ -56,6 +56,6 @@ Nel dashboard **Alert Management** è possibile visualizzare tutti gli avvisi tr
 3. Fare clic su un riquadro o qualsiasi elemento per visualizzarne le informazioni dettagliate nella pagina **Search**.
 4. Usando le informazioni trovate, è possibile esaminare l'avviso e determinare le azioni aggiuntive che potrebbe essere necessario intraprendere per risolvere il problema.
 
-[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -130,4 +130,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

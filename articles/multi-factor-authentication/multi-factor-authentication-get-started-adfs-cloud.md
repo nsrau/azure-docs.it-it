@@ -93,4 +93,4 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 
 La procedura è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

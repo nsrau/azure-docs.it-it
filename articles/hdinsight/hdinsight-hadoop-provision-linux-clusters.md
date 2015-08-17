@@ -306,7 +306,8 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 **Per installare l'interfaccia della riga di comando di Azure tramite Windows Installer**
 
-1.	Passare a **http://azure.microsoft.com/downloads/**. 2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
+1.	Passare a ****http://azure.microsoft.com/downloads/**.
+2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
 
 **Per scaricare e importare impostazioni di pubblicazione**
 
@@ -767,4 +768,4 @@ In questo articolo si sono appresi diversi modi per effettuare il provisioning d
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

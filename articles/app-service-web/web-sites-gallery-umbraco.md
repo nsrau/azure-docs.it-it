@@ -8,14 +8,16 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
+
 
 #Creare un'app web Umbraco da Marketplace in Microsoft Azure#
 
@@ -34,15 +36,9 @@ In questa esercitazione si apprenderà come:
 
 2. Scegliere il **Marketplace** icona.
 	
-	![Choose Web Gallery][01Startboard]
-	
-3. Nel **Marketplace** , selezionare il **applicazioni Web** scheda e quindi selezionare **Umbraco CMS**.
-	
-	![Select Umbraco in the Web Gallery][02WebGallery]
+3. Nel **Marketplace** , selezionare la scheda **Web + Mobile** e quindi selezionare **Umbraco CMS**.
 	
 4. Per creare un nuovo sito Web Umbraco CMS, fare clic su **Crea**.
-	
-	![Click Create][03UmbracoCMS]
 	
 5. Il passaggio successivo consiste nel configurare tutte le risorse associate a Umbraco CMS. In questo caso, le risorse sono un sito Web e un database SQL Server. Selezionare innanzitutto **Web app** per configurare le impostazioni dell'applicazione web, ad esempio il **URL**, **pianificare servizio App**, **Impostazioni applicazione Web**, e **indirizzo**.
 	
@@ -57,8 +53,6 @@ In questa esercitazione si apprenderà come:
 	![Click Create][06UmbracoCMSGroup]
 	
 Al termine della distribuzione, il portale verrà visualizzato il pannello del gruppo di risorse dell'applicazione web Umbraco CMS. Nel **riepilogo** sezione fare clic sul nome di applicazione web per visualizzare le proprietà dell'applicazione web. Anche nella sezione **Riepilogo**, è possibile selezionare la risorsa del database per visualizzare le proprietà del database associato.
-	
-![][07UmbracoCMSGroupBlade]
 
 ## Avviare e configurare il sito Web Umbraco CMS ##
 
@@ -135,4 +129,4 @@ La procedura è terminata. In pochi minuti, con Umbraco CMS è stato creato un s
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

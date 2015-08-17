@@ -28,13 +28,13 @@
 
 | Passaggi dell'aggiornamento | Screenshot |
 | :--- | :--- |
-| 1. Accedere a [http://portal.azure.com/](http://portal.azure.com/). | ![Nuovo portale di Azure][1] |
-| 2. Fare clic su **SFOGLIA**. | ![Individuare i servizi][2] |
-| 3. Fare clic su **SQL Server**. Viene visualizzato un elenco di nomi di server SQL. | ![Selezionare il servizio SQL Server][3] |
-| 4. Selezionare il server da copiare in un nuovo server con l'aggiornamento del database SQL abilitato. | ![Mostra un elenco di istanze di SQL Server][4] |
-| 5. Fare clic su **Impostazioni** o **Versione server** per aggiornare il server alla versione 12. | ![Funzionalità di anteprima più recenti][5] |
-| 6. Fare clic su **AGGIORNA QUESTO SERVER**. | ![Aggiornamenti di SQL Server per l'anteprima][6] |
-| 7. Quando si fa clic su **AGGIORNA QUESTO SERVER**, verrà avviata la procedura di aggiornamento. In **Versione server**, la notifica cambia da **V2** ad **Aggiornamento pianificato...**. Se si fa clic su **Aggiornamento pianificato...** si apre un pannello di notifica, con il pulsante **Annulla aggiornamento** nella parte superiore. Fare clic su **Annulla aggiornamento** nel caso in cui si decida di aggiornare il server. **Notare** che tale operazione di annullamento non funzionerà verso la fine della procedura di aggiornamento e l'aggiornamento verrà completato.|![Annulla aggiornamento][9] 
+| 1\. Accedere a [http://portal.azure.com/](http://portal.azure.com/). | ![Nuovo portale di Azure][1] |
+| 2\. Fare clic su **SFOGLIA**. | ![Individuare i servizi][2] |
+| 3\. Fare clic su **SQL Server**. Viene visualizzato un elenco di nomi di server SQL. | ![Selezionare il servizio SQL Server][3] |
+| 4\. Selezionare il server da copiare in un nuovo server con l'aggiornamento del database SQL abilitato. | ![Mostra un elenco di istanze di SQL Server][4] |
+| 5\. Fare clic su **Impostazioni** o **Versione server** per aggiornare il server alla versione 12. | ![Funzionalità di anteprima più recenti][5] |
+| 6\. Fare clic su **AGGIORNA QUESTO SERVER**. | ![Aggiornamenti di SQL Server per l'anteprima][6] |
+| 7\. Quando si fa clic su **AGGIORNA QUESTO SERVER**, verrà avviata la procedura di aggiornamento. In **Versione server**, la notifica cambia da **V2** ad **Aggiornamento pianificato...**. Se si fa clic su **Aggiornamento pianificato...** si apre un pannello di notifica, con il pulsante **Annulla aggiornamento** nella parte superiore. Fare clic su **Annulla aggiornamento** nel caso in cui si decida di aggiornare il server. **Notare** che tale operazione di annullamento non funzionerà verso la fine della procedura di aggiornamento e l'aggiornamento verrà completato.|![Annulla aggiornamento][9] 
 
 
 > [AZURE.NOTE]Dopo avere selezionato l'opzione di aggiornamento, il server e i database all'interno di tale server verranno abilitati con le funzionalità della versione 12 del database SQL e non sarà possibile annullare l'operazione. Per aggiornare i server alla versione 12 del database SQL, è necessario disporre di un livello di servizio Basic, Standard o Premium. Per ulteriori informazioni sui livelli di servizio, vedere [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md).
@@ -55,8 +55,8 @@ Dopo avere fatto clic sull'opzione **AGGIORNA QUESTO SERVER**, viene visualizzat
 
 | Azione | Screenshot |
 | :--- | :--- |
-| 7. Dopo avere completato la preparazione del server per l'aggiornamento, digitare il nome del server da aggiornare e fare clic su **OK**. | ![Verificare il nome del server per eseguire l'aggiornamento][7] |
-| 8. Il processo di aggiornamento viene avviato. L'aggiornamento può richiedere fino a 24 ore. Durante questo periodo, tutti i database nel server rimarranno online ma le azioni di gestione del server e del database saranno limitate. Al termine del processo, nel pannello del server viene visualizzato lo stato **Abilitato**. | ![Verifica che siano abilitate le funzionalità di anteprima][8] |
+| 7\. Dopo avere completato la preparazione del server per l'aggiornamento, digitare il nome del server da aggiornare e fare clic su **OK**. | ![Verificare il nome del server per eseguire l'aggiornamento][7] |
+| 8\. Il processo di aggiornamento viene avviato. L'aggiornamento può richiedere fino a 24 ore. Durante questo periodo, tutti i database nel server rimarranno online ma le azioni di gestione del server e del database saranno limitate. Al termine del processo, nel pannello del server viene visualizzato lo stato **Abilitato**. | ![Verifica che siano abilitate le funzionalità di anteprima][8] |
 
 
 ## Cmdlet di PowerShell
@@ -94,4 +94,4 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 [9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

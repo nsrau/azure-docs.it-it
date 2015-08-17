@@ -49,7 +49,7 @@ Di seguito sono elencate alcune speciali definizioni di formato applicabili all'
 5. La sezione 3.3.6 di [1] definisce la casella denominata MovieFragmentRandomAccessBox ("mfra"), che può (MAY) essere inviata al termine dell'operazione di inserimento live per indicare al canale la fine del flusso. A causa della logica di inserimento di Servizi multimediali di Azure, la fine del flusso è deprecata e per l'inserimento live non dovrebbe (SHOULD NOT) essere inviata la casella "mfra". Se viene inviata, Servizi multimediali di Azure automaticamente la ignora. È consigliabile usare la funzione di [reimpostazione del canale](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) per reimpostare lo stato del punto di inserimento e l'opzione di [interruzione del programma](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) per terminare una presentazione e un flusso.
 6. La durata del frammento MP4 dovrebbe (SHOULD) essere costante, in modo da ridurre le dimensioni dei manifesti client e migliorare l'approccio euristico di download del client tramite l'utilizzo di tag di ripetizione. La durata può (MAY) variare per compensare frequenze di fotogrammi costituite da valori non interi.
 7. La durata del frammento MP4 dovrebbe (SHOULD) essere compresa tra 2 e 6 secondi circa.
-8. I timestamp e gli indici (TrackFragmentExtendedHeaderBox fragment_absolute_time e fragment_index) del frammento MP4 dovrebbero (SHOULD) arrivare in ordine crescente. Sebbene Servizi multimediali di Azure sia resiliente alla duplicazione di frammenti, presenta una capacità molto limitata di riordinare i frammenti in base alla sequenza temporale dei contenuti.
+8. I timestamp e gli indici (TrackFragmentExtendedHeaderBox fragment\_absolute\_time e fragment\_index) del frammento MP4 dovrebbero (SHOULD) arrivare in ordine crescente. Sebbene Servizi multimediali di Azure sia resiliente alla duplicazione di frammenti, presenta una capacità molto limitata di riordinare i frammenti in base alla sequenza temporale dei contenuti.
 
 ##Formato del protocollo: HTTP
 
@@ -139,7 +139,7 @@ Di seguito è descritto il comportamento previsto in corrispondenza dell'endpoin
 3. La richiesta POST del nuovo codificatore deve (MUST) includere le stesse caselle di intestazione del flusso MP4 frammentato presenti nell'istanza non riuscita.
 4. Il nuovo codificatore deve (MUST) essere correttamente sincronizzato con tutti gli altri codificatori in esecuzione per la stessa presentazione live, in modo da generare esempi audio/video sincronizzati con i limiti di frammento allineati.
 5. Il nuovo flusso deve (MUST) essere semanticamente equivalente al flusso precedente e intercambiabile a livello di intestazione e di frammento.
-6. Il nuovo codificatore deve (MUST) tentare di ridurre al minimo la perdita di dati. I valori fragment_absolute_time e fragment_index dei frammenti multimediali dovrebbero (SHOULD) aumentare progressivamente dal punto in cui si è interrotto il codificatore. I valori fragment_absolute_time e fragment_index dovrebbero (SHOULD) aumentare in modo costante ma, se necessario, è possibile introdurre una discontinuità. Poiché Servizi multimediali di Azure ignora i frammenti già ricevuti ed elaborati, è preferibile sbagliare inviando nuovamente frammenti già ricevuti piuttosto che introdurre discontinuità nella sequenza temporale dei contenuti. 
+6. Il nuovo codificatore deve (MUST) tentare di ridurre al minimo la perdita di dati. I valori fragment\_absolute\_time e fragment\_index dei frammenti multimediali dovrebbero (SHOULD) aumentare progressivamente dal punto in cui si è interrotto il codificatore. I valori fragment\_absolute\_time e fragment\_index dovrebbero (SHOULD) aumentare in modo costante ma, se necessario, è possibile introdurre una discontinuità. Poiché Servizi multimediali di Azure ignora i frammenti già ricevuti ed elaborati, è preferibile sbagliare inviando nuovamente frammenti già ricevuti piuttosto che introdurre discontinuità nella sequenza temporale dei contenuti. 
 
 ##Ridondanza del codificatore 
 
@@ -206,4 +206,4 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di tracce au
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

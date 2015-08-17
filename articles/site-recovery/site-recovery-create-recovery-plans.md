@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor=""/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery" 
 	ms.date="05/14/2015" 
 	ms.author="raynew"/>
+
 
 # Creazione dei piani di ripristino
 
@@ -53,16 +55,18 @@ Creare un piano di ripristino come segue:
 	- Se si esegue la replica da un server VMM in un altro server VMM, selezionare VMM nell'opzione relativa al **tipo di origine**, nonché il server VMM di origine e destinazione. Fare clic su **Hyper-V** per visualizzare i cloud configurati per l'utilizzo di Replica Hyper-V. 
 	- Se si esegue la replica da un server VMM in un altro server VMM basato su SAN, selezionare VMM nell'opzione relativa al **tipo di origine**, nonché il server VMM di origine e destinazione. Fare clic su **SAN** per visualizzare solo i cloud configurati per la replica SAN.
 	- Se si esegue la replica da VMM in Azure selezionare VMM in **tipo di origine**. Selezionare il server VMM di origine e **Azure** come destinazione.
-	- Se si esegue la replica da un sito di Hyper-V, selezionare sito Hyper-V nel tipo di origine. Selezionare il sito come origine e **Azure **come destinazione. - Se si esegue la replica da VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione
+	- Se si esegue la replica da un sito di Hyper-V, selezionare sito Hyper-V nel tipo di origine. Selezionare il sito come origine e * * Azure * * come destinazione.
+- Se si esegue la replica da VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione
 
-2. Nella **relativa opzione** selezionare le macchine virtuali (o il gruppo di replica) che si desidera aggiungere al gruppo predefinito (gruppo 1) nel piano di ripristino.
+2\. Nella **relativa opzione** selezionare le macchine virtuali (o il gruppo di replica) che si desidera aggiungere al gruppo predefinito (gruppo 1) nel piano di ripristino.
 
 ## Personalizzare piani di ripristino
 
 Dopo aver aggiunto macchine virtuali protette o gruppi di replica al gruppo del piano di ripristino predefinito e dopo aver creato il piano, è possibile personalizzarlo:
 
 - **Aggiungere nuovi gruppi**: è possibile aggiungere gruppi di piano di ripristino aggiuntivi. I gruppi vengono numerati nell'ordine in cui vengono aggiunti. È possibile aggiungere fino a sette gruppi. È possibile aggiungere più computer o gruppi di replica a questi nuovi gruppi. Si noti che una macchina virtuale o un gruppo di replica può essere incluso solo in un gruppo del piano di ripristino.
-- **Aggiungere uno script**: è possibile aggiungere script da eseguire prima o dopo un gruppo del piano di ripristino. Quando si aggiunge uno script, viene aggiunto un set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Si noti che se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario. - **Aggiungere un'azione manuale**: è possibile aggiungere azioni manuali da eseguire prima o dopo un gruppo del piano di ripristino. Quando viene eseguito, il piano di ripristino si interrompe nel punto in cui è stata inserita l'azione manuale e in una finestra di dialogo viene richiesto di specificare il completamento dell'azione.
+- *** * Aggiungere uno script * *, è possibile aggiungere script prima o dopo un ripristino del gruppo di pianificazione. Quando si aggiunge uno script, viene aggiunto un set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Si noti che se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario.
+- **Aggiungere un'azione manuale**: è possibile aggiungere azioni manuali da eseguire prima o dopo un gruppo del piano di ripristino. Quando viene eseguito, il piano di ripristino si interrompe nel punto in cui è stata inserita l'azione manuale e in una finestra di dialogo viene richiesto di specificare il completamento dell'azione.
 
 ### Estendere i piani di ripristino con gli script
 
@@ -77,11 +81,11 @@ Prima di iniziare, tenere presente quanto segue:
 - Scrivere gli script con Windows PowerShell.
 - I cmdlet di VMM vengono forniti in un modulo di Windows PowerShell. Il modulo Windows PowerShell di VMM viene installato quando si installa la console VMM. Il modulo VMM può essere caricato nello script utilizzando il seguente comando nello script: Import-Module-Name virtualmachinemanager. [Ulteriori informazioni](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Assicurarsi di disporre di almeno un server di libreria nella distribuzione di VMM. Per impostazione predefinita il percorso della condivisione di libreria per un server VMM si trova in locale nel server VMM con il nome di cartella MSCVMMLibrary.
-- Se il percorso della condivisione di libreria è remoto (o locale ma non condiviso con MSCVMMLibrary, configurare la condivisione come segue utilizzando \libserver2.contoso.com\share\ come esempio):
+- Se il percorso della condivisione di libreria è remoto (o locale ma non condiviso con MSCVMMLibrary, configurare la condivisione come segue utilizzando \\libserver2.contoso.com\\share\\ come esempio):
 	- Aprire l'Editor del Registro di sistema.
-	- Passare a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
+	- Passare a HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
 	- Modificare il valore ScriptLibraryPath.
-	- Inserire il valore come \libserver2.contoso.com\share. Specificare il nome di dominio completo.
+	- Inserire il valore come \\libserver2.contoso.com\\share. Specificare il nome di dominio completo.
 	- Fornire le autorizzazioni per il percorso di condivisione.
 
 - Gli script in un piano di ripristino vengono eseguiti nel contesto dell'account del servizio VMM. Verificare che questo account disponga delle autorizzazioni di lettura sulla condivisione remota in cui si trova lo script e testare lo script da eseguire a livello di privilegi di account di servizio VMM.
@@ -96,9 +100,9 @@ Prima di iniziare, tenere presente quanto segue:
 
 Creare lo script come segue:
 
-1. Creare una nuova cartella nella condivisione di libreria, ad esempio <VMMServerName>\MSSCVMMLibrary\RPScripts. Posizionarla nei server VMM di origine e destinazione.
+1. Creare una nuova cartella nella condivisione di libreria, ad esempio <VMMServerName>\\MSSCVMMLibrary\\RPScripts. Posizionarla nei server VMM di origine e destinazione.
 2. Creare lo script (ad esempio RPScript) e verificare che funzioni come previsto.
-3. Inserire lo script nel percorso <Nomeservervmm>\MSSCVMMLibrary nel server VMM di origine e di destinazione.
+3. Inserire lo script nel percorso <Nomeservervmm>\\MSSCVMMLibrary nel server VMM di origine e di destinazione.
 
 #### Creare un runbook di automazione di Azure
 
@@ -110,7 +114,7 @@ Creare lo script come segue:
 1. Aprire il piano di ripristino che si desidera personalizzare.
 2. Fare clic per aggiungere una macchina virtuale o un nuovo gruppo.
 3. Per aggiungere uno script o manuale azione, fare clic su qualsiasi elemento nell’elenco dei **passaggio**, quindi fare clic sull’opzione relativa allo **Script** o all’**azione manuale**. Specificare se si desidera aggiungere lo script o l’azione prima o dopo l'elemento selezionato. Utilizzare i pulsanti per lo spostamento verso l’**alto** e verso il **basso** i pulsanti per spostare la posizione dello script verso l'alto o verso il basso di comando.
-4. Se si aggiunge uno script VMM, selezionare l’opzione relativa al **failover nello script VMM** e al **percorso dello Script** digitare il percorso relativo alla condivisione. Quindi, ad esempio se la condivisione si trova in: \<VMMServerName>\MSSCVMMLibrary\RPScripts, specificare il percorso: \rpscripts\rpscript.ps1..
+4. Se si aggiunge uno script VMM, selezionare l’opzione relativa al **failover nello script VMM** e al **percorso dello Script** digitare il percorso relativo alla condivisione. Quindi, ad esempio se la condivisione si trova in: \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, specificare il percorso: \\rpscripts\\rpscript.ps1..
 5. Se si aggiunge un runbook di automazione di Azure, specificare l’**account di automazione di Azure** in cui si trova il runbook e selezionare lo **script runbook appropriato per Azure**.
 5. Eseguire un failover del piano di ripristino per assicurarsi che lo script funzioni come previsto.
 
@@ -122,4 +126,4 @@ Creare lo script come segue:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

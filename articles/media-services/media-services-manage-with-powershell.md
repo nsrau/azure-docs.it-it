@@ -110,4 +110,4 @@ Per eliminare l'account di Servizi multimediali di Azure, usare il cmdlet [Remov
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

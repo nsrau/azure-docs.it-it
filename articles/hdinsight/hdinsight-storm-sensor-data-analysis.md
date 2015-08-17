@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 # Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight (Hadoop)
 
@@ -192,7 +194,7 @@ Prima di eseguire il test, è necessario avviare il dashboard per visualizzare l
 
 		Server listening at port 3000
 
-2. Aprire un Web browser e immettere **http://localhost:3000/** come indirizzo. Verrà visualizzata una pagina simile alla seguente:
+2. Aprire un Web browser e immettere ****http://localhost:3000/** come indirizzo. Verrà visualizzata una pagina simile alla seguente:
 
 	![dashboard Web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -258,7 +260,7 @@ Nell'ambiente di sviluppo seguire questa procedura per eseguire la topologia Tem
 
 2. Dopo aver creato il sito Web, passare al sito nel portale di Azure e selezionare la scheda **Configura**. Abilitare **Web Socket** e quindi fare clic su **Salva** nella parte inferiore della pagina.
 
-2. Aprire **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** e modificare la riga seguente in modo che punti all'URL del dashboard pubblicato:
+2. Aprire **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** e modificare la riga seguente in modo che punti all'URL del dashboard pubblicato:
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -352,7 +354,7 @@ Per scrivere in HBase dal cluster Storm, è necessario usare il nome di dominio 
 
 	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-Nei dati JSON restituiti, trovare la voce **"host_name"**. Questa conterrà il nome di dominio completo per i nodi del cluster, ad esempio:
+Nei dati JSON restituiti, trovare la voce **"host\_name"**. Questa conterrà il nome di dominio completo per i nodi del cluster, ad esempio:
 
 	...
 	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -362,13 +364,13 @@ La porzione del nome di dominio che inizia con il nome del cluster è il suffiss
 
 ### Abilitare il bolt HBase
 
-1. Aprire **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** e sostituire le voci `suffix` nella riga seguente con il suffisso DNS ottenuto in precedenza per il cluster HBase. Dopo aver apportato queste modifiche, salvare il file.
+1. Aprire **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** e sostituire le voci `suffix` nella riga seguente con il suffisso DNS ottenuto in precedenza per il cluster HBase. Dopo aver apportato queste modifiche, salvare il file.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	Questo file verrà usato dal bolt HBase per comunicare con il cluster HBase.
 
-1. Aprire **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts** in un editor di testo e rimuovere i commenti dalle righe seguenti eliminando `//` all'inizio. Dopo aver apportato queste modifiche, salvare il file.
+1. Aprire **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** in un editor di testo e rimuovere i commenti dalle righe seguenti eliminando `//` all'inizio. Dopo aver apportato queste modifiche, salvare il file.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +387,7 @@ Prima di eseguire la topologia, è necessario preparare HBase per l'accettazione
 
 2. Dal desktop avviare le riga di comando di HDInsight e immettere i comandi seguenti:
 
-    cd %HBASE_HOME% bin\hbase shell
+    cd %HBASE\_HOME% bin\\hbase shell
 
 3. Dalla shell HBase immettere il comando seguente per creare una tabella in cui archiviare i dati del sensore:
 
@@ -420,4 +422,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

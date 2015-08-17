@@ -188,4 +188,4 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

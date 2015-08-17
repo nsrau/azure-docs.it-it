@@ -7,6 +7,7 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
@@ -15,6 +16,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio
@@ -309,4 +311,4 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

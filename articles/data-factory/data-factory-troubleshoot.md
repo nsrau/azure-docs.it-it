@@ -52,44 +52,42 @@ Verificare che SQL Server sia raggiungibile dal computer in cui è installato il
 
 ## Problema: le sezioni di input sono sempre nello stato PendingExecution o PendingValidation
 
-Le sezioni potrebbero essere nello stato **PendingExecution** o **PendingValidation** a causa di una serie di motivi: uno dei più comuni è che la proprietà **waitOnExternal** non viene specificata nella sezione **disponibilità** della prima tabella e/o del primo set di dati nella pipeline. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data factory di Azure deve essere contrassegnato con la proprietà **waitOnExternal** nella la sezione **availability**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
+Le sezioni potrebbero essere nello stato **PendingExecution** o **PendingValidation** a causa di una serie di motivi: uno dei più comuni è che la proprietà **external** non viene impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data Factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
-Per l'utilizzo della proprietà **waitOnExternal**, vedere l'esempio riportato di seguito. È possibile specificare **waitOnExternal{}** senza impostare i valori per le proprietà nella sezione in modo che vengano usati i valori predefiniti.
+Per l'utilizzo della proprietà **external**, vedere l'esempio riportato di seguito. È possibile specificare facoltativamente**externalData*** quando si imposta external su true.
 
 Per altre informazioni su questa proprietà, vedere l'argomento Tabelle in [Informazioni di riferimento sugli script JSON][json-scripting-reference].
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- Per risolvere l'errore, aggiungere la sezione **waitOnExternal** alla definizione JSON della tabella di input e ricreare la tabella.
+ Per risolvere l'errore, aggiungere la proprietà **external** e la sezione facoltativa **externalData**alla definizione JSON della tabella di input e ricreare la tabella.
 
 ## Problema: l'operazione di copia ibrida non riesce
 Per ulteriori informazioni:
@@ -131,7 +129,7 @@ Per enumerare e leggere i log per una particolare attività personalizzata, è p
 
 Un **errore comune** di un'attività personalizzata è l'esecuzione del pacchetto non riuscita con codice di uscita "1". Per altri dettagli, vedere "wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr".
 
-Per visualizzare ulteriori dettagli relativi a questo tipo di errore, aprire il file **stderr**. Un errore comune che è possibile osservare è una condizione di timeout come la seguente: INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
+Per visualizzare ulteriori dettagli relativi a questo tipo di errore, aprire il file **stderr**. Un errore comune che è possibile osservare è una condizione di timeout come la seguente: INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs
 
 Lo stesso errore può essere visualizzato più volte se, ad esempio, il processo viene ritentato per tre volte nell'arco di almeno 30 minuti.
 
@@ -175,7 +173,7 @@ In questa procedura dettagliata si introdurrà un errore nell'esercitazione dell
 ### Prerequisiti
 1. Completare l'esercitazione nell'articolo [Introduzione a Data factory di Azure][adfgetstarted].
 2. Verificare che **ADFTutorialDataFactory** produca dati nella tabella **emp** del database SQL di Azure.  
-3. Eliminare quindi la tabella **emp** (***drop table emp***) dal database SQL di Azure. Ciò introdurrà un errore.
+3. Eliminare quindi la tabella **emp** (**drop table emp**) dal database SQL di Azure. Ciò introdurrà un errore.
 4. Eseguire il comando seguente in **Azure PowerShell** per aggiornare il periodo attivo della pipeline in modo che cerchi di scrivere i dati nella tabella **emp** che non esiste più.
 
          
@@ -386,4 +384,4 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

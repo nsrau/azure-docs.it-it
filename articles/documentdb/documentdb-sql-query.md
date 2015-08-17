@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Eseguire query con DocumentDB SQL | Azure" 
+	pageTitle="Eseguire query con DocumentDB SQL | Microsoft Azure" 
 	description="DocumentDB, un servizio di database di documenti NoSQL, supporta le query che usano una grammatica simile a quella di SQL sui documenti JSON gerarchici senza richiedere esplicitamente uno schema o la creazione di indici secondari." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -279,7 +279,7 @@ La query seguente richiede documenti che contengono una proprietà nome il cui v
 
 Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. Il linguaggio SQL di DocumentDB supporta anche una varietà di espressioni scalari. Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide.
 
-Gli operatori binari seguenti sono attualmente supportati e possono essere usati nelle query, come illustrato negli esempi seguenti:<table><tr><td>aritmetica</td><td>+,-, *, /, %</td></tr><tr><td>Bitwise</td><td>| &, ^, <<, >>, >>> (spostamento a destra riempimento zero)</td></tr><tr><td>logiche</td><td>AND, OR</td></tr><tr><td>confronto</td><td>=,! =, >, > =, <, <=, <></td></tr><tr><td>stringa</td><td>| | (concatenazione)</td></tr></table>
+Gli operatori binari seguenti sono attualmente supportati e possono essere usati nelle query, come illustrato negli esempi seguenti: <table> <tr> <td>aritmetica</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bitwise</td> <td>|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) </td> </tr> <tr> <td>logiche</td> <td>AND, OR</td> </tr> <tr> <td>confronto</td> <td>=,!=, >, >=, <, <=, <></td> </tr> <tr> <td>stringa</td> <td>|| (concatenazione)</td> </tr> </table>
 
 Saranno ora prese in esame alcune query che usano gli operatori binari.
 
@@ -296,7 +296,7 @@ Saranno ora prese in esame alcune query che usano gli operatori binari.
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-Sono supportati anche gli operatori unari +,-, ~ e NOT, che possono essere usati all'interno delle query come illustrato di seguito:
+Sono supportati anche gli operatori unari +,-, \~ e NOT, che possono essere usati all'interno delle query come illustrato di seguito:
 
 	SELECT *
 	FROM Families.children[0] c
@@ -593,7 +593,7 @@ In questo esempio restituisce tutti i documenti in cui lo stato è uno dei valor
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-IN è equivalente alla concatenazione di più clausole OR, tuttavia, poiché possono essere gestito usando un unico indice, DocumentDB supporta un livello più elevato di [limite](documentdb-limits.md) per il numero di argomenti specificato all'interno di una clausola IN.
+IN è equivalente alla concatenazione di più clausole OR, tuttavia, poiché possono essere gestite usando un unico indice, DocumentDB supporta un livello più elevato di [limite](documentdb-limits.md) per il numero di argomenti specificato all'interno di una clausola IN.
 
 ###Operatori Ternary (?) e Coalesce (??):
 Gli operatori Ternary e Coalesce possono essere usati per compilare espressioni condizionali, analogamente ai linguaggi di programmazione più diffusi come C# e JavaScript.
@@ -1180,12 +1180,12 @@ Di seguito è riportato un esempio di come è possibile registrare una UDF nel d
 	       collectionSelfLink/* link of the parent collection*/, 
 	       regexMatchUdf).Result;  
                                                                              
-Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` e controlla se il primo corrisponde al modello specificato nella seconda funzione string.match() di JavaScript.
+Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accetta due valori stringa JSON `input` e `pattern` e controlla se il primo corrisponde al modello specificato nella seconda mediante la funzione string.match() di JavaScript.
 
 
 È ora possibile usare questa UDF in una query in una proiezione. Le UDF devono essere qualificate con il prefisso con distinzione tra maiuscole e minuscole "udf." quando chiamate dall'interno delle query.
 
->[AZURE.NOTE]Prima del 17/03/2015, DocumentDB supportava le chiamate UDF senza il prefisso "udf.", come SELECT REGEX_MATCH(). Questo modello di chiamata è stato deprecato.
+>[AZURE.NOTE]Prima del 17/03/2015, DocumentDB supportava le chiamate UDF senza il prefisso "udf.", come SELECT REGEX\_MATCH(). Questo modello di chiamata è stato deprecato.
 
 **Query**
 
@@ -1651,7 +1651,7 @@ Le funzioni di matrice possono essere usate per manipolare le matrici in JSON. A
       "id": "WakefieldFamily"
     }]
 
-L'esempio seguente usa ARRAY_LENGTH per ottenere il numero di figli per ogni famiglia.
+L'esempio seguente usa ARRAY\_LENGTH per ottenere il numero di figli per ogni famiglia.
 
 **Query**
 
@@ -1996,7 +1996,7 @@ DocumentDB offre un modello di programmazione aperto RESTful su HTTP. È possibi
 
 Il modello di interazione di base con queste risorse usa i verbi HTTP GET, PUT, POST e DELETE con la relativa interpretazione standard. Il verbo POST viene usato per creare una nuova risorsa, per eseguire una stored procedure o per inviare una query di DocumentDB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
 
-Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Content-Type `application/query+json` per denotare che l'operazione è una query.
+Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Content-Type `application/query+json` per indicare che l'operazione è una query.
 
 
 **Richiesta**
@@ -2056,9 +2056,9 @@ Gli esempi seguenti illustrano il verbo POST per una query di DocumentDB a front
 	         },
 	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
 	         "_ts":1407691744,
-	         "_self":"dbs/u1NXAA==/colls/u1NXANcKogE=/docs/u1NXANcKogEcAAAAAAAAAA==/",
+	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
 	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments/"
+	         "_attachments":"_attachments\/"
 	      }
 	   ],
 	   "count":1
@@ -2261,7 +2261,7 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 2.	[Specifica di SQL DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
 4.	[Livelli di coerenza in DocumentDB][consistency-levels]
-5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Specifiche Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2277,4 +2277,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

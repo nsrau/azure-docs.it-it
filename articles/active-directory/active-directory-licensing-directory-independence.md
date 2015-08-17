@@ -40,4 +40,4 @@ Per aggiungere una directory di Windows Azure nel portale di gestione di Azure, 
 
 Per un'ampia panoramica dei problemi relativi alle licenze di Windows Azure e le procedure consigliate, vedere[che cosa sono le licenze di Azure Active Directory?](active-directory-licensing-what-is.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

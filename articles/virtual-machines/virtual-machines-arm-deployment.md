@@ -388,4 +388,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

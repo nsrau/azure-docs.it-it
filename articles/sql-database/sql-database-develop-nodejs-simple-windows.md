@@ -8,14 +8,16 @@
 	editor=""/>
 
 
+
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/30/2015" 
 	ms.author="mebha"/>
+
 
 
 # Connettersi al database SQL tramite Node.js in Windows
@@ -41,25 +43,12 @@ Nel computer di sviluppo client devono essere presenti gli elementi software seg
 
 ### Installare i moduli necessari
 
+Una volta soddisfatti i requisiti, assicurarsi che si è nella versione 0.8.9. di Node.js. Per verificarlo, utilizzare il comando seguente dal terminale della riga di comando: node -v. <br>In una finestra della riga di comando **cmd.exe**, passare alla directory del progetto- ad esempio C:\\NodeJSSQLProject. Immettere i comandi seguenti nella sequenza indicata.
 
-In una finestra della riga di comando **cmd.exe** passare alla directory in cui si trova msnodesql. Immettere i comandi seguenti nella sequenza indicata.
-
-
+	npm init
 	npm install msnodesql
-	npm install -g node-gyp
 
-
-Ora che è installato node-gyp, passare alla directory *DirectoryProgettoPersonale* e quindi a **node_modules\msnodesql**. Eseguire i comandi seguenti nella finestra **cmd.exe**.
-
-
-	node-gyp configure 
-	node-gyp build
-
-
-Quindi, passare alla directory **build\release**. Copiare il file **sqlserver.node** e incollarlo nella directory **msnodesql\lib**. Se necessario, sostituire il file precedente.
-
-Per informazioni su come installare e configurare i requisiti menzionati, vedere il [blog del team](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) e il [video](https://www.youtube.com/watch?v=kQo_L-D_zk8).
-
+Quindi passare alla cartella node\_modules\\msnodesql ed eseguire il file eseguibile **msnodesql-0.2.1-v0.8 ia32**. Seguire i passaggi dall'installazione guidata e scegliere Fine al termine. A questo punto dovrebbe essere stato installato il driver SQL Server Node.js. Seguire i passaggi successivi per ottenere la stringa di connessione e quindi si dovrebbe essere in grado di connettersi al database SQL di Azure dall'applicazione Node.js.
 
 ### Creare un database e recuperare la stringa di connessione
  
@@ -234,4 +223,4 @@ Per il funzionamento di questo esempio di codice, è necessario innanzitutto ave
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

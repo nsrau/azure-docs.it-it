@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Foglio informativo sugli algoritmi di Machine Learning | Microsoft Azure" 
-	description="Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"	
+	description="Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio."	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="brohrer" 
@@ -90,4 +89,4 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

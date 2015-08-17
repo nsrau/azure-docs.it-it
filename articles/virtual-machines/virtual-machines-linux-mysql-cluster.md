@@ -310,15 +310,15 @@ Dopo alcuni secondi, utilizzando `sudo crm_mon –L` verificare che uno dei nodi
 
 La schermata seguente mostra `crm_mon` con un nodo arrestato (uscire con CTRL+C)
 
-![Nodo crm_mon arrestato](media/virtual-machines-linux-mysql-cluster/image002.png)
+![Nodo crm\_mon arrestato](media/virtual-machines-linux-mysql-cluster/image002.png)
 
 Questa schermata illustra invece entrambi i nodi, con un master e uno slave:
 
-![Master/slave operativo crm_mon](media/virtual-machines-linux-mysql-cluster/image003.png)
+![Master/slave operativo crm\_mon](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## Test
 
-A questo punto, è possibile eseguire una simulazione di failover automatico. È possibile procedere in due modi: con un soft mount e con un hard mount. Il metodo soft mount prevede l'uso della funzione di arresto del cluster: ``crm_standby -U `uname -n` -v on`` Se si usa questa funzione sul master, lo slave prenderà il suo posto. Ricordare di riportarlo su Off (in caso contrario, crm_mon segnalerà che un nodo è in standby)
+A questo punto, è possibile eseguire una simulazione di failover automatico. È possibile procedere in due modi: con un soft mount e con un hard mount. Il metodo soft mount prevede l'uso della funzione di arresto del cluster: ``crm_standby -U `uname -n` -v on`` Se si usa questa funzione sul master, lo slave prenderà il suo posto. Ricordare di riportarlo su Off (in caso contrario, crm\_mon segnalerà che un nodo è in standby)
 
 Il metodo hard mount prevede l'arresto della macchina virtuale primaria (hadb01) tramite il portale o la modifica del livello di esecuzione sulla macchina virtuale (ad esempio con chiusura, arresto). Si aiutano quindi Corosync e Pacemaker segnalando che il master è inattivo. È possibile testare questa funzionalità (utile per le finestre di manutenzione) ma anche forzare lo scenario bloccando semplicemente la macchina virtuale.
 
@@ -348,4 +348,4 @@ Si applicano le limitazioni seguenti:
 - Le prestazioni delle operazioni di scrittura dipenderanno dall'interconnessione delle macchine virtuali nel commutatore virtuale, in quanto questo è il meccanismo usato da DRBD per replicare il dispositivo
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

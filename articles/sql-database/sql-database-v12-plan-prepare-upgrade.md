@@ -48,8 +48,8 @@ Le seguenti sottosezioni forniscono le informazioni da acquisire e indicano le d
 Questo documento riguarda l'aggiornamento del database SQL di Microsoft Azure dalla versione 11 alla versione 12. A livello più formale, i numeri di versione si avvicinano ai due seguenti valori, come indicato dall'istruzione Transact-SQL **SELECT @@version;**:
 
 
-- 12.0.2000.8 *(o appena superiore, V12)*
-- 11.0.9228.18 *(V11)*
+- 12\.0.2000.8 *(o appena superiore, V12)*
+- 11\.0.9228.18 *(V11)*
  - V11 è indicato anche come SAWA v2.
 
 ### Pianificazione del livello di servizio
@@ -244,4 +244,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

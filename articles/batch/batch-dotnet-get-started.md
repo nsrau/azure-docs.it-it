@@ -164,10 +164,10 @@ Per altre informazioni, vedere [Come utilizzare l’archiviazione BLOB da .NET](
 	  	CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
 	  	CloudBlockBlob storageassembly =
 			container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
-		  taskData1.UploadFromFile("..\..\taskdata1.txt", FileMode.Open);
-		  taskData2.UploadFromFile("..\..\taskdata2.txt", FileMode.Open);
-	  	taskData3.UploadFromFile("..\..\taskdata3.txt", FileMode.Open);
-		  dataprocessor.UploadFromFile("..\..\..\ProcessTaskData\bin\debug\ProcessTaskData.exe", FileMode.Open);
+		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
 		  storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
 		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
 		  Console.ReadLine();
@@ -208,7 +208,7 @@ Un pool di nodi di calcolo è il primo set di risorse che è necessario creare p
 			  newPool.Commit();
 			  Console.WriteLine("Created the pool. Press Enter to continue.");
 			  Console.ReadLine();
-		  }
+		  	}
 
 4. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
 
@@ -266,7 +266,7 @@ Creare un processo che consente di gestire le attività eseguite nel pool. Tutte
 				Console.WriteLine("Job id: " + job.Id);
 				Console.WriteLine("   Job status: " + job.State);
 			}
-			Console.WriteLine("Press Enter to continue.")
+			Console.WriteLine("Press Enter to continue.");
 			Console.ReadLine();
 		}
 
@@ -316,7 +316,7 @@ Dopo aver creato il processo, è possibile aggiungervi attività. Ogni attività
 			{
 				Console.WriteLine("Task " + task.Id + " says:\n" + task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
 			}
-			Console.WriteLine("Press Enter to continue.")
+			Console.WriteLine("Press Enter to continue.");
 			Console.ReadLine();
 		}
 
@@ -377,7 +377,7 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 			static void DeleteJob(BatchClient client)
 			{
-				client.JobOperations.DeleteJob("davidmujob1");
+				client.JobOperations.DeleteJob("testjob1");
 				Console.WriteLine("Job was deleted.");
 				Console.ReadLine();
 			}
@@ -394,7 +394,7 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 		static void DeletePool (BatchClient client)
 		{
-			client.PoolOperations.DeletePool("davidmupl1");
+			client.PoolOperations.DeletePool("testpool1");
 			Console.WriteLine("Pool was deleted.");
 			Console.ReadLine();
 		}
@@ -475,4 +475,4 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 2. Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

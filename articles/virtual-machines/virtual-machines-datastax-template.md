@@ -7,6 +7,7 @@
 	manager="timlt"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="04/29/2015"
 	ms.author="karthmut"/>
+
 
 # DataStax su Ubuntu con un modello di gestione risorse
 
@@ -44,7 +46,7 @@ Attenersi alla seguente procedura per creare un cluster Apache Cassandra, basato
 
 ### Passaggio 1-a: Scaricare i file di modello tramite PowerShell
 
-Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\Azure\Templates\DataStax).
+Creare una cartella locale per il modello JSON e gli altri file associati (ad esempio, C:\\Azure\\Templates\\DataStax).
 
 Sostituire il nome di cartella della cartella locale ed eseguire questi comandi:
 
@@ -84,7 +86,7 @@ Clonare l’intero repository dei modelli utilizzando un client git di propria s
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Una volta completata l’operazione, cercare la cartella **datastax-on-ubuntu** nella directory C:\Azure\Templates.
+Una volta completata l’operazione, cercare la cartella **datastax-on-ubuntu** nella directory C:\\Azure\\Templates.
 
 ### Passaggio 2: (facoltativo) Comprendere i parametri del modello
 
@@ -367,7 +369,7 @@ In particolare, i seguenti modelli collegati verranno usati per la distribuzione
 
 -	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi di account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali.
 -	**opscenter-resources.json**: consente di distribuire la macchina virtuale OpsCenter e tutte le relative risorse, tra cui un’interfaccia di rete e un indirizzo IP pubblico.
--	**opscenter-install-resources.json**: consente di distribuire l’estensione della macchina virtuale OpsCenter (script personalizzato per Linux) che richiamerà il file di script bash specifico (**opscenter.sh**) richiesto per configurare il servizio OpsCenter all'interno di tale macchina virtuale.
+-	**opscenter-install-resources.json**: distribuisce l’estensione della macchina virtuale OpsCenter (script personalizzato per Linux) che richiamerà il file di script bash specifico (**opscenter.sh**) richiesto per configurare il servizio OpsCenter all'interno di tale macchina virtuale.
 -	**ephemeral-nodes-resources.json**: consente di distribuire tutte le macchine virtuali del nodo cluster e le risorse connesse (schede di rete, IP privati e così via). Questo modello consentirà inoltre di distribuire le estensioni della macchina virtuale (gli script personalizzati per Linux) e di richiamare uno script bash (**dsenode.sh**) per installare fisicamente parti del server Cassandra Apache su ciascun nodo.
 
 Esaminiamo questo ultimo modello, poiché è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Ciclo delle risorse o Resource Looping**.
@@ -439,7 +441,7 @@ I Dischi collegati sono formattati nell’ambito delle attività di preparazione
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh fa parte della cartella **shared_scripts\ubuntu** all'interno del repository github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi che possono essere utilizzate in tutti i modelli del repository.
+vm-disk-utils-0.1.sh fa parte della cartella **shared\_scripts\\ubuntu** all'interno del repository github azure-quickstart-tempates e contiene funzioni molto utili per il montaggio, la formattazione e lo striping dei dischi che possono essere utilizzate in tutti i modelli del repository.
 
 Un altro frammento interessante da esplorare è quello correlato alle estensioni delle macchine virtuali CustomScriptForLinux. Queste vengono installate come tipo di risorsa separato, con una dipendenza in ogni nodo del cluster (e l'istanza OpsCenter). Le estensioni si avvalgono dello stesso meccanismo di ciclo delle risorse descritto per le macchine virtuali:
 
@@ -482,4 +484,4 @@ In pratica, questo approccio suggerisce di:
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

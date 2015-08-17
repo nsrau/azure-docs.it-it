@@ -290,7 +290,7 @@ Dopo aver preparato l'account di archiviazione e il contenitore BLOB, è possibi
 
 **Per effettuare il provisioning di un cluster HDInsight con le opzioni di configurazione personalizzate**
 
-Durante il provisioning di un cluster, è possibile usare altre opzioni di configurazione, come la connessione a più contenitori di archiviazione BLOB di Azure oppure l'uso di un database SQL di Azure per i metastore Hive e Oozie. Ciò consente di separare la durata dei dati e dei metadati da quella del cluster.
+Durante il provisioning di un cluster, è possibile usare altre opzioni di configurazione, come la connessione a più contenitori di archiviazione BLOB di Azure oppure l'uso di un database SQL di Azure per i metastore Hive e Oozie. In questo modo è possibile separare la durata dei dati e dei metadati da quella del cluster.
 
 > [AZURE.NOTE] I cmdlet di Windows PowerShell rappresentano l'unica soluzione consigliata per modificare le variabili di configurazione in un cluster HDInsight. Le modifiche apportate ai file di configurazione Hadoop durante la connessione al cluster con Desktop remoto possono essere sovrascritte in caso di applicazione di patch del cluster. I valori di configurazione impostati tramite Azure PowerShell vengono conservati se al cluster sono applicate patch.
 
@@ -505,4 +505,4 @@ Mentre l'applicazione è aperta in Visual Studio, premere **F5** per eseguirla. 
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

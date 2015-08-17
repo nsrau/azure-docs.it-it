@@ -39,7 +39,7 @@ Questa procedura dettagliata fornisce istruzioni dettagliate per l'utilizzo di u
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Utilizzare il motore **Tez** per eseguire query Hive nel file HQL, aggiungere "\*\*set hive.execution.engine=tez\*\*;" all'inizio del file.
+	> [AZURE.NOTE]Utilizzare il motore **Tez** per eseguire query Hive nel file HQL, aggiungere "**set hive.execution.engine=tez**;" all'inizio del file.
 		
 3.  Caricare **hivequery.hql** nel contenitore **adftutorial** dell'archivio BLOB
 
@@ -140,7 +140,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptPath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -159,7 +159,7 @@ Il servizio Data factory di Azure supporta la creazione di un cluster su richies
       		}
 		}
 
-	> [AZURE.NOTE]Sostituire il valore **StartDateTime** con la data di tre giorni fa e il valore **EndDateTime** con il giorno corrente. StartDateTime ed EndDateTime devono essere in [formato ISO](http://it.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni.
+	> [AZURE.NOTE]Sostituire il valore **StartDateTime** con la data di tre giorni fa e il valore **EndDateTime** con il giorno corrente. StartDateTime ed EndDateTime devono essere in [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Ad esempio: 2014-10-14T16:32:41Z. La tabella di output viene pianificata per essere generata tutti i giorni, quindi saranno generate tre sezioni.
 	> 
 	> Sostituire **l'account di archiviazione** nel codice JSON con il nome dell'account di archiviazione usato.
 	
@@ -258,7 +258,7 @@ Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che f
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptPath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"defines":
 						{
@@ -277,7 +277,7 @@ Il seguente esempio JSON per una pipeline di esempio usa un'attività Hive che f
 	}
 
 
-> [AZURE.NOTE]Per usare il motore **Tez** per eseguire una query Hive, eseguire "\*\*set hive.execution.engine=tez\*\*;" prima di eseguire la query Hive.
+> [AZURE.NOTE]Per usare il motore **Tez** per eseguire una query Hive, eseguire "**set hive.execution.engine=tez**;" prima di eseguire la query Hive.
 > 
 > Vedere la [Guida di riferimento per gli sviluppatori](http://go.microsoft.com/fwlink/?LinkId=516908) per informazioni dettagliate su cmdlet, schemi JSON e proprietà nello schema.
 
@@ -286,7 +286,7 @@ Le attività Pig e Hive di Data factory consentono di specificare i valori dei p
 
 Vedere l'esempio seguente per specificare i parametri per uno script Hive con **defines**. Per usare gli script con parametri Hive, eseguire le operazioni seguenti:
 
-1.	Define the parameters in **defines**.
+1.	Definire i parametri in **defines**.
 2.	Nello script Hive inline (o) nel file di script Hive archiviato nell'archivio BLOB, fare riferimento al parametro mediante **${hiveconf:parameterName}**.
 
    
@@ -353,4 +353,4 @@ Articolo | Descrizione
 [Azure Portal]: http://portal.azure.com
  
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -3,7 +3,7 @@
     pageTitle="Requisiti delle immagini di Azure RemoteApp"
     description="Informazioni sui requisiti per la creazione di immagini da usare con Azure RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -43,4 +43,4 @@ I requisiti per l'immagine che possono essere caricati e usati con l'app Azure R
 - Il caricamento del disco VHD da una catena di snapshot non è supportato.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

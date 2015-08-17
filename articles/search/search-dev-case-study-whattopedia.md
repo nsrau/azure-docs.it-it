@@ -421,4 +421,4 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

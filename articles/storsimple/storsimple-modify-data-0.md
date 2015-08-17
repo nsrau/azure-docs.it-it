@@ -6,6 +6,7 @@
    authors="alkohli"
    manager="carolz"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -14,6 +15,7 @@
    ms.workload="na"
    ms.date="07/30/2015"
    ms.author="alkohli" />
+
 
 # Modificare le impostazioni dell'interfaccia di rete DATI 0 sul dispositivo StorSimple
 
@@ -54,23 +56,20 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
 
-	Se si utilizzano indirizzi IPv6, utilizzare il comando seguente:
-
-	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv6Address <> -IPv6Netmask <> -IPv6Gateway <> -Controller0IPv6Address <> -Controller1IPv6Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
+	
 1. Digitare i valori per DATI 0 tra parentesi acute (<>) per i seguenti elementi:
 											
-	- Indirizzo IPv4/IPv6
+	- Indirizzo IPv4
 	
-	- Gateway IPv4/IPv6
+	- Gateway IPv4
 	
-	- Subnet mask IPv4/IPv6
+	- Subnet mask IPv4
 	
-	- Indirizzo IPv4/IPv6 fisso per controller 0
+	- Indirizzo IPv4 fisso per controller 0
 
-	- Indirizzo IPv4/IPv6 fisso per controller 1
+	- Indirizzo IPv4 fisso per controller 1
 
 ## Passaggi successivi
-Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
+Per configurare le interfacce di rete diverse da DATA 0, è possibile utilizzare la [pagina di configurazione nel portale di gestione](storsimple-modify-device-config.md). Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

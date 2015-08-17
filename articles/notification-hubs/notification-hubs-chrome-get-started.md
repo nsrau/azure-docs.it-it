@@ -407,7 +407,7 @@ L'app Chrome viene creata tramite JavaScript ed è possibile usare il proprio pr
 
 ##<a name="send"></a>Inviare una notifica all'app Chrome
 
-In questa esercitazione vengono inviate notifiche con un'applicazione della console .NET, anche se è possibile inviare notifiche tramite Hub di notifica da qualsiasi back-end tramite l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaccia REST</a>.
+In questa esercitazione vengono inviate notifiche con un'applicazione della console .NET, anche se è possibile inviare notifiche tramite Hub di notifica da qualsiasi back-end usando l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaccia REST</a>.
 
 Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure con Hub di notifica, vedere **Introduzione alle notifiche push in Servizi mobili** ([Back-end .NET](../mobile-services-javascript-backend-android-get-started-push.md) | [Back-end JavaScript](../mobile-services-javascript-backend-android-get-started-push.md)). Per un esempio relativo all'invio di notifiche tramite le API REST, vedere **Come usare Hub di notifica da Java/PHP/Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
@@ -495,4 +495,4 @@ In questo semplice esempio le notifiche verranno trasmesse all'app Chrome. Per a
 [Uso di Hub di notifica di Azure per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

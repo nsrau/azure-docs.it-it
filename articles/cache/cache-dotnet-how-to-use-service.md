@@ -489,4 +489,4 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

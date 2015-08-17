@@ -107,7 +107,7 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 
 ## Passaggi successivi
 
-- Trovare un provider di servizi. Vedere [Provider di servizi ExpressRoute e sedi](expressroute-locations.md).
+- Trovare un provider di servizi. Vedere [Provider e sedi dei servizi ExpressRoute](expressroute-locations.md).
 - Configurare la connessione ExpressRoute. Per istruzioni, vedere [configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md) o [Configurare una connessione ExpressRoute mediante un provider di Exchange](expressroute-configuring-exps.md). 
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

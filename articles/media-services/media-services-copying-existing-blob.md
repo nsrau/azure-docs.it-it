@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/26/2015" 
 	ms.author="juliako"/>
+
 
 #Copia di un BLOB esistente in un asset di Servizi multimediali
 
@@ -60,11 +62,17 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 		<appSettings>
 		  <add key="MediaServicesAccountName" value="Media-Services-Account-Name"/>
+
 		  <add key="MediaServicesAccountKey" value="Media-Services-Account-Key"/>
+
 		  <add key="MediaServicesStorageAccountName" value="Media-Services-Storage-Account-Name"/>
+
 		  <add key="MediaServicesStorageAccountKey" value="Media-Services-Storage-Account-Key"/>
+
 		  <add key="ExternalStorageAccountName" value="External-Storage-Account-Name"/>
+
 		  <add key="ExternalStorageAccountKey" value="External-Storage-Account-Key"/>
+
 		</appSettings>
 
 
@@ -73,7 +81,10 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 L'esempio di codice che segue effettua le attività seguenti:
 
 1. Crea l'istanza di CloudMediaContext. 
-1. Crea le istanze di CloudStorageAccount: _sourceStorageAccount e _destinationStorageAccount. 1. Carica i file Smooth Streaming da una directory locale in un contenitore BLOB che si trova in _sourceStorageAccount. 1. Crea un nuovo asset. Il contenitore BLOB creato per questo asset si trova in _destinationStorageAccount. 1. Usa Azure Storage SDK per copiare i BLOB specificati nel contenitore associato all'asset.
+1. Crea le istanze di CloudStorageAccount: \_sourceStorageAccount e \_destinationStorageAccount.
+1. Carica i file Smooth Streaming da una directory locale in un contenitore BLOB che si trova in \_sourceStorageAccount.
+1. Crea un nuovo asset. Il contenitore BLOB creato per questo asset si trova in \_destinationStorageAccount.
+1. Usa Azure Storage SDK per copiare i BLOB specificati nel contenitore associato all'asset.
 
 >[AZURE.NOTE]L'operazione di copia non genera eccezioni se il localizzatore è scaduto.
 
@@ -283,4 +294,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 		}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

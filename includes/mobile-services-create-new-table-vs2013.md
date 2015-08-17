@@ -13,6 +13,6 @@ Prima di poter archiviare dati nel nuovo servizio mobile, è necessario creare u
 
 	>[AZURE.NOTE]La chiave dell'applicazione viene distribuita con l'applicazione. Poiché la distribuzione non è sicura, la chiave non può essere considerata un token di sicurezza. Per proteggere l'accesso ai dati del servizio mobile, è necessario autenticare gli utenti prima dell'accesso. Per altre informazioni, vedere [Autorizzazioni](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
 	>
-	>Le nuove tabelle create includono le colonne Id, __createdAt, __updatedAt e __version. Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
+	>Le nuove tabelle create includono le colonne Id, \_\_createdAt, \_\_updatedAt, e \_\_version. Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per ulteriori informazioni, vedere [Schema dinamico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -21,4 +21,4 @@ Ecco un'alternativa che sfrutta il fatto che lo script di distribuzione eliminer
 
 Se lo script di distribuzione è stato personalizzato, è possibile modificare il codice in deploy.cmd per forzare l'eliminazione della cartella env.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

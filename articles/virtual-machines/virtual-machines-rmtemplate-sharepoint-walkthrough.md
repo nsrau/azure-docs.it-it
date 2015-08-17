@@ -3,15 +3,14 @@
 	description="Esaminare la struttura del modello di gestione risorse di Azure per la farm di SharePoint a tre server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
@@ -33,7 +32,7 @@ Aprire il modello azuredeploy.json in un editor di testo o in uno strumento a sc
 
 ## sezione "parametri"
 
-La sezione "parametri" specifica i parametri utilizzati per inserire dati in questo modello. È possibile definire un massimo di 50 parametri. Di seguito è riportato un esempio di un parametro per l'indirizzo di Azure:
+La sezione **"parametri"**" specifica i parametri utilizzati per inserire dati in questo modello. Quando il modello viene eseguito, è necessario specificare i dati. È possibile definire un massimo di 50 parametri. Di seguito è riportato un esempio di un parametro per l'indirizzo di Azure:
 
 	"deploymentLocation": {
 		"type": "string",
@@ -52,7 +51,7 @@ La sezione "parametri" specifica i parametri utilizzati per inserire dati in que
 
 ## sezione "variabili"
 
-La sezione "variabili" Specifica le variabili che possono essere utilizzate in questo modello. È possibile definire un massimo di 100 variabili. Di seguito sono riportati alcuni esempi:
+La sezione **"variabili"** specifica le variabili e i relativi valori utilizzate dal modello. I valori delle variabili possono essere impostati in modo esplicito o essere derivati dai valori del parametro. A differenza dei parametri, non vengono forniti quando si esegue il modello. È possibile definire un massimo di 100 variabili. Di seguito sono riportati alcuni esempi:
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -67,7 +66,7 @@ La sezione "variabili" Specifica le variabili che possono essere utilizzate in q
 
 ## sezione "risorse"
 
-Il **"risorse"** sezione specifica le informazioni necessarie per distribuire le risorse per la farm di SharePoint in un gruppo di risorse. Un massimo di 250 risorse può essere definito e le dipendenze della risorsa possono essere solo definita 5 livelli.
+Il **"risorse"** sezione specifica le informazioni necessarie per distribuire le risorse per la farm di SharePoint in un gruppo di risorse. Un massimo di 250 risorse può essere definito e le dipendenze della risorsa possono essere definite solo a 5 livelli di profondità.
 
 In questa sezione sono disponibili le procedure seguenti:
 
@@ -108,7 +107,7 @@ In queste sezioni vengono creati tre set di disponibilità, uno per ogni livello
 
 - Controller di dominio Active Directory
 - Cluster di SQL Server
-- SharePoint Server
+- Server SharePoint:
 
 Di seguito è fornito un esempio:
 
@@ -121,7 +120,7 @@ Di seguito è fornito un esempio:
 
 ### Microsoft.Network/virtualNetworks
 
-In questa sezione viene creata una rete virtuale solo cloud con tre subnet (una per ogni livello della distribuzione), in cui vengono posizionate le macchine virtuali. Ecco il codice JSON:
+In queste sezioni viene creata una rete virtuale solo cloud con tre subnet (una per ogni livello della distribuzione), in cui vengono posizionate le macchine virtuali. Ecco il codice JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -141,7 +140,7 @@ In questa sezione viene creata una rete virtuale solo cloud con tre subnet (una 
 
 ### Microsoft.Network/loadBalancers
 
-Queste sezioni crea istanze del servizio di bilanciamento del carico per ogni macchina virtuale fornire NAT e filtro per il traffico in ingresso da Internet. Per ogni servizio di bilanciamento del carico, le impostazioni di configurare il front-end, back-end e le regole NAT in entrata. Ad esempio, esistono regole del traffico di Desktop remoto per ogni macchina virtuale e, per il server SharePoint, una regola per consentire il traffico web in ingresso (porta TCP 80) da Internet. Ecco un esempio per il server SharePoint:
+Queste sezioni creano istanze del servizio di bilanciamento del carico per ogni macchina virtuale per fornire NAT e filtro per il traffico in ingresso da Internet. Per ogni servizio di bilanciamento del carico, le impostazioni di configurare il front-end, back-end e le regole NAT in entrata. Ad esempio, esistono regole del traffico di Desktop remoto per ogni macchina virtuale e, per il server SharePoint, una regola per consentire il traffico web in ingresso (porta TCP 80) da Internet. Ecco un esempio per il server SharePoint:
 
 
 	{
@@ -346,7 +345,7 @@ Una sezione aggiuntiva per il controller di dominio che inizia con **"nome": "Up
 
 La sezione **"type": "Microsoft.Compute/virtualMachines"** successiva consente di creare le macchine virtuali di SQL Server nella distribuzione e:
 
-- Specifica account di archiviazione, set di disponibilità, bilanciamento del carico, rete virtuale e interfaccia di rete
+- Specifica account di archiviazione, set di disponibilità, bilanciamento del carico, rete virtuale e interfaccia di rete.
 - Aggiunge un altro disco
 
 Altre sezioni **"Microsoft.Compute/virtualMachines/extensions"** consentono di chiamare lo script di PowerShell per configurare SQL Server.
@@ -369,12 +368,10 @@ Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di
 
 ## Risorse aggiuntive
 
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Azure compute, rete e provider di archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)[Panoramica di gestione risorse di Azure](../resource-group-overview.md)
 
-[Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md)
-
-[Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
+[Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

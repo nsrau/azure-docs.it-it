@@ -10,10 +10,10 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/28/2015"
    ms.author="joaoma"/>
 
 # Introduzione a DNS di Azure
@@ -55,7 +55,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network. La sottoscrizione di Azure deve essere registrata per usare questo provider di risorse prima di poter usare DNS di Azure. Si tratta di un'operazione una tantum per ogni sottoscrizione.
 
-	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -147,4 +147,4 @@ Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azu
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS](dns-operations-dnszones.md)<BR> [Come gestire i record DNS](dns-operations-recordsets.md)<BR> [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)<BR> [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -7,14 +7,16 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
+
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
+
 
 # Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure
 
@@ -79,7 +81,7 @@ Azure App Service consente di evitare facilmente i costi associati alla migrazio
 
 ### <a id="smallbusiness"></a>Sono un piccolo imprenditore e ho bisogno di ospitare il mio sito in modo economico ma tenendo sempre presente la possibilità di crescita futura.
 
-Azure App Service è un'ottima soluzione per questo scenario, perché è possibile iniziare a usarlo gratuitamente e quindi aggiungere funzionalità man mano che si rendano necessarie. Ogni sito Web gratuito include un dominio fornito da Azure (*nome_società*.azurewebsites.net) e la piattaforma include strumenti di distribuzione e gestione integrati nonché una raccolta di applicazioni che consentono di iniziare a usare facilmente la funzionalità. Sono disponibili molti altri servizi e opzioni di ridimensionamento che consentono l'evoluzione del sito in base all'aumento della domanda da parte degli utenti. Con il Azure App Service, è possibile:
+Azure App Service è un'ottima soluzione per questo scenario, perché è possibile iniziare a usarlo gratuitamente e quindi aggiungere funzionalità man mano che si rendano necessarie. Ogni sito Web gratuito include un dominio fornito da Azure (*nome\_società*.azurewebsites.net) e la piattaforma include strumenti di distribuzione e gestione integrati nonché una raccolta di applicazioni che consentono di iniziare a usare facilmente la funzionalità. Sono disponibili molti altri servizi e opzioni di ridimensionamento che consentono l'evoluzione del sito in base all'aumento della domanda da parte degli utenti. Con il Azure App Service, è possibile:
 
 - Iniziare con il livello gratuito e quindi aggiungere risorse in base alle esigenze.
 - Usare la raccolta di applicazioni per configurare rapidamente applicazioni Web diffuse, come WordPress.
@@ -140,197 +142,34 @@ Inoltre, Azure App Service dispone di una nuova funzionalità di anteprima per l
 
 Nella tabella seguente vengono confrontate le funzionalità del Servizio app, Servizi cloud e Macchine virtuali per aiutare i clienti a operare la scelta più adatta. Per informazioni aggiornate sul contratto di servizio per ciascuna opzione, vedere i [contratti di servizio di Azure](/support/legal/sla/).
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Funzionalità</th>
-   <th align="left" valign="middle">Servizio app (app Web)</th>
-   <th align="left" valign="middle">Servizi cloud (ruoli Web)</th>
-   <th align="left" valign="middle">Macchine virtuali</th>
-   <th align="left" valign="middle">Note</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Distribuzione quasi istantanea</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle">La distribuzione di un'applicazione o di un aggiornamento di un'applicazione in un Servizio cloud o la creazione di una VM persistente richiede come minimo diversi minuti; la distribuzione di un'applicazione in un app Web richiede pochi secondi.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Aumento della dimensione delle macchine senza ridistribuzione</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Le istanze del server Web condividono contenuti e configurazione, quindi non occorre ridistribuire o riconfigurare man mano che si scala.</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Più ambienti di distribuzione (produzione e gestione temporanea)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Gestione automatica dell'aggiornamento del sistema operativo</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Commutazione di piattaforma trasparente (è possibile passare facilmente tra 32 bit e 64 bit)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Distribuzione codice con GIT, FTP</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Distribuzione codice con distribuzione Web</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">Servizi cloud supporta l'uso della distribuzione Web per distribuire gli aggiornamenti a singole istanze del ruolo. Tuttavia, non è possibile usarlo per la distribuzione iniziale di un ruolo e se si usa la distribuzione Web per un aggiornamento è necessario effettuare la distribuzione separata a ciascuna istanza di un ruolo. Sono necessarie più istanze per qualificarsi per il contratto di servizio di Servizi cloud per gli ambienti di produzione.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Supporto WebMatrix</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Accesso a servizi quali bus di servizio, archiviazione, database SQL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Hosting del livello Web o dei servizi Web di un'architettura multilivello</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Hosting del livello intermedio di un'architettura multilivello</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. La funzionalità di anteprima [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md) fornisce anche altre funzionalità per l'hosting di servizi REST.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Supporto integrato di MySQL distribuito come servizio</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di gestione.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Supporto per ASP.NET, ASP classico, Node.js, PHP, Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Scalabilità orizzontale a più istanze senza ridistribuzione</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Supporto per SSL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere <a href="../web-sites-configure-ssl-certificate/">Configurazione di un certificato SSL per un sito Web di Azure</a>.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Integrazione di Visual Studio</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Debug remoto</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Distribuzione codice con TFS</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Isolamento rete con la <a href="/services/virtual-network/">rete virtuale di Azure</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Vedere anche <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Integrazione della rete virtuale di Siti Web di Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Supporto per <a href="/services/traffic-manager/">Gestione traffico di Azure</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Monitoraggio integrato degli endpoint</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Accesso al server tramite Desktop remoto</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Installazione di qualsiasi MSI personalizzato</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Possibilità di definire/eseguire le attività di avvio</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Possibilità di essere in ascolto di eventi ETW</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-</table>
+Funzionalità|Servizio app (app Web)|Servizi cloud (ruoli Web)|Macchine virtuali|Note
+---|---|---|---|---
+Distribuzione quasi istantanea|X|||La distribuzione di un'applicazione o di un aggiornamento di un'applicazione in un Servizio cloud o la creazione di una VM persistente richiede come minimo diversi minuti; la distribuzione di un'applicazione in un app Web richiede pochi secondi.
+Aumento della dimensione delle macchine senza ridistribuzione|X|||
+Le istanze del server Web condividono contenuti e configurazione, quindi non occorre ridistribuire o riconfigurare man mano che si scala.|X|||
+Più ambienti di distribuzione (produzione e gestione temporanea)|X|X||
+Gestione automatica dell'aggiornamento del sistema operativo|X|X||
+Commutazione di piattaforma trasparente (è possibile passare facilmente tra 32 bit e 64 bit)|X|X||
+Distribuzione codice con GIT, FTP|X||X|
+Distribuzione codice con distribuzione Web|X||X|Servizi cloud supporta l'uso della distribuzione Web per distribuire gli aggiornamenti a singole istanze del ruolo. Tuttavia, non è possibile usarlo per la distribuzione iniziale di un ruolo e se si usa la distribuzione Web per un aggiornamento è necessario effettuare la distribuzione separata a ciascuna istanza di un ruolo. Sono necessarie più istanze per qualificarsi per il contratto di servizio di Servizi cloud per gli ambienti di produzione.
+Supporto WebMatrix|X||X|
+Accesso a servizi quali bus di servizio, archiviazione, database SQL|X|X|X|
+Hosting del livello Web o dei servizi Web di un'architettura multilivello|X|X|X|
+Hosting del livello intermedio di un'architettura multilivello|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [API apps](../app-service-api/app-service-api-apps-why-best-platform/) fornisce anche altre funzionalità per l'hosting di servizi REST.
+Supporto integrato di MySQL distribuito come servizio|X|X|X|Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di gestione.
+Supporto per ASP.NET, ASP classico, Node.js, PHP, Python|X|X|X|
+Scalabilità orizzontale a più istanze senza ridistribuzione|X|X|X|Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware.
+Supporto per SSL|X|X|X|Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Integrazione di Visual Studio|X|X|X|
+Debug remoto|X|X|X|
+Distribuzione codice con TFS|X|X|X|
+Isolamento rete con la [rete virtuale di Azure](../services/virtual-network/)|X|X|X|Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
+Supporto per [Gestione traffico di Azure](../services/traffic-manager/)|X|X|X|
+Monitoraggio integrato degli endpoint|X|X|X|
+Accesso al server tramite Desktop remoto||X|X|
+Installazione di qualsiasi MSI personalizzato||X|X|
+Possibilità di definire/eseguire le attività di avvio||X|X|
+Possibilità di essere in ascolto di eventi ETW||X|X|
 
 
 > [AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrare un account, andare a la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un'app iniziale temporanea in Azure App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -367,4 +206,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

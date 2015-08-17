@@ -168,7 +168,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 	1.	Per la proprietà **gatewayName** immettere **adftutorialgateway** in modo da sostituire tutto il testo racchiuso tra virgolette.  
 	2.	Se si usa **Autenticazione SQL**: 
 		1.	Per la proprietà **connectionString**, sostituire **<servername>**, **<databasename>**, **<username>** e **<password>** con i nomi del server SQL locale, del database, l'account utente e la password. Per specificare un nome di istanza, utilizzare il carattere di escape:. Ad esempio:**server\\instancename**. 	
-		2.	Rimuovere le ultime due proprietà (\*\*username\*\* e **password**) dal file JSON e il carattere della **virgola (,)** al termine dell'ultima riga dello script JSON rimanente.
+		2.	Rimuovere le ultime due proprietà (**username** e **password**) dal file JSON e rimuovere il carattere della **virgola** (,) al termine dell'ultima riga dello script JSON rimanente.
 		
 				{
 				  "name": "SqlServerLinkedService",
@@ -228,7 +228,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
 ### Preparare SQL Server locale per l'esercitazione
 
-1. Nel database specificato per il servizio collegato di SQL Server locale (OnPremSqlLinkedService), usare il seguente script SQL per creare la tabella **emp** nel database.
+1. Nel database specificato per il servizio collegato di SQL Server locale (**SqlServerLinkedService**) usare lo script SQL seguente per creare la tabella **emp** nel database.
 
 
         CREATE TABLE dbo.emp
@@ -279,7 +279,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
 	Tenere presente quanto segue:
 	
-	- **type** è impostato su **SqlServerTable**.
+	- L’oggetto **type** è impostato su **SqlServerTable**.
 	- **tablename** è impostato su **emp**.
 	- **linkedServiceName** è impostato su **SqlServerLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
 	- Per una tabella di input non generata da un'altra pipeline in Data factory di Azure, è necessario specificare la proprietà **external** su **true**. È possibile specificare facoltativamente i criteri nella sezione **externalData**.   
@@ -315,12 +315,12 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
   
 	Tenere presente quanto segue:
 	
-	- L'oggetto **type** è impostato su **AzureBlob**.
+	- L’oggetto **type** è impostato su **AzureBlob**.
 	- **linkedServiceName** è impostato su **StorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
 	- **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È necessario creare solo il contenitore **adftutorial**.
-	- L'oggetto **availability** è impostato su **hourly**; l'oggetto \*\*frequency\*\* è impostato su **hour** e l'oggetto **interval** è impostato su **1**. Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
+	- L’oggetto **availability** è impostato su **hourly** (l’oggetto **frequency** è impostato su **hour** e l’oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
 
-	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file/BLOB della cartella di input (\*\*folderPath\*\*) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
+	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file e i BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Per alcuni esempi, vedere i file nell'[esercitazione][adf-tutorial].
  
 	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -394,13 +394,14 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 		}
 	Tenere presente quanto segue:
  
-	- Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**.
+	- Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
-	- Nella sezione **transformation**, **SqlSource** viene specificato come **tipo di origine** e **BlobSink **come **tipo di sink**. - La query SQL **select \* from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
+	- Nella sezione **transformation** **SqlSource** viene specificato come **tipo di origine** e **BlobSink ** come **tipo di sink**.
+- La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
-	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://it.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
+	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
-	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "\*\*start + 48 hours\*\*". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
+	Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9/9/9999** come valore per la proprietà **end**.
 	
 	Si definisce quanto tempo durerà l'elaborazione delle sezioni di dati in base alle proprietà della **disponibilità** definite per ogni tabella di Data factory di Azure.
 	
@@ -464,7 +465,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 	![Pannello Dettagli esecuzione attività][image-data-factory-activity-run-details]
 
 11. Fare clic su **X** per chiudere tutti i pannelli finché non viene visualizzato il pannello iniziale per **ADFTutorialOnPremDF**.
-14. (Facoltativo) Fare clic su **Pipeline**, **ADFTutorialOnPremDF**, quindi eseguire il drill-through delle tabelle di input (usate) o delle tabelle di output (generate).
+14. (Facoltativo) Fare clic su **Pipeline** e su **ADFTutorialOnPremDF**, quindi eseguire il drill-through delle tabelle di input (**usate**) o delle tabelle di output (**generate**).
 15. Usare strumenti come **Esplora archivi Azure** per verificare l'output.
 
 	![Esplora archivi Azure][image-data-factory-stroage-explorer]
@@ -511,7 +512,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. In Azure PowerShell, passare alla cartella. **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\\*\* ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel seguente comando per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
+4. In Azure PowerShell passare alla cartella **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\** ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel comando seguente per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -626,4 +627,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

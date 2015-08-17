@@ -102,10 +102,10 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 
 2. In **Essentials** fare clic sull'**URL del sito** per aprire il servizio cloud in un Web browser.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

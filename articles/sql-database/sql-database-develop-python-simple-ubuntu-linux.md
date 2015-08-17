@@ -95,11 +95,11 @@ Nel database SQL, per generare automaticamente i valori di [chiave primaria](htt
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
 
 
--Avvio di una transazione
+\-Avvio di una transazione
 
--Inserimento di una riga di dati
+\-Inserimento di una riga di dati
 
--Rollback della transazione per annullare l'inserimento
+\-Rollback della transazione per annullare l'inserimento
 
 
 	import pymssql
@@ -112,4 +112,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

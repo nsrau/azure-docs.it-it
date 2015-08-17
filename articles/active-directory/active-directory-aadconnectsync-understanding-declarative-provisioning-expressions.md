@@ -47,13 +47,14 @@ Gli attributi sono fortemente tipizzati. Una funzione che prevede di ricevere un
 È possibile usare gli operatori seguenti:
 
 - **Confronto**: <, <=, <>, =, >, >=
-- **Matematici**: +, -, *, - - **Stringa**: & (concatenazione)
+- **Matematici**: +, -, *, -
+- **Stringa**: & (concatenazione)
 - **Logici**: && (AND), || (OR)
 - **Ordine di valutazione**: ( )
 
 
 
-Gli operatori sono valutato da sinistra a destra. 2\*(5+3) non è uguale a 2\*5+3.<br> Le parentesi ( ) sono usate per cambiare l'ordine di valutazione.
+Gli operatori sono valutati da sinistra a destra. L'operazione 2*(5+3) è diversa da 2*5+3.<br> Le parentesi ( ) sono usate per cambiare l'ordine di valutazione.
 
 
 
@@ -124,7 +125,7 @@ Un esempio di questa situazione è disponibile nella regola di sincronizzazione 
 
 `proxyAddresses <- RemoveDuplicates(Trim(ImportedValues(“proxyAddresses”)))`
 
-Per un elenco completo di funzioni, vedere [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
+Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
 
 
 ## Risorse aggiuntive
@@ -134,4 +135,4 @@ Per un elenco completo di funzioni, vedere [Servizio di sincronizzazione Azure A
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

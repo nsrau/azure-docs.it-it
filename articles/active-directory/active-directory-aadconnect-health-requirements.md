@@ -7,6 +7,7 @@
 	manager="swadhwa" 
 	editor="curtand"/>
 
+
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/12/2015" 
 	ms.author="billmath"/>
+
 
 # Requisiti di Azure Active Directory Connect Health
 La documentazione seguente è un elenco di requisiti che devono essere soddisfatti per poter procedere con Azure AD Connect Health.
@@ -49,7 +51,8 @@ Per una guida introduttiva su Azure AD Connect Health, è possibile scaricare la
 ### Connettività in uscita agli endpoint di servizio di Azure
 Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health elencati sotto. Se si blocca la connettività in uscita, assicurarsi che gli endpoint seguenti vengano aggiunti all'elenco di quelli consentiti:
 
-- *.servicebus.windows.net - Porta: 5671 - https://*.adhybridhealth.azure.com/
+- **.servicebus.windows.net - Porta: 5671
+- https://*.adhybridhealth.azure.com/
 - https://*.table.core.windows.net/
 - https://policykeyservice.dc.ad.msft.net/
 - https://login.windows.net
@@ -74,7 +77,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 1. Fare clic su **Avvia**, scegliere **Programmi**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Criteri di sicurezza locali**.
 1. Passare alla cartella **Impostazioni sicurezza\\Criteri locali\\Gestione diritti utente** e quindi fare doppio clic su Generazione di controlli di sicurezza.
 1. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio ADFS 2.0. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
-1. Aprire il prompt dei comandi con privilegi elevati ed eseguire il comando seguente per abilitare il controllo. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
+1. Aprire il prompt dei comandi con privilegi elevati ed eseguire il comando seguente per abilitare il controllo: `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 1. Chiudere Criteri di sicurezza locali e quindi aprire lo snap-in Gestione. Per aprire lo snap-in Gestione, fare clic su **Start**, scegliere **Programmi**, scegliere **Strumenti di amministrazione** e quindi fare clic su Gestione ADFS 2.0.
 1. Nel riquadro Azioni fare clic su Modifica proprietà servizio federativo.
 1. Nella finestra di dialogo **Proprietà servizio federativo** fare clic sulla scheda **Eventi**.
@@ -155,4 +158,4 @@ Per verificare che l'agente sia stato installato, aprire i servizi e cercare qua
  
 ![Verificare Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

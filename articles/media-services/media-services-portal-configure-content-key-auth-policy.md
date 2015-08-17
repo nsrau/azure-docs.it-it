@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/24/2015" 
 	ms.author="juliako"/>
+
 
 
 
@@ -50,7 +52,7 @@ Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL 
 
 Per configurare i criteri di autorizzazione della chiave simmetrica, selezionare la pagina **PROTEZIONE DEL CONTENUTO**.
 	
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere restrizioni di autorizzazione di tipo **open**, **token** o **IP**. La restrizione **IP** può essere configurata con REST o con .NET SDK.
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere restrizioni di autorizzazione di tipo **open**, **token** o **IP**. (La restrizione **IP** può essere configurata con REST o con .NET SDK.)
 
 ###Restrizione Open
 
@@ -62,7 +64,7 @@ Se si applica una restrizione **open**, il sistema distribuirà la chiave a chiu
 
 Per scegliere il criterio con restrizione token, premere il pulsante **TOKEN**.
 
-I criteri con restrizione **Token** devono essere accompagnati da un token rilasciato da un **servizio STS** (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati **Simple Web Token** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e **JSON Web Token** (JWT). Per informazioni, vedere [Autenticazione dei token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+I criteri con restrizione **token** devono essere accompagnati da un token rilasciato da un **servizio STS** (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e **JSON Web Token** (JWT). Per informazioni, vedere [Autenticazione dei token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Servizi multimediali non fornisce **servizi token di sicurezza**. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione delle chiavi di Servizi multimediali restituisce la chiave di crittografia al client se il token è valido e le attestazioni nel token corrispondono a quelle configurate per la chiave simmetrica. Per altre informazioni, vedere l'articolo relativo all'[uso di Servizio di controllo di accesso di Azure per il rilascio di token](http://mingfeiy.com/acs-with-key-services).
 
@@ -76,6 +78,7 @@ Quando si protegge il contenuto con **PlayReady**, è necessario includere nei c
 	  <LicenseTemplates>
 	    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
 	      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+
 	      <LicenseType>Nonpersistent</LicenseType>
 	      <PlayRight>
 	        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
@@ -95,4 +98,4 @@ Dopo la configurazione dei criteri di autorizzazione della chiave, passare all'a
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

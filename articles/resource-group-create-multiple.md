@@ -114,4 +114,4 @@ Usare il modello seguente:
 - [Funzioni del modello di Gestione risorse di Azure](./resource-group-template-functions.md)
 - [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -16,10 +16,10 @@ Con Servizi mobili è possibile:
 Di seguito sono illustrati i concetti e le funzionalità più importanti di Servizi mobili:
 
 + **Chiave applicazione:** valore univoco usato per limitare l'accesso al servizio mobile da parte di client casuali. Questa "chiave" non è un token di sicurezza e non viene usata per l'autenticazione degli utenti dell'app.    
-+ **Back-end:** istanza del servizio mobile che supporta l'app. Un servizio mobile viene implementato come un progetto (*back-end .NET* ) o come progetto Node.js (*back-end JavaScript*).
++ **Back-end:** istanza del servizio mobile che supporta l'app. Un servizio mobile viene implementato come un progetto di API Web ASP.NET (*back-end .NET*) o come progetto Node.js (*back-end JavaScript*).
 + **Provider di identità:** servizio esterno, considerato attendibile da Servizi mobili, che autentica gli utenti dell'app. I provider supportati includono: Facebook, Twitter, Google, account Microsoft e Azure Active Directory. 
 + **Notifica push:** messaggio avviato dal servizio e inviato a un dispositivo o un utente registrato tramite Hub di notifica di Azure.
 + **Scala:** possibilità di aggiungere, a un costo aggiuntivo, potenza di elaborazione, prestazioni e spazio di archiviazione quando l'app acquisisce popolarità.
 + **Processo pianificato:** codice personalizzato eseguito in base a una pianificazione predeterminata o su richiesta.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

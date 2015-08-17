@@ -125,12 +125,12 @@ Quando si usa un codificatore live locale per generare un flusso a più velocit�
 
 La seguente tabella illustra la modalità di calcolo della durata dei segmenti:
 
-<table border="1">
-<tr><th>Intervallo tra fotogrammi chiave</th><th>Rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment)</th><th>Esempio</th></tr>
-<tr><td>minore o uguale a 3 secondi</td><td>3:1</td><td>Se il valore KeyFrameInterval (o GOP) è pari a 2 secondi, il rapporto predefinito per la creazione di pacchetti dei segmenti HLS sarà di 3 a 1, che creerà un segmento HLS di 6 secondi.</td></tr>
-<tr><td>da 3 a 5 secondi</td><td>2:1</td><td>Se il valore KeyFrameInterval (o GOP) è pari a 4 secondi, il rapporto predefinito per la creazione di pacchetti dei segmenti HLS sarà di 2 a 1, che creerà un segmento HLS di 8 secondi.</td></tr>
-<tr><td>maggiore di 5 secondi</td><td>1:1</td><td>Se il valore KeyFrameInterval (o GOP) è pari a 6 secondi, il rapporto predefinito per la creazione di pacchetti dei segmenti HLS sarà di 1 a 1, che creerà un segmento HLS di 6 secondi.</td></tr>
-</table>
+Intervallo tra fotogrammi chiave|Rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment)|Esempio
+---|---|---
+minore o uguale a 3 secondi|3:1|Se il valore KeyFrameInterval (o GOP) è pari a 2 secondi, il rapporto predefinito per la creazione di pacchetti dei segmenti HLS sarà di 3 a 1, che creerà un segmento HLS di 6 secondi.
+da 3 a 5 secondi|2:1|Se il valore KeyFrameInterval (o GOP) è pari a 4 secondi, il rapporto predefinito per la creazione di pacchetti dei segmenti HLS sarà di 2 a 1, che creerà un segmento HLS di 8 secondi.
+maggiore di 5 secondi|1:1|Se il valore KeyFrameInterval (o GOP) è pari a 6 secondi, il rapporto predefinito per la creazione di pacchetti dei segmenti HLS sarà di 1 a 1, che creerà un segmento HLS di 6 secondi.
+
 
 È possibile modificare il rapporto di frammenti per segmento configurando l'output del canale e impostando FragmentsPerSegment su ChannelOutputHls.
 
@@ -201,24 +201,23 @@ Si tratta dello stato attuale del canale. I valori possibili sono:
 
 La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione.
  
-<table border="1">
-<tr><th>Stato del canale</th><th>Indicatori dell'interfaccia utente del portale</th><th>Fatturato?</th></tr>
-<tr><td>Avvio in corso</td><td>Avvio in corso</td><td>No (stato temporaneo)</td></tr>
-<tr><td>In esecuzione</td><td>Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione)</td><td>Sì</td></tr>
-<tr><td>Arresto in corso</td><td>Arresto in corso</td><td>No (stato temporaneo)</td></tr>
-<tr><td>Arrestato</td><td>Arrestato</td><td>No</td></tr>
-</table>
+Stato del canale|Indicatori dell'interfaccia utente del portale|Fatturato?
+---|---|---|---
+Avvio in corso|Avvio in corso|No (stato temporaneo)
+Running|Pronto (nessun programma in esecuzione)<p>o<p>Streaming (almeno un programma in esecuzione)|Sì
+Arresto in corso|Arresto in corso|No (stato temporaneo)
+Arrestato|Arrestato|No
 
 ###Sottotitoli codificati e inserimento di annunci 
 
 La seguente tabella illustra i sottotitoli codificati supportati e gli standard per l'inserimento di annunci.
 
-<table border="1">
-<tr><th>Standard</th><th>Note</th></tr>
-<tr><td>CEA-708 e EIA-608 (708/608)</td><td>CEA-708 e EIA-608 sono standard per i sottotitoli codificati per Stati Uniti e Canada.<br/>Attualmente, i sottotitoli sono supportati solo se trasmessi dal flusso di input codificato. È necessario usare un codificatore multimediale live che possa inserire 608 o 708 sottotitoli nel flusso codificato che viene inviato ai Servizi multimediali. Servizi multimediali fornirà agli utenti il contenuto con i sottotitoli inseriti.</td></tr>
-<tr><td>TTML all'interno di file ismt (tracce di testo Smooth Streaming)</td><td>La creazione dinamica di pacchetti di Servizi multimediali consente ai client di trasmettere in streaming il contenuto in uno dei seguenti formati: MPEG DASH, HLS or Smooth Streaming. Se si inserisce il formato MP4 frammentato (Smooth Streaming) con sottotitoli all'interno dei file con estensione ismt (tracce di testo Smooth Streaming), sarà possibile distribuire il flusso solo ai client Smooth Streaming.</td></tr>
-<tr><td>SCTE-35</td><td>Sistema di segnalazione digitale usato per predisporre l'inserimento di annunci pubblicitari. I ricevitori a valle usano il segnale per congiungere l'annuncio al flusso per l'intervallo assegnato. I segnali SCTE-35 devono essere inviati al flusso di input come tracce di tipo sparse.<br/>Si noti che al momento l'unico formato di flusso di input supportato che trasporta i segnali degli annunci è il formato MP4 frammentato (Smooth Streaming). Smooth Streaming è anche l'unico formato di output supportato.</td></tr>
-</table>
+Standard|Note
+---|---
+CEA-708 e EIA-608 (708/608)|CEA-708 ed EIA 608 sono standard per i sottotitoli codificati per Stati Uniti e Canada.<p><p>Attualmente, i sottotitoli sono supportati solo se eseguiti nel flusso di input codificato. È necessario usare un codificatore multimediale live che possa inserire 608 o 708 sottotitoli nel flusso codificato che viene inviato ai Servizi multimediali. Servizi multimediali fornirà agli utenti il contenuto con i sottotitoli inseriti.
+TTML all'interno di file ismt (tracce di testo Smooth Streaming)|La creazione dinamica di pacchetti di Servizi multimediali consente ai client di trasmettere in streaming il contenuto in uno dei seguenti formati: MPEG DASH, HLS or Smooth Streaming. Se si inserisce il formato MP4 frammentato (Smooth Streaming) con sottotitoli all'interno dei file con estensione ismt (tracce di testo Smooth Streaming), sarà possibile distribuire il flusso solo ai client Smooth Streaming.
+SCTE-35|Sistema di segnalazione digitale usato per predisporre l'inserimento di annunci pubblicitari. I ricevitori a valle usano il segnale per congiungere l'annuncio al flusso per l'intervallo assegnato. SCTE-35 deve essere inviato come una traccia di tipo sparso nel flusso di input.<p><p>Si noti che al momento l'unico formato di flusso di input supportato che trasporta i segnali degli annunci è il formato MP4 frammentato (Smooth Streaming). Smooth Streaming è anche l'unico formato di output supportato.
+
 
 ##<a id="Considerations"></a>Considerazioni
 
@@ -331,4 +330,4 @@ Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezi
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

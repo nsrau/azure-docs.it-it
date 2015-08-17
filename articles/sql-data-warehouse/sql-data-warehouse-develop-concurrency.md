@@ -39,13 +39,13 @@ Ogni esecuzione simultanea di query utilizza uno o più slot di concorrenza. Il 
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
 -->
 
 | Utilizzo di slot di concorrenza | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | Numero massimo di query simultanee | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
-| Numero massimo di slot di concorrenza | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 
+| Numero massimo di slot di concorrenza | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 32 | 32 | 32 | 
 
 Le classi di risorse sono una parte essenziale della gestione del carico di lavoro di SQL Data Warehouse in quanto gestiscono anche le risorse di calcolo allocate alla query. Verranno spiegate nella seguente sezione relativa alla gestione del carico di lavoro.
 
@@ -223,7 +223,7 @@ Aprire una connessione al database SQL Data Warehouse ed eseguire il comando seg
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-Sarà necessario concedere all'utente dispone di autorizzazioni complete. L'esempio seguente concede`CONTROL`nel database SQL Data Warehouse.`CONTROL`nel database di livello è l'equivalente del ruolo db_owner in SQL Server.
+Sarà necessario concedere all'utente dispone di autorizzazioni complete. L'esempio seguente concede`CONTROL`nel database SQL Data Warehouse.`CONTROL`nel database di livello è l'equivalente del ruolo db\_owner in SQL Server.
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -377,4 +377,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

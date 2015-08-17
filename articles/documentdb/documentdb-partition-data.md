@@ -1,11 +1,12 @@
 <properties      
-    pageTitle="Partizionamento dei dati in DocumentDB | Azure"      
+    pageTitle="Partizionamento dei dati in DocumentDB | Microsoft Azure"      
     description="Informazioni su come eseguire il partizionamento dei dati in DocumentDB e quando usare il partizionamento hash, per intervalli e basato su ricerca."          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
-    documentationCenter=""/> <tags      
+    documentationCenter=""/>
+<tags      
     ms.service="documentdb"      
     ms.workload="data-services"      
     ms.tgt_pltfrm="na"      
@@ -113,4 +114,4 @@ In questo articolo sono state introdotte alcune tecniche su come partizionare i 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

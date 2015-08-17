@@ -6,6 +6,7 @@
  authors="KBDAzure"
  manager="timlt"
  editor=""/>
+
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -14,6 +15,7 @@ ms.service="virtual-machines"
  ms.workload="infrastructure-services"
  ms.date="07/02/2015"
  ms.author="kathydav"/>
+
 
 # Dimensioni delle macchine virtuali
 
@@ -39,9 +41,9 @@ La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, 
 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-*   La dimensione A0\Basic_A0 è disponibile solo tramite Azure SDK versione 1.3 o successiva.  
+*   La dimensione A0\\Basic\_A0 è disponibile solo tramite Azure SDK versione 1.3 o successiva.  
 
-*   A1\Basic_A1 corrisponde alla dimensione minima consigliata per i carichi di lavoro di produzione.
+*   A1\\Basic\_A1 corrisponde alla dimensione minima consigliata per i carichi di lavoro di produzione.
 
 *   Selezionare una macchina virtuale con 4 o 8 core CPU quando si usa SQL Server Enterprise Edition.
 
@@ -68,24 +70,24 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 
 ## Livello Basic
 
-|Dimensione: portale di gestione\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
+|Dimensione: portale di gestione\\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
 |---|---|---|---|---|---|
-|A0\Basic_A0|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x300|
-|A1\Basic_A1|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 40 GB</p>|2|2x300|
-|A2\Basic_A2|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 60 GB</p>|4|4x300|
-|A3\Basic_A3|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 120 GB</p>|8|8x300|
-|A4\Basic_A4|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 240 GB</p>|16|16x300|
+|A0\\Basic\_A0|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x300|
+|A1\\Basic\_A1|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 40 GB</p>|2|2x300|
+|A2\\Basic\_A2|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 60 GB</p>|4|4x300|
+|A3\\Basic\_A3|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 120 GB</p>|8|8x300|
+|A4\\Basic\_A4|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 240 GB</p>|16|16x300|
 
 ## Livello Standard
 ### Serie A e serie D
 
-|Dimensione: portale di gestione\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensione: portale di gestione\\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|
-|A0\molto piccola|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x500|
-|A1\piccola|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 70 GB</p>|2|2x500|
-|A2\media|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4x500|
-|A3\grande|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
-|A4\molto grande|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
+|A0\\molto piccola|1|768 MB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 20 GB</p>|1|1x500|
+|A1\\piccola|1|1,75 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 70 GB</p>|2|2x500|
+|A2\\media|2|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4x500|
+|A3\\grande|4|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
+|A4\\molto grande|8|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
 |A5 (uguale)|2|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 135 GB</p>|4|4X500|
 |A6 (uguale)|4|28 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 285 GB</p>|8|8x500|
 |A7 (uguale)|8|56 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo = 605 GB</p>|16|16x500|
@@ -93,40 +95,40 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 |A9 (uguale)|16|112 GB|<p><p>Sistema operativo = 1023 GB</p><p>Temporaneo = 382 GB</p><blockquote><p>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</p></blockquote>|16|16x500|
 |A10 (uguale)|8|56 GB|<p><p>Sistema operativo = 1023 GB</p><p>Temporaneo = 382 GB</p><blockquote><p>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</p></blockquote>|16|16x500|
 |A11 (uguale)|16|112 GB|<p><p>Sistema operativo = 1023 GB</p><p>Temporaneo = 382 GB</p><blockquote><p>Nota: per informazioni e considerazioni sull'uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</p></blockquote>|16|16x500|
-|Standard_D1 (uguale)|1|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 50 GB</p>|2|2x500|
-|Standard_D2 (uguale)|2|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
-|Standard_D3 (uguale)|4|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 200 GB</p>|8|8x500|
-|Standard_D4 (uguale)|8|28 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
-|Standard_D11 (uguale)|2|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
-|Standard_D12 (uguale)|4|28 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 200 GB</p>|8|8x500|
-|Standard_D13 (uguale)|8|56 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
-|Standard_D14 (uguale)|16|112 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
+|Standard\_D1 (uguale)|1|3,5 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 50 GB</p>|2|2x500|
+|Standard\_D2 (uguale)|2|7 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
+|Standard\_D3 (uguale)|4|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 200 GB</p>|8|8x500|
+|Standard\_D4 (uguale)|8|28 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
+|Standard\_D11 (uguale)|2|14 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 100 GB</p>|4|4x500|
+|Standard\_D12 (uguale)|4|28 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 200 GB</p>|8|8x500|
+|Standard\_D13 (uguale)|8|56 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 400 GB</p>|16|16x500|
+|Standard\_D14 (uguale)|16|112 GB|<p>Sistema operativo = 1023 GB</p><p>Temporaneo (SSD) = 800 GB</p>|32|32x500|
 
 
 ### Livello Standard: serie DS *
 
-|Dimensione: portale di gestione\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
+|Dimensione: portale di gestione\\cmdlet e API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda|
 |---|---|---|---|---|---|---|
-|Standard_DS1 (uguale)|1|3,5|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 7 GB</p>|2|43|<p>3.200</p><p>32 MB al secondo</p>|
-|Standard_DS2 (uguale)|2|7|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 14 GB</p>|4|86|<p>6.400</p><p>64 MB al secondo</p>|
-|Standard_DS3 (uguale)|4|14|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 28 GB</p>|8|172|<p>12.800</p><p>128 MB al secondo</p>|
-|Standard_DS4 (uguale)|8|28|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 56 GB</p>|16|344|<p>25.600</p><p>256 MB al secondo</p>|
-|Standard_DS11 (uguale)|2|14|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 28 GB</p>|4|72|<p>6.400</p><p>64 MB al secondo</p>|
-|Standard_DS12 (uguale)|4|28|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 56 GB</p>|8|144|<p>12.800</p><p>128 MB al secondo</p>|
-|Standard_DS13 (uguale)|8|56|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 112 GB</p>|16|288|<p>25.600</p><p>256 MB al secondo</p>|
-|Standard_DS14 (uguale)|16|112|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 224 GB</p>|32|576|<p>50.000</p><p>512 MB al secondo</p>|
+|Standard\_DS1 (uguale)|1|3,5|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 7 GB</p>|2|43|<p>3.200</p><p>32 MB al secondo</p>|
+|Standard\_DS2 (uguale)|2|7|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 14 GB</p>|4|86|<p>6.400</p><p>64 MB al secondo</p>|
+|Standard\_DS3 (uguale)|4|14|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 28 GB</p>|8|172|<p>12.800</p><p>128 MB al secondo</p>|
+|Standard\_DS4 (uguale)|8|28|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 56 GB</p>|16|344|<p>25.600</p><p>256 MB al secondo</p>|
+|Standard\_DS11 (uguale)|2|14|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 28 GB</p>|4|72|<p>6.400</p><p>64 MB al secondo</p>|
+|Standard\_DS12 (uguale)|4|28|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 56 GB</p>|8|144|<p>12.800</p><p>128 MB al secondo</p>|
+|Standard\_DS13 (uguale)|8|56|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 112 GB</p>|16|288|<p>25.600</p><p>256 MB al secondo</p>|
+|Standard\_DS14 (uguale)|16|112|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 224 GB</p>|32|576|<p>50.000</p><p>512 MB al secondo</p>|
 
-*Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal.md)..
+**Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal.md).
 
 ### Livello Standard: serie G
 
-|Dimensione: portale di gestione\cmdlet eamp; API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
+|Dimensione: portale di gestione\\cmdlet eamp; API|Core CPU|Memoria|Dimensioni max. disco : macchina virtuale|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
 |---|---|---|---|---|---|
-|Standard_G1 (uguale)|2|28 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 384 GB</p>|4|4x500|
-|Standard_G2 (uguale)|4|56 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 768 GB</p>|8|8x500|
-|Standard_G3 (uguale)|8|112 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 1.536 GB</p>|16|16x500|
-|Standard_G4 (uguale)|16|224 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 3.072 GB</p>|32|32x500|
-|Standard_G5 (uguale)|32|448 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 6.144 GB</p>|64|<p>64x500</p>|
+|Standard\_G1 (uguale)|2|28 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 384 GB</p>|4|4x500|
+|Standard\_G2 (uguale)|4|56 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 768 GB</p>|8|8x500|
+|Standard\_G3 (uguale)|8|112 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 1.536 GB</p>|16|16x500|
+|Standard\_G4 (uguale)|16|224 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 3.072 GB</p>|32|32x500|
+|Standard\_G5 (uguale)|32|448 GB|<p>Sistema operativo = 1023 GB</p><p>Disco SSD locale = 6.144 GB</p>|64|<p>64x500</p>|
 
 ### Vedere anche
 
@@ -134,4 +136,4 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

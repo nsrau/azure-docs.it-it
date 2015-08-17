@@ -7,6 +7,7 @@
 	authors="mumian" 
 	documentationCenter=""/>
 
+
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/10/2015" 
 	ms.author="jgao"/>
+
 
 
 #Disponibilità e affidabilità dei cluster Hadoop in HDInsight
@@ -105,4 +107,4 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

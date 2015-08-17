@@ -119,4 +119,4 @@ La documentazione per l'API REST è disponibile in [MSDN](https://msdn.microsoft
 [6]: ./media/search-chrome-postman/query.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

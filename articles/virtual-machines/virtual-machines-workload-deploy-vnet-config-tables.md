@@ -67,4 +67,4 @@ La procedura seguente fa riferimento alle informazioni in queste tabelle come gu
 
 [Configurare una connessione cross-premise Site-to-Site a una rete virtuale di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

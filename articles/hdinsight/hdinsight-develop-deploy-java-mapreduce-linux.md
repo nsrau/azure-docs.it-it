@@ -38,13 +38,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 Quando si installa Java e JDK, è possibile impostare le variabili di ambiente indicate di seguito. È tuttavia necessario verificare che esistano e che contengano i valori corretti per il sistema in uso.
 
-* **JAVA_HOME**: deve puntare alla directory in cui è installato Java Runtime Environment (JRE). Ad esempio, in un sistema OS X, Unix o Linux, deve avere un valore simile a `/usr/lib/jvm/java-7-oracle`. In Windows, avrebbe un valore simile a `c:\Program Files (x86)\Java\jre1.7`.
+* **JAVA\_HOME**: deve puntare alla directory in cui è installato Java Runtime Environment (JRE). Ad esempio, in un sistema OS X, Unix o Linux, deve avere un valore simile a `/usr/lib/jvm/java-7-oracle`. In Windows, avrebbe un valore simile a `c:\Program Files (x86)\Java\jre1.7`.
 
 * **PATH**: deve contenere i percorsi seguenti:
 
-	* **JAVA_HOME** o il percorso equivalente
+	* **JAVA\_HOME** o il percorso equivalente
 
-	* **JAVA_HOME\bin** o il percorso equivalente
+	* **JAVA\_HOME\\bin** o il percorso equivalente
 
 	* Directory in cui è installato Maven
 
@@ -60,7 +60,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
 
 	* __pom.xml__: il modello a oggetti dei progetti ([POM o Project Object Model](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
 
-	* __src__: la directory che contiene la directory __main\java\org\apache\hadoop\examples__, in cui verrà creata l'applicazione.
+	* __src__: la directory che contiene la directory __main/java/org/apache/hadoop/examples__, in cui verrà creata l'applicazione.
 
 3. Eliminare il file __src/test/java/org/apache/hadoop/examples/apptest.java__, perché non verrà usato in questo esempio.
 
@@ -249,7 +249,7 @@ In questo modo i file verranno copiati dal sistema locale nel nodo head.
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	L'applicazione WordCount MapReduce verrà usata per contare le parole contenute nel file davinci.txt e archiviare i risultati in __wasb:///example/data/wordcountout__. I file di input e di output saranno archiviati nell'archiviazione predefinita del cluster.
+	L'applicazione WordCount MapReduce verrà usata per contare le parole contenute nel file davinci.txt e archiviare i risultati in \_\___wasb:///example/data/wordcountout__. I file di input e di output saranno archiviati nell'archiviazione predefinita del cluster.
 
 3. Dopo il completamento del processo, usare il comando seguente per visualizzare i risultati:
 
@@ -297,4 +297,4 @@ In questo documento si è appreso come sviluppare un processo Java MapReduce. Ve
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -80,7 +80,7 @@ Le metriche della cache vengono segnalate mediante vari intervalli di report, tr
 | Operazioni Set | Il numero di operazioni Set nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
 | Totale operazioni | Numero totale di comandi elaborati dal server di cache durante l'intervallo di report specificato. Questo valore è associato al comando INFO `total_commands_processed` di Redis. Si noti che quando Cache Redis di Azure viene utilizzata esclusivamente per la pubblicazione o la sottoscrizione non saranno disponibili metriche per `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, ma saranno disponibili metriche `Total Operations` che riflettono l'utilizzo della cache per le operazioni di pubblicazione/sottoscrizione. |
 | Memoria utilizzata | La quantità di memoria cache utilizzata in MB durante l'intervallo di report specificato. Questo valore è associato al comando INFO `used_memory` di Redis. |
-| CPU | L'utilizzo della CPU del server Cache Redis di Azure come percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)% Processor Time` del sistema operativo. |
+| CPU | L'utilizzo della CPU del server Cache Redis di Azure come percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)\% Processor Time` del sistema operativo. |
 | Lettura da cache | La quantità di dati letti dalla cache in KB/sec durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. |
 | Scrittura nella cache | La quantità di dati scritti nella cache in KB/sec durante l’intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. |
 
@@ -221,4 +221,4 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

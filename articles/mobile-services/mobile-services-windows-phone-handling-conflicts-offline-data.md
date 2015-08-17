@@ -81,7 +81,7 @@ Se si utilizza back-end .NET per il servizio mobile, attenersi alla procedura se
           }
 
 
-3. In Esplora soluzioni di Visual Studio espandere la cartella **App_Start** e aprire il file WebApiConfig.cs.
+3. In Esplora soluzioni di Visual Studio espandere la cartella **App\_Start** e aprire il file WebApiConfig.cs.
 
     Nel file WebApiConfig.cs notare che la classe predefinita dell'inizializzatore del database deriva dalla classe `DropCreateDatabaseIfModelChanges`. Ciò significa che se viene apportata qualsiasi modifica al modello, la tabella verrà eliminata e ricreata per gestire il nuovo modello. Pertanto, i dati della tabella andranno persi e verrà eseguito il reseeding della tabella. Modificare il metodo Seed dell'inizializzatore del database in modo che la funzione di inizializzazione `Seed()` sia la seguente per inizializzare la nuova colonna DueDate. Salvare il file WebApiConfig.cs.
 
@@ -241,4 +241,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

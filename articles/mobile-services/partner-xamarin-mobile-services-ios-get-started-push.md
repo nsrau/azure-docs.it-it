@@ -315,7 +315,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
    >[AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un testo significativo, ad esempio _Nuova attività di Servizi mobili_ e quindi fare clic sull'icona con il segno più (\*\*+\*\*).
+2. Digitare testo significativo nell'app, ad esempio _Nuova attività di Servizi mobili_, quindi fare clic sull'icona con il segno più (**+**).
 
     ![][24]
 
@@ -399,4 +399,4 @@ L'esercitazione è stata completata.
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

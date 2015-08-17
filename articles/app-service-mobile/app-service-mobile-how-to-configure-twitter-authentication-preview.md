@@ -69,4 +69,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

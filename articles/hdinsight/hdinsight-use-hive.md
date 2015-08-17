@@ -8,6 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
+
 <tags
 	ms.service="hdinsight"
 	ms.devlang="na"
@@ -16,6 +17,7 @@
 	ms.workload="big-data"
 	ms.date="07/06/2015"
 	ms.author="larryfr"/>
+
 
 # Usare Hive e HiveQL con Hadoop in HDInsight per analizzare un file Apache log4j di esempio
 
@@ -55,11 +57,11 @@ I dati di esempio vengono archiviati nell'archivio BLOB di Azure, usata da HDIns
 
 Poiché l'archivio BLOB di Azure è la risorsa di archiviazione predefinita per HDInsight, è anche possibile accedere al file usando **/example/data/sample.log** in HiveQL.
 
-> [AZURE.NOTE]La sintassi precedente, **wasb:///**, consente di accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si desidera accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]La sintassi precedente, ****wasb:///**, consente di accedere ai file archiviati nel contenitore di archiviazione predefinito per il cluster HDInsight. Se durante il provisioning del cluster sono stati specificati account di archiviazione aggiuntivi e si desidera accedere ai file archiviati in tali account, è possibile accedere ai dati specificando il nome del contenitore e l'indirizzo dell'account di archiviazione, ad esempio ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Processo di esempio: Proiettare colonne in dati delimitati
 
-Le istruzioni HiveQL seguenti consentono di proiettare colonne in dati delimitati archiviati nella **wasb:///example/data** directory:
+Le istruzioni HiveQL seguenti consentono di proiettare colonne in dati delimitati archiviati nella directory ****wasb:///example/data**:
 
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -73,7 +75,7 @@ Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 * **CREATE EXTERNAL TABLE**: crea una nuova tabella **esterna** in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione e nel formato originali.
 * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.
-* **SELECT**: seleziona il numero di tutte le righe in cui la colonna **t4** include il valore **ERROR**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
+* **SELECT**: seleziona il numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
 > [AZURE.NOTE]È consigliabile usare tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, e si desidera che le query Hive usino sempre i dati più recenti.
 >
@@ -90,7 +92,7 @@ Di seguito sono elencate le istruzioni che eseguono queste azioni:
 
 * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 * **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
-* **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **ERROR**, quindi inserisce i dati nella tabella **errorLogs**.
+* **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.
 
 > [AZURE.NOTE]A differenza delle tabelle esterne, se si elimina una tabella interna vengono eliminati anche i dati sottostanti.
 
@@ -109,7 +111,7 @@ La [documentazione sulla progettazione di Hive su Tez](https://cwiki.apache.org/
 
 HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
-| **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione **batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
+| **Usare questo** se si desidera... | ...una shell **interattiva** | ...**elaborazione batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
 | [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X o Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | & nbsp; | ✔ | Linux o Windows | Linux, Unix, Mac OS X o Windows |
@@ -163,4 +165,4 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

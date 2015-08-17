@@ -7,6 +7,7 @@
 	manager="adinah" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/18/2015" 
 	ms.author="tamram"/>
+
 
 
 # Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure
@@ -32,32 +34,11 @@ Il processo di mapping del dominio personalizzato all'endpoint BLOB può tuttavi
 
 Nella tabella seguente sono illustrati gli URL di esempio per accedere ai dati BLOB in un account di archiviazione denominato **mystorageaccount**. Il dominio personalizzato registrato per l'account di archiviazione è **www.contoso.com**:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td style="width: 100px;"><strong>Tipo di risorsa</strong></td>
-			<td><strong>Formati degli URL</strong></td>
-		</tr>
-		<tr>
-			<td>Account di archiviazione</td>
-			<td><strong>URL predefinito:</strong> http://mystorageaccount.blob.core.windows.net<br />
-			<strong>URL del dominio personalizzato:</strong> http://www.contoso.com</td>
-		</tr>
-		<tr>
-			<td>BLOB</td>
-			<td><strong>URL predefinito:</strong> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<br /><strong>URL del dominio personalizzato:</strong> http://www.contoso.com/mycontainer/myblob</td>
-		</tr>
-		<tr>
-			<td>Contenitore radice</td>
-			<td><strong>URL predefinito:</strong> http://mystorageaccount.blob.core.windows.net/myblob 
-			<br/>oppure<br />
-			http://mystorageaccount.blob.core.windows.net/$root/myblob<br />
-			<strong>URL del dominio personalizzato:</strong> http://www.contoso.com/myblob
-			<br/>oppure<br />
-			http://www.contoso.com/$root/myblob</td>
-		</tr>
-	</tbody>
-</table>
+Tipo di risorsa|Formato degli URL
+---|---
+Account di archiviazione|**URL predefinito:** http://mystorageaccount.blob.core.windows.net<p>**URL del dominio personalizzato:** http://www.contoso.com</td>
+BLOB|**URL predefinito:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**URL del dominio personalizzato:** http://www.contoso.com/mycontainer/myblob
+Contenitore radice|**URL predefinito:** http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**URL del dominio personalizzato:** http://www.contoso.com/myblob o http://www.contoso.com/$root/myblob
 
 ## Registrazione di un dominio personalizzato per l'account di archiviazione
 
@@ -111,7 +92,7 @@ Il sottodominio asverify è un sottodominio speciale riconosciuto da Azure. Ante
 
 8.  Dopo aver creato il record CNAME, tornare nella finestra di dialogo **Manage Custom Domain** e immettere il nome del dominio personalizzato nel campo **Custom Domain Name**. Se ad esempio il dominio è **contoso.com** e il sottodominio è **www**, immettere **www.contoso.com**. Se il sottodominio è **photos**, immettere **photos.contoso.com**. Si noti che il sottodominio è obbligatorio.
 
-9.	Selezionare la casella di controllo **Avanzate: usare il sottodominio 'asverify' per preregistrare il dominio personalizzato.**.
+9.	Selezionare la casella di controllo **Avanzate: usare il sottodominio ''asverify'' per preregistrare il dominio personalizzato.**.
 
 10. Fare clic sul pulsante **Register** per preregistrare il dominio personalizzato.
 
@@ -125,9 +106,9 @@ Gli utenti possono a questo punto visualizzare i dati BLOB nel dominio personali
 
 ## Verifica che il dominio personalizzato faccia riferimento all'endpoint del servizio BLOB
 
-Per verificare che il mapping del dominio personalizzato all'endpoint del servizio BLOB sia stato effettivamente eseguito, creare un BLOB in un contenitore pubblico all'interno dell'account di archiviazione. Quindi, in un Web browser usare un URI nel formato seguente per accedere al BLOB:
+Per verificare che il mapping del dominio personalizzato all'endpoint del servizio BLOB sia stato effettivamente eseguito, creare un BLOB in un contenitore pubblico all'interno dell'account di archiviazione. Quindi, in un Web browser utilizzare un URI nel formato seguente per accedere al BLOB:
 
--   http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
+-   http://<*sottodominio.dominiopersonalizzato*>/<*contenitore*>/<*BLOB*>
 
 Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tramite il sottodominio personalizzato **photos.contoso.com** di cui viene eseguito il mapping a un BLOB nel contenitore **myforms**:
 
@@ -138,4 +119,4 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

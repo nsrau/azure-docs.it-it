@@ -31,4 +31,4 @@ Dopo aver individuato il nome del disco sarà possibile scollegarlo:
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

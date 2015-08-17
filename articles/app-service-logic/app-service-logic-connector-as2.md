@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="08/04/2015"
    ms.author="rajram"/>
 
 # Microsoft AS2 Connector
@@ -34,7 +34,7 @@ L'utente deve creare questi elementi prima di poterli usare in AS2 Connector:
 Requisito | Descrizione
 --- | ---
 App per le API TPM | Prima di creare AS2 Connector , è necessario creare un [connettore BizTalk Trading Partner Management][1]. <br/><br/>**Nota** Prendere nota del nome dell'app per le API TPM. 
-Database SQL di Azure | Archivia elementi B2B, tra cui partner, schemi, certificati e contratti. Ogni app per le API B2B richiede un proprio database SQL di Azure. <br/><br/>**Nota** Copiare la stringa di connessione al database.<br/><br/>[Creare un database SQL di Azure](../sql-database-create-configure.md)
+Database SQL di Azure | Archivia elementi B2B, tra cui partner, schemi, certificati e contratti. Ogni app per le API B2B richiede un proprio database SQL di Azure. <br/><br/>**Nota** Copiare la stringa di connessione al database.<br/><br/>[Creare un database SQL di Azure](../sql-database-get-started.md)
 Contenitore dell'archiviazione BLOB di Azure | Archivia le proprietà dei messaggi quando è abilitata l'archiviazione AS2. Se l'archiviazione dei messaggi AS2 non è necessaria, non lo è nemmeno il contenitore di archiviazione. <br/><br/>**Nota** Se si sta abilitando l'archiviazione, copiare la stringa di connessione all'archivio BLOB.<br/><br/>[Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md)
 
 ## Creare AS2 Connector
@@ -113,4 +113,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

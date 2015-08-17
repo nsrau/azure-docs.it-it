@@ -139,4 +139,4 @@ Le app per le API del servizio app sono app Web del servizio app con funzionalit
 L'app per le API creata in questa serie è disponibile pubblicamente per la chiamata da parte di qualsiasi utente. Per informazioni su come proteggere le app per le API in modo che solo gli utenti autenticati possano chiamarle, vedere [Autenticazione per app per le API e per dispositivi mobili nel servizio app di Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

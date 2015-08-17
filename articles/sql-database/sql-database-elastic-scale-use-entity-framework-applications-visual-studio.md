@@ -238,7 +238,7 @@ Se questi prerequisiti sono soddisfatti, è possibile creare una normale conness
         } 
  
 
-Questo esempio illustra il metodo **RegisterNewShard**, che registra la partizione nella mappa partizioni, distribuisce lo schema tramite migrazioni di Entity Framework e archivia il mapping di una chiave di partizionamento orizzontale nella partizione. Si basa su un costruttore della sottoclasse **DbContext** (\*\*ElasticScaleContext nell'esempio\*\*) che accetta come input una stringa di connessione SQL. Il codice di questo costruttore è semplice, come illustrato nel seguente esempio:
+Questo esempio illustra il metodo **RegisterNewShard**, che registra la partizione nella mappa partizioni, distribuisce lo schema tramite migrazioni di Entity Framework e archivia il mapping di una chiave di partizionamento orizzontale nella partizione. Si basa su un costruttore della sottoclasse **DbContext** (**ElasticScaleContext** nell'esempio) che accetta come input una stringa di connessione SQL. Il codice di questo costruttore è semplice, come illustrato nel seguente esempio:
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -264,7 +264,7 @@ Si sarebbe potuta usare la versione del costruttore ereditata dalla classe base,
 
 Gli approcci descritti in questo documento implicano due limitazioni:
 
-* Prima di usare la libreria client dei database elastici, è necessario eseguire la migrazione delle applicazioni Entity Framework che usano **LocalDb** a un normale database di SQL Server. Con **LocalDb** non è possibile scalare orizzontalmente un'applicazione mediante il partizionamento orizzontale con la scalabilità elastica. Per lo sviluppo è comunque possibile usare **LocalDb**. 
+* Prima di usare la libreria client di database elastici, è necessario eseguire la migrazione delle applicazioni Entity Framework che usano **LocalDb** a un normale database di SQL Server. Con **LocalDb** non è possibile scalare orizzontalmente un'applicazione mediante il partizionamento orizzontale con la scalabilità elastica. Per lo sviluppo è comunque possibile usare **LocalDb**. 
 
 * Le modifiche all'applicazione che implicano modifiche dello schema del database devono passare attraverso le migrazioni di Entity Framework su tutte le partizioni. Il codice di esempio per questo documento non illustra come eseguire questa operazione. Provare a usare Update-Database con un parametro ConnectionString per eseguire l'iterazione su tutte le partizioni oppure estrarre lo script T-SQL per la migrazione in sospeso usando Update-Database con l'opzione –Script e applicare lo script T-SQL alle partizioni.
 
@@ -281,4 +281,4 @@ Le applicazioni Entity Framework possono trarre facilmente vantaggio dagli strum
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

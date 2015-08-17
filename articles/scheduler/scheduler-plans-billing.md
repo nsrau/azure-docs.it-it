@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/12/2015" 
+ ms.date="08/04/2015" 
  ms.author="krisragh"/>
  
 # Piani e fatturazione nell'utilità di pianificazione di Azure
@@ -87,4 +87,4 @@ Per informazioni sui prezzi, vedere [dell'utilità di pianificazione prezzi](htt
  [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

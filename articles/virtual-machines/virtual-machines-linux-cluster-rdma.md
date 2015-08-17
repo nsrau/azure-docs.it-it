@@ -339,4 +339,4 @@ In un cluster di lavoro con due nodi verrà visualizzato un output simile al seg
 
 * Per le linee guida su Intel MPI, vedere la [documentazione Intel MPI Library](https://software.intel.com/it-it/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma" />
 
 
-# Panoramica
+# Modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)
 
 È stata introdotta una nuova modalità di distribuzione definita affinità IP di origine (anche nota come affinità di sessione o affinità del client IP). Il bilanciamento del carico di Azure può essere configurato in modo che usi 2 tuple (IP di origine, IP di destinazione) o 3 tuple (IP di origine, IP di destinazione, protocollo) per eseguire il mapping del traffico ai server disponibili. Usando l'affinità IP di origine, le connessioni avviate dallo stesso computer client passano allo stesso endpoint DIP.
 
@@ -149,4 +149,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

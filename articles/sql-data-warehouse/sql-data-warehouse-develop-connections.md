@@ -83,12 +83,12 @@ SQL Data Warehouse standardizza alcune impostazioni durante la connessione e la 
 
 | Impostazione del database | Valore |
 | :----------------- | :--------------------------- |
-| ANSI_NULLS | ATTIVA |
-| QUOTED_IDENTIFIERS | ATTIVA |
-| NO_COUNT | DISATTIVA |
+| ANSI\_NULLS | ATTIVA |
+| QUOTED\_IDENTIFIERS | ATTIVA |
+| NO\_COUNT | DISATTIVA |
 | DATEFORMAT | mdy |
 | DATEFORMAT | 7 |
-| Regole di confronto database | SQL_Latin1_General_CP1_CI_AS |
+| Regole di confronto database | SQL\_Latin1\_General\_CP1\_CI\_AS |
 
 ## Sessioni e richieste
 Dopo che è stata stabilita una connessione e una sessione è possibile scrivere e inviare query a SQL Data Warehouse.
@@ -158,4 +158,4 @@ Una volta connessi, è possibile iniziare a progettare le tabelle. Per ulteriori
 
 <!--Other references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

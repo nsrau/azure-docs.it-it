@@ -32,4 +32,4 @@
     ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

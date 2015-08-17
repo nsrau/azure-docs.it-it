@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -17,9 +18,13 @@
 	ms.author="ricksal"/>
 
 
+
 # Usare un servizio mobile back-end JavaScript
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title="Back-end .NET">Back-end .NET</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="Back-end JavaScript" class="current">Back-end JavaScript</a></div>
+> [AZURE.SELECTOR]
+[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
+[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
+ 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end JavaScript in Servizi mobili di Azure.
 
 ##<a name="intro"></a>Introduzione
@@ -77,10 +82,10 @@ Una funzione di script di tabella accetta sempre tre argomenti.
 
 Qui di seguito sono indicate le firme di funzioni principali canoniche per le operazioni su tabella:
 
-+ [Insert][insert function]: `function insert (item, user, request) { ... }`
-+ [Update][update function]: `function update (item, user, request) { ... }`
-+ [Delete][delete function]: `function del (id, user, request) { ... }`
-+ [Read][read function]: `function read (query, user, request) { ... }`
++ [Insert][insert function]\: `function insert (item, user, request) { ... }`
++ [Update][update function]\: `function update (item, user, request) { ... }`
++ [Delete][delete function]\: `function del (id, user, request) { ... }`
++ [Read][read function]\: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]Una funzione registrata per l'operazione di eliminazione deve essere denominata _del_ perché delete è una parola chiave riservata in JavaScript.
 
@@ -96,7 +101,7 @@ Gli script del server registrati per un'operazione su tabella possono essere def
 	
 	Per informazioni su come effettuare questa operazione, vedere [Convalida e modifica dei dati in Servizi mobili mediante script del server].
 
-+ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<table>`</em>.<em>`<operation>`</em>.js nella sottocartella .\service\table dell'archivio Git, dove <em>`<table>`</em> è il nome della tabella e <em>`<operation>`</em> è l'operazione di tabella registrata. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
++ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<table>`</em>.<em>`<operation>`</em>.js nella sottocartella .\\service\\table dell'archivio Git, dove <em>`<table>`</em> è il nome della tabella e <em>`<operation>`</em> è l'operazione di tabella registrata. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
 
 + Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando].
 
@@ -343,7 +348,7 @@ Gli script del server registrati nei metodi HTTP in un endpoint API personalizza
 	
 	Le autorizzazioni di accesso ai metodi delle API personalizzate vengono assegnate nella scheda Autorizzazioni. Per informazioni su come è stata creata questa API personalizzata, vedere [Chiamata di un'API personalizzata dal client].
 
-+ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<custom_api>`</em>.js nella sottocartella .\service\api dell'archivio Git, dove <em>`<custom_api>`</em> è il nome dell'API personalizzata che viene registrata. Il file di script contiene una funzione _esportata_ per ogni metodo HTTP esposto dall'API personalizzata. Le autorizzazioni sono definite in un file con estensione json complementare. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
++ Mediante il controllo del codice sorgente. Quando il controllo del codice sorgente è abilitato, è sufficiente creare un file denominato <em>`<custom_api>`</em>.js nella sottocartella .\\service\\api dell'archivio Git, dove <em>`<custom_api>`</em> è il nome dell'API personalizzata che viene registrata. Il file di script contiene una funzione _esportata_ per ogni metodo HTTP esposto dall'API personalizzata. Le autorizzazioni sono definite in un file con estensione json complementare. Per ulteriori informazioni, vedere [Controllo del codice sorgente, codice condiviso e funzioni di supporto][Source control, shared code, and helper functions].
 
 + Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando].
 
@@ -367,7 +372,8 @@ La funzione API personalizzata **OrderPizza** seguente restituisce un semplice d
 
 		exports.get = function(request, response) {
 		  response.set('content-type', 'application/xml');
-		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>';
+		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>
+';
 		  response.send(200, xml);
 		};
 
@@ -430,7 +436,7 @@ Per definire più route viene esportata una funzione **register**, a cui viene p
 		    res.send(200, { result: result });
 		}
 
-L'oggetto **api** passato alla funzione **register** espone una funzione per ogni metodo HTTP (**get**,**post**, **put**, **patch** e **delete**). Queste funzioni registrano una route su una funzione definita per un metodo HTTP specifico. Ogni funzione accetta due parametri, il primo è il nome della route e il secondo è la funzione registrata per la route.
+L'oggetto **api** passato alla funzione **register** espone una funzione per ogni metodo HTTP (**get**, **post**, **put**, **patch**, **delete**). Queste funzioni registrano una route su una funzione definita per un metodo HTTP specifico. Ogni funzione accetta due parametri, il primo è il nome della route e il secondo è la funzione registrata per la route.
 
 Le due route nell'esempio di API personalizzata precedente possono essere richiamate mediante richieste HTTP GET, come indicato di seguito (viene mostrata anche la risposta):
 
@@ -462,7 +468,7 @@ Per definire processi pianificati è possibile procedere in uno dei modi seguent
 
 + Dal prompt dei comandi utilizzando lo strumento da riga di comando di Azure. Per ulteriori informazioni, vedere [Utilizzo dello strumento da riga di comando].
 
->[AZURE.NOTE]Quando il controllo del codice sorgente è abilitato, i file di script dei processi pianificati possono essere modificati direttamente nella sottocartella .\service\scheduler del repository Git. Per altre informazioni, vedere [Procedura: Condividere il codice usando il controllo del codice sorgente].
+>[AZURE.NOTE]Quando il controllo del codice sorgente è abilitato, i file di script dei processi pianificati possono essere modificati direttamente nella sottocartella .\\service\\scheduler del repository Git. Per altre informazioni, vedere [Procedura: Condividere il codice usando il controllo del codice sorgente].
 
 ##<a name="shared-code"></a>Controllo del codice sorgente, codice condiviso e funzioni di supporto
 
@@ -772,38 +778,16 @@ Quando si scrivono script del server che utilizzano le funzioni [insert], [updat
 
 Quando si utilizza l'[oggetto tables] o l'[oggetto mssql] o si consente semplicemente l'esecuzione degli script tabella, gli oggetti JavaScript deserializzati vengono inseriti nel database SQL. In tale processo, le proprietà dell'oggetto vengono mappate ai tipi T-SQL:
 
-<table border="1">
-<tr>
-<td>Proprietà JavaScript</td>
-<td>Tipo T-SQL</td>
-</tr><tr>
-<td>Number</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Boolean</td>
-<td>Bit</td>
-</tr><tr>
-<td>Date</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>String</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>Non supportato</td>
-</tr><tr>
-<td>Object</td>
-<td>Non supportato</td>
-</tr><tr>
-<td>Array</td>
-<td>Non supportato</td>
-</tr><tr>
-<td>Stream</td>
-<td>Non supportato</td>
-</tr>
-</table>
+Proprietà JavaScript|Tipo T-SQL
+---|---
+Number|Float(53)
+Boolean|Bit
+Date|DateTimeOffset(3)|
+String|Nvarchar(max)
+Buffer|Non supportato
+Object|Non supportato
+Array|Non supportato
+Stream|Non supportato
 
 ###<a name="TSQL"></a>Uso di Transact-SQL per accedere alle tabelle
 
@@ -1074,4 +1058,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

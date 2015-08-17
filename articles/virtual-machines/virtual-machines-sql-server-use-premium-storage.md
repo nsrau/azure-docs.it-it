@@ -7,6 +7,7 @@
 	manager="jeffreyg"
 	editor=""/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="infrastructure-services"
 	ms.date="06/02/2015"
 	ms.author="jroth"/>
+
 
 # Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 
@@ -1143,4 +1145,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

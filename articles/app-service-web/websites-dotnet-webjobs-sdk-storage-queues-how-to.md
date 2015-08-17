@@ -562,7 +562,7 @@ Nel dashboard di WebJobs SDK le 100 righe più recenti dell'output di Console ve
  
 ![Fare clic su Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-In un processo Web continuo, i log dell'applicazione vengono visualizzati in /data/jobs/continuous/*{webjobname}*/job_log.txt nel file system dell’app Web.
+In un processo Web continuo, i log dell'applicazione vengono visualizzati in /data/jobs/continuous/*{webjobname}*/job\_log.txt nel file system dell’app Web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -581,4 +581,4 @@ In una tabella di Azure, i log `Console.Out` e `Console.Error` hanno un aspetto 
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

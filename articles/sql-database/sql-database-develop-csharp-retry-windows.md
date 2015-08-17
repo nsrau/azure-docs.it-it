@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -395,8 +395,7 @@ Il metodo `Main` si trova in `Program.cs`. Lo stack di chiamate viene eseguito c
 	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
 	        {
 	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613
-	};
+	                {4060, 10928, 10929, 40197, 40501, 40613 };
 	
 	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
 	        }
@@ -413,10 +412,10 @@ Il metodo `Main` si trova in `Program.cs`. Lo stack di chiamate viene eseguito c
 ## Versione breve di Program.cs
 
 
-Il codice sorgente in questa sezione è una ripetizione ridotta del file `Program.cs` più lungo presentato in precedenza. La logica di ripetizione tentativi e tutta la gestione di `Exception` sono state rimosse.
+Il codice sorgente in questa sezione è una ripetizione ridotta del file `Program.cs` più lungo presentato in precedenza. La logica di ripetizione tentativi e tutta la gestione delle eccezioni sono state rimosse.
 
 
-La versione breve rende più semplice la visualizzazione delle chiamate ADO.NET, sapendo che queste in genere funzionano. In genere non si verificano guasti temporanei e non viene generata alcuna `Exception`. In genere, inoltre, un utente non necessita di un backup di sicurezza.
+La versione breve rende più semplice la visualizzazione delle chiamate ADO.NET, sapendo che queste in genere funzionano. In genere non si verificano guasti temporanei e non viene generata alcuna eccezione. In genere, inoltre, un utente non necessita di un backup di sicurezza.
 
 
 	using     System;  // C#, pure ADO.NET, no retry logic, no Exception handling.
@@ -497,4 +496,4 @@ La versione breve rende più semplice la visualizzazione delle chiamate ADO.NET,
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

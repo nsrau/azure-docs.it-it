@@ -67,4 +67,4 @@ I seguenti argomenti illustrano come usare la versione 12 del database SQL.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

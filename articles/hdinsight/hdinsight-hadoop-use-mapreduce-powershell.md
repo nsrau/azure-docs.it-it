@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
+
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
+
 
 #Esecuzione di query Hive con Hadoop in HDInsight mediante PowerShell
 
@@ -104,7 +106,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
 ##<a id="results"></a>Visualizzare l'output del processo
 
-Il processo MapReduce archivia i risultati dell'operazione nell'archivio BLOB di Azure, nel percorso **wasb:///example/data/WordCountOutput** specificato come argomento del processo. L'archivio BLOB di Azure è accessibile tramite Azure PowerShell, tuttavia per accedere direttamente ai file è necessario conoscere il nome e la chiave dell'account di archiviazione e il contenitore usato dal cluster HDInsight.
+Il processo MapReduce archivia i risultati dell'operazione nell'archivio BLOB di Azure, nel percorso ****wasb:///example/data/WordCountOutput** specificato come argomento del processo. L'archivio BLOB di Azure è accessibile tramite Azure PowerShell, tuttavia per accedere direttamente ai file è necessario conoscere il nome e la chiave dell'account di archiviazione e il contenitore usato dal cluster HDInsight.
 
 È possibile ottenere queste informazioni usando i seguenti cmdlet di Azure PowerShell:
 
@@ -113,7 +115,7 @@ Il processo MapReduce archivia i risultati dell'operazione nell'archivio BLOB di
 * **Get-AzureStorageBlob**: dati un oggetto di contesto e un nome contenitore, restituisce un elenco di BLOB nel contenitore.
 * **Get-AzureStorageBlobContent**: dati un oggetto di contesto, un nome e un percorso di file e un nome contenitore (restituiti da **Get-AzureHDinsightCluster**), scarica un file dall'archivio BLOB di Azure.
 
-Il seguente esempio recupera le informazioni di archiviazione, quindi scarica l'output da **wasb:///example/data/WordCountOutput**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight.
+Il seguente esempio recupera le informazioni di archiviazione, quindi scarica l'output da ****wasb:///example/data/WordCountOutput**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight.
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -173,4 +175,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -133,4 +133,4 @@ Dopo aver integrato l'[SDK][Link 5] di Azure Mobile Engagement nell'applicazione
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

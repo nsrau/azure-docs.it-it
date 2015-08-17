@@ -67,7 +67,7 @@ Per visualizzare l'aspetto dei dati, fare clic sulla porta di output nella parte
 
 ![Visualizzazione set di dati][screen1b]
 
-Chiudere la finestra di visualizzazione facendo clic su "\*\*x\*\*" nell'angolo superiore destro.
+Chiudere la finestra di visualizzazione facendo clic sulla "**x**" nell'angolo superiore destro.
 
 ## Passaggio 2: Pre-elaborare i dati
 
@@ -232,4 +232,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

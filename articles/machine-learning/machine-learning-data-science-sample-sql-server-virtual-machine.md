@@ -26,7 +26,7 @@ In questo documento viene illustrato il campionamento dei dati archiviati in SQL
 
 In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguire il campionamento casuale semplice dei dati all'interno del database. Scegliere il metodo in base alla dimensione dei dati e alla loro distribuzione.
 
-Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal livello di casualità previsto per il campionamento da eseguire (il valore pk_id nel codice di esempio riportato in basso si presuppone che sia una chiave primaria generata automaticamente).
+Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal livello di casualità previsto per il campionamento da eseguire (il valore pk\_id nel codice di esempio riportato in basso si presuppone che sia una chiave primaria generata automaticamente).
 
 1. Campionamento casuale meno rigoroso
 
@@ -114,4 +114,4 @@ Per un esempio della procedura dettagliata end-to-end di ADAPT (Advanced Analyti
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

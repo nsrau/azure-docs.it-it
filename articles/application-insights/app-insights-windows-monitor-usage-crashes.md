@@ -24,4 +24,4 @@ Questa pagina è stata spostata: [fare clic qui](app-insights-windows-get-starte
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

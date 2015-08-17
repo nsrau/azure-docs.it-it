@@ -68,4 +68,4 @@ Per impostare la sottoscrizione di Azure corrente, eseguire i comandi seguenti a
 
 Per altre informazioni su sottoscrizioni e account di Azure, vedere [Procedura: Connettersi alla sottoscrizione](powershell-install-configure.md#Connect).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -153,4 +153,4 @@ Inoltre, è possibile visualizzare un grafico di confronto delle applicazioni.
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -164,4 +164,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

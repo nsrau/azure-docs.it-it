@@ -214,4 +214,4 @@ Questo articolo illustra i servizi di autenticazione offerti dal servizio app di
 
 * [Ottenere un token di accesso e chiamare l'API SharePoint in un'app per dispositivi mobili](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

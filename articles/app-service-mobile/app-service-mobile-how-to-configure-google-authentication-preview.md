@@ -73,4 +73,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [portale di gestione di Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

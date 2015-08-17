@@ -596,24 +596,24 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
                     }
                 }
                 return true;
-            }())||document.write('&lt;script src="/Content/css">&lt;/script>');&lt;/script></mark>
+            }())||document.write('&lt;script src="/Content/css">&lt;\/script>');&lt;/script></mark>
 
     &lt;script src="http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;/script>');&lt;/script></mark>
+<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;\/script>');&lt;/script></mark>
 
 ...	
 
     &lt;script src="http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;/script>');&lt;/script></mark>
+<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;\/script>');&lt;/script></mark>
 
     &lt;script src="http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
+<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;\/script>');&lt;/script></mark>
 
 ...
 	</pre>
 	Si noti che lo script inserito per l'aggregazione CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
 
-        }())||document.write('<script src="/Content/css"></script>');</script>
+        }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	Poiché però la prima parte dell'espressione || restituirà sempre true (nella riga subito sopra), la funzione document.write() non verrà mai eseguita.
 
@@ -625,4 +625,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!-------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -58,4 +58,4 @@ Una soluzione completa e automatizzata per questo scenario è disponibile nel re
 
 Per altri esempi di topologie Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

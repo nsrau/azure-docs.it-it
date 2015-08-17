@@ -81,4 +81,4 @@ Per poter usare una firma di accesso condiviso allo scopo di caricare immagini d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

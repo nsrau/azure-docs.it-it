@@ -6,4 +6,4 @@ Se Visual Studio non è ancora installato, insieme all'SDK verrà installato anc
 
 >[AZURE.NOTE]in base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

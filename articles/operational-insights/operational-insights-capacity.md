@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Gestire la capacità di infrastruttura
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-È possibile usare la soluzione Capacity Planning in Microsoft Azure Operational Insights per determinare la capacità dell'infrastruttura server. Installare la soluzione per aggiornare l’agente Operation Manager e il modulo di configurazione di base in Operational Insights. Questa soluzione legge i contatori delle prestazioni nel server monitorato e invia i dati di utilizzo al servizio Operational Insights nel cloud per l'elaborazione. Viene applicata la logica ai dati di utilizzo, che vengono quindi registrati dal servizio cloud. Nel tempo, vengono identificati modelli di utilizzo e proiezioni di capacità, in base al consumo corrente.
+È possibile usare la soluzione Capacity Planning in Microsoft Azure Operational Insights per determinare la capacità dell'infrastruttura server. Installare la soluzione per aggiornare l'agente Operation Manager e il modulo di configurazione di base in Operational Insights. Questa soluzione legge i contatori delle prestazioni nel server monitorato e invia i dati di utilizzo al servizio Operational Insights nel cloud per l'elaborazione. Viene applicata la logica ai dati di utilizzo, che vengono quindi registrati dal servizio cloud. Nel tempo, vengono identificati modelli di utilizzo e proiezioni di capacità, in base al consumo corrente.
 
 Ad esempio, una proiezione potrebbe identificare quando saranno necessari core aggiuntivi o altra memoria per un determinato server. In questo esempio, la proiezione potrebbe indicare che entro 30 giorni sarà necessario aggiungere memoria al server. Ciò consente di pianificare un aggiornamento di memoria durante la successiva finestra di manutenzione del server, che potrebbe verificarsi una volta ogni due settimane.
 
 ## Dashboard Capacity Management
 
-Prima di poter usare il dashboard Capacity Management in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md). Dopo l'installazione della soluzione Capacity Planning, sarà possibile visualizzare la capacità dei server monitorati usando il riquadro **Capacity Planning** della pagina **Overview** in Operational Insights.
+Prima di poter usare il dashboard Capacity Management in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-setup-workspace.md). Dopo l'installazione della soluzione Capacity Planning, sarà possibile visualizzare la capacità dei server monitorati usando il riquadro **Capacity Planning** della pagina **Overview** in Operational Insights.
 
 ![image of Capacity Planning tile](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -130,7 +130,7 @@ Da queste informazioni sulla capacità è possibile generare una cartella di lav
 
 Le aree seguenti sono visualizzate nella pagina **Storage**:
 
-- *Utilization*: visualizzare l’utilizzo dello spazio su disco negli host macchine virtuali.
+- *Utilization*: visualizzare l'utilizzo dello spazio su disco negli host macchine virtuali.
 
 - *Total Disk Space*: somma (spazio logico su disco) per tutti gli host
 
@@ -162,6 +162,6 @@ Grazie allo strumento di proiezione è possibile visualizzare le tendenze cronol
 
 4. Nello **strumento di proiezione** spostare il dispositivo di scorrimento data per visualizzare una proiezione della capacità che verrà usata nella data scelta.
 
-[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

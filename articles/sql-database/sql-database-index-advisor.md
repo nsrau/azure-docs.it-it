@@ -7,6 +7,7 @@
    manager="jeffreyg" 
    editor="monicar"/>
 
+
 <tags
    ms.service="sql-database"
    ms.devlang="na"
@@ -15,6 +16,7 @@
    ms.workload="data-management" 
    ms.date="06/30/2015"
    ms.author="sstein"/>
+
 
 # Advisor dell’indice del database SQL
 
@@ -171,4 +173,4 @@ Monitorare le indicazioni relative agli indici e continuare ad applicarle in mod
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

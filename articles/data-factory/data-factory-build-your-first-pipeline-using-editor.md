@@ -7,6 +7,7 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
+
 <tags
 	ms.service="data-factory"
 	ms.workload="data-services"
@@ -15,6 +16,7 @@
 	ms.topic="hero-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
+
 
 # Creare la prima pipeline con Data factory di Azure
 > [AZURE.SELECTOR]
@@ -45,7 +47,7 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 
 	![Pannello Nuova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]I nomi di Azure Data Factory sono univoci. È necessario anteporre al nome della data factory il proprio nome, per consentire la corretta creazione della factory. 
 3.	Se non è stato creato un gruppo di risorse, sarà necessario crearne uno. A tale scopo, effettuare l'operazione seguente:
 	1.	Fare clic su **NOME DEL GRUPPO DI RISORSE**.
 	2.	Selezionare **Crea un nuovo gruppo di risorse** nel pannello **Gruppo di risorse**.
@@ -76,7 +78,7 @@ In questo passaggio si procederà al collegamento dell'account di archiviazione 
 	![Servizio collegato Archiviazione di Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Archiviazione di Azure. 
-4. Sostituire **accountname** con il nome dell'account di archiviazione di Azure e **accountkey** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
+4. Sostituire **account name** con il nome dell'account di archiviazione di Azure e **account key** con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
 5. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
 	![Pulsante Distribuisci](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -107,7 +109,7 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 	
 	Proprietà | Descrizione
 	-------- | -----------
-	Version | Specifica che la versione di HDInsight creata è 3.1. 
+	Versione | Specifica che la versione di HDInsight creata è 3.1. 
 	ClusterSize | Crea un cluster HDInsight con un nodo. 
 	TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
 	JobsContainer | Specifica il nome del contenitore di processo che sarà creato per archiviare i log generati da HDInsight.
@@ -178,6 +180,10 @@ In questo passaggio si creerà la prima pipeline.
 		            "name": "AzureBlobOutput"
 		          }
 		        ],
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
 		        "policy": {
 		          "concurrency": 1,
 		          "retry": 3
@@ -193,7 +199,7 @@ In questo passaggio si creerà la prima pipeline.
  
 	Nel frammento di codice JSON si crea una pipeline costituita da una singola attività che usa Hive per elaborare i dati in un cluster HDInsight.
 	
-	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService e denominato**StorageLinkedService**) e in un contenitore denominato **script**.
+	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**), e in un contenitore denominato **script**.
 
 	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
 
@@ -226,4 +232,4 @@ In questo passaggio si creerà la prima pipeline.
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

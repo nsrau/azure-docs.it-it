@@ -89,4 +89,4 @@ Di seguito sono indicati possibili problemi relativi all'esecuzione di Azure Mob
     - Usare un file di dimensioni inferiori a 35 MB (limite consentito).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

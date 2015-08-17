@@ -86,4 +86,4 @@ I comandi di esempio seguenti recuperano l'ultimo processo per un runbook di ese
 
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

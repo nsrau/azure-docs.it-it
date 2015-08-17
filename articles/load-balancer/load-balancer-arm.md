@@ -77,4 +77,4 @@ I [cmdlet di rete di Azure](https://msdn.microsoft.com/library/azure/mt163510.as
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

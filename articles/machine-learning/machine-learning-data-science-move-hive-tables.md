@@ -153,4 +153,4 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 
 Al termine della procedura, si disporrà di una tabella con i dati nel formato ORC pronta per l'uso.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

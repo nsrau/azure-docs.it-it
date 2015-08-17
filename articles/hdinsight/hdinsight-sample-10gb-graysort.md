@@ -433,4 +433,4 @@ Per le esercitazioni relative all'esecuzione di altri esempi che forniscono istr
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

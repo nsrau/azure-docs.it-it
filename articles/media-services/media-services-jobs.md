@@ -60,4 +60,4 @@ Monitorare lo stato di avanzamento dei processi tramite il **portale di gestione
 [Quote e limitazioni](media-services-quotas-and-limitations.md) – Descrive le quote usate e le limitazioni del codificatore di Servizi multimediali
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

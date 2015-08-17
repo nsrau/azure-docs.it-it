@@ -42,7 +42,7 @@ SSH è uno strumento importante per gli amministratori di sistema. Tuttavia, far
 
 Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 
--	Scaricare e installare puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Scaricare e installare puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/\~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	Eseguire puttygen.exe.
 -	Fare clic su **Generate** per generare le chiavi. Nel processo è possibile aumentare la casualità spostando il puntatore del mouse sull'area vuota della finestra. ![][1]
 -	Dopo il processo di generazione, Puttygen.exe visualizzerà la chiave generata. Ad esempio: ![][2]
@@ -345,7 +345,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE] Potrebbe essere necessario eseguire nuovamente l'accesso per modificare un file in/var/www/html
+	>[AZURE.NOTE]Potrebbe essere necessario eseguire nuovamente l'accesso per modificare un file in/var/www/html /.
 -	Utilizzare qualsiasi client SFTP sicuro (come FileZilla) per effettuare la connessione al nome DNS della macchina virtuale (ad esempio, lampdemo.cloudapp.net) e passare a /**var/www/html** per pubblicare il sito. ![][18]
 
 
@@ -356,7 +356,7 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 
 -	**Sintomo**: Apache è in esecuzione ma non è possibile visualizzare la pagina predefinita di Apache con il browser.
 -	**Possibile causa principale**
-	1.	La porta di ascolto di Apache non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico Web.</br> Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Apache. Per istruzioni sulla configurazione degli endpoint per la macchina virtuale, vedere Fase 1: creare un'immagine.</br> Per determinare la porta di ascolto di Apache, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/apache2/ports.conf (versione Debian), cercare la stringa “Listen”. La porta predefinita è 80.
+	1.	La porta di ascolto di Apache non corrisponde alla porta privata dell'endpoint della macchina virtuale per il traffico Web.</br> Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Apache. Vedere Fase 1: creare un'immagine per istruzioni sulla configurazione degli endpoint per la macchina virtuale.</br> Per determinare la porta di ascolto di Apache, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/apache2/ports.conf (versione Debian), cercare la stringa “Listen”. La porta predefinita è 80.
 
 	2.	Il firewall ha disabilitato la porta di ascolto di Apache.</br> Se è possibile visualizzare la pagina predefinita di Apache dall'host locale, molto probabilmente il problema risiede nel fatto che la porta su cui Apache è in ascolto è bloccata dal firewall. È possibile usare lo strumento w3m per passare alla pagina web. I comandi seguenti consentono di installare w3m e di passare alla pagina predefinita di Apache:
 
@@ -452,4 +452,4 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

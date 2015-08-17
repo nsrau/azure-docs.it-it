@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tamram"/>
 
 
@@ -39,11 +39,17 @@ Uno scenario comune in cui la firma di accesso condiviso risulta utile è costit
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2\.	Un servizio semplificato autentica il client in base alle necessità e quindi genera una firma di accesso condiviso. Dopo aver ricevuto la firma di accesso condiviso, il client può quindi accedere alle risorse dell'account di archiviazione direttamente con le autorizzazioni definite dalla firma e per l'intervallo consentito dalla firma. La firma di accesso condiviso consente di ridurre la necessità di instradare tutti i dati tramite il servizio proxy front-end.
+2\. Un servizio semplificato autentica il client in base alle necessità e quindi genera una firma di accesso condiviso. Dopo aver ricevuto la firma di accesso condiviso, il client può quindi accedere alle risorse dell'account di archiviazione direttamente con le autorizzazioni definite dalla firma e per l'intervallo consentito dalla firma. La firma di accesso condiviso consente di ridurre la necessità di instradare tutti i dati tramite il servizio proxy front-end.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
 In molti servizi effettivi è possibile utilizzare una versione ibrida di questi due approcci, a seconda dello scenario interessato, in cui alcuni dati vengono elaborati e convalidati tramite il proxy front-end, mentre altri vengono salvati e/o letti direttamente tramite la firma di accesso condiviso.
+
+Inoltre, è necessario utilizzare una firma di accesso condiviso per autenticare l'oggetto di origine in un'operazione di copia in determinati scenari:
+
+- Quando si copia un BLOB in un altro BLOB che risiede in un account di archiviazione diverso, è necessario utilizzare una firma di accesso condiviso per autenticare il BLOB di origine. È possibile utilizzare facoltativamente una firma di accesso condiviso per autenticare il BLOB di destinazione, purché si utilizzi la versione 2013-08-15 dei servizi di archiviazione o una versione successiva.
+- Quando si copia un file a un altro file che si trova in un account di archiviazione diverso, è necessario utilizzare una firma di accesso condiviso per autenticare il file di origine. Facoltativamente, è possibile utilizzare una firma di accesso condiviso per autenticare il file di destinazione.
+- Quando si copia un BLOB in un file o un file in un BLOB, è necessario utilizzare una firma di accesso condiviso (SAS) per autenticare l'oggetto di origine, anche se gli oggetti di origine e di destinazione si trovano nello stesso account di archiviazione.
 
 ## Funzionamento della firma di accesso condiviso ##
 
@@ -51,146 +57,35 @@ Una firma di accesso condiviso è un URI che punta a una risorsa di archiviazion
 
 Di seguito sono elencati i vincoli usati per definire la firma di accesso condiviso e che vengono ciascuno rappresentati come parametro dell'URI:
 
-- **Risorsa di archiviazione.** Le risorse di archiviazione per le quali è possibile delegare l'accesso includono contenitori, BLOB, code, tabelle e intervalli di entità tabella.
+- **Risorsa di archiviazione.** Risorse di archiviazione per il quale è possibile delegare l'accesso includono:
+	- Contenitori e BLOB
+	- Condivisioni di file e file
+	- Queues
+	- Le tabelle e gli intervalli di entità della tabella.
 - **Ora di inizio.** Si riferisce all'ora in cui la firma di accesso condiviso diventa valida. L'ora di inizio di una firma di accesso condiviso è facoltativa; se omessa, la firma diventa immediatamente valida. 
 - **Scadenza.** Si riferisce all'ora dopo la quale la firma di accesso condiviso non è più valida. Secondo le procedure consigliate è preferibile specificare una data di scadenza per una firma di accesso condiviso oppure associarla a criteri di accesso archiviati (vedere più avanti).
 - **Autorizzazione.** Le autorizzazioni specificate per la firma di accesso condiviso indicano le autorizzazioni che il client può eseguire sulla risorsa di archiviazione usando la firma. 
 
 Di seguito è riportato un esempio di URI di firma di accesso condiviso che fornisce autorizzazioni di lettura e scrittura a un BLOB. Nella tabella le singole parti dell'URI della firma di accesso condiviso vengono descritte separatamente per facilitarne la comprensione:
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
-<table border="1" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    URI del BLOB
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Indirizzo del BLOB. Si noti che è vivamente consigliato l'utilizzo di HTTPS.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Versione dei servizi di archiviazione
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sv=2012-02-12
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Per i servizi di archiviazione della versione 2012-02-12 e successive questo parametro indica la versione da usare.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Ora di inizio
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    st=2013-04-29T22%3A18%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Specificata in un formato ISO 8061. Se si desidera che la firma di accesso condiviso sia immediatamente valida, omettere l'ora di inizio.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Scadenza
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    se=2013-04-30T02%3A23%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Specificata in un formato ISO 8061.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Risorsa
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sr=b
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    La risorsa è un BLOB.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Autorizzazioni
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sp=rw
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Le autorizzazioni concesse dalla firma di accesso condiviso includono lettura (r) e scrittura (w).
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Firma
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Utilizzata per autenticare l'accesso al BLOB. La firma è un HMAC calcolato sulla base di una stringa da firmare e della chiave mediante l'algoritmo SHA256, e quindi codificato con la codifica Base64.
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+Nome|Sezione di collegamento|Descrizione
+---|---|---
+URI del BLOB|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt | Indirizzo del BLOB. Si noti che è vivamente consigliato l'utilizzo di HTTPS.
+Versione dei servizi di archiviazione|sv=2012-02-12|Per i servizi di archiviazione della versione 2012-02-12 e successive questo parametro indica la versione da usare.
+Ora di inizio|st=2013-04-29T22%3A18%3A26Z|Specificata in un formato ISO 8061. Se si desidera che la firma di accesso condiviso sia immediatamente valida, omettere l'ora di inizio.
+Scadenza|se=2013-04-30T02%3A23%3A26Z|Specificata in un formato ISO 8061.
+Risorsa|sr=b|La risorsa è un BLOB.
+Autorizzazioni|sp=rw|Le autorizzazioni concesse dalla firma di accesso condiviso includono lettura (r) e scrittura (w).
+Firma|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Utilizzata per autenticare l'accesso al BLOB. La firma è un HMAC calcolato sulla base di una stringa da firmare e della chiave mediante l'algoritmo SHA256, e quindi codificato con la codifica Base64.
 
 ## Controllo delle firme di accesso condiviso con criteri di accesso archiviati ##
 
 Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
 - **SAS ad hoc:**quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente oppure sono implicite, nel caso in cui l'ora di inizio viene omessa. È possibile creare questo tipo di firma di accesso condiviso per un contenitore, un BLOB, una tabella o una coda.
-- **SAS con politica di accesso archiviazione:**i criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB, una tabella o una coda, e possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati.
+- **SAS con politica di accesso archiviazione:**i criteri di accesso archiviati vengono definiti per un contenitore di risorse - un contenitore BLOB, una tabella o una coda, e possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati.
 
 La differenza tra le due forme è importante un unico scenario chiave, la revoca. Una firma di accesso condiviso è un URL, pertanto chiunque la ottiene può usarla indipendentemente da chi l'ha richiesta per iniziare. Se la firma di accesso condiviso è stata pubblicata e resa pubblica, può essere utilizzata da chiunque in tutto il mondo. Una forma di accesso condiviso rimane valida finché non si verifica una delle quattro condizioni seguenti:
 
@@ -225,12 +120,11 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 
 ## Passaggi successivi ##
 
-[Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con il servizio BLOB](../storage-dotnet-shared-access-signature-part-2/)
-
-[Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx)
-
-[Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-
+- [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con il servizio BLOB](storage-dotnet-shared-access-signature-part-2.md)
+- [Come usare l'archiviazione file di Azure con PowerShell e .NET](storage-dotnet-how-to-use-files.md)
+- [Gestire l'accesso alle risorse di archiviazione di Azure](storage-manage-access-to-resources.md)
+- [Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
@@ -238,4 +132,4 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 
  
 
-<!--------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

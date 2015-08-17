@@ -96,4 +96,4 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 Se si vuole configurare una connessione di rete virtuale con RRAS, vedere [Configurare una VPN da sito a sito mediante RRAS (Routing and Remote Access Service, servizio Routing e accesso remoto) di Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

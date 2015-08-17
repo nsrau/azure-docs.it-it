@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
 
@@ -96,4 +96,4 @@ Se l'app supporta entrambi gli account Azure AD e Microsoft, è necessario inclu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

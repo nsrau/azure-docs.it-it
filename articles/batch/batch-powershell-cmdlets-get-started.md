@@ -53,7 +53,7 @@ Usare le procedure standard per avviare Azure PowerShell e [connettersi alle sot
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Quindi, creare un nuovo account Batch nel gruppo di risorse, specificando un nome account per <\*account\_name\*> e una posizione in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
+Quindi, creare un nuovo account Batch nel gruppo di risorse, specificando un nome account per <*account\_name*> e una posizione in cui è disponibile il servizio Batch. La creazione dell'account può richiedere alcuni minuti. Ad esempio:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -156,4 +156,4 @@ Per rimuovere il limite superiore, impostare **MaxCount** su 0 o un valore infer
 * [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Query di elenco efficienti](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

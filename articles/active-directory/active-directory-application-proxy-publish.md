@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/02/2015"
 	ms.author="rkarlin"/>
 
@@ -79,4 +79,4 @@ Dopo la pubblicazione di applicazioni mediante il proxy dell’applicazione di A
 
 * [Informazioni sulla delega vincolata Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

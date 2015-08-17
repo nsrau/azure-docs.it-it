@@ -163,4 +163,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

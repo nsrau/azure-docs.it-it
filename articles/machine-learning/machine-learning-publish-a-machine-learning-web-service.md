@@ -109,4 +109,4 @@ Per aggiornare il servizio Web, aprire l'esperimento di assegnazione dei puntegg
 
 Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md).
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

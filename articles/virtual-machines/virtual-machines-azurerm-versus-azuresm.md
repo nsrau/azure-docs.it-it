@@ -110,4 +110,4 @@ Tutti gli script e le automazioni creati continueranno a funzionare per le macch
 La funzionalità non è supportata al momento. Non è possibile connettere le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure con un circuito Express Route in uso. La funzionalità sarà supportata in futuro.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

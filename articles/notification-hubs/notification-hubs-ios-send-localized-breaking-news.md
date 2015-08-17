@@ -17,9 +17,10 @@
 	ms.author="wesmc"/>
 # Uso di Hub di notifica per inviare le ultime notizie localizzate ai dispositivi iOS
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news)
+- [iOS](notification-hubs-ios-send-localized-breaking-news)
+
 
 ##Panoramica
 
@@ -46,7 +47,7 @@ Lo scenario è composto da due parti:
 
 In [Utilizzo di Hub di notifica per inviare le ultime notizie] è stata creata un'app che utilizza i **tag** per sottoscrivere le notifiche per diverse categorie di notizie. Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche deve essere localizzato e inviato al set di dispositivi corretto. In questo argomento verrà illustrato come utilizzare la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
 
-Nota: un possibile modo per inviare notifiche localizzate consiste nel creare più versioni di ogni tag. Per supportare l'inglese, il francese e il mandarino, ad esempio, sono necessari tre tag diversi per le ultime notizie internazionali: "world_en", "world_fr" e "world_ch". È quindi necessario inviare una versione localizzata delle ultime notizie internazionali a ogni tag. In questo argomento verranno utilizzati i modelli per evitare la proliferazione di tag e la necessità di inviare più messaggi.
+Nota: un possibile modo per inviare notifiche localizzate consiste nel creare più versioni di ogni tag. Per supportare l'inglese, il francese e il mandarino, ad esempio, sono necessari tre tag diversi per le ultime notizie internazionali: "world\_en", "world\_fr" e "world\_ch". È quindi necessario inviare una versione localizzata delle ultime notizie internazionali a ogni tag. In questo argomento verranno utilizzati i modelli per evitare la proliferazione di tag e la necessità di inviare più messaggi.
 
 In linea generale, i modelli consentono di specificare in che modo uno specifico dispositivo deve ricevere una notifica. Il modello definisce lo specifico formato di payload da utilizzare, facendo riferimento alle proprietà del messaggio inviato dal back-end dell'app. In questo caso verrà inviato un messaggio indipendente dalle impostazioni locali, che contiene tutte le lingue supportate:
 
@@ -71,7 +72,7 @@ I modelli rappresentano uno strumento particolarmente efficace. Per altre inform
 L'app Breaking News creata nell'argomento [Utilizzo di Hub di notifica per inviare le ultime notizie] verrà ora modificata in modo da inviare notizie localizzate utilizzando modelli.
 
 
-In MainStoryboard_iPhone.storyboard aggiungere un controllo Segmented con le tre lingue supportate: inglese, francese e mandarino.
+In MainStoryboard\_iPhone.storyboard aggiungere un controllo Segmented con le tre lingue supportate: inglese, francese e mandarino.
 
 ![][13]
 
@@ -222,4 +223,4 @@ In [Procedure di Hub di notifica per iOS] è disponibile un riferimento al lingu
 [Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

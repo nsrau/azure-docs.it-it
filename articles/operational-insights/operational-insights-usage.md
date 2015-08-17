@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Gestire i dati relativi ai server e all'utilizzo
@@ -27,7 +27,7 @@ Operational Insights raccoglie i dati e li invia periodicamente al servizio Oper
 
 ![image of Servers and Usage tile](./media/operational-insights-usage/overview-servers-usage.png)
 
-Se è stato superato o si sta per raggiungere il limite di utilizzo giornaliero, facoltativamente è possibile rimuovere una soluzione per ridurre la quantità di dati inviati al servizio Informazioni operative. Per altre informazioni sulla rimozione di soluzioni, vedere [Usare la Solutions Gallery per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md).
+Se è stato superato o si sta per raggiungere il limite di utilizzo giornaliero, facoltativamente è possibile rimuovere una soluzione per ridurre la quantità di dati inviati al servizio Operational Insights. Per altre informazioni sulla rimozione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-setup-workspace.md).
 
 In caso di problemi durante l'invio di dati al servizio Operational Insights da parte di un gruppo di gestione di Operations Manager, è possibile risolvere il problema oppure rimuovere il gruppo da Operational Insights, se necessario.
 
@@ -57,6 +57,6 @@ Nel dashboard **Usage** sono visualizzate le informazioni seguenti:
 
 3. Se un gruppo di gestione non invia dati, è possibile fare clic su **Troubleshoot** per ottenere informazioni dettagliate sulla risoluzione dei problemi. Se non si vuole più mantenere un gruppo di gestione e tutti gli agenti che vi fanno riferimento, fare clic su **Remove**.
 
-[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

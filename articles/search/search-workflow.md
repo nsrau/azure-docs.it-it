@@ -191,4 +191,4 @@ Si tenga presente che solo il livello di prezzo standard può essere aumentato o
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

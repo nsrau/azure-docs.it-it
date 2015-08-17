@@ -264,7 +264,7 @@ Verrà visualizzato il messaggio **保存成功!(Salvataggio completato)**.
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Impostare il valore di *API_KEY* con quello recuperato dal progetto cloud di Baidu in precedenza, *NotificationHubName* con il nome dell'hub di notifica nel portale di Azure e *NotificationHubConnectionString* con DefaultListenSharedAccessSignature dal portale di Azure.
+	Impostare il valore di *API\_KEY* con quello recuperato dal progetto cloud di Baidu in precedenza, *NotificationHubName* con il nome dell'hub di notifica nel portale di Azure e *NotificationHubConnectionString* con DefaultListenSharedAccessSignature dal portale di Azure.
 
 11. Aggiungere una nuova classe denominata **DemoApplication.java** e aggiungervi il codice seguente:
 
@@ -480,4 +480,4 @@ Per testare l'app con l'emulatore:
 [portale di Baidu]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

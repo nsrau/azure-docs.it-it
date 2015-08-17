@@ -101,11 +101,12 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 
 5. Fare nuovamente clic con il pulsante destro del mouse sul nodo **Servizi collegati** in **Esplora soluzioni**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**. 
 6. Questa volta selezionare **Servizio collegato SQL Azure** e fare clic su **Aggiungi**. 
-7. Nel **file AzureSqlLinkedService1.json** sostituire **servername**, **databasename**, **username@servername** e **password** con i nomi del server, database, account utente e password SQL di Azure. 8.  Salvare il file **AzureSqlLinkedService1.json**. 
+7. Nel **file AzureSqlLinkedService1.json** sostituire **servername**, **databasename**, ****username@servername**, e **password** con i nomi del server, database, account utente e password SQL di Azure.
+8.  Salvare il file **AzureSqlLinkedService1.json**. 
 
 
 ### Creazione di tabelle di input e di output
-Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService1** e **AzureSqlLinkedService1** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService1 e AzureSqlLinkedService1. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
+Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService1** e **AzureSqlLinkedService1** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory: **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService1 e AzureSqlLinkedService1. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
 
 #### Creare la tabella di input
 
@@ -237,16 +238,16 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 ## Usare Esplora Server per esaminare le entità della data factory
 
 1. In **Visual Studio** scegliere **Esplora server** dal menu **Visualizza**.
-2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzato **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione verrà visualizzato nella finestra **Elenco attività data factory**. ![Esplora server](./media/data-factory-get-started-using-vs/server-explorer.png)
+2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzata la finestra **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione verrà visualizzato nella **finestra **Elenco attività data factory![Esplora server](./media/data-factory-get-started-using-vs/server-explorer.png).
 3. È possibile fare clic con il pulsante destro del mouse su una data factory e scegliere l'opzione per esportare la data factory in un nuovo progetto per creare un progetto di Visual Studio basato su una data factory esistente. ![Esportare la data factory in un progetto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Aggiornare gli strumenti di Data factory di Azure per Visual Studio
 Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguire le operazioni seguenti:
 
-1. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**. 
+1. Fare clic su**Strumenti**nel menu e selezionare**Estensioni e aggiornamenti**. 
 2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
 4. Selezionare **Strumenti di Data Factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
 Vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

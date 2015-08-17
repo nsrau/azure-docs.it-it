@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/13/2015" 
 	ms.author="billmath"/>
 
@@ -142,14 +142,15 @@ La selezione di Impostazioni rapide rappresenta l'opzione predefinita ed è uno 
 8. Nella schermata Connessione a Servizi di dominio di Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. Fare clic su **Next**.
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Nella schermata Pronto per la configurazione fare clic su **Installa**.
-	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "\*\*Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale\*\*". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
+	- Nella pagina Pronto per la configurazione lasciare deselezionata l'opzione "**Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**". In tal caso, la procedura guidata configurerà la sincronizzazione ma lascerà disabilitata l'attività in modo che non venga eseguita fino a quando non la si abilita manualmente nell'Utilità di pianificazione. Dopo avere abilitato l'attività, la sincronizzazione verrà eseguita ogni tre ore.
 	- È anche possibile scegliere di configurare i servizi di sincronizzazione per **Distribuzione ibrida di Exchange** selezionando la casella di controllo corrispondente. Se non si prevede di avere cassette postali di Exchange nel cloud e in locale, non è necessario selezionare questa opzione.
 
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
 8. Al termine dell'installazione, fare clic su **Esci**.
 
 
-<br> <br>
+
+
 
 Per un video sull'uso dell'Installazione rapida, vedere:
 
@@ -183,7 +184,7 @@ Dopo avere sincronizzato gli utenti nel cloud, occorre assegnare loro una licenz
 1. Accesso al portale di Azure come amministratore.
 2. A sinistra, selezionare **Active Directory**.
 3. Nella pagina Active Directory fare doppio clic sulla directory con gli utenti da abilitare.
-4. Nella parte superiore della pagina della directory selezionare **Licenze**.
+4. Nella parte superiore della pagina della directory selezionare **Licenses**.
 5. Nella pagina Licenze selezionare Active Directory Premium o Enterprise Mobility Suite, quindi fare clic su **Assegna**.
 6. Nella finestra di dialogo selezionare gli utenti a cui assegnare le licenze, quindi fare clic sull'icona con il segno di spunta per salvare le modifiche.
 
@@ -256,4 +257,4 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

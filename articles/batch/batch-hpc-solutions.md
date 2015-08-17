@@ -94,7 +94,7 @@ La gestione del cluster e gli strumenti di pianificazione processi consentono di
 
 Azure offre una gamma di servizi di calcolo, gestione dati, reti e servizi correlati che è possibile utilizzare per i flussi di lavoro e le soluzioni Big Compute. Per informazioni dettagliate su ognuno di questi servizi, vedere la documentazione relativa ai servizi di Azure. Vedere [Scenari della soluzione](#solution-scenarios) in questo articolo per alcuni approcci comuni con le applicazioni in Batch e HPC.
 
->[AZURE.NOTE]Nuovi servizi vengono introdotti regolarmente nella piattaforma Azure e possono essere utili per lo scenario. L'utilizzo dei servizi di anteprima è consigliata solo per le distribuzioni di test o di prova, non per carichi di lavoro di produzione. In caso di domande, contattare un [partner Azure](https://pinpoint.microsoft.com/it-it/search?keyword=azure) o inviare un messaggio di posta elettronica a *bigcompute@microsoft.com*.
+>[AZURE.NOTE]Nuovi servizi vengono introdotti regolarmente nella piattaforma Azure e possono essere utili per lo scenario. L'utilizzo dei servizi di anteprima è consigliata solo per le distribuzioni di test o di prova, non per carichi di lavoro di produzione. In caso di domande, contattare un [partner Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) o inviare un messaggio di posta elettronica **bigcompute@microsoft.com*.
 
 ### Servizi di calcolo
 
@@ -105,7 +105,7 @@ Questi servizi in Azure sono alla base di una soluzione Big Compute. I servizi d
 Servizio | Descrizione
 ------------- | -----------
 **[Servizi cloud](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Possono eseguire applicazioni Big Compute in istanze di ruolo di lavoro, ovvero macchine virtuali su cui è in esecuzione una versione di Windows Server e gestite completamente da Azure<br/><br/>• Promuovono l'utilizzo di applicazioni scalabili e affidabili con sovraccarico amministrativo ridotto, in esecuzione in un modello PaaS (Platform as-a Service)<br/><br/>• Potrebbero richiedere ulteriori strumenti o sviluppo per l'integrazione con soluzioni cluster HPC locali
-**[Macchine virtuali](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• Forniscono potenza di calcolo IaaS (Infrastructure as-a Service) mediante la tecnologia Microsoft Hyper-V<br/><br/>• Consentono di eseguire il provisioning e gestire computer cloud permanenti basati su immagini Windows Server o Linux standard, altre immagini e dischi di dati o provenienti dall'[Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Permettono l'esecuzione di strumenti cluster di calcolo locali e di applicazioni interamente nel cloud
+**[Macchine virtuali](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• Forniscono potenza di calcolo IaaS (Infrastructure as-a Service) mediante la tecnologia Microsoft Hyper-V<br/><br/>• Consentono di eseguire il provisioning e gestire computer cloud permanenti basati su immagini Windows Server o Linux standard, altre immagini e dischi di dati o provenienti dall'[Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Permettono l'esecuzione di strumenti cluster di elaborazione locali e di applicazioni interamente nel cloud
 **[Batch](http://azure.microsoft.com/documentation/services/batch)**<br/><br/> |• Esegue carichi di lavoro su larga scala in parallelo e in batch, ad esempio il rendering delle immagini, nonché la codifica e transcodifica multimediale in un servizio completamente gestito<br/><br/>• Garantisce la pianificazione dei processi e la scalabilità automatica di un pool di macchine virtuali gestito<br/><br/>• Consente agli sviluppatori di compilare ed eseguire applicazioni come un servizio o abilitare al cloud applicazioni esistenti<br/>
 
 ### Servizi di archiviazione
@@ -120,11 +120,11 @@ In genere una soluzione Big Compute opera su un set di dati di input e genera da
 
 Alcuni scenari di Big Compute implicano i flussi di dati su larga scala o generano i dati che necessitano di ulteriore elaborazione o analisi. Per gestire questa situazione, Azure offre una serie di servizi dati e l'analisi, tra cui:
 
-* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory): consent la creazione di flussi di lavoro basati sui dati (pipeline) per riunire, aggregare e trasformare dati originati da archivi dati Internet, locali e basati sul cloud.
+* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory): consente la creazione di flussi di lavoro basati sui dati (pipeline) per riunire, aggregare e trasformare dati originati da archivi dati Internet, locali e basati sul cloud.
 
 * [Database SQL](http://azure.microsoft.com/documentation/services/sql-database): fornisce le funzionalità principali di un sistema di gestione di database relazionali Microsoft SQL Server in un servizio di piattaforma gestita.
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight): distribuzione e provisioning di cluster di Windows Server o Apache Hadoop basati su Linux nel cloud per gestire, analizzare e creare report sui big data con elevata affidabilità e disponibilità.
+* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight): distribuzione e provisioning di cluster Apache Hadoop basati su Windows Server o Linux nel cloud per gestire, analizzare e creare report sui Big Data con elevata affidabilità e disponibilità.
 
 * [Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning): consente di creare, testare, utilizzare e gestire soluzioni di analisi predittive in un servizio di piattaforma completamente gestito.
 
@@ -146,19 +146,19 @@ Di seguito sono riportati gli scenari comuni per eseguire carichi di lavoro Big 
 
 ### Scenario 1. Potenziamento di un cluster HPC locale in Azure
 
-**Quando si sceglierà questo?**: è possibile già si disponga di un cluster HPC in locale che esegue il calcolo dei carichi di lavoro con utilizzo intensivi, ma è necessario che le risorse di calcolo aggiuntiva per periodi di picco, ad esempio report di fine del mese o progetti speciali. Anziché acquistare, distribuire e gestire hardware e software che potrebbe essere inattivo per la maggior parte dei casi, è possibile utilizzare Azure per aggiungere potenza di calcolo su richiesta per il cluster esistente.
+**Quando si sceglierà questo?**: è possibile che già si disponga di un cluster HPC in locale che esegue il calcolo dei carichi di lavoro con utilizzi intensivi, ma esso necessita di risorse di calcolo aggiuntive per periodi di picco, ad esempio report di fine del mese o progetti speciali. Anziché acquistare, distribuire e gestire hardware e software che potrebbe essere inattivo per la maggior parte dei casi, è possibile utilizzare Azure per aggiungere potenza di calcolo su richiesta per il cluster esistente.
 
-Ad esempio, se esistente locale cluster HPC viene compilato con[Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029)è possibile aggiungere ulteriori risorse di calcolo sotto forma di istanze del ruolo di lavoro di Azure in esecuzione in un servizio cloud. Vedere la figura seguente. Per ulteriori informazioni e istruzioni dettagliate, vedere[potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+Ad esempio, se il cluster HPC locale esistente viene compilato con[Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029)è possibile aggiungere ulteriori risorse di calcolo sotto forma di istanze del ruolo di lavoro di Azure in esecuzione in un servizio cloud. Vedere la figura seguente. Per ulteriori informazioni e istruzioni dettagliate, vedere[potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 ![Potenziamento dei cluster][burst_cluster]
 
->[AZURE.NOTE]Se si desidera ridurre al minimo il footprint del cluster HPC Pack, è possibile ridurre il cluster locale solo il nodo head HPC Pack. Quindi, aggiungere che tutte le risorse su richiesta in Azure di calcolo. Per un'esercitazione viene illustrato questo scenario, vedere[configurare un cluster di calcolo ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
+>[AZURE.NOTE]Se si desidera ridurre al minimo il footprint del cluster HPC Pack, è possibile ridurre il cluster locale solo il nodo head HPC Pack. Quindi, aggiungere che tutte le risorse su richiesta in Azure di calcolo. Per un'esercitazione in cui viene illustrato questo scenario, vedere [Configurare un cluster di elaborazione ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
 
 Questa soluzione ibrida sfrutta un investimento esistente in un cluster locale, ma è possibile ridimensionare l'infrastruttura locale predefinito per i carichi di lavoro tipici (non di punta). Se è necessario accedere a un archivio di dati o del server licenze locale, è possibile impostare una rete virtuale di Azure per connettere il cluster locale in Azure.
 
 ### Scenario 2. Creare un cluster HPC in Azure
 
-**Quando si sceglierà questo?**: è possibile si disponga già di un investimento sostanziale in un cluster di Windows o Linux HPC del locale compresa la gestione e la pianificazione di strumenti e applicazioni personalizzate. Potrebbe essere necessario capacità cluster aggiuntivo per eseguire le applicazioni e i set di strumenti esistente ma non desidera investire in un'infrastruttura locale aggiuntive o modificare le applicazioni. Oppure potrebbe essere necessario creare un nuovo cluster per un breve o lungo periodo di tempo, ma non desidera pagare il costo di acquisto, la gestione e quest'ultimo si o allocare lo spazio per l'installazione e distribuzione.
+**Quando si sceglierà questo?**: è possibile che si disponga già di un investimento sostanziale in un cluster HPC locale di Windows o Linux compresa la gestione e la pianificazione di strumenti e applicazioni personalizzate. Potrebbe essere necessario capacità cluster aggiuntivo per eseguire le applicazioni e i set di strumenti esistente ma non desidera investire in un'infrastruttura locale aggiuntive o modificare le applicazioni. Oppure potrebbe essere necessario creare un nuovo cluster per un breve o lungo periodo di tempo, ma non desidera pagare il costo di acquisto, la gestione e quest'ultimo si o allocare lo spazio per l'installazione e distribuzione.
 
 È possibile utilizzare gli strumenti di Automazione di Azure per creare un cluster HPC in macchine virtuali di Azure per creare la capacità che è necessario. A seconda delle macchine virtuali che si distribuisce, è possibile eseguire un'ampia gamma di HPC e carichi di lavoro paralleli, tra cui strettamente associata applicazioni MPI.
 
@@ -168,11 +168,11 @@ Ad esempio, è possibile creare un cluster HPC basato su Windows Server con [Mic
 
 ![Cluster in IaaS][iaas_cluster]
 
-**Installazione automatizzata** per distribuire un numero elevato di Windows Server o macchine virtuali Linux è possibile utilizzare immagini di macchina virtuale standard o personalizzate e gli strumenti di Automazione di Azure, ad esempio il[interfaccia della riga di comando di Azure](../xplat-cli.md)o[Azure PowerShell](../powershell-install-configure.md). Tra gli esempi sono inclusi:
+**Installazione automatizzata** per distribuire un numero elevato di macchine virtuali Windows Server o Linux è possibile utilizzare immagini di macchina virtuale standard o personalizzate e gli strumenti di Automazione di Azure, ad esempio l’[interfaccia della riga di comando di Azure](../xplat-cli.md)o[Azure PowerShell](../powershell-install-configure.md). Tra gli esempi sono inclusi:
 
-* Per distribuire un cluster HPC Pack in servizi di infrastruttura di Azure, è possibile eseguire un flessibile [script di Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx) da un computer client, lo script utilizza un'immagine di macchina virtuale Windows Server con HPC Pack preinstallato. È inoltre possibile utilizzare un Azure[modello delle Guide rapide](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)con Azure PowerShell o CLI Azure per distribuire un cluster HPC Pack.
+* Per distribuire un cluster HPC Pack in servizi di infrastruttura di Azure, è possibile eseguire uno [script di Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx) flessibile da un computer client, lo script utilizza un'immagine di macchina virtuale Windows Server con HPC Pack preinstallato. È inoltre possibile utilizzare un[modello delle Guide rapide](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)di Azure con Azure PowerShell o la CLI di Azure per distribuire un cluster HPC Pack.
 
-* È possibile utilizzare un Azure[modello delle Guide rapide](https://azure.microsoft.com/documentation/templates/slurm/)con Azure PowerShell o CLI Azure per distribuire un cluster di Linux in esecuzione il[SLURM](https://computing.llnl.gov/linux/slurm/)gestione del carico di lavoro di origine aperto.
+* È possibile utilizzare un [modello delle Guide rapide](https://azure.microsoft.com/documentation/templates/slurm/)di Azure con Azure PowerShell o la CLI di Azure per distribuire un cluster di Linux che esegue la gestione del carico di lavoro open source [SLURM](https://computing.llnl.gov/linux/slurm/).
 
 Inserisce un intero cluster HPC nel cloud, è possibile ottenere vantaggi chiari.
 
@@ -182,15 +182,15 @@ Inserisce un intero cluster HPC nel cloud, è possibile ottenere vantaggi chiari
 
 * Rispetto a una soluzione ibrida che consente di estendere un cluster locale al cloud, esecuzione di un'applicazione interamente nel cloud consente di semplificare l'accesso ai dati. Anziché suddividere i dati tra le installazioni locali e cloud o gestire una parte dei dati di accesso dell'applicazione in modalità remota, tutti i dati dell'applicazione possono archiviati nel cloud.
 
-* Alcuni fornitori di software ottimizzare le applicazioni per l'esecuzione in cluster basati su cloud. Ad esempio, distribuendo il [MATLAB Distributed Computing Server](http://www.mathworks.com/products/distriben/) di MathWorks in un cluster HPC Pack in macchine virtuali di Azure, è possibile eseguire processi MATLAB paralleli interamente con risorse di calcolo basato su cloud.
+* Alcuni fornitori di software ottimizzare le applicazioni per l'esecuzione in cluster basati su cloud. Ad esempio, distribuendo il [MATLAB Distributed Computing Server](http://www.mathworks.com/products/distriben/) di MathWorks in un cluster HPC Pack in macchine virtuali di Azure, è possibile eseguire processi MATLAB paralleli interamente con risorse di calcolo basate su cloud.
 
 ### Scenario 3. Scalabilità orizzontale di un'applicazione parallela in Azure
 
-**Quando si sceglierà questo?**: si utilizza un'applicazione a elevato utilizzo di calcolo, ad esempio una simulazione Monte Carlo, il rendering di animazione o la transcodifica multimediale nella workstation locale o un piccolo cluster. Non si desidera gestire le risorse di calcolo o un'utilità di pianificazione del processo; al contrario, si desidera concentrarsi sull'esecuzione dell'applicazione in modo efficiente per la risoluzione dei problemi aziendali. In alternativa, è possibile scaricare l'applicazione con utilizzo intensivo di calcolo o un'applicazione di terze parti, affinché venga eseguito come servizio interamente nel cloud.
+**Quando si sceglierà questo?**: se si utilizza un'applicazione a elevato utilizzo di calcolo, ad esempio una simulazione Monte Carlo, il rendering di animazione o la transcodifica multimediale nella workstation locale o un piccolo cluster. Non si desidera gestire le risorse di calcolo o un'utilità di pianificazione del processo; al contrario, si desidera concentrarsi sull'esecuzione dell'applicazione in modo efficiente per la risoluzione dei problemi aziendali. In alternativa, è possibile scaricare l'applicazione con utilizzo intensivo di calcolo o un'applicazione di terze parti, affinché venga eseguito come servizio interamente nel cloud.
 
-A seconda del carico di lavoro, è possibile sfruttare un servizio Big Compute esistente in Azure, ospitato da Microsoft o un altro fornitore di servizi, per semplificare la gestione dell'infrastruttura e l'applicazione per la soluzione. Alcuni servizi di hosting di applicazioni specifiche per i clienti in settori selezionati. Alcuni servizi collegare applicazioni locali, consentendo una soluzione ibrida. Altri, come [Servizi multimediali di Azure](http://azure.microsoft.com/documentation/services/media-services) sono servizi della piattaforma dedicato.
+A seconda del carico di lavoro, è possibile sfruttare un servizio Big Compute esistente in Azure, ospitato da Microsoft o un altro fornitore di servizi, per semplificare la gestione dell'infrastruttura e l'applicazione per la soluzione. Alcuni servizi di hosting di applicazioni specifiche per i clienti in settori selezionati. Alcuni servizi collegare applicazioni locali, consentendo una soluzione ibrida. Altri, come i[Servizi multimediali di Azure](http://azure.microsoft.com/documentation/services/media-services) sono servizi della piattaforma dedicati.
 
-Abilitare facilmente cloud e scalare un'applicazione eseguita oggi,[Batch](http://azure.microsoft.com/documentation/services/batch)fornisce API per pianificare i processi e gestire risorse di calcolo in un servizio. Batch gestisce la distribuzione e la scalabilità automatica delle macchine virtuali, pianificazione dei processi, il ripristino di emergenza, lo spostamento dei dati, la gestione delle dipendenze, distribuzione di applicazioni e tutte le altre funzionalità richieste per eseguire processi nel cloud. Attualmente Batch è ideale per applicazioni intrinsecamente parallele come risorse di calcolo di rendering delle immagini, modellazione dei rischi finanziari e simulazioni Monte Carlo in esecuzione in Windows Server.
+Per abilitare facilmente cloud e scalare un'applicazione eseguita oggi,[Batch](http://azure.microsoft.com/documentation/services/batch)fornisce API per pianificare i processi e gestire risorse di calcolo in un servizio. Batch gestisce la distribuzione e la scalabilità automatica delle macchine virtuali, pianificazione dei processi, il ripristino di emergenza, lo spostamento dei dati, la gestione delle dipendenze, distribuzione di applicazioni e tutte le altre funzionalità richieste per eseguire processi nel cloud. Attualmente Batch è ideale per applicazioni intrinsecamente parallele come risorse di calcolo di rendering delle immagini, modellazione dei rischi finanziari e simulazioni Monte Carlo in esecuzione in Windows Server.
 
 Vedere la figura riportata di seguito per un flusso di lavoro tipico, che uno sviluppatore può creare batch.
 
@@ -211,7 +211,7 @@ Vedere la figura riportata di seguito per un flusso di lavoro tipico, che uno sv
 
 ## Passaggi successivi
 
-* Vedere[risorse tecniche per Batch e HPC](big-compute-resources.md)per trovare indicazioni tecniche per la soluzione.
+* Vedere[risorse tecniche per Batch e HPC](big-compute-resources.md)per trovare indicazioni tecniche per la soluzione di cui si ha bisogno.
 
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](http://azure.microsoft.com/blog/tag/hpc/).
 
@@ -222,4 +222,4 @@ Vedere la figura riportata di seguito per un flusso di lavoro tipico, che uno sv
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -99,4 +99,4 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 [Introduzione - Bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

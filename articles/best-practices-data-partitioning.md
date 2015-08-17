@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
+
 
 # Linee guida di partizionamento di dati
 
@@ -227,7 +229,7 @@ Lo schema di partizionamento implementato può avere un impatto significativo su
 
 - I dati archiviati in shardlet che appartengono alla stessa mappa di partizione devono avere lo stesso schema. Ad esempio, non creare un elenco di mappe di partizionamento che puntano ad alcuni shardlet contenenti i dati del tenant e ad altri shardlet contenenti informazioni sul prodotto. Questa regola non viene applicata dalla scalabilità elastica, ma la gestione dei dati e l'esecuzione di query diventa molto complessa se ogni shardlet dispone di uno schema diverso. Nell'esempio precedente, è necessario creare due elenchi di mappe di partizionamento, uno riferito ai dati tenant e l'altro alle informazioni sul prodotto. Si tenga presente che i dati appartenenti a diversi shardlet possono essere archiviati nella stessa partizione.
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]La funzionalità di query tra partizioni dell'API di scalabilità elastica dipende da ogni shardlet nella mappa di partizione che contiene lo stesso schema.
 - Le operazioni transazionali sono supportate solo per i dati contenuti all'interno della stessa partizione e non tra partizioni. Le transazioni possono estendere gli shardlet in quanto parti della stessa partizione. Pertanto, la logica di business deve eseguire transazioni, archiviare i dati nella partizione stessa oppure implementare la coerenza finale. Per ulteriori informazioni, vedere le Indicazioni sulla coerenza dei dati.
 - Posizionare le partizioni vicino agli utenti che accedono ai dati in tali partizioni (geo-localizzazione delle partizioni). Questa strategia contribuirà a ridurre la latenza.
 - Evitare di utilizzare una combinazione di partizioni attive (hotspot) e partizioni relativamente inattive. Provare e distribuire uniformemente il carico tra partizioni. Questo potrebbe richiedere l’hashing delle chiavi shardlet.
@@ -313,10 +315,10 @@ Il Bus di servizio Azure utilizza un broker messaggi per gestire i messaggi invi
 
 Il Bus di servizio assegna un messaggio a un frammento nel modo seguente:
 
-- Se il messaggio appartiene a una sessione, tutti i messaggi con lo stesso valore per la proprietà _SessionId _ vengono inviati allo stesso frammento.
+- Se il messaggio appartiene a una sessione, tutti i messaggi con lo stesso valore per la proprietà \_SessionId \_ vengono inviati allo stesso frammento.
 - Se il messaggio non appartiene a una sessione, ma il mittente ha specificato un valore per la proprietà _PartitionKey_, allora tutti i messaggi con lo stesso valore della _PartitionKey_sono inviati allo stesso frammento.
 
-	> [AZURE.NOTE]_SessionId__PartitionKey_
+	> [AZURE.NOTE]Se il _SessionId_ e le proprietà della _PartitionKey_ vengono entrambi specificati, allora devono essere impostati sullo stesso valore, in caso contrario il messaggio verrà respinto.
 - Se le proprietà _SessionId_ e _PartitionKey_ per un messaggio non sono specificate, ma è abilitato il rilevamento dei duplicati, verrà utilizzata la proprietà _MessageId_. Tutti i messaggi con lo stesso _MessageId_ verranno indirizzati allo stesso frammento.
 - Se i messaggi non includono una proprietà _SessionId, PartitionKey,_ o _MessageId_, allora il Bus di servizio assegna i messaggi a frammenti in modo round robin. Se un frammento non è disponibile, il Bus di servizio passerà al successivo. In questo modo, un errore temporaneo nell'infrastruttura di messaggistica non determina l'esito negativo dell'operazione di invio del messaggio.
 
@@ -401,9 +403,9 @@ Quando si decide come partizionare i dati con Cache Redis di Azure, è necessari
 
 _Figura 10. -Struttura consigliata nel servizio di archiviazione per la registrazione degli ordini dei clienti e i relativi dettagli Redis_
 
-> [AZURE.NOTE]In Redis, tutte le chiavi sono i valori di dati binari (come stringhe Redis) e possono contenere fino a 512 MB di dati: in teoria una chiave può contenere quasi tutte le informazioni. Tuttavia, è consigliabile adottare una convenzione di denominazione coerente per le chiavi, che descrive il tipo di dati e che identifica l'entità, ma che non è eccessivamente lunga. Un approccio comune consiste nell'utilizzare chiavi nel formato "entity_type:ID", ad esempio "cliente: 99" per indicare la chiave per il cliente con ID 99.
+> [AZURE.NOTE]In Redis, tutte le chiavi sono i valori di dati binari (come stringhe Redis) e possono contenere fino a 512 MB di dati: in teoria una chiave può contenere quasi tutte le informazioni. Tuttavia, è consigliabile adottare una convenzione di denominazione coerente per le chiavi, che descrive il tipo di dati e che identifica l'entità, ma che non è eccessivamente lunga. Un approccio comune consiste nell'utilizzare chiavi nel formato "entity\_type:ID", ad esempio "cliente: 99" per indicare la chiave per il cliente con ID 99.
 
-- È possibile implementare il partizionamento verticale archiviando le informazioni correlate in aggregazioni diverse nello stesso database. Ad esempio, in un’applicazione e-commerce è possibile archiviare informazioni sui prodotti maggiormente utilizzati in un hash di Redis e le informazioni dettagliate utilizzate meno frequentemente in un altro. Entrambi gli hash potrebbero utilizzare lo stesso ID di prodotto come parte della chiave, ad esempio "prodotto: _nn_" dove _nn_ è l'ID di prodotto per informazioni sul prodotto e "product_details: _nn_" per i dati dettagliati. Questa strategia può contribuire a ridurre il volume dei dati che possono recuperare la maggior parte delle query.
+- È possibile implementare il partizionamento verticale archiviando le informazioni correlate in aggregazioni diverse nello stesso database. Ad esempio, in un’applicazione e-commerce è possibile archiviare informazioni sui prodotti maggiormente utilizzati in un hash di Redis e le informazioni dettagliate utilizzate meno frequentemente in un altro. Entrambi gli hash potrebbero utilizzare lo stesso ID di prodotto come parte della chiave, ad esempio "prodotto:_nn_" dove _nn_ è l'ID di prodotto per informazioni sul prodotto e "product\_details: _nn_" per i dati dettagliati. Questa strategia può contribuire a ridurre il volume dei dati che possono recuperare la maggior parte delle query.
 - Ripartizionare un archivio dati Redis è un'attività lunga e complessa. I clustering redis possono ripartizionare dati automaticamente, ma questa funzionalità non è disponibile con Cache Redis di Azure. Pertanto, quando si progetta lo schema di partizione, è opportuno cercare di lasciare sufficiente spazio libero in ogni partizione per consentire la crescita dei dati previsti nel tempo. Tuttavia, tenere presente che Cache Redis di Azure consente di memorizzare dati temporaneamente e che i dati contenuti nella cache possono avere una durata limitata, specificata come valore time-to-live (TTL). Per i dati volatili la durata TTL deve essere più breve, ma per i dati statici la durata TTL può essere molto più lunga. È consigliabile evitare di archiviare grandi quantità di dati di lunga durata nella cache, se il volume dei dati deve riempire la cache. È possibile specificare un criterio di rimozione che spinge la Cache Redis di Azure a rimuovere i dati se lo spazio è prezioso.
 
 	> [AZURE.NOTE]Cache Redis di Azure consente di specificare le dimensioni massime della cache (da 250 MB a 53 GB) selezionando la fascia di prezzo appropriato. Tuttavia, dopo aver creata una Cache Redis di Azure, è possibile aumentare (o diminuire) le dimensioni.
@@ -477,4 +479,4 @@ I modelli seguenti possono essere rilevanti per il proprio scenario anche quando
 - La pagina [Esecuzione Redis in una macchina virtuale CentOS Linux in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) sul sito Web Microsoft illustra un esempio che mostra come creare e configurare un nodo Redis in esecuzione come una macchina virtuale di Azure.
 - La pagina [Tipi di dati](http://redis.io/topics/data-types) sul sito Web di Redis descrive i tipi di dati che sono disponibili con Redis e Cache Redis di Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

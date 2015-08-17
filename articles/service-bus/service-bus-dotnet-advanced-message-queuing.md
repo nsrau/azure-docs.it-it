@@ -308,4 +308,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

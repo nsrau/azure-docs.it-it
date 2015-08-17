@@ -69,7 +69,7 @@ Diagramma 1: panoramica del processo di ripetizione del training
 
 	Si noti che il codice di esempio contiene commenti che indicano le parti del codice per cui sono necessari aggiornamenti. Inoltre, quando si specifica la posizione "output1" nel payload della richiesta, l'estensione di file di "RelativeLocation" deve essere sostituita con ".ileaner" come in "Outputs": {Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}.
 
-	1. Specificare informazioni sull'archiviazione di Azure. Il codice di esempio per il servizio Esecuzione batch caricherà un file da un'unità locale (ad esempio "C:\temp\CensusIpnput.csv") in Archiviazione di Azure, lo elaborerà e scriverà i risultati in Archiviazione di Azure.  
+	1. Specificare informazioni sull'archiviazione di Azure. Il codice di esempio per il servizio Esecuzione batch caricherà un file da un'unità locale (ad esempio "C:\\temp\\CensusIpnput.csv") in Archiviazione di Azure, lo elaborerà e scriverà i risultati in Archiviazione di Azure.  
 
 		A tale scopo, è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni relative al contenitore dal portale di gestione di Azure e quindi aggiornare qui il codice. È necessario anche assicurarsi che il file di input sia disponibile nella posizione specificata nel codice.
 
@@ -107,4 +107,4 @@ Mediante le API per la ripetizione del training è possibile aggiornare il model
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

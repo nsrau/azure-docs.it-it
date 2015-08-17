@@ -69,4 +69,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

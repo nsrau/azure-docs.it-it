@@ -28,26 +28,26 @@ Usare `pip wheel` per compilare una dipendenza:
 
     env\scripts\pip wheel azure==0.8.4
 
-Verrà creato un file con estensione whl nella cartella \wheelhouse. Aggiungere la cartella \wheelhouse e i file wheel nel repository.
+Verrà creato un file con estensione whl nella cartella \\wheelhouse. Aggiungere la cartella \\wheelhouse e i file wheel nel repository.
 
 Modificare requirements.txt per aggiungere l'opzione `--find-links` nella parte superiore. In questo modo, si indica a pip di cercare una corrispondenza esatta nella cartella locale prima di passare all'indice del pacchetto Python.
 
     --find-links wheelhouse
     azure==0.8.4
 
-Per includere tutte le dipendenze nella cartella \wheelhouse senza usare del tutto l'indice del pacchetto Python, è possibile forzare pip in modo che ignori l'indice del pacchetto aggiungendo `--no-index` nella parte superiore di requirements.txt.
+Per includere tutte le dipendenze nella cartella \\wheelhouse senza usare del tutto l'indice del pacchetto Python, è possibile forzare pip in modo che ignori l'indice del pacchetto aggiungendo `--no-index` nella parte superiore di requirements.txt.
 
     --no-index
 
 ### Personalizzare l'installazione
 
-È possibile personalizzare lo script di distribuzione in modo da installare un pacchetto nell'ambiente virtuale usando un programma di installazione alternativo, come easy\_install. Per un esempio impostato come commento, vedere deploy.cmd. Assicurarsi che questi pacchetti non siano elencati in requirements.txt, in modo da impedirne l'installazione da parte di pip.
+È possibile personalizzare lo script di distribuzione in modo da installare un pacchetto nell'ambiente virtuale usando un programma di installazione alternativo, come easy\\\_install. Per un esempio impostato come commento, vedere deploy.cmd. Assicurarsi che questi pacchetti non siano elencati in requirements.txt, in modo da impedirne l'installazione da parte di pip.
 
 Aggiungere questa riga allo script di distribuzione:
 
     env\scripts\easy_install somepackage
 
-Potrebbe anche essere possibile usare easy\_install per eseguire l'installazione da un programma di installazione EXE (alcuni sono compatibili con il formato ZIP e quindi sono supportati da easy\_install). Aggiungere il programma di installazione nel repository e richiamare easy\_install passando il percorso del file eseguibile.
+Potrebbe anche essere possibile usare easy\\\_install per eseguire l'installazione da un programma di installazione EXE (alcuni sono compatibili con il formato ZIP e quindi sono supportati da easy\\\_install). Aggiungere il programma di installazione nel repository e richiamare easy\\\_install passando il percorso del file eseguibile.
 
 Aggiungere questa riga allo script di distribuzione:
 
@@ -68,4 +68,4 @@ Se si include l'ambiente virtuale nel repository, è possibile impedire allo scr
 [Microsoft Visual C++ per Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -66,4 +66,4 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

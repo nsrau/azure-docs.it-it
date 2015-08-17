@@ -36,4 +36,4 @@ Tutto il traffico indirizzato a *www.contoso.com* verrà ora reindirizzato a *co
 [Panoramica di Gestione traffico](traffic-manager-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

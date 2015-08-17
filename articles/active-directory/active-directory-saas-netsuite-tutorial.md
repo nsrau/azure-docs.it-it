@@ -64,7 +64,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 	![Selezionare Single Sign-On di Microsoft Azure AD][7]
 
-	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](https://msdn.microsoft.com/library/azure/dn308588.aspx).
+	> [AZURE.NOTE]Per altre informazioni sulle diverse opzioni dell'accesso Single Sign-On, [fare clic qui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. Nella pagina **Configurare le impostazioni dell'app** immettere nel campo **URL di accesso** l'URL del tenant di NetSuite, usando uno dei formati seguenti:
 	- `https://<tenant-name>.netsuite.com`
@@ -218,11 +218,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **NetSuite**.
 
-##Vedere anche
-
-- [Elenco di esercitazioni sull'integrazione di applicazioni SaaS](active-directory-saas-tutorial-list.md)
-- [Accesso all'applicazione in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
@@ -258,4 +254,4 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

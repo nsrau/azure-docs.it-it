@@ -17,7 +17,7 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Rinominare in SQL Data Warehouse
-SQL Server supporta la ridenominazione di oggetti e database rispettivamente tramite le stored procedure sp_rename e sp_renamedb.
+SQL Server supporta la ridenominazione di oggetti e database rispettivamente tramite le stored procedure sp\_rename e sp\_renamedb.
 
 SQL Data Warehouse usa la sintassi DDL per ottenere lo stesso obiettivo. I comandi DDL sono RENAME OBJECT e RENAME DATABASE.
 
@@ -80,4 +80,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

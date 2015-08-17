@@ -94,4 +94,4 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

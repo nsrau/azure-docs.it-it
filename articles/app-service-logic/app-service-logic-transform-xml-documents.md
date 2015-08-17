@@ -116,4 +116,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

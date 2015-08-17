@@ -7,14 +7,16 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
+
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2015"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
+
 	
 # Eseguire una distribuzione da Visual Studio
 
@@ -23,7 +25,7 @@ Anche se il [portale di Azure](https://portal.azure.com) rappresenta un ottimo m
 - Archiviare all'app per la logica insieme ad altre risorse nella soluzione in modo che possa contenere tutti gli aspetti dell'applicazione
 - Controllare la definizione dell'app per la logica archiviata nel codice sorgente in modo da poter usare TFS o Git per tenere traccia delle relative revisioni 
 
-Per eseguire la procedura seguente è necessario avere installato Azure SDK 2.6. L'[SDK più recente per Visual Studio](http://azure.microsoft.com/downloads/) è disponibile qui.
+Per eseguire la procedura seguente è necessario avere installato Azure SDK 2.7 o versione successiva. L'[SDK più recente per Visual Studio](http://azure.microsoft.com/downloads/) è disponibile qui.
 
 ## Creare un progetto
 
@@ -45,7 +47,7 @@ Si consiglia di usare **parametri** in tutta la definizione. L'uso dei parametri
 
 Attualmente Visual Studio non dispone di una finestra di progettazione incorporata; pertanto, se si vuole usare un'interfaccia grafica (anziché la scrittura di JSON), è necessario usare il portale di Azure.
 
-Se in precedenza è stata creata un'app per la logica all'interno del portale di Azure e l'ora si desidera archiviarla nel controllo del codice sorgente, è possibile: - Passare a **Visualizzazione Codice** nel portale e copiare la definizione. - Usare le app per la logica [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) per ottenere la definizione. - Usare [la PowerShell di Gestione risorse di Azure](../powershell-azure-resource-manager.md), in particolare il comando [`Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx) per scaricare la definizione.
+Se in precedenza è stata creata un'app per la logica all'interno del portale di Azure e ora si desidera archiviarla nel controllo del codice sorgente, è possibile eseguire l’operazione in uno di 3 modi diversi: - Passare a **Visualizzazione Codice** nel portale e copiare la definizione. - Usare le app per la logica [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) per ottenere la definizione. - Usare [la PowerShell di Gestione risorse di Azure](../powershell-azure-resource-manager.md), in particolare il comando [`Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx) per scaricare la definizione.
 
 ## Distribuzione dell'app per la logica
 
@@ -65,4 +67,4 @@ In futuro sarà possibile modificare l'app per la logica nel controllo del codic
 
 Se non si vuole usare Visual Studio, ma si desidera comunque avere gli strumenti necessari per distribuire l'app per la logica dal controllo di origine è sempre possibile usare l'[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [PowerShell](../powershell-azure-resource-manager.md) direttamente per automatizzare le distribuzioni.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

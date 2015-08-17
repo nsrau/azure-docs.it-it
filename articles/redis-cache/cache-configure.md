@@ -154,4 +154,4 @@ Per un elenco dei comandi di Redis che sono disabilitati per Cache Redis di Azur
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

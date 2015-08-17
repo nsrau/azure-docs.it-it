@@ -65,4 +65,4 @@ Di seguito sono indicati possibili problemi che relativi al modo in cui Azure Mo
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

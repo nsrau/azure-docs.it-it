@@ -4,8 +4,10 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
+	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
+
 
 <tags
 	ms.service="app-service-web"
@@ -13,8 +15,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="cephalin"/>
+
 
 # Configurare ambienti di gestione temporanea per le app Web nel servizio app di Azure
 <a name="Overview"></a>
@@ -59,7 +62,7 @@ Per abilitare più slot di distribuzione, l'app Web deve essere in esecuzione in
 
 	![Origini della configurazione][MultipleConfigurationSources]
 
-5. Nel pannello **Slot di distribuzione** fare clic sullo slot di distribuzione per aprire un pannello per lo slot, con un set di metriche e configurazione come qualsiasi altra app Web. <strong>La stringa <i>nome dell'app Web</i>-<i>nome slot di distribuzione</i></strong> verrà visualizzata nella parte superiore del pannello per ricordare all'utente che è visualizzato lo slot di distribuzione.
+5. Nel pannello **Slot di distribuzione** fare clic sullo slot di distribuzione per aprire un pannello per lo slot, con un set di metriche e configurazione come qualsiasi altra app Web. La stringa **nome dell'app Web nome slot di distribuzione** verrà visualizzata nella parte superiore del pannello per ricordare all'utente che è visualizzato lo slot di distribuzione.
 
 	![Titolo slot di distribuzione][StagingTitle]
 
@@ -259,4 +262,4 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

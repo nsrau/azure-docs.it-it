@@ -3,7 +3,7 @@
 
 Servizi cloud è un esempio di Platform-as-a-Service (PaaS). Analogamente ai [servizi app](app-service-web-overview.md), tale tecnologia è stata progettata per supportare applicazioni scalabili, affidabili ed economicamente efficienti. Proprio come i [servizi app](app-service-web-overview.md), i servizi cloud sono ospitati su macchine virtuali, tuttavia il controllo sulle macchine virtuali è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
 
-![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
+![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
 Maggiore controllo significa anche minore semplicità d'uso. Pertanto, se non sono necessarie opzioni di controllo aggiuntive, in genere è più semplice e rapido creare ed eseguire un'applicazione Web in Siti Web rispetto a Servizi Cloud.
 
@@ -30,4 +30,4 @@ Servizi cloud offre inoltre funzionalità di monitoraggio. Analogamente a Macchi
 
 L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre implicazioni, ad esempio il fatto che le applicazioni basate su tale tecnologia devono essere scritte in modo da essere eseguite correttamente in caso di errore di istanze dei ruoli Web o di lavoro. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali di Azure, le operazioni di scrittura effettuate nelle VM di Servizi cloud non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud vengano scritti esplicitamente in database SQL, BLOB, tabelle o altre tecnologie di archiviazione esterna. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, obiettivi essenziali di Servizi cloud.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

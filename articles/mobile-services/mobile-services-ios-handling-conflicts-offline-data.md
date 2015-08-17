@@ -7,6 +7,7 @@
 	editor=""
 	services="mobile-services"/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="07/01/2015" 
 	ms.author="krisragh;donnam"/>
+
 
 
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
@@ -51,7 +53,7 @@ Le funzionalità di sincronizzazione offline nell'SDK consentono di gestire tali
 
 ### <a name="update-list-view"></a>Aggiornare il controller di visualizzazione dell'elenco attività
 
-1. Selezionare **MainStoryboard_iPhone.storyboard** nello strumento di navigazione del progetto Xcode, quindi scegliere l'opzione relativa al **controller di visualizzazione dell'elenco attività**. Selezionare la cella della visualizzazione tabella e impostare la relativa modalità Accessory su **Disclosure indicator**. Questo indicatore segnala agli utenti che selezionando il controller di visualizzazione tabella associato, è possibile visualizzare una nuova visualizzazione. L'indicatore non produce alcun evento.
+1. Selezionare **MainStoryboard\_iPhone.storyboard** nello strumento di navigazione del progetto Xcode, quindi scegliere l'opzione relativa al **controller di visualizzazione dell'elenco attività**. Selezionare la cella della visualizzazione tabella e impostare la relativa modalità Accessory su **Disclosure indicator**. Questo indicatore segnala agli utenti che selezionando il controller di visualizzazione tabella associato, è possibile visualizzare una nuova visualizzazione. L'indicatore non produce alcun evento.
 
       ![][update-todo-list-view-controller-2]
 
@@ -145,7 +147,7 @@ Le funzionalità di sincronizzazione offline nell'SDK consentono di gestire tali
 
 ### <a name="add-segue"></a>Aggiungere il controller di visualizzazione dell'attività e l'elemento Segue allo storyboard
 
-1. Tornare al file **MainStoryboard_iPhone.storyboard** usando lo strumento di navigazione del progetto.
+1. Tornare al file **MainStoryboard\_iPhone.storyboard** usando lo strumento di navigazione del progetto.
 
 2. Aggiungere un nuovo controller per l'attività allo storyboard, a destra del **controller di visualizzazione dell'attività** corrente. Impostare la classe personalizzata del nuovo controller di visualizzazione su **QSItemViewController**. Per altre informazioni, vedere [Aggiunta di una scena a uno storyboard].
 
@@ -472,4 +474,4 @@ Nel corso della procedura, si è aggiunta la classe helper **QSUIAlertViewWithBl
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

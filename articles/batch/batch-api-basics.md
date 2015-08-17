@@ -106,7 +106,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
 - La famiglia e la versione del sistema operativo in esecuzione nei nodi.
 	- Analogamente ai ruoli di lavoro, è possibile configurare la famiglia e la versione del sistema operativo.
 	- La famiglia del sistema operativo determina anche le versioni di .NET installate con il sistema operativo.
-	- Analogamente ai ruoli di lavoro, per la versione del sistema operativo è consigliabile usare "\*", in modo che i nodi vengano aggiornati automaticamente e non sia necessaria alcuna modifica per le nuove versioni. Il motivo principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare il mantenimento della compatibilità delle applicazioni, permettendo l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la versione del sistema operativo per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione verranno interrotte e accodate di nuovo.
+	- Analogamente ai ruoli di lavoro, per la versione del sistema operativo è consigliabile usare "*", in modo che i nodi vengano aggiornati automaticamente e non sia necessaria alcuna modifica per le nuove versioni. Il motivo principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare il mantenimento della compatibilità delle applicazioni, permettendo l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la versione del sistema operativo per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione verranno interrotte e accodate di nuovo.
 
 - Il numero di nodi di destinazione che devono essere disponibili per il pool.
 
@@ -385,4 +385,4 @@ A ogni nodo di un pool viene assegnato un nome univoco e il nodo in cui viene es
 
 [Panoramica di Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

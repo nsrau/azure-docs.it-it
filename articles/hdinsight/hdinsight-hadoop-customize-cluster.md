@@ -172,4 +172,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante il provisioning di un cluster"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

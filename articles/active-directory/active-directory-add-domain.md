@@ -7,14 +7,16 @@
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
+
 <tags 
 	ms.service="active-directory" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/12/2015" 
 	ms.author="Justinha"/>
+
 
 # Aggiungere un nome di dominio personalizzato ad Azure AD
 
@@ -58,7 +60,8 @@ Se si prevede di usare la funzionalità Single Sign-On con il servizio cloud, è
 ### Aggiungere e verificare un dominio tramite il portale di gestione di Azure
 
 1. Nel portale fare clic su **Active Directory** e quindi sul nome della directory dell'organizzazione. È possibile eseguire una delle procedure seguenti:
-    1. Nella pagina della directory predefinita fare clic su **Aggiungi dominio** nella sezione **Migliorare l'esperienza di accesso degli utenti**. 2. Fare clic su **Domini** e quindi sul pulsante **Aggiungi dominio personalizzato** o **Aggiungi**.
+    1. Nella pagina della directory predefinita fare clic su **Aggiungi dominio** nella sezione **Migliorare l'esperienza di accesso degli utenti**.
+2. Fare clic su **Domini** e quindi sul pulsante **Aggiungi dominio personalizzato** o **Aggiungi**.
 2. Nella pagina **Aggiungi dominio** digitare il nome di dominio che si vuole aggiungere ed eseguire una delle operazioni seguenti:
     1. Se non si prevede di integrare Active Directory locale con Azure AD, eseguire le operazioni seguenti:
         1. Lasciare deselezionata la casella di controllo **Desidero configurare questo dominio per l'accesso Single Sign-On con il mio servizio Active Directory locale** e fare clic sul pulsante **Aggiungi**.
@@ -211,4 +214,4 @@ Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiun
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

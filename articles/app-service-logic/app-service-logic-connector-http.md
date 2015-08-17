@@ -88,4 +88,4 @@ L'output dell'azione HTTP sono le intestazioni e il corpo, che possono essere us
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

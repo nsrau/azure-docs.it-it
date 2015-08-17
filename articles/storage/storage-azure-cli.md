@@ -80,9 +80,9 @@ Per altre informazioni sugli account [Azure, vedere Gestire account, sottoscrizi
 
     - **<container_name>** Usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
 
-    - **<image_to_upload>** Immettere il percorso di un'immagine nel computer locale, ad esempio "C:\Immagini\HelloWorld.png".
+    - **<image_to_upload>** Immettere il percorso di un'immagine nel computer locale, ad esempio "C:\\Immagini\\HelloWorld.png".
 
-    - **<destination_folder>** Immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "C:\DownloadImages".
+    - **<destination_folder>** Immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "C:\\DownloadImages".
 
 7. Dopo avere aggiornato le variabili necessarie in vim, premere le combinazioni di tasti "Esc,:, wq!" per salvare lo script.
 
@@ -189,7 +189,7 @@ Si noti che tale percorso di directory può includere più livelli, *ad esempio*
 
 ### Caricare un file locale nella directory
 
-Nell'esempio seguente viene caricato un file da **~/temp/samplefile.txt** per il **myDir** directory. Modificare il percorso del file in modo che punti a un file valido nel computer locale:
+Nell'esempio seguente viene caricato un file da **\~/temp/samplefile.txt** per il **myDir** directory. Modificare il percorso del file in modo che punti a un file valido nel computer locale:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -214,4 +214,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

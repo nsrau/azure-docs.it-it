@@ -16,7 +16,7 @@
    ms.date="07/22/2015"
    ms.author="jgao"/>
 
-#Provisioning di cluster Hadoop in HDInsight
+#Eseguire il provisioning di cluster Hadoop in HDInsight
 
 Informazioni su come pianificare il provisioning di cluster HDInsight.
 
@@ -111,7 +111,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 	- Utente HTTP. Il nome utente predefinito è admin con la configurazione di base nel portale di Azure.
 	- Utente RDP (cluster Windows): usato per la connessione al cluster tramite RDP. Quando si crea l'account, è necessario impostare una scadenza corrispondente a una data entro 90 giorni dalla data odierna. 
-	- Utente SSH (cluster Linux): usato per la connessione aI cluster tramite SSH. È possibile creare account utente SSH aggiuntivi dopo la creazione del cluster tramite l'esecuzione dei passaggi illustrati in [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+	- Utente SSH (cluster Linux): usato per la connessione ai cluster tramite SSH. È possibile creare account utente SSH aggiuntivi dopo la creazione del cluster tramite l'esecuzione dei passaggi illustrati in [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
   
  
 
@@ -152,7 +152,7 @@ A volte potrebbe essere necessario modificare i file di configurazione. Ecco alc
 - hive-site.xml
 - oozie-site.xml
 
-I cluster non possono conservare le modifiche a causa del re-imaging. Per altre informazioni, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di provisioning.
+I cluster non possono conservare le modifiche a causa del re-imaging. Per altre informazioni, vedere [Riavvii delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di provisioning.
 
 L'esempio di script di Azure PowerShell seguente illustra la personalizzazione di una configurazione Hive:
 
@@ -427,19 +427,19 @@ Durante il provisioning di un cluster è possibile usare le altre opzioni di con
 
 **Per elencare cluster HDInsight**
 
-- Eseguire il comando seguente da una finestra della console di Azure Powershell per elencare il cluster HDInsight e verificare che sia stato effettuato correttamente il provisioning del cluster:
+- Eseguire il comando seguente da una finestra della console di Azure PowerShell per elencare il cluster HDInsight e verificare che sia stato effettuato correttamente il provisioning del cluster:
 
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
-### Usare l’interfaccia della riga di comando di Azure
+### Usare l'interfaccia della riga di comando di Azure
 
-> [AZURE.NOTE]A partire da 29/8/2014 non è più possibile associare l’interfaccia della riga di comando di Azure a una rete virtuale di Azure.
+> [AZURE.NOTE]A partire da 29/8/2014 non è più possibile associare l'interfaccia della riga di comando di Azure a una rete virtuale di Azure.
 
 Un'altra opzione per effettuare il provisioning di un cluster HDInsight è l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux. È possibile installare l'interfaccia della riga di comando dai percorsi seguenti:
 
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Interfaccia della riga di comando** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+- **Interfaccia della riga di comando** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
 Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere l'articolo sull'[interfaccia del la riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md).
 
@@ -447,11 +447,11 @@ Le istruzioni seguenti illustrano come installare la riga di comando Azure in Li
 
 - [Configurare l'interfaccia della riga di comando di Azure per Linux](#clilin)
 - [Configurare l'interfaccia della riga di comando di Azure per Windows](#cliwin)
-- [Effettuare il provisioning di cluster HDInsight tramite l’interfaccia della riga di comando di Azure](#cliprovision)
+- [Effettuare il provisioning di cluster HDInsight tramite l'interfaccia della riga di comando di Azure](#cliprovision)
 
 #### <a id="clilin"></a>Configurare l'interfaccia della riga di comando di Azure per Linux
 
-Seguire queste procedure per configurare il computer Linux per l'uso dell’interfaccia della riga di comando di Azure:
+Seguire queste procedure per configurare il computer Linux per l'uso dell'interfaccia della riga di comando di Azure:
 
 - Installare l'interfaccia della riga di comando di Azure tramite Node.js Package Manager (NPM)
 - Connettersi alla sottoscrizione di Azure
@@ -475,7 +475,7 @@ Seguire queste procedure per configurare il computer Linux per l'uso dell’inte
 
 **Per connettersi alla sottoscrizione di Azure**
 
-Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall’interfaccia della riga di comando di Azure per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata dall’interfaccia della riga di comando di Azure per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
+Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall'interfaccia della riga di comando di Azure per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata dall'interfaccia della riga di comando di Azure per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
 
 > [AZURE.NOTE]Il file di impostazioni di pubblicazione contiene informazioni riservate. Microsoft consiglia di eliminare il file o di eseguire altri passaggi per crittografare la cartella utente contenente il file. In Windows modificare le proprietà della cartella o usare Crittografia unità BitLocker.
 
@@ -497,7 +497,7 @@ Prima di usare l'interfaccia della riga di comando, è necessario configurare la
 
 #### <a id="cliwin"></a>Configurare l'interfaccia della riga di comando di Azure per Windows
 
-Seguire queste procedure per configurare il computer Windows per l'uso dell’interfaccia della riga di comando di Azure:
+Seguire queste procedure per configurare il computer Windows per l'uso dell'interfaccia della riga di comando di Azure:
 
 - Installare l'interfaccia della riga di comando di Azure tramite NPM o Windows Installer
 - Scaricare e importare le impostazioni di pubblicazione dell'account Azure
@@ -514,7 +514,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Se viene visualizzato un messaggio di errore in cui si informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente PATH: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> o <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
+	> [AZURE.NOTE]Se viene visualizzato un messaggio di errore in cui si informa che il comando NPM non è stato trovato, verificare che i percorsi seguenti siano presenti nella variabile di ambiente PATH: <i>C:\\Programmi (x86)\\nodejs;C:\\Users[nome utente]\\AppData\\Roaming\\npm</i> o <i>C:\\Programmi\\nodejs;C:\\Users[nome utente]\\AppData\\Roaming\\npm</i>
 
 5.	Eseguire il comando seguente per verificare l'installazione:
 
@@ -529,11 +529,12 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 **Per installare l'interfaccia della riga di comando di Azure tramite Windows Installer**
 
-1.	Passare a **http://azure.microsoft.com/downloads/**. 2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
+1.	Passare a ****http://azure.microsoft.com/downloads/**.
+2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
 
 **Per scaricare e importare impostazioni di pubblicazione**
 
-Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall’interfaccia della riga di comando di Azure per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata dall’interfaccia della riga di comando di Azure per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
+Prima di usare l'interfaccia della riga di comando, è necessario configurare la connettività tra la workstation e Azure. Le informazioni relative alla sottoscrizione di Azure vengono usate dall'interfaccia della riga di comando di Azure per connettersi all'account dell'utente. Tali informazioni possono essere ottenute da Azure in un file di impostazioni di pubblicazione. Il file di impostazioni di pubblicazione può essere quindi importato come impostazione di configurazione locale persistente che verrà usata dall'interfaccia della riga di comando di Azure per le operazioni successive. Sarà necessario importare le impostazioni di pubblicazione una sola volta.
 
 > [AZURE.NOTE]Il file di impostazioni di pubblicazione contiene informazioni riservate. Microsoft consiglia di eliminare il file o di eseguire altri passaggi per crittografare la cartella utente contenente il file. In Windows, modificare le proprietà della cartella o usare BitLocker.
 
@@ -781,4 +782,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

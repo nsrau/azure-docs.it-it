@@ -16,4 +16,4 @@
 
    	Si noti che il testo salvato è archiviato in una raccolta in memoria e visualizzato nell'elenco seguente.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

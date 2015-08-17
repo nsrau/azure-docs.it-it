@@ -122,12 +122,12 @@ Di seguito è illustrato un esempio di ciò che viene visualizzato nel portale d
 
 Per impostazione predefinita, vengono raccolti i contatori seguenti:
 
-    * \Process(??APP_WIN32_PROC??)% Processor Time
+    * \Process(??APP_WIN32_PROC??)\% Processor Time
 	* \Memory\Available Bytes
-	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
+	* \.NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-	* \Processor(_Total)% Processor Time
+	* \Processor(_Total)\% Processor Time
 
 Inoltre, per i ruoli Web vengono raccolti anche i contatori seguenti:
 
@@ -196,4 +196,4 @@ Per ottenere una visione completa a 360 gradi dell'applicazione, è necessario e
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -107,4 +107,4 @@ Il servizio mobile e l'app sono ora configurati per l'uso con l'account Microsof
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -186,7 +186,7 @@ Restituisce l'indice nell'attributo multivalore in cui è stata trovata la strin
 
 **Esempio**<br> `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`<br> `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Entrambi gli esempi restituiscono "\*Hello world!\*"
+Entrambi gli esempi restituiscono "*Hello world!*"
  
  
 
@@ -194,15 +194,15 @@ Entrambi gli esempi restituiscono "\*Hello world!\*"
 ----------
 ### ConvertFromUTF8Hex
 
-**Descrizione:**<br> La funzione ConvertFromUTF8Hex converte il valore con codifica hex UTF8 specificato in una stringa.
+**Descrizione:**<br> la funzione ConvertFromUTF8Hex converte il valore con codifica hex UTF8 specificato in una stringa.
  
 **Sintassi:**<br> `str ConvertFromUTF8Hex(str source)`
 
 - source: stringa con codifica a 2 byte UTF8
  
-**Osservazioni:**<br> La differenza tra questa funzione e ConvertFromBase64(,UTF8) consiste nel fatto che il risultato può essere usato per l'attributo DN.<br> Questo formato viene utilizzato da Azure Active Directory come DN.
+**Osservazioni:**<br> la differenza tra questa funzione e ConvertFromBase64(,UTF8) consiste nel fatto che il risultato può essere usato per l'attributo DN.<br> Questo formato viene utilizzato da Azure Active Directory come DN.
  
-**Esempio:**<br> `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`<br> Restituisce "\*Hello world!\*"
+**Esempio:**<br> `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`<br> Restituisce "*Hello world!*"
  
  
 
@@ -226,7 +226,7 @@ Entrambi gli esempi restituiscono "\*Hello world!\*"
  
 **Sintassi:**<br> `str ConvertToUTF8Hex(str source)`
  
-**Osservazioni:**<br> Il formato di output di questa funzione viene utilizzato da Azure Active Directory come formato dell'attributo DN.
+**Osservazioni:**<br> Il formato di output di questa funzione viene usato da Azure Active Directory come formato dell'attributo DN.
  
 **Esempio:** <br> `ConvertToUTF8Hex("Hello world!")` <br> Restituisce 48656C6C6F20776F726C6421
  
@@ -308,7 +308,7 @@ Entrambi gli esempi restituiscono "\*Hello world!\*"
 ----------
 ### DateFromNum
 
-**Descrizione:** <br> La funzione DateFromNum converte un valore nel formato di data di AD in un tipo DateTime.
+**Descrizione:** <br> La funzione DateFromNum converte un valore nel formato di data di Active Directory in un tipo DateTime.
  
 **Sintassi:** <br> `dt DateFromNum(num value)`
  
@@ -363,7 +363,7 @@ Entrambi gli esempi restituiscono "\*Hello world!\*"
 ----------
 ### EscapeDNComponent
 
-**Descrizione:** <br> La funzione EscapeDNComponent accetta un componente di un DN e inserisce un carattere di escape per consentirne la rappresentazione in LDAP.
+**Descrizione:** <br> La funzione EscapeDNComponent accetta un componente di un oggetto DN e inserisce un carattere di escape per consentirne la rappresentazione in LDAP.
  
 **Sintassi:** <br> `str EscapeDNComponent(str value)`
  
@@ -414,7 +414,7 @@ Entrambi gli esempi restituiscono "\*Hello world!\*"
 - valueIfTrue: valore che verrà restituito se la condizione restituisce true.
 - valueIfFalse: valore che verrà restituito se la condizione restituisce false.
 
-**Esempio:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> Restituisce l'alias di un utente, aggiungendo "t-" all'inizio se l'utente è un interno. In caso contrario restituisce l'alias dell'utente invariato.
+**Esempio:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> Restituisce l'alias di un utente, aggiungendo "t-" all'inizio se l'utente è un tirocinante. In caso contrario restituisce l'alias dell'utente invariato.
  
  
 
@@ -456,7 +456,7 @@ Entrambi gli esempi restituiscono "\*Hello world!\*"
 
 **Osservazioni:** <br> Restituisce la posizione in cui è stata trovata la sottostringa o 0 se non viene trovata.
 
-**Esempio:** <br> `InStrRev("abbcdbbbef","bb")` <br> Restituisce 7
+**Esempio:** <br> `InStrRev("abbcdbbbef","bb")` <br> Restituisce 7.
  
  
 
@@ -500,7 +500,7 @@ Entrambi gli esempi restituiscono "\*Hello world!\*"
 ----------
 ###IsGuid
 
-**Descrizione:** <br> La funzione IsGuid restituisce true se la stringa può essere convertita in un GUID.
+**Descrizione:** <br> La funzione IsGuid restituisce True se la stringa può essere convertita in un GUID.
  
 **Sintassi:** <br> `bool IsGuid(str GUID)`
  
@@ -530,7 +530,7 @@ Usata per determinare se CGuid() riuscirà.
 ----------
 ###IsNullOrEmpty
 
-**Descrizione:** <br> La funzione IsNullOrEmpty restituisce true se l'espressione è Null o una stringa vuota.
+**Descrizione:** <br> La funzione IsNullOrEmpty restituisce True se l'espressione è Null o una stringa vuota.
  
 **Sintassi:** <br> `bool IsNullOrEmpty(var Expression)`
  
@@ -595,7 +595,7 @@ Usata per determinare se CGuid() riuscirà.
 
 Genera un errore se l'indice non è compreso nell'intervallo.
  
-**Esempio:** <br> `Mid(Item([proxyAddress],Contains([proxyAddress], ”SMTP:”)),6)` <br> Restituisce l'indirizzo di posta elettronica primario.
+**Esempio:** <br> `Mid(Item([proxyAddress],Contains([proxyAddress], ”SMTP:”)),6)` <br> Restituisce l'indirizzo di posta elettronica principale.
  
  
 
@@ -629,7 +629,7 @@ Restituisce un valore Null se l'indice non è compreso nell'intervallo.
  
 **Osservazioni**<br> Esiste un'analogia tra le funzioni Join e Split. La funzione Join accetta una matrice di stringhe e le unisce usando una stringa delimitatore per restituire una singola stringa. La funzione Split accetta una stringa e la separa in corrispondenza del delimitatore per restituire una matrice di stringhe. Tuttavia, la differenza principale consiste nel fatto che Join può concatenare stringhe con qualsiasi stringa delimitatore, mentre Split può separare stringhe usando unicamente un delimitatore di un solo carattere.
  
-**Esempio:** <br> `Join([proxyAddresses],”,”)` <br> Può restituire: “SMTP:john.doe@contoso.com,smtp:jd@contoso.com”
+**Esempio:** <br> `Join([proxyAddresses],”,”)` <br> Può restituire: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com”
  
  
 
@@ -656,7 +656,7 @@ Restituisce un valore Null se l'indice non è compreso nell'intervallo.
 - string: stringa dalla quale restituire i caratteri <br>
 - NumChars: numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa
  
-**Osservazione:** <br> Stringa contenente i primi caratteri numChars in string:
+**Osservazioni:** <br> Stringa contenente i primi caratteri numChars in string:
 
 - Se numChars = 0, restituisce una stringa vuota.
 - Se numChars < 0, restituisce una stringa di input.
@@ -717,9 +717,9 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
  
 **Esempio:** <br>
  
-`Mid(“John Doe”, 3, 5)` <br> Restituisce “hn Do”.
+`Mid(“John Doe”, 3, 5)` <br> Restituisce "hn Do".
 
-`Mid(“John Doe”, 6, 999)` <br> Restituisce “Doe”.
+`Mid(“John Doe”, 6, 999)` <br> Restituisce "Doe".
  
  
 
@@ -727,7 +727,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 ----------
 ### Now
 
-**Descrizione:** <br> La funzione Now restituisce un valore DateTime che specifica la data e l'ora correnti, in base alla data e ora di sistema del computer.
+**Descrizione:** <br> La funzione Now restituisce un valore data/ora che specifica la data e l'ora correnti, in base alla data e ora di sistema del computer.
  
 **Sintassi:** <br> `dt Now()`
  
@@ -770,7 +770,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 - Se la lunghezza di string è minore di length, viene restituita una nuova stringa con la lunghezza desiderata contenente il valore di string con l'aggiunta di padCharacter.
 - Se la stringa è Null, la funzione restituisce una stringa vuota.
 
-**Esempio:** <br> `PadLeft(“User”, 10, “0”)` <br> Restituisce “000000User”.
+**Esempio:** <br> `PadLeft(“User”, 10, “0”)` <br> Restituisce "000000User".
  
  
 
@@ -796,7 +796,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 - Se la stringa è Null, la funzione restituisce una stringa vuota.
  
 
-**Esempio:** <br> `PadRight(“User”, 10, “0”)` <br> Restituisce “User000000”.
+**Esempio:** <br> `PadRight(“User”, 10, “0”)` <br> Restituisce "User000000".
  
  
 
@@ -891,11 +891,11 @@ Il formato è {source1}:{target1},{source2}:{target2},{sourceN},{targetN} dove s
 - Spazi e altri caratteri vuoti nella stringa ReplacePattern vengono ignorati.
  
 
-**Esempio:** <br> '%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o'
+**Esempio:** <br> '%ReplaceString% = ':,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o'
 
 `ReplaceChars(”Räksmörgås”,%ReplaceString%)` <br> Restituisce Raksmorgas
 
-`ReplaceChars(“O’Neil”,%ReplaceString%)` <br> Restituisce “ONeil”, viene definita la rimozione della virgoletta singola.
+`ReplaceChars(“O’Neil”,%ReplaceString%)` <br> Restituisce "ONeil", viene definita la rimozione della virgoletta singola.
  
 
 
@@ -1044,7 +1044,7 @@ Value può anche essere la funzione Error che restituirà una stringa personaliz
 Se la stringa contiene meno delle parole specificate in number o se non contiene alcuna parola identificata da delimeters, viene restituita una stringa vuota.
  
 
-**Esempio:** <br> `Word(“The quick brown fox”,3,” “)` <br> Restituisce "brown".
+**Esempio:** <br> `Word(“The quick brown fox”,3,” “)` <br> Restituisce "brown"
 
 `Word(“This,string!has&many seperators”,3,”,!&#”)` <br> Restituirà "has"
 
@@ -1058,4 +1058,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

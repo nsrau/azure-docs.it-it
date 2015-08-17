@@ -170,4 +170,4 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 [Estensione Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

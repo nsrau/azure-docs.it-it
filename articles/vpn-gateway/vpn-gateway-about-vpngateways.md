@@ -79,4 +79,4 @@ Se si desidera connettere più siti in una rete virtuale, vedere [Connessione di
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

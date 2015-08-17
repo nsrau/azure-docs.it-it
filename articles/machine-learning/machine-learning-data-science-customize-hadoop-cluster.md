@@ -2,7 +2,6 @@
 	pageTitle="Personalizzare i cluster Hadoop per Advanced Analytics Process and Technology | Microsoft Azure" 
 	description="Moduli di Python più diffusi resi disponibili nei cluster personalizzati Hadoop di Azure HDInsight."
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -52,7 +51,8 @@ Nell'ultima pagina di configurazione **Azioni script**, fare clic sul pulsante *
  
 * **NOME**: qualsiasi stringa con il nome dello script azione 
 * **TIPO DI NODO**: selezionare **Tutti i nodi** 
-* **URI SCRIPT**: *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1* 	* *publicscripts* è un contenitore pubblico nell'account di archiviazione 
+* **URI SCRIPT** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+	* *publicscripts* è un contenitore pubblico nell'account di archiviazione 
 	* *getgoing* viene usato per condividere file di script di PowerShell per facilitare agli utenti l'uso di Azure 
 * **PARAMETRI**: lasciare vuoto
 
@@ -98,4 +98,4 @@ Vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di anali
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -47,10 +47,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Analogamente, è possibile fornire un'azione da eseguire.
 
-Gli input per l'azione sono:
-- **espressione C#**: sarà valutata un'espressione. È necessario includere una`return`istruzione per visualizzare qualsiasi contenuto. 
-- **Oggetti contesto** un oggetto di contesto facoltativo che può essere passato all'interno del trigger. È possibile definire tutte le proprietà desiderate, ma la base deve essere un JObject`{ ... }`e gli oggetti possono essere utilizzati nello script tramite il nome della chiave (il valore viene passato come un corrispondente JToken per nome).
-- **Librerie**- una matrice facoltativa di file con estensione .dll da includere nella compilazione dello script. La matrice utilizza la seguente struttura e funziona meglio accanto a un connettore di archiviazione blob con .dll come output:
+Gli input per l'azione sono:-**espressione C#**: sarà valutata un'espressione. È necessario includere una`return`istruzione per visualizzare qualsiasi contenuto. -**Oggetti contesto**- un oggetto di contesto facoltativo che può essere passato all'interno del trigger. È possibile definire tutte le proprietà desiderate, ma la base deve essere un JObject`{ ... }`e gli oggetti possono essere utilizzati nello script tramite il nome della chiave (il valore viene passato come un corrispondente JToken per nome).-**Librerie**- una matrice facoltativa di file con estensione .dll da includere nella compilazione dello script. La matrice utilizza la seguente struttura e funziona meglio accanto a un connettore di archiviazione blob con .dll come output:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -108,4 +105,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

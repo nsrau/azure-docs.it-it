@@ -50,10 +50,10 @@ Quando si crea un cluster HDInsight basato su Linux, è possibile usare una pass
 
 	Cercare i file seguenti nell'elenco di directory. Si tratta di nomi comuni per le chiavi pubbliche SSH:
 
-	* id_dsa.pub
-	* id_ecdsa.pub
-	* id_ed25519.pub
-	* id_rsa.pub
+	* id\_dsa.pub
+	* id\_ecdsa.pub
+	* id\_ed25519.pub
+	* id\_rsa.pub
 
 2. Se non si vuole usare un file esistente o non si hanno chiavi SSH, eseguire il comando seguente per generare un nuovo file:
 
@@ -61,12 +61,12 @@ Quando si crea un cluster HDInsight basato su Linux, è possibile usare una pass
 
 	Verrà richiesto di specificare le seguenti informazioni:
 
-	* Il percorso del file: il percorso predefinito è ~/.ssh/id\_rsa.
+	* Il percorso del file: il percorso predefinito è \~/.ssh/id\\\_rsa.
 	* Una passphrase: verrà richiesto di immetterla una seconda volta.
 
 		> [AZURE.NOTE]È consigliabile usare una passphrase sicura per la chiave. Tuttavia, se si dimentica la passphrase, non è possibile recuperarla.
 
-	Al termine del comando, si disporrà di due nuovi file: la chiave privata (ad esempio **id_rsa**) e la chiave pubblica (ad esempio **id_rsa.pub**).
+	Al termine del comando, si disporrà di due nuovi file: la chiave privata (ad esempio **id\_rsa**) e la chiave pubblica (ad esempio **id\_rsa.pub**).
 
 ##Creare un cluster HDInsight basato su Linux
 
@@ -295,4 +295,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

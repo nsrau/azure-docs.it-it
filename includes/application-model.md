@@ -168,7 +168,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-~5 Mbps
+\~5 Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-~100 Mbps
+\~100 Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-~200 Mbps
+\~200 Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-~400 Mbps
+\~400 Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Per ogni ruolo è necessario indicare le dimensioni desiderate per la macchina v
 
 </td>
 <td>
-~800 Mbps
+\~800 Mbps
 
 </td>
 </tr>
@@ -284,7 +284,7 @@ Nel file di definizione del servizio (CSDEF) è inoltre possibile specificare il
 
 Il file di configurazione del servizio (CSCFG) è un file XML in cui sono descritte le impostazioni che è possibile modificare senza ridistribuire l'applicazione. Lo schema completo per il file XML è disponibile qui: [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]. Il file CSCFG contiene un elemento Role per ogni ruolo dell'applicazione. Di seguito sono elencati alcuni degli elementi che è possibile specificare nel file CSCFG:
 
--   **Versione sistema operativo**. Questo attributo consente di selezionare la versione del sistema operativo da usare per tutte le istanze del ruolo in cui è in esecuzione il codice dell'applicazione. Il sistema operativo è il cosiddetto *sistema operativo guest* e ogni nuova versione include le patch e gli aggiornamenti di sicurezza più recenti disponibili al momento del rilascio. Se si imposta il valore dell'attributo osVersion su "*", il sistema operativo guest verrà automaticamente aggiornato in Azure in ognuna delle istanze del ruolo non appena diverranno disponibili nuove versioni. È tuttavia possibile rifiutare esplicitamente gli aggiornamenti automatici selezionando una versione specifica del sistema operativo guest. Se ad esempio si imposta l'attributo osVersion sul valore "WA-GUEST-OS-2.8_201109-01", in tutte le istanze del ruolo si verificherà quanto descritto nella pagina Web all'indirizzo: [http://msdn.microsoft.com/it-it/library/hh560567.aspx][]. Per altre informazioni sulle versioni del sistema operativo guest, vedere [Gestire gli aggiornamenti al sistema operativo guest Azure].
+-   **Versione sistema operativo**. Questo attributo consente di selezionare la versione del sistema operativo da usare per tutte le istanze del ruolo in cui è in esecuzione il codice dell'applicazione. Il sistema operativo è il cosiddetto *sistema operativo guest* e ogni nuova versione include le patch e gli aggiornamenti di sicurezza più recenti disponibili al momento del rilascio. Se si imposta il valore dell'attributo osVersion su "*", il sistema operativo guest verrà automaticamente aggiornato in Azure in ognuna delle istanze del ruolo non appena diverranno disponibili nuove versioni. È tuttavia possibile rifiutare esplicitamente gli aggiornamenti automatici selezionando una versione specifica del sistema operativo guest. Se ad esempio si imposta l'attributo osVersion sul valore "WA-GUEST-OS-2.8\_201109-01", in tutte le istanze del ruolo si verificherà quanto descritto nella pagina Web all'indirizzo: [http://msdn.microsoft.com/it-it/library/hh560567.aspx][]. Per altre informazioni sulle versioni del sistema operativo guest, vedere [Gestire gli aggiornamenti al sistema operativo guest Azure].
 
 -   **Istanze**. Il valore di questo elemento indica il numero di istanze del ruolo di cui effettuare il provisioning eseguendo il codice per un ruolo specifico. Poiché è possibile caricare un nuovo file CSCFG in Azure (senza ridistribuire l'applicazione), è semplicissimo modificare il valore di questo elemento e caricare un nuovo file CSCFG per incrementare o diminuire dinamicamente il numero di istanze del ruolo che eseguono il codice dell'applicazione. In questo modo l'applicazione diventa facilmente scalabile in base alle effettive richieste del carico di lavoro ed è possibile al contempo controllare i costi associati all'esecuzione delle istanze del ruolo.
 
@@ -346,4 +346,4 @@ Per altre informazioni su distribuzione, aggiornamento e riconfigurazione dei ru
   [Migrazione di applicazioni ad Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Configurazione di un'applicazione Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

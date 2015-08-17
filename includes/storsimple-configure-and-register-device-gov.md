@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Configurare e registrare il dispositivo"
+   description="Viene illustrato come utilizzare Windows PowerShell per StorSimple per configurare e registrare un dispositivo StorSimple su cui è in esecuzione l’aggiornamento 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/22/2015"
+   ms.author="alkohli" />
+
 
 
 ### Per configurare e registrare il dispositivo
@@ -91,7 +109,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    Verrà visualizzato un messaggio di conferma. Accettare il valore predefinito (\*\*Y\*\*).
+    Verrà visualizzato un messaggio di conferma. Accettare il valore predefinito (**Y**).
 
 11. Eseguire il cmdlet seguente per riprendere la configurazione:
 
@@ -105,7 +123,8 @@
  
 13. Per motivi di sicurezza la password di amministratore del dispositivo scade dopo la prima sessione e sarà necessario modificarla ora. Quando richiesto, fornire una password di amministratore del dispositivo. Una password di amministratore dispositivo valida deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. La password deve contenere tre dei seguenti tipi di caratteri: minuscole, maiuscole, numeri e caratteri speciali.
 
-	<br/>![StorSimple registrare il dispositivo 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
+	<br/>
+![StorSimple registrare il dispositivo 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
 14. Il passaggio finale dell'installazione guidata registra il dispositivo con il servizio StorSimple Manager. A tale scopo, è necessario il codice di registrazione del servizio ottenuto in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-get-service-registration-key-gov.md). Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
 
@@ -134,4 +153,4 @@
      
         
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

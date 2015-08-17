@@ -94,4 +94,4 @@ PowerShell fornisce altri comandi per la gestione dei blocchi, ad esempio **Set-
 - [Utilizzo dei tag per organizzare le risorse](resource-group-using-tags.md)
 - [Spostare le risorse al nuovo gruppo di risorse](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -42,4 +42,4 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

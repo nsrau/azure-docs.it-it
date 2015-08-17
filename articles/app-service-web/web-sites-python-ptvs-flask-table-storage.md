@@ -153,7 +153,7 @@ In questa sezione verranno configurate le variabili dell'istanza di App Web.
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Scorrere verso il basso fino alla sezione **Impostazioni app** e impostare i valori per **REPOSITORY_NAME**, **STORAGE_NAME** e **STORAGE_KEY** come descritto nella sezione precedente.
+1.  Scorrere verso il basso fino alla sezione **Impostazioni app** e impostare i valori per **REPOSITORY\_NAME**, **STORAGE\_NAME** e **STORAGE\_KEY** come descritto nella sezione precedente.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -210,4 +210,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

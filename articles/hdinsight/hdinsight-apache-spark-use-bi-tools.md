@@ -63,7 +63,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Status of a Jupyter notebook job")
 
-4. Caricare i dati di esempio in una tabella temporanea. Quando si esegue il provisioning di un cluster di Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato sull’account di archiviazione associato **\HdiSamples\SensorSampleData\hvac**.
+4. Caricare i dati di esempio in una tabella temporanea. Quando si esegue il provisioning di un cluster di Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato sull’account di archiviazione associato **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	In una cella vuota, incollare il seguente frammento e premere **MAIUSC + INVIO**. Questo frammento di codice consente di registrare i dati in una tabella Hive denominata **hvac**.
 
@@ -205,4 +205,4 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

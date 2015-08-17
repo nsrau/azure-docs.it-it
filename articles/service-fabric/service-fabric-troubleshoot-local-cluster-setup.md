@@ -86,4 +86,4 @@ Assicurarsi di non disporre di progetti di servizio impostati come progetti di a
 - [Comprendere e risolvere i problemi del cluster con report di integrità del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizzazione del cluster con Esplora Infrastruttura di servizi](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

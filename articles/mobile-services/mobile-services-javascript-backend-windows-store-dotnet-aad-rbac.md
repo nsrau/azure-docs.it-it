@@ -64,9 +64,9 @@ In questa sezione si userà Git per distribuire un file di script condiviso deno
 Se non si conosce come distribuire script nel servizio mobile con Git, vedere l'esercitazione sull'[archiviazione degli script del server] prima di completare questa sezione.
 
 1. Creare un nuovo file di script denominato *rbac.js* nella directory *./service/shared/* del repository locale per il servizio mobile.
-2. Aggiungere lo script seguente all'inizio del file che definisce la funzione `getAADToken`. Dati i valori di *tenant_domain*, *client id* dell'applicazione integrata e *key* dell'applicazione, questa funzione fornisce un token di accesso a Graph usato per la lettura delle informazioni delle directory.
+2. Aggiungere lo script seguente all'inizio del file che definisce la funzione `getAADToken`. Dati i valori di *tenant\_domain*, *client id* dell'applicazione integrata e *key* dell'applicazione, questa funzione fornisce un token di accesso a Graph usato per la lettura delle informazioni delle directory.
 
-    >[AZURE.NOTE]Invece di creare un nuovo token a ogni controllo di accesso, è consigliabile memorizzarlo nella cache. Aggiornare quindi la cache quando i tentativi di usare il token generano una risposta 401 Authentication_ExpiredToken come indicato in [Codici di errore di Graph di AD di Microsoft Azure]. Nel codice seguente questo passaggio non viene mostrato per semplicità, ma consente di alleggerire il traffico di rete aggiuntivo in Active Directory.
+    >[AZURE.NOTE]Invece di creare un nuovo token a ogni controllo di accesso, è consigliabile memorizzarlo nella cache. Aggiornare quindi la cache quando i tentativi di usare il token generano una risposta 401 Authentication\_ExpiredToken come indicato in [Codici di errore di Graph di AD di Microsoft Azure]. Nel codice seguente questo passaggio non viene mostrato per semplicità, ma consente di alleggerire il traffico di rete aggiuntivo in Active Directory.
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -286,4 +286,4 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [accesso alle informazioni di Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

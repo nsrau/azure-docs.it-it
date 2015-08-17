@@ -67,7 +67,7 @@ Quando si abilita la sincronizzazione password, i criteri di complessità delle 
  
 ### Criteri di scadenza delle password
 
-Se un utente è incluso nell'ambito della sincronizzazione password, la password dell'account cloud viene impostata su "\*Nessuna scadenza\*". Può pertanto accadere che la password di un utente scada nell'ambiente locale, ma che l'utente possa continuare ad accedere ai servizi cloud usando la password scaduta.
+Se un utente è incluso nell'ambito della sincronizzazione delle password, la password dell'account cloud viene impostata su "*Non scade mai*". Può pertanto accadere che la password di un utente scada nell'ambiente locale, ma che l'utente possa continuare ad accedere ai servizi cloud usando la password scaduta.
 
 La password cloud verrà aggiornata la volta successiva che l'utente cambia la password nell'ambiente locale.
 
@@ -90,7 +90,7 @@ Il tenant di Azure Active Directory deve essere abilitato per la sincronizzazion
 
 È possibile abilitare la sincronizzazione password eseguendo la configurazione guidata di Azure AD Connect.
 
-Nella pagina della finestra di dialogo**Funzionalità facoltative** selezionare "\*\*Sincronizzazione password\*\*".
+Nella finestra di dialogo **Funzionalità facoltative** selezionare "**Sincronizzazione password**".
  
 ![Funzionalità facoltative][1]
 
@@ -156,4 +156,4 @@ Dopo l'esecuzione della configurazione guidata, il tenant non sincronizzerà pi�
 [4]: ./media/active-directory-aadsync-implement-password-synchronization/IC662506.png
 [5]: ./media/active-directory-aadsync-implement-password-synchronization/IC662507.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

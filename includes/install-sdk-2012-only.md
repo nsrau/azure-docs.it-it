@@ -19,4 +19,4 @@ Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari
 [Azure SDK per Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkID=324323
 [WebPIAzureSdk]: ./media/install-sdk-2012-only/WebPI46-2012.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

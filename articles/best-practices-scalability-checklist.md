@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
+
 
 # Elenco di controllo per la scalabilità
 
@@ -56,14 +58,14 @@
 - **Ridurre al minimo il tempo di utilizzo delle connessioni e delle risorse**. Mantenere le connessioni e le risorse soltanto per il tempo necessario a usarle. Ad esempio, aprire le connessioni solo all'ultimo momento e restituirle al pool di connessioni appena possibile. Acquisire le risorse il più tardi possibile ed eliminarle il prima possibile.
 - **Ridurre al minimo il numero di connessioni necessarie**. Le connessioni ai servizi assorbono risorse. Ove possibile, limitare il numero di connessioni necessarie e assicurarsi che le connessioni esistenti vengano riutilizzate quando opportuno. Ad esempio, dopo l'autenticazione, usare la rappresentazione se appropriato per eseguire codice come un'identità specifica. Questo consente un uso ottimale del pool di connessioni mediante il riutilizzo delle stesse. 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]\: * * API per alcuni servizi riutilizza automaticamente le connessioni fornite e sono seguite le linee guida specifiche del servizio. È importante comprendere le condizioni che consentono di riutilizzare la connessione per ogni servizio utilizzato dall'applicazione.
 - **Inviare le richieste in batch per ottimizzare l'uso della rete**. Ad esempio, inviare e leggere i messaggi in batch quando si accede a una coda ed eseguire più operazioni di lettura o scrittura come batch durante l'accesso all'archiviazione o a una cache. Questo consente di massimizzare l'efficienza dei servizi e degli archivi dati riducendo il numero di chiamate sulla rete.
 - **Evitare l'archiviazione dello stato della sessione sul lato server come requisito** laddove possibile. La gestione dello stato della sessione sul lato server richiede in genere l'affinità client, ovvero il routing di ogni richiesta alla stessa istanza del server, il che incide sulla possibilità di scalare il sistema. Idealmente è consigliabile progettare i client in modo che siano senza stato rispetto ai server usati. Se però l'applicazione deve mantenere lo stato della sessione, archiviare i dati riservati o i grandi volumi di dati per client in una cache del lato server distribuita a cui possano accedere tutte le istanze dell'applicazione.
 - **Ottimizzare gli schemi di archiviazione tabelle**. Quando si usano archivi tabelle, come quello di Azure, che richiedono il passaggio e l'elaborazione dei nomi di tabelle e colonne con ogni query, considerare la possibilità di usare nomi più brevi per ridurre tale sovraccarico. Non sacrificare tuttavia la leggibilità o la gestibilità usando nomi compatti non intuitivi.
-- **Sfruttare la libreria TPL per eseguire operazioni asincrone**. La libreria TPL (Task Parallel Library) semplifica la scrittura di codice asincrono in grado di eseguire operazioni di I/O. Usare _ConfigureAwait(false)_ laddove possibile per eliminare la dipendenza di una continuazione da un contesto di sincronizzazione specifico e ridurre la possibilità che si verifichino deadlock del thread.
+- **Sfruttare la libreria TPL per eseguire operazioni asincrone**. La libreria TPL (Task Parallel Library) semplifica la scrittura di codice asincrono in grado di eseguire operazioni di I/O. Utilizzare _ConfigureAwait(false)_ laddove possibile per eliminare la dipendenza di una continuazione da un contesto di sincronizzazione specifico e ridurre la possibilità che si verifichino deadlock del thread.
 - **Creare dipendenze delle risorse durante la distribuzione o all'avvio dell'applicazione**. Evitare chiamate ripetute ai metodi che verificano l'esistenza di una risorsa e quindi creano la risorsa se questa non esiste (i metodi come _CloudTable.CreateIfNotExists_ e _CloudQueue.CreateIfNotExists_ nella libreria client di Archiviazione di Azure seguono questo modello). Tali metodi possono generare un notevole sovraccarico se vengono richiamati prima di ogni accesso a una tabella o coda di archiviazione. Creare invece le risorse necessarie quando l'applicazione viene distribuita o viene avviata per la prima volta (è accettabile avere una singola chiamata a _CreateIfNotExists_ per ogni risorsa nel codice di avvio per un ruolo Web o di lavoro). Assicurarsi tuttavia di gestire le eccezioni che possono venire generate se il codice tenta di accedere a una risorsa inesistente. In queste situazioni è consigliabile registrare l'eccezione e avvisare l'operatore della mancanza di una risorsa. In alcune circostanze può essere opportuno creare la risorsa mancante come parte del codice di gestione delle eccezioni, ma è consigliabile adottare questo approccio con cautela perché l'assenza della risorsa potrebbe essere indicativa di un errore di programmazione (ad esempio, un nome di risorsa non scritto correttamente) o di un altro problema a livello di infrastruttura.
 - **Usare framework semplificati**. Scegliere con attenzione le API e i framework da usare per ridurre al minimo l'utilizzo delle risorse, il tempo di esecuzione e il carico complessivo dell'applicazione. Ad esempio, l'uso dell'API Web per gestire le richieste ai servizi consente di ridurre il footprint dell'applicazione e aumentare la velocità di esecuzione, ma potrebbe non essere adatto per scenari avanzati in cui sono necessarie le funzionalità aggiuntive di WCF.
 - **Considerare la possibilità di ridurre al minimo il numero degli account del servizio**. Ad esempio, usare un account specifico per accedere alle risorse o ai servizi che impongono un limite per le connessioni o che vengono eseguiti in modo più efficiente dove vengono mantenute meno connessioni. Questo approccio è comune per i servizi, come ad esempio i database, ma può compromettere la possibilità di controllare accuratamente le operazioni a causa della rappresentazione dell'utente originale.
 - **Effettuare la profilatura delle prestazioni e il testing del carico** durante lo sviluppo come parte delle routine di test e prima del rilascio della versione finale per assicurarsi che l'applicazione venga eseguita e scalata come richiesto. Questo testing deve essere eseguito sullo stesso tipo di hardware disponibile nella piattaforma di produzione e con gli stessi tipi e quantità di dati e carico utente che si riscontreranno in produzione. Per altre informazioni, vedere la pagina [Test delle prestazioni di un servizio cloud](https://msdn.microsoft.com/library/azure/hh369930.aspx) nel sito Web Microsoft.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

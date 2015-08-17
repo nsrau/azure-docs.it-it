@@ -39,24 +39,10 @@ Seguire la procedura in [Creare una nuova app per la logica]. BizTalk JSON Encod
 
 	![Configurazione di Encode & Send][6]
 
-<table>
-	<tr>
-		<th>Parametro</th>
-		<th>Tipo</th>
-		<th>Descrizione del parametro</th>
-	</tr>
-	<tr>
-		<td>XML di input</td>
-		<td>oggetto</td>
-		<td>Contenuto XML di input</td>
-	</tr>
-	<tr>
-		<td>Remove Outer Envelope</td>
-		<td>stringa</td>
-		<td>Flag impostato per rimuovere il nodo radice dal contenuto XML</td>
-	</tr>
-</table>
-
+Parametro|Tipo|Descrizione del parametro
+---|---|---
+XML di input|oggetto|Contenuto XML di input
+Remove Outer Envelope|stringa|Flag impostato per rimuovere il nodo radice dal contenuto XML
 
 L'azione restituisce una rappresentazione JSON del contenuto dell'input.
 
@@ -76,4 +62,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

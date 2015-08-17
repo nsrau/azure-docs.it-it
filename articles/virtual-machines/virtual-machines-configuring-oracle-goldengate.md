@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Configurazione di Oracle GoldenGate per Azure" 
-	description="Esercitazione che illustra come configurare e implementare Oracle GoldenGate in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Configurazione di Oracle GoldenGate per Azure" description="Esercitazione che illustra come configurare e implementare Oracle GoldenGate in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Configurazione di Oracle GoldenGate per Azure
 In questa esercitazione viene illustrato come configurare Oracle GoldenGate in un ambiente con macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza. L'esercitazione è incentrata sulla [replica bidirezionale](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) per i database di Oracle non RAC e richiede che entrambi i siti siano attivi.
 
@@ -35,7 +21,7 @@ Inoltre, nell'esercitazione si presuppone che siano già stati implementati i pr
 
 - Creazione dei database di test "TestGG1" nel sito A e "TestGG2" nel sito B.
 
-- Accesso al server Windows come membro del gruppo Administrators o come membro del gruppo **ORA_DBA**.
+- Accesso al server Windows come membro del gruppo Administrators o come membro del gruppo **ORA\_DBA**.
 
 In questa esercitazione si apprenderà come:
 
@@ -87,7 +73,7 @@ In questa esercitazione si apprenderà come:
 
 Per le versioni successive di Oracle Database e Oracle GoldenGate potrebbero essere presenti alcune modifiche aggiuntive da implementare. Per informazioni aggiornate specifiche della versione, vedere la documentazione relativa a [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) e [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) nel sito Web di Oracle. Ad esempio, per un database di origine versione 11.2.0.4 e successive, l'acquisizione delle istruzioni DDL viene eseguita dal server logmining in modo asincrono e non richiede l'installazione di trigger, tabelle o altri oggetti di database speciali. Gli aggiornamenti di Oracle GoldenGate possono essere eseguiti senza interrompere le applicazioni utente. L'uso di un trigger DDL e di oggetti di supporto è obbligatorio quando Extract è in modalità integrata con un database di origine Oracle 11g precedente alla versione 11.2.0.4. Per istruzioni dettagliate, vedere la documentazione relativa all'[installazione e configurazione di Oracle GoldenGate per Oracle Database](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf).
 
-##1. Installare il database nei siti A e B
+##1\. Installare il database nei siti A e B
 In questa sezione viene illustrato come eseguire i prerequisiti del database nei siti A e B. È necessario eseguire tutti i passaggi di questa sezione in entrambi i siti: sito A e il sito B.
 
 Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di gestione. Aprire un prompt dei comandi di Windows e creare una home directory per i file di installazione di Oracle GoldenGate:
@@ -96,7 +82,7 @@ Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di
 
 Quindi, decomprimere e installare il software Oracle GoldenGate in questa cartella. Dopo questo passaggio, è possibile avviare l'interprete dei comandi software di GoldenGate (GGSCI) eseguendo il comando seguente:
 
-	C:\OracleGG.\ggsci
+	C:\OracleGG\.\ggsci
 
 È possibile usare [GGSCI](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_gettingstarted.htm) per eseguire diversi comandi che consentono di configurare, controllare e monitorare Oracle GoldenGate.
 
@@ -130,10 +116,10 @@ Quindi eseguire:
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-A questo punto individuare il file INIT<SIDDatabase>.ORA nella cartella %ORACLE_HOME%\database nei siti A e B e aggiungere i parametri di database seguenti a INITTEST.ora:
+A questo punto individuare il file INIT<SIDDatabase>.ORA nella cartella %ORACLE\_HOME%\\database nei siti A e B e aggiungere i parametri di database seguenti a INITTEST.ora:
 
-	UNDO_MANAGEMENT=AUTO
-	UNDO_RETENTION=86400
+	UNDO\_MANAGEMENT=AUTO
+	UNDO\_RETENTION=86400
 
 Per un elenco completo di tutti i comandi GGSCI Oracle GoldenGate, vedere le [informazioni di riferimento su Oracle GoldenGate per Windows](http://docs.oracle.com/goldengate/1212/gg-winux/GWURF/ggsci_commands.htm).
 
@@ -159,7 +145,7 @@ Concedere quindi tutti i privilegi per la nuova tabella di inventario all'utente
 
 	grant all on scott.inventory to ggate;
 
-Successivamente, creare e abilitare un trigger di database, INVENTORY_CDR_TRG, nella tabella appena creata per assicurarsi che tutte le transazioni per la nuova tabella vengono registrate se l'utente non è ggate. Effettuare questa operazione nei siti A e B.
+Successivamente, creare e abilitare un trigger di database, INVENTORY\_CDR\_TRG, nella tabella appena creata per assicurarsi che tutte le transazioni per la nuova tabella vengono registrate se l'utente non è ggate. Effettuare questa operazione nei siti A e B.
 
 	CREATE OR REPLACE TRIGGER INVENTORY_CDR_TRG
 	BEFORE UPDATE
@@ -175,7 +161,7 @@ Successivamente, creare e abilitare un trigger di database, INVENTORY_CDR_TRG, n
 	/ 
 
 
-##2. Preparare i siti A e B sito per la replica del database
+##2\. Preparare i siti A e B sito per la replica del database
 In questa sezione viene illustrato come preparare i siti A e B per la replica del database. È necessario eseguire tutti i passaggi di questa sezione in entrambi i siti: sito A e sito B.
 
 Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di Azure. Attivare la modalità archivelog per il database tramite la finestra dei comandi di SQL*Plus:
@@ -200,10 +186,10 @@ Infine, arrestare e riavviare il database:
 	sql>startup
 
 
-##3. Creare tutti gli oggetti necessari per supportare la replica DDL
+##3\. Creare tutti gli oggetti necessari per supportare la replica DDL
 In questa sezione sono elencati gli script da usare per creare tutti gli oggetti necessari per supportare la replica DDL. È necessario eseguire gli script specificati in questa sezione sia nel sito A che nel sito B.
 
-Aprire un prompt dei comandi di Windows e passare alla cartella di Oracle GoldenGate, ad esempio C:\OracleGG. Aprire il prompt dei comandi di SQL*Plus con privilegi di amministratore di database, ad esempio con l'account **SYSDBA**, nei siti A e B.
+Aprire un prompt dei comandi di Windows e passare alla cartella di Oracle GoldenGate, ad esempio C:\\OracleGG. Aprire il prompt dei comandi di SQL*Plus con privilegi di amministratore di database, ad esempio con l'account **SYSDBA**, nei siti A e B.
 
 Eseguire quindi gli script seguenti:
 	
@@ -226,7 +212,7 @@ Lo strumento Oracle GoldenGate richiede un account di accesso a livello di tabel
 
 	GGSCI(Hostname) 6> add trandata scott.inventory
 
-##4. Configurare GoldenGate Manager nei siti A e B
+##4\. Configurare GoldenGate Manager nei siti A e B
 Oracle GoldenGate Manager esegue una serie di funzioni come avviare gli altri processi di GoldenGate, la gestione dei file di log di trail e la creazione di report.
 
 È necessario configurare il processo Oracle GoldenGate Manager in entrambi i siti. A tale scopo, eseguire le operazioni seguenti nel sito A e nel sito B.
@@ -276,7 +262,7 @@ Avviare il processo Manager:
 	GGSCI (HostName) 48> start manager
 	Manager started.
 
-##5. Creare i processi Extract Group e Data Pump nei siti A e B
+##5\. Creare i processi Extract Group e Data Pump nei siti A e B
 
 ###Creare i processi Extract e Data Pump nel sito A
 
@@ -291,7 +277,7 @@ Avviare il processo Manager:
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-Aprire il file dei parametri con il comando EDIT PARAMS e quindi aggiungere le informazioni seguenti: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+Aprire il file dei parametri con il comando EDIT PARAMS e quindi aggiungere le informazioni seguenti: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod\_category,qty\_in\_stock, last\_dml), ON DELETE KEYINCLUDING (prod\_category,qty\_in\_stock, last\_dml));
 
 Aprire il file dei parametri con il comando EDIT PARAMS e quindi aggiungere le seguenti informazioni:
 
@@ -546,7 +532,7 @@ Visualizzare lo stato di un gruppo Replicat:
 	GGSCI (MachineGG2) 27> status replicat rep2
 	REPLICAT REP2: RUNNING
 
-##6. Verificare il processo di replica bidirezionale
+##6\. Verificare il processo di replica bidirezionale
 
 Per verificare la configurazione di Oracle GoldenGate, inserire una riga nel database nel sito A. Connettersi con desktop remoto al sito A. Aprire la finestra dei comandi di SQL*Plus ed eseguire: SQL> select name from v$database;
 	
@@ -597,4 +583,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

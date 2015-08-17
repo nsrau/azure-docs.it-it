@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Importare dati in DocumentDB | Azure" 
+	pageTitle="Importare dati in DocumentDB | Microsoft Azure" 
 	description="Imparare a utilizzare lo strumento di migrazione Apri origine dati DocumentDB per importare dati da varie origini, tra cui file JSON, i file CSV, SQL, MongoDB, archiviazione tabelle di Azure, Amazon DynamoDB e DocumentDB raccolte DocumentDB." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -501,4 +501,4 @@ Nella schermata Configurazione avanzata specificare il percorso del file di log 
 
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -29,15 +29,15 @@ In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet 
 
 Item | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
 --- | --- | --- | ---
-1. | ______________ (primo controller di dominio, nell'esempio DC1) | Windows Server 2012 R2 Datacenter | A2 (Media)
-2. | ______________ (secondo controller di dominio, nell'esempio DC2) | Windows Server 2012 R2 Datacenter | A2 (Media)
-3. | ______________ (primo computer SQL Server, nell'esempio SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (secondo computer SQL Server, nell'esempio SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________ (controllo nodo di maggioranza per il cluster, nell’esempio MN1) | Windows Server 2012 R2 Datacenter | A1 (Piccola)
-6. | ______________ (primo server applicazioni SharePoint, nell’esempio APP1) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
-7. | ______________ (secondo server applicazioni SharePoint, nell’esempio APP2) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
-8. | ______________ (primo server Web SharePoint, nell’esempio WEB1) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
-9. | ______________ (secondo server Web SharePoint, nell’esempio WEB2) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo controller di dominio, nell'esempio DC1) | Windows Server 2012 R2 Datacenter | A2 (Media)
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo controller di dominio, nell'esempio DC2) | Windows Server 2012 R2 Datacenter | A2 (Media)
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo computer SQL Server, nell'esempio SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo computer SQL Server, nell'esempio SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (controllo nodo di maggioranza per il cluster, nell’esempio MN1) | Windows Server 2012 R2 Datacenter | A1 (Piccola)
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo server applicazioni SharePoint, nell’esempio APP1) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo server applicazioni SharePoint, nell’esempio APP2) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo server Web SharePoint, nell’esempio WEB1) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo server Web SharePoint, nell’esempio WEB2) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
 
 **Tabella M – Macchine virtuali per la farm intranet di SharePoint 2013 in Azure**
 
@@ -125,11 +125,11 @@ Successivamente, è necessario aggiungere il disco dati aggiuntivi al primo cont
 1.	Nel riquadro sinistro di Server Manager fare clic su **Servizi file e archiviazione**, quindi scegliere **Dischi**.
 2.	Nel riquadro del contenuto, nel gruppo **Dischi**, fare clic sul disco **2** (con la **Partizione** impostata su **Sconosciuto**).
 3.	Fare clic su **Attività**, quindi su **Nuovo volume**.
-4.	Nella pagina **Operazioni preliminari** della procedura guidata Nuovo volume, fare clic su **Avanti**.
-5.	Nella pagina **Selezionare il server e il disco**, fare clic su **Disco 2**, quindi fare clic su **Avanti**. Quando richiesto, fare clic su **OK**.
-6.	Nella pagina **Specifica dimensioni del volume**, fare clic su **Avanti**.
-7.	Nella pagina **Assegnare a una lettera di unità o cartella**, fare clic su **Avanti**.
-8.	Nella pagina **Selezionare le impostazioni del file system**, fare clic su **Avanti**.
+4.	Nella pagina **Operazioni preliminari** della creazione guidata nuovo volume fare clic su **Avanti**.
+5.	Nella pagina **Selezionare il server e il disco** fare clic su **Disco 2**, quindi fare clic su **Avanti**. Quando richiesto, fare clic su **OK**.
+6.	Nella pagina **Specifica le dimensioni del volume** fare clic su **Avanti**.
+7.	Nella pagina **Assegnare a una lettera di unità o cartella** fare clic su **Avanti**.
+8.	Nella pagina **Selezionare le impostazioni del file system** fare clic su **Next**.
 9.	Nella pagina **Conferma selezioni**, fare clic su **Crea**.
 10.	Una volta completata l'inizializzazione, fare clic su **Chiudi**.
 
@@ -170,9 +170,9 @@ Il computer verrà riavviato.
 
 La farm di SharePoint richiederà gli account utente seguenti:
 
-- sp_farm: un account utente per la gestione di farm di SharePoint.
-- sp_farm_db: un account utente con diritti sysadmin sulle istanze di SQL Server.
-- sp_install: un account utente che dispone dei diritti di amministrazione di dominio necessari per l'installazione di ruoli e funzionalità.
+- sp\_farm: un account utente per la gestione di farm di SharePoint.
+- sp\_farm\_db: un account utente con diritti sysadmin sulle istanze di SQL Server.
+- sp\_install: un account utente che dispone dei diritti di amministrazione di dominio necessari per l'installazione di ruoli e funzionalità.
 - sqlservice: un account utente che può essere utilizzato per eseguire le istanze SQL Server.
 
 Successivamente, accedere a qualsiasi computer con un account di amministratore di dominio per il dominio di cui i controller di dominio sono membri, aprire un prompt dei comandi di Windows PowerShell a livello di amministratore ed eseguire questi comandi *uno alla volta*:
@@ -191,14 +191,14 @@ Successivamente, eseguire i passaggi seguente per aggiungere ulteriori propriet�
 
 1.	Dalla schermata Start immettere **Utenti di Active Directory**, quindi fare clic su **Utenti e computer di Active Directory**.
 2.	Nel riquadro dell'albero, aprire il dominio e fare clic su **Utenti**.
-3.	Nel riquadro del contenuto, fare clic con il pulsante destro del mouse su **sp_install**, quindi fare clic su **Aggiungi a un gruppo**.
+3.	Nel riquadro del contenuto, fare clic con il pulsante destro del mouse su **sp\_install**, quindi fare clic su **Aggiungi a un gruppo**.
 4.	Nella finestra di dialogo **Seleziona gruppi**, digitare **domain admins**, quindi fare cli due volte su **OK**.
 5.	Nella finestra di dialogo, fare clic su **Visualizza e seleziona funzionalità avanzate**. L'opzione consente di visualizzare tutti i contenitori nascosti e le schede nascoste nelle finestre delle proprietà degli oggetti Active Directory.
 6.	Fare clic con il pulsante destro del mouse sul nome di dominio e fare clic su **Proprietà**.
 7.	Nella finestra di dialogo **Proprietà**, fare clic sulla scheda **Protezione**, quindi fare clic sul pulsante **Avanzate**.
 8.	Nella finestra **Impostazioni di protezione avanzate per <YourDomain>**, fare clic su **Aggiungi**.
 9.	Nella finestra **Voce di autorizzazione per <YourDomain>**, fare clic su **Seleziona un'entità**.
-10.	Nella casella di testo digitare **<YourDomain>\sp_install**, quindi fare clic su **OK**.
+10.	Nella casella di testo digitare **<YourDomain>\\sp\_install**, quindi fare clic su **OK**.
 11.	Selezionare **Consenti** per **Creare oggetti computer**, quindi fare clic su **OK** tre volte.
 
 Quindi, aggiornare i server DNS per la rete virtuale in modo che Azure assegni alle macchine virtuali gli indirizzi IP dei due nuovi controller di dominio da utilizzare come server DNS. Si noti che questa procedura utilizza i valori di tabella V (per le impostazioni di rete virtuale).
@@ -217,7 +217,7 @@ Quindi, aggiornare i server DNS per la rete virtuale in modo che Azure assegni a
 
 Sono stati riavviati i due controller di dominio, pertanto non vengono configurati con i server DNS locali come server DNS. Poiché sono essi stessi server DNS, vengono configurati automaticamente con i server DNS locali come server d'inoltro DNS quando sono promossi a controller di dominio.
 
-Successivamente, è necessario creare un sito di replica di Active Directory per assicurarsi che i server nella rete virtuale di Azure utilizzino i controller di dominio locali. Accedere al controller di dominio primario con l'account sp_install ed eseguire i comandi seguenti da un prompt dei comandi di Windows PowerShell a livello di amministratore:
+Successivamente, è necessario creare un sito di replica di Active Directory per assicurarsi che i server nella rete virtuale di Azure utilizzino i controller di dominio locali. Accedere al controller di dominio primario con l'account sp\_install ed eseguire i comandi seguenti da un prompt dei comandi di Windows PowerShell a livello di amministratore:
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$vnetSpace="<Table V – Item 5 – Value column>"
@@ -244,4 +244,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,14 +1,14 @@
-## Invoking stored procedure for SQL Sink
+## Richiamo delle stored procedure per SQL Sink
 
-When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters. 
+Quando si copiano dati in SQL Server o Azure SQL/SQL Server Database, una stored procedure di un utente specificato può essere configurata e richiamata con parametri aggiuntivi.
 
-A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…) needs to be done before the final insertion of source data in the destination table. 
+Una stored procedure può essere utilizzata quando i meccanismi di copia predefiniti non possono essere utilizzati. In genere viene utilizzato quando un'elaborazione supplementare (unione colonne, ricerca di valori aggiuntivi, l'inserimento in più tabelle...), deve essere eseguita prima dell'inserimento finale dei dati di origine nella tabella di destinazione.
 
-You may invoke a stored procedure of choice. The following sample shows how to use a stored procedure to do a simple insertion into a table in the database. 
+È possibile richiamare una stored procedure di scelta. Nell'esempio seguente viene illustrato come utilizzare una stored procedure per eseguire un semplice inserimento in una tabella nel database.
 
-**Output dataset**
+**Set di dati di output**
 
-In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use with an Azure SQL database. 
+In questo esempio, l’elemento tipo è impostato su: SqlServerTable. Impostarlo su AzureSqlTable da utilizzare con un database SQL Azure.
 
 	{
 	  "name": "SqlOutput",
@@ -25,7 +25,7 @@ In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use 
 	  }
 	}
 	
-Define the SqlSink section in copy activity JSON as follows. To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.
+Definire la sezione SqlSink nel file JSON dell'attività di copia come indicato di seguito. Per chiamare una stored procedure durante l'inserimento dei dati sono necessarie entrambe le proprietà SqlWriterStoredProcedureName e SqlWriterTableType.
 
 	"sink":
 	{
@@ -41,7 +41,7 @@ Define the SqlSink section in copy activity JSON as follows. To call a stored pr
 	            }
 	}
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.
+Nel database definire la stored procedure con lo stesso nome di SqlWriterStoredProcedureName, che gestisce i dati di input dell'origine specificata e li inserisce nella tabella di output. Si noti che il nome di parametro della stored procedure deve essere identico al tableName definito nel file JSON della tabella.
 
 	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
 	AS
@@ -51,11 +51,13 @@ In your database, define the stored procedure with the same name as SqlWriterSto
 	    SELECT * FROM @Marketing
 	END
 
-In your database, define the table type with the same name as SqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
+Nel database definire il tipo di tabella con lo stesso nome di SqlWriterTableType. Si noti che lo schema del tipo di tabella deve essere identico allo schema restituito dai dati di input.
 
 	CREATE TYPE [dbo].[MarketingType] AS TABLE(
 	    [ProfileID] [varchar](256) NOT NULL,
 	    [State] [varchar](256) NOT NULL,
 	)
 
-The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+La funzionalità di stored procedure sfrutta i [parametri valutati a livello di tabella](https://msdn.microsoft.com/library/bb675163.aspx).
+
+<!---HONumber=August15_HO6-->

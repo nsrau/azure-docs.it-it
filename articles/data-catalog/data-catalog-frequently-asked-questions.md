@@ -6,8 +6,7 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/>
-<tags
+   tags=""/> <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -158,4 +157,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del Ca
 
 Tenere sotto controllo il [forum del Catalogo dati Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

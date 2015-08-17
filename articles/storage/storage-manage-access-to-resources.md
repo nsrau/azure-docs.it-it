@@ -7,14 +7,16 @@
 	manager="jdial" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/04/2015" 
 	ms.author="micurd;tamram"/>
+
 
 # Gestire l'accesso alle risorse di archiviazione di Azure
 
@@ -22,11 +24,11 @@
 
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere alle risorse relative all’account. Se il servizio o l'applicazione deve rendere disponibili queste risorse per altri client senza condividere la chiave di accesso, è possibile usare le seguenti opzioni per consentire l'accesso:
 
-- È possibile impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB. Questa operazione non è consentita per le tabelle o le code.
+- È possibile impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB. L’accesso anonimo di lettura è disponibile solo per i contenitori e i BLOB. 
 
-- È possibile esporre una risorsa tramite una firma di accesso condiviso, che consente di delegare l'accesso limitato a una risorsa contenitore, BLOB, tabella o coda specificando l'intervallo per il quale le risorse sono disponibili e le relative autorizzazioni di cui disporrà un client.
+- È possibile esporre una risorsa tramite una firma di accesso condiviso, che consente di delegare l'accesso limitato a un contenitore, un BLOB, una tabella o una coda specificando l'intervallo per il quale le risorse sono disponibili e le relative autorizzazioni di cui disporrà un client.
 
-- È possibile usare criteri di accesso archiviati per gestire le firme di accesso condiviso per un contenitore o i relativi BLOB, una coda o una tabella. I criteri di accesso archiviati offrono un'ulteriore misura di controllo sulle firme di accesso condiviso e consentono di revocare le firme in modo semplice.
+- È possibile usare criteri di accesso archiviati per gestire le firme di accesso condiviso per un contenitore o i relativi BLOB, una coda o una tabella, o per la condivisione di un file o dei suoi file. I criteri di accesso archiviati offrono un'ulteriore misura di controllo sulle firme di accesso condiviso e consentono di revocare le firme in modo semplice.
 
 ## Limitare l'accesso a contenitori e BLOB
 
@@ -74,25 +76,18 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 | Get Page Ranges | Tutti | Tutti |
 
 ## Creare e usare una firma di accesso condiviso
-Una firma di accesso condiviso è un URI che concede diritti di accesso limitati a contenitori, BLOB, code e tabelle per un intervallo di tempo specifico. Fornendo a un client una firma di accesso condiviso, è possibile consentire a tale client l'accesso alle risorse presenti nell'account di archiviazione, senza condividere la chiave dell'account.
+Una firma di accesso condiviso (SAS) è un URI che concede dei diritti di accesso limitati a una risorsa di archiviazione per un intervallo di tempo specificato. È possibile creare una firma di accesso condiviso su queste risorse di archiviazione:
+
+- Contenitori e BLOB
+- Queues
+- Tables
+- Condivisioni di file e file 
+
+Fornendo a un client una firma di accesso condiviso, è possibile consentire a tale client l'accesso alle risorse presenti nell'account di archiviazione, senza condividere la chiave dell'account.
 
 >[AZURE.NOTE]Per una panoramica dei concetti e un'esercitazione sulle firme di accesso condiviso, vedere [Firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
-Le operazioni supportate mediante le firme di accesso condiviso includono:
-
-- Lettura e scrittura dei contenuto di BLOB di pagine o in blocchi, elenchi di blocchi, proprietà e metadati
-
-- Eliminazione, leasing e creazione di uno snapshot di un BLOB
-
-- Elenco dei BLOB in un contenitore
-
-- Aggiunta, rimozione, aggiornamento ed eliminazione dei messaggi in coda (in Libreria client di archiviazione 2.0 e versioni successive)
-
-- Recupero dei metadati della coda, incluso il numero di messaggi (in Libreria client di archiviazione 2.0 e versioni successive)
-
-- Esecuzione di query, aggiunta, aggiornamento, eliminazione e inserimento con aggiornamento delle entità tabella (in Libreria client di archiviazione 2.0 e versioni successive)
-
-I parametri di query dell'URI della firma di accesso condiviso incorporano tutte le informazioni necessarie per concedere l'accesso controllato a una risorsa di archiviazione. I parametri di query dell'URI specificano il periodo di validità della firma di accesso condiviso, le autorizzazioni concesse, la risorsa che deve essere resa disponibile e la firma che i servizi di archiviazione devono usare per autenticare la richiesta.
+I parametri di query dell'URI della firma di accesso condiviso incorporano tutte le informazioni necessarie per concedere l'accesso controllato a una risorsa di archiviazione. I parametri di query dell'URI specificano il periodo di validità della firma di accesso condiviso, le autorizzazioni concesse, la risorsa che deve essere resa disponibile, la versione da utilizzare per eseguire la richiesta, e la firma che i servizi di archiviazione devono usare per autenticare la richiesta.
 
 L'URI della firma di accesso condiviso può inoltre fare riferimento a criteri di accesso archiviati che forniscono un livello di controllo aggiuntivo su un set di firme, inclusa la possibilità di modificare o revocare l'accesso alla risorsa, se necessario.
 
@@ -178,18 +173,18 @@ Un client che riceve una firma di accesso condiviso può usarla dal proprio codi
 ## Uso di criteri di accesso condiviso
 I criteri di accesso archiviati forniscono un livello di controllo aggiuntivo sulle firme di accesso condiviso sul lato server. La definizione di criteri di accesso archiviati viene usata per raggruppare le firme di accesso condiviso e fornire limitazioni aggiuntive per le firme vincolate dai criteri. È possibile usare criteri di accesso archiviati per modificare l'ora di inizio, la scadenza o le autorizzazioni per una firma o per revocarla dopo che è stata emessa.
 
-I criteri di accesso archiviati offrono maggiore controllo sulle firme di accesso condiviso rilasciate. Anziché specificare la durata della firma e le autorizzazioni nell'URL, è possibile specificare questi parametri nei criteri di accesso archiviati nel BLOB, nel contenitore, nella coda o nella tabella condivisa. Per modificare questi parametri per una o più firme, è possibile modificare i criteri di accesso archiviati, anziché emettere nuovamente le firme. È possibile anche revocare rapidamente la firma modificando i criteri di accesso archiviati.
+I criteri di accesso archiviati offrono maggiore controllo sulle firme di accesso condiviso rilasciate. Anziché specificare la durata della firma e le autorizzazioni nell'URL, è possibile specificare questi parametri nei criteri di accesso archiviati nel contenitore, nella condivisione del file, nella coda o nella tabella che contiene la risorsa che è stata condivisa. Per modificare questi parametri per una o più firme, è possibile modificare i criteri di accesso archiviati, anziché emettere nuovamente le firme. È possibile anche revocare rapidamente la firma modificando i criteri di accesso archiviati.
 
 Si supponga, ad esempio, di avere emesso una firma di accesso condiviso associata a criteri di accesso archiviati. Se è stata specificata la scadenza nei criteri di accesso archiviati, è possibile modificare i criteri di accesso per estendere la durata della firma, senza dover emettere una nuova firma.
 
 È consigliabile specificare criteri di accesso archiviati per qualsiasi risorsa firmata per cui si emette una firma di accesso condiviso, in quanto i criteri archiviati possono essere usati per modificare o revocare la firma dopo l'emissione. Se non si specificano criteri archiviati, è consigliabile limitare la durata della firma per ridurre i rischi per le risorse dell'account di archiviazione.
 
 ### Associazione di una firma di accesso condiviso a un criterio di accesso archiviato
-Un criterio di accesso archiviato include un nome di una lunghezza massima di 64 caratteri univoco all'interno del contenitore, coda o tabella. Per associare una firma di accesso condiviso a un criterio di accesso archiviato, è necessario specificare questo identificatore quando si crea la firma di accesso condiviso. Nell'URI della firma di accesso condiviso, il campo *signedidentifier* specifica l'identificatore per il criterio di accesso archiviato.
+Un criterio di accesso archiviato include un nome di una lunghezza massima di 64 caratteri univoco all'interno del contenitore, della condivisione del file, della coda o della tabella. Per associare una firma di accesso condiviso a un criterio di accesso archiviato, è necessario specificare questo identificatore quando si crea la firma di accesso condiviso. Nell'URI della firma di accesso condiviso, il campo *signedidentifier* specifica l'identificatore per il criterio di accesso archiviato.
 
-Un contenitore, una coda o una tabella può includere fino a 5 criteri di accesso archiviati. Ogni criterio può essere usato da qualsiasi numero di firme di accesso condiviso.
+Un contenitore, una condivisione di file, una coda o una tabella possono comprendere fino a 5 criteri di accesso archiviati. Ogni criterio può essere usato da qualsiasi numero di firme di accesso condiviso.
 
->[AZURE.NOTE]Quando si stabilisce un criterio di accesso archiviato in un contenitore, in una coda o in una tabella, potrebbero essere necessari fino a 30 secondi per rendere effettivo il criterio. Durante questo intervallo, una firma di accesso condiviso associata al criterio di accesso archiviato avrà esito negativo con codice di stato 403 (accesso negato), fino a quando il criterio di accesso non diventa attivo.
+>[AZURE.NOTE]Quando si stabilisce un criterio di accesso archiviato in un contenitore, in una condivisione di file, in una coda o in una tabella, potrebbero essere necessari fino a 30 secondi per rendere effettivo il criterio. Durante questo intervallo, una firma di accesso condiviso associata al criterio di accesso archiviato avrà esito negativo con codice di stato 403 (accesso negato), fino a quando il criterio di accesso non diventa attivo.
 
 ### Definizione dei parametri dei criteri di accesso per i criteri di accesso condiviso
 I criteri di accesso archiviati possono specificare i seguenti parametri per le firme con cui sono associati:
@@ -214,4 +209,4 @@ Per revocare l'accesso alle firme di accesso condiviso che usano lo stesso crite
 - [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 - [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

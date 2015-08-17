@@ -104,4 +104,4 @@ Per allinearlo con il formato Microsoft SQL Server[datetime](http://msdn.microso
     puts row
     end
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -191,7 +191,7 @@ Una regola specifica quanto segue:
 -	Intervallo di porte di origine: numero intero o intervallo compreso tra 0 e 65536
 -	Intervallo IP di destinazione: CIDR dell'intervallo di indirizzi IP di destinazione
 -	Intervallo di porte di destinazione: numero intero o intervallo compreso tra 0 e 65536
--	Protocollo: TCP, UDP o ' \*'
+-	Protocollo: TCP, UDP o ' *'
 -	Accesso: Consenti/Nega
 
 ### Regole predefinite
@@ -206,17 +206,17 @@ Nelle tabelle seguenti vengono riportate le regole predefinite.
 
 Nome |	Priorità |	IP di origine |	Porta di origine |	IP di destinazione |	Porta di destinazione |	Protocollo |	Accesso
 --- | --- | --- | --- | --- | --- | --- | ---
-CONSENTI RETE VIRTUALE IN INGRESSO | 65000 | VIRTUAL\_NETWORK |	\* |	VIRTUAL\_NETWORK | \* |	\* | CONSENTI
-CONSENTI BILANCIAMENTO DEL CARICO DI AZURE IN INGRESSO | 65001 | AZURE\_LOADBALANCER | \* | \* | \* | \* | CONSENTI
-NEGA TUTTO IN INGRESSO | 65500 | \* | \* | \* | \* | \* | NEGA
+CONSENTI RETE VIRTUALE IN INGRESSO | 65000 | VIRTUAL\_NETWORK |	* |	VIRTUAL\_NETWORK | * |	* | CONSENTI
+CONSENTI BILANCIAMENTO DEL CARICO DI AZURE IN INGRESSO | 65001 | AZURE\_LOADBALANCER | * | * | * | * | CONSENTI
+NEGA TUTTO IN INGRESSO | 65500 | * | * | * | * | * | NEGA
 
 **Regole predefinite In uscita**
 
 Nome |	Priorità |	IP di origine |	Porta di origine |	IP di destinazione |	Porta di destinazione |	Protocollo |	Accesso
 --- | --- | --- | --- | --- | --- | --- | ---
-CONSENTI RETE VIRTUALE IN USCITA | 65000 | VIRTUAL\_NETWORK | \* | VIRTUAL\_NETWORK | \* | \* | CONSENTI
-CONSENTI INTERNET IN USCITA | 65001 | \* | \* | INTERNET | \* | \* | CONSENTI
-NEGA TUTTO IN USCITA | 65500 | \* | \* | \* | \* | \* | NEGA
+CONSENTI RETE VIRTUALE IN USCITA | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | CONSENTI
+CONSENTI INTERNET IN USCITA | 65001 | * | * | INTERNET | * | * | CONSENTI
+NEGA TUTTO IN USCITA | 65500 | * | * | * | * | * | NEGA
 
 ### Regole speciali per l'infrastruttura
 
@@ -243,7 +243,7 @@ Le regole del gruppo di sicurezza di rete possono essere specificate su un'unica
 
 ### Traffico ICMP
 
-Con le regole NSG correnti, è possibile specificare come protocolli TCP o UDP, ma non ICMP. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite le regole In ingresso che consentono il traffico da/verso qualsiasi porta e protocollo ("\*") all'interno della rete virtuale.
+Con le regole NSG correnti, è possibile specificare come protocolli TCP o UDP, ma non ICMP. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite le regole In ingresso che consentono il traffico da/verso qualsiasi porta e protocollo ("*") all'interno della rete virtuale.
 
 ### Associazione di un gruppo di sicurezza di rete a una macchina virtuale
 
@@ -267,7 +267,7 @@ Ad esempio, è possibile creare una nuova macchina virtuale e un nuovo gruppo di
 
 Nome |	Priorità |	IP di origine |	Porta di origine |	IP di destinazione |	Porta di destinazione |	Protocollo |	Accesso
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB | 100 | INTERNET | \* | \* | 80 | TCP | CONSENTI
+WEB | 100 | INTERNET | * | * | 80 | TCP | CONSENTI
 
 ## Route definite dall'utente
 
@@ -335,4 +335,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Per informazioni su come configurare il routing e l'inoltro IP, vedere [Come creare route e abilitare l'inoltro IP in Azure](virtual-network/virtual-networks-udr-how-to.md). 
 - Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -283,4 +283,4 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -72,4 +72,4 @@ Prendere nota del valore **SharedAccessKey** oppure copiarlo negli Appunti:
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

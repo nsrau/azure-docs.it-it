@@ -3,7 +3,7 @@
 	description="Collegamenti a risorse per la gestione di un'applicazione web nel servizio di applicazione Azure." 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="07/31/2015" 
+	ms.author="erikre"/>
 
 # Scalare un'app Web in Servizio app di Azure
 
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Online, è possibile configurare la distribuzione c
 
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -94,7 +94,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 
 È inoltre possibile usare il comando Pig per eseguire processi Pig Latin contenuti in un file.
 
-3. Dopo aver chiuso il prompt grunt, aprire il **Blocco note** e creare un nuovo file denominato **pigbatch.pig** nella directory **%PIG_HOME%**.
+3. Dopo aver chiuso il prompt grunt, aprire il **Blocco note** e creare un nuovo file denominato **pigbatch.pig** nella directory **%PIG\_HOME%**.
 
 4. Digitare o incollare le seguenti righe nel file **pigbatch.pig** e quindi salvarlo:
 
@@ -135,4 +135,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

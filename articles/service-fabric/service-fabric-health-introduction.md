@@ -245,7 +245,7 @@ I metadati aggiunti includono quanto segue:
 I campi di transizione dello stato possono essere usati per avere segnalazioni più sofisticate o informazioni "cronologiche" sull'evento di integrità. Essi consentono l'uso di scenari come i seguenti:
 
 - Avviso quando lo stato di una proprietà è impostato su Warning/Error da più di X minuti. In questo modo si evitano avvisi per condizioni temporanee. Ad esempio, se si vuole un avviso quando lo stato di integrità rimane impostato su Warning per più di 5 minuti, è possibile usare: (HealthState == Warning and Now - LastWarningTransitionTime
-> 
+> 5 minuti).
 
 - Avviso solo per le condizioni cambiate negli ultimi X minuti. Se un report segnala lo stato Error anche da prima, può essere ignorato perché il problema era già stato segnalato in precedenza.
 
@@ -336,4 +336,4 @@ Il modello di integrità viene usato in larga misura per il monitoraggio e la di
 [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

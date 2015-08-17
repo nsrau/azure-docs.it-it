@@ -455,4 +455,4 @@ ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tra
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

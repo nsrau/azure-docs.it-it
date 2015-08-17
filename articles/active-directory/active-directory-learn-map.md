@@ -38,4 +38,4 @@ Per comprendere le limitazioni di utilizzo e altri limiti di servizio per il ser
 * [Identità di Azure](fundamentals-identity.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

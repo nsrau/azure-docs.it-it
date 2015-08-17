@@ -4,17 +4,20 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
+	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
+
 
 <tags 
 	ms.service="active-directory" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
+
 
 # Amministrare la directory di Azure AD
 
@@ -147,4 +150,4 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

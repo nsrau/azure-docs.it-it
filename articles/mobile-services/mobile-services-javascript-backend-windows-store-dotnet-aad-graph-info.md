@@ -88,7 +88,7 @@ Se non sono mai state usate le API personalizzate con i Servizi mobili, è consi
             });
         }
 
-    Dati i valori di *tenant_domain*, *client id* dell'applicazione integrata e *key* dell'applicazione, questa funzione fornisce un token di accesso a Graph usato per la lettura delle informazioni delle directory.
+    Dati i valori di *tenant\_domain*, *client id* dell'applicazione integrata e *key* dell'applicazione, questa funzione fornisce un token di accesso a Graph usato per la lettura delle informazioni delle directory.
 
 4. Aggiungere la funzione `getUser` seguente che usa l'API Graph per restituire le informazioni dell'utente.
 
@@ -180,4 +180,4 @@ Nell'esercitazione successiva, [Controllo di accesso basato sui ruoli con AAD in
 [Controllo di accesso basato sui ruoli con AAD in Servizi mobili]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [blog del Team di Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

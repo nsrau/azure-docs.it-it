@@ -91,9 +91,9 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 5.	(Facoltativo) Se il sistema Ubuntu rileva un errore e viene riavviato, attenderà al prompt di avvio grub l'input utente che impedisce l'avvio corretto del sistema. Per evitare questa situazione, completare i passaggi seguenti:
 
-	a) Aprire il file /etc/grub.d/00_header.
+	a) Aprire il file /etc/grub.d/00\_header.
 
-	b) Nella funzione **make_timeout()** cercare **if ["\${recordfail}" = 1 ]; then**
+	b) Nella funzione **make\_timeout()** cercare **if ["\\${recordfail}" = 1 ]; then**
 
 	c) Modificare l'istruzione sotto questa riga in **set timeout=5**.
 
@@ -125,4 +125,4 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

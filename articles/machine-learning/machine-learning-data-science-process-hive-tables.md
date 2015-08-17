@@ -106,7 +106,7 @@ Gli utenti possono anche restituire i risultati della query Hive in un BLOB di A
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio *wasb:///queryoutputdir/queryoutput.txt*.
+Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio **wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Creare un'area di lavoro][13]
 
@@ -270,7 +270,7 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> creato da Peter Lapisu. In JavaScript la funzione `toRad()` è semplicemente *lat\_or\_lon\*pi/180* e consente di convertire i gradi in radianti. Qui *lat\_or\_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> creato da Peter Lapisu. In JavaScript la funzione `toRad()` è semplicemente *lat\_or\_lon*pi/180* e consente di convertire i gradi in radianti. Qui *lat\_or\_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creare un'area di lavoro][1]
 
@@ -319,4 +319,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

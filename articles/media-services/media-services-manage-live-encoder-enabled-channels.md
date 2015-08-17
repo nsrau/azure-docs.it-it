@@ -278,16 +278,16 @@ Con **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
 ####Flusso video di output
 
-<table border="1">
-<tr><th>Velocità in bit</th><th>Larghezza</th><th>Altezza</th><th>MaxFPS</th><th>Profilo</th><th>Nome del flusso di output</th></tr>
-<tr><td>3500</td><td>1280</td><td>720</td><td>30</td><td>Alto</td><td>Video_1280x720_30fps_3500kbps</td></tr>
-<tr><td>2200</td><td>960</td><td>540</td><td>30</td><td>Principale</td><td>Video_960x540_30fps_2200kbps</td></tr>
-<tr><td>1350</td><td>704</td><td>396</td><td>30</td><td>Principale</td><td>Video_704x396_30fps_1350kbps</td></tr>
-<tr><td>850</td><td>512</td><td>288</td><td>30</td><td>Principale</td><td>Video_512x288_30fps_850kbps</td></tr>
-<tr><td>550</td><td>384</td><td>216</td><td>30</td><td>Principale</td><td>Video_384x216_30fps_550kbps</td></tr>
-<tr><td>350</td><td>340</td><td>192</td><td>30</td><td>Di base</td><td>Video_340x192_30fps_350kbps</td></tr>
-<tr><td>200</td><td>340</td><td>192</td><td>30</td><td>Di base</td><td>Video_340x192_30fps_200kbps</td></tr>
-</table>
+Velocità in bit|Larghezza|Altezza|MaxFPS|Profilo|Nome del flusso di output
+---|---|---|---|---|---
+3500|1280|720|30|Alto|Video\_1280x720\_30fps\_3500kbps
+2200|960|540|30|Principale|Video\_960x540\_30fps\_2200kbps
+1350|704|396|30|Principale|Video\_704x396\_30fps\_1350kbps
+850|512|288|30|Principale|Video\_512x288\_30fps\_850kbps
+550|384|216|30|Principale|Video\_384x216\_30fps\_550kbps
+350|340|192|30|Di base|Video\_340x192\_30fps\_350kbps
+200|340|192|30|Di base|Video\_340x192\_30fps\_200kbps
+
 
 ####Flusso audio di output
 
@@ -341,7 +341,8 @@ Facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagin
 
 - Risoluzione massima: 1920x1080.
 - Dimensione massima: 3 MB.
-- Il nome file deve avere *estensione jpg.- L'immagine deve essere caricata in un asset come unico AssetFile di tale asset e questo AssetFile deve essere contrassegnato come file primario. L'asset non può essere crittografato per l'archiviazione.
+- Il nome file deve avere una *.jpg extension.
+- L'immagine deve essere caricata in un asset come unico AssetFile di tale asset e questo AssetFile deve essere contrassegnato come file primario. L'asset non può essere crittografato per l'archiviazione.
 
 Se non si specifica l'**ID asset dello slate predefinito** e **Inserisci slate su marcatore di annuncio** è impostato su **true**, per nascondere il flusso video di input verrà usata un'immagine predefinita di Servizi multimediali di Azure. Durante la visualizzazione dello slate viene disattivato anche l'audio.
 
@@ -383,13 +384,12 @@ Si tratta dello stato attuale del canale. I valori possibili sono:
 
 La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione.
  
-<table border="1">
-<tr><th>Stato del canale</th><th>Indicatori dell'interfaccia utente del portale</th><th>Fatturato?</th></tr>
-<tr><td>Avvio in corso</td><td>Avvio in corso</td><td>No (stato temporaneo)</td></tr>
-<tr><td>In esecuzione</td><td>Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione)</td><td>Sì</td></tr>
-<tr><td>Arresto in corso</td><td>Arresto in corso</td><td>No (stato temporaneo)</td></tr>
-<tr><td>Arrestato</td><td>Arrestato</td><td>No</td></tr>
-</table>
+Stato del canale|Indicatori dell'interfaccia utente del portale|Fatturato?
+---|---|---
+Avvio in corso|Avvio in corso|No (stato temporaneo)
+Running|Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione)|Sì
+Arresto in corso|Arresto in corso|No (stato temporaneo)
+Arrestato|Arrestato|No
 
 
 >[AZURE.NOTE]L'avvio del canale, attualmente in anteprima, può richiedere più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
@@ -505,4 +505,4 @@ Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezi
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

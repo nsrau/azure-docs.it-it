@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Come aggiungere un utente a un pool elastico di database" 
 	description="È necessario aggiungere un utente con privilegi a ogni database del pool" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter="" 
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -44,4 +45,4 @@ Eseguire un processo sul pool di database elastici. Vedere [Creazione e gestione
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

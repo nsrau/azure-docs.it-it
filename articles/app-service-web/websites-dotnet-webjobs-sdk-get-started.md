@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
@@ -800,10 +800,13 @@ Per altre informazioni su come scrivere funzioni che usano attributi di WebJobs 
 * [Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Come usare il bus di servizio di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Se l'app Web viene eseguita su più macchine virtuali, questo programma verrà eseguito su ogni macchina e ogni macchina attenderà i trigger e tenterà di eseguire le funzioni. In alcuni scenari che può comportare alcune funzioni di elaborazione degli stessi dati due volte, quindi funzioni devono essere idempotenti (scritto in modo che la chiamata più volte con gli stessi dati di input non produce risultati duplicati). 
->* Per informazioni sull'implementazione di arresto normale, vedere [arresto normale](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* il codice il `ConvertImageToThumbnailJPG` metodo (non mostrato) utilizza le classi nel `System.Drawing` dello spazio dei nomi per motivi di semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET. Per altre informazioni sulle opzioni di elaborazione delle immagini, vedere [Generazione dinamica delle immagini](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Informazioni dettagliate sul ridimensionamento delle immagini](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> [AZURE.NOTE]
+>
+> * Se l'applicazione Web viene eseguita su più VM, verranno eseguiti contemporaneamente più processi Web e in alcuni casi ciò può implicare che gli stessi dati verranno elaborati più volte. Ciò non costituisce un problema se si utilizzano la coda, i BLOB e i trigger del bus di servizio integrati. L’SDK garantisce che le funzioni verranno elaborate una sola volta per ogni messaggio o BLOB.
+>
+> * Per altre informazioni su come implementare l'arresto normale, vedere [Arresto normale](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
+>
+> * Il codice nel metodo `ConvertImageToThumbnailJPG` (non mostrato) usa le classi disponibili nello spazio dei nomi `System.Drawing` per maggiore semplicità. Le classi in questo spazio dei nomi, tuttavia, sono state progettate per l'uso con Windows Form. Non sono supportate per l'uso in un servizio Windows o ASP.NET. Per altre informazioni sulle opzioni di elaborazione delle immagini, vedere [Generazione dinamica delle immagini](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Informazioni dettagliate sul ridimensionamento delle immagini](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ### WebJobs SDK e ruolo di lavoro dei servizi cloud senza WebJobs SDK
 
@@ -829,4 +832,4 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

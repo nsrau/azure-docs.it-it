@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="04/14/2015" 
 	ms.author="juliako"/>
+
 
 #Introduzione a Distribuzione di Video on Demand (VoD) tramite API REST 
 
@@ -113,9 +115,9 @@ Il seguente esempio illustra l'intestazione e il corpo della richiesta HTTP usat
 	
 **Corpo**:
 
-È necessario verificare i valori client_id e client_secret nel corpo di questa richiesta. client_id e client_secret corrispondono rispettivamente ai valori AccountName e AccountKey. Questi valori vengono forniti da Servizi multimediali quando si configura l'account.
+È necessario verificare i valori client\_id e client\_secret nel corpo di questa richiesta. client\_id e client\_secret corrispondono rispettivamente ai valori AccountName e AccountKey. Questi valori vengono forniti da Servizi multimediali quando si configura l'account.
 
-Si noti che il valore AccountKey per l'account di Servizi multimediali deve essere codificato nell'URL quando viene usato come valore client_secret nella richiesta del token di accesso.
+Si noti che il valore AccountKey per l'account di Servizi multimediali deve essere codificato nell'URL quando viene usato come valore client\_secret nella richiesta del token di accesso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -146,10 +148,9 @@ Il seguente esempio illustra la risposta HTTP contenente il token di accesso nel
 	}
 	
 
->[AZURE.NOTE]
->È consigliabile memorizzare nella cache i valori "access_token" e "expires_in" usando una risorsa di archiviazione esterna. I dati del token potranno quindi essere recuperati da tale risorsa e riusati nelle chiamate all'API REST di Servizi multimediali. Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
+>[AZURE.NOTE]È consigliabile memorizzare nella cache i valori "access\_token" e "expires\_in" usando una risorsa di archiviazione esterna. I dati del token potranno quindi essere recuperati da tale risorsa e riusati nelle chiamate all'API REST di Servizi multimediali. Ciò è particolarmente utile in scenari in cui il token può essere condiviso in modo sicuro tra più processi o computer.
 
-Assicurarsi di monitorare il valore "expires_in" del token di accesso e di aggiornare le chiamate all'API REST con i nuovi token a seconda delle esigenze.
+Assicurarsi di monitorare il valore "expires\_in" del token di accesso e di aggiornare le chiamate all'API REST con i nuovi token a seconda delle esigenze.
 
 ###Connessione all'URI di Servizi multimediali
 
@@ -475,7 +476,7 @@ Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API 
 
 ### Aggiornare l'entità AssetFile 
 
-Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. Ad esempio:
+Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. ad esempio:
 	
 	MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
 	Content-Type: application/json
@@ -498,8 +499,7 @@ Una volta caricato il file, è possibile aggiornare la dimensione dell'entità F
 
 **Risposta HTTP**
 
-Se l'esito è positivo, viene restituita la seguente risposta: 
-	HTTP/1.1 204 - Nessun contenuto
+Se l'esito è positivo, viene restituita la seguente risposta: HTTP/1.1 204 - Nessun contenuto
 
 ## Eliminare le entità Locator e AccessPolicy 
 
@@ -550,7 +550,7 @@ Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, c
 
 Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
 
-- Ottenere almeno un'unità di streaming per l'**endpoint di streaming ** da cui si pianifica la distribuzione dei contenuti (descritto in questa sezione). 
+- Ottenere almeno un'unità di streaming per l'**endpoint di streaming** da cui si pianifica la distribuzione dei contenuti (descritto in questa sezione).
 - Codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).  
 
 Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
@@ -830,10 +830,10 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 - Le attività non devono formare un ciclo.
 - Il parametro value passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità Job. 
 
->[AZURE.NOTE]Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata : uri".
+>[AZURE.NOTE]Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "\_\_metadata : uri".
 
 - La proprietà InputMediaAssets è mappata a uno o più asset creati in Servizi multimediali. Le proprietà OutputMediaAssets vengono create dal sistema. Non fanno riferimento a un asset esistente.
-- Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponderà al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)_NewJob". 
+- Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponderà al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)\_NewJob".
 
 	Il seguente esempio mostra impostare l'attributo assetName:
 	
@@ -1090,8 +1090,7 @@ Il seguente esempio mostra come specificare l'entità AccessPolicy per le autori
 
 Se l'esito è positivo, viene restituito un codice di riuscita 201 in cui viene descritta l'entità AccessPolicy creata. Si userà quindi l'ID di AccessPolicy insieme all'ID dell'asset in cui è contenuto il file che si desidera distribuire (ad esempio un asset di output) per creare l'entità Locator.
 
->[AZURE.NOTE]
->Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
+>[AZURE.NOTE]Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
 
 
 ###Creazione di un URL di firma di accesso condiviso per il download di contenuti 
@@ -1145,20 +1144,19 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-	      "ExpirationDateTime":"/Date(1337049393000)/",
+	      "ExpirationDateTime":"\/Date(1337049393000)\/",
 	      "Type":1,
 	      "Path":"https://storagetestaccount001.blob.core.windows.net/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-	      "StartTime":"/Date(1337031393000)/"
+	      "StartTime":"\/Date(1337031393000)\/"
 	   }
 	}
 
 
 La proprietà **Path** restituita contiene l'URL di firma di accesso condiviso.
 
->[AZURE.NOTE]
->Se si scaricano contenuti a cui è stata applicata la crittografia di archiviazione, sarà necessario decrittografarli manualmente prima di eseguirne il rendering oppure usare il processore di contenuti multimediali Storage Decryption in un'attività di elaborazione per generare file elaborati non crittografati in un'entità OutputAsset e quindi eseguire il download da tale asset. Per altre informazioni sull'elaborazione, vedere Creazione di un processo di codifica con l'API REST di Servizi multimediali. Inoltre, i localizzatori URL di firma di accesso condiviso non possono essere aggiornati dopo la creazione. Ad esempio, non è possibile usare nuovamente lo stesso localizzatore con un valore StartTime aggiornato. Questo è dovuto al modo in cui vengono creati gli URL di firma di accesso condiviso. Se si desidera accedere a un asset per il download dopo la scadenza di un localizzatore, sarà necessario crearne uno nuovo con un nuovo valore StartTime.
+>[AZURE.NOTE]Se si scaricano contenuti a cui è stata applicata la crittografia di archiviazione, sarà necessario decrittografarli manualmente prima di eseguirne il rendering oppure usare il processore di contenuti multimediali Storage Decryption in un'attività di elaborazione per generare file elaborati non crittografati in un'entità OutputAsset e quindi eseguire il download da tale asset. Per altre informazioni sull'elaborazione, vedere Creazione di un processo di codifica con l'API REST di Servizi multimediali. Inoltre, i localizzatori URL di firma di accesso condiviso non possono essere aggiornati dopo la creazione. Ad esempio, non è possibile usare nuovamente lo stesso localizzatore con un valore StartTime aggiornato. Questo è dovuto al modo in cui vengono creati gli URL di firma di accesso condiviso. Se si desidera accedere a un asset per il download dopo la scadenza di un localizzatore, sarà necessario crearne uno nuovo con un nuovo valore StartTime.
 
 ###Download dei file
 
@@ -1238,12 +1236,12 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
-	      "ExpirationDateTime":"/Date(1337049395000)/",
+	      "ExpirationDateTime":"\/Date(1337049395000)\/",
 	      "Type":2,
 	      "Path":"http://wamsbayclus001rest-hs.net/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
-	      "StartTime":"/Date(1337031395000)/"
+	      "StartTime":"\/Date(1337031395000)\/"
 	   }
 	}
 
@@ -1286,4 +1284,4 @@ Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

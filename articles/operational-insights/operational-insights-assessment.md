@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ottimizzare l’ambiente con soluzioni di valutazione"
+   pageTitle="Ottimizzare l'ambiente con soluzioni di valutazione"
    description="Usare la soluzione di valutazione per valutare i rischi e l'integrità degli ambienti server a intervalli regolari"
    services="operational-insights"
    documentationCenter=""
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
-# Ottimizzare l’ambiente con soluzioni di valutazione
+# Ottimizzare l'ambiente con soluzioni di valutazione
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
@@ -93,7 +93,7 @@ La ponderazione per ogni raccomandazione è espressa come percentuale del punteg
 
 **Aggiornamento, migrazione e distribuzione**: mettere il reparto IT in condizione di agire da promotore principale del cambiamento e dell'innovazione, sfruttando appieno le nuove tecnologie per rendere disponibile maggior valore di business per unità organizzative, risorse e clienti.
 
-**Operazioni e monitoraggio**: rdurre il budget per la manutenzione IT semplificando le operazioni IT e implementando un programma di manutenzione preventiva completo per ottimizzare le prestazioni aziendali.
+**Operazioni e monitoraggio**: ridurre il budget per la manutenzione IT semplificando le operazioni IT e implementando un programma di manutenzione preventiva completo per ottimizzare le prestazioni aziendali.
 
 **Gestione dei cambiamenti e della configurazione**: proteggere le attività operative quotidiane dell'organizzazione e assicurare che i cambiamenti non incidano negativamente sul business, mediante la definizione di procedure di controllo modifiche e il rilevamento e controllo delle configurazioni di sistema.
 
@@ -105,7 +105,7 @@ Ogni raccomandazione generata include informazioni aggiuntive sui motivi per cui
 
 ## Usare le raccomandazioni relative all'area di interesse della valutazione
 
-Prima di poter usare una soluzione antimalware in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-add-solution.md). Dopo l'installazione, sarà possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Assessment della pagina Overview in Operational Insights.
+Prima di poter usare una soluzione antimalware in Microsoft Azure Operational Insights, è necessario disporre della soluzione installata. Per altre informazioni sull'installazione di soluzioni, vedere [Usare la raccolta di soluzioni per aggiungere o rimuovere soluzioni](operational-insights-setup-workspace.md). Dopo l'installazione, sarà possibile visualizzare il riepilogo delle raccomandazioni usando il riquadro Assessment della pagina Overview in Operational Insights.
 
 È possibile riepilogare le valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
@@ -123,6 +123,6 @@ Prima di poter usare una soluzione antimalware in Microsoft Azure Operational In
 
 4. Effettuare le azioni correttive suggerite in **Suggested Actions**. Dopo la risoluzione dell'elemento, le valutazioni successive indicheranno che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
 
-[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

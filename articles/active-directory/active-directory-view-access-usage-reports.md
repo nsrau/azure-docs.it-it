@@ -302,4 +302,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

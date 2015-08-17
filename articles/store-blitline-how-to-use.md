@@ -7,6 +7,7 @@
 	manager="jason@blitline.com" 
 	editor="jason@blitline.com"/>
 
+
 <tags 
 	ms.service="multiple" 
 	ms.workload="na" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="12/09/2014" 
 	ms.author="support@blitline.com"/>
+
 
 
 
@@ -47,7 +49,7 @@ Allo scopo di chiarire l'utilità di Blitline è spesso più semplice identifica
 
 - Blitline NON accetta i caricamenti delle immagini; non è possibile eseguire il push delle immagini direttamente su Blitline. È necessario eseguire il push delle immagini nell'archiviazione di Azure o in altri luoghi supportati da Blitline, quindi informare il software della posizione in cui recuperarle.
 
-- Blitline opera principalmente in parallelo e NON esegue alcuna elaborazione sincrona; vale a dire che l'utente deve comunicare un postback_url affinché sia possibile avvisarlo del termine dell'elaborazione.
+- Blitline opera principalmente in parallelo e NON esegue alcuna elaborazione sincrona; vale a dire che l'utente deve comunicare un postback\_url affinché sia possibile avvisarlo del termine dell'elaborazione.
 
 ## <a id="createaccount"></a>Creazione di un account Blitline
 
@@ -95,11 +97,11 @@ Si otterrà un codice JSON che avrà più o meno l'aspetto seguente:
     }
 
 
-Il codice informa che Blitline ha ricevuto la richiesta, inserendola in una coda di elaborazione, e che al termine l'immagine sarà disponibile all'indirizzo: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Il codice informa che Blitline ha ricevuto la richiesta, inserendola in una coda di elaborazione, e che al termine l'immagine sarà disponibile all'indirizzo: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Come salvare un'immagine nell'account di archiviazione di Azure
 
-Se si dispone di un account di archiviazione di Azure è possibile eseguire facilmente il push delle immagini elaborate in Blitline nel contenitore di Azure. Aggiungendo il frammento "azure_destination" è possibile definire la posizione e le autorizzazioni per il push di Blitline.
+Se si dispone di un account di archiviazione di Azure è possibile eseguire facilmente il push delle immagini elaborate in Blitline nel contenitore di Azure. Aggiungendo il frammento "azure\_destination" è possibile definire la posizione e le autorizzazioni per il push di Blitline.
 
 Di seguito è fornito un esempio:
 
@@ -150,4 +152,4 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
   [Come creare un processo di Blitline]: #createjob
   [Come salvare un'immagine nell'archiviazione di Azure]: #saveazure
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

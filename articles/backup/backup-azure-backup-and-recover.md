@@ -1,20 +1,6 @@
-<properties
-   pageTitle="Azure Backup - backup e ripristino da un Client di Windows o Windows Server | Microsoft Azure"
-   description="Informazioni su come eseguire il backup e ripristino da un Client di Windows o Windows Server. L'articolo tratta inoltre di ripristino su server alternativo"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
+< proprietà pageTitle = "Azure Backup - backup e ripristino da un Client di Windows o Windows Server" | Descrizione di Microsoft Azure = "informazioni su come eseguire il backup e ripristino da un Client di Windows o Windows Server. L'articolo tratta inoltre di ripristino su server alternativo"servizi = documentationCenter"backup"=" "autori = manager"Jim Parker"="jwhit"editor =" "/ >
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/01/2015"
-	 ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Backup e ripristino da un computer che esegue Windows Server o un client Windows
 Questo articolo illustra i passaggi necessari per eseguire il backup da un computer che esegue Windows Server o un client Windows. L'articolo descrive anche i passaggi necessari per ripristinare i file di backup nello stesso computer e quelli necessari per ripristinare tali file in un altro computer.
@@ -56,7 +42,7 @@ Se un file è stato eliminato accidentalmente e si vuole ripristinare un volume 
 
     ![Ripristino dei dati](./media/backup-azure-backup-and-recover/recover.png)
 
-3. Selezionare l'opzione **Questo server (\*nomecomputer\*)**, in quanto si è deciso di ripristinare il file di backup nello stesso computer.
+3. Selezionare l'opzione **Questo server (*nomecomputer*)**, se si è deciso di ripristinare il file di backup nello stesso computer.
 
     ![Nello stesso computer](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -64,7 +50,7 @@ Se un file è stato eliminato accidentalmente e si vuole ripristinare un volume 
 
     ![Ricerca dei file](./media/backup-azure-backup-and-recover/browseandsearch.png)
 
-5. Nella schermata successiva selezionare il volume da cui si vuole ripristinare il file. Questa schermata consente di ripristinare i file in qualsiasi momento. Le date visualizzate in **grassetto** nel controllo calendario indicano la disponibilità di un punto di ripristino. Dopo aver selezionato una data, in base alla pianificazione del backup e alla riuscita di un'operazione di backup, è possibile selezionare un orario dall'elenco a discesa **Ora**.
+5. Nella schermata successiva selezionare il volume da cui si vuole ripristinare il file. Questa schermata consente di ripristinare i file in qualsiasi momento. Le date visualizzate in **grassetto** nel controllo calendario indicano la disponibilità di un punto di ripristino. Dopo aver selezionato una data, in base alla pianificazione del backup (e alla riuscita di un'operazione di backup), è possibile selezionare un orario dall'elenco a discesa **Ora**.
 
     ![Volume e dati](./media/backup-azure-backup-and-recover/volanddate.png)
 
@@ -85,13 +71,13 @@ Se un file è stato eliminato accidentalmente e si vuole ripristinare un volume 
 ## Recuperare i dati in un altro computer
 Se l'intero server viene perso, è comunque possibile recuperare il volume o il file in un computer diverso. I passaggi seguenti illustrano il flusso di lavoro.
 
-La nomenclatura utilizzata nei passaggi riportati di seguito sono:-*macchina di origine*– computer originale da cui è stato eseguito il backup e non è attualmente disponibile. -*computer di destinazione*: il computer in cui i dati vengono recuperati. -*insieme di credenziali di esempio*– insieme di credenziali di Backup a cui il*macchina di origine*e*computer di destinazione*vengono registrati.<br/>
+La nomenclatura utilizzata nei passaggi riportati di seguito sono:-*macchina di origine*– computer originale da cui è stato eseguito il backup e che non è attualmente disponibile. -*computer di destinazione*: il computer in cui i dati vengono recuperati. -*insieme di credenziali di esempio*– insieme di credenziali di Backup in cui la*macchina di origine*e il*computer di destinazione*vengono registrati.<br/>
 
 > [AZURE.NOTE]I backup eseguiti da un determinato computer non possono essere ripristinati in un computer che esegue una versione precedente del sistema operativo. Ad esempio, se i backup vengono eseguiti da un computer che esegue Windows 7, è possibile ripristinare i dati in un computer con Windows 8 o versione successiva. Tuttavia non è possibile eseguire l'operazione inversa.
 
 1. Aprire lo snap-in di **Backup di Microsoft Azure** nel *computer di destinazione*.
 
-2. Assicurarsi che il *computer di destinazione* e il *computer di origine* vengano ripristinati nello stesso insieme di credenziali di Backup (in questo articolo insieme di credenziali di esempio).
+2. Assicurarsi che il *computer di destinazione* e il *computer di origine* vengano ripristinati nello stesso insieme di credenziali di Backup.
 
 3. Fare clic su **Ripristina dati** per avviare il flusso di lavoro.
 
@@ -128,4 +114,4 @@ La nomenclatura utilizzata nei passaggi riportati di seguito sono:-*macchina di 
 ## Passaggi successivi
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

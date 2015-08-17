@@ -52,4 +52,4 @@ Vedere infine la [panoramica sul caricamento][] che illustra diverse opzioni di 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

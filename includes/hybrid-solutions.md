@@ -101,4 +101,4 @@ La connessione tra applicazioni è sempre stata parte integrante dello sviluppo 
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [Panoramica di Hub eventi]: https://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

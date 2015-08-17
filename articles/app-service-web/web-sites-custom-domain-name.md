@@ -44,7 +44,7 @@ All'interno del quadro di base, esistono diversi casi specifici da prendere in c
 
 - Mapping del dominio radice. Il dominio radice è il dominio riservato con il registrar, ad esempio **contoso.com**.
 - Mapping di un sottodominio, ad esempio **blogs.contoso.com**. È possibile eseguire il mapping di sottodomini a differenti app Web.
-- Mapping di un carattere jolly, ad esempio **\*.contoso.com**. Una voce con caratteri jolly si applica a tutti i sottodomini del dominio.
+- Mapping di un carattere jolly, ad esempio ***.contoso.com**. Una voce con caratteri jolly si applica a tutti i sottodomini del dominio.
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes.md)]
 
@@ -147,4 +147,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

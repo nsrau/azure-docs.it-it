@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione all'Archiviazione di Azure" 
+	pageTitle="Introduzione all'archiviazione blob di Azure e ai servizi relativi a Visual Studio" 
 	description="Informazioni su come iniziare a usare l'archiviazione BLOB di Azure in un progetto di servizio cloud in Visual Studio." 
 	services="storage" 
 	documentationCenter="" 
@@ -13,78 +13,75 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="patshea123"/>
 
-# Introduzione all'Archiviazione di Azure (progetti del servizio cloud)
+# Introduzione all'archiviazione blob di Azure e ai servizi relativi a Visual Studio
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
-> - [What Happened](vs-storage-cloud-services-what-happened.md)
+> - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What happened](vs-storage-cloud-services-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
+##Panoramica
 
-L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento. In questo articolo viene descritto come iniziare a utilizzare l'archiviazione BLOB dopo la creazione di una risorsa di archiviazione Azure usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio.
+In questo articolo viene descritto come iniziare a utilizzare l'archiviazione BLOB dopo aver creato o fatto riferimento a un account di archiviazione di Azure usando Visual Studio Finestra di dialogo **Aggiungi servizi connessi** in un progetto di servizi cloud Visual Studio. Vi mostreremo come accedere e creare contenitori di BLOB e come eseguire attività comuni quali caricare, elencare e scaricare BLOB. Negli esempi, scritti in C#, viene utilizzata la [libreria del client di archiviazione di Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato una risorsa di archiviazione, è possibile creare uno o più contenitori nello spazio di archiviazione. Ad esempio, in una risorsa di archiviazione denominata "Raccoglitore", è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo la creazione dei contenitori, sarà possibile caricarvi singoli file BLOB. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md "Come usare l'archiviazione BLOB da .NET").
+L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento.
 
+I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato una risorsa di archiviazione, è possibile creare uno o più contenitori nello spazio di archiviazione. Ad esempio, in una risorsa di archiviazione denominata "Raccoglitore", è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo la creazione dei contenitori, sarà possibile caricarvi singoli file BLOB.
 
-In questo articolo verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione BLOB di Azure. Negli esempi, scritti in C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET. Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB.
+- Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md).
+- Vedere[documentazione relativa all'archiviazione](https://azure.microsoft.com/documentation/services/storage/)per informazioni generali sull'archiviazione di Azure.
+- Vedere[documentazione di servizi Cloud](http://azure.microsoft.com/documentation/services/cloud-services/)per informazioni generali sui servizi cloud di Azure.
+- Vedere[ASP.NET](http://www.asp.net)per ulteriori informazioni sulle applicazioni di programmazione ASP.NET.
 
-##Creazione di contenitori BLOB in Esplora server di Visual Studio
-
-[AZURE.INCLUDE [vs-create-blob-container-in-server-explorer](../../includes/vs-create-blob-container-in-server-explorer.md)]
-
-
-##Accesso ai contenitori BLOB nel codice 
+##Accesso ai contenitori BLOB nel codice
 
 Per accedere ai BLOB a livello di codice nei progetti di servizio cloud, è necessario aggiungere gli elementi seguenti, se non sono già presenti.
 
 1. Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si vuole accedere ad Archiviazione di Azure a livello di codice:
 
-		using Microsoft.Framework.Configuration;
-		using Microsoft.WindowsAzure.Storage;
-		using Microsoft.WindowsAzure.Storage.Blob;
-		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+        using Microsoft.Framework.Configuration;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Blob;
+        using System.Threading.Tasks;
+        using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Ottenere un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure.
+2. Ottenere un oggetto `CloudStorageAccount` che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure.
 
-		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-
-    **NOTA:** utilizzare tutto il codice riportato in precedenza prima del codice indicato nelle sezioni seguenti.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
 
-3. Ottenere un oggetto **CloudBlobClient** per fare riferimento a un contenitore esistente nell'account di archiviazione.
+3. Ottenere un oggetto `CloudBlobClient` per fare riferimento a un contenitore esistente nell'account di archiviazione.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
+4. Ottenere un oggetto `CloudBlobContainer` per fare riferimento a un contenitore BLOB specifico.
+
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-
+**NOTA:** utilizzare tutto il codice riportato in precedenza prima del codice indicato nelle sezioni seguenti.
 
 ##Creazione di un contenitore nel codice
 
-È inoltre possibile utilizzare **CloudBlobClient** per creare un contenitore nell'account di archiviazione. È sufficiente aggiungere un richiamo a `CreateIfNotExistsAsync()` come nel codice seguente:
+**NOTA:** alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Il codice riportato di seguito presuppone che si stiano utilizzando i metodi di programmazione asincroni.
 
-	// Create a blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+Per creare un contenitore nell'account di archiviazione, è sufficiente effettuare una chiamata a `CreateIfNotExistsAsync`come nel codice seguente:
 
-    // Get a reference to a container named “mNewContainer.”
-    CloudBlobContainer container = blobClient.GetContainerReference("mNewContainer");
+	// Get a reference to a CloudBlobContainer with the variable name 'container'
+    // as described in the "Access blob containers in code" section.
 
     // If “mycontainer” doesn’t exist, create it.
     await container.CreateIfNotExistsAsync();    
 
-
-**Nota:** le API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx). Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
 
 Per rendere i file all'interno del contenitore disponibili a tutti, è possibile impostare il contenitore come pubblico utilizzando il codice seguente.
 
@@ -100,19 +97,12 @@ I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, 
 
 In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.
 
-Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, sarà possibile caricarvi qualsiasi flusso di dati chiamando il metodo **UploadFromStream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore, presupponendo che il contenitore sia già stato creato.
+Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, sarà possibile caricarvi qualsiasi flusso di dati chiamando il metodo `UploadFromStream`. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore, presupponendo che il contenitore sia già stato creato.
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+    // the "Access blob containers in code" section.
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-    // Retrieve reference to a previously created container.
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-
-    // Retrieve reference to a blob named "myblob".
+    // Retrieve a reference to a blob named "myblob".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
     // Create or overwrite the "myblob" blob with contents from a local file.
@@ -123,17 +113,10 @@ Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un conteni
 
 ## Elencare i BLOB in un contenitore
 
-Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo **ListBlobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set avanzato di proprietà e metodi per un oggetto **IListBlobItem** restituito, è necessario eseguirne il cast in un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ogni elemento del contenitore `photos`:
+Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile utilizzare il metodo `ListBlobs` del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere all'insieme avanzato di proprietà e metodi per un `IListBlobItem` restituito, è necessario eseguirne il cast in un oggetto `CloudBlockBlob`, `CloudPageBlob`, or `CloudBlobDirectory`. Se il tipo è sconosciuto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ogni elemento del contenitore `photos`:
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-
-    // Create the blob client. 
-	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-	// Retrieve reference to a previously created container.
-	CloudBlobContainer container = blobClient.GetContainerReference("photos");
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+    // the "Access blob containers in code" section.
 
 	// Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -171,14 +154,14 @@ Come illustrato in precedenza, il servizio BLOB include anche il concetto di dir
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-Quando si chiama **ListBlobs** sul contenitore 'photos' (come nell'esempio precedente), la raccolta restituita conterrà gli oggetti **CloudBlobDirectory** e **CloudBlockBlob** che rappresentano le directory e i BLOB contenuti al primo livello. L'output risultante è il seguente:
+Quando si chiama `ListBlobs`sul contenitore (come nell'esempio precedente), la raccolta restituita conterrà gli oggetti `CloudBlobDirectory`e`CloudBlockBlob` che rappresentano le directory e i BLOB contenuti al livello superiore. L'output risultante è il seguente:
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Facoltativamente, è possibile impostare su **true** il parametro **UseFlatBlobListing** del metodo **ListBlobs**. In questo modo tutti i BLOB verranno restituiti come **CloudBlockBlob**, indipendentemente dalla directory. La chiamata a **ListBlobs** è la seguente:
+Facoltativamente, è possibile impostare il parametro `UseFlatBlobListing` del metodo `ListBlobs` a `true`. In questo modo verranno restituiti tutti i BLOB come `CloudBlockBlob`, indipendentemente dalla directory. Di seguito è illustrata la chiamata a `ListBlobs`:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -201,19 +184,12 @@ Per altre informazioni, vedere [CloudBlobContainer.ListBlobs][].
 
 ## Scaricare BLOB
 
-Per scaricare BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il metodo **DownloadToStream**. Nell'esempio seguente il metodo **DownloadToStream** viene utilizzato per trasferire il contenuto del BLOB a un oggetto stream che è quindi possibile rendere persistente in un file locale.
+Per scaricare dei BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il metodo `DownloadToStream`. Nell'esempio seguente il metodo `DownloadToStream` viene utilizzato per trasferire il contenuto del BLOB a un oggetto stream che è quindi possibile rendere persistente in un file locale.
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+    // the "Access blob containers in code" section.
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-    // Retrieve reference to a previously created container.
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-
-    // Retrieve reference to a blob named "photo1.jpg".
+    // Get a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
     // Save blob contents to a file.
@@ -222,19 +198,12 @@ Per scaricare BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il
         blockBlob.DownloadToStream(fileStream);
     } 
 
-È anche possibile utilizzare il metodo **DownloadToStream** per scaricare il contenuto di un BLOB come stringa di testo.
+È anche possibile utilizzare il metodo `DownloadToStream` per scaricare il contenuto di un BLOB come stringa di testo.
 
-	// Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+    // the "Access blob containers in code" section.
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-    // Retrieve reference to a previously created container.
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-
-	// Retrieve reference to a blob named "myblob.txt"
+	// Get a reference to a blob named "myblob.txt"
 	CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
 
 	string text;
@@ -246,19 +215,12 @@ Per scaricare BLOB, recuperare prima un riferimento al BLOB e quindi chiamare il
 
 ## Eliminare BLOB
 
-Per eliminare un BLOB, ottenere prima un riferimento al BLOB su cui chiamare il metodo **Delete**.
+Per eliminare un BLOB, ottenere prima un riferimento al BLOB su cui chiamare il metodo `Delete`.
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+    // the "Access blob containers in code" section.
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-    // Retrieve reference to a previously created container.
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-
-    // Retrieve reference to a blob named "myblob.txt".
+    // Get a reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
     // Delete the blob.
@@ -269,9 +231,9 @@ Per eliminare un BLOB, ottenere prima un riferimento al BLOB su cui chiamare il 
 
 Se si sta elencando un numero elevato di BLOB oppure si vuole controllare il numero di risultati restituiti in un'operazione di elenco, è possibile elencare i BLOB nelle pagine dei risultati. Questo esempio spiega come restituire i risultati nelle pagine in modalità asincrona, in modo che l'esecuzione non venga bloccata durante l'attesa della restituzione di un set di risultati di grandi dimensioni.
 
-Questo esempio illustra un elenco di BLOB lineare, ma è anche possibile eseguire un elenco gerarchico impostando il parametro `useFlatBlobListing` del metodo **ListBlobsSegmentedAsync** su `false`.
+Questo esempio illustra un elenco di BLOB lineare, ma è anche possibile eseguire un elenco gerarchico impostando il parametro `useFlatBlobListing` del metodo `ListBlobsSegmentedAsync` su `false`.
 
-Poiché il metodo di esempio chiama un metodo asincrono, deve avere come prefisso la parola chiave `async` e restituire un oggetto **Task**. La parola chiave di attesa specificata per il metodo **ListBlobsSegmentedAsync** sospende l'esecuzione del metodo di esempio fino al completamento dell'attività di elenco.
+Poiché il metodo di esempio chiama un metodo asincrono, deve avere come prefisso la parola chiave `async` e restituire un oggetto `Task`. La parola chiave di attesa specificata per il metodo `ListBlobsSegmentedAsync` sospende l'esecuzione del metodo di esempio fino al completamento dell'attività di elenco.
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
@@ -300,28 +262,10 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve avere come prefiss
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }
+    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 
 ## Passaggi successivi
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-
-
-  [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
-  [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
-  [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
-  [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
-  [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
-  
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
-  [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
-  [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

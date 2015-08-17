@@ -50,4 +50,4 @@ Questo record CNAME viene usato per verificare che si è proprietari del dominio
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

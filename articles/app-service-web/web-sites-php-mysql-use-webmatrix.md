@@ -140,7 +140,7 @@ Nei passaggi successivi verrà sviluppata l'applicazione Tasklist mediante l'agg
 
 	Nella finestra di dialogo risultante, passare ai file scaricati in precedenza, selezionarli tutte e fare clic su Open. Quando richiesto, scegliere di sostituire il file `index.php`.
 
-7. Sarà quindi necessario aggiungere le informazioni sulla connessione al database MySQL locale al file `taskmodel.php`. Aprire il `taskmodel.php` fare doppio clic sul file e aggiornare le informazioni di connessione di database il `connect` (funzione). (* * Nota * *: passare a [pubblica l'applicazione](#Publish) se non si desidera testare l'applicazione localmente e intenda pubblicarla direttamente in Azure applicazione servizio Web Apps.)
+7. Sarà quindi necessario aggiungere le informazioni sulla connessione al database MySQL locale al file `taskmodel.php`. Fare doppio clic sul file `taskmodel.php` per aprirlo e aggiornare le informazioni di connessione al database nella funzione `connect`. **Nota**: qualora non si desideri testare l'applicazione localmente e si intenda pubblicarla direttamente nelle app Web del servizio app di Azure, passare alla sezione [Pubblicazione dell'applicazione](#Publish).
 
 		// DB connection info
 		$host = "localhost";
@@ -261,4 +261,4 @@ Per modificare facilmente l'applicazione apportare le modifiche alla copia local
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

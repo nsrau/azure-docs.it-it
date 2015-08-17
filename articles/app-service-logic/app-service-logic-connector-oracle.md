@@ -57,10 +57,10 @@ Tables | No | Immettere le tabelle del database che possono essere modificate da
 Stored procedure | No | Immettere le stored procedure presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
 Functions | No | Immettere le funzioni presenti nel database che possono essere chiamate dal connettore, ad esempio *IsEmployeeEligible, CalculateOrderDiscount*.
 Package Entities | No | Immettere i pacchetti presenti nel database che possono essere chiamati dal connettore, ad esempio *PackageOrderProcessing.CompleteOrder o PackageOrderProcessing.GenerateBill*.
-Data Available Statement | No | Immettere l'istruzione per determinare se sono disponibili dati per il polling, ad esempio *SELECT * from table_name*.
+Data Available Statement | No | Immettere l'istruzione per determinare se sono disponibili dati per il polling, ad esempio *SELECT * from table\_name*.
 Poll Type | No | Immettere il tipo di polling. I valori consentiti sono "Select", "Procedure", "Function" e "Package".
-Poll Statement | No | Immettere l'istruzione per il polling del database del server Oracle, ad esempio *SELECT * from table_name*.
-Post Poll Statement | No | Immettere l'istruzione da eseguire dopo il polling, ad esempio *DELETE * from table_name*.
+Poll Statement | No | Immettere l'istruzione per il polling del database del server Oracle, ad esempio *SELECT * from table\_name*.
+Post Poll Statement | No | Immettere l'istruzione da eseguire dopo il polling, ad esempio *DELETE * from table\_name*.
 
 5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][1]
 
@@ -115,4 +115,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro a
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

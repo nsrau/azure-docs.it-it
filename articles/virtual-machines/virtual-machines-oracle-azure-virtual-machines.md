@@ -61,4 +61,4 @@ In [Configurazione di Oracle Data Guard per Azure](virtual-machines-configuring-
 
 In [Configurazione di Oracle GoldenGate per Azure](virtual-machines-configuring-oracle-goldengate.md) viene illustrata la procedura per la configurazione del database e della replica.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

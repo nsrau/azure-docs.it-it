@@ -8,11 +8,11 @@ Per recuperare l'URI nel portale di Azure, attenersi alla procedura seguente:
 1. Individuare il servizio MongoLab nell'elenco dei componenti aggiuntivi. ![MongolabEntry][entry-mongolabaddon]
 1. Fare clic sul nome del componente aggiuntivo per passare alla relativa pagina.
 1. Fare clic su **Connection Info**. ![ConnectionInfoButton][button-connectioninfo] Verrà visualizzato l'URI MongoLab: ![ConnectionInfoScreen][screen-connectioninfo]  
-1.  Fare clic sul pulsante con il simbolo degli Appunti a destra del valore MONGOLAB_URI per copiare il valore completo negli Appunti.
+1.  Fare clic sul pulsante con il simbolo degli Appunti a destra del valore MONGOLAB\_URI per copiare il valore completo negli Appunti.
 
 [entry-mongolabaddon]: ./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png
 [screen-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png
 [button-addons]: ./media/howto-get-connectioninfo-mongolab/button-addons.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

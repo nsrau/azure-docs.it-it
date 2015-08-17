@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come partizionare i dati in DocumentDB con .NET SDK" 
+	pageTitle="Come partizionare i dati in DocumentDB con .NET SDK | Microsoft Azure" 
 	description="Informazioni su come usare Azure DocumentDB .NET SDK per partizionare (condividere) i dati e instradare le richieste in più raccolte" 
 	services="documentdb" 
 	authors="arramac" 
@@ -30,7 +30,7 @@ Prima di esaminare più in dettaglio il partizionamento, è opportuno riepilogar
 - Le raccolte sono il limite per le transazioni ACID, ovvero stored procedure e trigger.
 - Le raccolte non applicano uno schema e quindi possono essere usate per documenti JSON dello stesso tipo o di tipi diversi.
 
-A partire dalla versione [1.1.0 di Azure DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), è possibile eseguire operazioni sui documenti direttamente in un database. Internamente [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa la classe PartitionResolver specificata per il database per instradare le richieste alla raccolta appropriata.
+A partire dalla versione [1\.1.0 di Azure DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), è possibile eseguire operazioni sui documenti direttamente in un database. Internamente [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa la classe PartitionResolver specificata per il database per instradare le richieste alla raccolta appropriata.
 
 Ogni classe PartitionResolver è un'implementazione concreta di un'interfaccia [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) che ha tre metodi: [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) e [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx). Le query LINQ e gli iteratori ReadFeed usano il metodo ResolveForRead internamente per scorrere tutte le raccolte che corrispondono alla chiave di partizione per la richiesta. Similmente le operazioni di creazione usano il metodo ResolveForCreate per instradare le creazioni alla partizione giusta. Non sono necessarie modifiche per Replace, Delete e Read perché usano documenti che contengono già il riferimento alla raccolta corrispondente.
 
@@ -96,7 +96,7 @@ foreach (UserProfile activeUser in query)
 ```
 
 ## Resolver della partizione hash
-Con il partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o utilizzati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT ("Internet of Things").
+Con il partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o usati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT ("Internet of Things").
 
 **Partizionamento hash:** ![Diagramma che illustra come il partizionamento hash distribuisca in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-hash.png "Partizionamento hash")
 
@@ -120,7 +120,7 @@ Un caso speciale di partizionamento per intervalli si ha quando l'intervallo è 
 
 ## Esempi 
 
-Esaminare il [progetto Github degli esempi di partizionamento di DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning) contenente frammenti di codice per usare le classi PartitionResolver ed estenderle per implementare i propri resolver per casi di utilizzo specifici, come i seguenti:
+Esaminare il [progetto Github degli esempi di partizionamento di DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning) contenente frammenti di codice per usare le classi PartitionResolver ed estenderle per implementare i propri resolver per casi d'uso specifici, come i seguenti:
 
 * Come specificare un'espressione lambda arbitraria per GetPartitionKey e usarla per implementare chiavi di partizionamento composte o per partizionare in modo diverso ogni tipo di oggetti.
 * Come creare un semplice [LookupPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning/Partitioners/LookupPartitionResolver.cs) che usa una tabella di ricerca manuale per eseguire il partizionamento. Questo modello di solito viene usato per il partizionamento basato su valori discreti, come area, ID tenant o nome applicazione.
@@ -167,4 +167,4 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

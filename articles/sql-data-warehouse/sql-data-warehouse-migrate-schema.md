@@ -110,10 +110,10 @@ Invece di:
 - **image**, **text**, **ntext**, usare varchar/nvarchar (il valore inferiore offre prestazioni migliori).
 - **nvarchar(max)**, usare varchar(4000) o un valore inferiore per prestazioni migliori.
 - **numeric**, usare decimal.
-- **sql_variant**, dividere la colonna in più colonne fortemente tipizzate.
+- **sql\_variant**, dividere la colonna in più colonne fortemente tipizzate.
 - **sysname**, usare nvarchar(128).
 - **table**, convertire in tabelle temporanee.
-- **timestamp**, rielaborare il codice per l'uso di datetime2 e della funzione `CURRENT_TIMESTAMP`. Tenere presente che non è possibile usare current_timestamp come vincolo predefinito e che il valore non verrà aggiornato automaticamente. Se è necessario eseguire la migrazione di valori rowversion da una colonna di tipo timestamp, usare binary(8) o varbinary(8) per i valori di versione di riga NOT NULL o NULL.
+- **timestamp**, rielaborare il codice per l'uso di datetime2 e della funzione `CURRENT_TIMESTAMP`. Tenere presente che non è possibile usare current\_timestamp come vincolo predefinito e che il valore non verrà aggiornato automaticamente. Se è necessario eseguire la migrazione di valori rowversion da una colonna di tipo timestamp, usare binary(8) o varbinary(8) per i valori di versione di riga NOT NULL o NULL.
 - **varchar(max)**, usare varchar(8000) o un valore inferiore per prestazioni migliori.
 - **uniqueidentifier**, usare varbinary(8).
 - **tipi definiti dall'utente**, riconvertirli nei tipi nativi corrispondenti, se possibile.
@@ -145,4 +145,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -34,4 +34,4 @@ Per creare un database MongoDB da [Azure Store], eseguire la procedura seguente:
 [Azure Store]: ../articles/overview.md
 [portal]: http://windows.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

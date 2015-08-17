@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/02/2015" 
 	ms.author="banders"/>
 # Connettere i computer direttamente a Operational Insights
@@ -76,4 +76,4 @@ Se l'ambiente include server proxy o firewall che limitano l'accesso a Internet,
 
 - [Configurare le impostazioni di proxy e firewall (facoltativo)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

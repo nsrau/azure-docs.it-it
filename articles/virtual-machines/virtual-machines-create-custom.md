@@ -12,23 +12,22 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="03/13/2015"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="kathydav"/>
 
 #Come creare una macchina virtuale personalizzata
 
 Una macchina virtuale *personalizzata* indica semplicemente una macchina virtuale creata usando l’opzione **Da raccolta**, che offre più possibilità di configurazione rispetto a **Creazione rapida**. Tali opzioni includono:
 
-- Connessione della macchina virtuale a una rete virtuale
-- Installazione dell'agente VM e di estensioni, ad esempio di tipo antimalware
-- Aggiunta della macchina virtuale a un servizio cloud esistente
-- Aggiunta della macchina virtuale a un account di archiviazione esistente
-- Aggiunta della macchina virtuale a un set di disponibilità
+- Collegare una macchina virtuale a Rete virtuale.
+- Installare l'agente di macchina virtuale di Azure e le estensioni di macchina virtuale di Azure, ad esempio per antimalware.
+- Aggiungere la macchina virtuale ai servizi cloud esistenti.
+- Aggiungere la macchina virtuale a un account di archiviazione esistente.
+- Aggiungere una macchina virtuale a un set di disponibilità esistente.
 
-**Importante**: se si vuole usare una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Importante**: se si vuole che la macchina virtuale utilizzi una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete Virtuale Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

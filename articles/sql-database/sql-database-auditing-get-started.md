@@ -182,4 +182,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -57,4 +57,4 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 
 > [AZURE.NOTE]Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

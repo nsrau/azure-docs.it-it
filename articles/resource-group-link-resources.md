@@ -146,4 +146,4 @@ Per altri esempi, tra cui come recuperare le informazioni sui collegamenti, vede
 - È inoltre possibile organizzare le risorse con i tag. Per altre informazioni sull'applicazione di tag alle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md).
 - Per una descrizione su come creare modelli e definire le risorse da distribuire, vedere [Creazione di modelli](resource-group-authoring-templates.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

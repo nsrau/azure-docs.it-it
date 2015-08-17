@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Gestione delle applicazioni di Service Fabric in Visual Studio
@@ -68,10 +68,10 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-- [Modello di applicazione di Service Fabric](../service-fabric-application-model)
-- [Distribuzione di un'applicazione di Service Fabric](../service-fabric-deploy-remove-applications)
-- [Debug dell'applicazione di Service Fabric](../service-fabric-debugging-your-application)
-- [Visualizzazione del cluster con Service Fabric Explorer](../service-fabric-visualizing-your-cluster)
+- [Modello di applicazione di Service Fabric](service-fabric-application-model.md)
+- [Distribuzione di un'applicazione di Service Fabric](service-fabric-deploy-remove-applications.md)
+- [Debug dell'applicazione di Service Fabric](service-fabric-debugging-your-application.md)
+- [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -79,4 +79,4 @@ Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

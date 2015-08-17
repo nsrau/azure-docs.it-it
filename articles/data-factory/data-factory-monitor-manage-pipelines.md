@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitorare e gestire le pipeline di Data factory di Azure" 
-	description="Informazioni su come usare il portale di gestione di Azure e Azure Powershell per monitorare e gestire le istanze di Data factory di Azure e le pipeline create." 
+	description="Informazioni su come usare il portale di gestione di Azure e Azure PowerShell per monitorare e gestire le istanze di Data factory di Azure e le pipeline create." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -31,7 +31,7 @@ Con il portale di anteprima di Azure, è possibile visualizzare la data factory 
 	![Esplora tutto -> Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
 	Dovrebbero essere visualizzate tutte le data factory presenti nel pannello **Data factory**. 
-4. Nel pannello Data factory selezionare la data factory desiderata per visualizzare la relativa home page (pannello \*\*Data factory\*\*).
+4. Nel pannello Data factory selezionare la data factory desiderata per visualizzare la relativa home page (pannello **Data factory**).
 
 	![Pannello Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
@@ -46,7 +46,7 @@ Fare clic su **Diagramma** nella home page della data factory precedente per vis
  
 
 ### Attività all'interno di una pipeline 
-1. Fare clic con il pulsante destro del mouse e scegliere **Apri pipeline** per visualizzare tutte le attività della pipeline, oltre ai set di dati di input e output per le attività. Ciò è utile quando la pipeline è costituita da più di 1 attività e si desidera conoscere la derivazione operativa di una singola pipeline.
+1. Fare clic con il pulsante destro del mouse sulla pipeline e scegliere **Apri pipeline** per visualizzare tutte le attività della pipeline, oltre ai set di dati di input e output relativi a queste attività. Ciò è utile quando la pipeline è costituita da più di 1 attività e si desidera conoscere la derivazione operativa di una singola pipeline.
 
 	![Menu Apri pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)	 
 2. Nell'esempio seguente sono visibili due attività nella pipeline con gli input e gli output. L'attività denominata **JoinData** di tipo attività Hive HDInsight e **EgressDataAzure** di tipo attività di copia sono nella stessa pipeline di esempio. 
@@ -54,22 +54,22 @@ Fare clic su **Diagramma** nella home page della data factory precedente per vis
 	![Attività all'interno di una pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png) 
 3. Per tornare alla Home page di Data factory, fare clic sul collegamento Data factory nella barra di navigazione in alto a sinistra.
 
-	![Ritorno a Data Factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+	![Ritorno a Data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
 ### Visualizzare lo stato di ogni attività all'interno di una pipeline
 Per visualizzare lo stato corrente di un'attività, visualizzare lo stato di uno dei set di dati generati dall'attività.
 
-Ad esempio: nell'esempio seguente **BlobPartitionHiveActivity** è stata eseguita correttamente e ha generato un set di dati denominato **PartitionedProductsUsageTable** con lo stato **Pronto**.
+Ad esempio: nell'esempio seguente **BlobPartitionHiveActivity** è stata eseguita correttamente e ha generato un set di dati denominato **PartitionedProductsUsageTable** con lo stato **Ready**.
 
 ![Stato della pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Facendo doppio clic su **PartitionedProductsUsageTable** nella vista diagramma, verranno presentate tutte le sezioni generate da esecuzioni diverse dell'attività all'interno di una pipeline. Si noti che **BlobPartitionHiveActivity** è stata eseguita correttamente ogni mese negli ultimi 8 mesi e ha generato le sezioni con lo stato **Pronto**.
+Facendo doppio clic su **PartitionedProductsUsageTable** nella vista diagramma, verranno presentate tutte le sezioni generate da esecuzioni diverse dell'attività all'interno di una pipeline. Si noti che **BlobPartitionHiveActivity** è stata eseguita correttamente ogni mese negli ultimi 8 mesi e ha generato le sezioni con lo stato **Ready**.
 
 Le sezioni dei set di dati nella data factory possono avere uno degli stati seguenti:
 
 Stato | Stato secondario | Descrizione
 ------ | ---------- | -----------
-In attesa | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | In attesa che vengano soddisfatte le condizioni preliminari prima dell'esecuzione. Fare riferimento allo stato secondario per sapere di cosa è in attesa la sezione.
+Waiting | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | In attesa che vengano soddisfatte le condizioni preliminari prima dell'esecuzione. Fare riferimento allo stato secondario per sapere di cosa è in attesa la sezione.
 In-Progress | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | L'attività attualmente sta eseguendo e generando/convalidando i dati per una sezione specifica.
 Failed | | L'elaborazione della sezione non è riuscita. Fare riferimento al log degli errori per sapere cosa ha causato il problema
 Ready | | L'elaborazione della sezione è riuscita. La sezione è pronta per essere utilizzata.
@@ -87,7 +87,7 @@ Per visualizzare i dettagli di un'esecuzione attività, fare clic sulla voce di 
 
 ![Dettagli esecuzione attività](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Ciò è molto utile quando lo stato della sezione è **In attesa** e si desidera conoscere le dipendenze upstream su cui la sezione è in attesa.
+Se lo stato della sezione non è **Ready**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Ciò è molto utile quando lo stato della sezione è **Waiting** e si desidera conoscere le dipendenze upstream su cui la sezione è in attesa.
 
 ![Sezioni upstream non pronte](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -96,11 +96,11 @@ Una volta che una data factory è stata distribuita e le pipeline hanno un perio
 
 ![Diagramma di stato](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Il flusso di transizione di stato del set dati nella data factory è il seguente: In attesa-> In corso/In corso (Convalida) -> Pronto/Non riuscito
+Il flusso di transizione di stato del set dati nella data factory è il seguente: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
-Lo stato iniziale delle sezioni è **In attesa** in modo da soddisfare le condizioni preliminari prima dell'esecuzione. In seguito, inizia l'esecuzione dell'attività e la sezione passa allo stato **In corso**. Lo stato della sezione passa a **Pronto** o **Non riuscito** a seconda che l'esecuzione dell'attività venga completata o meno.
+Lo stato iniziale delle sezioni è **Waiting** in modo da soddisfare le condizioni preliminari prima dell'esecuzione. In seguito inizia l'esecuzione dell'attività e la sezione passa allo stato **In-Progress**. Lo stato della sezione passa a **Ready** o **Failed** a seconda che l'esecuzione dell'attività venga completata o meno.
 
-L'utente può reimpostare la sezione in modo che dallo stato **Pronto** o **Non riuscito** torni allo stato **In attesa**. L'utente può anche impostare lo stato della sezione su **Ignora** per impedire l'esecuzione dell'attività e l'elaborazione della sezione.
+L'utente può reimpostare la sezione in modo che dallo stato **Ready** o **Failed** torni allo stato **Waiting**. L'utente può anche impostare lo stato della sezione su **Skip** per impedire l'esecuzione dell'attività e l'elaborazione della sezione.
 
 
 ## Gestire le pipeline
@@ -117,7 +117,7 @@ Eseguire il comando di PowerShell seguente per sospendere **PartitionProductsUsa
 
 	Suspend-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
-ad esempio:
+Ad esempio:
 
 	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
@@ -125,16 +125,16 @@ Una volta risolto il problema relativo a **PartitionProductsUsagePipeline**, la 
 
 	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
-ad esempio:
+Ad esempio:
 
 	Resume-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
 ## Eseguire il debug delle pipeline
-Tramite il Portale di Azure e Azure PowerShell, Azure Data Factory offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline.
+Tramite il portale di Azure e Azure PowerShell, Data factory di Azure offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline.
 
 ### Trovare gli errori in una pipeline
-Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati generato dalla pipeline è in uno stato di errore. È possibile eseguire il debug e risolvere i problemi relativi agli errori in Azure Data Factory usando i meccanismi seguenti.
+Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati generato dalla pipeline è in uno stato di errore. È possibile eseguire il debug e risolvere i problemi relativi agli errori in Data factory di Azure usando i meccanismi seguenti.
 
 #### Usare il portale di Azure per eseguire il debug di un errore:
 
@@ -144,7 +144,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 2.	Nel pannello **Set di dati con errori** fare clic sulla tabella che interessa.
 
 	![Pannello Set di dati con errori](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	Nel pannello **TABELLA** fare clic sulla sezione con errori con **STATO** impostato su **Operazione non riuscita**.
+3.	Nel pannello **TABELLA** fare clic sulla sezione con errori con **STATO** impostato su **Failed**.
 
 	![Pannello Tabella con sezione con errori](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	Nel pannello **SEZIONE DI DATI** fare clic sull'esecuzione attività non riuscita.
@@ -159,7 +159,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 2.	Passare alla modalità **AzureResourceManager** perché i cmdlet di Data factory sono disponibili unicamente in questa modalità.
 
 		switch-azuremode AzureResourceManager
-3.	Eseguire il comando **Get-AzureDataFactorySlice** per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato: **Operazione non riuscita**.
+3.	Eseguire il comando **Get-AzureDataFactorySlice** per visualizzare le sezioni e il relativo stato. Verrà visualizzata una sezione con lo stato **Failed**.
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -205,7 +205,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 		Type                	:
 	
 	
-6. 	È possibile eseguire il cmdlet **Save-AzureDataFactoryLog** con il valore ID visualizzato nell'output sopra e scaricare i file di log usando l'opzione del cmdlet **-DownloadLogs**.
+6. 	È possibile eseguire il cmdlet **Save-AzureDataFactoryLog** con il valore ID visualizzato nell'output riportato sopra e scaricare i file di log usando l'opzione **-DownloadLogs** del cmdlet.
 
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
@@ -222,7 +222,7 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 
 ### Uso di Azure PowerShell
 
-È possibile eseguire nuovamente le operazioni non riuscite usando il cmdlet ‘Set-AzureDataFactorySliceStatus’.
+È possibile eseguire nuovamente le operazioni non riuscite usando il cmdlet 'Set-AzureDataFactorySliceStatus'.
 
 	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
@@ -234,7 +234,7 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 
 
 ## Creare avvisi
-Azure registra eventi utente quando una risorsa di Azure (ad esempio, una data factory) viene creata, aggiornata o eliminata. È possibile creare avvisi per questi eventi. Data Factory consente di acquisire diverse metriche e di creare avvisi per le metriche. Si consiglia di usare gli eventi per il monitoraggio in tempo reale e le metriche per motivi cronologici.
+Azure registra eventi utente quando una risorsa di Azure (ad esempio, una data factory) viene creata, aggiornata o eliminata. È possibile creare avvisi per questi eventi. Data factory consente di acquisire diverse metriche e di creare avvisi per le metriche. Si consiglia di usare gli eventi per il monitoraggio in tempo reale e le metriche per motivi cronologici.
 
 ### Avvisi relativi agli eventi
 Gli eventi di Azure forniscono utili informazioni su quanto accade alle risorse di Azure. Azure registra eventi utente quando una risorsa di Azure (ad esempio, una data factory) viene creata, aggiornata o eliminata. Quando si usa Data factory di Azure, vengono generati eventi quando:
@@ -291,11 +291,11 @@ La tabella seguente fornisce l'elenco di operazioni e di stati (e degli stati se
 
 Nome operazione | Stato | Stato secondario
 -------------- | ------ | ----------
-RunStarted | Avviato | Avvio in corso
+RunStarted | Started | Starting
 RunFinished | Failed/Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
 SliceOnTime | In Progress | Ontime
 SliceDelayed | In Progress | Late
-OnDemandClusterCreateStarted | Avviato
+OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
@@ -337,7 +337,7 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 
 
 #### Risoluzione dei problemi relativi agli eventi utente
-È possibile visualizzare tutti gli eventi generati dopo avere fatto clic sul riquadro **Operazioni**. Gli avvisi possono essere configurati per qualsiasi operazione visibile nel pannello **Eventi**:
+È possibile visualizzare tutti gli eventi generati dopo aver selezionato il riquadro **Operazioni**. Gli avvisi possono essere configurati per qualsiasi operazione visibile nel pannello **Eventi**:
 
 ![Operazioni](./media/data-factory-monitor-manage-pipelines/operations.png)
 
@@ -359,7 +359,7 @@ Per visualizzare gli avvisi configurati usando PowerShell, è possibile eseguire
 Se si visualizzano gli eventi di generazione avvisi nel pannello del portale, ma non si ricevono le notifiche di posta elettronica, controllare se l'indirizzo di posta elettronica specificato è impostato per la ricezione di messaggi da mittenti esterni. I messaggi di avviso potrebbero essere stati bloccati dalle impostazioni di posta elettronica.
 
 ### Avvisi relativi alle metriche
-Data Factory consente di acquisire diverse metriche e di creare avvisi per le metriche. È possibile monitorare e creare avvisi per le metriche seguenti relative alle sezioni della data factory.
+Data factory consente di acquisire diverse metriche e di creare avvisi per le metriche. È possibile monitorare e creare avvisi per le metriche seguenti relative alle sezioni della data factory.
  
 - Esecuzioni non riuscite
 - Esecuzioni riuscite
@@ -467,4 +467,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 	Parameters        :
 	Outputs           
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

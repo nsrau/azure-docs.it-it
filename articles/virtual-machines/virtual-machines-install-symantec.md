@@ -95,4 +95,4 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

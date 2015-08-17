@@ -7,6 +7,7 @@
 	manager="adinah" 
 	editor=""/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/27/2015" 
 	ms.author="tamram"/>
+
 
 # Creare uno snapshot del BLOB
 
@@ -53,13 +55,13 @@ Non è possibile eliminare un BLOB contenente snapshot a meno che non vengano el
 ## Snapshot con Archiviazione Premium
 Per usare snapshot con Archiviazione Premium è necessario attenersi alle regole seguenti:
 
-- Il numero di snapshot per BLOB di pagine in un account di Archiviazione Premium è limitato a 100. Se tale limite viene superato, l'operazione Snapshot BLOB restituisce il codice errore 409 (SnapshotCountExceeded).
+- Il numero di snapshot per BLOB di pagine in un account di Archiviazione Premium è limitato a 100. Se tale limite viene superato, l'operazione Snapshot BLOB restituisce il codice errore 409 (**SnapshotCountExceeded**).
 
-- Uno snapshot di un BLOB di pagine in un account di Archiviazione Premium può essere adottato una volta ogni dieci minuti. Se tale frequenza viene superata, l'operazione Snapshot BLOB restituisce il codice errore 409 (SnaphotOperationRateExceeded).
+- Uno snapshot di un BLOB di pagine in un account di Archiviazione Premium può essere adottato una volta ogni dieci minuti. Se tale frequenza viene superata, l'operazione Snapshot BLOB restituisce il codice errore 409 (**SnaphotOperationRateExceeded**).
 
-- La lettura di uno snapshot di un BLOB di pagine in un account di Archiviazione Premium tramite l'operazione Get BLOB non è supportata. La chiamata Get BLOB per uno snapshot in un account di Archiviazione Premium restituisce il codice errore 400 (InvalidOperation). Tuttavia, le chiamate Get Blob Properties e Get Blob Metadata su uno snapshot sono supportate.
+- La lettura di uno snapshot di un BLOB di pagine in un account di Archiviazione Premium tramite l'operazione Get BLOB non è supportata. La chiamata Get BLOB per uno snapshot in un account di Archiviazione Premium restituisce il codice errore 400 (**InvalidOperation**). Tuttavia, le chiamate Get Blob Properties e Get Blob Metadata su uno snapshot sono supportate.
 
-- Per leggere uno snapshot, è possibile usare l'operazione Copy BLOB per copiare uno snapshot in un altro BLOB di pagine nell'account. Il BLOB di destinazione per l'operazione di copia non deve contenere snapshot. Se il BLOB di destinazione contiene degli snapshot, l'operazione Copy BLOB restituisce il codice errore 409 (SnapshotsPresent).
+- Per leggere uno snapshot, è possibile usare l'operazione Copy BLOB per copiare uno snapshot in un altro BLOB di pagine nell'account. Il BLOB di destinazione per l'operazione di copia non deve contenere snapshot. Se il BLOB di destinazione contiene degli snapshot, l'operazione Copy BLOB restituisce il codice errore 409 (**SnapshotsPresent**).
 
 ## L'URI assoluto deve tornare ad uno snapshot 
 
@@ -125,4 +127,4 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

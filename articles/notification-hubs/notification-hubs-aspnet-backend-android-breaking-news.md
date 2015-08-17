@@ -36,7 +36,7 @@ Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub
 
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all'attività principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag.
 
-1. Aprire il file res/layout/activity_main.xml e sostituire il contenuto con il seguente:
+1. Aprire il file res/layout/activity\_main.xml e sostituire il contenuto con il seguente:
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -96,7 +96,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	A questo punto il layout grafico del file main_activity.xml dovrebbe essere simile al seguente:
+	A questo punto il layout grafico del file main\_activity.xml dovrebbe essere simile al seguente:
 
 	![][A1]
 
@@ -319,4 +319,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

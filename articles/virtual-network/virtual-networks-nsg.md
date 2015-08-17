@@ -65,15 +65,15 @@ Le regole predefinite sono:
 
 | Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
-| CONSENTI RETE VIRTUALE IN INGRESSO | 65000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | CONSENTI |
-| CONSENTI BILANCIAMENTO DEL CARICO DI AZURE IN INGRESSO | 65001 | AZURE_LOADBALANCER | * | * | * | * | CONSENTI |
+| CONSENTI RETE VIRTUALE IN INGRESSO | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | CONSENTI |
+| CONSENTI BILANCIAMENTO DEL CARICO DI AZURE IN INGRESSO | 65001 | AZURE\_LOADBALANCER | * | * | * | * | CONSENTI |
 | NEGA TUTTO IN INGRESSO | 65500 | * | * | * | * | * | NEGA |
 
 **In uscita**
 
 | Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
-| CONSENTI RETE VIRTUALE IN USCITA | 65000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | CONSENTI |
+| CONSENTI RETE VIRTUALE IN USCITA | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | CONSENTI |
 | CONSENTI INTERNET IN USCITA | 65001 | * | * | INTERNET | * | * | CONSENTI |
 | NEGA TUTTO IN USCITA | 65500 | * | * | * | * | * | NEGA |
 
@@ -89,9 +89,9 @@ Le regole per il gruppo di sicurezza di rete sono esplicite. Non viene consentit
 
 I tag predefiniti sono identificatori forniti dal sistema per risolvere una categoria di indirizzi IP. I tag predefiniti possono essere specificati in regole definite dal cliente. Di seguito sono illustrati i tag predefiniti:
 
-- **VIRTUAL_NETWORK:** questo tag predefinito identifica tutto lo spazio di indirizzi della rete. Include lo spazio di indirizzi della rete virtuale (CIDR di IP in Azure), nonché tutto lo spazio di indirizzi locale connesso (reti locali). Include anche gli spazi di indirizzi tra reti virtuali.
+- **VIRTUAL\_NETWORK:** questo tag predefinito identifica tutto lo spazio di indirizzi della rete. Include lo spazio di indirizzi della rete virtuale (CIDR di IP in Azure), nonché tutto lo spazio di indirizzi locale connesso (reti locali). Include anche gli spazi di indirizzi tra reti virtuali.
 
-- **AZURE_LOADBALANCER:** questo tag predefinito identifica il bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un IP del data center di Azure da cui avranno origine i probe di integrità di Azure. È necessario solo se la macchina virtuale o il set di macchine virtuali associato al gruppo di sicurezza di rete fa parte di un set con carico bilanciato.
+- **AZURE\_LOADBALANCER:** questo tag predefinito identifica il bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un IP del data center di Azure da cui avranno origine i probe di integrità di Azure. È necessario solo se la macchina virtuale o il set di macchine virtuali associato al gruppo di sicurezza di rete fa parte di un set con carico bilanciato.
 
 - **INTERNET:** questo tag predefinito identifica lo spazio di indirizzi IP esterno alla rete virtuale e raggiungibile tramite la rete Internet pubblica. Questo intervallo include anche lo spazio di IP pubblici appartenenti ad Azure.
 
@@ -138,7 +138,7 @@ Immaginiamo la seguente regola NSG per tale scenario:
 
 | Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|INTERNET NON DISPONIBILE|100| VIRTUAL_NETWORK|& #42;|INTERNET|& #42;|TCP|NEGA| 
+|INTERNET NON DISPONIBILE|100| VIRTUAL\_NETWORK|& #42;|INTERNET|& #42;|TCP|NEGA| 
 
 Poiché la regola consiste nel negare gli accessi ad Internet dalla rete virtuale, le macchine virtuali non saranno in grado di accedere a qualsiasi servizio PaaS di Azure che richieda un endpoint Internet pubblico, ad esempio database SQL.
 
@@ -146,8 +146,8 @@ Invece di utilizzare una regola di negazione, bisognerebbe prendere in considera
 
 | Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|A INTERNET|100| VIRTUAL_NETWORK|& #42;|INTERNET|& #42;|TCP|CONSENTI|
-|DA INTERNET|110| INTERNET|& #42;|VIRTUAL_NETWORK|& #42;|TCP|NEGA| 
+|A INTERNET|100| VIRTUAL\_NETWORK|& #42;|INTERNET|& #42;|TCP|CONSENTI|
+|DA INTERNET|110| INTERNET|& #42;|VIRTUAL\_NETWORK|& #42;|TCP|NEGA| 
 
 
 ## Pianificazione: flusso di lavoro dei gruppi di sicurezza di rete
@@ -248,4 +248,4 @@ Al momento i gruppi di sicurezza di rete possono essere configurati e modificati
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

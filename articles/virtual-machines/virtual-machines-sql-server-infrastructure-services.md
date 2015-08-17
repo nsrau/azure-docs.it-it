@@ -78,4 +78,4 @@ Per i database in locale, Azure può fungere da un centro dati secondario per ar
   [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
   [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

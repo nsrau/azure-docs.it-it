@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/23/2015" 
 	ms.author="juliako"/>
+
 
 
 
@@ -41,7 +43,7 @@ Se si specifica che l'asset deve essere crittografato con un'opzione **CommonEnc
 
 Se si specifica che l'asset deve essere crittografato con un'opzione **StorageEncrypted**, Media Services SDK per .NET creerà un'entità **StorateEncrypted** **ContentKey** per l'asset.
 
->[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !\*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+>[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 Questo argomento illustra come usare l'SDK di Servizi multimediali per .NET e le relative estensioni per caricare file in un asset di Servizi multimediali.
 
@@ -275,7 +277,7 @@ Il seguente esempio illustra il polling di un'entità IngestManifest in base all
 
 ##Caricare file mediante le estensioni dell'SDK per .NET 
 
-Il seguente esempio mostra come caricare un singolo file mediante le estensioni dell'SDK per .NET. In questo caso viene usato il metodo **CreateFromFile**, ma è disponibile anche la versione asincrona (\*\*CreateFromFileAsync\*\*). Il metodo **CreateFromFile** consente di specificare il nome del file, l'opzione di crittografia e un callback per segnalare lo stato di caricamento del file.
+Il seguente esempio mostra come caricare un singolo file mediante le estensioni dell'SDK per .NET. In questo caso viene usato il metodo **CreateFromFile**, ma è disponibile anche la versione asincrona (**CreateFromFileAsync**). Il metodo **CreateFromFile** consente di specificare il nome del file, l'opzione di crittografia e un callback per segnalare lo stato di caricamento del file.
 
 
 	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -305,4 +307,4 @@ Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'a
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

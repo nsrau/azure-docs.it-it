@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Creare un'app Web CMS Orchard da Azure Marketplace
@@ -71,7 +71,7 @@ Verrà creato un sito Web CMS Orchard basato su un modello predefinito. [Orchard
 
 3. Per ulteriori informazioni su Orchard e su come configurare il nuovo sito, fare riferimento alla [documentazione di Orchard](http://docs.orchardproject.net/).
 
-## Passaggio successivo
+## Passaggi successivi
 
 * [Sviluppo e distribuzione di un sito Web con Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) Ulteriori informazioni su come modificare un sito Web di Azure in WebMatrix. 
 * [Creare un'applicazione MVC ASP.NET con autenticazione e database SQL e distribuire al servizio di Azure App](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)-informazioni su come creare una nuova applicazione web nel servizio di applicazione Azure da Visual Studio.
@@ -92,4 +92,4 @@ Verrà creato un sito Web CMS Orchard basato su un modello predefinito. [Orchard
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

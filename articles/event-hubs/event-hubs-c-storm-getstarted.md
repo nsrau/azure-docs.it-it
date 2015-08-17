@@ -111,4 +111,4 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

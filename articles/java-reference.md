@@ -20,4 +20,4 @@
 
 Il contenuto Javadoc per le librerie di Azure per Java è disponibile all'indirizzo <http://dl.windowsazure.com/javadoc>.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

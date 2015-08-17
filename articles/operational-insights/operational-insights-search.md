@@ -27,25 +27,25 @@ Le query di ricerca log più comuni sono visualizzate nella maggior parte delle 
 
 In questa esercitazione verranno esaminati alcuni esempi per analizzare tutti gli elementi di base quando si usa la ricerca log.
 
-Si inizierà con esempi semplici e pratici, tali esempi verranno quindi compilati in modo da acquisire informazioni sui casi di utilizzo pratici relativi all’uso della sintassi per estrarre le informazioni desiderate dai dati.
+Si inizierà con esempi semplici e pratici, tali esempi verranno quindi compilati in modo da acquisire informazioni sui casi d'uso pratici relativi all'uso della sintassi per estrarre le informazioni desiderate dai dati.
 
 Durante le ricerche log in Operational Insights, si useranno le tecniche seguenti:
 
-- Utilizzare filtri di base
-- Utilizzare filtri aggiuntivi
+- Usare filtri di base
+- Usare filtri aggiuntivi
 - Modificare i risultati della ricerca
-- Utilizzare il comando measure
-- Utilizzare le funzioni max e min con il comando measure
-- Utilizzare la funzione avg con il comando measure
-- Utilizzare il comando where
+- Usare il comando measure
+- Usare le funzioni max e min con il comando measure
+- Usare la funzione avg con il comando measure
+- Usare il comando where
 
 Dopo aver acquisito familiarità con le tecniche di ricerca, è possibile esaminare le sezioni [Riferimento alla sintassi di ricerca](#search-syntax-reference) e [Riferimenti al campo Ricerca e ai facet](#search-field-and-facet-reference).
 
-## Utilizzare filtri di base
+## Usare filtri di base
 
-La prima cosa da sapere è che la prima parte di una query di ricerca, prima di un carattere di barra verticale "|" è sempre un *filtro*. Può essere considerato come una clausola WHERE in TSQL: determina *quali* subset di dati estrarre dall’archivio dati di Operational Insights. Per la ricerca in un archivio dati è importante specificare le caratteristiche dei dati che si desidera estrarre, pertanto è normale che una query inizi con la clausola WHERE.
+La prima cosa da sapere è che la prima parte di una query di ricerca, prima di un carattere di barra verticale "|" è sempre un *filtro*. Può essere considerato come una clausola WHERE in TSQL: determina *quali* subset di dati estrarre dall'archivio dati di Operational Insights. Per la ricerca in un archivio dati è importante specificare le caratteristiche dei dati che si desidera estrarre, pertanto è normale che una query inizi con la clausola WHERE.
 
-I filtri più semplici che è possibile utilizzare sono *parole chiave*, ad esempio 'error' o 'timeout' o un nome di computer. Questi tipi di query semplici restituiscono in genere diverse forme di dati all'interno dello stesso set di risultati. Questo perché Operational Insights presenta diversi *tipi* di dati nel sistema.
+I filtri più semplici che è possibile usare sono *parole chiave*, ad esempio 'error' o 'timeout' o un nome di computer. Questi tipi di query semplici restituiscono in genere diverse forme di dati all'interno dello stesso set di risultati. Questo perché Operational Insights presenta diversi *tipi* di dati nel sistema.
 
 
 ### Per eseguire una ricerca semplice
@@ -54,7 +54,7 @@ I filtri più semplici che è possibile utilizzare sono *parole chiave*, ad esem
 
 Questi filtri non sono realmente tipi o classi di oggetti. *Type* è semplicemente un tag o una proprietà o una stringa/nome/categoria, collegata a una parte dei dati. Alcuni documenti nel sistema vengono contrassegnati come **Type:ConfigurationAlert** e alcuni vengono contrassegnati come **Type:PerfHourly** o **Type:Event** e così via. In ogni risultato della ricerca, documento, record o voce vengono visualizzate tutte le proprietà non elaborate e i relativi valori per ciascuno di tali dati ed è possibile usare i nomi dei campi per specificare nel filtro quando si desidera recuperare solo i record il cui campo presenta il valore specificato.
 
-*Type* è in realtà solo un campo che contiene tutti i record, non è diverso dagli altri campi. Ciò è stato stabilito in base al valore del campo Type. Quel record avrà una forma o un formato diversi. Tra l’altro, **Type=PerfHourly** o **Type=Event** è anche la sintassi che è necessario conoscere per eseguire una query su aggregazioni di dati o eventi relativi alle prestazioni che si verificano ogni ora.
+*Type* è in realtà solo un campo che contiene tutti i record, non è diverso dagli altri campi. Ciò è stato stabilito in base al valore del campo Type. Quel record avrà una forma o un formato diversi. Tra l'altro, **Type=PerfHourly** o **Type=Event** è anche la sintassi che è necessario conoscere per eseguire una query su aggregazioni di dati o eventi relativi alle prestazioni che si verificano ogni ora.
 
 È possibile usare i due punti (:) o un segno di uguale (=) dopo il nome del campo e prima del valore. **Type:Event** e **Type=Event** sono equivalenti nel significato, è possibile scegliere lo stile desiderato.
 
@@ -65,7 +65,7 @@ Questa query fornirà solo i dati sulle prestazioni in cui il nome del contatore
 ### Per ricercare i dati sulle prestazioni del tempo del processore
 - Nel campo della query di ricerca, digitare `Type=PerfHourly CounterName="% Processor Time"`
 
-È inoltre possibile essere più specifici e utilizzare **InstanceName=\_'Total'** nella query, che rappresenta un contatore delle prestazioni di Windows. È possibile anche selezionare un facet e un altro **field:value**. Il filtro viene aggiunto automaticamente al filtro dell’utente nella barra di query. È possibile visualizzare il risultato nell'immagine seguente. Viene indicato dove è possibile fare clic per aggiungere **InstanceName:’\_Total’** alla query senza digitare nulla.
+È inoltre possibile essere più specifici e usare **InstanceName=\_'Total'** nella query, che rappresenta un contatore delle prestazioni di Windows. È possibile anche selezionare un facet e un altro **field:value**. Il filtro viene aggiunto automaticamente al filtro dell'utente nella barra di query. È possibile visualizzare il risultato nell'immagine seguente. Viene indicato dove è possibile fare clic per aggiungere **InstanceName:'\_Total'** alla query senza digitare nulla.
 
 ![facet di ricerca](./media/operational-insights-search/search-facet.png)
 
@@ -75,13 +75,13 @@ In questo esempio, non è necessario specificare **Type=PerfHourly** per ottener
 CounterName=”% Processor Time” InstanceName=”_Total”
 ```
 
-Questo perché tutti i filtri nella query vengono considerati come se fossero collegati dall’operatore *AND*. In effetti, quanti più campi vengono aggiunti ai criteri, tanto più i risultati saranno di numero inferiore ma più specifici e complessi.
+Questo perché tutti i filtri nella query vengono considerati come se fossero collegati dall'operatore *AND*. In effetti, quanti più campi vengono aggiunti ai criteri, tanto più i risultati saranno di numero inferiore ma più specifici e complessi.
 
-Ad esempio, la query `Type=Event EventLog="Windows PowerShell"` è identica a `Type=Event AND EventLog="Windows PowerShell"`. Restituisce tutti gli eventi a cui è stato effettuato l’accesso e che sono stati raccolti dal registro eventi di Windows PowerShell. Se si aggiunge un filtro più volte selezionando ripetutamente lo stesso facet, il problema è puramente descrittivo, potrebbe creare confusione nella barra di ricerca, ma restituisce comunque gli stessi risultati perché l'operatore AND implicito è sempre presente.
+Ad esempio, la query `Type=Event EventLog="Windows PowerShell"` è identica a `Type=Event AND EventLog="Windows PowerShell"`. Restituisce tutti gli eventi a cui è stato effettuato l'accesso e che sono stati raccolti dal registro eventi di Windows PowerShell. Se si aggiunge un filtro più volte selezionando ripetutamente lo stesso facet, il problema è puramente descrittivo, potrebbe creare confusione nella barra di ricerca, ma restituisce comunque gli stessi risultati perché l'operatore AND implicito è sempre presente.
 
 È possibile invertire facilmente l'operatore AND implicito usando un operatore NOT in modo esplicito. Ad esempio:
 
-`Type:Event NOT(EventLog:"Windows PowerShell")` o l’equivalente `Type=Event EventLog!="Windows PowerShell"` restituiscono tutti gli eventi di tutti gli altri log che NON sono il log di Windows PowerShell.
+`Type:Event NOT(EventLog:"Windows PowerShell")` o l'equivalente `Type=Event EventLog!="Windows PowerShell"` restituiscono tutti gli eventi di tutti gli altri log che NON sono il log di Windows PowerShell.
 
 In alternativa, è possibile usare altri operatori booleani, ad esempio 'OR'. La query seguente restituisce i record per cui EventLog è Application OR System.
 
@@ -89,16 +89,16 @@ In alternativa, è possibile usare altri operatori booleani, ad esempio 'OR'. La
 EventLog=Application OR EventLog=System
 ```
 
-Utilizzando la query precedente, si otterranno le voci per entrambi i log nello stesso set di risultati.
+Usando la query precedente, si otterranno le voci per entrambi i log nello stesso set di risultati.
 
-Tuttavia, se si rimuove l'operatore OR lasciando l’operatore implicito AND, la query seguente non produrrà alcun risultato perché non è presente una voce del registro eventi che appartiene a entrambi i log. Ogni voce del registro eventi è stata scritta solo in uno dei due log.
+Tuttavia, se si rimuove l'operatore OR lasciando l'operatore implicito AND, la query seguente non produrrà alcun risultato perché non è presente una voce del registro eventi che appartiene a entrambi i log. Ogni voce del registro eventi è stata scritta solo in uno dei due log.
 
 ```
 EventLog=Application EventLog=System
 ```
 
 
-## Utilizzare filtri aggiuntivi
+## Usare filtri aggiuntivi
 
 La query seguente restituisce le voci per 2 registri eventi per tutti i computer che hanno inviato dati.
 
@@ -114,13 +114,13 @@ Se si seleziona uno dei campi o filtri la query viene limitata a un computer spe
 EventLog=Application OR EventLog=System Computer=SERVER1.contoso.com
 ```
 
-Questa query equivale alla seguente, a causa dell’operatore AND implicito.
+Questa query equivale alla seguente, a causa dell'operatore AND implicito.
 
 ```
 EventLog=Application OR EventLog=System AND Computer=SERVER1.contoso.com
 ```
 
-Ogni query viene considerata nell’ordine esplicito seguente. Notare le parentesi.
+Ogni query viene considerata nell'ordine esplicito seguente. Notare le parentesi.
 
 ```
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
@@ -140,7 +140,7 @@ CounterName=”% Processor Time”  AND InstanceName=”_Total” AND (Computer=
 
 
 ### Operatori booleani
-Con i campi di data/ora e numerici, è possibile cercare i valori utilizzando *maggiore di*, *minore di* e *minore o uguale a*. È possibile utilizzare operatori semplici come >, < , >=, <= , != nella barra di ricerca della query.
+Con i campi di data/ora e numerici, è possibile cercare i valori usando *maggiore di*, *minore di* e *minore o uguale a*. È possibile usare operatori semplici come >, < , >=, <= , != nella barra di ricerca della query.
 
 
 È possibile eseguire una query su un registro eventi specifico per uno specifico periodo di tempo. Ad esempio, le ultime 24 ore viene espresso con la seguente espressione mnemonica.
@@ -153,9 +153,9 @@ EventLog=System TimeGenerated>NOW-24HOURS
 #### Per eseguire la ricerca usando un operatore booleano
 - Nel campo della query di ricerca, digitare `EventLog=System TimeGenerated>NOW-24HOURS"` ![ricerca con valore booleano](./media/operational-insights-search/search-boolean.png)
 
-Nonostante sia possibile controllare graficamente l'intervallo di tempo, e la maggior parte delle volte si desideri farlo, l’inclusione di un filtro temporale direttamente nella query presenta dei vantaggi. Ad esempio, è efficace con i dashboard, in cui è possibile sostituire l’intervallo di tempo per ogni riquadro, indipendentemente dal selettore temporale *globale* nella pagina del dashboard. Per altre informazioni, vedere l’argomento relativo alle [questioni di tempo nel dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
+Nonostante sia possibile controllare graficamente l'intervallo di tempo, e la maggior parte delle volte si desideri farlo, l'inclusione di un filtro temporale direttamente nella query presenta dei vantaggi. Ad esempio, è efficace con i dashboard, in cui è possibile sostituire l'intervallo di tempo per ogni riquadro, indipendentemente dal selettore temporale *globale* nella pagina del dashboard. Per altre informazioni, vedere l'argomento relativo alle [questioni di tempo nel dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
 
-Quando si applica il filtro per tempo, si ottengono risultati per l’*intersezione* dei due periodi di tempo: quello specificato nel portale di Operational Insights (S1) e quello specificato nella query (S2).
+Quando si applica il filtro per tempo, si ottengono risultati per l'*intersezione* dei due periodi di tempo: quello specificato nel portale di Operational Insights (S1) e quello specificato nella query (S2).
 
 ![intersezione](./media/operational-insights-search/intersection.png)
 
@@ -176,7 +176,7 @@ Type=ConfigurationAlert  Severity>=1
 ```
 
 
-È inoltre possibile utilizzare le query di intervallo. Ciò significa che è possibile specificare l’inizio e la fine dell’intervallo dei valori in una sequenza. Ad esempio, se si desidera conoscere gli eventi del registro eventi di Operations Manager dove EventID è maggiore o uguale a 2100 ma non maggiore di 2199, la query seguente restituirà tali eventi.
+È inoltre possibile usare le query di intervallo. Ciò significa che è possibile specificare l'inizio e la fine dell'intervallo dei valori in una sequenza. Ad esempio, se si desidera conoscere gli eventi del registro eventi di Operations Manager dove EventID è maggiore o uguale a 2100 ma non maggiore di 2199, la query seguente restituirà tali eventi.
 
 ```
 Type=Event EventLog="Operations Manager" EventID:[2100..2199]
@@ -189,7 +189,7 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 Quando si esegue una ricerca di dati, è opportuno ridefinire la query di ricerca e avere un buon livello di controllo sui risultati. Quando i risultati vengono recuperati, è possibile applicare comandi per trasformarli.
 
-I comandi nelle ricerche di Operational Insights *devono* seguire il carattere di barra verticale (|). Un filtro deve essere sempre la prima parte di una stringa di query. Definisce il set di dati che si sta utilizzando e quindi "invia" i risultati in un comando. È quindi possibile usare il carattere di barra verticale per aggiungere altri comandi. Il funzionamento è simile a quello della pipeline di Windows PowerShell.
+I comandi nelle ricerche di Operational Insights *devono* seguire il carattere di barra verticale (|). Un filtro deve essere sempre la prima parte di una stringa di query. Definisce il set di dati che si sta usando e quindi "invia" i risultati in un comando. È quindi possibile usare il carattere di barra verticale per aggiungere altri comandi. Il funzionamento è simile a quello della pipeline di Windows PowerShell.
 
 In generale, il linguaggio di ricerca di Operational Insights tenta di seguire lo stile e le linee guida di Powershell per renderli simili per i professionisti IT e per semplificare la curva di apprendimento.
 
@@ -197,7 +197,7 @@ I comandi hanno nomi di verbi, pertanto è possibile stabilire facilmente quali 
 
 ### Ordina
 
-Il comando sort consente di definire l'ordinamento in base a uno o più campi. Anche se non viene utilizzato, per impostazione predefinita, viene applicato un ordine decrescente di tempo. I risultati più recenti sono sempre nella parte superiore dei risultati della ricerca. Ciò significa che quando si esegue una ricerca con `Type=Event EventID=1234`, in realtà la query che viene eseguita automaticamente è:
+Il comando sort consente di definire l'ordinamento in base a uno o più campi. Anche se non viene usato, per impostazione predefinita, viene applicato un ordine decrescente di tempo. I risultati più recenti sono sempre nella parte superiore dei risultati della ricerca. Ciò significa che quando si esegue una ricerca con `Type=Event EventID=1234`, in realtà la query che viene eseguita automaticamente è:
 
 ```
 Type=Event EventID=1234 **| Sort TimeGenerated desc**
@@ -251,15 +251,15 @@ Il comando SELECT si comporta come Select-Object in PowerShell. Restituisce i ri
 
 Si tratta di comando particolarmente utile quando si desidera controllare l'output di ricerca e scegliere solo le parti di dati davvero importanti per l'esplorazione, che spesso non corrispondono al record completo. Il comando è utile anche quando record di tipo diverso hanno *alcune* proprietà comuni, ma non *tutte*. È possibile generare un output simile a una tabella o che funziona bene quando esportato in un file CSV e quindi modificato in Excel.
 
-[AZURE.INCLUDE [esportazione di operational insights](../../includes/operational-insights-export.md)]
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-## Utilizzare il comando measure
+## Usare il comando measure
 
 MEASURE è uno dei comandi più versatili nelle ricerche di Operational Insights. Consente di applicare *funzioni* statistiche ai dati e di aggregare i risultati raggruppati in base a un determinato campo. Esistono più funzioni statistiche supportate dal comando Measure.
 
 ### Measure count()
 
-La prima funzione statistica da utilizzare e una delle più semplici da comprendere è la funzione *count()*.
+La prima funzione statistica da usare e una delle più semplici da comprendere è la funzione *count()*.
 
 Nei risultati di una query di ricerca, ad esempio `Type=Event`, i filtri, anche denominati facet, vengono visualizzati sul lato sinistro dei risultati della ricerca. I filtri visualizzano una distribuzione di valori in base a un determinato campo, per i risultati della ricerca eseguita.
 
@@ -276,7 +276,7 @@ Per visualizzare tutti i valori è possibile usare il comando measure con la fun
 
 ![measure count di ricerca](./media/operational-insights-search/search-measure-count-computer.png)
 
-Tuttavia, **Computer** è semplicemente un campo utilizzato *in* tutti i dati: non è coinvolto nessun database relazionale e non esiste alcun oggetto **Computer** separato altrove. Solo i valori presenti *nei* dati possono descrivere quale entità ha generato i dati e altre caratteristiche e aspetti dei dati, da qui il termine *facet*. Tuttavia, è possibile eseguire il raggruppamento anche in base ad altri campi. Poiché i risultati originali di quasi 3 milioni di eventi inviati al comando mesure presentano anche un campo denominato **EventID**, è possibile applicare la stessa tecnica per eseguire il raggruppamento in base a tale campo e ottenere un conteggio di eventi per EventID:
+Tuttavia, **Computer** è semplicemente un campo usato *in* tutti i dati: non è coinvolto nessun database relazionale e non esiste alcun oggetto **Computer** separato altrove. Solo i valori presenti *nei* dati possono descrivere quale entità ha generato i dati e altre caratteristiche e aspetti dei dati, da qui il termine *facet*. Tuttavia, è possibile eseguire il raggruppamento anche in base ad altri campi. Poiché i risultati originali di quasi 3 milioni di eventi inviati al comando measure presentano anche un campo denominato **EventID**, è possibile applicare la stessa tecnica per eseguire il raggruppamento in base a tale campo e ottenere un conteggio di eventi per EventID:
 
 ```
 Type=Event | Measure count() by EventID
@@ -307,9 +307,9 @@ In primo luogo, i risultati visualizzati non sono più i risultati originali non
 
 In secondo luogo, **Measure count** restituisce attualmente solo i primi 100 risultati distinti. Questo limite non si applica alle altre funzioni statistiche. Pertanto, in genere è necessario usare un filtro più preciso per cercare elementi specifici, prima di applicare measure count().
 
-## Utilizzare le funzioni max e min con il comando measure
+## Usare le funzioni max e min con il comando measure
 
-Esistono vari scenari in cui è utile utilizzare **Measure Max()** e **Measure Min()**. Tuttavia, poiché ciascuna funzione è opposta all’altra, verrà illustrata la funzione Max() e l’utente sperimenterà autonomamente la funzione Min().
+Esistono vari scenari in cui è utile usare **Measure Max()** e **Measure Min()**. Tuttavia, poiché ciascuna funzione è opposta all'altra, verrà illustrata la funzione Max() e l'utente sperimenterà autonomamente la funzione Min().
 
 Se si esegue una query per gli avvisi di Configuration Assessment,tali avvisi hanno una proprietà **Severity** che può essere 0, 1 o 2, valori che rappresentano informazioni, avvisi e avvisi critici. Ad esempio:
 
@@ -319,7 +319,7 @@ Type=ConfigurationAlert
 
 ![measure count start di ricerca](./media/operational-insights-search/search-measure-max01.png)
 
-Se si desidera visualizzare il valore massimo per tutti gli avvisi di un determinato computer comune, quindi raggrupparli per campo, è possibile utilizzare
+Se si desidera visualizzare il valore massimo per tutti gli avvisi di un determinato computer comune, quindi raggrupparli per campo, è possibile usare
 
 ```
 Type=ConfigurationAlert | Measure Max(Severity) by Computer
@@ -335,15 +335,15 @@ Type=ConfigurationAlert | Measure Max(Severity) by Computer
 
 ![measure max time generated computer di ricerca](./media/operational-insights-search/search-measure-max03.png)
 
-Questa funzione è adatta ad essere utilizzata con i numeri, ma può essere utilizzata anche con i campi di data/ora. È utile per verificare l’ultima data/ora o la data/ora più recente relativa a tutti i dati indicizzati per ciascun computer. Ad esempio, quando la modifica alla configurazione più recente è stata riportata dalla soluzione di traccia delle modifiche per ciascuna macchina?
+Questa funzione è adatta ad essere usata con i numeri, ma può essere usata anche con i campi di data/ora. È utile per verificare l'ultima data/ora o la data/ora più recente relativa a tutti i dati indicizzati per ciascun computer. Ad esempio, quando la modifica alla configurazione più recente è stata riportata dalla soluzione di traccia delle modifiche per ciascuna macchina?
 
 ```
 Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ```
 
-## Utilizzare la funzione avg con il comando measure
+## Usare la funzione avg con il comando measure
 
-La funzione statistica Avg() utilizzata con il comando measure consente di calcolare il valore medio per alcuni campi e di raggruppare i risultati in base allo stesso campo o ad un campo diverso. Questa funzione è utile in diversi casi, ad esempio con i dati sulle prestazioni.
+La funzione statistica Avg() usata con il comando measure consente di calcolare il valore medio per alcuni campi e di raggruppare i risultati in base allo stesso campo o ad un campo diverso. Questa funzione è utile in diversi casi, ad esempio con i dati sulle prestazioni.
 
 Si inizierà con i dati sulle prestazioni. Notare tuttavia che Operational Insights raccoglie attualmente solo alcuni contatori delle prestazioni relativi all'infrastruttura, per gli host di Virtual Machine Manager e Hyper-V, come parte della soluzione Capacity Management.
 
@@ -361,13 +361,13 @@ La prima cosa da notare è che Operational Insights consente di visualizzare i g
 
 Nell'immagine precedente, sono presenti due set di campi contrassegnati che indicano quanto segue:
 
-- il primo set identifica il nome del contatore delle prestazioni di Windows, il nome dell'oggetto e il nome dell'istanza nel filtro di query. Questi sono i campi che probabilmente verranno utilizzati in genere come facet/filtri
+- il primo set identifica il nome del contatore delle prestazioni di Windows, il nome dell'oggetto e il nome dell'istanza nel filtro di query. Questi sono i campi che probabilmente verranno usati in genere come facet/filtri
 - **SampleValue** è il valore effettivo del contatore
 - nella query, **Type=PerfHourly** è un'aggregazione oraria
 - **TimeGenerated** è 21:00, nel formato 24 ore. Rappresenta l'aggregazione per il periodo orario dalle 20:00 alle 21:00.
 - **SampleCount** è l'aggregazione, calcolata mediante 12 campioni (uno ogni 5 minuti)
 - **min**, **max** e **Percentile95** per il periodo orario sono, in questo esempio relativo alla memoria di una macchina virtuale, 6144 (MB)
-- **SampleValue** è un'aggregazione oraria e viene compilata con la *media* per il periodo orario e viene utilizzata per tracciare i grafici delle prestazioni
+- **SampleValue** è un'aggregazione oraria e viene compilata con la *media* per il periodo orario e viene usata per tracciare i grafici delle prestazioni
 
 Dopo aver acquisito informazioni sulla forma del record PerfHourly e su altre tecniche di ricerca, è possibile usare measure Avg() per aggregare questo tipo di dati numerici.
 
@@ -379,7 +379,7 @@ Type=PerfHourly  ObjectName:Processor  InstanceName:_Total  CounterName:"% Proce
 
 ![avg samplevalue di ricerca](./media/operational-insights-search/search-avg03.png)
 
-In questo esempio, viene selezionato il contatore delle prestazioni CPU Total Time e la media viene calcolata in base a Computer. Poiché **SampleValue** è già una media, in realtà viene eseguita una query per una media di una media. A questo punto è corretto usare Type=PerfHourly. È consigliabile utilizzare sempre un filtro in TimeGenerated per limitare l'operazione a un set di dati piccolo o recente, ad esempio le ultime 4 ore, non 7 giorni.
+In questo esempio, viene selezionato il contatore delle prestazioni CPU Total Time e la media viene calcolata in base a Computer. Poiché **SampleValue** è già una media, in realtà viene eseguita una query per una media di una media. A questo punto è corretto usare Type=PerfHourly. È consigliabile usare sempre un filtro in TimeGenerated per limitare l'operazione a un set di dati piccolo o recente, ad esempio le ultime 4 ore, non 7 giorni.
 
 La query precedente diventa:
 
@@ -410,7 +410,7 @@ Ora è possibile aggiungere computer e contatori con l'esempio seguente:
 Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer=”SERVER1.contoso.com” OR Computer=”SERVER2.contoso.com” OR Computer=”SERVER3.contoso.com”)
 ```
 
-Poiché è stata effettuata una selezione molto specifica, il comando **measure Avg()** può restituire la media non in base al computer ma, all’interno della farm, eseguendo il raggruppamento per CounterName. Ad esempio:
+Poiché è stata effettuata una selezione molto specifica, il comando **measure Avg()** può restituire la media non in base al computer ma, all'interno della farm, eseguendo il raggruppamento per CounterName. Ad esempio:
 
 ```
 Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer=”SERVER1.contoso.com” OR Computer=”SERVER2.contoso.com” OR Computer=”SERVER3.contoso.com”) | Measure Avg(SampleValue) by CounterName
@@ -421,19 +421,19 @@ Ciò consente una visualizzazione utile e compatta di un paio di indicatori di p
 ![avg grouping di ricerca](./media/operational-insights-search/search-avg04.png)
 
 
-È possibile utilizzare facilmente questo comando in un dashboard. Per altre informazioni sull'uso dei dashboard, vedere [Dashboard di Operational Insights](operational-insights-use-dashboards).
+È possibile usare facilmente questo comando in un dashboard. Per altre informazioni sull'uso dei dashboard, vedere [Dashboard di Operational Insights](operational-insights-use-dashboards).
 
 ![avg dashboard di ricerca](./media/operational-insights-search/search-avg05.png)
 
-### Utilizzare la funzione sum con il comando measure
+### Usare la funzione sum con il comando measure
 
-La funzione sum è simile ad altre funzioni del comando measure. È possibile vedere un esempio su come utilizzare la funzione sum nell’argomento relativo alla [ricerca di Log W3C IIS in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
+La funzione sum è simile ad altre funzioni del comando measure. È possibile vedere un esempio su come usare la funzione sum nell'argomento relativo alla [ricerca di Log W3C IIS in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
-È possibile utilizzare Max() e Min() con numeri, intervalli di data/ora e stringhe di testo. Le stringhe di testo sono ordinate in ordine alfabetico e vengono visualizzate la prima e l’ultima.
+È possibile usare Max() e Min() con numeri, intervalli di data/ora e stringhe di testo. Le stringhe di testo sono ordinate in ordine alfabetico e vengono visualizzate la prima e l'ultima.
 
-Tuttavia, è possibile utilizzare Sum() con elementi diversi dai campi numerici. Questo vale anche per Avg().
+Tuttavia, è possibile usare Sum() con elementi diversi dai campi numerici. Questo vale anche per Avg().
 
-## Utilizzare il comando where
+## Usare il comando where
 
 Il comando where funziona come un filtro, ma può essere applicato nella pipeline per filtrare ulteriormente i risultati aggregati prodotti da un comando Measure, differentemente dai risultati non elaborati che vengono filtrati all'inizio di una query.
 
@@ -451,13 +451,13 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Se si ha familiarità con Microsoft System Center - Operations Manager, è possibile considerare il comando where in termini di Management Pack. Se l'esempio fosse una regola, la prima parte della query sarebbe l'origine dati e il comando where sarebbe il rilevamento della condizione.
 
-È possibile utilizzare la query come un riquadro in **My Dashboard**, come un monitoraggio di ordinamenti, per verificare se sono presenti CPU di computer sovrautilizzate. Per altre informazioni sui dashboard, vedere [Dashboard di Operational Insights](operational-insights-use-dashboards). È possibile creare e usare i dashboard anche tramite l'app per dispositivi mobili. Per altre informazioni vedere [App per dispositivi mobili di Azure Operational Insights](http://www.windowsphone.com/it-it/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nei due riquadri in basso dell'immagine seguente, il monitoraggio viene visualizzato come un elenco e come un numero. Essenzialmente, è auspicabile che il numero sia sempre zero e l'elenco sia sempre vuoto. In caso contrario, indica una condizione di avviso. Se necessario, è possibile utilizzarlo per individuare quali computer sono sotto pressione.
+È possibile usare la query come un riquadro in **My Dashboard**, come un monitoraggio di ordinamenti, per verificare se sono presenti CPU di computer sovrautilizzate. Per altre informazioni sui dashboard, vedere [Dashboard di Operational Insights](operational-insights-use-dashboards). È possibile creare e usare i dashboard anche tramite l'app per dispositivi mobili. Per altre informazioni vedere [App per dispositivi mobili di Azure Operational Insights](http://www.windowsphone.com/it-it/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nei due riquadri in basso dell'immagine seguente, il monitoraggio viene visualizzato come un elenco e come un numero. Essenzialmente, è auspicabile che il numero sia sempre zero e l'elenco sia sempre vuoto. In caso contrario, indica una condizione di avviso. Se necessario, è possibile usarlo per individuare quali computer sono sotto pressione.
 
 ![dashboard mobile](./media/operational-insights-search/search-mobile.png)
 
 ## Riferimento alla sintassi di ricerca
 
-Nella sezione di riferimento seguente relativa al linguaggio di ricerca vengono descritte le opzioni della sintassi di query generale che è possibile utilizzare quando si ricercano dati e si filtrano espressioni per restringere la ricerca. Vengono inoltre descritti i comandi che è possibile utilizzare per intervenire sui dati recuperati.
+Nella sezione di riferimento seguente relativa al linguaggio di ricerca vengono descritte le opzioni della sintassi di query generale che è possibile usare quando si ricercano dati e si filtrano espressioni per restringere la ricerca. Vengono inoltre descritti i comandi che è possibile usare per intervenire sui dati recuperati.
 
 È possibile ottenere informazioni sui campi restituiti nelle ricerche e sui facet che consentono di analizzare categorie di dati simili in [Riferimenti al campo Ricerca e ai facet](#Search-field-and-facet-reference).
 
@@ -467,7 +467,7 @@ Sintassi:
 
 filterExpression | command1 | command2 …
 
-L'espressione di filtro (\*\*filterExpression\*\*) definisce la condizione "where" per la query. I comandi si applicano ai risultati restituiti dalla query. Più comandi devono essere separati dal carattere di barra verticale (|).
+L'espressione di filtro (**filterExpression**) definisce la condizione "where" per la query. I comandi si applicano ai risultati restituiti dalla query. Più comandi devono essere separati dal carattere di barra verticale (|).
 
 #### Esempi di sintassi generale
 
@@ -521,9 +521,9 @@ Esempi:
 
 #### Data/ora
 
-Tutti i dati nel sistema presentano una proprietà **TimeGenerated** che rappresenta la data e ora originali del record. Alcuni tipi di dati possono inoltre avere più campi di data e ora, (ad esempio **LastModified**).
+Tutti i dati nel sistema presentano una proprietà **TimeGenerated** che rappresenta la data e l'ora originali del record. Alcuni tipi di dati possono inoltre avere più campi di data e ora, (ad esempio **LastModified**).
 
-Il selettore di grafico/ora della sequenza temporale in Operational Insights mostra una distribuzione dei risultati nel tempo (secondo la query corrente in esecuzione), in base al campo **TimeGenerated**. I campi di data e ora hanno un formato di stringa specifico che può essere utilizzato nelle query per limitare la query a un determinato intervallo di tempo. È inoltre possibile utilizzare la sintassi per fare riferimento a intervalli di tempo relativi (ad esempio, "tra 3 giorni fa e 2 ore fa").
+Il selettore di grafico/ora della sequenza temporale in Operational Insights mostra una distribuzione dei risultati nel tempo (secondo la query corrente in esecuzione), in base al campo **TimeGenerated**. I campi di data e ora hanno un formato di stringa specifico che può essere usato nelle query per limitare la query a un determinato intervallo di tempo. È inoltre possibile usare la sintassi per fare riferimento a intervalli di tempo relativi (ad esempio, "tra 3 giorni fa e 2 ore fa").
 
 Sintassi:
 
@@ -559,11 +559,11 @@ Esempio:
 
 Anche in questo caso, è improbabile che vengano restituiti risultati, in quanto i dati non producono risultati attraverso il sistema in modo così rapido.
 
-Questi esempi sono blocchi predefiniti da utilizzare per le date relative e assolute. Nelle tre sezioni successive verrà illustrato come usare tali blocchi in filtri più avanzati con esempi che utilizzano intervalli di date relative.
+Questi esempi sono blocchi predefiniti da usare per le date relative e assolute. Nelle tre sezioni successive verrà illustrato come usare tali blocchi in filtri più avanzati con esempi che usano intervalli di date relative.
 
 #### Operatori matematici di data/ora
 
-Utilizzare gli operatori matematici di data/ora per eseguire l’offset o arrotondare il valore di data/ora utilizzando semplici calcoli di data/ora.
+Usare gli operatori matematici di data/ora per eseguire l'offset o arrotondare il valore di data/ora usando semplici calcoli di data/ora.
 
 Sintassi:
 
@@ -585,7 +585,7 @@ Sintassi:
 		<p>/</p>
 		</td>
 		<td>
-		<p>La data/ora viene arrotondata all’unità specificata. </p>
+		<p>La data/ora viene arrotondata all'unità specificata. </p>
 		<p>Esempio: NOW/DAY arrotonda la data/ora corrente a mezzanotte del giorno corrente. </p>
 		</td>
 	</tr>
@@ -594,11 +594,11 @@ Sintassi:
 		<p>+ o -</p>
 		</td>
 		<td>
-		<p>Esegue l’offset della data/ora in base al numero specificato di unità</p>
+		<p>Esegue l'offset della data/ora in base al numero specificato di unità</p>
 		<p>Esempi:&#160; </p>
 		<ul>
-			<li class="unordered">NOW+1HOUR esegue l’offset della data/ora corrente un'ora più avanti.<br><br></li>
-			<li class="unordered">2013-10-01T12:00-10DAYS esegue l’offset del valore data indietro di 10 giorni.</li>
+			<li class="unordered">NOW+1HOUR esegue l'offset della data/ora corrente un'ora più avanti.<br><br></li>
+			<li class="unordered">2013-10-01T12:00-10DAYS esegue l'offset del valore data indietro di 10 giorni.</li>
 		</ul>
 		</td>
 	</tr>
@@ -627,7 +627,7 @@ MILLISECOND, MILLISECONDS, MILLI, MILLIS|Viene arrotondata al millisecondo corre
 
 #### Facet di campo
 
-Usando i facet di campo, è possibile specificare la condizione di ricerca per campi specifici e i relativi valori esatti, anziché scrivere query di "testo libero" per diversi termini dell’indice. Questa sintassi è già stata utilizzata in vari esempi nei paragrafi precedenti. Vengono ora forniti esempi più complessi.
+Usando i facet di campo, è possibile specificare la condizione di ricerca per campi specifici e i relativi valori esatti, anziché scrivere query di "testo libero" per diversi termini dell'indice. Questa sintassi è già stata usata in vari esempi nei paragrafi precedenti. Vengono ora forniti esempi più complessi.
 
 **Sintassi**
 
@@ -687,7 +687,7 @@ Esempio:
 	SampleValue:[0..2]
 #### Operatori logici
 
-I linguaggi di query supportano gli operatori logici (AND, OR e NOT) e i relativi alias di tipo C, rispettivamente (&&, || e !). È possibile utilizzare le parentesi per raggruppare questi operatori.
+I linguaggi di query supportano gli operatori logici (AND, OR e NOT) e i relativi alias di tipo C, rispettivamente (&&, || e !). È possibile usare le parentesi per raggruppare questi operatori.
 
 Esempi:
 
@@ -695,7 +695,7 @@ Esempi:
 
 
 	Type:Alert AND NOT(Severity:1 OR ObjectId:"8066bbc0-9ec8-ca83-1edc-6f30d4779bcb8066bbc0-9ec8-ca83-1edc-6f30d4779bcb")
-È possibile omettere l'operatore logico per gli argomenti di filtro di primo livello. In questo caso, viene utilizzato l'operatore AND.
+È possibile omettere l'operatore logico per gli argomenti di filtro di primo livello. In questo caso, viene usato l'operatore AND.
 
 
 Espressione di filtro|Equivalente a
@@ -707,7 +707,7 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 
 ### Comandi:
 
-I comandi si applicano ai risultati restituiti dalla query. Utilizzare il carattere di barra verticale (|) per applicare un comando ai risultati recuperati. Più comandi devono essere separati dal carattere di barra verticale (|).
+I comandi si applicano ai risultati restituiti dalla query. Usare il carattere di barra verticale (|) per applicare un comando ai risultati recuperati. Più comandi devono essere separati dal carattere di barra verticale (|).
 
 >[AZURE.NOTE]I nomi dei comandi possono essere scritti in lettere maiuscole o minuscole, a differenza dei nomi dei campi e dei dati.
 
@@ -717,7 +717,7 @@ Sintassi:
 
 	sort field1 asc|desc, field2 asc|desc, …
 
-Ordina i risultati in base a determinati campi. I prefissi asc/desc sono facoltativi. Se vengono omessi, viene utilizzato l’ordinamento "asc". Se una query non usa il comando **Sort** in modo esplicito, Sort **TimeGenerated** desc è il comportamento predefinito e verranno sempre restituiti prima i risultati più recenti.
+Ordina i risultati in base a determinati campi. I prefissi asc/desc sono facoltativi. Se vengono omessi, viene usato l'ordinamento "asc". Se una query non usa il comando **Sort** in modo esplicito, Sort **TimeGenerated** desc è il comportamento predefinito e verranno sempre restituiti prima i risultati più recenti.
 
 #### Top/Limit
 
@@ -777,11 +777,11 @@ Sintassi:
 Aggrega i risultati per **groupField** e calcola i valori di misura aggregati tramite l'oggetto **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Funzione statistica di misura</th> <th>Descrizione </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Il nome della funzione di aggregazione (senza distinzione tra maiuscole e minuscole). Sono supportate le funzioni di aggregazione seguenti:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Il campo di aggregazione. Questo campo è facoltativo per la funzione di aggregazione COUNT, ma deve essere un campo numerico esistente per SUM, MAX, MIN, AVG o STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>L'alias (facoltativo) per il valore aggregato calcolato. Se non specificato, il nome del campo sarà <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Il nome del campo in base al quale viene raggruppato il set di risultati. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>L'intervallo di tempo nel formato: </p> <p><em>nnnNAME</em> </p> <p></p> <p>Dove: </p> <p>nnn è il numero intero positivo</p> <p><em>NAME</em> è il nome dell'intervallo</p> <p>I nomi di intervallo supportati includono (con distinzione tra maiuscole e minuscole): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Funzione statistica di misura </th> <th>Descrizione </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Nome della funzione di aggregazione (senza distinzione tra maiuscole e minuscole). Sono supportate le funzioni di aggregazione seguenti:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Campo di aggregazione. Questo campo è facoltativo per la funzione di aggregazione COUNT, ma deve essere un campo numerico esistente per SUM, MAX, MIN, AVG o STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Alias (facoltativo) per il valore aggregato calcolato. Se non specificato, il nome del campo sarà <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Nome del campo in base al quale viene raggruppato il set di risultati. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Intervallo di tempo nel formato: </p> <p><em>nnnNAME</em> </p> <p></p> <p>Dove: </p> <p>nnn è il numero intero positivo</p> <p><em>NAME</em> è il nome dell'intervallo</p> <p>I nomi di intervallo supportati includono (con distinzione tra maiuscole e minuscole): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
-L'opzione intervallo può essere usata solo nei campi del gruppo data/ora (ad esempio **TimeGenerated** e **TimeCreated**). Questo non viene applicato dal servizio, ma attualmente un campo senza data/ora passato al back-end causa un errore di runtime. Quando viene implementata la convalida dello schema, l'API del servizio rifiuta le query che utilizzano campi senza data/ora per l'aggregazione di intervalli. L'implementazione corrente di **Measure** supporta il raggruppamento di intervalli solo per la funzione di aggregazione **Count**.
+L'opzione intervallo può essere usata solo nei campi del gruppo data/ora (ad esempio **TimeGenerated** e **TimeCreated**). Questo non viene applicato dal servizio, ma attualmente un campo senza data/ora passato al back-end causa un errore di runtime. Quando viene implementata la convalida dello schema, l'API del servizio rifiuta le query che usano campi senza data/ora per l'aggregazione di intervalli. L'implementazione corrente di **Measure** supporta il raggruppamento di intervalli solo per la funzione di aggregazione **Count**.
 
 Se la clausola BY viene omessa, ma viene specificato un intervallo (come una seconda sintassi), per impostazione predefinita viene usato il campo **TimeGenerated**.
 
@@ -809,7 +809,7 @@ Raggruppa gli avvisi per intervalli di 1 ora tramite il campo **TimeGenerated** 
 
 *Spiegazione*
 
-Uguale all'esempio precedente, ma con un alias del campo aggregato (\*\*AlertsPerHour\*\*).
+Uguale all'esempio precedente, ma con un alias del campo aggregato (**AlertsPerHour**).
 
 **Esempio 4**
 
@@ -902,7 +902,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>Tutti</p>
 		</td>
 		<td>
-		<p>Utilizzato per la partizione di dati</p>
+		<p>Usato per la partizione di dati</p>
 		</td>
 	</tr>
 	<tr>
@@ -913,7 +913,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>Tutti</p>
 		</td>
 		<td>
-		<p>Utilizzato per gestire la sequenza temporale, selettori orari (in Ricerca e in altre schermate). Rappresenta quando i dati sono stati generati (in genere nell'agente). Il tempo viene espresso nel formato ISO ed è sempre UTC. Nel caso di 'tipi' basati sulla strumentazione esistente (ad esempio eventi in un log) si tratta in genere del tempo reale in cui la voce/riga/record di log è stata registrata. Per altri tipi prodotti tramite Management Pack o nel cloud, ad esempio raccomandazioni/avvisi/updateagent/e così via, rappresenta il tempo in cui sono stati raccolti nuovi dati con uno snapshot di una configurazione di un certo tipo, o sono stati prodotti una raccomandazione o un avviso</p>
+		<p>Usato per gestire la sequenza temporale, selettori orari (in Ricerca e in altre schermate). Rappresenta quando i dati sono stati generati (in genere nell'agente). Il tempo viene espresso nel formato ISO ed è sempre UTC. Nel caso di 'tipi' basati sulla strumentazione esistente (ad esempio eventi in un log) si tratta in genere del tempo reale in cui la voce/riga/record di log è stata registrata. Per altri tipi prodotti tramite Management Pack o nel cloud, ad esempio raccomandazioni/avvisi/updateagent/e così via, rappresenta il tempo in cui sono stati raccolti nuovi dati con uno snapshot di una configurazione di un certo tipo, o sono stati prodotti una raccomandazione o un avviso</p>
 		</td>
 	</tr>
 	<tr>
@@ -957,7 +957,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>Evento</p>
 		</td>
 		<td>
-		<p>Valore numerico per critico/avviso/informazioni/esito positivo (utilizzare EventLevelName invece di query più semplici o più leggibili)</p>
+		<p>Valore numerico per critico/avviso/informazioni/esito positivo (usare EventLevelName invece di query più semplici o più leggibili)</p>
 		</td>
 	</tr>
 	<tr>
@@ -990,7 +990,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>Nome dell’istanza del contatore delle prestazioni di Windows</p>
+		<p>Nome dell'istanza del contatore delle prestazioni di Windows</p>
 		</td>
 	</tr>
 	<tr>
@@ -1067,7 +1067,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>ProtectionStatus</p>
 		</td>
 		<td>
-		<p>La classificazione dello stato di minaccia è una rappresentazione numerica dello stato di minaccia e, come per i codici di risposta HTTP, sono stati lasciati spazi tra i numeri (motivo per cui nessuna minaccia è 150, 100 o 0) in modo da poter aggiungere nuovi stati. Quando si esegue un rollup per lo stato di minaccia e lo stato di protezione, viene visualizzato lo stato peggiore in cui il computer è rimasto durante il periodo di tempo selezionato. I numeri vengono utilizzati per classificare i diversi stati, per cui è possibile analizzare il record con il numero più alto.</p>
+		<p>La classificazione dello stato di minaccia è una rappresentazione numerica dello stato di minaccia e, come per i codici di risposta HTTP, sono stati lasciati spazi tra i numeri (motivo per cui nessuna minaccia è 150, 100 o 0) in modo da poter aggiungere nuovi stati. Quando si esegue un rollup per lo stato di minaccia e lo stato di protezione, viene visualizzato lo stato peggiore in cui il computer è rimasto durante il periodo di tempo selezionato. I numeri vengono usati per classificare i diversi stati, per cui è possibile analizzare il record con il numero più alto.</p>
 		</td>
 	</tr>
 	<tr>
@@ -1144,7 +1144,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>ConfigurationObject</p>
 		</td>
 		<td>
-		<p>Tipo (come nel 'tipo'/classe del Management Pack di Operations Manager) per l’oggetto individuato dalla valutazione della configurazione di Operational Insights</p>
+		<p>Tipo (come nel 'tipo'/classe del Management Pack di Operations Manager) per l'oggetto individuato dalla valutazione della configurazione di Operational Insights</p>
 		</td>
 	</tr>
 	<tr>
@@ -1166,7 +1166,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>RequiredUpdate</p>
 		</td>
 		<td>
-		<p>Quando è stato pubblicato l’aggiornamento su Microsoft Update?</p>
+		<p>Quando è stato pubblicato l'aggiornamento su Microsoft Update?</p>
 		</td>
 	</tr>
 	<tr>
@@ -1331,7 +1331,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>UpdateAgent</p>
 		</td>
 		<td>
-		<p>In base a DaysSinceLastUpdate, una categorizzazione in 'bucket orari' del tempo trascorso dall’ultima installazione di aggiornamenti da WSUS/Microsoft Update da parte di un computer</p>
+		<p>In base a DaysSinceLastUpdate, una categorizzazione in 'bucket orari' del tempo trascorso dall'ultima installazione di aggiornamenti da WSUS/Microsoft Update da parte di un computer</p>
 		</td>
 	</tr>
 	<tr>
@@ -1419,7 +1419,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>Raccomandazione</p>
 		</td>
 		<td>
-		<p>URL all’articolo della KB che descrive la procedura consigliata o l'aggiornamento</p>
+		<p>URL all'articolo della KB che descrive la procedura consigliata o l'aggiornamento</p>
 		</td>
 	</tr>
 	<tr>
@@ -1463,7 +1463,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>Evento</p>
 		</td>
 		<td>
-		<p>XML con l’intera sezione 'data' di un evento di Windows (come illustrato nel Visualizzatore eventi)</p>
+		<p>XML con l'intera sezione 'data' di un evento di Windows (come illustrato nel Visualizzatore eventi)</p>
 		</td>
 	</tr>
 	<tr>
@@ -1518,7 +1518,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>Valore minimo nell’intervallo orario di un'aggregazione oraria del contatore delle prestazioni</p>
+		<p>Valore minimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni</p>
 		</td>
 	</tr>
 	<tr>
@@ -1529,7 +1529,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>Valore massimo nell’intervallo orario di un'aggregazione oraria del contatore delle prestazioni</p>
+		<p>Valore massimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni</p>
 		</td>
 	</tr>
 	<tr>
@@ -1540,7 +1540,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>Valore del 95° percentile nell’intervallo orario di un'aggregazione oraria del contatore delle prestazioni</p>
+		<p>Valore del 95° percentile nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni</p>
 		</td>
 	</tr>
 	<tr>
@@ -1551,7 +1551,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>Il numero di campioni di contatori delle prestazioni ’non elaborati’ utilizzati per produrre questo record di aggregazione oraria</p>
+		<p>Il numero di campioni di contatori delle prestazioni 'non elaborati' usati per produrre questo record di aggregazione oraria</p>
 		</td>
 	</tr>
 	<tr>
@@ -1650,7 +1650,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Metodo HTTP (GET/POST/e così via) utilizzato dal client nella richiesta HTTP. Il metodo cs nel log originale</p>
+		<p>Metodo HTTP (GET/POST/e così via) usato dal client nella richiesta HTTP. Il metodo cs nel log originale</p>
 		</td>
 	</tr>
 	<tr>
@@ -1672,7 +1672,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Agente utente HTTP dichiarato dal client (browser o altro). L’agente utente cs nel log originale</p>
+		<p>Agente utente HTTP dichiarato dal client (browser o altro). L'agente utente cs nel log originale</p>
 		</td>
 	</tr>
 	<tr>
@@ -1749,7 +1749,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Versione del protocollo HTTP utilizzata nella richiesta (ad esempio 'HTTP/1.1')</p>
+		<p>Versione del protocollo HTTP usata nella richiesta (ad esempio 'HTTP/1.1')</p>
 		</td>
 	</tr>
 	<tr>
@@ -2002,7 +2002,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Percorso precedente dell’eseguibile per il servizio Windows (applicabile solo se è stato modificato)</p>
+		<p>Percorso precedente dell'eseguibile per il servizio Windows (applicabile solo se è stato modificato)</p>
 		</td>
 	</tr>
 	<tr>
@@ -2040,7 +2040,7 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 	</tr>
 </table>
 
-## Post di blog - Casi di utilizzo della ricerca
+## Post di blog - Casi d'uso della ricerca
 - [Ricerca nei log di IIS W3C Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
 - [Monitoraggio degli errori del backup di SQL con la ricerca e i dashboard di Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2015/02/21/monitoring-sql-backup-failures-with-azure-operational-insights-search-and-dashboards.aspx)
 - [Equivalenti della funzione di ricerca di Operational Insights rispetto alle regole di avviso relative agli eventi del Management Pack di IIS](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
@@ -2049,4 +2049,4 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 ## Altre risorse:
 Stefan Roth ha creato un foglio informativo utile sulla ricerca. Per altre informazioni e per scaricare il foglio informativo, visitare il [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

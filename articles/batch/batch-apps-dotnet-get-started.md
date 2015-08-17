@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="07/21/2015"
@@ -194,4 +194,4 @@ Il codice seguente fornisce una dimostrazione di un'implementazione semplice di 
 ###Invio dei processi a Batch Apps
 Un processo descrive un carico di lavoro da eseguire e deve includere tutte le informazioni sul carico di lavoro ad eccezione del contenuto del file. Ad esempio, il processo contiene le impostazioni di configurazione inviate dal client alle attività tramite il componente di suddivisione dei processi. Gli esempi forniti su MSDN illustrano come inviare i processi e fornire più client, inclusi un portale Web e un client della riga di comando.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

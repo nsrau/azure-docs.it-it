@@ -81,7 +81,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 		    }
 		};
 
-	Questo codice restituisce i primi tre elementi non completati dalla tabella TodoItem e quindi li carica in un oggetto JSON passato alla funzione **wns**.**createTileSquareText01**. Questa funzione restituisce l'XML del modello di riquadro seguente:
+	Questo codice restituisce le prime tre voci non completate dalla tabella TodoItem, quindi le carica in un oggetto JSON passato alla funzione **wns**.**createTileSquareText01**. Questa funzione restituisce l'XML del modello di riquadro seguente:
 
 		<tile>
 			<visual>
@@ -167,4 +167,4 @@ Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anch
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

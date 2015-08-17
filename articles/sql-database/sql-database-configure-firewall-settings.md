@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/22/2015"
 	ms.author="rickbyh"/>
 
@@ -47,7 +47,7 @@ Le regole del firewall a livello di server possono essere create e gestite trami
 
 ## Gestione delle regole del firewall a livello di server tramite il Portale di gestione 
 
-1. Nel Portale di gestione fare clic su **Database SQL** Di seguito sono elencati tutti i database e i server corrispondenti.
+1. Nel Portale di gestione fare clic su **Database SQL**. Di seguito sono elencati tutti i database e i server corrispondenti.
 1. Fare clic su **Servers** nella parte superiore della pagina.
 2. Fare clic sulla freccia accanto al server per il quale si desidera gestire le regole del firewall.
 3. Fare clic su **Configure** nella parte superiore della pagina.
@@ -62,11 +62,11 @@ Le regole del firewall a livello di server possono essere create e gestite trami
 1. Avviare una finestra di query tramite il Portale di gestione o tramite SQL Server Management Studio.
 2. Verificare di essere connessi al database master.
 3. Le regole del firewall a livello di server possono essere create, aggiornate o eliminate all'interno della finestra di query.
-4. Per creare o aggiornare le regole del firewall a livello di server, eseguire la stored procedure della regola sp_set_firewall. Nell'esempio seguente viene abilitato un intervallo di indirizzi IP nel server di Contoso.
+4. Per creare o aggiornare le regole del firewall a livello di server, eseguire la stored procedure della regola sp\_set\_firewall. Nell'esempio seguente viene abilitato un intervallo di indirizzi IP nel server di Contoso.
 
 		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
-	Per eliminare una regola del firewall a livello di server, eseguire la stored procedure sp_delete_firewall_rule. Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
+	Per eliminare una regola del firewall a livello di server, eseguire la stored procedure sp\_delete\_firewall\_rule. Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
  
 		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
@@ -112,11 +112,11 @@ Le regole del firewall a livello di server possono essere create e gestite trami
 1. Dopo la creazione di un firewall a livello di server per l'indirizzo IP, avviare una finestra di query tramite il Portale di gestione o tramite SQL Server Management Studio.
 2. Connettersi al database per cui si desidera creare una regola del firewall a livello di database.
 
-	Per creare una nuova regola del firewall a livello di database o aggiornarne una esistente, eseguire la stored procedure sp_set_database_firewall_rule. Nell'esempio seguente viene creata una nuova regola del firewall denominata ContosoFirewallRule.
+	Per creare una nuova regola del firewall a livello di database o aggiornarne una esistente, eseguire la stored procedure sp\_set\_database\_firewall\_rule. Nell'esempio seguente viene creata una nuova regola del firewall denominata ContosoFirewallRule.
  
 		EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
  
-	Per eliminare una regola del firewall a livello di database esistente, eseguire la stored procedure sp_delete_database_firewall_rule. Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
+	Per eliminare una regola del firewall a livello di database esistente, eseguire la stored procedure sp\_delete\_database\_firewall\_rule. Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
  
 		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
@@ -144,4 +144,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

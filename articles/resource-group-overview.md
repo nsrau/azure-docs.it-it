@@ -7,6 +7,7 @@
    manager="wpickett"
    editor=""/>
 
+
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
@@ -16,11 +17,16 @@
    ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
+
 # Panoramica di Gestione risorse di Microsoft Azure
 
 Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. Gestione risorse di Azure consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, gestione temporanea e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo.
 
 Gestione risorse di Azure integra in modo nativo il controllo degli accessi nella piattaforma di gestione per cui è possibile specificare le azioni che un utente nell'organizzazione può eseguire per un gruppo di risorse.
+
+Ecco una dimostrazione di questa panoramica.
+
+[AZURE.VIDEO azure-resource-manager-overview]
 
 > [AZURE.NOTE]In questo argomento vengono descritte le risorse, i gruppi e i modelli utilizzando il portale di anteprima per illustrare i concetti. Tuttavia, è anche possibile creare, gestire ed eliminare le risorse di Azure tramite l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](virtual-machines/xplat-cli-azure-resource-manager.md) e [PowerShell](powershell-azure-resource-manager.md).
 
@@ -120,9 +126,9 @@ Per altre informazioni sull'uso del portale di anteprima, vedere [Uso del portal
 
 ## Passaggi successivi
 
-- Per informazioni sulla creazione di modelli, vedere [Creazione di modelli](./resource-group-authoring-templates.md)
+- Per ulteriori informazioni sulla creazione di modelli, vedere [Creazione di modelli](./resource-group-authoring-templates.md).
 - Per distribuire il modello creato, vedere [Distribuzione di modelli](azure-portal/resource-group-template-deploy.md)
 - Per comprendere le funzioni che è possibile usare in un modello, vedere [Funzioni modello](./resource-group-template-functions.md)
 - Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

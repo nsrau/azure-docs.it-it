@@ -58,4 +58,4 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

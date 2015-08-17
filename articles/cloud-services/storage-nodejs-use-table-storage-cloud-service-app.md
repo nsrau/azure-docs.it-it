@@ -50,7 +50,7 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 
 1.  Se non è già aperta, avviare Azure PowerShell dal menu **Start** espandendo **Tutti i programmi, Azure**, fare clic con il pulsante destro del mouse su **Azure PowerShell** e quindi scegliere **Esegui come amministratore**.
 
-2.  Sostituire le directory con la cartella contenente l'applicazione. Ad esempio, C:\node\tasklist\WebRole1.
+2.  Sostituire le directory con la cartella contenente l'applicazione. Ad esempio, C:\\node\\tasklist\\WebRole1.
 
 3.  Nella finestra Azure Powershell immettere il cmdlet seguente per recuperare le informazioni account di archiviazione:
 
@@ -321,7 +321,7 @@ In questa sezione si estenderà l'applicazione di base creata dal comando **expr
 
 Il file **layout.jade** della directory **views** viene usato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap](https://github.com/twbs/bootstrap), un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole.
 
-1. Scaricare ed estrarre i file per [Twitter Bootstrap](http://getbootstrap.com/). Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\dist\css** alla directory **public\stylesheets** dell'applicazione tasklist.
+1. Scaricare ed estrarre i file per [Twitter Bootstrap](http://getbootstrap.com/). Copiare il file **bootstrap.min.css** dalla cartella **bootstrap\\dist\\css** alla directory **public\\stylesheets** dell'applicazione tasklist.
 
 2. Dalla cartella **views** aprire **layout.jade** nell'editor di testo e sostituire il contenuto con quello seguente:
 
@@ -408,4 +408,4 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

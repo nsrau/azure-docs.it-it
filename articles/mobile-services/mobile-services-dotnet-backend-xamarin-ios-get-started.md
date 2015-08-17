@@ -136,4 +136,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

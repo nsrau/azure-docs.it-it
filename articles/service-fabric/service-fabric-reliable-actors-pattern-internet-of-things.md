@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Azure Service Fabric Actors per Internet delle cose"
-   description="Azure Service Fabric Actors costituisce il componente principale (come un livello intermedio) di un sistema che integra il front-end di un sistema di messaggistica, in grado di supportare più protocolli di trasporto, tra cui HTTPS, MQTT o AMQP, e comunica con gli attori che rappresentano i singoli dispositivi."
+   pageTitle="Reliable Actors per Internet delle cose"
+   description="Service Fabric Reliable Actors costituisce il componente principale (come un livello intermedio) di un sistema che integra il front-end di un sistema di messaggistica, in grado di supportare più protocolli di trasporto, tra cui HTTPS, MQTT o AMQP, e comunica con gli attori che rappresentano i singoli dispositivi."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Modello di progettazione di Service Fabric Actors: Internet delle cose
-Poiché l'Internet delle cose è diventato la nuova tendenza e uno dei principali progressi tecnologici nel campo dei dispositivi e dei servizi cloud, gli sviluppatori hanno iniziato a creare i propri sistemi sulla base dei componenti principali di questa nuova realtà. Il diagramma seguente illustra i principali scenari ottenuti con Azure Service Fabric Actors:
+# Modello di progettazione di Reliable Actors: Internet delle cose
+Poiché l'Internet delle cose è diventato la nuova tendenza e uno dei principali progressi tecnologici nel campo dei dispositivi e dei servizi cloud, gli sviluppatori hanno iniziato a creare i propri sistemi sulla base dei componenti principali di questa nuova realtà. Il diagramma seguente illustra i principali scenari ottenuti con Service Fabric Reliable Actors:
 
 ![][1]
 
-Azure Service Fabric Actors costituisce il componente principale (come un livello intermedio) di un sistema che integra il front-end di un sistema di messaggistica, in grado di supportare più protocolli di trasporto, tra cui HTTPS, MQTT o AMQP, e comunica con gli attori che rappresentano i singoli dispositivi. Poiché gli attori possono mantenere lo stato, l'aggregazione e la modellazione dei flussi (soprattutto di quelli con stato) per ogni dispositivo risultano operazioni molti semplici. Se i dati devono essere salvati in modo permanente, è possibile anche scaricare su richiesta o in base a un timer e mantenere gli ultimi N bit di dati in un'altra variabile per eventuali operazioni di ricerca. In questi esempi sono stati deliberatamente omessi i dettagli del livello relativo agli eventi e alla messaggistica, in modo che gli attori possano comunicare con i dispositivi mantenendo lo stato attivo sul modello Actor. Esistono essenzialmente due scenari di questo tipo, in genere combinati insieme:
+Service Fabric Reliable Actors costituisce il componente principale (come un livello intermedio) di un sistema che integra il front-end di un sistema di messaggistica, in grado di supportare più protocolli di trasporto, tra cui HTTPS, MQTT o AMQP, e comunica con gli attori che rappresentano i singoli dispositivi. Poiché gli attori possono mantenere lo stato, l'aggregazione e la modellazione dei flussi (soprattutto di quelli con stato) per ogni dispositivo risultano operazioni molti semplici. Se i dati devono essere salvati in modo permanente, è possibile anche scaricare su richiesta o in base a un timer e mantenere gli ultimi N bit di dati in un'altra variabile per eventuali operazioni di ricerca. In questi esempi sono stati deliberatamente omessi i dettagli del livello relativo agli eventi e alla messaggistica, in modo che gli attori possano comunicare con i dispositivi mantenendo lo stato attivo sul modello Actor. Esistono essenzialmente due scenari di questo tipo, in genere combinati insieme:
 
 * *Raccolta dei dati di telemetria e di stato da uno o più dispositivi mantenendone lo stato*. Si considerino ad esempio decine di migliaia di trappole per topi (sì, si tratta di uno scenario cliente reale) che inviano dati per comunicare se sono stati catturati topi al proprio interno. I dati vengono aggregati per area geografica e, se in un'area è stata catturata una quantità sufficiente di topi, viene inviato un tecnico per pulire le trappole. Una trappola per topi come un attore? Certo. Un attore gruppo per area come un aggregatore? Esatto.
 
@@ -216,6 +216,5 @@ Azure Service Fabric Actors si occupa anche della durata degli attori. Da questo
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

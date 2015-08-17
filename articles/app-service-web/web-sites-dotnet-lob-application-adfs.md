@@ -354,4 +354,4 @@ App Web del servizio app di Azure supporta l'accesso ai database locali mediante
  
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

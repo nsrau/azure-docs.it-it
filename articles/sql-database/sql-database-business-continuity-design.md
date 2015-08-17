@@ -7,6 +7,7 @@
    manager="jeffreyg" 
    editor="monicar"/>
 
+
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
@@ -15,6 +16,7 @@
    ms.workload="data-management" 
    ms.date="07/14/2015"
    ms.author="elfish"/>
+
 
 #Progettazione per la continuità aziendale
 
@@ -80,7 +82,7 @@ Per creare la replica geografica con un database secondario leggibile per un dat
 
 		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
 		 
-Questo comando è asincrono. Dopo la restituzione, usare il cmdlet [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) per controllare lo stato di questa operazione. Il campo ReplicationState dell'oggetto restituito avrà il valore CATCH_UP al termine dell'operazione.
+Questo comando è asincrono. Dopo la restituzione, usare il cmdlet [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) per controllare lo stato di questa operazione. Il campo ReplicationState dell'oggetto restituito avrà il valore CATCH\_UP al termine dell'operazione.
 
 		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
 
@@ -89,7 +91,7 @@ Questo comando è asincrono. Dopo la restituzione, usare il cmdlet [Get-AzureSql
 
 Per creare una configurazione di replica geografica a livello di codice, usare l'API [Start Database Copy](https://msdn.microsoft.com/library/azure/dn509576.aspx).
 
-Questa API è asincrona. Dopo la restituzione, usare l'API [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) per controllare lo stato di questa operazione. Il campo ReplicationState del corpo della risposta avrà il valore CATCH_UP al termine dell'operazione.
+Questa API è asincrona. Dopo la restituzione, usare l'API [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) per controllare lo stato di questa operazione. Il campo ReplicationState del corpo della risposta avrà il valore CATCH\_UP al termine dell'operazione.
 
 
 ##Come scegliere la configurazione di failover 
@@ -99,4 +101,4 @@ Quando si progetta l'applicazione per la continuità aziendale, è necessario co
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

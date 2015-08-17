@@ -42,7 +42,7 @@ I valori relativi al nome e al valore della chiave di firma di accesso condiviso
 
 	bus_service.create_queue('taskqueue')
 
-**create_queue** supporta anche opzioni aggiuntive che permettono di eseguire l’override delle impostazioni predefinite delle code, come ad esempio la durata dei messaggi o la dimensione massima della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e una durata di 1 minuto:
+**create\_queue** supporta anche opzioni aggiuntive che permettono di eseguire l’override delle impostazioni predefinite delle code, come ad esempio la durata dei messaggi o la dimensione massima della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e una durata di 1 minuto:
 
 	queue_options = Queue()
 	queue_options.max_size_in_megabytes = '5120'
@@ -52,9 +52,9 @@ I valori relativi al nome e al valore della chiave di firma di accesso condiviso
 
 ## Come inviare messaggi a una coda
 
-Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama il metodo **send_queue_message** sull'oggetto **ServiceBusService**.
+Per inviare un messaggio a una coda del bus di servizio, l'applicazione chiama il metodo **send\_queue\_message** sull'oggetto **ServiceBusService**.
 
-Nell'esempio seguente viene illustrato come inviare un messaggio di prova alla coda *taskqueue* **utilizzando **send_queue_message:
+Nell'esempio seguente viene illustrato come inviare un messaggio di prova alla coda *taskqueue* **utilizzando **send\_queue\_message:
 
 	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -63,16 +63,16 @@ Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256
 
 ## Come ricevere messaggi da una coda
 
-I messaggi vengono ricevuti da una coda tramite il metodo **receive_queue_message** sull'oggetto **ServiceBusService**:
+I messaggi vengono ricevuti da una coda tramite il metodo **receive\_queue\_message** sull'oggetto **ServiceBusService**:
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-I messaggi vengono eliminati dalla coda non appena vengono letti, quando il parametro **peek_lock** è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek_lock** su **True**.
+I messaggi vengono eliminati dalla coda non appena vengono letti, quando il parametro **peek\_lock** è impostato su **False**. È possibile leggere (visualizzare) e bloccare il messaggio senza eliminarlo dalla coda impostando il parametro **peek\_lock** su **True**.
 
 Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
-Se il parametro **peek_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **delete** sull'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
+Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando il metodo **delete** sull'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 	print(msg.body)
@@ -98,4 +98,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

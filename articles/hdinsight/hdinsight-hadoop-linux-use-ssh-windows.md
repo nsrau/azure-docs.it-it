@@ -28,7 +28,7 @@ I cluster Azure HDInsight basati su Linux offrono la possibilità di usare l'acc
 
 ##Prerequisiti
 
-* **PuTTY** e **PuTTYGen** per client basati su Windows. Queste utilità sono disponibili nella pagina [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* **PuTTY** e **PuTTYGen** per client basati su Windows. Queste utilità sono disponibili nella pagina [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 * Un moderno Web browser che supporta HTML5.
 
@@ -124,7 +124,7 @@ I nodi di lavoro non sono direttamente accessibili dall'esterno del data center 
 
 Se è stata specificata una chiave SSH quando è stato creato l'account utente, è necessario eseguire la procedura seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster per connettersi ai nodi di lavoro.
 
-1. Installare Pageant dalla pagina [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Questa utilità consente di memorizzare nella cache le chiavi SSH per PuTTY.
+1. Installare Pageant dalla pagina [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Questa utilità consente di memorizzare nella cache le chiavi SSH per PuTTY.
 
 2. Eseguire Pageant. Si ridurrà a icona nella barra di stato. Fare clic con il pulsante destro del mouse sull'icona e scegliere **Add Key**.
 
@@ -278,4 +278,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

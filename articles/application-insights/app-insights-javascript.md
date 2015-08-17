@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
@@ -137,7 +137,7 @@ Nel pannello di ricerca diagnostica, impostare Filtri su Visualizzazione pagina.
 
 Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei dettagli fare clic su "..." per visualizzare altri dettagli.
 
-> [AZURE.NOTE]Se si usa [Ricerca][diagnostic], si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa\*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "\*irc" non si troverà "Circa".
+> [AZURE.NOTE]Se si usa [Ricerca][diagnostic], si noti che è necessaria la corrispondenza di tutta la parola: "Informaz" e "Info" non corrispondono a "Informazioni", a differenza di "Informa*". Inoltre, non è possibile iniziare un termine di ricerca con un carattere jolly. Ad esempio, se si cerca "*irc" non si troverà "Circa".
 
 > [Altre informazioni sulla ricerca diagnostica][diagnostic]
 
@@ -182,4 +182,4 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

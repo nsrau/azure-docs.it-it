@@ -153,4 +153,4 @@ Dopo aver creato l'account, sarà possibile trovare nel portale di gestione le c
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

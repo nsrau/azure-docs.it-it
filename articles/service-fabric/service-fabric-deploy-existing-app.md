@@ -80,7 +80,7 @@ Il seguente è un esempio di un manifesto del servizio
 ## Struttura del file del pacchetto dell’applicazione
 Per distribuire un'applicazione utilizzando, ad esempio, i powershell cmdlet, l'applicazione deve seguire una struttura di directory predefinita.
 
-\applicationmanifest.xml \MyServicePkg \servicemanifest.xml \code \config \data
+\\applicationmanifest.xml \\MyServicePkg \\servicemanifest.xml \\code \\config \\data
 
 La radice contiene il file applicationmanifest.xml che definisce l'applicazione. Una sottodirectory per ogni servizio incluso nell'applicazione viene utilizzata per contenere tutti gli elementi necessari per il servizio: il servicemanifest.xml e, in genere 3 directory:
 
@@ -198,7 +198,7 @@ L’elemento`Entrypoint`nel file manifesto del servizio viene utilizzato per spe
 				  \ ...
 			\config
 			\data
-			...
+			\...
 
 ```
 
@@ -311,4 +311,4 @@ Stiamo lavorando ad uno strumento che può essere utilizzato per creare il pacch
 
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Casi di utilizzo comuni di DocumentDB |Azure" 
-    description="Informazioni sui primi cinque casi di utilizzo per DocumentDB: contenuto generato dall'utente, registrazione di eventi, dati di catalogo, dati delle preferenze utente e ";Internet delle cose"; (IoT)." 
+    description="Informazioni sui primi cinque casi di utilizzo per DocumentDB: contenuto generato dall'utente, registrazione di eventi, dati di catalogo, dati delle preferenze utente e &quot;Internet delle cose&quot; (IoT)." 
     services="documentdb" 
     authors="h0n" 
     manager="jhubbard" 
@@ -79,4 +79,4 @@ Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le segu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). L'archivio del futuro si basa sulla velocità delle ricerche e su un flusso di dati scorrevole.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

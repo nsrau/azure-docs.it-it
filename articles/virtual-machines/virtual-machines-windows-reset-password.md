@@ -3,7 +3,7 @@
 	description="Reimpostare rapidamente una password di amministratore locale o il servizio Desktop remoto per le macchine virtuali Windows utilizzando il portale di anteprima di Azure o i comandi PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali Windows
 
@@ -113,4 +113,4 @@ Se non è possibile eseguire il pacchetto di diagnostica Azure IaaS (Windows) o 
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

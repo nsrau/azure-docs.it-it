@@ -166,4 +166,4 @@ Aggiornare la configurazione di specificati endpoint di input con carico bilanci
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

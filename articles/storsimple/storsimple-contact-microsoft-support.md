@@ -72,4 +72,4 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 > [AZURE.IMPORTANT]È possibile disabilitare l'accesso del supporto eseguendo `Disable-HcsSupportAccess`. Il dispositivo StorSimple inoltre tenterà di disabilitare l'accesso del supporto dopo 8 ore dall'avvio della sessione. È consigliabile modificare le credenziali del dispositivo StorSimple dopo l'avvio di una sessione di supporto.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

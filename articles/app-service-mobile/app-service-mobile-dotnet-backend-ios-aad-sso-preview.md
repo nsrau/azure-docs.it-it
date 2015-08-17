@@ -20,9 +20,9 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite Active Directory Authentication Library.
+Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite Active Directory Authentication Library (ADAL). È inoltre possibile abilitare l'autenticazione con una configurazione minore utilizzando solo Mobile App SDK, come illustrato nell’esercitazione [Aggiungere l'autenticazione all'app]. L'utilizzo di questo argomento su ADAL fornisce un'esperienza di autenticazione più integrata per gli utenti finali e ADAL fornisce funzionalità più ricche per accedere ad altre risorse protette da AAD.
 
-Per poter autenticare gli utenti è necessario registrare l'applicazione nel proprio tenant di Azure Active Directory (AAD). Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio app ed esporre le autorizzazioni sul servizio. In secondo luogo, è necessario registrare l'app iOS e concedere a quest'ultima accesso alle autorizzazioni.
+Per poter autenticare gli utenti utilizzando ADAL, è necessario registrare l'applicazione nel proprio tenant di Azure Active Directory (AAD). Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio app ed esporre le autorizzazioni sul servizio. In secondo luogo, è necessario registrare l'app iOS e concedere a quest'ultima accesso alle autorizzazioni.
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -121,6 +121,6 @@ Sarà ora possibile fare riferimento ad Active Directory Authentication Library 
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [Active Directory Authentication Library per iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  [Introduzione ad App per dispositivi mobili]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
- 
+ [Aggiungere l'autenticazione all'app]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -11,4 +11,4 @@
 
 * Infine, [aggiornare i profili di provisioning nel progetto di Guida introduttiva Xcode](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW10) e quindi [verificare che il profilo di provisioning sia stato creato o rigenerato per abilitare le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW12).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

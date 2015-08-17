@@ -7,14 +7,16 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
+
 
 
 
@@ -39,14 +41,14 @@ Per informazioni sui prezzi, vedere la [pagina dedicata a New Relic in Azure Mar
 I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sottoscrizione di valutazione di New Relic Pro della durata di 2 settimane.
 
 Iscriversi a New Relic usando Azure Marketplace
---
+
 New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service di Azure.
 
 Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa procedura in quattro semplici passaggi.
 
 ## Passaggio 1. Creare un account New Relic
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com) e fare clic su **Nuovo** nell'angolo in basso a sinistra.
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com) e fare clic su **Nuovo** nell'angolo.
 3. Fare clic su **Servizi per gli sviluppatori** > **APM di New Relic**.
 4. Configurare l'account New Relic specificando quanto segue, quindi fare clic su **Crea**.
 	- **Nome**
@@ -62,12 +64,16 @@ Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa pro
 
 ## Passaggio 2: Configurare l'integrazione di New Relic per l'app Web
 
-2. Aprire il pannello dell'app Web nel [portale di anteprima di Azure](https://portal.azure.com).
-3. Fare clic su **Monitoraggio applicazioni ** > **New Relic**. Selezionare l'account creato nel passaggio precedente e fare clic su **OK**. 
+1. Aprire il pannello dell'app Web nel [portale di anteprima di Azure](https://portal.azure.com).
+2. Nel menu "..." nella parte superiore del pannello fare clic su **Aggiungi riquadri**.
+3. Nella scheda **Monitoraggio** selezionare **Riepilogo applicazioni** e trascinarla nella posizione in cui si desidera che il riquadro venga visualizzato nel pannello dell'applicazione Web.
+4. Fare clic su Fine per terminare l'aggiunta di riquadri.
+5. Fare clic sul riquadro **Monitoraggio applicazioni** e selezionare **New Relic**.
+6. Selezionare l'account creato nel passaggio precedente e fare clic su **OK**. 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
-	Al completamento dell'operazione di salvataggio, fare clic su **Tutte le impostazioni** nel pannello dell'app Web e quindi fare clic su **Impostazioni applicazione**. L'impostazione **NEWRELIC_LICENSEKEY** verrà aggiunta alla sezione **Impostazioni applicazione** del pannello per supportare New Relic:
+	Al completamento dell'operazione di salvataggio, fare clic su **Tutte le impostazioni** nel pannello dell'app Web e quindi fare clic su **Impostazioni applicazione**. L'impostazione **NEWRELIC\_LICENSEKEY** verrà aggiunta alla sezione **Impostazioni applicazione** del pannello per supportare New Relic:
 
 	>[AZURE.NOTE]L'applicazione della nuova impostazione per l'app può richiedere fino a 30 secondi. Per forzare l'applicazione immediata delle impostazioni, riavviare l'app Web.
 
@@ -117,7 +123,8 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
     </tr>
     <tr>
        <td>Visualizzare dettagli Apdex a livello globale</td>
-       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br /><b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
+       <td>Nella visualizzazione <b>Browser</b> della schermata Overview selezionare un punto qualsiasi nella mappa Global Apdex.<br />
+<b>Suggerimento:</b> per passare direttamente al dashboard <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> per l'app selezionata, fare clic sul titolo <b>Global Apdex</b> oppure fare clic in un punto qualsiasi della mappa Global Apdex.</td>
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web Transactions</a></td>
@@ -125,7 +132,8 @@ Oltre alle funzioni fornite dall'<a href="https://newrelic.com/docs/site/the-new
     </tr>
     <tr>
        <td>Visualizzare il dashboard <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
-       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br /><b>Suggerimento:</b> è anche possibile visualizzare il dashboard Errors selezionando <b>Applications</b> > (applicazione) > Events > Errors.</td>
+       <td>Fare clic sul titolo del grafico Error rate nel dashboard Applications Overview.<br />
+<b>Suggerimento:</b> è anche possibile visualizzare il dashboard Errors selezionando <b>Applications</b> > (applicazione) > Events > Errors.</td>
     </tr>
     <tr>
        <td>Visualizzare i dettagli relativi al server applicazioni</td>
@@ -175,4 +183,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

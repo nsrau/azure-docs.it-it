@@ -7,6 +7,7 @@
 	manager="jwhit" 
 	editor=""/>
 
+
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery" 
 	ms.date="05/29/2015" 
 	ms.author="raynew"/>
+
 
 # Failover in Site Recovery
 
@@ -108,7 +110,7 @@ Si noti che:
 
 Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuale**.
 
-1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Failover di test**.
+1. Selezionare **Piani di ripristino** > *nome\_pianodiripristino*. Fare clic su **Failover** > **Failover di test**.
 2. Nella pagina **Conferma failover di test** selezionare il modo in cui le macchine di replica saranno connesse a una rete di Azure dopo il failover.
 3. Se si esegue il failover in Azure e la crittografia dei dati è abilitata per il cloud in **Chiave di crittografia**, selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione di Provider. 
 4. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi**. Nel portale di Azure dovrebbe anche essere possibile vedere la macchina di replica di test.
@@ -193,7 +195,7 @@ Preparare un server DNS per il failover di test come segue:
 
 Questa procedura descrive come eseguire un failover non pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina virtuale o server fisico nella scheda **Macchine virtuali**.
 
-1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Failover di test**.
+1. Selezionare **Piani di ripristino** > *nome\_pianodiripristino*. Fare clic su **Failover** > **Failover di test**.
 2. Nella pagina **Conferma failover di test** specificare il modo in cui le macchine virtuali devono essere connesse alle reti al termine del failover di test.
 3. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi**. Quando il processo di failover raggiunge la fase conclusiva del test, fare clic su **Completa test** per terminare il failover di test.
 4. Fare clic su **Note** per registrare e salvare eventuali commenti associati al failover di test.
@@ -207,8 +209,9 @@ Si noti che se il failover di test continua per più di due settimane, viene com
  Questa procedura descrive come eseguire un failover pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuali**.
 
 1. Prima di iniziare verificare che tutte le macchine virtuali di cui eseguire il failover abbiano completato la replica iniziale.
-2. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Failover pianificato**. 
-3. Nella pagina **Conferma failover pianificato**, scegliere le posizioni di origine e di destinazione. Prendere nota della direzione del failover. 
+2. Selezionare **Piani di ripristino** > *nome\_pianodiripristino*. Fare clic su **Failover** > **Failover pianificato**. 
+3. Nella pagina **Conferma failover pianificato**, selezionare il percorso di origine e destinazione. Prendere nota della direzione del failover.
+
 	- Se il funzionamento dei failover è quello previsto e tutti i server di macchine virtuali si trovano nella posizione di origine o di destinazione, i dettagli della direzione del failover sono solo a scopo informativo. 
 	- Se le macchine virtuali sono attive sia nella posizione di origine che in quella di destinazione, viene visualizzato il pulsante **Cambia direzione**. Utilizzare questo pulsante per modificare e specificare la direzione in cui deve essere eseguito il failover.
 
@@ -221,8 +224,9 @@ Si noti che se il failover di test continua per più di due settimane, viene com
 
 Questa procedura descrive come eseguire un failover non pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina virtuale o server fisico nella scheda **Macchine virtuali**.
 
-1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Failover non pianificato**. 
-3. Nella pagina **Conferma failover non pianificato**, scegliere le posizioni di origine e di destinazione. Prendere nota della direzione del failover. 
+1. Selezionare **Piani di ripristino** > *nome\_pianodiripristino*. Fare clic su **Failover** > **Failover non pianificato**. 
+3. Nella pagina **Conferma failover non pianificato**, selezionare il percorso di origine e destinazione. Prendere nota della direzione del failover.
+
 	- Se il funzionamento dei failover è quello previsto e tutti i server di macchine virtuali si trovano nella posizione di origine o di destinazione, i dettagli della direzione del failover sono solo a scopo informativo. 
 	- Se le macchine virtuali sono attive sia nella posizione di origine che in quella di destinazione, viene visualizzato il pulsante **Cambia direzione**. Utilizzare questo pulsante per modificare e specificare la direzione in cui deve essere eseguito il failover.
 
@@ -237,8 +241,9 @@ Questa procedura descrive come eseguire un failover non pianificato per un piano
 
  Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine virtuali replicate non sono protette da Site Recovery e la posizione secondaria funge da posizione primaria. Utilizzare queste procedure per eseguire il failback al sito primario originale. Questa procedura descrive come eseguire un failover pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuali**.
 
-1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Failover pianificato**.
-2. Nella pagina **Conferma failover pianificato**, scegliere le posizioni di origine e di destinazione. Prendere nota della direzione del failover. Se il failover dal sito primario funziona nel modo previsto e tutte le macchine virtuali si trovano nella posizione secondaria, la direzione ha solo scopo informativo. 3. Se si esegue il failback da Azure, selezionare le impostazioni in **Sincronizzazione dati**:
+1. Selezionare **Piani di ripristino** > *nome\_pianodiripristino*. Fare clic su **Failover** > **Failover pianificato**.
+2. Nella pagina **Conferma failover pianificato**, selezionare il percorso di origine e destinazione. Prendere nota della direzione del failover. Se il failover dal sito primario funziona nel modo previsto e tutte le macchine virtuali si trovano nella posizione secondaria, la direzione ha solo scopo informativo.
+3. Se si esegue il failback da Azure, selezionare le impostazioni in **Sincronizzazione dati**:
 
 	- **Sincronizzare i dati prima del failover**: questa opzione riduce al minimo i tempi di inattività per le macchine virtuali senza arrestarle. Effettua le seguenti operazioni:
 		- Fase 1: Crea uno snapshot della macchina virtuale in Azure e lo copia negli host Hyper-V in locale. La macchina continua l'esecuzione in Azure.
@@ -279,4 +284,4 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -43,7 +43,7 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 
 <!--Article references-->
 
-[Copiare i dati con Data factory di Azure]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [Panoramica dell'integrazione di SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
 
@@ -51,5 +51,6 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 
 <!--Other Web references-->
 [Documentazione di Data factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[Copiare i dati con Data factory di Azure]: https://azure.microsoft.com/it-it/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

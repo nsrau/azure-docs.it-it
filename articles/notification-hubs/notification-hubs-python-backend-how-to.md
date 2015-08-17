@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Come usare Hub di notifica da Python
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/library/dn223264.aspx) in MSDN.
 
 > [AZURE.NOTE]Di seguito è riportato un esempio di riferimento per l'implementazione degli invii di notifiche in Python. Non si tratta dell'SDK Python di Hub di notifica.
@@ -218,11 +220,11 @@ L'URL HTTP della richiesta di invio a Hub di notifica viene aggiunto con una que
 ##<a name="complete-tutorial"></a>Completare l'esercitazione
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end Python.
 
-Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [Introduzione a Hub di notifica]:
+Inizializzare il client di Hub di notifica, sostituendo la stringa di connessione e il nome hub come indicato nell'esercitazione [Introduzione a Hub di notifica]\:
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Aggiungere quindi il codice di invio a seconda della piattaforma mobile di destinazione. In questo esempio vengono aggiunti anche metodi di livello più elevato per abilitare l'invio di notifiche in base alla piattaforma, ad esempio send_windows_notification per Windows o send_apple_notification per Apple e così via.
+Aggiungere quindi il codice di invio a seconda della piattaforma mobile di destinazione. In questo esempio vengono aggiunti anche metodi di livello più elevato per abilitare l'invio di notifiche in base alla piattaforma, ad esempio send\_windows\_notification per Windows o send\_apple\_notification per Apple e così via.
 
 ### Windows Store e Windows Phone 8.1 (non Silverlight)
 
@@ -351,4 +353,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Pyth
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

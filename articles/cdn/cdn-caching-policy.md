@@ -43,4 +43,4 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](http://azure.micr
 3. Per impostazione predefinita si applicano le intestazioni di cache di 2 secondi, a prescindere dalla configurazione di servizi multimediali di Azure o archiviazione di Azure, e l'override di questo valore non è disponibile.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

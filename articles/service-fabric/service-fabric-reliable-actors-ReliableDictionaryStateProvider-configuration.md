@@ -88,4 +88,4 @@ L'impostazione MaxRecordSizeInKB definisce la dimensione massima di un record ch
 Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file, in modo da ridurre le situazioni di contesa della testina. Si prevede che l'impostazione dovrà essere modificata solo in casi rari.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

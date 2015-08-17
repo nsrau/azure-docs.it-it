@@ -7,6 +7,7 @@
 	editor="" 
 	services="mobile-services"/>
 
+
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="06/24/2015" 
 	ms.author="glenga"/>
+
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
 
@@ -139,7 +141,7 @@ Questo passaggio aggiunge un file denominato PlayerController.cs al progetto.
 
 Il controller deriva da **TableController<T>**. Questa classe eredita **ApiController** ma è specializzata per Servizi mobili di Azure.
  
-- Routing: la route predefinita per un **TableController** è `/tables/{table_name}/{id}`, dove *table_name* corrisponde al nome dell'entità. Quindi, la route per il controller Player è */tables/player/{id}*. Questa convenzione di routing assicura la coerenza di **TableController** con l'[API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) di Servizi mobili.
+- Routing: la route predefinita per un **TableController** è `/tables/{table_name}/{id}`, dove *table\_name* corrisponde al nome dell'entità. Quindi, la route per il controller Player è */tables/player/{id}*. Questa convenzione di routing assicura la coerenza di **TableController** con l'[API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) di Servizi mobili.
 - Accesso ai dati: per le operazioni di database, la classe **TableController** usa l'interfaccia **IDomainManager**, che definisce un'astrazione per l'accesso ai dati. Lo scaffolding usa **EntityDomainManager**, che è un'implementazione concreta di **IDomainManager** che esegue il wrapping di un contesto EF. 
 
 Aggiungere ora un secondo controller per le entità PlayerRank. Seguire la stessa procedura, ma scegliendo PlayerRank per la classe modello. Usare la stessa classe contesto dati. Non crearne una nuova. Assegnare al controller il nome "PlayerRankController".
@@ -635,6 +637,7 @@ L'elenco dei giocatori viene visualizzato in un oggetto **ListBox**:
 	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
+
 Le posizioni in classifica sono visualizzate in un oggetto **ListView**:
 
 	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
@@ -644,12 +647,18 @@ Le posizioni in classifica sono visualizzate in un oggetto **ListView**:
 	            <Grid>
 	                <Grid.ColumnDefinitions>
 	                    <ColumnDefinition Width="*"/>
+
 	                    <ColumnDefinition Width="2*"/>
+
 	                    <ColumnDefinition Width="*"/>
+
 	                </Grid.ColumnDefinitions>
 	                <TextBlock Text="{Binding Path=Rank}"/>
+
 	                <TextBlock Text="{Binding Path=PlayerName}" Grid.Column="1"/>
+
 	                <TextBlock Text="{Binding Path=Score}" Grid.Column="2"/>
+
 	            </Grid>
 	        </DataTemplate>
 	    </ListView.ItemTemplate>
@@ -762,4 +771,4 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

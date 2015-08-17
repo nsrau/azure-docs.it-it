@@ -88,4 +88,4 @@ Verrà creato un blog WordPress basato su un modello predefinito. Nella figura s
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

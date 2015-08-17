@@ -7,14 +7,16 @@
 	manager="wpickett" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-api" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
+
 
 # Eseguire il provisioning di un'app per le API con un gateway esistente
 
@@ -40,7 +42,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 ### hostingPlanId
 
-Identificatore del piano di hosting esistente.
+Identificatore del piano di hosting del servizio app esistente.
 
     "hostingPlanId": {
       "type": "string"
@@ -65,7 +67,7 @@ Questo modello consente di definire una variabile usata durante la distribuzione
       "packageId": "Microsoft.ApiApp"
     }
     
-Questo valore viene usato di seguito come **variables('packageId')**.
+Questo valore viene usato di seguito come **variables('packageId')**. Contiene l’ID del pacchetto NuGet per le app per le API.
 
 ## Risorse da distribuire
 
@@ -73,7 +75,7 @@ Questo valore viene usato di seguito come **variables('packageId')**.
 
 Consente di creare un'app Web che ospita l'app per le API.
 
-Si noti che **kind** è impostato su **apiApp** in modo da indicare al portale di Azure che questa app Web ospita un gateway. Il portale nasconde l'app Web nel pannello per la ricerca di app Web. L'app include un'estensione per installare il pacchetto dell'app per le API vuoto predefinito. Viene definito un collegamento tra l'app per le API e l'app Web di hosting. La sezione delle impostazioni dell'app include i valori necessari per l'hosting dell'app per le API.
+Si noti che **kind** è impostato su **apiApp** in modo da indicare al portale di Azure che questa app Web ospita un'app per le API. Il portale nasconde l'app Web nel pannello per la ricerca di app Web. L'app include un'estensione per installare il pacchetto dell'app per le API vuoto predefinito. Viene definito un collegamento tra l'app per le API e l'app Web di hosting. La sezione delle impostazioni dell'app include i valori necessari per l'hosting dell'app per le API. La proprietà **serverFarmId** è impostata sul valore specificato nel parametro **hostingPlanId**.
 
     {
       "type": "Microsoft.Web/sites",
@@ -191,4 +193,4 @@ Si noti che i nomi del gateway e dell'app Web di hosting sono definiti come prop
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

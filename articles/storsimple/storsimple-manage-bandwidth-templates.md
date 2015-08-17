@@ -6,6 +6,7 @@
    authors="alkohli"
    manager="carolz"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -14,6 +15,7 @@
    ms.workload="na"
    ms.date="06/10/2015"
    ms.author="alkohli" />
+
 
 # Gestire i modelli di larghezza di banda di StorSimple
 
@@ -176,4 +178,4 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 Ulteriori informazioni sui [componenti di StorSimple](storsimple-components.md).
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

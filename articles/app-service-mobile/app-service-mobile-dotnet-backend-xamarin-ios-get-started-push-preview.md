@@ -7,6 +7,7 @@
 	manager="dwrede" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
@@ -15,6 +16,7 @@
 	ms.topic="article"
 	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
+
 
 # Aggiungere notifiche push all'app Xamarin iOS
 
@@ -266,7 +268,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 	
 	> [AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (\*\*+\*\*).
+2. Nell'app digitare un'attività e fare clic sull'icona con il segno più (**+**).
 
 3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
 
@@ -340,4 +342,4 @@ L'esercitazione è stata completata.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

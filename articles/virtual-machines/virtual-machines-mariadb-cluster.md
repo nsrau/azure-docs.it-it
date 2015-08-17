@@ -206,7 +206,7 @@ verrà generato un output come `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cent
 
 	- Modificare la sezione **[mariadb]** e aggiungere quanto segue
 
-	> [AZURE.NOTE]**innodb_buffer_pool_size** dovrebbe essere il 70% della memoria della macchina virtuale. Qui è stato impostato su 2,45 GB per la macchina virtuale di Azure di dimensione Media con 3,5 GB di RAM.
+	> [AZURE.NOTE]**innodb\_buffer\_pool\_size** dovrebbe essere il 70% della memoria della macchina virtuale. Qui è stato impostato su 2,45 GB per la macchina virtuale di Azure di dimensione Media con 3,5 GB di RAM.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -370,4 +370,4 @@ Può essere utile consultare gli articoli su [un metodo alternativo per creare u
 [un metodo alternativo per creare un cluster MySQL su Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

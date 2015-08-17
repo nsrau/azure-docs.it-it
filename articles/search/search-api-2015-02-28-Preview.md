@@ -262,7 +262,7 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
   - **Nota**: se per un campo nessuno degli attributi elencati è impostato su `true` (`searchable`, `filterable`, `sortable` o `facetable`), il campo viene effettivamente escluso dall'indice invertito. Questa opzione è utile per i campi che non vengono usati nelle query, ma che sono necessari nei risultati della ricerca. L'esclusione di tali campi dall'indice consente di ottenere migliori prestazioni.
 
-  - `suggestions`: nelle versioni precedenti dell'API è inclusa una proprietà `suggestions`. Questa proprietà booleana è obsoleta e non è più disponibile in `2015-02-28` o `2015-02-28-Preview`. In alternativa, usare l'[API per i suggerimenti](#Suggesters). Nella versione `2014-07-31`, per specificare se un campo può essere usato per il completamento automatico durante la digitazione, viene usata la proprietà `suggestions` per i campi di tipo `Edm.String` o `Collection(Edm.String)`. La proprietà `suggestions` è `false` per impostazione predefinita perché richiede spazio aggiuntivo nell'indice, ma se si è scelto di abilitarla, vedere [Transizione dalla versione API di anteprima 2014\* alla versione API 2015\*](search-transition-from-preview.md) per istruzioni sul passaggio alla nuova API.
+  - `suggestions`: nelle versioni precedenti dell'API è inclusa una proprietà `suggestions`. Questa proprietà booleana è obsoleta e non è più disponibile in `2015-02-28` o `2015-02-28-Preview`. In alternativa, usare l'[API per i suggerimenti](#Suggesters). Nella versione `2014-07-31`, per specificare se un campo può essere usato per il completamento automatico durante la digitazione, viene usata la proprietà `suggestions` per i campi di tipo `Edm.String` o `Collection(Edm.String)`. La proprietà `suggestions` è `false` per impostazione predefinita perché richiede spazio aggiuntivo nell'indice, ma se si è scelto di abilitarla, vedere [Transizione dalla versione API di anteprima 2014* alla versione API 2015*](search-transition-from-preview.md) per istruzioni sul passaggio alla nuova API.
 
 `key`: contrassegna il campo come contenente identificatori univoci per i documenti all'interno dell'indice. È necessario scegliere un singolo campo come `key` e questo deve essere di tipo `Edm.String`. I campi chiave possono essere usati per la ricerca diretta di documenti tramite l'[API di ricerca](#LookupAPI).
 
@@ -2307,4 +2307,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

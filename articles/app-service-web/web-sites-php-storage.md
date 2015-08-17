@@ -431,4 +431,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

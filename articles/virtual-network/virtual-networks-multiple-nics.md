@@ -6,14 +6,16 @@
    authors="telmosampaio"
    manager="carolz"
    editor="tysonn" />
+
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/02/2015"
+   ms.date="08/02/2015"
    ms.author="telmos" />
+
 
 # Creare una macchina virtuale con più NIC
 
@@ -81,9 +83,10 @@ Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguent
 ## Gruppi di sicurezza di rete
 Qualsiasi NIC in una macchina virtuale può essere associata a un Gruppo di sicurezza di rete, incluse eventuali NIC in una macchina virtuale che presenta la funzionalità Multi-NIC abilitata. Se a una NIC viene assegnato un indirizzo all'interno di una subnet dove la subnet è associata a un Gruppo di sicurezza di rete, le regole del Gruppo di sicurezza di rete della subnet si applicano anche a tale NIC. Oltre alle subnet, è possibile associare ai Gruppi di sicurezza di rete anche una NIC.
 
-Se una subnet è associata a un Gruppo di sicurezza di rete e una NIC all'interno di tale subnet è associata singolarmente a un Gruppo di sicurezza di rete, le regole del Gruppo di sicurezza di rete associato vengono applicate in "\*\*ordine flusso\*\*", in base alla direzione del traffico in entrata e in uscita dalla NIC:
+Se una subnet è associata a un Gruppo di sicurezza di rete e una NIC all'interno di tale subnet è associata singolarmente a un Gruppo di sicurezza di rete, le regole del Gruppo di sicurezza di rete associato vengono applicate in "**ordine flusso**", in base alla direzione del traffico in entrata e in uscita dalla NIC:
 
-- **Il traffico in entrata**, la cui destinazione è la NIC in questione, passa innanzitutto attraverso la subnet, attivando le regole del Gruppo di sicurezza di rete della subnet, prima di passare nella NIC, attivando quindi le regole del Gruppo di sicurezza di rete della NIC. - **Il traffico in uscita**, la cui origine è la NIC in questione, fuoriesce innanzitutto dalla subnet, attivando le regole del Gruppo di sicurezza di rete della NIC, prima di passare attraverso la sunet, attivando quindi le regole del Gruppo di sicurezza di rete della subnet. 
+- ****Il traffico in entrata**, la cui destinazione è la NIC in questione, passa innanzitutto attraverso la subnet, attivando le regole del Gruppo di sicurezza di rete della subnet, prima di passare nella NIC, attivando quindi le regole del Gruppo di sicurezza di rete della NIC.
+- **Il traffico in uscita**, la cui origine è la NIC in questione, fuoriesce innanzitutto dalla subnet, attivando le regole del Gruppo di sicurezza di rete della NIC, prima di passare attraverso la sunet, attivando quindi le regole del Gruppo di sicurezza di rete della subnet. 
 
 Nella figura precedente viene illustrato come viene eseguita l’applicazione delle regole del Gruppo di sicurezza di rete in base al flusso di traffico (dalla macchina virtuale alla subnet o dalla subnet alla macchina virtuale).
 
@@ -217,7 +220,7 @@ Per aggiungere una route predefinita nella NIC secondaria, attenersi alla proced
 		===========================================================================
 
 2. Si noti la seconda voce nella tabella, con un indice pari a 27 (in questo esempio).
-3. Dal prompt dei comandi, eseguire il comando**aggiungere route** come illustrato di seguito. In questo esempio si specifica 192.168.2.1 come gateway predefinito per la NIC secondaria:
+3. Dal prompt dei comandi, eseguire il comando **aggiungere route** come illustrato di seguito. In questo esempio si specifica 192.168.2.1 come gateway predefinito per la NIC secondaria:
 
 		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
 
@@ -248,4 +251,4 @@ Per aggiungere una route predefinita nella NIC secondaria, attenersi alla proced
 
 Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento predefinito dell'host routing vulnerabile, è consigliabile che le schede NIC secondarie siano limitate ai flussi di traffico all'interno della stessa subnet. Tuttavia se alcune situazioni richiedono la connettività all'esterno della subnet, gli utenti devono attivare la “policy based routing” per fare in modo che il traffico in entrata e in uscita utilizzi la stessa scheda NIC.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

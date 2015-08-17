@@ -2,7 +2,7 @@
     pageTitle="Pubblicare un'app in RemoteApp"
     description="Informazioni su come pubblicare app e risorse in RemoteApp."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -27,4 +27,4 @@ Nella scheda **Pubblicazione** del portale fare clic su **Pubblica**. È possibi
 > [AZURE.NOTE]Se si vuole aggiungere l'app dal menu Start, è necessario aver *aggiunto l'app al menu Start nell'immagine modello*. In caso contrario, RemoteApp visualizzerà solo gli elementi *presenti* nel menu Start, creando confusione. Se si dimentica di aggiungere l'app al menu **Start** al momento della creazione del modello, aggiungere il percorso all'app (in alternativa, ricreare l'immagine modello, tuttavia questa procedura è piuttosto complicata).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -92,9 +92,9 @@ Il limite di archiviazione del pool è determinato dalla quantità di DTU del po
 | Dtu | 100 | 100, 200, 400, 800, 1200 |
 | databaseDtuMax | 100 | 10, 20, 50 100 |
 | databaseDtuMin | 0 | 0, 10, 20, 50 |
-| storageMB | 100 GB\* | 100 GB, 200 GB, 400 GB, 800 GB, 1200 GB |
+| storageMB | 100 GB* | 100 GB, 200 GB, 400 GB, 800 GB, 1200 GB |
 
-*le unità nell'API sono MB, non GB
+**le unità nell'API sono MB, non GB
 
 ## Limiti di sessione e di lavoro
 
@@ -191,4 +191,4 @@ Il prezzo unitario delle DTU per un pool elastico è superiore al prezzo unitari
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

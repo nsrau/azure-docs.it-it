@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # Come usare l'archiviazione code da .NET
@@ -24,7 +24,7 @@
 
 Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Negli esempi, scritti in codice C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**.
 
-> [AZURE.NOTE]Questa guida fa riferimento alla libreria client di archiviazione di Azure per .NET 2.x e versioni successive. La versione consigliata è la libreria client di archiviazione di Azure per .NET 4.x, disponibile tramite [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) o come parte di [Azure SDK per .NET](/downloads/). Vedere di seguito [Accedere all'archiviazione code a livello di programmazione](#programmatically-access-queue-storage) per informazioni su come ottenere la libreria client di archiviazione.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -241,24 +241,15 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Del
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-<ul>
-<li>Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Informazioni di riferimento sulla libreria client di archiviazione per .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Informazioni di riferimento sulle API REST</a></li>
-  </ul>
-</li>
-<li>Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'<a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">archiviazione e all'accesso ai dati in Azure</a>.</li>
-<li>Per ulteriori informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere <a href="../websites-dotnet-webjobs-sdk/">Introduzione ad Azure WebJobs SDK.</li>
-<li>Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-  <ul>
-    <li>Per archiviare dati strutturati, usare <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Archiviazione tabelle</a>.</li>
-    <li>Per archiviare dati non strutturati, usare <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Archiviazione BLOB</a>.</li>
-    <li>Per archiviare dati relazionali, usare <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Database SQL</a>.</li>
-  </ul>
-</li>
-</ul>
+- Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
+    - [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
+- Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+- Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Introduzione ad Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/).
+- Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
+    - Per archiviare dati strutturati, usare [Archiviazione tabelle](storage-dotnet-how-to-use-tables.md). 
+    - Per archiviare dati non strutturati, usare [Archiviazione BLOB](storage-dotnet-how-to-use-blobs.md).
+    - Per archiviare dati relazionali, usare [Database SQL](sql-database-dotnet-how-to-use.md).
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -272,4 +263,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

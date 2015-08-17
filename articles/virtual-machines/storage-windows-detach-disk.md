@@ -8,6 +8,7 @@
 	editor=""
 	tags="azure-service-management"/>
 
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -16,6 +17,7 @@
 	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="kathydav"/>
+
 
 
 
@@ -29,4 +31,4 @@
 
 [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

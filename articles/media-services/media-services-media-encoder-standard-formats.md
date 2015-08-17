@@ -55,33 +55,32 @@ La sezione seguente include l'elenco dei codec e dei formati di file supportati 
  
 ###Formati
 
-<table border="1">
-<tr><th>Formato file</th><th>Estensioni file</th></tr>
-<tr><td>FLV (con codec H. 264 e AAC) </td><td>. FLV</td></tr>
-<tr><td>MP4/ISMV</td><td>*.ismv</td></tr>
-<tr><td>3GP PS MPEG2, MPEG2-TS</td><td>TS,. PS, 3GP</td></tr>
-<tr><td>MXF</td><td>.MXF</td></tr>
-<tr><td>ASF/WMV</td><td>.mwv, ASF</td></tr>
-<tr><td>DVR-MS</td><td>.dvr-ms </td></tr>
-<tr><td>AVI</td><td>.avi</td></tr>
-<tr><td>Matroska</td><td>.mkv</td></tr>
-<tr><td>GXF</td><td>.gxf</td></tr>
-<tr><td>WAVE/WAV </td><td>.wav</td></tr>
-</table>
+Formato file|Estensioni file
+---|---
+FLV (con codec H. 264 e AAC) |. FLV
+MP4/ISMV|*.ismv
+3GP PS MPEG2, MPEG2-TS|TS,. PS, 3GP
+MXF|.MXF
+ASF/WMV|.mwv, ASF
+DVR-MS|.dvr-ms 
+AVI|.avi
+Matroska|.mkv
+GXF|.gxf
+WAVE/WAV |.wav
+
 
 ##<a id="export_formats"></a>Formati di esportazione Media Encoder
 
 La tabella seguente include l'elenco dei codec e dei formati di file supportati per l'esportazione.
 
 
-<table border="1">
-<tr><th>Formato file</th><th>Codec video</th><th>Codec audio</th></tr>
-<tr><td>MP4 (*.mp4)<br/><br/>(multi-bitrate MP4 container inclusi) </td><td>H.264 (High, Main e Baseline Profile)</td><td>AAC-LC, HE-AAC v1, HE-AAC v2 </td></tr>
-<tr><td>MPEG2-TS </td><td>H.264 (High, Main e Baseline Profile)</td><td>AAC-LC, HE-AAC v1, HE-AAC v2 </td></tr>
-</table>
+Formato file|Codec video|Codec audio
+---|---|---
+MP4 (* .mp4)<br/><br/> (multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 ##Vedere anche
 
 [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

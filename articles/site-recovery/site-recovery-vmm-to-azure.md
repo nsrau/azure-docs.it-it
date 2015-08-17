@@ -7,6 +7,7 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="site-recovery"
 	ms.workload="backup-recovery"
@@ -15,6 +16,7 @@
 	ms.topic="hero-article"
 	ms.date="05/07/2015"
 	ms.author="raynew"/>
+
 
 #  Configurare la protezione tra un sito VMM locale e Azure
 
@@ -82,7 +84,7 @@ Per distribuire il mapping di rete sarà necessario quanto segue:
 
 
 2. Espandere
-3. *Servizi dati*, quindi *Servizi di ripristino* e fare clic su *Insieme di credenziali di Ripristino sito*. \*
+3. *Servizi dati*, quindi *Servizi di ripristino* e fare clic su *Insieme di credenziali di Ripristino sito*. *
 3. Fare clic su *Crea nuovo* e quindi su *Creazione rapida*.
 
 
@@ -128,7 +130,7 @@ Dopo l'installazione del provider, continuare con il programma di installazione 
 
 5. Nella pagina **Connessione Internet** specificare la modalità di connessione Internet del provider in esecuzione sul server VMM. Selezionare *Usa impostazioni proxy del sistema predefinite* per usare le impostazioni di connessione a Internet predefinite configurate nel server.
 
-	![Internet Settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png) - Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy. Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta. Gli URL seguenti dovrebbero essere accessibili dal Server VMM e dagli host Hyper-V: *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Consentire l’uso degli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e del protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+	![Internet Settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png) - Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy. Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta. Gli URL seguenti dovrebbero essere accessibili dal Server VMM e dagli host Hyper-V - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Consentire l’uso degli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e del protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
 	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
@@ -168,7 +170,7 @@ Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-
 
 	![Prerequisiti per l'agente di Servizi di ripristino di Azure](./media/site-recovery-vmm-to-azure/ASRE2AVMM_AgentPrereqs.png)
 
-4. Nella pagina **Impostazioni di installazione** specificare dove si vuole installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Fare clic su <b>Installa</b>.
+4. Nella pagina **Impostazioni di installazione** specificare dove si vuole installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Quindi fare clic su <b>Installa</b>.
 
 ## Passaggio 6: configurare le impostazioni di protezione del cloud
 
@@ -304,7 +306,7 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 	- Fare clic su **Il failover di test è completo**. Pulire l'ambiente di test per spegnere automaticamente ed eliminare la macchine virtuali di test.
 	- Fare clic su **Note** per registrare e salvare eventuali commenti associati al failover di test.
 
-## <a id="runtest" name="runtest" href="#runtest"></a>Monitorare l'attività
+## <a id="runtest" name="runtest" href="#runtest"></a> Monitorare l'attività
 <p>La scheda *Processi* e il *Dashboard* consentono di visualizzare e monitorare i processi principali eseguiti dall'insieme di credenziali di Azure Site Recovery, tra cui la configurazione della protezione per un cloud, l'abilitazione e la disabilitazione della protezione per una macchina virtuale, l'esecuzione di un failover (pianificato, non pianificato o di test) e il commit di un failover non pianificato.</p>
 
 <p>Nella scheda *Processi* è possibile visualizzare i processi, eseguire il drill-down di dettagli ed errori dei processi, eseguire query sui processi per recuperare i processi che soddisfano specifici criteri, esportare processi in Excel e riavviare i processi non riusciti.</p>
@@ -321,4 +323,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

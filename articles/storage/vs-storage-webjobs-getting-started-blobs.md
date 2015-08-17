@@ -7,6 +7,7 @@
 	manager="douge" 
 	editor="tglee"/>
 
+
 <tags 
 	ms.service="storage" 
 	ms.workload="web" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="07/13/2015" 
 	ms.author="patshea123"/>
+
 
 # Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 
@@ -159,7 +161,7 @@ Il numero massimo di tentativi è configurabile. La stessa impostazione [MaxDequ
 
 Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *{nome processo Web}*.Functions.\*{nome funzione}\*, ad esempio: WebJob1.Functions.CopyBlob)
+* FunctionId (nel formato *{nome processo Web}*.Functions.*{nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -210,7 +212,7 @@ WebJobs SDK verifica che nessuna funzione `BlobTrigger` venga chiamata più volt
 
 Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure specificato dalla stringa di connessione AzureWebJobsStorage. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione chiamata per il BLOB ("\*{Nome processo Web}\*.Functions.\*{Nome funzione}\*", ad esempio: "WebJob1.Functions.CopyBlob")
+* La funzione chiamata per il BLOB ("*{WebJob name}*.Functions.*{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
@@ -239,4 +241,4 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di BLOB di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

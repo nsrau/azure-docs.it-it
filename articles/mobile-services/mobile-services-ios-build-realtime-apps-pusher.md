@@ -18,9 +18,6 @@
 
 
 # Compilare app in tempo reale tramite Servizi mobili e Pusher
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="" title="iOS" class="current">iOS</a>
-</div>
 
 Questo argomento illustra come aggiungere funzionalità in tempo reale a un'app basata su Servizi mobili di Azure. Una volta completata l'esercitazione, i dati dell'elenco attività saranno sincronizzati, in tempo reale, tra tutte le istanze in esecuzione dell'app.
 
@@ -76,11 +73,11 @@ La libreria [libPusher][] consente di accedere a Pusher da iOS.
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. Infine, in **Build Settings** individuare l'impostazione di compilazione di destinazione **Other Linker Flags** e aggiungere il flag **-all_load**.
+9. Infine, in **Build Settings** individuare l'impostazione di compilazione di destinazione **Other Linker Flags** e aggiungere il flag **-all\_load**.
 
 	![][add-linker-flag]
 
-	Viene mostrato il flag **-all_load** impostato per la destinazione di compilazione di debug.
+	Viene mostrato il flag **-all\_load** impostato per la destinazione di compilazione di debug.
 
 A questo punto, la libreria è installata e pronta per l'uso.
 
@@ -240,7 +237,7 @@ A questo punto, la libreria è installata e pronta per l'uso.
 		    }];
 		}
 
-11. Sostituire il segnaposto `**your_app_key**` con il valore di app_key copiato in precedenza dalla finestra di dialogo Connection Info.
+11. Sostituire il segnaposto `**your_app_key**` con il valore di app\_key copiato in precedenza dalla finestra di dialogo Connection Info.
 
 12. Sostituire il metodo **onAdd** con il codice seguente:
 
@@ -444,4 +441,4 @@ Per ulteriori informazioni sulla registrazione e l'utilizzo di script del server
 [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -88,4 +88,4 @@ Possibilità di applicare differenti modelli di servizio ai flussi di attributi 
 Possibilità di interrompere il flusso di attributi da AD ad Azure AD | ● | ● | |  
 Personalizzazione avanzata dei flussi di attributi | ● | ● | | ●  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

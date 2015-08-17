@@ -52,7 +52,7 @@ L'API di Bing Mappe viene usata per due motivi.
 
 + **Geocodifica indirizzi:** nei dati, abbiamo indirizzi (city, state, zip), ma desideriamo anche le coordinate longitudine e latitudine di un indirizzo in modo che possiamo fare ricerche geospaziale. Per ottenere le coordinate, viene usata l'API DataFlow di Bing Mappe per inviare un batch di indirizzi per la geocodifica. Con un account di prova di Bing è possibile usare un massimo di 50 indirizzi alla volta, quantità sufficiente ai fini di questa esercitazione.
 
-+ **Bing Maps:** quando viene eseguita l'applicazione, utilizzeremo Bing Maps per visualizzare le posizioni dei negozi, sovrapposta all'inizio di una mappa di Bing.
++ **Bing Mappe:** durante l'esecuzione dell'app, si usa Bing Mappe per visualizzare l'ubicazione dei negozi, su una mappa Bing.
 
 ### Creare un account per Bing Mappe
 
@@ -65,9 +65,9 @@ L'API di Bing Mappe viene usata per due motivi.
 <a id="sub-3"></a>
 ## Geocodifica degli indirizzi in C# usando l'API DataFlow di Bing Mappe
 
-In questo passaggio viene utilizzata l'API DataFlow di Bing Mappe per la geocodifica di alcuni indirizzi di negozi di biciclette sparsi per il mondo.
+In questo passaggio viene usata l'API DataFlow di Bing Mappe per la geocodifica di alcuni indirizzi di negozi di biciclette sparsi per il mondo.
 
-I dati provengono da un file CSV chiamato store_locations.csv ubicato nell'origine scaricata in precedenza. Aprendo il file in un editor di testo o in Excel, vengono visualizzati una colonna ID, il nome e l'indirizzo di ciascun negozio.
+I dati provengono da un file CSV chiamato store\_locations.csv ubicato nell'origine scaricata in precedenza. Aprendo il file in un editor di testo o in Excel, vengono visualizzati una colonna ID, il nome e l'indirizzo di ciascun negozio.
 
 Segue una spiegazione dettagliata del codice.
 
@@ -75,19 +75,19 @@ Segue una spiegazione dettagliata del codice.
 
 2. Passando alla funzione **Main**, si noti come quest'ultima chiama **ApplyStoreData**. Passare a questa funzione e consultarne il codice.
 
-3. **ApplyStoreData** carica i dati da un file CSV chiamato "store_locations.csv" trasferendoli in System.Data.DataTable.
+3. **ApplyStoreData** carica i dati da un file CSV chiamato "store\_locations.csv" trasferendoli in System.Data.DataTable.
 
     Questo file contiene tutti i negozi (con i relativi indirizzi) da caricare in Ricerca di Azure. Mediante l'iterazione in ciascuna riga di questo file, è possibile creare un insieme di **indexOperations**, da inserire in seguito nell'indice di Ricerca di Azure (precedentemente creato nella funzione **CreateStoresIndex()**).
 
     In seguito, osservando l'indice, si può osservare che il campo **GeoPt** con la longitudine e la latitudine di ciascun negozio è vuoto. Passiamo ora alla fase successiva della funzione **Main**.
 
-5. Passare alla funzione **ExtractAddressInfoToXML()**. Questa funzione estrae i dati sugli indirizzi dal file store_locations.csv file e li carica su un file XML in un formato compatibile con la funzionalità di geocodifica di Bing Mappe. Una volta creato, il file viene inviato per l'elaborazione a DataFlow di Bing Mappe tramite la chiamata della funzione **GeoCoding.CreateJob**.
+5. Passare alla funzione **ExtractAddressInfoToXML()**. Questa funzione estrae i dati sugli indirizzi dal file store\_locations.csv file e li carica su un file XML in un formato compatibile con la funzionalità di geocodifica di Bing Mappe. Una volta creato, il file viene inviato per l'elaborazione a DataFlow di Bing Mappe tramite la chiamata della funzione **GeoCoding.CreateJob**.
 
 6. Poiché il processo di geocodifica può richiedere tempo, è presente un loop che chiama **GeoCoding.CheckStatus** ogni 10 secondi per verificare se l'operazione è completa. Una volta terminata l'operazione, i risultati vengono scaricati in una classe di indirizzi tramite la chiamata di **GeoCoding.DownloadResults**.
 
 7. Il passaggio finale consiste nel prelevare questi indirizzi geocodificati per l'invio a Ricerca di Azure. Per scoprire come viene effettuata tale operazione, aprire la funzione **UpdateStoreData**.
 
-  **UpdateStoreData** utilizza l'azione **@search.action: merge** per aggiornare il campo del tipo Edm.GeographyPoint percorso con il geocoding longitudine e latitudine coordina appena scaricati da Bing Maps. Durante la procedura viene consultato il valore storeId, che rappresenta la chiave univoca del documento nell'indice dei negozi, e i nuovi dati vengono inseriti nel documento esistente.
+  **UpdateStoreData** usa l'azione **@search.action: merge** per aggiornare il campo del tipo Edm.GeographyPoint percorso con il geocoding longitudine e latitudine coordina appena scaricati da Bing Mappe. Durante la procedura viene consultato il valore storeId, che rappresenta la chiave univoca del documento nell'indice dei negozi, e i nuovi dati vengono inseriti nel documento esistente.
 
 8. Prima di avviare l'applicazione, aggiungere i dati di Ricerca di Azure e dell'API di Bing Mappe aprendo App.config e impostando i valori di "SearchServiceName", "SearchServiceApiKey" e "BingMapsAPI" con quelli del servizio di Ricerca di Azure e dell'API di Bing Mappe. Per il nome del servizio di ricerca, se il servizio è "mysearch.search.windows.net", immettere "mysearch".
 
@@ -113,7 +113,7 @@ Si noti che i negozi sono visualizzati come punti sulla mappa. Facendo clic su u
 <a id="sub-5"></a>
 ## Esplorazione di AdventureWorksWebGeo
 
-Il progetto **AdventureWorksWebGeo** dimostra come ASP.NET MVC 4 possa essere utilizzato per interagire con Ricerca di Azure al fine di compilare un'applicazione di mappatura sfruttando la funzionalità di ricerca geografica. In questa sezione vengono descritte le diverse sezioni del codice dell'applicazione.
+Il progetto **AdventureWorksWebGeo** dimostra come ASP.NET MVC 4 possa essere usato per interagire con Ricerca di Azure al fine di compilare un'applicazione di mappatura sfruttando la funzionalità di ricerca geografica. In questa sezione vengono descritte le diverse sezioni del codice dell'applicazione.
 
 1.	In Esplora soluzioni espandere **AdventureWorksWebGeo** | **Controller** aprire HomeController.cs. Il **Index ()** funzione viene chiamata quando l'applicazione avvia e carica la pagina di indice. In questa funzione, l'API di Bing Mappe viene caricata da Web.config e trasferita nella vista dell'indice come ViewBag.BingAPI.
 
@@ -121,13 +121,13 @@ Il progetto **AdventureWorksWebGeo** dimostra come ASP.NET MVC 4 possa essere ut
 
 3.	Questo file segue la normale procedura di aggiunta di Bing Mappe a un'applicazione Web, con alcuni aspetti importanti da segnalare:
 
-+	ViewBag dal controller viene utilizzato per caricare le credenziali per l'utilizzo di mappa: credenziali: '@ViewBag.BingAPI' 
++	ViewBag dal controller viene usato per caricare le credenziali per l'uso della mappa: credenziali: '@ViewBag.BingAPI' 
 
 +	Dopo aver caricata la mappa viene effettuata una .post $ JQuery per la classe HomeController **ricerca** funzione facendo riferimento a: / home/ricerca
 
 +	La funzione **Search** recupera le ubicazioni dei negozi che, a loro volta, vengono trasferite e aggiunte come PushPins alla mappa Bing.
 
-4.	In **Controllers** aprire HomeController.cs e cercare la funzione **Search**. Si noti come effettua una chiamata a _storeSearch.Search (lat, lon, 10000). Ciò provoca l'esecuzione di una query per la ricerca di tutti i negozi entro 10.000 km dalla latitudine (lat) e dalla longitudine (lon) specificate. I risultati della query vengono elaborati e inviati a vista Index siano elaborati come simboli sovrapposta nella mappa di Bing.
+4.	In **Controllers** aprire HomeController.cs e cercare la funzione **Search**. Si noti come esegue una chiamata a \_storeSearch.Search(lat, lon, 10000). Ciò provoca l'esecuzione di una query per la ricerca di tutti i negozi entro 10.000 km dalla latitudine (lat) e dalla longitudine (lon) specificate. I risultati della query vengono elaborati e inviati nuovamente alla vista di indice dove, a loro volta, vengono elaborati come PushPins e mostrati sulla mappa Bing.
 
 La demo è terminata. Sono stati descritti i principali aspetti relativi alla compilazione di una mappa basata su un'applicazione ASP.NET MVC4 usando Ricerca di Azure.
 
@@ -137,7 +137,7 @@ La demo è terminata. Sono stati descritti i principali aspetti relativi alla co
 
 Durante la compilazione di AdventureWorksWeb, se viene visualizzato il messaggio "Could not load file or assembly 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies", provare a risolvere il problema con la seguente procedura.
 
-1. Aprire la Console di gestione pacchetti: **strumenti** | **Gestione pacchetti NuGet** | **Console di gestione pacchetti**
+1. Aprire la Console di gestione pacchetti: **Strumenti** | **Gestione pacchetti NuGet** | **Console di gestione pacchetti**
 2. Nel prompt PM>, immettere "Update-package -reinstall Microsoft.AspNet.Mvc"
 3. Alla richiesta di ricaricare il file, scegliere **Sì a tutti**.
 4. Ricompilare la soluzione e premere nuovamente **F5**.
@@ -167,4 +167,4 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di ulteriori c
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

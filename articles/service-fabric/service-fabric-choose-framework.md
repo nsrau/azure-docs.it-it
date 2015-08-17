@@ -36,4 +36,4 @@ Tenere presente che è perfettamente plausibile usare framework diversi per serv
 - [Altre informazioni sulle API Reliable Actors](service-fabric-reliable-actors-introduction.md)
 - [Altre informazioni sulle API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

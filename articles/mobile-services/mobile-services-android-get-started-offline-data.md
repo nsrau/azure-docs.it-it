@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [esercitazione Guida introduttiva per Servizi mobili]: mobile-services-android-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

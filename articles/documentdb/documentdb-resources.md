@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modello di risorse e concetti relativi a DocumentDB | Azure" 
+	pageTitle="Modello di risorse e concetti relativi a DocumentDB | Microsoft Azure" 
 	description="Microsoft Azure DocumentDB è un database di documenti NoSQL completamente gestito che usa un modello gerarchico degli account di database, dei database, delle raccolte, delle stored procedure, dei trigger, delle funzioni definite dall'utente, dei documenti, degli allegati, degli elementi multimediali, degli utenti e delle autorizzazioni per la gestione delle risorse."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
 #Modello di risorse e concetti relativi a DocumentDB
@@ -120,7 +120,7 @@ Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID de
 
 Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamato anche RID), disponibile tramite la proprietà _rid. Il RID codifica l'intera gerarchia di una determinata risorsa ed è una rappresentazione interna molto utile da usare per imporre l'integrità referenziale secondo un metodo distribuito. Il RID è univoco all'interno di un account di database e viene usato internamente da DocumentDB per un routing efficiente senza necessità di eseguire ricerche su più partizioni. 
 
-I valori delle proprietà _self e _rid sono rappresentazioni alternative e canoniche di una risorsa. 
+I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternate e canoniche di una risorsa.
 
 ##Account di database
 È possibile eseguire il provisioning di uno o più account di database di DocumentDB usando la sottoscrizione di Azure. A ogni account di database di livello standard viene assegnata una capacità minima di una raccolta S1.
@@ -413,7 +413,7 @@ L'annullamento della registrazione di una funzione definita dall'utente avviene 
 Benché i frammenti di codice forniti sopra mostrino la registrazione (POST), l'annullamento della registrazione (PUT), la lettura/creazione di un elenco (GET) e l'esecuzione (POST) tramite [JavaScript SDK di DocumentDB](https://github.com/Azure/azure-documentdb-js), è anche possibile usare le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o altri [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ##Documenti
-È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari un una raccolta. DocumentDB non rende obbligatorio alcuno schema e non richiede indici secondari per il supporto delle query in documenti di una raccolta.
+È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. DocumentDB non rende obbligatorio alcuno schema e non richiede indici secondari per il supporto delle query in documenti di una raccolta.
 
 Essendo un servizio database effettivamente aperto, DocumentDB non propone tipo di dati specializzati (ad esempio data e ora) o codifica specifica per i documenti JSON. Si noti che DocumentDB non richiede alcuna convenzione JSON specifica per codificare le relazioni tra i diversi documenti. Il linguaggio di query SQL di DocumentDB offre operatori di query avanzati gerarchici e relazionali per eseguire query e proiezioni sui documenti senza annotazioni speciali o senza dovere codificare le relazioni tra i documenti tramite proprietà distinte.
  
@@ -469,4 +469,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

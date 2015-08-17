@@ -99,11 +99,11 @@ Al momento della stesura di questo documento (5 febbraio 2014), la procedura è 
 
 -   Aprire [Google Developers Console].
 -   Selezionare lo stesso progetto usato in precedenza nella procedura (quello con il **numero di progetto** che è stato integrato in `AndroidManifest.xml`).
--   Passare a APIs & auth -\> Credentials, fare clic su "CREATE NEW KEY" nella sezione "Public API access".
+-   Passare a APIs & auth -\\> Credentials, fare clic su "CREATE NEW KEY" nella sezione "Public API access".
 -   Selezionare "Server key".
 -   Nella schermata successiva lasciare vuoto il campo **(no IP restriction)**, quindi fare clic su Create.
 -   Copiare la **chiave API** generata.
--   Passare a $/#application/YOUR_ENGAGEMENT_APPID/native-push.
+-   Passare a $/#application/YOUR\_ENGAGEMENT\_APPID/native-push.
 -   Nella sezione GCM impostare la chiave API su quella appena generata e copiata.
 
 È ora possibile selezionare "In qualsiasi momento" durante la creazione di annunci e sondaggi del servizio Reach.
@@ -123,4 +123,4 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

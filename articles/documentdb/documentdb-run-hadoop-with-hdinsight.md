@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Eseguire un processo Hadoop usando DocumentDB e HDInsight | Azure" 
+	pageTitle="Eseguire un processo Hadoop usando DocumentDB e HDInsight | Microsoft Azure" 
 	description="Informazioni su come eseguire un semplice processo Hive, Pig e MapReduce con DocumentDB e Azure HDInsight."
 	services="documentdb" 
 	authors="AndrewHoh" 
@@ -32,7 +32,7 @@ Si consiglia di iniziare guardando il video seguente, dove viene illustrato un p
 
 Quindi, tornare a questo articolo, dove si riceveranno tutti i dettagli su come eseguire i processi di analisi sui dati di DocumentDB.
 
-> [AZURE.TIP]Questa esercitazione presume che l'utente abbia una precedente esperienza nell'utilizzo di Apache Hadoop, Hive e/o Pig. Se non si conoscono Apache Hadoop, Hive e Pig, si consiglia di visitare la pagina relativa alla [documentazione di Apache Hadoop][apache-hadoop-doc]. Questa esercitazione presume inoltre che si abbia precedente esperienza con DocumentDB e si disponga di un account DocumentDB. Se non si conosce DocumentDB o non si dispone di un account DocumentDB, visitare la pagina [Per iniziare][getting-started].
+> [AZURE.TIP]Questa esercitazione presume che l'utente abbia una precedente esperienza nell'uso di Apache Hadoop, Hive e/o Pig. Se non si conoscono Apache Hadoop, Hive e Pig, si consiglia di visitare la pagina relativa alla [documentazione di Apache Hadoop][apache-hadoop-doc]. Questa esercitazione presume inoltre che si abbia precedente esperienza con DocumentDB e si disponga di un account DocumentDB. Se non si conosce DocumentDB o non si dispone di un account DocumentDB, visitare la pagina [Per iniziare][getting-started].
 
 Se non si ha tempo di completare l'esercitazione e si vogliono ottenere gli script PowerShell completi di esempio per Hive, Pig e MapReduce, È possibile ottenerli [qui][documentdb-hdinsight-samples]. Il download contiene anche i file hql, pig e java per questi esempi.
 
@@ -276,7 +276,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		$queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
 		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
 
-	È anche possibile utilizzare l'opzione -File per specificare un file di script HiveQL in HDFS.
+	È anche possibile usare l'opzione -File per specificare un file di script HiveQL in HDFS.
 
 6. Aggiungere il frammento seguente per salvare l'ora di inizio e inviare il processo Hive.
 
@@ -297,7 +297,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
 		Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
 
-9. **Eseguire** il nuovo script. **Fare clic** sul pulsante verde Esegui.
+9. **Eseguire** il nuovo script. **Fare clic** sul pulsante di esecuzione verde.
 
 10. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra. </br>
@@ -345,7 +345,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 4. Infine, si archivieranno i risultati nella nuova raccolta di output.
 
-    > [AZURE.NOTE]Sì, si consente l'aggiunta di più raccolte come output:</br>' < DocumentDB Output insieme nome 1 >, < nome della raccolta di DocumentDB Output > 2'</br>i nomi di raccolta sono separati senza spazi, utilizzando una singola virgola.</br> Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
+    > [AZURE.NOTE]Sì, si consente l'aggiunta di più raccolte come output: </br> '<Nome raccolta di output di DocumentDB 1>,<Nome raccolta di output di DocumentDB 2>'</br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola.</br> Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -360,7 +360,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
         $queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
         $pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $queryString -StatusFolder $statusFolder
 
-	È anche possibile utilizzare l'opzione -File per specificare un file di script Pig in HDFS.
+	È anche possibile usare l'opzione -File per specificare un file di script Pig in HDFS.
 
 6. Aggiungere il frammento seguente per salvare l'ora di inizio e inviare il processo Pig.
 
@@ -381,7 +381,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 		Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
 		
-9. **Eseguire** il nuovo script. **Fare clic** sul pulsante verde Esegui.
+9. **Eseguire** il nuovo script. **Fare clic** sul pulsante di esecuzione verde.
 
 10. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra. </br>
@@ -415,7 +415,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		Select-AzureSubscription $subscriptionName
 		$TallyPropertiesJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $TallyPropertiesJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
 
-	Oltre alla definizione del processo MapReduce, è necessario specificare anche il nome del cluster HDInsight in cui si desidera eseguire il processo MapReduce e le credenziali. Start-AzureHDInsightJob è una chiamata non sincronizzata. Per verificare il completamento del processo, utilizzare il cmdlet *Wait-AzureHDInsightJob*.
+	Oltre alla definizione del processo MapReduce, è necessario specificare anche il nome del cluster HDInsight in cui si desidera eseguire il processo MapReduce e le credenziali. Start-AzureHDInsightJob è una chiamata non sincronizzata. Per verificare il completamento del processo, usare il cmdlet *Wait-AzureHDInsightJob*.
 
 4. Per controllare se si sono verificati errori nel processo MapReduce, aggiungere il comando seguente:
 	
@@ -424,7 +424,7 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $TallyPropertiesJob.JobId -StandardError
 		Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green 
 
-5. **Eseguire** il nuovo script. **Fare clic** sul pulsante verde Esegui.
+5. **Eseguire** il nuovo script. **Fare clic** sul pulsante di esecuzione verde.
 
 6. Verificare i risultati. Eseguire l'accesso al [portale di anteprima di Azure][azure-portal].
 	1. Fare clic su <strong>Sfoglia</strong> nel riquadro a sinistra.
@@ -491,4 +491,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -27,4 +27,4 @@ L'applicazione adesso è configurata in AAD in modo che gli utenti possano acced
 [Portale di gestione di Azure]: https://manage.windowsazure.com/
 [Come configurare l'app mobile con Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

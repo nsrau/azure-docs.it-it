@@ -20,7 +20,7 @@
 
 Azure Machine Learning è un servizio di analisi predittive completamente gestito, che può essere usato per creare modelli predittivi dei dati in SQL Data Warehouse e pubblicarli come servizi pronti all'uso. Per le nozioni di base sull'analisi predittiva e su Machine Learning, vedere [Introduzione a Machine Learning in Azure][]. Sarà quindi possibile imparare a creare, eseguire il training, assegnare punteggi e testare un modello di Machine Learning usando l'[esercitazione per la creazione di esperimenti][].
 
-In questo articolo si apprenderà come eseguire le operazioni seguenti tramite [Azure Machine Learning Studio][]: leggere i dati dal database per creare, eseguire il training e assegnare punteggi a un modello predittivo e scrivere dati nel database
+In questo articolo si apprenderà come eseguire le operazioni seguenti tramite [Azure Machine Learning Studio][]\: leggere i dati dal database per creare, eseguire il training e assegnare punteggi a un modello predittivo e scrivere dati nel database
 
 
 ## Leggere dati da SQL Data Warehouse
@@ -103,4 +103,4 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 <!--Other Web references-->
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

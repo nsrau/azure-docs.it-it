@@ -7,14 +7,16 @@
 	manager="timlt" 
 	editor=""/>
 
+
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
+
 
 
 
@@ -54,4 +56,4 @@ In questo caso, all'utente **non** verrà richiesta una password. Dopo aver prem
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

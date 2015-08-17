@@ -65,7 +65,7 @@ Per altre informazioni sul caricamento statico e dinamico, vedere la [pagina uff
 ###Caricamento statico di Smooth Streaming per OSMF
 Nel frammento di codice seguente viene illustrato come caricare il plug-in Smooth Streaming per OSMF in modo statico e riprodurre un video di base usando la classe MediaFactory di OSMF. Prima di includere il codice di Smooth Streaming per OSMF, verificare che nei riferimenti del progetto sia incluso il plug-in statico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
 
-<pre><code>
+```
 package 
 {
 	
@@ -195,14 +195,14 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 
 ###Caricamento dinamico di Smooth Streaming per OSMF
 
 Nel frammento di codice seguente viene illustrato come caricare il plug-in Smooth Streaming per OSMF in modo dinamico e riprodurre un video di base usando la classe MediaFactory di OSMF. Prima di includere il codice di Smooth Streaming per OSMF, copiare il plug-in dinamico "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" nella cartella del progetto se si desidera eseguire il caricamento tramite il protocollo FILE o copiarlo in un server Web per il caricamento tramite HTTP. Non è necessario includere il file "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" nei riferimenti del progetto.
 
-<pre><code>
+```
 package 
 {
 	
@@ -334,7 +334,7 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 ##Strobe Media Playback con plug-in dinamico SS per OSMF
 Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). È possibile utilizzare il plug-in SS per OSMF per aggiungere la riproduzione di contenuti Smooth Streaming a SMP. A questo scopo, copiare il plug-in "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" in un server Web per il caricamento tramite HTTP attenendosi alla procedura seguente:
@@ -403,4 +403,4 @@ Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagi
 
 [Plug-in di streaming adattivo Microsoft per aggiornamento OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

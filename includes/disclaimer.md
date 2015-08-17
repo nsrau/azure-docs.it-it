@@ -1,3 +1,3 @@
 Per utilizzare questa e le altre nuove funzionalità di Azure, effettuare l'iscrizione per l'[anteprima gratuita](https://account.windowsazure.com/PreviewFeatures).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

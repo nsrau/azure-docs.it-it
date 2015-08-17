@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights per app di Microsoft Azure" 
-	description="Analizzare l'utilizzo e le prestazioni dell'app Azure con Application Insights." 
+	pageTitle="Application Insights: Esempi di codice e procedure dettagliate" 
+	description="Esempi che è possibile adattare alle proprie applicazioni." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
-#  Application Insights: esempi di codice
+#  Application Insights: esempi di codice e procedure dettagliate
 
 *Application Insights è disponibile in anteprima.*
 
@@ -24,13 +24,16 @@ Questo articolo illustra esempi di codice relativi all'uso di [Application Insig
 ## Servizi Web
 
 * [Aggiungere dati di telemetria a ruoli Web e di lavoro di Azure](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService).
+* [App universale di Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal/).
 
 ## Esportazione continua
 
 Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](app-insights-export-telemetry.md) nell'archivio, in cui è possibile analizzarli ed elaborarli.
 
-* [Esportare in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
-* [Esportare in SQL usando Analisi dei flussi](app-insights-code-sample-export-sql-stream-analytics.md)
+* [Esportare in Power BI](app-insights-export-power-bi.md) 
+* [Eseguire l'esportazione in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Eseguire l'esportazione in SQL usando l'analisi di flusso](app-insights-code-sample-export-sql-stream-analytics.md)
+* [Abilitazione della telemetria per Microsoft CRM](app-insights-sample-mscrm.md)
 
 
 ## Automatizzare le attività
@@ -46,4 +49,4 @@ Per analizzare i dati di telemetria con strumenti personalizzati, [esportarli](a
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

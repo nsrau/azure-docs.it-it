@@ -120,4 +120,4 @@ La figura seguente mostra lo stesso esempio precedente ma usa il set di parametr
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

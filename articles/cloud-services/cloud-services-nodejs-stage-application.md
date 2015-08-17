@@ -90,4 +90,4 @@ La gestione temporanea di una distribuzione e l'aggiornamento di una distribuzio
   [Panoramica della gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

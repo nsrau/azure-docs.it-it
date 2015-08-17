@@ -156,4 +156,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -160,4 +160,4 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

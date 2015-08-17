@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. Avviso Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita. È consigliabile eseguire **mysql_secure_installation**, uno script per la protezione di MySQL. Durante l'esecuzione di **mysql_secure_installation**, verrà richiesto di modificare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare gli account di accesso radice remoti, rimuovere i database di test e ricaricare la tabella dei privilegi. È consigliabile rispondere sì a tutte queste opzioni e modificare la password radice. Digitare il comando seguente per eseguire lo script:
+5. Avviso Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita. È consigliabile eseguire **mysql\_secure\_installation**, uno script per la protezione di MySQL. Durante l'esecuzione di **mysql\_secure\_installation**, verrà richiesto di modificare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare gli account di accesso radice remoti, rimuovere i database di test e ricaricare la tabella dei privilegi. È consigliabile rispondere sì a tutte queste opzioni e modificare la password radice. Digitare il comando seguente per eseguire lo script:
 
 		$ mysql_secure_installation
 
@@ -81,4 +81,4 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

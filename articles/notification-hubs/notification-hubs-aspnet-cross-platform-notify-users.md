@@ -112,4 +112,4 @@ Dopo avere completato questa esercitazione, è possibile reperire altre informaz
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

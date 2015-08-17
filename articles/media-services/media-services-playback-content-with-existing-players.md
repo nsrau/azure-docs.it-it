@@ -81,4 +81,4 @@ Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettor
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

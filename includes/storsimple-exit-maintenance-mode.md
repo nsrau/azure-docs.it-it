@@ -9,4 +9,4 @@
 
     Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità normale.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

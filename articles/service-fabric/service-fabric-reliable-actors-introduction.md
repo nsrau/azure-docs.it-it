@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panoramica di Azure Service Fabric Actors"
-   description="Introduzione al modello di programmazione di Azure Service Fabric Actors"
+   pageTitle="Panoramica di Service Fabric Reliable Actors"
+   description="Introduzione al modello di programmazione di Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Introduzione ad Azure Service Fabric Actors
+# Introduzione a Service Fabric Reliable Actors
 Le API Reliable Actors sono uno dei due Framework ad alto livello forniti da[Service Fabric](service-fabric-technical-overview.md)insieme alle[API Reliable Services](service-fabric-reliable-services-introduction.md).
 
 Le API Reliable Actors basate sul modello attore, forniscono un modello di programmazione asincrono a thread singolo che semplifica il codice, sfruttando comunque le garanzie di affidabilità e scalabilità fornito da Service Fabric.
@@ -57,7 +57,7 @@ Poiché le chiamate ai metodi e le relative risposte risultato nelle richieste d
 
 > [AZURE.TIP]Il runtime di Fabric Actors emette alcuni [eventi e contatori delle prestazioni relativi ai metodi degli attori](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
-Vale la pena ricordare le seguenti regole relative ai metodi di interfaccia dell’attore: i metodi di interfaccia dell’attore non possono essere sottoposti a overload. I metodi di interfaccia dell’attore non accettano parametri facoltativi, out o ref.
+Vale la pena ricordare le regole seguenti relative ai metodi di interfaccia dell'attore: i metodi di interfaccia dell'attore non possono essere sottoposti a overload. I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
 
 ## Comunicazione tra attori
 ### Il Proxy attore
@@ -70,11 +70,11 @@ ICalculatorActor calculatorActor = ActorProxy.Create<ICalculatorActor>(actorId, 
 double result = calculatorActor.AddAsync(2, 3).Result;
 ```
 
-Tenere presente le due porzioni di informazioni utilizzate per creare l'oggetto proxy attore - l'ID dell'attore e il nome dell'applicazione. L'ID dell'attore è un identificatore che identifica in modo univoco l'attore, mentre il nome dell'applicazione identifica l’[applicazione di Service Fabric](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors)in cui l'attore è distribuito.
+Tenere presente le due porzioni di informazioni usate per creare l'oggetto proxy attore - l'ID dell'attore e il nome dell'applicazione. L'ID dell'attore è un identificatore che identifica in modo univoco l'attore, mentre il nome dell'applicazione identifica l'[applicazione di Service Fabric](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors)in cui l'attore è distribuito.
 
 ### Durata attore
 
-Gli attori Service Fabric sono virtuali, vale a dire che la loro durata non è correlata alla loro rappresentazione in memoria. Di conseguenza, non devono essere esplicitamente create o eliminate. Il runtime di Actors attiva automaticamente un attore la prima volta che riceve una richiesta per tale attore. Se un attore non viene utilizzato per un certo periodo di tempo, il runtime di Actors porrà l’oggetto in memoria nella garbage collection, mantenendo la conoscenza dell'esistenza dell'attore nel caso in cui dovesse essere riattivato in un secondo momento. Per ulteriori informazioni, vedere[ciclo di vita degli attore e Garbage Collection](service-fabric-reliable-actors-lifecycle.md).
+Gli attori Service Fabric sono virtuali, vale a dire che la loro durata non è correlata alla loro rappresentazione in memoria. Di conseguenza, non devono essere esplicitamente create o eliminate. Il runtime di Actors attiva automaticamente un attore la prima volta che riceve una richiesta per tale attore. Se un attore non viene usato per un certo periodo di tempo, il runtime di Actors porrà l'oggetto in memoria nella garbage collection, mantenendo la conoscenza dell'esistenza dell'attore nel caso in cui dovesse essere riattivato in un secondo momento. Per ulteriori informazioni, vedere[ciclo di vita degli attore e Garbage Collection](service-fabric-reliable-actors-lifecycle.md).
 
 ### Trasparenza di percorso e Failover automatico
 
@@ -85,7 +85,7 @@ Per garantire scalabilità e affidabilità elevate, Service Fabric distribuisce 
 
 Il runtime di Actors fornisce una concorrenza semplice basata su turni per i metodi degli attori. Ciò significa che, in qualsiasi momento, all'interno del codice dell'attore non può essere attivo più di un thread.
 
-Un turno consiste nell'esecuzione completa di un metodo di attore in risposta alla richiesta di altri attori o client o nell'esecuzione completa di un callback di [timer/promemoria](service-fabric-reliable-actors-timers-reminders.md). Anche se questi metodi e i callback sono asincroni, il runtime di Actors non ne esegue l’interfoliazione: un turno essere interamente completato prima che venga consentito un nuovo turno. In altre parole, un metodo di attore o un callback di timer/promemoria in esecuzione deve essere interamente completato prima che sia consentita una nuova chiamata a un metodo o a un callback. Un metodo o un callback è considerato completato se è stata restituita l'esecuzione e se l'attività restituita dal metodo o dal callback è stata completata. È opportuno sottolineare che la concorrenza basata su turni viene rispettata anche su metodi, timer e callback diversi.
+Un turno consiste nell'esecuzione completa di un metodo di attore in risposta alla richiesta di altri attori o client o nell'esecuzione completa di un callback di [timer/promemoria](service-fabric-reliable-actors-timers-reminders.md). Anche se questi metodi e i callback sono asincroni, il runtime di Actors non ne esegue l'interfoliazione: un turno essere interamente completato prima che venga consentito un nuovo turno. In altre parole, un metodo di attore o un callback di timer/promemoria in esecuzione deve essere interamente completato prima che sia consentita una nuova chiamata a un metodo o a un callback. Un metodo o un callback è considerato completato se è stata restituita l'esecuzione e se l'attività restituita dal metodo o dal callback è stata completata. È opportuno sottolineare che la concorrenza basata su turni viene rispettata anche su metodi, timer e callback diversi.
 
 Per applicare la concorrenza basata su turni, il runtime di Actors acquisisce un blocco per ogni attore all'inizio di un turno e lo rilascia alla fine del turno. Pertanto, la concorrenza basata su turni viene applicata a livello di singolo attore e non per più attori. I metodi e i callback di timer/promemoria degli attori possono essere eseguiti simultaneamente per conto di diversi attori.
 
@@ -158,7 +158,7 @@ Lo stato attore viene mantenuto tra le operazioni di garbage collection e failov
 #### Provider dello stato degli attori
 Il servizio di archiviazione e recupero dello stato viene fornito da un provider di stato, I provider di stato possono essere configurati per singolo attore o per tutti gli attori all'interno di un assembly in base a un attributo specifico del provider di stato. Quando un attore viene attivato, lo stato dell'attore viene caricato in memoria. Quando un metodo dell'attore viene completato, lo stato modificato viene salvato automaticamente dal runtime di Actors mediante la chiamata a un metodo sul provider di stato. Se si verifica un errore durante il salvataggio, il runtime di Actors crea una nuova istanza dell'attore e carica l'ultimo stato coerente dal provider di stato.
 
-Per impostazione predefinita, gli attori con stato utilizzano il provider di stato attore per l'archivio chiave-valore, che si basa sull'archivio chiave-valore distribuito della piattaforma di Service Fabric. Per altre informazioni, vedere l'argomento relativo alla [scelta del provider di stato](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
+Per impostazione predefinita, gli attori con stato usano il provider di stato attore per l'archivio chiave-valore, che si basa sull'archivio chiave-valore distribuito della piattaforma di Service Fabric. Per altre informazioni, vedere l'argomento relativo alla [scelta del provider di stato](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
 
 > [AZURE.TIP]Il runtime di Actors emette alcuni [eventi e contatori delle prestazioni relativi alla gestione dello stato degli attori](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
@@ -191,11 +191,11 @@ I callback di timer possono essere contrassegnati in modo analogo con l'attribut
 
 [Modalità d'uso della piattaforma Service Fabric da parte di Fabric Actors](service-fabric-reliable-actors-platform.md)
 
-[Configurazione dell'attore KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[Configurazione dell'attore KVSActorStateProvider](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [Diagnostica e monitoraggio delle prestazioni per Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ordinamento dei dati di DocumentDB tramite Order By | Azure" 
+	pageTitle="Ordinamento dei dati di DocumentDB tramite Order By | Microsoft Azure" 
 	description="Come utilizzare ORDER BY nelle query di DocumentDB in LINQ ed SQL e come specificare un criterio di indicizzazione per le query ORDER BY." 
 	services="documentdb" 
 	authors="arramac" 
@@ -86,7 +86,7 @@ DocumentDB supporta l'ordinamento con una singolo proprietà numerica, stringa o
 Per ulteriori informazioni vedere [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md).
 
 ### Indicizzazione per Order By su tutte le proprietà numeriche
-Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order By su ognuna/tutte le proprietà numerica o stringa visualizzate all'interno dei documenti JSON in esso contenuti. In questo caso, "/ \*" rappresenta tutte le proprietà/tracciati JSON all'interno della raccolta e -1 rappresenta la precisione massima.
+Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order By su ognuna/tutte le proprietà numerica o stringa visualizzate all'interno dei documenti JSON in esso contenuti. In questo caso, "/ *" rappresenta tutte le proprietà/tracciati JSON all'interno della raccolta e -1 rappresenta la precisione massima.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -160,7 +160,8 @@ Order By può essere specificato solo su una proprietà, numerica o stringa se s
 
 Non è possibile usare Order By:
  
-- Con proprietà di stringa interne come id, _rid e _self (sarà possibile a breve).- Con proprietà derivate dal risultato di un join all'interno del documento (sarà possibile a breve).
+- Con proprietà di stringa interne come id, \_rid e \_self (sarà possibile a breve).
+- Con proprietà derivate dal risultato di un join all'interno del documento (sarà possibile a breve).
 - Con proprietà multiple stringa (sarà possibile a breve).
 - Order By con le query su database, raccolte, utenti, autorizzazioni o allegati (in arrivo).
 - Con proprietà calcolate, ad esempio il risultato di un'espressione o una funzione definita dall'utente/incorporata.
@@ -176,4 +177,4 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 * [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

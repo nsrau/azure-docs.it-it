@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="04/02/2015"
+   ms.date="07/30/2015"
    ms.author="nadavh; ronmat; v-romcal; sstein"/>
 
 # Introduzione al mascheramento dei dati dinamici del database SQL (portale di anteprima di Azure)
@@ -31,7 +31,8 @@ Ad esempio, un addetto del call center può identificare i chiamanti da alcune c
 
 ## Nozioni fondamentali sul mascheramento dei dati dinamici del database SQL
 
-Impostare i criteri di mascheramento dei dati dinamici nel portale di anteprima di Azure e completare l'installazione mediante la stringa di connessione con protezione attivata usata dall'applicazione o dai client che accedono al database.
+Per impostare un criterio di mascheramento dei dati dinamici nel portale di anteprima di Azure, selezionare l’operazione di mascheramento dei dati dinamici nel pannello di configurazione del database SQL. Prima di impostare il mascheramento dei dati dinamici verificare se si sta utilizzando un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+
 
 ### Autorizzazioni per il mascheramento dei dati dinamici
 
@@ -39,39 +40,26 @@ Il mascheramento dei dati dinamici può essere configurato dall'amministratore d
 
 ### Criteri di mascheramento dei dati dinamici
 
-* **Account di accesso con privilegi**: un set di account di accesso per i quali i dati nei risultati delle query SQL saranno visibili.
+* **Account di accesso con privilegi**: un set di account di accesso per i quali i dati mascherati saranno visibili nei risultati delle query SQL.
   
-* **Regole di mascheramento**: un set di regole che definiscono i campi designati da nascondere e la funzione di mascheramento da usare. I campi designati possono essere definiti tramite un nome di tabella e un nome di colonna del database o un nome alias.
-
-* **Mascheramento per**: può essere eseguito nell'origine o nella destinazione. Il mascheramento può essere configurato a livello dell'origine identificando il nome di **tabella** e il nome di **colonna** o a livello dei risultati identificando il nome **Alias** usato nella query. Se si ha familiarità con l'architettura dei dati del database e si desidera limitare l'esposizione di tutti i risultati della query, è preferibile usare una regola di mascheramento dell'origine. Per limitare l'esposizione dei risultati della query senza analizzare l'architettura dei dati del database o per un campo che può essere generato da origini diverse, è consigliabile aggiungere una regola di mascheramento a livello dei risultati.
-  
-* **Restrizione estesa**: limita l'esposizione dei dati sensibili, ma può compromettere la funzionalità di alcune applicazioni.
-
->[AZURE.TIP]Utilizzare l'opzione **Restrizione estesa** per limitare l'accesso degli sviluppatori che usano l'accesso diretto al database ed eseguono query SQL per la risoluzione dei problemi.
+* **Regole di mascheramento**: un set di regole che definiscono i campi designati da nascondere e la funzione di mascheramento da usare. I campi designati possono essere definiti tramite un nome di tabella e un nome di colonna del database.
 
 * **Funzioni di mascheramento**: un set di metodi che consentono di controllare l'esposizione dei dati per scenari diversi.
 
 | Funzione di mascheramento | Logica di mascheramento |
 |----------|---------------|
-| **Default** |**Mascheramento completo in base ai tipi di dati dei campi designati**<br/><br/>• Utilizzare XXXXXXXX o meno X se la dimensione del campo è minore di 8 caratteri per i tipi di dati (nchar, ntext, nvarchar) della stringa.<br/>• Utilizzare un valore pari a zero per i tipi di dati numerici (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilizzare l’ora corrente per i tipi di dati data/ora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Per la variante SQL, è utilizzato il valore predefinito del tipo corrente.<br/>• Per XML <masked/> viene utilizzato il documento.<br/>• Utilizzare un valore vuoto per i tipi di dati speciali (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types).
+| **Default** |**Mascheramento completo in base ai tipi di dati dei campi designati**<br/><br/>• Utilizzare XXXXXXXX o meno X se la dimensione del campo è minore di 8 caratteri per i tipi di dati (nchar, ntext, nvarchar) della stringa.<br/>• Utilizzare un valore pari a zero per i tipi di dati numerici (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilizzare 01-01-1900 per i tipi di dati data/ora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Per la variante SQL, è utilizzato il valore predefinito del tipo corrente.<br/>• Per XML <masked/> viene utilizzato il documento.<br/>• Utilizzare un valore vuoto per i tipi di dati speciali (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types).
 | **Carta di credito** |**Metodo di mascheramento che espone le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di carta di credito.<br/><br/>XXXX-XXXX-XXXX-1234|
 | **Numero di previdenza sociale** |**Metodo di mascheramento che espone le ultime due cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di numero di previdenza sociale americano.<br/><br/>XXX-XX-XX12 |
-| **Email** | **Metodo di mascheramento che espone la prima lettera e il dominio** usando una stringa costante come prefisso sotto forma di indirizzo e-mail.<br/><br/>aXX@XXXX.com |
-| **Numero casuale** | **Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione di mascheramento sarà un numero costante.<br/><br/>![Pannello di navigazione][Image1] |
-| **Testo personalizzato** | **Metodo di mascheramento che espone la prima e l'ultima lettera** e aggiunge una stringa di riempimento personalizzata al centro.<br/>prefix[padding]suffix<br/><br/>![Pannello di navigazione][Image2] |
+| **Email** | **Metodo di mascheramento che espone la prima lettera e sostituisce il dominio con XXX.com** usando una stringa costante come prefisso sotto forma di indirizzo e-mail.<br/><br/>aXX@XXXX.com |
+| **Numero casuale** | **Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione di mascheramento sarà un numero costante.<br/><br/>![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Testo personalizzato** | **Metodo di mascheramento che espone il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro.<br/>prefix[padding]suffix<br/><br/>![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
   
 <a name="Anchor1"></a>
 ### Stringa di connessione con sicurezza abilitata
 
-Quando si configura il mascheramento dei dati dinamici, Azure fornisce una stringa di connessione con sicurezza abilitata per il database. I dati sensibili vengono mascherati in base ai criteri di mascheramento dei dati dinamici solo per i client che usano questa stringa di connessione. È inoltre necessario aggiornare i client esistenti (ad esempio, le applicazioni) per usare il nuovo formato della stringa di connessione.
-
-* Formato della stringa di connessione originale: <*nome server*>.database.windows.net
-* Stringa di connessione protetta: <*nome server*>.database.**secure**.windows.net
-
-È inoltre possibile modificare l'**ACCESSO CON SICUREZZA ABILITATA** da **FACOLTATIVO** a **OBBLIGATORIO**. In questo modo non sarà possibile accedere al database con la stringa di connessione originale e ignorare i criteri di mascheramento dei dati dinamici. Per esercitarsi con l'uso di client specifici per il mascheramento dei dati dinamici (ad esempio, un'applicazione SSMS o in fase di sviluppo), scegliere **FACOLTATIVO**. Per la produzione, scegliere **OBBLIGATORIO**.<br/><br/>
-
-![Pannello di navigazione][Image3]<br/><br/>
+Se si utilizza un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md), allora è necessario aggiornare i client esistenti (esempio: applicazioni) per utilizzare un formato di stringa di connessione modificato. Per informazioni dettagliate, fare clic [qui](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 ## Configurare il mascheramento dei dati dinamici per il database tramite il portale di anteprima di Azure
 
@@ -83,50 +71,37 @@ Quando si configura il mascheramento dei dati dinamici, Azure fornisce una strin
 
 	* In alternativa, è possibile scorrere verso il basso fino alla sezione **Operazioni** e fare clic su **Mascheramento dei dati dinamici**.
 	 
-	![Pannello di navigazione][Image4]<br/><br/>
+	![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started/4_DDM_Activation.png)<br/><br/>
 
-4. Nel pannello di configurazione **Mascheramento dei dati dinamici** fare clic su **ABILITATO** per abilitare la funzionalità di mascheramento dei dati dinamici.
+4. Nel pannello di configurazione **Mascheramento dei dati dinamici**, fare clic su **Aggiungi maschera**per aprire il pannello di configurazione **Aggiungi regola di mascheramento**.
 
-	![Pannello di navigazione][Image5]<br/><br/>
+	![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started/5_ddm_policy_tile.png)<br/><br/>
 
-5. Digitare gli account di accesso con privilegi che devono disporre dell'accesso ai dati sensibili non mascherati.
+5. Selezionare la **tabella** e la **colonna**, per definire i campi designati che verranno mascherati.
+
+6. Scegliere un **Formato maschera del campo** dall'elenco di categorie di mascheramento dei dati sensibili.
+
+	![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png)<br/><br/>
+
+7. Fare clic su **Salva** nel pannello delle regole di mascheramento dei dati per aggiornare il set di regole di mascheramento nei criteri di mascheramento dei dati dinamici.
+
+8. Digitare gli account di accesso con privilegi che devono disporre dell'accesso ai dati sensibili non mascherati.
  
-	![Pannello di navigazione][Image6]
+	![Pannello di navigazione](./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png)
 
-	>[AZURE.TIP]Per fare in modo che il livello dell'applicazione consenta la visualizzazione dei dati sensibili per gli utenti dell'applicazione con privilegi, aggiungere l'account di accesso SQL dell'applicazione usato per l'esecuzione di query e il database. È consigliabile che l'elenco contenga un numero limitato di account di accesso per ridurre al minimo l'esposizione dei dati sensibili.
+	>[AZURE.TIP]Per fare in modo che il livello dell'applicazione consenta la visualizzazione dei dati sensibili per gli utenti dell'applicazione con privilegi, aggiungere l'account di accesso SQL dell'applicazione usato per l'esecuzione di query nel database. È altamente consigliabile che l'elenco contenga un numero limitato di account di accesso per ridurre al minimo l'esposizione dei dati sensibili.
 
-6. Fare clic su **Aggiungi maschera** per aprire il pannello di configurazione **Aggiungi regola di mascheramento**.
-	
-7. Scegliere **Maschera per** indicare se il mascheramento viene eseguito nell'origine o nella destinazione. Il mascheramento può essere configurato a livello dell'origine identificando il nome di **tabella** e il nome di **colonna** o a livello dei risultati identificando il nome **Alias** usato nella query. Si noti che il nome di **tabella** fa riferimento a tutti gli schemi nel database e non deve includere un prefisso dello schema. Se si ha familiarità con l'architettura dei dati del database e si desidera limitare l'esposizione di tutti i risultati della query, è preferibile usare una regola di mascheramento dell'origine. Per limitare l'esposizione dei risultati della query senza analizzare l'architettura dei dati del database o per un campo che può essere generato da origini diverse, è consigliabile aggiungere una regola di mascheramento a livello dei risultati.
+9. Fare clic su **Salva** nel pannello di configurazione del mascheramento dei dati per salvare il criterio di mascheramento nuovo o aggiornato.
 
-8. Digitare il nome di **tabella** e il nome di **colonna** o il nome **Alias** per definire i campi designati che verranno mascherati.
+10. Se si utilizza un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md), allora è necessario aggiornare i client esistenti (esempio: applicazioni) per utilizzare un formato di stringa di connessione modificato. Per ulteriori informazioni, vedere [Client di livello inferiore](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
-9. Scegliere un **Formato maschera del campo** dall'elenco di categorie di mascheramento dei dati sensibili.
+## Configurare il mascheramento dei dati dinamici per il database usando i cdmlet di Powershell.
 
-	![Pannello di navigazione][Image7]<br/><br/>
+Vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azure/mt163521.aspx).
 
-10. Fare clic su **Salva** nel pannello delle regole di mascheramento dei dati per aggiornare il set di regole di mascheramento nei criteri di mascheramento dinamici.
 
-11. È consigliabile selezionare **USA RESTRIZIONI ESTESE** per limitare l'esposizione dei dati sensibili tramite query ad hoc.
-
-12. Fare clic su **Salva** nel pannello di configurazione del mascheramento dei dati per salvare la regola di mascheramento nuova o aggiornata.
-
-13. In **Accesso con protezione attivata** fare clic su **FACOLTATIVO** o **OBBLIGATORIO**. Per altre informazioni, vedere [Stringa di connessione con protezione attivata](#Anchor1).
-
-	![Pannello di navigazione][Image8]
-	
 ## Configurare il mascheramento dei dati dinamici per il database usando l'API REST
 
 Vedere [Operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-[Image1]: ./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png
-[Image2]: ./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png
-[Image3]: ./media/sql-database-dynamic-data-masking-get-started/3_DDM_Current_Preview.png
-[Image4]: ./media/sql-database-dynamic-data-masking-get-started/4_DDM_Activation.png
-[Image5]: ./media/sql-database-dynamic-data-masking-get-started/5_DMM_Policy_Tile.png
-[Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png
-[Image7]: ./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png
-[Image8]: ./media/sql-database-dynamic-data-masking-get-started/8_DDM_Security_Enabled_Access.png
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

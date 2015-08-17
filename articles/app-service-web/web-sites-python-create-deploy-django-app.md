@@ -70,7 +70,7 @@ Il primo passaggio per la creazione di un'app consiste nella creazione dell'app 
 
 Di seguito viene fornita una panoramica dei file contenuti nel repository Git iniziale, che saranno clonati nella sezione successiva.
 
-    \app__init__.py
+    \app\__init__.py
     \app\forms.py
     \app\models.py
     \app\tests.py
@@ -84,7 +84,7 @@ Di seguito viene fornita una panoramica dei file contenuti nel repository Git in
     \app\templates\layout.html
     \app\templates\login.html
     \app\templates\loginpartial.html
-    \DjangoWebProject__init__.py
+    \DjangoWebProject\__init__.py
     \DjangoWebProject\settings.py
     \DjangoWebProject\urls.py
     \DjangoWebProject\wsgi.py
@@ -423,7 +423,7 @@ La raccolta dei file statici viene eseguita automaticamente come parte dello scr
 
 Per ignorare la raccolta dei file statici per l'applicazione Django:
 
-    .skipDjango
+    \.skipDjango
 
 Sarà quindi necessario eseguire manualmente la raccolta nel computer locale:
 
@@ -515,4 +515,4 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 [Documentazione di Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

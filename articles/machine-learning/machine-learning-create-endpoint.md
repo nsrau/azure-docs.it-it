@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creazione di endpoint di servizio Web in Machine Learning | Microsoft Azure" 
-	description="Creazione di endpoint di servizio Web in Azure Machine Learning" 
+	description="Creazione di endpoint del servizio Web in Azure Machine Learning" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="hiteshmadan" 
@@ -41,4 +41,4 @@ Ciò consente agli utenti Azure Machine Learning di creare servizi Web che posso
 Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, le API batch e i fogli di lavoro di Excel. Per altre informazioni su come usare i servizi Web di Machine Learning, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

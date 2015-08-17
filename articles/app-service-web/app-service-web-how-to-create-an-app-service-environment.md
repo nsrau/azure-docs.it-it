@@ -7,14 +7,16 @@
 	manager="stefsch" 
 	editor=""/>
 
+
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="04/27/2015" 
 	ms.author="ccompy"/>
+
 
 # Come creare un ambiente del servizio app #
 
@@ -39,7 +41,7 @@ Ogni distribuzione dell'ambiente del servizio app è un servizio ospitato gestit
 ### Creazione rapida ###
 Per creare un ambiente del servizio app nell'interfaccia utente di creazione, immettere un nome per la distribuzione. Verrà quindi creata una rete virtuale con 512 indirizzi, una subnet con 256 indirizzi all'interno della rete virtuale e un ambiente del servizio app con 2 server front-end e 2 processi di lavoro nel pool di lavoro 1. Assicurarsi di selezionare la località in cui deve essere creato il sistema e la sottoscrizione in cui si vuole includere l'ambiente. Gli unici account che possono usare l'ambiente del servizio app per ospitare il contenuto, devono appartenere alla sottoscrizione usata per crearlo.
 
-Il nome specificato per l'ambiente del servizio app verrà usato per le app Web create nell'ambiente stesso. Se il nome del servizio app è appsvcenvdemo, il nome di dominio sarà .\*appsvcenvdemo.p.azurewebsites.net\*. Se è stata creata un'app Web denominata mytestapp, questa sarà disponibile all'indirizzo *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Il nome non può contenere spazi. Anche se nel nome vengono usati caratteri maiuscoli, il nome di dominio corrisponderà alla versione in caratteri minuscoli del nome.
+Il nome specificato per l'ambiente del servizio app verrà usato per le app Web create nell'ambiente stesso. Se il nome del servizio app è appsvcenvdemo, il nome di dominio sarà .*appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app Web denominata mytestapp, questa sarà disponibile all'indirizzo *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Il nome non può contenere spazi. Anche se nel nome vengono usati caratteri maiuscoli, il nome di dominio corrisponderà alla versione in caratteri minuscoli del nome.
 
 
 ![][1]
@@ -143,4 +145,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -61,7 +61,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
     -   Nella casella **AVAILABILITY SET** selezionare **(none)**.
     -   Leggere e accettare le informazioni sui prezzi.
 
-6.	Nella sezione **ENDPOINTS** fare clic sull'elenco a discesa vuoto in **NOME** e selezionare **MSSQL**, quindi digitare il numero di porta dell'istanza del motore di database (\*\*1433\*\* per l'istanza predefinita).
+6.	Nella sezione **ENDPOINTS** fare clic sull'elenco a discesa vuoto in **NOME** e selezionare **MSSQL**, quindi digitare il numero di porta dell'istanza del motore di database (**1433** per l'istanza predefinita).
 
 7.  La macchina virtuale di SQL Server può inoltre essere utilizzata come server di IPython Notebook, che verrà configurato in un momento successivo. Aggiungere un nuovo endpoint per specificare la porta da utilizzare per il server di IPython Notebook. Immettere un nome nella colonna **NOME**, selezionare un numero di porta scelto dall'utente per la porta pubblica e 9999 per quella privata.
 
@@ -225,7 +225,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 
 1.  Nel portale di gestione di Azure (o dal passaggio precedente) selezionare **VIRTUAL MACHINES**.
 
-2.  Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **NOME DNS** trovare e copiare il nome DNS della macchina virtuale visualizzata preceduto da **http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
+2.  Nella pagina **ISTANZE MACCHINA VIRTUALE**, nella colonna **NOME DNS**, trovare e copiare il nome DNS della macchina virtuale preceduto da ****http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
 
 ##<a name="cde"></a>Eseguire la connessione al motore di database da un altro computer
 
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

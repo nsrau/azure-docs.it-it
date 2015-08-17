@@ -46,7 +46,7 @@ Con questo metodo è inoltre possibile eseguire l'accesso richiedendo una passwo
 
 Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 
-1.	Scaricare e installare puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
+1.	Scaricare e installare puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
 2.	Eseguire PUTTYGEN.EXE.
 3.	Fare clic su **Generate** per generare le chiavi. Nel processo è possibile aumentare la casualità spostando il puntatore del mouse sull'area vuota della finestra. ![][1]
 4.	Dopo il processo di generazione, Puttygen.exe visualizzerà la chiave generata. Ad esempio: ![][2]
@@ -303,4 +303,4 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

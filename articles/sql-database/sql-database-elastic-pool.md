@@ -7,6 +7,7 @@
 	manager="jeffreyg" 
 	editor=""/>
 
+
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
@@ -15,6 +16,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
+
 
 
 # Controllare la crescita esponenziale con i database elastici
@@ -57,10 +59,10 @@ Il Ripristino geografico consente di ripristinare un database in un pool a un se
 
 ### Replica geografica
 
-I database per i quali è già abilitata la replica geografica possono essere spostati all’interno e all’esterno di un pool di database elastici e la replica continuerà a funzionare normalmente. Attualmente in anteprima, non è possibile abilitare la replica geografica su un database che si trova già in un pool.
+I database per i quali è già abilitata la replica geografica possono essere spostati all’interno e all’esterno di un pool di database elastici e la replica continuerà a funzionare normalmente. È possibile attivare la replica geografica su un database che si trova già nel pool, se il server di destinazione specificato contiene un pool con lo stesso nome del pool di origine. Attualmente nell’anteprima, non è possibile attivare la replica geografica su un database che si trova già in un pool a un pool con un nome diverso o a un database singleton secondario.
 
 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

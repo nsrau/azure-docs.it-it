@@ -57,7 +57,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato le es
 
     È anche possibile trasferire alcune istruzioni using in **MainPage.cs**.
 
-2. Usare questo metodo subito dopo la chiamata **AuthenticateAsync** in **ButtonLogin_Click**.
+2. Usare questo metodo subito dopo la chiamata **AuthenticateAsync** in **ButtonLogin\_Click**.
 
         await AuthenticateAsync();
         InitNotificationAsync();
@@ -107,4 +107,4 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 [modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

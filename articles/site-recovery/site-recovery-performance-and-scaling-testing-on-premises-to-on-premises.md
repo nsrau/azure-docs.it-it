@@ -7,6 +7,7 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
+
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
@@ -15,6 +16,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.date="05/14/2015"
 	ms.author="lauraa"/>
+
 
 # Test di prestazioni e scalabilità: da locale a locale
 
@@ -124,7 +126,12 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 
 |Server|RAM|Modello|Processore|Numero di processori|NIC|Software|
 |---|---|---|---|---|---|---|
-|Server Hyper-V nel cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25|128ESTLAB-HOST25 ha 256|Dell ™ PowerEdge ™ R820|CPU Intel(R) Xeon(R) E5-4620 0 a 2,20 GHz|4|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
+|Server Hyper-V nel cluster: <br />
+ESTLAB-HOST11<br />
+ESTLAB-HOST12<br />
+ESTLAB-HOST13<br />
+ESTLAB-HOST14<br />
+ESTLAB-HOST25|128ESTLAB-HOST25 ha 256|Dell ™ PowerEdge ™ R820|CPU Intel(R) Xeon(R) E5-4620 0 a 2,20 GHz|4|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
 |Server VMM|2|||2|1 Gbps|Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
 
 ### Sito secondario (ripristino)
@@ -137,7 +144,11 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 
 |Server|RAM|Modello|Processore|Numero di processori|NIC|Software|
 |---|---|---|---|---|---|---|
-|Server Hyper-V nel cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10|96|Dell ™ PowerEdge ™ R720|CPU Intel(R) Xeon(R) E5-2630 0 a 2,30 GHz|2|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
+|Server Hyper-V nel cluster: <br />
+ESTLAB-HOST07<br />
+ESTLAB-HOST08<br />
+ESTLAB-HOST09<br />
+ESTLAB-HOST10|96|Dell ™ PowerEdge ™ R720|CPU Intel(R) Xeon(R) E5-2630 0 a 2,30 GHz|2|I Gbps x 4|Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
 |ESTLAB-HOST17|128|Dell ™ PowerEdge ™ R820|CPU Intel(R) Xeon(R) E5-4620 0 a 2,20 GHz|4||Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
 |ESTLAB-HOST24|256|Dell ™ PowerEdge ™ R820|CPU Intel(R) Xeon(R) E5-4620 0 a 2,20 GHz|2||Windows Server Datacenter 2012 R2 (x64) + ruolo Hyper-V|
 |Server VMM|2|||2|1 Gbps|Windows Server Database 2012 R2 (x64) + VMM 2012 R2|
@@ -194,13 +205,7 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 |Metrica|Contatore|
 |---|---|
-|CPU|\Processor(_Totale)\% Tempo processore|
-|Memoria disponibile|\Memoria\MByte disponibili|
-|IOPS|\DiscoFisico(_Totale)\Trasferimenti disco/secondo|
-|Operazioni di lettura VM (IOPS) al secondo|\Dispositivo di archiviazione Hyper-V (<VHD>)\Operazioni di lettura/secondo|
-|Operazioni di scrittura VM (IOPS) al secondo|\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\Operazioni di scrittura/S|
-|Velocità effettiva lettura VM|\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\Byte letti al secondo|
-|Velocità effettiva di scrittura VM|\Dispositivo di archiviazione virtuale Hyper-V(<VHD>)\Byte scritti al secondo|
+|CPU|\\Processore (\_Totale) \\ % tempo del processore| |Memoria disponibile|\\MByte della memoria disponibile| |IOPS|\\DiscoFisico (\_Totale)\\Trasferimentisudisco/sec| | Lettura VM (IOPS) operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Lettura operazioni/Sec| | Scrittura VM (IOPS)operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Operazioni di scrittura/S| | Produttività di lettura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>) \\Byte di lettura/sec| | produttività di scrittura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>)\\Byte di scrittura/sec|
 
 
 ## Passaggi successivi
@@ -214,4 +219,4 @@ Per avviare la distribuzione  
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

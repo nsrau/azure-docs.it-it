@@ -115,4 +115,4 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

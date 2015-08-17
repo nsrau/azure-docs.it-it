@@ -35,13 +35,13 @@ Per le impostazioni della rete virtuale (VNet), compilare la tabella V.
 
 Item | Elemento di configurazione | Descrizione | Valore
 --- | --- | --- | ---
-1. | Nome della rete virtuale | Nome da assegnare alla rete virtuale di Azure (ad esempio SPFarmNet). | __________________
-2. | Posizione della rete virtuale | Il centro dati di Azure che conterrà la rete virtuale. | __________________
-3. | Nome della rete locale | Nome da assegnare alla rete dell'organizzazione. | __________________
-4. | Indirizzo IP del dispositivo VPN | Indirizzo IPv4 pubblico dell'interfaccia del dispositivo VPN su Internet. Collaborare con il reparto IT per determinare questo indirizzo. | __________________
-5. | Spazio degli indirizzi di rete virtuale | Lo spazio degli indirizzi (definito in un singolo prefisso di indirizzo privato) per la rete virtuale. Collaborare con il reparto IT per determinare questo spazio degli indirizzi. | __________________
-6. | Primo server DNS finale | Il quarto indirizzo IP possibile per lo spazio degli indirizzi della subnet della rete virtuale (vedere la tabella S). Collaborare con il reparto IT per stabilire questi indirizzi. | __________________
-7. | Secondo server DNS finale | Il quinto indirizzo IP possibile per lo spazio degli indirizzi della subnet della rete virtuale (vedere la tabella S). Collaborare con il reparto IT per stabilire questi indirizzi. | __________________
+1\. | Nome della rete virtuale | Nome da assegnare alla rete virtuale di Azure (ad esempio SPFarmNet). | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Posizione della rete virtuale | Il centro dati di Azure che conterrà la rete virtuale. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Nome della rete locale | Nome da assegnare alla rete dell'organizzazione. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Indirizzo IP del dispositivo VPN | Indirizzo IPv4 pubblico dell'interfaccia del dispositivo VPN su Internet. Collaborare con il reparto IT per determinare questo indirizzo. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+5\. | Spazio degli indirizzi di rete virtuale | Lo spazio degli indirizzi (definito in un singolo prefisso di indirizzo privato) per la rete virtuale. Collaborare con il reparto IT per determinare questo spazio degli indirizzi. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+6\. | Primo server DNS finale | Il quarto indirizzo IP possibile per lo spazio degli indirizzi della subnet della rete virtuale (vedere la tabella S). Collaborare con il reparto IT per stabilire questi indirizzi. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+7\. | Secondo server DNS finale | Il quinto indirizzo IP possibile per lo spazio degli indirizzi della subnet della rete virtuale (vedere la tabella S). Collaborare con il reparto IT per stabilire questi indirizzi. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabella V: Configurazione della rete virtuale cross-premise**
 
@@ -49,7 +49,7 @@ Compilare la tabella S per la subnet di questa soluzione. Assegnare alla subnet 
 
 Item | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
 --- | --- | --- | ---
-1. | _______________ | _____________________________ | _________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabella S: Subnet nella rete virtuale**
 
@@ -59,8 +59,8 @@ Per i due server DNS locali che si desidera utilizzare quando si impostano inizi
 
 Item | Nome descrittivo per il server DNS | Indirizzo IP del server DNS
 --- | --- | ---
-1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabella D: Server DNS locali**
 
@@ -70,9 +70,9 @@ Per il set di spazi degli indirizzi della rete locale, compilare la tabella L. S
 
 Item | Spazio degli indirizzi della rete virtuale
 --- | ---
-1. | ___________________________________
-2. | ___________________________________
-3. | ___________________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabella L: Prefissi degli indirizzi per la rete locale**
 
@@ -106,9 +106,9 @@ Successivamente, creare i tre servizi cloud necessari per la farm di SharePoint.
 
 Item | Scopo | Nome del servizio cloud
 --- | --- | ---
-1. | Controller di dominio | ___________________________
-2. | Server di SQL | ___________________________
-3. | SharePoint Server | ___________________________
+1\. | Controller di dominio | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Server di SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | SharePoint Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabella c: Nomi dei servizi cloud**
 
@@ -140,10 +140,10 @@ Successivamente, definire i nomi di quattro set di disponibilità. Compilare la 
 
 Item | Scopo | Nome set di disponibilità
 --- | --- | ---
-1. | Controller di dominio | ___________________________
-2. | Server di SQL | ___________________________
-3. | Server applicazioni SharePoint | ___________________________
-4. | Server Web front-end di SharePoint | ___________________________
+1\. | Controller di dominio | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Server di SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Server applicazioni SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Server Web front-end di SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabella A: Nome set di disponibilità**
 
@@ -169,4 +169,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: C
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

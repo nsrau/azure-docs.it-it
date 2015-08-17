@@ -66,12 +66,12 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
 5. Prerequisiti per l'agente di Azure
 
-    5.1 **Installare python**
+    5\.1 **Installare python**
 
 		# pkg install python27 py27-asn1
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
-    5.2 **Installare wget**
+    5\.2 **Installare wget**
 
 		# pkg install wget 
 
@@ -206,4 +206,4 @@ Dopo avere caricato il file VHD, è possibile aggiungerlo come immagine all'elen
 	![immagine di FreeBSD in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

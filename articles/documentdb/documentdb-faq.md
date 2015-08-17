@@ -111,4 +111,4 @@ Sì. Dal momento che DocumentDB è un servizio RESTful, i collegamenti alle riso
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

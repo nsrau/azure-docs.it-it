@@ -106,4 +106,4 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 [modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

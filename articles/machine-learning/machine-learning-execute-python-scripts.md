@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Eseguire gli script di apprendimento automatico di Python | Microsoft Azure" 
 	description="Descrive i principi di progettazione di base per gli script Python in Azure Machine Learning nonché gli scenari di utilizzo di base, le funzionalità e le limitazioni." 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -119,7 +118,7 @@ Per generare immagini da MatplotLib, è necessario completare la procedura segue
 * Ottenere l'asse e generare tutti i tracciati al suo interno. 
 * Salvare la figura in un file PNG. 
 
-Questo processo, illustrato nella figura 8 seguente, crea una matrice di grafici a dispersione tramite la funzione scatter_matrix in Pandas.
+Questo processo, illustrato nella figura 8 seguente, crea una matrice di grafici a dispersione tramite la funzione scatter\_matrix in Pandas.
  
 ![Immagine1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -171,4 +170,4 @@ Nei prossimi mesi è prevista l'introduzione di altre funzionalità nel modulo [
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

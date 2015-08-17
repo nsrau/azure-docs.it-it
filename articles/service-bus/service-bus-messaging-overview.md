@@ -38,4 +38,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

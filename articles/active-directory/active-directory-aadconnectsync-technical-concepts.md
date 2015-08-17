@@ -91,4 +91,4 @@ Quando una regola determina che è necessario creare un nuovo oggetto spazio con
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -48,7 +48,7 @@ Il formato iOS per un URI di reindirizzamento è:
 - 	**aap-scheme**: è registrato nel progetto XCode ed è il modo in cui altre applicazioni possono eseguire la chiamata. È possibile trovarlo in Info.plist -> URL types -> URL Identifier. È consigliabile crearne uno se non sono stati configurati uno o più URI.
 - 	**bundle-id**: è il Bundle Identifier presente in "identity" nelle impostazioni del progetto in XCode.
 	
-Un esempio di questo codice QuickStart sarebbe: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Un esempio di questo codice QuickStart sarebbe: ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Registrare l'applicazione DirectorySearcher*
 Per consentire all'applicazione di ottenere i token, sarà innanzitutto necessario registrarla nel tenant di Azure AD e concederle l'autorizzazione per accedere all'API Graph di Azure AD:
@@ -136,7 +136,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-- A questo punto è necessario usare questo token per cercare gli utenti nel grafico. Trovare il commento `// TODO: implement SearchUsersList`Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato. Per eseguire una query nell'API Graph, è però necessario includere un oggetto access_token nell'intestazione `Authorization` della richiesta, dove entra in gioco ADAL.
+- A questo punto è necessario usare questo token per cercare gli utenti nel grafico. Trovare il commento `// TODO: implement SearchUsersList`Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato. Per eseguire una query nell'API Graph, è però necessario includere un oggetto access\_token nell'intestazione `Authorization` della richiesta, dove entra in gioco ADAL.
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -225,4 +225,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

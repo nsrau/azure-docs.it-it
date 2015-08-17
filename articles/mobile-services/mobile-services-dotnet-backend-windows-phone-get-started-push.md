@@ -204,4 +204,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

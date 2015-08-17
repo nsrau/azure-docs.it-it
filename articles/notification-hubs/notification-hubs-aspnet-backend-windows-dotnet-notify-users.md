@@ -373,4 +373,4 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

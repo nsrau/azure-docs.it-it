@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Conversione di WordPress in un multisito in Servizio app di Azure" 
-	description="Informazioni su come accedere a un'app Web WordPress esistente creata tramite la raccolta in Azure e convertirla in un multisito WordPress";" 
+	description="Informazioni su come accedere a un'app Web WordPress esistente creata tramite la raccolta in Azure e convertirla in un multisito WordPress&quot;" 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -34,7 +34,7 @@ Di seguito verrà descritta la procedura dettagliata.
 
 ## Abilitare il multisito
 
-È necessario prima abilitare il multisito tramite il file `wp-config.php` con la costante **WP_ALLOW_MULTISITE**. Per modificare i file dell'app Web sono disponibili due metodi: il primo tramite FTP, il secondo tramite Git. Se non si è esperti di configurazione tramite FTP o Git, fare riferimento alle esercitazioni seguenti:
+È necessario prima abilitare il multisito tramite il file `wp-config.php` con la costante **WP\_ALLOW\_MULTISITE**. Per modificare i file dell'app Web sono disponibili due metodi: il primo tramite FTP, il secondo tramite Git. Se non si è esperti di configurazione tramite FTP o Git, fare riferimento alle esercitazioni seguenti:
 
 * [Creare un sito Web di Azure PHP-MySQL e effettuarne la distribuzione tramite FTP][website-w-mysql-and-ftp-ftp-setup]
 
@@ -154,4 +154,4 @@ App Web di Azure consente di aggiungere un numero illimitato di domini a un'app 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

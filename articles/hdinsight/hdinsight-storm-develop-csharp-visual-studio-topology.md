@@ -417,13 +417,13 @@ HDInsight Tools per Visual Studio può essere usato anche per creare topologie i
 
 Per un esempio di topologia ibrida, creare un nuovo progetto e selezionare **Storm Hybrid Sample**. Viene creato un esempio interamente commentato contenente diverse topologie che illustrano le operazioni seguenti:
 
--	**Java spout** e **C# bolt**: definiti in **HybridTopology_javaSpout_csharpBolt**
+-	**Java spout** e **C# bolt**: definiti in **HybridTopology\_javaSpout\_csharpBolt**
 
-	-	Una versione transazionale è definita in **HybridTopologyTx_javaSpout_csharpBolt**
+	-	Una versione transazionale è definita in **HybridTopologyTx\_javaSpout\_csharpBolt**
 
--	**C# spout** e **Java bolt**: definiti in **HybridTopology_csharpSpout_javaBolt**
+-	**C# spout** e **Java bolt**: definiti in **HybridTopology\_csharpSpout\_javaBolt**
 
-	-	Una versione transazionale è definita in **HybridTopologyTx_csharpSpout_javaBolt**
+	-	Una versione transazionale è definita in **HybridTopologyTx\_csharpSpout\_javaBolt**
 
 		> [AZURE.NOTE]Questa versione illustra anche come usare codice Clojure da un file di testo come componente Java.
 
@@ -595,7 +595,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 
 6.	Salvare le modifiche, quindi usare **F5** o **Debug** > **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando viene visualizzato il messaggio **Esecuzione test completata**, premere un tasto qualsiasi per chiudere la finestra.
 
-7.	Usare **Esplora risorse** per trovare la directory che contiene il progetto, ad esempio, **C:\Users<nome_utente>\Documenti\Visual Studio 2013\Projects\WordCount\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
+7.	Usare **Esplora risorse** per trovare la directory che contiene il progetto, ad esempio, **C:\\Users<nome\_utente>\\Documenti\\Visual Studio 2013\\Projects\\WordCount\\WordCount**. In questa directory, aprire **Bin** e quindi fare clic su **Debug**. Verranno visualizzati i file di testo generati durante l'esecuzione dei test: sentences.txt, counter.txt e splitter.txt. Aprire ogni file di testo e verificare i dati.
 
 	> [AZURE.NOTE]In questi file, i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio, [[97,103,111]] nel file **splitter.txt** corrisponde alla parola 'and'.
 
@@ -655,4 +655,4 @@ Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsi
 
 -	[Introduzione a HBase in HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

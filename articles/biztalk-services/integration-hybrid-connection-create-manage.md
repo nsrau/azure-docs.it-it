@@ -45,8 +45,8 @@ Una connessione ibrida può essere creata nel portale di gestione di Azure usand
 
 	Proprietà | Descrizione
 --- | ---
-Nome | Il nome della connessione ibrida deve essere univoco e non può essere uguale al nome del servizio BizTalk. È possibile inserire qualsiasi nome, ma è consigliabile sceglierne uno che descriva lo scopo specifico. Tra gli esempi sono inclusi:<br/><br/>Payroll\*SQLServer\*<br/>SupplyList\*SharepointServer\*<br/>Customers\*OracleServer\*
-Nome host | Immettere il nome host completo, solo il nome host o l'indirizzo IPv4 della risorsa locale. Tra gli esempi sono inclusi:<br/><br/>mySQLServer<br/>\*mySQLServer\*.\*Domain\*.corp.\*yourCompany\*.com<br/>\*myHTTPSharePointServer\*<br/>\*myHTTPSharePointServer\*.\*yourCompany\*.com<br/>10.100.10.10
+Nome | Il nome della connessione ibrida deve essere univoco e non può essere uguale al nome del servizio BizTalk. È possibile inserire qualsiasi nome, ma è consigliabile sceglierne uno che descriva lo scopo specifico. Tra gli esempi sono inclusi:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
+Nome host | Immettere il nome host completo, solo il nome host o l'indirizzo IPv4 della risorsa locale. Ad esempio, <br/><br/>SQLServerUtente<br/>*SQLServerUtente*.*Dominio*.corp.*SocietàUtente*.com<br/>*ServerSharePointHTTPUtente*<br/>*ServerSharePointHTTPUtente*.*SocietàUtente*.com<br/>10.100.10.10
 Porta | Immettere il numero di porta della risorsa locale. Ad esempio, se si usa App Web, immettere la porta 80 o 443. Se si usa SQL Server, immettere la porta 1433.
 
 5. Per completare la configurazione, fare clic sul segno di spunta.
@@ -146,4 +146,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

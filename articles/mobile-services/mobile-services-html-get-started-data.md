@@ -50,7 +50,7 @@ Questa esercitazione è basata sull'[app GetStartedWithData] che è un'app HTML5
 
 2. In un editor HTML aprire il progetto scaricato ed esaminare il file app.js.
 
-   	Si noti che gli elementi aggiunti vengono archiviati in un oggetto **Array** (**staticItems**) in memoria. Aggiornare la pagina. I dati scompariranno dalla visualizzazione perché non sono persistenti.
+   	Si noti che gli elementi aggiunti vengono archiviati in un oggetto **Array** in memoria (**staticItems**). Aggiornare la pagina. I dati scompariranno dalla visualizzazione perché non sono persistenti.
 
 3. Avviare uno dei file di comando seguenti dalla sottocartella **server**.
 
@@ -90,7 +90,7 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
 
 4. Fare clic sulla nuova tabella **TodoItem** e verificare che non siano presenti righe di dati.
 
-	>[AZURE.NOTE]Le nuove tabelle create includono le colonne Id, __createdAt, __updatedAt e __version. Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per altre informazioni, vedere [Schema dinamico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
+	>[AZURE.NOTE]Le nuove tabelle create includono le colonne Id, \_\_createdAt, \_\_updatedAt, e \_\_version. Quando è abilitato lo schema dinamico, in Servizi mobili vengono generate automaticamente nuove colonne basate sull'oggetto JSON nella richiesta di inserimento o di aggiornamento. Per ulteriori informazioni, vedere [Schema dinamico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 6. Nella scheda **Configura** verificare che `localhost` sia già indicato nell'elenco **Consentire le richieste da nomi host** in **Condivisione risorse tra le origini (CORS)**. In caso contrario, digitare `localhost` nel campo **Nome host** e quindi fare clic su **Salva**.
 
@@ -257,4 +257,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app HT
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

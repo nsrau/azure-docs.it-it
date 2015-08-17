@@ -24,7 +24,7 @@ La funzionalità di **query su più partizioni** viene usata per attività che r
 
 La libreria client dei database elastici introduce un nuovo spazio dei nomi denominato **Microsoft.Azure.SqlDatabase.ElasticScale.Query**, che consente di eseguire query su più partizioni usando una singola query con un unico risultato. Fornisce l'astrazione delle query su una raccolta di partizioni, nonché criteri di esecuzione alternativi, in particolare risultati parziali, per la gestione degli errori quando si eseguono query su molte partizioni.
 
-Il punto di ingresso principale in una query su più partizioni è la classe **MultiShardConnection**. Come nel caso del routing dipendente dai dati, l'API segue la familiare esperienza delle classi e dei metodi **[System.Data.SqlClient.aspx](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. Con la libreria **SqlClient**, il primo passaggio consiste nel creare un oggetto **SqlConnection**, quindi creare un oggetto **SqlCommand** per la connessione e successivamente eseguire il comando mediante uno dei metodi **Execute**. Infine, **SqlDataReader** esegue l'iterazione nei set di risultati restituiti dall'esecuzione del comando. L'esperienza delle API di query su più partizioni prevede i seguenti passaggi: 
+Il punto di ingresso principale in una query su più partizioni è la classe **MultiShardConnection**. Come nel caso del routing dipendente dai dati, l'API segue la familiare esperienza delle classi e dei metodi ****[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. Con la libreria **SqlClient**, il primo passaggio consiste nel creare un oggetto **SqlConnection**, quindi creare un oggetto **SqlCommand** per la connessione e successivamente eseguire il comando mediante uno dei metodi **Execute**. Infine, **SqlDataReader** esegue l'iterazione nei set di risultati restituiti dall'esecuzione del comando. L'esperienza delle API di query su più partizioni prevede i seguenti passaggi:
 
 1. Creazione di un **oggetto MultiShardConnection**.
 2. Creazione di un oggetto **MultiShardCommand** per un oggetto **MultiShardConnection**.
@@ -67,4 +67,4 @@ Le query su più partizioni non verificano se gli shardlet presenti nel database
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

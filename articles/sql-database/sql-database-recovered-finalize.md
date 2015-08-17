@@ -7,14 +7,16 @@
    manager="jeffreyg"
    editor=""/>
 
+
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
-   ms.date="04/13/2015"
+   ms.date="07/30/2015"
    ms.author="elfish"/>
+
 
 # Finalizzare il database SQL di Azure ripristinato
 
@@ -53,7 +55,7 @@ Per ulteriori sulle regole di avviso per il database, vedere [Procedura: ricever
 
 ## Attivare il controllo
 
-Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. È necessario un indicatore efficace per controllare che nelle applicazioni client vengano utilizzate stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per ulteriori informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md). 
+Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace del fatto che è necessario un controllo è che le applicazioni client utilizzano stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per ulteriori informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

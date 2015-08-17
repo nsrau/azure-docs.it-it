@@ -381,4 +381,4 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
 - [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

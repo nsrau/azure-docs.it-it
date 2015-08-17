@@ -3,7 +3,7 @@
     pageTitle="Requisiti delle app per RemoteApp"
     description="Informazioni sui requisiti per le app che si desidera usare in RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -56,4 +56,4 @@ Usare le linee guida seguenti per lo sviluppo di applicazioni per RemoteApp.
 - Per ottimizzare le prestazioni, è consigliabile che le applicazioni [rilevino](https://msdn.microsoft.com/library/aa380798.aspx) se sono in esecuzione in una sessione client. 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

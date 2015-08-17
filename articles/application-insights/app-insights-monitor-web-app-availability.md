@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
@@ -69,7 +69,7 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
 #### Testare più URL
 
-È possibile aggiungere test per qualsiasi numero di URL. Ad esempio, oltre a testare la home page è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
+Aggiungere altri test. Ad esempio, oltre a testare la home page è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
 
 
 ### <a name="monitor"></a>3. Visualizzare i report di disponibilità
@@ -207,6 +207,16 @@ Aprire un singolo test per modificarlo o disabilitarlo.
 
 Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di manutenzione sul servizio.
 
+## Domande? Problemi?
+
+* Si verifica un errore relativo ai “caratteri non validi” quando si 
+
+* **Esiste una differenza tra "test web" e "disponibilità"?
+
+    Vengono utilizzati i due termini in modo intercambiabile.
+
+
+
 ## <a name="video"></a>Video
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -229,4 +239,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

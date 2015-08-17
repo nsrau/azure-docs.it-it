@@ -49,22 +49,22 @@ Prima di aggiungere più di 100 certificati, verificare se è possibile riutiliz
 * Contiene una chiave privata.
 * Viene creato per lo scambio di chiave (file PFX).
 * Il nome del soggetto deve corrispondere al dominio usato per accedere al servizio cloud.
-    > **contoso.net****contoso.cloudapp.net**
+    > Non è possibile ottenere un certificato SSL per il dominio cloudapp.net o per domini di Azure. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio,**contoso.net**e non**contoso.cloudapp.net**.
 * Crittografia minima a 2048 bit.
-* **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *personale*.
+* **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *Personale*.
 
 Sono disponibili due semplici modi per creare un certificato in Windows: con l'utilità `makecert.exe` o con IIS.
 
 ### Makecert.exe
 
-Questa utilità viene installata con Visual Studio 2013/2015. È un'utilità della console che consente di creare e installare i certificati. Se si avvia il collegamento **Prompt dei comandi per gli sviluppatori per VS2015** creato quando si installa Visual Studio, verrà visualizzato un prompt dei comandi con questo strumento nel percorso.
+Questa utilità viene installata con Visual Studio 2013/2015. È un'utilità della console che consente di creare e installare i certificati. Se si avvia il collegamento **Prompt dei comandi per gli sviluppatori per VS2015** che si crea quando si installa Visual Studio, verrà visualizzato un prompt dei comandi con questo strumento nel percorso.
 
     makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
 
 
 ### Internet Information Services (IIS)
 
-Su Internet sono disponibili molte pagine che spiegano come eseguire questa operazione con IIS. [Eccone](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) una che illustra molto bene come procedere.
+Su Internet sono disponibili molte pagine che spiegano come eseguire questa operazione con IIS. [Qui](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html)ce n’è uno ottimo che ho trovato che ritengo che spieghi bene.
 
 ### Java
 È possibile usare Java per [creare un certificato](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
@@ -77,4 +77,4 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 >[AZURE.NOTE]Il portale di anteprima di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

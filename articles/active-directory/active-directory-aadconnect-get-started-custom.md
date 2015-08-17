@@ -7,6 +7,7 @@
 	manager="swadhwa" 
 	editor="curtand"/>
 
+
 <tags 
 	ms.service="active-directory"  
 	ms.workload="identity" 
@@ -15,6 +16,7 @@
 	ms.topic="article" 
 	ms.date="05/28/2015" 
 	ms.author="billmath"/>
+
 
 # Installazione personalizzata di Azure Ad Connect
 
@@ -83,7 +85,11 @@ Attributo personale|Questa opzione consente di selezionare un attributo personal
 
 - **sourceAnchor**: l’attributo sourceAnchor non può essere modificato per la durata di un oggetto utente. È la chiave primaria che collega l'utente locale con l'utente in Azure AD. Poiché l'attributo non può essere modificato, è necessario pianificare un attributo valido da utilizzare. objectGUID è un candidato valido. Questo attributo non cambia, a meno che l'account utente viene spostato tra foreste o domini. In un ambiente a più foreste, nel quale è possibile spostare account tra foreste, è necessario utilizzare un altro attributo, ad esempio un attributo con il valore employeeID. Gli attributi da evitare sono quelli che cambiano se una persona si sposa o cambia le assegnazioni. Non è possibile utilizzare gli attributi con un segno @, pertanto non è possibile utilizzare posta elettronica e userPrincipalName. Inoltre, per l’attributo si applica la distinzione tra maiuscole e minuscole, per cui, se si sposta un oggetto tra foreste, accertarsi di mantenere la distinzione tra maiuscole e minuscole. Per gli attributi binari il valore è con codifica base64, ma per altri tipi di attributo rimane nello stato non codificato. Negli scenari di federazione e in alcune interfacce di Azure AD questo attributo è noto anche come immutableID.
 
-- **UserPrincipalName**: l’attributo userPrincipalName è l’attributo che gli utenti utilizzeranno quando effettuano l’accesso ad Azure AD e Office 365. I domini utilizzati, noti anche come suffisso UPN, devono essere verificati in Azure AD prima che gli utenti vengano sincronizzati. Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo attributo è non instradabile e non può essere verificato, è possibile selezionare un altro attributo, ad esempio posta elettronica, come attributo che contiene l'ID di accesso. Avviso: l’utilizzo di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per ulteriori informazioni, fare riferimento a https://technet.microsoft.com/it-it/library/dn659436.aspx.
+- **UserPrincipalName**: l’attributo userPrincipalName è l’attributo che gli utenti utilizzeranno quando effettuano l’accesso ad Azure AD e Office 365. I domini utilizzati, noti anche come suffisso UPN, devono essere verificati in Azure AD prima che gli utenti vengano sincronizzati. Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo attributo è non instradabile e non può essere verificato, è possibile selezionare un altro attributo, ad esempio posta elettronica, come attributo che contiene l'ID di accesso.
+
+>[AZURE.WARNING]L’utilizzo di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per ulteriori informazioni, consultare [Configurazione dell’ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
+
+
 
 
 
@@ -286,4 +292,4 @@ Inoltre, eseguire i passaggi di verifica seguenti:
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

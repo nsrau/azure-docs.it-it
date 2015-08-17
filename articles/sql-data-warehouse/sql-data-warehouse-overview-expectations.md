@@ -78,4 +78,4 @@ SQL Data Warehouse di Azure può essere soggetto a un massimo di 4 eventi di man
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

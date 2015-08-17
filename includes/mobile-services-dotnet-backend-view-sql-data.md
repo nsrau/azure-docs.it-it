@@ -11,6 +11,6 @@ L'ultimo passaggio facoltativo di questa esercitazione consiste nel controllare 
 
     ![query al database SQL per ricerca elementi memorizzati](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	Si noti che la tabella include le colonne Id, __createdAt, __updatedAt e __version. Tali colonne supportano la sincronizzazione dei dati offline e sono implementate nella classe di base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Per altre informazioni, vedere l'argomento relativo alla [sincronizzazione dei dati offline].
+	Si noti che la tabella include le colonne Id, \_\_createdAt, \_\_updatedAt, and \_\_version. Tali colonne supportano la sincronizzazione dei dati offline e sono implementate nella classe di base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Per ulteriori informazioni, vedere [Get started with offline data sync].
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

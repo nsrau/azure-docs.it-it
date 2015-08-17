@@ -226,4 +226,4 @@ La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdle
 
 - I nodi DSC caricati in Automazione di Azure DSC mostrano inizialmente lo stato "Conforme", anche se non sono effettivamente conformi con la configurazione del nodo DSC al quale viene eseguito il mapping. Dopo che il nodo ha eseguito il primo pull nodo e inviato il primo report DSC ad Automazione di Azure DSC, è necessario correggere lo stato del nodo.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

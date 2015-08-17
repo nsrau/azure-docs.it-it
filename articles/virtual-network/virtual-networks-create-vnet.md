@@ -66,4 +66,4 @@ Dopo aver creato la rete virtuale, è possibile aggiungervi nuove macchine virtu
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

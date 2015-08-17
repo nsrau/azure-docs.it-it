@@ -7,14 +7,7 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services"" 
-	ms.tgt_pltfrm="command-line-interface" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="danlep"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
 
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
 
@@ -157,11 +150,11 @@ Dovrebbe essere possibile avviare la macchina virtuale eseguendo il comando segu
 
 	azure vm start "testrg" "testvm"
 
-Connettersi a essa tramite SSH usando il comando **ssh username@ipaddress**. Per cercare rapidamente l'indirizzo IP della risorsa IP pubblica, utilizzare il comando seguente.
+Connettersi a essa usando il comando **ssh username@ipaddress**. Per cercare rapidamente l'indirizzo IP della risorsa IP pubblica, usare il comando seguente.
 
 	azure network public-ip show "testrg" "testip"
 
-La gestione di questa macchina virtuale è semplice con i comandi**vm**. Per ulteriori informazioni, visitare[Usare la CLI di Azure con gestione delle risorse Azure](azure-cli-arm-commands.md).
+La gestione di questa macchina virtuale è semplice con i comandi **vm**. Per altre informazioni, visitare [Usare la CLI di Azure con gestione delle risorse di Azure](azure-cli-arm-commands.md).
 
 ### Comando semplificato vm quick-create
 
@@ -184,7 +177,7 @@ L'interfaccia della riga di comando di Azure creerà una macchina virtuale con l
 
 #### Individuazione e configurazione di un modello di gruppo di risorse
 
-1. Quando si lavora con i modelli, è possibile crearne uno personalizzato oppure usarne uno dalla raccolta modelli o i modelli disponibili in [GitHub](https://github.com/azurermtemplates/azurermtemplates). Per iniziare, viene usato un modello denominato CoreOS.CoreOSStable.0.2.40-preview proveniente dalla raccolta modelli. Per ottenere un elenco dei modelli disponibili nella raccolta, usare il comando seguente. Poiché sono presenti migliaia di modelli, è possibile scorrere le diverse pagine di risultati oppure usare **grep** o **findstr** (in Windows) oppure il comando di ricerca stringhe preferito per individuare i modelli di interesse. In alternativa, è possibile usare l'opzione **--json** e scaricare l'intero elenco in formato JSON per una ricerca più semplice.
+1. Quando si lavora con i modelli, è possibile crearne uno personalizzato oppure usarne uno dalla raccolta modelli o i modelli disponibili in [GitHub](https://github.com/azurermtemplates/azurermtemplates). Per iniziare, viene usato un modello denominato CoreOS.CoreOSStable.0.2.40-preview proveniente dalla raccolta modelli. Per ottenere un elenco dei modelli disponibili nella raccolta, usare il comando seguente. Dal momento che sono presenti migliaia di modelli, è possibile scorrere le diverse pagine di risultati oppure usare **grep** o **findstr** (in Windows) oppure il comando di ricerca stringhe preferito per trovare i modelli di interesse. In alternativa, è possibile usare l'opzione **--json** e scaricare l'intero elenco in formato JSON per una ricerca più semplice.
 
 		azure group template list
 
@@ -215,7 +208,7 @@ L'interfaccia della riga di comando di Azure creerà una macchina virtuale con l
 
 	Quando si usa un modello, è possibile specificare parametri insieme ai parametri della riga di comando oppure specificando un file contenente i valori desiderati. È anche possibile scrivere i campi **value** direttamente nella sezione **parameters** del modello, anche se in questo modo il modello risulterebbe associato a una determinata distribuzione e non sarebbe facilmente riutilizzabile. In entrambi i casi, i parametri devono essere in formato JSON ed è necessario specificare valori personalizzati per le chiavi che non dispongono di valori predefiniti.
 
-	Ad esempio, per creare un file contenente i parametri per il modello CoreOS.CoreOSStable.0.2.40-preview, usare i dati seguenti per creare un file denominato params.json. Sostituire i valori usati in questo esempio con i valori desiderati. **Location** deve specificare un'area di Azure, ad esempio **North Europe** o **South Central US**. In questo esempio viene usata l'area **Stati Uniti occidentali**.
+	Ad esempio, per creare un file contenente i parametri per il modello CoreOS.CoreOSStable.0.2.40-preview, usare i dati seguenti per creare un file denominato params.json. Sostituire i valori usati in questo esempio con i valori desiderati. **Location** deve specificare un'area di Azure, ad esempio **North Europe** o **South Central US**. Questo esempio usa l'area **Stati Uniti occidentali**.
 
 		{
 		  "newStorageAccountName": {
@@ -296,7 +289,7 @@ L'interfaccia della riga di comando di Azure creerà una macchina virtuale con l
 
 		azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
-	> [AZURE.NOTE]È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità_raw_quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su**Raw**.
+	> [AZURE.NOTE]È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità _raw_ quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su **Raw**.
 
 #### Utilizzo delle risorse
 
@@ -316,7 +309,7 @@ Mentre i modelli consentono di dichiarare modifiche a livello di interi gruppi i
 
 	Questo comando restituisce informazioni relative alla macchina virtuale.
 
-3. Quando si visualizzano i dettagli di una risorsa, è spesso utile usare il parametro `--json` in quanto quest'ultimo rende l'output più leggibile in presenza di valori quali raccolte o strutture nidificate. Nell'esempio seguente viene mostrato come restituire i risultati del comando**Mostra**come un documento JSON.
+3. Quando si visualizzano i dettagli di una risorsa, è spesso utile usare il parametro `--json` in quanto quest'ultimo rende l'output più leggibile in presenza di valori quali raccolte o strutture nidificate. L'esempio seguente illustra come restituire i risultati del comando **show** come un documento JSON.
 
 		azure resource show "testRG" "testHost" Microsoft.ClassicCompute/virtualMachines -o "2014-06-01" --json
 
@@ -337,8 +330,8 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 ## Passaggi successivi
 
 * Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure, vedere l'articolo relativo all'[Installazione e configurazione dell'interfaccia della riga di comando di Azure][clisetup].
-* Per informazioni sull'uso di Gestione risorse con Azure PowerShell, vedere l'articolo relativo all'[Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-* Per informazioni sull'uso di Gestione risorse dal portale di Azure, vedere l'articolo relativo all'[Uso di gruppi di risorse per la gestione delle risorse di Azure][psrm].
+* Per informazioni sull'uso di Gestione risorse con Azure PowerShell, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+* Per informazioni sull'uso di Gestione risorse di Azure dal portale di Azure, vedere [Uso di gruppi di risorse per la gestione delle risorse di Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
@@ -346,4 +339,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

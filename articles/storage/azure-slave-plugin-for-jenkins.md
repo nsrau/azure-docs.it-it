@@ -213,4 +213,4 @@ Jenkins creerà quindi un nodo slave utilizzando il modello creato nella sezione
 
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

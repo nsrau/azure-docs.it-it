@@ -44,4 +44,4 @@ I report di Azure AD conservano i dati per un determinato numero di giorni, come
 |	Utilizzo applicazioni abilitate per RMS |	30 giorni |
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

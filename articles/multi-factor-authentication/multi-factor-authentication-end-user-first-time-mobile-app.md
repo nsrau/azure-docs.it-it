@@ -73,4 +73,4 @@ Se si usa un account di terze parti con l'app per dispositivi mobili, immettere 
 >[AZURE.NOTE]Il messaggio "Aggiungi account lavoro" eventualmente visualizzato riguarda l'aggiunta all'area di lavoro, non la Multi-Factor Authentication. È possibile ignorarlo.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

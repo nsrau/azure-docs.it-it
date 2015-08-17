@@ -8,6 +8,7 @@
    editor=""
    tags=""/>
 
+
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -16,6 +17,7 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
+
 
 # Indicazioni sulla rete di distribuzione dei contenuti (CDN)
 
@@ -49,7 +51,20 @@ Tipici utilizzi della rete CDN sono:
 
 - Nella tabella seguente vengono illustrati esempi di tempo medio per il primo byte da diverse posizioni geografiche. Il ruolo Web di destinazione viene distribuito in Azure West US. Esiste una stretta correlazione tra un boost maggiore dovuto alla rete CDN e la vicinanza a un nodo della rete CDN. Per un elenco di tutte le ubicazioni dei nodi della rete CDN, vedere [Località POP della rete per la distribuzione di contenuti (CDN) di Azure](http://msdn.microsoft.com/library/azure/gg680302.aspx).
 
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>Tempi per il primo byte (origine)</p></th><th><p>Tempi per il primo byte (CDN)</p></th><th><p>% più veloce per CDN</p></th></tr><tr><td><p>* San Jose, CA</p></td><td><p>47.5</p></td><td><p>46.5</p></td><td><p>2 %</p></td></tr><tr><td><p>** Dulles, VA</p></td><td><p>109</p></td><td><p>40.5</p></td><td><p>169 %</p></td></tr><tr><td><p>Buenos Aires, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>* Londra, UK</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>Shanghai, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>* Singapore</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189%</p></td></tr><tr><td><p>* Tokyo, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>Seul, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>* Ha un nodo della rete CDN di Azure nella stessa città. * Ha un nodo della rete CDN di Azure in una città adiacente.
+
+
+|City |Tempo per il primo Byte (origine) |Tempo per il primo Byte (CDN) | % più veloce per la rete CDN|
+|---|---|---|---|
+|San Jose, CA<sub>1</sub> |47\.5 |46\.5 |2%|
+|Dulles, VA<sub>2</sub> |109 |40\.5 |169%|
+|Buenos Aires, AR |210 |151 |39%|
+|Londra, Regno Unito<sub>1</sub> |195 |44 |343%|
+|Shanghai, CN |242 |206 |17%|
+|Singapore<sub>1</sub> |214 |74 |189%|
+|Tokyo, JP<sub>1</sub> |163 |48 |240%|
+|Seoul, KR |190 |190 |0%|
+
+Dispone di un nodo di rete CDN di Azure nella stessa città.<sub>1</sub> dispone di un nodo di rete CDN di Azure in una città adiacente.<sub>2</sub>
 
 
 ## Problematiche  
@@ -85,7 +100,8 @@ Scenari in cui la rete CDN può essere meno utile sono:
 
 L’utilizzo della rete CDN è un ottimo modo per ridurre al minimo il carico sull'applicazione e ottimizzare disponibilità e prestazioni. È necessario valutare questo mezzo per tutti i contenuti e le risorse utilizzate. Quando si progetta la strategia di utilizzo della rete CDN, tenere presente quanto segue:
 
-- **Origine ** La semplice distribuzione del contenuto attraverso la rete CDN richiede di specificare un endpoint HTTP (porta 80) che il servizio CDN utilizzerà per accedere al contenuto e memorizzarlo nella cache . + L'endpoint può specificare un contenitore di archiviazione BLOB di Azure che contiene il contenuto statico da recapitare attraverso la rete CDN. Il contenitore deve essere contrassegnato come pubblico. Solo i BLOB di un contenitore pubblico con accesso in lettura saranno disponibili tramite la rete CDN. 
+- **Origine** La semplice distribuzione del contenuto attraverso la rete CDN richiede di specificare un endpoint HTTP (porta 80) che il servizio CDN utilizzerà per accedere al contenuto e memorizzarlo nella cache . + L'endpoint può specificare un contenitore di archiviazione BLOB di Azure che contiene il contenuto statico da recapitare attraverso la rete CDN. Il contenitore deve essere contrassegnato come pubblico. Solo i BLOB di un contenitore pubblico con accesso in lettura saranno disponibili tramite la rete CDN.
+
 - L'endpoint può specificare una cartella denominata **cdn** nella radice di uno dei livelli di calcolo dell'applicazione (ad esempio un ruolo Web o una macchina virtuale). I risultati dalle richieste di risorse, tra cui le risorse dinamiche, ad esempio le pagine ASPX, verranno memorizzati nella cache nella rete CDN. Il periodo minimo nella cache è 300 secondi. Qualsiasi periodo più breve impedirà la distribuzione del contenuto nella rete CDN (per ulteriori informazioni, vedere la sezione ""<a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Controllo della cache</a>").
 
 - Se si utilizza Siti Web di Azure, l'endpoint viene impostato sulla cartella radice del sito selezionando il sito quando si crea l'istanza di rete CDN. Tutto il contenuto per il sito sarà disponibile tramite la rete CDN.
@@ -102,6 +118,7 @@ L’utilizzo della rete CDN è un ottimo modo per ridurre al minimo il carico su
 
   ```
   <img src="http://[your-cdn-instance].vo.msecnd.net/Images/image.jpg" />
+
   ```
 
 - **Distribuzione**: è possibile che il contenuto statico debba essere predisposto e distribuito in modo indipendente dall'applicazione se non viene incluso nel processo o pacchetto di distribuzione applicazione. Si consideri come tale eventualità influirà sull’approccio del controllo delle versioni utilizzato per gestire i componenti dell'applicazione e il contenuto stativo della risorsa.
@@ -120,7 +137,8 @@ L’utilizzo della rete CDN è un ottimo modo per ridurre al minimo il carico su
 
 - La distribuzione di nuove versioni di contenuto statico quando si aggiorna un'applicazione può essere problematica se le risorse precedenti vengono memorizzate nella cache nella rete CDN. Per ulteriori informazioni, vedere la sezione "<a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Controllo della cache</a>".
 
-<a name="cachecontrol" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span /></a>**Controllo della cache**+ Stabilire come gestire la memorizzazione nella cache e a quali livelli dell’applicazione. Ad esempio, quando si utilizza una cartella come origine della rete CDN è possibile specificare la possibilità di memorizzazione nella cache delle pagine che generano contenuto e la scadenza del contenuto per tutte le risorse in una cartella specifica. È inoltre possibile specificare le proprietà della cache per la rete CDN e per il client utilizzando le intestazioni HTTP standard. Anche se occorre gestire la memorizzazione nella cache sul server e sul client, l’utilizzo della rete CDN contribuisce a rendere gli utenti più consapevoli della modalità e dell’ubicazione in cui il contenuto viene memorizzato nella cache.
+<a name="cachecontrol" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"><span />
+</a>**Controllo della cache**+ Stabilire come gestire la memorizzazione nella cache e a quali livelli dell’applicazione. Ad esempio, quando si utilizza una cartella come origine della rete CDN è possibile specificare la possibilità di memorizzazione nella cache delle pagine che generano contenuto e la scadenza del contenuto per tutte le risorse in una cartella specifica. È inoltre possibile specificare le proprietà della cache per la rete CDN e per il client utilizzando le intestazioni HTTP standard. Anche se occorre gestire la memorizzazione nella cache sul server e sul client, l’utilizzo della rete CDN contribuisce a rendere gli utenti più consapevoli della modalità e dell’ubicazione in cui il contenuto viene memorizzato nella cache.
 
 - Per impedire che gli oggetti siano disponibili nella rete CDN è possibile eliminarli dall'origine (contenitore BLOB o cartella radice **cdn** dell’applicazione), rimuovere o eliminare endpoint della rete CDN o, nel caso dell’archiviazione BLOB, rendere privato il contenitore o BLOB. Tuttavia, gli elementi verranno rimossi dalla rete CDN solo quando il time-to-live (TTL) scade.
 
@@ -176,24 +194,34 @@ Il seguente frammento di file Web.config nella directory radice di un’applicaz
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
+
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
+
       </rule>
       <rule name="CdnImages" stopProcessing="true">
         <match url="cdn/Images/(.*)" ignoreCase="true" />
+
         <action type="Rewrite" url="/Images/{R:1}" appendQueryString="true" />
+
       </rule>
       <rule name="CdnContent" stopProcessing="true">
         <match url="cdn/Content/(.*)" ignoreCase="true" />
+
         <action type="Rewrite" url="/Content/{R:1}" appendQueryString="true" />
+
       </rule>
       <rule name="CdnScript" stopProcessing="true">
         <match url="cdn/Scripts/(.*)" ignoreCase="true" />
+
         <action type="Rewrite" url="/Scripts/{R:1}" appendQueryString="true" />
+
       </rule>
       <rule name="CdnScriptBundles" stopProcessing="true">
         <match url="cdn/bundles/(.*)" ignoreCase="true" />
+
         <action type="Rewrite" url="/bundles/{R:1}" appendQueryString="true" />
+
       </rule>
     </rules>
   </rewrite>
@@ -203,7 +231,8 @@ Il seguente frammento di file Web.config nella directory radice di un’applicaz
 
 L'aggiunta di regole di riscrittura esegue i reindirizzamenti seguenti:
 
-- La prima regola consente di incorporare una versione nel nome del file di una risorsa, ma viene ignorata. Ad esempio, **Filename_v123.jpg ** viene riscritto come **Filename.jpg**. 
+- La prima regola consente di incorporare una versione nel nome del file di una risorsa, ma viene ignorata. Ad esempio, **Filename\_v123.jpg** viene riscritto come **Filename.jpg**.
+
 - Le quattro regole successive illustrano come reindirizzare le richieste se non si desidera archiviare le risorse in una cartella denominata **cdn** nella radice del ruolo Web. Le regole mappano gli URL **cdn/Images**, **cdn/Content**, **cdn/Scripts** e **cdn/bundles** alle rispettive cartelle radice nel ruolo Web. L’utilizzo della riscrittura URL richiede di apportare alcune modifiche per la creazione di bundle delle risorse.
 
 
@@ -219,4 +248,4 @@ La creazione di bundle e la minimizzazione possono essere gestite da ASP.NET. In
 + [Integrare un servizio cloud con la rete CDN di Azure](cdn-cloud-service-with-cdn.md)
 + [Procedure consigliate per la rete di distribuzione dei contenuti di Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

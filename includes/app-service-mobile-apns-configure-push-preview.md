@@ -3,4 +3,4 @@
 
 * Nel portale di anteprima di Azure fare clic su **Sfoglia** > **App per dispositivi mobili** > app > **Servizi di notifica push** > **Servizi di notifica push Apple** > **Carica certificato**. Caricare il file con estensione p12, assicurandosi che sia selezionata la **Modalità** corretta, ovvero Sandbox o Produzione, in base alla generazione di un certificato SSL di tipo Sviluppo o Distribuzione. Il servizio è ora configurato per l'uso con le notifiche push in iOS.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->
