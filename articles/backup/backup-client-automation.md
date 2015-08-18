@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server/client Windows mediante Azure PowerShell
@@ -81,7 +88,7 @@ Region              : Australia East
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT]Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
+> [AZURE.IMPORTANT] Non utilizzare percorsi relativi per specificare il file dell'insieme di credenziali. È necessario fornire un percorso assoluto come input per il cmdlet.
 
 ### Rete
 Quando il computer Windows si connette a Internet mediante un server proxy, le impostazioni del proxy possono essere fornite anche all'agente. In questo esempio non è presente alcun server proxy, pertanto sono state eliminate tutte le informazioni relative al proxy.
@@ -106,7 +113,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT]Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
+> [AZURE.IMPORTANT] Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non sarà possibile ripristinare i dati da Azure senza la passphrase.
 
 ## Eseguire il backup di file e cartelle
 Tutti i backup dei server e dei client Windows in Backup di Azure sono regolati da un criterio, costituito da tre parti:
@@ -148,7 +155,7 @@ Il criterio di conservazione definisce il periodo di conservazione dei punti di 
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE]Attualmente, i cmdlet di PowerShell non supportano l'impostazione di criteri di conservazione a lungo termine. Per impostare criteri di conservazione a lungo termine, usare la console dell'interfaccia utente di Backup di Azure.
+> [AZURE.NOTE] Attualmente, i cmdlet di PowerShell non supportano l'impostazione di criteri di conservazione a lungo termine. Per impostare criteri di conservazione a lungo termine, usare la console dell'interfaccia utente di Backup di Azure.
 
 Il criterio di conservazione deve essere associato al criterio principale usando il cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -378,7 +385,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### Attivazione del processo di ripristino
-Per attivare il processo di ripristino, è prima necessario specificare le opzioni di ripristino. A tale scopo, è possibile usare il cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). Per questo esempio, si supponga di voler ripristinare i file in *C:\\temp*. Si supponga inoltre di voler ignorare i file già presenti nella cartella di destinazione *C:\\temp*. Per creare un'opzione di ripristino di questo tipo, usare il comando seguente:
+Per attivare il processo di ripristino, è prima necessario specificare le opzioni di ripristino. A tale scopo, è possibile usare il cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). Per questo esempio, si supponga di voler ripristinare i file in *C:\temp*. Si supponga inoltre di voler ignorare i file già presenti nella cartella di destinazione *C:\temp*. Per creare un'opzione di ripristino di questo tipo, usare il comando seguente:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -433,8 +440,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 È ora possibile gestire il computer in remoto, a partire dall'installazione dell'agente. Ad esempio, il seguente script copia l'agente nel computer remoto e lo installa.
 
 ```
-PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -445,4 +452,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Passaggi successivi
 Per ulteriori informazioni su Backup di Azure per Windows server/client, vedere [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->

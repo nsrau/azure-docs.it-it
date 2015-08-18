@@ -10,42 +10,45 @@ Prima di poter archiviare i dati dell'app nel nuovo servizio mobile, è necessar
 
   Verrà creata una nuova tabella di archiviazione, **TodoItem**, con le autorizzazioni predefinite impostate. Questo significa che chiunque disponga della chiave dell'applicazione, che viene distribuita con l'app, potrà accedere alla tabella e modificare i dati.
 
-	>[AZURE.NOTE] The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.
+	>[AZURE.NOTE] Nella Guida introduttiva di Servizi mobili viene usato lo stesso nome di tabella. Tuttavia, ogni tabella viene creata in uno schema specifico per un determinato servizio mobile. In questo modo è possibile evitare conflitti di dati quando più servizi mobili utilizzano lo stesso database.
 
 4. Fare clic sulla nuova tabella **TodoItem** e verificare che non siano presenti righe di dati.
 
 5. Fare clic sulla scheda **Columns**. Verificare che siano state create automaticamente le colonne predefinite seguenti:
 	
 	<table border="1" cellpadding="10">
-<tr>
-<th>Nome colonna</th>
-<th>Tipo</th>
-<th>Indice</th>
-</tr>
-<tr>
-<td>id</td>
-<td>stringa</td>
-<td>Indicizzata</td>
-</tr>
-<tr>
-<td>__createdAt</td>
-<td>data</td>
-<td>Indicizzata</td>
-</tr>
-<tr>
-<td>__updatedAt</td>
-<td>data</td>
-<td><font color="transparent">-</font></td>
-</tr>
-<tr>
-<td>__version</td>
-<td>timestamp (MSSQL)</td>
-<td><font color="transparent">-</font></td>
-</tr> 	
-</table>Questo è il requisito minimo per le tabelle in Servizi mobili.
+ 	<tr>
+ 	<th>Nome colonna</th>
+ 	<th>Tipo</th>
+ 	<th>Indice</th>
+ 	</tr>
+ 	<tr>
+ 	<td>id</td>
+ 	<td>stringa</td>
+ 	<td>Indicizzata</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__createdAt</td>
+ 	<td>data</td>
+ 	<td>Indicizzata</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__updatedAt</td>
+ 	<td>data</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr>
+ 	<tr>
+ 	<td>__version</td>
+ 	<td>timestamp (MSSQL)</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr> 	
+ 	</table> 	
+		
 
-    > [AZURE.NOTE]Se nel servizio mobile è abilitato lo schema dinamico, vengono automaticamente create nuove colonne quando al servizio mobile vengono inviati oggetti JSON mediante un'operazione di inserimento o aggiornamento.
+  	Questo è il requisito minimo per le tabelle in Servizi mobili.
+
+    > [AZURE.NOTE] Se nel servizio mobile è abilitato lo schema dinamico, vengono automaticamente create nuove colonne quando al servizio mobile vengono inviati oggetti JSON mediante un'operazione di inserimento o aggiornamento.
 
 È ora possibile utilizzare il nuovo servizio mobile come archivio dati per l'app.
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->
