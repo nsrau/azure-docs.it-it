@@ -37,7 +37,13 @@
 | J | Pannello precedente aperto |
 | K | Pannello successivo aperto |
 | L | Ultimo pannello aperto |
-| - | Riduzione a icona del pannello o ripristino da ingrandimento | | + | Ingrandimento pannello o ripristino da riduzione a icona | | # | Chiusura pannello corrente | | ¦ | Chiusura di tutti i pannelli | | , | Passaggio dello stato attivo sulla barra dei comandi | | . | Passaggio dello stato attivo sulla barra di spostamento | | ? | Visualizzazione dei tasti di scelta rapida |
+| - | Riduzione a icona del pannello o ripristino da ingrandimento |
+| + | Ingrandimento pannello o ripristino da riduzione a icona |
+| # | Chiusura pannello corrente |
+| ¦ | Chiusura di tutti i pannelli |
+| , | Passaggio dello stato attivo sulla barra dei comandi |
+| . | Passaggio dello stato attivo sulla barra di spostamento |
+| ? | Visualizzazione dei tasti di scelta rapida |
 
 
 ## Passaggi successivi
@@ -45,4 +51,4 @@
 Altre informazioni sul portale di Azure: http://azure.microsoft.com.
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
