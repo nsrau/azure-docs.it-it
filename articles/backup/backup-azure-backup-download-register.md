@@ -6,7 +6,14 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="07/01/2015"
+   ms.author="jimpark"; "aashishr"/>
 
 # Scaricare, installare e registrare l'agente Backup di Azure
 Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario installare un agente in ogni server locale (Windows Server, client Windows o server System Center Data Protection Manager) per eseguire il backup dei dati e dell'applicazione in Azure. Questo articolo illustra i passaggi necessari per configurare l'agente Backup di Azure in un computer che esegue Windows Server o un client Windows.
@@ -56,4 +63,4 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 ## Passaggi successivi
 - Vedere[pianificare backup](backup-azure-backup-and-recover.md)per informazioni sul backup dei dati e applicazioni in Azure.
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
