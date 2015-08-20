@@ -114,7 +114,7 @@ In questo passaggio viene usato il portale di gestione di Azure per creare un'is
 
 3. Nel pannello **Configura** fare clic su **Installa direttamente nel computer**. Viene scaricato il pacchetto di installazione per il gateway, che viene installato, configurato e registrato nel computer.
 
-	> [AZURE.NOTE]Usare Internet Explorer o un Web browser compatibile con Microsoft ClickOnce.
+	> [AZURE.NOTE] Usare Internet Explorer o un Web browser compatibile con Microsoft ClickOnce.
 
 	![Gateway - Pannello Configura][image-data-factory-gateway-configure-blade]
 
@@ -124,7 +124,7 @@ In questo passaggio viene usato il portale di gestione di Azure per creare un'is
 	
 	Vedere la sezione [Gateway di gestione dati](#DMG) per i dettagli sul gateway, incluse le procedure consigliate e altre considerazioni importanti.
 
-	>[AZURE.NOTE]È necessario essere un amministratore nel computer locale per installare e configurare correttamente il gateway di gestione dati. È possibile aggiungere altri utenti al gruppo di Windows locale degli utenti del gateway di gestione dati. I membri di questo gruppo potranno usare lo strumento Gestione configurazione del gateway di gestione dati per configurare il gateway.
+	>[AZURE.NOTE] È necessario essere un amministratore nel computer locale per installare e configurare correttamente il gateway di gestione dati. È possibile aggiungere altri utenti al gruppo di Windows locale degli utenti del gateway di gestione dati. I membri di questo gruppo potranno usare lo strumento Gestione configurazione del gateway di gestione dati per configurare il gateway. 
 
 4. Fare clic sull'hub **NOTIFICHE** a sinistra. Attendere la visualizzazione del messaggio **L'installazione rapida per "adftutorialgateway'' è stata completata.** nel pannello **Notifiche**.
 
@@ -162,7 +162,8 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 
 	![Pulsante Nuovo archivio dati dell'editor][image-editor-newdatastore-onpremsql-button]
     
-3.	Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di SQL Server locale.![Servizio collegato di SQL locale - impostazioni][image-editor-newdatastore-onpremsql-settings]
+3.	Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di SQL Server locale.
+	![Servizio collegato di SQL locale - impostazioni][image-editor-newdatastore-onpremsql-settings]
 
 4.	Nel riquadro JSON, eseguire le operazioni riportate di seguito:
 	1.	Per la proprietà **gatewayName** immettere **adftutorialgateway** in modo da sostituire tutto il testo racchiuso tra virgolette.  
@@ -396,8 +397,8 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
  
 	- Nella sezione delle attività esiste una sola attività con **type** impostato su **Copy**.
 	- **Input** per l'attività è impostato su **EmpOnPremSQLTable** e **output** per l'attività è impostato su **OutputBlobTable**.
-	- Nella sezione **transformation** **SqlSource** viene specificato come **tipo di origine** e **BlobSink ** come **tipo di sink**.
-- La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
+	- Nella sezione **transformation** **SqlSource** viene specificato come **tipo di origine** e **BlobSink **come **tipo di sink**.
+	- La query SQL **select * from emp** viene specificata per la proprietà **sqlReaderQuery** di **SqlSource**.
 
 	Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio 2014-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione verrà usato.
 	
@@ -627,4 +628,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

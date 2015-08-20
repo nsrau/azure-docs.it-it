@@ -174,7 +174,7 @@ Si usa una semplice azione `Index` che consente ai clienti di specificare i supe
 Seguire i passaggi precedenti per configurare questa azione del controller:
 
 1. Nella cartella *\Controllers*, creare un nuovo file con estensione cs denominato *MemeGeneratorController.cs* e sostituire il contenuto con il codice seguente. Sostituire il percorso del file per `~/Content/chuck.bmp` e il nome della rete CDN per `yourCDNName`.
-		<pre class="prettyprint">
+	<pre class="prettyprint">
 	using System;
 	using System.Collections.Generic;
 	using System.Diagnostics;
@@ -591,4 +591,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

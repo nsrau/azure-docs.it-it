@@ -22,7 +22,7 @@
 
 I siti Web di social networking rappresentano una delle principali forze trainanti per l'adozione di Big Data. Le API pubbliche offerte da siti quali Twitter costituiscono un'utile origine di dati per l'analisi e la comprensione delle tendenze più popolari. In questa esercitazione si userà l'API di streaming di Twitter per ricevere tweet e quindi si userà Apache Hive in Azure HDInsight per ottenere un elenco di utenti di Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
-> [AZURE.NOTE]I passaggi descritti in questo articolo si basano sull'uso di un cluster HDInsight basato su Windows. Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md).
+> [AZURE.NOTE] I passaggi descritti in questo articolo si basano sull'uso di un cluster HDInsight basato su Windows. Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md).
 
 Un esempio simile è disponibile nella raccolta di esempi di HDInsight. Guardare il video di Channel 9 relativo all'<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">analisi delle tendenze di Twitter con Apache Hive in HDInsight</a>.
 
@@ -51,13 +51,13 @@ HDInsight usa l'archivio BLOB di Azure per l'archiviazione dei dati. L'archivio 
 
 Durante il provisioning di un cluster HDInsight, un contenitore di archiviazione BLOB viene designato come file system predefinito, come in HDFS. Oltre a tale contenitore, è possibile aggiungere contenitori dallo stesso account di archiviazione di Azure o da account di archiviazione di Azure diversi durante il processo di provisioning. Per istruzioni sull'aggiunta di account di archiviazione, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
 
-> [AZURE.NOTE]Per semplificare lo script di Windows PowerShell usato in questa esercitazione, tutti i file vengono archiviati nel contenitore del file system predefinito, che si trova in */tutorials/twitter*. Per impostazione predefinita, il nome di questo contenitore corrisponde al nome del cluster HDInsight. Se si sceglie di usare un contenitore diverso per l'archiviazione dei file, aggiornare lo script di conseguenza.
+> [AZURE.NOTE] Per semplificare lo script di Windows PowerShell usato in questa esercitazione, tutti i file vengono archiviati nel contenitore del file system predefinito, che si trova in */tutorials/twitter*. Per impostazione predefinita, il nome di questo contenitore corrisponde al nome del cluster HDInsight. Se si sceglie di usare un contenitore diverso per l'archiviazione dei file, aggiornare lo script di conseguenza.
 
 Di seguito è riportata la sintassi dell'archivio BLOB di Azure:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]Nel cluster HDInsight versione 3.0 è supportata solo la sintassi **wasb://*. La sintassi meno recente **asv://* è supportata nei cluster HDInsight 2.1 e 1.6, ma non nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
+> [AZURE.NOTE] Nel cluster HDInsight versione 3.0 è supportata solo la sintassi **wasb://*. La sintassi meno recente **asv://* è supportata nei cluster HDInsight 2.1 e 1.6, ma non nei cluster HDInsight 3.0 e non sarà supportata nelle versioni successive.
 
 > Il percorso dell'archivio BLOB di Azure è un percorso virtuale. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
@@ -85,7 +85,7 @@ Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
 In questa esercitazione verranno usate le [API di streaming di Twitter][twitter-streaming-api]. L'API di streaming di Twitter specifica che verrà usata è [statuses/filter][twitter-statuses-filter].
 
->[AZURE.NOTE]Un file contenente 10.000 tweet e il file di script Hive (descritto nella sezione successiva) sono stati caricati in un contenitore BLOB pubblico. Se si preferisce usare i file caricati, è possibile ignorare questa sezione.
+>[AZURE.NOTE] Un file contenente 10.000 tweet e il file di script Hive (descritto nella sezione successiva) sono stati caricati in un contenitore BLOB pubblico. Se si preferisce usare i file caricati, è possibile ignorare questa sezione.
 
 [I dati dei tweet](https://dev.twitter.com/docs/platform-objects/tweets) vengono archiviati nel formato JSON (JavaScript Object Notation) che include una struttura annidata complessa. Invece di scrivere molte righe di codice usando un linguaggio di programmazione convenzionale, è possibile trasformare la struttura annidata in una tabella Hive, in modo da consentire l'esecuzione di query tramite un linguaggio analogo a SQL ( Structured Query Language), denominato HiveQL.
 
@@ -114,7 +114,7 @@ Il primo passaggio da seguire per usare OAuth consiste nel creare una nuova appl
 
 In questa esercitazione si userà Windows PowerShell per effettuare la chiamata del servizio Web. Per un esempio di .NET C#, vedere [Analizzare i sentimenti Twitter in tempo reale con HBase in HDInsight][hdinsight-hbase-twitter-sentiment]. L'altro strumento di ampia diffusione per effettuare chiamate di servizi Web è [*Curl*][curl]. Curl può essere scaricato [da questa pagina][curl-download].
 
->[AZURE.NOTE]Quando si usa il comando curl in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
+>[AZURE.NOTE] Quando si usa il comando curl in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
 
 **Per ricevere tweet**
 
@@ -248,16 +248,16 @@ In questa esercitazione si userà Windows PowerShell per effettuare la chiamata 
 3. Impostare le prime cinque-otto variabili dello script:
 
 	<table border="1">
-<tr><th>Variabile</th><th>Descrizione</th></tr>
-<tr><td>$clusterName</td><td>Nome del cluster HDInsight in cui eseguire l'applicazione.</td></tr><tr><td>$oauth_consumer_key</td><td>Applicazione Twitter <strong>consumer key</strong> scritta in precedenza al momento della creazione dell'applicazione Twitter.</td></tr>
-<tr><td>$oauth_consumer_secret</td><td>L'applicazione Twitter <strong>consumer secret</strong> scritta in precedenza.</td></tr>
-<tr><td>$oauth_token</td><td>L'applicazione Twitter <strong>access token</strong> scritta in precedenza.</td></tr>
-<tr><td>$oauth_token_secret</td><td>L'applicazione Twitter <strong>access token secret</strong> scritta in precedenza.</td></tr>	
-<tr><td>$destBlobName</td><td>Il nome BLOB dell'output. Il valore predefinito è <strong>tutorials/twitter/data/tweets.txt</strong>. Se si modifica il valore predefinito, sarà necessario aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
-<tr><td>$trackString</td><td>Il servizio Web restituirà tweet correlati a queste parole chiave. Il valore predefinito è <strong>Azure, Cloud, HDInsight</strong>. Se si modifica il valore predefinito, si dovranno aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
-<tr><td>$lineMax</td><td>Il valore determina il numero di tweet che lo script leggerà. Per leggere 100 tweet sono necessari circa tre minuti. È possibile impostare un numero più elevato, ma il download richiederà più tempo.</td></tr>
+	<tr><th>Variabile</th><th>Descrizione</th></tr>
+	<tr><td>$clusterName</td><td>Nome del cluster HDInsight in cui eseguire l'applicazione.</td></tr><tr><td>$oauth_consumer_key</td><td>Applicazione Twitter <strong>consumer key</strong> scritta in precedenza al momento della creazione dell'applicazione Twitter.</td></tr>
+	<tr><td>$oauth_consumer_secret</td><td>L'applicazione Twitter <strong>consumer secret</strong> scritta in precedenza.</td></tr>
+	<tr><td>$oauth_token</td><td>L'applicazione Twitter <strong>access token</strong> scritta in precedenza.</td></tr>
+	<tr><td>$oauth_token_secret</td><td>L'applicazione Twitter <strong>access token secret</strong> scritta in precedenza.</td></tr>	
+	<tr><td>$destBlobName</td><td>Il nome BLOB dell'output. Il valore predefinito è <strong>tutorials/twitter/data/tweets.txt</strong>. Se si modifica il valore predefinito, sarà necessario aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
+	<tr><td>$trackString</td><td>Il servizio Web restituirà tweet correlati a queste parole chiave. Il valore predefinito è <strong>Azure, Cloud, HDInsight</strong>. Se si modifica il valore predefinito, si dovranno aggiornare gli script di Windows PowerShell di conseguenza.</td></tr>
+	<tr><td>$lineMax</td><td>Il valore determina il numero di tweet che lo script leggerà. Per leggere 100 tweet sono necessari circa tre minuti. È possibile impostare un numero più elevato, ma il download richiederà più tempo.</td></tr>
 
-</table>
+	</table>
 
 5. Premere **F5** per eseguire lo script. In caso di problemi, come soluzione selezionare tutte le righe e premere **F8**.
 6. Alla fine dell'output verrà visualizzato il testo "Complete!". Eventuali messaggi di errore verranno visualizzati in rosso.
@@ -270,7 +270,7 @@ Come procedura di convalida, è possibile controllare il file di output, **/tuto
 
 Azure PowerShell consente di eseguire più istruzioni HiveQL contemporaneamente o di inserire l'istruzione HiveQL in un file di script. In questa esercitazione verrà creato uno script HiveQL. Il file di script deve essere caricato nell'archivio BLOB di Azure. Nella sezione successiva si eseguirà il file di script tramite Azure PowerShell.
 
->[AZURE.NOTE]Il file di script Hive e un file contenente 10.000 tweet sono stati caricati in un contenitore BLOB pubblico. Se si preferisce usare i file caricati, è possibile ignorare questa sezione.
+>[AZURE.NOTE] Il file di script Hive e un file contenente 10.000 tweet sono stati caricati in un contenitore BLOB pubblico. Se si preferisce usare i file caricati, è possibile ignorare questa sezione.
 
 Il file di script HiveQL eseguirà le operazioni seguenti:
 
@@ -469,7 +469,7 @@ Tutte le attività preliminari sono state completate. Ora è possibile richiamar
 
 Usare lo script PowerShell seguente per eseguire lo script Hive. È necessario impostare la prima variabile.
 
->[AZURE.NOTE]Per usare i tweet e lo script HiveQL caricati nelle ultime due sezioni, impostare $hqlScriptFile su "/tutorials/twitter/twitter.hql". Per usare quelli caricati automaticamente in un BLOB pubblico, impostare $hqlScriptFile su "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+>[AZURE.NOTE] Per usare i tweet e lo script HiveQL caricati nelle ultime due sezioni, impostare $hqlScriptFile su "/tutorials/twitter/twitter.hql". Per usare quelli caricati automaticamente in un BLOB pubblico, impostare $hqlScriptFile su "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 	#region variables and constants
 	$clusterName = "<HDInsightClusterName>"
@@ -525,7 +525,7 @@ Usare lo script di Windows PowerShell seguente per controllare l'output del proc
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]La tabella Hive usa \\001 come delimitatore di campo. Il delimitatore non è visibile nell'output.
+> [AZURE.NOTE] La tabella Hive usa \\001 come delimitatore di campo. Il delimitatore non è visibile nell'output.
 
 Dopo che i risultati dell'analisi sono stati inserivi in un archivio BLOB di Azure, è possibile esportare i dati in un database SQL o un server SQL di Azure, esportare i dati in Excel tramite Power Query oppure connettere l'applicazione ai dati usando Hive ODBC Driver. Per altre informazioni, vedere [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop], [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-delay-data], [Connettere Excel a HDInsight mediante Power Query][hdinsight-power-query] e [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver][hdinsight-hive-odbc].
 
@@ -564,4 +564,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

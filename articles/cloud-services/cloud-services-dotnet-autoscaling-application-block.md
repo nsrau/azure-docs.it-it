@@ -28,7 +28,15 @@ Questa guida illustra come eseguire scenari comuni usando il blocco applicazione
 
 ## Sommario
 
-[Informazioni sul blocco applicazione per la scalabilità automatica][] [Concetti][] [Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione][] [Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica][] [Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla][] [Procedura: Definire il modello del servizio][] [Procedura: Definire le regole di scalabilità automatica][] [Procedura: Configurare il blocco applicazione per la scalabilità automatica][] [Passaggi successivi][]
+[Informazioni sul blocco applicazione per la scalabilità automatica][]   
+[Concetti][]   
+[Raccogliere dati del contatore delle prestazioni dall'applicazione Azure di destinazione][]   
+[Configurare un'applicazione host per il blocco applicazione per la scalabilità automatica][]   
+[Procedura: Creare un'istanza del blocco applicazione per la scalabilità automatica ed eseguirla][]   
+[Procedura: Definire il modello del servizio][]   
+[Procedura: Definire le regole di scalabilità automatica][]   
+[Procedura: Configurare il blocco applicazione per la scalabilità automatica][]   
+[Passaggi successivi][]   
 
 ## <a id="WhatIs"> </a>Informazioni sul blocco applicazione per la scalabilità automatica
 
@@ -126,14 +134,31 @@ In Visual Studio verificare che il file del modello del servizio venga copiato n
 
 	Nel codice seguente è illustrato un modello di servizio di esempio in un file **services.xml**:
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 Sostituire i valori tra parentesi quadre con quelli specifici del proprio ambiente e dell'applicazione di destinazione. Per trovare molti di questi valori, è necessario accedere al [portale di gestione di Azure][].
 
@@ -262,23 +287,27 @@ Per impostazione predefinita, il blocco applicazione per la scalabilità automat
 
 1.  Fare clic con il pulsante destro del mouse sul file **App.config** in Esplora soluzioni e quindi fare clic su **Edit Configuration File**.
 
-2.  Nel menu **Blocks** fare clic su **Add Autoscaling Settings**: ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  Nel menu **Blocks** fare clic su **Add Autoscaling Settings**:  
+	![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
 3.  Espandere **Autoscaling Settings** e quindi fare clic sui puntini di sospensione (...) accanto a **Data Points Store Storage Account**, aggiungere il nome in **Account name** e la chiave in **Account key** per l'account di archiviazione di Azure in cui il blocco archivierà i punti dati raccolti (per informazioni su dove trovare questi valori, vedere [Procedura: Definire il modello del servizio][] per informazioni su dove trovare questi valori), quindi fare clic su **OK**:
 
 	![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  Espandere la sezione **Autoscaling Settings** per visualizzare le sezioni **Rules Store** e **Service Information Store**. Per impostazione predefinita, sono configurate per usare l'archivio BLOB di Azure:![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  Espandere la sezione **Autoscaling Settings** per visualizzare le sezioni **Rules Store** e **Service Information Store**. Per impostazione predefinita, sono configurate per usare l'archivio BLOB di Azure:  
+	![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  Fare clic sul segno più (+) accanto a **Rules Store**, selezionare **Set Rules Store**, quindi fare clic su **Use Local File Rules Store** e infine su **Yes**.
 
-6.  Nella casella **File Name** digitare **rules.xml**. Questo è il nome del file contenente le regole di scalabilità automatica: ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  Nella casella **File Name** digitare **rules.xml**. Questo è il nome del file contenente le regole di scalabilità automatica:  
+	![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  Fare clic sul segno più (+) accanto a **Service Information Store**, selezionare **Set Service Information Store**, quindi fare clic su **Use Local File Service Information Store** e infine su **Yes**.
 
-8.  Nella casella **File Name** digitare **services.xml**. Questo è il nome del file contenente le regole di scalabilità automatica: ![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  Nella casella **File Name** digitare **services.xml**. Questo è il nome del file contenente le regole di scalabilità automatica:  
+	![immagine](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
 9.  Nella finestra Enterprise Library Configuration, nel menu **File** fare clic su **Save** per salvare le modifiche apportate alla configurazione. Sempre nella finestra Enterprise Library Configuration, nel menu **File** fare clic su **Exit**.
@@ -380,4 +409,4 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso del blocco applica
   [Riduzione dei costi di hosting di TechNet e MSDN e impatto sull'ambiente della scalabilità automatica in Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

@@ -197,7 +197,7 @@ La tabella seguente descrive le proprietà disponibili.
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
 ```
 
->[AZURE.NOTE] Se la ricerca restituisce lo stato 'Sospeso', il polling dei risultati aggiornati può essere effettuato tramite questa API. Dopo 6 min, il risultato della ricerca verrà rimosso dalla cache e sarà restituito Http Gone. Se la richiesta di ricerca iniziale ha restituito immediatamente lo stato 'Riuscito', non verrà aggiunto alla cache, determinando la restituzione di Http Gone da parte dell’API in caso di query. Il contenuto di un risultato Http 200 sarà nello stesso formato della richiesta di ricerca iniziale, ma con i valori aggiornati.
+>[AZURE.NOTE]Se la ricerca restituisce lo stato 'Sospeso', il polling dei risultati aggiornati può essere effettuato tramite questa API. Dopo 6 min, il risultato della ricerca verrà rimosso dalla cache e sarà restituito Http Gone. Se la richiesta di ricerca iniziale ha restituito immediatamente lo stato 'Riuscito', non verrà aggiunto alla cache, determinando la restituzione di Http Gone da parte dell’API in caso di query. Il contenuto di un risultato Http 200 sarà nello stesso formato della richiesta di ricerca iniziale, ma con i valori aggiornati.
 
 ### Ricerche salvate - solo REST
 
@@ -205,7 +205,7 @@ La tabella seguente descrive le proprietà disponibili.
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
 Metodi supportati: GET PUT DELETE
 
@@ -221,7 +221,7 @@ La tabella seguente descrive le proprietà disponibili.
 |properties.displayName|**Obbligatoria**. Nome visualizzato della query, definito dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag.|
 |properties.category|**Obbligatoria**. Categoria della query, definita dall'utente. Se modellata come risorsa di Azure, corrisponderà a un tag.|
 
->[AZURE.NOTE] L'API di Ricerca di Operational Insights restituisce attualmente le ricerche create dall'utente quando viene eseguito il polling di ricerche salvate in un'area di lavoro. L'API non restituirà attualmente le ricerche salvate fornite dalle soluzioni. Questa funzionalità verrà aggiunta in un secondo momento.
+>[AZURE.NOTE]L'API di Ricerca di Operational Insights restituisce attualmente le ricerche create dall'utente quando viene eseguito il polling di ricerche salvate in un'area di lavoro. L'API non restituirà attualmente le ricerche salvate fornite dalle soluzioni. Questa funzionalità verrà aggiunta in un secondo momento.
 
 ### Eliminare le ricerche salvate
 
@@ -346,4 +346,4 @@ Questi marcatori indicano l'inizio e la fine del testo evidenziato che corrispon
 
 Si noti che il risultato precedente contiene un messaggio di errore con prefisso e suffisso.
 
-<!------HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->

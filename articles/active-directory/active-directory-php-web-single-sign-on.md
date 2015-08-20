@@ -125,7 +125,7 @@ In questo passaggio viene illustrato come aggiungere l'accesso federato usando W
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]I valori **audienceuris** e **realm** devono essere preceduti da "spn:".
+> [AZURE.NOTE]I valori **audienceuris** e **realm** devono essere preceduti da "spn:".
 
 4. In Eclipse fare clic con il pulsante destro del mouse sul progetto **phpSample**, scegliere **New** e quindi fare clic su **PHP File**.
 
@@ -203,4 +203,4 @@ Un esempio che mostra l'uso di Azure Active Directory e Single Sign-On per i sit
 [Codice di esempio PHP per Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

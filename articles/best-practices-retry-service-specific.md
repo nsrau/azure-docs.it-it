@@ -43,7 +43,7 @@ La tabella seguente riepiloga le caratteristiche dei meccanismi di ripetizione d
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (con strategia di rilevamento personalizzata) | Dichiarativa e a livello di codice | Blocchi di codice | Personalizzate |
 **Topaz come nome descrittivo per il Blocco di applicazioni per la gestione degli errori temporanei incluso nella <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Con Topaz è possibile usare una strategia di rilevamento personalizzata per la maggior parte dei servizi, come descritto in questo articolo. La sezione [Strategie del Blocco di applicazioni per la gestione degli errori temporanei (Topaz)](#transient-fault-handling-application-block-topaz-strategies), alla fine di questo articolo, illustra le strategie predefinite per Topaz. Tenere presente che il blocco è ora un framework open source e non è direttamente supportato da Microsoft.
 
-> [AZURE.NOTE]Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
+> [AZURE.NOTE] Per la maggior parte dei meccanismi di ripetizione dei tentativi incorporati in Azure, non è attualmente possibile applicare criteri di ripetizione dei tentativi differenti per diversi tipi di errore o eccezione, oltre alle funzionalità previste dai criteri stessi. Al momento della stesura di questo documento, quindi, il consiglio migliore è quello di configurare criteri che forniscano una combinazione ottimale di prestazioni e disponibilità. I criteri possono essere successivamente ottimizzati analizzando i file di log per determinare i tipi di errori temporanei che si sono verificati. Ad esempio, se la maggior parte degli errori è correlata a problemi di connettività di rete, si potrebbe optare per un tentativo immediato anziché attendere molto tempo per ripetere il primo tentativo.
 
 ## Archiviazione di Azure - Linee guida per la ripetizione di tentativi
 
@@ -107,61 +107,11 @@ Oltre a indicare se un errore può essere risolto eseguendo nuovi tentativi, i c
 
 La tabella seguente mostra le impostazioni predefinite per i criteri di ripetizione dei tentativi incorporati.
 
-| **Contesto** | **Impostazione** | **Valore predefinito** | **Significato** |
+| **Contesto**              | **Impostazione**                                                 | **Valore predefinito**                  | **Significato**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |--------------------------|-------------------------------------------------------------|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QueueRequestOptions<br />
-Tabella / Blob / File | MaximumExecutionTime<br />
-<br />
-ServerTimeout<br />
-<br />
-<br />
-<br />
-<br />
-LocationMode<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-RetryPolicy | 120 secondi<br />
-<br />
-Nessuno<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-ExponentialPolicy | Tempo di esecuzione massimo per la richiesta, inclusi tutti i potenziali tentativi.<br />
-Intervallo di timeout del server per la richiesta (il valore viene arrotondato a secondi). Se non specificato, verrà usato il valore predefinito per tutte le richieste al server. In genere, la scelta migliore è omettere questa impostazione in modo che venga usato il valore predefinito del server.<br />
-Se l'account di archiviazione viene creato con l'opzione di replica "archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)", è possibile usare la modalità percorso per indicare in corrispondenza di quale percorso deve essere ricevuta la richiesta. Ad esempio, se è specificata l'opzione **PrimaryThenSecondary**, le richieste vengono sempre inviate prima al percorso primario. Se una richiesta ha esito negativo, viene quindi inviata al percorso secondario.<br />
-Per informazioni dettagliate su ogni opzione, vedere le sezioni seguenti. |
-| Criteri esponenziali | maxAttempt<br />
-deltaBackoff<br />
-<br />
-<br />
-MinBackoff<br />
-<br />
-MaxBackoff | 3<br />
-4 secondi<br />
-<br />
-<br />
-3 secondi<br />
-<br />
-30 secondi | Numero di tentativi.<br />
-Intervallo di backoff tra i tentativi. Per i tentativi successivi verranno usati multipli di questo intervallo di tempo, combinati con un elemento casuale.<br />
-I valori vengono aggiunti a tutti gli intervalli tra i tentativi, calcolati a partire da deltaBackoff. Questo valore non può essere modificato.<br />
-MaxBackoff viene usato se l'intervallo tra i tentativi è maggiore di MaxBackoff. Questo valore non può essere modificato. |
-| Criteri lineari | maxAttempt<br />
-deltaBackoff | 3<br />
-30 secondi | Numero di tentativi.<br />
-Intervallo di backoff tra i tentativi. |
+|Tabella / Blob / File<br />QueueRequestOptions<br /> | MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy | 120 secondi<br /><br />Nessuno<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy | Tempo di esecuzione massimo per la richiesta, inclusi tutti i potenziali tentativi.<br />Intervallo di timeout del server per la richiesta (il valore viene arrotondato a secondi). Se non specificato, verrà usato il valore predefinito per tutte le richieste al server. In genere, la scelta migliore è omettere questa impostazione in modo che venga usato il valore predefinito del server.<br />Se l'account di archiviazione viene creato con l'opzione di replica "archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)", è possibile usare la modalità percorso per indicare in corrispondenza di quale percorso deve essere ricevuta la richiesta. Ad esempio, se è specificata l'opzione **PrimaryThenSecondary**, le richieste vengono sempre inviate prima al percorso primario. Se una richiesta ha esito negativo, viene quindi inviata al percorso secondario.<br />Per informazioni dettagliate su ogni opzione, vedere le sezioni seguenti. |
+| Criteri esponenziali                      | maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff               | 3<br />4 secondi<br /><br /><br />3 secondi<br /><br />30 secondi | Numero di tentativi.<br />Intervallo di backoff tra i tentativi. Per i tentativi successivi verranno usati multipli di questo intervallo di tempo, combinati con un elemento casuale.<br />I valori vengono aggiunti a tutti gli intervalli tra i tentativi, calcolati a partire da deltaBackoff. Questo valore non può essere modificato.<br />MaxBackoff viene usato se l'intervallo tra i tentativi è maggiore di MaxBackoff. Questo valore non può essere modificato.                                                                                                                                                                                                                                                                                                                                                                       |
+| Criteri lineari                           | maxAttempt<br />deltaBackoff | 3<br />30 secondi                                 | Numero di tentativi.<br />Intervallo di backoff tra i tentativi.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ### Linee guida sull'uso dei criteri di ripetizione dei tentativi
 Quando si accede ai servizi di archiviazione di Azure tramite l'API del client di archiviazione, tenere presenti le linee guida seguenti:
@@ -174,21 +124,10 @@ Quando si accede ai servizi di archiviazione di Azure tramite l'API del client d
 
 È consigliabile iniziare le operazioni di ripetizione dei tentativi usando le impostazioni seguenti. Si tratta di impostazioni di uso generale ed è quindi necessario monitorare le operazioni e personalizzare i valori in base allo scenario.
 
-| **Contesto** | **Destinazione di esempio E2E<br />
-latenza massima** | **Criteri di ripetizione** | **Impostazioni** | **Valori** | **Funzionamento** |
+| **Contesto**          | **Destinazione di esempio E2E<br />latenza massima** | **Criteri di ripetizione** | **Impostazioni**            | **Valori**  | **Funzionamento**                                                            |
 |----------------------|-----------------------------------|------------------|-------------------------|-------------|-----------------------------------------------------------------------------|
-| Interattivo, interfaccia utente<br />
-o in primo piano | 2 secondi | Lineari | maxAttempt<br />
-deltaBackoff | 3<br />
-500 ms | Tentativo di 1 - intervallo di 500 ms<br />
-Tentativo 2 - intervallo di 500 ms<br />
-Tentativo 3 - intervallo di 500 ms |
-| Background<br />
-o batch | 30 secondi | Esponenziali | maxAttempt<br />
-deltaBackoff | 5<br />
-4 secondi | Tentativo di 1 - intervallo di \~3 sec<br />
-Tentativo 2 - intervallo di \~7 sec<br />
-Tentativo 3 - intervallo di \~15 sec |
+| Interattivo, interfaccia utente<br />o in primo piano | 2 secondi                         | Lineari           | maxAttempt<br />deltaBackoff | 3<br />500 ms | Tentativo di 1 - intervallo di 500 ms<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms  |
+| Background<br />o batch            | 30 secondi                        | Esponenziali      | maxAttempt<br />deltaBackoff | 5<br />4 secondi | Tentativo di 1 - intervallo di \~3 sec<br />Tentativo 2 - intervallo di \~7 sec<br />Tentativo 3 - intervallo di \~15 sec |
 
 ## Telemetria
 
@@ -360,25 +299,12 @@ Quando si accede al database SQL con Entity Framework 6, tenere presente le line
 
 È consigliabile iniziare le operazioni di ripetizione dei tentativi usando le impostazioni seguenti. Non è possibile specificare l'intervallo tra i tentativi (si tratta di un valore fisso generato come sequenza esponenziale); è possibile specificare solo i valori massimi, come illustrato di seguito, a meno che non sia stata creata una strategia di ripetizione dei tentativi personalizzata. Si tratta di impostazioni di uso generale ed è quindi necessario monitorare le operazioni e personalizzare i valori in base allo scenario.
 
-| **Contesto** | **Destinazione di esempio E2E<br />
-latenza massima** | **Criteri di ripetizione** | **Impostazioni** | **Valori** | **Funzionamento** |
+| **Contesto**          | **Destinazione di esempio E2E<br />latenza massima** | **Criteri di ripetizione** | **Impostazioni**           | **Valori**   | **Funzionamento**                                                                                                            |
 |----------------------|-----------------------------------|--------------------|------------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Interattivo, interfaccia utente<br />
-o in primo piano | 2 secondi | Esponenziali | MaxRetryCount<br />
-MaxDelay | 3<br />
-750 ms | Tentativo di 1 - intervallo di 0 sec<br />
-Tentativo 2 - intervallo di 750 ms<br />
-Tentativo 3 - intervallo di 750 ms |
-| Background<br />
- o batch | 30 secondi | Esponenziali | MaxRetryCount<br />
-MaxDelay | 5<br />
-12 secondi | Tentativo 1 - intervallo di 0 sec<br />
-Tentativo 2 - intervallo di \~1 sec<br />
-Tentativo 3 - intervallo di \~3 sec<br />
-Tentativo 4 - intervallo di \~7 sec<br />
-Tentativo 5 - intervallo di 12 sec |
+| Interattivo, interfaccia utente<br />o in primo piano | 2 secondi                         | Esponenziali        | MaxRetryCount<br />MaxDelay | 3<br />750 ms     | Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 750 ms<br />Tentativo 3 - intervallo di 750 ms                                                   |
+| Background<br /> o batch            | 30 secondi                        | Esponenziali        | MaxRetryCount<br />MaxDelay | 5<br />12 secondi | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di \~1 sec<br />Tentativo 3 - intervallo di \~3 sec<br />Tentativo 4 - intervallo di \~7 sec<br />Tentativo 5 - intervallo di 12 sec |
 
-> [AZURE.NOTE]Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
+> [AZURE.NOTE] Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
 
 ## Esempi (Database SQL con Entity Framework 6)
 
@@ -500,33 +426,12 @@ Quando si accede al database SQL con ADO.NET, tenere presente le linee guida seg
 
 È consigliabile iniziare le operazioni di ripetizione dei tentativi usando le impostazioni seguenti. Si tratta di impostazioni di uso generale ed è quindi necessario monitorare le operazioni e personalizzare i valori in base allo scenario.
 
-| **Contesto** | **Destinazione di esempio E2E<br />
-latenza massima** | **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
+| **Contesto**          | **Destinazione di esempio E2E<br />latenza massima** | **Strategia di ripetizione dei tentativi** | **Impostazioni**                                                          | **Valori**                 | **Funzionamento**                                                                                                              |
 |----------------------|-----------------------------------|--------------------|-----------------------------------------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Interattivo, interfaccia utente<br />
-o in primo piano | 2 secondi | FixedInterval | Numero tentativi<br />
-Intervallo tra tentativi<br />
-Primo tentativo rapido | 3<br />
-500 ms<br />
-true | Tentativo 1 - intervallo di 0 sec<br />
-Tentativo 2 - intervallo di 500 ms<br />
-Tentativo 3 - intervallo di 500 ms |
-| Background<br />
-o batch | 30 secondi | ExponentialBackoff | Numero tentativi<br />
-Backoff minimo<br />
-Backoff massimo<br />
-Backoff delta<br />
-Primo tentativo veloce | 5<br />
-0 sec<br />
-60 sec<br />
-2 sec<br />
-false | Tentativo 1 - intervallo di 0 sec<br />
-Tentativo 2 - intervallo di \~2 sec<br />
-Tentativo 3 - intervallo di \~6 sec<br />
-Tentativo 4 - intervallo di \~14 sec<br />
-Tentativo 5 - intervallo di 30 sec |
+| Interattivo, interfaccia utente<br />o in primo piano | 2 secondi                             | FixedInterval      | Numero tentativi<br />Intervallo tra tentativi<br />Primo tentativo rapido                           | 3<br />500 ms<br />true              | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms                                                     |
+| Background<br />o batch            | 30 secondi                            | ExponentialBackoff | Numero tentativi<br />Backoff minimo<br />Backoff massimo<br />Backoff delta<br />Primo tentativo veloce | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di \~2 sec<br />Tentativo 3 - intervallo di \~6 sec<br />Tentativo 4 - intervallo di \~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
-> [AZURE.NOTE]Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
+> [AZURE.NOTE] Gli obiettivi di latenza end-to-end presuppongono il timeout predefinito per le connessioni al servizio. Se si specifica un timeout di connessione più lungo, la latenza end-to-end verrà estesa di questo intervallo di tempo aggiuntivo per ogni nuovo tentativo.
 
 ### Esempi (Database SQL con ADO.NET)
 
@@ -818,21 +723,11 @@ var conn = ConnectionMultiplexer.Connect("redis0:6380,redis1:6380,connectRetry=3
 
 La tabella seguente mostra le impostazioni predefinite per i criteri di ripetizione dei tentativi incorporati.
 
-| **Contesto** | **Impostazione** | **Valore predefinito**<br />
-(v 1.0.331) | **Significato** |
+| **Contesto**          | **Impostazione**                             | **Valore predefinito**<br />(v 1.0.331)           | **Significato**                                                                                                                                                                                                   |
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Opzioni di configurazione | ConnectRetry<br />
-<br />
-ConnectTimeout<br />
-<br />
-SyncTimeout | 3<br />
-<br />
-Massimo 5000 ms più SyncTimeout<br />
-1000 | Numero di nuovi tentativi di connessione durante l'operazione di connessione iniziale.<br />
-Timeout (ms) per operazioni di connessione. Non un intervallo tra i tentativi.<br />
-Tempo (ms) concesso per consentire operazioni sincrone. |
+| Opzioni di configurazione | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />Massimo 5000 ms più SyncTimeout<br />1000 | Numero di nuovi tentativi di connessione durante l'operazione di connessione iniziale.<br />Timeout (ms) per operazioni di connessione. Non un intervallo tra i tentativi.<br />Tempo (ms) concesso per consentire operazioni sincrone. |
 
-> [AZURE.NOTE]SyncTimeout contribuisce alla latenza end-to-end di un'operazione. Tuttavia, in generale, l'uso di operazioni sincrone non è consigliato. Per altre informazioni, vedere [Pipeline e multiplexer](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> [AZURE.NOTE] SyncTimeout contribuisce alla latenza end-to-end di un'operazione. Tuttavia, in generale, l'uso di operazioni sincrone non è consigliato. Per altre informazioni, vedere [Pipeline e multiplexer](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 
 ## Linee guida sull'uso dei criteri di ripetizione dei tentativi
 
@@ -978,14 +873,9 @@ Nessuno. Tutte le classi usate per implementare la ripetizione dei tentativi son
 
 La tabella seguente mostra le impostazioni predefinite per i criteri di ripetizione dei tentativi incorporati.
 
-| **Contesto** | **Impostazioni** | **Valori** | **Funzionamento** |
+| **Contesto**            | **Impostazioni**                                      | **Valori** | **Funzionamento**                                                                                                                                               |
 |------------------------|---------------------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RetryPolicy (interno) | MaxRetryAttemptsOnQuery<br />
-<br />
-MaxRetryAttemptsOnRequest | 3<br />
-<br />
-0 | Il numero di tentativi per le query eseguite nel documento. Questo valore non può essere modificato.<br />
-Il numero di tentativi per altre richieste. Questo valore non può essere modificato. |
+| RetryPolicy (interno) | MaxRetryAttemptsOnQuery<br /><br />MaxRetryAttemptsOnRequest | 3<br /><br />0        | Il numero di tentativi per le query eseguite nel documento. Questo valore non può essere modificato.<br />Il numero di tentativi per altre richieste. Questo valore non può essere modificato. |
 
 ## Linee guida sull'uso dei criteri di ripetizione dei tentativi
 
@@ -1057,31 +947,10 @@ Quando si usa Azure Active Directory, tenere presente le linee guida seguenti:
 È consigliabile iniziare le operazioni di ripetizione dei tentativi usando le impostazioni seguenti. Si tratta di impostazioni di uso generale ed è quindi necessario monitorare le operazioni e personalizzare i valori in base allo scenario.
 
 
-| **Contesto** | **Destinazione di esempio E2E<br />
-latenza massima** | **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
+| **Contesto**          | **Destinazione di esempio E2E<br />latenza massima** | **Strategia di ripetizione dei tentativi** | **Impostazioni**                                                          | **Valori**                 | **Funzionamento**                                                                                                              |
 |----------------------|----------------------------------------------|--------------------|-----------------------------------------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Interattivo, interfaccia utente<br />
-o in primo piano | 2 secondi | FixedInterval | Numero tentativi<br />
-Intervallo tra tentativi<br />
-Primo tentativo rapido | 3<br />
-500 ms<br />
-true | Tentativo 1 - intervallo di 0 sec<br />
-Tentativo 2 - intervallo di 500 ms<br />
-Tentativo 3 - intervallo di 500 ms |
-| Background<br />
- o batch | 60 secondi | ExponentialBackoff | Numero tentativi<br />
-Backoff minimo<br />
-Backoff massimo<br />
-Backoff delta<br />
-Primo tentativo veloce | 5<br />
-0 sec<br />
-60 sec<br />
-2 sec<br />
-false | Tentativo 1 - intervallo di 0 sec<br />
-Tentativo 2 - intervallo di \~2 sec<br />
-Tentativo 3 - intervallo di \~6 sec<br />
-Tentativo 4 - intervallo di \~14 sec<br />
-Tentativo 5 - intervallo di 30 sec |
+| Interattivo, interfaccia utente<br />o in primo piano | 2 secondi                                        | FixedInterval | Numero tentativi<br />Intervallo tra tentativi<br />Primo tentativo rapido                           | 3<br />500 ms<br />true              | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di 500 ms<br />Tentativo 3 - intervallo di 500 ms                                                     |
+| Background<br /> o batch            | 60 secondi                                       | ExponentialBackoff | Numero tentativi<br />Backoff minimo<br />Backoff massimo<br />Backoff delta<br />Primo tentativo veloce | 5<br />0 sec<br />60 sec<br />2 sec<br />false | Tentativo 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di \~2 sec<br />Tentativo 3 - intervallo di \~6 sec<br />Tentativo 4 - intervallo di \~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
 ## Esempi (Azure Active Directory)
 
@@ -1247,48 +1116,11 @@ Di seguito sono riportati i tipi intervallo più comuni nelle strategie di ripet
 
 Il blocco di applicazioni per la gestione degli errori temporanei presenta la seguenti strategie predefinite.
 
-| **Strategia** | **Impostazione** | **Valore predefinito** | **Significato** |
+| **Strategia**            | **Impostazione**                                         | **Valore predefinito**           | **Significato**                                                                                                                                                                                                                                                                                 |
 |-------------------------|-----------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Esponenziale** | retryCount<br />
-minBackoff<br />
-<br />
-maxBackoff<br />
-<br />
-deltaBackoff<br />
-<br />
-fastFirstRetry | 10<br />
-1 secondo<br />
-<br />
-30 secondi<br />
-<br />
-10 secondi<br />
-<br />
-true | Il numero di tentativi.<br />
-Il tempo di backoff minimo. Come intervallo tra i tentativi verrà usato il valore più elevato o il backoff calcolato.<br />
-Il tempo di backoff minimo. Come intervallo tra i tentativi verrà usato il valore più basso o il backoff calcolato.<br />
-Il valore usato per calcolare un delta casuale per l'intervallo esponenziale tra i tentativi.<br />
-Indica se il primo tentativo verrà eseguito immediatamente. |
-| **Incrementale** | retryCount<br />
-initialInterval<br />
-increment<br />
-<br />
-fastFirstRetry<br />
-| 10<br />
-1 secondo<br />
-1 secondo<br />
-<br />
-true | Il numero di tentativi.<br />
-L'intervallo iniziale che verrà applicato per il primo tentativo.<br />
-Il valore di tempo incrementale che verrà usato per calcolare l'intervallo progressivo tra i tentativi.<br />
-Indica se il primo tentativo verrà eseguito immediatamente. |
-| **Lineare (intervallo fisso)** | retryCount<br />
-retryInterval<br />
-fastFirstRetry<br />
- | 10<br />
-1 secondo<br />
-true | Il numero di tentativi.<br />
-L'intervallo tra i tentativi.<br />
-Indica se il primo tentativo verrà eseguito immediatamente. |
+| **Esponenziale**         | retryCount<br />minBackoff<br /><br />maxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry   | 10<br />1 secondo<br /><br />30 secondi<br /><br />10 secondi<br /><br />true | Il numero di tentativi.<br />Il tempo di backoff minimo. Come intervallo tra i tentativi verrà usato il valore più elevato o il backoff calcolato.<br />Il tempo di backoff minimo. Come intervallo tra i tentativi verrà usato il valore più basso o il backoff calcolato.<br />Il valore usato per calcolare un delta casuale per l'intervallo esponenziale tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
+| **Incrementale**         | retryCount<br />initialInterval<br />increment<br /><br />fastFirstRetry<br />| 10<br />1 secondo<br />1 secondo<br /><br />true   | Il numero di tentativi.<br />L'intervallo iniziale che verrà applicato per il primo tentativo.<br />Il valore di tempo incrementale che verrà usato per calcolare l'intervallo progressivo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente.                                          |
+| **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true            | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente.                                                                                                                                                                              |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
 <!---HONumber=August15_HO6-->
