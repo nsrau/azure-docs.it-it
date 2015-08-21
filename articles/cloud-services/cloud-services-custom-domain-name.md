@@ -133,7 +133,7 @@ Il record A seguente, ad esempio, inoltra tutto il traffico da **contoso.com** a
 | @ | 137\.135.70.239 |
 
 
-In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '\_\_*\_\_' come sottodominio.
+In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si desidera creare una voce con caratteri jolly per tutti i sottodomini, immettere '__*__' come sottodominio.
 
 >[AZURE.WARNING]Gli indirizzi IP in Azure sono dinamici per impostazione predefinita. È possibile utilizzare un [indirizzo IP riservato](..\virtual-network\virtual-networks-reserved-public-ip.md) per garantire che l'indirizzo IP non venga modificato.
 
@@ -153,4 +153,4 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
