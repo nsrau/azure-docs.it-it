@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scollegare un disco dati da una macchina virtuale di Windows | Azure"
+	pageTitle="Scollegare un disco dati da una macchina virtuale di Windows | Microsoft Azure"
 	description="Informazioni su come scollegare un disco da una macchina virtuale in Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -7,7 +7,6 @@
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
-
 
 <tags
 	ms.service="virtual-machines"
@@ -17,7 +16,6 @@
 	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="kathydav"/>
-
 
 
 
@@ -31,4 +29,4 @@
 
 [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

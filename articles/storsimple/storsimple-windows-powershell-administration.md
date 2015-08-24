@@ -199,4 +199,4 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 ## Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento alla [risoluzione dei problemi relativi ai cmdlet](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

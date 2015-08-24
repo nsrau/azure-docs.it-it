@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare Cache nel ruolo (.NET) - Guida alle funzionalità di Azure" 
+	pageTitle="Come usare Cache nel ruolo (.NET) | Microsoft Azure" 
 	description="Informazioni su come usare Cache nel ruolo di Azure. Negli esempi, scritti in C#, viene usata l'API .NET." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 
@@ -414,4 +414,4 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

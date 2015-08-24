@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione ai dati (Android) | Mobile Dev Center" 
+	pageTitle="Introduzione ai dati (Android) | Microsoft Azure" 
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -132,4 +132,4 @@ Successivamente, provare a eseguire le esercitazioni per Android seguenti:
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

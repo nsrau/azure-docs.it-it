@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Informazioni sulle funzionalità delle edizioni di Servizi BizTalk | Azure"
+	pageTitle="Informazioni sulle funzionalità delle edizioni di Servizi BizTalk | Microsoft Azure"
 	description="Confronto tra le funzionalità delle edizioni di Servizi BizTalk: Free, Developer, Basic, Standard e Premium. MABS, WABS"
 	services="biztalk-services"
 	documentationCenter=""
@@ -257,4 +257,4 @@ Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Cr
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

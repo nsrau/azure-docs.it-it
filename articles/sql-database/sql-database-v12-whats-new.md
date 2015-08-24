@@ -8,16 +8,14 @@
 	editor=""/>
 
 
-
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.date="08/10/2015" 
 	ms.author="genemi"/>
-
 
 
 # Novità della versione 12 del database SQL
@@ -31,6 +29,9 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 
 - Filtrato per [servizio Database SQL](http://azure.microsoft.com/updates/?service=sql-database).
 - Filtrato per Disponibilità generale[annunci](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) per le funzionalità del database SQL.
+
+
+Le informazioni più recenti sui limiti delle risorse per il Database SQL sono documentate in:<br/>[limiti delle risorse di Database SQL Azure](sql-database-resource-limits.md).
 
 
 ## Miglioramento della compatibilità delle applicazioni con SQL Server
@@ -92,15 +93,9 @@ La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero
 
 | Funzionalità per la continuità aziendale | Versione precedente | Versione 12 |
 | :-- | :-- | :-- |
-| Ripristino geografico | • RPO < 24 ore.<br/>
-• ERT < 12 ore. | • RPO < 1 ora.<br/>
-• ERT < 12 ore. |
-| Replica geografica standard | • RPO < 30 minuti.<br/>
-• ERT < 2 ore. | • RPO < 5 secondi.<br/>
-• ERT < 30 secondi. |
-| Replica geografica attiva | • RPO < 5 minuti.<br/>
-• ERT < 1 ora. | • RPO < 5 secondi.<br/>
-• ERT < 30 secondi. |
+| Ripristino geografico | • RPO < 24 ore.<br/>• ERT < 12 ore. | • RPO < 1 ora.<br/>• ERT < 12 ore. |
+| Replica geografica standard | • RPO < 30 minuti.<br/>• ERT < 2 ore. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
+| Replica geografica attiva | • RPO < 5 minuti.<br/>• ERT < 1 ora. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
 
 
 Per altre informazioni, vedere [Continuità aziendale del database SQL](https://msdn.microsoft.com/library/azure/hh852669.aspx).
@@ -115,17 +110,6 @@ Ci sono molti altri buoni motivi per i quali i clienti dovrebbero eseguire l'agg
 - La versione 12 del database SQL include un lungo elenco di funzionalità oltre a quelle della versione 11.
 - Alla versione 12 continuano a essere aggiunte nuove funzionalità, mentre non ne verranno aggiunte alla versione 11.
 - La maggior parte delle nuove funzionalità viene rilasciata nella versione 12 del database SQL prima di esserlo per Microsoft SQL Server.
-
-
-## Il gateway non fornisce più la logica di riesecuzione in V12
-
-
-Prima della versione V12, il Database SQL di Azure disponeva di un gateway che fungeva da proxy per memorizzare nel buffer tutte le interazioni tra il database e il programma client. Il gateway forniva *logica di riesecuzione*automatizzata per alcuni*errori temporanei*.
-
- V12 ha eliminato il gateway. A questo punto il programma deve gestire in maniera più completa gli errori temporanei. Per informazioni dettagliate, vedere:
-
-
-- [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md#gatewaynoretry)
 
 
 ## Se si sta già usando la versione 12
@@ -155,17 +139,12 @@ Un database versione 12 può essere ospitato solo in un server logico della vers
 Se ancora non si usa la versione 12, è possibile aggiornare il server logico seguendo i passaggi descritti nell'articolo relativo all'[aggiornamento sul posto alla versione 12 del database SQL](sql-database-v12-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>Aree dell'anteprima
+## <a name="V12AzureSqlDbPreviewGaTable"></a>Aree generali di disponibilità
 
 
-La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di Anteprima.
+- Dal 31 luglio 2015, tutte le aree sono state promosse a Disponibilità generale (GA).
+- La versione 12 è stata rilasciata a dicembre 2014, ma solo con lo stato di Anteprima.
 
+[Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- [Vedere le condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-Dal 31 luglio 2015, tutte le aree sono state promosse a Disponibilità generale (GA).
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

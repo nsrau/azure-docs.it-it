@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso di New Relic con Azure - Guide alle funzionalità di Azure" 
+	pageTitle="Uso di New Relic con Azure | Microsoft Azure" 
 	description="Informazioni sull'uso del servizio New Relic per gestire e monitorare l'applicazione Azure." 
 	services="" 
 	documentationCenter=".net" 
@@ -20,7 +20,7 @@
 
 #Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure
 
-In questa guida viene illustrata l'aggiunta di New Relic per un monitoraggio di qualità superiore delle prestazioni delle applicazioni ospitate in Azure. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno introdotte alcune delle funzionalità. Per ulteriori informazioni sull'utilizzo di New Relic, vedere [Utilizzo di New Relic](#using-new-relic).
+In questa guida viene illustrata l'aggiunta di New Relic per un monitoraggio di qualità superiore delle prestazioni delle applicazioni ospitate in Azure. Verrà illustrato un processo semplice e rapido per aggiungere New Relic all'applicazione e ne verranno introdotte alcune delle funzionalità. Per altre informazioni sull'utilizzo di New Relic, vedere [Utilizzo di New Relic](#using-new-relic).
 
 Informazioni su New Relic 
 --
@@ -167,7 +167,7 @@ Di seguito è riportato un esempio del dashboard Applications Overview quando è
 
 ## Passaggi successivi
 
-Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiuntive:
+Per altre informazioni, è possibile consultare le seguenti risorse aggiuntive:
 
  * [Installazione dell'agente .NET in Azure](https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure): procedure di installazione dell'agente .NET di New Relic 
  * [Interfaccia utente di New Relic](https://newrelic.com/docs/site/the-new-relic-ui): panoramica dell'interfaccia utente di New Relic, impostazione dei diritti e dei profili utente, uso delle funzioni standard e dettagli sui drill-down dei dashboard
@@ -176,4 +176,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

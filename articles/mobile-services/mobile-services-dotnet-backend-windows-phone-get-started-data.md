@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (Windows Phone) | Mobile Dev Center" 
+	pageTitle="Aggiungere Servizi mobili a un'app esistente (Windows Phone) | Microsoft Azure" 
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -272,4 +272,4 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -33,7 +33,9 @@ Data factory usa origini dati nel cloud e locali, oltre ai servizi SaaS, per ins
 
 Le entità principali di Data factory di Azure interagiscono tra loro per definire i dati di input e di output, gli eventi di elaborazione e la pianificazione e le risorse necessarie per eseguire il flusso di dati desiderato.
 
-![Concetti principali](./media/data-factory-introduction/key-concepts.png) **Figura 2.** Relazioni tra set di dati, attività, pipeline e servizio collegato
+![Concetti principali](./media/data-factory-introduction/key-concepts.png)
+
+**Figura 2.** Relazioni tra set di dati, attività, pipeline e servizio collegato
 
 
 ### Attività
@@ -53,4 +55,4 @@ I servizi collegati definiscono le informazioni necessarie affinché il servizio
 
 Dopo aver acquisito familiarità con i quattro semplici concetti relativi a set di dati, attività, pipeline e servizi collegati, si è pronti per iniziare. È possibile [creare la prima pipeline](data-factory-build-your-first-pipeline.md) da zero o distribuire un esempio pronto all'uso seguendo le istruzioni riportate nel [post di blog](data-factory-samples.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

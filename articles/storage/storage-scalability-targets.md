@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="06/30/2015"
+   ms.date="08/07/2015"
    ms.author="tamram" />
 
 # Obiettivi di scalabilità e prestazioni per Archiviazione di Azure
@@ -27,7 +27,7 @@ In questo argomento vengono descritti gli obiettivi di scalabilità e prestazion
 
 >Quando l'applicazione raggiunge il limite in termini di carico di lavoro che può essere gestito da una partizione, Archiviazione di Azure inizierà a restituire il codice di errore 503 (Server occupato) o 500 (Timeout operazione). In questo caso, l'applicazione deve utilizzare un criterio di backoff esponenziale per i nuovi tentativi. Il backoff esponenziale consente di ridurre il carico sulla partizione e di uniformare i picchi di traffico verso tale partizione.
 
-Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra gli account. Per ogni sottoscrizione di Azure sono consentiti 100 account di archiviazione. Vedere i [dettagli sui prezzi di Archiviazione](http://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
+Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, è possibile compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra gli account. Vedere i [dettagli sui prezzi di Archiviazione](http://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
 
 ## Obiettivi di scalabilità per account di archiviazione standard
 
@@ -50,6 +50,8 @@ Nella tabella precedente [Obiettivi di scalabilità per gli account di archiviaz
 Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per ognuno dei servizi di archiviazione nei modi seguenti:
 
 - **BLOB**: la chiave di partizione per un BLOB è il nome del contenitore + il nome del BLOB. Ciò significa che ogni BLOB ha una partizione specifica. Pertanto, i BLOB possono essere distribuiti tra più server allo scopo di aumentare l’accesso. Sebbene i BLOB possano essere raggruppati logicamente in contenitori di BLOB, non vi sono implicazioni sul partizionamento derivanti da questo raggruppamento.
+
+- **File**: la chiave di partizione per un file è il nome dell'account + il nome della condivisione file. Ciò significa che tutti i file di una condivisione file sono presenti anche in una singola partizione.
 
 - **Messaggi**: la chiave di partizione per un messaggio è il nome della coda, in modo che tutti i messaggi in una coda vengano raggruppati in una singola partizione e serviti da un singolo server. Code diverse possono essere elaborate da server differenti per bilanciare il carico per quante code un account di archiviazione possa disporre.
 
@@ -74,4 +76,4 @@ Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

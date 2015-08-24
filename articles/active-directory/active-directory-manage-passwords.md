@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Gestire password in Azure AD | Microsoft Azure"
-	description="Argomento che illustra come gestire le password in Azure AD."
+	description="Come gestire password in Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/10/2015"
 	ms.author="curtand"/>
 
 # Gestire password in Azure AD
@@ -33,13 +32,15 @@ La parte rimanente di questo argomento descrive il set di funzionalità di gesti
 
 Usare i collegamenti seguenti per passare alla documentazione rilevante:
 
-- [Panoramica: gestione delle password in Azure AD](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Reimpostazione password self-service in Azure AD: come abilitare, configurare e testare la reimpostazione delle password self-service](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Reimpostazione password self-service in Azure AD: come personalizzare la reimpostazione delle password in base alle esigenze](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Reimpostazione password self-service in Azure AD: procedure consigliate per la distribuzione e la gestione](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Reimpostazione password self-service in Azure AD: come visualizzare le attività di gestione delle password nel tenant](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [Writeback delle password: come configurare Azure AD per la gestione delle password locali](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [Domande frequenti e risoluzione dei problemi per la gestione delle password in Azure AD](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [Panoramica: gestione delle password in Azure AD](active-directory-passwords-how-it-works.md)
+- [Reimpostazione password self-service in Azure AD: come abilitare, configurare e testare la reimpostazione delle password self-service](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Reimpostazione password self-service in Azure AD: come personalizzare la reimpostazione delle password in base alle esigenze](active-directory-passwords-customize.md)
+- [Reimpostazione password self-service in Azure AD: procedure consigliate per la distribuzione e la gestione](active-directory-passwords-best-practices.md)
+- [Reimpostazione password self-service in Azure AD: come visualizzare le attività di gestione delle password nel tenant](active-directory-passwords-get-insights.md)
+- [Writeback delle password: come configurare Azure AD per la gestione delle password locali](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [Risoluzione dei problemi di gestione delle password in Azure AD](active-directory-passwords-troubleshoot.md)
+- [Domande frequenti sulla gestione delle password di Azure AD](active-directory-passwords-faq.md)
+
 
 ## Passaggi successivi
 
@@ -47,4 +48,4 @@ Usare i collegamenti seguenti per passare alla documentazione rilevante:
 - [Creare o modificare utenti in Azure AD](active-directory-create-users.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Concetti su Servizi multimediali di Azure 
 
 Questo argomento fornisce una panoramica dei concetti più importanti su Servizi multimediali.
 
-##<a id="assets"></a>Asset\\Archiviazione
+##<a id="assets"></a>Asset e archiviazione
 
 ###Asset
 
@@ -79,7 +79,7 @@ Si noti che l'autorizzazione di elenco (AccessPermissions.List) non deve essere 
 
 l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Un account di Servizi multimediali può essere associato a uno o più account di archiviazione. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 500TB per ogni account di archiviazione. In Servizi multimediali sono disponibili strumenti di SDK che consentono di gestire più account di archiviazione e di bilanciare il carico della distribuzione degli asset durante il caricamento negli account in base a metriche specifiche oppure secondo una distribuzione casuale. Per altre informazioni, vedere Uso di [Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-##Processi\\Attività
+##Processi e attività
 
 Un'entità [Job](https://msdn.microsoft.com/library/azure/hh974289.aspx) viene in genere usata per elaborare (ad esempio, indicizzare o codificare) una presentazione audio/video. Se si stanno elaborando più video, è necessario creare un processo per ciascun video codificato.
 
@@ -242,4 +242,4 @@ Il seguente elenco include la descrizione dei vari formati di streaming e alcuni
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

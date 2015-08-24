@@ -22,21 +22,21 @@ Data factory include un [servizio disponibile a livello globale](#global) in gra
 ## Archivi dati con supporto per l'attività di copia
 Un'attività di copia consente di copiare i dati da un archivio dati **di origine** a un archivio dati **sink**. Data factory supporta gli archivi dati e le combinazioni origine/sink seguenti. Fare clic su un archivio dati per informazioni su come copiare dati da e verso tale archivio.
 
-|  | **Sink** |
+| **Origine** | **Sink** |
 | ------ | ---- |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure |
+| [BLOB di Azure](data-factory-azure-blob-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB, File System locale |
+| [Tabella di Azure](data-factory-azure-table-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
+| [Database SQL di Azure](data-factory-azure-sql-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
+| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure |
 | [SQL Server in IaaS](data-factory-sqlserver-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-|  | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [File System locale](data-factory-onprem-file-system-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, File System locale |
+| [Server SQL locale](data-factory-sqlserver-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [Database Oracle in locale](data-factory-onprem-oracle-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [Database MySQL in locale](data-factory-onprem-mysql-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [Database DB2 in locale](data-factory-onprem-db2-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [Database Teradata in locale](data-factory-onprem-teradata-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [Database Sybase in locale](data-factory-onprem-sybase-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [Database PostgreSQL in locale](data-factory-onprem-postgresql-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
 
 ## <a name="copyactivity"></a>Attività di copia
 L'attività di copia acquisisce un set di dati di input (**origine**) e copia i dati per ciascuna configurazione di attività in un set di dati di output (**sink**). La copia dei dati viene eseguita in modalità batch in base alla pianificazione specificata per l'attività.
@@ -93,4 +93,4 @@ Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione
 
 Quando viene eseguita un'attività di copia, nella sezione **typeProperties** vengono visualizzate proprietà diverse a seconda dei tipi di origini e sink. Ciascuna pagina relativa agli archivi dati elencati sopra contiene informazioni su queste proprietà, che variano in base al tipo di archivio dati.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

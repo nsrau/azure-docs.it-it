@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Controllo degli accessi in base al ruolo in Servizi mobili e Azure Active Directory (Windows Store) | Mobile Dev Center" 
+	pageTitle="Controllo degli accessi in base al ruolo in Servizi mobili e Azure Active Directory (Windows Store) | Microsoft Azure" 
 	description="Informazioni su come controllare gli accessi in base al ruolo di Azure Active Directory nell'applicazione per Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -393,4 +393,4 @@ In questa sezione viene creato un nuovo attributo di autorizzazione personalizza
 [accesso alle informazioni di Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL per .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

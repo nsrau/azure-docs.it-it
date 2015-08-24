@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/21/2015"
+   ms.date="08/04/2015"
    ms.author="ryanwi"/>
 
 # Eseguire la diagnosi e il monitoraggio di un servizio di Service Fabric
@@ -40,4 +40,4 @@ Service Fabric introduce un modello di integrità che offre una funzionalità di
 - [Aggiunta di report sull'integrità di Service Fabric personalizzati](service-fabric-report-health.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

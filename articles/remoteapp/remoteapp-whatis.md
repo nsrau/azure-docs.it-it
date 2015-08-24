@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informazioni su RemoteApp" 
+	pageTitle="Informazioni su Azure RemoteApp" 
 	description="Informazioni su Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="elizapo"/>
 
 # Informazioni su Azure RemoteApp
@@ -94,4 +94,4 @@ Per provarlo, vedere gli articoli seguenti che descrivono come iniziare a usare 
 - [Domande frequenti su Azure RemoteApp](remoteapp-faq.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

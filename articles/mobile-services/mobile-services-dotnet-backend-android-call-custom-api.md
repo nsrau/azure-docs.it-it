@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Chiamare un'API personalizzata da un client Android | Mobile Dev Center" 
+<properties  
+	pageTitle="Chiamare un'API personalizzata da un client Android | Microsoft Azure" 
 	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Android che usa Servizi mobili di Microsoft Azure." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -62,4 +62,4 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, 
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

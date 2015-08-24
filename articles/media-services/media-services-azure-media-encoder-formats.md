@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
-
 
 #Formati e codec di Azure Media Encoder
 
@@ -133,4 +131,4 @@ Dati in formato YUV 211|Formato YUV compresso. Un campione Y ogni due pixel, un 
 Formato Cirrus Logic Jr YUV 411|Formato di Cirrus Logic Jr YUV 411 con meno di 8 bit per campione Y, U e V. Un campione Y per ciascun pixel, un campione U e V ogni quattro pixel in direzione orizzontale su ogni linea; ogni linea verticale campionata.
 Formato YVU9 prodotto da Indeo|Formato YVU9 prodotto da Indeo con informazioni aggiuntive sulle differenze rispetto all'ultimo fotogramma. 9,5 bit per pixel, ma rilevati come 9.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

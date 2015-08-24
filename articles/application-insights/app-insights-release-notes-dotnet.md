@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Note sulla versione per Application Insights SDK per NET
@@ -36,7 +36,7 @@ Vedere [Introduzione ad Application Insights per .NET](app-insights-start-monito
 
 - Gli inizializzatori di telemetria che non hanno dipendenze sulle librerie ASP.NET sono stati spostati da`Microsoft.ApplicationInsights.Web`a nuova dipendenza nuget`Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll`è stato rinominato in`Microsoft.AI.Web.dll`
-- `Microsoft.Web.TelemetryChannel`NuGet è stato rinominato in`Microsoft.WindowsServer.TelemetryChannel`.`Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel`assembly è stato rinominato in`Microsoft.AI.ServerTelemetryChannel.dll`.`Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel`class è stato rinominato in`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- `Microsoft.ApplicationInsights.Web.TelemetryChannel`NuGet è stato rinominato in`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`.`Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel`assembly è stato rinominato in`Microsoft.AI.ServerTelemetryChannel.dll`.`Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel`class è stato rinominato in`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Tutti gli spazi dei nomi che fanno parte del SDK Web sono state modificate per escludere`Extensibility`parte. Questo include tutti gli inizializzatori di telemetria in ApplicationInsights. config e`ApplicationInsightsWebTracking`modulo nel file Web. config.
 - Le dipendenze raccolte tramite l'agente di strumentazione runtime (abilitato tramite Status Monitor o estensione del sito Web di Azure) non saranno contrassegnate come asincrone se non sono presenti HttpContext.Current nel thread.
 - Proprietà`SamplingRatio`di`DependencyTrackingTelemetryModule`non esegue alcuna operazione e è contrassegnata come obsoleta.
@@ -86,4 +86,4 @@ Per le versioni precedenti non sono disponibili le note sulla versione.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

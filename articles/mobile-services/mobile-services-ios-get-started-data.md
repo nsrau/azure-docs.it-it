@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (iOS) | Mobile Dev Center"
+	pageTitle="Aggiungere Servizi mobili a un'app esistente (iOS) | Microsoft Azure"
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per iOS."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -80,4 +80,4 @@ Scaricare l'app per iOS [GetStartedWithData]. In Xcode aprire il progetto ed esa
 [Guida introduttiva]: ../mobile-services-javascript-backend-ios-get-started.md
 [GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

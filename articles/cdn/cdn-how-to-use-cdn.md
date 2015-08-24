@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare la rete CDN - Guida alle funzionalità di Azure" 
+	pageTitle="Come utilizzare la rete CDN | Microsoft Azure" 
 	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -54,4 +54,4 @@ Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL de
 [Panoramica della Rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

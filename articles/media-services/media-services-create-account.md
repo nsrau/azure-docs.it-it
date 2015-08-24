@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare un account di Servizi multimediali - Azure"
+	pageTitle="Creare un account di Servizi multimediali | Microsoft Azure"
 	description="Spiega come creare un nuovo account di Servizi multimediali in Azure."
 	services="media-services"
 	documentationCenter=""
@@ -7,16 +7,14 @@
 	manager="dwrede"
 	editor=""/>
 
-
 <tags
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/20/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
-
 
 
 #Come creare un account di Servizi multimediali
@@ -25,8 +23,6 @@
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
-
-Questo articolo fa parte delle serie relative al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e al [flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
 
 Nel portale di gestione di Azure è possibile creare rapidamente un account di Servizi multimediali di Azure. È possibile utilizzare l'account per accedere ai servizi multimediali che consentono di archiviare, crittografare, codificare, gestire e distribuire in streaming contenuti multimediali in Azure. Durante la creazione di un account di Servizi multimediali, viene creato l'account di archiviazione associato (se non si desidera utilizzarne uno esistente) nella stessa area geografica dell'account di Servizi multimediali.
 
@@ -37,7 +33,7 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 -   **Account di Servizi multimediali**. L'account consente di accedere a un set di Servizi multimediali basati su cloud disponibili in Azure. In un account di Servizi multimediali non è possibile archiviare contenuti multimediali effettivi, ma è possibile archiviare i metadati relativi al contenuto multimediale e i processi di elaborazione dei file multimediali. Al momento della creazione dell'account, è necessario selezionare un'area di Servizi multimediali disponibile. L'area selezionata è un data center in cui sono archiviati i record dei metadati per l'account.
 
-    > [AZURE.NOTE]Le aree di servizi multimediali disponibili includono i seguenti:**Europa settentrionale**, **Europa occidentale**, **Stati Uniti occidentali**, **Stati Uniti orientali**, **sud-est asiatico**, **Asia orientale**, **Giappone occidentale**, **Giappone orientale**. In Servizi multimediali non vengono utilizzati gruppi di affinità.
+    > [AZURE.NOTE]Le aree di servizi multimediali disponibili includono i seguenti: **Europa settentrionale**, **Europa occidentale**, **Stati Uniti occidentali**, **Stati Uniti orientali**, **sud-est asiatico**, **Asia orientale**, **Giappone occidentale**, **Giappone orientale**. In Servizi multimediali non vengono utilizzati gruppi di affinità.
 -   **Account di archiviazione associato**. L'account di archiviazione è un account di archiviazione di Azure associato all'account di Servizi multimediali. L'account di archiviazione offre l'archiviazione BLOB per i file multimediali e deve trovarsi nella stessa area geografica dell'account di Servizi multimediali. Quando si crea un account di Servizi multimediali, è possibile scegliere un account di archiviazione esistente nella stessa area geografica oppure è possibile crearne uno nuovo, ma sempre nella stessa area. Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
 
 ##<a id="quick"></a>Procedura: Creare un account di Servizi multimediali tramite Creazione rapida
@@ -83,4 +79,4 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
   [portale di gestione]: http://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

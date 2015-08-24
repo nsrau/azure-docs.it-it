@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione ai dati (Android) | Mobile Dev Center" 
+	pageTitle="Introduzione ai dati (Android) | Microsoft Azure" 
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -133,4 +133,4 @@ Successivamente, provare a eseguire una delle esercitazioni seguenti:
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

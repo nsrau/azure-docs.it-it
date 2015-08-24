@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilizzare Hub eventi di Azure con Apache Spark in HDInsight per l'elaborazione del flusso di dati | Azure" 
+	pageTitle="Utilizzare Hub eventi di Azure con Apache Spark in HDInsight per l'elaborazione del flusso di dati | Microsoft Azure" 
 	description="Istruzioni dettagliate su come inviare dati in un flusso a Hub eventi di Azure e quindi ricevere tali eventi in Spark utilizzando un notebook Zeppelin" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -164,4 +164,4 @@ Istruzioni su come eseguire questi passaggi e un flusso applicazione di esempio 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

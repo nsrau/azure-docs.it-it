@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Introduzione alla sincronizzazione dei dati offline in Servizi mobili (iOS) | Mobile Dev Center"
+	pageTitle="Introduzione alla sincronizzazione dei dati offline in Servizi mobili (iOS) | Microsoft Azure"
 	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per iOS"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""
 	services="mobile-services"/>
-
 
 <tags
 	ms.service="mobile-services"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
-
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
 
@@ -273,4 +271,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

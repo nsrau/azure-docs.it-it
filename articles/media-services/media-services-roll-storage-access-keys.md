@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Procedura: Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
@@ -43,7 +43,7 @@ Aggiornare Servizi multimediali per l'uso della chiave di accesso alle risorse d
 
 - Usare l'API REST di gestione di Servizi multimediali.
 
-	Il seguente esempio di codice mostra come creare la richiesta https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key per sincronizzare la chiave di archiviazione specificata con Servizi multimediali. In questo caso, viene usato il valore relativo alla chiave di archiviazione secondaria. Per altre informazioni, vedere [Procedura: Usare l'API REST di gestione dei servizi multimediali](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+	Il seguente esempio di codice mostra come creare la richiesta https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key per sincronizzare la chiave di archiviazione specificata con Servizi multimediali. In questo caso, viene usato il valore relativo alla chiave di archiviazione secondaria. Per altre informazioni, vedere [Procedura: Usare l'API REST di gestione dei servizi multimediali](http://msdn.microsoft.com/it-it/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -108,4 +108,4 @@ Per aggiornare la data di scadenza di un localizzatore, è possibile usare [REST
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

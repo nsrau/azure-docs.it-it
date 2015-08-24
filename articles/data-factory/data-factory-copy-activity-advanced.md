@@ -18,7 +18,7 @@
 
 # Scenari avanzati per l'utilizzo dell'attività di copia in Data factory di Azure 
 ## Panoramica
-È possibile usare **l'attività di copia** in una pipeline per copiare i dati da un'origine a un sink (destinazione) in un batch. Questo argomento descrive gli scenari avanzati supportati dall'attività di copia. Per una panoramica dettagliata dell'attività di copia e degli scenari principali supportati, vedere [Copiare dati con Data factory di Azure][adf-copyactivity].
+È possibile usare **l'attività di copia** in una pipeline per copiare i dati da un'origine a un sink (destinazione) in un batch. Questo argomento descrive gli scenari avanzati supportati dall'attività di copia.
 
 
 ## Filtro di colonna usando la definizione della struttura
@@ -265,8 +265,6 @@ Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di 
 
 ## Vedere anche
 
-- [Esempi per l'utilizzo dell'attività di copia][copy-activity-examples]
-- [Copiare i dati con Data factory di Azure][adf-copyactivity]
 - [Attività di copia - Informazioni di riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Video: Introduzione all'attività di copia con Data factory di Azure][copy-activity-video]
 
@@ -276,9 +274,7 @@ Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di 
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -289,4 +285,4 @@ Anche se la codifica UTF-8 è molto diffusa, spesso i file di testo nel BLOB di 
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

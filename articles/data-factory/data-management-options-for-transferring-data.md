@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Opzioni per il trasferimento di dati archiviati nel cloud | Azure" 
+	pageTitle="Opzioni per il trasferimento di dati archiviati nel cloud | Microsoft Azure" 
 	description="Informazioni aggiuntive per scegliere l'opzione migliore per il trasferimento di dati da distribuzioni locali o altre risorse cloud in Microsoft Azure per l'analisi avanzata." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
@@ -65,7 +65,6 @@ Data factory di Azure è un servizio completamente gestito per la composizione d
 
 Gli sviluppatori possono compilare flussi di lavoro basati sui dati, aggregare e trasformare dati semistrutturati e strutturati originati da risorse locali (tramite il Gateway di gestione dati), servizi Internet e basati sul cloud, nonché configurare un'elaborazione di dati complessa mediante un semplice script JSON. I dati risultanti possono essere archiviati in Archiviazione di Azure o nel database SQL di Azure per l'analisi avanzata.
 
-In particolare, uno sviluppatore può orchestrare le attività di copia regolari tra le diverse origini e destinazioni riportate nella sezione "[Origini e sink supportate](data-factory-copy-activity.md#SupportedSourcesAndSinks)" di [Copia di dati con Data factory di Azure](data-factory-copy-activity.md), che include anche le proprietà per diversi tipi di archivi dati, mapping di colonne, formati di serializzazione e la gestione del tipo.
 
 Il servizio può gestire gli errori con riavvio automatico e consentire la conversione del formato quando si spostano dati da un formato a un altro. Per definire un'attività di copia, vedere [Introduzione al servizio Data factory][start]. Le attività di registrazione degli archivi dati e di installazione del gateway sono descritte in [Consentire alle pipeline di usare dati locali][pipelines].
 
@@ -254,7 +253,6 @@ Note sull'albero delle decisioni:
 [install]: ../install-configure-powershell.md
 [start]: data-factory-get-started.md
 [pipelines]: data-factory-use-onpremises-datasources.md
-[copy]: data-factory-copy-activity.md
 [intro]: data-factory-introduction.md
 [sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
 [sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx
@@ -270,4 +268,4 @@ Note sull'albero delle decisioni:
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

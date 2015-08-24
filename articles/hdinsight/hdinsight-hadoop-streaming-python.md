@@ -7,7 +7,6 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="big-data"
    ms.date="07/13/2015"
    ms.author="larryfr"/>
-
 
 #Sviluppo di programmi per la creazione di flussi Python per HDInsight
 
@@ -204,4 +202,4 @@ Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, veder
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

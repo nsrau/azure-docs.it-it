@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -44,9 +44,11 @@ Prendere nota delle unità in cui viene chiesto di immettere il valore soglia.
 
 ## Visualizzare gli avvisi
 
-Gli avvisi vengono inviati all'utente tramite posta elettronica.
+Si ottiene un messaggio di posta elettronica quando un avviso modifica lo stato tra attivo e inattivo.
 
-Vengono visualizzati anche nel log degli eventi delle operazioni:
+Lo stato corrente di ogni avviso viene visualizzato nel pannello delle regole di avviso.
+
+La cronologia delle modifiche di stato è nel registro eventi di operazioni:
 
 ![Nella parte inferiore del pannello Panoramica fare clic su 'Eventi nell'ultima settimana'](./media/app-insights-alerts/09-alerts.png)
 
@@ -80,4 +82,4 @@ Tra gli avvisi più diffusi sono compresi:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

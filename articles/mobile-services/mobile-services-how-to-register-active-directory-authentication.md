@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registrazione per l'autenticazione di Azure Active Directory | Sevizi mobili di Azure" 
+	pageTitle="Effettuare la registrazione per l'autenticazione di Azure Active Directory | Microsoft Azure" 
 	description="Informazioni su come effettuare la registrazione per l'autenticazione di Azure Active Directory nell'app di Servizi mobili." 
 	authors="wesmc7777" 
 	services="mobile-services" 
@@ -66,4 +66,4 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

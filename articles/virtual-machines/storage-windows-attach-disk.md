@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Collegare un disco a una macchina virtuale | Azure"
+	pageTitle="Collegare un disco a una macchina virtuale | Microsoft Azure"
 	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -53,4 +53,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

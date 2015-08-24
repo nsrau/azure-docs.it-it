@@ -1,28 +1,26 @@
 <properties 
-	pageTitle="Introduzione all'Archiviazione di Azure" 
-	description="Informazioni su come iniziare a usare l'archiviazione BLOB di Azure in un progetto Azure WebJob in Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Introduzione all'archiviazione di Azure e ai servizi relativi a Visual Studio (progetti WebJob)" 
+	description="Informazioni su come iniziare a usare un archivio BLOB in un account di archiviazione di Azure creato usando la finestra di dialogo Aggiungi servizi connessi di Visual Studio in un progetto WebJob."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
+	ms.service="storage"
+	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
-
 
 # Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
@@ -31,9 +29,9 @@
 
 ## Panoramica
 
-Quando si aggiunge un account di archiviazione a un progetto WebJob tramite la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio, viene installato il pacchetto NuGet di archiviazione di Azure appropriato, i riferimenti .NET appropriati vengono aggiunti al progetto e le stringhe di connessione per l'account di archiviazione vengono aggiornate nel file App.config.
+In questo articolo vengono forniti esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x. Quando si aggiunge un account di archiviazione a un progetto WebJob tramite la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio, viene installato il pacchetto NuGet di archiviazione di Azure appropriato, i riferimenti .NET appropriati vengono aggiunti al progetto e le stringhe di connessione per l'account di archiviazione vengono aggiornate nel file App.config.
 
-In questo articolo vengono forniti esempi di codice C# che illustrano come attivare un processo quando viene creato o aggiornato un BLOB di Azure. Gli esempi di codice usano [WebJobs SDK](websites-dotnet-webjobs-sdk.md) versione 1.x.
+
 
 ## Come attivare una funzione quando viene creato o aggiornato un BLOB
 
@@ -88,7 +86,7 @@ L'esempio di codice seguente modifica l'estensione del file mentre copia nel con
 		    output = input.ReadToEnd();
 		}
 
-## <a id="types"></a> Tipi che possono essere associati a BLOB
+## Tipi che possono essere associati a BLOB
 
 È possibile usare l'attributo `BlobTrigger` per i tipi seguenti:
 
@@ -102,7 +100,7 @@ L'esempio di codice seguente modifica l'estensione del file mentre copia nel con
 
 Se si desidera usare direttamente l'account di archiviazione di Azure, è anche possibile aggiungere un parametro `CloudStorageAccount` alla firma del metodo.
 
-## <a id="string"></a> Ottenere contenuti di BLOB di testo tramite associazione alla stringa
+## Ottenere contenuto di BLOB di testo tramite associazione alla stringa
 
 Se sono previsti BLOB di testo, è possibile applicare `BlobTrigger` a un parametro `string`. L'esempio di codice seguente associa un BLOB di testo a un parametro `string` denominato `logMessage`. La funzione usa tale parametro per scrivere il contenuto del BLOB nel dashboard WebJobs SDK.
  
@@ -115,7 +113,7 @@ Se sono previsti BLOB di testo, è possibile applicare `BlobTrigger` a un parame
 		     logger.WriteLine(logMessage);
 		}
 
-## <a id="icbsb"></a> Ottenere contenuti di BLOB serializzati tramite ICloudBlobStreamBinder
+## Ottenere contenuto di BLOB serializzato tramite ICloudBlobStreamBinder
 
 L'esempio di codice seguente usa una classe che implementa `ICloudBlobStreamBinder` per consentire all'attributo `BlobTrigger` di associare un BLOB al tipo `WebImage`.
 
@@ -153,7 +151,7 @@ Il codice di associazione `WebImage` viene fornito in una classe `WebImageBinder
 		    }
 		}
 
-## <a id="poison"></a> Come gestire i BLOB non elaborabili
+## Come gestire i BLOB non elaborabili
 
 Quando una funzione `BlobTrigger` ha esito negativo, l'SDK la chiama nuovamente in caso in cui il problema sia stato causato da un errore temporaneo. Se il problema è causato dal contenuto del BLOB, la funzione ha esito negativo ogni volta che tenta di elaborare il BLOB. Per impostazione predefinita, l'SDK chiama una funzione fino a cinque volte per un determinato BLOB. Se il quinto tentativo ha esito negativo, l'SDK aggiunge un messaggio a una coda denominata *webjobs-blobtrigger-poison*.
 
@@ -161,7 +159,7 @@ Il numero massimo di tentativi è configurabile. La stessa impostazione [MaxDequ
 
 Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *{nome processo Web}*.Functions.*{nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
+* FunctionId (nel formato *{Nome processo Web}*.Functions.*{Nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -198,7 +196,7 @@ L'SDK deserializza automaticamente il messaggio JSON. Questa è la classe `Poiso
 		    public string ETag { get; set; }
 		}
 
-### <a id="polling"></a> Algoritmo di polling di BLOB
+### Algoritmo di polling di BLOB
 
 WebJobs SDK analizza tutti i contenitori specificati da attributi `BlobTrigger` all'avvio dell'applicazione. In un account di archiviazione di grandi dimensioni l'analisi può richiedere tempo, pertanto l'individuazione di nuovi BLOB e l'esecuzione delle funzioni `BlobTrigger` potrebbero non essere immediate.
 
@@ -206,13 +204,13 @@ Per rilevare BLOB nuovi o modificati dopo l'avvio dell'applicazione, l'SDK legge
 
 Si verifica un'eccezione per i BLOB creati tramite l'attributo `Blob`. Quando WebJobs SDK crea un nuovo BLOB, lo passa immediatamente a tutte le funzioni `BlobTrigger` corrispondenti. Se pertanto si dispone di una catena di input e output di BLOB, l'SDK può elaborarli in modo efficiente. Se invece si desidera una bassa latenza per l'esecuzione delle funzioni di elaborazione dei BLOB creati o aggiornati in altri modi, è consigliabile usare `QueueTrigger` anziché `BlobTrigger`.
 
-### <a id="receipts"></a> Conferme di BLOB
+### Conferme di BLOB
 
 WebJobs SDK verifica che nessuna funzione `BlobTrigger` venga chiamata più volte per lo stesso BLOB nuovo o aggiornato. A tale scopo, gestisce *conferme di BLOB* per determinare se una versione di BLOB specifica è stata elaborata.
 
 Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure specificato dalla stringa di connessione AzureWebJobsStorage. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione chiamata per il BLOB ("*{WebJob name}*.Functions.*{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
+* La funzione chiamata per il BLOB ("*{Nome processo Web}*.Functions.*{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
@@ -220,7 +218,7 @@ Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjo
 
 Se si desidera forzare la rielaborazione di un BLOB, è possibile eliminare manualmente la conferma per tale BLOB dal contenitore *azure-webjobs-hosts*.
 
-## <a id="queues"></a>Argomenti correlati trattati dall'articolo sulle code
+## Argomenti correlati trattati dall'articolo sulle code
 
 Per informazioni su come gestire l'elaborazione di BLOB attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di BLOB, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
@@ -236,9 +234,9 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 * Attivare manualmente una funzione
 * Scrivere i log
 
-## <a id="nextsteps"></a> Passaggi successivi
+## Passaggi successivi
 
-Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di BLOB di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

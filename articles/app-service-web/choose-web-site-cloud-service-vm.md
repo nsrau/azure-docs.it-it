@@ -7,16 +7,14 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
-
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/29/2015"
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
-
 
 # Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure
 
@@ -52,7 +50,7 @@ Di seguito sono riportati alcuni scenari applicativi comuni con indicazioni rigu
 
 ### <a id="onprem"></a>Mi serve un front-end Web con funzionalità di elaborazione in background e un back-end di database per eseguire applicazioni aziendali integrate con risorse locali.
 
-Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale di gestione e API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La nuova funzionalità [WebJobs][] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le [funzionalità VNET](../fundamentals-introduction-to-azure.md#networking/) semplificano la connessione alle risorse in sede. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
+Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale di gestione e API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [WebJobs][] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le [funzionalità VNET](../fundamentals-introduction-to-azure.md#networking/) semplificano la connessione alle risorse in sede. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
 
 * Eseguire le applicazioni in modo affidabile su una piattaforma cloud con funzionalità automatiche di riparazione e di applicazione di patch.
 * Scalare automaticamente in una rete globale di data center.
@@ -184,7 +182,7 @@ Per altre informazioni sulle tre opzioni di hosting Web, vedere le risorse segue
 
 Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seguenti:
 
-* [Siti Web di Azure](/documentation/services/app-service/)
+* [Servizio app di Azure](/documentation/services/app-service/)
 * [Servizi cloud di Azure](/documentation/services/cloud-services/)
 * [Macchine virtuali di Azure](/documentation/services/virtual-machines/)
 
@@ -206,4 +204,4 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2015"
+	ms.date="08/10/2015"
 	ms.author="stepsic"/>
 
-#Creare una nuova app per la logica
+# Creare una nuova app per la logica
 Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica del servizio app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cartella Dropbox.
 
 Per usare questo scenario è necessario disporre di:
@@ -27,7 +27,7 @@ Per usare questo scenario è necessario disporre di:
 
 <!--- TODO: Add try it now information here -->
 
-##Recupero dei connettori
+## Recupero dei connettori
 
 Prima di tutto, è necessario creare i due connettori che verranno usati: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) e [**Twitter Connector**](app-service-logic-connector-twitter.md). A questo scopo:
 
@@ -59,7 +59,7 @@ Prima di tutto, è necessario creare i due connettori che verranno usati: [**Dro
 
 9. Ripetere la procedura con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
-##Avvio dell'app per la logica
+## Avvio dell'app per la logica
 
 A questo punto è necessario creare l'app per la logica.
 
@@ -106,6 +106,8 @@ Le azioni sono le operazioni eseguite dal flusso di lavoro. Il numero di possibi
 	In questo modo si consente al connettore l'accesso al proprio account Twitter. Viene visualizzato un elenco di possibili operazioni fornite dal connettore Twitter.
 
 	![Azioni](./media/app-service-logic-create-a-logic-app/actions.png)
+
+	> [AZURE.NOTE]Se il pulsante **Authorize** utilizza la sicurezza OAUTH per connettersi a servizi SaaS, come ad esempio Twitter. Ulteriori informazioni su OAUTH in [Sicurezza OAUTH](app-service-logic-oauth-security.md).
 
 3. Fare clic su **Ricerca tweet**, quindi in **Specificare una query** digitare ad esempio `#MicrosoftAzure` e fare clic sul segno di spunta verde.
 
@@ -172,4 +174,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

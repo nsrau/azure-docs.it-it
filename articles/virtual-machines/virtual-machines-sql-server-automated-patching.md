@@ -19,7 +19,7 @@
 
 L’applicazione automatizzata di patch stabilisce un periodo di manutenzione per una macchina virtuale di Azure in cui è in esecuzione SQL Server 2012 o 2014. Gli aggiornamenti automatici possono essere installati solo durante questo periodo di manutenzione. Per SQL Server, gli aggiornamenti di sistema e i riavvii associati vengono eseguiti nel momento migliore per il database. Dipende dall’agente IaaS di SQL Server.
 
->[AZURE.IMPORTANT]L’applicazione automatizzata di patch si basa sull’agente IaaS di SQL Server. Per installare e configurare l'agente, è necessario che nella macchina virtuale di destinazione sia in esecuzione l'agente di macchine virtuali di Azure. Per le immagini della raccolta di macchine virtuali più recenti questa opzione è abilitata per impostazione predefinita, ma è possibile che l'agente di macchine virtuali di Azure non sia presente nelle macchine virtuali esistenti. Se si usa la propria immagine di macchina virtuale, sarà inoltre necessario installare l'agente IaaS di SQL Server. Per ulteriori informazioni, vedere la pagina relativa all’[agente di macchine virtuali e alle estensioni](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+>[AZURE.NOTE]L’applicazione automatizzata di patch si basa sull’agente IaaS di SQL Server. Per installare e configurare l'agente, è necessario che nella macchina virtuale di destinazione sia in esecuzione l'agente di macchine virtuali di Azure. Per le immagini della raccolta di macchine virtuali più recenti questa opzione è abilitata per impostazione predefinita, ma è possibile che l'agente di macchine virtuali di Azure non sia presente nelle macchine virtuali esistenti. Se si usa la propria immagine di macchina virtuale, sarà inoltre necessario installare l'agente IaaS di SQL Server. Per ulteriori informazioni, vedere la pagina relativa all’[agente di macchine virtuali e alle estensioni](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ## Configurare l’applicazione automatizzata di patch nel portale
 
@@ -88,4 +88,4 @@ Una funzionalità correlata per Macchine virtuali di SQL Server in Azure è [Bac
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

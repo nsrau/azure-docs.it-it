@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Che cosa sono i componenti StorSimple?" 
+   pageTitle="Cosa sono i componenti di StorSimple? | Microsoft Azure" 
    description="Descrive i dispositivi, i servizi e le tecnologie di gestione StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 
@@ -110,7 +110,11 @@ Windows PowerShell per StorSimple fornisce un'interfaccia della riga di comando 
 
 È possibile accedere a Windows PowerShell per StorSimple da una console seriale (in un computer host connesso direttamente al dispositivo) o da una posizione remota usando la gestione remota di Windows PowerShell. Alcune attività di Windows PowerShell per StorSimple, ad esempio la registrazione iniziale del dispositivo, possono essere eseguite soltanto sulla console seriale.
 
-Per ulteriori informazioni, vedere [Windows PowerShell per StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
+Per ulteriori informazioni, vedere [Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo](storsimple-windows-powershell-administration.md).
+
+## Cmdlet PowerShell StorSimple di Azure
+
+I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet di Windows PowerShell che consentono di automatizzare le attività a livello di servizio e di migrazione dalla riga di comando. Per altre informazioni sui cmdlet di Azure PowerShell per StorSimple, visitare la [Documentazione di riferimento relativa ai cmdlet](https://msdn.microsoft.com/library/dn920427.aspx).
 
 ## Servizio StorSimple Manager
 
@@ -215,11 +219,11 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 
 ## Passaggi successivi
 
-Rivedere le [note sulla versione di StorSimple](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
 
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

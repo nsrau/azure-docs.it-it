@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Nome e chiave dell'autorità emittente in Servizi BizTalk | Azure" 
+	pageTitle="Nome e chiave dell'autorità emittente in Servizi BizTalk | Microsoft Azure" 
 	description="Informazioni su come recuperare il nome dell'autorità emittente e la chiave dell'autorità emittente per il bus di servizio o il Servizio di controllo di accesso (ACS) in Servizi BizTalk. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -86,4 +86,4 @@ Ulteriori argomenti relativi a Servizi BizTalk di Azure:
 - [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

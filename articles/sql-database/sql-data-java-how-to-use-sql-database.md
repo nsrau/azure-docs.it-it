@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare SQL Azure (Java) - Guida alle funzionalità di Azure" 
+	pageTitle="Come utilizzare SQL Azure (Java) | Microsoft Azure" 
 	description="Informazioni su come usare il database SQL di Azure tramite codice Java." 
 	services="sql-database" 
 	documentationCenter="java" 
@@ -726,4 +726,4 @@ Per ulteriori informazioni su Microsoft JDBC Driver per SQL Server, vedere [Pano
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="04/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -462,4 +462,4 @@ Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compi
   [portale di gestione]: http://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

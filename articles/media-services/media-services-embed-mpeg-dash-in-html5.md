@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -106,4 +106,4 @@ Per riprodurre un video, passare nel browser al file basicPlayback.html e fare c
 
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

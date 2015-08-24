@@ -19,8 +19,9 @@ Sono necessari gli elementi seguenti:
 
 * Una sottoscrizione con [Microsoft Azure](http://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft.
 * Visual Studio 2015 o versione successiva.
+* Applicazione universale di Windows 10
 
-## Creare una risorsa Application Insights
+## Creare una risorsa di Application Insights
 
 Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights. Scegliere l'opzione Windows Phone o Windows Store.
 
@@ -139,4 +140,4 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

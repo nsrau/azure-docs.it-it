@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare gli argomenti del Bus di servizio (PHP) - Azure" 
+	pageTitle="Come usare gli argomenti del Bus di servizio (PHP) | Microsoft Azure" 
 	description="Informazioni su come usare gli argomenti di Bus di servizio con PHP in Azure." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -332,4 +332,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

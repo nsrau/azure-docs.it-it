@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informazioni generali sull'API REST di Servizi multimediali - Azure" 
+	pageTitle="Informazioni generali sull'API REST di Servizi multimediali | Microsoft Azure" 
 	description="Informazioni generali sull'API REST di Servizi multimediali" 
 	services="media-services" 
 	documentationCenter="" 
@@ -7,19 +7,19 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
-
 # Informazioni generali sull'API REST di Servizi multimediali 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Servizi multimediali di Microsoft Azure è un servizio che accetta richieste HTTP basate su OData e può rispondere in formato JSON dettagliato o atom+pub. Poiché Servizi multimediali è conforme alle linee guida di progettazione di Azure, esiste un set di intestazioni HTTP obbligatorie che devono essere usate da ogni client per la connessione a Servizi multimediali, oltre a un set di intestazioni facoltative. Le seguenti sezioni descrivono le intestazioni e i verbi HTTP che è possibile usare quando si creano richieste e si ricevono risposte da Servizi multimediali.
 
@@ -99,4 +99,4 @@ Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i m
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

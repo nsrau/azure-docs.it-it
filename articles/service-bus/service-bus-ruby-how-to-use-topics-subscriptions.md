@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come usare gli argomenti del bus di servizio (Ruby) - Azure"
+	pageTitle="Come usare gli argomenti del bus di servizio (Ruby) | Microsoft Azure"
 	description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -218,4 +218,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 -	Archivio [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

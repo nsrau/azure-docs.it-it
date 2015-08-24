@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare gli argomenti del bus di servizio (Node.js) - Azure" 
+	pageTitle="Come usare gli argomenti del bus di servizio (Node.js) | Microsoft Azure" 
 	description="Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un’app Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -305,4 +305,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
   [Applicazione Web Node.js con archiviazione]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Utilizzare il dashboard del dispositivo StorSimple Manager"
-   description="Descrive il dashboard del dispositivo StorSimple Manager e come utilizzarlo per visualizzare gli iniziatori connessi e individuare il numero di serie del dispositivo e l’IQN."
+   pageTitle="Utilizzare il dashboard del dispositivo di servizio StorSimple Manager | Microsoft Azure"
+   description="Descrive il dashboard del dispositivo StorSimple Manager e come utilizzarlo per visualizzare le metriche di archiviazione, gli iniziatori connessi e individuare il numero di serie del dispositivo e l’IQN."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/21/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Utilizzare il dashboard del dispositivo StorSimple Manager
@@ -27,18 +27,21 @@ La scheda dashboard contiene le informazioni seguenti:
 
 - **Area del grafico**– è possibile visualizzare le metriche di archiviazione rilevanti nell'area del grafico nella parte superiore del dashboard. In questo grafico, è possibile visualizzare le metriche per l'archiviazione primaria totale (la quantità di dati scritti dall'host per il dispositivo) e l'archiviazione cloud totale utilizzata dal dispositivo in un periodo di tempo.
 
-     In questo contesto,*archiviazione primaria*si riferisce alla quantità totale dei dati scritti dall'host. Può includere sia i dati archiviati localmente e dati a più livelli nel cloud. L’*Archiviazione cloud*d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Sono inclusi i backup e i dati a più livelli. Per entrambe le archiviazioni primarie e cloud, gli importi mostrati si baseranno sulla frequenza di rilevamento che si configura. Ad esempio, se si sceglie una frequenza di una settimana, il grafico mostrerà dati per ogni giorno della settimana precedente.
+     In questo contesto,*archiviazione primaria*si riferisce alla quantità totale dei dati scritti dall'host. Può includere sia i dati archiviati localmente e dati a più livelli nel cloud. L’*Archiviazione cloud*d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Sono inclusi i backup e i dati a più livelli. Si noti che i dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione utilizzato prima della loro deduplicazione e compressione.. (È possibile confrontare i due numeri per avere un'idea del tasso di compressione). Per entrambe le archiviazioni primarie e cloud, gli importi mostrati si baseranno sulla frequenza di rilevamento che si configura. Ad esempio, se si sceglie una frequenza di una settimana, il grafico mostrerà dati per ogni giorno della settimana precedente.
  
 	 È possibile configurare il grafico come segue:
 
 	 - Per visualizzare la quantità di spazio di archiviazione cloud utilizzato nel corso del tempo, selezionare l’opzione **ARCHIVIAZIONE CLOUD UTILIZZATA**. Per visualizzare l'archiviazione totale scritta dall'host, selezionare l’opzione**ARCHIVIAZIONE PRIMARIA UTILIZZATA**. Nella figura, entrambe le opzioni sono selezionate. Pertanto, il grafico mostra la quantità di archiviazione per l’archiviazione cloud e per l’archiviazione primaria. 
 	 - Utilizzare il menu a discesa nell'angolo in alto a destra del grafico per specificare una scala temporale di 1 settimana, 1 mese, 3 mesi o 1 anno. Si noti che il grafico di primo livello viene aggiornato solo una volta al giorno e pertanto rifletterà i totali del giorno precedente.
 
-- **Panoramica sull'utilizzo**-nell'area di panoramica dell'utilizzo, è possibile visualizzare la quantità di spazio di archiviazione primaria utilizzato, la quantità di archiviazione sottoposto a provisioning e la capacità di archiviazione massima per il dispositivo. Confrontando i numeri di utilizzo alla quantità massima di archiviazione disponibile, è possibile visualizzare immediatamente se è necessario ottenere memoria aggiuntiva. Si noti che questa panoramica viene aggiornata ogni 15 minuti, e a causa della differenza nella frequenza di aggiornamento, potrebbe mostrare numeri diversi da quelli visualizzati nell'area del grafico mostrato sopra, che viene aggiornato ogni giorno. Per ulteriori informazioni, vedere la sezione[Monitor](https://msdn.microsoft.com/library/dn757759.aspx).
+     Per ulteriori informazioni, vedere [Utilizzo del servizio StorSimple Manager per monitorare il dispositivo StorSimple](storsimple-monitor-device.md).
 
-- **Avvisi**-nell'area avvisi viene fornita una panoramica degli avvisi per il dispositivo. Gli avvisi sono raggruppati in base alla gravità e viene fornito un conteggio del numero di avvisi a ogni livello di gravità. Cliccando sulla gravità dell'avviso si apre una scheda avvisi che mostra solo gli avvisi di tale livello di gravità per il dispositivo.
+- **Panoramica sull'utilizzo**-nell'area di **panoramica dell'utilizzo**, è possibile visualizzare la quantità di spazio di archiviazione primaria utilizzato, la quantità di archiviazione sottoposto a provisioning e la capacità di archiviazione massima per il dispositivo. Confrontando i numeri di utilizzo alla quantità massima di archiviazione disponibile, è possibile visualizzare immediatamente se è necessario ottenere memoria aggiuntiva. Si noti che questa panoramica viene aggiornata ogni 15 minuti, e a causa della differenza nella frequenza di aggiornamento, potrebbe mostrare numeri diversi da quelli visualizzati nell'area del grafico mostrato sopra, che viene aggiornato ogni giorno. Per ulteriori informazioni, vedere [Utilizzo del servizio StorSimple Manager per monitorare il dispositivo StorSimple](storsimple-monitor-device.md).
 
-- **Processi**: l'area relativa ai processi mostra il risultato della recente attività di processo. Questo garantisce che il sistema funziona come previsto, o può far sapere all’utente se è necessario adottare misure correttive. Per ulteriori informazioni sui processi completati di recente, fare clic su**processi completati nelle ultime 24 ore**.
+
+- **Avvisi**-nell'area **avvisi** viene fornita una panoramica degli avvisi per il dispositivo. Gli avvisi sono raggruppati in base alla gravità e viene fornito un conteggio del numero di avvisi a ogni livello di gravità. Cliccando sulla gravità dell'avviso si apre una scheda avvisi che mostra solo gli avvisi di tale livello di gravità per il dispositivo.
+
+- **Processi**: l'area relativa ai **processi** mostra il risultato della recente attività di processo. Questo garantisce che il sistema funziona come previsto, o può far sapere all’utente se è necessario adottare misure correttive. Per ulteriori informazioni sui processi completati di recente, fare clic su**processi completati nelle ultime 24 ore**.
 
 - L’area**riepilogo rapido**a destra del dashboard fornisce informazioni utili come ad esempio il modello di dispositivo, il numero di serie, stato, descrizione e numero di volumi.
 
@@ -74,7 +77,7 @@ Il numero di serie del dispositivo potrebbe essere necessario quando si configur
 
 #### Per trovare il numero di serie del dispositivo
 
-1. Passare a**dispositivi**>**Dashboard**.
+1. Passare a**Dispositivi**>**Dashboard**.
 
 2. Nel riquadro a destra del dashboard, individuare l’area**riepilogo rapido**.
 
@@ -86,7 +89,7 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 
 ### Per trovare l’IQN di destinazione del dispositivo
 
-1. Passare a**dispositivi**>**Dashboard**.
+1. Passare a**Dispositivi**>**Dashboard**.
 
 1. Nel riquadro a destra del dashboard, individuare l’area**riepilogo rapido**.
 
@@ -96,4 +99,4 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 
 [Ulteriori informazioni sul dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

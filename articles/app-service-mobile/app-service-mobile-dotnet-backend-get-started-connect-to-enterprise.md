@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connettere un'app mobile a una soluzione aziendale SaaS | Mobile Dev Center"
+	pageTitle="Collegare un'app mobile a una soluzione aziendale SaaS | Microsoft Azure"
 	description="Informazioni su come effettuare chiamate a risorse aziendali come SharePoint Online"
 	documentationCenter=""
 	authors="mattchenderson"
@@ -187,4 +187,4 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

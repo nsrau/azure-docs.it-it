@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso di dati offline con App mobili di Azure (Windows Store) | Dev Center di Servizi mobili"
+	pageTitle="Uso di dati offline con App mobili di Azure (Windows Store) | Microsoft Azure"
 	description="Informazioni su come usare App mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Windows Store"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -278,4 +278,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

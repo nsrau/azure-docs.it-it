@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare più client con un singolo back-end di Servizi mobili | Servizi mobili di Azure" 
+	pageTitle="Come usare più client con un singolo back-end di Servizi mobili | Microsoft Azure" 
 	description="Informazioni su come usare un singolo back-end del servizio mobile da più app client per diverse piattaforme mobili, ad esempio Windows Store e Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -208,4 +208,4 @@ La libreria client .NET di Servizi mobili supporta app sia di Windows Phone Stor
 [progetto di app Windows universale per Servizi mobili di Azure mediante MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

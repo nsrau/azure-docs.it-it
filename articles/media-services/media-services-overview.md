@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Informazioni generali su Servizi multimediali di Azure
@@ -87,4 +87,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [overview]: ./media/media-services-overview/media-services-overview.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione alle notifiche push (Android JavaScript) | Mobile Dev Center" 
+	pageTitle="Introduzione alle notifiche push (Android JavaScript) | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app JavaScript per Android." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -212,4 +212,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

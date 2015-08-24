@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 # Integrazione di un'app Web in una rete virtuale di Azure #
@@ -26,7 +26,7 @@ Per ulteriori informazioni sulle Reti Virtuali di Azure, consultare le Informazi
 ## Introduzione ##
 Prima di procedere con la connessione della propria app Web a una rete virtuale, è opportuno prendere in considerazione i seguenti aspetti.
 
-1.	Le app Web possono connettersi a una rete virtuale solo se sono in esecuzione su un piano del servizio app al livello di prezzo "Standard". Le app Web con piani gratuito, condiviso e base non possono connettersi a una rete virtuale.
+1.	Le app Web possono connettersi a una rete virtuale solo se sono in esecuzione su un piano del servizio App al livello di prezzo **Standard**. Le app Web con piani gratuito, condiviso e base non possono connettersi a una rete virtuale.
 2.	Se la rete virtuale di destinazione esiste già, deve essere Point-to-Site con un gateway di routing dinamico per poter eseguire la connessione a un'app Web. Non è possibile attivare la VPN Point-to-Site se il gateway è configurato con il routing statico.
 3.	È possibile disporre di un massimo di 5 reti configurate nel proprio piano del servizio app. Un'app Web può connettersi a una rete alla volta. Le 5 reti possono essere usate da un numero qualsiasi di app Web nello stesso piano del servizio app.  
 
@@ -70,13 +70,13 @@ Una volta completata correttamente l'integrazione, nel portale di Azure è possi
 ![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 ##Gestione della connessione alla rete virtuale##
-È possibile visualizzare un elenco di tutte le reti virtuali attualmente associate ad app Web in un piano del servizio app visitando il pannello di tale piano. È possibile disporre di un massimo di 5 reti associate a un piano del servizio app "standard".
+È possibile visualizzare un elenco di tutte le reti virtuali attualmente associate ad app Web in un piano del servizio app visitando il pannello di tale piano. È possibile disporre di un massimo di 5 reti associate a un piano del servizio app al livello Standard.
 
 Se il piano del servizio app passa a un livello inferiore (gratuito, condiviso o base), le connessioni alla rete virtuale usate dalle app Web del piano vengono disattivate. Se, in seguito, il piano torna al livello standard, le connessioni alla rete vengono ripristinate.
 
 Al momento Azure non consente di prelevare una macchina virtuale esistente e trasferirla in una rete virtuale. Il provisioning della macchina virtuale deve essere effettuato in tale rete virtuale durante la creazione.
 
-## Accesso alle risorse in sede ##
+## Accesso alle risorse locali ##
 Quando si usa una rete virtuale configurata con una VPN da sito a sito, è necessario effettuare un'altra procedura per fornire l'accesso alle risorse locali dalla propria app Web. Le route devono essere aggiunte alla propria rete locale per consentire al traffico di passare dalla propria rete agli indirizzi Point-to-Site configurati nella propria rete virtuale. Per vedere l'intervallo di indirizzi IP per la connettività Point-to-Site, andare all'area Rete nel portale di Azure come mostrato nella seguente immagine.
 
 ![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
@@ -106,4 +106,4 @@ Inoltre, sono attualmente presenti differenze a livello di prezzo tra le due fun
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

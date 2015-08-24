@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Applicazione ibrida cloud/locale (.NET) - Azure"
+	pageTitle="Applicazione ibrida cloud/locale (.NET) | Microsoft Azure"
 	description="Informazioni su come creare un'applicazione .NET ibrida locale e nel cloud usando l'inoltro di Bus di servizio di Azure."
 	services="service-bus"
 	documentationCenter=".net"
@@ -620,4 +620,4 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

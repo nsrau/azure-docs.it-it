@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestione di conflitti di scrittura con concorrenza ottimistica (Windows Store) | Mobile Dev Center" 
+	pageTitle="Gestione di conflitti di scrittura con concorrenza ottimistica (Windows Store) | Microsoft Azure" 
 	description="Informazioni su come gestire conflitti di scrittura del database sia nel server che nell'applicazione per Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -366,4 +366,4 @@ In questa esercitazione sono state illustrate le procedure per abilitare la gest
 [proprietà di sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

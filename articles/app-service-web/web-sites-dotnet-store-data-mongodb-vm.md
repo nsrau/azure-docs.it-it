@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -92,7 +92,7 @@ Per installare il driver MongoDB C#:
 
 	![Manage NuGet Packages][VS2013ManageNuGetPackages]
 
-2. Nel riquadro sinistro della finestra **Gestisci pacchetti NuGet** fare clic su **Online**. Nella casella di **ricerca online** a destra, digitare "mongocsharpdriver". Fare clic su **Installa** per installare il driver.
+2. Nel riquadro sinistro della finestra **Gestisci pacchetti NuGet** fare clic su **Online**. Nella casella di **ricerca online** a destra, digitare "mongodb.driver". Fare clic su **Installa** per installare il driver.
 
 	![Ricerca del driver MongoDB C#][SearchforMongoDBCSharpDriver]
 
@@ -101,7 +101,7 @@ Per installare il driver MongoDB C#:
 4. Dopo aver installato il driver, fare clic su **Chiudi**. ![Driver MongoDB C# installato][MongoDBCsharpDriverInstalled]
 
 
-Il driver MongoDB C# è ora installato. I riferimenti alle librerie **MongoDB.Driver.dll** e **MongoDB.Bson.dll** sono stati aggiunti al progetto.
+Il driver MongoDB C# è ora installato. I riferimenti alle librerie **MongoDB.Bson**, **MongoDB.Driver**, e **MongoDB.Driver.Core** sono stati aggiunti al progetto.
 
 ![Riferimenti al driver MongoDB C#][MongoDBCSharpDriverReferences]
 
@@ -499,4 +499,4 @@ Per ulteriori informazioni sull'utilizzo di MongoDB per lo sviluppo di applicazi
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

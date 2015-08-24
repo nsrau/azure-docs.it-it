@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilizzare Gestione risorse per allocare le risorse nel cluster Apache Spark in HDInsight| Azure" 
+	pageTitle="Utilizzare Gestione risorse per allocare le risorse nel cluster Apache Spark in HDInsight | Microsoft Azure" 
 	description="Imparare a utilizzare il gestore di risorse per i cluster di Spark su HDInsight per ottenere prestazioni migliori." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -65,7 +65,7 @@ Specificare il conteggio del core del server Thrift e la memoria esecutore del s
 * [Eseguire il provisioning di uno Spark nel cluster HDInsight](hdinsight-apache-spark-provision-clusters.md)
 * [Eseguire l’analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 * [Utilizzare Spark in HDInsight per la creazione di applicazioni di Machine Learning](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Utilizzare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -79,4 +79,4 @@ Specificare il conteggio del core del server Thrift e la memoria esecutore del s
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="08/11/2015"
    ms.author="bwren" />
 
 # Avvio di un Runbook in Automazione di Azure
@@ -232,4 +232,4 @@ Presupponendo che il nome utente nelle credenziali sia *jsmith*, si ottiene l'ou
 
 - [Avvio di un Runbook da un altro Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

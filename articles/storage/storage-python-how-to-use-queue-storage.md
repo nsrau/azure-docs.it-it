@@ -112,4 +112,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

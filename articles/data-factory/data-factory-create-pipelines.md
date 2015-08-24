@@ -290,7 +290,7 @@ Una pipeline è attiva solo tra l'ora di inizio e l’ora di fine. Non viene ese
 In realtà, non è la pipeline a essere eseguita, bensì le attività all’interno della pipeline. Tuttavia, l’esecuzione avviene nel contesto generale della pipeline. Vedere la sezione relativa alla [pianificazione e all’esecuzione](data-factory-scheduling-and-execution.md)per comprendere il funzionamento della pianificazione e dell'esecuzione in Data factory di Azure.
 
 ## Gestione e monitoraggio  
-Una volta distribuita una pipeline, è possibile gestire e monitorare le pipeline, le sezioni e le esecuzioni. Per ulteriori informazioni, vedere la sezione relativa al [monitoraggio e alla gestione delle pipeline](data-factory-monior-manage-pipelines.md).
+Una volta distribuita una pipeline, è possibile gestire e monitorare le pipeline, le sezioni e le esecuzioni. Per ulteriori informazioni, vedere la sezione: [Monitoraggio e gestione delle pipeline](data-factory-monitor-manage-pipelines.md).
 
 ## Passaggi successivi
 
@@ -324,4 +324,4 @@ Una volta distribuita una pipeline, è possibile gestire e monitorare le pipelin
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

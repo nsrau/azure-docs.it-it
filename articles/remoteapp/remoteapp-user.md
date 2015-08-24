@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Aggiungere un utente in RemoteApp" 
-    description="Informazioni su come aggiungere utenti in RemoteApp" 
+    pageTitle="Aggiungere un utente alla raccolta di Azure RemoteApp" 
+    description="Informazioni su come aggiungere utenti alla raccolta di Azure RemoteApp" 
     services="remoteapp" 
 	documentationCenter="" 
     authors="lizap" 
@@ -12,22 +12,22 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# Come aggiungere un utente in RemoteApp
+# Come aggiungere un utente alla raccolta di Azure RemoteApp
 
-Prima che gli utenti possano visualizzare e usare le app in RemoteApp, è necessario concedere loro l'accesso alla raccolta. Questo è estremamente semplice: nella scheda **Accesso utente** immettere le informazioni relative all'account dell'utente e quindi fare clic sul segno di spunta.
+Prima che gli utenti possano visualizzare e usare le app in Azure RemoteApp, è necessario concedere loro l'accesso alla raccolta. Questo è estremamente semplice: nella scheda **Accesso utente** immettere le informazioni relative all'account dell'utente e quindi fare clic sul segno di spunta.
 
 Quali informazioni sull'account sono necessarie? Dipende dal tipo di raccolta creata (cloud o ibrida) e dall'uso o meno di Office 365 ProPlus in tale raccolta.
 
 ## Identità degli utenti supportate
 
-I diversi tipi di raccolta (cloud e ibridi) supportano l'uso di diverse identità utente per l'accesso utente alle applicazioni.
+I diversi tipi di raccolta (cloud e ibridi) supportano l'uso di diverse identità utente per l'accesso alle applicazioni.
 
 Per una raccolta ibrida di RemoteApp, è necessario configurare un'infrastruttura di dominio Active Directory locale e un tenant di Azure Active Directory con l'integrazione della directory (e, facoltativamente, Single Sign-On). Inoltre, è necessario creare alcuni oggetti Active Directory nella directory locale.
 
-Per una raccolta nel cloud di RemoteApp, a tutti gli utenti che dispongono di identità di supporto per Azure Active Directory è possibile concedere l'accesso utente a RemoteApp in modo che comprenda gli account Microsoft. Vedere la tabella seguente.
+Per una raccolta nel cloud di RemoteApp, a tutti gli utenti che dispongono di identità di supporto per Azure Active Directory è possibile concedere l'accesso utente a RemoteApp in modo che comprenda gli account Microsoft. Vedere la tabella riportata di seguito.
 
 Gli utenti di Office 365 sono utenti di Azure Active Directory. Agli utenti che dispongono di account ibridi con sincronizzazione della directory di Azure Active Directory è possibile concedere l'accesso utente in una distribuzione ibrida di RemoteApp.
 
@@ -53,4 +53,4 @@ Per [altre informazioni](remoteapp-ad.md), vedere Configurare Azure Active Direc
 Se si usa l'immagine modello di Office 365 ProPlus nella raccolta *o* se è stata creata un'immagine personalizzata che usa Office 365, è possibile solo aggiungere gli utenti di Azure Active Directory che dispongono di sottoscrizioni a Office 365 per il dominio predefinito della sottoscrizione. Per altre informazioni, vedere l'articolo relativo all'[uso di Office 365 con Azure RemoteApp](remoteapp-o365.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

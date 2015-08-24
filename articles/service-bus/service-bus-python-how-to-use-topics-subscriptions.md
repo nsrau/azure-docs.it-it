@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare gli argomenti del Bus di servizio (Python) - Azure" 
+	pageTitle="Come usare gli argomenti del Bus di servizio (Python) | Microsoft Azure" 
 	description="Informazioni su come usare gli argomenti e le sottoscrizioni del bus di servizio da Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -158,4 +158,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come scalare un servizio cloud | Azure" 
+	pageTitle="Come scalare un servizio cloud | Microsoft Azure" 
 	description="Informazioni su come scalare un servizio cloud e le risorse collegate in Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -227,4 +227,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,81 +1,20 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Risorsa</th>
-   <th align="left" valign="middle">Limite predefinito</th>
-   <th align="left" valign="middle">Limite massimo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Core per <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">sottoscrizione</a><sup>1</sup></p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>10.000</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Coamministratori</a> per sottoscrizione</p></td>
-   <td valign="middle"><p>200</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Account di archiviazione</a> per sottoscrizione</p></td>
-   <td valign="middle"><p>100</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Servizi cloud</a> per sottoscrizione</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Reti locali</a> per sottoscrizione</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>500</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Server di database SQL per sottoscrizione</p></td>
-   <td valign="middle"><p>6</p></td>
-   <td valign="middle"><p>150</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Database SQL per server</p></td>
-   <td valign="middle"><p>150</p></td>
-   <td valign="middle"><p>500</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Server DNS per sottoscrizione</p></td>
-   <td valign="middle"><p>9</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>IP riservati per sottoscrizione</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Circuiti ExpressRoute dedicati per sottoscrizione</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Certificati di servizi ospitati per sottoscrizione</p></td>
-   <td valign="middle"><p>400</p></td>
-   <td valign="middle"><p>400</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Gruppi di affinità</a> per sottoscrizione</p></td>
-   <td valign="middle"><p>256</p></td>
-   <td valign="middle"><p>256</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Account <a href="http://azure.microsoft.com/services/batch/">Batch</a> per area per sottoscrizione</p></td>
-   <td valign="middle"><p>1</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Regole di avviso per ogni sottoscrizione</p></td>
-   <td valign="middle"><p>250</p></td>
-   <td valign="middle"><p>250</p></td>
-</tr>
-</table>
+Risorsa|Limite predefinito|Limite massimo
+---|---|---
+Core per [sottoscrizione](http://msdn.microsoft.com/library/azure/hh531793.aspx) <sup>1</sup>|20|10\.000
+[Coamministratori](http://msdn.microsoft.com/library/azure/gg456328.aspx) per sottoscrizione|200|200
+[Account di archiviazione](storage-create-storage-account.md) per sottoscrizione|100|100
+[Servizi cloud](cloud-services-what-is.md) per sottoscrizione|20|200
+[Reti locali](http://msdn.microsoft.com/library/jj157100.aspx) per sottoscrizione|10|500
+Server di database SQL per sottoscrizione|6|150
+Database SQL per server|150|500
+Server DNS per sottoscrizione|9|100
+IP riservati per sottoscrizione|20|100
+Circuiti ExpressRoute dedicati per sottoscrizione|10|25
+Certificati di servizi ospitati per sottoscrizione|400|400
+[Gruppi di affinità](http://msdn.microsoft.com/library/azure/jj156085.aspx) per sottoscrizione|256|256
+Account [Batch](http://azure.microsoft.com/services/batch/) per area per sottoscrizione|1|50
+Regole di avviso per ogni sottoscrizione|250|250
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

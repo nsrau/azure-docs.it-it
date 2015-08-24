@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Anti-modelli di Reliable Actors"
-   description="Alcuni potenziali errori per i clienti che stanno imparando a usare Service Fabric Reliable Actors."
+   pageTitle="Alcuni anti-modelli correlati ad Azure Service Fabric Actors"
+   description="Alcuni potenziali errori per i clienti che stanno imparando a usare Azure Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Modello di progettazione di Reliable Actors: alcuni anti-modelli
@@ -30,4 +30,4 @@ Per i clienti che stanno imparando a usare Service Fabric Reliable Actors, abbia
 
 * Mappare alla cieca i modelli di entità. Questa situazione riguarda gli sviluppatori che provengono da un universo relazionale in cui i problemi vengono modellati usando le entità e le rispettive relazioni. Sebbene questo approccio sia ancora utile per comprendere l'argomento, dovrebbe accompagnarsi a un ragionamento orientato ai servizi e al comportamento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

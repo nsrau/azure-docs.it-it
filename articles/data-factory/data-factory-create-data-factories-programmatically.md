@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/06/2015" 
 	ms.author="spelluru"/>
 
 # Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory .NET SDK
@@ -42,7 +42,7 @@
 2. Fare clic su <b>Strumenti</b>, scegliere <b>Gestione pacchetti NuGet</b> e quindi fare clic su <b>Console di Gestione pacchetti</b>.
 3.	In <b>Console di Gestione pacchetti</b> eseguire i comandi seguenti uno alla volta.</b> 
 
-		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. Aggiungere la sezione **appSettings** seguente al file **App.config**. Queste impostazioni sono usate dal metodo helper: **GetAuthorizationHeader**. 
 
@@ -393,4 +393,4 @@ Articolo | Descrizione
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Importare il file delle impostazioni di pubblicazione in Visual Studio 2013 | Servizi mobili" 
+	pageTitle="Importare il file delle impostazioni di pubblicazione in Visual Studio 2013 | Microsoft Azure" 
 	description="Informazioni su come importare il file delle impostazioni di pubblicazione di una sottoscrizione per l'applicazione Servizi mobili di Azure in Visual Studio 2013." 
 	documentationCenter="" 
 	services="mobile-services" 
@@ -62,4 +62,4 @@ Prima di poter creare il servizio mobile, è necessario importare il file delle 
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

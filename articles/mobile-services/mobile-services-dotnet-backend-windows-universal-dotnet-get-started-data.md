@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere Servizi mobili a un'app di Windows Store universale esistente | Servizi mobili di Azure" 
+	pageTitle="Aggiungere Servizi mobili a un'app di Windows Store universale esistente | Microsoft Azure" 
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Store." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -121,4 +121,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

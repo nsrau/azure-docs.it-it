@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Come usare gli argomenti del bus di servizio (.NET) - Azure"
+    pageTitle="Come usare gli argomenti del bus di servizio (.NET) | Microsoft Azure"
     description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -301,4 +301,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sot
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

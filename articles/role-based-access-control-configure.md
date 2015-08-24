@@ -55,7 +55,7 @@ Non è necessario assegnare l'accesso all'intera sottoscrizione. I ruoli possono
 
 L'amministratore e i coamministratori delle sottoscrizioni continueranno a disporre di un accesso completo ai portali e alle API di gestione di Azure. Nel modello di controllo di accesso basato sui ruoli, vengono associati a un ruolo di proprietario a livello di sottoscrizione. Tuttavia, il nuovo modello di controllo di accesso basato sui ruoli è supportato solo dal portale di Azure e dalle API di Gestione risorse di Azure. Gli utenti e servizi associati a ruoli RBAC non possono accedere al portale di gestione di Azure e alle API di Gestione servizi di Azure. L'aggiunta di un utente al ruolo di proprietario di una sottoscrizione nel portale di Azure non rende tale utente un coamministratore della sottoscrizione nel portale Azure completo.
 
-Per concedere a un utente l'accesso a una risorsa di Azure che non può ancora essere gestita nel portale di Azure, è necessario aggiungerlo ai coamministratori della sottoscrizione usando il portale di gestione di Azure. Il bus di servizio e i servizi cloud sono due esempi di risorse che non possono essere attualmente gestite con il modello RBAC.
+Per concedere a un utente l'accesso a una risorsa di Azure che non può ancora essere gestita nel portale di Azure, è necessario aggiungerlo ai coamministratori della sottoscrizione usando il portale di gestione di Azure. Il bus di servizio e StorSimple sono due esempi di risorse che non possono essere attualmente gestite con il modello di controllo degli accessi in base al ruolo (RBAC).
 
 ## Autorizzazioni per le operazioni di gestione e per le operazioni di dati
 
@@ -100,7 +100,7 @@ Le assegnazioni dei ruoli possono inoltre essere gestite utilizzando il modulo d
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Per ulteriori informazioni sull'aggiunta e sulla rimozione degli accessi tramite Windows PowerShell, vedere [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell](role-based-access-control-powershell.md).
+Per altre informazioni sull'aggiunta e sulla rimozione degli accessi tramite Windows PowerShell, vedere [Gestione del controllo degli accessi in base al ruolo con Windows PowerShell](role-based-access-control-powershell.md).
 
 ### Rimuovere un accesso
 
@@ -1293,4 +1293,4 @@ Di seguito sono riportate altre risorse utili per l'uso del controllo degli acce
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

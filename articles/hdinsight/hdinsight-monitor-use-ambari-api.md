@@ -7,7 +7,6 @@
 	editor="cgronlun"
 	manager="paulettm"/>
 
-
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="06/08/2015"
 	ms.author="jgao"/>
-
 
 # Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari
 
@@ -45,12 +43,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Un cluster HDInsight di Azure**. Per istruzioni sul provisioning dei cluster, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
 
-	<table border="1">
-<tr><th>Proprietà del cluster</th><th>Nome variabile di Azure PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
-<tr><td>Nome del cluster HDInsight</td><td>$clusterName</td><td></td><td>Il nome del cluster HDInsight.</td></tr>
-<tr><td>Nome utente cluster</td><td>$clusterUsername</td><td></td><td>Nome utente del cluster specificato al momento del provisioning.</td></tr>
-<tr><td>Password cluster</td><td>$clusterPassword</td><td></td><td>Password dell'utente del cluster.</td></tr>
-</table>> [AZURE.NOTE]Specificare i valori nella tabella. Questa operazione sarà utile per completare l'esercitazione.
+Proprietà del cluster|Nome variabile di Azure PowerShell|Valore|Descrizione
+---|---|---|---
+Nome del cluster HDInsight|$clusterName||Il nome del cluster HDInsight.
+Nome utente cluster|$clusterUsername||Nome utente del cluster specificato al momento del provisioning.
+Password cluster|$clusterPassword||Password dell'utente del cluster.
+
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -127,23 +126,20 @@ Quando si usa l'endpoint Ambari, "https://{clusterDns}.azurehdinsight.net/ambari
 
 La tabella seguente riporta alcune delle chiamate API Ambari di monitoraggio più comuni. Per altre informazioni, vedere la [documentazione di riferimento dell'API Ambari][ambari-api-reference].
 
-<table border="1">
-<tr><th>Chiamata API di monitoraggio</th><th>URI</th><th>Descrizione</th></tr>
-<tr><td>Get clusters</td><td><tt>/api/v1/clusters</tt></td><td></td></tr>
-<tr><td>Get cluster info.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net</tt></td><td>cluster, servizi, hosts</td></tr>
-<tr><td>Get services</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services</tt></td><td>Services include: hdfs, mapreduce</td></tr>
-<tr><td>Get services info.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName></tt></td><td></td></tr>
-<tr><td>Get service components</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components</tt></td><td>HDFS: namenode, datanode<br/>
-MapReduce: jobtracker; tasktracker</td></tr>
-<tr><td>Get component info.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components/&lt;ComponentName></tt></td><td>ServiceComponentInfo, componenti host, metriche</td></tr>
-<tr><td>Get hosts</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
-<tr><td>Get host info.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>
-</td><td></td></tr>
-<tr><td>Get host components</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components </tt></td><td>namenode, resourcemanager</td></tr>
-<tr><td>Get host component info.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components/&lt;ComponentName> </tt></td><td>HostRoles, componente, host, metriche</td></tr>
-<tr><td>Get configurations</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations </tt></td><td>Config types: core-site, hdfs-site, mapred-site, hive-site</td></tr>
-<tr><td>Get configuration info.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations?type=&lt;ConfigType>&amp;tag=&lt;VersionName> </tt></td><td>Config types: core-site, hdfs-site, mapred-site, hive-site</td></tr>
-</table>
+Chiamata API di monitoraggio|URI|Descrizione
+---|---|---
+Get clusters|`/api/v1/clusters`|
+Get cluster info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net`|cluster, servizi, hosts
+Get services|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services`|Services include: hdfs, mapreduce
+Get services info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;`|
+Get service components|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
+Get component info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;`|ServiceComponentInfo, componenti host, metriche
+Get hosts|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts`|headnode0, workernode0
+Get host info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;`|
+Get host components|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components`|namenode, resourcemanager
+Get host component info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;`|HostRoles, componente, host, metriche
+Get configurations|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations`|Config types: core-site, hdfs-site, mapred-site, hive-site
+Get configuration info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|Config types: core-site, hdfs-site, mapred-site, hive-site
 
 
 ##<a id="nextsteps"></a>Passaggi successivi
@@ -179,4 +175,4 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

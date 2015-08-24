@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come creare e distribuire un servizio Cloud - Azure"
+	pageTitle="Come creare e distribuire un servizio Cloud | Microsoft Azure"
 	description="Informazioni su come creare e distribuire un servizio cloud usando il metodo Creazione rapida in Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -147,4 +147,4 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

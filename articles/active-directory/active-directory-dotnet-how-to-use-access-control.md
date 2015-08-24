@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare Controllo di accesso (.NET) - Guida alle funzionalità di Azure" 
+	pageTitle="Come usare il Controllo di accesso (.NET) | Microsoft Azure" 
 	description="Informazioni su come usare Servizio di controllo di accesso (ACS) nell'applicazione Azure per autenticare gli utenti quando provano a ottenere l'accesso a un'app Web." 
 	services="active-directory" 
 	documentationCenter=".net" 
@@ -67,9 +67,9 @@ Nella figura seguente viene illustrato il funzionamento dell'autenticazione ACS 
 1.  Il client, in questo caso un browser, richiede una pagina dall'applicazione relying party.
 2.  Poiché la richiesta non è stata ancora autenticata, l'applicazione RP reindirizza l'utente all'autorità che considera attendibile, ovvero ACS. ACS presenta all'utente l'elenco dei provider di identità specificati per questa applicazione RP. L'utente seleziona il provider di identità appropriato.
 3.  Il client passa alla pagina di autenticazione del provider di identità e chiede all'utente di eseguire l'accesso.
-4.  Dopo l'autenticazione del client, ad esempio dopo l'immissione delle credenziali di identità, il provider di identità emette un token di sicurezza.
+4.  Dopo l'autenticazione del client, ad esempio dopo l'immissione delle credenziali di identità, il provider di identità rilascia un token di sicurezza.
 5.  Dopo l'emissione del token di sicurezza, il provider di identità indica al client di inviarlo ad ACS.
-6.  ACS convalida il token di sicurezza emesso dal provider di identità, inserisce le attestazioni di identità contenute nel motore regole ACS, calcola le attestazioni di identità di output ed emette un nuovo token di sicurezza che contiene tali attestazioni di identità di output.
+6.  ACS convalida il token di sicurezza rilasciato dal provider di identità, inserisce le attestazioni di identità contenute nel motore regole ACS, calcola le attestazioni di identità di output e rilascia un nuovo token di sicurezza che contiene tali attestazioni di identità di output.
 7.  ACS indica al client di inviare il token di sicurezza emesso da ACS all'applicazione RP. L'applicazione convalida la firma nel token di sicurezza, estrae le attestazioni per l'uso da parte della logica di business dell'applicazione e restituisce la pagina richiesta.
 
 ## Prerequisiti
@@ -402,4 +402,4 @@ Per continuare ad esplorare le funzionalità di ACS ed esercitarsi con ulteriori
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Xamarin.iOS) | Mobile Dev Center" 
+	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Xamarin.iOS) | Microsoft Azure" 
 	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Xamarin iOS." 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
@@ -141,4 +141,4 @@ Per completare questa esercitazione, è necessario disporre di:
 [estensione Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

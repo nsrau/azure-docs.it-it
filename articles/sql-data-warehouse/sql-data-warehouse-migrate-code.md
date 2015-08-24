@@ -28,7 +28,6 @@ L'elenco seguente riepiloga le funzionalità principali che non sono supportate 
 - Join ANSI sulle eliminazioni
 - Istruzione merge
 - Join tra database
-- [Istruzioni pivot e unpivot][]
 - [Cursori][]
 - [SELECT..INTO][]
 - INSERT..EXEC
@@ -86,7 +85,7 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 <!--Image references-->
 
 <!--Article references-->
-[Istruzioni pivot e unpivot]: sql-data-warehouse-develop-pivot-unpivot.md
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
 [Cursori]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento]: sql-data-warehouse-develop-group-by-options.md
@@ -100,4 +99,4 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

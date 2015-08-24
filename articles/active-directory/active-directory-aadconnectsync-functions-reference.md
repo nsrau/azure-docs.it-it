@@ -456,7 +456,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 **Osservazioni:** <br> Restituisce la posizione in cui è stata trovata la sottostringa o 0 se non viene trovata.
 
-**Esempio:** <br> `InStrRev("abbcdbbbef","bb")` <br> Restituisce 7.
+**Esempio:** <br> `InStrRev("abbcdbbbef","bb")` <br> Restituisce 7
  
  
 
@@ -556,7 +556,7 @@ Usata per determinare se CGuid() riuscirà.
 ----------
 ### IsString
 
-**Descrizione:** <br> La funzione IsString restituisce True se l'espressione può essere valutata in un tipo di stringa.
+**Descrizione:** <br> La funzione IsString restituisce True se l'espressione può essere valutata come tipo stringa.
  
 **Sintassi:** <br> `bool IsString(var expression)`
  
@@ -676,7 +676,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
  
 **Sintassi:** <br> `num Len(str value)`
  
-**Esempio:** <br> `Len(“John Doe”)` <br> Restituisce 8
+**Esempio:** <br> `Len(“John Doe”)` <br> Restituisce 8.
  
 
 
@@ -688,7 +688,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
  
 **Sintassi:** <br> `str LTrim(str value)`
  
-**Esempio:** <br> `LTrim(“ Test ”)` <br> Restituisce "Test "
+**Esempio:** <br> `LTrim(“ Test ”)` <br> Restituisce "Test ".
  
  
 
@@ -742,7 +742,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 **Sintassi:** <br> `num NumFromDate(dt value)`
  
 
-**Esempio:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> Restituisce 129699324000000000
+**Esempio:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> Restituisce 129699324000000000.
  
  
 
@@ -835,7 +835,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
  
 **Sintassi:** <br> `mvstr RemoveDuplicates(mvstr attribute)`
  
-**Esempio:** <br> `RemoveDuplicates([proxyAddresses])` <br> Restituisce un attributo proxyAddress puro in cui sono stati rimossi tutti i valori duplicati.
+**Esempio:** <br> `RemoveDuplicates([proxyAddresses])` <br> Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati.
  
  
 
@@ -938,7 +938,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in Num
 
 
 ----------
-### Dividi
+### Split
 
 **Descrizione:** <br> La funzione Split accetta una stringa con valori separati da delimitatore e la converte in una stringa multivalore.
  
@@ -1058,4 +1058,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

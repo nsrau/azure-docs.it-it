@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/06/2015" 
 	ms.author="cephalin"/>
 
 # Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web #
@@ -218,17 +218,27 @@ Naturalmente, devono esserci i presupporti per la memorizzazione nella cache. Si
 <a name="query"></a>
 ## Rendere immediatamente disponibile il contenuto aggiornato mediante le stringhe di query ##
 
-Nella rete CDN di Azure è possibile abilitare le stringhe di query in modo tale che il contenuto degli URL con stringhe di query specifiche venga memorizzato nella cache separatamente. È un'ottima funzionalità da usare se si vuole caricare immediatamente alcuni aggiornamenti del contenuto nei browser client anziché attendere la scadenza del contenuto della rete CDN memorizzato nella cache. Si supponga di pubblicare la pagina Web con un numero di versione nell'URL. <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0" rel=";stylesheet";/&gt; </pre>
+Nella rete CDN di Azure è possibile abilitare le stringhe di query in modo tale che il contenuto degli URL con stringhe di query specifiche venga memorizzato nella cache separatamente. È un'ottima funzionalità da usare se si vuole caricare immediatamente alcuni aggiornamenti del contenuto nei browser client anziché attendere la scadenza del contenuto della rete CDN memorizzato nella cache. Si supponga di pubblicare una pagina Web con un numero di versione nell'URL.
+  
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0" rel="stylesheet"/>
 
-Quando si pubblica un aggiornamento CSS e si usa un numero di versione diverso nell'URL CSS: <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1"; rel=";stylesheet";/&gt; </pre>
+Se si pubblica un aggiornamento CSS, usare un numero di versione diverso nell'URL CSS:
+
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1" rel="stylesheet"/>
 
 Per un endpoint della rete CDN con le stringhe di query abilitate, i due URL sono univoci tra loro e verrà effettuata una nuova richiesta al server Web per recuperare il nuovo file *bootstrap.css*. Tuttavia, per un endpoint della rete CDN senza le stringhe di query abilitate, i due URL sono considerati uguali e verrà semplicemente distribuito il file *bootstrap.css* memorizzato nella cache.
 
-Lo stratagemma consiste quindi nell'aggiornare automaticamente il numero di versione. In Visual Studio, si tratta di un'operazione semplice. In un file. cshtml in cui è stato utilizzato il collegamento sopra riportato, è possibile specificare un numero di versione in base al numero di assembly. <pre class="prettyprint"> @{ var cdnVersion = System.Reflection.Assembly.GetAssembly (typeof(MyMvcApp.Controllers.HomeController)). GetName(). Version.ToString(); }
+Lo stratagemma consiste quindi nell'aggiornare automaticamente il numero di versione. In Visual Studio, si tratta di un'operazione semplice. In un file .cshtml in cui viene usato il collegamento sopra riportato, è possibile specificare un numero di versione in base al numero di assembly.
 
-...
-
-&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion"; rel=";stylesheet";/&gt; </pre>
+	@{
+	    var cdnVersion = System.Reflection.Assembly.GetAssembly(
+	        typeof(MyMvcApp.Controllers.HomeController))
+	        .GetName().Version.ToString();
+	}
+	
+	...
+	
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion" rel="stylesheet"/>
 
 Se si modifica il numero di assembly a ogni ciclo di pubblicazione, si potrà essere sicuri anche di ottenere un numero di versione univoco ogni volta che si pubblica l'app Web, che rimarrà uguale fino al successivo ciclo di pubblicazione. In alternativa, si può impostare Visual Studio in modo che incrementi automaticamente il numero di versione dell'assembly ogni volta che l'app Web viene compilata aprendo *Properties\\AssemblyInfo.cs* nel progetto di Visual Studio e usando `*` in `AssemblyVersion`. Ad esempio:
 
@@ -261,4 +271,4 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure �
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

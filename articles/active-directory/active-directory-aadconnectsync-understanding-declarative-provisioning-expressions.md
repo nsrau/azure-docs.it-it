@@ -135,4 +135,4 @@ Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

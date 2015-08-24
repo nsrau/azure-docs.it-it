@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Caricare immagini nell'archiviazione di Azure da un'app Windows Phone Silverlight | Servizi mobili di Azure" 
+	pageTitle="Caricare immagini nell'archiviazione di Azure da un'app Windows Phone Silverlight | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili per caricare immagini dall'app Windows Phone Silverlight nell'archivio BLOB di Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -103,4 +103,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

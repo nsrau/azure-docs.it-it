@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
 # Application Insights su servizi e app desktop di Windows
@@ -44,13 +44,21 @@ Il supporto per i servizi e le app desktop di Windows viene fornito dall'SDK di 
 
 1. In Visual Studio è possibile modificare i pacchetti NuGet del progetto di app desktop. ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Installare il pacchetto di Application Insights SDK.
+2. Installare il pacchetto di Application Insights Core API.
 
     ![Cercare "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Impostare il valore InstrumentationKey nel codice tramite l'oggetto `TelemetryConfiguration.Active`.
+3. Impostare L’InstrumentationKey nel codice, ad esempio in main ().
 
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+*Perché non vi è un file applicationinsights. config?*
+
+* Il file. config non è installato dal pacchetto di API Core, viene utilizzato solo per configurare gli agenti di raccolta di telemetria. È quindi possibile scrivere il codice per impostare la chiave di strumentazione e inviare dati di telemetria.
+
+*Si può utilizzare un pacchetto NuGet diverso?*
+
+* Sì, è possibile utilizzare il pacchetto di server web, che installa gli agenti di raccolta dei contatori per le prestazioni. È necessario [disabilitare l'agente di raccolta di richiesta HTTP](app-insights-configuration-with-applicationinsights-config.md). È necessario installare un file. config, dove inserire la chiave di strumentazione.
 
 ## <a name="telemetry"></a>Inserire le chiamate di telemetria
 
@@ -173,4 +181,4 @@ Se si usa TrackMetric o il parametro delle misurazioni di TrackEvent, aprire l'[
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

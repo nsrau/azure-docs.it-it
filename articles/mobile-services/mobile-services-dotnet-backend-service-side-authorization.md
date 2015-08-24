@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorizzazione sul lato servizio degli utenti su un servizio mobile back-end di .NET | Servizi mobili di Azure"
+	pageTitle="Autorizzazione sul lato servizio degli utenti su un servizio mobile back-end di .NET | Microsoft Azure"
 	description="Informazioni su come limitare l'accesso per autorizzare gli utenti in un servizio mobile back-end di .NET"
 	services="mobile-services"
 	documentationCenter="windows"
@@ -80,4 +80,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

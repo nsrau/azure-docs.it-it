@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Windows | Servizio app di Azure"
+	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Windows | Microsoft Azure"
 	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Windows tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
-
 
 <tags
 	ms.service="app-service"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="06/22/2015"
 	ms.author="mahender"/>
-
 
 # Aggiungere l'autenticazione all'app Windows
 
@@ -77,4 +75,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [Introduzione al servizio per app per dispositivi mobili]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

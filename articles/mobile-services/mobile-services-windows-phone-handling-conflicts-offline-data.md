@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili | Mobile Dev Center" 
+	pageTitle="Gestire i conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione per Windows Phone" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -241,4 +241,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

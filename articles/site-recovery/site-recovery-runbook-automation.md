@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -135,8 +135,18 @@ La variabile di contesto avrà un aspetto simile a quello riportato nell’esemp
 
 
 La tabella che segue contiene il nome e la descrizione di ciascuna variabile nel contesto.
-  
-<table border="1"> <tr><th>Nome della variabile</th><th>Descrizione della variabile</th></tr> <tr><td>RecoveryPlanName</td><td>Nome del piano di ripristino da eseguire. <p> Questa variabile consente di eseguire azioni diverse in base al nome del piano di ripristino utilizzando lo stesso script.</td></tr> <tr><td>FailoverType</td><td>Specifica se l'esecuzione è **Test**, **Pianificata** o **Non pianificata**. <p> Questa variabile consente di eseguire azioni diverse in base al tipo di failover. </td></tr> <tr><td>FailoverDirection</td><td>Specifica se il ripristino è dal lato primario al secondario o viceversa. <p>I due valori saranno **PrimaryToSecondary** e **SecondaryToPrimary** </td></tr> <tr><td>GroupId</td><td> Identifica il numero di gruppo all'interno del piano di ripristino in cui è in esecuzione il runbook. <p> Ad esempio, se il runbook è il gruppo di inserimento 2, GroupId sarà 2. </td></tr> <tr><td>VmMap</td><td> Si tratta di un array di tutte le macchine virtuali presenti nel gruppo. </td></tr> <tr><td>Chiave VmMap</td><td>Ogni macchina virtuale dispone di una chiave univoca identificata da un GUID. Questo GUID corrisponde all'ID VMM della macchina virtuale. <p> È possibile usare questo GUID per specificare in modo deterministico quale macchina virtuale si desidera utilizzare. </td></tr> <tr><td>RoleName</td><td>Specifica il nome della macchina virtuale di Azure da ripristinare.</td></tr> <tr><td>CloudServiceName</td><td> Specifica il nome del servizio cloud di Azure in cui viene creata la macchina virtuale. </td></tr> </table><br />
+
+**Nome variabile** | **Descrizione**
+---|---
+RecoveryPlanName | Nome del piano di esecuzione. Consente di agire in base al nome utilizzando lo stesso script
+FailoverType | Specifica se il failover è di test, pianificato o non pianificato. 
+FailoverDirection | Specifica se il ripristino avviene su primario o secondario
+GroupID | Identifica il numero del gruppo all'interno del piano di ripristino quando il piano è in esecuzione
+VmMap | Array di tutte le macchine virtuali presenti nel gruppo.
+VMMap key | Chiave univoca (GUID) per ciascuna VM. È uguale all'ID di VMM della macchina virtuale, se applicabile. 
+RoleName | Nome della VM di Azure in fase di ripristino
+CloudServiceName | Nome servizio cloud di Azure in cui viene creata la macchina virtuale.
+
 
 Per identificare la chiave VmMap nel contesto, è anche possibile andare alla pagina delle proprietà della macchina virtuale in Ripristino automatico di sistema e analizzare la proprietà VM GUID.
 
@@ -303,4 +313,4 @@ Anche se in questa esercitazione è stata illustrata l'automazione di un’attiv
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

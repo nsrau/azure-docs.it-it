@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="07/08/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # Guida introduttiva ai cmdlet Batch di Azure PowerShell
@@ -23,7 +23,7 @@ Per la sintassi dettagliata dei cmdlet, digitare `get-help <Cmdlet_name>` o vede
 
 ## Prerequisiti
 
-* **Azure PowerShell**: vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per i prerequisiti e per istruzioni di download e installazione. I cmdlet Batch sono stati introdotti nella versione 0.8.10 e successive.
+* **Azure PowerShell**: vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per i prerequisiti e per istruzioni di download e installazione. I cmdlet Batch sono stati introdotti nella versione 0.8.10 e successive. I cmdlet di Batch sono stati aggiornati per utilizzare la disponibilità generale API nella versione 0.9.6.
 
 ## Usare i cmdlet Batch
 
@@ -112,24 +112,24 @@ Get-AzureBatchPool -BatchContext $context
 ```
 ### Usare un filtro OData
 
-È possibile fornire un filtro OData tramite il parametro **Filter** per trovare solo gli oggetti a cui si è interessati. Ad esempio, è possibile trovare tutti i pool con nomi che iniziano con "myWork":
+È possibile fornire un filtro OData tramite il parametro **Filter** per trovare solo gli oggetti a cui si è interessati. Ad esempio, è possibile trovare tutti i pool con nomi che iniziano con "myPool":
 
 ```
-$filter = "startswith(name,'myPool')"
+$filter = "startswith(id,'myPool')"
 Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 Questo metodo non è flessibile come l'uso di "Where-Object" in una pipeline locale. Tuttavia, la query viene inviata al servizio Batch direttamente e quindi tutti i filtri vengono applicati sul lato server, consentendo un risparmio della larghezza di banda Internet.
 
-### Usare il parametro Name
+### Utilizzare il parametro Id
 
-In alternativa a un filtro OData, è possibile usare il parametro **Name**. Per eseguire una query per un pool specifico denominato "myPool":
-
-```
-Get-AzureBatchPool -Name "myPool" -BatchContext $context
+In alternativa a un filtro OData, è possibile usare il parametro **Id**. Per eseguire una query per un pool specifico con Id "myPool":
 
 ```
-Il parametro **Name** supporta solo la ricerca dei nomi completi, senza caratteri jolly o filtri di tipo OData.
+Get-AzureBatchPool -Id "myPool" -BatchContext $context
+
+```
+Il parametro **Id** supporta solo la ricerca di Id completi, senza caratteri jolly o filtri di tipo OData.
 
 ### Usare la pipeline
 
@@ -156,4 +156,4 @@ Per rimuovere il limite superiore, impostare **MaxCount** su 0 o un valore infer
 * [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Query di elenco efficienti](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

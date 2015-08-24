@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informazioni su come risolvere i problemi relativi ai Servizi BizTalk mediante i log operazioni| Azure" 
+	pageTitle="Informazioni su come risolvere i problemi relativi ai Servizi BizTalk mediante i log operazioni | Microsoft Azure" 
 	description="Informazioni su come risolvere i problemi relativi ai Servizi BizTalk mediante i log operazioni. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operazione di cancellazione dei backup del servizio 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

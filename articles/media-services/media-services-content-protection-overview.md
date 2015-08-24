@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Informazioni generali sulla protezione dei contenuti
@@ -141,4 +141,4 @@ Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST*
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

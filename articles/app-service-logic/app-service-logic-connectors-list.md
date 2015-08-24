@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Elenco di connettori e app per le API | Azure"
+	pageTitle="Elenco di connettori e applicazioni API | Microsoft Azure"
 	description="Informazioni sui connettori e le app per le API nel servizio app di Azure; architettura dei microservizi"
 	services="app-service\logic"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/09/2015"
 	ms.author="mandia"/>
 
 
@@ -86,11 +86,11 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 È anche possibile usare i connettori come azioni nell'ambito dell'app per la logica. Le azioni sono utili per cercare nell'app per la logica i dati da usare nell'esecuzione. Può essere necessario ad esempio cercare in un database SQL altre informazioni su un cliente quando si elabora un ordine. In alternativa, potrebbe essere necessario scrivere, aggiornare o eliminare dati in una destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate a operazioni nelle app per le API (come definito dai relativi metadati Swagger).
 
 ## Creare connettori e app per le API personalizzati
-[Informazioni di riferimento su connettori e app per le API](http://aka.ms/appservicesconnectorreference)<br/> [Trigger delle app per le API del servizio app di Azure](../app-service-api/app-service-api-dotnet-triggers.md)<br/> [Informazioni di riferimento sulle app per la logica](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Informazioni di riferimento su connettori e app per le API](http://aka.ms/appservicesconnectorreference) [Trigger delle app per le API del servizio app di Azure ](../app-service-api/app-service-api-dotnet-triggers.md) [ Informazioni di riferimento sulle app per la logica](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
 ## Altre informazioni su connettori e app per le API
 
-[Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Uso di gestione connessione nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)<br/> [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
+[Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/06/2015" 
 	ms.author="elizapo"/>
 
 # Domande frequenti su Azure RemoteApp
@@ -22,13 +22,13 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 ## Informazioni su Azure RemoteApp ##
 
 
-- **Che cos'è Azure RemoteApp?** RemoteApp è un servizio di Azure che offre le funzionalità del programma Microsoft RemoteApp locale, supportate da Servizi Desktop remoto, direttamente da Azure. RemoteApp consente di fornire un accesso remoto sicuro alle applicazioni da molti dispositivi utente diversi. Altre informazioni su [Azure RemoteApp](remoteapp-whatis.md).
+- **Che cos'è Azure RemoteApp?** RemoteApp è un servizio di Azure che consente di fornire un accesso remoto sicuro alle applicazioni da molti dispositivi utente diversi. Altre informazioni su [Azure RemoteApp](remoteapp-whatis.md).
 - **Quali sono i due tipi di opzioni di distribuzione?** Sono disponibili due tipi di distribuzioni (o raccolte) di RemoteApp: ibrida e cloud. Valutare la migliore [opzione di distribuzione](remoteapp-whatis.md) per la propria organizzazione.
 
 ## Configurazioni supportate ##
 
-- **Quali sono i limiti del servizio?** È stato appena aggiunto un nuovo argomento che riguarda tutti i [limiti e le impostazioni predefinite del servizio](remoteapp-servicelimits.md). Per altre domande contattare Microsoft.
-- **Quanti utenti sono necessari?** È necessario un numero minimo di 20 utenti. Il numero MINIMO è 20. Verrà emessa una fattura per 20. Consultare altri [limiti e impostazioni predefinite degli utenti](remoteapp-servicelimits.md) qui.
+- **Quali sono i limiti del servizio?** Sarà possibile conoscere le impostazioni predefinite e i limiti di servizio di Azure RemoteApp in [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](.\azure-subscription-service-limits.md). Per altre domande contattare Microsoft.
+- **Quanti utenti sono necessari?** È necessario un numero minimo di 20 utenti. Il numero MINIMO è 20. Verrà emessa una fattura per 20. 
 - **Le applicazioni personalizzate LOB (line-of-business) sono supportate?** Sì. Per usare un'applicazione personalizzata in Azure RemoteApp, creare un'[immagine modello personalizzata](remoteapp-create-custom-image.md) e caricarla nella raccolta RemoteApp.
 - **L'applicazione LOB personalizzata funzionerà in Azure RemoteApp?** Il modo migliore per verificarlo è provarla. Verificare i [requisiti di compatibilità dell'applicazione](http://www.microsoft.com/download/details.aspx?id=18704) e il [centro di compatibilità di Desktop remoto](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Quale metodo di distribuzione (cloud o ibrido) è più adatto per la propria organizzazione?** Le raccolte ibride offrono un'esperienza più completa se si desidera integrazione completa con Single Sign-On (SSO) e connettività di rete protetta in locale. Le raccolte nel cloud offrono un modo semplice e rapido di isolare la distribuzione usando più metodi di autenticazione. Altre informazioni sulle [opzioni di distribuzione](remoteapp-whatis.md).
@@ -82,4 +82,4 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

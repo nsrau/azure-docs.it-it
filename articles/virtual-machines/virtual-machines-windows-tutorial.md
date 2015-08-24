@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
@@ -99,6 +99,6 @@ Dopo aver creato la VM, sarà possibile accedere alla macchina virtuale per gest
 ## Passaggi successivi
 
 * Utilizzare Azure PowerShell e l'interfaccia della riga di comando di Azure per [individuare e selezionare le immagini della macchina virtuale](resource-groups-vm-searching.md).
-* Automatizzare la distribuzione della macchina virtuale e del carico di lavoro e la gestione utilizzando [Gestione risorse di Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatizzare la distribuzione della macchina virtuale e del carico di lavoro e la gestione utilizzando [Gestione risorse di Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/it-it/documentation/templates/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

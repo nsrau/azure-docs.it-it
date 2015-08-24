@@ -36,7 +36,7 @@ Verrà creata un'applicazione usando il framework Web di Bottle (vedere le versi
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo Python 2.7)
 - Git
-- [Python Tools 2.1 per Visual Studio](optional)
+- [Python Tools 2.1 per Visual Studio] - Questo è facoltativo
 
 **Nota**: la pubblicazione TFS non è attualmente supportata per progetti Python.
 
@@ -515,4 +515,4 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 [Documentazione di Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

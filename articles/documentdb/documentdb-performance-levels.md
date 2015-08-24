@@ -33,30 +33,11 @@ Per ogni raccolta di DocumentDB creata con un account standard viene eseguito il
 
 A ogni livello di prestazioni è associato un limite di frequenza dell'unità di richiesta (RU). Si tratta della velocità effettiva che sarà riservata per una raccolta basata sul relativo livello di prestazioni ed è disponibile esclusivamente per l'uso in tale raccolta. È possibile creare le raccolte tramite il [portale di Azure](http://portal.azure.com) o uno qualsiasi degli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Le API di DocumentDB consentono di specificare il livello di prestazioni di una raccolta.
 
-<table> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Livello di prestazioni della raccolta</b></p></td>
-<td valign="top" ><p><b>Velocità effettiva riservata</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S1</p></td>
-<td valign="top" ><p>250 RU/sec</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S2</p></td>
-<td valign="top" ><p>1000 RU/sec</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S3</p></td>
-<td valign="top" ><p>2500 RU/sec</p></td>
-</tr>
-
-</tbody>
-</table>
+Livello di prestazioni della raccolta|Velocità effettiva riservata
+---|---
+S1|250 RU/sec
+S2|1000 RU/sec
+S3|2500 RU/sec
 
 DocumentDB consente un'ampia gamma di operazioni di database tra cui query, query con funzioni definite dall'utente (UDF), stored procedure e trigger. Il costo di elaborazione associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie per eseguire diverse operazioni di database e rispondere a una richiesta dell'applicazione.
 
@@ -141,4 +122,4 @@ Per altre informazioni su DocumentDB, vedere la [documentazione](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Come creare route e attivare l'inoltro IP in Azure
 È possibile utilizzare i dispositivi virtuali in Azure per gestire il traffico della rete virtuale di Azure. Tuttavia, è necessario creare route che consentono le macchine virtuali e servizi cloud nella rete virtuale per l'invio di pacchetti per il dispositivo virtuale, anziché la destinazione desiderata per il pacchetto. È inoltre necessario attivare l'inoltro IP dell'accessorio virtuale macchina virtuale in modo da poter ricevere e inoltrare i pacchetti che non sono indirizzati al dispositivo virtuale effettivo macchina virtuale.
 
-##Come gestire le route
+## Come gestire le route
 È possibile aggiungere, rimuovere e modificare le route in Azure utilizzando PowerShell. Prima di poter creare una route, è necessario creare una tabella di route per ospitare la route.
 
 ### Come creare una tabella di route
@@ -144,10 +144,6 @@ Per visualizzare lo stato dell'inoltro IP su una macchina virtuale denominata *F
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
+``` 
 
-## Vedere anche
-
-[Definito dall'utente IP Cenni preliminari sull'inoltro e route](../virtual-networks-udr-overview)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Come gestire il contenuto univoco dei diversi tipi di campagne di notifica push
@@ -50,7 +50,7 @@ qualsiasi URL che può essere interpretato dal sistema operativo di un dispositi
 
 - **Azioni di Android e iOS**
     - Aprire una pagina Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
     - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
@@ -74,7 +74,7 @@ qualsiasi URL che può essere interpretato dal sistema operativo di un dispositi
     - Esempio:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Azioni di Windows
     - Aprire una pagina Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - Esempio:http://www.azure.com
     - Inviare un messaggio di posta elettronica
     - mailto:[destinatario]?subject=[oggetto]&body=[messaggio] 
@@ -230,4 +230,4 @@ Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui di
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

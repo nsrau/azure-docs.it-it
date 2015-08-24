@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tdykstra"/>
 
 # Come usare il bus di servizio di Azure con WebJobs SDK
@@ -81,6 +81,13 @@ L'SDK deserializzerà automaticamente un messaggio di coda contenente JSON per u
 		}
 
 Per esempi di codice che illustrano come usare le proprietà del tipo POCO assieme ai BLOB e alle tabelle nella stessa funzione, vedere la [versione delle code di archiviazione in questo articolo](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
+
+Se il codice che crea il messaggio in coda non utilizza WebJobs SDK, utilizzare un codice simile al seguente esempio:
+
+		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
+		BlobInformation blobInformation = new BlobInformation () ;
+		var message = new BrokeredMessage(blobInformation);
+		client.Send(message);
 
 ### Tipi con cui funziona ServiceBusTrigger
 
@@ -159,4 +166,4 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 In questa guida sono stati forniti esempi di codice che illustrano come gestire scenari comuni per l'uso del bus di servizio di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

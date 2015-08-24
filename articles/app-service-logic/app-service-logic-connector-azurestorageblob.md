@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="rajram"/>
    
 # Azure Storage Blob Connector
@@ -36,9 +36,9 @@ Nessuno | <ul><li>Get Blob: ottiene un BLOB specifico dal contenitore</li><li>Up
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Selezionare **App per le API** e cercare "BLOB": <br/> ![Selezionare il connettore BLOB Archiviazione di Azure][2]
+2. Cercare “Blob”: ![Selezionare il connettore BLOB Archiviazione di Azure][2]
 
-3. **Creare** il connettore.
+3. Selezionarlo e scegliere **Crea**.
 4. Immettere il nome, il piano di servizio app e altre proprietà.
 5. Immettere le impostazioni pacchetto seguenti:
 
@@ -54,21 +54,13 @@ Access Key | No | Immettere una chiave di accesso valida dell'account di archivi
 ## Usare il connettore BLOB di Archiviazione di Azure in un'app per la logica
 Dopo aver creato Azure Storage Blob Connector, è possibile aggiungerlo al flusso di lavoro.
 
-1. Creare una nuova app per la logica con +Nuovo -> Web e dispositivi mobili -> App per la logica. Immettere le proprietà dell'app per la logica.
+1. Creare una nuova app per la logica con +Nuovo -> Web e dispositivi mobili -> App per la logica. Immettere le proprietà dell'app per la logica: ![Creare un'app per la logica][4]
 
-	![Creare un'app per la logica][4]
+2. Fare clic su **Trigger e azioni**. Viene aperta la finestra di progettazione del flusso di lavoro: ![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
 
-2. Fare clic su **Trigger e azioni**. Viene aperta la finestra di progettazione del flusso di lavoro:
+3. Selezionare Azure Storage Blob Connector nel riquadro destro. Il connettore elenca le azioni disponibili: ![Elenco di azioni del BLOB di Archiviazione di Azure][10]
 
-	![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
-
-3. Selezionare Azure Storage Blob Connector nel riquadro destro. Il connettore elenca le azioni disponibili:
-
-	![Elenco di azioni del BLOB di Archiviazione di Azure][10]
-
-4. In questo scenario si userà l'azione **Upload Blob**:
-
-	![Input dell'azione Carica BLOB][11]
+4. In questo scenario si userà l'azione **Upload Blob**: ![Input dell'azione Carica BLOB][11]
 
 5. Immettere i valori di input e selezionare il segno di spunta per completare la configurazione:
 
@@ -110,4 +102,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="App Web con Express (Node.js) - Esercitazione di Azure" 
+	pageTitle="App Web con Express (Node.js) | Microsoft Azure" 
 	description="Esercitazione basata sull'esercitazione del servizio cloud e che illustra come usare il modulo Express." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -135,4 +135,4 @@ Al termine dell'operazione di distribuzione, verrà aperto il browser e verrà v
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

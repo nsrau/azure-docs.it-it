@@ -58,46 +58,9 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
 >[AZURE.NOTE]Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (_).
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Proprietà</b></p></td>
-<td valign="top" ><p><b>Impostata dall'utente o generata dal sistema?</b></p></td>
-<td valign="top" ><p><b>Scopo</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>Generata dal sistema</p></td>
-<td valign="top" ><p>Identificatore della risorsa univoco, gerarchico e generato dal sistema.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>Generata dal sistema</p></td>
-<td valign="top" ><p>ETag della risorsa necessario per il controllo della concorrenza ottimistica.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>Generata dal sistema</p></td>
-<td valign="top" ><p>Timestamp dell'ultimo aggiornamento della risorsa.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>Generata dal sistema</p></td>
-<td valign="top" ><p>URI indirizzabile univoco della risorsa.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>id</p></td>
-<td valign="top" ><p>Impostabile dall'utente</p></td>
-<td valign="top" ><p>Nome univoco della risorsa definito dall'utente.</p></td>
-</tr>
-
-</tbody>
-</table>
+Proprietà |Impostabile dall'utente o generata dal sistema?|Scopo
+---|---|---
+_\_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa. \_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica. \_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa. \_self|Generato dal sistema|URI indirizzabile univoco della risorsa. id|Impostabile dall'utente|Nome univoco della risorsa definito dall’utente.
 
 ###Rappresentazione delle risorse
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
@@ -105,16 +68,7 @@ DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard
 ###Indirizzamento di una risorsa
 Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **_self** di una risorsa rappresenta l'URI relativo della risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{_rid}: 
 
-|Valore di _self |Descrizione
-|-------------------|-----------
-|/dbs |Feed di database in un account di database. 
-|/dbs/{_rid-db} |Database con proprietà ID univoca con il valore {_rid-db}
-|/dbs/{_rid-db}/colls/ |Feed di raccolte in un database. 
-|/dbs/{_rid-db}/colls/{_rid-coll} |Raccolta con proprietà ID univoca con valore {_rid-coll}
-|/dbs/{_rid-db}/users/ |Feed di utenti in un database. 
-|/dbs/{_rid-db}/users/{_rid-user} |Utente con proprietà ID univoca con valore {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed di autorizzazioni in un database. 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorizzazione con proprietà ID univoca con valore {_rid-permission}. 
+|Valore di \_self |Descrizione|-------------------|-----------|/dbs |Feed di database in un account di database. |/dbs/{\_rid-db} |Database con proprietà ID univoca con il valore {\_rid-db}|/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database. |/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con proprietà ID univoca con valore {\_rid-coll}|/dbs/{\_rid-db}/users/ |Feed di utenti in un database. |/dbs/{\_rid-db}/users/{\_rid-user} |Utente con proprietà ID univoca con valore {\_rid-user}|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed di autorizzazioni in un database. |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorizzazione con proprietà ID univoca con valore {\_rid-permission}.
   
 Una risorsa ha anche un nome utente univoco esposto mediante la proprietà ID della risorsa stessa. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà _rid viene usata per costruire il collegamento _self indirizzabile di una risorsa. 
 
@@ -130,37 +84,12 @@ I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternat
 ###Proprietà degli account di database
 Come parte del provisioning e della gestione di un account di database, è possibile configurare e leggere le proprietà seguenti:
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Nome proprietà</b></p></td>
-<td valign="top" ><p><b>Descrizione</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Criterio di coerenza</p></td>
-<td valign="top" ><p>Impostare questa proprietà per configurare il livello di coerenza predefinito per tutte le raccolte nell'account di database. È possibile eseguire l'override del livello di coerenza per singole richieste usando l'intestazione di richiesta [x-ms-consistency-level]. In futuro, potrebbe essere supportato anche l'override del livello di coerenza per singole raccolte. </p>
-
-<p>Si noti che questa proprietà è applicabile solo alle <i>risorse definite dall'utente</i>. Tutte le risorse definite dal sistema sono configurate per il supporto di letture/query con coerenza assoluta.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Chiave primaria e Chiave secondaria</p></td>
-<td valign="top" ><p>Si tratta delle chiavi primaria e secondaria che consentono accesso amministrativo a tutte le risorse nell'account di database.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Quantità massima di archiviazione multimediale disponibile per l'account di database.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Attuale utilizzo delle risorse di archiviazione multimediale per l'account di database.</p></td>
-</tr>
-
-</tbody>
-</table>
+Nome proprietà|Descrizione
+---|---
+Criterio di coerenza|Impostare questa proprietà per configurare il livello di coerenza predefinito per tutte le raccolte nell'account di database. È possibile eseguire l'override del livello di coerenza per singole richieste usando l'intestazione di richiesta [x-ms-consistency-level]. In futuro, potrebbe essere supportato anche l'override del livello di coerenza per singole raccolte. <p><p>Si noti che questa proprietà è applicabile solo alle risorse <i>definite dall'utente</i>. Tutte le risorse definite dal sistema sono configurate per il supporto di letture/query con coerenza assoluta.
+Chiave primaria e Chiave secondaria|Si tratta delle chiavi primaria e secondaria che consentono accesso amministrativo a tutte le risorse nell'account di database.
+MaxMediaStorageUsageInMB (READ)|Quantità massima di archiviazione multimediale disponibile per l'account di database.
+MediaStorageUsageInMB (READ)|Attuale utilizzo delle risorse di archiviazione multimediale per l'account di database.
 
 Notare che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
@@ -469,4 +398,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

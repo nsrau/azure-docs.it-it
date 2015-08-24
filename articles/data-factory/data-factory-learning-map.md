@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mappa di formazione per Data Factory | Azure"
+	pageTitle="Mappa di formazione per Data Factory | Microsoft Azure"
 	description="Ottenere una rappresentazione grafica delle risorse disponibili per passare da 0 a 60 su Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
@@ -24,4 +24,4 @@ Data factory è un servizio di integrazione delle informazioni basato sul cloud 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

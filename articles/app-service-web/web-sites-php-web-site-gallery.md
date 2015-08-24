@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creazione di un'app WordPress in Servizio app di Azure" 
-	description="Un'esercitazione in cui viene illustrato come creare un nuovo sito Web di Azure per un blog WordPress e quindi distribuirlo mediante il portale di Azure.&quot;" 
+	description="Un'esercitazione in cui viene illustrato come creare un nuovo sito Web di Azure per un blog WordPress e quindi distribuirlo mediante il portale di Azure.";" 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
@@ -31,4 +31,4 @@ Si è appreso come creare e distribuire un'app Web dalla raccolta. Per ulteriori
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

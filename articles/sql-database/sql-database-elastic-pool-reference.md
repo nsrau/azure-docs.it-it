@@ -10,14 +10,14 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/14/2015" 
+	ms.date="08/12/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
-# Riferimento al pool di database elastico di database SQL (anteprima)
+# Riferimento al pool di database elastici di database SQL
 
 Per gli sviluppatori di SaaS che dispongono di decine, centinaia o persino di migliaia di database, un pool di database elastico semplifica il processo di creazione, manutenzione e gestione delle prestazioni e dei costi dell'intero gruppo di database.
 
@@ -25,7 +25,7 @@ In questo riferimento vengono forniti collegamenti e dettagli relativi agli arti
 
 ## Panoramica
 
-Un pool di database elastici è una raccolta di unità di database (DTU) e di risorse di archiviazione (GB) che sono condivise da più database. I database elastici possono essere aggiunti al pool o rimossi da questo in qualsiasi momento. I database elastici nel pool utilizzano solo le risorse richieste dal pool, liberando le risorse disponibili solo per i database attivi che ne hanno bisogno. Per determinare se i database possono costituire un vantaggio in un pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
+Un pool di database elastici è una raccolta di unità di produttività di database elastici (eDTU) e di risorse di archiviazione (GB) che sono condivise da più database. I database elastici possono essere aggiunti al pool o rimossi da questo in qualsiasi momento. I database elastici nel pool utilizzano solo le risorse richieste dal pool, liberando le risorse disponibili solo per i database attivi che ne hanno bisogno. Per determinare se i database possono costituire un vantaggio in un pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
 
 
@@ -33,15 +33,24 @@ Un pool di database elastici è una raccolta di unità di database (DTU) e di ri
 
 
 - I pool di database elastici sono disponibili unicamente nei server database SQL V12 di Azure.   
-- La creazione e gestione di pool di database elastici è supportata tramite il [portale di Microsoft Azure](https://portal.azure.com) PowerShell e API REST in Azure Resource Manager (ARM), solo il [portale classico](https://manage.windowsazure.com/) e comandi di gestione del servizio (RDFE) non sono supportati. 
+- La creazione e la gestione di pool di database elastici è supportata tramite il [portale di anteprima](https://portal.azure.com), PowerShell e la libreria client .NET (costituita per le API REST) soltanto per Gestione risorse di Azure; il [portale classico](https://manage.windowsazure.com/) e i comandi di gestione del servizio non sono supportati. 
 
 
-## Restrizioni per l'anteprima corrente
+## Considerazioni sull’anteprima corrente
 
-- Il livello di prezzo per un database di pool elastici nell'anteprima corrente è Standard.  
-- L’importazione di un database direttamente in un pool elastico non è supportata. È possibile eseguire l’importazione in un database autonomo e quindi spostare il database in un pool. L’esportazione di un database dall’interno di un pool è supportata.
-- Ogni pool può avere un massimo di 100 database.
 
+- Ogni pool ha un numero massimo di database ed di pool eDTU:
+
+    | Livello di servizio | Database massimi per ogni pool* | eDTU massime per ogni pool* |
+    | :-- | :-- | :-- |
+    | Basic | 200 | 1200 | 
+    | Standard | 200 | 1200 |
+    | Premium | 50 | 1500 |
+
+    ***È previsto l’aumento dei limiti attuali per il numero di database per ogni pool e numero di pool eDTU.***
+
+
+- L’importazione di un database direttamente in un pool elastico non è supportata. È possibile eseguire l’importazione in un database singolo e quindi spostare il database in un pool. L’esportazione di un database dall’interno di un pool *è* supportata.
 
 ## Elenco di articoli
 
@@ -49,9 +58,11 @@ Gli articoli seguenti consentiranno di iniziare a utilizzare database elastici e
 
 | Articolo | Descrizione |
 | :-- | :-- |
-| [Pool di database elastici SQL](sql-database-elastic-pool.md) | Panoramica dei pool elastici |
-| [Creare e gestire un database di pool elastici di database SQL con il portale di Azure](sql-database-elastic-pool-portal.md) | Come creare e gestire un pool elastico tramite il portale di Azure |
-| [Creare e gestire un database di pool elastici di database SQL tramite PowerShell](sql-database-elastic-pool-powershell.md) | Come creare e gestire un pool elastico tramite i cmdlet PowerShell |
+| [Pool di database elastici SQL](sql-database-elastic-pool.md) | Panoramica dei pool di database elastici |
+| [Considerazioni su prezzi e prestazioni](sql-database-elastic-pool-guidance.md) | Come valutare se l’utilizzo di un pool di database elastici è redditizio |
+| [Creare e gestire un database di pool elastici di database SQL con il portale di Azure](sql-database-elastic-pool-portal.md) | Come creare e gestire un pool di database elastici tramite il portale di Azure |
+| [Creare e gestire un database di pool elastici di database SQL tramite PowerShell](sql-database-elastic-pool-powershell.md) | Come creare e gestire un pool di database elastici tramite i cmdlet PowerShell |
+| [Creare e gestire un database SQL con la libreria di database SQL di Azure per .NET](sql-database-elastic-pool-powershell.md) | Creare e gestire un pool di database elastici utilizzando C# |
 | [Panoramica dei processi dei database elastici](sql-database-elastic-jobs-overview.md) | Panoramica del servizio dei processi elastici, che consente l'esecuzione di script T-SQL in tutti i database elastici in un pool |
 | [Installazione del componente del processo di database elastico](sql-database-elastic-jobs-service-installation.md) | Come installare il servizio del processo di database elastico |
 | [Creazione dell'utente richiesto per il servizio dei processi elastici](sql-database-elastic-jobs-add-logins-to-dbs.md) | Per eseguire uno script del processo di database elastico, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database nel pool. |
@@ -60,10 +71,10 @@ Gli articoli seguenti consentiranno di iniziare a utilizzare database elastici e
 
 
 ## Dettagli dello spazio dei nomi e dell’endpoint
-Un pool elastico è una risorsa ARM di tipo "ElasticPool" nel Database SQL di Microsoft Azure.
+Un pool di database elastici è una risorsa Azure Resource Manager di tipo "ElasticPool" nel Database SQL di Microsoft Azure.
 
 - **spazio dei nomi**: Microsoft.Sql/ElasticPool
-- **endpoint secondario** per le chiamate API REST (Gestione risorse di Azure): https://management.azure.com
+- **gestione-endpoint** per le chiamate API REST (Gestione risorse di Azure): https://management.azure.com
 
 
 
@@ -72,9 +83,9 @@ Un pool elastico è una risorsa ARM di tipo "ElasticPool" nel Database SQL di Mi
 | Proprietà | Descrizione |
 | :-- | :-- |
 | creationDate | Data di creazione del pool. |
-| databaseDtuMax | Numero massimo di DTU che può essere utilizzato da un singolo database nel pool. Il numero massimo di DTU database non è una garanzia di risorse. Il numero massimo di DTU si applica a tutti i database del pool. |
-| databaseDtuMin | Numero minimo di DTU garantito a un singolo database nel pool. Il numero minimo di DTU database può essere impostato su 0. Il numero minimo di DTU si applica a tutti i database nel pool. Si noti che il prodotto del numero di database nel pool e il valore minimo di DTU database non può superare le DTU del pool stesso. |
-| Dtu | Numero di DTU condivise da tutti i database nel pool. |
+| databaseDtuMax | Numero massimo di eDTU che può essere utilizzato da un singolo database nel pool. Il numero massimo di eDTU database non è una garanzia di risorse. Il numero massimo di eDTU si applica a tutti i database del pool. |
+| databaseDtuMin | Numero minimo di eDTU garantito a un singolo database nel pool. Il numero minimo di eDTU database può essere impostato su 0. Il numero minimo di eDTU si applica a tutti i database nel pool. Si noti che il prodotto del numero di database nel pool e il valore minimo di eDTU database non possono superare le eDTU del pool stesso. |
+| Dtu | Numero di eDTU condivise da tutti i database nel pool. |
 | edition | Livello di servizio del pool. Ogni database all'interno del pool presenta lo stesso valore per edition. |
 | elasticPoolId | GUID dell'istanza del pool. |
 | elasticPoolName | Nome del pool. Il nome è univoco rispetto al server padre. |
@@ -83,30 +94,38 @@ Un pool elastico è una risorsa ARM di tipo "ElasticPool" nel Database SQL di Mi
 | storageMB | Limite di archiviazione in MB per il pool. Ogni singolo database nel pool può utilizzare fino al limite di archiviazione Standard Edition (250 GB), ma lo spazio di archiviazione totale utilizzato da tutti i database nel pool non può superare questo limite del pool. |
 
 
-## Limiti di archiviazione e di DTU dei pool elastici e dei database elastici
+## Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici
 
-Il limite di archiviazione del pool è determinato dalla quantità di DTU del pool. Ogni DTU = 1 GB di archiviazione. Ad esempio, un pool di DTU 200 ha un limite di archiviazione di 200 GB.
+Il limite di archiviazione del pool è determinato dalla quantità di eDTU del pool.
 
-| proprietà | valore predefinito | valori validi |
-| :-- | :-- | :-- |
-| Dtu | 100 | 100, 200, 400, 800, 1200 |
-| databaseDtuMax | 100 | 10, 20, 50 100 |
-| databaseDtuMin | 0 | 0, 10, 20, 50 |
-| storageMB | 100 GB* | 100 GB, 200 GB, 400 GB, 800 GB, 1200 GB |
+| proprietà | Basic | Standard | Premium |
+| :-- | :-- | :-- | :-- |
+| dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
+| databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
+| databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
+| storageMB* | **10000 MB**, 20000 MB, 40000 MB, 80000 MB, 120000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **62.5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
+| archiviazione per ogni DTU | 100 MB | 1 GB | .5 GB |
+| Database massimi per ogni pool | 200 | 200 | 50 |
 
-**le unità nell'API sono MB, non GB
+I valori predefiniti sono **in grassetto**.
+
+**le unità nell'API sono MB, non GB.
+
+
+
+
 
 ## Limiti di sessione e di lavoro
 
-Il numero massimo di thread di lavoro simultanei e di sessioni simultanee supportato per tutti i database in un pool elastico dipende dall'impostazione DTU per il pool:
+Il numero massimo di thread di lavoro simultanei e di sessioni simultanee supportato per tutti i database in un pool elastico dipende dall'impostazione eDTU per il pool:
 
-| DTU | Numero massimo di thread di lavoro simultanei | Numero massimo di sessioni simultanee |
+| eDTU | Numero massimo di thread di lavoro simultanei | Numero massimo di sessioni simultanee |
 | :-- | :-- | :-- |
-| 100 | 200 | 2.400 |
-| 200 | 400 | 4.800 |
-| 400 | 800 | 9.600 |
-| 800 | 1.600 | 19.200 |
-| 1.200 | 2.400 | 28.800 |
+| 100 (Basic/Standard), 125 (Premium) | 200 | 2\.400 |
+| 200 (Basic/Standard), 250 (Premium) | 400 | 4\.800 |
+| 400 (Basic/Standard), 500 (Premium) | 800 | 9\.600 |
+| 800 (Basic/Standard), 1,000 (Premium) | 1\.600 | 19\.200 |
+| 1,200 (Basic/Standard), 1,500 (Premium) | 2\.400 | 28\.800 |
 
 
 ## Limiti di Gestione risorse di Azure
@@ -119,8 +138,8 @@ Azure V12 del Database di SQL Server si trovano in gruppi di risorse.
 
 ## Latenza delle operazioni dei pool elastici
 
-- La modifica delle DTU garantite per database (databaseDtuMin) o il numero massimo di DTU per database (databaseDtuMax) in genere viene completata in 5 minuti o meno. 
-- La modifica del limite di DTU/ risorse di archiviazione (storageMB) del pool di dipende dalla quantità totale di spazio utilizzato da tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale utilizzato da tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del limite di DTU / risorse di archiviazione è di 3 ore o meno. 
+- La modifica delle eDTU garantite per database (databaseDtuMin) o il numero massimo di eDTU per database (databaseDtuMax) in genere viene completata in 5 minuti o meno. 
+- La modifica del limite di eDTU/ risorse di archiviazione (storageMB) del pool dipende dalla quantità totale di spazio utilizzato da tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale utilizzato da tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del limite di eDTU / risorse di archiviazione è di 3 ore o meno. 
 
 
 
@@ -158,13 +177,13 @@ I pool di database elastici vengono fatturati in base alle caratteristiche segue
 
 - Un pool elastico viene fatturato al momento della creazione, persino quando nel pool non sono presenti database. 
 - Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo dei livelli di prestazioni dei database autonomi. 
-- Se un pool elastico viene ridimensionato per un nuovo intervallo di DTU, non viene fatturato in base alla nuova quantità di DTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database autonomi. 
+- Se un pool elastico viene ridimensionato per una nuova quantità di eDTU, non viene fatturato in base alla nuova quantità di eDTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database autonomi. 
 
 
-- Il prezzo di un pool elastico è basato sul numero di DTU del pool e sul numero di database del pool.
-- Il prezzo viene calcolato nel modo seguente: (numero di DTU del pool)x(prezzo unitario per DTU) + (numero di database)x(prezzo unitario per database)
+- Il prezzo di un pool elastico è basato sul numero di eDTU del pool e sul numero di database del pool.
+- Il prezzo viene calcolato nel modo seguente: (numero di eDTU del pool)x(prezzo unitario per eDTU) + (numero di database)x(prezzo unitario per database)
 
-Il prezzo unitario delle DTU per un pool elastico è superiore al prezzo unitario delle DTU per un database autonomo nello stesso livello di servizio. Per ulteriori informazioni, vedere [Database SQL Prezzi](http://azure.microsoft.com/pricing/details/sql-database/).
+Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitario delle eDTU per un database autonomo nello stesso livello di servizio. Per ulteriori informazioni, vedere [Database SQL Prezzi](http://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Errori dei pool di database elastici
 
@@ -191,4 +210,4 @@ Il prezzo unitario delle DTU per un pool elastico è superiore al prezzo unitari
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

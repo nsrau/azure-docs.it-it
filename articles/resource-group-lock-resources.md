@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tomfitz"/>
 
 # Bloccare le risorse con Gestione risorse di Azure
@@ -83,7 +83,7 @@ Per altri esempi, vedere [API REST per i blocchi di gestione](https://msdn.micro
 
 ## Creazione di un blocco con Azure PowerShell
 
-È possibile bloccare le risorse distribuite con Azure PowerShell tramite il**New-AzureResourceLock**, come illustrato di seguito.
+È possibile bloccare le risorse distribuite con Azure PowerShell tramite il**New-AzureResourceLock**, come illustrato di seguito. Con PowerShell è solo possibile impostare **LockLevel** su **CanNotDelete**.
 
     PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
@@ -91,7 +91,8 @@ PowerShell fornisce altri comandi per la gestione dei blocchi, ad esempio **Set-
 
 ## Passaggi successivi
 
-- [Utilizzo dei tag per organizzare le risorse](resource-group-using-tags.md)
-- [Spostare le risorse al nuovo gruppo di risorse](resource-group-move-resources.md)
+- Per altre informazioni sull'uso dei blocchi di risorse, vedere [Bloccare risorse di Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
+- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse](resource-group-using-tags.md)
+- Per modificare il gruppo di risorse in cui si trova una risorsa, vedere [Spostare le risorse in un nuovo gruppo di risorse](resource-group-move-resources.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

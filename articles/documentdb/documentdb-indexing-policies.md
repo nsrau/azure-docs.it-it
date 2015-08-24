@@ -468,33 +468,25 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
 
 Dopo avere visto come specificare i percorsi, verranno esaminate le opzioni che è possibile usare per configurare i criteri di indicizzazione per un percorso. È possibile specificare una o più definizioni di indicizzazione per ogni percorso:
 
-- Tipo di dati: **String** o **Number** (può contenere una sola voce per tipo di dati per percorso)
-- Tipologia indice: **Hash** (query di uguaglianza) o **Range** (query di uguaglianza, intervallo o orderby)
+- Tipo di dati: **String**, **Number** o **Point** (può contenere una sola voce per tipo di dati per percorso)
+- Tipologia indice: **Hash** (query di uguaglianza), **Range** (query di uguaglianza, intervallo o orderby) o **Spatial** (query spaziali) 
 - Precisione: da 1 a 8 o -1 (precisione massima) per i numeri, da 1 a 100 (precisione massima) per le stringhe
 
 #### Tipologia di indice
 
-DocumentDB supporta due tipologie di indice per ogni coppia percorso e tipo di dati.
+DocumentDB supporta i tipi di indice Hash e Range per ogni percorso (che può essere configurato per stringhe, numeri o entrambi).
 
 - **Hash** supporta query di uguaglianza efficienti e query JOIN. Nella maggior parte dei casi, gli indici di questo tipo non richiedono una precisione superiore a quella predefinita di 3 byte.
 - **Range** supporta query di uguaglianza efficienti, query di intervallo (con >, <, >=, <=, !=) e query orderby. Per impostazione predefinita, anche le query orderby richiedono la precisione di indice massima (-1).
+
+DocumentDB supporta anche il tipo di indice Spatial per ogni percorso che è possibile specificare per il tipo di dati Point. Il valore nel percorso specificato deve essere un punto GeoJSON valido come `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+
+- **Spatial** supporta query spaziali (within e distance) efficienti.
 
 Di seguito sono elencati i tipi di indice supportati e gli esempi di query che possono essere utilizzati per rispondere:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Tipologia di indice</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descrizione/Caso d'uso</strong>
-                </p>
-            </td>
-        </tr>
         <tr>
             <td valign="top">
                 <p>
@@ -531,16 +523,32 @@ Di seguito sono elencati i tipi di indice supportati e gli esempi di query che p
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Spatial
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Range over /prop/? (or /*) può essere utilizzato per servire in modo efficiente le seguenti query: SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) &lt; 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... })
+                </p>
+            </td>
+        </tr>        
     </tbody>
 </table>
 
 Per impostazione predefinita, viene restituito un errore per le query con operatori intervallo, ad esempio >= se non esiste alcun indice di intervallo (di qualsiasi precisione) per segnalare che un'analisi potrebbe essere necessaria per soddisfare la query. Le query di intervallo possono essere eseguite senza un indice di intervallo usando l'intestazione x-ms-documentdb-enable-scans nell'API REST o nell'opzione della richiesta EnableScanInQuery usando .NET SDK. Se sono disponibili altri i filtri nella query che DocumentDB può utilizzare l'indice per filtrare i dati, quindi non verrà restituito alcun errore.
 
+Le stesse regole sono valide per le query spaziali. Per impostazione predefinita, per le query spaziali viene restituito un errore se non esiste alcun indice spaziale. Possono essere eseguite come una scansione con x-ms-documentdb-enable-scan/EnableScanInQuery.
+
 #### Precisione indice
 
-La precisione indice consente di raggiungere un compromesso tra archiviazione indice e prestazioni delle query. Per i numeri, si consiglia di usare la configurazione di precisione predefinita -1 (“massimo”). Poiché i numeri sono a 8 byte in JSON, questo valore equivale a una configurazione a 8 byte. Selezionando un valore più basso per la precisione, ad esempio da 1 a 7, i valori compresi in alcuni intervalli eseguono il mapping alla stessa voce di indice. Quindi verrà ridotto lo spazio di archiviazione dell'indice, ma l'esecuzione delle query potrebbe dover elaborare più documenti e di conseguenza utilizzare una velocità effettiva maggiore, ad esempio unità di richiesta.
+La precisione indice consente di raggiungere un compromesso tra archiviazione indice e prestazioni delle query. Per i numeri, si consiglia di usare la configurazione di precisione predefinita -1 ("massimo"). Poiché i numeri sono a 8 byte in JSON, questo valore equivale a una configurazione a 8 byte. Selezionando un valore più basso per la precisione, ad esempio da 1 a 7, i valori compresi in alcuni intervalli eseguono il mapping alla stessa voce di indice. Quindi verrà ridotto lo spazio di archiviazione dell'indice, ma l'esecuzione delle query potrebbe dover elaborare più documenti e di conseguenza utilizzare una velocità effettiva maggiore, ad esempio unità di richiesta.
 
-La configurazione di precisione indice è più utile con gli intervalli di stringhe. Poiché le stringhe possono avere qualsiasi lunghezza arbitraria, la scelta della precisione indice può compromettere le prestazioni delle query di intervallo di stringhe e influire sulla quantità di spazio di archiviazione indice necessario. Gli indici di intervallo di stringhe possono essere configurati con valori compresi tra 1 e 100 o con il valore di precisione massima (-1). Se si desidera eseguire query Order By su proprietà della stringa, è necessario specificare una precisione pari a -1 per i percorsi corrispondenti.
+La configurazione di precisione indice è più utile con gli intervalli di stringhe. Poiché le stringhe possono avere qualsiasi lunghezza arbitraria, la scelta della precisione indice può compromettere le prestazioni delle query di intervallo di stringhe e influire sulla quantità di spazio di archiviazione indice necessario. Gli indici di intervallo di stringhe possono essere configurati con valori compresi tra 1 e 100 o con il valore di precisione "massima" (-1). Se si desidera eseguire query Order By su proprietà della stringa, è necessario specificare una precisione pari a -1 per i percorsi corrispondenti.
+
+Gli indici spaziali utilizzano sempre la precisione dell’indice predefinito per i punti e non possono essere sottoposti a override.
 
 L'esempio seguente mostra come aumentare la precisione per gli indici Range di una raccolta mediante .NET SDK. Si noti che viene usato il percorso predefinito "/*".
 
@@ -594,11 +602,11 @@ DocumentDB consente di apportare modifiche ai criteri di indicizzazione di una r
 
 ![Trasformazioni di indici online](media/documentdb-indexing-policies/index-transformations.png)
 
-Le trasformazioni di indice vengono effettuate online, vale a dire che i documenti indicizzati per i criteri precedenti vengono trasformati in modo efficiente per il nuovo criterio**senza modificare la disponibilità di scrittura o la velocità effettiva di provisioning**della raccolta. La coerenza delle operazioni di lettura e scrittura effettuate utilizzando l'API REST, SDK o le stored procedure e trigger non influisce nella trasformazione di indice. Ciò significa che non vi è alcun calo delle prestazioni o tempi di inattività delle applicazioni quando si modifica un criterio di indicizzazione.
+Le trasformazioni di indice vengono effettuate online, vale a dire che i documenti indicizzati per i criteri precedenti vengono trasformati in modo efficiente per il nuovo criterio **senza modificare la disponibilità di scrittura o la velocità effettiva di provisioning** della raccolta. La coerenza delle operazioni di lettura e scrittura effettuate utilizzando l'API REST, SDK o le stored procedure e trigger non influisce nella trasformazione di indice. Ciò significa che non vi è alcun calo delle prestazioni o tempi di inattività delle applicazioni quando si modifica un criterio di indicizzazione.
 
 Tuttavia, durante la fase di trasformazione dell’indice, le query sono alla fine coerenti indipendentemente dalla configurazione della modalità indicizzazione (coerente o differita). Questo si applica alle query eseguite utilizzando qualsiasi interfaccia SDK, API REST, o all'interno di stored procedure e trigger. Come con l'indicizzazione differita, la trasformazione dell’indice viene eseguita in modo asincrono nelle repliche utilizzando le risorse di riserva disponibili per una determinata replica.
 
-Le trasformazioni di indice vengono eseguite anche**in situ**(sul posto), ad esempio DocumentDB non mantenere due copie dell'indice e scambia l'indice precedente con quello nuovo. Ciò significa che non è necessario ne consumato ulteriore spazio su disco nelle raccolte durante la trasformazione dell’indice.
+Le trasformazioni di indice vengono eseguite anche **in situ** (sul posto), ad esempio DocumentDB non mantenere due copie dell'indice e scambia l'indice precedente con quello nuovo. Ciò significa che non è necessario ne consumato ulteriore spazio su disco nelle raccolte durante la trasformazione dell’indice.
 
 Quando si modifica il criterio di indicizzazione, il modo in cui vengono applicate le modifiche per spostare dall'indice precedente al nuovo dipende principalmente dalle configurazioni di modalità di indicizzazione più altri valori come percorsi inclusi/esclusi, tipi di indice e precisione. Se entrambi i criteri (vecchio e nuovo) utilizzano l'indicizzazione coerente, DocumentDB esegue una trasformazione di indici online. Non è possibile applicare un'altra modifica criteri con indicizzazione in modalità coerente durante il corso della trasformazione.
 
@@ -607,7 +615,7 @@ Quando si modifica il criterio di indicizzazione, il modo in cui vengono applica
 - Quando ci si sposta nella modalità differita, la modifica dei criteri dell'indice viene resa effettiva immediatamente e DocumentDB ricrea l'indice in modo asincrono. 
 - Quando ci si sposta alla modalità nessuna, l'indice viene eliminato immediatamente. Lo spostamento verso la modalità nessuna è utile quando si desidera annullare una trasformazione in corso e avviare l’aggiornamento con criteri diversi di indicizzazione. 
 
-Se si utilizza SDK di .NET, è possibile avviare una modifica dei criteri di un'indicizzazione dei criteri utilizzando il nuovo metodo**ReplaceDocumentCollectionAsync**e rilevando la percentuale dello stato di avanzamento della trasformazione dell’indice utilizzando la proprietà di risposta**IndexTransformationProgress** da una chiamata**ReadDocumentCollectionAsync**. Altri SDK e l'API REST supportano metodi e proprietà equivalenti per apportare modifiche ai criteri di indicizzazione.
+Se si utilizza SDK di .NET, è possibile avviare una modifica dei criteri di un'indicizzazione dei criteri utilizzando il nuovo metodo **ReplaceDocumentCollectionAsync** e rilevando la percentuale dello stato di avanzamento della trasformazione dell’indice utilizzando la proprietà di risposta **IndexTransformationProgress** da una chiamata **ReadDocumentCollectionAsync**. Altri SDK e l'API REST supportano metodi e proprietà equivalenti per apportare modifiche ai criteri di indicizzazione.
 
 Di seguito è riportato un frammento di codice che illustra come modificare i criteri indicizzazione di una raccolta dalla modalità di indicizzazione coerente a differita.
 
@@ -650,7 +658,7 @@ Di seguito è riportato un frammento di codice che illustra come modificare i cr
 Quando si vogliono effettuare modifiche ai criteri di indicizzazione per le raccolte di DocumentDB? I seguenti casi rappresentano la maggior parte dei casi di utilizzo:
 
 - Fornire risultati coerenti durante il normale funzionamento, ma reimpostata l’indicizzazione differita durante le importazioni di dati di massa
-- Iniziare a utilizzare nuove funzionalità sulle raccolte attuali DocumentDB, ad esempio, come le query di intervallo di stringa e Order By che richiedono il tipo di intervallo di stringa appeno introdotto
+- Iniziare a utilizzare nuove funzionalità sulle raccolte attuali DocumentDB, ad esempio, come le query geospaziali che richiedono il tipo di indice Spatial o query di intervallo di stringa e Order By che richiedono il tipo di indice Range di stringa
 - Selezionare a mano le proprietà da indicizzare e modificarle nel tempo
 - Ottimizzare la precisione dell'indicizzazione per migliorare le prestazioni delle query o ridurre l'archiviazione utilizzata
 
@@ -758,4 +766,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

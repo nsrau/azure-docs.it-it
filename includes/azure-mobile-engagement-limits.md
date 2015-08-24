@@ -1,40 +1,12 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Risorsa</th>
-   <th align="left" valign="middle">Limite massimo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Utenti di raccolte di app</p></td>
-   <td valign="middle"><p>5 per raccolta di app</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Numero medio dei punti dati</p></td>
-   <td valign="middle"><p>200 per utente attivo/giorno</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Numero medio di set di informazioni sulle app</p></td>
-   <td valign="middle"><p>50 per utente attivo/giorno</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Numero medio di messaggi sottoposti a push</p></td>
-   <td valign="middle"><p>20 per utente attivo/giorno</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Segmenti</p></td>
-   <td valign="middle"><p>100 per app</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Criteri per ogni segmento</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Campagne push attive</p></td>
-   <td valign="middle"><p>50 per app</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Totale campagne push (incluse quelle attive e completate)</p></td>
-   <td valign="middle"><p>1000 per app</p></td>
-</tr>
-</table>
+Risorsa|Limite massimo
+---|---
+Utenti di raccolte di app|5 per raccolta di app
+Numero medio dei punti dati|200 per utente attivo/giorno
+Numero medio di set di informazioni sulle app|50 per utente attivo/giorno
+Numero medio di messaggi sottoposti a push|20 per utente attivo/giorno
+Segmenti|100 per app
+Criteri per ogni segmento|10
+Campagne push attive|50 per app
+Totale campagne push (incluse quelle attive e completate)|1000 per app
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

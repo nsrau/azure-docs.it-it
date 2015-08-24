@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare il servizio di posta elettronica SendGrid (Node.js) - Azure" 
+	pageTitle="Come usare il servizio di posta elettronica SendGrid (Node.js) | Microsoft Azure" 
 	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti mediante l'API Node.js." 
 	services="" 
 	documentationCenter="nodejs" 
@@ -224,4 +224,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

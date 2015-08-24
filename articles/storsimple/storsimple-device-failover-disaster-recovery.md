@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
@@ -77,7 +77,7 @@ Se si dispone di un solo dispositivo ed è necessario eseguire un failover, eseg
 
 1. Acquisire snapshot nel cloud di tutti i volumi nel dispositivo.
 
-1. Ripristinare le impostazioni predefinite del dispositivo. Seguire le istruzioni dettagliate in [come ripristinare le impostazioni predefinite di un dispositivo StorSimple](https://msdn.microsoft.com/library/dn772373.aspx).
+1. Ripristinare le impostazioni predefinite del dispositivo. Seguire le istruzioni dettagliate in [come ripristinare le impostazioni predefinite di un dispositivo StorSimple](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 1. Configurare il dispositivo e registrarlo nuovamente con il servizio StorSimple Manager.
 
@@ -142,10 +142,7 @@ Dopo aver eseguito il failover, potrebbe essere necessario:
 - [Disattivare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Per informazioni su come gestire il dispositivo tramite il servizio StorSimple Manager, vedere:
-
-- [Guida dell'amministratore](https://msdn.microsoft.com/library/dn772401.aspx)
-
+Per informazioni su come gestire il dispositivo tramite il servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

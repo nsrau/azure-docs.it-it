@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorizzazione sul lato servizio degli utenti in un servizio mobile back-end di JavaScript | Servizi mobili di Azure"
+	pageTitle="Autorizzazione sul lato servizio degli utenti in un servizio mobile back-end di JavaScript | Microsoft Azure"
 	description="Informazioni su come autorizzare gli utenti nel back-end JavaScript di Servizi mobili di Azure."
 	services="mobile-services"
 	documentationCenter=""
@@ -70,4 +70,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 [portale di gestione di Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

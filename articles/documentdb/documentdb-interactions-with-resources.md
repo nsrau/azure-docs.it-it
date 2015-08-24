@@ -48,14 +48,15 @@ Come illustrato nel diagramma seguente, POST può essere rilasciato solo per una
 ## Creare una nuova risorsa con POST 
 Per acquisire maggiore familiarità con il modello di interazione, si consideri l'eventualità di creare una nuova risorsa (INSERT). Per creare una nuova risorsa è necessario inviare una richiesta HTTP POST con il corpo della richiesta contenente la rappresentazione della risorsa rispetto all'URI del feed contenitore a cui questa appartiene. L'unica proprietà obbligatoria per la richiesta è l'ID della risorsa.
 
-Ad esempio, per creare un nuovo database, si registra una risorsa del database (impostando la proprietà id con un nome univoco) su /dbs. Analogamente, per creare una nuova raccolta, è necessario registrare una risorsa della raccolta su /dbs/\_rid/colls/e così via. La risposta contiene la risorsa completamente impegnata insieme alle proprietà generate dal sistema, compreso il collegamento \_self della risorsa, che può essere usato per passare ad altre risorse. Come esempio di modello di interazione semplice basato su HTTP, un client può inviare una richiesta HTTP per creare un nuovo database all'interno di un account.
+Ad esempio, per creare un nuovo database, si registra una risorsa del database (impostando la proprietà id con un nome univoco) su /dbs. Analogamente, per creare una nuova raccolta, è necessario registrare una risorsa della raccolta su */dbs/\_rid/colls/* e così via. La risposta contiene la risorsa completamente impegnata insieme alle proprietà generate dal sistema, compreso il collegamento *\_self* della risorsa, che può essere usato per passare ad altre risorse. Come esempio di modello di interazione semplice basato su HTTP, un client può inviare una richiesta HTTP per creare un nuovo database all'interno di un account.
 
+```
 	POST https://fabrikam.documents.azure.com/dbs
 	{
 	      "id":"MyDb"
 	}
 
-Il servizio DocumentDB risponde con un esito positivo e un codice di stato che indica l'avvenuta creazione del database.
+The DocumentDB service responds with a successful response and a status code indicating successful creation of the database.  
 
 	HTTP/1.1 201 Created
 	Content-Type: application/json
@@ -71,19 +72,23 @@ Il servizio DocumentDB risponde con un esito positivo e un codice di stato che i
 	      "_colls": "colls/",
 	      "_users": "users/"
 	}
+```
   
 ## Registrare una stored procedure con POST
 Per un altro esempio di creazione ed esecuzione di una risorsa, valutare la seguente stored procedure scritta interamente in JavaScript.
 
+```
  	function HelloWorld() {
  	var context = getContext();
  	var response = context.getResponse();
  	
         response.setBody("Hello, World");
      }
+```
 
-La stored procedure può essere registrata in una raccolta in MyDb mediante l'invio di un POST a /dbs/\_rid-db/colls/\_rid-coll/sprocs.
+La stored procedure può essere registrata in una raccolta in MyDb mediante l'invio di un POST a */dbs/\_rid-db/colls/\_rid-coll/sprocs*.
 
+```
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs HTTP/1.1
 	
 	{
@@ -95,8 +100,11 @@ La stored procedure può essere registrata in una raccolta in MyDb mediante l'in
  	           response.setBody("Hello, World");
         	   }"
 	}
+```
+
 Il servizio DocumentDB risponde con un esito positivo e un codice di stato che indica l'avvenuta registrazione della stored procedure.
 
+```
 	HTTP/1.1 201 Created
 	Content-Type: application/json
 	x-ms-request-charge: 4.95
@@ -115,6 +123,7 @@ Il servizio DocumentDB risponde con un esito positivo e un codice di stato che i
 	      "_self": "dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/",
 	      "_etag": "00002100-0000-0000-0000-50f71fda0000"
 	}
+```
 
 ## Eseguire una stored procedure con POST
 Infine, per eseguire la stored procedure nell'esempio precedente, è necessario emettere un POST in base all'URI della risorsa stored procedure (dbs/UoEi5w = = / colls/UoEi5w + upwA = / stored procedure/UoEi5w + upwABAAAAAAAAgA = = /) come illustrato di seguito.
@@ -140,6 +149,7 @@ Si noti che il verbo POST può essere usato per creare una nuova risorsa, per es
 
 Il servizio risponde con i risultati della query SQL.
 
+```
 	HTTP/1.1 200 Ok
 	...
 	x-ms-activity-id: 83f9992c-abae-4eb1-b8f0-9f2420c520d2
@@ -149,11 +159,11 @@ Il servizio risponde con i risultati della query SQL.
 	Content-Type: application/json1
 	...
 	{"_rid":"UoEi5w+upwA=","Documents":[{"Name":"Andersen","City":"Seattle"},{"Name":"Wakefield","City":"NY"}],"_count":2}
-
+```
 
 
 ## Uso di PUT, GET e DELETE
-La sostituzione o la lettura di una risorsa si eseguono inviando rispettivamente verbi PUT (con un corpo di richiesta valido) e GET al collegamento \_self della risorsa. Analogamente, l'eliminazione di una risorsa si ottiene inviando un verbo DELETE al collegamento \_self della risorsa. Vale la pena di evidenziare che l'organizzazione gerarchica delle risorse nel modello di risorse di DocumentDB necessita del supporto per le eliminazioni propagate, grazie a cui l'eliminazione della risorsa proprietaria causa l'eliminazione delle risorse dipendenti. Le risorse dipendenti possono essere distribuite su nodi diversi da quelli delle risorse proprietarie e pertanto l'eliminazione potrebbe avvenire in modo differito. A prescindere dal meccanismo di garbage collection, nel momento in cui una risorsa viene eliminata, la quota viene istantaneamente liberata e resa disponibile per l'uso. Si noti che l'integrità referenziale viene conservata da parte del sistema. Ad esempio, non è possibile inserire una raccolta in un database che è stato eliminato o sostituito né eseguire query su un documento di una raccolta che non esiste più.
+La sostituzione o la lettura di una risorsa si eseguono inviando rispettivamente verbi PUT (con un corpo di richiesta valido) e GET al collegamento *\_self* della risorsa. Analogamente, l'eliminazione di una risorsa si ottiene inviando un verbo DELETE al collegamento *\_self* della risorsa. Vale la pena di evidenziare che l'organizzazione gerarchica delle risorse nel modello di risorse di DocumentDB necessita del supporto per le eliminazioni propagate, grazie a cui l'eliminazione della risorsa proprietaria causa l'eliminazione delle risorse dipendenti. Le risorse dipendenti possono essere distribuite su nodi diversi da quelli delle risorse proprietarie e pertanto l'eliminazione potrebbe avvenire in modo differito. A prescindere dal meccanismo di garbage collection, nel momento in cui una risorsa viene eliminata, la quota viene istantaneamente liberata e resa disponibile per l'uso. Si noti che l'integrità referenziale viene conservata da parte del sistema. Ad esempio, non è possibile inserire una raccolta in un database che è stato eliminato o sostituito né eseguire query su un documento di una raccolta che non esiste più.
  
 L'invio di un verbo GET a un feed di risorse o la query su una raccolta potrebbe potenzialmente restituire milioni di elementi, rendendone ingestibile la materializzazione da parte del server e l'uso da parte dei client, nell'ambito di un singolo scambio di richiesta e risposta/round trip. Per risolvere il problema, DocumentDB consente ai client di impaginare i grandi feed una pagina per volta. I client possono usare l'intestazione di risposta [x-ms-continuation] come cursore per passare alla pagina successiva.
 
@@ -164,85 +174,17 @@ La maggior parte delle applicazioni Web si affida al controllo della concorrenza
 2.	Se un client presenta una versione non aggiornata della risorsa (specificata tramite l'intestazione di richiesta [if-match]), la richiesta verrà rifiutata.  
 
 ## Opzioni di connettività
-DocumentDB espone un modello di indirizzamento logico secondo cui ogni risorsa ha un URI logico e stabile identificato nel proprio collegamento \_self. Man mano che un sistema di archiviazione distribuita si estende nelle varie aree, le risorse dei vari account del database in DocumentDB vengono partizionate su numerosi computer e ogni partizione viene replicata per la disponibilità elevata. Le repliche che gestiscono le risorse di una determinata partizione effettuano la registrazione di indirizzi fisici. Anche se gli indirizzi fisici cambiano nel corso del tempo a causa di errori, i relativi indirizzi logici restano stabili e costanti. La traduzione da indirizzo fisico a logico viene mantenuta in una tabella di routing disponibile anche internamente come risorsa. DocumentDB espone due modalità di connettività:
+DocumentDB espone un modello di indirizzamento logico secondo cui ogni risorsa ha un URI logico e stabile identificato nel proprio collegamento *\_self*. Man mano che un sistema di archiviazione distribuita si estende nelle varie aree, le risorse dei vari account del database in DocumentDB vengono partizionate su numerosi computer e ogni partizione viene replicata per la disponibilità elevata. Le repliche che gestiscono le risorse di una determinata partizione effettuano la registrazione di indirizzi fisici. Anche se gli indirizzi fisici cambiano nel corso del tempo a causa di errori, i relativi indirizzi logici restano stabili e costanti. La traduzione da indirizzo fisico a logico viene mantenuta in una tabella di routing disponibile anche internamente come risorsa. DocumentDB espone due modalità di connettività:
 
 1.	**Modalità Gateway:** i client sono esclusi dalla traduzione tra indirizzi logici e fisici e non ricevono dettagli relativi al routing. Essi si limitano a gestire gli URI e gli spostamenti RESTful nel modello di risorsa. I client inviano le richieste usando URI logici, mentre i computer perimetrali traducono l'URI logico nell'indirizzo fisico della replica che gestisce la risorsa e inoltra la richiesta. Con i computer perimetrali che memorizzano nella cache (e periodicamente aggiornano) la tabella di routing, il routing risulta estremamente efficiente. 
 2.	**Modalità connettività diretta:** i client gestiscono direttamente la tabella di routing nel proprio spazio di elaborazione e la aggiornano periodicamente. Un client può connettersi direttamente alle repliche e ignorare i computer perimetrali.   
 
 
-<table width="300">
-    <tbody>
-        <tr>
-            <td width="120" valign="top">
-                <p>
-                    <strong>Modalità di connettività</strong>
-                </p>
-            </td>
-            <td width="66" valign="top">
-                <p>
-                    <strong>Protocollo</strong>
-                </p>
-            </td>
-            <td width="264" valign="top">
-                <p>
-                    <strong>Dettagli</strong>
-                </p>
-            </td>
-            <td width="150" valign="top">
-                <p>
-                    <strong>SDK di DocumentDB</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="120" valign="top">
-                <p>
-                    Gateway
-                </p>
-            </td>
-            <td width="66" valign="top">
-                <p>
-                    HTTPS
-                </p>
-            </td>
-            <td width="264" valign="top">
-                <p>
-                    Le applicazioni si connettono direttamente con i nodi perimetrali usando URI logici. Ciò determina un hop di rete aggiuntivo
-                </p>
-            </td>
-            <td width="150" valign="top">
-                <p>
-                    API REST, .NET, Node. js, Java, Python, JavaScript
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="120" valign="top">
-                <p>
-                    Connettività diretta
-                </p>
-            </td>
-            <td width="66" valign="top">
-                <p>
-                    HTTPS e
-                </p>
-                <p>
-                    TCP
-                </p>
-            </td>
-            <td width="264" valign="top">
-                <p>
-                    Le applicazioni possono accedere direttamente alla tabella di routing ed eseguire il routing lato client per connettersi direttamente con le repliche.
-                </p>
-            </td>
-            <td width="150" valign="top">
-                <p>
-                    .NET
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+Modalità di connettività|Protocol|Dettagli|SDK di DocumentDB
+---|---|---|---
+Gateway|HTTPS|Le applicazioni si connettono direttamente con i nodi perimetrali usando URI logici. Ciò determina un hop di rete aggiuntivo|API REST, .NET, Node. js, Java, Python, JavaScript
+Connettività diretta|HTTPS e TCP|Le applicazioni possono accedere direttamente alla tabella di routing ed eseguire il routing lato client per connettersi direttamente con le repliche.|.NET
+
 
 ## Passaggi successivi
 Vedere Informazioni di [riferimento sulle API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) per altre informazioni su come lavorare con le risorse usando l'API REST.
@@ -255,11 +197,11 @@ Vedere Informazioni di [riferimento sulle API REST di Azure DocumentDB](https://
 - [Documentazione di riferimento di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 - REST [http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 - Specifica JSON [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
-- Specifica HTTP: [ http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
+- Specifica HTTP [ http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
 - Tag di entità [http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

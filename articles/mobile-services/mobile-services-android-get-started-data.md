@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione ai dati (Android) | Mobile Dev Center" 
+	pageTitle="Introduzione ai dati (Android) | Microsoft Azure" 
 	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -41,7 +41,7 @@
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-- Account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">versione di valutazione gratuita di Azure</a>.
+- Account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 
 - [Azure Mobile Services Android SDK].
@@ -156,4 +156,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

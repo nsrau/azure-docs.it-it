@@ -220,14 +220,14 @@ In questa esercitazione verrà usato il comando **copyFromLocal** di HDFS per il
 
 In questa esercitazione viene usata la struttura di cartelle HDFS seguente:
 
-<table border="1">
-<tr><td>Cartella</td><td>Nota</td></tr>
-<tr><td>/WordCount</td><td>Cartella radice per il progetto di conteggio delle parole. </td></tr>
-<tr><td>/WordCount/Apps</td><td>Cartella per i file eseguibili dei programmi di mapping e di riduzione.</td></tr>
-<tr><td>/WordCount/Input</td><td>Cartella di file di origine di MapReduce.</td></tr>
-<tr><td>/WordCount/Output</td><td>Cartella di file di output di MapReduce.</td></tr>
-<tr><td>/WordCount/MRStatusOutput</td><td>Cartella di output del processo.</td></tr>
-</table>
+Cartella|Nota
+---|---
+/WordCount|Cartella radice per il progetto di conteggio delle parole. 
+/WordCount/Apps|Cartella per i file eseguibili dei programmi di mapping e di riduzione.
+/WordCount/Input|Cartella di file di origine di MapReduce.
+/WordCount/Output|Cartella di file di output di MapReduce.
+/WordCount/MRStatusOutput|Cartella di output del processo.
+
 
 In questa esercitazione vengono usati come file di dati i file con estensione txt disponibili nella directory %hadoop\_home%.
 
@@ -610,4 +610,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce Java
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

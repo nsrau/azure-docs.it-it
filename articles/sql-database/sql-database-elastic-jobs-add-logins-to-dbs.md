@@ -2,7 +2,7 @@
 	pageTitle="Come aggiungere un utente a un pool elastico di database" 
 	description="È necessario aggiungere un utente con privilegi a ogni database del pool" 
 	services="sql-database" 
-	documentationCenter="" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -12,15 +12,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh" />
+	ms.date="07/27/2015" 
+	ms.author="ddove; sidneyh" />
 
 # Come aggiungere utenti a un pool di database elastici
 
-**I processi di database elastici** consentono di eseguire lo stesso script su ogni database di un [pool di database elastici](sql-database-elastic-pool.md). Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database del pool. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+La funzione **processi di database elastici** (anteprima) consente di eseguire uno script Transact-SQL in un gruppo di database, compresa un insieme personalizzato di database, un **pool di database elastici**o un **insieme di partizioni di database elastici **nel database SQL di Azure. Per eseguire lo script, è necessario aggiungere un utente con le autorizzazioni appropriate a ogni database in cui si eseguirà il processo. Per altre informazioni, vedere [Gestione di database, account di accesso e utenti in database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx) o l'articolo relativo all'[aggiunta di utenti al database SQL di Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Prerequisiti
-* [Creare un pool elastico di database (anteprima)](sql-database-elastic-pool-portal.md)
 * Installare i [componenti del processo elastico](sql-database-elastic-jobs-service-installation.md). 
 
 ## Come aggiungere utenti ai database
@@ -37,7 +36,7 @@
 
 ## Passaggi successivi
 
-Eseguire un processo sul pool di database elastici. Vedere [Creazione e gestione di processi elastici di database](sql-database-elastic-jobs-create-and-manage.md).
+Per creare e gestire i processi, vedere [Creazione e gestione dei processi di database elastici](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -45,4 +44,4 @@ Eseguire un processo sul pool di database elastici. Vedere [Creazione e gestione
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

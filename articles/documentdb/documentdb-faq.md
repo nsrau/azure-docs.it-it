@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ Gli account DocumentDB possono essere scalati in termini di archiviazione e la v
 Per informazioni dettagliate sui prezzi, vedere la pagina relativa ai [prezzi di DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317). Gli addebiti per l'utilizzo di DocumentDB sono determinati dal numero di raccolte in uso, dal numero di ore in cui le raccolte sono state online e dal [livello di prestazioni](documentdb-performance-levels.md) di ogni raccolta.
 
 ### È disponibile una versione di valutazione gratuita?
-I nuovi utenti possono effettuare l'iscrizione alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/it-it/pricing/free-trial/) che è valida 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Gli abbonati a MSDN hanno invece diritto a [150 dollari statunitensi di crediti Azure gratuiti](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1) da usare per qualsiasi servizio di Azure. Per provare gratuitamente DocumentDB per 30 giorni senza fornire i dati della carta di credito, inviare un messaggio di posta elettronica all'indirizzo askdocdb@microsoft.com, includendo nell'oggetto del messaggio la dicitura Domande frequenti, versione di valutazione di Azure. Si riceverà un messaggio contenente un codice promozionale fino all'esaurimento della disponibilità.
+I nuovi utenti possono effettuare l'iscrizione alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) che è valida 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Gli abbonati a MSDN hanno invece diritto a [150 dollari statunitensi di crediti Azure gratuiti](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure. Per provare gratuitamente DocumentDB per 30 giorni senza fornire i dati della carta di credito, inviare un messaggio di posta elettronica all'indirizzo askdocdb@microsoft.com, includendo nell'oggetto del messaggio la dicitura "Domande frequenti, versione di valutazione di Azure". Si riceverà un messaggio contenente un codice promozionale fino all'esaurimento della disponibilità.
 
 ### Dove è possibile reperire ulteriori informazioni e supporto su DocumentDB?
 Per ottenere informazioni o supporto, è possibile visitare il sito [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), i [forum per sviluppatori MSDN relativi ad Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) o pianificare una [chat 1:1 con il team di progettazione di DocumentDB](http://www.askdocdb.com/). Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti di DocumentDB, è possibile seguirci su [Twitter](https://twitter.com/DocumentDB).
@@ -67,7 +67,7 @@ Per creare i database, è possibile usare il [portale di anteprima di Azure](), 
 ### Che cos'è una raccolta?
 Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. L'ambito di query e transazioni è impostato sulle raccolte. È possibile archiviare un set di documenti JSON eterogenei in una singola raccolta, nella quale tutti i documenti vengono indicizzati automaticamente.
 
-Le raccolte costituiscono anche le entità di fatturazione per DocumentDB. Gli addebiti mensili per l'utilizzo di DocumentDB sono determinati dal numero di raccolte in uso, dal numero di ore in cui le raccolte sono state online e dal [livello di prestazioni](documentdb-performance-levels.md) di ogni raccolta. Per altre informazioni, vedere [DocumentDB - Prezzi](https://azure.microsoft.com/it-it/pricing/details/documentdb/).
+Le raccolte costituiscono anche le entità di fatturazione per DocumentDB. Gli addebiti mensili per l'utilizzo di DocumentDB sono determinati dal numero di raccolte in uso, dal numero di ore in cui le raccolte sono state online e dal [livello di prestazioni](documentdb-performance-levels.md) di ogni raccolta. Per altre informazioni, vedere [DocumentDB - Prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 
 ### Sono previsti limiti per i database e le raccolte?
 Ogni raccolta viene fornita con un'allocazione di spazio di archiviazione di database e il provisioning di unità da elaborare in base a uno dei [livelli di prestazioni](documentdb-performance-levels.md) supportati. Sono inoltre previste quote per ogni risorsa gestita dal servizio. Per un elenco di tutti i limiti, vedere l'articolo relativo ai [limiti di DocumentDB](documentdb-limits.md). Per richiedere una modifica dei limiti dell'account, vedere [Richiedere un aumento dei limiti per l'account DocumentDB](documentdb-increase-limits.md).
@@ -111,4 +111,4 @@ Sì. Dal momento che DocumentDB è un servizio RESTful, i collegamenti alle riso
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #Procedura: Gestire gli asset in archivio
-
-Questo articolo fa parte delle serie relative al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md) e al [flusso di lavoro Live Streaming di Servizi multimediali](media-services-live-streaming-workflow.md).
 
 
 Dopo avere creato gli asset multimediali, è possibile accedervi e gestirli sul server. Sul server è possibile gestire anche altri oggetti che fanno parte di Servizi multimediali, tra cui processi, attività, criteri di accesso, localizzatori e altro ancora.
@@ -86,4 +84,4 @@ Il seguente frammento di codice elimina tutti gli asset dall'account di Servizi 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione ad Azure - Nozioni fondamentali di Azure" 
+	pageTitle="Introduzione ad Azure | Microsoft Azure" 
 	description="Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso." 
 	services=" " 
 	documentationCenter=".net" 
@@ -112,7 +112,7 @@ La [pagina di confronto tra Applicazioni Web , Servizi cloud e Macchine virtuali
 
 ## Gestione dati
 
-Alle applicazioni servono i dati e ad applicazioni diverse servono tipi di dati diversi. Per questo motivo, in Azure sono disponibili diversi modi per archiviare e gestire i dati. Azure fornisce numerose opzioni di archiviazione, ma sono tutte progettate per un'archiviazione prolungata nel tempo. Con qualsiasi di queste opzioni sono sempre presenti tre copie dei dati sincronizzati con il data center Azure; sei copie nel caso in cui si consenta ad Azure di usare la ridondanza geografica per eseguire il backup in un altro data center ubicato a una distanza di almeno 480 chilometri.
+Alle applicazioni servono i dati e ad applicazioni diverse servono tipi di dati diversi. Per questo motivo, in Azure sono disponibili diversi modi per archiviare e gestire i dati. Azure fornisce numerose opzioni di archiviazione, ma sono tutte progettate per un'archiviazione prolungata nel tempo. Con una qualsiasi di queste opzioni sono sempre presenti tre copie dei dati sincronizzati con il data center Azure; sei copie nel caso in cui si consenta ad Azure di usare la ridondanza geografica per eseguire il backup in un altro data center ubicato a una distanza di almeno 480 chilometri.
 
 
 ### All'interno delle macchine virtuali
@@ -261,8 +261,8 @@ Include un sistema di controllo del codice sorgente ospitato denominato Team Fou
 
 Visual Studio Online fornisce un servizio di test del carico. È possibile eseguire test di carico creati in Visual Studio su macchine virtuali nel cloud. Si specifica il numero totale di utenti con i quali si desidera eseguire il test di carico e Visual Studio Online determinerà automaticamente il numero di agenti necessari, avvierà le macchine virtuali richieste ed eseguirà i test di carico. I sottoscrittori di MSDN ricevono migliaia di minuti-utente gratuiti di test di carico ogni mese.
 
-Visual Studio Online offre inoltre un servizio denominato Application Insights, che fornisce un'analisi dell'intera applicazione. Fornisce statistiche sulle prestazioni e sulla modalità di uso dell'applicazione. Se si usa già System Center Operations Manager, è anche possibile collegarlo a Visual Studio Online in modo da generare avvisi quando si verificano problemi.
-
+Visual Studio Online offre inoltre un servizio denominato Application Insights, che fornisce un'analisi dell'intera applicazione. Fornisce statistiche sulle prestazioni e sulla modalità di uso dell'applicazione. Se si usa già System Center Operations Manager, è anche possibile collegarlo a Visual Studio Online in modo da generare avvisi quando si verificano problemi.Viene anche fornito il supporto per lo sviluppo Agile con funzionalità quali compilazione di integrazione continua, bacheche kanban e chat del team virtuali.
+	
 Inoltre, viene fornito il supporto per lo sviluppo Agile con funzionalità quali compilazione di integrazione continua, bacheche kanban e chat del team virtuali.
 
 **Scenari di Visual Studio Online**
@@ -582,7 +582,7 @@ La differenza tra i due servizi sta nel fatto che il Marketplace si trova all'es
 
 **Scenari di e-commerce**
 
-SendGrid è un'applicazione di Azure Store che consente di inviare e-mail. Offre funzionalità aggiuntive come la consegna affidabile e statistiche. È possibile acquistare questa applicazione e servizi correlati invece di tentare di creare tale infrastruttura autonomamente.
+SendGrid è un'applicazione di Azure Store che consente di inviare e-mail. Offre funzionalità aggiuntive come la consegna affidabile e statistiche. È possibile acquistare questa applicazione e servizi correlati invece di provare a creare tale infrastruttura autonomamente.
 
 
 ## Introduzione
@@ -592,4 +592,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Archiviare il codice del progetto nel controllo del codice sorgente - Servizi mobili di Azure" 
+	pageTitle="Archiviare il codice di progetto nel controllo del codice sorgente | Microsoft Azure" 
 	description="Informazioni su come archiviare i moduli e i file di script del server in un repository Git locale nel computer." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="04/24/2015" 
 	ms.author="ggailey777"/>
-
 
 # Archiviare il codice del progetto nel controllo del codice sorgente
 
@@ -165,4 +163,4 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

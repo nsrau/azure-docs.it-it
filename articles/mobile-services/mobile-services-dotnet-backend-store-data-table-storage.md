@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Creare un servizio che usa l'archiviazione tabelle invece di un database SQL | Servizi mobili di Azure" 
+	pageTitle="Creare un servizio che usa l'archiviazione tabelle invece di un database SQL | Microsoft Azure" 
 	description="Informazioni su come usare l'archiviazione tabelle di Azure con il servizio mobile back-end .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/09/2015" 
 	ms.author="glenga"/>
-
 
 # Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle invece di un database SQL
 
@@ -55,7 +53,6 @@ Per questa esercitazione è prima di tutto necessario completare l'esercitazione
 8. In Esplora soluzioni in Visual Studio aprire il file Web.config per il progetto di servizio mobile, quindi aggiungere la nuova stringa di connessione seguente:
 
 		<add name="StorageConnectionString" connectionString="<STORAGE_CONNECTION_STRING>" />
-
 
 9. Sostituire il segnaposto `<STORAGE_CONNECTION_STRING>` con la stringa di connessione del passaggio 6.
 
@@ -161,4 +158,4 @@ Vista la semplicità dell'uso dell'archiviazione tabelle con il back-end .NET, �
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

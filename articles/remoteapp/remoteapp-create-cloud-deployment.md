@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come creare una raccolta RemoteApp nel cloud" 
-	description="Informazioni su come creare una distribuzione di RemoteApp che salva i dati nel cloud Azure." 
+	pageTitle="Come creare una raccolta cloud di Azure RemoteApp" 
+	description="Informazioni su come creare una distribuzione di Azure RemoteApp che salva i dati nel cloud Azure." 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Come creare una raccolta cloud di Azure RemoteApp
@@ -34,12 +34,12 @@ Questa esercitazione illustra il processo di creazione di una raccolta nel cloud
 
 Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 
-- [Iscriversi](http://azure.microsoft.com/services/remoteapp/) a RemoteApp. 
+- [Iscrizione](http://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp. 
 - Raccogliere informazioni sugli utenti a cui concedere l'accesso. Le informazioni possono essere relative all'account Microsoft o all'account di lavoro Active Directory per gli utenti.
 - Questa procedura presuppone che verrà usata una delle immagini modello fornite nell'ambito della sottoscrizione oppure che sia stata già caricata l'immagine modello da usare. Se è necessario caricare un'immagine modello diversa, è possibile effettuare questa operazione nella pagina Immagini modello. Fare clic su **carica un'immagine modello** e seguire i passaggi della procedura guidata. 
 - Se si vogliono offrire app personalizzate o programmi line-of-business, Creare una nuova [immagine](remoteapp-imageoptions.md) e usarla nella raccolta nel cloud.
 
-## Passaggio 1: Creare una raccolta RemoteApp ##
+## Passaggio 1: Creare una raccolta ##
 
 
 
@@ -56,7 +56,7 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 	
 	**Importante:** il provisioning della raccolta può richiedere fino a 30 minuti.
 
-Dopo la creazione della raccolta RemoteApp, passare alla pagina **Avvio rapido** di RemoteApp per continuare con la procedura di configurazione.
+Dopo aver creato la raccolta di RemoteApp, fare doppio clic sul nome della raccolta. Questo visualizzerà la pagina **Avvio rapido**: qui è possibile completare la configurazione della raccolta.
 
 
 ## Passaggio 2: Configurare la sincronizzazione della directory di Active Directory (facoltativo) ##
@@ -93,4 +93,4 @@ La procedura è stata completata e la raccolta RemoteApp nel cloud è stata crea
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

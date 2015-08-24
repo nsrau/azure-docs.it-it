@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Come usare l'interfaccia utente di Azure Mobile Engagement
@@ -95,7 +95,7 @@ Dopo aver integrato l'[SDK][Link 5] di Azure Mobile Engagement nell'applicazione
 [55]: ./media/mobile-engagement-user-interface-settings/settings10.png
 [56]: ./media/mobile-engagement-user-interface-settings/settings11.png
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
-[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
+[58]: ./mdia/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -105,10 +105,10 @@ Dopo aver integrato l'[SDK][Link 5] di Azure Mobile Engagement nell'applicazione
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
 [Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/it-it/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/it-it/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/it-it/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/it-it/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
 [Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md
@@ -133,4 +133,4 @@ Dopo aver integrato l'[SDK][Link 5] di Azure Mobile Engagement nell'applicazione
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

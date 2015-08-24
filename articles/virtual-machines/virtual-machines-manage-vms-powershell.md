@@ -5,8 +5,8 @@
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
-   editor=""/>
-
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -16,7 +16,6 @@
    ms.workload="infrastructure-services"
    ms.date="06/24/2015"
    ms.author="kasing"/>
-
 
 # Gestire le macchine virtuali con Azure PowerShell
 
@@ -95,4 +94,4 @@ Per creare una nuova macchina virtuale basata su Windows in Azure, utilizzare le
 - Come membro di un set esistente con carico bilanciato
 - Con un indirizzo IP statico
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

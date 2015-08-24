@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Provisioning Apache Spark cluster in HDInsight | Azure" 
+   pageTitle="Provisioning Apache Spark cluster in HDInsight | Microsoft Azure" 
    description="Informazioni su come effettuare il provisioning di cluster Spark per Azure HDInsight tramite il portale di Azure, Azure PowerShell, una riga di comando o HDInsight .NET SDK" 
    services="hdinsight" 
    documentationCenter="" 
@@ -505,4 +505,4 @@ Mentre l'applicazione è aperta in Visual Studio, premere **F5** per eseguirla. 
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

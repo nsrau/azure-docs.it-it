@@ -225,11 +225,11 @@ Eseguire l'applicazione console per visualizzare l'output.
 
 ## Impostare la dimensione massima per una condivisione file
 
-A partire dalla versione 5.x della libreria client di archiviazione di Azure, è possibile impostare la quota (o dimensione massima) per una condivisione, in gigabyte. Impostando la quota per una condivisione, è possibile limitare la dimensione totale dei file archiviati nella condivisione.
+A partire dalla versione 5.x della libreria client di archiviazione di Azure, è possibile impostare la quota (o dimensione massima) per una condivisione file, in gigabyte. È anche possibile controllare la quantità di dati archiviata attualmente nella condivisione.
 
-Se la dimensione totale dei file nella condivisione supera la quota impostata per la condivisione, i client non saranno in grado di aumentare le dimensioni dei file esistenti o creare nuovi file, a meno che non siano vuoti.
+Impostando la quota per una condivisione, è possibile limitare la dimensione totale dei file archiviati nella condivisione. Se la dimensione totale dei file nella condivisione supera la quota impostata per la condivisione, i client non saranno in grado di aumentare le dimensioni dei file esistenti o creare nuovi file, a meno che tali file non siano vuoti.
 
-Nell'esempio seguente viene illustrato come impostare la quota per una condivisione file esistente.
+L'esempio seguente illustra come controllare l'uso corrente per una condivisione e come impostare la quota per la condivisione.
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -244,12 +244,20 @@ Nell'esempio seguente viene illustrato come impostare la quota per una condivisi
     //Ensure that the share exists.
     if (share.Exists())
     {
-		//Specify the maximum size of the share, in GB.
-	    share.Properties.Quota = 100;
-	    share.SetProperties();
-	}
+        //Check current usage stats for the share.
+		//Note that the ShareStats object is part of the protocol layer for the File service.
+        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-Per ottenere il valore di una quota esistente per la condivisione, chiamare il metodo **FetchAttributes()** per recuperare le proprietà della condivisione.
+        //Specify the maximum size of the share, in GB.
+        //This line sets the quota to be 10 GB greater than the current usage of the share.
+        share.Properties.Quota = 10 + stats.Usage;
+        share.SetProperties();
+
+        //Now check the quota for the share. Call FetchAttributes() to populate the share's properties. 
+        share.FetchAttributes();
+        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    }
 
 ## Generare la firma di accesso condiviso per un file o una condivisione file
 
@@ -299,7 +307,7 @@ Nell'esempio seguente viene creato un criterio di accesso condiviso in una condi
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Per ulteriori informazioni sulla creazione e sull’utilizzo di firme di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di SAS](storage-dotnet-shared-access-signature-part-1.md) e [Creare e utilizzare una firma di accesso condiviso con il servizio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Creare e usare una firma di accesso condiviso con il servizio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Copiare i file
 
@@ -404,11 +412,11 @@ Nell'esempio seguente viene creato un file che viene copiato in un BLOB nello st
 
 ## Utilizzare l'archiviazione di file con Linux
 
-Per creare e gestire una condivisione file da Linux, utilizzare l’interfaccia della riga di comando di Azure. Vedere [Utilizzare l’interfaccia della riga di comando di Azure con Archiviazione di Azure](storage-azure-cli.md#create-and-manage-file-shares) per informazioni sull'utilizzo dell’interfaccia della riga di comando di Azure con l'archiviazione di file.
+Per creare e gestire una condivisione file da Linux, utilizzare l’interfaccia della riga di comando di Azure. Per informazioni sull'uso dell'interfaccia della riga di comando di Azure con l'archiviazione di file, vedere [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](storage-azure-cli.md#create-and-manage-file-shares).
 
 È possibile montare una condivisione di file di Azure da una macchina virtuale che esegue Linux. Quando si crea una macchina virtuale di Azure, è possibile specificare un'immagine Linux che supporta SMB 2.1 dalla raccolta immagini di Azure, ad esempio l'ultima versione di Ubuntu. Tuttavia, in qualsiasi distribuzione di Linux che supporta SMB 2.1 si può montare una condivisione file di Azure.
 
-Per ulteriori informazioni su come montare una condivisione file di Azure su Linux, vedere [Archiviazione condivisa in Linux mediante l'anteprima file di Azure -- Parte 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) su Channel 9.
+Per altre informazioni su come montare una condivisione file di Azure su Linux, vedere [Archiviazione condivisa in Linux mediante l'anteprima file di Azure - Parte 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) su Channel 9.
 
 ## Passaggi successivi
 
@@ -428,4 +436,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Requisiti di sistema di StorSimple" 
+   pageTitle="Requisiti di sistema StorSimple | Microsoft Azure" 
    description="Descrizione dei requisiti di sistema e delle procedure consigliate per il software, la disponibilità elevata e le funzionalità di rete in una soluzione StorSimple di Azure." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # Requisiti di sistema di StorSimple
@@ -96,7 +96,7 @@ Ogni modulo controller del dispositivo StorSimple ha quattro interfacce di rete 
 
 - Quando possibile, usare la funzionalità MPIO sui server per assicurarsi che i server possano tollerare un problema di collegamento, rete o interfaccia.
 
-Per altre informazioni sulle funzionalità di rete del dispositivo per disponibilità e prestazioni elevate, vedere [Cablare il dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) o [Cablare il dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+Per altre informazioni sulle funzionalità di rete del dispositivo per disponibilità e prestazioni elevate, vedere [Installare il dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) o [Installare il dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSD e HDD
 
@@ -138,7 +138,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 
 Esaminare attentamente i requisiti e le procedure consigliate seguenti per avere la certezza della disponibilità elevata degli host connessi al dispositivo StorSimple.
 
-- Configurare StorSimple con [configurazioni cluster di file server a 2 nodi] (https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). Se si rimuovono singoli punti di errore e si crea ridondanza sul lato host, l'intera soluzione diventa altamente disponibile.
+- Configurare StorSimple con [configurazioni cluster di file server a 2 nodi][1]. Se si rimuovono singoli punti di errore e si crea ridondanza sul lato host, l'intera soluzione diventa altamente disponibile.
 
 - Usare condivisioni disponibili in modo continuo con Windows Server 2012 (SMB 3.0) per la disponibilità elevata durante il failover dei controller di archiviazione. Per altre informazioni sulla configurazione di cluster di file server e sulle condivisioni disponibili in modo continuo con Windows Server 2012, vedere questo [video dimostrativo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
@@ -184,12 +184,14 @@ Oltre ai requisiti di rete sopra illustrati, per ottenere prestazioni ottimali n
 
 - Verificare che la connettività di rete a Internet sia sempre disponibile. Connessioni Internet sporadiche o non affidabili ai dispositivi, o nessuna connettività a Internet, hanno per effetto una configurazione non supportata.
 
-- Isolare il traffico iSCSI e cloud prevedendo nel dispositivo interfacce di rete dedicate per l'accesso iSCSI e cloud. Per altre informazioni, vedere la procedura di [configurazione delle interfacce di rete](https://msdn.microsoft.com/library/dn772371.aspx) sul dispositivo StorSimple.
+- Isolare il traffico iSCSI e cloud prevedendo nel dispositivo interfacce di rete dedicate per l'accesso iSCSI e cloud. Per altre informazioni, vedere la procedura [modificare le interfacce di rete](storsimple-modify-device-config.md#modify-network-interfaces) sul dispositivo StorSimple.
 
 ## Passaggi successivi
 
-- [Limiti di StorSimple](storsimple-limits.md)
+- Ulteriori informazioni sui [Limiti di StorSimple](storsimple-limits.md).
 - [Distribuire la soluzione StorSimple](storsimple-deployment-walkthrough.md)
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,11 +1,11 @@
 
 1. Accedere al [portale di gestione di Azure], fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
-2. Fare clic sulla scheda **Push**, selezionare **Solo gli utenti autenticati** per **Autorizzazioni**, quindi fare clic su **Modifica script**.
+2. Fare clic sulla scheda **Push**, selezionare **Solo gli utenti autenticati** per **Autorizzazioni**, quindi fare clic su **Salva** e poi su **Modifica script**.
 	
 	In questo modo è possibile personalizzare la funzione di callback per la registrazione delle notifiche push. Se si usa Git per modificare il codice sorgente, questa stessa funzione di registrazione è disponibile in `.\service\extensions\push.js`.
 
-3. Sostituire la funzione **register** esistente con il codice seguente:
+3. Sostituire la funzione **register** esistente con il codice seguente e fare clic su **Salva**:
 
 		exports.register = function (registration, registrationContext, done) {   
 		    // Get the ID of the logged-in user.
@@ -42,4 +42,4 @@
 
 4. Fare clic sulla freccia indietro, fare clic sulla scheda **Dati**, su **TodoItem**, su **Script** e infine selezionare **Inserisci**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

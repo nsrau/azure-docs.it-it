@@ -308,15 +308,10 @@ Entrambi gli script di PowerShell di esempio usati per eseguire gli esempi conte
 
 Le informazioni di errore (STDERR) e il risultato del processo (STDOUT) vengono inoltre registrati nel contenitore BLOB predefinito per i cluster nei percorsi seguenti.
 
-<table>
-<tr>
-<td>Processo</td><td>File nel contenitore BLOB da verificare</td>
-</tr>
-<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
-</tr>
-<td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
-</tr>
-</table>
+Processo|File nel contenitore BLOB da verificare
+---|---
+Hive|/HivePython/stderr<p>/HivePython/stdout
+Pig|/PigPython/stderr<p>/PigPython/stdout
 
 ##<a name="next"></a>Passaggi successivi
 
@@ -330,4 +325,4 @@ Per altre modalità d'uso di Pig e Hive e per informazioni su come usare MapRedu
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

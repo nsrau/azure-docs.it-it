@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a servizi mobili per app universali di Windows | Mobile Dev Center"
+	pageTitle="Introduzione a servizi mobili per app universali di Windows | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo di app universali di Windows in C#."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
@@ -126,4 +126,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

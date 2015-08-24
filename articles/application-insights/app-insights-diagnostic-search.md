@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Uso di Ricerca diagnostica in Application Insights
@@ -34,6 +34,8 @@ Ad esempio, se l'applicazione è un servizio Web, il pannello Panoramica mostra 
 
 
 Il corpo principale della Ricerca diagnostica è un elenco di elementi di telemetria: richieste del server, visualizzazioni pagina, eventi personalizzati che sono stati codificati e così via. Nella parte superiore dell'elenco è disponibile un grafico di riepilogo che mostra il numero di eventi nel tempo.
+
+Gli eventi vengono in genere visualizzati nella ricerca diagnostica prima che vengano visualizzati nell’esploratore di metriche. Anche se il pannello viene automaticamente aggiornato a intervalli, è possibile fare clic su Aggiorna se in attesa di un determinato evento.
 
 
 ## Controllare i singoli elementi
@@ -198,4 +200,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

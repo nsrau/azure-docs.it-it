@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Consentire alle pipeline di usare dati locali | Data factory di Azure" 
+	pageTitle="Consentire alle pipeline di usare dati locali | Microsoft Azure" 
 	description="Informazioni su come registrare un'origine dati locale con un'istanza di Data factory di Azure e su come copiare i dati da e nell'origine dati." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -628,4 +628,4 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

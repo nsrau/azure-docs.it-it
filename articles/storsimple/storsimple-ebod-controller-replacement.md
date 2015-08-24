@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Sostituzione di un controller EBOD nel dispositivo StorSimple
@@ -81,7 +81,7 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
 
 3. Chiudere il chiavistello. Quando il chiavistello viene attivato si dovrebbe ascoltare un clic.
 
-    ![Rilascio del chiavistello EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
+    ![Rilascio del latch EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
     **Figura 3** Chiusura del chiavistello del modulo EBOD
 
@@ -107,4 +107,4 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

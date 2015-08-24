@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Servizi mobili per app per Xamarin iOS - Servizi mobili di Azure"
+	pageTitle="Introduzione a Servizi mobili per app per Xamarin iOS | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Xamarin iOS."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -136,4 +136,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

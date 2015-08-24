@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come creare, gestire o eliminare un account di archiviazione | Azure"
+	pageTitle="Come creare, gestire o eliminare un account di archiviazione | Microsoft Azure"
 	description="Informazioni su come creare, gestire o eliminare un account di archiviazione nel portale di gestione di Azure."
 	services="storage"
 	documentationCenter=""
@@ -167,4 +167,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

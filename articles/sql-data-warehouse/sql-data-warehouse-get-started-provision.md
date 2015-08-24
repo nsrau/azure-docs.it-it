@@ -7,7 +7,6 @@
    manager="barbkess"
    editor=""/>
 
-
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
@@ -16,7 +15,6 @@
    ms.workload="data-services"
    ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
-
 
 # Introduzione: effettuare il provisioning di SQL Data Warehouse #
 
@@ -155,17 +153,20 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibile procedere per imparare a usarlo.
 
-Nei prossimi passaggi si apprenderà quindi come: 1. [Connect e query][]il data warehouse. 2. Caricare[dati di esempio].
+Nei prossimi passaggi si apprenderà quindi come:
+
+1. [Collegarsi al data warehouse ed eseguire query][].
+2. Caricare [dati di esempio].
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Connect e query]: sql-data-warehouse-get-started-connect-query.md
+[Collegarsi al data warehouse ed eseguire query]: sql-data-warehouse-get-started-connect-query.md
 [dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [versione di valutazione gratuita]: https://azure.microsoft.com/it-it/pricing/free-trial/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

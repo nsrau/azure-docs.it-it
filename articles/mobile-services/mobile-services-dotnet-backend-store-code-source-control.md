@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Archiviare il codice del progetto nel controllo del codice sorgente - Servizi mobili di Azure" 
+	pageTitle="Archiviare il codice di progetto nel controllo del codice sorgente | Microsoft Azure" 
 	description="Informazioni su come archiviare il progetto back-end per .NET e pubblicarlo nel computer da un repository Git locale." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -104,4 +104,4 @@ A questo punto, il progetto di servizio mobile viene gestito nel controllo del c
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

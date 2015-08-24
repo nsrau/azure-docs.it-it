@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,60 +13,72 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/26/2015"
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
 
 # Creare un'app Web ASP.NET nel servizio app di Azure
 
 ## Panoramica
 
-In questa esercitazione viene illustrato come creare un'applicazione Web ASP.NET e distribuirla in [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) tramite Visual Studio 2013 o Visual Studio 2013 Express per Web. Nell'esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET. Al termine dell'esercitazione, si avrà un'applicazione Web semplice in esecuzione nel cloud.
+In questa esercitazione viene illustrato come creare un'applicazione Web ASP.NET e distribuirla in [App Web del servizio app](app-service-web-overview.md) tramite Visual Studio 2015 o Visual Studio 2013. Nell'esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET. Al termine dell'esercitazione, si avrà un'applicazione Web semplice in esecuzione nel cloud.
+
+Nella figura seguente è illustrata l'applicazione completata:
+
+![Home page dell'app Web](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
 Si apprenderà come:
 
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
 * Creare un progetto Web ASP.NET di Visual Studio e distribuirlo in un'app Web di Azure.
 * Apportare una modifica al progetto Web e ridistribuire l'applicazione.
-* Usare il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) per monitorare e gestire la propria app Web.
+* Usare il [portale di anteprima di Azure](/overview/preview-portal/) per monitorare e gestire la propria app Web.
+
+##<a name="video"></a>Iscrizione a Microsoft Azure
 
 Per completare l'esercitazione, è necessario un account Azure.
 
-* È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) . Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web del servizio app.
-* È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.</li>
+* È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) - Si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web del servizio app.
+* È possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
-Nella figura seguente è illustrata l'applicazione completata:
-
-![Home page dell'app Web](./media/web-sites-dotnet-get-started/deployedandazure.png)
-
-##<a name="video"></a>Iscrizione a Microsoft Azure (video)
+> [AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 In questo video, Scott Hanselman illustra la facilità di iscrizione a una versione di valutazione gratuita di Microsoft Azure. (Durata: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [installare-sdk-2015 2013](../../includes/install-sdk-2015-2013.md)]
 
 ## Creazione di un'applicazione Web ASP.NET
 
-Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app Web di Azure in cui distribuire in seguito il progetto verrà creata automaticamente in Visual Studio.
+Il primo passaggio consiste nel creare un progetto web in Visual Studio e un'app web nel servizio di App di Azure. Una volta effettuata questa operazione, il progetto verrà distribuito in app web per renderlo disponibile su Internet.
 
-1. Aprire Visual Studio 2013 o Visual Studio 2013 Express per il Web.
+I diagrammi illustrano cosa si nei passaggi di creazione e di distribuzione.
+
+![Creazione](./media/web-sites-dotnet-get-started/Create_App.png)
+
+![Distribuire](./media/web-sites-dotnet-get-started/Deploy_App.png)
+
+1. Avviare Visual Studio 2015 o Visual Studio 2013. 
+
+	Se si utilizza Visual Studio 2013, gli schermi saranno leggermente diversi dalle schermate, ma le procedure sono sostanzialmente le stesse.
 
 2. Scegliere **Nuovo progetto** dal menu **File**.
 
 3. Nella finestra di dialogo **Nuovo progetto** fare clic su **C#** > **Web** > **Applicazione Web ASP.NET**. Se si preferisce, è possibile scegliere **Visual Basic**.
 
-3. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
+3. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5.2**.
 
 4.  [Application Insights](app-insights-overview.md) monitora disponibilità, prestazioni e utilizzo delle app Web. Deselezionare la casella di controllo **Aggiungi Application Insights al progetto** se non si vuole provarlo.
 
-4. Assegnare all'applicazione il nome **Esempio** e fare clic su **OK**.
+4. Denominare l'applicazione**MyExample**.
+
+5. Fare clic su **OK**.
 
 	![Finestra di dialogo Nuovo progetto](./media/web-sites-dotnet-get-started/GS13newprojdb.png)
 
-5. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**. Se si preferisce usare Web Form ASP.NET, è possibile selezionare il modello **Web Form**.
+5. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**.
 
-	[MVC e Web Form](http://www.asp.net/get-started/websites) sono framework di ASP.NET per lo sviluppo di app Web. Per questa esercitazione è possibile scegliere l'uno o l'altro, ma se si sceglie Web Form, in seguito sarà necessario modificare *Default.aspx* nel punto in cui l'esercitazione indica di modificare il file *Index.cshtml*.
+	[MVC](http://www.asp.net/mvc) è un framework di ASP.NET per lo sviluppo di app web.
 
 7. Fare clic su **Modifica autenticazione**.
 
@@ -90,11 +102,11 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 	![Accesso effettuato ad Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. Nel **configurare impostazioni di Microsoft Azure Web App** finestra di dialogo, lasciare il valore predefinito.
+3. Nella finestra di dialogo **Configurare impostazioni di Microsoft Azure Web App** immettere un **Nome dell'App Web** che sia univoco nel dominio *azurewebsites.net*. Ad esempio, è possibile denominarlo MyExample con numeri a destra per renderlo univoco, come MyExample810. Se viene creato un nome web predefinito, è univoco e sarà possibile utilizzarlo.
 
-	È possibile immettere un altro **nome dell'applicazione Web** se si preferisce, ma il nome deve essere univoco nel *azurewebsites.net* dominio. Il nome predefinito fornite da Visual Studio è univoco.
+	Se il nome immesso è già stato usato da un altro utente, a destra, invece di un segno di spunta verde, verrà visualizzato un punto esclamativo rosso e sarà necessario specificare un nome diverso.
 
-	Azure utilizzerà questo nome come prefisso per l'URL dell'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e da *.azurewebsites.net* (come mostrato accanto alla casella di testo **Nome app Web**). Ad esempio, se il nome del sito è `MyExample6442`, l'URL sarà `MyExample6442.azurewebsites.net`. L'URL deve essere univoco. Se l'URL immesso è già stato usato da un altro utente, a destra, invece di un segno di spunta verde, verrà visualizzato un punto esclamativo rosso e sarà necessario specificare un nome diverso.
+	Azure utilizzerà questo nome come prefisso per l'URL dell'applicazione. L'URL completo sarà costituito da quanto immesso in questa casella e da *.azurewebsites.net* (come mostrato accanto alla casella di testo **Nome app Web**). Ad esempio, se il nome del sito è `MyExample810`, l'URL sarà `MyExample810.azurewebsites.net`. L'URL deve essere univoco.
 
 4. Nel **piano di servizio App** elenco a discesa, selezionare **Crea nuovo piano di servizio App**.
 
@@ -106,7 +118,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 	Il [passaggi successivi](#next-steps) include collegamenti a informazioni sui gruppi di risorse.
 
-5. Immettere *MyExampleResourceGroup*, o un altro nome se si preferisce, il nome del gruppo di risorse.
+5. Immettere *MyExampleGroup*, o un altro nome se si preferisce, il nome del gruppo di risorse.
 
 5. Nell'elenco a discesa **Region** scegliere la posizione più vicina.
 
@@ -114,11 +126,11 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 5. Lasciare inalterati i campi relativi al database.
 
-	Per questa esercitazione non verrà utilizzato un database. Nella sezione [Passaggi successivi](#next-steps) alla fine dell'esercitazione è riportato un collegamento a un'esercitazione in cui viene illustrato l'utilizzo di un database.
+	Per questa esercitazione non verrà utilizzato un database. La sezione[Passaggi successivi](#next-steps) collega a un'esercitazione che illustra come utilizzare un database.
 
 6. Fare clic su **OK**.
 
-	![Accesso effettuato ad Azure](./media/web-sites-dotnet-get-started/configuresitesettings2.png)
+	![](./media/web-sites-dotnet-get-started/configuresitesettings2.png)
 
 	Dopo pochi secondi il progetto Web verrà creato nella cartella specificata in Visual Studio e l'app Web verrà creata nell'area di Azure specificata.
 
@@ -130,7 +142,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 	![Applicazione Web creata](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
-	L'app Web viene visualizzata in Esplora server.
+	E sarà possibile vedere l'app web in **Esplora Server**.
 
 	![Applicazione Web creata](./media/web-sites-dotnet-get-started/siteinse.png)
 
@@ -144,51 +156,29 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 	Le impostazioni di cui Visual Studio ha bisogno per distribuire il progetto in Azure sono state salvate in un *profilo di pubblicazione*. La procedura guidata consente di esaminarle e modificarle.
 
-8. Nella scheda **Connection** della procedura guidata **Publish Web** fare clic su **Validate Connection** per assicurarsi che Visual Studio sia in grado di connettersi ad Azure per distribuire il progetto Web.
+8. Nel passaggio **Connessione** della procedura guidata **Pubblica sito Web** fare clic su **Avanti**.
 
-	![Convalida connessione](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
+	Visual Studio fornisce tutte le impostazioni necessarie per distribuire l'applicazione web di Azure.
 
-	Dopo la convalida della connessione, accanto al pulsante **Validate Connection** verrà visualizzato un segno di spunta verde.
-
-9. Fare clic su **Avanti**.
-
-	![Connessione convalidata correttamente](./media/web-sites-dotnet-get-started/GS13ValidateConnectionSuccess.png)
+	![Connessione convalidata correttamente](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
 10. Nella scheda **Impostazioni** fare clic su **Avanti**.
-
-	![Scheda Settings](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
 	È possibile accettare i valori predefiniti per **Configurazione** e **Opzioni di pubblicazione file**.
 
 	L'elenco a discesa **Configurazione** consente di distribuire una build di debug per il debug remoto. Nella sezione [Passaggi successivi](#next-steps) è incluso il collegamento a un'esercitazione che illustra come eseguire Visual Studio in modalità di debug in remoto.
 
-	Se si espande **Opzioni di pubblicazione file**, appariranno diverse impostazioni che consentono di gestire scenari non applicabili a questa esercitazione:
+	![Scheda Settings](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-	* Rimuovi i file aggiuntivi nella destinazione.
+11. Nella scheda **Anteprima**, fare clic su**Pubblica**.
 
-		Elimina eventuali file nel server che non sono presenti nel progetto. Può essere utile se si intende distribuire un progetto in un'app Web in cui in precedenza è stato distribuito un progetto diverso.
+	Se si desidera visualizzare quali file verranno copiati in Azure, è possibile scegliere **Avviare anteprima Preview** prima di scegliere **Pubblica**.
 
-	* Precompila durante la pubblicazione.
-
-		Consente di ridurre i tempi di preparazione della prima richiesta per le applicazioni di grandi dimensioni.
-
-	* Escludi file dalla cartella App\_Data.
-
-		Per eseguire test, è talvolta necessario disporre in App\_Data di un file di database SQL Server da non distribuire in produzione.
-
-11. Nella scheda **Preview** fare clic su **Start Preview**.
-
-	![Pulsante Avvia anteprima nella scheda Anteprima](./media/web-sites-dotnet-get-started/GS13Preview.png)
-
-	Nella scheda viene visualizzato un elenco dei file che verranno copiati nel server. La visualizzazione dell'anteprima non è necessaria per pubblicare l'applicazione, ma è una funzione utile da conoscere.
-
-12. Fare clic su **Pubblica**.
-
-	![Output del file di Avvia anteprima](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
+	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
 	In Visual Studio verrà avviato il processo di copia dei file nel server Azure.
 
-	Nelle finestre **Output** e **Web Publish Activity** vengono indicate le azioni effettuate e viene segnalato il corretto completamento della distribuzione.
+	Nelle finestre **Output** e **Azure App Service Activity** vengono indicate le azioni effettuate e viene segnalato il corretto completamento della distribuzione.
 
 	![Finestra Output con la segnalazione della corretta distribuzione](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
@@ -200,7 +190,7 @@ Il primo passaggio consiste nel creare un progetto di applicazione Web. L'app We
 
 ## Inserire una modifica e ridistribuire
 
-In questa sezione dell'esercitazione si modificherà l'intestazione **h1** della home page, quindi si eseguirà il progetto in locale nel computer di sviluppo per verificare la modifica e infine si distribuirà la modifica in Azure.
+Questa sezione dell'esercitazione è facoltativa. Ciò che bisognerà fare è modificare l'intestazione **h1** della home page, eseguire il progetto in locale nel computer di sviluppo per verificare la modifica e infine distribuire la modifica in Azure.
 
 2. Aprire il file *Views/Home/Index.cshtml* o *.vbhtml* in **Esplora soluzioni**, modificare l'intestazione **h1** da "ASP.NET" in "ASP.NET and Azure", quindi salvare il file.
 
@@ -212,7 +202,7 @@ In questa sezione dell'esercitazione si modificherà l'intestazione **h1** della
 
 	![Applicazione Web in esecuzione in locale](./media/web-sites-dotnet-get-started/localandazure.png)
 
-	L'URL `http://localhost` indica che l'applicazione viene eseguita nel computer locale. Per impostazione predefinita, viene eseguita in IIS Express, una versione semplificata di IIS progettata per l'utilizzo durante lo sviluppo di applicazioni Web.
+	L'URL `localhost` indica che l'applicazione viene eseguita nel computer locale. Per impostazione predefinita, viene eseguita in IIS Express, una versione semplificata di IIS progettata per l'utilizzo durante lo sviluppo di applicazioni Web.
 
 1. Chiudere il browser.
 
@@ -220,39 +210,39 @@ In questa sezione dell'esercitazione si modificherà l'intestazione **h1** della
 
 	![Selezione di Pubblica](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	Verrà visualizzata la scheda Anteprima della procedura guidata **Pubblica sito Web**. Se è necessario modificare una qualsiasi impostazione di pubblicazione, è possibile scegliere una scheda diversa, tuttavia in questo caso si desidera solo eseguire la ridistribuzione con le stesse impostazioni.
+	Verrà visualizzata la scheda **Anteprima** della procedura guidata **Pubblica sito Web**. Se è necessario modificare una qualsiasi impostazione di pubblicazione, è possibile scegliere una scheda diversa, tuttavia in questo caso si desidera solo eseguire la ridistribuzione con le stesse impostazioni.
 
 2. Nella procedura guidata **Pubblica sito Web** fare clic su **Pubblica**.
 
-	![Click Publish](./media/web-sites-dotnet-get-started/clickpublish.png)
+	![Click Publish](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
 	Il progetto verrà distribuito in Azure e l'app Web verrà aperta nel browser predefinito.
 
 	![App web modificati distribuita](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
-**Nota:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza** > **Barre degli strumenti**, quindi selezionare **Sito Web - Pubblicazione con un clic**. La barra degli strumenti consente di selezionare un profilo, fare clic su un pulsante per pubblicare oppure per aprire la procedura guidata **Pubblica sito Web**.
+**Nota:** è possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza > Barre degli strumenti**, quindi selezionare **Sito Web - Pubblicazione con un clic**. La barra degli strumenti consente di selezionare un profilo, fare clic su un pulsante per pubblicare oppure per aprire la procedura guidata **Pubblica sito Web**.
 
 ![Barra degli strumenti Sito Web - Pubblicazione con un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Monitorare e gestire l'app Web nel portale di gestione
 
-Il [portale di gestione di Azure](/services/management-portal/) è un'interfaccia Web che consente di gestire e monitorare i servizi di Azure, ad esempio l'app Web appena creata. In questa sezione dell'esercitazione verranno esaminate alcune delle operazioni che è possibile eseguire nel portale.
+Il [portale di anteprima di Azure](/services/management-portal/) è un'interfaccia Web che consente di gestire e monitorare i servizi di Azure, ad esempio l'app Web appena creata. In questa sezione dell'esercitazione verranno esaminate alcune delle operazioni che è possibile eseguire nel portale.
 
 1. Nel browser passare a [https://portal.azure.com]() e accedere con le credenziali di Azure.
 
 2. Fare clic su **Sfoglia > App Web**, quindi fare clic sul nome dell'app Web.
 
-	Nel pannello **App Web** dell'app Web viene visualizzata una panoramica delle statistiche di utilizzo e dei collegamenti per le funzioni di gestione dell'app Web utilizzate.
+	Il pannello **app Web** consente di visualizzare una panoramica delle impostazioni e le statistiche di utilizzo per l'applicazione web.
 
-	![Pannello dell'app Web](./media/web-sites-dotnet-get-started/portaldashboard.png)-->
+	![Pannello dell'app Web](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
 	A questo punto il traffico dell'app Web è poco rilevante ed è quindi possibile che il grafico non visualizzi nulla. Se si passa all'applicazione, si aggiorna la pagina alcune volte; pertanto si aggiorna la pagina del portale e vengono visualizzate alcune statistiche.
 
-3. Fare clic su **Tutte le impostazioni** per visualizzare ulteriori opzioni di configurazione dell'app Web.
+3. Fare clic su **Impostazioni** per visualizzare ulteriori opzioni di configurazione dell'app Web.
 
 	Viene visualizzato un elenco di tipi di impostazioni.
 
-	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)-->
+	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
 4. Fare clic su **Impostazioni applicazione** per visualizzare un esempio dei tipi di impostazioni che è possibile configurare nel portale.
 
@@ -262,11 +252,9 @@ Il [portale di gestione di Azure](/services/management-portal/) è un'interfacci
 
 Queste sono solo alcune delle funzionalità del portale di gestione. È possibile creare nuove app Web, eliminare app Web esistenti, arrestare e riavviare app Web, nonché gestire altri tipi di servizi di Azure, come database e macchine virtuali.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-
 ## Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per creare una semplice applicazione Web e distribuirla in un'app Web di Azure. Di seguito sono elencati alcuni argomenti e risorse correlate cui fare riferimento per altre informazioni su queste procedure:
+In questa esercitazione sono state illustrate le procedure per creare una semplice applicazione Web e distribuirla in un'app Web di Azure. Ecco alcuni argomenti correlati e le risorse per ulteriori informazioni sulle applicazioni web nel servizio di applicazione Azure.
 
 * Altri modi per distribuire un progetto Web
 
@@ -295,7 +283,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come evitare tempi di attesa per la riattivazione dopo timeout di inattività
 
-	Per impostazione predefinita, le app Web vengono scaricate se sono rimaste inattive per un determinato periodo di tempo. La prima richiesta dopo tale periodo deve attendere il ricaricamento dell'app Web. Per evitare tempi di attesa, è possibile abilitare la funzionalità AlwaysOn. Per altre informazioni, vedere le opzioni di configurazione in [Come configurare le app Web](web-sites-configure.md).
+	Per impostazione predefinita, le app Web vengono scaricate se sono rimaste inattive per un determinato periodo di tempo. La prima richiesta dopo che un'applicazione web è stata è di rimanere in attesa che l'app web venga ricaricata. Per evitare tempi di attesa, è possibile abilitare la funzionalità AlwaysOn. Per altre informazioni, vedere le opzioni di configurazione in [Come configurare le app Web](web-sites-configure.md).
 
 * Come aggiungere funzionalità in tempo reale come la chat
 
@@ -303,17 +291,16 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come scegliere tra Servizio app, Servizi cloud e Macchine virtuali per le applicazioni Web
 
-	In Azure è possibile eseguire applicazioni Web in App Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per ulteriori informazioni, vedere [Modelli di esecuzione di Azure](/develop/net/fundamentals/compute/) e [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
+	In Azure è possibile eseguire applicazioni Web in App Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per ulteriori informazioni, vedere [App web di Azure, servizi, cloud, e VMs: Quale utilizzare?](/manage/services/web-sites/choose-web-app-service/)
 
 * [Come scegliere o creare un piano di servizio App](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 * [Come scegliere o creare un gruppo di risorse](../azure-preview-portal-using-resource-groups.md)
 
-
-
 ## Modifiche apportate
+
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

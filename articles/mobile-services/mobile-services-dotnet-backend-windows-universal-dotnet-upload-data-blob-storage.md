@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Caricare immagini nell'archiviazione Blob di Azure da un'app Windows universale | Servizi mobili di Azure" 
+	pageTitle="Caricare immagini nell'archiviazione BLOB di Azure da un'app Windows universale | Microsoft Azure" 
 	description="Informazioni su come utilizzare un servizio mobile back-end di .NET per caricare immagini in archiviazione Blob di Azure e accedere alle immagini dalla propria app Windows universale." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -71,4 +71,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

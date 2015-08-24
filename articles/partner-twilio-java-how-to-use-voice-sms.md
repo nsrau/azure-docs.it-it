@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare Twilio per le funzionalità voce ed SMS (Java) - Azure" 
+	pageTitle="Come usare Twilio per le funzionalità voce e SMS (Java) | Microsoft Azure" 
 	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in Java." 
 	services="" 
 	documentationCenter="java" 
@@ -18,7 +18,7 @@
 
 # Come usare Twilio per le funzionalità voce ed SMS in Java
 
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
 
 ## <a id="WhatIs"></a>Informazioni su Twilio
 Twilio è un'API per servizi Web di telefonia che consente di usare le competenze e i linguaggi Web esistenti per sviluppare applicazioni SMS e vocali. Twilio è un servizio di terze parti. Non si tratta di una funzionalità di Azure, né di un prodotto Microsoft.
@@ -26,7 +26,7 @@ Twilio è un'API per servizi Web di telefonia che consente di usare le competenz
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere SMS. **Twilio Client** consente alle applicazioni di abilitare le comunicazioni vocali utilizzando le connessioni Internet esistenti, comprese le connessioni mobili.
 
 ## <a id="Pricing"></a>Prezzi e offerte speciali di Twilio
-Per informazioni dettagliate, vedere la pagina relativa ai [prezzi di Twilio][twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]\: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per avvalersi dell'offerta o per ulteriori informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].
+Per informazioni dettagliate, vedere la pagina relativa ai [prezzi di Twilio][twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]\: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per avvalersi dell'offerta o per altre informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].
 
 ## <a id="Concepts"></a>Concetti
 L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le applicazioni. Le librerie client sono disponibili in più lingue. Per un elenco, vedere la pagina relativa alle [librerie dell'API Twilio][twilio_libraries].
@@ -123,9 +123,9 @@ Di seguito è illustrato come effettuare una chiamata in uscita tramite la class
     // Make the call.
     Call call = callFactory.create(params);
 
-Per ulteriori informazioni sui parametri passati al metodo **CallFactory.create**, vedere [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
+Per altre informazioni sui parametri passati al metodo **CallFactory.create**, vedere [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML è inoltre possibile utilizzare il proprio sito. Per ulteriori informazioni, vedere la [procedura per fornire risposte TwiML in un'applicazione Java in Azure](#howto_provide_twiml_responses).
+Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML è inoltre possibile utilizzare il proprio sito. Per altre informazioni, vedere la [procedura per fornire risposte TwiML in un'applicazione Java in Azure](#howto_provide_twiml_responses).
 
 ## <a id="howto_send_sms"></a>Procedura: Inviare un messaggio SMS
 Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la classe **SmsFactory**. Il numero **4155992671** in **From** per l'invio di messaggi SMS con gli account di valutazione è fornito da Twilio. Il numero in **To** deve essere verificato per l'account Twilio prima di eseguire il codice.
@@ -152,7 +152,7 @@ Nella schermata seguente è illustrato come inviare un messaggio SMS tramite la 
     
     Message sms = messageFactory.create(params);
         
-Per ulteriori informazioni sui parametri passati al metodo **SmsFactory.create**, vedere [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
+Per altre informazioni sui parametri passati al metodo **SmsFactory.create**, vedere [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 ## <a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web
 Quando l'applicazione avvia una chiamata all'API Twilio, ad esempio tramite il metodo **CallFactory.create**, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene utilizzato l'URL fornito da Twilio [http://twimlets.com/message][twimlet_message_url]. Poiché TwiML è progettato per essere usato da servizi Web, è possibile visualizzare il codice TwiML nel browser. Ad esempio, fare clic su [http://twimlets.com/message][twimlet_message_url] per visualizzare un elemento **&lt;Response&gt;** vuoto oppure fare clic su [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un elemento **&lt;Response&gt;** che contiene un elemento **&lt;Say&gt;**.
@@ -194,13 +194,13 @@ Dopo aver configurato la pagina JSP in modo da fornire risposte TwiML, utilizzar
 
 Un'altra possibilità per rispondere con TwiML consiste nell'utilizzare la classe **TwiMLResponse**, disponibile nel pacchetto **com.twilio.sdk.verbs**.
 
-Per ulteriori informazioni sull'utilizzo di Twilio in Azure con Java, vedere [Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure][howto_phonecall_java].
+Per altre informazioni sull'utilizzo di Twilio in Azure con Java, vedere [Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure][howto_phonecall_java].
 
 ## <a id="AdditionalServices"></a>Procedura: Utilizzare servizi Twilio aggiuntivi
 Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][twilio_api_documentation].
 
 ## <a id="NextSteps"></a>Passaggi successivi
-Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per ulteriori informazioni:
+Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per altre informazioni:
 
 * [Linee guida sulla sicurezza di Twilio][twilio_security_guidelines]
 * [Procedure e codice di esempio di Twilio][twilio_howtos]
@@ -232,4 +232,4 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegame
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Azure" 
+	pageTitle="Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Microsoft Azure" 
 	description="Informazioni sui controlli per monitorare le prestazioni nelle schede del portale di gestione per Servizi BizTalk: Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -368,4 +368,4 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

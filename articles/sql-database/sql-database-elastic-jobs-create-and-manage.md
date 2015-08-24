@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
-	ms.author="sidneyh"/>
+	ms.date="07/21/2015"
+	ms.author="ddove; sidneyh"/>
 
-# Creazione e gestione di processi di database elastici
+# Creazione e gestione di processi elastici di un Database SQL con il portale (anteprima)
 
-I **pool di database elastici** offrono un modello prevedibile per la distribuzione di un elevato numero di database. È possibile impostare unità di velocità effettiva (DTU, Database Throughput Unit) per ciascun database a un costo prefissato. In questi database la gestione di oggetti comuni può essere eseguita in modo più semplice usando **processi di database elastici**. Il servizio consente di eseguire script T-SQL su tutti i database del pool in una singola operazione. Ad esempio, è possibile impostare criteri su ogni database in modo da consentire l'accesso ai dati sensibili a una sola persona in possesso delle credenziali corrette.
+> [AZURE.SELECTOR]
+- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [PowerShell](sql-database-elastic-jobs-powershell.md)
+
+
+I **processi elastici di database** consentono una gestione semplice e affidabile di un gruppo di database, semplificando l'esecuzione di operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati delle prestazioni o la raccolta di dati di telemetria dei tenant (clienti). L'opzione relativa ai processi di database elastici è attualmente disponibile tramite il portale di Azure e i cmdlet di PowerShell. Tuttavia, l'area del portale di Azure presenta funzionalità limitate all'esecuzione in tutti i database in un [pool di database elastici (anteprima)](sql-database-elastic-pool.md). Per accedere a funzionalità aggiuntive e all'esecuzione di script in un gruppo di database, compreso un insieme personalizzato o un insieme di partizioni (creato utilizzando la [libreria client di database elastici](sql-database-elastic-scale-introduction.md)), vedere [Creazione e gestione dei processi tramite PowerShell](sql-database-elastic-jobs-powershell.md). Per ulteriori informazioni sui processi, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 
 ## Prerequisiti
 
@@ -28,7 +33,7 @@ I **pool di database elastici** offrono un modello prevedibile per la distribuzi
 
 ## Creazione di processi
 
-1. Nel pannello del pool di processi elastici di database fare clic su **Crea processo**.
+1. Mediante il [portale di Azure](https://portal.azure.com), da un pool di processi di database elastici esistente, fare clic su **Crea processo**.
 2. Digitare il nome utente e la password dell'amministratore del database (creati in fase di installazione) per il database di controllo dei processi (archivio dei metadati relativi ai processi).
 
 	![Denominare il processo, digitare o incollare il nome nel codice e fare clic su Esegui][1]
@@ -110,4 +115,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere l'autenticazione all'app della piattaforma UWP 8.1 | Servizi mobili di Azure" 
+	pageTitle="Aggiungere l'autenticazione all'app della piattaforma UWP 8.1 | Microsoft Azure" 
 	description="Informazioni su come usare i Servizi mobili per autenticare utenti dell'app della piattaforma UWP 8.1, usando diversi provider di identità, inclusi Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -97,4 +97,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

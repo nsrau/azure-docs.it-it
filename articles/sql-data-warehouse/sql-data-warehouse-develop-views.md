@@ -26,11 +26,27 @@ Questo articolo evidenzia alcuni esempi di come migliorare la soluzione mediante
 ## Astrazione dell'architettura
 Un modello di applicazione molto comune consiste nel ricreare le tabelle usando CREATE TABLE AS SELECT (CTAS) seguito da un modello di ridenominazione di oggetti durante il caricamento dei dati.
 
-L'esempio seguente aggiunge nuovi record a una dimensione data. Si noti che viene prima creato un nuovo oggetto, DimDate\_New, quindi viene rinominato per sostituire la versione originale dell'oggetto. ''' CREATE TABLE dbo.DimDate\_New WITH (DISTRIBUTION = REPLICATE, CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate\_stg AS stg ;
+L'esempio seguente aggiunge nuovi record a una dimensione data. Si noti come un nuovo oggetto, DimDate\_New, viene creato e poi rinominato per sostituire la versione originale dell'oggetto.
 
-RENAME OBJECT DimDate TO DimDate\_Old; RENAME OBJECT DimDate\_New TO DimDate;
+```
+CREATE TABLE dbo.DimDate_New
+WITH (DISTRIBUTION = REPLICATE
+, CLUSTERED INDEX (DateKey ASC)
+)
+AS 
+SELECT *
+FROM   dbo.DimDate  AS prod
+UNION ALL
+SELECT *
+FROM   dbo.DimDate_stg AS stg
+;
 
-'' Ciò può tuttavia comportare la comparsa e scomparsa di oggetti tabella dalla visualizzazione dell'utente in Esplora oggetti di SQL in SSDT. Le viste possono essere usate per fornire ai consumer del data warehouse un livello di presentazione coerente, mentre gli oggetti sottostanti vengono rinominati. Fornire l'accesso ai dati tramite una vista significa che gli utenti non devono necessariamente avere la visibilità delle tabelle sottostanti. Questo approccio offre un'esperienza utente coerente, assicurando che le finestre di progettazione del data warehouse siano in grado di evolvere il modello di dati e anche di ottimizzare le prestazioni usando CTAS durante il processo di caricamento dei dati.
+RENAME OBJECT DimDate TO DimDate_Old;
+RENAME OBJECT DimDate_New TO DimDate;
+
+```
+
+Ciò può tuttavia comportare la comparsa e scomparsa di oggetti tabella dalla visualizzazione dell'utente in Esplora oggetti di SQL in SSDT. Le viste possono essere usate per fornire ai consumer del data warehouse un livello di presentazione coerente, mentre gli oggetti sottostanti vengono rinominati. Fornire l'accesso ai dati tramite una vista significa che gli utenti non devono necessariamente avere la visibilità delle tabelle sottostanti. Questo approccio offre un'esperienza utente coerente, assicurando che le finestre di progettazione del data warehouse siano in grado di evolvere il modello di dati e anche di ottimizzare le prestazioni usando CTAS durante il processo di caricamento dei dati.
 
 ## Ottimizzazione delle prestazioni
 Le visualizzazioni sono un modo efficace per applicare join tra le tabelle ottimizzati per le prestazioni. Ad esempio, la vista può incorporare una chiave di distribuzione ridondante come parte dei criteri di join per ridurre al minimo lo spostamento dei dati. Un altro motivo potrebbe essere l'applicazione di una query specifica o un hint di join. Ciò assicura che il join sia sempre eseguito in modo ottimale e non dipenda dalla possibilità che l'utente ricordi di costruire il join correttamente.
@@ -53,4 +69,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Azure" 
+	pageTitle="Usare l'archiviazione di Azure nelle app di Windows Store | Microsoft Azure" 
 	description="Informazioni su come usare BLOB, code e tabelle di Azure per archiviare i dati per un'app di Windows Store." 
 	services="storage" 
 	documentationCenter="" 
@@ -94,4 +94,4 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione all'autenticazione personalizzata | Mobile Dev Center" 
+	pageTitle="Introduzione all'autenticazione personalizzata | Microsoft Azure" 
 	description="Informazioni su come autenticare gli utenti con un nome utente e una password." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
@@ -420,4 +420,4 @@ L'esercitazione è terminata.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

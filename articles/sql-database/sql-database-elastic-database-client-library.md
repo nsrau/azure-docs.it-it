@@ -18,11 +18,11 @@
 
 # Panoramica della libreria client dei database elastici
 
-La **libreria client dei database elastici** aiuta a sviluppare facilmente applicazioni partizionate usando centinaia, o anche migliaia, di database SQL di Azure ospitati in Microsoft Azure. Tali progettazioni vengono comunemente usate per le applicazioni SaaS (Software as a Service), in genere architetture single-tenant, dove ogni tenant è dotato di un database. La compilazione e la gestione di un'applicazione è un obiettivo della libreria.  La libreria client è una libreria di .NET Framework che può essere installata in un progetto di applicazione tramite [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) e [Nuget](http://go.microsoft.com/?linkid=9862605). La libreria client fa parte degli strumenti di database elastici che sono specificatamente una [funzionalità di database elastici](sql-database-elastic-scale-introduction.md).
+La **libreria client dei database elastici** aiuta a sviluppare facilmente applicazioni partizionate usando centinaia, o anche migliaia, di database SQL di Azure ospitati in Microsoft Azure. Tali progettazioni vengono comunemente usate per le applicazioni SaaS (Software as a Service), in genere architetture single-tenant, dove ogni tenant è dotato di un database. La compilazione e la gestione di un'applicazione è un obiettivo della libreria. La libreria client è una libreria di .NET Framework che può essere installata in un progetto di applicazione tramite [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) e [Nuget](http://go.microsoft.com/?linkid=9862605). La libreria client fa parte degli strumenti di database elastici che sono specificatamente una [funzionalità di database elastici](sql-database-elastic-scale-introduction.md).
 
 ## Funzionalità client
 
-Le attività di sviluppo, ridimensionamento e gestione delle applicazioni con scalabilità orizzontale mediante il *partizionamento orizzontale* esaminate di seguito presentano difficoltà sia per gli sviluppatori che per gli amministratori. La libreria client semplifica le attività per entrambi i ruoli. I numeri nella figura seguente descrivono le funzionalità principali fornite dalla libreria client dei database elastici e lo strumento di suddivisione-unione. Nella figura viene illustrato un ambiente con molti database e ogni database corrisponde a una partizione. Gli strumenti semplificano lo sviluppo di applicazioni dei database SQL di Azure tramite le seguenti caratteristiche specifiche:
+Le attività di sviluppo, ridimensionamento e gestione delle applicazioni con scalabilità orizzontale mediante il *partizionamento orizzontale* esaminate di seguito presentano difficoltà sia per gli sviluppatori che per gli amministratori. La libreria client semplifica le attività per entrambi i ruoli. La figura seguente descrive le funzionalità principali fornite dalla libreria client dei database elastici. Nella figura viene illustrato un ambiente con molti database e ogni database corrisponde a una partizione. In questo esempio, vengono posizionati diversi clienti nello stesso database mediante una mappa di intervalli, sebbene la stessa situazione vale in presenza di un database per ogni cliente (tenant). Gli strumenti semplificano lo sviluppo di applicazioni dei database SQL di Azure con partizioni tramite le seguenti caratteristiche specifiche:
 
 Per le definizioni dei termini usati in questo argomento, vedere il [Glossario degli strumenti dei database elastici](sql-database-elastic-scale-glossary.md).
 
@@ -51,4 +51,4 @@ Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panorami
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

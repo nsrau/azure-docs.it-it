@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione alle app per dispositivi mobili di Azure per app Xamarin Android - App per dispositivi mobili di Azure"
+	pageTitle="Introduzione alle app per dispositivi mobili di Azure per app Xamarin Android - Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
@@ -110,4 +110,4 @@ La fase finale di questa esercitazione prevede la compilazione e l'esecuzione de
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

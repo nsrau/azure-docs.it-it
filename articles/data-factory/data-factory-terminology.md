@@ -46,7 +46,7 @@ Un passaggio di elaborazione dati in una pipeline che acquisisce uno o più set 
 
 Il servizio Data factory di Azure supporta le attività seguenti in una pipeline:
 
-- Un'**Attività di copia** copia i dati da un archivio dati a un altro archivio dati. Per informazioni dettagliate sugli archivi dati supportati dall'Attività di copia, vedere [Copiare i dati con Data factory di Azure][copy-data-with-adf]. 
+- Un'**Attività di copia** copia i dati da un archivio dati a un altro archivio dati.  
 - L'**Attività di HDInsight** elabora i dati tramite l'esecuzione di script Hive/Pig o di programmi MapReduce in un cluster HDInsight. Per informazioni dettagliate, vedere [Usare Pig e Hive con Data factory][use-pig-hive] e [Richiamare i programmi MapReduce da Data factory][run-map-reduce]. 
 - L'**Attività di punteggio batch di Azure Machine Learning** richiama l'API di punteggio batch di Azure Machine Learning. Per informazioni dettagliate, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning][azure-ml-adf]. 
 - L'**Attività stored procedure** richiama una stored procedure in un database SQL di Azure. Per informazioni dettagliate, vedere [Attività stored procedure][msdn-stored-procedure-activity] in MSDN Library.   
@@ -82,7 +82,6 @@ Una caratteristica importante dell'hub riguarda il fatto che una pipeline viene 
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[copy-data-with-adf]: data-factory-copy-activity.md
 [use-pig-hive]: data-factory-pig-hive-activities.md
 [run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
@@ -113,4 +112,4 @@ Una caratteristica importante dell'hub riguarda il fatto che una pipeline viene 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

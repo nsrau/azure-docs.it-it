@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="08/09/2015"
    ms.author="stepsic"/>
 
-#Connettore di risorse di Azure
+# Connettore di risorse di Azure
 Il connettore di risorse di Azure offre un modo semplice per gestire le risorse di Azure in app logica.
 
-##Creazione dell'applicazione API
+## Creare il connettore di risorse di Azure
 Per utilizzare l'API di App di Azure risorsa connettore, è necessario creare innanzitutto un'istanza. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API del connettore Azure Resource Manger da Azure Marketplace.
 
 Per configurarlo, si verifica è necessario impostare un'entità servizio con le autorizzazioni per eseguire le operazioni che si desidera eseguire in Azure. Tutte le chiamate verranno effettuate per conto di questa entità di servizio configurata. In questo modo è possibile definire l'ambito del connettore per utilizzare solo esattamente ciò che si desidera eseguire e nient'altro.
 
 David Ebbo ha scritto un[post di blog](http://blog.davidebbo.com/2014/12/azure-service-principal.html)su come impostare questa funzionalità. Seguire le istruzioni presenti e ottenere **ID Tenant****ID Client**e**Secret**. Questi tre campi, più il**ID sottoscrizione**sono quelli necessari per configurare il connettore.
 
-##Utilizzando il connettore di risorse di Azure nell'area di progettazione logica App
-###Trigger
+## Utilizzando il connettore di risorse di Azure nell'area di progettazione delle App per la logica
+### Trigger
 Esistono due trigger che sono supportati nel connettore:
 
 Nome | Descrizione 
@@ -35,7 +35,7 @@ Nome | Descrizione
 Si verifica l'evento | Trigger quando si verifica un evento a una risorsa nella sottoscrizione. 
 Metrica supera la soglia | Si attiva quando una metrica soddisfa una determinata soglia.
 
-###Azione
+### Azione
 
 Analogamente, è possibile fornire un numero elevato di azioni all'interno della sottoscrizione di Azure:
  
@@ -52,7 +52,7 @@ Per**risorse**è possibile:
 
 Nome | Descrizione 
 ---- | -----------
-Elenco risorse | Elenco delle risorse nel subscription dai diversi tipi di filtri.
+Elenco risorse | Elencare le risorse nella sottoscrizione in base ai diversi tipi di filtri.
 Ottenere risorsa | Ottenere una singola risorsa dal relativo ID risorsa
 Creare o aggiornare la risorsa | Creare una risorsa o aggiornare una risorsa esistente. È necessario fornire tutte le proprietà per tale risorsa.
 Azione risorsa | Eseguire qualsiasi altra operazione su una risorsa. È necessario conoscere il nome dell'azione e il payload (se presente) viene eseguita questa azione.
@@ -94,4 +94,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

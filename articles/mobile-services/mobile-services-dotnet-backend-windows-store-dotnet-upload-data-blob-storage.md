@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Store) | Servizi mobili" 
+	pageTitle="Usare Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Store) | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili per caricare immagini nel servizio di archiviazione BLOB di Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@ A questo punto, aggiornare l'app di guida introduttiva in modo da acquisire e ca
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

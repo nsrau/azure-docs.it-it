@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Usare i processi di Servizi multimediali di Azure
@@ -60,4 +60,4 @@ Monitorare lo stato di avanzamento dei processi tramite il **portale di gestione
 [Quote e limitazioni](media-services-quotas-and-limitations.md) – Descrive le quote usate e le limitazioni del codificatore di Servizi multimediali
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

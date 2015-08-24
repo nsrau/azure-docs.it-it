@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come usare l'archiviazione di Azure per il backup e ripristino di SQL Server | Azure"
+	pageTitle="Come usare l'archiviazione di Azure per il backup e il ripristino di SQL Server | Microsoft Azure"
 	description="Backup e ripristino di SQL Server e database SQL nell'archiviazione di Azure Vengono illustrati i vantaggi del backup dei database SQL nell'archiviazione di Azure e i componenti necessari del server SQL e dell'archiviazione di Azure"
 	services="sql-database, virtual-machines"
 	documentationCenter=""
@@ -73,4 +73,4 @@ Per una procedura dettagliata completa sulla creazione di un account di archivia
 
 [Procedure consigliate relative al backup e al ripristino (servizio di archiviazione BLOB di Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

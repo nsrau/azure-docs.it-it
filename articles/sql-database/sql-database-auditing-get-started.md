@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione al controllo del database SQL | Azure" 
+	pageTitle="Introduzione al controllo del database SQL | Microsoft Azure" 
 	description="Introduzione al controllo del database SQL" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -182,4 +182,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

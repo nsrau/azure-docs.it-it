@@ -251,6 +251,6 @@ Dopo aver inviato il token SAS sul collegamento mittente, il server di pubblicaz
 
 Vedere [Informazioni di riferimento sulle API REST del bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx) per ulteriori informazioni sulle operazioni che è possibile eseguire con questi token SAS.
 
-Per ulteriori informazioni sulla firma di accesso condiviso, vedere il nodo di [autenticazione del bus di servizio](https://msdn.microsoft.com/library/azure/dn155925.aspx) su MSDN.
+Per ulteriori informazioni sulla firma di accesso condiviso, vedere il nodo di [autenticazione del bus di servizio](https://msdn.microsoft.com/library/azure/dn155925.aspx) su MSDN. Ulteriori esempi sulle associazioni di sicurezza in C# e Java Script sono disponibili nel [blog di Damir](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come configurare un servizio cloud - Azure" 
+	pageTitle="Come configurare un servizio cloud | Microsoft Azure" 
 	description="Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -89,4 +89,4 @@ L’accesso remoto non può essere configurato tramite il **portale di anteprima
 			
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

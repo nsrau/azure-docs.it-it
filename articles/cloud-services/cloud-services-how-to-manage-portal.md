@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come gestire un servizio cloud - Azure" 
+	pageTitle="Come gestire un servizio cloud | Microsoft Azure" 
 	description="Informazioni su come gestire i servizi cloud nel portale di anteprima di Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -106,4 +106,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 [portale di anteprima di Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

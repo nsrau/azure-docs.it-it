@@ -7,16 +7,14 @@
    manager="mkjain" 
    editor=""/>
 
-
 <tags
    ms.service="site-recovery"
    ms.devlang="powershell"
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="05/27/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
-
 
 # Passaggi per il failback da Azure a VMware
 
@@ -56,31 +54,54 @@ Di seguito è riportata la panoramica dell'installazione che si otterrà nei pas
 
 ## Installare vContinuum in locale
 
-Il programma di installazione di vContinuum sarà nel [percorso di download](http://go.microsoft.com/fwlink/?linkid=526305).
+Il programma di installazione di vContinuum sarà nel [percorso di download](http://go.microsoft.com/fwlink/?linkid=526305). Inoltre, installare la patch specificata in vContinuum disponibile al [percorso di download](http://go.microsoft.com/fwlink/?LinkID=533813) seguente.
 
-Inoltre, installare la patch specificata in vContinuum disponibile all'indirizzo [percorso di download](http://go.microsoft.com/fwlink/?LinkID=533813).
+1.  Avviare il programma di installazione per iniziare l'installazione di vContinuum. Fare clic su **Avanti**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  Specificare l'indirizzo IP e la porta del server CX. Selezionare HTTPS.
 
-1.  Avviare il programma di installazione per iniziare l'installazione di vContinuum. Dopo la schermata iniziale fare clic su Avanti per iniziare specificare le impostazioni![](./media/site-recovery-failback-azure-to-vmware/image2.png)
-2.  Specificare l'indirizzo IP e la porta del server CX. Assicurarsi di selezionare HTTPs nella casella di controllo. ![](./media/site-recovery-failback-azure-to-vmware/image3.png) a. Per individuare il CX IP andare alla distribuzione CS in Azure e visualizzare il relativo dashboard. Verrà visualizzato l'indirizzo IP pubblico in indirizzo IP virtuale pubblico.![](./media/site-recovery-failback-azure-to-vmware/image4.png)b. Per individuare la porta pubblica CX, passare alla scheda endpoint nella pagina della macchina virtuale e identificare la porta pubblica di endpoint HTTPs![](./media/site-recovery-failback-azure-to-vmware/image5.png)
-3.  Specificare la Passphrase del server di configurazione. È necessario avere preso nota della passphrase durante la registrazione del server di configurazione. È necessario utilizzare la passphrase durante le distribuzioni di MT e PS. Qualora non si ricordi la passphrase, è possibile passare al server CS Azure e individuare la passphrase archiviata nel percorso: C:\\Programmi (x86)\\InMage Systems\\private\\connection.passphrase ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
-4.  Specificare il percorso per installare il server vContinuum e avviare l'installazione ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
-5.  Una volta completata l'installazione, è possibile avviare vContinuum per verificarne il funzionamento. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
+
+3.  Per individuare l'indirizzo IP CX andare alla distribuzione CS in Azure e visualizzare il relativo dashboard.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+
+4.  Per individuare la porta pubblica CX, passare alla scheda endpoint nella pagina della VM e identificare la porta pubblica di endpoint HTTPs.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image5.png)
+
+5.  Specificare la Passphrase del server di configurazione. È necessario avere preso nota della passphrase durante la registrazione del server di configurazione. È necessario utilizzare la passphrase durante le distribuzioni di MT e PS. Qualora non si ricordi la passphrase, è possibile passare al server CS Azure e individuare la passphrase archiviata nel percorso: C:\\Programmi (x86)\\InMage Systems\\private\\connection.passphrase
+
+	![](./media/site-recovery-failback-azure-to-vmware/image6.png)
+
+6.  Specificare il percorso per installare il server vContinuum e avviare l'installazione
+
+	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
+
+7.  Una volta completata l'installazione, è possibile avviare vContinuum per verificarne il funzionamento. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+
 
 ## Installare un Server di elaborazione in Azure
 
 Un Server di elaborazione deve essere installato in Azure in modo che le macchine virtuali in Azure per inviare i dati al sistema MT. locale È necessario distribuire il Server di elaborazione in Azure nella stessa rete del server di configurazione.
 
-1.  Nella pagina del Server di configurazione in Azure, effettuare una selezione per aggiungere un nuovo Server di elaborazione ![](./media/site-recovery-failback-azure-to-vmware/image9.png)
-2.  Configurare le seguenti impostazioni in un Server di elaborazione per distribuire un nuovo server a. Assegnare un nome di Server di elaborazione b. Immettere un nome utente per connettersi alla macchina virtuale come amministratore c. Immettere la password dell'account di accesso d. Selezionare il server di configurazione a cui deve essere registrato per il server di elaborazione. Assicurarsi di selezionare il Server di configurazione corretto, ovvero lo stesso server con il quale è stato eseguito il failover delle macchine virtuali e con il quale sono state protette. Specificare la rete di Azure in cui è necessario distribuire il Server di elaborazione. Assicurarsi di selezionare la stessa rete della rete del Server di configurazione. f. Specificare un indirizzo IP della subnet selezionata. g. Iniziare la distribuzione del Server di elaborazione. ![](./media/site-recovery-failback-azure-to-vmware/image10.png)
-3.  Verrà attivato un processo di distribuzione del server di elaborazione![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+1.  Nella pagina **Server di configurazione** in Azure, effettuare una selezione per aggiungere un nuovo server di elaborazione
 
-Una volta che il server di elaborazione viene distribuito in Azure è possibile accedere al server utilizzando le credenziali specificate. Utilizzare le stesse procedure da utilizzare durante l'inoltro direzione di protezione per registrare il PS.
+	![](./media/site-recovery-failback-azure-to-vmware/image9.png)
+
+2.  Specificare un nome per il server di elaborazione e immettere un nome e una password per connettersi alla macchina virtuale come amministratore. Selezionare il server di configurazione in cui si sta registrando il server di elaborazione. Questo deve essere lo stesso server utilizzato per la protezione e il failover delle macchine virtuali. Specificare la rete di Azure in cui distribuire il server di elaborazione. Deve essere la stessa rete del server di configurazione. Specificare un indirizzo IP univoco dalla subnet selezionata e avviare la distribuzione.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image10.png)
+
+
+Verrà attivato un processo di distribuzione del server di elaborazione.
+
+![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+
+Una volta che il server di elaborazione viene distribuito in Azure, è possibile accedere al server utilizzando le credenziali specificate. Utilizzare le stesse procedure da utilizzare durante l'inoltro direzione di protezione per registrare il PS.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
-I server registrati durante il failback non saranno visibili nelle proprietà della macchina virtuale. Saranno solo visibili nella scheda server a cui sono stati registrati sul server di configurazione.
-
-Possono essere necessari circa 10-15 minuti prima che PS venga inserito nell'elenco SC.
+I server registrati durante il failback non saranno visibili nelle proprietà della VM. Saranno solo visibili nella scheda server a cui sono stati registrati sul server di configurazione. Possono essere necessari circa 10-15 minuti prima che PS venga inserito nell'elenco SC.
 
 ## Installare un server MT locale
 
@@ -104,47 +125,28 @@ Un MT windows è già in dotazione con il programma di installazione di vContinu
 
 2.  Assicurarsi che non vi siano almeno due dischi collegati alla macchina virtuale: uno viene utilizzato per il sistema operativo e il secondo viene utilizzato per l'unità di memorizzazione.
 
-3.  Installare il sistema operativo Linux.
+3.  Installare il sistema operativo Linux. Nota: il sistema del server di destinazione master Linux (MT) non deve utilizzare LVM per il spazi di archiviazione radice o di conservazione. Linux MT è configurato per impostazione predefinita in modo da evitare l'individuazione di partizioni e dischi LVM.
+4.  Le partizioni che è possibile creare sono
 
-    a. Nota: il Linux Master Target (MT) non deve utilizzare LVM per il spazi di archiviazione radice o di mantenimento. Linux MT è configurato per impostazione predefinita in modo da evitare l'individuazione di partizioni e dischi LVM.
+	![](./media/site-recovery-failback-azure-to-vmware/image13.png)
 
-    b. Le partizioni che è possibile creare sono ![](./media/site-recovery-failback-azure-to-vmware/image13.png)
+5.  Eseguire la procedura successiva all’installazione seguente prima di iniziare l'installazione di MT.
 
-4.  Eseguire la procedura successiva all’installazione seguente prima di iniziare l'installazione di MT.
 
 #### Procedure di successive all’installazione del sistema operativo
 
-Per ottenere l'ID SCSI per ogni disco rigido SCSI in una macchina virtuale Linux, è necessario abilitare il parametro "disk.EnableUUID = TRUE ".
+Per ottenere l'ID SCSI per ogni disco rigido SCSI in una macchina virtuale Linux, è necessario abilitare il parametro "disk.EnableUUID = TRUE ". Per attivare questo parametro, attenersi alla procedura seguente:
 
-Per attivare questo parametro, attenersi alla procedura seguente:
+1. Arrestare la macchina virtuale.
+2. Fare clic con il pulsante destro del mouse sulla voce della VM nel pannello sinistro, quindi selezionare l'opzione per **modificare le impostazioni.**
+3. Scegliere la scheda **Options (Opzioni)**. Selezionare l’opzione **Advanced>General item (Avanzate>Elemento generale)** sulla sinistra e fare clic sui **parametri di configurazione** visualizzati a destra. L’opzione relativa ai "parametri di configurazione" è disattivata quando il computer è in esecuzione. Per rendere attiva la scheda, arrestare il computer.
 
-a. Arrestare la macchina virtuale.
+	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-b. Fare clic con il pulsante destro del mouse sulla voce della macchina virtuale nel pannello sinistro, quindi scegliere l’opzione per **modificare le impostazioni.**
+4. Esiste già una riga con il valore **disk.EnableUUID**? Se è presente e se il valore è impostato su False, modificare il valore in True (valori True e False sono sensibili in maiuscole). Se il valore esiste ed è impostato su True, fare clic su Annulla e testare il comando SCSI all'interno del sistema operativo guest dopo il suo avvio. Se non esiste fare clic su **Add Row (Aggiungi riga).**
+5. Aggiungere il disk.EnableUUID nella colonna del nome. Impostare il relativo valore come TRUE. Non aggiungere i valori precedenti insieme alle virgolette doppie.
 
-c. Scegliere la scheda **Options (Opzioni)**.
-
-d. Selezionare l’opzione **Advanced>General item (Avanzate>Elemento generale)** sulla sinistra e fare clic sui **parametri di configurazione** visualizzati a destra.
-
-![](./media/site-recovery-failback-azure-to-vmware/image14.png)
-
-L’opzione relativa ai "parametri di configurazione" è disattivata quando il computer è in esecuzione. Per rendere attiva la scheda, arrestare il computer.
-
-e. Esiste già una riga con il valore **disk.EnableUUID**?
-
-Se è presente e se il valore è impostato su False, modificare il valore in True (valori True e False sono sensibili in maiuscole).
-
-Se il valore esiste ed è impostato su True, fare clic su Annulla e testare il comando SCSI all'interno del sistema operativo guest dopo il suo avvio.
-
-f. Se non esiste fare clic su **Add Row (Aggiungi riga).**
-
-Aggiungere il disk.EnableUUID nella colonna del nome.
-
-Impostare il relativo valore come TRUE
-
-Nota: non aggiungere i valori precedenti insieme alle virgolette doppie.
-
-![](./media/site-recovery-failback-azure-to-vmware/image15.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
 
 #### Scaricare e installare i pacchetti aggiuntivi
 
@@ -326,51 +328,44 @@ Nota: durante il failover da Azure all'ambiente locale, la macchina virtuale di 
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
-    a.  To select the correct VM – you can refer to its IP address. The
-        IP address range on-premises will be the on-premises VM.
-
-    b.  Click **Remove** to delete the entry
+6.  Per selezionare la VM corretta, è possibile fare riferimento al relativo indirizzo IP. L'intervallo locale degli indirizzi IP corrisponderà alla VM locale.
+7.  Fare clic su**Remove**per eliminare la voce.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
-    c.  Go to the vCenter and stop the virtual machine on the vCenter
-
-    d.  Next you can also delete the virtual machines on-premises
-
-6.  Successivamente è necessario specificare il server di MT locale di cui si desidera proteggere le macchine virtuali.
-
-    a. Connettersi a vCenter verso il quale si desidera eseguire il failback
+8.  Passare a vCenter e arrestare la macchina virtuale in vCenter
+9.  In seguito, è possibile anche eliminare le macchine virtuali locali
+10.  Successivamente è necessario specificare il server di MT locale di cui si desidera proteggere le macchine virtuali.
+11.  A tale scopo, connettersi a vCenter nel quale eseguire il failback
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-a. Selezionare il server MT basato sull'host in cui si desidera ripristinare le macchine virtuali
+12.  Selezionare il server MT basato sull'host in cui si desidera ripristinare le macchine virtuali
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-7.  Successivamente fornire l'opzione di replica per ognuna delle macchine virtuali
+13.  Successivamente fornire l'opzione di replica per ognuna delle macchine virtuali
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
-a. È necessario selezionare l'**archivio dati** lato ripristino (si tratta dell'archivio dati verso cui le macchine virtuali verranno ripristinate)
+14.  È necessario selezionare l'**archivio dati** lato ripristino (si tratta dell'archivio dati verso cui le macchine virtuali verranno ripristinate)
 
 Sono le diverse opzioni che è necessario fornire per ogni macchina virtuale
 
-Opzione|Opzione consigliata
+**Opzione** | **Opzione consigliata**
 ---|---
-IP del server di collaborazione|Selezionare il PS in cui è stato distribuito in Azure
+IP del server di collaborazione | Selezionare il PS in cui è stato distribuito in Azure
 Dimensioni di memorizzazione in MB| 
-Valore di memorizzazione|1
-Giorni o ore|Days
-Intervallo di coerenza|1
-Selezionare l'archivio dati di destinazione|L'archivio dati disponibile sul lato di ripristino. Questo archivio di dati deve disporre di spazio sufficiente e inoltre essere disponibile per l'host ESX in cui si desidera realizzare la macchina virtuale.
-
-
-8.  Successivamente è possibile configurare le proprietà che verranno acquisite dalle macchine virtuali dopo aver eseguito il failover verso l'ambiente locale. È possibile configurare diverse proprietà nel modo seguente
+Valore di memorizzazione | 1
+Giorni o ore | Days
+Intervallo di coerenza | 1
+Selezionare l'archivio dati di destinazione | L'archivio dati disponibile sul lato di ripristino. Questo archivio di dati deve disporre di spazio sufficiente e inoltre essere disponibile per l'host ESX in cui si desidera realizzare la macchina virtuale.
+15.  Successivamente è possibile configurare le proprietà che verranno acquisite dalle macchine virtuali dopo aver eseguito il failover verso l'ambiente locale. È possibile configurare diverse proprietà nel modo seguente
 
 ![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
 
-Proprietà|Come configurare
+**Proprietà** | **Come configurare**
 ---|---
 Configurazione di rete|Per ogni scheda di rete rilevata, configurare l'indirizzo IP di failback per la macchina virtuale. Selezionare la scheda di rete e fare clic sull'opzione **Modifica** per specificare i dettagli dell'indirizzo IP.
 Configurazione hardware|È possibile specificare la CPU e i valori di memoria per la macchina virtuale. Questa impostazione può essere applicata a tutte le macchine virtuali che si desidera proteggere.
@@ -557,4 +552,4 @@ Dopo aver completato il failback è possibile proteggere le macchine virtuali an
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

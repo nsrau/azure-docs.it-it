@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare e gestire connessioni ibride | Azure" 
+	pageTitle="Creare e gestire connessioni ibride | Microsoft Azure" 
 	description="Informazioni su come creare una connessione ibrida, gestire la connessione e installare Hybrid Connection Manager. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -146,4 +146,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/09/2015"
 	ms.author="tomfitz"/>
 
@@ -212,4 +212,4 @@ Per pubblicare l'applicazione è necessario prima importare le impostazioni di p
 [Procedura: Importare le impostazioni di pubblicazione]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Procedura: Distribuire un servizio cloud in Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

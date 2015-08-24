@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,9 @@
 
 ##Panoramica
 
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva. Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in[questo](media-services-dotnet-configure-asset-delivery-policy.md)argomento) prima di creare un localizzatore.
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva.
+
+>[AZURE.NOTE]Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in [questo](media-services-dotnet-configure-asset-delivery-policy.md) argomento) prima di creare un localizzatore.
 
 È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.
 
@@ -94,6 +96,8 @@ Output del codice:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
+>[AZURE.NOTE]Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS.
+
 Creare URL di download progressivo
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -157,4 +161,4 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 
 [Scaricare asset](media-services-deliver-asset-download.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

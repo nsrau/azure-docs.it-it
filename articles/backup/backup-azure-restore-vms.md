@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Backup di Azure: Ripristinare una macchina virtuale"
+	pageTitle="Backup di Azure - Ripristinare una macchina virtuale Microsoft Azure"
 	description="Informazioni su come ripristinare una macchina virtuale di Azure"
 	services="backup"
 	documentationCenter=""
@@ -100,6 +100,6 @@ Per la maggior parte degli errori è possibile seguire l'azione consigliata nei 
 | Ripristino | Ripristino non riuscito con errore interno del cloud | <ol><li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con le impostazioni DNS. Verificare <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se è presente un indirizzo configurato, le impostazioni DNS sono configurate.<br> <li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con ReservedIP e le macchine virtuali esistenti nel servizio cloud si trovano in stato di interruzione.<br>Verificare che nel servizio cloud sia presente ReservedIP tramite i cmdlet di PowerShell seguenti:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Passaggi successivi
-- [Gestire le macchine virtuali](backup-azure-manage-vms)
+- [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

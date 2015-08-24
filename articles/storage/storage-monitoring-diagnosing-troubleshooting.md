@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione | Azure" 
+	pageTitle="Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione | Microsoft Azure" 
 	description="Informazioni su come usare funzionalità quali l'analisi dell'archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati al servizio di archiviazione di Azure." 
 	services="storage" 
 	documentationCenter="" 
@@ -911,4 +911,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

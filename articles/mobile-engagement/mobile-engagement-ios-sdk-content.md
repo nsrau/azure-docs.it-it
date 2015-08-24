@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #Contenuto dell'SDK
 
@@ -42,4 +42,4 @@ Cartella `src`
 
 > Controller di visualizzazione di Engagement e codice sorgente di Reach SDK (per utenti esperti che desiderano adattare le classi Engagement alle proprie esigenze).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

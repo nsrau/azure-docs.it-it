@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Phone) | Servizi mobili" 
+	pageTitle="Usare Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Phone) | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili per caricare immagini nel servizio di archiviazione BLOB di Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@ Per poter usare una firma di accesso condiviso allo scopo di caricare immagini d
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

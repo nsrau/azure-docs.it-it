@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Installare il dispositivo StorSimple 8600"
+   pageTitle="Installare il dispositivo StorSimple 8600 | Microsoft Azure"
    description="In questo argomento viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8600."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Installare il dispositivo StorSimple 8600
@@ -44,7 +44,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 
     ![Disimballare il dispositivo di archiviazione](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
  
-    **Figura 1: dispositivo di archiviazione disimballato**
+    **Dispositivo di archiviazione disimballato**
 
      Etichetta | Descrizione 
      ----- | -------------
@@ -114,7 +114,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
     ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    **Figura 2: fissaggio delle slitte delle guide ai lati dello chassis**
+    **Fissaggio delle slitte delle guide ai lati dell’enclosure**
 
     Etichetta | Descrizione
     ----- | -----------
@@ -131,7 +131,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
      ![Fissaggio delle slitte delle guide all'armadio rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Figura 3: fissaggio dei gruppi guida al rack**
+    **Fissaggio dei gruppi guida al rack**
 
      Etichetta | Descrizione
      ----- | -----------
@@ -153,7 +153,7 @@ Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire
 
     ![Inserimento del dispositivo nel rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figura 4: montaggio dell'enclosure nel rack**
+    **Montaggio dell'enclosure nel rack**
 
 3. Fissare l'enclosure nel rack installando una vite a croce in ciascuna flangia, sinistra e destra.
 
@@ -161,7 +161,7 @@ Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire
 
      ![Installazione dei copriflangia](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
 
-    **Figura 5: installazione dei copriflangia**
+    **Installazione dei copriflangia**
  
      Etichetta | Descrizione
      ----- | -----------
@@ -196,110 +196,17 @@ Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizio
 - Cavi seriali forniti
 - Convertitore seriale-USB con il driver appropriato installato sul PC (se necessario)
 - Adattatori singoli QSFP-SFP forniti per l'uso con interfacce di rete da 10 GbE
-- [Ricetrasmettitori, cavi e commutatori supportati per le interfacce di rete 10 GbE](https://msdn.microsoft.com/library/azure/dn891474.aspx) 
+- [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
 
-### Cablaggio SAS
+### SAS e i cavi di alimentazione
 
-Il dispositivo è costituito da un'enclosure principale e un'enclosure EBOD, che devono essere collegate mediante i cavi SAS.
+Il dispositivo è costituito da un'enclosure principale e un'enclosure EBOD. Questa operazione richiede che le unità siano cablate insieme per l'alimentazione e la connettività Serial Attached SCSI (SAS).
 
-Sarà quindi necessario identificare l'enclosure principale e l'enclosure EBOD.
+Quando si configura il dispositivo per la prima volta, eseguire prima i passaggi per il cablaggio SAS e poi completare i passaggi per il cablaggio di alimentazione.
 
-#### Per identificare l'enclosure principale e l'enclosure EBOD
+[AZURE.INCLUDE [storsimple cavo-8600-per-alimentazione](../../includes/storsimple-sas-cable-8600.md)]
 
-1. Identificare l'enclosure principale e l'enclosure EBOD. Le due enclosure possono essere identificate osservandone il retro. Per indicazioni, vedere la seguente figura.
-
-    ![Enclosure principale ed enclosure EBOD](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
-
-    **Figura 6: parte posteriore delle enclosure principale ed EBOD**
-
-     Etichetta | Descrizione
-     ----- | -----------
-     1 | Enclosure principale
-     2 | Enclosure EBOD
-
-
-2. Individuare i numeri di serie sulle enclosure principale ed EBOD. L'adesivo con il numero di serie è attaccato alla sporgenza posteriore di ogni enclosure. I due numeri di serie delle enclosure devono essere identici. Se non corrispondono, contattare subito il Supporto Tecnico Microsoft. Per individuare i numeri di serie più facilmente, vedere la seguente figura.
-
-    ![Posizione del numero di serie](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
-
-    **Figura 7: parte posteriore del dispositivo con la posizione del numero di serie**
-
-     Etichetta | Descrizione
-     ----- | -----------
-     1 | Sporgenza dell'enclosure
-
-
-Successivamente, usare i cavi SAS forniti per collegare l'enclosure EBOD all'enclosure principale.
-
-#### Per collegare l'enclosure principale e l'enclosure EBOD
-
-1. Identificare le quattro porte SAS (Serial Attached SCSI) sull'enclosure principale e sull'enclosure EBOD. Le porte SAS sono contrassegnate con la dicitura EBOD sull'enclosure principale e con la dicitura CTRL sull'enclosure EBOD, come illustrato nella figura 8.
-
-    ![Posizione delle porte SAS](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
-
-    **Figura 8: posizione delle porte SAS sulle enclosure principale ed EBOD**
-
-     Etichetta | Descrizione
-     ----- | -----------
-     A | Enclosure principale
-     B | Enclosure EBOD
-     1 | Controller 0
-     2 | Controller 1
-     3 | Controller 0 EBOD
-     4 | Controller 1 EBOD
-     5,6 | Porte SAS sull'enclosure principale (contrassegnate con la dicitura EBOD)
-     7,8 | Porte SAS sull'enclosure EBOD (contrassegnate con la dicitura CTRL)
-
-2. Usare i cavi SAS forniti per collegare le porte EBOD alle porte CTRL.
-
-    La porta EBOD sul controller 0 deve essere collegata alla porta CTRL sul controller 0 EBOD. La porta EBOD sul controller 1 deve essere collegata alla porta CTRL sul controller 1 EBOD. Per informazioni aggiuntive, vedere la figura 8.
-
-### Cablaggio di alimentazione
-
-L'enclosure principale e l'enclosure EBOD includono due moduli di alimentazione e raffreddamento PCM (Power and Cooling Module) ridondanti. Ogni modulo PCM di ogni enclosure deve essere installato e collegato a una fonte di alimentazione diversa per assicurare disponibilità elevata.
-
-Per cablare il dispositivo per l'alimentazione, attenersi alla seguente procedura.
-
-#### Per cablare il dispositivo per l'alimentazione
-
-1. Assicurarsi che gli interruttori di alimentazione di tutti i moduli PCM siano in posizione OFF.
-
-2. Per l'enclosure principale, collegare i cavi di alimentazione a entrambi i moduli PCM. Nella seguente figura i cavi di alimentazione sono identificati in rosso.
-
-3. Verificare che i due moduli PCM dell'enclosure principale usino fonti di alimentazione separate.
-
-4. Collegare i cavi di alimentazione alle unità PDU (Power Distribution Unit) rack come illustrato nella seguente figura.
-
-5. Ripetere i passaggi da 2 a 4 per l'enclosure EBOD.
-
-6. Accendere l'enclosure EBOD girando l'interruttore di alimentazione di ciascun modulo PCM su ON.
-
-7. Verificare che l'enclosure EBOD sia attiva assicurandosi che i LED dei controller EBOD (di colore verde sul retro dell'enclosure) siano accesi.
-
-8. Accendere l'enclosure principale girando l'interruttore di ciascun modulo PCM su ON.
-
-9. Verificare che il sistema sia attivo assicurandosi che i LED dei controller del dispositivo siano accesi.
-
-10. Verificare che il collegamento tra il controller EBOD e il controller del dispositivo sia attivo, assicurandosi che i LED SAS (4 accanto alla porta SAS) sul controller EBOD siano verdi.
-
-> [AZURE.IMPORTANT]Per garantire la disponibilità elevata del sistema, si consiglia di attenersi allo schema di cablaggio dell'alimentazione illustrato nella seguente figura.
-
-   ![Figura del cablaggio di alimentazione](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
-
-   **Figura 9: cablaggio di alimentazione per il dispositivo**
-
-     Label | Description
-     ----- | -----------
-     1     | Primary enclosure
-     2     | PCM 0
-     3     | PCM 1
-     4     | Controller 0
-     5     | Controller 1
-     6     | EBOD controller 0
-     7     | EBOD controller 1
-     8     | EBOD enclosure
-     9     | PDUs
- 
+[AZURE.INCLUDE [storsimple cavo-8600-per-alimentazione](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### Cablaggio di rete
 
@@ -313,7 +220,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
      ![Backplane del dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figura 10: parte posteriore del dispositivo con le porte dati**
+    **Parte posteriore del dispositivo con le porte dati**
  
      Etichetta | Descrizione
      ------- | -----------
@@ -334,7 +241,7 @@ Configurare almeno un'interfaccia di rete per l'accesso cloud e una per iSCSI. P
 
 ![Cablare il dispositivo 4U per la rete](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
-**Figura 11: cablaggio di rete per il dispositivo**
+**Cablaggio di rete per il dispositivo**
 
 Etichetta | Descrizione
 ----- | -----------
@@ -356,7 +263,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 
 #### Per cablare il dispositivo per la connessione seriale
 
-1. Il dispositivo è dotato di una porta seriale su ogni controller, identificata da un'icona a forma di chiave inglese. Fare riferimento alla figura 10 per individuare le porte seriali sul backplane del dispositivo.
+1. Il dispositivo è dotato di una porta seriale su ogni controller, identificata da un'icona a forma di chiave inglese. Per individuare le porte seriali, vedere la figura che mostra le porte dati sul retro del dispositivo.
 
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 
@@ -382,4 +289,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

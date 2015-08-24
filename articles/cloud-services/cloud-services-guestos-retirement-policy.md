@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Guida al supporto e ai criteri di ritiro per il sistema operativo guest di Azure | Azure" 
+   pageTitle="Guida al supporto e ai criteri di ritiro per il sistema operativo guest di Azure | Microsoft Azure" 
    description="Fornisce informazioni sul supporto che verrà fornito da Microsoft riguardo al sistema operativo guest di Azure usato da Servizi cloud." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -88,4 +88,4 @@ Per progettare i Servizi cloud è consigliabile usare la famiglia di sistemi ope
 Se per l'architettura dell'applicazione Web è richiesta una dipendenza maggiore dal sistema operativo sottostante, usare le funzionalità supportate della piattaforma, ad esempio le [attività di avvio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx) o altri meccanismi di estendibilità eventualmente disponibili in futuro. In alternativa, è anche possibile usare [Macchine virtuali di Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infrastructure as a Service), in cui si è responsabili della manutenzione del sistema operativo sottostante.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

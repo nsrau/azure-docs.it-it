@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.topic="get-started-article"
+	ms.date="08/06/2015"
 	ms.author="banders"/>
 
 # Guida alle funzionalità di Operational Insights
@@ -33,7 +33,7 @@ Grazie a Operational Insights, è possibile trasformare i dati dei computer in i
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [Pianificazione della capacità](operational-insights-capacity.md) | È possibile usare la soluzione Capacity Planning in Microsoft Azure Operational Insights per determinare la capacità dell'infrastruttura server. |
 | ![](./media/operational-insights-feature-guide/update.png) | [Valutazione dell’aggiornamento del sistema](operational-insights-updates.md) | È possibile usare la soluzione System Updates in Microsoft Azure Operational Insights per applicare gli aggiornamenti mancanti ai server dell'infrastruttura. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Log Management](operational-insights-search.md) | È possibile utilizzare la soluzione Log Management per log di IIS ed eventi per le ricerche di log in Operational Insights. |
+| ![](./media/operational-insights-feature-guide/log-search.png) | [Ricerca dei registri](operational-insights-search.md) | Si utilizza la funzionalità di ricerca dei registri per creare query di trasformazione, filtro e report dei risultati. La ricerca utilizza i dati degli eventi e i registri IIS per le ricerche dei registri in Operational Insights. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Valutazione di software dannoso](operational-insights-antimalware.md) | È possibile usare la soluzione Antimalware in Microsoft Azure Operational Insights per proteggere i server dell'infrastruttura da attacchi derivanti da software dannoso. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Protezione e controllo](operational-insights-security-audit.md) | Informazioni su come usare la soluzione Security and Audit per ottenere una panoramica completa sulla situazione della sicurezza IT all'interno dell'organizzazione grazie alla disponibilità di query di ricerca predefinite relative a problemi rilevanti che richiedono attenzione |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Valutazione di Active Directory e SQL](operational-insights-assessment.md) | È possibile usare la soluzione Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari |
@@ -72,4 +72,4 @@ I dati in ogni soluzione vengono analizzati e presentati nel portale di Operatio
 ### Dov’è disponibile Operational Insights?
 Microsoft Azure Operational Insights è ospitato negli Stati Uniti. Anche se Operational Insights è in lingua inglese, il servizio è disponibile in diversi altri mercati. Per informazioni, vedere [Disponibilità Internazionale](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

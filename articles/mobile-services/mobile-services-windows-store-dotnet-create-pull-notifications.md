@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Definire un'API personalizzata che supporta le notifiche periodiche - Servizi mobili di Azure" 
+	pageTitle="Definizione di un'API personalizzata che supporta le notifiche periodiche | Microsoft Azure" 
 	description="Informazioni su come definire un'API personalizzata che supporta le notifiche periodiche nelle app di Windows Store che usano Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Definizione di un'API personalizzata che supporta le notifiche periodiche
-
-<div class="dev-center-tutorial-selector"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript">Windows Store JavaScript</a>
-</div>
 
 In questo argomento viene illustrato come utilizzare un'API personalizzata che supporta le notifiche periodiche in un'app di Windows Store. Se le notifiche periodiche sono abilitate, Windows accederà periodicamente all'endpoint dell'API personalizzata e utilizzerà il file XML restituito, in un formato specifico del riquadro, per aggiornare il riquadro dell'app nel menu Start. Per altre informazioni, vedere [Notifiche periodiche].
 
@@ -167,4 +163,4 @@ Dopo avere creato una notifica periodica, per ulteriori informazioni vedere anch
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Come creare una raccolta ibrida per Azure RemoteApp
@@ -78,7 +78,7 @@ Altre informazioni sulla creazione di macchine virtuali di Azure e su come colle
 4. Scegliere il piano che da usare: standard o di base.
 5. Fare clic su **Crea raccolta RemoteApp**.
 
-Dopo la creazione della raccolta RemoteApp, passare alla pagina **Avvio rapido** di RemoteApp per continuare con la procedura di configurazione.
+Dopo aver creato la raccolta di RemoteApp, fare doppio clic sul nome della raccolta. Questo visualizzerà la pagina **Avvio rapido**: qui è possibile completare la configurazione della raccolta.
 
 ## Passaggio 3: Collegare la raccolta alla rete virtuale ##
 
@@ -136,4 +136,4 @@ La procedura è stata completata e la raccolta ibrida RemoteApp è stata creata 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

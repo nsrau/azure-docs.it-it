@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Notifiche push agli utenti (Android) | Mobile Dev Center" 
+	pageTitle="Notifiche push agli utenti (Android) | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili per inviare notifiche push agli utenti dell'app per Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -23,4 +23,4 @@ Questo argomento è stato deprecato. Fare riferimento alle indicazioni aggiornat
 + [Aggiungere notifiche push all'app di Servizi mobili](mobile-services-javascript-backend-android-get-started-push.md)<br/>Aggiornare il servizio mobile TodoList in modo che usi Hub di notifica di Azure per inviare notifiche agli utenti dell'app di esempio TodoList.
 + [Inviare notifiche push agli utenti autenticati](mobile-services-javascript-backend-android-push-notifications-app-users.md)<br/>Estende l'esercitazione precedente per permettere solo agli utenti che hanno effettuato l'accesso di registrarsi per le notifiche. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

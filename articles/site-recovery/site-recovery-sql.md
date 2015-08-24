@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -31,109 +31,35 @@ Molti carichi di lavoro usano SQL Server come base. Applicazioni come SharePoint
 
 Site Recovery è in grado di proteggere l’esecuzione di SQL Server come macchina virtuale Hyper-V, macchina virtuale VMware o server fisico.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td colspan = "2"><b>Hyper-V</b></td>
-		<td colspan = "2"><b>VMware</b></td>
-		<td colspan = "2"><b>Server fisico</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Da sito locale a sito locale</td>
-		<td>Da sito locale ad Azure</td>
-		<td>Da sito locale a sito locale</td>
-		<td>Da sito locale ad Azure</td>
-		<td>Da sito locale a sito locale</td>
-		<td>Da sito locale ad Azure</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Sì</td>
-		<td>Sì</td>
-		<td>Sì</td>
-		<td>Presto disponibile</td>
-		<td>Sì</td>
-		<td>Presto disponibile</td>
-    </tr>
-    </tbody>
-    </table>
+ |**Da sito locale a sito locale** | **Da sito locale ad Azure** 
+---|---|---
+**Hyper-V** | Sì | Sì
+**VMware** | Sì | Sì 
+**Server fisico** | Sì | Sì
+
 
 ## Supporto e integrazione
 
 Site Recovery può essere integrato con le tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server native riepilogate nella tabella per fornire una soluzione di ripristino di emergenza.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Funzionalità</b></td>
-		<td><b>Dettagli</b></td>
-		<td><b>Versione di SQL Server</b></td>
-    </tr>
-    </tr><tr align="left" valign="top">
-		<td><b>Gruppi di disponibilità AlwaysOn</b></td>
-		<td><p>Più istanze autonome di SQL Server eseguite ciascuna in un cluster di failover con più nodi.</p> <p>I database possono essere raggruppati in gruppi di failover che possono essere copiati (con mirroring) in istanze di SQL Server in modo che non sia necessaria alcuna archiviazione condivisa.</p> <p>Fornisce il ripristino di emergenza tra un sito primario e uno o più siti secondari. Due nodi possono essere configurati in un cluster non condiviso con i database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico.</p></td>
-		<td>Edizione SQL Server 2014/2012 Enterprise</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>Clustering di failover (AlwaysOn FCI)</b></td>
-		<td><p>SQL Server usa il clustering di failover di Windows per l’elevata disponibilità dei carichi di lavoro SQL Server locali.</p><p>I nodi che eseguono le istanze di SQL Server con dischi condivisi sono configurati in un cluster di failover. Se un'istanza non è attiva, il failover del cluster viene eseguito su un’altra istanza.</p> <p>Il cluster non protegge da errori o interruzioni nell'archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, fibre channel o VHDX condivisi.</p></td>
-		<td><p>Edizioni SQL Server Enterprise</p> <p>Edizione SQL Server Standard (limitata solo a due nodi)</p></td>
-	<tr align="left" valign="top">
-		<td><b>Mirroring del database in modalità di protezione elevata</b></td>
-		<td>Protegge un singolo database in una singola copia secondaria. Disponibile nelle modalità di replica a protezione elevata (sincrona) e a prestazione elevata (asincrona). Non richiede un cluster di failover.</td>
-		<td><p>SQL Server 2008 R2</p><p>Tutte le edizioni di SQL Server Enterprise</p></td>
-    </tr>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>SQL Server autonomo</b></td>
-		<td>SQL Server e il database si trovano in un singolo server (fisico o virtuale). Il clustering dell'host viene usato per la disponibilità elevata se il server è virtuale. Nessuna disponibilità elevata a livello di guest.</td>
-		<td>Edizione Enterprise o Standard</td>
- 
-    </tbody>
-    </table>
+**Funzionalità** |**Dettagli** | **Versione di SQL Server** 
+---|---|---
+**Gruppo di disponibilità AlwaysOn** | <p>Più istanze autonome di SQL Server eseguite ciascuna in un cluster di failover con più nodi.</p> <p>I database possono essere raggruppati in gruppi di failover che possono essere copiati (con mirroring) in istanze di SQL Server in modo che non sia necessaria alcuna archiviazione condivisa.</p> <p>Fornisce il ripristino di emergenza tra un sito primario e uno o più siti secondari. Due nodi possono essere configurati in un cluster non condiviso con i database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico.</p> | Edizione SQL Server 2014/2012 Enterprise
+**Clustering di failover (AlwaysOn FCI)** | <p>SQL Server si avvale del clustering di failover di Windows per un'elevata disponibilità dei carichi di lavoro locali di SQL Server.</p><p>I nodi che eseguono istanze di SQL Server con dischi condivisi vengono configurati in un cluster di failover. Se un'istanza non è attiva, il failover del cluster viene eseguito su un'altra istanza.</p> <p>Il cluster non protegge da errori o interruzioni nell'archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, fibre channel o VHDX condivisi.</p> | Edizioni di SQL Server Enterprise</p> <p>SQL Server Standard Edition (limitata a soli due nodi)
+**Mirroring del database (modalità di protezione elevata)** | Protegge un singolo database in una singola copia secondaria. Disponibile nelle modalità di replica a protezione elevata (sincrona) e a prestazione elevata (asincrona). Non richiede un cluster di failover. | <p>SQL Server 2008 R2</p><p>Tutte le edizioni di SQL Server Enterprise</p>
+**SQL Server autonomo** | SQL Server e il database si trovano in un singolo server (fisico o virtuale). Il clustering dell'host viene usato per la disponibilità elevata se il server è virtuale. Nessuna disponibilità elevata a livello di guest. | Edizione Enterprise o Standard
+
+
 
 Nella tabella seguente vengono riepilogati i suggerimenti per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server nella distribuzione di Site Recovery.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Versione</b></td>
-		<td><b>Edizione</b></td>
-		<td><b>Distribuzione</b></td>
-		<td><b>Da sito locale a sito locale</b></td>
-		<td><b>Da sito locale ad Azure</b>&lt;/td
-    </tr>
-    <tr align="left" valign="top">
-		<td rowspan = "3">SQL Server 2014 o 2012</td>
-		<td rowspan = "2">Enterprise</td>
-		<td>Istanza del cluster di failover</td>
-		<td>Gruppi di disponibilità AlwaysOn</td>
-		<td>Gruppi di disponibilità AlwaysOn</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Gruppi di disponibilità AlwaysOn per la disponibilità elevata</td>
-		<td>Gruppo di disponibilità AlwaysOn</td>
-		<td>Gruppo di disponibilità AlwaysOn</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Standard</td>
-		<td>Istanza del cluster di failover</td>
-		<td>Replica di Site Recovery con mirror locale</td>
-		<td>Replica di Site Recovery con mirror locale</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Enterprise o Standard</td>
-		<td>Autonoma</td>
-		<td>Replica di Site Recovery con mirror locale</td>
-		<td>Replica di Site Recovery con mirror locale</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>SQL Server 2008 R2</td><td>Enterprise o Standard</td>
-		<td>Autonoma</td>
-		<td>Replica di Site Recovery con mirror locale</td>
-		<td>Replica di Site Recovery con mirror locale</td>
-    </tr>
-    </tbody>
-    </table>
+**Versione** |**Edizione** | **Distribuzione** | **Da locale a locale** | **Da locale ad Azure** 
+---|---|---|---|
+SQL Server 2014 o 2012 | Enterprise | Istanza del cluster di failover | Gruppi di disponibilità AlwaysOn | Gruppi di disponibilità AlwaysOn
+ | Enterprise | Gruppi di disponibilità AlwaysOn per la disponibilità elevata | Gruppo di disponibilità AlwaysOn | Gruppo di disponibilità AlwaysOn
+ | Standard | Istanza del cluster di failover | Replica di Site Recovery con mirror locale | Replica di Site Recovery con mirror locale
+ | Enterprise o Standard | Autonoma | Replica di Site Recovery con mirror locale | Replica di Site Recovery con mirror locale
+SQL Server 2008 R2 | Enterprise o Standard | Autonoma | Replica di Site Recovery con mirror locale | Replica di Site Recovery con mirror locale
 
 
 ## Prerequisiti di distribuzione
@@ -436,4 +362,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

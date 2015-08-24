@@ -7,16 +7,14 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags
 	ms.service="data-factory"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
-
 
 # Creare la prima pipeline con Data factory di Azure
 > [AZURE.SELECTOR]
@@ -70,9 +68,7 @@ Nei passaggi successivi si apprenderà come creare i servizi collegati, i set di
 
 ### Prerequisiti
 
-Nel computer deve essere installato 
-- Visual Studio 2013 
-- Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
+Nel computer deve essere installato Visual Studio 2013. Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
 
 
 ### Creare il progetto di Visual Studio 
@@ -248,4 +244,4 @@ Vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipe
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](data-factory-get-started.md).
   
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

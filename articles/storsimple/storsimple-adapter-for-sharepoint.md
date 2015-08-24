@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos" />
 
 # Adattatore StorSimple per SharePoint
@@ -230,7 +230,7 @@ Utilizzare la procedura seguente per eseguire l'aggiornamento del server SharePo
 
 ## Passaggi successivi
 
-[Ulteriori informazioni su StorSimple](storsimple-overview.md)
+[Ulteriori informazioni su StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
@@ -240,4 +240,4 @@ Utilizzare la procedura seguente per eseguire l'aggiornamento del server SharePo
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/it-it/library/ff943565.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -7,16 +7,14 @@
 	manager="jwhit" 
 	editor=""/>
 
-
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="06/08/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
-
 
 
 # Configurare la protezione tra un sito di Hyper-V locale e Azure
@@ -69,7 +67,7 @@ Nell’ambito della distribuzione di Azure Site Recovery verranno installati Pro
 - **.blob.core.windows.net
 - **.store.core.windows.net
 
-- Per utilizzare un proxy personalizzato, configurare il server proxy prima di installare il Provider. Durante l'installazione del Provider, è necessario specificare l'indirizzo e la porta del server proxy e le credenziali che possono essere utilizzate per l'accesso.
+- Per utilizzare un proxy personalizzato, configurare il server proxy prima di installare il Provider. Durante l'installazione del Provider, è necessario specificare l'indirizzo e la porta del server proxy e le credenziali che possono essere utilizzate per l'accesso. Si noti che il proxy basato su HTTPS non è supportato.
 
 L'immagine seguente illustra i diversi canali e porte di comunicazione usati da Azure Site Recovery per la replica e l'orchestrazione
 
@@ -308,4 +306,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

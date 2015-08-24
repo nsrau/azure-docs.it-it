@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Come gestire il profilo dell'account e i dispositivi di test 
@@ -145,4 +145,4 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

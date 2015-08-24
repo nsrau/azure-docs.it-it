@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Carico di lavoro dei servizi di infrastruttura di Azure - Farm di SharePoint Intranet" 
-	description="Informazioni sull'utilità di una farm di SharePoint Intranet distribuita in Azure, su come configurare un ambiente di sviluppo/testing e su come distribuire una configurazione di produzione a disponibilità elevata." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Intranet"
+	description="Informazioni sull'utilità di una farm di SharePoint Intranet distribuita in Azure, su come configurare un ambiente di sviluppo/testing e su come distribuire una configurazione di produzione a disponibilità elevata."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
-# Carico di lavoro dei servizi di infrastruttura di Azure - Farm di SharePoint Intranet
+# Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Intranet
 
 Impostando la prima o la prossima farm di SharePoint in Microsoft Azure, è possibile usufruire della facilità di configurazione e della possibilità di espandere rapidamente la farm per includere nuova capacità o ottimizzare la funzionalità principale. Molte farm di SharePoint partono con una configurazione a tre livelli a disponibilità elevata standard e diventano farm con dieci o più server ottimizzati per le prestazioni o per ruoli distinti, ad esempio la ricerca o la memorizzazione nella cache distribuita.
- 
-Con le funzionalità per macchine virtuali e reti virtuali dei servizi di infrastruttura di Azure, è possibile distribuire ed eseguire rapidamente una farm di SharePoint connessa in modo trasparente alla rete locale. Ad esempio, è possibile definire la configurazione seguente.
+
+Con le funzionalità per macchine virtuali e reti virtuali dei servizi di infrastruttura di Azure, è possibile distribuire ed eseguire rapidamente una farm di SharePoint connessa in modo trasparente alla rete locale. Ad esempio, è possibile impostare la rete seguente.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
- 
+
 Poiché la rete virtuale di Azure è un'estensione della rete locale con la denominazione e il routing del traffico già impostati correttamente, gli utenti potranno accedervi come se si trovasse in un data center in locale.
 
 Questa configurazione consente di espandere facilmente la farm di SharePoint aggiungendo nuove macchine virtuali di Azure in cui i costi operativi dell'hardware e della manutenzione sono inferiori a quelli relativi alla gestione di una farm equivalente nel data center.
@@ -35,7 +35,7 @@ Il passaggio successivo consiste nel configurare una farm di SharePoint Intranet
 
 ## Creare una farm di SharePoint Intranet di sviluppo/testing ospitata in Azure
 
-Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata in Azure, le opzioni disponibili sono le seguenti:
+Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata in Azure, è possibile scegliere tra due opzioni:
 
 - Rete virtuale solo cloud
 - Rete virtuale cross-premise
@@ -44,29 +44,29 @@ Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata i
 
 ### Rete virtuale solo cloud
 
-Una rete virtuale solo cloud non è connessa a una rete locale. Se si vuole solo creare rapidamente una farm di SharePoint di base o a disponibilità elevata, vedere l'articolo relativo alla [server farm di SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). Ecco la configurazione di una farm di SharePoint di base.
+Una rete virtuale solo cloud non è connessa a una rete locale. Se si vuole solo creare rapidamente una farm di SharePoint di base o a disponibilità elevata, vedere l'articolo relativo alla [server farm di SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). L'esempio seguente illustra la configurazione di base di una farm di SharePoint.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
- 
+
 ### Rete virtuale cross-premise
 
 Una rete virtuale cross-premise è connessa a una rete locale mediante una connessione ExpressRoute o VPN da sito a sito. Se si vuole creare un ambiente di sviluppo/testing che simuli la configurazione finale e provare ad accedere al server SharePoint e a eseguire le attività di amministrazione remota su una connessione VPN, vedere [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/CreateSPFarmHybridCloud.png)
- 
+
 Il passaggio successivo consiste nel creare una farm di SharePoint Intranet a disponibilità elevata in Azure.
 
 ## Distribuire una farm di SharePoint Intranet ospitata in Azure
 
-Di seguito viene illustrata la configurazione rappresentativa di base per una farm di SharePoint Intranet a disponibilità elevata funzionante in Azure.
+L'esempio seguente illustra la configurazione rappresentativa di base relativa a una farm di SharePoint Intranet a disponibilità elevata funzionante in Azure.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
- 
+
 È costituita dagli elementi seguenti:
 
 - Una farm di SharePoint Intranet con due server a livello di Web, applicazione e database
-- Configurazione di gruppi di disponibilità SQL Server AlwaysOn con due server SQL e un computer di maggioranza dei nodi in un cluster
-- Active Directory nella rete virtuale con due controller di dominio di replica
+- Configurazione di gruppi di disponibilità SQL Server AlwaysOn con due server SQL e un computer del nodo di maggioranza in un cluster
+- Azure Active Directory nella rete virtuale con due controller di dominio di replica
 
 Per prendere visione di tale configurazione come infografica, vedere [SharePoint con SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788).
 
@@ -75,7 +75,7 @@ Per prendere visione di tale configurazione come infografica, vedere [SharePoint
 Questa configurazione di base richiede il set seguente di componenti e servizi di Azure:
 
 - Nove macchine virtuali
-- Quattro dischi dati aggiuntivi per i controller di dominio e i server SQL
+- Quattro dischi dati aggiuntivi per i controller di dominio e le istanze di SQL Server
 - Tre servizi cloud
 - Quattro set di disponibilità
 - Una rete virtuale cross-premise
@@ -86,23 +86,23 @@ Questa configurazione di base richiede il set seguente di componenti e servizi d
 
 Per distribuire questa configurazione, usare il processo seguente:
 
-- Fase 1: configurare Azure 
+- Fase 1: Configurare Azure.
 
-	Usare il portale di gestione di Azure e Azure PowerShell per creare un account di archiviazione, i servizi cloud e una rete virtuale cross-premise. Per i passaggi di configurazione dettagliati, vedere [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Usare il portale di Azure e Azure PowerShell per creare un account di archiviazione, i servizi cloud e una rete virtuale cross-premise. Per i passaggi di configurazione dettagliati, vedere [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-- Fase 2: configurare i controller di dominio
+- Fase 2: Configurare i controller di dominio.
 
-	Configurare due controller di dominio di replica di Active Directory e le impostazioni DNS per la rete virtuale. Per i passaggi di configurazione dettagliati, vedere [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
+	Configurare due controller di dominio di replica di Azure Active Directory e le impostazioni DNS per la rete virtuale. Per i passaggi di configurazione dettagliati, vedere [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
-- Fase 3: configurare l'infrastruttura di SQL Server
+- Fase 3: Configurare l'infrastruttura di SQL Server
 
 	Preparare le macchine virtuali di SQL Server per l'uso con SharePoint e creare il cluster di SQL Server. Per i passaggi di configurazione dettagliati, vedere [Fase 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
-- Fase 4: configurare i server SharePoint
+- Fase 4: Configurare i server SharePoint
 
 	Configurare le quattro macchine virtuali di SharePoint per una nuova farm di SharePoint. Per la configurazione dettagliata, vedere [Fase 4](virtual-machines-workload-intranet-sharepoint-phase4.md).
 
-- Fase 5: creare un gruppo di disponibilità AlwaysOn
+- Fase 5: Creare un gruppo di disponibilità AlwaysOn
 
 	Preparare i database di SharePoint, creare un gruppo di disponibilità AlwaysOn e quindi aggiungervi i database di SharePoint. Per i passaggi di configurazione dettagliati, vedere [Fase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
@@ -110,9 +110,9 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 ## Risorse aggiuntive
 
-[Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](../virtual-machines-workload-deploy-spsqlao-overview.md)
+[Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
 
-[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+[Configurare una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
 [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
@@ -122,4 +122,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

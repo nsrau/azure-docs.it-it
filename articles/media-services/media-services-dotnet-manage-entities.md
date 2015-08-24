@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #Gestione di asset ed entità correlate con Media Services .NET SDK
+
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md)
+- [REST](media-services-rest-manage-entities.md)
+
 
 Questo argomento illustra come eseguire le seguenti attività di gestione di Servizi multimediali:
 
@@ -324,4 +330,4 @@ L'esempio di codice seguente illustra come ottenere un riferimento a un criterio
 	}
 	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

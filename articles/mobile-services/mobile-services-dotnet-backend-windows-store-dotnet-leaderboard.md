@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Creazione di un'app Leaderboard per Windows Store con un back-end .NET | Servizi mobili di Azure" 
+	pageTitle="Creazione di un'app Leaderboard per Windows Store con un back-end .NET | Microsoft Azure" 
 	description="Informazioni su come compilare un'app Leaderboard per Windows Store mediante Servizi mobili di Azure con un back-end .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services"/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/24/2015" 
 	ms.author="glenga"/>
-
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
 
@@ -637,7 +635,6 @@ L'elenco dei giocatori viene visualizzato in un oggetto **ListBox**:
 	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
-
 Le posizioni in classifica sono visualizzate in un oggetto **ListView**:
 
 	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
@@ -647,18 +644,12 @@ Le posizioni in classifica sono visualizzate in un oggetto **ListView**:
 	            <Grid>
 	                <Grid.ColumnDefinitions>
 	                    <ColumnDefinition Width="*"/>
-
 	                    <ColumnDefinition Width="2*"/>
-
 	                    <ColumnDefinition Width="*"/>
-
 	                </Grid.ColumnDefinitions>
 	                <TextBlock Text="{Binding Path=Rank}"/>
-
 	                <TextBlock Text="{Binding Path=PlayerName}" Grid.Column="1"/>
-
 	                <TextBlock Text="{Binding Path=Score}" Grid.Column="2"/>
-
 	            </Grid>
 	        </DataTemplate>
 	    </ListView.ItemTemplate>
@@ -771,4 +762,4 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
     pageTitle="Requisiti delle immagini di Azure RemoteApp"
     description="Informazioni sui requisiti per la creazione di immagini da usare con Azure RemoteApp" 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -42,5 +42,6 @@ I requisiti per l'immagine che possono essere caricati e usati con l'app Azure R
 - L'immagine deve essere preparata con SYSPREP usando i parametri **/oobe /generalize /shutdown** (NON usare il parametro **/mode:vm**).
 - Il caricamento del disco VHD da una catena di snapshot non è supportato.
  
+Vedere [Creare un'immagine di Azure RemoteApp](remoteapp-imageoptions.md) per ulteriori informazioni sulla creazione di immagini per Azure RemoteApp.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

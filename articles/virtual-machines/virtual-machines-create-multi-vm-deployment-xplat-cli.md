@@ -1,12 +1,11 @@
 <properties
-   pageTitle="Creare una distribuzione di più macchine virtuali usando l'interfaccia della riga di comando di Azure | Azure"
+   pageTitle="Creare una distribuzione di più macchine virtuali usando l'interfaccia della riga di comando di Azure | Microsoft Azure"
    description="Informazioni su come creare una distribuzione di più macchine virtuali usando l'interfaccia della riga di comando di Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
    manager="timlt"
    editor=""/>
-
 
    <tags
    ms.service="virtual-machines"
@@ -16,7 +15,6 @@
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
-
 
 # Creare una distribuzione di più macchine virtuali utilizzando l'interfaccia della riga di comando di Azure
 
@@ -69,4 +67,4 @@ Nonostante sia possibile trovare altre informazioni usando l'opzione -help in qu
 * [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

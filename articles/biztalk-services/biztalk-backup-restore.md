@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare e ripristinare un backup in Servizi BizTalk | Azure" 
+	pageTitle="Creare e ripristinare un backup in Servizi BizTalk | Microsoft Azure" 
 	description="I Servizi BizTalk includono funzionalità di backup e ripristino. Informazioni su come creare e ripristinare un backup e determinare gli elementi di cui eseguire il backup. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -233,4 +233,4 @@ Per creare Servizi BizTalk di Azure nel portale di gestione di Azure, vedere [Cr
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

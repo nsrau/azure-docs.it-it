@@ -99,7 +99,7 @@ Per ogni interfaccia di rete, vengono visualizzati i seguenti parametri:
 
     Si consiglia di isolare il traffico iSCSI dal traffico di archiviazione cloud. Si noti inoltre che se l'host è all'interno della stessa subnet del dispositivo, non è necessario assegnare un gateway. Tuttavia, se l'host si trova in una subnet diversa del dispositivo, è necessario assegnare un gateway.
 
-- **Indirizzo IP**: può trattarsi di IPv4 o IPv6 o entrambi. Sono supportate sia le famiglie di indirizzi IPv4 e sia IPv6 per le interfacce di rete del dispositivo. Quando si utilizza IPv4, specificare un indirizzo IP a 32 bit (* xxx.xxx.xxx.xxx*) in notazione decimale. Quando si utilizza IPv6, è sufficiente fornire un prefisso a 4 cifre e un indirizzo a 128 bit verrà generato automaticamente per l'interfaccia di rete del dispositivo in base al prefisso.
+- **Indirizzo IP**: può trattarsi di IPv4 o IPv6 o entrambi. Sono supportate sia le famiglie di indirizzi IPv4 e sia IPv6 per le interfacce di rete del dispositivo. Quando si utilizza IPv4, specificare un indirizzo IP a 32 bit (*xxx.xxx.xxx.xxx*) in notazione decimale. Quando si utilizza IPv6, è sufficiente fornire un prefisso a 4 cifre e un indirizzo a 128 bit verrà generato automaticamente per l'interfaccia di rete del dispositivo in base al prefisso.
 
 - **Subnet**– si riferisce alla subnet mask e viene configurata tramite l'interfaccia Windows PowerShell.
 
@@ -133,4 +133,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
  
      
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

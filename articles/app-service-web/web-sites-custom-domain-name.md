@@ -18,10 +18,11 @@
 
 # Configurare un nome di dominio personalizzato nel servizio app di Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps">Acquistare un dominio per app Web</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">App Web con domini esterni</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">App Web con Gestione traffico</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
-
-</div>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -70,8 +71,8 @@ Se si sta creando un record CNAME, ignorare questo passaggio. Per creare un reco
 3.	Fare clic sul pannello **App Web**.
 4.	Fare clic sul nome dell'app Web.
 5.	Nella pagina **Elementi essenziali**, fare clic su **Tutte le impostazioni**.
-6.	Fare clic su **Domini ed SSL personalizzati**. 
-7.	Nel pannello **Domini personalizzati ed SSL** fare clic su **Porta domini esterni**. L'indirizzo IP si trova in basso in questa parte.
+6.	Fare clic su **Domini e SSL personalizzati**. 
+7.	Nel pannello **Domini personalizzati e SSL** fare clic su **Porta domini esterni**. L'indirizzo IP si trova in basso in questa parte.
 
 ## Creare i record DNS
 
@@ -147,4 +148,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

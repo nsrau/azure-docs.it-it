@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/09/2015"
+   ms.date="08/12/2015"
    ms.author="elizapo"/>
 
 # Aggiornare una raccolta in Azure RemoteApp
@@ -36,4 +36,4 @@ Quindi, come si esegue l'aggiornamento della raccolta? È piuttosto semplice:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

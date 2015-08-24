@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data factory - Note sulla versione | Azure" 
+	pageTitle="Data factory - Note sulla versione | Microsoft Azure" 
 	description="Note sulla versione di Data factory" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -284,7 +284,7 @@ Se tuttavia viene rieseguita una sezione precedente, non verrà visualizzata all
 	-  [Proprietà OnPremisesOracleTableLocation in una tabella JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [Origini e sink supportati](https://msdn.microsoft.com/library/dn894007.aspx). Visualizzare la matrice di copia aggiornata e le proprietà **OracleSource**.
 -  È possibile specificare la codifica per i file di testo in un BLOB di Azure. Vedere la nuova [proprietà encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
-- È possibile richiamare una stored procedure con parametri aggiuntivi quando si esegue la copia in SQL Sink. Per informazioni dettagliate, vedere [Richiamare stored procedure per SQL Sink][adf-copy-advanced].   
+- È possibile richiamare una stored procedure con parametri aggiuntivi quando si esegue la copia in SQL Sink.    
 
 Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data factory di Azure - Nuovi archivi dati](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/).
 
@@ -299,7 +299,7 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
 ### Modifiche
 - Il pacchetto di installazione aggiornato per **Gateway di gestione dati** è stato inserito nell'[Area download Microsoft][adf-gateway-download]. A partire da questa versione, è possibile trovare il Gateway di gestione dati più recente da utilizzare con Data factory di Azure in questo percorso di download. Il pacchetto di installazione viene usato sia per il servizio Data factory di Azure che per il servizio Power BI per Office 365. Se si usano entrambi i servizi, si noti che è necessario installare i gateway per Data factory e Power BI in computer diversi e configurarli in modo diverso, come indicato nella documentazione relativa a Data factory o Power BI.
-- L'**attività di copia** supporta ora la copia di dati tra il database SQL Server locale e un database SQL di Azure. Vedere [Attività di copia][adf-copy-activity] per informazioni dettagliate e [GitHub][adf-github-samples] per esempi JSON.
+- L'**attività di copia** supporta ora la copia di dati tra il database SQL Server locale e un database SQL di Azure. 
 - **SqlSink** supporta una nuova proprietà, **WriteBatchTimeout**. Questa proprietà offre la flessibilità necessaria per configurare il tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout dell'operazione. Per una copia ibrida, ovvero un'operazione di copia che coinvolge un'origine dati locale e un'origine dati cloud, è necessario disporre del gateway versione 1.4 o superiore per usare questa proprietà. 
 - Il **servizio collegato SQL Server** supporta ora l'**Autenticazione di Windows**. 
 	- Quando si crea un servizio collegato SQL Server usando il portale, è ora possibile scegliere di usare l'Autenticazione di Windows e impostare credenziali appropriate. Ciò richiede la disponibilità del gateway versione 1.4 o superiore. 
@@ -339,9 +339,7 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
-[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -355,4 +353,4 @@ Per altre informazioni ed esempi, vedere il post di blog [Aggiornamento di Data 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

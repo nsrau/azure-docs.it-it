@@ -20,8 +20,6 @@ Gli indirizzi IP in Azure rientrano in due categorie: indirizzi dinamici e indir
 
 Per impedire che gli indirizzi IP cambino, è possibile riservarli. Gli indirizzi IP riservati possono essere usati solo come indirizzi VIP, pertanto assicurano che l'indirizzo IP per il servizio cloud resti invariato anche se con il passare del tempo le risorse vengono arrestate o deallocate. È inoltre possibile convertire in indirizzo IP riservato gli indirizzi IP dinamici esistenti usati come indirizzi VIP.
 
->[AZURE.WARNING]È possibile assegnare un indirizzo IP riservato soltanto a un indirizzo VIP.
-
 ## Quando è necessario un indirizzo IP riservato?
 - **Si vuole essere certi che l'indirizzo IP sia riservato nella sottoscrizione**. Se si intende riservare un indirizzo IP in modo che non venga rilasciato dalla sottoscrizione in alcuna circostanza, è consigliabile usare un indirizzo IP pubblico riservato.  
 - **Si vuole che l'indirizzo IP resti associato al servizio cloud anche se lo stato delle macchine virtuali è arrestato o deallocato**. Se si vuole che il servizio cloud sia accessibile mediante l'uso di un indirizzo IP che non cambia anche se le macchine virtuali nel servizio cloud vengono arrestate o deallocate.
@@ -117,10 +115,10 @@ Lo script seguente crea un nuovo servizio cloud denominato *TestService2* con un
 
 ## Passaggi successivi
 
-[IP privato riservato](../virtual-networks-reserved-private-ip)
+- Informazioni su[indirizzi IP privati riservati](../virtual-networks-reserved-private-ip).
 
-[IP pubblico a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip)
+- Informazioni su[indirizzo IP pubblico a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 
-[API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- Controllare [API REST IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

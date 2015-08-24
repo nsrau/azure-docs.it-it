@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Procedura: Distribuire un asset mediante download
@@ -76,4 +76,4 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 
 [Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

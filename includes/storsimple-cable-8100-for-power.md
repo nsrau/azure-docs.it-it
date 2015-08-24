@@ -1,40 +1,25 @@
-<properties 
-   pageTitle="Cable your StorSimple 8100 for power | Microsoft Azure"
-   description="Explains how to attach the power cables and then turn on a StorSimple 8100 device for the first time."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+#### Per cablare il dispositivo per l'alimentazione
 
-#### To cable for power
+1. Assicurarsi che gli interruttori di alimentazione di ciascuno dei moduli PCM siano in posizione OFF.
 
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
+2. Collegare i cavi di alimentazione a tutti i moduli PCM nell’enclosure principale.
 
-2. Connect the power cords to each of the PCMs in the primary enclosure.
+3. Collegare i cavi di alimentazione alle unità PDU (Power Distribution Unit) rack come illustrato nella seguente figura. Verificare che i due moduli PCM usino fonti di alimentazione separate.
 
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+    >[AZURE.IMPORTANT]Per garantire la disponibilità elevata del sistema, si consiglia vivamente di attenersi allo schema di cablaggio dell'alimentazione illustrato nella seguente figura.
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+    ![Cablare il dispositivo 2U per l'alimentazione](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
 
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    **Cablaggio di alimentazione su un dispositivo 8100**
 
-    **Power cabling on an 8100 device**
-
-    |Label|Description|
+    |Etichetta|Descrizione|
     |:----|:----------|
     |1|PCM 0|
     |2|Controller 1|
     |3|Controller 0|
     |4|PCM 1|
-    |5|PDUs|
+    |5|PDU|
 
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+4. Accendere il sistema girando l'interruttore di alimentazione di ciascun modulo PCM su ON.
+
+<!---HONumber=August15_HO7-->

@@ -7,16 +7,14 @@
 	manager="jwhit" 
 	editor="tysonn"/>
 
-
 <tags 
 	ms.service="site-recovery" 
 	ms.workload="backup-recovery" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
-
 
 # Configurare la protezione tra siti VMM locali con SAN
 
@@ -363,4 +361,4 @@ Per altre informazioni sull'interazione con i processi e il dashboard, vedere la
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
 	description="Scrivere il codice per la propria analisi dei dati di telemetria in Application Insights usando la funzionalità di esportazione continua." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -305,4 +305,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

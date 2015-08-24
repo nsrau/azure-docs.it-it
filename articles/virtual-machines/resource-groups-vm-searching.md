@@ -135,6 +135,13 @@ Con queste informazioni è possibile individuare precisamente l'immagine desider
     
 A questo punto è possibile scegliere con precisione l'immagine da usare. Per creare rapidamente una macchina virtuale o usare un modello con le informazioni URN trovate, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](xplat-cli-azure-resource-manager.md).
 
+### Video con la procedura dettagliata
+
+Questo video illustra i passaggi precedenti usando l'interfaccia della riga di comando.
+
+[AZURE.VIDEO resource-groups-vm-searching-cli]
+
+
 ## PowerShell
 
 Quando si crea una nuova macchina virtuale con Gestione risorse di Azure, in alcuni casi è necessario specificare un'immagine combinando le seguenti proprietà dell'immagine:
@@ -214,6 +221,12 @@ Per l'offerta "WindowsServer":
 
 In questo elenco, copiare il nome della SKU prescelta per disporre di tutte le informazioni per il cmdlet di PowerShell **Set-AzureVMSourceImage** o per un file dei modelli di gruppi di risorse che richiede di specificare l'editore, l'offerta e la SKU per un'immagine.
 
+### Video con la procedura dettagliata
+
+Questo video illustra i passaggi precedenti usando PowerShell.
+
+[AZURE.VIDEO resource-groups-vm-searching-posh]
+
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
@@ -227,4 +240,4 @@ In questo elenco, copiare il nome della SKU prescelta per disporre di tutte le i
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

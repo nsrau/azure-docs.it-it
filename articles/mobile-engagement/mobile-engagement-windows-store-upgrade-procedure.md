@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Procedure di aggiornamento di Windows Universal Apps SDK
@@ -107,7 +107,7 @@ Al termine di queste operazioni, è necessario sostituire i riferimenti di Cappt
 		</engagement:EngagementPage>
 
 4. Modifiche alle pagine di sovrimpressione
-	> [AZURE.IMPORTANT]Anche la sovrimpressione cambia. Il nuovo spazio dei nomi è `Microsoft.Azure.Engagement.Overlay`. Deve essere usato sia nei file xaml sia nei file cs. Inoltre, `CapptainGrid` deve essere denominato `EngagementGrid` e `capptain_notification_content` e `capptain_announcement_content` sono denominati `engagement_notification_content` e `engagement_announcement_content`.
+	> [AZURE.IMPORTANT]Anche la sovrimpressione cambia. Il nuovo spazio dei nomi è `Microsoft.Azure.Engagement.Overlay`. Deve essere usato sia nei file xaml sia nei file cs. Inoltre, `CapptainGrid` deve essere denominato `EngagementGrid` e `capptain_notification_content` e `capptain_announcement_content` sono denominati `engagement_notification_content` e `engagement_announcement_conent`.
 	
 	Per la sovrimpressione:
 	
@@ -169,4 +169,4 @@ Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

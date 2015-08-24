@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analisi dei flussi: Ruotare le credenziali di accesso per input e output | Azure" 
+	pageTitle="Analisi di flusso: Ruotare le credenziali di accesso per input e output | Microsoft Azure" 
 	description="Informazioni su come aggiornare le credenziali di input e output di Analisi dei flussi." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

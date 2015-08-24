@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="aashishr"; "jimpark"/>
 
 # Creare un insieme di credenziali per il backup
 Per eseguire in Azure il backup di file e dati da Windows Server o da System Center Data Protection Manager (SCDPM) oppure il backup di macchine virtuali IaaS, è necessario creare un insieme di credenziali per il backup nell'area geografica in cui si desidera archiviare i dati.
@@ -60,7 +60,6 @@ Se si usa Azure come endpoint terziario di archiviazione dei backup (se ad esemp
 
 ## Nota
 
-- A partire da marzo 2015, i clienti non dispongono di una modalità di creazione di un insieme di credenziali per il backup a livello di codice, ad esempio PowerShell
 - La ridondanza di archiviazione deve essere selezionata subito dopo la creazione dell'insieme di credenziali e prima che i computer vengono registrati nell'insieme di credenziali. Dopo la registrazione di un elemento nell'insieme di credenziali, l'opzione di ridondanza di archiviazione è bloccata e non può essere modificata.
 
 <!--Image references-->
@@ -70,4 +69,4 @@ Se si usa Azure come endpoint terziario di archiviazione dei backup (se ad esemp
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

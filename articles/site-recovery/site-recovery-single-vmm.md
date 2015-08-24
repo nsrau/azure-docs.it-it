@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="05/04/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 #  Configurare la protezione con un singolo server VMM
@@ -100,4 +100,4 @@ In caso di emergenza, i carichi di lavoro possono essere ripristinati tramite la
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

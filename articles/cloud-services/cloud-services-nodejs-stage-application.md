@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Distribuire un servizio cloud in un ambiente di gestione temporanea (Node.js) - Azure" 
+	pageTitle="Distribuire un servizio cloud in un ambiente di gestione temporanea (Node.js) | Microsoft Azure" 
 	description="Informazioni su come distribuire l'applicazione di Azure prima in un ambiente di gestione temporanea e quindi in un ambiente di produzione tramite uno scambio di IP virtuali (VIP, Virtual IP)." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
 # Gestione temporanea di un'applicazione in Azure
 
 È possibile distribuire nell'ambiente di gestione temporanea di Azure un'applicazione inclusa in un pacchetto per la verifica prima dello spostamento nell'ambiente di produzione in cui l'applicazione risulterà accessibile su Internet. L'ambiente di gestione temporanea è identico all'ambiente di produzione, ma è possibile accedere all'applicazione di gestione temporanea solo tramite un URL offuscato generato da Azure. Dopo la verifica del funzionamento corretto dell'applicazione, sarà possibile distribuirla nell'ambiente di produzione, tramite uno scambio di indirizzi IP virtuali (VIP, Virtual IP).
@@ -33,7 +29,7 @@ Questa attività include i passaggi seguenti:
 -   [Passaggio 1: Gestire un'applicazione in modo temporaneo]
 -   [Passaggio 2: Distribuire un'applicazione in produzione tramite lo scambio di indirizzi VIP]
 
-<h2><a id="step1"></a>Passaggio 1: Gestire un'applicazione in modo temporaneo</h2>
+## Passaggio 1: Gestire un'applicazione in modo temporaneo
 
 In questa attività viene illustrato come gestire un'applicazione in modo temporaneo usando **Azure PowerShell**.
 
@@ -57,7 +53,7 @@ In questa attività viene illustrato come gestire un'applicazione in modo tempor
 
 Per uno scenario di aggiornamento in cui l'applicazione di gestione temporanea è una versione aggiornata di un'applicazione già distribuita in produzione, è possibile [aggiornare l'applicazione nell'ambiente di produzione tramite lo scambio di indirizzi VIP][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-<h2><a id="step2"></a>Passaggio 2: Aggiornare un'applicazione in produzione tramite lo scambio di indirizzi VIP</h2>
+## Passaggio 2: Aggiornare un'applicazione in produzione tramite lo scambio di indirizzi VIP
 
 Dopo la verifica della versione aggiornata di un'applicazione nell'ambiente di gestione temporanea, sarà possibile renderla rapidamente disponibile in produzione tramite lo scambio degli indirizzi IP virtuali (VIP, Virtual IP) degli ambienti di gestione temporanea e di produzione.
 
@@ -90,4 +86,4 @@ La gestione temporanea di una distribuzione e l'aggiornamento di una distribuzio
   [Panoramica della gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

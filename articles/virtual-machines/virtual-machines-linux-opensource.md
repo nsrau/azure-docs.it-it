@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2015"
+	ms.date="08/07/2015"
 	ms.author="rasquill"/>
 
 
@@ -114,25 +114,25 @@ CoreOS è una distribuzione di piccole dimensioni, ottimizzata per la pura scala
 
 ## Nozioni di base
 
-1. [Nozioni di base: interfaccia della riga di comando di Azure (CLI di Azure)](../xplat-cli.md)
-4. [Nozioni di base: uso e gestione dei certificati](http://msdn.microsoft.com/library/azure/gg981929.aspx)
-5. [Nozioni di base: selezione dei nomi utente per Linux](virtual-machines-linux-usernames.md)
-6. [Nozioni di base: accedere a una macchina virtuale Linux mediante il portale di Azure](virtual-machines-linux-how-to-log-on.md)
+1. [Nozioni di base: Interfaccia della riga di comando di Azure (CLI di Azure)](../xplat-cli.md)
+4. [Nozioni di base: Uso e gestione dei certificati](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+5. [Nozioni di base: Selezione dei nomi utente per Linux](virtual-machines-linux-usernames.md)
+6. [Nozioni di base: Accedere a una macchina virtuale Linux con il portale di Azure](virtual-machines-linux-how-to-log-on.md)
 7. [Nozioni di base: SSH](virtual-machines-linux-use-ssh-key.md)
-8. [Nozioni di base: come reimpostare una password o le proprietà SSH per Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Nozioni di base: uso di privilegi root](virtual-machines-linux-use-root-privileges.md)
-10. [Nozioni di base: collegare un disco dati a una macchina virtuale Linux](virtual-machines-linux-how-to-attach-disk.md)
-11. [Nozioni di base: scollegare un disco dati da una macchina virtuale Linux](virtual-machines-linux-how-to-detach-disk.md)
-12. [Blog sulle nozioni di base: ottimizzazione di archiviazione, dischi e prestazioni con Linux e Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+8. [Nozioni di base: Come reimpostare una password o le proprietà SSH per Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+9. [Nozioni di base: Uso di privilegi root](virtual-machines-linux-use-root-privileges.md)
+10. [Nozioni di base: Collegare un disco dati a una macchina virtuale Linux](virtual-machines-linux-how-to-attach-disk.md)
+11. [Nozioni di base: Scollegare un disco dati da una macchina virtuale Linux](virtual-machines-linux-how-to-detach-disk.md)
+12. [Blog sulle nozioni di base: Ottimizzazione di archiviazione, dischi e prestazioni con Linux e Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [Nozioni di base: RAID](virtual-machines-linux-configure-raid.md)
-14. [Nozioni di base: acquisizione di una VM Linux per creare un modello](virtual-machines-linux-capture-image.md)
-15. [Nozioni di base: agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
-16. [Nozioni di base: estensioni VM e funzionalità di Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
-17. [Nozioni di base: inserimento di dati personalizzati in una macchina virtuale per l’uso con Cloud-init](virtual-machines-how-to-inject-custom-data.md)
+14. [Nozioni di base: Acquisizione di una VM Linux per creare un modello](virtual-machines-linux-capture-image.md)
+15. [Nozioni di base: Agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
+16. [Nozioni di base: Estensioni VM e funzionalità di Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+17. [Nozioni di base: Inserimento di dati personalizzati in una macchina virtuale per l’uso con Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blog sulle nozioni di base: Linux a disponibilità elevata in Azure in 12 passaggi](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [Blog sulle nozioni di base: automatizzare il provisioning di Linux in Azure con l’interfaccia della riga di comando di Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+19. [Blog sulle nozioni di base: Automatizzare il provisioning di Linux in Azure con l’interfaccia della riga di comando di Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 19. [Creare una distribuzione di più macchine virtuali utilizzando l'interfaccia della riga di comando di Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
-20. [Nozioni di base: estensione macchina virtuale Docker in Azure](virtual-machines-docker-vm-extension.md)
+20. [Nozioni di base: Estensione della VM Docker di Azure](virtual-machines-docker-vm-extension.md)
 23. Riferimento [API REST di gestione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 24. [GlusterFS in Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
@@ -235,10 +235,19 @@ Questa sezione include informazioni su diversi approcci e tecnologie di archivia
 
 L'autenticazione e la crittografia sono aspetti essenziali per lo sviluppo software e sul Web sono disponibili molti argomenti che illustrano come apprendere e usare le tecniche di sicurezza appropriate per entrambe. Questo articolo offre alcune informazioni di base sull'utilizzo, per permettere di iniziare a usare rapidamente carichi di lavoro Linux e open source, oltre a fare riferimento agli strumenti da usare per reimpostare o rimuovere funzionalità di sicurezza remote in Azure. Sono riportate le procedure di base, ma presto verranno aggiunti scenari più complessi.
 
-4. [Nozioni di base: uso e gestione dei certificati](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+4. [Nozioni di base: Uso e gestione dei certificati](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 7. [Nozioni di base: SSH](virtual-machines-linux-use-ssh-key.md)
-8. [Nozioni di base: come reimpostare una password o le proprietà SSH per Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Nozioni di base: uso di privilegi root](virtual-machines-linux-use-root-privileges.md)
+8. [Nozioni di base: Come reimpostare una password o le proprietà SSH per Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+9. [Nozioni di base: Uso di privilegi root](virtual-machines-linux-use-root-privileges.md)
+
+## HPC (High Performance Computing) in Linux
+
+Eseguire i carichi di lavoro HPC sui cluster di macchine virtuali Linux create con strumenti open source o con Microsoft HPC Pack.
+
+1.	[Modelli della guida introduttiva: Avviare un cluster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) (e [post di blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+2.	[Modelli della guida introduttiva: Avviare un cluster Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.	[Esercitazione: Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md)
+4.	[Esercitazione: Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md)
 
 ## DevOps, gestione e ottimizzazione
 
@@ -294,6 +303,5 @@ Questa sezione inizia con un post di blog contenente una serie di video in [Vide
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

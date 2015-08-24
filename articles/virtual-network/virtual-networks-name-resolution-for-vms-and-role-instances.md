@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="08/10/2015"
    ms.author="joaoma" />
 
 # Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo
@@ -21,9 +21,9 @@ A seconda di come si utilizza Azure per ospitare IaaS, PaaS e soluzioni ibride, 
 
 Quando le istanze del ruolo e le macchine virtuali ospitate in Azure devono trasformare nomi di dominio e nomi host in indirizzi IP interni, possono utilizzare uno di questi due metodi:
 
-- [Risoluzione dei nomi di Azure](azure-provided-name-resolution)
+- [Risoluzione dei nomi di Azure](#azure-provided-name-resolution)
 
-- [Risoluzione dei nomi utilizzando il proprio server DNS](name-resolution-using-your-own-DNS-server)
+- [Risoluzione dei nomi utilizzando il proprio server DNS](#name-resolution-using-your-own-dns-server)
 
 Il tipo di risoluzione dei nomi utilizzato dipende dal modo in cui le macchine virtuali e le istanze del ruolo hanno bisogno di comunicare all'interno del servizio cloud in questione e con altri servizi cloud.
 
@@ -108,7 +108,7 @@ Se si prevede di utilizzare la risoluzione dei nomi non fornita da Azure, il ser
 
 ### Specificare un server DNS tramite il portale di gestione
 
-Quando si crea la rete virtuale tramite il portale di gestione, è possibile specificare l'indirizzo IP e il nome del server DNS (o dei server) che si desidera utilizzare. Una volta creata la rete virtuale, le macchine virtuali e le istanze del ruolo da distribuire nella rete virtuale vengono configurate automaticamente con le impostazioni DNS specificate, a meno che non si specifichi il server (o i server) DNS da utilizzare per la distribuzione. Per ulteriori informazioni sulla configurazione delle impostazioni di rete virtuale di Azure, vedere [Informazioni sulla configurazione di una rete virtuale nel portale di gestione](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+Quando si crea la rete virtuale tramite il portale di gestione, è possibile specificare l'indirizzo IP e il nome del server DNS (o dei server) che si desidera utilizzare. Una volta creata la rete virtuale, le macchine virtuali e le istanze del ruolo da distribuire nella rete virtuale vengono configurate automaticamente con le impostazioni DNS specificate, a meno che non si specifichi il server (o i server) DNS da utilizzare per la distribuzione. Per ulteriori informazioni sulla configurazione delle impostazioni di rete virtuale di Azure, vedere [Informazioni sulla configurazione di una rete virtuale nel portale di gestione](virtual-networks-settings.md).
 
 > [AZURE.NOTE]È possibile utilizzare solo fino a 9 server DNS.
 
@@ -123,8 +123,14 @@ Viene creato il file di configurazione del servizio per ogni servizio cloud che 
 > [AZURE.NOTE]Le impostazioni nel file di configurazione del servizio hanno la precedenza sulle impostazioni nel file di configurazione di rete. Ad esempio, se una macchina virtuale viene aggiunta a un servizio cloud che fa parte di una rete virtuale e il file di configurazione di rete e il file di configurazione del servizio hanno impostazioni DNS, le impostazioni DNS nel file di configurazione del servizio vengono applicate alla macchina virtuale.
 
 
-## Vedere anche
+## Passaggi successivi
 
-[Schema di configurazione di servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710) [Schema di configurazione di rete virtuale](https://msdn.microsoft.com/library/azure/jj157100) [Informazioni sulla configurazione delle impostazioni di rete virtuale nel portale di gestione](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurare una rete virtuale utilizzando un file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Attività di configurazione di rete virtuale Azure](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710)
 
-<!---HONumber=August15_HO6-->
+[Schema di configurazione di Rete virtuale ](https://msdn.microsoft.com/library/azure/jj157100)
+
+[Informazioni sulle impostazioni della rete virtuale nel portale di gestione](virtual-networks-settings.md)
+
+[Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
+
+<!---HONumber=August15_HO7-->

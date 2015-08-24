@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Spostamento dei dati in SQL Server in Azure| Microsoft Azure" 
-	description="Spostamento dei dati in SQL Server in Azure" 
+	pageTitle="Spostare i dati in SQL Server in un macchina virtuale di Azure | Azure" 
+	description="Spostare i dati da file flat o da un Server SQL locale a SQL Server su VM di Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="msolhab" 
@@ -13,24 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
-	ms.author="fashah;garye;mohabib;bradsev" />
+	ms.date="08/10/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
-#Spostamento dei dati in SQL Server in Azure
+# Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
-In questo documento viene illustrato lo spostamento dei dati da file flat (csv o tsv) o da un server locale SQL locale in Azure. Questa attività fa parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning.
+In questo documento vengono descritte le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte di ADAPT (Advanced Analytics Process and Technology), un processo fornito da Azure Machine Learning.
 
+Per un argomento che descrive le opzioni per lo spostamento dei dati a un Database di SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-<table>
+Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dati in SQL Server in una macchina virtuale Azure.<table>
 
 <tr>
 <td><b>ORIGINE</b></td>
-<td colspan="2" align="center"><b>DESTINAZIONE</b></td>
-</tr>
-
-<tr>
-  <td></td>
-  <td><b>Macchine virtuali SQL Server in Azure</b></td>
+<td colspan="2" align="center"><b>DESTINAZIONE: SQL Server in VM di Azure</b></td>
 </tr>
 
 <tr>
@@ -56,17 +52,16 @@ Tenere presente che il presente documento presuppone che i comandi SQL vengano e
 > [AZURE.TIP]In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/it-it/services/data-factory/) per creare e pianificare una pipeline che sposta i dati a una macchina virtuale di SQL Server in Azure. Per altre informazioni, vedere [Copia di dati con Data factory di Azure (Attività di copia)](../data-factory/data-factory-copy-activity.md).
 
 
-## <a name="sqlonazurevm"></a>Spostamento dei dati a una macchina virtuale di SQL Server in Azure
+## <a name="prereqs"></a>Prerequisiti
+In questa esercitazione si presuppone che si disponga di:
 
-In questa sezione viene illustrato il processo di spostamento dei dati in una macchina virtuale di SQL Server in Azure. Se la macchina virtuale di SQL Server non è stata configurata, eseguire il provisioning di una nuova macchina virtuale di SQL Server per l'analisi avanzata come descritto in [Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-
-In questo documento viene descritto lo spostamento dei dati dalle origini dei dati seguenti:
-  
-1. [Da file flat](#filesource_to_sqlonazurevm) 
-2. [Da un Server locale SQL](#sqlonprem_to_sqlonazurevm)
+* Una **sottoscrizione di Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un **account di archiviazione di Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Provisioning di **SQL Server in una VM di Azure**. Per le istruzioni, vedere [Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata](machine-learning-data-science-setup-sql-server-virtual-machine.md).
+* **Azure PowerShell** installato e configurato localmente. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
 
-### <a name="filesource_to_sqlonazurevm"></a>Origine file
+## <a name="filesource_to_sqlonazurevm"></a> Spostamento di dati da un'origine di file flat a SQL Server su una VM di Azure
 
 Se i dati si trovano in un file flat (organizzati in un formato righe/colonne), possono essere spostati a una macchina virtuale di SQL Server attraverso i seguenti metodi:
 
@@ -102,7 +97,7 @@ BCP è un'utilità della riga di comando installata con SQL Server e rappresenta
 
 > **Ottimizzazione inserimenti BCP** Per ottimizzare gli inserimenti, fare riferimento al seguente articolo ["Linee guida per ottimizzare l'importazione di massa"](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx).
 
-#### <a name="insert-tables-bulkquery-parallel"></a>Parallelizzazione delle operazioni di inserimento per uno spostamento dei dati più veloce
+### <a name="insert-tables-bulkquery-parallel"></a>Parallelizzazione delle operazioni di inserimento per uno spostamento dei dati più veloce
 
 Se i dati che si stanno spostando sono grandi, è possibile velocizzare l'operazione eseguendo contemporaneamente più comandi BCP in uno script di PowerShell.
 
@@ -176,7 +171,7 @@ Ecco alcuni comandi di esempio per l'inserimento di massa:
 - Per informazioni dettagliate su SQL Server Data Tools, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - Per informazioni dettagliate sull'importazione/esportazione guidata, vedere [Importazione/esportazione guidata di SQL Server](https://msdn.microsoft.com/library/ms141209.aspx)
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>Spostamento dei dati da SQL Server locale
+## <a name="sqlonprem_to_sqlonazurevm"></a>Spostamento dei dati da SQL Server locale a SQL Server in una VM di Azure
 
 I dati possono essere spostati da SQL Server locale nel modo seguente:
 
@@ -186,7 +181,7 @@ I dati possono essere spostati da SQL Server locale nel modo seguente:
 
 Tali procedure vengono descritte qui di seguito:
 
-#### <a name="export-flat-file"></a>Esportazione in un file flat
+### <a name="export-flat-file"></a>Esportazione in un file flat
 
 È possibile utilizzare diversi metodi per l'esportazione di massa dei dati dal Server locale SQL come descritto [qui](https://msdn.microsoft.com/library/ms175937.aspx). In questo documento si parla di Bulk Copy Program (BCP) come esempio. Una volta che i dati sono esportati in un file flat, possono essere importati in un altro server SQL mediante l'importazione di massa.
 
@@ -209,13 +204,13 @@ Tali procedure vengono descritte qui di seguito:
 	
 4. Utilizzare uno dei metodi descritti nella sezione [Spostamento dei dati dall'origine file](#filesource_to_sqlonazurevm) per spostare i dati dai file flat in SQL Server.
 
-#### <a name="sql-migration"></a>Migrazione guidata database SQL
+### <a name="sql-migration"></a>Migrazione guidata database SQL
 
 [Migrazione guidata database SQL Server](http://sqlazuremw.codeplex.com/) fornisce un modo semplice per spostare i dati tra due istanze del server SQL. Consente all'utente di mappare lo schema dei dati tra origini e tabelle di destinazione, scegliere i tipi di colonna e varie altre funzionalità. Utilizza la copia di massa (BCP) dietro le quinte. Di seguito è riportata una schermata della schermata iniziale della procedura guidata di migrazione del database SQL.
 
 ![Migrazione guidata in SQL Server][2]
 
-#### <a name="sql-backup"></a>Backup e ripristino database
+### <a name="sql-backup"></a>Backup e ripristino database
 
 SQL Server supporta:
 
@@ -232,4 +227,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

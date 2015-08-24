@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestione dati e analisi business - Azure" 
+	pageTitle="Gestione dati e analisi business | Microsoft Azure" 
 	description="Introduzione alla gestione e all'analisi dei dati in Azure. Sono disponibili diverse opzioni per l'uso di dati relazionali e non relazionali." 
 	services="sql-database, storage" 
 	documentationCenter=".net" 
@@ -25,4 +25,4 @@
 [AZURE.INCLUDE [cloud-storage](../../includes/cloud-storage.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

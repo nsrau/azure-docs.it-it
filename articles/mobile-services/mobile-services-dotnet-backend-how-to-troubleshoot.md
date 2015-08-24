@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Risolvere i problemi del back-end .NET di Servizi mobili - Servizi mobili di Azure" 
+	pageTitle="Risolvere i problemi del back-end .NET di Servizi mobili | Microsoft Azure" 
 	description="Informazioni su come diagnosticare e correggere problemi con Servizi mobili tramite il back-end .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -154,4 +154,4 @@ Le migrazioni possono essere complesse e richiedere di mantenere lo stato del da
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
-
 
 #Copia di un BLOB esistente in un asset di Servizi multimediali
 
@@ -62,17 +60,11 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 		<appSettings>
 		  <add key="MediaServicesAccountName" value="Media-Services-Account-Name"/>
-
 		  <add key="MediaServicesAccountKey" value="Media-Services-Account-Key"/>
-
 		  <add key="MediaServicesStorageAccountName" value="Media-Services-Storage-Account-Name"/>
-
 		  <add key="MediaServicesStorageAccountKey" value="Media-Services-Storage-Account-Key"/>
-
 		  <add key="ExternalStorageAccountName" value="External-Storage-Account-Name"/>
-
 		  <add key="ExternalStorageAccountKey" value="External-Storage-Account-Key"/>
-
 		</appSettings>
 
 
@@ -186,7 +178,7 @@ L'esempio di codice che segue effettua le attività seguenti:
 		        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy", TimeSpan.FromHours(24), AccessPermissions.Write);
 		        ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
 		
-		        CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
+		        CloudBlobClient destBlobStorage = _destinatioStorageAccount.CreateCloudBlobClient();
 		
 		        // Get the asset container URI and Blob copy from mediaContainer to assetContainer. 
 		        string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
@@ -294,4 +286,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 		}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

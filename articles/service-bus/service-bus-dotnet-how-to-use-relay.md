@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare il servizio Inoltro del bus di servizio (.NET) - Azure" 
+	pageTitle="Come usare il servizio Inoltro del bus di servizio (.NET) | Microsoft Azure" 
 	description="Informazioni sull'uso del servizio di inoltro di Bus di servizio di Azure per connettere due applicazioni ospitate in posizioni diverse." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -268,4 +268,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di **inoltro**
   [MSDN]: https://msdn.microsoft.com/it-it/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

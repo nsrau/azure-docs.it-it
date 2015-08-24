@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Cambiare le modalità del dispositivo StorSimple"
+   pageTitle="Modificare la modalità del dispositivo nel dispositivo StorSimple | Microsoft Azure"
    description="Informazioni sulle varie modalità del dispositivo StorSimple e su come cambiare modalità del dispositivo."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
-
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
-
 
 # Modalità del dispositivo StorSimple
 
@@ -23,8 +21,8 @@ In questo articolo viene fornita una breve descrizione delle varie modalità in 
 
 Una volta letto l'articolo, si sarà in grado di:
 
-- conoscere le modalità del dispositivo StorSimple
-- determinare la modalità corrente del dispositivo StorSimple.
+- modalità del dispositivo StorSimple
+- determinare la modalità corrente del dispositivo StorSimple
 - cambiare la modalità da normale a manutenzione e *viceversa*.
 
 
@@ -58,7 +56,7 @@ Se il sistema passa in modalità di ripristino, è necessario contattare il supp
 
 Per determinare la modalità del dispositivo, effettuare le seguenti operazioni:
 
-1. Accedere alla console seriale del dispositivo seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](https://msdn.microsoft.com/library/azure/dn757808.aspx).
+1. Accedere alla console seriale del dispositivo seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 2. Esaminare il messaggio dell'intestazione nel menu della console seriale del dispositivo. Questo messaggio indica in modo esplicito se il dispositivo è in modalità di manutenzione o di ripristino. Se il messaggio non contiene informazioni specifiche relative alla modalità di sistema, il dispositivo è in modalità normale.
 
 ## Cambiare la modalità del dispositivo StorSimple 
@@ -69,17 +67,17 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 #### Per attivare la modalità di manutenzione
 
-1. Accedere alla console seriale del dispositivo seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](https://msdn.microsoft.com/library/azure/dn757808.aspx).
+1. Accedere alla console seriale del dispositivo seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è: `Password1`.
+2. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è: `Password1`.
 
-1. Al prompt dei comandi digitare
+3. Al prompt dei comandi digitare
 
 	`Enter-HcsMaintenanceMode`
 
-1. Verrà visualizzato un messaggio di avviso indicante che la modalità di manutenzione interromperà tutte le richieste I/O e la connessione al portale di gestione e verrà richiesto di confermare che si desidera procedere. Digitare **Y** per attivare la modalità di manutenzione.
+4. Verrà visualizzato un messaggio di avviso indicante che la modalità di manutenzione interromperà tutte le richieste I/O e la connessione al portale di gestione e verrà richiesto di confermare che si desidera procedere. Digitare **Y** per attivare la modalità di manutenzione.
 
-1. Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
+5. Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
 
 
 #### Per uscire dalla modalità di manutenzione
@@ -90,13 +88,13 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 	`Exit-HcsMaintenanceMode`
 
-1. Verranno visualizzati un messaggio di avviso e un messaggio di conferma. Digitare **Y** per uscire dalla modalità di manutenzione.
+3. Verranno visualizzati un messaggio di avviso e un messaggio di conferma. Digitare **Y** per uscire dalla modalità di manutenzione.
 
-1. Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità normale.
+4. Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità normale.
 
 
 ## Passaggi successivi
 
 Informazioni su come [applicare gli aggiornamenti in modalità normale e manutenzione](storsimple-update-device.md) al dispositivo StorSimple.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

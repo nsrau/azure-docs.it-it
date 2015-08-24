@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come creare un'immagine modello personalizzata per Azure RemoteApp"
-	description="Informazioni su come creare un'immagine modello personalizzata per RemoteApp. È possibile usare questo modello con una distribuzione ibrida o cloud."
+	description="Informazioni su come creare un'immagine modello personalizzata per Azure RemoteApp. È possibile usare questo modello con una raccolta ibrida o cloud."
 	services="remoteapp"
 	documentationCenter=""
 	authors="lizap"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Come creare un'immagine modello personalizzata per Azure RemoteApp
@@ -22,7 +22,7 @@ Azure RemoteApp usa un'immagine modello di Windows Server 2012 R2 per ospitare t
 
 - La dimensione dell'immagine dev'essere un multiplo di MB. Se si prova a caricare un'immagine che non è un multiplo esatto, l'operazione non andrà a buon fine.
 - L'immagine deve avere una dimensione massima di 127 GB.
-- Deve essere inclusa in un file VHD (i file VHDX non sono attualmente supportati).
+- Deve essere inclusa in un file VHD (i file VHDX [dischi rigidi virtuali Hyper-V] non sono attualmente supportati).
 - Il file VHD non deve essere una macchina virtuale di seconda generazione.
 - Il file VHD può essere di dimensioni fisse o a espansione dinamica. È consigliabile un file VHD a espansione dinamica perché i tempi di caricamento di questo file in Azure sono inferiori rispetto a uno di dimensioni disse.
 - Il disco deve essere inizializzato con lo stile di partizione MBR (Master Boot Record). Lo stile di partizione basato sulla tabella di partizione GUID (GPT) non è supportato.
@@ -49,7 +49,7 @@ Prima di creare il servizio, è necessario eseguire le seguenti operazioni:
 
 ## Creazione di un'immagine modello ##
 
-Per creare una nuova immagine modello:
+Questi sono i passaggi di alto livello per creare una nuova immagine modello da zero:
 
 1.	Procurarsi un DVD o un'immagine ISO di Windows Server 2012 R2 Update.
 2.	Creare un file VHD.
@@ -109,8 +109,8 @@ I passaggi dettagliati per creare una nuova immagine sono:
  	**Importante:**
 
 
-	- Microsoft consiglia di installare il ruolo Host sessione Desktop remoto prima di installare le applicazioni in modo da garantire l'individuazione di problemi di compatibilità prima del caricamento dell'immagine in RemoteApp.
-	- Assicurarsi che l'applicazione sia visualizzata nel menu Start. Assicurarsi inoltre che l'icona visualizzata nel menu Start sia quella che si vuole visualizzare agli utenti. In caso contrario, modificarla (non è *obbligatorio* aggiungere l'applicazione al menu Start, ma questo semplificherà notevolmente la pubblicazione dell'applicazione in RemoteApp. In caso contrario, sarà necessario fornire il percorso di installazione dell'applicazione al momento della pubblicazione.
+	- Installare il ruolo Host sessione Desktop remoto prima di installare le applicazioni in modo da garantire l'individuazione di problemi di compatibilità prima del caricamento dell'immagine in RemoteApp.
+	- Assicurarsi che l'applicazione sia visualizzata nel menu **Start**. Assicurarsi inoltre che l'icona visualizzata nel menu **Start** sia quella che si vuole visualizzare agli utenti. In caso contrario, modificarla (non è *obbligatorio* aggiungere l'applicazione al menu Start, ma questo semplificherà notevolmente la pubblicazione dell'applicazione in RemoteApp. In caso contrario, sarà necessario fornire il percorso di installazione dell'applicazione al momento della pubblicazione.
 
 8.	Eseguire eventuali configurazioni aggiuntive di Windows richieste dalle applicazioni.
 9.	Disabilitare EFS (Encrypting File System). Eseguire il comando seguente a un prompt dei comandi con privilegi elevati:
@@ -137,4 +137,4 @@ Ora che si dispone di un'immagine modello personalizzata, è necessario caricarl
 - [Come creare una raccolta RemoteApp nel cloud](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

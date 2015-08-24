@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire un database SQL con SSMS - Azure" 
+	pageTitle="Gestire un Database SQL con SQL Server Management Studio | Microsoft Azure" 
 	description="Informazioni su come usare SQL Server Management Studio per gestire database e server di database SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -186,4 +186,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

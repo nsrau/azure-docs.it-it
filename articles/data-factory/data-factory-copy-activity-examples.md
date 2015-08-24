@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Esempi relativi all'uso dell'attività di copia in Data factory di Azure
-È possibile usare **l'attività di copia** in una pipeline per copiare i dati da un'origine a un sink (destinazione) in un batch. Questo argomento fornisce alcuni esempi relativi all'uso dell'attività di copia in una pipeline di Data factory. Per una panoramica dettagliata dell'attività di copia e degli scenari principali supportati, vedere [Copiare dati con Data factory di Azure][adf-copyactivity].
+È possibile usare **l'attività di copia** in una pipeline per copiare i dati da un'origine a un sink (destinazione) in un batch. Questo argomento fornisce alcuni esempi relativi all'uso dell'attività di copia in una pipeline di Data factory.
 
 ## Copiare dati da un database di SQL Server locale in un BLOB di Azure
 In questo esempio, vengono definite una tabella di input e una tabella di output, che vengono quindi usate in un'attività di copia in una pipeline che copia i dati da un database di SQL Server locale in un BLOB di Azure.
@@ -92,7 +92,7 @@ Il seguente script JSON definisce una tabella di input che fa riferimento a una 
 
 Tenere presente quanto segue:
 
-- L’oggetto **type** è impostato su **SqlServerTable**.
+- **type** è impostato su **SqlServerTable**.
 - L'oggetto **tableName** è impostato su **MyTable**, che include i dati di origine. 
 - L'oggetto **linkedServiceName** è impostato su **MyOnPremisesSQLDB**, il servizio collegato creato per il database SQL locale.
 
@@ -126,7 +126,7 @@ Lo script JSON seguente definisce una tabella di output, **MyAzureBlob**, che fa
 
 Tenere presente quanto segue:
  
-- L'oggetto **type** è impostato su **AzureBlob**.
+- **type** è impostato su **AzureBlob**.
 - L'oggetto **folderPath** è impostato su **MyContainer/MySubFolder**, che include il BLOB contenente i dati copiati. 
 - L'oggetto **fileName** è impostato su **MyBlob**, il BLOB che conterrà i dati di output.
 - L'oggetto **linkedServiceName** è impostato su **MyAzureStorge**, il servizio collegato creato per la risorsa di archiviazione di Azure.    
@@ -488,4 +488,4 @@ Per informazioni dettagliate sugli elementi JSON per la definizione di una pipel
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ripristinare il servizio mobile in caso di emergenza - Servizi mobili di Azure"
+	pageTitle="Ripristinare il servizio mobile in caso di emergenza | Microsoft Azure"
 	description="Informazioni su come ripristinare il servizio mobile in caso di emergenza."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="christopheranderson"/>
 
 # Ripristinare il servizio mobile in caso di emergenza
@@ -104,4 +104,4 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 [Automatizzare i servizi mobili con l'interfaccia della riga di comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

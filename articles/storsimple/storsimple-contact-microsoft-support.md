@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -29,18 +29,17 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 	![Contattare il supporto tecnico Microsoft tramite il portale di gestione](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-1. Nella finestra di dialogo **Contatta il supporto Microsoft**:
+2. Nella finestra di dialogo **Contatta il supporto Microsoft**:
 
+	1. Nell'elenco a discesa, selezionare la **sottoscrizione** di destinazione associata al servizio StorSimple Manager. Specificare il **Tipo di supporto** come **Tecnico**. È necessario un piano di supporto a pagamento per poter abilitare il supporto tecnico.
 
-	- Nell'elenco a discesa, selezionare la **sottoscrizione** di destinazione associata al servizio StorSimple Manager. Specificare il **Tipo di supporto** come **Tecnico**. È necessario un piano di supporto a pagamento per poter abilitare il supporto tecnico.
+	2. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-contact-microsoft-support/IC740895.png) per **Crea ticket**.
 
-	1. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-contact-microsoft-support/IC740895.png) per **Crea ticket**.
-
-1. Nella finestra **Supporto Microsoft**, scegliere **StorSimple** nell'elenco a discesa **Prodotto**.
+3. Nella finestra **Supporto Microsoft**, dall’elenco a discesa **Prodotto** scegliere **StorSimple**.
 
 	![Contattare il supporto tecnico Microsoft - Prodotto](./media/storsimple-contact-microsoft-support/IC777288.png)
 
-1. Seguire le istruzioni sullo schermo per classificare la richiesta in modo corretto e fornire una descrizione chiara e specifica del problema.
+4. Seguire le istruzioni sullo schermo per classificare la richiesta in modo corretto e fornire una descrizione chiara e specifica del problema.
 
 Dopo avere inviato la richiesta, si verrà presto contattati da un tecnico del supporto per procedere con la richiesta.
 
@@ -52,24 +51,24 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 #### Per avviare una sessione di supporto
 
-1. Accedere al dispositivo direttamente tramite la console seriale o tramite una sessione telnet da un computer remoto. A tale scopo, attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Accedere al dispositivo direttamente tramite la console seriale o tramite una sessione telnet da un computer remoto. A tale scopo, attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-1. Nella sessione che viene aperta, premere **INVIO** per visualizzare un prompt dei comandi.
+2. Nella sessione che viene aperta, premere **Invio** per visualizzare un prompt dei comandi.
 
-1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
+3. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
 
-1. Al prompt dei comandi, digitare la seguente password:
+4. Al prompt dei comandi, digitare la seguente password:
 
 	`Password1`
 
-1. Al prompt dei comandi, digitare il seguente comando:
+5. Al prompt dei comandi, digitare il seguente comando:
 
 	`Enable-HcsSupportAccess`
 
-1. Verrà visualizzata una stringa crittografata. Copiare la stringa in un editor di testo, ad esempio Blocco note.
+6. Verrà visualizzata una stringa crittografata. Copiare la stringa in un editor di testo, ad esempio Blocco note.
 
-1. Salvare la stringa e inviarla in un messaggio di posta elettronica al supporto tecnico Microsoft.
+7. Salvare la stringa e inviarla in un messaggio di posta elettronica al supporto tecnico Microsoft.
 
 > [AZURE.IMPORTANT]È possibile disabilitare l'accesso del supporto eseguendo `Disable-HcsSupportAccess`. Il dispositivo StorSimple inoltre tenterà di disabilitare l'accesso del supporto dopo 8 ore dall'avvio della sessione. È consigliabile modificare le credenziali del dispositivo StorSimple dopo l'avvio di una sessione di supporto.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

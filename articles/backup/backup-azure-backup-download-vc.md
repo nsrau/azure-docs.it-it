@@ -6,14 +6,7 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
-   ms.author="jimpark"; "aashishr"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 # Uso delle credenziali di insieme per l'autenticazione con il servizio Backup di Azure
 Per poter eseguire il backup dei dati in Azure, è necessario autenticare il server locale (Windows client, Windows Server o server SCDPM) con un insieme di credenziali per il backup. L'autenticazione viene eseguita mediante le "credenziali di insieme". Il concetto di credenziali di insieme è simile al concetto di un file di "impostazioni di pubblicazione" usato in Azure PowerShell.
@@ -39,7 +32,6 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 5.  Il portale genererà una credenziale di insieme usando una combinazione del nome dell'insieme di credenziali e della data attuale. Fare clic su **Salva** per scaricare le credenziali di insieme nella cartella di download dell'account locale o selezionare Salva con nome dal menu Salva per specificare un percorso per le credenziali.
 
 ## Note
-- A partire da marzo 2015, i clienti non dispongono di una modalità per il download delle credenziali di insieme a livello di codice (ad esempio PowerShell).
 - Assicurarsi che le credenziali di insieme vengano salvate in un percorso accessibile dal computer. Se vengano archiviate in una condivisione file/SMB, verificare le autorizzazioni di accesso.
 - Il file delle credenziali di insieme viene usato solo durante il flusso di lavoro di registrazione.
 - Il file delle credenziali di insieme scade dopo 48 ore e può essere scaricato dal portale.
@@ -48,4 +40,4 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 ## Passaggi successivi
 [Scaricare, registrare e installare l'agente Azure Backup](backup-azure-backup-download-register)
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

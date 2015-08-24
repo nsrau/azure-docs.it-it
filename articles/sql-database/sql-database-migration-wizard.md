@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilizzare la migrazione guidata di SQL Azure | Microsoft" 
+   pageTitle="Utilizzare la migrazione guidata di SQL Azure | Microsoft Azure" 
    description="Database SQL di Microsoft Azure, migrazione del database, importazione del database, esportazione del database, migrazione guidata" 
    services="sql-database" 
    documentationCenter="" 
@@ -98,4 +98,4 @@ Si noti che non tutti gli schemi incompatibili che possono essere rilevati dalla
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

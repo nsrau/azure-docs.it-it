@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Specifiche e conformità tecniche per il dispositivo StorSimple"
-    description="Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per il dispositivo StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="Specifiche e conformità tecniche per il dispositivo StorSimple | Microsoft Azure"
+   description="Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per il dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/15/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # Specifiche e conformità tecniche per il dispositivo StorSimple
 
@@ -168,8 +168,8 @@ La spina e l'assembly completo del cavo di alimentazione devono soddisfare gli s
 
 ## Cavi di rete supportati  
 
-Per le interfacce di rete 10 GbE, DATI 2 e DATI 3, fare riferimento all'[elenco dei cavi di rete e dei moduli supportati](https://msdn.microsoft.com/library/dn891474.aspx).
+Per le interfacce di rete 10 GbE, DATA 2 e DATA 3, fare riferimento all'[elenco dei cavi di rete e dei moduli supportati](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

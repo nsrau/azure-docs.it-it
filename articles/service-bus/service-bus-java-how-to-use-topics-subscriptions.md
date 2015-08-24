@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come usare gli argomenti del bus di servizio (Java) - Azure"
+	pageTitle="Come usare gli argomenti del bus di servizio (Java) | Microsoft Azure"
 	description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -248,4 +248,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
   [Code, argomenti e sottoscrizioni del bus di servizio]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

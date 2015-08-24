@@ -7,21 +7,20 @@
    manager="jeffreyg" 
    editor=""/>
 
-
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/28/2015"
+   ms.date="08/12/2015"
    ms.author="adamkr; sstein"/>
 
-
-# Creare e gestire un database di pool elastici di database SQL tramite PowerShell
+# Creare e gestire un pool di database elastici di database SQL tramite PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
@@ -34,7 +33,7 @@ I singoli passaggi per creare un pool di database elastici con Azure PowerShell 
 
 In questo articolo verrà illustrato come creare tutto ciò che occorre per creare e configurare un pool di database elastici, fatta eccezione per la sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 
-> [AZURE.NOTE]I pooi di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12.
+> [AZURE.NOTE]I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12.
 
 
 ## Prerequisiti
@@ -43,7 +42,7 @@ Per creare un pool di database elastici con PowerShell, è necessario disporre d
 
 Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
-I cmdlet per la creazione e la gestione dei database SQL e dei pool di database elastici si trovano nel modulo di Gestione risorse di Azure. Quando si avvia Azure PowerShell, i cmdlet nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo AzureResourceManager, usare il cmdlet Switch-AzureMode.
+I cmdlet per la creazione e la gestione dei database SQL di Azure e dei pool di database elastici si trovano nel modulo di Gestione risorse di Azure. Quando si avvia Azure PowerShell, i cmdlet nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo AzureResourceManager, usare il cmdlet Switch-AzureMode.
 
 	Switch-AzureMode -Name AzureResourceManager
 
@@ -52,7 +51,7 @@ Per informazioni dettagliate, vedere [Utilizzo di Windows PowerShell con Gestion
 
 ## Configurare le credenziali e selezionare la sottoscrizione
 
-Ora che si esegue il modulo di Gestione risorse di Azure, è possibile accedere a tutti i cmdlet necessari per creare e configurare un pool. È necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
+Ora che si esegue il modulo di Gestione risorse di Azure, è possibile accedere a tutti i cmdlet necessari per creare e configurare un pool di database elastici. È necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
 
 	Add-AzureAccount
 
@@ -68,7 +67,7 @@ Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome
 
 ## Creare un gruppo di risorse, il server e la regola firewall
 
-Ora è possibile accedere per eseguire i cmdlet con la sottoscrizione ad Azure; pertanto il passaggio successivo consiste nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il pool. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
+Ora è possibile accedere per eseguire i cmdlet con la sottoscrizione ad Azure; pertanto il passaggio successivo consiste nello stabilire il gruppo di risorse che contiene il server in cui verrà creato il pool di database elastici. È possibile modificare il comando successivo per utilizzare qualsiasi percorso valido scelto. Eseguire **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** per ottenere un elenco di percorsi validi.
 
 Se si dispone già di un gruppo di risorse, è possibile andare al passaggio successivo, oppure è possibile eseguire il comando seguente per creare un nuovo gruppo di risorse:
 
@@ -76,7 +75,7 @@ Se si dispone già di un gruppo di risorse, è possibile andare al passaggio suc
 
 ### Creare un server 
 
-I pool di database elastici vengono creati all'interno dei server di database SQL di Azure. Se si dispone già di un server, è possibile andare al passaggio successivo oppure è possibile eseguire il comando seguente per creare un nuovo server V12. Sostituire ServerName con il nome del server. Deve essere univoco per i server SQL di Azure, altrimenti verrà visualizzato un messaggio di errore se il nome del server è già in uso. Vale inoltre la pena notare che il completamento di questo comando potrebbe richiedere alcuni minuti. Una volta creato il server, verranno visualizzati il prompt PowerShell e i dettagli del server. È possibile modificare il comando per utilizzare qualsiasi percorso valido scelto.
+I pool di database elastici vengono creati all'interno dei server di database SQL di Azure. Se si dispone già di un server, è possibile andare al passaggio successivo oppure è possibile eseguire il comando seguente per creare un nuovo server V12. Sostituire ServerName con il nome del server. Deve essere univoco per i server SQL di Azure, per cui è possibile che venga visualizzato un messaggio di errore se il nome del server è già in uso. Vale inoltre la pena notare che il completamento di questo comando potrebbe richiedere alcuni minuti. Una volta creato il server, verranno visualizzati il prompt PowerShell e i dettagli del server. È possibile modificare il comando per utilizzare qualsiasi percorso valido scelto.
 
 	New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -96,15 +95,15 @@ Per ulteriori informazioni, vedere [Firewall di database SQL di Azure](https://m
 
 ## Creare un pool di database elastici e i database elastici
 
-Ora si dispone di un gruppo di risorse, un server e una regola del firewall con una configurazione che consente di accedere al server. Il comando seguente creerà il pool. Questo comando consente di creare un pool che condivide un totale di 400 DTU. Ogni database nel pool è garantito in modo da disporre sempre di 10 DTU (DatabaseDtuMin). I singoli database nel pool possono utilizzare un massimo di 100 DTU (DatabaseDtuMax). Per spiegazioni di parametro dettagliate, vedere [Pool elastici di database SQL di Azure](sql-database-elastic-pool.md).
+Ora si dispone di un gruppo di risorse, un server e una regola del firewall con una configurazione che consente di accedere al server. Il comando seguente creerà il pool di database elastici. Questo comando consente di creare un pool che condivide un totale di 400 eDTU. Ogni database nel pool è garantito in modo da disporre sempre di 10 eDTU (DatabaseDtuMin). I singoli database nel pool possono utilizzare un massimo di 100 eDTU (DatabaseDtuMax). Per spiegazioni di parametro dettagliate, vedere [Pool elastici di database SQL di Azure](sql-database-elastic-pool.md).
 
 
 	New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-### Creare o aggiungere database elastici a un pool
+### Creare o aggiungere database elastici in un pool di database elastici
 
-Il pool creato nel passaggio precedente è vuoto, non contiene alcun database. Nelle sezioni seguenti viene illustrato come creare nuovi database all'interno del pool, nonché come aggiungere database esistenti al pool.
+Il pool creato nel passaggio precedente è vuoto, non contiene alcun database elastico. Nelle sezioni seguenti viene illustrato come creare nuovi database elastici all'interno del pool, nonché come aggiungere database esistenti al pool.
 
 
 ### Creare un nuovo database elastico all'interno di un pool di database elastici
@@ -125,15 +124,21 @@ A scopo dimostrativo, creare un database che non è in un pool di database elast
 
 	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
-Spostare il database esistente nel pool.
+Spostare il database esistente nel pool di database elastici.
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## Modificare le impostazioni delle prestazioni di un pool di database elastici
+
+
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+
 
 ## Monitoraggio dei database elastici e dei pool di database elastici
 
 ### Ottenere lo stato delle operazioni dei pool di database elastici
 
-È possibile tenere traccia dello stato delle operazioni dei pool, inclusa la creazione e gli aggiornamenti.
+È possibile tenere traccia dello stato delle operazioni dei pool di database elastici, inclusa la creazione e gli aggiornamenti.
 
 	Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
@@ -144,16 +149,16 @@ Spostare il database esistente nel pool.
 
 ### Ottenere le metriche di consumo delle risorse per un pool di database elastici
 
-Metriche che è possibile recuperare come percentuale del limite del pool:
+Metriche che è possibile recuperare come percentuale del limite del pool di risorse:
 
 * Utilizzo medio della CPU: cpu\_percent 
 * Utilizzo medio di IO: data\_io\_percent 
 * Utilizzo medio del log: log\_write\_percent 
 * Utilizzo medio della memoria: memory\_percent 
-* Utilizzo medio DTU (come valore massimo di utilizzo di CPU/IO/Log) - DTU\_percent 
+* Utilizzo medio eDTU (come valore massimo di utilizzo di CPU/IO/Log) - DTU\_percent 
 * Numero massimo di richieste utente simultanee (thread di lavoro): max\_concurrent\_requests 
 * Numero massimo di sessioni utente simultanee: max\_concurrent\_sessions 
-* Spazio di archiviazione totale per il pool: storage\_in\_megabytes 
+* Spazio di archiviazione totale per il pool elastico: storage\_in\_megabytes 
 
 
 Granularità della metrica/periodi di conservazione:
@@ -185,7 +190,7 @@ Esportare in un file CSV:
 
 Queste API sono le stesse API (V12) correnti utilizzate per monitorare l'utilizzo delle risorse di un database autonomo, fatta eccezione per la seguente differenza semantica
 
-* Per questa API, le metriche recuperate vengono espresse come percentuale del valore databaseDtuMax (o limite di utilizzo equivalente per la metrica sottostante, come CPU, IO e così via) impostato per tale pool. Ad esempio, l’utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per DB per quella risorsa nel pool padre. 
+* Per questa API, le metriche recuperate vengono espresse come percentuale del valore databaseDtuMax (o limite di utilizzo equivalente per la metrica sottostante, come CPU, IO e così via) impostato per tale pool di database elastici. Ad esempio, l’utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per DB per quella risorsa nel pool padre di database elastici. 
 
 Ottenere la metrica: $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
@@ -213,7 +218,7 @@ Esportare in un file CSV:
     New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
     New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
     New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
-    
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
     
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
@@ -227,13 +232,11 @@ Esportare in un file CSV:
 
 ## Passaggi successivi
 
-Dopo aver creato un pool di database elastici, è possibile gestire i database elastici nel pool mediante la creazione di processi elastici. I processi elastici facilitano l’esecuzione di script T-SQL su qualsiasi numero di database elastici nel pool.
-
-Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
+Dopo aver creato un pool di database elastici, è possibile gestire i database elastici nel pool mediante la creazione di processi elastici. I processi elastici facilitano l’esecuzione di script T-SQL su qualsiasi numero di database nel pool. Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 
 
 ## Riferimento ai database elastici
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Codifica di contenuti su richiesta con Servizi multimediali di Azure
@@ -48,6 +48,8 @@ Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/201
 
 Il **Codificatore multimediale di Azure** viene configurato mediante una delle stringhe del set di impostazioni descritte [qui](https://msdn.microsoft.com/library/azure/dn619392.aspx). In alternativa, è possibile ottenere i file del set di impostazioni del Codificatore multimediale di Azure [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
+###Esempio
+
 Codificare con **Azure Media Encoder** tramite il **portale di gestione di Azure**, **.NET** o **API REST**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
@@ -67,10 +69,13 @@ Codificare con **Azure Media Encoder** tramite il **portale di gestione di Azure
 
 [Formati supportati dal flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md): vengono illustrati formati file e codec supportati dal **flusso di lavoro Premium del codificatore multimediale**.
 
+### Progettazione flussi di lavoro
+
 Il **flusso di lavoro Premium del codificatore multimediale** viene configurato usando flussi di lavoro complessi. Per creare i file di un flusso di lavoro, è possibile usare lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
 
 È possibile ottenere i file del flusso di lavoro predefiniti [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Nella cartella è presente anche una descrizione dei file.
 
+###Esempio
 Codificare con il **flusso di lavoro Premium del codificatore multimediale** usando **.NET**. Per altre informazioni, vedere [Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale](media-services-encode-with-premium-workflow.md).
  
 
@@ -191,4 +196,4 @@ Windows Media Audio|Sì|Sì|No
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

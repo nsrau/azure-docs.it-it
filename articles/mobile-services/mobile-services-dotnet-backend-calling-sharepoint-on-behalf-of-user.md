@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Accedere a SharePoint per conto dell'utente | Mobile Dev Center" 
+	pageTitle="Accedere a SharePoint per conto dell'utente | Microsoft Azure" 
 	description="Informazioni su come effettuare chiamate a SharePoint per conto dell'utente" 
 	documentationCenter="" 
 	authors="mattchenderson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Accedere a SharePoint per conto dell'utente
@@ -219,4 +219,4 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -22,7 +22,7 @@
 
 Azure offre diagnostica integrata per facilitare il debug di un'[app Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione, oltre a come accedere alle informazioni registrate da Azure.
 
-> [AZURE.NOTE]L'articolo illustra inoltre l'uso del [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE]L'articolo illustra inoltre l'uso del [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnostica del server Web e diagnostica dell'applicazione
 
@@ -38,11 +38,11 @@ App Web del servizio app offre funzionalità diagnostiche per la registrazione d
 
 ### Diagnostica applicazioni
 
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
+La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/it-it/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-È possibile recuperare i registri in fase di esecuzione per facilitare la risoluzione dei problemi. Per altre informazioni, vedere [Risoluzione dei problemi delle app Web di Azure in Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
+È possibile recuperare i registri in fase di esecuzione per facilitare la risoluzione dei problemi. Per altre informazioni, vedere [Risoluzione dei problemi delle app Web di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 Le app Web del servizio app registrano anche le informazioni di distribuzione dei log quando si pubblicano contenuti in un'app Web. Ciò avviene automaticamente e non sono disponibili impostazioni di configurazione per la registrazione di distribuzione. La registrazione di distribuzione consente di determinare il motivo per cui una distribuzione non è riuscita. Ad esempio, se si utilizza uno script di distribuzione personalizzata, si potrebbe usare la registrazione di distribuzione per determinare il motivo per cui lo script non è riuscito.
 
@@ -263,4 +263,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

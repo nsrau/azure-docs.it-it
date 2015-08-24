@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come monitorare un servizio cloud - Azure" 
+	pageTitle="Come monitorare un servizio cloud | Microsoft Azure" 
 	description="Informazioni su come monitorare i servizi cloud usando il portale di gestione di Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -192,4 +192,4 @@ Ad esempio, nelle seguenti tabelle sarebbero archiviati dati di monitoraggio det
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

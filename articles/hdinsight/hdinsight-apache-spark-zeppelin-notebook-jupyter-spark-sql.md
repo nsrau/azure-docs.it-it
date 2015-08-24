@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Eseguire un cluster Spark su HDInsight e usare SQL Spark da Zeppelin e Jupyter per l'analisi interattiva | Azure" 
+	pageTitle="Eseguire un cluster Spark su HDInsight e usare SQL Spark da Zeppelin e Jupyter per l'analisi interattiva | Microsoft Azure" 
 	description="Istruzioni dettagliate su come eseguire rapidamente un cluster Apache Spark in HDInsight, quindi usare notebook SQL Spark da Zeppelin e Jupyter per l'esecuzione di query interattive." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -243,4 +243,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

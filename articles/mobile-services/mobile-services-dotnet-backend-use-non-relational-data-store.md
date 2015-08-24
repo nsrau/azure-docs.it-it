@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compilare un servizio con un archivio dati non relazionale | Servizi mobili di Azure" 
+	pageTitle="Compilare un servizio con un archivio dati non relazionale | Microsoft Azure" 
 	description="Informazioni su come usare un archivio di dati non relazionali, ad esempio MongoDB o Archiviazione tabelle di Azure, con il servizio mobile basato su .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Creare un servizio mobile back-end .NET che usa MongoDB invece di un database SQL per l'archiviazione
@@ -121,4 +121,4 @@ Vista la semplicit√† dell'uso dell'archiviazione tabelle con il back-end .NET, √
 [pagina del componente aggiuntivo MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

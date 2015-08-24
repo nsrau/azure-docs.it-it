@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come creare un processore di contenuti multimediali - Azure" 
+	pageTitle="Come creare un processore multimediale | Microsoft Azure" 
 	description="Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -7,22 +7,22 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
-
 
 
 #Procedura: Ottenere un'istanza del processore di contenuti multimediali
 
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
 
+> [AZURE.SELECTOR]
+- [.NET](media-services-get-media-processor.md)
+- [REST](media-services-rest-get-media-processor.md)
 
 ##Panoramica
 
@@ -32,13 +32,14 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
 
 Nome del processore multimediale|Descrizione|Ulteriori informazioni
 ---|---|---
-Azure Media Encoder|Consente di eseguire attività di codifica usando Azure Media Encoder.|[Stringhe di set di impostazioni di attività per Azure Media Encoder](http://msdn.microsoft.com/library/jj129582.aspx)
-Flusso di lavoro Premium del codificatore multimediale|Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale.|[Codificare con il flusso di lavoro Premium del codificatore multimediale.](media-services-encode-with-premium-workflow.md)
+Azure Media Encoder|Consente di eseguire attività di codifica usando Azure Media Encoder.|[Azure Media Encoder](media-services-encode-asset.md#azure_media_encoder)
+Codificatore multimediale standard|Consente di eseguire attività di codifica utilizzando il codificatore multimediale standard.|[Azure Media Encoder](media-services-encode-asset.md#media_encoder_standard)
+Flusso di lavoro Premium del codificatore multimediale|Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale.|[Flusso di lavoro Premium del codificatore multimediale](media-services-encode-asset.md#media_encoder_premium_wokrflow)
 Azure Media Indexer| Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati.|[Indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
- Microsoft Azure Media Packager| Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|
- Microsoft Azure Media Encryptor|Consente di crittografare asset di file multimediali usando PlayReady Protection.|
- Azure Media Hyperlapse (anteprima)|Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile.|		[Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
- Storage Decryption| Consente di decrittografare asset di file multimediali crittografati mediante la crittografia di archiviazione.|N/D
+Azure Media Hyperlapse (anteprima)|Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile.|		[Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
+Storage Decryption| Consente di decrittografare asset di file multimediali crittografati mediante la crittografia di archiviazione.|N/D
+Microsoft Azure Media Packager|Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
+Microsoft Azure Media Encryptor|Consente di crittografare asset di file multimediali usando PlayReady Protection.|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##Ottenere un'istanza di MediaProcessor
 
@@ -62,7 +63,7 @@ Richiesta:
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-477b-2233-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 Risposta:
@@ -91,4 +92,4 @@ Dopo avere ottenuto un'istanza del processore multimediale, passare all'argoment
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

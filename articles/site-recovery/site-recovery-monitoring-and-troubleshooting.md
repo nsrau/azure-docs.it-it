@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/20/2015" 
+	ms.date="08/13/2015" 
 	ms.author="anbacker"/>
 	
 # Monitorare e risolvere i problemi di protezione per VMware, VMM, Hyper-V e siti fisici
@@ -169,6 +169,7 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 -   [Impossibile stabilire una connessione all'insieme di credenziali per la gestione del ripristino Hyper-V. Verificare le impostazioni del proxy o riprovare più tardi.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configurazione
+-   [Impossibile creare il gruppo protezione dati: si è verificato un errore durante il recupero dell'elenco di server.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
 
 -   [Il cluster host Hyper-V contiene almeno una scheda di rete statica oppure nessuna scheda collegata è configurata per utilizzare DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
@@ -206,7 +207,7 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 
 -   [La macchina virtuale non è in esecuzione e non è spenta](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
 
--   [Si è verificata un’operazione fuori banda in una macchina virtuale e il failover del ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)commit non è riuscito
+-   [Si è verificata un'operazione fuori banda in una macchina virtuale e il failover del ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)commit non è riuscito
 
 -   Failover di test
 
@@ -222,4 +223,4 @@ Server di configurazione, server di elaborazione, server master di destinazione
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. Utilizzare il documento sulla risoluzione dei problemi per RDP nella macchina virtuale. [Collegamento al documento](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

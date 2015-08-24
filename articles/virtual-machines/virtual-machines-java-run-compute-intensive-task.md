@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Applicazione Java a elevato utilizzo di calcolo in una macchina virtuale - Azure" 
-	description="Informazioni su come creare una macchina virtuale di Azure nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java." 
-	services="virtual-machines" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Applicazione Java a elevato utilizzo di calcolo in una macchina virtuale | Microsoft Azure"
+	description="Informazioni su come creare una macchina virtuale di Azure nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java."
+	services="virtual-machines"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
 
-Con Azure è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java.
+Con Azure è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver letto questo articolo, si avranno a disposizione tutte le informazioni necessarie per creare una macchina virtuale nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java.
 
-In questa esercitazione si presuppone che l'utente sappia creare applicazioni della console Java, importare librerie nell'applicazione Java e generare un archivio Java (JAR). Non è richiesta alcuna conoscenza di Azure.
+Questa esercitazione presuppone che l'utente sappia creare applicazioni della console Java, importare librerie nell'applicazione Java e generare un archivio Java (JAR). Non è richiesta alcuna conoscenza di Microsoft Azure.
 
-Si apprenderà come:
+Si acquisiranno le nozioni seguenti:
 
-* Creare una macchina virtuale in cui è già installato un JDK.
+* Come creare una macchina virtuale con un Java Development Kit (JDK) già installato.
 * Accedere in remoto alla macchina virtuale.
 * Creare uno spazio dei nomi del bus di servizio.
 * Creare un'applicazione Java che esegua un'attività a elevato utilizzo di calcolo.
@@ -46,22 +46,22 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 
 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
-3. Nella finestra di dialogo **Virtual machine image select** selezionare **JDK 7 Windows Server 2012**. Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui siano presenti applicazioni non ancora predisposte per l'esecuzione in JDK 7.
+3. Nella finestra di dialogo **Seleziona immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**. Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui siano presenti applicazioni non ancora predisposte per l'esecuzione in JDK 7.
 4. Fare clic su **Avanti**.
-4. Nella finestra di dialogo **Virtual machine configuration**:
+4. Nella finestra di dialogo **Configurazione macchina virtuale**:
     1. Specificare un nome per la macchina virtuale.
     2. Specificare la dimensione da utilizzare per la macchina virtuale.
     3. Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno utilizzati per l'accesso in remoto alla macchina virtuale.
     4. Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
     5. Fare clic su **Next**.
-5. Nella finestra di dialogo **Virtual machine configuration** successiva:
+5. Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
     1. Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
     2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
     2. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **West US**.
     2. Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
     3. Nella casella **Availability Set** selezionare **(None)**.
     4. Fare clic su **Next**.
-5. Nella finestra di dialogo **Virtual machine configuration** finale:
+5. Nella finestra di dialogo **Configurazione macchina virtuale** finale:
     1. Accettare le voci di endpoint predefinite.
     2. Fare clic su **Complete**.
 
@@ -73,42 +73,42 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 4. Fare clic su **Connect**.
 5. Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Quando vengono richiesti il nome e la password dell'amministratore, usare i valori specificati durante la creazione della macchina virtuale.
 
-Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente JRE usato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE vedere [Aggiunta di un certificato all'archivio certificati CA Java][add_ca_cert] per altre informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
+Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente Java Runtime Environment (JRE) usato in questa esercitazione. Se non si dispone di questo certificato nell'archivio **cacerts** dell'ambiente JRE vedere [Aggiunta di un certificato all'archivio certificati CA Java][add_ca_cert] per altre informazioni sulla sua aggiunta (oltre a informazioni sulla visualizzazione dei certificati nell'archivio cacerts).
 
 ## Come creare uno spazio dei nomi del bus di servizio
 
 Per iniziare a utilizzare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi servizio che fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
-Per creare uno spazio dei nomi servizio:
+Per creare uno spazio dei nomi del servizio:
 
 1.  Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
-2.  Nel pannello di navigazione in basso a sinistra nel portale di gestione fare clic su **Service Bus, Access Control & Caching**.
+2.  Nel riquadro di spostamento in basso a sinistra nel portale di gestione fare clic su **Service Bus, Access Control & Caching**.
 3.  Nel riquadro in alto a sinistra nel portale di gestione fare clic sul nodo **Bus di servizio** e quindi sul pulsante **Nuovo**. ![Schermata nodo bus di servizio][svc_bus_node]
 4.  Nella finestra di dialogo **Crea un nuovo spazio dei nomi servizio** immettere uno spazio dei nomi servizio in **Spazio dei nomi** e quindi, per assicurarsi che sia univoco, fare clic sul pulsante **Verifica disponibilità**.![Schermata Create a New Namespace][create_namespace]
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Create Namespace**.  
-      
+
     Lo spazio dei nomi creato verrà quindi visualizzato nel portale di gestione e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active**.
 
-## Recupero delle credenziali di gestione predefinite per lo spazio dei nomi
+## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
 Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.
 
-1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![Schermata relativa agli spazi dei nomi disponibili][avail_namespaces]
-2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato: ![Schermata relativa all'elenco degli spazi dei nomi][namespace_list]
-3.  Nel riquadro **Proprietà** a destra verranno elencate le proprietà relative al nuovo spazio dei nomi: ![Schermata pannello Proprietà][properties_pane]
-4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzarle: ![Schermata Default Key][default_key]
-5.  Prendere nota dei valori indicati in **Default Issuer** e **Default Key**, in quanto dovranno essere utilizzati per eseguire operazioni con lo spazio dei nomi. 
+1.  Nel riquadro di spostamento sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili. ![Schermata relativa agli spazi dei nomi disponibili][avail_namespaces]
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato. ![Schermata relativa all'elenco degli spazi dei nomi][namespace_list]
+3.  Il riquadro **Proprietà** a destra elenca le proprietà relative al nuovo spazio dei nomi. ![Schermata pannello Proprietà][properties_pane]
+4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzare le credenziali di sicurezza. ![Schermata Default Key][default_key]
+5.  Prendere nota dei valori indicati in **Default Issuer** e **Default Key**, in quanto dovranno essere utilizzati per eseguire operazioni con lo spazio dei nomi.
 
 ## Come creare un'applicazione Java che esegue un'attività a elevato utilizzo di calcolo
 
 1. Nel computer di sviluppo (che non deve essere la macchina virtuale creata dall'utente) scaricare [Azure SDK for Java](http://azure.microsoft.com/develop/java/).
-2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
-3. Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà utilizzato **TSPSolver.jar** come nome dell'archivio JAR generato.
+2. Creare un'applicazione di console Java usando il codice di esempio fornito al termine di questa sezione. In questa esercitazione verrà usato **TSPSolver.java** come nome del file Java. Modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente i valori **spazio dei nomi**, **Autorità di certificazione predefinita** e **Chiave predefinita** del bus di servizio.
+3. Dopo la codifica, esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. In questa esercitazione verrà usato **TSPSolver.jar** come nome dell'archivio JAR generato.
 
 <p/>
 
 	// TSPSolver.java
-	
+
 	import com.microsoft.windowsazure.services.core.Configuration;
 	import com.microsoft.windowsazure.services.core.ServiceException;
 	import com.microsoft.windowsazure.services.serviceBus.*;
@@ -119,20 +119,20 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	import java.util.ArrayList;
 	import java.util.Date;
 	import java.util.List;
-	
+
 	public class TSPSolver {
-	
+
 	    //  Value specifying how often to provide an update to the console.
 	    private static long loopCheck = 100000000;  
-	
+
 	    private static long nTimes = 0, nLoops=0;
-	
+
 	    private static double[][] distances;
 	    private static String[] cityNames;
 	    private static int[] bestOrder;
 	    private static double minDistance;
 	    private static ServiceBusContract service;
-	
+
 	    private static void buildDistances(String fileLocation, int numCities) throws Exception{
 	        try{
 	            BufferedReader file = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(new File(fileLocation)))));
@@ -141,7 +141,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	                String[] line = file.readLine().split(", ");
 	                cityNames[i] = line[0];
 	                cityLocs[i][0] = Double.parseDouble(line[1]);
-	                cityLocs[i][1] = Double.parseDouble(line[2]);               
+	                cityLocs[i][1] = Double.parseDouble(line[2]);
 	            }
 	            for (int i = 0; i<numCities; i++){
 	                for (int j = i; j<numCities; j++){
@@ -153,9 +153,9 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	            throw e;
 	        }
 	    }
-	
+
 	    private static void permutation(List<Integer> startCities, double distSoFar, List<Integer> restCities) throws Exception {
-	
+
 	        try
 	        {
 	            nTimes++;
@@ -168,7 +168,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	                System.out.print("Current time is " + dateFormat.format(date) + ". ");
 	                System.out.println(  "Completed " + nLoops + " iterations of size of " + loopCheck + ".");
 	            }
-	    
+
 	            if ((restCities.size() == 1) && ((minDistance == -1) || (distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-1)] < minDistance))){
 	                startCities.add(restCities.get(0));
 	                newBestDistance(startCities, distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-2)]);
@@ -189,9 +189,9 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	            throw e;
 	        }
 	    }
-	
+
 	    private static void newBestDistance(List<Integer> cities, double distance) throws ServiceException, Exception {
-	        try 
+	        try
 	        {
 		        minDistance = distance;
 		        String cityList = "Shortest distance is "+minDistance+", with route: ";
@@ -203,61 +203,61 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 		        }
 		        System.out.println(cityList);
 	            service.sendQueueMessage("TSPQueue", new BrokeredMessage(cityList));
-	        } 
-	        catch (ServiceException se) 
+	        }
+	        catch (ServiceException se)
 	        {
 	            throw se;
 	        }
-	        catch (Exception e) 
+	        catch (Exception e)
 	        {
 	            throw e;
 	        }
 	    }
-	
+
 	    public static void main(String args[]){
-	
+
 	        try {
-	
+
 	            Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
 	                    "your_service_bus_namespace", "your_service_bus_owner",
                         "your_service_bus_key",
                         ".servicebus.windows.net",
                         "-sb.accesscontrol.windows.net/WRAPv0.9");
-	
+
 	            service = ServiceBusService.create(config);
-	
-	            int numCities = 10;  // Use as the default, if no value is specified at command line. 
-	            if (args.length != 0) 
+
+	            int numCities = 10;  // Use as the default, if no value is specified at command line.
+	            if (args.length != 0)
 	            {
 	                if (args[0].toLowerCase().compareTo("createqueue")==0)
 	                {
 	                    // No processing to occur other than creating the queue.
 	                    QueueInfo queueInfo = new QueueInfo("TSPQueue");
-	
+
 	                    service.createQueue(queueInfo);
-	
+
 	                    System.out.println("Queue named TSPQueue was created.");
-	
+
 	                    System.exit(0);
 	                }
-	
+
 	                if (args[0].toLowerCase().compareTo("deletequeue")==0)
 	                {
 	                    // No processing to occur other than deleting the queue.
 	                    service.deleteQueue("TSPQueue");
-	
+
 	                    System.out.println("Queue named TSPQueue was deleted.");
-	
+
 	                    System.exit(0);
 	                }
-	
+
 	                // Neither creating or deleting a queue.
 	                // Assume the value passed in is the number of cities to solve.
 	                numCities = Integer.valueOf(args[0]);  
 	            }
-	
+
 	            System.out.println("Running for " + numCities + " cities.");
-	
+
 	            List<Integer> startCities = new ArrayList<Integer>();
 	            List<Integer> restCities = new ArrayList<Integer>();
 	            startCities.add(0);
@@ -271,98 +271,98 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	            permutation(startCities, 0, restCities);
 	            System.out.println("Final solution found!");
 	            service.sendQueueMessage("TSPQueue", new BrokeredMessage("Complete"));
-	        } 
-	        catch (ServiceException se) 
+	        }
+	        catch (ServiceException se)
 	        {
 	            System.out.println(se.getMessage());
 	            se.printStackTrace();
 	            System.exit(-1);
-	        }        
-	        catch (Exception e) 
+	        }
+	        catch (Exception e)
 	        {
 	            System.out.println(e.getMessage());
 	            e.printStackTrace();
 	            System.exit(-1);
 	        }
 	    }
-	
+
 	}
 
 
 
 ## Come creare un'applicazione Java per monitorare lo stato dell'attività a elevato utilizzo di calcolo
 
-1. Nel computer di sviluppo creare un'applicazione console Java usando il codice di esempio fornito al termine di questa sezione. Ai fini di questa esercitazione, verrà utilizzato **TSPClient.java** come nome del file Java. Come sopra, modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** immettendo rispettivamente lo **spazio dei nomi** del bus di servizio e i valori indicati in **Default Issuer** e **Default Key**.
-2. Esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. Ai fini di questa esercitazione, verrà utilizzato **TSPClient.jar** come nome dell'archivio JAR generato.
+1. Nel computer di sviluppo creare un'applicazione console Java usando il codice di esempio fornito al termine di questa sezione. In questa esercitazione verrà usato **TSPClient.java** come nome del file Java. Come illustrato in precedenza, modificare i segnaposto **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** per usare rispettivamente lo **spazio dei nomi** del bus di servizio e i valori indicati in **Default Issuer** e **Default Key**.
+2. Esportare l'applicazione in un archivio Java eseguibile (JAR) e creare un pacchetto con le librerie richieste nell'archivio JAR generato. In questa esercitazione verrà usato **TSPClient.jar** come nome dell'archivio JAR generato.
 
 <p/>
 
 	// TSPClient.java
-	
+
 	import java.util.Date;
 	import java.text.DateFormat;
 	import java.text.SimpleDateFormat;
 	import com.microsoft.windowsazure.services.serviceBus.*;
 	import com.microsoft.windowsazure.services.serviceBus.models.*;
 	import com.microsoft.windowsazure.services.core.*;
-	
-	public class TSPClient 
+
+	public class TSPClient
 	{
-	
-	    public static void main(String[] args) 
+
+	    public static void main(String[] args)
 	    {
 	            try
 	            {
-	
+
 	                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	                Date date = new Date();
 	                System.out.println("Starting at " + dateFormat.format(date) + ".");
-	
+
 	                String namespace = "your_service_bus_namespace";
 	                String issuer = "your_service_bus_owner";
 	                String key = "your_service_bus_key";
-	
+
 	                Configuration config;
 	                config = ServiceBusConfiguration.configureWithWrapAuthentication(
 	                        namespace, issuer, key,
                             ".servicebus.windows.net",
                             "-sb.accesscontrol.windows.net/WRAPv0.9");
-	
+
 	                ServiceBusContract service = ServiceBusService.create(config);
-	
+
 	                BrokeredMessage message;
-	
-	                int waitMinutes = 3;  // Use as the default, if no value is specified at command line. 
-	                if (args.length != 0) 
+
+	                int waitMinutes = 3;  // Use as the default, if no value is specified at command line.
+	                if (args.length != 0)
 	                {
 	                    waitMinutes = Integer.valueOf(args[0]);  
 	                }
-	
+
 	                String waitString;
-	
-	                waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes."; 
-	
+
+	                waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes.";
+
 	                // This queue must have previously been created.
 	                service.getQueue("TSPQueue");
-	
+
 	                int numRead;
-	
+
 	                String s = null;
-	
+
 	                while (true)
 	                {
-	
+
 	                    ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
 	                    message = resultQM.getValue();
-	
+
 	                    if (null != message && null != message.getMessageId())
-	                    {                        
-	
+	                    {
+
 	                        // Display the queue message.
 	                        byte[] b = new byte[200];
-	
+
 	                        System.out.print("From queue: ");
-	
+
 	                        s = null;
 	                        numRead = message.getBody().read(b);
 	                        while (-1 != numRead)
@@ -387,8 +387,8 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	                        System.out.println("Queue is empty. Sleeping for another " + waitString);
 	                        Thread.sleep(60000 * waitMinutes);
 	                    }
-	                } 
-	
+	                }
+
 	        }
 	        catch (ServiceException se)
 	        {
@@ -402,20 +402,20 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 	            e.printStackTrace();
 	            System.exit(-1);
 	        }
-	
+
 	    }
-	    
+
 	}
- 
+
 ## Come eseguire le applicazioni Java
 Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la coda, quindi per risolvere il Problema del commesso viaggiatore, che consentirà di aggiungere l'attuale route migliore alla coda del bus di servizio. Mentre l'applicazione a elevato utilizzo di calcolo è in esecuzione (oppure in seguito), eseguire il client in modo da visualizzare i risultati ottenuti dalla coda del bus di servizio.
 
-### Come eseguire l'applicazione a elevato utilizzo di calcolo
+### Per eseguire l'applicazione a elevato utilizzo di calcolo
 
 1. Accedere alla macchina virtuale.
 2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\\TSP**.
 3. Copiare **TSPSolver.jar** in **c:\\TSP**,
-4. Creare un file denominato **c:\\TSP\\cities.txt** con il seguente contenuto:
+4. Creare un file denominato **c:\\TSP\\cities.txt** con il seguente contenuto.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -467,10 +467,10 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
 		City_48, 363.68, 768.21
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
-	
+
 5. Al prompt dei comandi passare alla directory c:\\TSP.
 6. Assicurarsi che la cartella Bin si trovi nella variabile di ambiente PATH.
-7. Sarà necessario creare la coda del bus di servizio prima di eseguire le permutazioni del risolutore TSP. Eseguire il comando seguente per creare la coda del bus di servizio:
+7. Sarà necessario creare la coda del bus di servizio prima di eseguire le permutazioni del risolutore TSP. Eseguire il comando seguente per creare la coda del bus di servizio.
 
         java -jar TSPSolver.jar createqueue
 
@@ -481,22 +481,22 @@ Eseguire l'applicazione a elevato utilizzo di calcolo innanzitutto per creare la
  Se non si specifica un numero, il risolutore verrà eseguito per 10 città. Mano a mano che rileva le route attualmente più brevi, il risolutore le aggiunge alla coda.
 
 > [AZURE.NOTE]Maggiore è il numero specificato, più lunga sarà l'esecuzione del risolutore. Ad esempio, l'esecuzione per 14 città potrebbe richiedere diversi minuti, mentre l'esecuzione per 15 città potrebbe richiedere parecchie ore. Se si specificano 16 o più città potrebbero essere necessari diversi giorni di runtime (settimane, mesi e anni). Ciò è dovuto al rapido aumento del numero di permutazioni valutate dal risolutore di pari passo con l'aumento del numero di città.
- 
+
 ### Come eseguire l'applicazione client di monitoraggio
 1. Accedere al computer dal quale si intende eseguire l'applicazione client, che non deve essere necessariamente lo stesso computer su cui è in esecuzione l'applicazione **TSPSolver**.
 2. Creare una cartella in cui eseguire l'applicazione, ad esempio **c:\\TSP**.
 3. Copiare **TSPClient.jar** in **c:\\TSP**,
 4. Assicurarsi che la cartella Bin si trovi nella variabile di ambiente PATH.
 5. Al prompt dei comandi passare alla directory c:\\TSP.
-6. Eseguire il comando seguente:
+6. Eseguire il comando indicato di seguito.
 
         java -jar TSPClient.jar
 
-    Facoltativamente, specificare il numero di minuti di sospensione della verifica della coda passando un argomento della riga di comando. Il periodo di sospensione predefinito per la verifica della coda corrisponde a 3 minuti. Questo intervallo viene utilizzato se non si passa un argomento della riga di comando a **TSPClient**. Se si desidera usare un valore differente per l'intervallo di sospensione, ad esempio un minuto, eseguire:
+    Facoltativamente, specificare il numero di minuti di sospensione della verifica della coda passando un argomento della riga di comando. Il periodo di sospensione predefinito per la verifica della coda corrisponde a 3 minuti. Questo intervallo viene usato se non si passa un argomento della riga di comando a **TSPClient**. Se si desidera usare un valore differente per l'intervallo di sospensione, ad esempio un minuto, eseguire il comando indicato di seguito.
 
 	    java -jar TSPClient.jar 1
 
-    Il comando verrà eseguito sul client finché non si riceverà il messaggio di coda completa. Si noti che se si eseguono più occorrenze del risolutore senza eseguire il client, può essere necessario eseguire il client più volte per svuotare completamente la coda. In alternativa, è possibile eliminare la coda e crearla di nuovo. Per eliminare la coda, eseguire il comando **TSPSolver** (non **TSPClient**) seguente:
+    Il comando verrà eseguito sul client finché non si riceverà il messaggio di coda completa. Si noti che se si eseguono più occorrenze del risolutore senza eseguire il client, può essere necessario eseguire il client più volte per svuotare completamente la coda. In alternativa, è possibile eliminare la coda e crearla di nuovo. Per eliminare la coda, eseguire il comando **TSPSolver** (non **TSPClient**) seguente.
 
         java -jar TSPSolver.jar deletequeue
 
@@ -516,7 +516,4 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -7,16 +7,14 @@
 	manager="dwrede"
 	editor=""/>
 
-
 <tags
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="07/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
-
 
 
 #Introduzione a Distribuzione di Video on Demand (VoD) tramite il portale di gestione di Azure
@@ -228,9 +226,6 @@ Considerazioni applicabili:
 ![AMSPlayer][AMSPlayer]
 
 
-##Passaggio successivo
-
-Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compilare applicazioni VoD](media-services-video-on-demand-workflow.md)
 
 ###Risorse aggiuntive
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
@@ -258,4 +253,4 @@ Ulteriori informazioni sulla compilazione di applicazioni Video on Demand [Compi
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

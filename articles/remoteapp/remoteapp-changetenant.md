@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/24/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
@@ -22,7 +22,7 @@
 
 RemoteApp usa Azure Active Directory (Azure AD) per consentire l'accesso utente. L'unico tenant di Azure AD che è possibile usare è quello associato alla sottoscrizione Azure. È possibile visualizzare la sottoscrizione associata nella pagina Impostazioni nel portale. Controllare la colonna Directory nella scheda Sottoscrizioni.
 
-> [AZURE.NOTE]Affinché la modifica di Azure Active Directory abbia esito positivo, è innanzitutto necessario rimuovere tutti gli utenti dal tenant Azure Active Directory esistente da tutte le raccolte di RemoteApp di Azure. A tale scopo, accedere al portale di Azure, passare alla scheda RemoteApp di Azure e aprire ogni raccolta di RemoteApp di Azure. Andare alla scheda **Utenti** e rimuovere gli utenti che appartengono al tenant di Azure Active Directory corrente. Ripetere per tutte le raccolte di RemoteApp di Azure esistenti. Senza questa operazione, non sarà possibile creare raccolte o applicarvi patch.
+> [AZURE.NOTE]Affinché la modifica abbia esito positivo, rimuovere tutti gli utenti dal tenant esistente di Azure Active Directory da tutte le raccolte di Azure RemoteApp. A tale scopo, accedere al portale di Azure, passare alla scheda RemoteApp di Azure e aprire ogni raccolta di RemoteApp di Azure. Andare alla scheda **Utenti** e rimuovere gli utenti che appartengono al tenant di Azure Active Directory corrente. Ripetere per tutte le raccolte di RemoteApp di Azure esistenti. Senza questa operazione, non sarà possibile creare raccolte o applicarvi patch.
 
 Se si desidera usare un tenant differente, completare i seguenti passaggi per modificare l'associazione alla propria sottoscrizione:
 
@@ -48,4 +48,4 @@ Se si desidera usare un tenant differente, completare i seguenti passaggi per mo
 
 È ora possibile usare il nuovo tenant di Azure AD per controllare l'accesso alla sottoscrizione di Azure e configurare l'accesso utente in RemoteApp.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

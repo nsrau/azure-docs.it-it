@@ -67,7 +67,14 @@ Questo esempio recupera un database denominato "Database02" da un server denomin
 
 ## Get-AzureSqlDatabaseRestorePoints
 
-Questo cmdlet elenca i punti di ripristino di backup per un database SQL di Azure. I punti di ripristino vengono usati per ripristinare il database. Le proprietà dell'oggetto restituito sono le seguenti. <table> <tr> <td>Proprietà</td> <td>Descrizione</td> </tr> <tr> <td>RestorePointType</td> <td>DISCRETE / CONTINUOUS. I punti di ripristino discreti descrivono i momenti possibili a cui può essere riportato un database SQL di Azure tramite il ripristino. I punti di ripristino continui descrivono i primi momenti possibili a cui può essere riportato un database SQL di Azure tramite il ripristino. Il database può essere riportato a qualsiasi momento dopo il primo.</td> </tr> <tr> <td>EarliestRestoreDate</td> <td>Prima ora di ripristino (completata quando restorePointType = CONTINUOUS)</td> </tr> <tr> <td>RestorePointCreationDate </td> <td>Ora dello snapshot di backup (completata quando restorePointType = DISCRETE)</td> </tr> </table>
+Questo cmdlet elenca i punti di ripristino di backup per un database SQL di Azure. I punti di ripristino vengono usati per ripristinare il database. Le proprietà dell'oggetto restituito sono le seguenti.
+
+Proprietà|Descrizione
+---|---
+RestorePointType|DISCRETE/CONTINUOUS. I punti di ripristino discreti descrivono i momenti possibili a cui può essere riportato un database SQL di Azure tramite il ripristino. I punti di ripristino continui descrivono i primi momenti possibili a cui può essere riportato un database SQL di Azure tramite il ripristino. Il database può essere riportato a qualsiasi momento dopo il primo punto.
+EarliestRestoreDate|Ora del primo ripristino (popolato quando restorePointType = CONTINUOUS)
+RestorePointCreationDate |Ora dello snapshot di backup (popolato quando restorePointType = DISCRETE)
+
 ### Esempio 1: Recupero dei punti di ripristino di un database per nome in un server
 Questo esempio recupera i punti di ripristino per un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1".
 
@@ -99,4 +106,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

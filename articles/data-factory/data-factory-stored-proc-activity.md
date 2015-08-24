@@ -29,8 +29,8 @@
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure>",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -72,6 +72,8 @@ Datetime | Data e ora in cui è stato generato l'ID corrispondente
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE]**Nome** e **convenzione per maiuscole e minuscole** del parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nell'attività JSON riportata di seguito. Nella definizione della stored procedure, assicurarsi che **@** sia utilizzato come prefisso per il parametro.
+
 Per eseguire questa stored procedure in una pipeline di Data factory, è necessario seguire questa procedura:
 
 1.	Creare un [servizio collegato](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) per registrare la stringa di connessione del database SQL di Azure in cui deve essere eseguita la stored procedure.
@@ -86,23 +88,23 @@ Per eseguire questa stored procedure in una pipeline di Data factory, è necessa
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
-				}
-		            }
-		          ]
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
+						}
+	            	}
+		        ]
 		     }
 		}
 5.	Distribuire la [pipeline](data-factory-create-pipelines.md).
-6.	[Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) usando le visualizzazioni di monitoraggio e gestione della data factory.
+6.	[Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) mediante le viste di monitoraggio e gestione delle pipeline di Data factory.
 
 > [AZURE.NOTE]Nell'esempio precedente, l'attività SprocActivitySample non contiene dati di input. Se si desidera concatenarla con un'attività upstream, è possibile usare gli output dell'attività upstream come input di questa attività. In questo caso, l'attività non verrà eseguita finché l'attività upstream non sarà completata e gli output non saranno disponibili (in stato Ready). Non è possibile usare gli input direttamente come parametri dell'attività di stored procedure.
 > 
@@ -121,9 +123,9 @@ A questo punto, si consideri l'aggiunta di un'altra colonna denominata 'Scenario
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-A tale scopo, passare il parametro di Scenario e il valore dall'attività di stored procedure. La sezione typeproperties nell'esempio precedente è simile alla seguente:
+A tale scopo, passare il parametro di Scenario e il valore dall'attività di stored procedure. La sezione typeProperties nell'esempio precedente è simile alla seguente:
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
@@ -133,4 +135,4 @@ A tale scopo, passare il parametro di Scenario e il valore dall'attività di sto
 		}
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

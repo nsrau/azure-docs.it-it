@@ -229,6 +229,7 @@ Abilitazione modalità di gestione temporanea | Consente di inserire in un'area 
 ### Documentazione aggiuntiva
 Per altra documentazione sull'uso di Azure AD Connect vedere gli articoli seguenti:
 
+- [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md) 
 - [Modifica della configurazione predefinita di Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Uso dell'Editor regole di sincronizzazione di Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Uso del provisioning dichiarativo](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -248,7 +249,7 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md): informazioni sul monitoraggio dell'integrità dell'infrastruttura ADFS locale.
 
-[Domande frequenti su Azure D Connect](active-directory-aadconnect-faq.md) - Domande frequenti relative ad Azure AD Connect.
+[Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md) - Domande frequenti relative ad Azure AD Connect.
 
 
 
@@ -257,4 +258,4 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

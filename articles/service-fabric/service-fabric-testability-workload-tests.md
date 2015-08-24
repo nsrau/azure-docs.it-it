@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="anmola"/>
 
 # Simulare gli errori durante i carichi di lavoro del servizio
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

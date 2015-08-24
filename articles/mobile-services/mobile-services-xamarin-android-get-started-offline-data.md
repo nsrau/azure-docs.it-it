@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso dei dati offline in Servizi mobili (Xamarin per Android) | Mobile Dev Center"
+	pageTitle="Uso dei dati offline in Servizi mobili (Xamarin per Android) | Microsoft Azure"
 	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per Xamarin Android"
 	documentationCenter="xamarin"
 	authors="lindydonna"
@@ -172,4 +172,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

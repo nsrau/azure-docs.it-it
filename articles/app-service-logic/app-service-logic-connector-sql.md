@@ -7,16 +7,14 @@
    manager="dwrede"
    editor=""/>
 
-
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
-
 
 
 # Microsoft SQL Connector
@@ -43,7 +41,7 @@ Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From T
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Selezionare **App per le API** e cercare "Connettore SQL".
+2. Cercare "Connettore SQL", selezionarlo e scegliere **Crea**.
 3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
@@ -59,8 +57,7 @@ Service Bus Connection String | No | Se ci si connette in locale, immettere la s
 Partner Server Name | No | Se il server primario non è disponibile, è possibile immettere un server partner come server alternativo o di backup.
 Tables | No | Elencare le tabelle di database che possono essere aggiornate dal connettore. Immettere ad esempio *OrdersTable* o *EmployeeTable*. Se non viene immessa alcuna tabella, è possibile usare tutte le tabelle. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
 Stored procedure | No | Immettere una stored procedure esistente che può essere chiamata dal connettore, ad esempio *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
-Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table\_name. 
-Poll Data Query | Per il supporto dei trigger | L'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati.
+Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table\_name. Poll Data Query | Per il supporto dei trigger | L'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati.
 
 5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: 
 <br/>
@@ -162,4 +159,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

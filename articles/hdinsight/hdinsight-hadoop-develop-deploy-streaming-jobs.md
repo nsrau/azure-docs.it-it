@@ -7,7 +7,6 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
-
 <tags 
 	ms.service="hdinsight" 
 	ms.workload="big-data" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/08/2015" 
 	ms.author="jgao"/>
-
 
 
 
@@ -53,13 +51,13 @@ La soluzione per il conteggio delle parole include due progetti di applicazione 
 2. Fare clic su **FILE**, **Nuovo** e quindi su **Progetto**.
 3. Digitare o selezionare i valori seguenti:
 
-	<table border="1">
-<tr><td>Campo</td><td>Valore</td></tr>
-<tr><td>Modello</td><td>Visual C#/Windows/Console Application</td></tr>
-<tr><td>Nome</td><td>WordCountMapper</td></tr>
-<tr><td>Percorso</td><td>C:\Tutorials</td></tr>
-<tr><td>Nome soluzione</td><td>WordCount</td></tr>
-</table>
+Campo|Valore
+---|---
+Modello|Visual C#/Windows/Console Application
+Nome|WordCountMapper
+Percorso|C:\\Tutorials
+Nome soluzione|WordCount
+
 	
 4. Fare clic su **OK** per creare il progetto.
 
@@ -102,12 +100,12 @@ La soluzione per il conteggio delle parole include due progetti di applicazione 
 1. In Visual Studio 2013 fare clic su **FILE**, quindi su **Aggiungi** e infine su **Nuovo progetto**.
 2. Digitare o selezionare i valori seguenti:
 
-	<table border="1">
-<tr><td>Campo</td><td>Valore</td></tr>
-<tr><td>Modello</td><td>Visual C#/Windows/Console Application</td></tr>
-<tr><td>Nome</td><td>WordCountReducer</td></tr>
-<tr><td>Percorso</td><td>C:\Tutorials\WordCount</td></tr>
-</table>
+Campo|Valore
+---|---
+Modello|Visual C#/Windows/Console Application
+Nome|WordCountReducer
+Percorso|C:\\Tutorials\\WordCount
+	
 3. Deselezionare la casella di controllo **Crea directory per soluzione** e quindi fare clic su **OK** per creare il progetto.
 4. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Program.cs** e quindi scegliere **Rinomina**.
 5. Rinominare il file in **WordCountReducer.cs** e quindi premere **INVIO**.
@@ -169,7 +167,14 @@ Per impostazione predefinita, HDInsight Emulator usa HDFS (Hadoop Distributed Fi
 
 In questa esercitazione viene utilizzata la struttura di cartelle seguente:
 
-<table border="1"> <tr><td>Cartella</td><td>Nota</td></tr> <tr><td>\\WordCount</td><td>Cartella radice per il progetto di conteggio delle parole. </td></tr> <tr><td>\\WordCount\\Apps</td><td>Cartella per i file eseguibili di mapper e reducer.</td></tr> <tr><td>\\WordCount\\Input</td><td>Cartella dei file di origine di MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>Cartella dei file di output di MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>Cartella di output del processo.</td></tr> </table></br>
+Cartella|Nota
+---|---
+\\WordCount|Cartella radice per il progetto per il conteggio delle parole. 
+\\WordCount\\Apps|Cartella per i file eseguibili dei programmi di mapping e di riduzione.
+\\WordCount\\Input|Cartella di file di origine di MapReduce.
+\\WordCount\\Output|Cartella di file di output di MapReduce.
+\\WordCount\\MRStatusOutput|Cartella di output del processo.
+
 
 In questa esercitazione vengono utilizzati i file con estensione txt disponibili nella directory %hadoop\_home%.
 
@@ -554,4 +559,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure | Microsoft Aure"
+	pageTitle="Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure | Microsoft Azure"
 	description="Questo argomento permette di pianificare, generare e quindi trasferire le proprie chiavi HSM protette da usare con l'insieme di credenziali delle chiavi di Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -306,4 +306,4 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le proprietÃ
 
 Ãˆ ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

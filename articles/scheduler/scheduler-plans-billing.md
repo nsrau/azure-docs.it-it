@@ -25,7 +25,7 @@ Raccolte di processi sono entità fatturabili nell'utilità di pianificazione di
 |:---|:---|:---|:---|:---|
 |**Free**|5 processi per la raccolta attività|Una volta ogni ora. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita la raccolta di processi gratuita fino a 1|Non è possibile utilizzare [oggetto autorizzazione in uscita HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita per un massimo di 100 raccolte di processi standard|Accesso al set completo di funzionalità dell'utilità di pianificazione|
-|**Premium**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|Nessun limite sul numero di raccolte di processi premium in una sottoscrizione|Accesso al set completo di funzionalità dell'utilità di pianificazione|
+|**Premium**|50 processi per la raccolta attività|Una volta al minuto. Impossibile eseguire i processi più spesso di una volta all'ora|Una sottoscrizione è consentita per un massimo di 10,000 raccolte di processi standard. <a href="mailto:wapteams@microsoft.com">Contattaci</a> per ulteriori informazioni.|Accesso al set completo di funzionalità dell'utilità di pianificazione|
 
 ## Effettua il downgrade dei piani di raccolta di processi e gli aggiornamenti
 
@@ -58,13 +58,13 @@ Pertanto, raccolte di processi premium hanno la stessa funzionalità come le rac
 
 ## Stato attivo e fatturazione
 
-Raccolte di processi sono sempre attive, a meno che l'intera sottoscrizione rientra in uno stato temporaneo disabilitato a causa di problemi di fatturazione. È l'unico modo per assicurarsi che non viene addebitata una raccolta di processi per impostarlo sul _Free_ piano o di eliminare la raccolta di processi.
+Raccolte di processi sono sempre attive, a meno che l'intera sottoscrizione rientra in uno stato temporaneo disabilitato a causa di problemi di fatturazione. È l'unico modo per assicurarsi che non viene addebitata una raccolta di processi per impostarlo sul piano _Gratuito_ o di eliminare la raccolta di processi.
 
 Anche se è possibile disabilitare tutti i processi all'interno di una raccolta di processi in un'unica operazione, non modifica lo stato di fatturazione della raccolta processi, la raccolta di processi verrà _ancora_ fatturato. Analogamente, raccolte di processi vuoto vengono considerati attivi e verranno fatturati.
 
 ## Prezzi
 
-Per informazioni sui prezzi, vedere [dell'utilità di pianificazione prezzi](http://azure.microsoft.com/pricing/details/scheduler/).
+Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](http://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Vedere anche
  
@@ -87,4 +87,4 @@ Per informazioni sui prezzi, vedere [dell'utilità di pianificazione prezzi](htt
  [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

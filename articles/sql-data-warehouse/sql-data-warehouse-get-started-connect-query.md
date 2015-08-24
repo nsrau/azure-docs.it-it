@@ -7,7 +7,6 @@
    manager="barbkess"
    editor=""/>
 
-
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
@@ -16,7 +15,6 @@
    ms.workload="data-services"
    ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
-
    
 # Introduzione: Connettersi a SQL Data Warehouse
 Questo breve articolo introduttivo illustra la connessione e l'esecuzione di query in un'istanza con provisioning di SQL Data Warehouse con due strumenti diversi:
@@ -185,7 +183,9 @@ Dopo avere registrato il server, è possibile scrivere una query.
 	Per eseguire la query, fare clic sulla freccia verde seguente oppure usare il collegamento seguente `CTRL`+`SHIFT`+`F5`:
 
 ## Passaggi successivi ##
-[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
-[Start developing code]: ./articles/sql-data-warehouse-overview-develop/
+Ora che è possibile connettersi ed eseguire query, tentare il [caricamento dei dati di esempio][] o lo [sviluppo di codice][].
 
-<!---HONumber=August15_HO6-->
+[caricamento dei dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
+[sviluppo di codice]: ./articles/sql-data-warehouse-overview-develop/
+
+<!---HONumber=August15_HO7-->

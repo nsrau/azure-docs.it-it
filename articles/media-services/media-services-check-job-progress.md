@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Procedura: Controllare lo stato dei processi
 
-Questo articolo fa parte della serie relativa al [flusso di lavoro Video on Demand di Servizi multimediali](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile controllare l'avanzamento [definendo un gestore eventi StateChanged](#statechange_event_handler) o [usando l'archiviazione di accodamento di Azure per monitorare le notifiche dei processi di Servizi multimediali](#check_progress_with_queues). In questo argomento vengono illustrati entrambi i metodi.
 
@@ -427,4 +430,4 @@ Il precedente esempio ha prodotto il seguente output. I valori possono variare.
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

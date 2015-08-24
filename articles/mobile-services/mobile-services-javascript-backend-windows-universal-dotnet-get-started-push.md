@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere notifiche push all'app per piattaforma UWP 8.1 | Servizi mobili di Azure" 
+	pageTitle="Aggiungere notifiche push all'app universale per Windows 8.1 | Microsoft Azure" 
 	description="Informazioni su come inviare notifiche push all'app di Windows 8.1 universale dal servizio mobile back-end JavaScript usando Hub di notifica di Azure." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -101,4 +101,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

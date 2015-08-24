@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -329,19 +329,6 @@ Se si hanno più schede in pagine HTML diverse, è possibile specificare anche l
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Visualizzazioni pagina con durata
-
-Usando questa coppia di chiamate di metodi anziché trackPageView, è possibile analizzare il tempo di visualizzazione delle pagine da parte degli utenti.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Usare la stessa stringa come primo parametro nelle chiamate di avvio e di arresto.
-
-Esaminare la metrica della durata della pagina in [Esplora metriche][metrics].
 
 
 ## Tenere traccia di una richiesta
@@ -420,7 +407,7 @@ Utilizzare questa chiamata per rilevare i tempi di risposta e percentuali di suc
             }
 ```
 
-Tenere presente che il server SDK include un[modulo dipendenza](app-insights-dependencies.md)che consente di individuare e tracciare alcune chiamate della dipendenza automaticamente, ad esempio a database e API REST. È necessario installare un agente nel server per l'utilizzo del modulo. Utilizzare questa chiamata se si desidera tenere traccia di chiamate che non vengono intercettate dal rilevamento automatico o se non si desidera installare l'agente.
+Tenere presente che il server SDK include un [modulo dipendenza](app-insights-dependencies.md) che consente di individuare e tracciare alcune chiamate della dipendenza automaticamente- - ad esempio a database e API REST. È necessario installare un agente nel server per l'utilizzo del modulo. Utilizzare questa chiamata se si desidera tenere traccia di chiamate che non vengono intercettate dal rilevamento automatico o se non si desidera installare l'agente.
 
 Per disattivare il modulo standard per il rilevamento delle dipendenze, modificare il file [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) ed eliminare il riferimento a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -781,4 +768,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

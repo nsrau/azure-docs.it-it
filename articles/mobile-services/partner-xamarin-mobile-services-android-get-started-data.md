@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (Xamarin.Android) - Servizi mobili di Azure" 
+	pageTitle="Aggiungere Servizi mobili a un'app esistente (Xamarin.Android) | Microsoft Azure" 
 	description="Informazioni su come archiviare e accedere ai dati dall'app Servizi mobili di Azure per Xamarin.Android." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -283,4 +283,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

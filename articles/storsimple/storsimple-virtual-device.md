@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Dispositivo virtuale StorSimple"
+   pageTitle="Dispositivo virtuale StorSimple | Microsoft Azure"
    description="In questo articolo viene descritto come creare, configurare, distribuire e gestire il dispositivo virtuale StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/06/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Dispositivo virtuale StorSimple
@@ -24,26 +24,24 @@ Il dispositivo virtuale StorSimple rappresenta una funzionalità aggiuntiva forn
 
 
 
-- Differenze tra il dispositivo virtuale e il dispositivo fisico
+- Differenze tra il dispositivo virtuale e il dispositivo fisico.
 
-- Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale
+- Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale.
 
-- Prerequisiti per il dispositivo virtuale
+- Prerequisiti per il dispositivo virtuale.
 
-- Creare e configurare il dispositivo virtuale
+- Creare e configurare il dispositivo virtuale.
 
-- Utilizzare il dispositivo virtuale
+- Utilizzare il dispositivo virtuale.
 
-- Eseguire il failover nel dispositivo virtuale
+- Eseguire il failover nel dispositivo virtuale.
 
-- Arrestare o eliminare il dispositivo virtuale
+- Arrestare o eliminare il dispositivo virtuale.
 
 
 ## Differenze tra il dispositivo virtuale e il dispositivo fisico
 
 Il dispositivo virtuale StorSimple consiste in una versione esclusivamente software di StorSimple che viene eseguita in un singolo nodo di una macchina virtuale di Microsoft Azure. Il dispositivo virtuale supporta il ripristino di emergenza nei casi in cui il dispositivo fisico non sia disponibile. Tale funzionalità deve essere usata in scenari di sviluppo e test basati su cloud.
-
-### Differenze rispetto al dispositivo fisico
 
 Di seguito sono riportate alcune differenze fondamentali tra il dispositivo StorSimple virtuale e quello fisico:
 
@@ -71,13 +69,13 @@ Nelle sezioni seguenti vengono riportate informazioni su come iniziare a usare i
 
 Prima di eseguire il provisioning del dispositivo virtuale, è necessario effettuare le seguenti operazioni preliminari in Azure:
 
-- Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx).
-- È possibile utilizzare il server DNS predefinito fornito da Azure invece di specificare il nome del proprio server DNS.
+- Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](virtual-networks-create-vnet.md).
+- È consigliabile utilizzare il server DNS predefinito fornito da Azure invece di specificare il nome del proprio server DNS. Se il nome del server DNS non è valido, la creazione del dispositivo virtuale avrà esito negativo.
 - Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati.
 
 >[AZURE.IMPORTANT]**Assicurarsi che la rete virtuale sia presente nella stessa area degli account di archiviazione cloud che verranno utilizzati con il dispositivo virtuale.**
 
-- Creare [macchine virtuali di Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (server host) nella rete virtuale. Tali server devono soddisfare i seguenti requisiti:
+- È possibile creare[Macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx)(server host) nella rete virtuale che possono utilizzare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti:
 	- Svolgere il ruolo di macchine virtuali Windows o Linux nelle quali è installato il software iSCSI Initiator
 	- Essere in esecuzione nella stessa rete virtuale del dispositivo virtuale
 	- Essere in grado di connettersi alla destinazione iSCSI del dispositivo virtuale utilizzando l'indirizzo IP interno del dispositivo virtuale
@@ -89,16 +87,16 @@ Prima di eseguire il provisioning del dispositivo virtuale, è necessario effett
 Effettuare i seguenti aggiornamenti del servizio StorSimple di Azure, prima di creare un dispositivo virtuale:
 
 
-- Aggiungere i [record controllo di accesso](https://msdn.microsoft.com/library/1747f56e-858a-4cfe-a020-949d7db23b8b#sec02) per le macchine virtuali che svolgeranno il ruolo di server host per il dispositivo virtuale.
+- Aggiungere i [record controllo di accesso](storsimple-manage-acrs.md) per le macchine virtuali che svolgeranno il ruolo di server host per il dispositivo virtuale.
 
-- Assicurarsi di disporre di un [account di archiviazione](https://msdn.microsoft.com/library/1747f56e-858a-4cfe-a020-949d7db23b8b#sec01) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni.
+- Assicurarsi di disporre di un [account di archiviazione](storsimple-manage-storage-accounts.md#add-a-storage-account) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni.
 
 - Per creare un dispositivo virtuale, assicurarsi di utilizzare un account di archiviazione differente rispetto a quello utilizzato per creare i dati. Se si utilizza lo stesso account di archiviazione, si potrebbe verificare una riduzione delle prestazioni.
 
 Prima di iniziare, verificare quanto segue:
 
 
-- L'utente dispone delle credenziali di accesso relative all'account del portale di gestione di Azure.
+- L'utente dispone delle credenziali di accesso relative all'account del portale di Azure.
 
 - L'utente dispone delle credenziali di accesso relative all'account di archiviazione di Azure.
 
@@ -109,9 +107,9 @@ Prima di iniziare, verificare quanto segue:
 
 ## Creare e configurare il dispositivo virtuale
 
-Prima di eseguire queste procedure, assicurarsi che siano soddisfatti i [prerequisiti per il dispositivo virtuale](https://msdn.microsoft.com/library/dn772572.aspx).
+Prima di eseguire queste procedure, assicurarsi che siano soddisfatti i [prerequisiti per il dispositivo virtuale](#prerequisites-for-the-virtual-device).
 
-Dopo aver completato queste procedure, è possibile [utilizzare il dispositivo virtuale](https://msdn.microsoft.com/library/dn772527.aspx).
+Dopo aver completato queste procedure, è possibile [utilizzare il dispositivo virtuale](#work-with-the-storsimple-virtual-device).
 
 ### Creare il dispositivo virtuale
 
@@ -121,11 +119,13 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 
 
-1.  Nel portale di gestione, accedere al servizio **StorSimple Manager**.
+1.  Nel portale di Azure, accedere al servizio **StorSimple Manager**.
 
 - Visitare la pagina **Dispositivi**.
 
 - Nella finestra di dialogo **Crea dispositivo virtuale**, indicare:
+
+	![StorSimple crea dispositivo virtuale](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
 	a. **Nome**: un nome univoco per il dispositivo virtuale.
 
@@ -135,36 +135,48 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 	d. **Account di archiviazione per creare un dispositivo virtuale**: l'account di archiviazione che verrà utilizzato per conservare l'immagine del dispositivo virtuale durante il provisioning. Questo account di archiviazione deve trovarsi nella stessa area del dispositivo virtuale e della rete virtuale. Inoltre, non deve essere utilizzato dal dispositivo fisico o dal dispositivo virtuale per archiviare i dati. Per effettuare questa operazione, verrà creato un nuovo account di archiviazione (impostazione predefinita). Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco.
 
-- Fare clic sul segno di spunta per indicare di aver compreso che i dati archiviati nel dispositivo virtuale verranno ospitati in un datacenter Microsoft. Quando si utilizza soltanto un dispositivo fisico, la chiave di crittografia viene conservata nel dispositivo; di conseguenza, Microsoft non può decrittografarli. Quando si utilizza un dispositivo virtuale, sia la chiave di crittografia che la chiave di decrittografia vengono archiviate in Microsoft Azure. Per ulteriori informazioni, vedere [Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale](https://msdn.microsoft.com/library/dn772561.aspx).
+- Fare clic sul segno di spunta per indicare di aver compreso che i dati archiviati nel dispositivo virtuale verranno ospitati in un datacenter Microsoft. Verrà creata la macchina virtuale. Potrebbero occorrere fino a 45 minuti o 1 ora per creare un dispositivo virtuale.![Dispositivo virtuale StorSimple fase di creazione](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+
+Quando si utilizza soltanto un dispositivo fisico, la chiave di crittografia viene conservata nel dispositivo; di conseguenza, Microsoft non può decrittografarli. Quando si utilizza un dispositivo virtuale, sia la chiave di crittografia che la chiave di decrittografia vengono archiviate in Microsoft Azure. Per ulteriori informazioni, vedere [Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale](#security-considerations-for-using-a-virtual-device).
 
 ### Configurare e registrare il dispositivo virtuale
 
-Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave DEK del servizio. La chiave DEK del servizio è stata creata durante la procedura di configurazione del primo dispositivo StorSimple ed è stata salvata in un luogo sicuro. Se non si dispone di una copia della chiave DEK del servizio, è necessario contattare il supporto tecnico Microsoft e richiedere assistenza.
+Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave DEK del servizio. La chiave DEK del servizio è stata creata durante la procedura di configurazione del primo dispositivo fisico StorSimple ed sono state fornite istruzioni per salvarla in un luogo sicuro. Se non si dispone di una copia della chiave DEK del servizio, è necessario [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) e richiedere assistenza.
 
 Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
 
 
-1. Selezionare il **dispositivo virtuale StorSimple** come dispositivo personale e fare doppio clic per visualizzare la guida introduttiva.
+1. Selezionare il**dispositivo virtuale StorSimple**appena creato nella pagina **Dispositivi**.
+2. Fare clic su**Completa la configurazione del dispositivo**. Verrà avviata la configurazione guidata del dispositivo.
+ 
+	![Installazione completa del dispositivo StorSimple nella pagina dei dispositivi](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-- Fare clic sull'opzione per **completare la configurazione del dispositivo**. Verrà avviata la configurazione guidata del dispositivo.
+1. Nella configurazione guidata del dispositivo:
 
-- Immettere la **chiave DEK del servizio** nell'apposito spazio.
+	1. Immettere la **chiave DEK del servizio** nell'apposito spazio.
+	2. Immettere la**password di gestione Snapshot**. La **password di gestione Snapshot** deve essere composta da 14 o 15 caratteri e contenere una combinazione di lettere maiuscole, lettere minuscole, numeri e caratteri speciali.
+	3. Immettere la**password amministratore del dispositivo**. La **password amministratore del dispositivo** deve avere una lunghezza compresa tra gli 8 e i 15 caratteri e contenere una combinazione di lettere maiuscole, lettere minuscole, numeri e caratteri speciali.
+	4. Fare clic sul segno di spunta per completare la configurazione e la registrazione iniziali del dispositivo virtuale. 
+	
+		![Impostazioni del dispositivo virtuale StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-- Fare clic sul segno di spunta per completare la configurazione e la registrazione iniziali del dispositivo virtuale. La password di gestione snapshot e quella di amministratore del dispositivo vengono preconfigurate con valori predefiniti e devono essere modificate in seguito alla registrazione del dispositivo.
+Dopo aver completato la configurazione e la registrazione, il dispositivo viene portato online. Potrebbero occorrere alcuni minuti per questa operazione.
 
-### Modificare le impostazioni di configurazione del dispositivo
+![Fase online dispositivo virtuale StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-Nella sezione seguente vengono descritte le impostazioni di configurazione del dispositivo che devono essere configurate per il dispositivo virtuale StorSimple.
+### Modificare le impostazioni di configurazione del dispositivo 
 
-#### Configurare l'iniziatore dell'autenticazione CHAP
+Nella sezione seguente vengono descritte le impostazioni di configurazione del dispositivo che devono essere configurate per il dispositivo virtuale StorSimple. Tali impostazioni includono quelle relative a CHAP, password gestione Snapshot StorSimple o password amministratore del dispositivo.
+
+#### Configurare l'iniziatore dell'autenticazione CHAP (facoltativo)
 
 Questo parametro include le credenziali che il dispositivo virtuale (destinazione) prevede di ricevere dagli iniziatori (server) che tentano di accedere ai volumi. Gli iniziatori forniranno un nome utente e una password CHAP per identificarsi nel dispositivo, durante questa procedura di autenticazione.
 
-#### Configurare la destinazione dell'autenticazione CHAP
+#### Configurare la destinazione CHAP (facoltativo)
 
 Questo parametro contiene le credenziali utilizzate dal dispositivo virtuale quando un iniziatore abilitato all'autenticazione CHAP richiede l'autenticazione reciproca o bidirezionale. Il dispositivo virtuale utilizzerà un nome utente e una password CHAP inversi per identificarsi nell'iniziatore durante la procedura di autenticazione. Tenere presente che le impostazioni di destinazione CHAP sono di tipo globale. Quando vengono applicate, tutti i volumi connessi al dispositivo virtuale di archiviazione utilizzano l'autenticazione CHAP.
 
-#### Configurare Gestione snapshot StorSimple
+#### Configurare la password di StorSimple Snapshot Manager (facoltativo)
 
 Il software di Gestione snapshot StorSimple si trova nell'host di Windows e consente agli amministratori di gestire i backup del dispositivo StorSimple sotto forma di snapshot locali e cloud.
 
@@ -172,7 +184,7 @@ Il software di Gestione snapshot StorSimple si trova nell'host di Windows e cons
 
 Quando si configura un dispositivo in StorSimple Snapshot Manager, verrà richiesto di specificare l'indirizzo IP del dispositivo StorSimple e la password per autenticare il dispositivo di archiviazione. Questa password viene configurata dapprima utilizzando l'interfaccia di Windows PowerShell.
 
-Eseguire i passaggi seguenti per configurare StorSimple Snapshot Manager, quando viene utilizzato insieme al dispositivo virtuale StorSimple.
+Eseguire i passaggi seguenti per modificare StorSimple Snapshot Manager, quando viene utilizzato insieme al dispositivo virtuale StorSimple.
 
 1. Nel dispositivo virtuale, andare a **Dispositivi > Configura**.
 
@@ -200,7 +212,7 @@ Per configurare la password amministratore del dispositivo virtuale StorSimple, 
 
 A questo punto, la password amministratore del dispositivo dovrebbe essere aggiornata. Tale password modificata deve essere utilizzata per accedere all'interfaccia di Windows PowerShell nel dispositivo virtuale.
 
-#### Configurare la gestione remota
+#### Configurare la gestione remota (facoltativo)
 
 Per impostazione predefinita, non è abilitato l'accesso remoto al dispositivo virtuale tramite l'interfaccia di Windows PowerShell. È necessario abilitare innanzitutto la gestione remota nel dispositivo virtuale e abilitarla nel client che verrà utilizzato per accedere al dispositivo virtuale.
 
@@ -227,11 +239,11 @@ Per configurare la gestione remota del dispositivo virtuale StorSimple, eseguire
 Dopo aver creato e configurato il dispositivo virtuale StorSimple, è possibile iniziare a utilizzarlo. È possibile utilizzare contenitori di volumi, criteri per volumi e backup su un dispositivo virtuale esattamente come si farebbe con un dispositivo StorSimple fisico; l'unica differenza consiste nella necessità di selezionare il dispositivo virtuale dall'elenco dei dispositivi. Fare riferimento alle sezioni seguenti per istruzioni sulle attività associate:
 
 
-- [Contenitori di volume](https://msdn.microsoft.com/library/dn757817.aspx).
+- [Contenitori di volume](storsimple-manage-volume-containers.md).
 
-- [Volumi](https://msdn.microsoft.com/library/dn772417.aspx)
+- [Volumi](storsimple-manage-volumes.md)
 
-- [Criteri di backup](https://msdn.microsoft.com/library/dn772382.aspx)
+- [Criteri di backup](storsimple-manage-backup-policies)
 
 Le sezioni seguenti illustrano alcune delle differenze relative all'utilizzo del dispositivo virtuale.
 
@@ -239,7 +251,6 @@ Le sezioni seguenti illustrano alcune delle differenze relative all'utilizzo del
 
 Dal momento che si tratta di un dispositivo solo software, la gestione del dispositivo virtuale è minore rispetto a quella di un dispositivo fisico. L'utente ha a disposizione le seguenti opzioni:
 
-- **Aggiornamenti automatici**: è possibile attivare o disattivare gli aggiornamenti automatici. Quando gli aggiornamenti automatici sono attivati, il dispositivo virtuale viene automaticamente arrestato e riavviato (se necessario) al fine di applicare gli aggiornamenti disponibili. Dal momento che non esiste un'unica interfaccia sul dispositivo virtuale, durante l'applicazione degli aggiornamenti si verificherà una breve interruzione del servizio.
 - **Aggiornamenti software**: è possibile visualizzare la data dell'ultimo aggiornamento del software insieme a eventuali messaggi sullo stato dell'aggiornamento. È possibile utilizzare il pulsante di ricerca degli aggiornamenti nella parte inferiore della pagina per eseguire una ricerca di nuovi aggiornamenti.
 - **Pacchetto di supporto**: è possibile creare e caricare un pacchetto di supporto per consentire al supporto tecnico Microsoft di risolvere i problemi relativi al dispositivo virtuale.
 
@@ -269,13 +280,13 @@ Dopo averlo impostato nella pagina di configurazione dispositivo di StorSimple, 
 
 >[AZURE.WARNING]**Per una maggiore sicurezza, si consiglia di utilizzare HTTPS quando ci si connette agli endpoint e di eliminare gli endpoint dopo aver completato la sessione remota in PowerShell.**
 
-Per impostare la connessione in remoto al dispositivo virtuale, è necessario eseguire le procedure descritte in [Connessione in remoto utilizzando Windows PowerShell](https://msdn.microsoft.com/library/dn772393.aspx).
+Per impostare la connessione in remoto al dispositivo virtuale, è necessario eseguire le procedure descritte in [Connessione in remoto utilizzando Windows PowerShell](storsimple-remote-connect.md).
 
 Tuttavia, se si desidera connettersi direttamente al dispositivo virtuale da un altro computer non compreso nella rete virtuale oppure nell'ambiente di Microsoft Azure, è necessario creare endpoint aggiuntivi, come descritto nella procedura seguente.
 
 Per creare un endpoint pubblico nel dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
 
-1. Accedere al portale di gestione.
+1. Accedere al portale di Azure.
 
 - Fare clic su **Macchine virtuali**, quindi selezionare la macchina virtuale che viene utilizzata come dispositivo virtuale.
 
@@ -351,11 +362,11 @@ A questo punto, viene avviato il processo di failover. Al termine del processo d
 
 Se in precedenza è stato configurato e utilizzato un dispositivo virtuale StorSimple, ma si desidera arrestare l'addebito dei costi di calcolo relativi all'utilizzo, è possibile arrestare il dispositivo virtuale. Se si arresta il dispositivo virtuale, non viene eliminato il sistema operativo o i dischi dati nell'archiviazione. Inoltre, viene interrotto l'addebito di costi di sottoscrizione, ma non quello dei costi per il sistema operativo e per i dischi dati.
 
-Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualizzato come **Offline** nella pagina Dispositivi del servizio StorSimple Manager. Se si desidera eliminare i backup creati dal dispositivo virtuale, è possibile disattivarlo o eliminarlo come dispositivo. Per ulteriori informazioni, vedere [Disattivazione](https://msdn.microsoft.com/library/33b7811b-36ba-4609-b165-0796ad456435#BKMK_acis_deactivate).
+Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualizzato come **Offline** nella pagina Dispositivi del servizio StorSimple Manager. Se si desidera eliminare i backup creati dal dispositivo virtuale, è possibile disattivarlo o eliminarlo come dispositivo. Per ulteriori informazioni, vedere [Disattivazione](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
 
 ### Per arrestare il dispositivo virtuale StorSimple
 
-1. Accedere al portale di gestione.
+1. Accedere al portale di Azure.
 
 2. Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 
@@ -368,6 +379,14 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 - Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 
 - Fare clic su **Elimina** e scegliere di eliminare tutti i dischi di macchina virtuale.
+
+
+## Passaggi successivi
+
+Per amministrare il dispositivo virtuale, fare riferimento a un elenco dettagliato dei flussi di lavoro in[Amministrare dispositivo StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
+
+
+
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

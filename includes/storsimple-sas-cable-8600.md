@@ -1,62 +1,48 @@
-<properties 
-   pageTitle="Storsimple SAS cabling for 8600 | Microsoft Azure"
-   description="Explains how to turn on attach the SAS cables to the StorSimple 8600 device."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
 
-#### To attach the SAS cables
+#### Per collegare i cavi SAS
 
-1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at their respective back planes. See the following image for guidance. 
+1. Identificare l'enclosure principale e l'enclosure EBOD. Le due enclosure possono essere identificate osservandone il retro. Per indicazioni, vedere la seguente figura. 
 
-    ![Back plane of primary and EBOD enclosures](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
+    ![Vista posteriore dell’enclosure principale e dell’enclosure EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
 
-    **Back view of primary and EBOD enclosures**
+    **Vista posteriore dell’enclosure principale e dell’enclosure EBOD**
 
-    |Label|Description|
+    |Etichetta|Descrizione|
     |:----|:----------|
-    |1|Primary enclosure|
-    |2|EBOD enclosure|
+    |1|Enclosure principale|
+    |2|Chassis EBOD|
 
-2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
+2. Individuare i numeri di serie sulle enclosure principale ed EBOD. L'adesivo con il numero di serie è attaccato alla sporgenza posteriore di ogni enclosure. I due numeri di serie delle enclosure devono essere identici. Se non corrispondono, contattare subito il [Supporto Tecnico Microsoft](storsimple-contact-microsoft-support.md). Per individuare i numeri di serie più facilmente, vedere la seguente figura.
 
-    ![Rear view of enclosure showing serial number](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+    ![Vista posteriore dell’enclosure con la posizione del numero di serie](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
-    **Location of serial number sticker**
+    **Posizione dell'etichetta del numero di serie**
 
-    |Label|Description|
+    |Etichetta|Descrizione|
     |:----|:----------|
-    |1|Ear of the enclosure|
+    |1|Sporgenza dell'enclosure|
 
-3. Use the provided SAS cables to connect the EBOD enclosure to the primary enclosure as follows:
+3. Usare i cavi SAS forniti per collegare l'enclosure EBOD all'enclosure principale come segue:
 
-    1. Identify the four SAS ports on the primary enclosure and the EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and CTRL on the EBOD enclosure, as shown in the SAS cabling illustration, below.
+    1. Identificare le quattro porte SAS sull'enclosure principale e sull'enclosure EBOD. Le porte SAS sono contrassegnate con la dicitura EBOD sull'enclosure principale e con la dicitura CTRL sull'enclosure EBOD, come illustrato nella seguente figura relativa al cablaggio SAS.
 
-    2. Use the provided SAS cables to connect the EBOD ports to the CTRL ports.
+    2. Usare i cavi SAS forniti per collegare le porte EBOD alle porte CTRL.
 
-    3. The EBOD port on controller 0 should be connected to the CTRL port on EBOD controller 0. The EBOD port on controller 1 should be connected to the CTRL port on EBOD controller 1. See the following illustration for guidance. 
+    3. La porta EBOD sul controller 0 deve essere collegata alla porta CTRL sul controller 0 EBOD. La porta EBOD sul controller 1 deve essere collegata alla porta CTRL sul controller 1 EBOD. Vedere la figura seguente.
 																	
-     ![SAS cabling for your device](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+     ![Cablaggio SAS per il dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
 
-     **SAS cabling**
+     **Cablaggio SAS**
 
-    |Label|Description|
+    |Etichetta|Descrizione|
     |:----|:----------|
-    |A|Primary enclosure|
-    |B|EBOD enclosure|
+    |A|Enclosure principale|
+    |B|Enclosure EBOD|
     |1|Controller 0|
     |2|Controller 1|
-    |3|EBOD Controller 0|
-    |4|EBOD Controller 1|
-    |5, 6|SAS ports on primary enclosure (labeled EBOD)|
-    |7, 8|SAS ports on EBOD enclosure (labeled CTRL)|
+    |3|Controller 0 EBOD|
+    |4|Controller 1 EBOD|
+    |5, 6|Porte SAS sull'enclosure principale (contrassegnate con la dicitura EBOD)|
+    |7, 8|Porte SAS sull'enclosure EBOD (contrassegnate con la dicitura CTRL)|
+
+<!---HONumber=August15_HO7-->

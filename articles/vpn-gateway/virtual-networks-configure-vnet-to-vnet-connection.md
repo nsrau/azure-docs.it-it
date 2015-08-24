@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="08/11/2015"
    ms.author="cherylmc"/>
 
 
 # Configurare una connessione tra reti virtuali
+
+In questo articolo analizzeremo la connessione di reti virtuali che sono state create nella modalità di distribuzione classica. Azure dispone attualmente di due modalità di distribuzione: quella classica e la distribuzione Gestione Risorse di Azure. I passaggi di configurazione sono diversi, a seconda della modalità utilizzata per distribuire la rete virtuale. Se si desidera connettere una rete virtuale creata in modalità classica a una rete virtuale creata in Gestione risorse, vedere[connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
 
 Connessione di una rete virtuale di Azure (VNet) a un'altra rete virtuale di Azure è molto simile alla connessione di una rete virtuale in un percorso del sito locale. La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per fornire un tunnel sicuro tramite Ipsec/IKE. Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. In modo da definire topologie di rete che consentono di combinare più sedi locali connettività con connettività di rete virtuale tra, come illustrato nel diagramma riportato di seguito:
 
@@ -120,7 +123,7 @@ Nella pagina **Dettagli della rete virtuale** immettere le informazioni seguenti
 
   - Non selezionare Nessuna delle caselle di controllo. Semplicemente fare clic sulla freccia in basso a destra per passare alla schermata successiva.
 
-**Nella pagina Spazi di indirizzi della rete virtuale** specificare l'intervallo di indirizzi che si vuole usare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
+Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio di indirizzi che si desidera utilizzare per la rete virtuale. Si tratta di indirizzi IP dinamici (DIP) che verranno assegnati per le macchine virtuali e altre istanze del ruolo da distribuire a questa rete virtuale. È particolarmente importante selezionare un intervallo che non si sovrapponga con gli intervalli utilizzati per la rete locale. Sarà necessario coordinarsi con l'amministratore di rete che potrebbe essere necessario selezionare un intervallo di indirizzi IP dallo spazio degli indirizzi di rete locale da utilizzare per la rete virtuale.
 
 
   ![Spazi di indirizzi della rete virtuale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -210,7 +213,7 @@ Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione, il gate
 Per altre informazioni sulla connettività cross-premise di rete virtuale, vedere l'articolo [Informazioni sulla connettività cross-premise protetta della rete virtuale](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
 
-Se si desidera configurare una connessione VPN da sito a sito, vedere [configurare una connessione VPN da sito](vpn-gateway-site-to-site-create.md)
+Se si desidera configurare una connessione VPN da sito a sito, vedere [configurare una connessione VPN da sito a sito](vpn-gateway-site-to-site-create.md)
 
 Se si vuole aggiungere macchine virtuali alla rete virtuale, vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
@@ -223,4 +226,4 @@ Per altre informazioni sullo schema di configurazione, vedere [Schema di configu
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

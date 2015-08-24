@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registrare le app per l'autenticazione Facebook - Servizi mobili" 
+	pageTitle="Effettuare la registrazione per l'autenticazione per Facebook | Microsoft Azure" 
 	description="Informazioni su come usare l'autenticazione Facebook nell'app Servizi Mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -73,4 +73,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Servizi mobili di Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

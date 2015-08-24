@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Framework di integrazione piattaforma cloud - Modelli di architettura di Azure" 
+   pageTitle="Framework di integrazione piattaforma cloud | Microsoft Azure" 
    description="Il Framework di integrazione piattaforma cloud (CPIF, Cloud Platform Integration Framework) fornisce materiale sussidiario sull'integrazione dei carichi di lavoro per il caricamento di applicazioni in una soluzione cloud Microsoft ed è costituito da modelli architettonici per Microsoft Azure" 
    services="" 
    documentationCenter="" 
@@ -59,4 +59,4 @@ Per supportare lo sviluppo di architetture della soluzione in Azure, viene forni
 
 [Ricerca di Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

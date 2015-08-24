@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -31,7 +31,23 @@ Ogni risorsa di Application Insights viene addebitata come un servizio separato 
 
 ![Scegliere le impostazioni, la quota e i prezzi](./media/app-insights-pricing/01-pricing.png)
 
-## Come funziona la quota?
+La scelta dei prezzi di schema riguarda:
+
+* [Quota mensile](#monthly-quota) - la quantità di dati di telemetria che è possibile analizzare ogni mese.
+* [Velocità dati](#data-rate) - la velocità massima, in cui è possibile elaborare i dati dall'applicazione.
+* [Memorizzazione](#data-retention) - come dati lunghi vengono mantenuti nel portale di Application Insights per la visualizzazione.
+* [Esportazione continua](#continuous-export) - se è possibile esportare dati in altri strumenti e servizi.
+
+Questi limiti vengono impostati separatamente per ogni risorsa Application Insights.
+
+### Versione di valutazione Premium gratuita
+
+Quando si crea una nuova risorsa di Application Insights, viene avviata nel livello gratuito.
+
+In qualsiasi momento, è possibile passare alla versione valutazione Premium gratuita di 30 giorni, che offre tutti i vantaggi del livello Premium. Dopo 30 giorni, verrà automaticamente ripristinato il livello precedente, a meno che non si scelga esplicitamente un altro livello. È possibile selezionare il livello desiderato in qualsiasi momento durante il periodo di valutazione, ma si otterrà comunque la versione di valutazione gratuita fino alla fine del periodo di 30 giorni.
+
+
+## Quota mensile
 
 * In ogni mese di calendario, l'applicazione può inviare fino a una quantità specificata di telemetria ad Application Insights. Per i numeri effetti, vedere lo [schema dei prezzi][pricing]. 
 * La quota dipende dal piano tariffario scelto.
@@ -41,7 +57,7 @@ Ogni risorsa di Application Insights viene addebitata come un servizio separato 
 * I *dati della sessione* non vengono conteggiati nella quota. Ciò include il numero di utenti, sessioni, ambienti e dati del dispositivo.
 
 
-## Eccedenza
+### Eccedenza
 
 Se l'applicazione invia una quantità superiore alla quota mensile, è possibile:
 
@@ -49,20 +65,52 @@ Se l'applicazione invia una quantità superiore alla quota mensile, è possibile
 * Aggiornare il piano tariffario.
 * Non eseguire alcuna operazione. I dati della sessione continueranno a essere registrati, ma altri dati non verranno visualizzati in ricerca diagnostica o in Esplora metriche.
 
-## Versione di valutazione Premium gratuita
 
-Quando si crea una nuova risorsa di Application Insights, viene avviata nel livello gratuito.
+### Quanto dati vengono inviati?
 
-In qualsiasi momento, è possibile passare alla versione valutazione Premium gratuita di 30 giorni, che offre tutti i vantaggi del livello Premium. Dopo 30 giorni, verrà automaticamente ripristinato il livello precedente, a meno che non si scelga esplicitamente un altro livello. È possibile selezionare il livello desiderato in qualsiasi momento durante il periodo di valutazione, ma si otterrà comunque la versione di valutazione gratuita fino alla fine del periodo di 30 giorni.
-
-
-## Come è stata usata la quota?
-
-Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei punti dati dell'applicazione, raggruppati per tipo di punto dati.
+Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei punti dati dell'applicazione, raggruppati per tipo di punto dati. (È possibile inoltre creare il grafico in Esplorazione di metrica.)
 
 ![Nella parte inferiore del pannello dei prezzi](./media/app-insights-pricing/03-allocation.png)
 
 Fare clic sul grafico per altri dettagli o trascinare gli elementi per visualizzare i dettagli relativi a un determinato intervallo di tempo.
+
+
+## Velocità dei dati
+
+Oltre alla quota mensile, esistono limiti della limitazione sulla percentuale di dati. Per il prodotto gratuito [livello di prezzo][pricing] il limite è di 200 dati punti/al secondi in media su 5 minuti e per livelli pagati è 500/s in media su 1 minuto.
+
+Esistono tre bucket che vengono conteggiati separatamente:
+
+* [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) e [captured logs](app-insights-asp-net-trace-logs.md)
+* [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), limitate a 50 punti/s.
+* Tutti gli altri dati di telemetria (visualizzazioni di pagina, sessioni, richieste, dipendenze, metriche, eventi personalizzati).
+
+Se l'app invia più rispetto al limite, alcuni dei dati vengono eliminati. Si visualizzerà una notifica che avviserà che ciò si è verificato.
+
+### Suggerimenti per ridurre la velocità dei dati
+
+Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
+
+* Disattivare i moduli di raccolta non necessari tramite [Modifica Applicationinsights](app-insights-configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
+* Pre-aggregare metriche. Se sono state inserite chiamate a TrackMetric nell'applicazione, è possibile ridurre il traffico utilizzando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. Oppure è possibile utilizzare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+
+
+### Limiti del nome
+
+1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. Le [metriche e nomi di proprietà][api] sono globali per una chiave di strumentazione, non definiti nell'ambito del tipo di dati.
+2.	Le [proprietà][apiproperties] possono essere usate per le operazioni di filtro e di raggruppamento solo quando possiedono meno di 100 valori univoci per ogni proprietà. Superati i 100 valori univoci, la proprietà può essere ancora usata per la ricerca e il filtro ma non per i filtri.
+3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". Il valore originale può essere ancora usato per la ricerca full-text e il filtro.
+
+## Conservazione dei dati
+
+Il livello di prezzo determina quanto tempo viene mantenuti i dati sul retro del portale e pertanto su quanto è possibile impostare intervalli di tempo.
+
+
+* Punti dati non elaborati (cioè elementi di dati ispezionabili nella ricerca diagnostica): tra 7 e 30 giorni.
+* I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 13 mesi.
+
+
+
 
 ## Esaminare la fattura per la sottoscrizione ad Azure
 
@@ -75,10 +123,11 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
 <!--Link references-->
 
-
+[api]: app-insights-api-custom-events-metrics.md
+[apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-get-started.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

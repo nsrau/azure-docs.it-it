@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Raccolta, conservazione e archiviazione di dati in Application Insights 
@@ -35,6 +35,12 @@ Application Insights SDK e gli agenti integrati con l'applicazione inviano dati 
 #### Quanti dati è possibile acquisire? 
 
 **Al secondo**: fino a 500 punti dati al secondo per chiave di strumentazione (ovvero, per ogni applicazione). Per il [piano tariffario][pricing] gratuito, il limite è 100 dp/s.
+
+Esistono tre bucket che vengono conteggiati separatamente:
+
+* [TrackTrace chiamate](app-insights-api-custom-events-metrics.md#track-trace) e [acquisiti log](app-insights-asp-net-trace-logs.md)
+* [Eccezioni](app-insights-api-custom-events-metrics.md#track-exception), soggette a un limite inferiore pari a 50/s.
+* Tutti gli altri dati di telemetria (visualizzazioni di pagine, richieste, le dipendenze, metriche, eventi personalizzati).
 
 **Al mese**: tra 5 e 15 milioni di punti dati ogni mese, a seconda del [piano tariffario](http://azure.microsoft.com/pricing/details/application-insights/). Fatta eccezione per il [piano tariffario][pricing] gratuito, è possibile acquistare capacità aggiuntiva se si raggiunge il limite.
 
@@ -236,4 +242,4 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

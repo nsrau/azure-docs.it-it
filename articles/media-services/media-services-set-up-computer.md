@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/07/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Configurazione dell'ambiente
@@ -42,4 +42,4 @@ Scegliere **.NET** o **API REST** per connettersi a livello di codice a Servizi 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

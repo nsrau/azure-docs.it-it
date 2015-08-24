@@ -3,8 +3,8 @@
 	description="Android SDK più recente - Come usare l'API di Engagement in Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede"
+	authors="piyushjo" 
+	manager="dwrede" 
 	editor="" />
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Come usare l'API di Engagement in Android
 
@@ -298,4 +298,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

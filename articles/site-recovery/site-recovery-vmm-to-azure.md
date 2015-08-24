@@ -7,16 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-
 <tags
 	ms.service="site-recovery"
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/07/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
-
 
 #  Configurare la protezione tra un sito VMM locale e Azure
 
@@ -323,4 +321,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

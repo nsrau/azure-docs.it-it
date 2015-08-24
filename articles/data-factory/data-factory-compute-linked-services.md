@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Servizi collegati di calcolo | Azure Data Factory" 
+	pageTitle="Servizi collegati di calcolo | Microsoft Azure" 
 	description="Informazioni sugli ambienti di calcolo che è possibile utilizzare nelle pipeline di Data Factory di Azure per trasformare/elaborare i dati.." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
-
 
 <tags 
 	ms.service="data-factory" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
-
 
 # Servizi collegati di calcolo
 
@@ -210,7 +208,7 @@ poolName | Nome del pool di macchine virtuali. | Sì
 linkedServiceName | Nome dello spazio di archiviazione del servizio collegato Azure associato al servizio collegato Azure Batch. Questo servizio collegato viene utilizzato per organizzare i file necessari per eseguire l'attività e archiviare i log di esecuzione dell’attività. | Sì
 
 
-## Servizio collegato Azure Batch
+## Servizio collegato di Azure Machine Learning
 
 Si crea un servizio collegato di Azure Machine Learning per registrare un endpoint di punteggio batch Machine Learning a una data factory.
 
@@ -236,7 +234,9 @@ mlEndpoint | L’URL del batch punteggio. | Sì
 apiKey | Modello dell'area di lavoro pubblicato di API. | Sì
 
 
+## Servizio collegato di Azure SQL
 
+Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
 
   
@@ -247,4 +247,4 @@ apiKey | Modello dell'area di lavoro pubblicato di API. | Sì
  
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

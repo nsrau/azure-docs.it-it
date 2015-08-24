@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Applicazione .NET multilivello - Esercitazione di Azure"
+	pageTitle="Applicazione .NET multilivello | Microsoft Azure"
 	description="Un'esercitazione che consente di sviluppare un'applicazione multilivello in Azure che usa le code di Bus di servizio per la comunicazione tra livelli. Esempi in .NET."
 	services="service-bus"
 	documentationCenter=".net"
@@ -105,7 +105,7 @@ Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e n
 
     IMPORTANTE: selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
-6.  Fare clic sul segno di spunta. A questo punto, lo spazio dei nomi del servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+6.  Fare clic sul segno di spunta. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 	![][27]
 
@@ -539,4 +539,4 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informazioni sulle tecnologie NoSQL in Azure | Azure" 
+	pageTitle="Informazioni sulle tecnologie NoSQL in Azure | Microsoft Azure" 
 	description="Informazioni su come le tecnologie NoSQL in HDInsight possono facilitare la gestione dei dati non adatti ai database relazionali, ad esempio set di Big Data e documenti JSON o grafici." 
 	editor="cgronlun" 
 	manager="jhubbard" 
@@ -31,4 +31,4 @@ Questo white paper fornisce istruzioni dettagliate sulle operazioni seguenti:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

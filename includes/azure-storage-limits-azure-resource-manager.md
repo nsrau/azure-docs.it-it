@@ -1,18 +1,8 @@
 I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gruppi di risorse di Azure.
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Risorsa</th>
-   <th align="left" valign="middle">Limite predefinito</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Operazioni di gestione account di archiviazione (lettura)</p></td>
-   <td valign="middle"><p>800 per 5 minuti</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Operazioni di gestione account di archiviazione (scrittura)</p></td>
-   <td valign="middle"><p>200 all'ora</p></td>
-</tr>
-</table>
+Risorsa|Limite predefinito
+---|---
+Operazioni di gestione account di archiviazione (lettura)|800 per 5 minuti
+Operazioni di gestione account di archiviazione (scrittura)|200 all'ora
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

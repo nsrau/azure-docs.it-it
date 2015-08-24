@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire i conflitti relativi ai dati offline in app di Windows universali | Servizi mobili di Azure" 
+	pageTitle="Gestire i conflitti relativi ai dati offline in app di Windows universali | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili di Azure per gestire conflitti durante la sincronizzazione dei dati offline nell'applicazione di Windows universale" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -164,4 +164,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [esempio di Servizi mobili offline Todo]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

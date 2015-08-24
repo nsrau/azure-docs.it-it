@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come creare e distribuire un servizio Cloud - Azure"
+	pageTitle="Come creare e distribuire un servizio Cloud | Microsoft Azure"
 	description="Informazioni su come creare e distribuire un servizio cloud usando il metodo Creazione rapida in Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -108,4 +108,4 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

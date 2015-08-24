@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Amministrazione di un servizio mobile dalla riga di comando | Servizi mobili di Azure" 
+	pageTitle="Amministrazione di un servizio mobile dalla riga di comando | Microsoft Azure" 
 	description="Informazioni su come creare, distribuire e gestire il servizio mobile di Azure usando gli strumenti da riga di comando." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -184,4 +184,4 @@ Per altre informazioni sulla registrazione di script, vedere la pagina relativa 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

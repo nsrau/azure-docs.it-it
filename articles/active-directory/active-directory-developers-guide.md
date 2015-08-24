@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/10/2015"
+   ms.date="08/12/2015"
    ms.author="mbaldwin"/>
 
 
@@ -67,6 +67,7 @@ Questi articoli descrivono come eseguire attività specifiche usando Azure Activ
 - [Come inserire l'applicazione nella raccolta di applicazioni di Azure AD](active-directory-app-gallery-listing.md)
 - [Come iniziare a usare le API di Office 365 nelle app](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Come inviare le applicazioni Web per Office 365 al dashboard venditori](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Anteprima: Come compilare app che consentono agli utenti di accedere sia con un account personale che con un account aziendale o dell'istituto di istruzione](active-directory-appmodel-v2-overview.md)
 
 
 ## Riferimento
@@ -132,4 +133,4 @@ Queste presentazioni sullo sviluppo di applicazioni con Azure Active Directory s
 
 - **[Azure AD su Twitter](https://twitter.com/azuread)**: annunci su Azure AD in 140 caratteri o meno.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

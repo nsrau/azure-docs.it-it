@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="08/12/2015"
    ms.author="v-sharos" />
 
 # Disattivare ed eliminare un dispositivo StorSimple
@@ -87,8 +87,8 @@ Utilizzare la procedura seguente per disattivare un dispositivo in preparazione 
 L'eliminazione del dispositivo può richiedere alcuni minuti.
 
 ## Passaggi successivi
-Per ripristinare il dispositivo disattivato sulle impostazioni predefinite di fabbrica, passare a[Reimposta il dispositivo sulle impostazioni predefinite](https://msdn.microsoft.com/library/dn772373.aspx).
+Per ripristinare il dispositivo disattivato sulle impostazioni predefinite di fabbrica, passare a[Reimposta il dispositivo sulle impostazioni predefinite](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Per assistenza tecnica,[contattare il supporto Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+Per assistenza tecnica,[contattare il supporto Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

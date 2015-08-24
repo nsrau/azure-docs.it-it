@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica | Azure" 
+	pageTitle="Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica | Microsoft Azure" 
 	description="Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
 	manager="jeffreyg" 
 	editor=""/>
-
 
 <tags 
 	ms.service="sql-database" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="06/01/2015" 
 	ms.author="nadavhelfman"/>
-
  
 # Database SQL - Supporto client di livello inferiore per controllo e maschera dati dinamica 
 
@@ -42,4 +40,4 @@ Un elenco parziale di "client di livello inferiore" include:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

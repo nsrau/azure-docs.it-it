@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduzione all'archiviazione blob di Azure e ai servizi relativi a Visual Studio" 
-	description="Informazioni su come iniziare a usare l'archiviazione BLOB di Azure in un progetto di servizio cloud in Visual Studio." 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Introduzione all'archiviazione blob di Azure e ai servizi relativi a Visual Studio"
+	description="Informazioni su come iniziare a usare l'archiviazione BLOB di Azure in un progetto di servizio cloud in Visual Studio."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
 # Introduzione all'archiviazione blob di Azure e ai servizi relativi a Visual Studio
@@ -262,10 +262,10 @@ Poiché il metodo di esempio chiama un metodo asincrono, deve avere come prefiss
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    }
 
 ## Passaggi successivi
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

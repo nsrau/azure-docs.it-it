@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare AMQP 1.0 con l'API .NET del bus di servizio - Azure" 
+	pageTitle="Come usare AMQP 1.0 con l'API del bus di servizio .NET | Microsoft Azure" 
 	description="Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 con API .NET di Bus di servizio di Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -308,4 +308,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

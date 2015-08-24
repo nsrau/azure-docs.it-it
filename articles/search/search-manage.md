@@ -163,29 +163,12 @@ Azure offre un modello di autorizzazione basata sui ruoli globali per tutti i se
 
 In Ricerca di Azure i controlli degli accessi in base al ruolo determinano le attività amministrative seguenti:
 
-<table>
-<tr>
-<td>Proprietario</td>
-<td>
-Avvio, arresto o eliminazione del servizio.</br>
-Generazione e visualizzazione delle chiavi di amministrazione e di query.</br>
-Visualizzazione dello stato del servizio, incluso il conteggio degli indici, i nomi di indice, il conteggio di documenti e le dimensioni delle risorse di archiviazione.</br>
-Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.</br>
-</br>
-Gli amministratori delle sottoscrizioni e dei servizi vengono aggiunti automaticamente al ruolo Proprietario.
-</td>
-</tr>
-<tr>
-<td>Collaboratore</td>	
-<td>Ha lo stesso livello di accesso del Proprietario, ad eccezione della gestione dei ruoli. Ad esempio, un Collaboratore può visualizzare e rigenerare la 'chiave API', ma non può modificare le appartenenze ai ruoli.
-</td>
-</tr>
-<tr>
-<td>Reader</td>
-<td>Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono avviare o arrestare un servizio o visualizzare le chiavi di amministrazione.
-</td>
-</tr>
-</table>
+
+Ruolo|Attività
+---|---
+Proprietario|Avviare, arrestare o eliminare il servizio.<p>Generare e visualizzare le chiavi di amministratore ed eseguire le chiavi di query.<p>Visualizzare lo stato di servizio, incluso il numero di indici, i nomi degli indici, il numero di documenti e le dimensioni di archiviazione.<p>Aggiungere o eliminare l'appartenenza al ruolo (solo un proprietario può gestire l'appartenenza al ruolo).<p>Gli amministratori della sottoscrizione e del servizio dispongono dell’appartenenza automatica al ruolo di proprietario.
+Collaboratore|Ha lo stesso livello di accesso del Proprietario, ad eccezione della gestione dei ruoli. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli.
+Lettore|Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono avviare o arrestare un servizio o visualizzare le chiavi di amministrazione.
 
 Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control-configure.md).
 
@@ -210,4 +193,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -4,10 +4,8 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
-
 
 <tags 
 	ms.service="app-service-web" 
@@ -16,8 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
-	ms.author="apwestgarth"/>
-
+	ms.author="anwestg"/>
 
 # Servizio di applicazione Azure Web App offerte per white paper aziendali #
 
@@ -42,7 +39,6 @@ Variare delle esigenze aziendali mensile, settimanale, ogni giorno. Le esigenze 
 Team di sviluppo sono cercando di fornire vantaggi aziendali immediato, distribuzione di nuove funzionalità in modo frequente. Si stanno cercando una piattaforma conveniente e affidabile che si integra con i test di strumenti e procedure consigliate: sviluppo di applicazioni, esistente, rilasciare; e l'utilizzo con i reparti IT automatizza la distribuzione, gestione e avviso, tutti i dati con l'obiettivo di tempi di inattività.
 
 <a href="highlevel" />
-
 ## Soluzione di alto livello ## ##
 
 Si fa un uso sempre più frequente di piattaforme Web e framework per sviluppare, testare e ospitare applicazioni line-of-business. Una tipica applicazione line-of-business potrebbe essere, ad esempio, un sistema interno per la registrazione delle note spese dei dipendenti, spesso costituito unicamente da un sito Web con un database di backup per archiviare i dati connessi all'applicazione.
@@ -157,4 +153,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

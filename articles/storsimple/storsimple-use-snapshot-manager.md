@@ -4,24 +4,22 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
-
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos" />
-
 
 # Interfaccia utente di Gestione snapshot StorSimple
 
 ## Panoramica
 
-Gestione snapshot StorSimple dispone di un'interfaccia utente grafica (GUI) che è possibile utilizzare per gestire copie di backup dei gruppi di volumi, tra cui quelli archiviati in locale e nel cloud. In questa esercitazione viene fornita un'introduzione all'interfaccia, quindi viene illustrato come utilizzare ciascuno dei componenti. (Per una descrizione dettagliata di Gestione snapshot StorSimple, vedere [Che cos'è Gestione snapshot StorSimple?](storsimple-what-is-snapshot-manager.md))
+Gestione snapshot StorSimple dispone di un'interfaccia utente grafica (GUI) che è possibile utilizzare per gestire copie di backup dei gruppi di volumi, tra cui quelli archiviati in locale e nel cloud. In questa esercitazione viene fornita un'introduzione all'interfaccia, quindi viene illustrato come utilizzare ciascuno dei componenti. (Per una descrizione dettagliata di Gestione snapshot StorSimple, vedere [Che cos'è Gestione snapshot StorSimple?](storsimple-what-is-snapshot-manager.md)
 
 ### Descrizione della console
 
@@ -75,7 +73,7 @@ Per visualizzare il menu **File**, fare clic su **File** nella barra dei menu. V
 
 #### Descrizione del menu
 
-Nella tabella seguente vengono descritte le voci del menu File.
+Nella tabella seguente vengono descritte le voci del menu **File**.
 
 | Voce di menu | Descrizione |
 |:----------|:-------------|
@@ -126,7 +124,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di Gestio
  
 | Azione | Navigazione | Descrizione |
 |:--------|:------------|:-------------|
-| Autentica | Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. | Fare clic su **Autentica** per immettere la password configurata per il dispositivo. |
+| Autentica | Fare clic sul nodo **Dispositivi**, poi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. | Fare clic su **Autentica** per immettere la password configurata per il dispositivo. |
 | Clone | Espandere **Catalogo di backup** e **Snapshot cloud**, fare clic su un backup con data, quindi selezionare un volume nel riquadro **Risultati**. | Fare clic su **Clona** per creare una copia di uno snapshot cloud e archiviarla nella posizione designata. |
 | Configurare un dispositivo | Fare clic con il pulsante destro del mouse sul nodo **Dispositivi**. | Fare clic su **Configura un dispositivo** per configurare uno o più dispositivi per la connessione all'host di Windows. |
 | Crea criterio di backup | Eseguire una delle operazioni seguenti:<ul><li>Fare clic con il pulsante destro del mouse su **Criteri di backup**.</li><li>Fare clic o espandere **Gruppi di volumi**, quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Fare clic o espandere **Catalogo di backup**, quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> | Fare clic su **Crea criterio di backup** per configurare un backup pianificato per un gruppo di volumi. |
@@ -138,7 +136,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di Gestio
 | Guida | Fare clic su un nodo o su un risultato. (Questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**.) | Fare clic su **Guida** per aprire la guida in linea in una finestra separata del browser. |
 | Nuova finestra da qui | Fare clic su un nodo o su un risultato (questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**). | Fare clic su **Nuova finestra da qui** per aprire una nuova finestra di Gestione snapshot StorSimple.|
 | Aggiorna | Fare clic su un nodo o su un risultato (questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**). | Fare clic su **Aggiorna** per aggiornare la finestra di Gestione snapshot StorSimple attualmente visualizzata. |
-| Aggiorna dispositivo | Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. | Fare clic su **Aggiorna dispositivo** per sincronizzare uno specifico dispositivo connesso con Gestione snapshot StorSimple. |
+| Aggiorna dispositivo | Fare clic sul nodo **Dispositivi**, poi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. | Fare clic su **Aggiorna dispositivo** per sincronizzare uno specifico dispositivo connesso con Gestione snapshot StorSimple. |
 | Aggiorna dispositivi | Fare clic con il pulsante destro del mouse sul nodo **Dispositivi**. | Fare clic su **Aggiorna dispositivi** per sincronizzare l'elenco dei dispositivi connessi con Gestione snapshot StorSimple. |
 | Ripetere la scansione dei volumi | Fare clic con il pulsante destro del mouse sul nodo **Volumi**. | Fare clic su **Ripeti analisi dei volumi** per aggiornare l'elenco dei volumi visualizzati nel riquadro **Risultati**. |
 | Ripristino | Espandere **Catalogo di backup**, espandere un gruppo di volumi, espandere **Snapshot locali** o **Snapshot cloud**, quindi fare clic con il pulsante destro del mouse su un backup. | Fare clic su **Ripristina** per sostituire i dati del gruppo di volumi corrente con i dati del backup selezionato. |
@@ -172,7 +170,7 @@ Utilizzare il menu **Preferiti** per aggiungere, rimuovere e organizzare le visu
 
 #### Accesso al menu
 
-È possibile accedere al menu Preferiti nella barra dei menu.
+È possibile accedere al menu **Preferiti** nella barra dei menu.
 
 ![Menu Preferiti di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
@@ -185,7 +183,7 @@ Nella tabella seguente vengono descritte le voci del menu **Preferiti**.
 | Voce di menu | Descrizione |
 |:----------|:-------------|
 | Aggiungi a Preferiti | Fare clic su **Aggiungi a Preferiti** per aggiungere la visualizzazione corrente all'elenco dei preferiti. |
-| Organizza Preferiti | Fare clic su Organizza Preferiti per organizzare i contenuti della cartella Preferiti. |
+| Organizza Preferiti | Fare clic su **Organizza Preferiti** per organizzare i contenuti della cartella Preferiti. |
 
 ### Menu Finestra
 
@@ -216,7 +214,7 @@ Nella tabella seguente vengono descritte le voci del menu Finestra.
 
 Utilizzare il menu **Guida** per visualizzare la guida in linea disponibile per Gestione snapshot StorSimple e MMC. È inoltre possibile visualizzare le informazioni sulle versioni software di MMC e Gestione snapshot StorSimple attualmente installate sul sistema.
 
-È possibile accedere al menu Guida nella barra dei menu. È inoltre possibile accedere agli argomenti della guida di Gestione snapshot StorSimple nel riquadro Azioni.
+È possibile accedere al menu **Guida** nella barra dei menu. È inoltre possibile accedere agli argomenti della guida di Gestione snapshot StorSimple nel riquadro **Azioni**.
 
 ![Menu Guida di Gestione snapshot StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
@@ -279,7 +277,7 @@ Il riquadro **Ambito** contiene i nodi seguenti:
 
 ### Attività riquadro Ambito
 
-Per completare un'azione su un nodo specifico, è possibile utilizzare il riquadro Ambito. Per selezionare un'attività, eseguire una delle operazioni seguenti:
+Per completare un'azione su un nodo specifico, è possibile utilizzare il riquadro **Ambito**. Per selezionare un'attività, eseguire una delle operazioni seguenti:
 
 - Fare clic con il pulsante destro del mouse sul nodo, quindi selezionare l'attività dal menu che viene visualizzato.
 
@@ -301,7 +299,7 @@ Il nodo **Dispositivi** rappresenta i dispositivi StorSimple e i dispositivi Sto
 
 ### Nodo Volumi
 
-Il nodo Volumi rappresenta le unità che corrispondono ai volumi montati dall'host, tra cui quelli individuati tramite iSCSI e quelli individuati tramite un dispositivo. Utilizzare questo nodo per visualizzare l'elenco dei volumi disponibili e assegnare i singoli volumi a gruppi di volumi.
+Il nodo **Volumi** rappresenta le unità che corrispondono ai volumi montati dall'host, tra cui quelli individuati tramite iSCSI e quelli individuati tramite un dispositivo. Utilizzare questo nodo per visualizzare l'elenco dei volumi disponibili e assegnare i singoli volumi a gruppi di volumi.
 
 - Per espandere il nodo, fare clic sull'icona della freccia accanto a **Volumi**.
 
@@ -334,7 +332,7 @@ I criteri di backup sono pianificazioni dei processi per snapshot locali e cloud
 
 ### Nodo Catalogo di backup
 
-Il nodo **Catalogo di backup** contiene gli elenchi dei backup locali in sede e fuori sede dei volumi StorSimple di Azure. Questo nodo è organizzato per gruppo di volumi e il contenitore di ciascun gruppo di volumi contiene strutture separate per gli snapshot locali (il nodo Snapshot locali) e gli snapshot cloud (il nodo Snapshot cloud). Se viene espanso, il contenitore di ciascun gruppo di volumi elenca tutti i backup riusciti che sono stati eseguiti in modo interattivo o da un criterio configurato.
+Il nodo **Catalogo di backup** contiene gli elenchi dei backup locali in sede e fuori sede dei volumi StorSimple di Azure. Questo nodo è organizzato per gruppo di volumi e il contenitore di ciascun gruppo di volumi contiene strutture separate per gli snapshot locali (il nodo **Snapshot locali**) e gli snapshot cloud (il nodo **Snapshot cloud**). Se viene espanso, il contenitore di ciascun gruppo di volumi elenca tutti i backup riusciti che sono stati eseguiti in modo interattivo o da un criterio configurato.
 
 - Per espandere il nodo, fare clic sull'icona della freccia accanto a **Catalogo di backup**.
 
@@ -366,7 +364,7 @@ Il nodo **Snapshot cloud** elenca gli snapshot cloud per un gruppo di volumi spe
 
 Il nodo **Processi** contiene le informazioni sui processi di backup pianificati, in esecuzione e completati di recente.
 
-- Per espandere il nodo, fare clic sull'icona della freccia accanto a Processi.
+- Per espandere il nodo, fare clic sull'icona della freccia accanto a **Processi**.
 
 - Per visualizzare un menu di azioni disponibili, fare clic con il pulsante destro del mouse sul nodo **Processi** oppure su uno dei nodi presenti nella visualizzazione espansa.
 
@@ -542,4 +540,4 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 
 Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

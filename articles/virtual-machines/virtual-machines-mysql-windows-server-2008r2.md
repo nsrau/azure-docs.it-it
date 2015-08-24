@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor="tysonn"/>
-
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +16,6 @@
 	ms.topic="article"
 	ms.date="07/10/2015"
 	ms.author="kathydav"/>
-
 
 
 # Installare MySQL in una macchina virtuale che esegue Windows Server 2012 R2 in Azure
@@ -39,7 +38,7 @@ Questa esercitazione illustra come:
 
 ## Collegamento di un disco dati
 
-Dopo aver creato la macchina virtuale, facoltativamente è possibile collegare un disco dati aggiuntivo. L'operazione è consigliata per i carichi di lavoro di produzione e per evitare l'esaurimento dello spazio nell'unità del sistema operativo (C:), che attualmente è limitato a 127 GB e include il sistema operativo.
+Dopo aver creato la macchina virtuale, facoltativamente è possibile collegare un disco dati aggiuntivo. L'operazione è consigliata per i carichi di lavoro di produzione e per evitare l'esaurimento dello spazio nell'unità del sistema operativo (C:), che include il sistema operativo.
 
 Vedere [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md) e seguire le istruzioni per collegare un disco vuoto. Impostare le preferenze della cache dell'host su **Nessuno** o **Sola lettura**.
 
@@ -129,4 +128,4 @@ Per testare la connessione remota al servizio MySQL Server in esecuzione nella m
 
 Per informazioni su MySQL, vedere la [Documentazione di MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

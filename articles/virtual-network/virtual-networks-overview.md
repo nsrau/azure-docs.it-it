@@ -93,4 +93,4 @@ I dispositivi virtuali dipendono da [route e inoltro IP definiti dall'utente](..
 - [Riservare un indirizzo IP pubblico](../virtual-networks-reserved-public-ip.md).
 - Informazioni su [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

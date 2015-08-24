@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="rasquill"/>
 
@@ -26,6 +26,12 @@
 La creazione di una macchina virtuale (VM) di Azure che esegue Linux è facile da eseguire dalla riga di comando o dal portale. In questa esercitazione viene illustrato come utilizzare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (la CLI di Azure) per creare rapidamente una macchina virtuale di Ubuntu Server in esecuzione in Azure, effettuare la connessione alla macchina virtuale utilizzando **ssh**, nonché creare e montare un nuovo disco. (In questo argomento viene utilizzata una macchina virtuale di Ubuntu Server, ma è anche possibile creare macchine virtuali Linux utilizzando [le proprie immagini come modelli](virtual-machines-linux-create-upload-vhd.md)).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+## Video con la procedura dettagliata
+
+Di seguito è riportata una procedura dettagliata di questa esercitazione.
+
+[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]
 
 ## Installare l'interfaccia della riga di comando di Azure
 
@@ -241,7 +247,7 @@ Creare la partizione digitando `p` al prompt:
 	Command (m for help): w
 	The partition table has been altered!
 
-	Calling ioctl() to re-read partition table.
+	Calling ioctl() tore-read partition table.
 	Syncing disks.
 
 E scrivere un file system nella partizione usando il comando **mkfs**, specificando il tipo di file system e il nome del dispositivo. In questo argomento, vengono usati `ext4` e `/dev/sdc1` riportati sopra:
@@ -302,4 +308,4 @@ Per altre informazioni su Linux in Azure, vedere:
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

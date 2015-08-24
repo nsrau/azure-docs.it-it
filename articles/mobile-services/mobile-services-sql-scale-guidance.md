@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Scalare i servizi mobili supportati dal database SQL di Azure - Servizi mobili di Azure" 
+	pageTitle="Scalare i servizi mobili supportati dal database SQL di Azure | Microsoft Azure" 
 	description="Informazioni su come diagnosticare e correggere problemi di scalabilità nei servizi mobili supportati da database SQL" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/08/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Scalare i servizi mobili supportati dal database SQL di Azure
@@ -41,18 +41,18 @@ Se una delle condizioni precedenti non è vera, considerare la possibilità di m
 
 ### Scelta del livello corretto per il database SQL 
 
-È importante comprendere i diversi livelli di database disponibili per assicurarsi di aver scelto il livello corretto in base alle esigenze dell'app. Il database SQL di Azure offre due diverse edizioni del database, con livelli diversi:
+È importante comprendere i diversi livelli di database disponibili per assicurarsi di aver scelto il livello corretto in base alle esigenze dell'app. Il database SQL di Azure offre due diverse edizioni del database e tre diversi livelli di servizio:
 
 - Edizione Web e Business (ritirata)
-- Edizione Basic, Standard e Premium 
+- Livelli di servizio Basic, Standard e Premium
 
-Anche se l'edizione Web e Business è completamente supportata, il servizio verrà interrotto entro il 24 aprile 2015, come illustrato in [Domande frequenti sull'interruzione delle edizioni Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). In preparazione per questa modifica, i nuovi clienti sono invitati a iniziare a usare le edizioni Basic, Standard e Premium. Questa nuova edizione offre numerosi nuovi livelli e funzionalità di monitoraggio, che agevolano la comprensione e la risoluzione dei problemi relativi alle prestazione del database. Tutti i nuovi servizi mobili vengono creati usando la nuova edizione.
+Mentre le edizioni Web e Business sono completamente supportate, verranno ritirate il 12 settembre 2015 come descritto in [Domande frequenti sull'interruzione delle edizioni Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). In preparazione per questa modifica, i nuovi clienti sono invitati a iniziare a usare i livelli di servizio Basic, Standard e Premium. Essi forniscono una serie di funzionalità di monitoraggio che agevolano la comprensione e la risoluzione dei problemi relativi alle prestazione del database. Tutti i nuovi servizi mobili vengono creati utilizzando uno dei nuovi livelli di servizio.
 
-Per convertire un servizio mobile che usa l'edizione Web e Business all'edizione Basic, Standard o Premium, seguire questa procedura.
+Per convertire un servizio mobile che usa l’edizione Web e Business ai livelli di servizio Basic, Standard o Premium, seguire questa procedura.
 
 1. Avviare il [portale di gestione di Azure][].
 2. Selezionare **+NUOVO** sulla barra degli strumenti e quindi **Servizi dati**, **Database SQL**, **Creazione rapida**.
-3. Immettere un nome di database e quindi selezionare **Nuovo server di database SQL** nel campo **Server**. Verrà creato un server che usa la nuova edizione Basic, Standard e Premium. 
+3. Immettere un nome di database e quindi selezionare **Nuovo server di database SQL** nel campo **Server**. Verrà creato un server che usa il nuovo livello di servizio Basic, Standard e Premium. 
 4. Compilare il resto dei campi e selezionare **Crea database SQL**. Verrà creato un database da 100 MB di livello Basic.
 5. Configurare il servizio mobile per l'uso del database creato. Passare alla scheda **Configura** del servizio e selezionare **Cambia database** sulla barra degli strumenti. Nella schermata successiva selezionare **Utilizza un database SQL esistente** nel campo **Database SQL** e quindi selezionare **Avanti**. Nella schermata successiva assicurarsi di selezionare il database creato nel passaggio 5, quindi selezionare **OK**.
 
@@ -475,4 +475,4 @@ Per analizzare il piano di query nel **portale di gestione database SQL**, usare
 [Costo delle chiavi]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

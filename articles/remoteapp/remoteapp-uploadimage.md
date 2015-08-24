@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="ericor" />
 
 
@@ -35,7 +35,7 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 4.      Immettere un nome descrittivo per l'immagine e specificare il percorso dell'account di archiviazione. Verificare che il percorso sia uguale a quello della raccolta RemoteApp oppure che sia il percorso dove verrà creata una nuova raccolta. 
 5.      Quando richiesto, scaricare lo script nel PC locale.
 6.      Copiare negli Appunti i parametri del comando contenuti nella casella di testo.
-7.      Aprire una finestra di Windows PowerShell con privilegi elevati  
+7.      Aprire una finestra di Windows PowerShell con privilegi elevati.
 8.      Dalla finestra di Windows PowerShell con privilegi elevati passare alla directory in cui è stato scaricato lo script.
 9.      Incollare il comando copiato e premere **Invio**.
 
@@ -52,4 +52,4 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 - Se il file VHD si blocca durante il caricamento, copiare il file o spostarlo in un nuovo percorso e riprovare il caricamento. Il caricamento potrebbe essere ostacolato da qualche processo di Windows in esecuzione.  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

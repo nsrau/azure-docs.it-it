@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guida introduttiva di Node.js - Esercitazione di Azure"
+	pageTitle="Guida introduttiva di Node. js | Microsoft Azure"
 	description="Informazioni su come creare una semplice applicazione Web Node.js e distribuirla in un servizio cloud di Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -192,4 +192,4 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

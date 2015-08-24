@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Come effettuare una chiamata da Twilio (Java) - Azure" 
+	pageTitle="Come effettuare una chiamata telefonica da Twilio (Java) | Microsoft Azure" 
 	description="Informazioni su come effettuare una chiamata telefonica da una pagina Web usando Twilio con un'applicazione Java in Azure." 
 	services="" 
 	documentationCenter="java" 
 	authors="devinrader" 
 	manager="twilio" 
 	editor="mollybos"/>
-
 
 <tags 
 	ms.service="multiple" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="11/25/2014" 
 	ms.author="microsofthelp@twilio.com"/>
-
 
 # Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure 
 
@@ -34,7 +32,7 @@ Per usare il codice in questo argomento è necessario eseguire le operazioni seg
 
 Se non si utilizza Eclipse, è inoltre consigliabile consultare l'argomento [Creazione di un'applicazione Hello World usando il plug-in Azure per Eclipse con Java (da Microsoft Open Technologies)][azure_java_eclipse_hello_world] o acquisire familiarità con altre tecniche per l'hosting di applicazioni Java in Azure.
 
-## Creare un modulo Web per l'esecuzione di una chiamata
+## Creare un modulo Web per effettuare una chiamata
 
 Nel codice seguente viene illustrato come creare un modulo Web per recuperare i dati utente per l'esecuzione di una chiamata. Ai fini di questo esempio, è stato creato un nuovo progetto Web dinamico denominato **TwilioCloud** ed è stato aggiunto il file JSP **callform.jsp**.
 
@@ -49,36 +47,30 @@ Nel codice seguente viene illustrato come creare un modulo Web per recuperare i 
     <body>
      <p>Fill in all fields and click <b>Make this call</b>.</p>
      <br/>
-
       <form action="makecall.jsp" method="post">
        <table>
          <tr>
            <td>To:</td>
            <td><input type="text" size=50 name="callTo" value="" />
-
            </td>
          </tr>
          <tr>
            <td>From:</td>
            <td><input type="text" size=50 name="callFrom" value="" />
-
            </td>
          </tr>
          <tr>
            <td>Call message:</td>
            <td><input type="text" size=400 name="callText" value="Hello. This is the call text. Good bye." />
-
            </td>
          </tr>
          <tr>
            <td colspan=2><input type="submit" value="Make this call" />
-
            </td>
          </tr>
        </table>
      </form>
      <br/>
-
     </body>
     </html>
 
@@ -100,7 +92,6 @@ Il codice seguente, chiamato quando l'utente completa il modulo visualizzato da 
     </head>
     <body>
         <b>This is my make call page.</b><p/>
-
      <%
     try 
     {
@@ -191,7 +182,7 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo d
 * Il codice makecall.jsp assegna alla variabile [Url][twimlet_message_url] un URL fornito da Twilio, **http://twimlets.com/message**. Tale URL fornisce una risposta TwiML (Twilio Markup Language) che indica a Twilio in che modo eseguire la chiamata. Ad esempio, la risposta TwiML restituita può contenere un verbo **&lt;Say&gt;**, che offre una versione vocale del testo al destinatario della chiamata. Anziché usare l'URL fornito da Twilio, è possibile creare un servizio personalizzato per rispondere alla richiesta di Twilio. Per altre informazioni, vedere [Come usare Twilio per le funzionalità voce ed SMS in Java][howto_twilio_voice_sms_java]. Per altre informazioni su TwiML, visitare la pagina [http://www.twilio.com/docs/api/twiml][twiml] e per altre informazioni su **&lt;Say&gt** e altri verbi Twilio, visitare la pagina [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 * Leggere le linee guida sulla sicurezza di Twilio all'indirizzo [https://www.twilio.com/docs/security][twilio_docs_security].
 
-Per ulteriori informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_docs].
+Per altre informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_docs].
 
 ## Vedere anche
 * [Come usare Twilio per le funzionalità voce ed SMS in Java][howto_twilio_voice_sms_java]
@@ -218,4 +209,4 @@ Per ulteriori informazioni su Twilio, vedere [https://www.twilio.com/docs][twili
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

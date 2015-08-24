@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="KBDAzure"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
@@ -15,7 +16,6 @@ ms.service="virtual-machines"
  ms.workload="infrastructure-services"
  ms.date="07/02/2015"
  ms.author="kathydav"/>
-
 
 # Dimensioni delle macchine virtuali
 
@@ -136,4 +136,4 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ciascuna 
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

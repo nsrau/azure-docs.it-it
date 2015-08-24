@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione a Servizi mobili per app per Xamarin Android - Servizi mobili di Azure" 
+	pageTitle="Introduzione a Servizi mobili per app per Xamarin Android | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili di Azure e Hub di notifica per inviare notifiche push all'app per Xamarin Android." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -75,4 +75,4 @@ Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azu
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

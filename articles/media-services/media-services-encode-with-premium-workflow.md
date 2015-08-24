@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
@@ -32,9 +32,12 @@ Nei seguenti argomenti sono incluse informazioni dettagliate su **Flusso di lavo
 
 Questo argomento illustra come codificare con **Flusso di lavoro Premium del codificatore multimediale** mediante .NET.
 
+Le attività di codifica per **Flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
+
 ##Codificare
 
 Le attività di codifica per **Flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
+
 
 I file del flusso di lavoro predefiniti sono disponibili anche [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Nella cartella è presente anche una descrizione dei file.
 
@@ -265,4 +268,4 @@ Di seguito è riportato un esempio completo. Per informazioni sulla configurazio
 
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

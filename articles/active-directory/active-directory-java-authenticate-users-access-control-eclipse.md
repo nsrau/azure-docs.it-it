@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Come usare Controllo di accesso (Java) - Guida alle funzionalità di Azure"
+    pageTitle="Come usare il Controllo di accesso (Java) | Microsoft Azure"
     description="Informazioni su come sviluppare e usare Controllo di accesso con Java in Azure."
 	services="active-directory" 
     documentationCenter="java"
@@ -100,7 +100,7 @@ In questa attività si aggiungeranno provider di identità da usare con l'applic
 
 
 1.  Nel [portale di gestione di Azure][] fare clic su **Active Directory**, scegliere uno spazio dei nomi ACS e quindi fare clic su **Manage**. Verrà visualizzato il portale di gestione ACS.
-2.  Nel pannello di navigazione sinistro del portale di gestione ACS fare clic su **Identity providers**.
+2.  Nel riquadro di spostamento sinistro del portale di gestione ACS fare clic su **Identity providers**.
 3.  Windows Live ID è abilitato per impostazione predefinita e non può essere eliminato. Ai fini di questa esercitazione, verrà usato solo Windows Live ID. In questa schermata è tuttavia possibile aggiungere altri provider di identità, facendo clic sul pulsante **Add**.
 
 Windows Live ID è abilitato come provider di identità per lo spazio dei nomi ACS. Nel passaggio successivo verrà specificata l'applicazione Web Java (che verrà creata in seguito) come applicazione relying party.
@@ -309,4 +309,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

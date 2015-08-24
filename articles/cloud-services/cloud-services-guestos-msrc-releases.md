@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Azure" 
+   pageTitle="Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Microsoft Azure" 
    description="Elenco di aggiornamenti applicati alle versioni del sistema operativo guest" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -239,4 +239,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

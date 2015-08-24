@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione a Mobile Analytics | Dev Center di Servizi mobili" 
+	pageTitle="Introduzione a Mobile Analytics | Microsoft Azure" 
 	description="Introduzione a Mobile Analytics." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -98,4 +98,4 @@ Per altre informazioni sui vantaggi offerti da Capptain per la propria app, visi
 [Livello standard di Servizi mobili]: /pricing/details/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

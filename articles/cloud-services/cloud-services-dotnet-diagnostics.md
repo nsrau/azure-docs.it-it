@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare la diagnostica (.NET) - Guida alle funzionalità di Azure" 
+	pageTitle="Come usare la diagnostica (.NET) | Microsoft Azure" 
 	description="Informazioni sull'uso dei dati di diagnostica in Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -511,4 +511,4 @@ ETW basato su manifesto|No|Tabella|Eventi ETW generati da un processo qualsiasi.
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

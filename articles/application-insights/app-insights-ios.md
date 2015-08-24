@@ -35,9 +35,9 @@ Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights.
 
 Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo relativi all'app. Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, nella schermata Start dovrebbe venire visualizzato un riquadro per l'app. In alternativa, fare clic su Sfoglia per cercarla.
 
-## Scaricare Application Insights per Mac
+## Scaricare Application Insights per iOS
 
-(Se non lo si è già fatto).
+(se non lo si è già fatto).
 
 1. Scaricare [Application Insights per Mac](http://go.microsoft.com/fwlink/?LinkID=533209)
 
@@ -141,4 +141,4 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

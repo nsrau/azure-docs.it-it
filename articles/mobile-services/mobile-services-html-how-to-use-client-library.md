@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare un client HTML - Servizi mobili di Azure" 
+	pageTitle="Come utilizzare un client HTML | Microsoft Azure" 
 	description="Informazioni sull'uso di un client HTML per Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -608,4 +608,4 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [Chiamata di un'API personalizzata dal client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Introduzione ad Application Insights" 
-	description="Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Introduzione ad Application Insights di Visual Studio | Microsoft Azure"
+	description="Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="08/04/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights di Visual Studio
@@ -27,7 +27,7 @@ Al momento sono supportate app iOS, Android e Windows, applicazioni Web J2EE e A
 
 ## Introduzione
 
-Iniziare con qualsiasi combinazione, in qualsiasi ordine, dei punti di ingresso a sinistra di questa mappa. Seguire il percorso più adatto alle proprie esigenze.
+Inizializzazione con qualsiasi combinazione, in qualsiasi ordine, dei punti di ingresso che vengono visualizzati nel diagramma seguente. Seguire il percorso più adatto alle proprie esigenze.
 
 Con Application Insights all'app viene aggiunto un SDK che invia dati di telemetria al [portale di Azure](http://portal.azure.com). Sono disponibili diversi SDK per le numerose combinazioni di piattaforme, linguaggi e IDE supportati.
 
@@ -72,6 +72,4 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 [qna]: app-insights-troubleshoot-faq.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

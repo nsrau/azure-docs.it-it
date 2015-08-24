@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Backup di Azure - Domande frequenti
 Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -141,4 +141,29 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D4. Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli?** <br/> R4. La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.
 
-<!---HONumber=August15_HO6-->
+## Backup della cache
+
+**D1. Come è possibile modificare il percorso della cache specificato per l'agente di Backup Azure?**
+
++ Arrestare OBEngine eseguendo il seguente comando in un prompt dei comandi con privilegi elevati:
+
+  ```PS C:\> Net stop obengine```
+
++ Copiare la cartella dello spazio della cache in un'altra unità con spazio sufficiente. Si consiglia di copiare i file dalla cartella dello spazio della cache anziché spostarli; dopo aver confermato che i backup funzionino con il nuovo spazio della cache, è possibile rimuovere lo spazio della cache originale.
+
++ Aggiornare seguendo le voci del Registro di sistema con il percorso della nuova cartella di spazio della cache:
+
+
+	| Percorso del Registro | Chiave del Registro | Valore |
+	| ------ | ------- | ------ |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+
+
++ Avviare OBEngine eseguendo il seguente comando in un prompt dei comandi con privilegi elevati:
+
+  ```PS C:\> Net start obengine```
+
+Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
+
+<!---HONumber=August15_HO7-->

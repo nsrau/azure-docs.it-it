@@ -1,73 +1,18 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Risorsa</th>
-   <th align="left" valign="middle">Limite predefinito</th>
-   <th align="left" valign="middle">Limite massimo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Account di Servizi multimediali di Azure in una singola sottoscrizione</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Asset per ogni account di Servizi multimediali di Azure</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>1.000.000</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Attività concatenate per processo</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>30</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Asset per attività</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Asset per processo</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Processi per ogni account di Servizi multimediali di Azure </p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>50.000<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Localizzatori univoci associati a un asset contemporaneamente</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>5<sup>4</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Canali live per ogni account di Servizi multimediali di Azure </p></td>
-   <td valign="middle"><p>5</p></td>
-   <td valign="middle"><p>N/D<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Programmi con stato arrestato per canale </p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>N/D<sup>1</sup></p></td>
-</tr><tr>
-   <td valign="middle"><p>Programmi con stato in esecuzione per canale </p></td>
-   <td valign="middle"><p>3</p></td>
-   <td valign="middle"><p>N/D<sup>1</sup></p></td>
-</tr><tr>
-   <td valign="middle"><p>Endpoint di streaming con stato in esecuzione per ogni account di Servizi multimediali di Azure</p></td>
-   <td valign="middle"><p>2</p></td>
-   <td valign="middle"><p>N/D<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Unità di streaming per endpoint di streaming </p></td>
-   <td valign="middle"><p>10 </p></td>
-   <td valign="middle"><p>N/D<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Unità di codifica per ogni account di Servizi multimediali di Azure </p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>N/D<sup>1</sup></p></td>
-</tr>
-</table>
+Risorsa|Limite predefinito|Limite massimo
+---|---|---
+Account di Servizi multimediali di Azure in una singola sottoscrizione||25
+Asset per ogni account di Servizi multimediali di Azure||1\.000.000
+Attività concatenate per processo||30
+Asset per attività||50
+Asset per processo||100
+Processi per ogni account di Servizi multimediali di Azure ||50,000<sup>2</sup>
+Localizzatori univoci associati a un asset contemporaneamente||5<sup>4</sup>
+Canali live per ogni account AMS </p></td>|5</p></td>|N/D<sup>1</sup>
+Programmi con stato arrestato per canale </p></td>|50</p></td>|N/D<sup>1</sup>
+Programmi con stato in esecuzione per canale </p></td>|3</p></td>|N/D<sup>1</sup>
+Endpoint di streaming con stato in esecuzione per ogni account AMS </p></td>|2</p></td>|N/D<sup>1</sup>
+Unità di streaming per endpoint di streaming </p></td>|10 </p></td>|N/D<sup>1</sup>
+Unità di codifica per ogni account AMS </p></td>|25</p></td>|N/D<sup>1</sup>
 
 <sup>1</sup> È possibile richiedere l'aggiornamento dei limiti per questa quota aprendo un ticket di supporto. Non creare altri account di Servizi multimediali di Azure per aumentare i limiti, ma inviare invece un ticket di supporto.
 
@@ -77,4 +22,4 @@
 
 <sup>4</sup> I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

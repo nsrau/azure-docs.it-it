@@ -6,7 +6,6 @@
 	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
-
   
 <tags 
 	ms.service="active-directory" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/22/2015" 
 	ms.author="patshea"/>
-
 
 # Errore durante il rilevamento dell'autenticazione
 
@@ -37,22 +35,15 @@ La procedura guidata cerca inoltre le impostazioni di autenticazione configurate
 In un progetto MVC la procedura guidata cerca le impostazioni seguenti che derivano da usi precedenti della procedura guidata:
 
 	<add key="ida:ClientId" value="" />
-
 	<add key="ida:Tenant" value="" />
-
 	<add key="ida:AADInstance" value="" />
-
 	<add key="ida:PostLogoutRedirectUri" value="" />
-
 
 La procedura guidata cerca inoltre le impostazioni seguenti di un progetto API Web che derivano da usi precedenti della procedura guidata:
 
 	<add key="ida:ClientId" value="" />
-
 	<add key="ida:Tenant" value="" />
-
 	<add key="ida:Audience" value="" />
-
 
 ###Codice di autenticazione incompatibile
 
@@ -65,45 +56,45 @@ La procedura guidata prova infine a rilevare le versioni del codice di autentica
 
 Per individuare Autenticazione di Windows in un progetto MVC, la procedura guidata cerca l'elemento `authentication` nel file **web.config**.
 
-```
-	&lt;configuration&gt;
-	    &lt;system.web&gt;
-	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-	    &lt;/system.web&gt;
-	&lt;/configuration&gt;
-```
+<pre>
+	&lt;configuration>
+	    &lt;system.web>
+	        <span style="background-color: yellow">&lt;authentication mode="Windows" /></span>
+	    &lt;/system.web>
+	&lt;/configuration>
+</pre>
 
 Per individuare Autenticazione di Windows in un progetto API Web, la procedura guidata cerca l'elemento `IISExpressWindowsAuthentication` nel file con estensione **csproj** del progetto:
 
-```
-	&lt;Project&gt;
-	    &lt;PropertyGroup&gt;
-	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
+<pre>
+	&lt;Project>
+	    &lt;PropertyGroup>
+	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication >abilitato&lt; /IISExpressWindowsAuthentication></span>
 	    &lt;/PropertyGroup>
-	&lt;/Project&gt;
-```
+	&lt;/Project>
+</pre>
 
 Per individuare l'autenticazione per singoli account utente, la procedura guidata cerca l'elemento package dal file **Packages.config**.
 
-```
-	&lt;packages&gt;
-	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-	&lt;/packages&gt;
-```
+<pre>
+	&lt;packages>
+	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+	&lt;/packages>
+</pre>
 
 Per individuare una precedente forma di autenticazione di tipo account aziendale, la procedura guidata cerca il seguente elemento dal file **web.config**:
 
-```
-	&lt;configuration&gt;
-	    &lt;appSettings&gt;
-	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-```
+<pre>
+	&lt;configuration>
+	    &lt;appSettings>
+	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /></span>
+	    &lt;/appSettings>
+	&lt;/configuration>
+</pre>
 
 Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed eseguire di nuovo la procedura guidata.
 
 Per altre informazioni, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

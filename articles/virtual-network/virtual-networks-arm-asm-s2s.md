@@ -202,7 +202,7 @@ Per creare la rete virtuale in Gestione risorse di Azure con due subnet e una re
 
 	>[AZURE.NOTE]Questa operazione potrebbe richiedere alcuni minuti.
 
-7. Dal browser passare a https://ms.portal.azure.com/ e immettere le credenziali, se necessario.
+7. Dal browser passare a https://portal.azure.com/ e immettere le credenziali, se necessario.
 8. Fare clic sul riquadro del gruppo di risorse **RG1** nel portale di Azure, come illustrato di seguito.
 
 	![Dashboard di rete virtuale](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure06.png)
@@ -317,7 +317,7 @@ Dopo avere configurato il gateway della rete virtuale classica, è possibile sta
 
 	![Dashboard di rete virtuale](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
 
-5. Anche se è possibile gestire la rete virtuale classica e la relativa connessione dal portale classico, è consigliabile usare il nuovo portale di Azure. Per aprire il nuovo portale, passare a https://ms.portal.azure.com.
+5. Anche se è possibile gestire la rete virtuale classica e la relativa connessione dal portale classico, è consigliabile usare il nuovo portale di Azure. Per aprire il nuovo portale, passare a https://portal.azure.com.
 6. Nel nuovo portale fare clic su**ESPLORA TUTTO**, fare clic su **Reti virtuali (classica)**, quindi fare clic su **vnet01**. Osservare il riquadro **Connessioni VPN** illustrato di seguito.
 
 	![Dashboard di rete virtuale](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure12.png)
@@ -363,4 +363,4 @@ Ora che le due reti virtuali sono connesse, è opportuno testarne la connettivit
 - Altre informazioni sul [Provider di risorse di rete per Gestione risorse di Azure](../resource-groups-networking.md).
 - Visualizzare le linee guida generali su come [creare una connessione VPN S2S tra una rete virtuale classica e una rete virtuale di Gestione risorse di Azure](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

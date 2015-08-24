@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-- 
+
 ##Panoramica
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
@@ -79,6 +79,8 @@ Questo argomento illustra come eseguire le operazioni seguenti:
 1. Mostrare e nascondere slate. Avviare e arrestare annunci. Vengono usate API con esecuzione prolungata.
 1. Pulire il canale e tutte le risorse associate.
 
+>[AZURE.NOTE]Quando questa funzionalità è in anteprima, la durata massima consigliata di un evento live è 8 ore.
+>
 ##Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
@@ -501,4 +503,4 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 [Uso dei canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

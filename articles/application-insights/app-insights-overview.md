@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Informazioni su Azure Application Insights
@@ -103,10 +103,12 @@ L'impatto sulle prestazioni è molto ridotto. Le chiamate di rilevamento non son
 
 Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra di spostamento a sinistra in questa pagina.
 
-## Esempi
+## Codice
 
 
 [Esempi e procedure dettagliate](app-insights-code-samples.md)
+
+[Laboratori SDK](https://www.myget.org/gallery/applicationinsights-sdk-labs) - pacchetti NuGet è possibile installare (e disinstallare) come aggiunte Application Insights SDK. Provarli e inviare i commenti!
 
 
 ## Supporto, commenti e suggerimenti
@@ -150,4 +152,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

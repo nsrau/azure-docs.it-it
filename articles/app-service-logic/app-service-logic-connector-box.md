@@ -13,136 +13,72 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/10/2015"
    ms.author="andalmia"/>
 
-# Uso del connettore Box nell'app per la logica
+# Connettore Box
+
+In alcuni scenari potrebbe essere necessario usare un connettore Box, che consente di condividere i dati in modo sicuro con chiunque, anche con chi è all'esterno del firewall. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
 
 
-
-Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. In alcuni scenari potrebbe essere necessario usare un connettore Box, che consente di condividere i dati in modo sicuro con chiunque, anche con chi è all'esterno del firewall.
-
-
-
+## Trigger e azioni
 L'app della raccolta Box fornisce le azioni come meccanismi per interagire con Box:
 
+**Azioni**: le azioni consentono di eseguire azioni predefinite sull'account Box configurato con l'app per la logica. Di seguito sono riportate le azioni che è possibile eseguire sull'account Box con il connettore Box:
+
+a. *Elenca file:* questa operazione restituirà le informazioni di tutti i file di una cartella. Elenco dei parametri obbligatori per l'azione:
+
+Nome parametro | Descrizione | Obbligatorio
+--- | --- | ---
+Percorso cartella | Percorso della cartella da elencare. | Sì
+
+> [AZURE.NOTE]non restituisce i contenuti dei file.
+
+b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Elenco dei parametri obbligatori per l'azione:
+
+Nome parametro | Descrizione | Obbligatorio
+--- | --- | ---
+Percorso file | Percorso della cartella in cui risiede il File. | Sì
+Tipo file | Specifica se il file è di testo o binario. | No
+
+> [AZURE.NOTE]Questa operazione non eliminerà il file dopo averlo letto.
 
 
-1. **Azioni**: le azioni consentono di eseguire azioni predefinite sull'account Box configurato con l'app per la logica. Di seguito sono riportate le azioni che è possibile eseguire sull'account Box con il connettore Box:
+c. *Upload File*: Come suggerito dal nome, questa azione consente di caricare il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Elenco dei parametri obbligatori per l'azione:
 
-	a. *Elenca file:* questa operazione restituirà le informazioni di tutti i file di una cartella. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
+Nome parametro | Descrizione | Obbligatorio
+--- | --- | ---
+Percorso file | Percorso del file. | Sì
+Contenuto file | Contenuto del file da caricare. | Sì
+Codifica trasferimento contenuto | Tipo di codifica del contenuto: Base64 o None. | 
 
-	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso cartella</td>
-	    <td>Percorso della cartella in cui deve essere eseguita l'inclusione in elenco.</td>
-	    <td>Sì</td>
-	  </tr>
-	</table>
+d. *Delete File*: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file/la cartella, viene generata un'eccezione. Elenco dei parametri obbligatori per l'azione:
 
-	>[AZURE.NOTE]non restituisce i contenuti dei file.
-
-
-
-    b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
-
-	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso della cartella in cui è presente il file.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Tipo file</td>
-	    <td>Specifica se il file è di testo o binario.</td>
-	    <td>No</td>
-	  </tr>
-	</table>
-	>[AZURE.NOTE]questa operazione non eliminerà il file dopo averlo letto.
-
-
-
-    c. Upload file: questa azione consente di caricare il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
-
-	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso del file.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Contenuto file</td>
-	    <td>Contenuto del file da caricare.</td>
-	    <td>Sì</td>
-	  </tr>
-	  <tr>
-	    <td>Codifica trasferimento contenuto</td>
-	    <td>Tipo di codifica del contenuto, può essere Base64 o None.</td>
-	    <td> </td>
-	  </tr>
-	</table>
-
-
-	d. Elimina file: l'azione elimina il file specificato da una cartella. Se non è possibile trovare il file o la cartella, viene generata un'eccezione. Di seguito è riportato l'elenco dei parametri obbligatori per l'azione:
-
- 	<table>
-	  <tr>
-	    <td><b>Nome parametro</b></td>
-	    <td><b>Descrizione</b></td>
-	    <td><b>Obbligatorio</b></td>
-	  </tr>
-	  <tr>
-	    <td>Percorso file</td>
-	    <td>Percorso del file completo incluse le cartelle.</td>
-	    <td>Sì</td>
-	  </tr>
-	</table>
-
-
+Nome parametro | Descrizione | Obbligatorio
+--- | --- | ---
+Percorso file | Percorso del file completo incluse le cartelle. | Sì
 
 
 ## Creazione di un connettore Box per l'app per la logica
 
-Per usare il connettore Box, prima è necessario creare un'istanza dell'app per le API Box Connector. È possibile eseguire questa operazione all'interno dell'area di progettazione dell'app per la logica o all'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
-1. Aprire Azure Marketplace dalla home page del portale di Azure.
-
-2. In "Tutto" cercare "Box Connector".
-
-3. Configurare il connettore Box e fare clic su Crea:
-
+1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
+2. Cercare "Connettore Box", selezionarlo e scegliere **Crea**.
+3. Immettere il nome, il piano di servizio app e altre proprietà: 
 	![][1]
-
-4. A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore Box.
+4. Selezionare **Crea**.
 
 
 ## Uso del connettore Box nell'app per la logica
 
-Una volta creata l'app per le API, è possibile usare il connettore Box come azione per l'app per la logica. A questo scopo, è necessario:
+Una volta creata l'app per le API, è possibile usare il connettore Box come azione per l'app per la logica. A tale scopo, effettuare l'operazione seguente:
 
+1. Aprire **Trigger e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso. Il Connettore Box è elencato nella raccolta. Selezionarlo per aggiungerlo automaticamente alla progettazione dell’app per la logica.
 
-1. Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore Box.
+	> [AZURE.NOTE]Se il Connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, è possono eseguire azioni su account Box utilizzando il connettore. Il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
 
-2. Aprire "Trigger e azioni" per aprire la finestra di progettazione delle app per la logica e configurare il flusso. Il connettore Box apparirà nella sezione "Usati di recente" nella raccolta sulla destra. Selezionarlo.
-
-3. Se il connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, è possibile eseguire azioni sull'account Box con il connettore. Si noti che il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
-
-4. Il primo passaggio prevede l'autenticazione e l'autorizzazione delle app per la logica in modo che eseguano operazioni per conto dell'utente. Per avviare l'autorizzazione, fare clic su Autorizza in Box Connector.
+2. Autenticare e autorizzare le app per la logica in modo che eseguano operazioni per conto dell'utente. Selezionare **Authorize** nel Connettore Box: ![][2]
 
 	![][2]
 
@@ -158,6 +94,7 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 
 	![][5]
 
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-box/image_0.jpg
@@ -166,4 +103,4 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

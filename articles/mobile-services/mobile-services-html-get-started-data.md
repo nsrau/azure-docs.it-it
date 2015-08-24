@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (HTML 5) | Mobile Dev Center" 
+	pageTitle="Aggiungere Servizi mobili a un'app esistente (HTML 5) | Microsoft Azure" 
 	description="Informazioni su come iniziare a usare Servizi mobili in un'app HTML esistente." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -257,4 +257,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app HT
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

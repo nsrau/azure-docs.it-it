@@ -247,7 +247,6 @@ In questo esempio, una pipeline **CopyActivityPipeline** è definita con le prop
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE]Per ulteriori esempi di utilizzo dell'attività di copia, vedere gli [esempi sull'utilizzo dell'attività di copia in Data factory di Azure][copy-activity-examples].
 
 ## Sicurezza
 Questa sezione include le linee guida sulla sicurezza generali e procedure consigliate che consentono di stabilire un accesso protetto agli archivi di dati per l'attività di copia.
@@ -264,7 +263,6 @@ Per i database tradizionali, ad esempio **SQL Server**, soprattutto quando le is
 - **Gestione del tipo di dati nell'attività di copia**. Illustra i casi in cui i tipi di dati specificati nella sezione Structure della definizione Table vengono accettati/ignorati.
 - **Richiama stored procedure per SQL Sink**. Quando si copiano dati in Database SQL Azure o SQL Server, una stored procedure di un utente specificato può essere configurata e richiamata.
 
-Per informazioni dettagliate su questi scenari, vedere l'articolo relativo agli [scenari avanzati per l'uso dell'attività di copia con Data factory di Azure][copy-activity-advanced].
 
 ## Procedure dettagliate
 Per un'esercitazione che illustra come copiare dati da una risorsa di archiviazione BLOB di Azure a un database SQL di Azure usando l'attività di copia, vedere [Introduzione a Data factory di Azure][adfgetstarted].
@@ -272,10 +270,8 @@ Per un'esercitazione che illustra come copiare dati da una risorsa di archiviazi
 Per una procedura dettagliata che mostra come copiare dati da un database locale di SQL Server a una risorsa di archiviazione BLOB di Azure usando l'attività di copia, vedere la pagina [Consentire alle pipeline di usare dati locali][use-onpremises-datasources]
 
 ## Vedere anche
-- [Attività di copia - esempi][copy-activity-examples]
 - [Video: Introduzione all'attività di copia con Data factory di Azure][copy-activity-video]
 - [Argomento Attività di copia in MSDN Library][msdn-copy-activity]
-- [Scenari avanzati per l'utilizzo dell'attività di copia con Data factory di Azure][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -288,9 +284,7 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
-[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -299,4 +293,4 @@ Per una procedura dettagliata che mostra come copiare dati da un database locale
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

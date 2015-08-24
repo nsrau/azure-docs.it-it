@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione all'autenticazione (Windows Store) | Mobile Dev Center" 
+	pageTitle="Introduzione all'autenticazione (Windows Store) | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Store tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -84,4 +84,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

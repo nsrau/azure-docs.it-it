@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere Servizi mobili a un'app di Windows universale | Servizi mobili di Azure" 
+	pageTitle="Aggiungere Servizi mobili a un'app di Windows universale | Microsoft Azure" 
 	description="Informazioni su come connettere un'app di Windows universale a Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -114,4 +114,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un proget
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

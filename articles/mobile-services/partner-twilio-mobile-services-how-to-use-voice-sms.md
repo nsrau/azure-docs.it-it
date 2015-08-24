@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usare Twilio per le funzionalità voce e SMS | Mobile Dev Center" 
+	pageTitle="Usare Twilio per le funzionalità voce ed SMS in Java | Microsoft Azure" 
 	description="Informazioni su come eseguire attività comuni usando l'API Twilio con Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -230,4 +230,4 @@ Dopo avere configurato un modo per fornire risposte TwiML, è possibile passare 
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inviare notifiche push agli utenti dell'app Windows Phone Silverlight autenticati | Servizi mobili di Azure" 
+	pageTitle="Inviare notifiche push agli utenti dell'app Windows Phone Silverlight autenticati | Microsoft Azure" 
 	description="Informazioni su come inviare notifiche push da Servizi mobili di Azure a utenti specifici dell'app Windows Phone Silverlight." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

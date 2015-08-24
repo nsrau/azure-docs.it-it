@@ -3,7 +3,7 @@
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #Android SDK per Azure Mobile Engagement
@@ -118,4 +118,4 @@ Con
 
 Incorporare il nuovo file `res/layout/engagement_loading.xml` nel progetto.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

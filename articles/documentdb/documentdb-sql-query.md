@@ -3,7 +3,7 @@
 	description="DocumentDB, un servizio di database di documenti NoSQL, supporta le query che usano una grammatica simile a quella di SQL sui documenti JSON gerarchici senza richiedere esplicitamente uno schema o la creazione di indici secondari." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="arramac" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-#Query DocumentDB
+# Query DocumentDB
 Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) su documenti JSON gerarchici. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
 
 Nella progettazione del linguaggio di query per DocumentDB sono stati tenuti in considerazione due obiettivi:
 
--	<strong>Adottare SQL</strong>: invece di inventare un nuovo linguaggio di query, si è preferito adottare il linguaggio SQL. In fondo, SQL è uno dei linguaggi di query più familiari e popolari. Il linguaggio di query SQL di DocumentDB fornisce un modello di programmazione formale per le query complesse sui documenti JSON.
--	<strong>Estendere SQL</strong>: poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era usare il modello di programmazione di JavaScript come base per il linguaggio di query SQL. Il linguaggio di query SQL di DocumentDB è radicato nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
+-	**Adottare SQL**: invece di inventare un nuovo linguaggio di query, si è preferito adottare il linguaggio SQL. In fondo, SQL è uno dei linguaggi di query più familiari e popolari. Il linguaggio di query SQL di DocumentDB fornisce un modello di programmazione formale per le query complesse sui documenti JSON.
+-	**Estendere SQL**: poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era usare il modello di programmazione di JavaScript come base per il linguaggio di query SQL. Il linguaggio di query SQL di DocumentDB è radicato nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
 
 Queste capacità costituiscono la chiave per la riduzione dell'attrito tra l'applicazione e il database e sono di importanza critica per la produttività degli sviluppatori.
 
@@ -161,7 +161,7 @@ La query successiva restituisce i nomi di elementi figlio specificati nella fami
 -	DocumentDB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](http://www.json.org/).  
 -	Una raccolta di DocumentDB è un contenitore senza schema dei documenti JSON. Le relazioni nelle entità di dati all'interno e tra i documenti in una raccolta vengono implicitamente acquisiti dal contenitore e non dalle relazioni chiave primaria e chiave esterna. È un aspetto importante da sottolineare alla luce dei join tra documenti, descritti più avanti in questo articolo.
 
-##Indicizzazione di DocumentDB
+## Indicizzazione di DocumentDB
 
 Prima di addentrarsi nel linguaggio SQL di DocumentDB vale la pena esplorare la progettazione dell'indicizzazione di DocumentDB.
 
@@ -182,7 +182,7 @@ Di conseguenza, durante la progettazione del sottosistema di indicizzazione di D
 Per un esempio che illustra come configurare i criteri di indicizzazione per una raccolta, vedere gli esempi relativi a [DocumentDB su MSDN](https://github.com/Azure/azure-documentdb-net). Verrà ora analizzato più dettagliatamente il linguaggio SQL di DocumentDB.
 
 
-##Nozioni di base sulle query di DocumentDB
+## Nozioni di base sulle query di DocumentDB
 Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di documenti JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato.
     
     SELECT <select_list> 
@@ -190,7 +190,7 @@ Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative i
     [WHERE <filter_condition>]    
 
 
-##Clausola FROM
+## Clausola FROM
 La clausola `FROM <from_specification>` è facoltativa, a meno che l'origine non sia filtrata/proiettata più avanti nella query. Lo scopo di questa query è specificare l'origine dati in base alla quale deve operare la query. Comunemente, l'origine è rappresentata dall'intera raccolta, ma è possibile specificare piuttosto un sottoinsieme della raccolta.
 
 Una query come `SELECT * FROM Families` indica che l'intera raccolta Families è il database di origine in base al quale eseguire l'enumerazione. Invece di usare il nome della raccolta, è possibile usare uno speciale identificatore ROOT per rappresentare la raccolta. L'elenco seguente include le regole applicate per ogni query:
@@ -201,7 +201,7 @@ Una query come `SELECT * FROM Families` indica che l'intera raccolta Families è
 
 -	Tutte le proprietà a cui è necessario fare riferimento devono essere complete. In assenza di una rigorosa aderenza allo schema, ciò viene applicato per evitare eventuali associazioni ambigue. Di conseguenza, la sintassi di `SELECT id FROM Families f` non è valida perché la proprietà `id` non è associata.
 	
-###Documenti secondari
+### Documenti secondari
 È anche possibile ridurre il database di origine a un sottoinsieme di dimensioni inferiori. Ad esempio, per enumerare un solo sottoalbero in ogni documento, la sottoradice può quindi diventare l'origine, come nell'esempio seguente.
 
 **Query**
@@ -255,7 +255,7 @@ Se nell'esempio precedente veniva usata una matrice come origine, è possibile u
 	]
 
 
-##Clausola WHERE
+## Clausola WHERE
 La clausola WHERE (**`WHERE <filter_condition>`**) è facoltativa. e specifica la condizione (o le condizioni) che i documenti JSON forniti dall'origine devono soddisfare per essere inclusi come parte del risultato. Per essere considerato per il risultato, qualsiasi documento JSON deve valutare le condizioni specificate come "true". La clausola WHERE viene usata dal livello di indice allo scopo di determinare il sottoinsieme più piccolo in assoluto di documenti di origine che possono fare parte del risultato.
 
 La query seguente richiede documenti che contengono una proprietà nome il cui valore è `AndersenFamily`. Qualsiasi altro documento che non contiene una proprietà nome o il cui valore non corrisponde a `AndersenFamily` verrà escluso.
@@ -279,7 +279,7 @@ La query seguente richiede documenti che contengono una proprietà nome il cui v
 
 Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. Il linguaggio SQL di DocumentDB supporta anche una varietà di espressioni scalari. Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide.
 
-Gli operatori binari seguenti sono attualmente supportati e possono essere usati nelle query, come illustrato negli esempi seguenti: <table> <tr> <td>aritmetica</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bitwise</td> <td>|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) </td> </tr> <tr> <td>logiche</td> <td>AND, OR</td> </tr> <tr> <td>confronto</td> <td>=,!=, >, >=, <, <=, <></td> </tr> <tr> <td>stringa</td> <td>|| (concatenazione)</td> </tr> </table>
+Gli operatori binari seguenti sono attualmente supportati e possono essere usati nelle query, come illustrato negli esempi seguenti: <table> <tr> <td>aritmetica</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bitwise</td> <td>|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) </td> </tr> <tr> <td>logiche</td> <td>AND, OR, NOT </td> </tr> <tr> <td>confronto</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>stringa</td> <td>|| (concatenazione)</td> </tr> </table>
 
 Saranno ora prese in esame alcune query che usano gli operatori binari.
 
@@ -310,7 +310,7 @@ Sono supportati anche gli operatori unari +,-, \~ e NOT, che possono essere usat
 
 Oltre agli operatori binari e unari, sono consentiti anche i riferimenti di proprietà. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituirebbe i documenti JSON contenenti la proprietà `isRegistered` dove il valore della proprietà è uguale al valore JSON `true`. Qualsiasi altro valore (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` e così via) comporta l'esclusione del documento di origine dai risultati.
 
-###Operatori di confronto e uguaglianza
+### Operatori di confronto e uguaglianza
 La tabella seguente illustra il risultato dei confronti di uguaglianza nel linguaggio SQL di DocumentDB tra due tipi JSON qualsiasi. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>Non definito</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>Booleano</strong> </td> <td valign="top"> <strong>Numero</strong> </td> <td valign="top"> <strong>Stringa</strong> </td> <td valign="top"> <strong>Oggetto</strong> </td> <td valign="top"> <strong>Matrice</strong> </td> </tr> <tr> <td valign="top"> <strong>Non definito <strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Booleano<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Numero<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Stringa<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Oggetto<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Non definito </td> </tr> <tr> <td valign="top"> <strong>Matrice<strong> </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> Non definito </td> <td valign="top"> <strong>OK</strong> </td> </tr> </tbody> </table>
 
 Per gli altri operatori di confronto, ad esempio >, >=, !=, < e <=, si applicano le regole seguenti:
@@ -320,7 +320,7 @@ Per gli altri operatori di confronto, ad esempio >, >=, !=, < e <=, si applicano
 
 Se il risultato dell'espressione scalare nel filtro è Undefined, il documento corrispondente non verrebbe incluso nel risultato, perché Undefined non è logicamente uguale a "true".
 
-###Parola chiave BETWEEN
+### Parola chiave BETWEEN
 È possibile usare anche la parola chiave BETWEEN per esprimere query su intervalli di valori come in SQL ANSI. BETWEEN può essere usata con qualsiasi tipo primitivo JSON (numeri, stringhe, valori booleani e valori null).
 
 Ad esempio, questa query restituisce tutti i documenti della famiglia in cui la classe frequentata dal primo figlio sia compresa tra 1 e 5 (inclusi).
@@ -338,249 +338,28 @@ Per accelerare l'esecuzione della query, creare un criterio di indicizzazione ch
 
 La differenza principale tra l'uso di BETWEEN in DocumentDB e SQL ANSI consiste nel fatto che è possibile esprimere le query di intervallo su proprietà di tipo misto, ad esempio "grade" può essere un numero (5) in alcuni documenti e stringhe in altri ("grade4"). In questi casi, come in JavaScript, un confronto tra due tipi diversi restituisce un risultato "undefined" e il documento viene ignorato.
 
-###Operatori logici (AND, OR e NOT)
+### Operatori logici (AND, OR e NOT)
 Gli operatori logici funzionano con valori booleani. Le tabelle di veridicità logica per questi operatori sono illustrate di seguito.
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>OR</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+OPPURE|True|False|Undefined
+---|---|---|---
+True|True|True|True
+False|True|False|Undefined
+Undefined|True|Undefined|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>AND</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+AND|True|False|Undefined
+---|---|---|---
+True|True|False|Undefined
+False|False|False|False
+Undefined|Undefined|False|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>NOT</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong></strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+NOT| |
+---|---
+True|False
+False|True
+Undefined|Undefined
 
-###Parola chiave IN
+### Parola chiave IN
 La parola chiave IN consente di controllare se un valore specificato corrisponde a qualsiasi valore in un elenco. Ad esempio, questa query restituisce tutti i documenti famiglia dove l'id è uno dei "WakefieldFamily" o "AndersenFamily".
  
     SELECT *
@@ -595,7 +374,7 @@ In questo esempio restituisce tutti i documenti in cui lo stato è uno dei valor
 
 IN è equivalente alla concatenazione di più clausole OR, tuttavia, poiché possono essere gestite usando un unico indice, DocumentDB supporta un livello più elevato di [limite](documentdb-limits.md) per il numero di argomenti specificato all'interno di una clausola IN.
 
-###Operatori Ternary (?) e Coalesce (??):
+### Operatori Ternary (?) e Coalesce (??)
 Gli operatori Ternary e Coalesce possono essere usati per compilare espressioni condizionali, analogamente ai linguaggi di programmazione più diffusi come C# e JavaScript.
 
 L'operatore Ternary (?) può essere molto comodo quando si costruiscono rapidamente nuove proprietà JSON. Ad esempio, ora è possibile scrivere query per classificare i livelli di istruzione in forma leggibile, ad esempio principiante/intermedio/avanzati, come mostrato di seguito.
@@ -615,7 +394,7 @@ L'operatore Coalesce (?) può essere usato per verificare se una proprietà è p
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-###Funzione di accesso della proprietà di delimitazione
+### Funzione di accesso della proprietà di delimitazione
 È anche possibile accedere alle proprietà mediante l'operatore della proprietà di delimitazione `[]`. Ad esempio, `SELECT c.grade` e `SELECT c["grade"]` sono equivalenti. Questa sintassi risulta utile quando occorre usare i caratteri di escape per una proprietà che contiene spazi, caratteri speciali o condivide lo stesso nome di una parola chiave SQL o una parola riservata.
 
     SELECT f["lastName"]
@@ -623,7 +402,7 @@ L'operatore Coalesce (?) può essere usato per verificare se una proprietà è p
     WHERE f["id"] = "AndersenFamily"
 
 
-##Clausola SELECT
+## Clausola SELECT
 La clausola SELECT (**`SELECT <select_list>`**) è obbligatoria e specifica quali valori saranno recuperati dalla query, proprio come in ANSI-SQL. Il sottoinsieme filtrato dai documenti di origine viene passato alla fase di proiezione, in cui vengono recuperati i valori JSON specificati viene costruito un nuovo oggetto JSON, per ogni input passato ad esso.
 
 L'esempio seguente illustra una tipica query SELECT.
@@ -645,7 +424,7 @@ L'esempio seguente illustra una tipica query SELECT.
 	}]
 
 
-###Proprietà annidate
+### Proprietà annidate
 Nell'esempio seguente vengono proiettate due proprietà annidate `f.address.state` e `f.address.city`.
 
 **Query**
@@ -703,7 +482,7 @@ Verrà ora esaminato il ruolo di `$1`. La clausola `SELECT` deve creare un ogget
 	}]
 
 
-###Aliasing
+### Aliasing
 L'esempio precedente verrà ora esteso con l'aliasing esplicito dei valori. AS è la parola chiave usata per l'aliasing. Si noti che è facoltativo, come è possibile vedere durante la proiezione del secondo valore come `NameInfo`.
 
 Nel caso in cui una query avesse due proprietà con lo stesso nome, è necessario usare l'aliasing per rinominare una o entrambe le proprietà, in modo da evitare ambiguità nel risultato proiettato.
@@ -729,7 +508,7 @@ Nel caso in cui una query avesse due proprietà con lo stesso nome, è necessari
 	}]
 
 
-###Espressioni scalari
+### Espressioni scalari
 Oltre ai riferimenti di proprietà, la clausola SELECT supporta anche le espressioni scalari, ad esempio le costanti, le espressioni aritmetiche, le espressioni logiche e così via. Ad esempio, ecco una semplice query "Hello World".
 
 **Query**
@@ -775,7 +554,7 @@ Nell'esempio seguente, il risultato dell'espressione scalare è un valore boolea
 	]
 
 
-###Creazione di oggetti e matrici
+### Creazione di oggetti e matrici
 Un'altra funzione fondamentale del linguaggio SQL di DocumentDB è la creazione di matrici/oggetti. Nell'esempio precedente si è osservato che è stato creato un nuovo oggetto JSON. In modo analogo, è possibile creare matrici, come illustrato negli esempi seguenti.
 
 **Query**
@@ -800,7 +579,7 @@ Un'altra funzione fondamentale del linguaggio SQL di DocumentDB è la creazione 
 	  }
 	]
 
-###Parola chiave VALUE
+### Parola chiave VALUE
 La parola chiave **VALUE** consente di restituire un valore JSON. Ad esempio, la query mostrata di seguito restituisce l'espressione scalare `"Hello World"` invece di `{$1: "Hello World"}`.
 
 **Query**
@@ -880,7 +659,7 @@ L'operatore speciale (*) è supportato per proiettare il documento così com'è.
 	    "isRegistered": true
 	}]
 
-##Clausola ORDER BY
+## Clausola ORDER BY
 Come in SQL ANSI, è possibile includere una clausola Order By facoltativa durante l'esecuzione di query. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. Per un'analisi più approfondita di Order By, vedere l'[esercitazione su Order By in DocumentDB](documentdb-orderby.md).
 
 Ad esempio, la query seguente recupera le famiglie in ordine di nome della città di residenza.
@@ -925,8 +704,8 @@ La query seguente recupera le famiglie in ordine di data di creazione, archiviat
 	  }
 	]
 	
-##Concetti avanzati
-###Iterazione
+## Concetti avanzati
+### Iterazione
 Nel linguaggio SQL di DocumentDB è stato aggiunto un nuovo costrutto tramite la parola chiave **IN** per fornire supporto all'iterazione nelle matrici JSON. L'origine FROM fornisce supporto per l'iterazione. Esaminare l'esempio seguente:
 
 **Query**
@@ -1005,7 +784,7 @@ Può essere usato per filtrare ulteriormente ciascuna voce individuale della mat
 	  "givenName": "Lisa"
 	}]
 
-###Join
+### Join
 In un database relazionale, la necessità creare un join tra tabelle è molto importante. È il corollario logico della progettazione di schemi normalizzati. Al contrario, DocumentDB gestisce un modello dati denormalizzato di documenti senza schema. È l'equivalente logico di un "self-join".
 
 La sintassi supportata dal linguaggio è <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. In generale, restituisce un set di tuple **N** (tupla con valori **N**). Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias della raccolta sui rispettivi set. In altri termini, si tratta del prodotto incrociato completo dei set che partecipano al join.
@@ -1154,7 +933,7 @@ Nell'esempio successivo è presente un filtro aggiuntivo su `pet`. In tal modo v
 	]
 
 
-##Integrazione JavaScript
+## Integrazione JavaScript
 DocumentDB offre un modello di programmazione per l'esecuzione di logica dell'applicazione basata su JavaScript direttamente nelle raccolte in termini di stored procedure e trigger. Ciò consente quanto segue:
 
 -	Possibilità di eseguire query e operazioni CRUD transazionali con prestazioni elevate a fronte dei documenti in una raccolta grazie alla stretta integrazione del runtime JavaScript direttamente nel motore di database. 
@@ -1269,14 +1048,14 @@ Il linguaggio SQL di DocumentDB fornisce gli argomenti alle UDF per ogni documen
 
 Riepilogando, le UDF sono un ottimo strumento per eseguire una logica di business complessa come parte della query.
 
-###Valutazione degli operatori
+### Valutazione degli operatori
 Essendo un database JSON, DocumentDB fa un confronto con gli operatori JavaScript e la relativa semantica di valutazione. Benché DocumentDB provi a mantenere la semantica di JavaScript in termini di supporto JSON, la valutazione dell'operazione devia in alcune istanze.
 
 A differenza del linguaggio SQL tradizionale, nel linguaggio di query SQL di DocumentDB spesso i tipi di valori non sono noti fino al loro effettivo recupero dal database. Per poter eseguire le query in maniera efficiente, gran parte degli operatori ha rigorosi requisiti di tipi.
 
 Il linguaggio SQL di DocumentDB non esegue conversioni implicite, a differenza di JavaScript. Ad esempio, una query come `SELECT * FROM Person p WHERE p.Age = 21` corrisponde a documenti che contengono una proprietà Age il cui valore è 21. Qualsiasi altro documento la cui proprietà Age corrisponde alla stringa "21", o ad altre possibili variazioni come "021", "21.0", "0021", "00021" e così via, non verrà trovato. Questo comportamento è diverso da quanto avviene in JavaScript, che consente di eseguire implicitamente il cast dei valori di stringa al numero (in base all'operatore, ad esempio: ==). Questa scelta è fondamentale per la ricerca di indici corrispondenti nel linguaggio SQL di DocumentDB.
 
-##SQL con parametri
+## SQL con parametri
 DocumentDB supporta le query con parametri espressi con la consueta notazione @. SQL con parametri fornisce solide capacità di gestione ed escape dell'input utente, evitando l'esposizione accidentale di dati mediante attacchi SQL injection.
 
 Ad esempio, è possibile scrivere una query che accetta come parametri il cognome e lo stato di residenza e quindi eseguirla per diversi valori di cognome e stato di residenza in base all'input dell'utente.
@@ -1313,14 +1092,19 @@ DocumentDB supporta anche una serie di funzioni predefinite per le operazioni co
 <td>Funzioni stringa</td>	
 <td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, sinistra, lunghezza, inferiore, LTRIM, REPLACE, replica, inversa, destra, RTRIM, STARTSWITH, SUBSTRING e superiore</td>
 </tr>
+<tr>
 <td>Funzioni di matrice</td>	
 <td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH e ARRAY_SLICE</td>
+</tr>
+<tr>
+<td>Funzioni spaziali</td>	
+<td>ST_DISTANCE, ST_WITHIN, ST_ISVALID e ST_ISVALIDDETAILED</td>
 </tr>
 </table>
 
 Se attualmente si usa una funzione definita dall'utente (UDF) per cui è ora disponibile una funzione predefinita, è consigliabile usare la corrispondente funzione predefinita perché la sua esecuzione sarà più rapida ed efficiente.
 
-###Funzioni matematiche
+### Funzioni matematiche
 Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
 
 <table>
@@ -1436,7 +1220,7 @@ Ad esempio, è ora possibile eseguire query come le seguenti:
 
 La differenza principale tra le funzioni di DocumentDB confrontate con ANSI SQL è che sono progettate per interagire correttamente con dati senza schema e con schema misto. Se ad esempio si ha un documento in cui manca la proprietà Size oppure caratterizzato da un valore non numerico, come "unknown", il documento viene ignorato invece di restituire un errore.
 
-###Funzioni di controllo del tipo
+### Funzioni di controllo del tipo
 Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL. Le funzioni di controllo del tipo possono essere usate per determinare il tipo di proprietà all'interno dei documenti al volo, quando è variabile o sconosciuto. Di seguito è riportata una tabella di funzioni predefinite di controllo del tipo supportate.
 
 <table>
@@ -1489,79 +1273,27 @@ Usando queste funzioni, è ora possibile eseguire query come le seguenti:
 
     [true]
 
-###Funzioni stringa
+### Funzioni stringa
 Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di input e restituiscono una stringa, il valore numerico o booleano. Ecco una tabella di funzioni per stringhe:
 
-<table>
-<tr>
-  <td><strong>Utilizzo</strong></td>
-  <td><strong>Descrizione</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length">LUNGHEZZA (str_expr)</a></td>
-  <td>Restituisce il numero di caratteri dell'espressione stringa specificata.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat">CONCAT (str_expr, str_expr [, str_expr])</a></td>
-  <td>Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring">SUBSTRING (str_expr, num_expr, num_expr)</a></td>
-  <td>Restituisce parte di un'espressione stringa.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith">STARTSWITH (str_expr, str_expr)</a></td>
-  <td>Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith">ENDSWITH (str_expr, str_expr)</a></td>
-  <td>Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains">CONTAINS (str_expr, str_expr)</a></td>
-  <td>Restituisce un valore booleano che indica se la prima espressione stringa contiene il secondo.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of">INDEX_OF (str_expr, str_expr)</a></td>
-  <td>Restituisce la posizione iniziale della prima occorrenza della seconda stringa di espressione all'interno della prima espressione stringa specificata oppure -1 se la stringa non viene trovata.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left">LEFT (str_expr, num_expr)</a></td>
-  <td>Restituisce la parte sinistra di una stringa con il numero specificato di caratteri.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right">RIGHT (str_expr, num_expr)</a></td>
-  <td>Restituisce la parte destra di una stringa con il numero specificato di caratteri.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim">LTRIM (str_expr)</a></td>
-  <td>Restituisce un'espressione stringa dopo aver rimosso gli spazi vuoti iniziali.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim">RTRIM (str_expr)</a></td>
-  <td>Restituisce un'espressione stringa dopo la rimozione di tutti gli spazi vuoti finali.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower">INFERIORE (str_expr)</a></td>
-  <td>Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper">SUPERIORE (str_expr)</a></td>
-  <td>Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">SOSTITUISCI (str_expr, str_expr, str_expr)</a></td>
-  <td>Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate">REPLICATE (str_expr, num_expr)</a></td>
-  <td>Ripete un valore stringa in un numero di volte specificato.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse">REVERSE (str_expr)</a></td>
-  <td>Restituisce l'inverso di un valore stringa.</td>
-</tr>
-</table>
+Uso|Descrizione
+---|---
+[LUNGHEZZA (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|Restituisce il numero di caratteri dell'espressione stringa specificata
+[CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa.
+[SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring)|Restituisce parte di un'espressione stringa.
+[STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith)|Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.
+[ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith)|Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo.
+[CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains)|Restituisce un valore booleano che indica se la prima espressione stringa contiene il secondo.
+[INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of)|Restituisce la posizione iniziale della prima occorrenza della seconda stringa di espressione all'interno della prima espressione stringa specificata oppure -1 se la stringa non viene trovata.
+[LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left)|Restituisce la parte sinistra di una stringa con il numero specificato di caratteri.
+[RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right)|Restituisce la parte destra di una stringa con il numero specificato di caratteri.
+[LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim)|Restituisce un'espressione stringa dopo aver rimosso gli spazi vuoti iniziali.
+[RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim)|Restituisce un'espressione stringa dopo la rimozione di tutti gli spazi vuoti finali.
+[INFERIORE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower)|Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli.
+[SUPERIORE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper)|Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli.
+[SOSTITUISCI (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace)|Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa.
+[REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate)|Ripete un valore stringa in un numero di volte specificato.
+[REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse)|Restituisce l'inverso di un valore stringa.
 
 Usando queste funzioni, è ora possibile eseguire query come le seguenti. Ad esempio, è possibile restituire il nome della famiglia in lettere maiuscole come segue:
 
@@ -1611,31 +1343,15 @@ Le funzioni stringa possono essere usate anche nella clausola WHERE per filtrare
       "city": "NY"
     }]
 
-###Funzioni di matrice
+### Funzioni di matrice
 Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice. La tabella seguente include funzioni di matrice predefinite:
 
-<table>
-<tr>
-  <td><strong>Utilizzo</strong></td>
-  <td><strong>Descrizione</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length">ARRAY_LENGTH (arr_expr)</a></td>
-  <td>Restituisce il numero di elementi dell'espressione di matrice specificato.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat">ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
-  <td>Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains">ARRAY_CONTAINS (arr_expr, expr)</a></td>
-  <td>Restituisce un valore booleano che indica se la matrice contiene il valore specificato.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice">ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
-  <td>Restituisce parte di un'espressione di matrice.</td>
-</tr>
-</table>
+Uso|Descrizione
+---|---
+[ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|Restituisce il numero di elementi dell'espressione di matrice specificato.
+[ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice.
+[ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains)|Restituisce un valore booleano che indica se la matrice contiene il valore specificato.
+[ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice)|Restituisce parte di un'espressione di matrice.
 
 Le funzioni di matrice possono essere usate per manipolare le matrici in JSON. Ad esempio, la query seguente restituisce tutti i documenti in cui uno dei genitori è "Robin Wakefield".
 
@@ -1671,8 +1387,102 @@ L'esempio seguente usa ARRAY\_LENGTH per ottenere il numero di figli per ogni fa
 
 Viene eseguito il wrapping di funzioni predefinite e della grammatica SQL per DocumentDB. Verrà ora esaminato il funzionamento delle query LINQ e verrà illustrato il modo in cui interagiscono con la grammatica esaminata fino ad ora.
 
+### Funzioni spaziali
 
-##Da LINQ a SQL di DocumentDB
+DocumentDB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per ulteriori informazioni sul supporto geospaziale in DocumentDB, vedere [Uso dei dati geospaziali in Azure DocumentDB](documentdb-geospatial.md).
+
+<table>
+<tr>
+  <td><strong>Utilizzo</strong></td>
+  <td><strong>Descrizione</strong></td>
+</tr>
+<tr>
+  <td>ST_DISTANCE (point_expr, point_expr)</td>
+  <td>Restituisce la distanza tra le due espressioni punto GeoJSON.</td>
+</tr>
+<tr>
+  <td>ST_WITHIN (point_expr, polygon_expr)</td>
+  <td>Restituisce un'espressione booleana che indica se il punto GeoJSON specificato nel primo argomento è all'interno del poligono GeoJSON nel secondo argomento.</td>
+</tr>
+<tr>
+  <td>ST_ISVALID</td>
+  <td>Restituisce un valore booleano che indica se l'espressione punto o poligono GeoJSON specificata è valida.</td>
+</tr>
+<tr>
+  <td>ST_ISVALIDDETAILED</td>
+  <td>Restituisce un valore JSON che contiene un valore booleano se l'espressione punto o poligono GeoJSON specificato è valida e, se non è valida, anche il motivo come valore stringa.</td>
+</tr>
+</table>
+
+Le funzioni spaziali possono essere usate per eseguire query di prossimità rispetto ai dati spaziali. Ad esempio, ecco una query che restituisce tutti i documenti della famiglia entro 30 km dalla posizione specificata utilizzando la funzione predefinita ST\_DISTANCE.
+
+**Query**
+
+    SELECT f.id 
+    FROM Families f 
+    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+
+**Risultati**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
+Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per ulteriori informazioni sugli indici spaziali, vedere la sezione di seguito. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire le query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
+
+ST\_WITHIN può essere utilizzato per controllare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente utilizzati per rappresentare limiti come codici postali, limiti di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "within" verranno servite in modo efficiente tramite l'indice.
+
+Gli argomenti del poligono in ST\_WITHIN possono contenere solo un anello singolo, ovvero i poligoni non devono contenere aree vuote. Controllare i [limiti DocumentDB](documentdb-limits.md)per il numero massimo di punti consentiti in un poligono per una query ST\_WITHIN.
+
+**Query**
+
+    SELECT * 
+    FROM Families f 
+    WHERE ST_WITHIN(f.location, {
+    	'type':'Polygon', 
+    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+    })
+
+**Risultati**
+
+    [{
+      "id": "WakefieldFamily",
+    }]
+    
+>[AZURE.NOTE]Simile al funzionamento dei tipi non corrispondenti come nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutata per **non definito** e il documento valutato deve essere ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug per il tipo spatail non valido.
+
+ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la validità di un oggetto spaziale. Ad esempio, la query seguente controlla la validità di un punto con un intervallo di latitudine fuori scala (-132,8). ST\_ISVALID restituisce solo un valore booleano e ST\_ISVALIDDETAILED restituisce il valore booleano e una stringa contenente il motivo per cui è considerato non valido.
+
+**Query**
+
+    SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
+
+**Risultati**
+
+    [{
+      "$1": false
+    }]
+
+Queste funzioni possono inoltre essere utilizzate per convalidare i poligoni. Ad esempio, qui utilizziamo ST\_ISVALIDDETAILED per convalidare un poligono che non è chiuso.
+
+**Query**
+
+    SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
+    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+    	]]})
+
+**Risultati**
+
+    [{
+       "$1": { 
+      	  "valid": false, 
+      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+      	}
+    }]
+    
+Viene eseguito il wrapping di funzioni predefinite e della grammatica SQL per DocumentDB. Verrà ora esaminato il funzionamento delle query LINQ e verrà illustrato il modo in cui interagiscono con la grammatica esaminata fino ad ora.
+
+## Da LINQ a SQL di DocumentDB
 LINQ è un modello di programmazione .NET che esprime il calcolo come query su flussi di oggetti. DocumentDB fornisce una libreria lato client che si interfaccia con LINQ agevolando una conversione tra oggetti JSON e .NET e un mapping da un sottoinsieme di query LINQ alle query di DocumentDB.
 
 Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ usando DocumentDB. Con il client di DocumentDB, gli sviluppatori possono creare un oggetto **IQueryable** che indirizza la query al provider di query di DocumentDB, il quale a sua volta traduce la query LINQ in una query di DocumentDB. Questa viene quindi passata al server di DocumentDB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
@@ -1681,7 +1491,7 @@ Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ
  
 
 
-###Mapping .NET e JSON
+### Mapping .NET e JSON
 Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio seguente. L'oggetto Family creato viene mappato al documento JSON, come illustrato di seguito. Viceversa, il documento JSON viene mappato nuovamente a un oggetto .NET.
 
 **Classe C#**
@@ -1763,7 +1573,7 @@ Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo de
 
 
 
-###Traduzione LINQ to SQL
+### Traduzione LINQ in SQL
 Il provider di query di DocumentDB esegue con il massimo impegno un mapping da una query LINQ in una query SQL di DocumentDB. Nella descrizione seguente si presuppone che il lettore abbia una certa familiarità con LINQ.
 
 In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JSON: tipi numerici, booleani, stringa e null. Sono supportati solo questi tipi JSON. Sono supportate le seguenti espressioni scalari.
@@ -1793,10 +1603,10 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-###Operatori di query
+### Operatori di query
 Di seguito sono riportati alcuni esempi che illustrano in che modo gli operatori di query LINQ standard vengono tradotti nelle query di DocumentDB.
 
-####Operatore Select
+#### Operatore Select
 La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
 **Espressione lambda LINQ**
@@ -1839,7 +1649,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
 
 
-####Operatore SelectMany
+#### Operatore SelectMany
 La sintassi è `input.SelectMany(x => f(x))`, dove `f` è un'espressione scalare che restituisce un tipo di raccolta.
 
 **Espressione lambda LINQ**
@@ -1853,7 +1663,7 @@ La sintassi è `input.SelectMany(x => f(x))`, dove `f` è un'espressione scalare
 
 
 
-####Operatore Where
+#### Operatore Where
 La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che restituisce un valore booleano.
 
 **Espressione lambda LINQ**
@@ -1882,10 +1692,10 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
 	AND f.children[0].grade < 3
 
 
-###Query composite
+### Query composite
 Gli operatori sopra riportati possono essere composti in modo da formare query più potenti. Poiché DocumentDB supporta raccolte nidificate, la composizione può essere concatenata o annidata.
 
-####Concatenazione 
+#### Concatenazione 
 
 La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concatenata può iniziare con una query `SelectMany` facoltativa, seguita da più operatori `Select` o `Where`.
 
@@ -1942,7 +1752,7 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concaten
 
 
 
-####Annidamento
+#### Annidamento
 
 La sintassi è `input.SelectMany(x=>x.Q())` dove Q è un operatore `Select`, `SelectMany` o `Where`.
 
@@ -1987,11 +1797,12 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 	WHERE c.familyName = f.parents[0].familyName
 
 
-##Esecuzione di query
+## Esecuzione di query
 DocumentDB espone risorse tramite un'API REST che può essere chiamata da qualsiasi linguaggio in grado di effettuare richieste HTTP/HTTPS. In DocumentDB sono inoltre disponibili librerie di programmazione per diversi linguaggi comuni, come NET, Node.js, JavaScript e Python. L'API REST e le varie librerie supportano tutte l'esecuzione di query tramite SQL. .NET SDK supporta l'esecuzione di query LINQ oltre a SQL.
 
 Negli esempi seguenti viene illustrato come creare una query e inviarla a fronte di un account di database di DocumentDB.
-###API REST
+
+### API REST
 DocumentDB offre un modello di programmazione aperto RESTful su HTTP. È possibile effettuare il provisioning degli account di database usando una sottoscrizione di Azure. Il modello di risorse di DocumentDB è costituito da un set di risorse disponibili in un account di database e indirizzabili singolarmente tramite un URI logico e stabile. Un insieme di risorse viene definito feed nel presente documento. Un account di database è costituito da un set di database, ognuno dei quali include più raccolte, che possono contenere documenti, UDF e altri tipi di risorse.
 
 Il modello di interazione di base con queste risorse usa i verbi HTTP GET, PUT, POST e DELETE con la relativa interpretazione standard. Il verbo POST viene usato per creare una nuova risorsa, per eseguire una stored procedure o per inviare una query di DocumentDB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
@@ -2125,7 +1936,7 @@ Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x
 
 Se i criteri di indicizzazione configurati sulla raccolta non possono supportare la query specificata, il server di DocumentDB restituisce il codice di errore 400 (Richiesta non valida). Questo codice viene restituito per le query di intervallo per ricerche hash (uguaglianza) e per i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
 
-###C# (.NET) SDK
+### C# (.NET) SDK
 .NET SDK supporta l'esecuzione di query LINQ ed SQL. Nell'esempio seguente viene illustrato come eseguire la semplice query di filtro introdotta in precedenza in questo documento.
 
 
@@ -2219,7 +2030,7 @@ Gli sviluppatori possono anche controllare esplicitamente il paging creando un o
 
 Per altri esempi contenenti query, vedere gli [esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net).
 
-###API lato server JavaScript 
+### API lato server JavaScript 
 DocumentDB offre un modello di programmazione per l'esecuzione di logica dell'applicazione basata su JavaScript direttamente nelle raccolte usando stored procedure e trigger. La logica JavaScript registrata a livello di raccolta può quindi rilasciare operazioni sui documenti della raccolta specifica. Viene quindi eseguito il wrapping di queste operazioni nelle transazioni ACID Ambient.
 
 L'esempio seguente illustra come usare queryDocuments nell'API del server JavaScript per eseguire query dall'interno di stored procedure e trigger.
@@ -2277,4 +2088,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

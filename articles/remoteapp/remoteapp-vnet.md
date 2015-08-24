@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/02/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # Convalidare la rete virtuale di Azure da usare con Azure RemoteApp
 
-Prima di utilizzare una rete virtuale di Azure con Azure RemoteApp, è possibile convalidare la rete virtuale. Ciò consente di evitare problemi con la connettività di Azure RemoteApp.
+Prima di utilizzare una rete virtuale di Azure con Azure RemoteApp, è possibile convalidare la rete virtuale. Consente di evitare problemi con la connettività.
 
 Per convalidare la rete virtuale di Azure, procedere come segue:
 
@@ -37,4 +37,4 @@ Per ulteriori informazioni sul flusso di lavoro della raccolta ibrida end-to-end
 - [Distribuire la raccolta di Azure RemoteApp alla rete virtuale di Azure (con supporto per ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

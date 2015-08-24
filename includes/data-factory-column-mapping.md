@@ -34,14 +34,14 @@ In questo esempio, la tabella di input ha una struttura che punta a una tabella 
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1",
+	            "interval": 1
 	        },
 			"external": true,
 			"policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",
 	                "retryTimeout": "00:10:00",
-	                "maximumRetry": "3"
+	                "maximumRetry": 3
 	            }
 			}
 	    }
@@ -50,7 +50,7 @@ In questo esempio, la tabella di input ha una struttura che punta a una tabella 
 In questo esempio, la tabella di output ha una struttura che punta a un BLOB in un'archiviazione BLOB di Azure.
 
 	{
-	    "name": " AzureBlobOutput",
+	    "name": "AzureBlobOutput",
 	    "properties":
 	    {
 	         "structure": 
@@ -83,9 +83,9 @@ Il JSON per l'attività è illustrato di seguito. Le colonne dell'origine vengon
 	{
 	    "name": "CopyActivity",
 	    "description": "description", 
-	    "type": "CopyActivity",
-	    "inputs":  [ { "name": " AzureSQLInput"  } ],
-	    "outputs":  [ { "name": " AzureBlobOutput" } ],
+	    "type": "Copy",
+	    "inputs":  [ { "name": "AzureSQLInput"  } ],
+	    "outputs":  [ { "name": "AzureBlobOutput" } ],
 	    "typeProperties":    {
 	        "source":
 	        {
@@ -95,7 +95,7 @@ Il JSON per l'attività è illustrato di seguito. Le colonne dell'origine vengon
 	        {
 	            "type": "BlobSink"
 	        },
-	        "Translator": 
+	        "translator": 
 	        {
 	            "type": "TabularTranslator",
 	            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
@@ -149,4 +149,4 @@ In questo caso, i risultati della query vengono prima mappati alle colonne speci
 
 ![Flusso del mapping di colonne-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

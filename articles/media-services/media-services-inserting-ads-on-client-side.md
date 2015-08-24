@@ -7,16 +7,14 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
-
 
 
 #Inserimento di annunci sul lato client
@@ -277,12 +275,10 @@ Un file MAST permette di specificare i trigger che definiscono il momento in cui
 	    <trigger id="preroll" description="preroll every item"  >
 	      <startConditions>
 	        <condition type="event" name="OnItemStart" />
-
 	      </startConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
-
 	        </source>
 	      </sources>
 	    </trigger>
@@ -290,17 +286,14 @@ Un file MAST permette di specificare i trigger che definiscono il momento in cui
 	    <trigger id="midroll" description="midroll at 15 sec."  >
 	      <startConditions>
 	        <condition type="property" name="Position" value="00:00:15.0" operator="GEQ" />
-
 	      </startConditions>
 	      <endConditions>
 	        <condition type="event" name="OnItemEnd"/>
-
 	        <!--This 'resets' the trigger for the next clip-->
 	      </endConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
-
 	        </source>
 	      </sources>
 	    </trigger>
@@ -308,12 +301,10 @@ Un file MAST permette di specificare i trigger che definiscono il momento in cui
 	    <trigger id="postroll" description="postroll"  >
 	      <startConditions>
 	        <condition type="event" name="OnItemEnd"/>
-
 	      </startConditions>
 	      <sources>
 	        <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
 	          <sources />
-
 	        </source>
 	      </sources>
 	    </trigger>
@@ -337,12 +328,10 @@ L'elemento **<trigger>** contiene un elemento **<startConditions>** che specific
 	<trigger id="postroll" description="postroll"  >
       <startConditions>
         <condition/>
-
       </startConditions>
       <sources>
         <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
           <sources />
-
         </source>
       </sources>
     </trigger>
@@ -398,14 +387,12 @@ Questo esempio usa AdSchedulerPlugin per definire quando visualizzare un annunci
 	                <ads:MidrollAdvertisement Time="00:00:05">
 	                    <ads:MidrollAdvertisement.Source>
 	                        <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_adpod.xml" Type="vast"/>
-
 	                    </ads:MidrollAdvertisement.Source>
 	                </ads:MidrollAdvertisement>
 	
 	            </ads:AdSchedulerPlugin.Advertisements>
 	        </ads:AdSchedulerPlugin>
 	        <ads:AdHandlerPlugin/>
-
 	    </mmppf:MediaPlayer.Plugins>
 	</mmppf:MediaPlayer>
 
@@ -423,28 +410,24 @@ Questo esempio usa AdSchedulerPlugin. Vengono pianificati tre annunci, un annunc
 	                        <ads:PrerollAdvertisement>
 	                            <ads:PrerollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
-
 	                            </ads:PrerollAdvertisement.Source>
 	                        </ads:PrerollAdvertisement>
 	
 	                        <ads:MidrollAdvertisement Time="00:00:15">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
-
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	
 	                        <ads:PostrollAdvertisement>
 	                            <ads:PostrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" Type="vast"/>
-
 	                            </ads:PostrollAdvertisement.Source>
 	                        </ads:PostrollAdvertisement>
 	
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -456,9 +439,7 @@ Questo esempio usa FreeWheelPlugin, che specifica un attributo Source che a sua 
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:FreeWheelPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/freewheel.xml"/>
-
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -469,9 +450,7 @@ Questo esempio usa MastSchedulerPlugin, che consente di usare un file MAST. L'at
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:MastSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/mast.xml" />
-
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -480,7 +459,6 @@ Questo esempio usa MastSchedulerPlugin, che consente di usare un file MAST. L'at
 Questo esempio interagisce a livello di codice con MediaPlayer. Il file ProgrammaticAdPage.xaml crea un'istanza di MediaPlayer:
 
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
-
 
 Il file ProgrammaticAdPage.xaml.cs crea un oggetto AdHandlerPlugin, aggiunge un elemento TimelineMarker per specificare quando un annuncio deve essere visualizzato, quindi aggiunge un gestore per l'evento MarkerReached che carica un oggetto RemoteAdSource specificando un URI a un file VAST, quindi riproduce l'annuncio.
 	
@@ -526,7 +504,6 @@ Questo esempio usa AdSchedulerPlugin per pianificare un annuncio midroll specifi
 	                                <ads:AdSource Type="clip">
 	                                    <ads:AdSource.Payload>
 	                                        <ads:ClipAdPayload MediaSource="http://smf.blob.core.windows.net/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv" MimeType="video/x-ms-wmv" />
-
 	                                    </ads:AdSource.Payload>
 	                                </ads:AdSource>
 	                            </ads:MidrollAdvertisement.Source>
@@ -535,7 +512,6 @@ Questo esempio usa AdSchedulerPlugin per pianificare un annuncio midroll specifi
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -551,14 +527,12 @@ L'esempio illustra come usare AdSchedulerPlugin per pianificare un annuncio line
 	                        <ads:MidrollAdvertisement Time="00:00:05">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear_companions.xml" Type="vast"/>
-
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -574,14 +548,12 @@ Questo esempio usa l'elemento AdSchedulerPlugin per pianificare un annuncio line
 	                        <ads:MidrollAdvertisement Time="00:00:05">
 	                            <ads:MidrollAdvertisement.Source>
 	                                <ads:RemoteAdSource Uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear_nonlinear.xml" Type="vast"/>
-
 	                            </ads:MidrollAdvertisement.Source>
 	                        </ads:MidrollAdvertisement>
 	                        
 	                    </ads:AdSchedulerPlugin.Advertisements>
 	                </ads:AdSchedulerPlugin>
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -592,9 +564,7 @@ Questo esempio usa l'elemento VmapSchedulerPlugin per pianificare annunci usando
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
 	                <ads:VmapSchedulerPlugin Source="http://smf.blob.core.windows.net/samples/win8/ads/vmap.xml"/>
-
 	                <ads:AdHandlerPlugin/>
-
 	            </mmppf:MediaPlayer.Plugins>
 	        </mmppf:MediaPlayer>
 
@@ -834,4 +804,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md) [Introduzione al Media Player Framework per iOS di Azure](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

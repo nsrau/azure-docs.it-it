@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso dell'eliminazione temporanea in Servizi mobili (Windows Store) | Dev Center di Servizi mobili" 
+	pageTitle="Uso dell'eliminazione temporanea in Servizi mobili (Windows Store) | Microsoft Azure" 
 	description="Informazioni sull'uso della funzionalità di eliminazione temporanea di Servizi mobili di Azure nell'applicazione" 
 	documentationCenter="" 
 	authors="wesmc7777" 
@@ -163,4 +163,4 @@ Per altre informazioni sui processi pianificati con il back-end JavaScript di Se
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

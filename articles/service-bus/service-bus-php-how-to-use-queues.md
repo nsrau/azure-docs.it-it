@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare le code del bus di servizio (PHP) - Azure" 
+	pageTitle="Come usare le code del bus di servizio (PHP) | Microsoft Azure" 
 	description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -213,4 +213,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

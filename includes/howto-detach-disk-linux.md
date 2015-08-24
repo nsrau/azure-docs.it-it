@@ -1,22 +1,19 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
 
+Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio. Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
-When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
+> [AZURE.NOTE]Una macchina virtuale in Azure usa diversi tipi di dischi, ad esempio un disco del sistema operativo, un disco temporaneo locale e un disco dati facoltativo. Per archiviare dati per una macchina virtuale sono consigliati i dischi dati. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../../virtual-machines-disks-vhds.md). Non è possibile scollegare un disco del sistema operativo, a meno che non venga eliminata anche la macchina virtuale.
 
-> [AZURE.NOTE] A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details, see [About Disks and VHDs for Virtual Machines](../../virtual-machines-disks-vhds.md). It's not possible to detach an operating system disk unless you also delete the virtual machine.
+## Trovare il disco
 
-## Find the disk
+Prima di poter scollegare un disco da una macchina virtuale, è necessario conoscere il numero LUN, che è un identificatore per il disco da scollegare. A tale scopo, seguire questi passaggi:
 
-Before you can detach a disk from a virtual machine, you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
+1. 	Aprire CLI di Azure per Mac, Linux e Windows e connettersi alla sottoscrizione di Azure. Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../articles/xplat-cli-connect.md).
 
-1. 	Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
-    to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
-
-2.  Make sure you are in Azure Service Management mode, which is the default by typing `azure config
+2.  Assicurarsi di essere in modalità di Gestione servizi di Azure, ovvero l'impostazione predefinita digitando`azure config
  	mode asm`.
 
-3. 	Find out which disks are attached to your virtual machine by using `azure vm disk list
-	<virtual-machine-name>` as follows:
+3. 	Scopri i dischi collegati alla macchina virtuale utilizzando`azure vm disk list
+	<virtual-machine-name>`come indicato di seguito:
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -30,15 +27,15 @@ Before you can detach a disk from a virtual machine, you need to find out the LU
 		data:    0    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
 		info:    vm disk list command OK
 
-4. 	Note the LUN or the **logical unit number** for the disk that you want to detach.
+4. 	Si noti il LUN o il **numero di unità logica**per il disco che si desidera scollegare.
 
 
-## Detach the disk
+## Rimuovere il disco
 
-After you find the LUN number of the disk, you're ready to detach it:
+Dopo aver individuato il numero LUN del disco, si è pronti per scollegarlo:
 
-1. 	Detach the selected disk from the virtual machine by running the command `azure vm disk detach
- 	<virtual-machine-name> <LUN>` like this:
+1. 	Scollegare il disco selezionato dalla macchina virtuale eseguendo il comando`azure vm disk detach
+ 	<virtual-machine-name> <LUN>`come segue:
 
 		$azure vm disk detach ubuntuVMasm 0
 		info:    Executing command vm disk detach
@@ -46,7 +43,7 @@ After you find the LUN number of the disk, you're ready to detach it:
 		+ Removing Data-Disk
 		info:    vm disk detach command OK
 
-2. 	You can check if the disk got detached by running this command:
+2. 	È possibile controllare se il disco è stato disconnesso eseguendo questo comando:
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -59,4 +56,6 @@ After you find the LUN number of the disk, you're ready to detach it:
 		data:    1    10        test.VHD
 		info:    vm disk list command OK
 
-The detached disk remains in storage but is no longer attached to a virtual machine.
+Il disco scollegato rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
+
+<!---HONumber=August15_HO7-->

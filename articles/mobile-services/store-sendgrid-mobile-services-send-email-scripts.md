@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Inviare posta elettronica usando SendGrid - Servizi mobili di Azure" 
+	pageTitle="Invio di posta elettronica utilizzando SendGrid | Microsoft Azure" 
 	description="Informazioni su come usare il servizio SendGrid per inviare messaggi di posta elettronica dall'app Servizi mobili di Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="Erikre" 
 	manager="sendgrid" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/31/2015" 
 	ms.author="Erikre"/>
-
 
 
 # Invio di posta elettronica da Servizi mobili con SendGrid
@@ -138,4 +136,4 @@ Dopo avere sperimentato quanto sia semplice utilizzare il servizio di posta elet
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

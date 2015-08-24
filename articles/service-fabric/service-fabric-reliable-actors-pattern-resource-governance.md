@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modello di progettazione della governance delle risorse di Reliable Actors"
-   description="Modello di progettazione sull'uso di Reliable Actors per modellare un'applicazione su cui sia possibile applicare la scalabilità, ma che usi risorse vincolate"
+   pageTitle="Azure Service Fabric Actors - Modello di progettazione Governance delle risorse"
+   description="Modello di progettazione sull'uso di Service Fabric Actors per modellare un'applicazione su cui sia possibile applicare la scalabilità ma che usi risorse vincolate"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Modello di progettazione di Reliable Actors: governance delle risorse
@@ -417,4 +417,4 @@ Questo modello è molto comune negli scenari in cui gli sviluppatori dispongono 
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

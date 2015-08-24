@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione all'insieme di credenziali delle chiavi di Azure | Panoramica"
+	pageTitle="Introduzione all'insieme di credenziali delle chiavi di Azure | Microsoft Azure"
 	description="Usare questa esercitazione per imparare a eseguire facilmente le attività iniziali dell'insieme di credenziali delle chiavi di Azure per creare un contenitore finalizzato in Azure, in cui archiviare e gestire chiavi e segreti di crittografia in Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -248,4 +248,4 @@ Per un elenco di cmdlet di Windows PowerShell per l'insieme di credenziali chiav
 Per riferimenti alla programmazione, vedere [Insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903625.aspx) nella libreria della documentazione di Microsoft Azure su MSDN.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

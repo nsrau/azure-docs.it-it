@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione - Servizi mobili" 
+	pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione | Microsoft Azure" 
 	description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

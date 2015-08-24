@@ -54,26 +54,29 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 5. Digitare o selezionare i valori seguenti:
 
-	<table border="1">
-<tr><td><strong>Proprietà</strong></td><td><strong>Descrizione</strong></td></tr>
-<tr><td>Data Source Name</td><td>Assegnare un nome all'origine dati</td></tr>
-<tr><td>Host</td><td>Immettere <HDInsightClusterName>.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net</td></tr>
-<tr><td>Port</td><td>Utilizzare <strong>443</strong>. Questa porta è passata da 563 a 443.</td></tr>
-<tr><td>Database</td><td>Utilizzare <strong>Default</strong>.</td></tr>
-<tr><td>Hive Server Type</td><td>Selezionare <strong>Hive Server 2</strong></td></tr>
-<tr><td>Mechanism</td><td>Selezionare <strong>Azure HDInsight Service</strong></td></tr>
-<tr><td>HTTP Path</td><td>Lasciare vuoto.</td></tr>
-<tr><td>User Name</td><td>Immettere il nome utente del cluster HDInsight. Si tratta del nome utente creato durante il processo di provisioning del cluster. Se è stata usata l'opzione di creazione rapida, il nome utente predefinito è <strong>admin</strong>.</td></tr>
-<tr><td>Password</td><td>Immettere la password utente del cluster HDInsight.</td></tr>
-</table>Esistono alcuni importanti parametri a cui prestare attenzione quando si fa clic su **Advanced Options**:
+Proprietà|Descrizione
+---|---
+Data Source Name|Assegnare un nome all'origine dati
+Host|Immettere <HDInsightClusterName>.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net
+Porta|Utilizzare <strong>443</strong>. Questa porta è passata da 563 a 443.
+Database|Usare l'<strong>impostazione predefinita</strong>.
+Hive Server Type|Selezionare <strong>Hive Server 2</strong>
+Mechanism|Selezionare <strong>Azure HDInsight Service</strong>
+HTTP Path|Lasciare vuoto.
+User Name|Immettere il nome utente del cluster HDInsight. Si tratta del nome utente creato durante il processo di provisioning del cluster. Se è stata usata l'opzione di creazione rapida, il nome utente predefinito è <strong>admin</strong>.
+Password|Immettere la password utente del cluster HDInsight.
+</table>
 
-	<table border="1">
-<tr><td>Use Native Query</td><td>Quando viene selezionato, il driver ODBC NON cercherà di convertire TSQL in HiveQL. Deve essere usato solo se si è assolutamente certi di inviare istruzioni HiveQL pure. Quando ci si connette al database SQL Server o SQL di Azure, è consigliabile lasciarlo deselezionato.</td></tr>
-<tr><td>Rows fetched per block</td><td>Quando si recupera una grande quantità di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali.</td></tr>
-<tr><td>Default string column length, <br/>
-		Binary column length,  <br/>
-		Decimal column scale</td><td>Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. In questo caso verranno restituite informazioni non corrette a causa della perdita di precisione e/o ai troncamenti.</td></tr>
-</table>![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
+Esistono alcuni importanti parametri a cui prestare attenzione quando si fa clic su **Advanced Options**:
+
+Parametro|Descrizione
+---|---
+Use Native Query|Quando viene selezionato, il driver ODBC NON cercherà di convertire TSQL in HiveQL. Deve essere usato solo se si è assolutamente certi di inviare istruzioni HiveQL pure. Quando ci si connette al database SQL Server o SQL di Azure, è consigliabile lasciarlo deselezionato.
+Rows fetched per block|Quando si recupera una grande quantità di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali.
+Default string column length, Binary column length, Decimal column scale|Le lunghezze e le precisioni del tipo di dati potrebbero avere effetto sulla visualizzazione dei dati. In questo caso verranno restituite informazioni non corrette a causa della perdita di precisione e/o ai troncamenti.
+
+
+	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. Fare clic su **Test** per testare l'origine dati. Quando l'origine dati è configurata correttamente, viene visualizzato *TESTS COMPLETED SUCCESSFULLY!*
 7. Fare clic su **OK** per chiudere la finestra di dialogo Test. La nuova origine dati sarà ora elencata in **Amministrazione origine dati ODBC**.
@@ -127,4 +130,4 @@ In questo articolo è stato illustrato come usare Microsoft Hive ODBC Driver per
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Windows Store) | Mobile Dev Center" 
+	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Windows Store) | Microsoft Azure" 
 	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -216,4 +216,4 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [dashboard di Windows Dev Center]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

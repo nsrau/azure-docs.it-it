@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere notifiche push all'app Android per Xamarin | Servizi mobili di Azure" 
+	pageTitle="Aggiungere notifiche push all'app Android per Xamarin | Microsoft Azure" 
 	description="Informazioni su come configurare le notifiche push con Google Cloud Messaging per le app Xamarin.Android mediante Servizi mobili di Azure e Hub di notifica di Azure." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -86,4 +86,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

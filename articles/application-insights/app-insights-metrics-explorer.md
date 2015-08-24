@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -33,12 +33,12 @@ Le linee tratteggiate indicano il valore della metrica di una settimana preceden
 
 ## Intervallo di tempo
 
-È possibile modificare l'intervallo di tempo coperto dalla maggior parte dei grafici o delle griglie in tutti i pannelli.
+È possibile modificare l'intervallo di tempo coperto dai grafici o dalle griglie in tutti i pannelli.
 
 ![Aprire il pannello Panoramica dell'applicazione nel portale di Azure](./media/app-insights-metrics-explorer/03-range.png)
 
 
-Se si è in attesa di alcuni dati non ancora visualizzati, fare clic su Aggiorna. I grafici non vengono aggiornati automaticamente. In modalità di rilascio è possibile che ai dati sia necessario un po' di tempo per superare la pipeline di analisi in un grafico.
+Se si è in attesa di alcuni dati non ancora visualizzati, fare clic su Aggiorna. I grafici si aggiornano a intervalli, ma gli intervalli sono più lunghi per gli intervalli di tempo maggiori. In modalità di rilascio è possibile che ai dati sia necessario un po' di tempo per superare la pipeline di analisi in un grafico.
 
 Nel pannello Panoramica eseguire il trascinamento su una parte del grafico per ingrandirla in un nuovo grafico.
 
@@ -201,4 +201,4 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

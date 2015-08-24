@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando | Panoramica"
+	pageTitle="Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando | Microsoft Azure"
 	description="Usare questa esercitazione per automatizzare le attività comuni nell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando"
 	services="key-vault"
 	documentationCenter=""
@@ -252,4 +252,4 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API REST dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Informazioni di riferimento sull'API client C# dell'insieme di credenziali chiave](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

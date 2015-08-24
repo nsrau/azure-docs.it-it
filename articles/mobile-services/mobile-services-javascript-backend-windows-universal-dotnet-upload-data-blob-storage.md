@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Caricare immagini nell'archiviazione BLOB di Azure da un'app Windows universale | Servizi mobili di Azure" 
+	pageTitle="Caricare immagini nell'archiviazione BLOB di Azure da un'app Windows universale | Microsoft Azure" 
 	description="Informazioni su come utilizzare un servizio mobile back-end di JavaScript per caricare immagini sull’archiviazione BLOB di Azure e accedere alle immagini dalle propria app Windows universale." 
 	services="mobile-services,storage" 
 	documentationCenter="windows" 
@@ -87,4 +87,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

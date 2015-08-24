@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Avviso di ritiro della famiglia di sistemi operativi guest 1 | Azure" 
+   pageTitle="Avviso di ritiro della famiglia di sistemi operativi guest 1 | Microsoft Azure" 
    description="Fornisce informazioni sulla data in cui è stato effettuato il ritiro della famiglia di sistemi operativi guest 1 e su come stabilire se si è interessati" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -78,4 +78,4 @@ Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di siste
 ## Supporto esteso per la famiglia di sistemi operativi guest 1 terminato il 3 novembre 2014
 I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più supportati. Disattivare la migrazione della famiglia 1 appena possibile per evitare l'interruzione del servizio.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

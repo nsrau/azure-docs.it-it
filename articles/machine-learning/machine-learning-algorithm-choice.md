@@ -1,254 +1,213 @@
-<properties 
-	pageTitle="Come scegliere gli algoritmi di Machine Learning | Microsoft Azure" 
-	description="Come scegliere gli algoritmi di Azure Machine Learning per l'apprendimento supervisionato e non supervisionato negli esperimenti di clustering, classificazione o regressione." 
+<properties
+	pageTitle="Come scegliere gli algoritmi di Machine Learning | Microsoft Azure"
+	description="Come scegliere gli algoritmi di Azure Machine Learning per l'apprendimento supervisionato e non supervisionato negli esperimenti di clustering, classificazione o regressione."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
+	editor="cgronlun"
+    tags=""/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
-	ms.author="bradsev;garye" />
+<tags
+	ms.service="machine-learning"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="08/10/2015"
+	ms.author="brohrer;garye" />
 
+# Come scegliere gli algoritmi di Microsoft Azure Machine Learning
 
-# Come scegliere gli algoritmi di Azure Machine Learning per il clustering, la classificazione o la regressione
+La risposta alla domanda "Quale algoritmo di Machine Learning devo utilizzare" è sempre "Dipende". Dipende dalla dimensione, dalla qualità e dalla natura dei dati. Dipende da ciò che si desidera fare con la risposta. Dipende da come i calcoli dell'algoritmo sono stati convertiti in istruzioni per il computer in uso. E dipende dal tempo a disposizione. Nemmeno gli scienziati dei dati più esperti possono stabilire quale algoritmo funzionerà meglio prima di provarlo.
 
-Questo argomento illustra alcuni aspetti di base sull'approccio dell'apprendimento automatico, sottolineando, in particolare, come scegliere gli algoritmi appropriati di Machine Learning per analizzare un determinato tipo di dati, rispondere a una domanda posta, completare un'attività specificata o fornire i criteri per prendere una decisione.
+## Foglio informativo sugli algoritmi di Machine Learning
 
-> [AZURE.TIP]Il [Foglio informativo sugli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-cheat-sheet.md) è un utile riferimento a complemento di questo articolo.
+Il **foglio illustrativo sugli algoritmi di Microsoft Azure Machine Learning** aiuta a scegliere l'algoritmo di Machine Learning appropriato da usare per le proprie soluzioni di analisi predittiva nella libreria di algoritmi di Microsoft Azure Machine Learning. In questo articolo viene illustrato il suo utilizzo.
 
-Quando si utilizza l'apprendimento automatico per eseguire un'analisi, in genere ci si pone due domande:
+> [AZURE.NOTE]Per scaricare il foglio informativo e proseguire con questo articolo, passare a [Foglio informativo sugli algoritmi di Machine Learning per Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
 
-* Qual è il tipo di analisi necessario per completare gli obiettivi con i dati disponibili? 
-* Qual è l'algoritmo più appropriato o il modello da utilizzare per eseguire l'analisi?
+Questo foglio informativo ha destinatari molto specifici: un scienziato dei dati iniziali con Machine Learning di livello universitario , che tenta di scegliere un algoritmo per iniziare con Azure Machine Learning Studio. Ciò significa che fa alcune generalizzazioni e semplificazioni eccessive, ma indicherà una direzione sicura. Significa inoltre che esistono molti algoritmi non elencati qui. Mentre Azure Machine Learning cresce per includere un set più completo dei metodi disponibili, essi verranno aggiunti.
 
-Vengono illustrati tre tipi di analisi di Machine Learning e vengono confrontati i rispettivi casi di utilizzo:
+Queste indicazioni sono commenti e suggerimenti compilati da parte di scienziati dei dati ed esperti di Machine Learning. Non abbiamo raggiunto un accordo su ogni punto, ma ho tentato di armonizzazione le nostre opinioni in un consenso approssimativo. La maggior parte delle indicazioni di disaccordo iniziano con "Dipende..."
 
-* **Clustering**
-* **Classificazione** 
-* **Regressione** 
+### Come utilizzare il foglio informativo
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;path label&gt;* utilizzare *&lt;algorithm&gt;*". Ad esempio, "Per *velocità* utilizzare *regressione logistica a due classi*". A volte è possibile applicare più di una branca. A volte nessuno di essi sarà la scelta perfetta. Devono essere considerati consigli generali, pertanto non è necessario che siano esatti. Diversi scienziati dei dati con cui ho parlato hanno detto che l'unico modo sicuro per trovare l'algoritmo migliore consiste nel provarli tutti.
 
+Ecco un esempio tratto dalla [Raccolta di Azure Machine Learning](http://gallery.azureml.net/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati: [Confrontare classificatori multiclasse: riconoscimento di lettere](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
-<a name="anchor-1"></a>
-## Gli algoritmi di Machine Learning apprendono dai dati
+## Varianti di Machine Learning
 
-Machine Learning è una disciplina che studia una classe di algoritmi progettati per apprendere dai dati senza imporre un modello specifico e predeterminato da confrontare con i dati stessi. L'idea è di acquisire conoscenze in modo più induttivo esaminando i modelli in un set di dati anziché usando il metodo *ipotetico deduttivo* con cui si tenta prima di indovinare il modello appropriato per l'intero set di dati e poi testarlo empiricamente.
+### Supervisionato
 
-Sono disponibili due tipi di Machine Learning, ovvero di apprendimento dai dati: *apprendimento supervisionato* e *apprendimento non supervisionato*.
+Gli algoritmi di apprendimento supervisionato fanno previsioni in base a un set di esempi. Ad esempio, l’andamento storico dei titoli può essere utilizzato per azzardare ipotesi sui prezzi futuri. Ogni esempio utilizzato per l’addestramento viene etichettato con il valore di interesse: in questo caso, il prezzo dei titoli. Un algoritmo di apprendimento supervisionato cerca modelli ripetitivi nelle etichette dei valori. Può utilizzare tutte le informazioni che potrebbero essere rilevanti, ovvero il giorno della settimana, la stagione, i dati finanziari dell'azienda, il tipo di settore, la presenza di eventi geopolitici di disturbo, e ogni algoritmo cerca tipi diversi di modelli ripetitivi. Dopo che l'algoritmo ha trovato il modello ripetitivo migliore possibile, lo utilizza per eseguire stime per i dati di prova senza etichetta: i prezzi di domani.
 
-<a name="anchor-2"></a>
-## Apprendimento supervisionato  
+Questo tipo di Machine Learning è utile e diffuso. Con una eccezione, tutti i moduli di Azure Machine Learning sono algoritmi di apprendimento supervisionato. Sono presenti diversi tipi specifici di apprendimento supervisionato rappresentati all'interno di Azure Machine Learning: classificazione, regressione e rilevamento di anomalie.
 
-L'apprendimento supervisionato richiede che la variabile di destinazione sia ben definita e che venga fornito un numero sufficiente di valori.
+* **Classificazione** Quando i dati vengono utilizzati per prevedere una categoria, l’apprendimento supervisionato è chiamato anche classificazione. Ciò avviene quando si assegna un'immagine, come un’immagine di "gatto" o "cane". Quando sono disponibili solo due opzioni, è chiamato **a due classi** o **classificazione binomiale**. Quando sono presenti più categorie, come quando si prevede il vincitore di un torneo, questo problema è noto come **classificazione multi-classe**.
 
-L'apprendimento supervisionato è il tipo di Machine Learning che si verifica quando i risultati dell'output corretto (o variabili di destinazione) per gli input delle istanze di training sono noti. L'obiettivo del training di un algoritmo di Machine Learning è di trovare il modello (ovvero una regola o una funzione) che mappa gli input ai valori di output noti. Si tratta di una procedura simile a quando si dispone di un supervisore che può indicare all'agente algoritmico se gli input vengono mappati correttamente agli output. Quando, dopo aver completato il processo di apprendimento, si dispone di un modello utilizzabile, questo può essere applicato ai nuovi dati di input per stimare l'output previsto dove, a differenza del set di dati di training, i valori di destinazione non sono noti in anticipo.
+* **Regressione** Quando un valore viene previsto, come con i prezzi dei titoli, l’apprendimento supervisionato viene chiamato regressione.
 
-Il tipo di modello viene determinato dalla natura della variabile di destinazione.
+* **Rilevamento delle anomalie** Talvolta l'obiettivo consiste nell'identificare punti dati che sono semplicemente insoliti. Nel rilevamento delle frodi, ad esempio, i modelli di spesa della carta di credito altamente insoliti sono sospetti. Le possibili variazioni sono così numerose e gli esempi di formazione così pochi, che non è possibile conoscere l’aspetto delle attività illecite. L'approccio del rilevamento delle anomalie è semplicemente apprendere l’aspetto delle attività normali (utilizzando la cronologia delle transazioni non fraudolente) e identificare ciò che è molto diverso.
 
-![Diagramma dell'apprendimento supervisionato: creare un modello dai dati etichettati e usarlo per stimare i risultati da nuovi dati.](./media/machine-learning-algorithm-choice/supervised-learning-using-known-data-to-model-solution.png)
+### Non supervisionato
 
-Esistono due ampie categorie di analisi che utilizzano l'apprendimento supervisionato: *classificazione* e *regressione*. L'apprendimento supervisionato è piuttosto comune nei problemi di classificazione poiché l'obiettivo, solitamente, è che il computer apprenda un sistema di classificazione creato. Le risposte solitamente corrispondono ad alcuni valori (etichette) noti, ad esempio 'true' o 'false' oppure 'high', 'medium' o 'low'. Gli algoritmi di classificazione si applicano ai valori nominali e non di risposta ordinale. Il riconoscimento cifra è un esempio comune di apprendimento di classificazione. Più in generale, l'apprendimento di classificazione è appropriato per problemi in cui la determinazione della classificazione non è solo utile ma è anche semplice.
+Nell'apprendimento non supervisionato, ai punti dati non sono associate etichette. L'obiettivo di un algoritmo di apprendimento non supervisionato è invece l'organizzazione dei dati in un certo modo o la descrizione della loro struttura. Questo può significare il raggruppamento dei dati in cluster o l'individuazione di modi diversi con cui osservare dati complessi, in modo che appaiano più semplici o più organizzati.
 
-Nell'apprendimento supervisionato, le variabili prese in esame possono essere suddivise in due gruppi: variabili esplicative (denominate anche predittori) e variabili dipendenti (denominate anche variabili di risposta). L'obiettivo dell'analisi consiste nel definire una relazione tra le variabili esplicative e le variabili dipendenti come avviene nell'*analisi di regressione*. Per una parte sufficientemente grande del set di dati, è necessario conoscere i valori della variabile dipendente. Nella regressione, le risposte o variabili di output utilizzano valori continui, ad esempio chilometri al litro per una particolare automobile, l'età di una persona ecc.
+### Apprendimento per rinforzo
 
-L'apprendimento supervisionato è anche la tecnica più comune per le reti neurali di training e gli alberi delle decisioni:
+Nell'apprendimento per rinforzo l'algoritmo arriva a scegliere un'azione in risposta a ogni punto dati. L'algoritmo di apprendimento riceve anche un segnale di ricompensa poco dopo, a indicare il livello di correttezza della decisione presa. In base a questo segnale, l'algoritmo modifica la propria strategia per ottenere la ricompensa maggiore. Attualmente in Azure Machine Learning non sono disponibili moduli di algoritmi di apprendimento per rinforzo. L’apprendimento per rinforzo è un approccio comune in robotica, in cui il set di letture del sensore in un certo momento è un punto dati e l'algoritmo deve scegliere l'azione successiva del robot. Questo approccio è ideale anche per applicazioni "Internet delle cose" (Internet of Things, IoT).
 
-> Entrambe le tecniche sono fortemente dipendenti dalle informazioni fornite dalle classificazioni predeterminate. Nel caso di reti neurali, la classificazione viene usata per determinare l'errore della rete e quindi modificarla per minimizzare tale errore, mentre nel caso di alberi delle decisioni, le classificazioni vengono usate per determinare quali attributi forniscono informazioni più complete e utilizzabili per risolvere il puzzle di classificazione. ... entrambi gli esempi richiedono la presenza di una "supervisione" nel senso che dipendono dalla fornitura delle classificazioni predeterminate.
+## Considerazioni relative alla scelta di un algoritmo
 
->  Il riconoscimento vocale che usa i modelli Markov e le reti bayesiane nascosti si basa anche su elementi di controllo regolando i parametri per ridurre l'errore negli input specificati. [[Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/)]
+### Precisione
 
+Ottenere la risposta più precisa possibile non è sempre necessario. Talvolta un'approssimazione è sufficiente, a seconda di ciò per cui si desidera utilizzarla. In tal caso, è possibile ridurre drasticamente il tempo di elaborazione utilizzando più metodi approssimativi. Un altro vantaggio di metodi più approssimativi è la tendenza naturale a evitare il [sovradattamento](https://youtu.be/DQWI1kvmwRg).
 
-<a name="anchor-3"></a>
-##Apprendimento non supervisionato
+### Tempo di formazione
 
-Nella Machine Learning, il problema dell'apprendimento non supervisionato consiste nel determinare se sono presenti modelli o una struttura nascosta nei dati non etichettati. Il modello non dispone di "risultati corretti" per un set di dati su cui eseguire il training. Poiché all'allievo vengono forniti esempi non etichettati, non esistono commenti, né in caso di errore né in caso di benefici, per valutare una soluzione potenziale. L'obiettivo consiste nel far apprendere al computer come eseguire un'operazione anche se non viene indicato esplicitamente il modo in cui farlo. In situazioni di apprendimento non supervisionato, tutte le variabili vengono trattate nello stesso modo. Non esiste alcuna distinzione tra variabili esplicative e variabili dipendenti. Tuttavia, esiste ancora un obiettivo da realizzare. Questo obiettivo potrebbe essere generico come ridurre i dati o più specifico come trovare i cluster.
+Il numero di minuti o ore necessarie per eseguire l’addestramento di un modello varia notevolmente tra gli algoritmi. Il tempo di formazione spesso è strettamente correlato alla precisione, uno in genere accompagna l'altra. Inoltre, alcuni algoritmi sono più sensibili al numero di punti dati rispetto ad altri. Quando il tempo è limitato, può guidare la scelta dell'algoritmo, soprattutto quando il set di dati è grande.
 
-In Azure Machine Learning è possibile eseguire l'apprendimento supervisionato e non supervisionato tramite **Clustering**, **Classificazione** e **Regressione**.
+### Linearità
 
-   ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help2.png)
+Un numero elevato di algoritmi di Machine Learning utilizza la linearità. Gli algoritmi di classificazione lineare ipotizzano che le classi possano essere separate da una linea retta (o dal suo equivalente della dimensione superiore). Queste includono la regressione logistica e le macchine a vettori di supporto (come implementate in Azure Machine Learning). Gli algoritmi di regressione lineare ipotizzano che le tendenze dei dati seguano una linea retta. Queste ipotesi non sono errate per alcuni problemi, ma per altri riducono la precisione.
 
-<a name="anchor-4"></a>
-##Clustering
-Il clustering è un esempio di apprendimento non supervisionato. In questo tipo di apprendimento, l'obiettivo consiste nel trovare analogie nei dati di training e nel partizionare il set di dati in subset delimitati da tali analogie. Il comportamento previsto, in base al quale i cluster più significativi rilevati da queste procedure basate sui dati sono coerenti con la classificazione intuitiva è spesso, ma non sempre, soddisfatto.
+![Limite di classe non lineare][1]
 
-Sebbene l'algoritmo di clustering non assegni nomi appropriati a tali cluster, li può produrre e quindi usare per prevedere somiglianze previste nei nuovi esempi classificandoli nel cluster più appropriato. Questo approccio basato sui dati può essere utile quando è disponibile una quantità di dati sufficiente. Ad esempio, gli algoritmi di filtro delle informazioni sociali, ad esempio quelli utilizzati da Amazon.com per consigliare i libri, sono basati sulla ricerca di gruppi di utenti simili e quindi assegnare nuovi utenti a questi gruppi per creare raccomandazioni.
+***Limite di classe non lineare****: basarsi su un algoritmo di classificazione lineare produce una precisione ridotta*
 
-L'algoritmo di clustering disponibile in Azure Machine Learning è un [clustering K-Means][k-means-clustering].
+![Dati con una tendenza non lineare][2]
 
-![Esperimento dell'algoritmo di clustering K-Means: schermata](./media/machine-learning-algorithm-choice/k-means-clustering-algorithm-menu.png)
+***Dati con una tendenza lineare****: l’utilizzo di un metodo di regressione lineare genera errori maggiori del necessario*
 
-K-Means è uno degli algoritmi di clustering non supervisionato più semplici che risolvono i problemi noti di clustering. L'algoritmo KMeans esegue il cluster dei dati provando a separare gli esempi in N gruppi di uguale varianza, riducendo al minimo il criterio di "inerzia" o "somma dei quadrati all'interno del cluster". Questo algoritmo richiede il numero di cluster da specificare. K-Means può essere scalato per includere un numero elevato di campioni ed è stato usato in un'ampia gamma di aree applicative in diversi campi.
+Nonostante i loro pericoli, gli algoritmi lineari sono molto popolari come prima linea di attacco. Tendono ad essere algoritmicamente semplici e rapidi da addestrare.
 
-Il modulo dell'algoritmo di [clustering K-Means][k-means-clustering] restituisce un modello di clustering K-Means senza training che può essere passato al modulo [Modello di clustering di training][train-clustering-model] per il training.
+### Numero di parametri
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/k4.png)
+I parametri sono i pulsanti che uno scienziato dei dati deve utilizzare per configurare un algoritmo. Sono numeri che influiscono sul comportamento dell'algoritmo, ad esempio sulla tolleranza degli errori o sul numero di iterazioni, o sulle opzioni tra le varianti del comportamento dell'algoritmo. Il tempo dell’addestramento e la precisione dell'algoritmo possono talvolta risultare abbastanza cruciali per ottenere le impostazioni corrette. Di solito, gli algoritmi con parametri in numero elevato richiedono molti tentativi ed errori per trovare una combinazione ottimale.
 
-La figura illustra le opzioni da configurare quando si usa il clustering K-Means. Il metodo K-means trova un numero di cluster specificato per un set di punti dati D-dimensional. Iniziando con un *set iniziale di baricentri K*, il metodo usa l'algoritmo di Lloyd per migliorare in modo iterativo le posizioni dei baricentri. L'algoritmo termina quando i baricentri si stabilizzano o quando viene completato un *numero specificato di iterazioni*. Il modulo consente di inizializzare una matrice K-by-D con i baricentri finali che definiscono i cluster K trovati nei punti dati N. L'algoritmo utilizza anche un vettore di lunghezza N con l'assegnazione dei punti dati a uno dei cluster K. In presenza di un numero specifico di cluster (K) da trovare, il modulo assegna i primi punti dati K in ordine di cluster K.
+In alternativa, in Azure Machine Learning è disponibile un blocco di moduli per lo [sweep dei parametri](machine-learning-algorithm-parameters-optimize.md) che prova automaticamente tutte le combinazioni di parametri alla granularità scelta. Sebbene questo sia un ottimo modo per assicurarsi di aver utilizzato al massimo lo spazio di parametri, il tempo necessario per eseguire l’addestramento di un modello aumenta in misura esponenziale con il numero di parametri.
 
+Il vantaggio è un numero elevato di parametri in genere indica che un algoritmo ha maggiore flessibilità. Può raggiungere spesso un’alta precisione. Ammesso che si trovi la giusta combinazione di impostazioni dei parametri.
 
-Questo modulo accetta o genera anche punti iniziali per definire la configurazione iniziale del cluster. La *metrica* definisce il metodo usato per misurare la distanza tra un punto dati e il baricentro. Ciascun punto dati viene assegnato al cluster che dispone del baricentro più vicino al punto dati. Per impostazione predefinita, il metodo usa la *metrica euclidea*. È possibile specificare la *metrica coseno* come metrica alternativa per il metodo. Si noti che il metodo K-means potrebbe trovare solo una configurazione cluster locale ottimale per un set di dati. Il metodo può trovare una configurazione differente, probabilmente superiore, a partire da una diversa configurazione iniziale.
+### Numero di caratteristiche
 
-<a name="anchor-5"></a>
-##Classificazione 
-Nell'analisi di classificazione, gli esempi si dividono in classi e si usa un set di training di dati precedentemente etichettati. La tecnica viene utilizzata per stimare l'appartenenza al gruppo di istanze di dati. In Azure Machine Learning sono disponibili i seguenti algoritmi di classificazione.
+Per alcuni tipi di dati, il numero di caratteristiche può essere molto grande rispetto al numero di punti dati. Questo accade spesso con i dati testuali o sulla genetica. L’elevato numero di caratteristiche può rallentare alcuni algoritmi di apprendimento, rendendo il tempo di addestramento esageratamente lungo. Le macchine a vettori di supporto sono particolarmente adatte in questo caso (vedere di seguito).
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help3.png)
+### Casi speciali
 
-Gli *algoritmi a due classi* vengono usati per le variabili di risposta binaria (sì o no, 0 o 1, true o false e così via), mentre gli *algoritmi multiclasse* vengono usati per qualsiasi variabile di risposta nominale che classifica le istanze in più di due classi.
+Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei dati o sui risultati desiderati. Se è possibile trovarne uno adatto alle proprie esigenze, può fornire risultati più utili, previsioni più accurate o tempi di addestramento più rapidi.
 
-### Linee guida per la selezione di un algoritmo di classificazione
-Questo lungo elenco di algoritmi dà origine a una serie di domande:
+|**Algoritmo**|**Precisione**|**Tempo di addestramento**|**Linearità**|**Parametri**|**Note**|
+|---|:---:|:---:|:---:|:---:|---|
+|**Classificazione a due classi**| | | | | |
+|[regressione logistica](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |●|●|5| |
+|[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
+|[giungla delle decisioni](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Footprint della memoria ridotto|
+|[albero delle decisioni con boosting scalabile](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|Footprint della memoria di grandi dimensioni|
+|[rete neurale](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[percezione media](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
+|[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|Particolarmente valido per set di funzioni di grandi dimensioni|
+|[macchina a vettori di supporto localmente approfondito](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Particolarmente valido per set di funzioni di grandi dimensioni|
+|[Bayes Point Machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
+|**Classificazione multiclasse**| | | | | |
+|[regressione logistica](https://msdn.microsoft.com/it-it/library/azure/dn905853.aspx)| |●|●|5| |
+|[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
+|[giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Footprint della memoria ridotto|
+|[rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Visualizza le proprietà del metodo a due classi selezionato| |**Regressione**| | | | | | |[lineare ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[albero delle decisioni con boosting](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Footprint della memoria di grandi dimensioni| |[quantile foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuzioni anziché previsioni dei punti| |[rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente log-lineare. Per la previsione dei conti| |[ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Per la previsione dell’ordine nelle classifiche| |**Rilevamento delle anomalie**| | | | | | |[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particolarmente valido per set di funzioni di grandi dimensioni| |[Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Algoritmo di clustering|
 
-* Come è possibile sapere quale classificatore, tra i molti presenti, conviene usare in un determinato set di dati? 
-* Esistono casi in cui un classificatore rappresenta una scelta "naturale"? 
-* Quali sono i principi di scelta?
 
-Un approccio consigliato è di testare vari e diversi classificatori, nonché set di parametri diversi all'interno di ciascun algoritmo e quindi selezionare quello più adatto tramite la convalida incrociata.
+**Proprietà algoritmo:**
 
-> [AZURE.TIP] [Azure Machine Learning Studio](https://studio.azureml.net/) consente di provare più algoritmi affiancati con gli stessi dati e di confrontarne i risultati. Di seguito è riportato un esempio tratto dalla [Raccolta di Azure Machine Learning](http://gallery.azureml.net/): [Confrontare classificatori multiclasse: riconoscimento di lettere](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+**●**: mostra eccellente precisione, tempi di addestramento rapidi e uso della linearità
 
-Di seguito sono riportate delle linee guida generali che possono fornire un modo per avviare l'elaborazione. Quando si sceglie l'algoritmo da usare, prendere in considerazione gli elementi seguenti: [descrizione proposta dall'articolo [Scelta di un classificatore di Machine Learning](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
+**○**: mostra buona precisione e tempi di addestramento moderati
 
-**Quanto sono pesanti i dati del training?** Se il set di training è piccolo e si vuole eseguire il training di un classificatore supervisionato, la teoria dell'apprendimento automatico afferma che è necessario usare un classificatore con compensazione elevata/varianza bassa, ad esempio Naive Bayes. Questi presentano un vantaggio rispetto ai classificatori con compensazione bassa/varianza elevata come kNN, poiché il secondo tende al sovradattamento. Ma i classificatori con compensazione bassa/varianza elevata sono più appropriati con un set di training di grandi dimensioni perché presentano un errore asintotico minore, e in questi casi un classificatore con compensazione elevata non è sufficientemente potente da fornire un modello accurato. Sono disponibili risultati teorici ed empirici che indicano che Naive Bayes funziona correttamente in tali circostanze. Considerare però che con dati migliori e funzionalità utili si può ottenere in genere un vantaggio maggiore rispetto a un algoritmo migliore. Con un set di dati di grandi dimensioni, inoltre, le prestazioni di classificazione potrebbero comunque non essere interessate dall'algoritmo usato. In tal caso, pertanto, è preferibile scegliere l'algoritmo in base a determinati fattori quali scalabilità, velocità o facilità d'uso.
+## Note algoritmo
 
-**È necessario eseguire il training incrementale o in modalità batch?** Con una grande quantità di dati o se è necessario aggiornare spesso i dati, sarà preferibile usare gli algoritmi bayesiani. Le reti neurali e le SVM devono essere usate con i dati di training in modalità batch.
+### Linear regression
 
-**I dati presenti sono esclusivamente relativi alle categorie, esclusivamente numerici o una combinazione di entrambi i tipi?** Bayes funziona meglio con i dati relativi alle categorie/binomiale. Gli alberi delle decisioni non possono stimare i valori numerici.
+Come accennato in precedenza, la [regressione lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) adatta una riga (o piano o iperpiano) al set di dati. È un ottimo strumento di lavoro, semplice e veloce, ma potrebbe essere troppo semplicistica per alcuni problemi. Qui è disponibile un’[esercitazione sulla regressione lineare](machine-learning-linear-regression-in-azure.md).
 
-**L'utente o i destinatari devono comprendere il funzionamento del classificatore?** Gli alberi bayesiani o delle decisioni possono essere spiegati più facilmente. È molto più difficile illustrare o spiegare il modo in cui le reti neurali e le SVM classificano i dati.
+![Dati con una tendenza lineare][3]
 
-**A quale velocità è necessario generare la classificazione?** Gli alberi delle decisioni possono essere lenti soprattutto se sono complessi. Le SVM invece sono più veloci durante la classificazione perché devono determinare solamente quale lato della "riga" dei dati è attiva.
+***Dati con una tendenza lineare***
 
-**Quale livello di complessità presenta o richiede il problema?** Le reti neutrali e le SVM possono gestire classificazioni complesse non lineari.
+### Regressione logistica
 
-### Vantaggi e svantaggi degli algoritmi di classificazione
-Ognuno di questi algoritmi di classificazione presenta vantaggi e svantaggi:
+Sebbene includa 'regressione' nel nome, la regressione logistica in realtà è uno strumento potente per la classificazione a [due classi](https://msdn.microsoft.com/library/azure/dn905994.aspx) e [multiclasse](https://msdn.microsoft.com/library/azure/dn905853.aspx). È semplice e veloce. Il fatto che utilizzi una curva a forma di 'S' anziché una linea retta la rende ideale per dividere i dati in gruppi. La regressione logistica fornisce limiti della classe lineari, pertanto quando la si utilizza, assicurarsi che un'approssimazione lineare sia accettabile.
 
-<a name="anchor-5a"></a> **Vantaggi e svantaggi della regressione logistica:** "L'analisi della regressione logistica è basata sul calcolo delle probabilità del risultato come rapporto della probabilità che il risultato venga diviso rispetto alla probabilità che ciò non avvenga". [[Logistic Regression and Linear Discriminant Analyses in Evaluating Factors Associated with Asthma Prevalence among 10- to 12-Years-Old Children: Divergence and Similarity of the Two Statistical Methods](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, et al (International Journal of Pediatrics, 2009) ID articolo 952042]
- 
-Il modello logistico è parametrico e pertanto offre il vantaggio di fornire una visione approfondita sull'impatto di ogni variabile predittiva sulla variabile di risposta.
+![Regressione logistica a dati a due classi con una sola caratteristica][4]
 
+***Una regressione logistica in dati a due classi con una sola funzionalità****: il limite della classe è il punto in cui la curva logistica è alla stessa distanza da entrambe le classi*
 
-Con le interpretazioni probabilistiche naturali disponibili (a differenza degli alberi delle decisioni o delle SVM), è possibile aggiornare facilmente il modello per incorporare i nuovi dati. Sono presenti molti modi per regolarizzare il modello e, diversamente da Naive Bayes, non è necessario preoccuparsi troppo delle funzionalità correlate. La regressione logistica è utile nei casi seguenti:
+### Alberi, foreste e giungle
 
-* quando si vuole un framework probabilistico per regolare le soglie di classificazione
-* per incorporare rapidamente dati di training aggiuntivi  
+Le foreste delle decisioni ([regressione](https://msdn.microsoft.com/library/azure/dn905862.aspx), [a due classi](https://msdn.microsoft.com/library/azure/dn906008.aspx) e [multiclasse](https://msdn.microsoft.com/library/azure/dn906015.aspx)), le giungle delle decisioni ([a due classi](https://msdn.microsoft.com/library/azure/dn905976.aspx) e [multiclasse](https://msdn.microsoft.com/library/azure/dn905963.aspx)) e gli alberi delle decisioni con boosting scalabile ([regressione](https://msdn.microsoft.com/library/azure/dn905801.aspx) e [a due classi](https://msdn.microsoft.com/library/azure/dn906025.aspx)) sono tutti basati sugli alberi delle decisioni, un concetto fondamentale del Machine Learning. Esistono molte varianti di alberi delle decisioni, ma tutti svolgono lo stesso compito: suddividere lo spazio di elementi in aree con essenzialmente la stessa etichetta. Possono essere aree di una categoria coerente o di un valore costante, a seconda che si esegua la classificazione o la regressione.
 
-La regressione logistica funziona meglio degli alberi delle decisioni per i dati di dimensioni elevate. Ad esempio, nella classificazione di testo, potrebbero essere presenti oltre centomila documenti con 500.000 parole distinte (funzionalità). Si consiglia una semplice regola come l'apprendimento di un iperpiano, poiché gli alberi delle decisioni presentano troppi gradi di libertà e sono soggetti al sovradattamento. È possibile applicare la selezione delle funzionalità per usare un albero delle decisioni con i dati di testo ma selezionando un subset di funzionalità ridotto molte informazioni utili per la classificazione del testo andranno perse. Quando si usano modelli di apprendimento con dati altamente dimensionali, è molto probabile che gli errori basati sulla varianza aumentino. In questo caso è preferibile usare modelli semplici con compensazione più elevata.
+![L’albero delle decisioni suddivide uno spazio di caratteristiche][5]
 
-Uno svantaggio della regressione logistica è dato dall'instabilità quando un predittore non riesce a spiegare bene la variabile di risposta perché il coefficiente di questa variabile diventa molto elevato.
+***Un albero delle decisioni suddivide uno spazio di elementi in aree di valori approssimativamente uniformi***
 
-<a name="anchor-5b"></a> **Vantaggi e svantaggi degli alberi delle decisioni:** Gli [alberi delle decisioni](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf) sono facili da interpretare e spiegare.
+Poiché uno spazio di elementi può essere suddiviso in aree arbitrariamente piccole, è facile immaginare la sua divisione con precisione per disporre di un punto dati per ogni area, un esempio estremo di sovradattamento. Per evitare questo, un elevato numero di alberi viene realizzato con attenzione matematica poiché gli alberi non sono correlati. La media di questa "foresta delle decisioni" è un albero che consente di evitare il sovradattamento. Le foreste delle decisioni possono utilizzare molta memoria. Le giungle delle decisioni sono una variante che utilizza meno memoria a discapito di un tempo di addestramento leggermente superiore.
 
-> [Gli alberi delle decisioni] gestiscono facilmente le interazioni della funzionalità e non sono parametrici, quindi non è necessario preoccuparsi degli outlier o se i dati sono separabili in modo lineare (ad esempio, gli alberi delle decisioni si occupano facilmente dei casi in cui si ha la classe A all'estremità inferiore di alcune funzionalità x, la classe B a livello intermedio della funzionalità x e nuovamente la classe A all'estremità superiore). Uno svantaggio è che gli alberi delle decisioni non supportano l'apprendimento online, pertanto è necessario generare nuovamente l'albero quando arrivano nuovi esempi. Un altro svantaggio è che vengono facilmente sovradattati, ma in questo caso sarà possibile usare i metodi di insieme come foreste casuali (o alberi incrementati). Inoltre, le foreste casuali risultano essere la soluzione migliore in molti casi, in genere leggermente più utili delle SVM, essendo veloci e scalabili e non è necessario preoccuparsi della sintonizzazione di una serie di parametri come avviene con le SVM. [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
+Gli alberi delle decisioni con boosting consentono di evitare il sovradattamento limitando il numero di volte in cui possono suddividersi e il modo in cui pochi punti dati sono consentiti in ogni area. L'algoritmo costruisce una sequenza di alberi, ognuno dei quali apprende come compensare l'errore dell'albero precedente. Il risultato è uno strumento di apprendimento molto accurato che tende a utilizzare una grande quantità di memoria. Per la descrizione tecnica completa, consultare il [documento originale di Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
-Gli alberi delle decisioni generano l'output come regole insieme alle metriche come *supporto*, *probabilità* e *accuratezza*.
+La [regressione quantile della foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx) è una variante degli alberi delle decisioni per il caso speciale in cui si desidera conoscere non solo il valore tipico (mediano) dei dati all'interno di un'area, ma anche la sua distribuzione sotto forma di quantili.
 
+### Reti neurali e percezione
 
-<a name="anchor-5c"></a> **Vantaggi e svantaggi delle SVM:** Le Support Vector Machine (SVM) sono efficaci in spazi altamente dimensionali. Sono efficaci anche nei casi in cui il numero di dimensioni è maggiore del numero di campioni. Tuttavia, se il numero di funzionalità è molto più grande del numero dei campioni, le prestazioni del metodo possono essere scarse. Anche la memoria è molto efficiente in quanto usa un sottoinsieme di punti di formazione nella funzione di decisione (nota come vettori di supporto). Sono estremamente versatili: è possibile specificare diverse funzioni Kernel, sia standard che personalizzate, per la funzione di decisione. Le funzioni kernel vengono usate per trasformare da bassa ad alta la dimensionalità degli esempi. Procedura utile per i problemi relativi alla separabilità lineare.
+Le reti neurali sono algoritmi di apprendimento ispirati al cervello che coprono problemi [multiclasse](https://msdn.microsoft.com/library/azure/dn906030.aspx), [a due classi](https://msdn.microsoft.com/library/azure/dn905947.aspx) e di [regressione](https://msdn.microsoft.com/library/azure/dn905924.aspx). Sono disponibili per un'ampia varietà, ma le reti neurali all'interno di Azure Machine Learning sono tutte sotto forma di grafici aciclici diretti. Ciò significa che le caratteristiche di input vengono passate in avanti (mai indietro) tramite una sequenza di livelli prima di essere convertiti in output. In ogni livello, gli input vengono ponderati in varie combinazioni, sommati e passati al livello successivo. Questa combinazione di calcoli semplici comporta la possibilità di apprendere limiti di classi e tendenze dei dati sofisticati, apparentemente per magia. Reti con molti livelli di questo tipo eseguono l’"apprendimento approfondito" che fornisce il fondamento di molti rapporti tecnici e fantascienza.
 
-Le SVM, tuttavia, non forniscono direttamente le stime di probabilità. Queste vengono calcolate utilizzando una costosa convalida incrociata a cinque livelli.
+Queste alte prestazioni non sono però possibili senza un costo. Le reti neurali possono richiedere molto tempo per l’addestramento, in particolare per grandi set di dati con molte caratteristiche. Dispongono anche di più parametri rispetto alla maggior parte degli algoritmi, il che significa che lo sweep dei parametri dilata notevolmente il tempo di addestramento. Per le persone ambiziose che desiderano [specificare la propria struttura di rete](http://go.microsoft.com/fwlink/?LinkId=402867), le possibilità sono infinite.
 
->[Con] elevata precisione, le garanzie teoriche solide relative al sovradattamento e un kernel appropriato, possono funzionare correttamente anche se i dati non sono separabili linearmente nello spazio della funzionalità di base. [Le SVM sono] particolarmente usate per problemi di classificazione del testo in cui gli spazi altamente dimensionali sono la norma. [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
+![Limiti appresi dalle reti neurali][6]
+---------------------------
 
-A differenza delle foreste, le SVM provenienti da classificatori a due classi, sono state recentemente adattate a lavorare con più classi. È possibile utilizzare qualcosa di simile al training "one-vs-rest" per realizzare un classificatore a più classi che potrebbe essere meno ottimale. Poiché le SVM sono in grado di gestire solo output a due classi (ad esempio, una variabile di output categorica con varietà 2), con classi N, apprende N SVM (SVM 1 apprende “Output==1” rispetto a “Output != 1”, SVM 2 apprende “Output==2” rispetto a “Output != 2”, ..., SVM N apprende “Output==N” vs “Output != N”). Quindi per stimare l'output per un nuovo input, esegue la stima solo con ciascuna SVM e individua quello che inserisce la stima più distante nell'area positiva. [[Support Vector Machines](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore (Carnegie Mellon University 2001)]
+***I limiti appresi dalle reti neurali possono essere complessi e irregolari***
 
-<a name="anchor-5d"></a> **Vantaggi e svantaggi di Naive Bayes:** I classificatori [Naive Bayes (NB)](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) sono una scelta diffusa per i problemi di classificazione. Presuppongono che le funzionalità siano indipendenti, questo è ciò che rende la tecnica 'naive'.
+La [percezione media a due classi](https://msdn.microsoft.com/library/azure/dn906036.aspx) è la risposta delle reti neurali a tempi di addestramento lunghissimi. Utilizza una struttura di rete che fornisce limiti di classe lineari. È quasi primitiva per gli standard odierni, ma dispone di una lunga storia di funzionamento affidabile ed è sufficientemente piccola per apprendere rapidamente.
 
-> Se l'assunzione di indipendenza condizionale NB è attualmente in attesa, un classificatore Naive Bayes convergerà più rapidamente dei modelli discriminativi come la regressione logistica, quindi, in questi casi, sono necessari meno dati di training. Anche se l'assunzione NB non è in attesa,un classificatore NB spesso esegue un ottimo lavoro pratico. ... Il principale svantaggio è che non può apprendere le interazioni tra le funzionalità (ad esempio, non può comprendere che sebbene all'utente piacciano film con Brad Pitt e Tom Cruise, non vuole vedere quelli dove recitano insieme). [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
+### SVM
 
+Le macchine a vettori di supporto (SVM) consentono di individuare il limite che separa le classi con un margine più ampio possibile. Quando le due classi non possono essere separate nettamente, gli algoritmi trovano il limite migliore possibile. Come scritto in Azure Machine Learning, la [SVM a due classi](https://msdn.microsoft.com/library/azure/dn905835.aspx) esegue questa operazione solo con una linea retta. (Nel linguaggio dell’SVM, utilizza un kernel lineare). Poiché rende quest’approssimazione lineare, è in grado di funzionare molto rapidamente. Dove eccelle davvero è con dati ricchi di caratteristiche, come testi o genomica. In questi casi le SVM sono in grado di separare le classi più rapidamente e con meno sovradattamento rispetto alla maggior parte degli altri algoritmi, oltre a richiedere solo una modesta quantità di memoria.
 
-<a name="anchor-5e"></a> **One-vs-all:** One-vs-all è una strategia per ridurre il problema della classificazione a più classi a un set di più problemi di classificazione binaria. La strategia comporta il training di un singolo classificatore per classe, con gli esempi di tale classe come campioni positivi e tutti gli altri esempi come negativi. Tale strategia richiede che i classificatori di base producano una valutazione della confidenza con valori reali per la propria decisione anziché un'etichetta di classe. Solo le etichette di classi discrete possono causare ambiguità, dove più classi vengono stimate per un solo campione. [[Multiclass classification](http://en.wikipedia.org/wiki/Multiclass_classification) (Wikipedia 2006)]
+![Limite di classe della macchina a vettori di supporto][7]
 
+***Un limite di classe tipico della macchina a vettore di supporto ottimizza il margine separando due classi***
 
-<a name="anchor-6"></a>
-##Regressione
- 
-Nell'analisi di regressione si prevedono nuovi valori in base all'inferenza precedente. I nuovi valori per una variabile dipendente vengono calcolati in base al valore di uno o più attributi misurati. I vari algoritmi di regressione disponibili in Azure Machine Learning sono:
+Un altro prodotto di Microsoft Research, la [SVM localmente approfondita a due classi](https://msdn.microsoft.com/library/azure/dn913070.aspx) è una variante non lineare di SVM che mantiene la maggior parte della velocità e dell'efficienza della memoria della versione non lineare. È ideale per i casi in cui l'approccio lineare non fornisce risposte sufficientemente precise. Gli sviluppatori l’hanno mantenuta rapida per scomporre il problema in una serie di piccoli problemi di SVM lineare. Leggere la [descrizione completa](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) per i dettagli su come hanno ottenuto questo risultato.
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help4.png)
+Utilizzando un'estensione intelligente delle SVM non lineari, la [SVM a una classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) consente di tracciare un limite che delinea strettamente l'intero set di dati. È utile per il rilevamento delle anomalie. Eventuali nuovi punti dati che superano di molto tale limite sono sufficientemente insoliti da essere degni di nota.
 
-A seconda del caso di utilizzo e dei dati disponibili è possibile scegliere un algoritmo al posto di un altro. Di seguito vengono descritti alcuni algoritmi di regressione e i relativi casi di utilizzo principali.
+### Metodi bayesiani
 
-<a name="anchor-6b"></a> **[Regressione lineare bayesiana][bayesian-linear-regression]** La regressione lineare bayesiana è un approccio di regressione lineare in cui l'analisi statistica viene effettuata all'interno del contesto di inferenza bayesiana. I risultati espliciti sono disponibili per le distribuzioni di probabilità posteriore dei parametri del modello quando il modello di regressione presenta errori normalmente distribuiti e può assumere una particolare forma di distribuzione precedente. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
+I metodi bayesiani hanno una qualità estremamente utile: evitare il sovradattamento. Ottengono questo risultato facendo ipotesi in anticipo sulla probabile distribuzione della risposta. Un altro risultato di questo approccio è che dispongono di parametri in numero molto ridotto. Azure Machine Learning dispone di algoritmi bayesiani per entrambe le classificazioni ([la Bayes Point Machine a due classi](https://msdn.microsoft.com/library/azure/dn905930.aspx)) e la regressione ([regressione lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)). Si noti che questi ipotizzano che i dati possano essere suddivisi o adattati con una linea retta.
 
-<a name="anchor-6f"></a> **[Regressione dell'albero delle decisioni con boosting][boosted-decision-tree-regression]** La regressione dell'albero delle decisioni con boosting calcola una relazione tra le stime e le variabili di risposta. La struttura ad albero di regressione è simile a un albero di classificazione. I nodi terminali sono i valori (modello) di funzione stimati. I valori stimati sono limitati ai valori nei nodi terminali. Alcuni dei vantaggi dell'utilizzo di alberi decisionali sono:
+Dal punto di vista storico, le Bayes Point Machine sono state sviluppate presso Microsoft Research. Si basano su un lavoro teorico estremamente interessante. Lo studente interessato viene indirizzato all’[articolo originale in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e a un [blog dettagliato di Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
-* facilità di interpretazione delle regole di decisione 
-* assenza di parametrica per facilitare l'uso di un intervallo di livelli di dati numerici o categorici senza la necessità di selezionare dati di training unimodali
-* affidabilità riguardo gli outlier nei dati di training 
-* classificazione veloce dopo lo sviluppo delle regole 
+### Algoritmi specializzati
 
-Tuttavia, esistono alcuni svantaggi legati all'uso degli alberi delle decisioni:
+Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'interno della raccolta di Azure Machine Learning sono disponibili algoritmi specializzati nella previsione delle classifiche ([regressione ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), nella precisione del conteggio ([regressione di Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) e nel rilevamento delle anomalie (uno basato sull’[analisi dei componenti principali](https://msdn.microsoft.com/library/azure/dn913102.aspx) e uno basato sulle [macchine a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)). Esiste anche un algoritmo di clustering unico ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
 
-* tendono alla sovradattabilità dei dati di training che possono fornire risultati poco soddisfacenti se applicati al set di dati completo
-* non è possibile effettuare previsioni oltre il limite minimo e massimo della variabile di risposta nei dati di training
+![Rilevamento delle anomalie basato su PCA][8]
 
+***Rilevamento delle anomalie basato su PCA****: la maggior parte dei dati rientra in una distribuzione stereotipica; i punti che differiscono notevolmente da tale distribuzione sono sospetti*
 
-<a name="anchor-6g"></a> **[Regressione delle foreste delle decisioni][decision-forest-regression]** Le foreste delle decisioni possono essere usate per applicazioni di classificazione (variabili categoriche) o regressione (variabili continue). Le foreste di regressione possono essere usate per la regressione non lineare di variabili dipendenti dato un input indipendente e sia gli input che gli output possono essere multidimensionali. Le foreste di regressione non vengono usate tanto quanto le relative controparti di classificazione. La differenza principale è che le etichette di output delle foreste delle decisioni associate ai dati di input (e alle etichette di training) devono essere continue. Di conseguenza, la funzione dell'obiettivo deve essere adattata in modo appropriato. Le foreste di regressione condividono molti dei vantaggi delle foreste di classificazione, ad esempio l'efficienza e la flessibilità.
+![Set di dati raggruppati utilizzando K-means][9]
 
-<a name="anchor-6a"></a> **[Regressione lineare][linear-regression]** 
-La regressione lineare è ampiamente usata per modellare la relazione tra una variabile dipendente scalare Y e una o più variabili esplicative contrassegnate X. Può essere, e solitamente lo è, applicata per stime, previsioni o riduzione. Può essere utilizzata per adattare un modello di stima a un set di dati osservati dei valori X e Y. La regressione lineare presuppone che la struttura sottostante di Y sia una combinazione lineare delle variabili di X. Se un valore aggiuntivo di X viene quindi specificato senza il relativo valore y, il modello di regressione lineare adattato può essere utilizzato per stimare il valore di Y. I modelli di regressione lineare vengono in genere adattati tramite l'approccio dei minimi quadrati. Esistono tuttavia anche altre opzioni per misurare l'adattamento migliore. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
+***Un set di dati viene raggruppato in 5 cluster utilizzando K-means***
 
-<a name="anchor-6c"></a> **[Regressione della rete neurale][neural-network-regression]** 
-Le reti neurali sono uno strumento statistico utile per la regressione non parametrica. La regressione non parametrica risolve il problema del tentativo di adattamento di un modello per una variabile Y su un set di variabili esplicative possibili X1; : : : ;Xp e dove la relazione tra X e Y può essere più complicata di una relazione lineare semplice. \[[Articolo su una struttura per la regressione non parametrica con reti neurali](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee \(ISDS, Duke University\)\]
+Inoltre è disponibile un insieme [classificatore multiclasse one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) che interrompe il problema di classificazione di classe N in problemi di classificazione a due classi N-1. Precisione, tempi di addestramento e proprietà di linearità dipendono dai classificatori a due classi utilizzati.
 
-<a name="anchor-6d"></a> **[Regressione ordinale][ordinal-regression]** 
-La regressione ordinale è un tipo di analisi di regressione usata per modellare o stimare una variabile dipendente ordinale. Per le variabili dipendenti ordinali, è possibile classificare i valori, ma la distanza reale tra le categorie è sconosciuta. È significativo solo l'ordinamento relativo tra valori differenti. Poiché le etichette o i valori di destinazione dispongono di un ordinamento o classificazione naturale, è possibile utilizzare qualsiasi colonna numerica come destinazione ordinale. L'ordinamento naturale dei numeri viene utilizzato per la loro classificazione. Ad esempio, le patologie vengono valutate in base a una scala che va dalla meno grave alla più grave. Gli intervistati possono scegliere le risposte in base a una scala che va da "molto d'accordo" a "per nulla d'accordo". Gli studenti vengono valutati in base a una scale da A a F. Essenzialmente, la regressione ordinale è un'estensione della regressione logistica basata sul modello di *probabilità proporzionali*.
+![Classificatori a due classi combinati per formare un classificatore a tre classi][10]
 
+***Una coppia di classificatori a due classi si combina per formare un classificatore a tre classi***
 
-<a name="anchor-6e"></a> **[Regressione Poisson][poisson-regression]** 
-La regressione Poisson viene spesso usata per modellare i dati di conteggio. La regressione Poisson presuppone che la variabile di risposta disponga di una distribuzione Poisson. I dati della distribuzione Poisson vengono valutati intrinsecamente con numeri interi, discreti e positivi, che hanno senso per i dati di conteggio. Dato un set di dati di training, la regressione Poisson tenta di trovare valori ottimali massimizzando la probabilità in forma logaritmica dei parametri presenti negli input. La probabilità dei parametri è la probabilità che i dati di training siano stati campionati da una distribuzione con tali parametri. Ad esempio, la regressione Poisson, potrebbe essere utile per:
+Azure Machine Learning include inoltre l'accesso a una struttura di Machine Learning potente con il titolo di [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf). VW sfugge alla categorizzazione in questo caso, poiché può apprendere problemi sia di classificazione che di regressione e può apprendere anche dati parzialmente senza etichetta. È possibile configurarlo in modo che utilizzi uno di una serie di algoritmi di apprendimento, funzioni di perdita e algoritmi di ottimizzazione. È stato progettato da zero per essere efficace, parallelo ed estremamente veloce. Consente di gestire insiemi di caratteristiche estremamente grandi con uno sforzo minimo. Avviato e condotto da John Langford di Microsoft Research, VW è un elemento da Formula Uno in un campo di algoritmi pari a vetture di serie. Non tutti i problemi sono adatti a VW, ma per quelli che lo sono, potrebbe valere la pena superare la curva di apprendimento della relativa interfaccia. È inoltre disponibile come [codice open source autonomo](https://github.com/JohnLangford/vowpal_wabbit) in diverse lingue.
 
-* Modellare il numero di colds associati ai voli aerei 
-* Stimare il numero di chiamate relative a un evento o promozione 
-* Creare tabelle di emergenza
-
-## Riferimenti
-
-Per un elenco completo con i tipi di algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) nella [Guida degli algoritmi e dei moduli di Machine Learning Studio](https://msdn.microsoft.com/library/azure/dn905974.aspx).
-
-Per informazioni più dettagliate su tutti i tipi di algoritmi di Machine Learning, vedere i riferimenti ai seguenti, molti dei quali sono stati usati per la creazione di questo articolo.
-
-* [Post di blog sulla scelta di un classificatore di Machine Learning](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
-
-* [Articolo sulle foreste delle decisioni per la classificazione, la regressione, la stima della densità, l'apprendimento basato sulle varietà e l'apprendimento semi-supervisionato](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf), A. Criminisi1, J. Shotton2 e E. Konukoglu \(Microsoft Research, 2011\) report tecnico TR-2011-114.
-
-* [Articolo su una struttura per la regressione non parametrica con reti neurali](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee \(ISDS, Duke University\).
-
-* Manuale sui concetti e i metodi della statistica computazionale di James E. Gentle, Wolfgang Karl Härdle, Yuichi Mori \(Springer-Verlag Berlin Heidelberg New York, 2004\).
-
-* [Articolo sulle divergenze e le analogie tra i due metodi statistici regressione logistica e analisi discriminante lineare nei fattori di valutazione associati alla prevalenza dell'asma in bambini di età compresa tra i 10 e i 12 anni](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, Demosthenes B. Panagiotakos, Kostas N. Priftis e Anastasia Tzonou \(International Journal of Pediatrics, 2009\) ID articolo 952042.
-
-* [Articolo sull'ottimalità di Naive Bayes](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) \(University of New Brunswick 2004\) Harry Zhang.
-
-* [Articolo sulle macchine a vettori di supporto](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore \(Carnegie Mellon University 2001\).
-
-* [Parte II dell'articolo su Machine Learning: apprendimento supervisionato e non supervisionato](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/).
-
-* [Articolo sui vantaggi della regressione logistica rispetto agli alberi delle decisioni](http://www.quora.com/What-are-the-advantages-of-logistic-regression-over-decision-trees) \([Quora](http://www.quora.com/)\).
-
-* [Articolo sulla differenza tra apprendimento supervisionato e apprendimento non supervisionato](http://stackoverflow.com/questions/1832076/what-is-the-difference-between-supervised-learning-and-unsupervised-learning) \([Stackoverflow](http://stackoverflow.com/)\).
-
-* [Articolo sui vantaggi offerti dalla scelta di un classificatore di Machine Learning](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier) \([Stackoverflow](http://stackoverflow.com/)\).
-
-* [Wikipedia](http://en.wikipedia.org):
-	* [Pagina sulla regressione lineare Bayesiana](http://en.wikipedia.org/wiki/Bayesian_linear_regression)
-	* [Regressione lineare](https://it.wikipedia.org/wiki/Regressione_lineare)
-	* [Pagina sulla classificazione multiclasse](http://en.wikipedia.org/wiki/Multiclass_classification)
-	* [Apprendimento non supervisionato](https://it.wikipedia.org/wiki/Apprendimento_non_supervisionato))
-
-Vedere anche:
-
-* [Foglio informativo sugli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-cheat-sheet.md) (Microsoft).
 
 * [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/) ([scikit-learn](http://scikit-learn.org/stable/index.html)).
 
@@ -264,6 +223,15 @@ Vedere anche:
 [ordinal-regression]: https://msdn.microsoft.com/library/azure/ffb557f8-dc7f-44bd-8fd0-b25666dd23f1/
 [poisson-regression]: https://msdn.microsoft.com/library/azure/80e21b9d-3827-40d8-b733-b53148becbc2/
 
- 
+[1]: ./media/machine-learning-algorithm-choice/image1.png
+[2]: ./media/machine-learning-algorithm-choice/image2.png
+[3]: ./media/machine-learning-algorithm-choice/image3.png
+[4]: ./media/machine-learning-algorithm-choice/image4.png
+[5]: ./media/machine-learning-algorithm-choice/image5.png
+[6]: ./media/machine-learning-algorithm-choice/image6.png
+[7]: ./media/machine-learning-algorithm-choice/image7.png
+[8]: ./media/machine-learning-algorithm-choice/image8.png
+[9]: ./media/machine-learning-algorithm-choice/image9.png
+[10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione al push (Android) | Mobile Dev Center" 
+	pageTitle="Introduzione a push (Android) | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push all'app .Net per Android." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -122,4 +122,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

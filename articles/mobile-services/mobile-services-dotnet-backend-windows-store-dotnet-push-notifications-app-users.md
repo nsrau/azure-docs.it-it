@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inviare notifiche push agli utenti autenticati (Piattaforma UWP 8.1) | Servizi mobili di Azure" 
+	pageTitle="Inviare notifiche push agli utenti autenticati (Piattaforma UWP 8.1) | Microsoft Azure" 
 	description="Informazioni su come usare Servizi mobili di Azure per inviare notifiche push a un utente autenticato specifico che esegue l'app per la piattaforma UWP 8.1." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -66,4 +66,4 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

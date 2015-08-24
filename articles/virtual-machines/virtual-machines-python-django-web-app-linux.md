@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="App Web Python con Django in Mac - Esercitazione di Azure" 
+	pageTitle="App Web Python con Django in Mac | Microsoft Azure" 
 	description="Esercitazione che illustra come ospitare un sito Web basato su Django in Azure usando una macchina virtuale Linux." 
 	services="virtual-machines" 
 	documentationCenter="python" 
@@ -22,7 +22,9 @@
 
 # Applicazione Web Hello World Django (mac-linux)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
+> [AZURE.SELECTOR]
+- [Windows](web-app-with-django.md)
+- [Mac/Linux](django-hello-world-(maclinux).md)
 
 Questa esercitazione illustra come ospitare un sito Web basato su Django in Microsoft Azure usando una macchina virtuale Linux. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Al termine dell'esercitazione, si disporrà di un'applicazione basata su Django in esecuzione nel cloud.
 
@@ -129,4 +131,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

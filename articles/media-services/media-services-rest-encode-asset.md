@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -257,7 +257,6 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	. . . 
 
 
-
 ##Passaggi successivi
 Dopo avere creato un processo per la codifica di un asset, passare all'argomento [Come verificare l'avanzamento di un processo con Servizi multimediali](media-services-rest-check-job-progress.md).
 
@@ -266,4 +265,4 @@ Dopo avere creato un processo per la codifica di un asset, passare all'argomento
 
 [Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

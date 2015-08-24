@@ -23,22 +23,21 @@
 Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Ogni versione scelta effettua il provisioning di una versione specifica della distribuzione HDP (Hortonworks Data Platform) e di un set di componenti contenuti in tale distribuzione. Le versioni del componente associate alle versioni del cluster HDInsight sono elencate nella tabella seguente. Notare che la versione cluster predefinita usata da Azure HDInsight è attualmente la 3.1 e, a partire dal 07/11/2014, è basata su HDP 2.1.7.
 
 
-<table border="1">
-<tr><th>Componente</th><th>HDInsight versione 3.2</th><th>HDInsight versione 3.1 (predefinita)</th><th>HDInsight versione 3.0</th><th>HDInsight versione 2.1</th></tr>
-<tr><td>Hortonworks Data Platform</td><td>2.2</td><td>2.1.7</td><td>2.0</td><td>1.3</td></tr>
-<tr><td>Apache Hadoop e YARN</td><td>2.6.0</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td></tr>
-<tr><td>Tez</td><td>0.5.2</td><td>0.4.0</td><td></td><td></td></tr>
-<tr><td>Apache Pig</td><td>0.14.0</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>Apache Hive e HCatalog</td><td>0.14.0</td><td>0.13.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>HBase </td><td>0.98.4</td><td>0.98.0</td><td></td><td></td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.5</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td></tr>
-<tr><td>Apache Oozie</td><td>4.1.0</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td></tr>
-<tr><td>Zookeeper</td><td>3.4.6</td><td>3.4.5</td><td>3.4.5</td><td></td></tr>
-<tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
-<tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
-<tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
-<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
-</table>
+Componente|HDInsight versione 3.2|HDInsight versione 3.1 (predefinita)|HDInsight versione 3.0|HDInsight versione 2.1
+---|---|---|---|---
+Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
+Apache Hadoop e YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
+Tez|0\.5.2|0\.4.0||
+Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
+Apache Hive e HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
+HBase |0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
+Zookeeper|3\.4.6|3\.4.5|3\.4.5|
+Storm|0\.9.3|0\.9.1||
+Mahout|0\.9.0|0\.9.0||
+Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
+Spark|1\.3.1|||
 
 
 **Ottenere le informazioni sulla versione del componente corrente**
@@ -59,7 +58,7 @@ Se si usa l'opzione **Creazione rapida**, per impostazione predefinita si otterr
 ##Funzionalità in primo piano
 Alcune delle funzionalità principali della piattaforma HDInsight includono:
 
-- **Spark** - Apache Spark è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Le funzionalità di elaborazione in memoria rendono Spark un valido strumento per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning.
+- **Spark**: Apache Spark è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Le funzionalità di elaborazione in memoria rendono Spark un valido strumento per l'esecuzione di algoritmi iterativi in calcoli grafici e di Machine Learning.
 
 	È possibile usare Spark anche per eseguire operazioni di elaborazione dati convenzionale basata su disco. Spark rappresenta un miglioramento rispetto al framework MapReduce tradizionale in quanto evita la scrittura su disco nelle fasi intermedie. Spark è anche compatibile con il file system distribuito Hadoop (HDFS) e l'archivio BLOB di Azure e quindi i dati esistenti possono essere elaborati facilmente tramite Spark.
 
@@ -105,7 +104,13 @@ La tabella seguente include l'elenco delle versioni di HDInsight attualmente dis
 * i cluster ad alta disponibilità con due nodi head vengono distribuiti per impostazione predefinita per HDInsight 2.1 e versioni successive. Non sono disponibili per i cluster HDInsight 1.6.
 * Dopo che il supporto per una particolare versione è scaduto, potrebbe non essere disponibile tramite il portale di Azure. Nella tabella seguente sono indicate le versioni disponibili sul portale di Azure. Le versioni cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) di Windows PowerShell e .NET SDK fino alla data in cui sarà deprecata.
 
-<table border="1"> <tr><th>Versione HDInsight</th><th>Versione HDP</a><th>Disponibilità elevata</th></th><th>Data di rilascio</th><th>Disponibile sul portale di Azure</th><th>Data di scadenza del supporto</th><th>Data in cui è deprecata</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Sì</td><td>18/02/2015</td><td>Sì</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Sì</td><td>24/06/2014</td><td>Sì</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Sì</td><td>11/02/2014</td><td>Sì</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Sì</td><td>28/10/2013</td><td>No</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>28/10/2013</td><td>No</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
+HDInsight Version|Versione HDP|Disponibilità elevata|Data di rilascio|Disponibile nel portale di Azure|Data di scadenza del supporto|Data di dichiarazione obsolescenza
+---|---|---|---|---|---|---
+HDI 3.2|HDP 2.2|Sì|2/18/2015|Sì||
+HDI 3.1|HDP 2.1|Sì|6/24/2014|Sì||
+HDI 3.0|HDP 2.0|Sì|11/02/2014|Sì|17/09/2014|30/06/2015
+HDI 2.1|HDP 1.3|Sì|28/10/2013|No|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1|No|28/10/2013|No|26/04/2014|31/05/2015
 
 **Distribuzione di cluster non predefiniti**
 
@@ -161,4 +166,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

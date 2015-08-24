@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare Twilio per le funzionalità voce e SMS (Ruby) - Azure" 
+	pageTitle="Come usare Twilio per le funzionalità voce e SMS (Ruby) | Microsoft Azure" 
 	description="Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Gli esempi di codice sono scritti in Ruby." 
 	services="" 
 	documentationCenter="ruby" 
@@ -21,7 +21,7 @@
 
 
 # Come usare Twilio per le funzionalità voce ed SMS in Ruby
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per altre informazioni su Twilio e sull'utilizzo delle funzionalità voce ed SMS nelle applicazioni, vedere la sezione [Passaggi successivi](#NextSteps).
 
 ## <a id="WhatIs"></a>Informazioni su Twilio
 Twilio è un'API per servizi Web di telefonia che consente di usare le competenze e i linguaggi Web esistenti per sviluppare applicazioni SMS e vocali. Twilio è un servizio di terze parti. Non si tratta di una funzionalità di Azure, né di un prodotto Microsoft.
@@ -29,7 +29,7 @@ Twilio è un'API per servizi Web di telefonia che consente di usare le competenz
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere SMS. **Twilio Client** consente alle applicazioni di abilitare le comunicazioni vocali utilizzando le connessioni Internet esistenti, comprese le connessioni mobili.
 
 ## <a id="Pricing"></a>Prezzi e offerte speciali di Twilio
-Per informazioni dettagliate, vedere la pagina relativa ai [prezzi di Twilio][twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]\: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per avvalersi dell'offerta o per ulteriori informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].
+Per informazioni dettagliate, vedere la pagina relativa ai [prezzi di Twilio][twilio_pricing]. Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]\: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per avvalersi dell'offerta o per altre informazioni, visitare la pagina [http://ahoy.twilio.com/azure][special_offer].
 
 ## <a id="Concepts"></a>Concetti
 L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le applicazioni. Le librerie client sono disponibili in più lingue. Per un elenco, vedere la pagina relativa alle [librerie dell'API Twilio][twilio_libraries].
@@ -164,7 +164,7 @@ Dopo aver apportato la modifica, riavviare l'app Web. Prendere il telefono e inv
 Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web che è possibile utilizzare per sfruttare altre funzionalità di Twilio dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API Twilio][twilio_api_documentation].
 
 ### <a id="NextSteps"></a>Passaggi successivi
-Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per ulteriori informazioni:
+Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per altre informazioni:
 
 * [Linee guida sulla sicurezza di Twilio][twilio_security_guidelines]
 * [Procedure e codice di esempio di Twilio][twilio_howtos]
@@ -195,4 +195,4 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegame
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

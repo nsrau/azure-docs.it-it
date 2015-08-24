@@ -55,11 +55,9 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
 3. Se si rileva un componente che non si trova in uno stato **Integro**, contattare il supporto tecnico Microsoft. Se gli avvisi sono attivati sul dispositivo, si riceverà un messaggio di avviso. Se è necessario sostituire un componente hardware in errore, vedere la [Guida alla sostituzione di componenti hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 
-## Elenco di componenti per il dispositivo StorSimple
+## Elenco di componenti per l’enclosure principale del dispositivo StorSimple
 
-Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nel dispositivo StorSimple in locale. Il dispositivo dispone di due chassis: primario e EBOD. Gli elenchi per due chassis vengano riportati separatamente.
-
-### Elenco di componenti per lo chassis principale
+Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell’enclosure principale del dispositivo StorSimple in locale.
 
 |Componente|Modulo|Tipo|Location|Unità sostituibile sul campo (FRU)?|Descrizione|
 |---|---|---|---|---|---|
@@ -99,7 +97,9 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 |Ethernet|I/O|Fisico|Controller|No|Indica lo stato di ciascuna delle interfacce di rete, vale a dire le porte di gestione e dati fornite sul controller.|
 |NVRAM|I/O|Fisico|Controller|No|Indica lo stato di NVRAM, una memoria RAM non volatile sottoposta a backup tramite la batteria che serve per mantenere le informazioni critiche dell'applicazione in caso di interruzione dell'alimentazione.|
 
-### Elenco di componenti per lo chassis EBOD
+## Elenco di componenti per l’enclosure EBOD del dispositivo StorSimple
+
+Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell’enclosure EBOD del dispositivo StorSimple in locale.
 
 |Componente|Modulo|Tipo|Location|FRU?|Descrizione|
 |---|---|---|---|---|---|
@@ -124,11 +124,11 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 |Diagnostica elettronica dello chassis|I/O|Fisico|Controller|No|Indica lo stato dei sottosistemi di diagnostica fornite dal controller.|
 |Connessione al controller del dispositivo|I/O|Fisico|Controller|No|Indica lo stato della connessione tra il modulo I/O EBOD e il controller del dispositivo.|
 
-## Passaggio successivo
+## Passaggi successivi
 Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o guasto, fare riferimento a [Risoluzione dei problemi relativi agli indicatori di monitoraggio](storsimple-monitoring-indicators).
 
 Per sostituire un componente hardware guasto, vedere la [Guida alla sostituzione di componenti hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

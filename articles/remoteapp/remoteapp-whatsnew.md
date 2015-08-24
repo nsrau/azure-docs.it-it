@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,16 @@
 
 Uno dei vantaggi di RemoteApp è che viene costantemente migliorato. Ogni modifica apportata viene comunicata qui.
 
+## 2015 luglio 2014
+
+A luglio vengono portati in scena le novità in arrivo nel mese di agosto, pertanto non c’è molto di cui parlare di ora, principalmente aggiornamenti dei documenti. Ecco le modifiche più recenti:
+
+- Aggiunta della scheda **Supporto** al portale, in modo da poter accedere più facilmente alle risorse di supporto, ad esempio i forum.
+- Rielaborazione delle informazioni sulla risoluzione dei problemi per la creazione di una raccolta ibrida. Esaminare [le ultimissime novità](remoteapp-hybridtrouble.md) per suggerimenti sulla risoluzione dei problemi, come identificare le porte appropriate per configurare la rete VNET.
+- Documentato come i [dati utente](remoteapp-upd.md) vengono creati e salvati in Azure RemoteApp.
+- Documentato come [bloccare le applicazioni](remoteapp-secure.md).
+- Pubblicati i [cmdlet di Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+- Infine, abbiamo iniziato una conversazione con alcuni utenti di Azure RemoteApp sulla terminologia. Cercare le modifiche al modo in cui si fa riferimento alle diverse opzioni della raccolta.
 
 ## Giugno 2015
 
@@ -51,4 +61,4 @@ Si desidera vedere RemoteApp di Azure nel mondo reale? Consultare l’esercitazi
 
 Grazie per l’attenzione. Ulteriori aggiornamenti saranno comunicati il mese prossimo.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

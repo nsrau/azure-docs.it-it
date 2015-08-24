@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/04/2015"
+   ms.date="08/09/2015"
    ms.author="rajram"/>
 
 # Microsoft AS2 Connector
@@ -42,7 +42,7 @@ Contenitore dell'archiviazione BLOB di Azure | Archivia le proprietà dei messag
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Selezionare **App per le API** e cercare "AS2 Connector".
+2. Cercare "Connettore AS2", selezionarlo e selezionare **Crea**.
 3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
@@ -61,30 +61,30 @@ I passaggi per la creazione di un accordo tra partner commerciali sono documenta
 
 ## Usare il connettore come trigger
 
-1. Quando si crea o si modifica un'app per la logica, nel riquadro destro selezionare AS2 Connector creato in precedenza: <br/> ![Impostazioni di trigger][3]
+1. Quando si crea o si modifica un'app per la logica, nel pannello a destra selezionare AS2 Connector creato in precedenza: ![Impostazioni di trigger][3]
 
-2. Fare clic sulla freccia destra →: <br/> ![Opzioni di trigger][4]
+2. Fare clic sulla freccia destra →: ![Opzioni di trigger][4]
 
-3. AS2 Connector espone un singolo trigger. Selezionare *Receive & Decode*: <br/> ![Input di Receive & Decode][5]
+3. AS2 Connector espone un singolo trigger. Selezionare *Receive & Decode*: ![Input di Receive & Decode][5]
 
-4. Questo trigger non include input. Fare clic sulla freccia destra →: <br/> ![Configurazione di Receive & Decode][6]
+4. Questo trigger non include input. Fare clic sulla freccia destra →: ![Configurazione di Receive & Decode][6]
 
 Quale parte dell'output, il connettore restituisce il payload AS2, nonché i metadati specifici di AS2.
 
-Il Trigger viene attivato quando un Payload AS2 è come un POST alhttps://{HostURL} / decodifica. È possibile trovare l'URL Host nell'API App impostazioni. Inoltre potrebbe essere necessario modificare il livello di accesso dell'applicazione nelle impostazioni dell'applicazione API pubblico (autenticate o anonime).
+Il Trigger viene attivato quando un Payload AS2 è come un POST al https://{HostURL}/decodifica. È possibile trovare l'URL Host nell'API App impostazioni. Inoltre potrebbe essere necessario modificare il livello di accesso dell'applicazione nelle impostazioni dell'applicazione API pubblico (autenticate o anonime).
 
 ## Usare il connettore come azione
-1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), dal riquadro destro aggiungere AS2 Connector creato in precedenza: <br/> ![Impostazioni di azione][7]
+1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), dal pannello a destra aggiungere AS2 Connector creato in precedenza: ![Impostazioni di azione][7]
 
-2. Fare clic sulla freccia destra →: <br/> ![Elenco di azioni][8]
+2. Fare clic sulla freccia destra →: ![Elenco di azioni][8]
 
-3. AS2 Connector supporta una sola azione. Selezionare *Encode & Send*: <br/> ![Input di Encode & Send][9].
+3. AS2 Connector supporta una sola azione. Selezionare *Encode & Send*: ![Input di Encode & Send][9]
 
-4. Immettere gli input per l'azione e configurarla: <br/> ![Configurazione di Encode & Send][10]
+4. Immettere gli input per l'azione e configurarla: ![Configurazione di Encode & Send][10]
 
-I parametri includono:
+	I parametri includono:
 
-Parametro | Tipo | Descrizione
+	Parametro | Tipo | Descrizione
 --- | --- | ---
 Payload | oggetto| Contenuto del payload da codificare e registrare nell'endpoint configurato. Il payload deve essere specificato come oggetto JSON.
 AS2 di origine | stringa | Identità AS2 del mittente del messaggio AS2. Questo parametro viene usato per cercare il contratto appropriato per l'invio del messaggio.
@@ -113,4 +113,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

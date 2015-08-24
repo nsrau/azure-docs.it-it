@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Data factory - Creare pipeline predittive tramite Data factory e Machine Learning | Azure" 
+	pageTitle="Data factory - Creare pipeline predittive tramite Data factory e Machine Learning | Microsoft Azure" 
 	description="Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
 	editor="monicar"/>
-
 
 <tags 
 	ms.service="data-factory" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
-
 
 # Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning 
 ## Panoramica
@@ -329,4 +327,4 @@ Articolo | Descrizione
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

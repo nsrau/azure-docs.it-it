@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -97,4 +97,4 @@ I formati di file di origine seguenti non sono supportati dalla creazione dinami
 - File Dolby Digital Plus MP4.
 - File Dolby Digital Plus Smooth. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

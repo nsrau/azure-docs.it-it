@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2015"
+	ms.date="08/05/2015"
 	ms.author="davidmu"/>
 
 # Scalabilità automatica dei nodi di calcolo in un pool di Azure Batch
@@ -23,7 +23,7 @@ La scalabilità automatica dei nodi di calcolo in un pool di Azure Batch è una 
 
 La scalabilità automatica viene implementata quando è abilitata per un pool e al pool è associata una formula. La formula viene usata per determinare il numero di nodi di calcolo necessari per elaborare l'applicazione. La scalabilità automatica può essere impostata al momento della creazione di un pool oppure in seguito per un pool esistente. È inoltre possibile aggiornare la formula in un pool in cui è stata abilitata la scalabilità automatica.
 
-Quando la scalabilità automatica è abilitata, il numero di nodi di calcolo disponibili viene adeguato ogni 15 minuti in base alla formula. La formula agisce su campioni raccolti ogni 5 secondi, ma esiste un ritardo di 75 secondi tra il momento in cui viene raccolto un campione e il momento in cui è disponibile per la formula. Quando si usa il metodo GetSample descritto di seguito, è necessario tenere conto di questi fattori di tempo.
+Quando la scalabilità automatica è abilitata, il numero di nodi di calcolo disponibili viene adeguato ogni 15 minuti in base alla formula. La formula agisce su campioni raccolti periodicamente, ma esiste un ritardo tra il momento in cui viene raccolto un campione e il momento in cui è disponibile per la formula. Quando si usa il metodo GetSample descritto di seguito, è necessario tenere conto di ciò.
 
 È sempre consigliabile valutare la formula prima di assegnarla a un pool ed è importante monitorare lo stato delle esecuzioni della scalabilità automatica.
 
@@ -56,7 +56,7 @@ In una formula possono essere usate variabili definite dal sistema e variabili d
     <td>Il numero di destinazione di nodi di calcolo dedicati per il pool. Il valore può essere modificato in base all'utilizzo effettivo per le attività.</td>
   </tr>
   <tr>
-    <td>$TVMDeallocationOption</td>
+    <td>$NodeDeallocationOption</td>
     <td>L'azione che si verifica quando i nodi di calcolo vengono rimossi da un pool. I valori possibili sono:
       <br/>
       <ul>
@@ -115,7 +115,7 @@ In una formula possono essere usate variabili definite dal sistema e variabili d
     <td>Il numero di byte in uscita</td>
   </tr>
   <tr>
-    <td>$SampleTVMCount</td>
+    <td>$SampleNodeCount</td>
     <td>Il numero di nodi di calcolo</td>
   </tr>
   <tr>
@@ -323,10 +323,6 @@ Queste funzioni predefinite sono disponibili per definire una formula di scalabi
     <td>double val(doubleVec v, double i)</td>
     <td>Il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero.</td>
   </tr>
-  <tr>
-    <td>doubleVec vec(doubleVecList)</td>
-    <td>Creare in modo esplicito un singolo doubleVec da doubleVecList.</td>
-  </tr>
 </table>
 
 Alcune delle funzioni descritte nella tabella possono accettare un elenco come argomento. L'elenco delimitato da virgole è qualsiasi combinazione di double e doubleVec. Ad esempio:
@@ -392,7 +388,7 @@ Queste metriche possono essere definite in una formula.
     <td><p>Basata sull'utilizzo della CPU, l'utilizzo della larghezza di banda, l'utilizzo della memoria e il numero di nodi di calcolo. Queste variabili di sistema descritte in precedenza vengono usate nelle formule per gestire i nodi di calcolo in un pool:</p>
     <p><ul>
       <li>$TargetDedicated</li>
-      <li>$TVMDeallocationOption</li>
+      <li>$NodeDeallocationOption</li>
     </ul></p>
     <p>Queste variabili di sistema vengono usate per gli adattamenti in base alle metriche dei nodi:</p>
     <p><ul>
@@ -476,4 +472,4 @@ Se è già stato configurato un pool con un numero specificato di nodi di calcol
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): questo cmdlet recupera il file RDP dal nodo di calcolo specificato e lo salva nel percorso di file specificato oppure in un flusso.
 2.	Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery" 
-	description="Questo argomento illustra le considerazioni sulla sicurezza e sulla privacy correlate a Cloud App Discovery." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="swadhwa" 
+<properties
+	pageTitle="Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery"
+	description="Questo argomento illustra le considerazioni sulla sicurezza e sulla privacy correlate a Cloud App Discovery."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="swadhwa"
 	editor="lisatoft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/06/2015"
 	ms.author="markusvi"/>
 
 # Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery
@@ -27,10 +27,10 @@ Questo argomento descrive le modalità di raccolta, elaborazione e protezione de
 
 ##Panoramica
 
-Cloud App Discovery è una funzionalità di Azure AD ed è ospitata in Microsoft Azure. <br> Cloud App Discovery Endpoint Agent viene usato per raccogliere dati di individuazione applicazioni da computer gestiti dal reparto IT. <br> I dati raccolti vengono inviati in modo sicuro su un canale crittografato al servizio Azure AD Cloud App Discovery. <br> I dati di Cloud App Discovery per un'organizzazione saranno quindi visibili nel portale di Azure.
+Cloud App Discovery è una funzionalità di Azure AD ed è ospitata in Microsoft Azure. <br> Cloud App Discovery Endpoint Agent viene usato per raccogliere dati di individuazione applicazioni da computer gestiti dal reparto IT. <br> I dati raccolti vengono inviati in modo sicuro su un canale crittografato al servizio Azure AD Cloud App Discovery. <br> I dati di Cloud App Discovery per l'organizzazione saranno quindi visibili nel portale di Azure. <br>
 
 
-<center>![Funzionamento di Cloud App Discovery](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png)</center>
+<center>![Funzionamento di Cloud App Discovery](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) </center> <br>
 
 
 Le sezioni seguenti seguono il flusso di informazioni e illustrano il modo in cui viene protetto durante il trasferimento dall'organizzazione al servizio Cloud App Discovery e infine al portale di Cloud App Discovery.
@@ -43,22 +43,16 @@ Per usare la funzionalità Cloud App Discovery di Azure Active Directory per ott
 
 Gli amministratori del tenant di Azure Active Directory o i rispettivi delegati possono scaricare il pacchetto di installazione dell'agente dal portale di Azure. L'agente può essere installato manualmente oppure può essere installato in più computer dell'organizzazione tramite SCCM o Criteri di gruppo.
 
-Per altre istruzioni sulle opzioni di distribuzione, vedere la pagina relativa alla [Guida alla distribuzione di Criteri di gruppo in Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx).
-
+Per altre istruzioni sulle opzioni di distribuzione, vedere la [guida alla distribuzione di Criteri di gruppo in Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx). <br>
 
 ### Dati raccolti dall'agente
 
-Le informazioni incluse nell'elenco seguente vengono raccolte dall'agente quando viene stabilita una connessione a un'applicazione Web. Le informazioni vengono raccolte solo per le applicazioni configurate dall'amministratore per l'individuazione. <br> È possibile modificare l'elenco di app cloud di cui l'agente effettua il monitoraggio tramite il pannello Cloud App Discovery nel [portale di Microsoft Azure](https://portal.azure.com), facendo clic su **Impostazioni**->**Raccolta dati**->**Elenco Raccolta di app**.
-
-
-> [AZURE.NOTE]Per altri dettagli, vedere l'[introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
-
-**Categoria delle informazioni**: Informazioni sull'utente<br> **Descrizione**: <br> Nome utente di Windows del processo che ha effettuato una richiesta all'applicazione Web di destinazione (ad esempio DOMINIO\\nomeutente), oltre al SID (Security Identifier) Windows dell'utente.
+Le informazioni incluse nell'elenco seguente vengono raccolte dall'agente quando viene stabilita una connessione a un'applicazione Web. Le informazioni vengono raccolte solo per le applicazioni configurate dall'amministratore per l'individuazione. <br> È possibile modificare l'elenco di app cloud di cui l'agente effettua il monitoraggio tramite il pannello Cloud App Discovery nel [portale di Microsoft Azure](https://portal.azure.com), facendo clic su **Impostazioni**->**Raccolta dati**->**Elenco Raccolta di app**. Per informazioni dettagliate, vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **Categoria delle informazioni**: Informazioni sull'utente<br> **Descrizione**: <br> Nome utente di Windows del processo che ha effettuato una richiesta all'applicazione Web di destinazione (ad esempio DOMINIO\\nomeutente), oltre al SID (Security Identifier) Windows dell'utente.
 
 
 **Categoria delle informazioni**: Informazioni sul processo <br> **Descrizione**: <br> Nome del processo che ha effettuato la richiesta all'applicazione Web di destinazione (ad esempio "iexplore.exe").
 
-**Categoria delle informazioni**: Informazioni sul computer <br> **Descrizione**: <br> Nome del computer NetBIOS in cui è installato l'agente.
+**Categoria delle informazioni**: Informazioni sul computer <br> **Descrizione**: <br> Nome NetBIOS del computer in cui è installato l'agente.
 
 **Categoria delle informazioni**: Informazioni sul traffico dell'app <br> **Descrizione**: <br>
 
@@ -94,10 +88,10 @@ Informazioni HTTP seguenti:
 
 
 
-> [AZURE.NOTE]Le informazioni HTTP precedenti vengono raccolte per tutte le connessioni non crittografate. Per le connessioni TLS queste informazioni vengono acquisite solo se l'impostazione Ispezione approfondita è attivata nel portale. Questa impostazione è attivata per impostazione predefinita. Per altri dettagli, vedere di seguito e l'[introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE]Le informazioni HTTP precedenti vengono raccolte per tutte le connessioni non crittografate. Per le connessioni TLS queste informazioni vengono acquisite solo se l'impostazione Ispezione approfondita è attivata nel portale. Questa impostazione è attivata per impostazione predefinita. Per informazioni dettagliate, vedere di seguito e vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 
-
+<br><br>
 ### Funzionamento dell'agente
 
 L'installazione dell'agente include due componenti:
@@ -110,9 +104,9 @@ L'installazione dell'agente include due componenti:
 
 Quando l'agente viene installato per la prima volta, archivia nel computer un certificato attendibile specifico del computer e lo usa quindi per stabilire una connessione sicura al servizio Cloud App Discovery. <br> L'agente recupera periodicamente la configurazione dei criteri dal servizio Cloud App Discovery tramite questa connessione sicura. <br> I criteri includono ad esempio informazioni sulle applicazioni cloud da monitorare e sulla necessità di abilitare o meno l'aggiornamento automatico.
 
-Quando il traffico Web viene inviato e ricevuto nel computer da Chrome o da Internet Explorer, l'agente di Cloud App Discovery analizza il traffico ed estrae i metadati rilevanti (vedere la tabella precedente). <br> L'agente carica ogni minuto i metadati raccolti nel servizio Cloud App Discovery usando un canale crittografato.
+Quando il traffico Web viene inviato e ricevuto nel computer da Chrome o da Internet Explorer, l'agente di Cloud App Discovery analizza il traffico ed estrae i metadati pertinenti (vedere la sezione **Dati raccolti dall'agente** precedente). <br> L'agente carica ogni minuto i metadati raccolti nel servizio Cloud App Discovery usando un canale crittografato.
 
-Il componente driver intercetta il traffico crittografato e si inserisce nel flusso crittografato. Esegue questa operazione creando un certificato radice autofirmato nel computer, in modo che l'applicazione client ritenga attendibile l'agente di Cloud App Discovery. Il certificato radice autofirmato è contrassegnato come non esportabile e viene sottoposto ad ACL per gli amministratori. Non deve mai lasciare il computer in cui è stato creato.
+Il componente driver intercetta il traffico crittografato e si inserisce nel flusso crittografato. Per altri dettagli, vedere la sezione **Intercettazione dei dati da connessioni crittografate (Ispezione approfondita)** più avanti.
 
 
 ### Rispetto della privacy degli utenti
@@ -121,34 +115,35 @@ Il nostro obiettivo consiste nell'offrire agli amministratori gli strumenti nece
 
 - **Raccolta dati**: gli amministratori possono scegliere di specificare le applicazioni o le categorie di applicazioni per cui ottenere i dati relativi all'individuazione.
 
-- **Ispezione approfondita**: gli amministratori possono scegliere di specificare se è l'agente a raccogliere il traffico HTTP per le connessioni SSL/TLS (nota anche come **'Ispezione approfondita'**). Per altre informazioni, vedere la sezione successiva.
+- **Ispezione approfondita**: gli amministratori possono scegliere di specificare se è l'agente a raccogliere i dati relativi al traffico HTTP per le connessioni SSL/TLS. Per altre informazioni, vedere la sezione successiva.
 
-- **Opzioni per il consenso**: gli amministratori possono scegliere se informare gli utenti che l'agente effettua la raccolta dei dati e se richiedere il consenso dell'utente prima che l'agente inizi a raccogliere i dati utente.
+- **Opzioni per il consenso**: gli amministratori possono usare il portale di Cloud app Discovery per scegliere se informare gli utenti che l'agente effettua la raccolta dei dati e se richiedere il consenso dell'utente prima che l'agente inizi a raccogliere i dati utente.
 
-Cloud App Discovery Endpoint Agent raccoglie solo le informazioni indicate nella tabella precedente.
+Cloud App Discovery Endpoint Agent raccoglie solo le informazioni indicate nella sezione **Dati raccolti dall'agente** precedente.
 
 
+### Intercettazione dei dati da connessioni crittografate (Ispezione approfondita)
+Come accennato in precedenza, gli amministratori possono configurare l'agente in modo che effettui il monitoraggio dei dati da connessioni crittografate ('Ispezione approfondita'). Il protocollo TLS ([Transport Layer Security](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) è uno dei protocolli Internet usati più di frequente. La crittografia delle comunicazioni tramite protocollo TLS, consente ai clienti di stabilire un canale di comunicazione sicuro e privato con un server Web. Il protocollo TLS fornisce la protezione essenziale per passare le credenziali di autenticazione e impedire la divulgazione di informazioni riservate.
 
-> [AZURE.NOTE]Per altri dettagli, vedere l'[introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+Anche se il canale crittografato protetto end-to-end offerto da TLS consente di tutelare la sicurezza e la privacy, questo protocollo viene spesso usato per scopi dannosi o non autorizzati. È per questo motivo che in realtà TLS viene spesso definito come il "protocollo universale di bypass del firewall". Il problema dipende dal fatto che la maggior parte dei firewall non è in grado di esaminare le comunicazioni TLS perché i dati a livello di applicazione sono crittografati con SSL. Gli autori di attacchi che conoscono questa limitazione sfruttano quindi il protocollo TLS per recapitare payload dannosi agli utenti nella certezza che persino i firewall a livello di applicazione più intelligenti non riconoscono TLS e devono semplicemente inoltrare le comunicazioni TLS tra host. Spesso gli utenti finali sfruttano il protocollo TLS per ignorare i controlli di accesso applicati da firewall e server proxy aziendali, usandolo per connettersi a proxy pubblici e per il tunneling tramite il firewall di protocolli non TLS che altrimenti verrebbero bloccati da appositi criteri.
 
-### Intercettazione dei dati da connessioni crittografate
-Come accennato in precedenza, gli amministratori possono configurare l'agente in modo che effettui il monitoraggio dei dati da connessioni crittografate ('Ispezione approfondita'). Il protocollo TLS ([Transport Layer Security](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) è uno dei più comuni in uso in Internet oggi. Grazie alla crittografia delle comunicazioni con il protocollo TLS un client può stabilire un canale di comunicazione protetto e privato con un server Web. Con il protocollo TLS è possibile fornire una protezione essenziale per il passaggio delle credenziali di autenticazione e impedire la divulgazione di informazioni riservate.
+L'ispezione approfondita consente all'agente di App Cloud Discovery di fungere da intermediario attendibile. Quando viene effettuata una richiesta client per accedere a una risorsa protetta tramite HTTPS, il driver Endpoint Agent intercetta la connessione e stabilisce una nuova connessione al server di destinazione per recuperare il certificato SSL per conto del client. L'agente verifica quindi che il certificato sia attendibile (controllando che non sia stato revocato ed effettuando altre verifiche del certificato) e, se i controlli vengono superati Endpoint Agent copia le informazioni dal certificato del server per crearne uno proprio, noto come certificato di intercettazione, usando tali informazioni. Il certificato di intercettazione viene quindi firmato immediatamente da Endpoint Agent con un certificato radice, che viene infine installato nell'archivio certificati attendibili di Windows. Il certificato radice autofirmato è contrassegnato come non esportabile e viene sottoposto ad ACL per gli amministratori. Non deve mai lasciare il computer in cui è stato creato. Quando l'applicazione client dell'utente finale riceve il certificato di intercettazione, lo considererà attendibile perché riuscirà a convalidare la catena di certificati fino al certificato radice. Questo processo è quasi completamente trasparente dal punto di vista dell'utente finale, ma occorre tenere presente alcuni aspetti, come descritto di seguito.
 
-Anche se il canale crittografato protetto end-to-end offerto da TLS consente di tutelare la sicurezza e la privacy, questo protocollo viene spesso usato per scopi dannosi o non autorizzati. È per questo motivo che in realtà HTTPS viene spesso definito come il "protocollo universale di bypass del firewall". Il problema dipende dal fatto che la maggior parte dei firewall non è in grado di esaminare le comunicazioni TLS perché i dati a livello di applicazione sono crittografati con SSL. Gli autori di attacchi che conoscono questa limitazione sfruttano quindi il protocollo TLS per recapitare payload dannosi agli utenti nella certezza che persino i firewall a livello di applicazione più intelligenti non riconoscono TLS e devono semplicemente inoltrare le comunicazioni TLS tra host. Spesso gli utenti finali sfruttano il protocollo TLS per ignorare i controlli di accesso applicati da firewall e server proxy aziendali, usandolo per connettersi a proxy pubblici e per il tunneling tramite il firewall di protocolli non TLS che altrimenti verrebbero bloccati da appositi criteri.
+Quando l'ispezione approfondita è abilitata, Cloud App Discovery Endpoint Agent può decrittografare e ispezionare le comunicazioni crittografate tramite TLS, consentendo così al servizio di ridurre i dati non significativi e fornendo informazioni dettagliate sull'utilizzo delle app cloud crittografate.
 
-L'ispezione approfondita consente all'agente di App Cloud Discovery di fungere da intermediario attendibile. Quando viene effettuata una richiesta per accedere a una risorsa HTTPS protetta, l'agente stabilisce una nuova connessione al server di destinazione e ne recupera il certificato SSL. App Cloud Discovery Endpoint Agent copia quindi le informazioni del certificato e usa questi dettagli per creare il proprio certificato da fornire al client. Dal momento che il client considera attendibile il certificato radice di App Cloud Discovery Endpoint Agent, il processo è quasi interamente automatico per l'utente finale.
-
+#### Precisazione importante
+Prima di attivare l'ispezione approfondita si consiglia di comunicare le proprie intenzioni all'ufficio legale e al reparto risorse umane per ottenerne il consenso. Per ovvi motivi l'ispezione delle comunicazioni crittografate private di un utente finale può comportare problemi di tutela della privacy. Prima di implementare l'ispezione approfondita in un ambiente di produzione, assicurarsi che i criteri relativi alla sicurezza e alle modalità di utilizzo delle informazioni accettati in ambito aziendale siano stati aggiornati in modo da indicare che le comunicazioni crittografate verranno ispezionate. Può inoltre essere necessario implementare le notifiche utente ed escludere i siti ritenuti sensibili (ad esempio quelli bancari o medici) se si configura Cloud App Discovery per includerli nel monitoraggio. Come indicato in precedenza, gli amministratori possono usare il portale di Cloud App Discovery per scegliere se informare gli utenti che l'agente effettua la raccolta dei dati e se richiedere il consenso dell'utente prima che l'agente inizi a raccogliere i dati dell'utente.
 
 ### Problemi noti e svantaggi
-In alcuni casi l'intercettazione TLS può influire sull'esperienza dell'utente finale. - Con i certificati EV (Extended Validation) sulla barra degli indirizzi del Web browser è presente un segno verde per indicare anche visivamente che il sito Web visitato è attendibile. L'ispezione TLS non è in grado di duplicare EV nel certificato che rilascia al client, di conseguenza i siti Web che usano i certificati EV funzioneranno normalmente ma sulla barra degli indirizzi non verrà visualizzato alcun segno verde. - L'aggiunta di chiavi pubbliche (ovvero l'aggiunta di certificati) consente di proteggere gli utenti da attacchi man-in-the-middle e Autorità di certificazione non autorizzate. Quando il certificato radice di un sito aggiunto non corrisponde a una delle Autorità di certificazione note e valide, il browser impedisce la connessione e restituisce un errore. Dal momento che l'intercettazione TLS è di fatto paragonabile a un attacco man-in-the-middle, queste connessioni non riusciranno.
+In alcuni casi, l'intercettazione TLS potrebbe influire negativamente sull'esperienza dell'utente finale:
 
-Per ovviare a questi problemi, per quanto possibile Microsoft tiene traccia delle app che usano normalmente la convalida estesa o l'aggiunta di chiavi pubbliche, evitando di intercettare le rispettive connessioni crittografate. Gli utenti riceveranno comunque i report relativi all'utilizzo di queste app e al volume di dati ma, dal momento che non sono state intercettate, non verranno inclusi dettagli su come sono state utilizzate.
+- Con i certificati di convalida estesa, la barra degli indirizzi del Web browser assume un colore verde per indicare che si sta visitando un sito Web attendibile. L'ispezione TLS non può duplicare la convalida estesa del certificato rilasciato al client, quindi i siti Web che usano i certificati di convalida estesa funzionano normalmente ma la barra degli indirizzi non risulterà verde.  
 
-Quando l'ispezione TLS è abilitata, Cloud App Discovery Endpoint Agent può decrittografare e ispezionare le comunicazioni crittografate con TLS, consentendo al servizio di ridurre i dati non significativi e fornendo informazioni dettagliate sull'utilizzo delle app cloud crittografate.
+- L'associazione della chiave pubblica, nota anche come associazione del certificato, è progettata per proteggere gli utenti da attacchi man-in-the-middle e autorità di certificazione non autorizzate. Quando il certificato radice di un sito aggiunto non corrisponde a una delle Autorità di certificazione valide note, il browser impedisce la connessione e restituisce un errore. Dal momento che l'intercettazione TLS è di fatto paragonabile a un attacco man-in-the-middle, queste connessioni non riusciranno.
 
+- Se gli utenti fanno clic sull'icona con il lucchetto nella barra degli indirizzi del browser per ispezionare le informazioni del sito, non visualizzeranno una catena che termina con l'autorità di certificazione usata per firmare il certificato del sito Web ma una catena di certificati che termina con l'archivio certificati attendibili di Windows.
 
-### Precisazione importante
-Prima di attivare l'ispezione approfondita si consiglia di comunicare le proprie intenzioni all'ufficio legale e al reparto risorse umane per ottenerne il consenso. Per ovvi motivi l'ispezione delle comunicazioni crittografate private di un utente finale può comportare problemi di tutela della privacy. Prima di implementare l'ispezione TLS in un ambiente di produzione, assicurarsi che i criteri relativi alla sicurezza e alle modalità di utilizzo delle informazioni accettati in ambito aziendale siano stati aggiornati in modo da indicare che le comunicazioni crittografate verranno ispezionate. Può inoltre essere necessario implementare le notifiche utente ed escludere i siti ritenuti sensibili (ad esempio quelli bancari o medici) se si configura Cloud App Discovery per includerli nel monitoraggio.
+Per ridurre il riprodursi di questi problemi, viene tenuta traccia dei servizi cloud e delle applicazioni client che in genere usano la convalida estesa o l'associazione della chiave pubblica e indicano a Endpoint Agent di evitare di intercettare le connessioni interessate. Anche in questi casi, si continueranno a ricevere report sull'utilizzo di queste app cloud e sul volume di dati trasferiti, ma poiché non viene effettuata l'ispezione approfondita, non saranno disponibili dettagli sul modo in cui le app sono state usate.
 
 
 ## Invio di dati a Cloud App Discovery
@@ -171,11 +166,9 @@ Nel tentativo di proteggere i metadati raccolti, per impostazione predefinita so
 
 
 
-> [AZURE.NOTE]Per altri dettagli, vedere l'[introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE]Per informazioni dettagliate, vedere [Introduzione a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
-
-
-Qualsiasi utente che accede ai dati nel portale deve avere una licenza per Azure AD Premium.
+<br> Qualsiasi utente che accede ai dati nel portale deve avere una licenza per Azure AD Premium.
 
 
 
@@ -184,4 +177,4 @@ Qualsiasi utente che accede ai dati nel portale deve avere una licenza per Azure
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

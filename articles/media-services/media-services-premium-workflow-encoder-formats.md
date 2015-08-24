@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Codec e formati del flusso di lavoro Premium del codificatore multimediale
@@ -127,4 +127,4 @@ Nota: non tutti i formati di output precedenti sono supportati per il recapito t
 
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

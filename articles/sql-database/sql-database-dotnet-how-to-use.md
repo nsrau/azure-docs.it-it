@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare il database SQL (.NET) - Guida alle funzionalità di Azure" 
+	pageTitle="Come utilizzare il database SQL (NET) | Microsoft Azure" 
 	description="Introduzione al database SQL. Informazioni su come creare un'istanza di database SQL e connettersi ad essa usando ADO.NET, ODBC e il provider EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere [Provider EntityClient per Entity Framework](
 Ora che sono state apprese le nozioni di base della connessione al Database SQL, vedere[Sviluppo: procedure (Database SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

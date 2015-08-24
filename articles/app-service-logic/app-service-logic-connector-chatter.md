@@ -13,18 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
 
 
-# Uso di Chatter Connector nell'app per la logica #
+# Uso di Chatter Connector nell'app per la logica
 
-Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
+Il Connettore Chatter consente di collegarsi a Chatter ed eseguire attività comuni, ad esempio inviare un messaggio. Ad esempio, è possibile cercare un feed Chatter e quando si individua un oggetto specifico, è possibile pubblicare tale messaggio Chatter a un gruppo di vendite.
 
-Chatter Connector consente di connettersi a Chatter e di eseguire diverse azioni, ad esempio Post Message e Search, e di attivare un trigger per recuperare nuovi messaggi.
+È possibile aggiungere il connettore Chatter a dati di flusso di lavoro e a processo di business come parte del flusso di lavoro.
 
-## Creare Chatter Connector per l'app per la logica ##
-Per usare Chatter Connector, è necessario innanzitutto creare un'istanza dell'app per le API Chatter Connector. Attenersi alla procedura riportata di seguito:
+## Trigger e azioni
+
+Un trigger avvia una nuova istanza in base a un evento specifico, come ad esempio l'arrivo di un messaggio Chatter. Un'azione è il risultato, come ad esempio dopo la ricezione di un nuovo messaggio Chatter, quindi inviare il messaggio a un altro gruppo Chatter o un altro sito di social networking, ad esempio Facebook o Twitter.
+
+Il Connettore Chatter può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per il Conettore Chatter sono disponibili i trigger e le azioni seguenti:
+
+Trigger | Azioni
+--- | ---
+Nuovo messaggio | <ul><li>Pubblica messaggi</li><li>Ricerca</li></ul>
+
+
+## Creare il Connettore Chatter per l'app per la logica
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
 2.	Andare a "Web e dispositivi mobili > App per le API" e cercare "Chatter Connector".
@@ -35,14 +46,14 @@ Per usare Chatter Connector, è necessario innanzitutto creare un'istanza dell'a
 	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
 	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore
 	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
-	- **Piano tariffario**: scegliere il piano tariffario per il connettore
-	- **Nome**: assegnare un nome al connettore.
+	- **Piano tariffario**: scegliere un piano tariffario per il connettore
+	- **Nome** - assegnare un nome a Connettore Chatter
 
-4.	Fare clic su Crea. Verrà creato un nuovo Chatter Connector.
-5.	Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare Chatter Connector.
+4. Selezionare **Crea**.
 
-## Uso di Chatter Connector nell'app per la logica ##
-Dopo aver creato l'app per le API, è possibile usare Chatter Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
+
+## Uso di Chatter Connector nell'app per la logica
+Dopo aver creato l'app per le API, è possibile usare Connettore Chatter come trigger o azione per l'app per la logica. A tale scopo, effettuare l'operazione seguente:
 
 1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di Chatter Connector.
 
@@ -76,7 +87,7 @@ Dopo aver creato l'app per le API, è possibile usare Chatter Connector come tri
 	![][10]
 	![][11]
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-chatter/img1.PNG
 [2]: ./media/app-service-logic-connector-chatter/img2.PNG
 [3]: ./media/app-service-logic-connector-chatter/img3.png
@@ -89,4 +100,4 @@ Dopo aver creato l'app per le API, è possibile usare Chatter Connector come tri
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

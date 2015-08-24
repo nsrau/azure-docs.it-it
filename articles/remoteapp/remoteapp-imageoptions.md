@@ -1,8 +1,8 @@
 <properties 
     pageTitle="Creare un'immagine di Azure RemoteApp"
-    description="Informazioni sulle opzioni disponibili per la creazione di immagini per RemoteApp" 
+    description="Informazioni sulle opzioni disponibili per la creazione di immagini per Azure RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
 # Creare un'immagine di Azure RemoteApp
 
-Azure RemoteApp usa immagini per contenere le app condivise con gli utenti. Per creare una raccolta RemoteApp con una scelta di applicazioni personalizzata, nel cloud o ibrida, iniziare con la creazione di un'immagine contenente le applicazioni installate. Creare quindi una raccolta che usa l'immagine, assegnare utenti alla raccolta e pubblicare le app per gli utenti desiderati.
+Azure RemoteApp usa immagini per contenere le app condivise con gli utenti. Per creare una raccolta Azure RemoteApp con una scelta di applicazioni personalizzata, nel cloud o ibrida, iniziare con la creazione di un'immagine contenente le applicazioni installate. Creare quindi una raccolta che usa l'immagine, assegnare utenti alla raccolta e pubblicare le app per gli utenti desiderati.
 
 Per creare o usare le immagini sono disponibili diverse opzioni. Il [requisito](remoteapp-imagereqs.md) di base per un'immagine è che sia in esecuzione Windows Server 2012 R2 e che sia installato il ruolo Host sessione Desktop remoto (RDSH). Sarà interessante vedere come soddisfare questo requisito.
 
@@ -32,4 +32,4 @@ Per le immagini sono disponibili le opzioni seguenti:
 Indipendentemente da dove si ottiene l'immagine o da come la si crea, è opportuno verificare di avere compreso i [requisiti per le app](remoteapp-appreqs.md) per garantire il corretto funzionamento dell'app in RemoteApp. Il passaggio successivo consiste nel creare una raccolta [nel cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Come usare le code del bus di servizio (.NET) - Azure"
+    pageTitle="Come usare le code del bus di servizio (.NET) | Microsoft Azure"
     description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -246,4 +246,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

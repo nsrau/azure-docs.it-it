@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="08/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,27 +22,6 @@
 
 
 In questo argomento vengono descritte le modifiche apportate dal database SQL V12 di Azure al comportamento di connessione dei client che utilizzano ADO.NET 4.5 o versione successiva.
-
-
-## Chiarimenti sulla versione
-
-
-#### ADO.NET
-
-
-- ADO.NET 4.0 supporta il protocollo TDS 7.3, ma non 7.4.
-- ADO.NET 4.5 e versioni successive supportano il protocollo TDS 7.4.
-- Internamente, ADO.NET 4.5 utilizza ODBC 11.
- - Le informazioni applicabili a ADO.NET 4.5 si applicano anche a ODBC 11.
-
-
-#### Database SQL V11 e V12
-
-
-In questo argomento vengono evidenziate le differenze di connessione del client tra il database SQL V11 e V12.
-
-
-*Nota:* l’istruzione Transact-SQL`SELECT @@version;` restituisce un valore che inizia con un numero, ad esempio '11.' o '12'., corrispondenti ai nomi di versione V11 e V12 per il database SQL.
 
 
 ## V11 del database SQL: porta 1433
@@ -73,7 +52,7 @@ Per le connessioni a V12, è necessario chiedere se il programma client viene es
 La porta 1433 è l'unica porta da aprire nel computer desktop che ospita l'applicazione client del database SQL.
 
 
-#### *All'interno:* il client è in esecuzione in una macchina virtuale di Azure
+#### *All'interno:* il client è in esecuzione in Azure
 
 
 Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server del database SQL. Una volta stabilita una connessione, ulteriori interazioni tra il client e il database non coinvolgono alcun proxy middleware.
@@ -113,7 +92,29 @@ Il percorso proxy descritto in precedenza in questo argomento riguarda la questi
 In entrambi gli scenari è consigliabile che i client implementino la logica di ripetizione tentativi nel proprio codice. Probabilmente la necessità di logica di ripetizione tentativi nel client è aumentata con il nuovo percorso proxy che non fornisce alcuna logica di questo tipo.
 
 
-Per esempi di codice che illustrino la logica di ripetizione tentativi, vedere: [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md).
+Per esempi di codice che illustrino la logica di ripetizione tentativi, vedere:[Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md).
+
+
+## Chiarimenti sulla versione
+
+
+In questa sezione vengono spiegati i moniker che fanno riferimento a versioni precedenti del prodotto. Sono inoltre indicate alcune associazioni di versioni tra prodotti.
+
+
+#### ADO.NET
+
+
+- ADO.NET 4.0 supporta il protocollo TDS 7.3, ma non 7.4.
+- ADO.NET 4.5 e versioni successive supportano il protocollo TDS 7.4.
+
+
+#### Database SQL V11 e V12
+
+
+In questo argomento vengono evidenziate le differenze di connessione del client tra il database SQL V11 e V12.
+
+
+*Nota:* l’istruzione Transact-SQL`SELECT @@version;` restituisce un valore che inizia con un numero, ad esempio "11." o "12.", corrispondenti ai nomi di versione V11 e V12 per il database SQL.
 
 
 ## Collegamenti correlati
@@ -130,4 +131,4 @@ Per esempi di codice che illustrino la logica di ripetizione tentativi, vedere: 
 
 - [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

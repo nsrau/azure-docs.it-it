@@ -118,7 +118,7 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 
 * Aprire il riquadro [Ricerca][diagnostic] per visualizzare i singoli eventi.
 * Usare l'applicazione, aprendo pagine diverse in modo da generare alcuni dati di telemetria.
-* Attendere alcuni secondi e fare clic su Aggiorna.
+* Attendere alcuni secondi e fare clic su Aggiorna. I grafici si aggiornano periodicamente, ma è possibile aggiornare manualmente se si è in attesa di alcuni dati da visualizzare.
 * Vedere [Risoluzione dei problemi][qna].
 
 #### Problemi del server di compilazione
@@ -205,7 +205,7 @@ In questo caso, non aggiunge l'[SDK JavaScript][client] alle pagine Web; si cons
 
 Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi all'anteprima di Microsoft Azure. Questo account è diverso dall'account Visual Studio Online.
 
-Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di **configurazione** per inserirla nello stesso gruppo di risorse degli altri componenti.
+Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di configurazione per inserirla nello stesso gruppo di risorse degli altri componenti.
 
 *Se non è disponibile alcuna opzione di Application Insights, Verificare che si stia usando Visual Studio 2013 aggiornamento 3 o versioni successive, che gli Strumenti Application Insights siano abilitati in Estensioni e aggiornamenti.*
 
@@ -243,4 +243,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

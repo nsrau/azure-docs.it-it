@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/24/2015"
+   ms.date="08/11/2015"
    ms.author="subramar"/>
 
 # Risolvere i problemi relativi agli aggiornamenti delle applicazioni
@@ -225,4 +225,4 @@ Il tempo di aggiornamento di un dominio di aggiornamento è limitato da *Upgrade
 [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (WP8) | Servizi mobili di Azure" 
+	pageTitle="Aggiungere Servizi mobili a un'app esistente (WP8) | Microsoft Azure" 
 	description="Informazioni su come iniziare a usare dati dall'app di Servizi mobili di Azure per Windows Phone 8." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -193,4 +193,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -378,4 +378,4 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

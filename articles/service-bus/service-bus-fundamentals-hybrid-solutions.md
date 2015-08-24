@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Bus di servizio di Azure - nozioni fondamentali di Azure" 
+	pageTitle="Bus di servizio di Azure | Microsoft Azure" 
 	description="Introduzione ai diversi modi in cui il bus di servizio può essere usato per connettere le applicazioni Azure ad altri software." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -130,4 +130,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

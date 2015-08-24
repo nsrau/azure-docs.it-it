@@ -2,7 +2,7 @@
 
 Quando si copiano dati in un database di SQL Server/SQL di Azure da altri archivi dati, è necessario definire criteri di ripetibilità per evitare risultati imprevisti.
 
-Quando si copiano dati in un database SQL di Azure, per impostazione predefinita l'attività di copia ACCODA il set di dati alla tabella di sink. Ad esempio, quando si copiano dati da un'origine file con estensione csv (valori delimitati da virgole) composta da due record in un database di SQL Server/SQL di Azure, la tabella assume l'aspetto seguente:
+Quando si copiano dati in un database SQL Server/SQL di Azure, per impostazione predefinita l'attività di copia ACCODA il set di dati alla tabella di sink predefinita. Ad esempio, quando si copiano dati da un'origine file con estensione csv (valori delimitati da virgole) composta da due record in un database di SQL Server/SQL di Azure, la tabella assume l'aspetto seguente:
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
@@ -20,7 +20,7 @@ Si supponga di aver trovato degli errori nel file di origine e di aver aggiornat
 
 Per evitare questa situazione, è necessario specificare la semantica UPSERT usando uno dei due meccanismi illustrati di seguito.
 
-> [AZURE.NOTE]In base ai criteri di ripetizione dei tentativi specificati, è possibile ripetere automaticamente l'esecuzione di una sezione anche in Data factory di Azure.
+> [AZURE.NOTE]In base ai criteri di ripetizione dei tentativi specificati, è possibile ripetere automaticamente l'esecuzione di una sezione anche in Data Factory di Azure.
 
 ### Meccanismo 1
 
@@ -29,7 +29,7 @@ Per evitare questa situazione, è necessario specificare la semantica UPSERT usa
 	"sink":  
 	{ 
 	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd HH:mm}\\'', SliceStart)"
+	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate >= \\'{0:yyyy-MM-dd HH:mm}\\' AND ModifiedDate < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	}
 
 In questo caso, durante la copia di una sezione viene prima eseguito uno script di pulizia che elimina i dati dalla tabella SQL corrispondente alla sezione. L'attività di copia inserirà i dati nella tabella SQL in un momento successivo.
@@ -45,9 +45,9 @@ Si supponga, ad esempio, che il record Flat Washer venga rimosso dal file con es
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
-	8 	Down Tube	4			2015-05-01 00:00:00
+	7 	Down Tube	4			2015-05-01 00:00:00
 
-Nessuna nuova operazione è stata eseguita. L'attività di copia ha eseguito lo script di pulizia per eliminare i dati corrispondenti alla sezione. Quindi, ha letto l'input dal con estensione csv (che conteneva ora un solo record) e lo ha inserito nella tabella.
+Nessuna nuova operazione è stata eseguita. L'attività di copia ha eseguito lo script di pulizia per eliminare i dati corrispondenti alla sezione. Quindi, ha letto l'input dal CSV (che conteneva solo 1 record) e lo ha inserito nella tabella.
 
 ### Meccanismo 2
 
@@ -68,4 +68,4 @@ Data factory di Azure popolerà la colonna in modo che l'origine e la destinazio
 
 Analogamente al meccanismo 1, l'attività di copia pulisce prima i dati della sezione specificata dalla tabella SQL di destinazione, quindi esegue normalmente l'attività di copia per inserire i dati dall'origine alla destinazione della sezione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

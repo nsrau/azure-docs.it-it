@@ -6,16 +6,14 @@
 	authors="csilauraa"
 	manager="jwhit"
 	editor="tysonn" />
-
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/01/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa" />
-
 
 # Pianificazione della capacità per la replica Hyper-V
 
@@ -241,4 +239,4 @@ Per avviare la distribuzione  
 - [Configurare la protezione con un singolo server VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

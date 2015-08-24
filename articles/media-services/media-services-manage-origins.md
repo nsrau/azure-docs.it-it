@@ -3,7 +3,7 @@
 	description="Questo argomento illustra come gestire gli endpoint di streaming mediante il portale di gestione di Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako"  
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -139,4 +139,4 @@ Per altre informazioni, vedere [Annuncio dell'integrazione di Servizi multimedia
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

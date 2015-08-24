@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # Configurare la protezione tra siti VMM locali
@@ -370,4 +370,4 @@ Il provider nel server VMM riceve la notifica dell'evento dal Servizio ed esegue
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

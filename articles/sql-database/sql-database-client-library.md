@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Creare e gestire database SQL con la libreria di database SQL di Azure per .NET" 
-   description="In questo articolo viene illustrato come creare e gestire un database SQL di Azure utilizzando la libreria di database SQL di Azure per .NET." 
+   pageTitle="Creazione e gestione del database SQL di Azure con C#" 
+   description="In questo articolo viene illustrato come creare e gestire un database SQL di Azure con C# utilizzando la libreria di database SQL di Azure per .NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,25 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/04/2015"
+   ms.date="08/07/2015"
    ms.author="sstein"/>
 
-# Creare e gestire database SQL con la libreria di database SQL di Azure per .NET
+# Creazione e gestione di database SQL con C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## Panoramica
 
-In questo articolo vengono forniti i comandi per eseguire molte attività di gestione del database SQL di Azure mediante C#. I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
+In questo articolo vengono forniti i comandi per eseguire diverse attività di gestione del database SQL di Azure con C# utilizzando la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 
-La libreria di database SQL di Azure per .NET fornisce un’API basata su [Gestione risorse di Azure](resource-group-overview.md) che esegue il wrapping [dell’API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse.
+I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
 
-
-Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La libreria di database SQL di Azure per .NET fornisce un'API basata su [Gestione risorse di Azure](resource-group-overview.md) che esegue il wrapping [dell'API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse. Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -64,7 +63,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![AAD][1]
 
-2. Selezionare la directory per l’autenticazione dell'applicazione e fare clic sul suo **nome**.
+2. Selezionare la directory per l'autenticazione dell'applicazione e fare clic sul relativo **nome**.
 
     ![Directory][4]
 
@@ -86,7 +85,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![Aggiunta di un'applicazione][8]
 
-7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l’**ID CLIENT** (l'ID del client sarà necessario nel codice).
+7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client sarà necessario nel codice).
 
     ![acquisisci ID client][9]
 
@@ -199,7 +198,7 @@ I database SQL sono contenuti nei server. Il nome del server deve essere globalm
 
 ## Creare una regola del firewall del server per consentire l'accesso al server
 
-Per impostazione predefinita non è possibile connettersi a un server da qualsiasi posizione. Per connettersi a un server tramite TDS e inviare T-SQL al server o a qualsiasi database nel server, è necessario definire una [regola del firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx) che consenta di accedere dall’indirizzo IP del client.
+Per impostazione predefinita non è possibile connettersi a un server da qualsiasi posizione. Per connettersi a un server tramite TDS e inviare T-SQL al server o a qualsiasi database nel server, è necessario definire una [regola del firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx) che consenta di accedere dall'indirizzo IP del client.
 
 Nell'esempio seguente viene creata una regola che consente di aprire l'accesso al server da qualsiasi indirizzo IP. È consigliabile creare gli account di accesso SQL e le password appropriati per proteggere il database e non basarsi sulle regole del firewall come difesa primaria contro le intrusioni.
 
@@ -250,7 +249,7 @@ Il seguente comando crea un nuovo database di base se nel server non esiste un d
 
 ## Aggiornare un database 
 
-Per aggiornare un database (ad esempio, modificando il livello di prestazioni e il livello di servizio) è necessario chiamare il metodo **Databases.CreateOrUpdate** proprio come in precedenza per la creazione o l’aggiornamento di un database. Impostare le proprietà **Edition** e **RequestedServiceObjectiveName** al livello di servizio e prestazioni desiderato. Si noti che quando si modifica l'edizione su o dal livello **Premium**, l'aggiornamento può richiedere del tempo a seconda delle dimensioni del database.
+Per aggiornare un database (ad esempio, modificando il livello di prestazioni e il livello di servizio) è necessario chiamare il metodo **Databases.CreateOrUpdate** proprio come in precedenza per la creazione o l'aggiornamento di un database. Impostare le proprietà **Edition** e **RequestedServiceObjectiveName** al livello di servizio e prestazioni desiderato. Si noti che quando si modifica l'edizione su o dal livello **Premium**, l'aggiornamento può richiedere del tempo a seconda delle dimensioni del database.
 
 Quanto riportato di seguito consente di aggiornare un database SQL al livello Standard (S0):
 
@@ -795,4 +794,4 @@ Per eliminare un gruppo di risorse:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

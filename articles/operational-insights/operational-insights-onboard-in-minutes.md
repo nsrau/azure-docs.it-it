@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/09/2015"
+    ms.date="08/06/2015"
     ms.author="banders"/>
 
 # Da Onboard a Operational Insights in minuti
@@ -97,4 +97,4 @@ Con Operations Management Suite è possibile eseguire ricerche rapide in log di 
 - Acquisire familiarità con[ricerca](operational-insights-search.md)
 - Utilizzare il[dashboard](operational-insights-use-dashboards.md)per salvare e visualizzare le ricerche personalizzate
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

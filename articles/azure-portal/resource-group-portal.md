@@ -3,7 +3,7 @@
 	description="Informazioni su come raggruppare più risorse in un gruppo logico che diventa il limite del ciclo di vita per le risorse in esso contenute." 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,4 +75,4 @@ Introduzione
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

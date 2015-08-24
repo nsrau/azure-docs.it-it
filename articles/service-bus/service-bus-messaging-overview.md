@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Panoramica della messagistica del bus di servizio - Azure"
+	pageTitle="Panoramica della messagistica del bus di servizio | Microsoft Azure"
 	description="Messaggistica del bus di servizio: recapito flessibile dei dati nel cloud"
 	services="service-bus"
 	documentationCenter=".net"
@@ -38,4 +38,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

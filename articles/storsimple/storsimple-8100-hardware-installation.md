@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Installare il dispositivo StorSimple 8100"
+   pageTitle="Installare il dispositivo StorSimple 8100 | Microsoft Azure"
    description="In questo argomento viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8100."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Installare il dispositivo StorSimple 8100
@@ -47,7 +47,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 
      ![Disimballare il dispositivo di archiviazione](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
 
-    **Figura 1: dispositivo di archiviazione disimballato**
+    **Dispositivo di archiviazione disimballato**
 
      Etichetta | Descrizione 
      ----- | -------------
@@ -115,7 +115,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
     ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-   **Figura 2: fissaggio delle slitte delle guide ai lati dello chassis**
+   **Fissaggio delle slitte delle guide ai lati dell’enclosure**
 
     Label | Description
     ----- | -----------
@@ -132,7 +132,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
      ![Fissaggio delle slitte delle guide all'armadio rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Figura 3: fissaggio dei gruppi guida al rack**
+    **Fissaggio dei gruppi guida al rack**
 
      Etichetta | Descrizione
      ----- | -----------
@@ -154,7 +154,7 @@ Per montare il dispositivo nel rack usando le guide appena installate, seguire q
 
     ![Inserimento del dispositivo nel rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figura 4: montaggio del dispositivo nel rack**
+    **Montaggio del dispositivo nel rack**
 
 3. Fissare l'enclosure nel rack installando una vite a croce in ciascuna flangia, sinistra e destra.
 
@@ -162,7 +162,7 @@ Per montare il dispositivo nel rack usando le guide appena installate, seguire q
 
      ![Installazione dei copriflangia](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **Figura 5: installazione dei copriflangia**
+    **Installazione dei copriflangia**
 
      Etichetta | Descrizione
      ----- | -----------
@@ -192,7 +192,7 @@ Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizio
 
 - Adattatori singoli QSFP-SFP forniti per l'uso con interfacce di rete da 10 GbE
 
-- [Ricetrasmettitori, cavi e commutatori supportati per le interfacce di rete 10 GbE](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### Cablaggio di alimentazione
@@ -201,29 +201,7 @@ Il dispositivo include moduli PCM (Power and Cooling Modules) Entrambi i PCM dev
 
 Per cablare il dispositivo per l'alimentazione, attenersi alla seguente procedura.
 
-#### Per cablare il dispositivo per l'alimentazione
-
-1. Assicurarsi che gli interruttori di alimentazione di tutti i moduli PCM siano in posizione OFF.
-
-2. Collegare i cavi di alimentazione a entrambi i moduli PCM.
-
-3. Collegare i cavi di alimentazione alle unità PDU (Power Distribution Unit) rack come illustrato nella seguente figura. Verificare che i due moduli PCM usino fonti di alimentazione separate.
-
-4. Accendere il sistema girando l'interruttore di alimentazione di ciascun modulo PCM su ON.
-
-    >[AZURE.NOTE]Per garantire la disponibilità elevata del sistema, si consiglia vivamente di attenersi allo schema di cablaggio dell'alimentazione illustrato nella seguente figura.
-
-    ![Cablare il dispositivo 2U per l'alimentazione](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **Figura 6: cablaggio di alimentazione per il dispositivo**
-
-     Etichetta | Descrizione
-     ----- | -----------
-     1 | PCM 0
-     2 | Controller 1
-     3 | Controller 0
-     4 | PCM 1
-     5 | PDU
+[AZURE.INCLUDE [storsimple-cavo-8100-per-alimentazione](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### Cablaggio di rete
 
@@ -237,7 +215,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
     ![Backplane del dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figura 7: parte posteriore del dispositivo con le porte dati**
+    **Parte posteriore del dispositivo con le porte dati**
  
      Etichetta | Descrizione
      ------- | -----------
@@ -258,7 +236,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
     ![Cablare il dispositivo 2U per la rete](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Figura 8: cablaggio di rete per il dispositivo**
+    **Cablaggio di rete per il dispositivo**
 
     Etichetta | Descrizione
     ----- | -----------
@@ -276,7 +254,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 
 #### Per cablare il dispositivo per la connessione seriale
 
-1. Il dispositivo è dotato di una porta seriale su ogni controller, identificata da un'icona a forma di chiave inglese. Fare riferimento alla figura 7 per individuare le porte seriali sul backplane del dispositivo. 
+1. Il dispositivo è dotato di una porta seriale su ogni controller, identificata da un'icona a forma di chiave inglese. Fare riferimento alla figura nella sezione [cavi di rete](#network-cabling)per individuare le porte seriali sulla scheda madre del dispositivo. 
 
 2. Identificare il controller attivo sul backplane del dispositivo, indicato da un LED blu lampeggiante.
 
@@ -297,4 +275,4 @@ Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello 
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Tomcat in una macchina virtuale - Esercitazione di Azure"
+	pageTitle="Tomcat in una macchina virtuale | Microsoft Azure"
 	description="Informazioni su come creare una macchina virtuale Windows e configurarla per eseguire un server applicazioni Apache Tomcat."
 	services="virtual-machines"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
 	editor="jimbe"/>
-
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="06/03/2015"
 	ms.author="robmcm"/>
-
 
 # Come eseguire un server applicazioni Java su una macchina virtuale
 
@@ -40,7 +38,7 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 
 1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
-3. Nella finestra di dialogo **Seleziona immagine macchina virtuale**, selezionare **JDK 7 Windows Server 2012**. Se si dispone di applicazioni legacy non ancora predisposte per l'esecuzione in JDK 7, è disponibile anche **JDK 6 Windows Server 2012**.
+3. Nella finestra di dialogo **Seleziona immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**. Se si dispone di applicazioni legacy non ancora predisposte per l'esecuzione in JDK 7, è disponibile anche **JDK 6 Windows Server 2012**.
 4. Fare clic su **Next**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale**:
     1. Specificare un nome per la macchina virtuale.
@@ -144,4 +142,4 @@ Scoprire di più su altri servizi, come Archiviazione, Bus di servizio e Databas
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

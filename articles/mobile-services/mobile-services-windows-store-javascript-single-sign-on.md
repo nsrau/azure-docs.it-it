@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Autenticare l'app di Windows Store mediante l'autenticazione gestita da client con account Microsoft
@@ -145,4 +145,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

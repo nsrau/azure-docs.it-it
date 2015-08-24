@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione ai back-end dell'app per dispositivi mobili per app Windows Store | Mobile Dev Center"
+	pageTitle="Introduzione ai back-end dell'app per dispositivi mobili per app Windows Store | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare i back-end dell'app per dispositivi mobili di Azure per lo sviluppo per Windows Store in C#, VB o JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -88,4 +88,4 @@ Una volta pubblicato il back-end dell'app per dispositivi mobili e aver connesso
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

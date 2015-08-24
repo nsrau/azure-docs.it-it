@@ -24,4 +24,4 @@
 
 &#42; La velocità effettiva massima per ciascun tipo di I/O è stata misurata con scenari di scrittura al 100% e scenari di lettura al 100%. La velocità effettiva potrebbe essere inferiore a seconda delle condizioni della rete e della combinazione I/O.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come usare il servizio di posta elettronica SendGrid (.NET) - Azure" 
+	pageTitle="Come usare il servizio di posta elettronica SendGrid (.NET) | Microsoft Azure" 
 	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -24,11 +24,11 @@
 
 Ultimo aggiornamento: 24 febbraio 2015
 
-<h2><a name="overview"></a><span  class="short-header">Panoramica</span></h2>
+## Panoramica
 
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Negli esempi, scritti in C#, viene utilizzata l'API .NET. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati** e **utilizzo di filtri**. Per ulteriori informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][].
 
-<h2><a name="whatis"></a><span  class="short-header">Informazioni sul servizio di posta elettronica SendGrid</span></h2>
+## Informazioni sul servizio di posta elettronica SendGrid
 
 SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
 
@@ -41,11 +41,11 @@ SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recap
 
 Per altre informazioni, vedere [https://sendgrid.com](https://sendgrid.com).
 
-<h2><a name="createaccount"></a>Creare un account SendGrid</h2>
+## Creare un account SendGrid
 
 [AZURE.INCLUDE [sendgrid-sign-up](../../includes/sendgrid-sign-up.md)]
 
-<h2><a name="reference"></a>Fare riferimento alla libreria di classi .NET di SendGrid</h2>
+## Fare riferimento alla libreria di classi .NET di SendGrid
 
 Il [pacchetto NuGet di SendGrid](https://www.nuget.org/packages/Sendgrid) è il modo più semplice per recuperare l'API SendGrid e configurare l'applicazione con tutte le dipendenze. NuGet è un'estensione di Visual Studio inclusa in Microsoft Visual Studio 2012 che semplifica l'installazione e l'aggiornamento di librerie e strumenti.
 
@@ -75,7 +75,7 @@ Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio
     using System.Net.Mail;
     using SendGrid;
 
-<h2><a name="createemail"></a>Procedura: Creare un messaggio di posta elettronica</h2>
+## Procedura: Creare un messaggio di posta elettronica
 
 Usare l'oggetto **SendGridMessage** per creare un messaggio di posta elettronica. Dopo aver creato l'oggetto, è possibile impostare proprietà e metodi, inclusi il mittente, il destinatario, l'oggetto e il corpo del messaggio di posta elettronica.
 
@@ -105,7 +105,7 @@ Nell'esempio seguente viene illustrato come creare un oggetto di posta elettroni
 
 Per ulteriori informazioni su tutte le proprietà e i metodi supportati dal tipo **SendGrid**, vedere [sendgrid-csharp][] su GitHub.
 
-<h2><a name="sendemail"></a>Procedura: Inviare un messaggio di posta elettronica</h2>
+## Procedura: Inviare un messaggio di posta elettronica
 
 Dopo aver creato un messaggio di posta elettronica, è possibile inviarlo tramite SMTP o con l'API Web di SendGrid. In alternativa, è possibile [usare la libreria .NET integrata](https://sendgrid.com/docs/Code_Examples/csharp.html).
 
@@ -143,7 +143,7 @@ Gli esempi seguenti mostrano come inviare un messaggio con l'API Web.
     // You can also use the **DeliverAsync** method, which returns an awaitable task.
     transportWeb.Deliver(myMessage);
 
-<h2><a name="addattachment"></a>Procedura: Aggiungere un allegato</h2>
+## Procedura: Aggiungere un allegato
 
 Per aggiungere allegati a un messaggio, chiamare il metodo **AddAttachment** e specificare il nome e il percorso del file da allegare. È possibile includere più allegati chiamando questo metodo una volta per ogni file che si desidera allegare. Nell'esempio seguente viene illustrata l'aggiunta di un allegato a un messaggio:
 
@@ -169,7 +169,7 @@ Per aggiungere allegati a un messaggio, chiamare il metodo **AddAttachment** e s
     }
 
 
-<h2><a name="usefilters"></a><span  class="short-header">Procedura: Usare app per abilitare piè di pagina, monitoraggio e analisi</span></h2>
+## Procedura: Usare app per abilitare piè di pagina, monitoraggio e analisi
 
 SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uso di app. Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio dei clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via. Per un elenco completo delle app, vedere [Impostazioni app][].
 
@@ -203,11 +203,11 @@ Negli esempi seguenti vengono illustrati i filtri per abilitare il piè di pagin
     // should also be overwritten for link tracking purposes. 
     myMessage.EnableClickTracking(true);
 
-<h2><a name="useservices"></a>Procedura: Usare servizi aggiuntivi forniti da SendGrid</h2>
+## Procedura: Usare servizi aggiuntivi forniti da SendGrid
 
 SendGrid offre API basate sul Web e hook Web che è possibile usare per sfruttare altre funzionalità di SendGrid dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API SendGrid][].
 
-<h2><a name="nextsteps"></a>Passaggi successivi</h2>
+## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, utilizzare i collegamenti seguenti per ulteriori informazioni.
 
@@ -240,4 +240,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

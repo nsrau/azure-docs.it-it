@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Reliable Actors - Introduzione ai modelli e agli anti-modelli"
-   description="Informazioni sul modello di programmazione Reliable Actors di Service Fabric e modelli di progettazione che funzionano bene con Actors."
+   pageTitle="Azure Service Fabric Actors - Introduzione ai modelli e agli anti-modelli"
+   description="modelli di progettazione che funzionano bene con Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Introduzione ai modelli di progettazione di Reliable Actors
@@ -70,4 +70,4 @@ I principali vantaggi offerti da Azure Fabric Actors sono: 1) **la produttività
 
 * *Modalità asincrona esplicita.* Il modello di programmazione di Azure Fabric Actors rende esplicita la natura asincrona di un'applicazione distribuita e guida i programmatori nella scrittura di codice asincrono non di blocco. Consente inoltre un alto grado di parallelismo distribuito e un'elevata velocità effettiva globale, senza l'uso esplicito del multi-threading.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

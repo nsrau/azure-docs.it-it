@@ -7,16 +7,14 @@
 	manager="jwhit" 
 	editor=""/>
 
-
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
-
 
 # Failover in Site Recovery
 
@@ -284,4 +282,4 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
