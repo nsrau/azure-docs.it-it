@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrasructure-services"
+	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -65,4 +65,4 @@ Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

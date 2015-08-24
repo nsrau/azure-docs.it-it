@@ -67,7 +67,7 @@ Le informazioni sull'applicazione (o `app info`) vengono usate per aggiungere ta
 
 Le informazioni sull'applicazione possono essere registrate usando l'API di Mobile Engagement SDK o l'API dispositivo della piattaforma Mobile Engagement.
 
-Le informazioni sull'applicazione sono costituite da una coppia chiave/valore associata a un dispositivo. La chiave è il nome delle informazioni sull'applicazione (costituito da un massimo di 64 lettere ASCII [a-zA-Z], numri [0-9] e caratteri di sottolineatura [\_]). Il valore (costituito da un massimo di 1024 caratteri) può essere qualsiasi stringa, numero intero, data (aaaa-MM-gg) o valore booleano (true o false).
+Le informazioni sull'applicazione sono costituite da una coppia chiave/valore associata a un dispositivo. La chiave è il nome delle informazioni sull'applicazione (costituito da un massimo di 64 lettere ASCII [a-zA-Z], numeri [0-9] e caratteri di sottolineatura [\_]). Il valore (costituito da un massimo di 1024 caratteri) può essere qualsiasi stringa, numero intero, data (aaaa-MM-gg) o valore booleano (true o false).
 
 A ogni dispositivo può essere associato un numero qualsiasi di informazioni sull'applicazione, entro i limiti definiti dalle condizioni tariffarie di Mobile Engagement. Per una determinata chiave, Mobile Engagement tiene traccia solo dell'ultimo valore impostato (senza cronologia). Se si imposta o si modifica il valore delle informazioni sull'applicazione, Mobile Engagement valuta nuovamente i criteri dei destinatari impostati nelle informazioni sull'applicazione, se presenti, pertanto le informazioni sull'applicazione possono essere usate per attivare push in tempo reale.
 
@@ -79,4 +79,4 @@ La loro struttura è simile a quella degli oggetti JSON: sono costituiti da un a
 L'intero albero di coppie chiave/valore viene archiviato come oggetto JSON. Tuttavia, solo il primo livello di chiavi/valori viene scomposto per essere direttamente accessibile per alcune funzioni avanzate come i segmenti (ad esempio, è possibile definire in modo semplice un segmento "SciFi fans" costituito da tutti gli utenti che hanno inviato almeno 10 volte l'evento denominato "content\_viewed" con la chiave aggiuntiva "content\_type" impostata sul valore "scifi" nell'ultimo mese). È pertanto consigliabile inviare solo dati aggiuntivi costituiti da semplici elenchi di coppie chiave/valore con valori scalari (ad esempio stringhe, date, numeri interi o valori booleani).
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

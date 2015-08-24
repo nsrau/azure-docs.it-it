@@ -95,7 +95,7 @@ Dopo aver integrato l'[SDK][Link 5] di Azure Mobile Engagement nell'applicazione
 [55]: ./media/mobile-engagement-user-interface-settings/settings10.png
 [56]: ./media/mobile-engagement-user-interface-settings/settings11.png
 [57]: ./media/mobile-engagement-user-interface-settings/settings12.png
-[58]: ./mdia/mobile-engagement-user-interface-settings/settings13.png
+[58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -133,4 +133,4 @@ Dopo aver integrato l'[SDK][Link 5] di Azure Mobile Engagement nell'applicazione
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

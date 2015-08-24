@@ -53,7 +53,7 @@ In questa esercitazione si eseguirà la procedura seguente:
 
 La prima pipeline, denominata **MyFirstPipeline**, usa un'attività Hive per trasformare e analizzare i blog distribuiti come parte del cluster HDInsight e archiviati in **/HdiSamples/WebsiteLogSampleData/SampleLog/**.
 
-![Vista Diagramma](./media/data-factory-build-your-first-pipeline/diaram-view.png)
+![Vista Diagramma](./media/data-factory-build-your-first-pipeline/diagram-view.png)
 
 Dopo l'esecuzione dello script Hive, i risultati verranno archiviati in un contenitore di archiviazione BLOB di Azure: **data/partitioneddata**.
 
@@ -173,4 +173,4 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) in alto per eseguire l'esercitazione usando Azure PowerShell.
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio. 
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

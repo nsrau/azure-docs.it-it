@@ -56,8 +56,6 @@ I diagrammi illustrano cosa si nei passaggi di creazione e di distribuzione.
 
 ![Creazione](./media/web-sites-dotnet-get-started/Create_App.png)
 
-![Distribuire](./media/web-sites-dotnet-get-started/Deploy_App.png)
-
 1. Avviare Visual Studio 2015 o Visual Studio 2013. 
 
 	Se si utilizza Visual Studio 2013, gli schermi saranno leggermente diversi dalle schermate, ma le procedure sono sostanzialmente le stesse.
@@ -303,4 +301,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

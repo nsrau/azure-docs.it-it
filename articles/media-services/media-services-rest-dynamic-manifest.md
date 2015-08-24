@@ -125,7 +125,7 @@ Corpo della richiesta
 
 	{   
 	   "Name":"AssetFilter", 
-	   "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-2dc-f1e4fdc6c592", 
+	   "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592", 
 	   "PresentationTimeRange":{   
 	      "StartTimestamp":"0", 
 	      "EndTimestamp":"9223372036854775807", 
@@ -363,4 +363,4 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
  
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

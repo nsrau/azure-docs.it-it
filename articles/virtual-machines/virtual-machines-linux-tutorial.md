@@ -247,7 +247,7 @@ Creare la partizione digitando `p` al prompt:
 	Command (m for help): w
 	The partition table has been altered!
 
-	Calling ioctl() tore-read partition table.
+	Calling ioctl() to re-read partition table.
 	Syncing disks.
 
 E scrivere un file system nella partizione usando il comando **mkfs**, specificando il tipo di file system e il nome del dispositivo. In questo argomento, vengono usati `ext4` e `/dev/sdc1` riportati sopra:
@@ -308,4 +308,4 @@ Per altre informazioni su Linux in Azure, vedere:
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

@@ -178,7 +178,7 @@ L'esempio di codice che segue effettua le attività seguenti:
 		        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy", TimeSpan.FromHours(24), AccessPermissions.Write);
 		        ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
 		
-		        CloudBlobClient destBlobStorage = _destinatioStorageAccount.CreateCloudBlobClient();
+		        CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
 		
 		        // Get the asset container URI and Blob copy from mediaContainer to assetContainer. 
 		        string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
@@ -286,4 +286,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 		}
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
