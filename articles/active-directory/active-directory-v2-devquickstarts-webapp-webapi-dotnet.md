@@ -18,7 +18,8 @@
 
 # Anteprima di Modello app 2.0: Chiamata di un'API Web da un'app Web .NET
 
-> [AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica dell'endpoint 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Queste informazioni fanno riferimento all'anteprima pubblica dell'endpoint 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
 Con Modello app 2.0 è possibile aggiungere rapidamente l'autenticazione alle app e alle API Web con supporto per account Microsoft personali, aziendali e dell'istituto di istruzione. In questo esempio verrà creata un'app Web MVC che:
 
@@ -45,7 +46,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Registrare un'app
+## 1. Registrare un'app
 Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
@@ -54,7 +55,7 @@ Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com)
 - Immettere l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica ad Azure AD dove indirizzare le risposte di autenticazione. Il valore predefinito per questa esercitazione è `https://localhost:44326/`.
 
 
-## 2\. Far accedere l'utente con OpenID Connect
+## 2. Far accedere l'utente con OpenID Connect
 Questa parte dell'esercitazione configura il middleware OWIN in modo che usi il [protocollo di autenticazione OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 -	Per iniziare, aprire il file `web.config` nella radice del progetto `TodoList-WebApp` e immettere i valori di configurazione dell'app nella sezione `<appSettings>`.
@@ -113,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Usare ADAL per ottenere un token di accesso al momento dell'accesso dell'utente
+## 3. Usare ADAL per ottenere un token di accesso al momento dell'accesso dell'utente
 Nella notifica `AuthorizationCodeReceived` si intende usare [OAuth 2.0 insieme a OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) per riscattare il codice di autorizzazione per un token di accesso al servizio To Do List. ADAL può semplificare il processo:
 
 - Per prima cosa installare la versione di anteprima di ADAL:
@@ -123,19 +124,26 @@ Nella notifica `AuthorizationCodeReceived` si intende usare [OAuth 2.0 insieme a
 - Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
-private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification) { string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value; string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value; string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty); ClientCredential cred = new ClientCredential(clientId, clientSecret);
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
+{
+		string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+		string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+		string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty);
+		ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
 		var authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), cred, new string[] { clientId });
-} ... ```
+}
+...
+```
 
 - Nelle app Web, ADAL dispone di una cache di token estendibile che può essere usata per archiviare i token. Questo esempio implementa la cache `NaiveSessionCache` che usa l'archiviazione della sessione HTTP per memorizzare i token nella cache.
 
 <!-- TODO: Token Cache article -->
 
 
-## 4\. Chiamare l'API Web To Do List
+## 4. Chiamare l'API Web To Do List
 È ora possibile usare il token di accesso acquisito al passaggio 3. Aprire il file `Controllers\TodoListController.cs` dell'app Web, che esegue tutte le richieste CRUD all'API To Do List.
 
 - È possibile usare nuovamente ADAL per recuperare i token di accesso dalla cache ADAL. Per prima cosa aggiungere un'istruzione `using` per ADAL a questo file.
@@ -195,6 +203,8 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 ## Passaggi successivi
 
-Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Per altre risorse consultare:
+- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
