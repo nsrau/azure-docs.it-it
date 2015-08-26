@@ -89,7 +89,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     ![Single Sign-On SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Single Sign-On SAML")
 
     1.  Nella finestra di dialogo **Configura accesso Single Sign-On in BambooHR** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **SSO Login URL**.
-2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
+    2.  Creare un file **con codifica Base 64** dal certificato scaricato.  
 
         >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -140,4 +140,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!-------HONumber=August15_HO7-->
