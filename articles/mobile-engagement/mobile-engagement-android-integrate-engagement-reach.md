@@ -247,7 +247,7 @@ Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notific
 
 Per registrare un gestore di categorie per le notifiche, è necessario aggiungere una chiamata durante l'inizializzazione dell'applicazione.
 
-> [AZURE.IMPORTANT]Prima di continuare, leggere le informazioni relative all'attributo android:process <android-sdk-engagement-process> nell'argomento "Come integrare Engagement in Android".
+> [AZURE.IMPORTANT]Prima di continuare, leggere le informazioni relative all'attributo android:process \<android-sdk-engagement-process\> nell'argomento "Come integrare Engagement in Android".
 
 L'esempio seguente presuppone che l'avviso precedente sia stato rispettato e che sia stata usata una classe secondaria di `EngagementApplication`:
 
@@ -647,4 +647,4 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

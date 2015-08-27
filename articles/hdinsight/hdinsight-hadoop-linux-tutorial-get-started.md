@@ -96,16 +96,17 @@ Quando si effettua il provisioning di un cluster HDInsight, si effettua il provi
 4. Immettere o selezionare i valori seguenti:
 
 	<table border="1">
-<tr><th>Nome</th><th>Valore</th></tr>
-<tr><td>Cluster Name</td><td>Nome del cluster.</td></tr>
-<tr><td>Cluster Size</td><td>Numero di nodi di dati che si vuole distribuire. Il valore predefinito è 4. Tuttavia, nell'elenco a discesa è disponibile anche l'opzione relativa ai nodi di dati 1 o 2. Quando si usa l'opzione <strong>Creazione personalizzata</strong> è possibile specificare un numero qualsiasi di nodi del cluster. Sono disponibili i dettagli sui prezzi relativi alle tariffe di fatturazione per le diverse dimensioni di cluster. Fare clic sul simbolo <strong>?</strong> immediatamente sopra la casella a discesa, quindi selezionare il collegamento disponibile nel popup.</td></tr>
-<tr><td>Password</td><td>La password per l'account <i>HTTP</i> (nome utente predefinito: admin) e per l'account <i>SSH</i> (nome utente predefinito: hdiuser). Si noti che questi NON sono gli account amministratore per le macchine virtuali in cui viene effettuato il provisioning dei cluster. </td></tr>
+	<tr><th>Nome</th><th>Valore</th></tr>
+	<tr><td>Cluster Name</td><td>Nome del cluster.</td></tr>
+	<tr><td>Cluster Size</td><td>Numero di nodi di dati che si vuole distribuire. Il valore predefinito è 4. Tuttavia, nell'elenco a discesa è disponibile anche l'opzione relativa ai nodi di dati 1 o 2. Quando si usa l'opzione <strong>Creazione personalizzata</strong> è possibile specificare un numero qualsiasi di nodi del cluster. Sono disponibili i dettagli sui prezzi relativi alle tariffe di fatturazione per le diverse dimensioni di cluster. Fare clic sul simbolo <strong>?</strong> immediatamente sopra la casella a discesa, quindi selezionare il collegamento disponibile nel popup.</td></tr>
+	<tr><td>Password</td><td>La password per l'account <i>HTTP</i> (nome utente predefinito: admin) e per l'account <i>SSH</i> (nome utente predefinito: hdiuser). Si noti che questi NON sono gli account amministratore per le macchine virtuali in cui viene effettuato il provisioning dei cluster. </td></tr>
 
-<tr><td>Storage Account</td><td>Dalla casella a discesa selezionare l'account di archiviazione creato. <br/>
+	<tr><td>Storage Account</td><td>Dalla casella a discesa selezionare l'account di archiviazione creato. <br/>
 
-Dopo la selezione, non sarà possibile modificare l'account di archiviazione. In caso di rimozione dell'account di archiviazione, il cluster non sarà più disponibile per l'uso. Il cluster HDInsight è posizionato nello stesso data center dell'account di archiviazione.
-</td></tr>
-</table>Annotare il nome del cluster. Sarà necessario usarlo più avanti nell'esercitazione.
+	Dopo la selezione, non sarà possibile modificare l'account di archiviazione. In caso di rimozione dell'account di archiviazione, il cluster non sarà più disponibile per l'uso. Il cluster HDInsight è posizionato nello stesso data center dell'account di archiviazione.
+	</td></tr>
+	</table>
+	Annotare il nome del cluster. Sarà necessario usarlo più avanti nell'esercitazione.
 
 
 5. Fare clic su **CREAZIONE DEL CLUSTER HDINSIGHT**. Al termine del provisioning, nella colonna relativa allo stato verrà visualizzato **In esecuzione**.
@@ -271,4 +272,4 @@ In questa esercitazione di Linux si è appreso come effettuare il provisioning d
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->

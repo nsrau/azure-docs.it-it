@@ -345,7 +345,9 @@ Questa esercitazione usa l'Azione script dal portale di gestione di Azure per pe
 
 4. Infine, si archivieranno i risultati nella nuova raccolta di output.
 
-    > [AZURE.NOTE]Sì, si consente l'aggiunta di più raccolte come output: </br> '<Nome raccolta di output di DocumentDB 1>,<Nome raccolta di output di DocumentDB 2>'</br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola.</br> Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
+    > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come output: </br> 
+    '\<Nome raccolta di output di DocumentDB 1\>,\<Nome raccolta di output di DocumentDB 2\>'</br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola.</br>
+    Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -491,4 +493,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->
