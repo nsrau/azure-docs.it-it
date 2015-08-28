@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurare le impostazioni dell'app")
 
     1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione EmpCenter, ad esempio: "**https://partner-authenticati.empcenter.com/workforce/SSO.do*).
-2.  Fare clic su **Avanti**
+    2.  Fare clic su **Avanti**
 
 4.  Nella pagina **Configura accesso Single Sign-On in EmpCenter** fare clic su **Download metadati** e quindi salvare il file di metadati nel computer.
 
@@ -105,4 +105,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
