@@ -203,7 +203,7 @@ Il codice JSON dell’esempio seguente può essere usato per creare un servizio 
 	  }
 	}
 
-> [AZURE.NOTE]Ricordarsi di usare il carattere di escape '' per i nomi di host e cartelle nei file JSON. Per **\\Contoso** usare **\\\\Contoso**.
+> [AZURE.NOTE] Ricordarsi di usare il carattere di escape '' per i nomi di host e cartelle nei file JSON. Per **\\Contoso** usare **\\\\Contoso**.
 
 Per informazioni dettagliate sugli elementi JSON per la definizione di un servizio collegato di tipo file system locale, vedere l'argomento relativo al [servizio collegato di tipo file system locale](https://msdn.microsoft.com/library/dn930836.aspx).
 
@@ -320,7 +320,7 @@ Il formato JSON della pipeline seguente definisce una pipeline con un'attività 
 
 La pipeline in questo esempio copia il contenuto in formato binario, senza analizzare o eseguire alcuna trasformazione. Si noti che è possibile sfruttare la **concorrenza** per copiare sezioni di file in parallelo. Ciò risulta utile se si vogliono spostare sezioni già spostate in precedenza.
 
-> [AZURE.NOTE]Le attività di copia concorrenti con lo stesso host tramite percorso UNC con account utente diversi potrebbero provocare errori che indicano che non sono consentite più connessioni a un server o a una risorsa condivisa da parte dello stesso utente usando più di un nome utente. Si tratta di una limitazione del sistema operativo per motivi di sicurezza. Pianificare le attività di copia con gateway diversi o installare il gateway nell'host e usare "localhost" o "local" invece del percorso UNC.
+> [AZURE.NOTE] Le attività di copia concorrenti con lo stesso host tramite percorso UNC con account utente diversi potrebbero provocare errori che indicano che non sono consentite più connessioni a un server o a una risorsa condivisa da parte dello stesso utente usando più di un nome utente. Si tratta di una limitazione del sistema operativo per motivi di sicurezza. Pianificare le attività di copia con gateway diversi o installare il gateway nell'host e usare "localhost" o "local" invece del percorso UNC.
 
 Per informazioni dettagliate sugli elementi JSON per la definizione di una pipeline di Data factory, vedere le [informazioni di riferimento sul formato JSON della pipeline](https://msdn.microsoft.com/library/dn834988.aspx). Per informazioni sulle proprietà di FileSystemSource e BlobSink, vedere [Origini e sink supportati](https://msdn.microsoft.com/library/dn894007.aspx).
 
@@ -488,4 +488,4 @@ Per informazioni dettagliate sugli elementi JSON per la definizione di una pipel
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

@@ -110,9 +110,12 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     1.  Nella casella di testo Identity Provider Name digitare il nome del provider (ad esempio, *SPInitiatedSSO*).
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Workday** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Issuer**.
-    3.  Fare clic su **Identity Provider Public Key Certificate** e quindi su **Create**.![Create](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
-    4.  Fare clic su **Create x509 Public Key**.![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
-    5.  Nella sezione **View x509 Public Key** seguire questa procedura:![View x509 Public Key](./media/active-directory-saas-workday-tutorial/IC782930.png "View x509 Public Key")
+    3.  Fare clic su **Identity Provider Public Key Certificate** e quindi su **Create**.
+        ![Create](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
+    4.  Fare clic su **Create x509 Public Key**.
+        ![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
+    5.  Nella sezione **View x509 Public Key** seguire questa procedura:
+        ![View x509 Public Key](./media/active-directory-saas-workday-tutorial/IC782930.png "View x509 Public Key")
         1.  Nella casella di testo **Name** digitare un nome per il certificato (ad esempio, *PPE\_SP*).
         2.  Nella casella di testo **Valid From** digitare il valore dell'attributo di inizio validità del certificato.
         3.  Nella casella di testo **Valid To** digitare il valore dell'attributo di fine validità del certificato.
@@ -127,16 +130,19 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
         6.  Nella casella di testo **Certificate** incollare il valore copiato negli Appunti.
         7.  Fare clic su **OK**.
 
-    6.  Seguire questa procedura: ![SSO configuration](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO configuration")
-        1.  Nella casella di testo **Service Provider ID** digitare ****http://www.workday.com**.
-2.  Selezionare **Enable SP Initiated SAML Authentication**.
+    6.  Seguire questa procedura:
+        ![SSO configuration](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO configuration")
+        1.  Nella casella di testo **Service Provider ID** digitare **http://www.workday.com**.
+        2.  Selezionare **Enable SP Initiated SAML Authentication**.
         3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Workday** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **IdP SSO Service URL**.
         4.  Selezionare **Do Not Deflate SP-initiated Authentication Request**.
 
-    7.  Seguire questa procedura: ![Authentication Request Signature Method](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method")
+    7.  Seguire questa procedura:
+        ![Authentication Request Signature Method](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method")
         1.  In **Authentication Request Signature Method** selezionare **SHA256**.
 
-    8.  Fare clic su **OK**. ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+    8.  Fare clic su **OK**.
+        ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. Nella pagina **Configura accesso Single Sign-On in Workday** del portale di Azure AD fare clic su **Completa** per chiudere la finestra di dialogo.
 
@@ -164,4 +170,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

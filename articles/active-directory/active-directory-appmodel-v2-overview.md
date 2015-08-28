@@ -57,4 +57,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

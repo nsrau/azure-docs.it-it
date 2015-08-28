@@ -141,20 +141,15 @@ Per generare il ticket di supporto per il ripristino automatico di sistema, ragg
 
 ## Articoli correlati
 
--   [Come conservare la lettera di unità per le macchine virtuali protette]
-    > di cui è stato eseguito il failover o che sono migrate in Azure] (http://support.microsoft.com/kb/3031135)
+-   [Come conservare la lettera di unità per le macchine virtuali protette > di cui è stato eseguito il failover o che sono migrate in Azure](http://support.microsoft.com/kb/3031135)
 
--   [Come risolvere i problemi dei servizi di ripristino
-    > di Azure](http://support.microsoft.com/kb/3005185)
+-   [Come risolvere i problemi dei servizi di ripristino > di Azure](http://support.microsoft.com/kb/3005185)
 
--   [Come abilitare la registrazione di Debug per Azure Site Recovery in Hyper-V
-    > Site Protection](http://support.microsoft.com/kb/3033922)
+-   [Come abilitare la registrazione di Debug per Azure Site Recovery in Hyper-V > Site Protection](http://support.microsoft.com/kb/3033922)
 
--   [ASR: "Impossibile trovare la risorsa cluster" Errore durante il tentativo
-    > di abilitare la protezione per una macchina virtuale](http://support.microsoft.com/kb/3010979)
+-   [ASR: "Impossibile trovare la risorsa cluster" Errore durante il tentativo > di abilitare la protezione per una macchina virtuale](http://support.microsoft.com/kb/3010979)
     
--   [Guida a comprendere e risolvere i problemi relativi a Replica
-    > Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
+-   [Guida a comprendere e risolvere i problemi relativi a Replica > Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
 	
 	
 	
@@ -223,4 +218,4 @@ Server di configurazione, server di elaborazione, server master di destinazione
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. Utilizzare il documento sulla risoluzione dei problemi per RDP nella macchina virtuale. [Collegamento al documento](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

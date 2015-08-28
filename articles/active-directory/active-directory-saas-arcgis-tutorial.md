@@ -63,7 +63,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL accesso ArcGIS** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere usando il modello seguente "**https://company.maps.arcgis.com*", quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL accesso ArcGIS** della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere usando il modello seguente "*https://company.maps.arcgis.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configura URL app")
 
@@ -99,7 +99,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura accesso Single Sign-On](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS. Nel caso di ArcGIS, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseguirne il provisioning in ArcGIS.  
+Nel caso di ArcGIS, il provisioning è un'attività manuale.
 
 ###Per configurare il provisioning utente, eseguire la procedura seguente:
 
@@ -124,7 +125,7 @@ Per consentire agli utenti di Azure AD di accedere ad ArcGIS, è necessario eseg
 
     ![Add member](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Add member")
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ArcGIS per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ArcGIS per eseguire il provisioning degli account utente di Azure AD.
 
 ##Assegnazione degli utenti
 
@@ -144,4 +145,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
