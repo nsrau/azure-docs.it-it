@@ -13,28 +13,29 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere Servizi mobili a un'app esistente
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-ec.md)]
+
+##Panoramica
 
 Questo argomento descrive come usare Servizi mobili di Azure come origine dati di back-end per un'app per Android. In questa esercitazione si creerà un nuovo servizio mobile, si scaricherà un progetto Eclipse Android per un'app che archivia dati in memoria, si integrerà il servizio mobile con l'app e quindi si visualizzeranno le modifiche apportate ai dati durante l'esecuzione dell'app.
 
-Il servizio mobile creato in questa esercitazione supporta il runtime .NET. Sarà quindi possibile usare linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript](mobile-services-android-get-started-data.md) di questo argomento.
-
-> [AZURE.NOTE]Per visualizzare la versione per Eclipse di questa esercitazione, vedere [Introduzione ai dati (Eclipse)].
+Il servizio mobile creato in questa esercitazione supporta il runtime .NET. Sarà quindi possibile usare linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript](mobile-services-android-get-started-data-ec.md) di questo argomento.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 + <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> Update 3 o versione successiva. 
 
-+ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-android-get-started-data%2F).
++ Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-android-get-started-data-EC%2F).
 
 ##<a name="create-service"></a>Creare un nuovo servizio mobile
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../../includes/mobile-services-dotnet-backend-create-new-service.md)]
+
 
 ##<a name="download-the-service"></a>Scaricare il servizio nel computer locale
 
@@ -52,26 +53,26 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ###Scaricare il codice di esempio
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../../includes/download-android-sample-code.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../../includes/download-android-sample-code-ec.md)]
 
 ###Verificare la versione di Android SDK
 
-[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version.md)]
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 ###Esaminare ed eseguire il codice di esempio
 
-[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-ec.md)]
 
 ##<a name="update-app"></a>Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-ec.md)]
 
 ##<a name="test-app"></a>Testare l'app sul servizio mobile pubblicato
 
 Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'archiviazione back-end, è possibile verificarne il funzionamento in Servizi mobili usando l'emulatore di Android o un telefono Android.
 
-1. Nel menu **Run** scegliere **Run app** per avviare il progetto.
+1. Nel menu **Run** scegliere **Run** per avviare il progetto.
 
 	L'app, compilata tramite Android SDK, che usa la libreria client per inviare una query che restituisce gli elementi per il servizio mobile, verrà eseguita.
 
@@ -81,15 +82,16 @@ Ora che l'app è stata aggiornata per consentire l'uso di Servizi mobili per l'a
 
     È possibile riavviare l'app per verificare che le modifiche siano state salvate in modo permanente nel database in Azure. È anche possibile esaminare il database nel portale di gestione di Azure. I due passaggi successivi illustrano come eseguire questa operazione per visualizzare le modifiche nel database.
 
+
 4. Nel portale di gestione di Azure fare clic su Gestisci per il database associato al servizio mobile.
 
-    ![](./media/mobile-services-dotnet-backend-android-get-started-data/manage-sql-azure-database.png)
+    ![](./media/mobile-services-dotnet-backend-android-get-started-data-EC/manage-sql-azure-database.png)
 
 5. Nel portale di gestione eseguire una query per visualizzare le modifiche apportate dall'app di Windows Store. La query da usare sarà simile alla seguente, ma anziché `todolist` conterrà il nome del database.
 
         SELECT * FROM [todolist].[todoitems]
 
-    ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
+    ![](./media/mobile-services-dotnet-backend-android-get-started-data-EC/sql-azure-query.png)
 
 L'esercitazione **Introduzione ai dati** per Android è terminata.
 
@@ -98,7 +100,7 @@ L'esercitazione **Introduzione ai dati** per Android è terminata.
 
 Questa esercitazione ha illustrato le nozioni di base per consentire a un'app per Android di usare dati in Servizi mobili.
 
-Successivamente, provare a eseguire una delle esercitazioni seguenti:
+Provare a eseguire una delle esercitazioni seguenti:
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
@@ -122,15 +124,14 @@ Successivamente, provare a eseguire una delle esercitazioni seguenti:
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introduzione ai dati (Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-ec.md
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Introduzione all'autenticazione]: mobile-services-dotnet-backend-android-get-started-users.md
-[Introduzione alle notifiche push]: mobile-services-dotnet-backend-android-get-started-push.md
+[Introduzione alle notifiche push]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-   
+[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -39,7 +39,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ##Creare un progetto che supporta Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##Configurare un nuovo hub di notifica
@@ -62,7 +62,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ###Aggiungere Google Play Services al progetto
 
-[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Aggiungere codice
 

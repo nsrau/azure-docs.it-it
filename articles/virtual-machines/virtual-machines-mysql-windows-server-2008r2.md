@@ -34,7 +34,7 @@ Questa esercitazione illustra come:
 
 ## Creare una macchina virtuale che esegue Windows Server
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Collegamento di un disco dati
 

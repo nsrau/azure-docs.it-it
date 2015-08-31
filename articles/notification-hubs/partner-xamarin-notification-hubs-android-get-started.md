@@ -42,7 +42,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ##<a name="register"></a>Abilitare Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a name="configure-hub"></a>Configurare l'hub di notifica
 

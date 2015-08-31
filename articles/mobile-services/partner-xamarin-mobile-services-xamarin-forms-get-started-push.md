@@ -379,7 +379,7 @@ Le notifiche push verranno aggiunte all'app Android mediante il servizio Google 
 
 ###<a id="register"></a>Abilitare Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>Configurare il servizio mobile per l'invio di richieste push
 

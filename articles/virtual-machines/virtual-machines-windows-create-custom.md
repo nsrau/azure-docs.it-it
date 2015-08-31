@@ -32,6 +32,6 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 ##Per creare la macchina virtuale
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
 
 <!---HONumber=August15_HO7-->

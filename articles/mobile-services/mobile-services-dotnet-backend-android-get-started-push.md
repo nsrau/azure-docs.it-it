@@ -28,7 +28,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
  
 ##<a id="register"></a>Abilitare Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configurare il servizio mobile per l'invio di richieste push
 
@@ -51,7 +51,7 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 
 ###Aggiungere Google Play Services al progetto
 
-[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Aggiungere codice
 

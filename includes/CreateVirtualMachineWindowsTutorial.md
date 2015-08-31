@@ -17,7 +17,7 @@ Per altre informazioni, vedere [Macchine virtuali](http://go.microsoft.com/fwlin
 
 Questa sezione illustra come usare l'opzione **Da raccolta** nel portale di gestione per la creazione di una macchina virtuale. Questa opzione offre un maggior numero di scelte di configurazione rispetto all'opzione **Creazione rapida**. Ad esempio, se si vuole aggiungere una macchina virtuale a una rete virtuale, sarà necessario usare l'opzione **Da raccolta**.
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-windowsvm](../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a id="logon"> </a>Come accedere alla macchina virtuale dopo averla creata ##
 
