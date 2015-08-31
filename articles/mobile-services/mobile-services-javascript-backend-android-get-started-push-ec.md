@@ -49,7 +49,7 @@ Questa esercitazione descrive le operazioni di base per abilitare le notifiche p
 
 ###Verificare la versione di Android SDK
 
-[AZURE.INCLUDE [Verificare l'SDK](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Verificare l'SDK](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 Il passaggio successivo comporta l'installazione di Google Play Services. Google Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e il testing. È necessario che la proprietà **minSdkVersion** nel file manifesto sia conforme a tali requisiti.
 
