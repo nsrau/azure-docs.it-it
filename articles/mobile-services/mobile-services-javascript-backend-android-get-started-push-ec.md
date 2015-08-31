@@ -57,7 +57,7 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 
 ###Aggiungere Google Play Services al progetto
 
-[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-google-play-services-EC.md)]
+[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Aggiungere codice
 
