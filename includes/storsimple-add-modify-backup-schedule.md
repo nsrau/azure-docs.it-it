@@ -28,4 +28,4 @@
 La pagina **Criteri di backup** verrà aggiornata per salvare le modifiche apportate al criterio.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

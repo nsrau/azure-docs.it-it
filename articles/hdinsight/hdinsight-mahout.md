@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor=""/>
-
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -16,7 +16,6 @@
 	ms.topic="article"
 	ms.date="07/24/2015"
 	ms.author="larryfr"/>
-
 
 #Generare raccomandazioni di film mediante Apache Mahout con Hadoop in HDInsight
 
@@ -423,4 +422,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

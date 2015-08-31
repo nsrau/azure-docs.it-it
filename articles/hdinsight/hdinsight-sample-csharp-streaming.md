@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/09/2015" 
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 # Esempio MapReduce per il conteggio di parole dei flussi in C# in Hadoop in HDInsight
@@ -202,6 +203,5 @@ Per esercitazioni relative all'esecuzione di altri esempi in cui vengono fornite
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

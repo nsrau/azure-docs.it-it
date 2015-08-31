@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Asset di tipo variabile in Automazione di Azure"
+   pageTitle="Asset di tipo variabile in Automazione di Azure | Microsoft Azure"
    description="Gli asset di tipo variabile sono valori disponibili per tutti i runbook in Automazione di Azure. Questo articolo illustra nel dettaglio le variabili e spiega come usarle nella creazione testuale e grafica."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Asset di tipo variabile in Automazione di Azure
@@ -188,4 +188,4 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -126,4 +126,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

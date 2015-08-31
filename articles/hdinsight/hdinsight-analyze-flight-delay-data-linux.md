@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="Blackmist" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/04/2015" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
@@ -186,7 +187,7 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
     Quando viene completato il comando, verrà restituito un messaggio di conferma positiva.
 
-	> [AZURE.NOTE]Se viene visualizzato un errore che indica che non si dispone dell'accesso, può essere necessario aggiungere l'indirizzo IP della workstation client per il firewall del database SQL usando il comando seguente:
+	> [AZURE.NOTE]se viene visualizzato un errore che indica che non si dispone dell'accesso, potrebbe essere necessario aggiungere l'indirizzo IP della workstation client per il firewall del database SQL utilizzando il seguente:
 	>
 	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
@@ -200,7 +201,7 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-4. Dopo aver installato FreeTDS, usare il comando seguente per connettersi al server del database SQL creato in precedenza:
+4. Dopo aver installato  FreeTDS, utilizzare il comando seguente per connettersi al server di database SQL creato in precedenza:
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
@@ -237,7 +238,7 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 	
 ##Esportare i dati con Sqoop
 
-1. Usare il comando seguente per creare un collegamento al driver JDBC di SQL Server dalla directory lib di Sqoop. Ciò consentirà a Sqoop di usare tale driver per comunicare con il database SQL:
+1. Usare il comando seguente per creare un collegamento al driver JDBC di SQL Server dalla directory lib di Sqoop. Ciò consentirà a Sqoop utilizzare tale driver per comunicare con il database SQL:
 
 		sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
 
@@ -304,4 +305,4 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

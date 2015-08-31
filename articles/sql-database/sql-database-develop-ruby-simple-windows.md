@@ -28,7 +28,7 @@ Questo argomento presenta un esempio di codice Ruby in esecuzione su computer co
 
 Aprire il terminale in uso e installare quanto segue:
 
-**1) Ruby:** se non è presente nel computer, installare Ruby. Per i nuovi utenti di Ruby, è consigliabile utilizzare programmi di installazione di Ruby 2.1.X. Questi forniscono un linguaggio stabile e un elenco completo dei pacchetti (gemme) compatibili e aggiornati. [Visitare la pagina di download di Ruby]()e scaricare il programma di installazione 2.1.x appropriato. Ad esempio, se si utilizza un computer a 64 bit, scaricare il programma di installazione **Ruby 2.1.6 (x64)**. <br/><br/>Una volta scaricato il programma di installazione, eseguire le operazioni seguenti:
+**1) Ruby:** se non è presente nel computer, installare Ruby. Per i nuovi utenti di Ruby, è consigliabile utilizzare programmi di installazione di Ruby 2.1.X. Questi forniscono un linguaggio stabile e un elenco completo dei pacchetti (gemme) compatibili e aggiornati. [Visitare la pagina di download di Ruby](http://rubyinstaller.org/downloads/)e scaricare il programma di installazione 2.1.x appropriato. Ad esempio, se si utilizza un computer a 64 bit, scaricare il programma di installazione **Ruby 2.1.6 (x64)**. <br/><br/>Una volta scaricato il programma di installazione, eseguire le operazioni seguenti:
 
 
 - Fare doppio clic sul file per avviare il programma di installazione.
@@ -131,4 +131,4 @@ Per allinearlo con il formato [datetime](http://msdn.microsoft.com/library/ms187
     puts row
     end
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

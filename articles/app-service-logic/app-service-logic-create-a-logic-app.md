@@ -29,13 +29,19 @@ Per usare questo scenario è necessario disporre di:
 
 ## Recupero dei connettori
 
-Prima di tutto, è necessario creare i due connettori che verranno usati: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) e [**Twitter Connector**](app-service-logic-connector-twitter.md). A questo scopo:
+Prima di tutto, è necessario creare i due connettori che verranno usati: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) e [**Twitter Connector**](app-service-logic-connector-twitter.md). A causa delle restrizioni relative all'API Twitter, sarà necessario registrarsi anche per un'app gratuita in Twitter. A questo scopo:
 
 0. Accedere al portale di Azure.
 
 1. Fare clic su [**Marketplace** ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) nella schermata iniziale e cercare **Twitter** oppure [fare clic qui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2).
 
 2. Selezionare Twitter Connector e fare clic sul pulsante di creazione. Verrà visualizzata una panoramica di tutte le impostazioni. È possibile mantenere il nome **Twitter Connector**.
+3. Selezionare "Impostazioni pacchetto". Qui si dovranno immettere le informazioni dall'applicazione Twitter. È possibile configurare un'applicazione gratuita in tre passaggi:
+	1. Accedere alla [pagina per la registrazione di app Twitter](http://apps.twitter.com).
+	2. Creare una nuova app.
+	3. Assegnare all'app un nome e una descrizione. È possibile immettere un URL qualsiasi per il sito Web e lasciare vuota la casella per l'URL di callback.
+	4. Dopo aver completato la registrazione, copiare il valore di "Consumer Key" da Twitter nel campo "clientId" in Azure e il valore "Consumer Secret" da Twitter nel campo "clientSecret".
+	5. Fare clic su "OK" nel riquadro Azure per tornare alle altre impostazioni dell'API.
 
 3. Digitare un nome di piano in **Crea nuovo piano di servizio app**.
 
@@ -107,7 +113,7 @@ Le azioni sono le operazioni eseguite dal flusso di lavoro. Il numero di possibi
 
 	![Azioni](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]Se il pulsante **Authorize** utilizza la sicurezza OAUTH per connettersi a servizi SaaS, come ad esempio Twitter. Ulteriori informazioni su OAUTH in [Sicurezza OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE]Il pulsante **Authorize** usa la sicurezza OAUTH per connettersi a servizi SaaS, ad esempio Twitter. Altre informazioni su OAUTH sono disponibili nell'articolo sulla [Sicurezza OAUTH](app-service-logic-oauth-security.md).
 
 3. Fare clic su **Ricerca tweet**, quindi in **Specificare una query** digitare ad esempio `#MicrosoftAzure` e fare clic sul segno di spunta verde.
 
@@ -174,4 +180,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

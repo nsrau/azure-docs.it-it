@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/05/2015"
 	ms.author="larryfr"/>
 
 # Analizzare i dati di Twitter con Hive in HDInsight
 
 In questo documento viene illustrato come ricevere tweet usando un'API di streaming di Twitter e quindi come usare Apache Hive in un cluster HDInsight basato su Linux (anteprima) per elaborare i dati in formato JSON. Il risultato sarà un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
-> [AZURE.NOTE]I passaggi descritti in questo articolo si basano sull'uso di un cluster HDInsight basato su Linux. Per passaggi specifici di un cluster basato su Windows, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data.md).
+> [AZURE.NOTE]Anche se alcune parti di questo articolo possono essere usate con i cluster HDInsight basati su Windows (Python e Hive, ad esempio), molti passaggi in questo documento sono specifici dei cluster HDInsight basati su Linux. Per passaggi specifici di un cluster basato su Windows, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data.md).
 
 ###Prerequisiti
 
@@ -318,4 +319,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

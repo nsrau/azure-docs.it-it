@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/19/2015"
 	ms.author="sameerch"/>
 
 # Dropbox Connector
@@ -38,7 +38,7 @@ Nessuno | <ul><li>Eliminare il File</li><li>Ottenere il File</li><li>Caricare il
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Cercare "Connettore Dropbox", selezionarlo e scegliere **Crea**.
-3. Immettere il nome, il piano di servizio app e altre proprietà: ![][1]
+3. Immettere il nome, il piano di servizio app e altre proprietà:
 	![][1]
 	- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 	- **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
@@ -52,24 +52,18 @@ Nessuno | <ul><li>Eliminare il File</li><li>Ottenere il File</li><li>Caricare il
 ## Uso di Dropbox Connector nell'app per la logica
 Dopo aver creato l'app per le API, è possibile usare Dropbox Connector come azione per l'app per la logica. A tale scopo, effettuare l'operazione seguente:
 
-1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di Dropbox Connector.
-
-	![][2]
-2.	Aprire "Trigger e azioni" per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
-
+1.	Nell’app per la logica, aprire **Trigger e azioni** per aprire la finestra di progettazione delle app per la logica e configurare il flusso:
 	![][3]
-3.	Dropbox Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
-
+2.	Il connettore Dropbox è elencato nella raccolta:
 	![][4]
-4.	È possibile trascinare l'app per le API Dropbox Connector nell'editor facendo clic su “Dropbox Connector”. Fare clic sul pulsante Autorizza. Fornire le credenziali Dropbox. Fare clic su "Consenti".
-
+3.	Selezionare il connettore Dropbox da aggiungere automaticamente alla finestra di progettazione. Selezionare **Authorize**, immettere le credenziali e selezionare**Allow**:
 	![][5]
 	![][6]
 	![][7]
-6.	È ora possibile usare Dropbox Connector nel flusso. È possibile usare l'azione Dropbox "Upload File" per caricare un file nel proprio account Dropbox.
 
-	![][8]
-	![][9]
+È ora possibile usare Dropbox Connector nel flusso. È possibile usare l'azione Dropbox "Upload File" per caricare un file nel proprio account Dropbox:
+![][8]
+![][9]
 
 Configurare le proprietà di input per l'azione "Upload File" nel modo indicato di seguito:
 
@@ -81,7 +75,7 @@ Configurare le proprietà di input per l'azione "Upload File" nel modo indicato 
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-Creare app per le API con le API REST. Vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
@@ -96,4 +90,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

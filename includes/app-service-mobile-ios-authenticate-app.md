@@ -1,7 +1,4 @@
-
-
-1. Aprire **QSTodoListViewController.m** e aggiungere il metodo seguente:
-
+1. In Mac aprire **QSTodoListViewController.m** in Xcode e aggiungere il metodo seguente. Modificare _facebook_ in _accountmicrosoft_, _twitter_, _google_ o _microsoftazureactivedirectory_ se non si usa Facebook come provider di identità.
 
         - (void) loginAndGetData
         {
@@ -15,14 +12,10 @@
             }];
         }
 
-
-    > [AZURE.NOTE]Se si usa un provider di identità diverso da Facebook, modificare il valore passato a **loginWithProvider**. I valori supportati sono: _microsoftaccount_, _facebook_, _twitter_, _google_ oppure _windowsazureactivedirectory_.
-
-
-2. Modificare `viewDidLoad` sostituendo `[self refresh]` alla fine con i valori seguenti:
+2. Sostituire `[self refresh]` in `viewDidLoad` con quanto riportato di seguito:
 
         [self loginAndGetData];
 
-3. Premere **Esegui** per avviare l'app, quindi accedere con il provider di identità scelto. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
+3. Fare clic su **segui** per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

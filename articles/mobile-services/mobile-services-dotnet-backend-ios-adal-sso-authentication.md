@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (iOS) | Microsoft Azure" 
-	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per iOS." 
-	documentationCenter="ios" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (iOS) | Microsoft Azure"
+	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per iOS."
+	documentationCenter="ios"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="mahender"/>
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
@@ -119,6 +119,5 @@ Per completare questa esercitazione, è necessario disporre di:
 [modalità di registrazione in Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [Active Directory Authentication Library per iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

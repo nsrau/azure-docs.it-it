@@ -37,7 +37,7 @@ Integration Services (SSIS) è uno strumento sofisticato e flessibile di Extract
 
 > [AZURE.NOTE]SSIS può esportare in UTF-8 senza byte order mark nel file. Per configurare questa funzionalità, è necessario prima usare il componente colonna derivata per convertire i dati di tipo carattere nel flusso di dati per usare la tabella codici 65001 UTF-8. Dopo la conversione delle colonne, scrivere i dati nell'adattatore di destinazione di file flat verificando che sia stata selezionata la tabella codici 65001 per il file.
 
-SSIS si connette a SQL Data Warehouse nello stesso modo in cui si connetterebbe a una distribuzione di SQL Server. La connessione tuttavia dovrà usare una gestione connessioni ADO.NET. È anche necessario configurare l'impostazione "" per ottimizzare la velocità effettiva.
+SSIS si connette a SQL Data Warehouse nello stesso modo in cui si connetterebbe a una distribuzione di SQL Server. La connessione tuttavia dovrà usare una gestione connessioni ADO.NET. È anche necessario configurare l'impostazione per "utilizzare l'inserimento di massa quando disponibile" per ottimizzare la velocità effettiva. Consultare l'articolo relativo all'[adattatore di destinazione ADO.NET][] per ulteriori informazioni su questa proprietà
 
 > [AZURE.NOTE]La connessione ad Azure SQL Data Warehouse mediante OLEDB non è supportata.
 
@@ -191,6 +191,7 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 
 [versione di produzione]: http://aka.ms/downloadazcopy/
 [versione di anteprima]: http://aka.ms/downloadazcopypr/
+[adattatore di destinazione ADO.NET]: https://msdn.microsoft.com/it-it/library/bb934041.aspx
 [documentazione relativa a SSIS]: https://msdn.microsoft.com/it-it/library/ms141026.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

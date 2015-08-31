@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
 # Creare la prima pipeline con Data factory di Azure
@@ -68,7 +68,9 @@ Nei passaggi successivi si apprenderà come creare i servizi collegati, i set di
 
 ### Prerequisiti
 
-Nel computer deve essere installato Visual Studio 2013. Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
+Nel computer deve essere installato 
+- Visual Studio 2013 
+- Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
 
 
 ### Creare il progetto di Visual Studio 
@@ -109,12 +111,11 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 		{
 		    "name": "HDInsightOnDemandLinkedService",
 		    "properties": {
+	        "type": "HDInsightOnDemandLinkedService",
 		        "version": "3.1",
 		        "clusterSize": 1,
 		        "timeToLive": "00:05:00",
-		        "jobsContainer": "adfjobs",
-		        "linkedServiceName": "StorageLinkedService",
-		        "type": "HDInsightOnDemandLinkedService"
+		        "linkedServiceName": "AzureStorageLinkedService1"
 		    }
 		}
 	
@@ -147,7 +148,7 @@ Si creerà ora il set di dati di output per rappresentare i dati archiviati nell
 		                "type": "TextFormat",
 		                "columnDelimiter": ","
 		            },
-		            "linkedServiceName": "StorageLinkedService"
+		            "linkedServiceName": "AzureStorageLinkedService1"
 		        },
 		        "availability": {
 		            "frequency": "Month",
@@ -175,7 +176,7 @@ In questo passaggio si creerà la prima pipeline.
 		            "type": "HDInsightActivity",
 		            "transformation": {
 		                    "scriptPath": "script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
+		                    "scriptLinkedService": "AzureStorageLinkedService1",
 		                    "type": "Hive",
 		                    "extendedProperties": {
 		                        "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -206,10 +207,17 @@ In questo passaggio si creerà la prima pipeline.
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata dal servizio collegato, **HDInsightOnDemandLinkedService**.
 3. Salvare il file **HiveActivity1.json**. 
 
+### Aggiungere partitionweblogs.hql come dipendenza 
+
+1. Fare clic con il tasto destro del mouse su Dipendenze nella finestra **Esplora soluzioni**, scegliere **Aggiungi**, e fare clic su **Elemento esistente**.  
+2. Individuare **C:\\ADFGettingStarted** e selezionare il file **partitionweblogs.hql** e fare clic su **Aggiungi**. 
+
+Quando si pubblica la soluzione nel passaggio successivo, il file HQL è caricato nel contenitore di script nell'archiviazione BLOB.
+
 ### Pubblicare/Distribuire le entità della data factory
   
 1. Nell'area della barra degli strumenti fare clic con il pulsante destro del mouse e scegliere **Data factory** per abilitare la barra degli strumenti Data factory, se necessario. 
-19. Nella **barra degli strumenti Data factory** fare clic sulla **casella di riepilogo** per visualizzare tutte le data factory nella sottoscrizione di Azure. Se viene visualizzata la finestra di dialogo **Accedi a Visual Studio**: 
+19. Nella **barra degli strumenti Data factory** fare clic sulla **casella di riepilogo a discesa** per visualizzare tutte le data factory nella sottoscrizione di Azure. Se viene visualizzata la finestra di dialogo **Accedi a Visual Studio**: 
 	20. Immettere l'**account di posta elettronica** associato alla sottoscrizione di Azure in cui si vuole creare la data factory, immettere la **password** e fare clic su **Accedi**.
 	21. Una volta completato l'accesso, si dovrebbero vedere tutte le data factory nella sottoscrizione di Azure. In questa esercitazione verrà creata una nuova data factory.       
 22. Nell'elenco a discesa selezionare **DataFactoryMyFirstPipeline** e fare clic sul pulsante **Pubblica** per distribuire/pubblicare i servizi collegati, i set di dati e la pipeline.    
@@ -221,7 +229,7 @@ In questo passaggio si creerà la prima pipeline.
 
 ## Usare Esplora Server per esaminare le entità della data factory
 
-1. In **Visual Studio** scegliere **Esplora server** dal menu **Visualizza**.
+1. In **Visual Studio** scegliere **Visualizza** dal menu e fare clic su**Esplora server**.
 2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzato **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione verrà visualizzato nella finestra **Elenco attività data factory**.
 
 	![Esplora server](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
@@ -233,7 +241,7 @@ In questo passaggio si creerà la prima pipeline.
 
 Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguire le operazioni seguenti:
 
-1. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**.
+1. Fare clic su**Strumenti**nel menu e selezionare**Estensioni e aggiornamenti**.
 2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
 3. Selezionare **Strumenti di Data Factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
@@ -244,4 +252,4 @@ Vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipe
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -25,15 +25,15 @@ In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet 
 
 ## Creare macchine virtuali controller di dominio in Azure
 
-È innanzitutto necessario compilare la colonna **Nome macchina virtuale** della tabella M e modificare le dimensioni delle macchine virtuali secondo necessità nella colonna **Dimensione minima**.
+È innanzitutto necessario compilare la colonna **Nome macchina virtuale** della Tabella M e modificare le dimensioni delle macchine virtuali secondo necessità nella colonna **Dimensione minima**.
 
-Item | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
+Elemento | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
 --- | --- | --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo controller di dominio, nell'esempio DC1) | Windows Server 2012 R2 Datacenter | A2 (Media)
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo controller di dominio, nell'esempio DC2) | Windows Server 2012 R2 Datacenter | A2 (Media)
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo computer SQL Server, nell'esempio SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo computer SQL Server, nell'esempio SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (controllo nodo di maggioranza per il cluster, nell’esempio MN1) | Windows Server 2012 R2 Datacenter | A1 (Piccola)
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (server di controllo del nodo di maggioranza per il cluster, nell'esempio MN1) | Windows Server 2012 R2 Datacenter | A1 (Piccola)
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo server applicazioni SharePoint, nell’esempio APP1) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (secondo server applicazioni SharePoint, nell’esempio APP2) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
 8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primo server Web SharePoint, nell’esempio WEB1) | Versione di valutazione di Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Grandissima)
@@ -244,4 +244,6 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

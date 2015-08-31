@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico"
+   pageTitle="Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico | Microsoft Azure"
    description="In questo articolo vengono fornite istruzioni per scegliere il nome di dominio aziendale per un nome di dominio di Gestione traffico."
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico
 
@@ -27,13 +27,15 @@ Tutto il traffico indirizzato a *www.contoso.com* verrà ora reindirizzato a *co
 
 >[AZURE.IMPORTANT]Non è possibile scegliere un dominio di secondo livello, come *contoso.com*, per il dominio di Gestione traffico. Si tratta del limite del protocollo DNS, che non consente record CNAME per i nomi di dominio di secondo livello.
 
-## Vedere anche
+## Passaggi successivi
 
-[Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
 
-[Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
 
-[Panoramica di Gestione traffico](traffic-manager-overview.md)
+[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
+
+[Gestione traffico di Azure](traffic-manager-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

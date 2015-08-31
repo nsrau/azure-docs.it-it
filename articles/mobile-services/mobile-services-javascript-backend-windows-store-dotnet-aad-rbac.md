@@ -286,4 +286,4 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [accesso alle informazioni di Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

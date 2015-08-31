@@ -1,4 +1,3 @@
-
 #### Per creare un backup manuale
 
 1. Nella pagina **Dispositivi**, andare alla scheda **Criteri di backup**. In questa scheda vengono elencati tutti i criteri di backup in formato tabulare, tra cui il criterio per il volume di cui si desidera eseguire il backup.
@@ -21,4 +20,4 @@
 
   Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

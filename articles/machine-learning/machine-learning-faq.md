@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/18/2015" 
 	ms.author="paulettm"/>
 
 #Domande frequenti su Azure Machine Learning: Fatturazione, funzionalità, limitazioni e supporto
@@ -176,7 +176,7 @@ Non al momento, ma con il modulo Python standard o un set di moduli è possibile
 
 **Esiste un ambiente REPL per Python?**
 
-No, non esistono ambienti REPL per Python in Studio.
+È possibile utilizzare i notebook Jupyter in Studio Machine Learning. Per ulteriori informazioni, vedere [Introdurre i notebook Jupyter in Azure ML Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Servizio Web
 ###Ripetizione del training dei modelli a livello di codice
@@ -201,6 +201,8 @@ Il servizio richiesta-risposta (RRS) è un servizio Web a bassa latenza e a scal
 
 L'aggiornamento di un modello predittivo per un servizio già distribuito è semplice. È sufficiente modificare l'esperimento usato per creare e salvare il modello di apprendimento ed eseguirlo di nuovo. Quando è disponibile la nuova versione del modello di apprendimento, ML Studio chiederà all'utente se vuole aggiornare il servizio Web nell'ambiente di gestione temporanea. Dopo aver applicato l'aggiornamento al servizio Web di gestione temporanea, lo stesso aggiornamento diventa disponibile anche per il servizio Web di produzione. Vedere [Pubblicare un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md) per dettagli su come aggiornare un servizio Web distribuito.
 
+Inoltre, è possibile utilizzare le API Retraining. Il codice di esempio è disponibile [qui](https://azuremlretrain.codeplex.com/).
+
 
 **Come si monitora il servizio Web distribuito in produzione?**
 
@@ -208,15 +210,16 @@ Una volta inserito in produzione un modello predittivo, è possibile monitorarlo
 
 **Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
 
-Sì. È necessario fornire una posizione di archiviazione BLOB in cui verrà inserito l'output di RRS/BES.
-
-
+Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È inoltre possibile scrivere un BLOB. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È inoltre possibile scrivere l'output in un database o in una tabella utilizzando il modulo di scrittura.
+ 
+ ****È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
+ 
 
 ##Scalabilità 
 
 **Che cos'è la scalabilità del servizio Web?**
 
-Attualmente, il massimo è 20 richieste simultanee per ogni endpoint, anche se è possibile arrivare a una scalabilità di 80 endpoint. Ciò significa 4.800 richieste simultanee, se si usano tutte le risorse (300 processi di lavoro).
+Attualmente, il massimo è 20 richieste simultanee per ogni endpoint, anche se è possibile arrivare a una scalabilità di 10,000 endpoint. Ciò significa 4.800 richieste simultanee, se si usano tutte le risorse (300 processi di lavoro).
 
 
 **I processi R sono distribuiti in più nodi?**
@@ -258,7 +261,8 @@ No.
 
 **Chi ha accesso all'endpoint HTTP per il servizio Web distribuito in produzione per impostazione predefinita? Come è possibile limitare l'accesso all'endpoint?**
 
-Dopo che il modello predittivo è stato distribuito nell'ambiente di produzione, nel portale di Azure viene indicato l'URL per i servizi Web distribuiti. Gli URL del servizio di gestione temporanea sono accessibili dall'ambiente di Machine Learning Studio nella sezione dei servizi Web. Gli URL del servizio di produzione sono accessibili dal portale di Azure nella sezione Machine Learning. Le chiavi di accesso vengono fornite per i servizi Web di gestione temporanea e di produzione dal dashboard del servizio Web negli ambienti di Machine Learning Studio e del portale di Azure, rispettivamente. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web sia nell'ambiente di produzione che nell'ambiente di gestione temporanea. Per altre informazioni, vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Dopo aver pubblicato un servizio web, è necessario creare un endpoint predefinito per tale servizio. Tale endpoint predefinito viene distribuito nell'ambiente di produzione e può essere chiamato utilizzando la relativa chiave API. È possibile aggiungere altri endpoint con le rispettive chiavi dal portale di Azure o a livello di programmazione utilizzando le API di gestione del servizio Web. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web sia nell'ambiente di produzione che nell'ambiente di gestione temporanea. Per altre informazioni, vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+
 
 **Cosa succede se non viene trovato l'account di archiviazione?**
 
@@ -302,4 +306,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

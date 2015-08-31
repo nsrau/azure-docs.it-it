@@ -21,7 +21,7 @@ Le metriche in [Application Insights][start] sono valori e un numero di eventi m
 
 Il conteggio delle metriche e degli eventi viene visualizzato nei grafici dei valori aggregati, ad esempio somme, medie o conteggi.
 
-Ad esempio, se si aggiunge Application Insights a un'applicazione Web, di seguito sono riportate le informazioni visualizzate nella parte superiore della panoramica:
+Ecco un grafico di esempio:
 
 ![Aprire il pannello Panoramica dell'applicazione nel portale di Azure](./media/app-insights-metrics-explorer/01-overview.png)
 
@@ -40,12 +40,13 @@ Le linee tratteggiate indicano il valore della metrica di una settimana preceden
 
 Se si è in attesa di alcuni dati non ancora visualizzati, fare clic su Aggiorna. I grafici si aggiornano a intervalli, ma gli intervalli sono più lunghi per gli intervalli di tempo maggiori. In modalità di rilascio è possibile che ai dati sia necessario un po' di tempo per superare la pipeline di analisi in un grafico.
 
-Nel pannello Panoramica eseguire il trascinamento su una parte del grafico per ingrandirla in un nuovo grafico.
-
+Per ingrandire una parte di un grafico, trascinare sulla parte e fare clic sul simbolo di lente di ingrandimento:
 
 ![Eseguire il trascinamento della parte di un grafico.](./media/app-insights-metrics-explorer/12-drag.png)
 
-## Livello di dettaglio e valori dei punti
+
+
+## Granularità e valori dei punti
 
 Posizionare il mouse sul grafico per visualizzare i valori delle metriche in quel punto.
 
@@ -53,15 +54,15 @@ Posizionare il mouse sul grafico per visualizzare i valori delle metriche in que
 
 Il valore della metrica in un punto particolare è aggregato al sopra dell'intervallo di campionamento precedente.
 
-L'intervallo di campionamento o il "livello di dettaglio" viene visualizzato nella parte superiore del pannello.
+L'intervallo di campionamento o "granularità" è visibile nella parte superiore del pannello.
 
 ![L'intestazione di un pannello.](./media/app-insights-metrics-explorer/11-grain.png)
 
-È possibile modificare il livello di dettaglio nel pannello Intervallo di tempo:
+È possibile modificare la granularità nel pannello Intervallo di tempo:
 
 ![L'intestazione di un pannello.](./media/app-insights-metrics-explorer/grain.png)
 
-I livelli di dettaglio disponibili dipendono dall'intervallo di tempo selezionato. I livelli di dettaglio espliciti costituiscono alternative al livello di dettaglio "automatico" per l'intervallo di tempo.
+Le granularità disponibili dipendono dall'intervallo di tempo selezionato. Le granularità esplicite costituiscono alternative alla granularità "automatica" per l'intervallo di tempo.
 
 ## Esplora metriche
 
@@ -76,7 +77,7 @@ Ad esempio, fare clic sul grafico Richieste non riuscite dell'app Web:
 
 La legenda sul lato mostra per impostazione predefinita il valore aggregato per il periodo del grafico.
 
-Ogni punto dati del grafico è anche una funzione di aggregazione dei valori di dati ricevuti nell'intervallo di campionamento precedente o nel "livello di dettaglio". Il livello di dettaglio viene visualizzato nella parte superiore del pannello e varia in base alla scala cronologica complessiva del grafico.
+Ogni punto dati del grafico è anche una funzione di aggregazione dei valori di dati ricevuti nell'intervallo di campionamento o nella "granularità" precedente. La granularità viene visualizzata nella parte superiore del pannello e varia in base alla scala cronologica complessiva del grafico.
 
 Le metriche vengono aggregate in modi diversi:
 
@@ -197,8 +198,8 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
 [alerts]: app-insights-alerts.md
 [start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

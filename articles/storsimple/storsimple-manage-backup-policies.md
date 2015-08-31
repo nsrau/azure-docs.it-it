@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Gestire i criteri di backup di StorSimple | Microsoft Azure"
-   description="Viene illustrato come è possibile utilizzare il servizio StorSimple Manager per creare e gestire processi di backup e pianificazioni di backup."
+   description="Viene illustrato come è possibile utilizzare il servizio StorSimple Manager per creare e gestire backup manuali, pianificazioni di backup e conservazione dei backup."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/17/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 # Gestire i criteri di backup di StorSimple
@@ -82,6 +82,6 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un criterio di b
 
 ## Passaggi successivi
 
-Informazioni su come gestire i backup di StorSimple con il [Gestione Snapshot StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
+Informazioni su come [utilizzare Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

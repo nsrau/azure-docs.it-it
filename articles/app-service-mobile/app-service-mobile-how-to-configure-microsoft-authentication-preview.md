@@ -13,22 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="07/27/2015"
 	ms.author="mahender"/>
 
 # Come configurare un'applicazione per usare l'account di accesso Microsoft
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Questo argomento descrive come configurare i servizi app di Azure per usare l'account Microsoft come provider di autenticazione.
+Questo argomento descrive come configurare le app per dispositivi mobili di Azure per usare l'account Microsoft come provider di autenticazione.
 
 ## <a name="register"> </a>Registrare l'applicazione con l'account Microsoft
 
-1. Passare alla pagina [My Applications] di Microsoft Account Developer Center e, se necessario, accedere con il proprio account Microsoft.
+1. Accedere al [portale di gestione di Azure] e passare all'app per dispositivi mobili.
 
-2. Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
+2. Fare clic su **Impostazioni**, **Autenticazione utente** e quindi su **Account Microsoft**. Copiare l'**URL di reindirizzamento**. Verrà usato per configurare una nuova app per l'Account Microsoft.
 
-3. Fare clic su **API Settings**. Selezionare **Yes** per **Mobile or desktop client app**. Nel campo **Redirect URL** immettere l'URL del gateway con il percorso _/signin-microsoft_ come suffisso. Ad esempio: `https://contosogateway.azurewebsites.net/signin-microsoft`. Assicurarsi che sia in uso lo schema HTTPS. Dopo avere immesso l'URL di reindirizzamento, fare clic su **Save**.
+3. Passare alla pagina [My Applications] di Microsoft Account Developer Center e, se necessario, accedere con il proprio account Microsoft.
+
+4. Fare clic su **Crea applicazione**, quindi digitare un nome in **Nome applicazione** e fare clic su **Accetto**.
+
+5. Fare clic su **API Settings**. Selezionare **Yes** per **Mobile or desktop client app**. Nel campo **URL di reindirizzamento** immettere l'**URL di reindirizzamento** copiato in precedenza. Si tratta del gateway dell'app per dispositivi mobili con _/signin-microsoft_ come suffisso. ad esempio `https://contosogateway.azurewebsites.net/signin-microsoft`. Assicurarsi che sia in uso lo schema HTTPS. Dopo avere immesso l'URL di reindirizzamento, fare clic su **Save**.
 
 	![][0]
 
@@ -41,9 +45,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare l'ac
 
 ## <a name="secrets"> </a>Aggiungere le informazioni dell'account Microsoft all'app per dispositivi mobili
 
-5. Accedere [portale di gestione di Azure] e passare al gateway dei servizi app.
-
-6. In **Impostazioni** scegliere **Identità**, quindi selezionare **Account Microsoft**. Incollare i valori relativi all'ID dell'app e al segreto dell'app ottenuti in precedenza. Fare quindi clic su **Salva**.
+1. Tornare al [portale di gestione di Azure], quindi nel pannello delle impostazioni dell'account Microsoft per l'app per dispositivi mobili incollare i valori relativi all'ID client e al segreto client ottenuti in precedenza. Fare quindi clic su **Salva**.
 
     ![][1]
 
@@ -60,7 +62,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare l'ac
 <!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-settings.png
+[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/mobile-app-microsoftaccount-settings.png
 
 <!-- URLs. -->
 
@@ -68,4 +70,4 @@ Questo argomento descrive come configurare i servizi app di Azure per usare l'ac
 [portale di gestione di Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

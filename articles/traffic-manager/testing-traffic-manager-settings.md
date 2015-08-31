@@ -6,16 +6,14 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
-
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Test delle impostazioni di Gestione traffico
 
@@ -56,7 +54,7 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 
 ## Vedere anche
 
-[Informazioni sui metodi di bilanciamento del carico di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Gestione traffico](../traffic-manager.md)
+[Informazioni sui metodi di routing di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Gestione traffico](../traffic-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

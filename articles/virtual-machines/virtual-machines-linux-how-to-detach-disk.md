@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Scollegamento di un disco da una macchina virtuale di Linux in Azure"
-	description="Informazioni su come scollegare un disco dati da una macchina virtuale di Azure."
+	description="Informazioni su come scollegare un disco dati da una macchina virtuale di Azure creata utilizzando il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -25,6 +26,6 @@
 
 [Come collegare un disco dati a una macchina virtuale Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-[Uso dell'interfaccia della riga di comando di Azure con gestione dei servizi Azure](virtual-machines-command-line-tools.md)
+[Uso dell’interfaccia della riga di comando di Azure con l’API di gestione del servizio](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

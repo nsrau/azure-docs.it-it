@@ -5,7 +5,8 @@
    documentationCenter=".net"
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
@@ -22,7 +23,11 @@
 
 Questo documento fornisce un esempio d'uso di .NET SDK per Hadoop per inviare i processi Pig a un cluster Hadoop in HDInsight.
 
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. Pig consente di creare operazioni MapReduce modellando una serie di trasformazioni di dati. In questo articolo si apprenderà come usare un'applicazione di base C# per inviare un processo Pig a un cluster HDInsight.
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. Pig consente di creare operazioni MapReduce modellando una serie di trasformazioni di dati. In questo articolo si apprenderà come usare un'applicazione di base C#per inviare un processo Pig a un cluster HDInsight.
+
+[AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
+
+* [Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -44,11 +49,11 @@ Per istruzioni su come eseguire questa operazione, vedere [Creare un certificato
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Visitare la pagina relativa alla [Console di gestione di Azure](https://manage.windowsazure.com/).
+1. Visitare il [portale di anteprima di Azure][portale di anteprima].
 
-2. Dalla barra sinistra del portale, selezionare **Impostazioni**.
+2. Dalla barra a sinistra del portale, selezionare __ESPLORA TUTTO__, quindi selezionare __Sottoscrizioni__ dal pannello __Sfoglia__.
 
-3. Nelle informazioni presentate nella parte destra della pagina trovare la sottoscrizione che si desidera usare e prendere nota del valore nella colonna **ID sottoscrizione**.
+3. Nelle informazioni presentate nel pannello __Sottoscrizioni__ trovare la sottoscrizione che si desidera usare e prendere nota del valore nella colonna **ID sottoscrizione**.
 
 Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 
@@ -227,6 +232,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md) [portale di anteprima]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

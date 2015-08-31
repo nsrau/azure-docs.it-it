@@ -30,8 +30,6 @@ Sono disponibili due tipi di test Web:
 * [Test di ping URL](#set-up-a-url-ping-test): un semplice test che può essere creato nel portale di Azure.
 * [Test Web in più passaggi](#multi-step-web-tests): viene creato in Visual Studio Ultimate o Visual Studio Enterprise e caricato nel portale.
 
-*Si tratta di un app Web di Azure? È sufficiente [creare l'app Web nel pannello App Web][azure-availability].*
-
 
 
 ## Configurare un test di ping URL
@@ -239,4 +237,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

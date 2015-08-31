@@ -1,21 +1,19 @@
 <properties
-   pageTitle="Aggiornare il dispositivo StorSimple"
+   pageTitle="Aggiornare il dispositivo StorSimple | Microsoft Azure"
    description="Viene illustrato come utilizzare la funzionalità di aggiornamento StorSimple per installare gli aggiornamenti rapidi in modalità normale e manutenzione."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" />
-
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/19/2015"
    ms.author="v-sharos" />
-
 
 # Aggiornare il dispositivo StorSimple
 
@@ -44,7 +42,7 @@ Gli aggiornamenti regolari sono aggiornamenti senza interruzioni che possono ess
 
 ### Aggiornamenti in modalità manutenzione
 
-Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici, come gli aggiornamenti del firmware del disco o del firmware USM. Questi aggiornamenti richiedono che il dispositivo sia in modalità manutenzione. Per altri dettagli, vedere [Passaggio 2: Attivare la modalità di manutenzione](#to-enter-maintenance-mode). Per installare gli aggiornamenti in modalità manutenzione, non è possibile utilizzare il portale di gestione. Pertanto è necessario utilizzare Windows PowerShell per StorSimple.
+Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici, come gli aggiornamenti del firmware del disco o del firmware USM. Questi aggiornamenti richiedono che il dispositivo sia in modalità manutenzione. Per altri dettagli, vedere [Passaggio 2: Attivare la modalità di manutenzione](#step2). Per installare gli aggiornamenti in modalità manutenzione, non è possibile utilizzare il portale di gestione. Pertanto è necessario utilizzare Windows PowerShell per StorSimple.
 
 Per informazioni dettagliate su come installare gli aggiornamenti in modalità manutenzione, vedere [Installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -68,32 +66,32 @@ In alternativa, è possibile utilizzare Windows PowerShell per StorSimple per ap
 
 Utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti in modalità manutenzione al dispositivo StorSimple. In questa modalità, tutte le richieste I/O sono sospese. Inoltre vengono arrestati servizi come la memoria ad accesso casuale non volatile (NVRAM) o il servizio cluster. Entrambi i controller vengono riavviati quando si entra o esce dalla modalità. Quando si esce da questa modalità, tutti i servizi vengono ripresi e devono essere integri. L'operazione potrebbe richiedere alcuni minuti.
 
-Se è necessario applicare gli aggiornamenti in modalità manutenzione, si riceverà un avviso tramite il portale di gestione riguardo gli aggiornamenti che devono essere installati. Questo avviso include le istruzioni sull'utilizzo di Windows PowerShell per StorSimple per installare gli aggiornamenti. Dopo aver aggiornato il dispositivo, utilizzare la stessa procedura per modificare il dispositivo alla modalità normale. Per istruzioni dettagliate, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](#to-exit-maintenance-mode).
+Se è necessario applicare gli aggiornamenti in modalità manutenzione, si riceverà un avviso tramite il portale di gestione riguardo gli aggiornamenti che devono essere installati. Questo avviso include le istruzioni sull'utilizzo di Windows PowerShell per StorSimple per installare gli aggiornamenti. Dopo aver aggiornato il dispositivo, utilizzare la stessa procedura per modificare il dispositivo alla modalità normale. Per istruzioni dettagliate, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](#step4).
 
 > [AZURE.IMPORTANT]
 > 
 > - Prima di entrare in modalità manutenzione, verificare che entrambi i controller di dispositivi siano integri controllando lo **Stato Hardware** sulla pagina **Manutenzione** nel portale di gestione. Se il controller non è integro, contattare il supporto tecnico Microsoft per i passaggi successivi. Per altre informazioni, contattare il supporto tecnico Microsoft. 
 > - In modalità manutenzione, è necessario applicare l’aggiornamento rapido prima in un controller e poi nell’altro.
 
-### Passaggio 1: Connettersi alla console seriale
+### Passaggio 1: Connettersi alla console seriale <a name="step1">
 
 In primo luogo, utilizzare un'applicazione come PuTTY per accedere alla console seriale. La procedura seguente illustra come utilizzare PuTTY per connettersi alla console seriale.
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### Passaggio 2: Attivare la modalità di manutenzione
+### Passaggio 2: Attivare la modalità di manutenzione <a name="step2">
 
 Dopo la connessione alla console, determinare se sono presenti aggiornamenti da installare e attivare la modalità manutenzione per installarli.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### Passaggio 3: Installare gli aggiornamenti
+### Passaggio 3: Installare gli aggiornamenti <a name="step3">
 
 Successivamente, installare gli aggiornamenti.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
  
-### Passaggio 4: Uscire dalla modalità di manutenzione
+### Passaggio 4: Uscire dalla modalità di manutenzione <a name="step4">
 
 Per terminare, uscire dalla modalità manutenzione.
 
@@ -114,11 +112,11 @@ Nelle procedure seguenti viene illustrato come utilizzare Windows PowerShell per
 
 ## Cosa accade agli aggiornamenti se si esegue un ripristino delle impostazioni predefinite?
 
-Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli aggiornamenti vengono persi. Dopo aver registrato e configurato il dispositivo ripristinato alle impostazioni predefinite, sarà necessario installare manualmente gli aggiornamenti tramite il portale di gestione e/o Windows PowerShell per StorSimple. Per altre informazioni sul ripristino delle impostazioni predefinite, vedere [Ripristinare le impostazioni di fabbrica del dispositivo](https://msdn.microsoft.com/library/azure/dn772373.aspx).
+Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli aggiornamenti vengono persi. Dopo aver registrato e configurato il dispositivo ripristinato alle impostazioni predefinite, sarà necessario installare manualmente gli aggiornamenti tramite il portale di gestione e/o Windows PowerShell per StorSimple. Per altre informazioni sul ripristino delle impostazioni predefinite, vedere [Ripristinare le impostazioni di fabbrica del dispositivo](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## Passaggi successivi
 
-Altre informazioni su [Windows PowerShell per StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
+[Informazioni su come utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple](storsimple-windows-powershell-administration.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

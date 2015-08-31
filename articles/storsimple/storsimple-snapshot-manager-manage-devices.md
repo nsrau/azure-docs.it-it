@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
@@ -65,7 +65,7 @@ In questa esercitazione viene illustrato come utilizzare Gestione snapshot StorS
 - Modifica della password scaduta di un dispositivo
 - Sostituzione di un dispositivo guasto
 
->[AZURE.NOTE]Per informazioni generali sull'utilizzo dell'interfaccia di Gestione snapshot StorSimple, andare a [Interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md)
+>[AZURE.NOTE]Per informazioni generali sull'utilizzo dell'interfaccia di Gestione snapshot StorSimple, andare a [Interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
 
 
 ## Aggiunta o sostituzione di un dispositivo
@@ -252,7 +252,7 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 
 5. Avviare Gestione snapshot StorSimple.
 
-6. Per configurare il nuovo dispositivo StorSimple, completare i passaggi descritti in [Passaggio 2: connessione di un dispositivo StorSimple](storsimple-snapshot-manager-deployment.md#step-2:-connect-a-storsimple-device) in [Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md).
+6. Per configurare il nuovo dispositivo StorSimple, completare i passaggi descritti in Passaggio 2: connessione di un dispositivo StorSimple in [Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md).
 
 7. Fare clic con il pulsante destro del mouse sul nodo di livello superiore nel riquadro **Ambito** (Gestione snapshot StorSimple nell'esempio), quindi fare clic su **Visualizza/Nascondi importazioni**.
 
@@ -260,6 +260,6 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 
 ## Passaggi successivi
 
-[Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i volumi](storsimple-snapshot-manager-manage-volumes.md)
+[Utilizzare Gestione Snapshot StorSimple per visualizzare e gestire i volumi](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

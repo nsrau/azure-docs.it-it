@@ -60,7 +60,7 @@ Per ottenere un'elevata resilienza dell'applicazione è possibile combinare il s
 Se il bilanciamento del carico non è configurato in modo da bilanciare il traffico tra più macchine virtuali, qualsiasi evento di manutenzione pianificata influirà sull'unica macchina virtuale di gestione del traffico, determinando un'interruzione del livello di applicazione. Associando più macchine virtuali dello stesso livello a un unico servizio di bilanciamento del carico e a uno stesso set di disponibilità si garantisce che il traffico sia sempre gestito da almeno un'istanza.
 
 ### Evitare singole istanze di macchine virtuali nei set di disponibilità
-Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non hanno diritto a una garanzia dei contratti di servizio e subiranno tempi di inattività durante gli eventi di manutenzione pianificata di Azure. Inoltre, se in un set di disponibilità si distribuisce un'unica istanza di macchine virtuali, non si riceveranno più preavvisi o notifiche di manutenzione della piattaforma. In questa configurazione, quindi, l'istanza di macchina virtuale viene riavviata senza alcun preavviso ogni volta che viene eseguita la manutenzione della piattaforma.
+Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non hanno diritto a una garanzia dei contratti di servizio e subiranno tempi di inattività durante gli eventi di manutenzione pianificata di Azure. L’istanza di macchina virtuale singola all’interno di un set di disponibilità, riceverà inoltre una notifica di posta elettronica avanzata nella notifica della manutenzione pianificata delle macchine virtuali a più istanze.
 
 <!-- Link references -->
 [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
@@ -69,4 +69,4 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 [Evitare singole istanze di macchine virtuali nei set di disponibilità]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Come configurare un set di disponibilità per le macchine virtuali]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

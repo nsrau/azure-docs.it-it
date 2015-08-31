@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/11/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Interfaccia utente di Gestione snapshot StorSimple
@@ -51,7 +51,7 @@ L'interfaccia utente di Gestione snapshot StorSimple supporta le funzionalità d
 
 ## Barra dei menu
 
-La barra dei menu nella parte superiore della finestra della console contiene i menu [**File**](#file-menu), [**Azione**](#action-menu), [**Visualizza**](#view-menu), [**Preferiti**](#favorites-menu), [**Finestra**](#window-menu) e [**Guida**](#help-menu).
+La barra dei menu nella parte superiore della finestra della console contiene i menu [File](#file-menu), [Azione](#action-menu), [Visualizza](#view-menu), [Preferiti](#favorites-menu), [Finestra](#window-menu) e [Guida](#help-menu).
 
 Fare clic su qualsiasi elemento nella barra dei menu per visualizzare un elenco di comandi disponibili in tale menu. Nell'esempio seguente viene mostrato il menu **Visualizza** selezionato nella barra dei menu.
 
@@ -540,4 +540,4 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 
 Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -62,4 +62,4 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -6,7 +6,7 @@ Si supponga che il set di dati Blob sia in formato CSV e contenga 3 colonne. Una
 Definire il set di dati di origine Blob come indicato di seguito e le definizioni di tipo per le colonne.
 
 	{
-	    "name": " AzureBlobTypeSystemInput",
+	    "name": "AzureBlobTypeSystemInput",
 	    "properties":
 	    {
 	         "structure": 
@@ -30,7 +30,7 @@ Definire il set di dati di origine Blob come indicato di seguito e le definizion
 	        "availability":
 	        {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        },
 			"policy": {
 	            "externalData": {
@@ -69,4 +69,4 @@ Quindi si definirà il set di dati di SQL Azure come indicato di seguito. Nota: 
 
 In questo caso Data Factory eseguirà automaticamente la conversione del tipo incluso il campo Datetime con il formato data personalizzato fr-fr quando si spostano dati da Blob a SQL Azure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

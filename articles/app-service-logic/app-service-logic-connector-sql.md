@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/09/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -57,11 +57,14 @@ Service Bus Connection String | No | Se ci si connette in locale, immettere la s
 Partner Server Name | No | Se il server primario non è disponibile, è possibile immettere un server partner come server alternativo o di backup.
 Tables | No | Elencare le tabelle di database che possono essere aggiornate dal connettore. Immettere ad esempio *OrdersTable* o *EmployeeTable*. Se non viene immessa alcuna tabella, è possibile usare tutte le tabelle. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
 Stored procedure | No | Immettere una stored procedure esistente che può essere chiamata dal connettore, ad esempio *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
-Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table\_name. Poll Data Query | Per il supporto dei trigger | L'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati.
+Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table\_name. 
+Poll Data Query | Per il supporto dei trigger | L'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: 
-<br/>
+5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente:
  ![][1]
+
+6. Selezionare **Crea**.
+
 
 ## Usare il connettore come trigger
 In questa sezione viene descritta una semplice app per la logica che esegue il polling dei dati da una tabella SQL, aggiunge tali dati a un'altra tabella e quindi li aggiorna.
@@ -143,7 +146,7 @@ Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-Creare app per le API con le API REST. Vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
@@ -159,4 +162,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

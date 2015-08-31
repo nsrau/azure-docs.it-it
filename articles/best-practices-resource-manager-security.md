@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="08/13/2015"
 	ms.author="georgem"/>
 
 
@@ -22,6 +22,8 @@
 Osservando gli aspetti della sicurezza per i modelli di Gestione risorse di Azure, sono diverse le aree da considerare: le chiavi e i segreti, il controllo degli accessi in base al ruolo e i gruppi di sicurezza di rete.
 
 In questo argomento si presuppone che si abbia familiarità con il controllo degli accessi in base al ruolo (RBAC) di Gestione risorse di Azure. Per ulteriori informazioni, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md) e [Gestione e controllo dell'accesso alle risorse](resource-group-rbac.md)
+
+Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Segreti e certificati
 
@@ -222,7 +224,7 @@ NEGA TUTTO IN USCITA | 65500 | * | * | * | * | * | NEGA
 
 Le regole per il gruppo di sicurezza di rete sono esplicite. Non viene consentito né negato traffico oltre a quanto specificato nelle regole del gruppo di sicurezza di rete. Esistono tuttavia due tipi di traffico che vengono sempre consentiti, indipendentemente dalla specifica del gruppo di sicurezza di rete. Si tratta di regole previste a supporto dell'infrastruttura:
 
-- **IP virtuale del nodo host**: i servizi di infrastruttura di base come DHCP, DNS e il monitoraggio dello stato vengono forniti mediante l'indirizzo IP dell'host virtualizzato 168.63.129.16. Questo indirizzo IP pubblico appartiene a Microsoft e sarà l'unico indirizzo IP virtualizzato usato in tutte le aree a questo scopo. Questo indirizzo IP è mappato all'indirizzo IP fisico del computer server (nodo host) che ospita la macchina virtuale. Il nodo host svolge la funzione di inoltro DHCP, di resolver ricorsivo DNS e di origine probe per il probe di integrità del bilanciamento del carico e per il probe di integrità del computer. La comunicazione con questo indirizzo IP non deve essere considerata come un attacco.
+- **IP virtuale del nodo host:** i servizi di infrastruttura di base come DHCP, DNS e il monitoraggio dello stato vengono forniti mediante l'indirizzo IP dell'host virtualizzato 168.63.129.16. Questo indirizzo IP pubblico appartiene a Microsoft e sarà l'unico indirizzo IP virtualizzato usato in tutte le aree a questo scopo. Questo indirizzo IP è mappato all'indirizzo IP fisico del computer server (nodo host) che ospita la macchina virtuale. Il nodo host svolge la funzione di inoltro DHCP, di resolver ricorsivo DNS e di origine probe per il probe di integrità del bilanciamento del carico e per il probe di integrità del computer. La comunicazione con questo indirizzo IP non deve essere considerata come un attacco.
 - **Licenze (servizio di gestione delle chiavi)**: le immagini Windows in esecuzione sulle macchine virtuali devono essere concesse in licenza. A tale scopo viene inviata una richiesta di licenza ai server host del servizio di gestione delle chiavi che gestiscono le query di questo tipo. Questo avverrà sempre sulla porta in uscita 1688.
 
 ### Tag predefiniti
@@ -302,7 +304,7 @@ Ogni subnet creata in una rete virtuale viene associata automaticamente a una ta
 
 ### Route BGP
 
-Al momento della stesura di questo articolo, [ExpressRoute](expressroute/expressroute-introduction.md) non è ancora supportato nel [provider di risorse di rete](virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](expressroute/expressroute-introduction.md).
+Al momento della redazione di questo articolo, [ExpressRoute](expressroute/expressroute-introduction.md) non è ancora supportato nel [ Provider di risorse di rete](virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](expressroute/expressroute-introduction.md).
 
 >[AZURE.NOTE]Quando ExpressRoute sarà supportato dal provider di risorse di rete, sarà possibile configurare l'ambiente Azure per usare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita dall’utente per la subnet 0.0.0.0/0 che usa il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
 
@@ -315,7 +317,7 @@ Non è possibile visualizzare le route predefinite specificate in precedenza nel
 
 Negli scenari precedenti, è necessario creare una tabella di route e aggiungervi route definite dall'utente. È possibile avere più tabelle di routing e la stessa tabella di route può essere associata a una o più subnet. E ogni subnet può essere associato a una tabella singola route. Tutte le macchine virtuali e servizi cloud in uso una subnet la tabella di route associato a tale subnet.
 
-Subnet si basano su route predefinite fino a quando non è associata alla subnet di una tabella di route. Una volta effettuata l'associazione, il routing viene eseguito in base all'algoritmo [Longest Prefix Match (LPM)](https://en.wikipedia.org/wiki/Longest_prefix_match) che seleziona il valore con il prefisso più lungo tra le route definite dall'utente e quelle predefinite. Se è presente più di una route con la stessa corrispondenza LPM una route viene selezionata in base alla sua origine nell'ordine seguente:
+Subnet si basano su route predefinite fino a quando non è associata alla subnet di una tabella di route. Una volta creata un'associazione, il routing avviene in base a [Corrispondenza di prefisso più lungo (LPM)](https://en.wikipedia.org/wiki/Longest_prefix_match) tra entrambe le route definite dall'utente e le route predefinite. Se è presente più di una route con la stessa corrispondenza LPM una route viene selezionata in base alla sua origine nell'ordine seguente:
 
 1.	Route definita utente
 2.	Route BGP (quando viene utilizzato ExpressRoute)
@@ -330,9 +332,9 @@ Come descritto sopra, uno dei motivi principali per creare una route definita da
 Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere traffico in ingresso non viene indirizzato a se stesso. Per consentire una macchina virtuale ricevere il traffico indirizzato ad altre destinazioni, è necessario abilitare l'inoltro IP nella macchina virtuale.
 
 ## Passaggi successivi
-- Per informazioni su come impostare le entità di sicurezza con l'accesso corretto per usare le risorse dell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
+- Per informazioni su come impostare le entità di sicurezza con l'accesso corretto per lavorare con le risorse nell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
 - Se è necessario bloccare l'accesso a una risorsa, è possibile utilizzare i blocchi di gestione. Vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md)
-- Per informazioni su come configurare il routing e l'inoltro IP, vedere [Come creare route e abilitare l'inoltro IP in Azure](virtual-network/virtual-networks-udr-how-to.md). 
-- Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
+- Per configurare routing e inoltro IP, vedere [Come creare route e abilitare l'inoltro dell'IP in Azure](virtual-network/virtual-networks-udr-how-to.md) 
+- Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/09/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
 # Microsoft AS2 Connector
@@ -97,7 +97,7 @@ L'azione restituisce un codice di risposta HTTP 200 al termine dell'esecuzione.
 ## Più vantaggi con il connettore
 Altre informazioni sulle app per la logica sono disponibili nell'articolo [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-Creare app per le API con le API REST. Vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
@@ -113,4 +113,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

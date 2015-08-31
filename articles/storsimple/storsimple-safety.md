@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Sicurezza del dispositivo
 
 ![Icona di avviso](./media/storsimple-safety/IC740879.png)![Icona di avviso di sicurezza lettura](./media/storsimple-safety/IC740885.png)**LETTURA INFORMAZIONI DI SICUREZZA E INTEGRITÀ**
 
-Leggere tutte le informazioni di sicurezza e integrità in questo articolo che si applicano al dispositivo Microsoft Azure StorSimple. Mantenere tutte le guide di stampata fornite con il dispositivo StorSimple per riferimento futuro. Errore nel seguire le istruzioni e configurazione corretta, utilizzo, e attenzione per questo prodotto può aumentare il rischio di gravi ferite o morte o danni al dispositivo o ai dispositivi. Una[versione scaricabile di questa Guida](http://www.microsoft.com/it-it/download/details.aspx?id=44233)è inoltre disponibile.
+Leggere tutte le informazioni di sicurezza e integrità in questo articolo che si applicano al dispositivo Microsoft Azure StorSimple. Mantenere tutte le guide di stampata fornite con il dispositivo StorSimple per riferimento futuro. Errore nel seguire le istruzioni e configurazione corretta, utilizzo, e attenzione per questo prodotto può aumentare il rischio di gravi ferite o morte o danni al dispositivo o ai dispositivi. Una [versione scaricabile di questa Guida](http://www.microsoft.com/download/details.aspx?id=44233) è inoltre disponibile.
 
 ## Convenzioni di sicurezza
 
@@ -129,7 +129,7 @@ Il dispositivo è progettato per funzionare con due PCM. Ogni PCM dispone di un 
 
 Per ridurre la probabilità di ferite, scosse elettriche o morte:
 
-- Non rimuovere le coperture dal PCM. Non esiste il rischio di scosse elettriche all'interno. Per restituire il PCM e ottenere una sostituzione,[contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+- Non rimuovere le coperture dal PCM. Non esiste il rischio di scosse elettriche all'interno. Per restituire il PCM e ottenere una sostituzione, [contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
 ![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**
 
@@ -175,8 +175,8 @@ Dopo aver esaminato questi avvisi sulla sicurezza, i passaggi successivi sono pe
 
 ## Passaggi successivi
 
-- Per un dispositivo 8100, andare su[decompressione, togliere e cablare il vostro dispositivo 8600](storsimple-8600-hardware-installation)
+- Per un dispositivo 8100, vedere [Installare il dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 
-- Per un dispositivo 8600, visitare[decompressione, rack e cavo del dispositivo 8600](storsimple-8600-hardware-installation)
+- Per un dispositivo 8600, vedere [Installare il dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

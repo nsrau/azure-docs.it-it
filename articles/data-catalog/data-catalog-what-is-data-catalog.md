@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/31/2015"
+   ms.date="08/19/2015"
    ms.author="maroche"/>
 
 # Che cos'è il catalogo dei dati di Azure?
@@ -71,6 +71,8 @@ Il processo di registrazione prevede tre passaggi di base:
 - KPI multidimensionali di SQL Server Analysis Services
 - Tabella tabulare di SQL Server Analysis Services
 - Report di SQL Server Reporting Services
+- BLOB di Archiviazione di Azure
+- Directory di archiviazione di Azure
 
 Ulteriori origini dati e i tipi di asset verranno aggiunti durante l’anteprima del **Catalogo dati di Azure**.
 
@@ -111,7 +113,7 @@ Dopo la registrazione di un'origine dati, talvolta può essere necessario rimuov
 
 > [AZURE.IMPORTANT]L'eliminazione di un'origine dati dal**Catalogo dati di Azure**elimina solo i metadati memorizzati nel servizio**Catalogo dati di Azure**. L'origine dati non viene alterato in alcun modo.
 
-## Utilizzare origini dati 
+## Utilizzare origini dati
 
 L'obiettivo principale di individuazione dati è trovare i dati necessari e utilizzare nello strumento dati desiderato. L'esperienza di utilizzo di dati nel catalogo di dati di Azure consente questa funzionalità in due modi.
 
@@ -120,4 +122,4 @@ L'obiettivo principale di individuazione dati è trovare i dati necessari e util
 
 > [AZURE.NOTE]Per l'anteprima del catalogo dati di Azure, solo Microsoft Excel e il servizio di report di SQL saranno direttamente supportati e disponibili nel menu**Apri In**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

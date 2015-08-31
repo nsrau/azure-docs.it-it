@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurare l'ambiente di sviluppo di Service Fabric"
+   pageTitle="Configurare l'ambiente di sviluppo di Service Fabric | Microsoft Azure"
    description="Installare il runtime, l'SDK e gli strumenti di Service Fabric e creare un cluster di sviluppo locale."
    services="service-fabric"
    documentationCenter=".net"
@@ -17,17 +17,17 @@
    ms.author="seanmck"/>
 
 # Configurare l'ambiente di sviluppo di Service Fabric
- Questo articolo fornisce tutte le informazioni necessarie per iniziare a creare applicazioni di [Service Fabric][1], incluse l'installazione del runtime, dell'SDK e degli strumenti e la creazione di un cluster locale.
+ Questo articolo offre tutte le informazioni necessarie per iniziare a creare app di [Service Fabric][1], inclusa l'installazione del runtime, dell'SDK e degli strumenti e la configurazione di un cluster locale.
 
  >[AZURE.NOTE]Queste istruzioni devono essere usate per l'impostazione di nuovi PC. Se è installata una versione precedente di Service Fabric sul proprio PC, seguire le [istruzioni per aggiornare l'ambiente di sviluppo](service-fabric-update-your-development-environment.md).
 
 ## Prerequisiti
-### Sistemi operativi supportati
+### Versioni del sistema operativo supportate
 Sono supportati i sistemi operativi seguenti:
 
 - Windows 8/8.1
 - Windows Server 2012 R2
-- Windows 10 Technical Preview
+- Windows 10
 
 ### Visual Studio 2015
 
@@ -41,7 +41,7 @@ L'installazione dei componenti di Service Fabric viene eseguita mediante l'Insta
 
 1. [Scaricare l'SDK][3] mediante l'Installazione guidata piattaforma Web.
 
-2. Fare clic su Installa per avviare il processo di installazione.
+2. Fare clic su **Installa** per avviare il processo di installazione.
 
 3. Leggere e accettare il contratto di licenza con l'utente finale.
 
@@ -55,7 +55,7 @@ Service Fabric usa script di Windows PowerShell per creare un cluster di svilupp
 
 
 ## Installare e avviare un cluster locale
-Un cluster locale rappresenta in un singolo computer di sviluppo la topologia con più computer da usare in produzione. Per installare il cluster locale, seguire questa procedura:
+Un cluster locale rappresenta in un singolo computer di sviluppo la topologia con più computer da usare in produzione. Per configurare il cluster locale, seguire questa procedura:
 
 
 1. Chiudere tutte le altre finestre di PowerShell e avviarne una nuova come amministratore.
@@ -74,7 +74,7 @@ Dopo qualche secondo come output verranno visualizzate le informazioni relative 
 
 1. Per avviare Service Fabric Explorer, eseguire `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`
 
-2. Espandere il nodo Onebox/Local Cluster nell'angolo superiore sinistro.
+2. Espandere il nodo Onebox/Cluster locale nell'angolo superiore sinistro.
 
 3. Assicurarsi che le visualizzazioni delle applicazioni e dei nodi siano verdi.
 
@@ -93,4 +93,4 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

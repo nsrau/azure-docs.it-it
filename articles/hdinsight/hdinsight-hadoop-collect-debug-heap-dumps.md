@@ -3,6 +3,7 @@
 	description="Raccogliere automaticamente i dump dell'heap per i servizi Hadoop e inserirli nell'account di archiviazione BLOB di Azure per il debug e l'analisi."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -62,4 +63,4 @@ Ad esempio, per attivare i dump dell'heap usando Azure HDInsight .NET SDK per jo
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

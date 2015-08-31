@@ -1,11 +1,11 @@
 
-Nell'esempio precedente viene illustrato l'accesso standard, che richiede al client di contattare il provider di identità e il servizio app ad ogni avvio dell'app. Tale metodo risulta inefficiente e sarebbe meglio memorizzare nella cache il token di autorizzazione restituito dal servizio app e provare a utilizzarlo prima di un accesso basato su provider.
+L'esempio precedente contatta sia il provider di identità che il servizio mobile ogni volta che l'app viene avviata. È possibile invece memorizzare nella cache il token di autorizzazione e provare a usarlo per primo.
 
-1. Il modo consigliato per crittografare e archiviare i token di autenticazione in un client iOS consiste nell'usare il Portachiavi iOS. Questa esercitazione usa [SSKeychain](https://github.com/soffes/sskeychain) -- un semplice wrapper intorno a iOS Keychain. Seguire le istruzioni riportate nella pagina SSKeychain e aggiungerlo al progetto. Verificare che l'impostazione per **abilitare i moduli** sia abilitata nelle **impostazioni di creazione** del progetto (sezione **Apple LLVM - Lingue - Moduli**).
+* Il modo consigliato per crittografare e archiviare i token di autenticazione in un client iOS consiste nell'usare il Portachiavi iOS. Verrà usato [SSKeychain](https://github.com/soffes/sskeychain), un semplice wrapper intorno al Portachiavi iOS. Seguire le istruzioni riportate nella pagina SSKeychain e aggiungerlo al progetto. Verificare che l'impostazione per **abilitare i moduli** sia abilitata nelle **impostazioni di creazione** del progetto (sezione **Apple LLVM - Lingue - Moduli**).
 
-2. Aprire **QSTodoListViewController.m** e aggiungere il codice seguente:
+* Aprire **QSTodoListViewController.m** e aggiungere il codice seguente:
 
-
+```
 		- (void) saveAuthInfo {
 				[SSKeychain setPassword:self.todoService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.todoService.client.currentUser.userId]
 		}
@@ -20,13 +20,18 @@ Nell'esempio precedente viene illustrato l'accesso standard, che richiede al cli
 
 		    }
 		}
+```
 
-3. Nel metodo `loginAndGetData`, modificare il blocco di completamento della chiamata `loginWithProvider:controller:animated:completion:` mediante l'aggiunta di una chiamata a `saveAuthInfo` prima della riga `[self refresh]`. Con questa chiamata, vengono archiviate le proprietà token e l'ID utente in modo semplice.
+* In `loginAndGetData` modificare il blocco di completamento di `loginWithProvider:controller:animated:completion:`. Aggiungere la riga seguente subito prima di `[self refresh]` per archiviare le proprietà dell'ID utente e del token:
 
+```
 				[self saveAuthInfo];
+```
 
-4. Caricare anche l'ID utente e il token all'avvio dell'app. Nel metodo `viewDidLoad` in **QSTodoListViewController.m**, aggiungere una chiamata a loadAuthInfo subito dopo l'inizializzazione di `self.todoService`.
+* Caricare l'ID utente e il token all'avvio dell'app. Nel metodo `viewDidLoad` in **QSTodoListViewController.m** aggiungere la riga seguente subito dopo l'inizializzazione di `self.todoService`.
 
+```
 				[self loadAuthInfo];
+```
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

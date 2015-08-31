@@ -5,8 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
-
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -16,7 +16,6 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
-
 
 #Eseguire processi Pig con Hadoop in HDInsight mediante Curl
 
@@ -119,4 +118,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -88,11 +88,13 @@ La funzionalità di query di Database elastica si basa su queste quattro istruzi
 Una credenziale rappresenta l'ID utente e password che verrà utilizzata la query di database flessibile per la connessione per il mapping della partizione scala elastica e i database remoti in database SQL Azure. È possibile creare la chiave master e credenziali utilizzando la sintassi seguente:
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
-    CREATE CREDENTIAL <credential_name> ON DATABASE
+    CREATE DATABASE SCOPED CREDENTIAL <credential_name>
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
 Assicurarsi che il & lt; shard\_map\_username > non include un suffisso "@servername".
+
+Informazioni sulle credenziali sono visibili nella vista del catalogo sys.database\_scoped.credentials.
 
 Per eliminare la chiave master e le credenziali, è possibile utilizzare la sintassi seguente:
 
@@ -185,7 +187,7 @@ Nell'esempio seguente viene illustrato come recuperare l'elenco di tabelle ester
 ## Creazione di report e l'esecuzione di query
 
 ### Query
-Dopo aver definito l'origine dati esterna e le tabelle esterne, è possibile utilizzare stringhe di connessione di Database SQL familiare per connettersi al database che sia abilitata la funzionalità di query Database elastica. È possibile utilizzare eseguire query completa di sola lettura tramite le tabelle esterne, con alcune limitazioni descritte nella [sezione limitazioni](#preview-limitations) sottostante.
+Dopo aver definito l'origine dati esterna e le tabelle esterne, è possibile utilizzare stringhe di connessione di Database SQL familiare per connettersi al database che sia abilitata la funzionalità di query Database elastica. È possibile utilizzare eseguire query complete di sola lettura tramite le tabelle esterne, con alcune limitazioni descritte nella [sezione limitazioni](#preview-limitations) sottostante.
 
 **Esempio**: la query seguente esegue un join a tre vie tra magazzini, ordini e righe di ordine e vengono utilizzate diverse funzioni di aggregazione e un filtro selettivo. Supponendo che la colonna id warehouse vengono partizionati magazzini, ordini e righe d'ordine, una query di database flessibile può collocare i join su database remoti può orizzontale e l'elaborazione della parte della query costosa.
 
@@ -211,7 +213,7 @@ SP\_EXECUTE\_FANOUT è una stored procedure che fornisce l'accesso ai database r
 -    **Nome server** (nvarchar): nome completo del server logico che ospita il mapping della partizione.
 -    **Nome del database mappa partizionamento** (nvarchar): il nome del database di mappa di partizionamento.
 -    **Nome utente** (nvarchar): il nome utente per accedere al database della mappa il partizionamento e i database remoti.
--    **Password** (nvarchar): Password per l'utente.
+-    **Password** (nvarchar): password per l'utente.
 -    **Nome mappa partizionamento** (nvarchar): il nome della mappa del partizionamento da utilizzare per la query.
 -    **Query**: la query può essere eseguita in ogni partizione.
 
@@ -263,4 +265,4 @@ Per iniziare a esplorare le query di Database elastico, provare la nostra eserci
 
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

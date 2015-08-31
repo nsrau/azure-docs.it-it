@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Distribuzione StorSimple Snapshot Manager
@@ -63,7 +63,7 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
     - Volumi dinamici con mirroring (RAID 1)
     - Volumi condivisi del cluster
  
-    Per informazioni sulla creazione di volumi nel dispositivo StorSimple o nel dispositivo virtuale StorSimple, vedere "passaggio 6: Creare un volume" in[Distribuire dispositivo StorSimple in locale](storsimple-deployment-walkthrough.md).
+    Per informazioni sulla creazione di volumi nel dispositivo StorSimple o nel dispositivo virtuale StorSimple, vedere [passaggio 6: Creare un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) in [Distribuire dispositivo StorSimple in locale](storsimple-deployment-walkthrough.md).
 
 ## Installare un nuovo StorSimple Snapshot Manager
 
@@ -123,9 +123,9 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 
     - Il pannello **Azioni** elenca le operazioni che è possibile eseguire sul nodo, vista o i dati selezionati nel riquadro**Ambito**.
 
-    Per una descrizione completa dell'interfaccia utente StorSimple Snapshot Manager, vedere[interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+    Per una descrizione completa dell'interfaccia utente di Gestione snapshot StorSimple, vedere[interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 
-2. Nel riquadro **Ambito**, fare clic con il pulsante destro del mouse sul nodo **Dispositivi**, quindi fare clic su **Configura un dispositivo**. La finestra di dialogo**Configurare un dispositivo**verrà visualizzata.
+2. Nel riquadro **Ambito**, fare clic con il pulsante destro del mouse sul nodo **Dispositivi**, quindi fare clic su **Configura un dispositivo**. Viene visualizzata la finestra di dialogo **Configura un dispositivo**.
 
     ![Configurare un dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
@@ -133,7 +133,7 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 
 4. StorSimple Snapshot Manager esegue la ricerca del dispositivo identificato. Se il dispositivo è disponibile, StorSimple Snapshot Manager aggiunge una connessione. È possibile[verificare la connessione al dispositivo](#to-verify-the-connection)per verificare che la connessione sia stata aggiunta correttamente.
 
-    Se il dispositivo non è disponibile per qualsiasi motivo, StorSimple Snapshot Manager restituisce un messaggio di errore. Fare clic su**OK**per chiudere il messaggio di errore e quindi fare clic su**Annulla**per chiudere la finestra di dialogo **Configurare un dispositivo**.
+    Se il dispositivo non è disponibile per qualsiasi motivo, StorSimple Snapshot Manager restituisce un messaggio di errore. Fare clic su **OK** per chiudere il messaggio di errore, quindi fare clic su **Annulla** per chiudere la finestra di dialogo **Configura un dispositivo**.
 
 5. Quando si connette a un dispositivo, StorSimple Snapshot Manager importa ogni gruppo di volumi configurato per il dispositivo, purché il gruppo di volumi abbia associati i backup. I gruppi di volumi che non dispongono di backup associati non vengono importati. Inoltre, non vengono importati i criteri di backup creati per un gruppo di volumi. Per visualizzare i gruppi importati, fare doppio clic sul nodo **Gruppi di volumi**nel riquadro **Ambito** e fare clic su**attivare o disattivare i gruppi importati**.
 
@@ -195,11 +195,11 @@ Utilizzare la procedura seguente per creare e salvare una copia del database di 
 
    1. Avviare Server Manager.
 
-   2. Nel dashboard di Server Manager nel menu**Strumenti**selezionare **Servizi**.
+   2. Nel Dashboard di Server Manager, selezionare **Servizi** dal menu **Strumenti**.
 
    3. Nella pagina**Servizi**selezionare**Servizio di gestione Microsoft StorSimple**.
 
-   4. Nel riquadro destro sotto a**Servizio di gestione Microsoft StorSimple**fare clic su**Arresta il servizio**.
+   4. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Arresta il servizio**.
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
@@ -213,11 +213,11 @@ Utilizzare la procedura seguente per creare e salvare una copia del database di 
 
 4. Riavviare il servizio di gestione Microsoft StorSimple:
 
-    1. Nel dashboard di Server Manager nel menu**Strumenti**selezionare **Servizi**.
+    1. Nel Dashboard di Server Manager, selezionare **Servizi** dal menu **Strumenti**.
 
     2. Nella pagina**Servizi**, seleziona il**servizio di gestione di Microsoft StorSimple**.
 
-    3. Nel riquadro destro sotto a **Servizio di gestione Microsoft StorSimple**fare clic su**Riavvia il servizio**.
+    3. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Riavvia il servizio**.
 
 ### Passaggio 3: Reinstallare StorSimple Snapshot Manager e ripristinare il database
 
@@ -229,11 +229,11 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
     1. Avviare Server Manager.
 
-    2. Nel dashboard di Server Manager nel menu**Strumenti**selezionare **Servizi**.
+    2. Nel Dashboard di Server Manager, selezionare **Servizi** dal menu **Strumenti**.
 
     3. Nella pagina**Servizi**selezionare**Servizio di gestione Microsoft StorSimple**.
 
-    4. Nel riquadro destro sotto a**Servizio di gestione Microsoft StorSimple**fare clic su**Arresta il servizio**.
+    4. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Arresta il servizio**.
 
 2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
@@ -243,16 +243,16 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
 4. Riavviare il servizio di gestione Microsoft StorSimple:
 
-    1. Nel dashboard di Server Manager nel menu**Strumenti**selezionare **Servizi**.
+    1. Nel Dashboard di Server Manager, selezionare **Servizi** dal menu **Strumenti**.
 
     2. Nella pagina**Servizi**selezionare**Servizio di gestione Microsoft StorSimple**.
 
-    3. Nel riquadro destro sotto a **Servizio di gestione Microsoft StorSimple**fare clic su**Riavvia il servizio**.
+    3. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Riavvia il servizio**.
 
 ## Passaggi successivi
 
 Per ulteriori informazioni su StorSimple Snapshot Manager, passare a[Cos'è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-Per ulteriori informazioni sull'interfaccia utente StorSimple Snapshot Manager, passare a[Interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
+Per ulteriori informazioni sull'interfaccia utente di Gestione snapshot StorSimple, passare a[Interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

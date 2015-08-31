@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 
@@ -219,11 +219,11 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 
 ## Passaggi successivi
 
-Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
+Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
 
 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

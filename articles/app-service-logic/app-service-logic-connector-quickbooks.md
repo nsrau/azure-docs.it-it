@@ -7,16 +7,14 @@
    manager="dwrede"
    editor=""/>
 
-
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
-
 
 
 #Uso di QuickBooks Connector nell'app per la logica#
@@ -121,6 +119,13 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 18. È possibile controllare che nell'account QuickBooks venga creato un nuovo account con nome 'Contoso'.
 
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-quickbooks/1_New_Logic_App.png
 [2]: ./media/app-service-logic-connector-quickbooks/2_Logic_App_Settings.png
@@ -136,4 +141,4 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

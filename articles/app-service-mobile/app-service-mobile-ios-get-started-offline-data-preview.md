@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Abilitare la sincronizzazione offline per l'app mobile (iOS)"
+	pageTitle="Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Azure (iOS)"
 	description="Informazioni su come usare le app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un'applicazione iOS"
 	documentationCenter="ios"
-	authors="lindydonna"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""
 	services="app-service\mobile"/>
-
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,41 +13,30 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="donnam"/>
+	ms.date="08/11/2015"
+	ms.author="krisragh"/>
 
+# Abilitare la sincronizzazione offline per l'app per dispositivi mobili per iOS
 
-# Abilitare la sincronizzazione offline per l'app mobile per iOS
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]& nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+## Panoramica
 
-Questa esercitazione descrive la funzionalità di sincronizzazione offline delle app per dispositivi mobili per iOS. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il back-end remoto.
+Questa esercitazione descrive la funzionalità di sincronizzazione offline delle app per dispositivi mobili di Azure per iOS. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il back-end remoto.
 
-La sincronizzazione offline ha diversi usi potenziali:
+Se questa è la prima esperienza con le app per dispositivi mobili di Azure, è consigliabile completare prima l'esercitazione [Creare un'app iOS].
 
-* Migliorare la velocità di risposta dell'app memorizzando i dati del server nella cache locale del dispositivo
-* Rendere le app resilienti rispetto alla connettività di rete intermittente
-* Permettere agli utenti finali di creare e modificare i dati anche in mancanza di accesso di rete, supportando scenari con connettività scarsa o assente
-* Sincronizzare i dati tra più dispositivi e rilevare i conflitti quando lo stesso record viene modificato da due dispositivi
-
-Se questa è la prima esperienza con App per dispositivi mobili, è consigliabile completare prima l'esercitazione [Creare un'app iOS].
+Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 ##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
-## <a name="get-app"></a>Ottenere l'app di esempio ToDo offline
+## <a name="review-sync"></a>Verificare il codice di sincronizzazione del client 
 
-Nel repository [GitHub degli esempi di app per dispositivi mobili] clonare il repository e aprire il progetto di [esempio offline di iOS] in Xcode.
+Il progetto client scaricato per l'esercitazione [Creare un'app iOS] contiene già il codice che supporta la sincronizzazione offline mediante un database basato sui dati principali locali. Questa sezione è un riepilogo degli elementi già inclusi nel codice dell'esercitazione. Per una panoramica concettuale della funzionalità, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
-### SDK beta
-Per aggiungere il supporto offline a un'app esistente, ottenere l'ultima versione [beta dell'SDK per iOS](http://aka.ms/gc6fex).
-
-## <a name="review-sync"></a>Esaminare il codice di sincronizzazione nelle app per dispositivi mobili
-
-La sincronizzazione offline del servizio per app per dispositivi mobili consente agli utenti finali di interagire con un database locale quando la rete non è accessibile. Per usare queste funzionalità nell'app, è possibile inizializzare il contesto di sincronizzazione di `MSClient` e fare riferimento a un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `MSSyncTable`.
-
-Questa sezione illustra il codice correlato alla sincronizzazione offline nell'esempio.
+La funzionalità per la sincronizzazione di dati offline delle app per dispositivi mobili di Azure consente agli utenti finali di interagire con un database locale quando la rete non è accessibile. Per usare queste funzionalità nell'app, è possibile inizializzare il contesto di sincronizzazione di `MSClient` e fare riferimento a un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `MSSyncTable`.
 
 1. In **QSTodoService.m** notare che il tipo del membro `syncTable` è `MSSyncTable`. La sincronizzazione offline usa questa interfaccia della tabella di sincronizzazione anziché `MSTable`. Quando si usa una tabella di sincronizzazione, tutte le operazioni vengono inviate all'archivio locale e vengono sincronizzate con il back-end remoto solo mediante operazioni push e pull esplicite.
 
@@ -121,7 +109,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
       * MS\_TableConfig: per tenere traccia dell'ora dell'ultimo aggiornamento dell'ultima operazione di sincronizzazione per tutte le operazioni pull
       * TodoItem: per archiviare gli elementi todo. Le colonne di sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** sono proprietà di sistema facoltative.
 
->[AZURE.NOTE]Mobile App SDK riserva i nomi di colonna che iniziano con "**`ms_`**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto i nomi di colonna verranno modificati.
+>[AZURE.NOTE]Azure Mobile Apps SDK riserva nomi di colonna che iniziano con "**`ms_`**". Usare questo prefisso solo per le colonne di sistema. In caso contrario, quando si usa il back-end remoto i nomi di colonna verranno modificati.
 
 - Quando si usa la funzionalità di sincronizzazione offline, è necessario definire le tabelle di sistema come illustrato di seguito.
 
@@ -171,7 +159,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
     | Attributo | Tipo | Nota |
     |-----------   |  ------ | -------------------------------------------------------|
-    | id | String | chiave primaria nell'archivio remoto |
+    | id | Stringa, contrassegnata come obbligatoria | chiave primaria nell'archivio remoto |
     | complete | Boolean | campo elemento ToDo |
     | text | String | campo elemento ToDo |
     | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | | ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
@@ -220,7 +208,7 @@ Per supportare la funzionalità di sincronizzazione offline è stata usata l'int
 
 Quando si usa un archivio locale Core Data, è necessario definire svariate tabelle con le [proprietà di sistema corrette](#review-core-data).
 
-Le normali operazioni CRUD per il servizio per app per dispositivi mobili funzionano come se l'app fosse ancora connessa, ma tutte le operazioni si verificano nell'archivio locale.
+Le normali operazioni CRUD per le app per dispositivi mobili di Azure funzionano come se l'app fosse ancora connessa, ma tutte le operazioni si verificano nell'archivio locale.
 
 Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSSyncTable.pullWithQuery` e `MSClient.syncContext.pushWithCompletion`.
 
@@ -243,45 +231,23 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 
 ## Risorse aggiuntive
 
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]
+* [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Azure Friday: App con supporto offline in Servizi mobili di Azure] (nota: le demo sono per Windows, la descrizione delle funzionalità si applica a tutte le piattaforme)
+* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 <!-- URLs. -->
 
-[Creare un'app iOS]: ../app-service-mobile-dotnet-backend-ios-get-started.md
 
-[core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
-[core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
-[core-data-3]: ./media/mobile-services-ios-get-started-offline-data/core-data-3.png
-[defining-core-data-main-screen]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png
-[defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
+[Creare un'app iOS]: ../app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: ../app-service-mobile-offline-data-sync-preview.md
+
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperations-entity.png
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-todoitem-entity.png
-[update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
-[update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
-
-[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
-[Creating an Outlet Connection]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[Build a User Interface]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[Adding a Segue Between Scenes in a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[Adding a Scene to a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-
-[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: ../mobile-services-ios-how-to-use-client-library.md
-[esempio offline di iOS]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[GitHub degli esempi di app per dispositivi mobili]: https://github.com/Azure/mobile-services-samples
-
-[Get started with Mobile Services]: ../mobile-services-ios-get-started.md
-[Get started with data]: ../mobile-services-ios-get-started-data.md
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-ios-handling-conflicts-offline-data.md
-[Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

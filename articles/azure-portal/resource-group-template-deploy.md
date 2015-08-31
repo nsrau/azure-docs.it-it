@@ -122,6 +122,13 @@ Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, veder
 7. Per ottenere informazioni dettagliate sugli errori di distribuzione.
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### Video
+
+Ecco una dimostrazione video di utilizzo dei modelli di gestione delle risorse con PowerShell.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Distribuire con l'interfaccia della riga di comando di Azure per Mac, Linux e Windows
 
@@ -252,9 +259,9 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
 ## Passaggi successivi
 - Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere[Distribuire le risorse usando le librerie .NET e un modello](../arm-template-deployment.md)
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- Per altre informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+- Per altre informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli](../resource-group-authoring-templates.md)
 - Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

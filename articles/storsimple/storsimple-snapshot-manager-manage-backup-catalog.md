@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Uso di Gestione snapshot StorSimple per gestire il catalogo di backup | Microsoft Azure"
-   description="Viene descritto come utilizzare lo snap-in MMC di Gestione snapshot StorSimple per creare e gestire i criteri di backup che consentono di controllare i backup pianificati."
+   description="Descrive come utilizzare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire il catalogo di backup."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Uso di Gestione snapshot StorSimple per gestire il catalogo di backup
@@ -205,6 +205,6 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 ## Passaggi successivi
 
-Vedere [le attività e i flussi di lavoro di Gestione snapshot StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows) disponibili.
+[Ulteriori informazioni sulle attività e sui flussi di lavoro di Gestione snapshot StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Come vengono associate le sottoscrizioni Azure ad Azure AD" 
-	description="Questo articolo descrive la procedura di accesso a Microsoft Azure e i problemi correlati, ad esempio la relazione tra una sottoscrizione di Azure e Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Come vengono associate le sottoscrizioni Azure ad Azure AD"
+	description="Questo articolo descrive la procedura di accesso a Microsoft Azure e i problemi correlati, ad esempio la relazione tra una sottoscrizione di Azure e Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015" 
+	ms.author="curtand"/>
 
 # Come vengono associate le sottoscrizioni Azure ad Azure AD
 
@@ -88,7 +88,7 @@ Se in passato è stato creato un account utente Microsoft usando l'indirizzo di 
 
 ![][3]
 
-Sono presenti account utente con lo stesso nome, uno in Azure AD e l'altro nel sistema di account utente Microsoft. Selezionare l'account associato alla sottoscrizione di Azure che si vuole usare. Se viene visualizzato un errore che indica che non esiste una sottoscrizione per l'utente, è probabile che sia stata selezionata l'opzione non corretta. Disconnettersi e riprovare. Per altre informazioni sugli errori che possono impedire l'accesso, vedere la discussione relativa alla [risoluzione degli errori derivanti dall'impossibilità di trovare sottoscrizioni associate all'account](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Sono presenti account utente con lo stesso nome, uno in Azure AD e l'altro nel sistema di account utente Microsoft. Selezionare l'account associato alla sottoscrizione di Azure che si vuole usare. Se viene visualizzato un errore che indica che non esiste una sottoscrizione per l'utente, è probabile che sia stata selezionata l'opzione non corretta. Disconnettersi e riprovare. Per altre informazioni sugli errori che possono impedire l'accesso, vedere la discussione relativa alla [risoluzione degli errori derivanti dall'impossibilità di trovare sottoscrizioni associate all'account](https://social.msdn.microsoft.com/Forums/it-it/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Gestire la directory per la sottoscrizione di Office 365 in Azure
 
@@ -124,6 +124,4 @@ Per gestire entrambe le directory nel portale di gestione, procedere come indica
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

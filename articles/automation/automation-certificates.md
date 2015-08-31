@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Asset di tipo certificato in Automazione di Azure"
+   pageTitle="Asset di tipo certificato in Automazione di Azure | Microsoft Azure"
    description="I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che i Runbook possano accedervi per eseguire l'autenticazione rispetto a risorse di Azure e di terze parti. Questo articolo illustra nel dettaglio i certificati e spiega come usarli nella creazione testuale e grafica."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/14/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Asset di tipo certificato in Automazione di Azure
@@ -107,4 +107,4 @@ Questo esempio usa il set di parametri **UseConnectionObject** per l'attività *
 
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

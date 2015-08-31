@@ -45,7 +45,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 - È necessario almeno un cloud nel server VMM da proteggere. Il cloud deve contenere:
 	- Uno o più gruppi host VMM.
 	- Uno o più cluster o server host Hyper-V in ogni gruppo host.
-	- Una o più macchine virtuali nel server Hyper-V di origine. Le macchine virtuali devono essere di generazione 1.
+	- Una o più macchine virtuali nel server Hyper-V di origine.
 - Per altre informazioni sulla configurazione dei cloud VMM:
 	- Per ulteriori informazioni sui cloud privati VMM, leggere [Novità del cloud privato con System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e [VMM 2012 e i cloud](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Per altre informazioni, vedere [Configurare l'infrastruttura cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

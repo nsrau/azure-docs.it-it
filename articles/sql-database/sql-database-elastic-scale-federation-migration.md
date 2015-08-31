@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/21/2015" 
+    ms.date="08/14/2015" 
     ms.author="sidneyh"/>
 
 # Migrazione di federazioni 
 
-La funzionalità Federazioni del database SQL di Azure verrà ritirata insieme alle edizioni Web/Business nel settembre 2015. Dopo il ritiro, le applicazioni che usano la funzionalità Federazioni cesseranno di funzionare. Per garantire una migrazione corretta, è fortemente consigliabile avviare le iniziative di migrazione al più presto, in modo da disporre di tempo sufficiente per la pianificazione e l'esecuzione. Questo documento fornisce il contesto, gli esempi e un'introduzione all'utilità di migrazione federazioni che illustra come eseguire correttamente la migrazione di un'applicazione corrente con federazioni alle API della [libreria client del database elastico](http://go.microsoft.com/?linkid=9862592) per la partizione. Vengono illustrate in dettaglio le procedure suggerite per eseguire la migrazione di un'applicazione con federazioni senza alcuno spostamento dei dati.
+La funzionalità Federazioni del database SQL di Azure verrà ritirata insieme alle edizioni Web/Business nel settembre 2015. Dopo il ritiro, le applicazioni che usano la funzionalità Federazioni cesseranno di funzionare. Per garantire una migrazione corretta, è fortemente consigliabile avviare le iniziative di migrazione al più presto, in modo da disporre di tempo sufficiente per la pianificazione e l'esecuzione.
+
+Se l'applicazione non è ancora pronta per l'uso senza federazioni, contattare il supporto tecnico Microsoft utilizzando le istruzioni indicate [qui](https://support.microsoft.com/kb/3087180).
+
+Questo documento fornisce il contesto, gli esempi e un'introduzione all'utilità di migrazione federazioni che illustra come eseguire correttamente la migrazione di un'applicazione corrente con federazioni alle API della [libreria client del database elastico](http://go.microsoft.com/?linkid=9862592) per la partizione. Vengono illustrate in dettaglio le procedure suggerite per eseguire la migrazione di un'applicazione con federazioni senza alcuno spostamento dei dati.
 
 La migrazione di un'applicazione con federazioni esistente a una che usa gli strumenti di database elastici comporta tre passaggi principali.
 
@@ -129,6 +133,9 @@ Anche se gli strumenti di database elastici offrono molte funzionalità aggiunti
 
 * Eseguendo l'istruzione SWITCH OUT su un membro di federazione, il database risultante potrà sfruttare tutte le funzionalità del database SQL di Azure (ad esempio nuove edizioni, backup, recupero temporizzato, controllo e così via)
 
+##Occorre più tempo per la migrazione? 
+Se l'applicazione non è ancora pronta per l'uso senza federazioni, contattare il supporto tecnico Microsoft utilizzando le istruzioni indicate [qui](https://support.microsoft.com/kb/3087180).
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
@@ -143,4 +150,4 @@ Anche se gli strumenti di database elastici offrono molte funzionalità aggiunti
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

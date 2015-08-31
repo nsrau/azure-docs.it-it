@@ -5,8 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
-
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -16,7 +16,6 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
-
 
 # Usare MapReduce con Hadoop in HDInsight con SSH
 
@@ -77,7 +76,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
 	In questo modo, vengono visualizzati due file: **\_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
 
-	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
+	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-\#\#\#\#\#**. In questo caso, usare il suffisso \#\#\#\#\# per indicare l'ordine dei file.
 
 4. Per visualizzare l'output, usare il seguente comando:
 
@@ -109,4 +108,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

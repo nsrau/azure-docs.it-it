@@ -1,19 +1,21 @@
-<properties 
-	pageTitle="Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight | Microsoft Azure" 
-	description="Informazioni sullo sviluppo di programmi MapReduce per la creazione di flussi Hadoop in C# e sulla distribuzione in Azure HDInsight." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+
+<properties
+	pageTitle="Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight | Microsoft Azure"
+	description="Informazioni sullo sviluppo di programmi MapReduce per la creazione di flussi Hadoop in C# e sulla distribuzione in Azure HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="jgao"/>
 
 
@@ -29,7 +31,7 @@ In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere
 Questa esercitazione illustra come:
 
 - Sviluppare e testare un programma MapReduce per la creazione di flussi Hadoop con C# in HDInsight Emulator per Azure
-- Eseguire lo stesso processo MapReduce in Azure HDInsight 
+- Eseguire lo stesso processo MapReduce in Azure HDInsight
 - Recuperare i risultati del processo MapReduce
 
 ##<a name="prerequisites"></a>Prerequisiti
@@ -41,7 +43,7 @@ Prima di iniziare questa esercitazione, è necessario eseguire le operazioni seg
 - Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
 
 
-##<a name="develop"></a>Sviluppare un programma per la creazione di flussi Hadoop in C&#35; per il conteggio delle parole
+##<a name="develop"></a>Sviluppare un programma per la creazione di flussi Hadoop in C&\#35; per il conteggio delle parole
 
 La soluzione per il conteggio delle parole include due progetti di applicazione console: l'applicazione per il mapping (mapper) e quella per la riduzione (reducer). L'applicazione mapper trasmette in flusso ogni parola nella console e l'applicazione reducer conta il numero di parole trasmesse in flusso da un documento. Sia mapper sia reducer leggono i caratteri, riga per riga, dal flusso di input standard (stdin) e scrivono nel flusso di output standard (stdout).
 
@@ -51,6 +53,7 @@ La soluzione per il conteggio delle parole include due progetti di applicazione 
 2. Fare clic su **FILE**, **Nuovo** e quindi su **Progetto**.
 3. Digitare o selezionare i valori seguenti:
 
+
 Campo|Valore
 ---|---
 Modello|Visual C#/Windows/Console Application
@@ -58,7 +61,7 @@ Nome|WordCountMapper
 Percorso|C:\\Tutorials
 Nome soluzione|WordCount
 
-	
+
 4. Fare clic su **OK** per creare il progetto.
 
 **Per creare il programma mapper**
@@ -79,14 +82,14 @@ Nome soluzione|WordCount
 		    {
 		        Console.SetIn(new StreamReader(args[0]));
 		    }
-		
+
 		    string line;
 		    string[] words;
-		
+
 		    while ((line = Console.ReadLine()) != null)
 		    {
 		        words = line.Split(' ');
-		
+
 		        foreach (string word in words)
 		            Console.WriteLine(word.ToLower());
 		    }
@@ -105,7 +108,7 @@ Campo|Valore
 Modello|Visual C#/Windows/Console Application
 Nome|WordCountReducer
 Percorso|C:\\Tutorials\\WordCount
-	
+
 3. Deselezionare la casella di controllo **Crea directory per soluzione** e quindi fare clic su **OK** per creare il progetto.
 4. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Program.cs** e quindi scegliere **Rinomina**.
 5. Rinominare il file in **WordCountReducer.cs** e quindi premere **INVIO**.
@@ -121,25 +124,25 @@ Percorso|C:\\Tutorials\\WordCount
 		{
 		    string word, lastWord = null;
 		    int count = 0;
-		
+
 		    if (args.Length > 0)
 		    {
 		        Console.SetIn(new StreamReader(args[0]));
 		    }
-		
+
 		    while ((word = Console.ReadLine()) != null)
 		    {
 		        if (word != lastWord)
 		        {
 		            if(lastWord != null)
 		                Console.WriteLine("{0}[{1}]", lastWord, count);
-		
+
 		            count = 1;
 		            lastWord = word;
 		        }
 		        else
 		        {
-		            count += 1; 
+		            count += 1;
 		        }
 		    }
 		    Console.WriteLine(count);
@@ -169,7 +172,7 @@ In questa esercitazione viene utilizzata la struttura di cartelle seguente:
 
 Cartella|Nota
 ---|---
-\\WordCount|Cartella radice per il progetto per il conteggio delle parole. 
+\\WordCount|Cartella radice per il progetto per il conteggio delle parole.
 \\WordCount\\Apps|Cartella per i file eseguibili dei programmi di mapping e di riduzione.
 \\WordCount\\Input|Cartella di file di origine di MapReduce.
 \\WordCount\\Output|Cartella di file di output di MapReduce.
@@ -199,7 +202,7 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 
 		hadoop fs -ls \WordCount\Input
 
-	
+
 
 
 **Per distribuire mapper e reducer nel file system dell'emulatore**
@@ -222,11 +225,11 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 
 **Per eseguire il processo MapReduce tramite Azure PowerShell**
 
-1. Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install]. 
+1. Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install].
 3. Per impostare le variabili, eseguire i comandi seguenti.
 
 		$clusterName = "http://localhost:50111"
-		
+
 		$mrMapper = "WordCountMapper.exe"
 		$mrReducer = "WordCountReducer.exe"
 		$mrMapperFile = "/WordCount/Apps/WordCountMapper.exe"
@@ -250,28 +253,28 @@ In questa esercitazione vengono utilizzati i file con estensione txt disponibili
 	Verrà richiesta l'immissione della password. Per la password è possibile usare qualsiasi stringa. Il nome utente deve essere "hadoop".
 
 6. Eseguire i comandi seguenti per inviare il processo MapReduce e attendere il completamento del processo:
-		
+
 		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Credential $creds -JobDefinition $mrJobDef
 		Wait-AzureHDInsightJob -Credential $creds -job $mrJob -WaitTimeoutInSeconds 3600
 
 	Al termine del processo, si otterrà un output analogo al seguente:
 
 		StatusDirectory : /WordCount/MRStatusOutput
-		ExitCode        : 
+		ExitCode        :
 		Name            : mrWordCountStreamingJob
-		Query           : 
+		Query           :
 		State           : Completed
 		SubmissionTime  : 11/15/2013 7:18:16 PM
 		Cluster         : http://localhost:50111
 		PercentComplete : map 100%  reduce 100%
 		JobId           : job_201311132317_0034
-		
+
 	È possibile vedere l'ID processo nell'output, ad esempio, *job-201311132317-0034*.
 
 **Per verificare lo stato del processo**
 
 1. Sul desktop fare clic su **Hadoop YARN Status** oppure passare a ****http://localhost:50030/jobtracker.jsp**.
-2. Trovare il processo usando l'ID processo nella categoria **RUNNING** o **FINISHED**. 
+2. Trovare il processo usando l'ID processo nella categoria **RUNNING** o **FINISHED**.
 3. Se un processo ha avuto esito negativo, sarà possibile trovarlo nella categoria **FAILED**. Sarà anche possibile visualizzare i dettagli relativi al processo e trovare informazioni utili per il debug.
 
 
@@ -303,10 +306,10 @@ Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. 
 
 		# Select an Azure subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create a Storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName -location $location
-				
+
 		# Create a Blob storage container
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
@@ -331,17 +334,17 @@ Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. 
 		# Get a list of the .txt files
 		$filesAll = Get-ChildItem $localFolder
 		$filesTxt = $filesAll | where {$_.Extension -eq ".txt"}
-		
+
 5. Eseguire il frammento seguente per copiare i file:
 
-		# Copy the files from the local workstation to the Blob container        
+		# Copy the files from the local workstation to the Blob container
 		foreach ($file in $filesTxt){
-		 
+
 		    $fileName = "$localFolder\$file"
 		    $blobName = "$destFolder/$file"
-		
+
 		    write-host "Copying $fileName to $blobName"
-		
+
 		    Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -Context $destContext
 		}
 
@@ -379,9 +382,9 @@ Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. 
 Questa sezione fornisce uno script di Azure PowerShell che esegue tutte le attività correlate all'esecuzione di un processo MapReduce. L'elenco di attività include:
 
 1. Provisioning di un cluster HDInsight
-	
+
 	1. Creazione di un account di archiviazione che verrà usato come file system predefinito del cluster HDInsight
-	2. Creazione di un contenitore di archiviazione BLOB 
+	2. Creazione di un contenitore di archiviazione BLOB
 	3. Creare un cluster HDInsight
 
 2. Invio del processo MapReduce
@@ -402,7 +405,7 @@ Questa sezione fornisce uno script di Azure PowerShell che esegue tutte le attiv
 
 1. Aprire il Blocco note.
 2. Copiare e incollare il codice seguente:
-		
+
 		# ====== STORAGE ACCOUNT AND HDINSIGHT CLUSTER VARIABLES ======
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"     ### Prefix to cluster, Storage account, and container names
@@ -410,9 +413,9 @@ Questa sezione fornisce uno script di Azure PowerShell che esegue tutte le attiv
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$location = "<MicrosoftDataCenter>"     ### Must match the data storage account location
 		$clusterNodes = 1
-		
+
 		$clusterName = $stringPrefix + "hdicluster"
-		
+
 		$storageAccountName_Default = $stringPrefix + "hdistore"
 		$containerName_Default =  $stringPrefix + "hdicluster"
 
@@ -424,52 +427,52 @@ Questa sezione fornisce uno script di Azure PowerShell che esegue tutte le attiv
 		$mrInput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Input/"
 		$mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
 		$mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
-		
+
 		Select-AzureSubscription $subscriptionName
-		
+
 		#====== CREATE A STORAGE ACCOUNT ======
 		Write-Host "Create a storage account" -ForegroundColor Green
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
-		
+
 		#====== CREATE A BLOB STORAGE CONTAINER ======
 		Write-Host "Create a Blob storage container" -ForegroundColor Green
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
-		
+
 		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
-		
+
 		#====== CREATE AN HDINSIGHT CLUSTER ======
 		Write-Host "Create an HDInsight cluster" -ForegroundColor Green
 		$storageAccountKey_Data = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		
+
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
 		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
 		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Data.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Data
-		
+
 		Select-AzureSubscription $subscriptionName
 		New-AzureHDInsightCluster -Name $clusterName -Location $location -Config $config
-		
+
 		#====== CREATE A STREAMING MAPREDUCE JOB DEFINITION ======
 		Write-Host "Create a streaming MapReduce job definition" -ForegroundColor Green
-		
+
 		$mrJobDef = New-AzureHDInsightStreamingMapReduceJobDefinition -JobName mrWordCountStreamingJob -StatusFolder $mrStatusOutput -Mapper $mrMapper -Reducer $mrReducer -InputPath $mrInput -OutputPath $mrOutput
 		$mrJobDef.Files.Add($mrMapperFile)
 		$mrJobDef.Files.Add($mrReducerFile)
-		
+
 		#====== RUN A STREAMING MAPREDUCE JOB ======
 		Write-Host "Run a streaming MapReduce job" -ForegroundColor Green
 		Select-AzureSubscription $subscriptionName
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef 
-		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600 
-		
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError 
+		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef
+		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600
+
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardOutput
-		
+
 		#====== DELETE THE HDINSIGHT CLUSTER ======
 		Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
 		Select-AzureSubscription $subscriptionName
-		Remove-AzureHDInsightCluster -Name $clusterName 
-		
+		Remove-AzureHDInsightCluster -Name $clusterName
+
 		#====== DELETE THE STORAGE ACCOUNT ======
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
@@ -503,9 +506,9 @@ In questa sezione viene illustrato come scaricare e visualizzare l'output. Per i
 		$storageAccountName = "<TheDataStorageAccountName>"
 		$containerName = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-00000"
-	
+
 3. Per creare un oggetto contesto di Archiviazione di Azure, eseguire i comandi seguenti:
-		
+
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
@@ -515,7 +518,7 @@ In questa sezione viene illustrato come scaricare e visualizzare l'output. Per i
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
 
-	
+
 
 ##<a id="nextsteps"></a>Passaggi successivi
 In questa esercitazione si è appreso come sviluppare un processo MapReduce di creazione di flussi Hadoop, come testare l'applicazione in HDInsight Emulator e come scrivere uno script di Azure PowerShell per effettuare il provisioning di un cluster HDInsight ed eseguire un processo MapReduce nel cluster. Per altre informazioni, vedere gli articoli seguenti:
@@ -552,11 +555,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flusso dell'applicazione per il conteggio di parole MapReduce"
 
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="08/13/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -50,7 +50,7 @@ Un pool di database elastici è una raccolta di unità di produttività di datab
     ***È previsto l’aumento dei limiti attuali per il numero di database per ogni pool e numero di pool eDTU.***
 
 
-- L’importazione di un database direttamente in un pool elastico non è supportata. È possibile eseguire l’importazione in un database singolo e quindi spostare il database in un pool. L’esportazione di un database dall’interno di un pool *è* supportata.
+
 
 ## Elenco di articoli
 
@@ -210,4 +210,4 @@ Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitar
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

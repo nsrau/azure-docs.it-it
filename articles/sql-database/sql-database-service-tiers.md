@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="shkurhek"/>
 
 # Livelli di servizio
@@ -68,16 +68,16 @@ Il livello Premium è progettato per applicazioni di importanza strategica. Offr
 **Prestazioni e dimensioni**
 
 
-| Livello di servizio | Premium P1 | Premium P2 | Premium P6 (precedentemente denominato P3) |
-| :-- | :-- | :-- | :-- |
-| Unità di velocità effettiva del database (DTU, Database Throughput Unit) | 125 | 250 | 1000 |
-| Dimensioni massime del database | 500 GB | 500 GB | 500 GB |
+| Livello di servizio | Premium P1 | Premium P2 | Premium P4 | Premium P6 (precedentemente denominato P3) |
+| :-- | :-- | :-- | :-- | :-- |
+| Unità di velocità effettiva del database (DTU, Database Throughput Unit) | 125 | 250 | 500 | 1000 |
+| Dimensioni massime del database | 500 GB | 500 GB | 500 GB | 500 GB |
 
 
 **Funzionalità**
 
 
-| Livello di servizio | Premium (P1, P2, P6) |
+| Livello di servizio | Premium (P1, P2, P4, P6) |
 | :-- | :-- |
 | Ripristino temporizzato (PITR, Point-in-time Restore) | Fino a un millisecondo entro gli ultimi 35 giorni |
 | Ripristino di emergenza | Replica geografica attiva, fino a 4 database secondari online leggibili |
@@ -89,4 +89,4 @@ Ulteriori informazioni sui prezzi di tali livelli sono disponibili in [Database 
 Dopo aver acquisito familiarità con i livelli di database SQL, provare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

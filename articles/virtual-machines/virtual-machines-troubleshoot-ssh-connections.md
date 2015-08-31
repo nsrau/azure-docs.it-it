@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Risoluzione dei problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux"
+	pageTitle="Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux"
 	description="Se non è possibile connettere la macchina virtuale di Azure basata su Linux, è possibile utilizzare questi passaggi per isolare l'origine del problema."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.date="07/07/2015"
 	ms.author="dkshir"/>
 
-# Risoluzione dei problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux
+# Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux
 
 Se non è possibile connettersi alle macchine virtuali di Azure basate su Linux, in questo articolo viene descritto un approccio metodico per isolare e risolvere il problema.
 
@@ -108,7 +108,7 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni dei disposi
 
 ### Origine 3: endpoint del servizio cloud e ACL
 
-Per eliminare l'endpoint del servizio cloud e l’ACL come fonti di problemi o errori di configurazione per le macchine virtuali create nella gestione dei servizi, verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di effettuare connessioni SSH alla macchina virtuale di Azure.
+Per eliminare l'endpoint del servizio cloud e l'elenco di controllo di accesso come fonti di problemi o errori di configurazione per le macchine virtuali create mediante l'API di Gestione dei servizi, verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di eseguire connessioni SSH alla macchina virtuale di Azure.
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -118,7 +118,7 @@ Se non si dispone di un'altra macchina virtuale nello stessa rete virtuale, è p
 
 Se è possibile creare una connessione SSH con una macchina virtuale presente nella stessa rete virtuale, verificare quanto segue:
 
-- La configurazione dell'endpoint per il traffico SSH nella macchina virtuale di destinazione. La porta TCP privata dell'endpoint, che deve corrispondere alla porta TCP su cui è in ascolto il servizio SSH nella macchina virtuale (impostazione predefinita è la porta 22). Per le macchine virtuali create in Gestione risorse utilizzando i modelli, verificare il numero di porta TCP SSH nel Portale di anteprima di Azure facendo clic su **Sfoglia** > **Macchine virtuali (v2)** > *Nome VM* > **Impostazioni** > **Endpoint**.
+- La configurazione dell'endpoint per il traffico SSH nella macchina virtuale di destinazione. La porta TCP privata dell'endpoint, che deve corrispondere alla porta TCP su cui è in ascolto il servizio SSH nella macchina virtuale (impostazione predefinita è la porta 22). Per le macchine virtuali create in Gestione risorse di Azure usando i modelli, verificare il numero di porta TCP SSH nel portale di anteprima di Azure facendo clic su **Sfoglia** > **Macchine virtuali (v2)** > *Nome VM* > **Impostazioni** > **Endpoint**.
 - L'ACL relativa all'endpoint per il traffico SSH sulla macchina virtuale di destinazione. Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico SSH in ingresso nell'endpoint. Esaminare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 Per eliminare l'endpoint come origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, specificando il nome **SSH** (porta TCP 22 per il numero di porta pubblico e privato). Per altre informazioni, vedere [Configurare endpoint in una macchina virtuale in Azure](virtual-machines-set-up-endpoints.md).
@@ -145,7 +145,7 @@ Provare nuovamente la connessione dal computer. Se non riesce, alcuni dei proble
 
 ## Passaggio 4: Inviare il problema ai forum di supporto tecnico di Azure
 
-Per ottenere assistenza dagli esperti di Azure di tutto il mondo, è possibile inviare il problema ai forum MSDN Azure oppure Overflow dello stack. Per ulteriori informazioni vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
+Per ottenere assistenza dagli esperti di Azure di tutto il mondo, è possibile inviare il problema ai forum MSDN Azure oppure Overflow dello stack. Per altre informazioni, vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
 
 ## Passaggio 5: Archiviare un incidente del supporto tecnico di Azure
 
@@ -165,4 +165,4 @@ Per informazioni sull'uso del supporto tecnico di Azure, vedere [Domande frequen
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

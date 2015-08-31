@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Accedere ai log applicazioni YARN Hadoop a livello di codice| Microsoft Azure" 
-	description="Accedere ai log applicazioni a livello di codice su un cluster Hadoop in HDInsight." 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="Accedere ai log applicazioni YARN Hadoop a livello di codice| Microsoft Azure"
+	description="Accedere ai log applicazioni a livello di codice su un cluster Hadoop in HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 # Accedere ai log applicazioni YARN su Hadoop in HDInsight a livello di codice
@@ -39,16 +40,16 @@ Questo comando aggiunge librerie .NET per HDInsight e riferimenti a queste ultim
 
 Il <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">server di sequenza temporale YARN</a> fornisce informazioni generiche sulle applicazioni completate, nonché informazioni sulle applicazioni specifiche del framework, tramite due interfacce diverse. In particolare:
 
-* L'archiviazione e il recupero di informazioni generiche sulle applicazioni nei cluster HDInsight sono stati abilitati a partire dalla versione 3.1.1.374. 
+* L'archiviazione e il recupero di informazioni generiche sulle applicazioni nei cluster HDInsight sono stati abilitati a partire dalla versione 3.1.1.374.
 * Il componente di informazioni sulle applicazioni specifiche del framework del server di sequenza temporale non è attualmente disponibile nei cluster HDInsight.
 
 
 Le informazioni generiche sulle applicazioni includono i seguenti tipi di dati:
 
-* ID applicazione, un identificatore univoco di un'applicazione 
-* Utente che ha avviato l'applicazione 
-* Informazioni sui tentativi effettuati per completare l'applicazione 
-* Contenitori usati da qualsiasi tentativo dell'applicazione specifico 
+* ID applicazione, un identificatore univoco di un'applicazione
+* Utente che ha avviato l'applicazione
+* Informazioni sui tentativi effettuati per completare l'applicazione
+* Contenitori usati da qualsiasi tentativo dell'applicazione specifico
 
 Nei cluster HDInsight queste informazioni verranno archiviate da Gestione risorse di Azure in un archivio di cronologia nel contenitore predefinito dell'account di archiviazione di Azure predefinito. Questi dati generici sulle applicazioni completate possono essere recuperati tramite un'API REST:
 
@@ -71,7 +72,7 @@ In questo percorso, *user* è il nome dell'utente che ha avviato l'applicazione 
 I log aggregati non sono leggibili direttamente, poiché vengono scritti in un oggetto [TFile][T-file], un [formato binario][binary-format] indicizzato dal contenitore. YARN fornisce gli strumenti CLI per eseguire il dump di questi log come testo normale per le applicazioni o i contenitori di interesse. È possibile visualizzare questi log come testo normale eseguendo uno dei seguenti comandi YARN direttamente sui nodi del cluster (dopo la connessione tramite RDP):
 
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address> 
+	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 La sezione seguente descrive come accedere ai log specifici dell'applicazione o del contenitore a livello di codice, senza dover usare RDP per connettersi ai cluster HDInsight.
 
@@ -91,24 +92,24 @@ Tali direttive fanno riferimento alle API appena definite nel codice seguente. I
 	string subscriptionId = "<your-subscription-id>";
 	string clusterName = "<your-cluster-name>";
 	string certName = "<your-subscription-management-cert-name>";
-	
+
 	// Create an HDInsight client
 	X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
 	store.Open(OpenFlags.ReadOnly);
 	X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>()
 	                            .Single(x => x.FriendlyName == certName);
-	
-	HDInsightCertificateCredential creds = 
+
+	HDInsightCertificateCredential creds =
 				new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-	
+
 	IHDInsightClient client = HDInsightClient.Connect(creds);
-	
+
 	// Get the cluster on which your applications were run
 	// The cluster needs to be in the "Running" state
 	ClusterDetails cluster = client.GetCluster(clusterName);
-	
+
 	// Create an Application History client against your cluster
-	IHDInsightApplicationHistoryClient appHistoryClient = 
+	IHDInsightApplicationHistoryClient appHistoryClient =
 				cluster.CreateHDInsightApplicationHistoryClient(TimeSpan.FromMinutes(5));
 
 
@@ -116,7 +117,7 @@ A questo punto, è possibile usare il client di cronologia delle applicazioni pe
 
 	// Local download folder location where the logs will be placed
 	string downloadLocation = "E:\\YarnApplicationLogs";
-	
+
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
 	string appNamePrefix = "your-app-name-prefix";
@@ -124,10 +125,10 @@ A questo punto, è possibile usare il client di cronologia delle applicazioni pe
 	DateTime startTime = endTime.AddHours(-24);
 	IEnumerable<ApplicationDetails> applications = appHistoryClient
 	                .ListCompletedApplications(startTime, endTime)
-	                .Where(app => 
-	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed 
+	                .Where(app =>
+	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed
 	                    && app.Name.StartsWith(appNamePrefix));
-	
+
 	// Download logs for failed or killed applications
 	// This will generate one log file for each application
 	foreach (ApplicationDetails application in applications)
@@ -147,18 +148,18 @@ In alternativa, il frammento di codice seguente scarica i log relativi a un'appl
 Se necessario, è possibile anche scaricare i log per tutti i contenitori, o per un contenitore specifico, usati da un'applicazione, come mostrato di seguito.
 
 	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-	
+
 	// Download logs separately for each container of application(s) of interest
 	// This will generate one log file per container
 	IEnumerable<ApplicationAttemptDetails> applicationAttempts =
 				appHistoryClient.ListApplicationAttempts(someApplication);
-	
+
 	ApplicationAttemptDetails finalAttempt = applicationAttempts
 	    		.Single(x => x.ApplicationAttemptId == someApplication.LatestApplicationAttemptId);
-	
+
 	IEnumerable<ApplicationContainerDetails> containers =
 				appHistoryClient.ListApplicationContainers(finalAttempt);
-	
+
 	foreach (ApplicationContainerDetails container in containers)
 	{
 	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
@@ -171,6 +172,5 @@ Se necessario, è possibile anche scaricare i log per tutti i contenitori, o per
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

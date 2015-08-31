@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 
@@ -85,9 +85,9 @@ Sulla base delle informazioni precedenti, l'unico impatto sulle prestazioni prod
 ## Passaggi successivi
 
 
-[Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
 
-[Panoramica di Gestione traffico](../traffic-manmager-overview.md)
+[Gestione traffico di Azure](../traffic-manmager-overview.md)
 
 [Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -98,4 +98,4 @@ Sulla base delle informazioni precedenti, l'unico impatto sulle prestazioni prod
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

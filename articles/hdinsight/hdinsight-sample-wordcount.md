@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015" 
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 #Eseguire un esempio MapReduce relativo al conteggio di parole scritto in Java in un cluster Hadoop in HDInsight
@@ -216,6 +217,5 @@ Per esercitazioni in cui vengono eseguiti altri esempi e che includono istruzion
 [powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

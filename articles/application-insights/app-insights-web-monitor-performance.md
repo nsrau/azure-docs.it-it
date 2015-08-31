@@ -102,20 +102,25 @@ Per sapere quali altri metriche è possibile visualizzare, fare clic su un grafi
 
 La selezione di una metrica disabiliterà le altre metriche che non possono essere visualizzate nello stesso grafico.
 
-## Raccogliere altri contatori delle prestazioni
+## Contatori delle prestazioni di sistema
 
 Alcune delle metriche selezionabili derivano dai [contatori delle prestazioni](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Oltre ai numerosi contatori delle prestazioni inclusi in Windows, è possibile definire contatori personalizzati.
 
-Se l'elenco non include i contatori desiderati, è possibile aggiungerli al set di quelli raccolti dall'SDK. Aprire il file ApplicationInsights.config e modificare la direttiva dell'agente di raccolta delle prestazioni:
+Questo esempio mostra i contatori delle prestazioni disponibili per impostazione predefinita. È stato [aggiunto un grafico separato](app-insights-metrics-explorer.md#editing-charts-and-grids) per ciascun contatore ed è stato denominato il grafico [salvandolo come preferito](app-insights-metrics-explorer.md#editing-charts-and-grids):
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+Se l'elenco di proprietà non include i contatori desiderati, è possibile aggiungerli al set di quelli raccolti dall'SDK. Aprire il file ApplicationInsights.config e modificare la direttiva dell'agente di raccolta delle prestazioni:
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(electronics)#Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-Il formato è `\Category(instance)\Counter"` oppure, nel caso delle categorie per cui non esistono istanze, solo `\Category\Counter`.
+Il formato è `\Category(instance)\Counter"` oppure, nel caso delle categorie per cui non esistono istanze, solo `\Category\Counter`. Per individuare i contatori disponibili nel sistema, leggere [questa introduzione](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` è obbligatorio per i nomi di contatori che contengono caratteri diversi da lettere, parentesi tonde, barre, trattini, caratteri di sottolineatura, spazi e punti.
 
@@ -126,7 +131,7 @@ Se si preferisce, è possibile scrivere codice per ottenere lo stesso effetto:
     var perfCollector = new PerformanceCollectorModule();
     perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
-      @"\Sales(electronics)# Items Sold", "Items sold"));
+      @"\Sales(electronics)#Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
@@ -178,4 +183,4 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

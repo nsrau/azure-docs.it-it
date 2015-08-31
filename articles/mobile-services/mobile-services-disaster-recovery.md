@@ -104,4 +104,4 @@ Si avrà ora una situazione in cui il servizio mobile è stato ripristinato in u
 [Automatizzare i servizi mobili con l'interfaccia della riga di comando]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

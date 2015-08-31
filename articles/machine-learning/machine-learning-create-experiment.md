@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="07/09/2015"
 	ms.author="garye"/>
 
@@ -24,7 +24,7 @@ Nella prima esercitazione di Machine Learning, verrà creato un modello di regre
 
 Un esperimento Machine Learning Studio consiste in trascinare e rilasciare componenti in un'area di disegno e connetterli al fine di *creare un modello*, *provare il modello* e *valutare e testare il modello*. L'esperimento usa tecniche di modellazione predittiva sotto forma di moduli di Machine Learning Studio che inseriscono dati, eseguono il training di un modello e applicano il modello ai nuovi dati. È anche possibile aggiungere moduli per pre-elaborare i dati e selezionare caratteristiche, suddividere i dati in set di training e di test e quindi valutare o eseguire la convalida incrociata della qualità del modello.
 
-Immettere Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net)e fare clic sul pulsante "Scarica subito". È possibile scegliere l'accesso Guest o l’accesso con l'account Microsoft.
+Immettere Machine Learning Studio:[https://studio.azureml.net](https://studio.azureml.net)e fare clic sul pulsante **Scarica subito**. È possibile scegliere l'accesso Guest o l’accesso con l'account Microsoft.
 
 Per informazioni più generali su Machine Learning Studio, vedere [Cos'è Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
@@ -53,7 +53,7 @@ In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di ba
 
 In Machine Learning Studio sono disponibili numerosi set di dati di esempio ed è possibile importare dati da diverse origini. Per questo esempio verrà usato il set di dati di esempio incluso, **Automobile price data (Raw)**. Questo set di dati include voci per diverse singole automobili, tra cui informazioni come la marca, il modello, le specifiche tecniche e il prezzo.
 
-1. Avviare un nuovo esperimento facendo clic su **+NEW** nella parte inferiore della finestra di Machine Learning Studio, selezionando **EXPERIMENT** e quindi selezionando "Blank Experiment". Selezionare il nome dell'esperimento predefinito nella parte superiore dell'area di disegno e denominarlo in modo significativo, ad esempio **Stima prezzi automobili**.
+1. Avviare un nuovo esperimento facendo clic su **+NUOVO** nella parte inferiore della finestra di Machine Learning Studio, selezionare **ESPERIMENTO**, quindi **Esperimento vuoto**. Selezionare il nome dell'esperimento predefinito nella parte superiore dell'area di disegno e denominarlo in modo significativo, ad esempio **Stima prezzi automobili**.
 
 2. A sinistra dell'area di disegno dell'esperimento è presente una tavolozza di set di dati e moduli. Digitare **automobile** nella casella di ricerca nella parte superiore della tavolozza per individuare il set di dati denominato **Automobile price data (Raw)**.
 
@@ -79,7 +79,7 @@ Verrà innanzitutto rimossa la colonna **normalized-losses** e quindi verranno r
 
 1. Digitare **project columns** nella casella di ricerca nella parte superiore della tavolozza dei moduli per trovare il modulo [Project Columns][project-columns], quindi trascinarlo nell'area di disegno dell'esperimento e connetterlo alla porta di output del set di dati **Automobile price data (Raw)**. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
 
-2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro delle proprietà.
+2. Selezionare il modulo [Project Columns][project-columns] e fare clic su **Launch column selector** nel riquadro **Proprietà**.
 
 	- Assicurarsi che nell'elenco a discesa dei filtri **Begin With** sia selezionato **All columns**. In questo modo, [Project Columns][project-columns] esaminerà tutte le colonne, ad eccezione di quelle che verranno escluse.
 	- Nella riga successiva selezionare **Exclude** e **column names**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
@@ -230,6 +230,5 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

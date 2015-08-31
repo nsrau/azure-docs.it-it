@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestione endpoint in Gestione traffico"
+   pageTitle="Gestione endpoint in Gestione traffico | Microsoft Azure"
    description="Questo articolo aiuterà ad aggiungere, rimuovere, abilitare e disabilitare gli endpoint da Gestione traffico."
    services="traffic-manager"
    documentationCenter=""
@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
-Siti Web di Azure offre già funzionalità di bilanciamento del carico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico consente di specificare il bilanciamento del carico failover e round robin per i siti Web e i servizi cloud che si trovano in data center diversi. Il primo passaggio necessario a fornire tale funzionalità consiste nell'aggiungere l'endpoint del servizio cloud o del sito Web a Gestione traffico.
+Siti Web di Azure offre già funzionalità di routing del traffico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico consente di specificare il routing del traffico failover e round robin per i siti Web e i servizi cloud che si trovano in data center diversi. Il primo passaggio necessario a fornire tale funzionalità consiste nell'aggiungere l'endpoint del servizio cloud o del sito Web a Gestione traffico.
 
 >[AZURE.NOTE]Non è possibile aggiungere i percorsi esterni o i profili di Gestione traffico come endpoint mediante il portale di gestione. È necessario usare l'API REST [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) oppure [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774) di Windows PowerShell.
 
@@ -36,7 +36,7 @@ Siti Web di Azure offre già funzionalità di bilanciamento del carico failover 
 6. Selezionare i siti Web nell'elenco e aggiungerli come endpoint per il profilo. Se si cancella il nome del sito Web, questo viene rimosso dall'elenco degli endpoint. È possibile selezionare solo un sito Web per ogni data center (noto anche come area) di Azure. Se si seleziona un sito Web in un data center che ospita più siti Web, una volta selezionato il primo, non è più possibile selezionare gli altri siti Web dello stesso data center. Vengono elencati solo i siti Web standard.
 7. Dopo aver selezionato gli endpoint per questo profilo, fare clic sul segno di spunta in basso a destra per salvare le modifiche.
 
->[AZURE.NOTE]Se si usa il metodo di bilanciamento del carico *Failover*, dopo aver aggiunto o rimosso un endpoint, assicurarsi di regolare l'elenco di priorità del failover nella pagina di configurazione per riflettere l'ordine di failover desiderato per la configurazione. Per altre informazioni, vedere [Configurare il bilanciamento del carico di failover](traffic-manager-configure-failover-load-balancing.md).
+>[AZURE.NOTE]Se si usa il metodo di routing del traffico *Failover*, dopo aver aggiunto o rimosso un endpoint, assicurarsi di regolare l'elenco di priorità del failover nella pagina di configurazione per riflettere l'ordine di failover desiderato per la configurazione. Per ulteriori informazioni, vedere [Configurare il routing del traffico failover](traffic-manager-configure-failover-load-balancing.md).
 
 ## Per disabilitare un endpoint
 
@@ -68,7 +68,9 @@ Siti Web di Azure offre già funzionalità di bilanciamento del carico failover 
 
 [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
 
-[Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
+
+[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
@@ -77,4 +79,4 @@ Siti Web di Azure offre già funzionalità di bilanciamento del carico failover 
 [Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

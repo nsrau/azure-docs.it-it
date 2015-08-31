@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="07/27/2015"
+ ms.date="08/18/2015"
  ms.author="danlep"/>
 
 # Introduzione all’uso di un cluster HPC Pack in Azure per l’esecuzione di carichi di lavoro di Excel e SOA
@@ -26,7 +26,6 @@ Nel seguente diagramma viene illustrato il cluster HPC Pack che verrà creato, a
 ## Prerequisiti
 
 * **Computer client**: è necessario un computer client basato su Windows per eseguire lo script di distribuzione del cluster di Azure PowerShell (se si sceglie tale metodo di distribuzione) e l'invio di processi di Excel e SOA di esempio al cluster.
-
 
 * **Sottoscrizione Azure**: se non si dispone di un account, è possibile creare un account di prova gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -61,7 +60,7 @@ Utilizzare un modello di Guida introduttiva di Azure per distribuire con rapidit
     >
     >Le VM del nodo di calcolo verranno create dall'immagine più recente della famiglia di nodi di calcolo selezionata. Selezionare l’opzione **ComputeNode** per l’immagine più recente del nodo di calcolo di HPC Pack 2012 R2 Update 2 per usi generici. Selezionare l’opzione **ComputeNodeWithExcel** per l’immagine più recente del nodo di calcolo di HPC Pack che include una versione di valutazione di Microsoft Excel Professional Plus 2013. Se si desidera distribuire un cluster per sessioni SOA generiche o per l’offload di UDF di Excel, scegliere l’opzione **ComputeNode** (senza Excel installato).
     >
-    >Quando si utilizza **ComputeNodeWithExcel** per carichi di lavoro di produzione, è necessario fornire una licenza Excel valida per attivare Excel sui nodi di calcolo. Nel caso contrario, la versione di valutazione di Excel scade dopo 60 giorni e non sarà più possibile eseguire carichi di lavoro Excel.
+    >Quando si utilizza **ComputeNodeWithExcel** per carichi di lavoro di produzione, è necessario fornire una licenza Excel valida per attivare Excel sui nodi di calcolo. In caso contrario, la versione di valutazione di Excel scade dopo 30 giorni e non sarà più possibile eseguire carichi di lavoro Excel.
 
     c. Selezionare la sottoscrizione.
 
@@ -377,4 +376,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

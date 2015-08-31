@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
-#Uso di SugarCRM Connector nell'app per la logica#
+# Uso di SugarCRM Connector nell'app per la logica
 
 Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. Il connettore SugarCRM permette di creare e modificare diverse entità, ad esempio account, lead, contatti e così via. Di seguito sono riportati gli scenari di integrazione tipici relativi a SugarCRM.
 
@@ -30,7 +30,7 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 Tra le impostazioni del pacchetto del connettore, l'utente può specificare le entità che il connettore può gestire e le azioni e i parametri di input e di output vengono popolati in modo dinamico.
 
-##Azioni SugarCRM Connector##
+## Azioni SugarCRM Connector
 Di seguito sono indicate le diverse azioni disponibili in SugarCRM Connector.
 
 - Create Module: usare questa azione per creare un nuovo record per il modulo SugarCRM, ad esempio Accounts, Leads e Contacts.
@@ -47,55 +47,28 @@ Di seguito sono indicate le diverse azioni disponibili in SugarCRM Connector.
 
 - Check Duplicate Module: usare questa azione per verificare la presenza di eventuali record duplicati all'interno di un modulo.
 
-*Nota*: per altri dettagli sugli argomenti supportati nella query, fare riferimento alla documentazione dell'API REST di SugarCRM.
+*Nota*: per altri dettagli sugli argomenti supportati nella query, vedere la documentazione dell'[API REST di SugarCRM](https://msdn.microsoft.com/library/dn705870).
 
-##Creare un'app per le API SugarCRM Connector##
+## Creare un'app per le API SugarCRM Connector
 1.	Passare a indirizzo portal.azure.com. Aprire Azure Marketplace con l'opzione + NUOVO in basso a sinistra nel portale di Azure.
 2.	Passare a "Marketplace > tutto" e cercare "SugarCRM".
 3.	Configurare SugarCRM Connector specificando i dettagli relativi al piano di hosting e al gruppo di risorse e selezionando il nome dell'app per le API.
 4. Configurare le impostazioni del pacchetto SugarCRM connettore. Di seguito sono elencate le impostazioni pacchetto che è necessario specificare per creare il connettore:
 
-	<table>
-  <tr>
-    <td><b>Nome</b></td>
-    <td><b>Obbligatorio</b></td>
-    <td><b>Descrizione</b></td>
-  </tr>
-  <tr>
-    <td>Site URL</td>
-    <td>Sì</td>
-    <td>Specificare l'URL dell'istanza di SugarCRM, ad esempio https://abcde1234.sugarcrm.com</td>
-  </tr>
-  <tr>
-    <td>Client Id</td>
-    <td>Sì</td>
-    <td>Specificare la chiave utente della chiave OAuth 2.0 in SugarCRM </td>
-  </tr>
-  <tr>
-    <td>Client Secret</td>
-    <td>Sì</td>
-    <td>Specificare la chiave privata utente della chiave OAuth 2.0 in SugarCRM </td>
-  </tr>
-<tr>
-    <td>Username</td>
-    <td>Sì</td>
-    <td>Specificare il nome dell'utente SugarCRM</td>
-  </tr>
-	<tr>
-    <td>Password</td>
-    <td>Sì</td>
-    <td>Specificare la password dell'utente SugarCRM</td>
-  </tr>
-  <tr>
-    <td>Module Names</td>
-    <td>Sì</td>
-    <td>Specificare i moduli di SugarCRM, ad esempio Accounts, Contacts, Products e così via, in cui si desidera eseguire l'operazione<br><br>Esempio: Accounts, Leads, Contacts</td>
-  </tr>
-</table>![][9]
+	Nome | Obbligatorio | Descrizione
+--- | --- | ---
+Site URL | Sì | Immettere l'URL dell'istanza di SugarCRM. Ad esempio, immettere https://abcde1234.sugarcrm.com.
+Client Id | Sì | Immettere la chiave utente della chiave OAUTH 2.0 in SugarCRM. 
+Client Secret | Sì | Immettere il segreto utente di OAUTH.
+Nome utente | Sì | Immettere il nome dell'utente SugarCRM.
+Password | Sì | Immettere la password dell'utente SugarCRM.
+Module Names | Sì | Immettere i moduli di SugarCRM, ad esempio Accounts, Contacts, Products, in cui si vuole eseguire l'operazione<br><br>Esempio: Accounts, Leads, Contacts  
+  
+![][9]
 
 
 
-##Creare un'app per la logica##
+## Creare un'app per la logica
 In questa sezione viene descritta la creazione di una semplice app per la logica che crea un account in SugarCRM e aggiorna i dettagli dell'indirizzo di fatturazione dello stesso account.
 
 1.	Accedere al portale di Azure e fare clic su "Nuovo -> Web e dispositivi mobili -> App per la logica"
@@ -142,6 +115,13 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 
 19. È possibile verificare che nel proprio account SugarCRM venga creato un nuovo account con il nome 'Microsoft Account' e che tale account venga aggiornato con le informazioni relative all'indirizzo di fatturazione.
 
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sugarcrm/1_New_Logic_App.png
 [2]: ./media/app-service-logic-connector-sugarcrm/2_Logic_App_Settings.png
@@ -153,4 +133,4 @@ In questa sezione viene descritta la creazione di una semplice app per la logica
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

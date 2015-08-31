@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Windows Store) | Microsoft Azure" 
-	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library (Windows Store) | Microsoft Azure"
+	description="Informazioni su come autenticare gli utenti per l'accesso Single Sign-On con ADAL nell'applicazione per Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library
@@ -37,7 +37,7 @@ Per completare questa esercitazione, è necessario disporre di:
 * Visual Studio 2013 in esecuzione su Windows 8.1.
 * Prima di iniziare questa esercitazione, è necessario completare l'esercitazione [Introduzione a Servizi mobili] o [Introduzione ai dati].
 * Pacchetto NuGet Microsoft Azure Mobile Services SDK
-* Pacchetto NuGet Active Directory Authentication Library 
+* Pacchetto NuGet Active Directory Authentication Library
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../../includes/mobile-services-dotnet-adal-register-service.md)]
 
@@ -134,12 +134,12 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 
 5. Aggiungere il codice seguente alla classe MainPage che dichiara il metodo `AuthenticateAsync`.
 
-        private MobileServiceUser user; 
+        private MobileServiceUser user;
         private async Task AuthenticateAsync()
         {
             string authority = "<INSERT-AUTHORITY-HERE>";
             string resourceURI = "<INSERT-RESOURCE-URI-HERE>";
-            string clientID = "<INSERT-CLIENT-ID-HERE>"; 
+            string clientID = "<INSERT-CLIENT-ID-HERE>";
             while (user == null)
             {
                 string message;
@@ -155,11 +155,11 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
                 catch (InvalidOperationException)
                 {
                   message = "You must log in. Login Required";
-                } 
+                }
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
-            } 
+            }
         }
 
 6. Nel codice per il metodo `AuthenticateAsync` precedente sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione, nel formato https://login.windows.net/tenant-name.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di gestione di Azure].
@@ -216,4 +216,4 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [dashboard di Windows Dev Center]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

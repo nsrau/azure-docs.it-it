@@ -1,39 +1,41 @@
 ###In Xamarin Studio
 
-1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID that you created earlier.
+1. In Xamarin Studio aprire **Info.plist** e aggiornare il valore in **Bundle Identifier** con l'ID creato in precedenza.
 
     ![][121]
 
-2. Scroll down to **Background Modes** and check the **Enable Background Modes** box and the **Remote notifications** box. 
+2. Scorrere verso il basso fino a **Background Modes** e selezionare le caselle **Enable Background Modes** e **Remote notifications**.
 
     ![][122]
 
-3. Double click your project in the Solution Panel to open **Project Options**.
+3. Fare doppio clic sul progetto nel riquadro delle soluzioni per aprire **Project Options**.
 
-4.  Choose **iOS Bundle Signing** under **Build**, and select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+4.  Scegliere **iOS Bundle Signing** in **Build** e selezionare i valori corrispondenti per **Identity** e **Provisioning profile** appena configurati per questo progetto.
 
     ![][120]
 
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+    Per effetto di questa operazione, il progetto userà il nuovo profilo per la firma del codice. Per la documentazione ufficiale, vedere la pagina relativa al [provisioning del dispositivo Xamarin].
 
 ### In Visual Studio
 
-1. In Visual Studio, right-click the project, and then click **Properties**.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Proprietà**.
 
-3. In the properties pages, click the **iOS Application** tab, and update the **Identifier** with the ID that you created earlier.
+3. Nelle pagine delle proprietà fare clic sulla scheda **iOS Application** e aggiornare il campo **Identifier** con l'ID creato in precedenza.
 
     ![][123]
 
-4. In the **iOS Bundle Signing** tab, select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+4. Nella scheda **iOS Bundle Signing** selezionare i valori corrispondenti per **Identity** e **Provisioning profile** appena configurati per questo progetto.
 
     ![][124]
 
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+    Per effetto di questa operazione, il progetto userà il nuovo profilo per la firma del codice. Per la documentazione ufficiale, vedere la pagina relativa al [provisioning del dispositivo Xamarin].
 
-[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+[120]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
+[121]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[122]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
+[123]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
+[124]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
 
-[Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+[provisioning del dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+
+<!---HONumber=August15_HO8-->

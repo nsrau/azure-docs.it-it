@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
@@ -116,6 +116,6 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
 
 ## Passaggi successivi
 
-[Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md)
+[Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

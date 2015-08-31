@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="08/13/2015"
    ms.author="telmos" />
 
 # Che cos'è un gruppo di sicurezza di rete
 
 È possibile usare un gruppo di sicurezza di rete per controllare il traffico verso una o più istanze di macchina virtuale (VM) in una rete virtuale. Un gruppo di sicurezza di rete è un oggetto di primo livello associato alla propria sottoscrizione. Contiene regole di controllo di accesso che consentono o negano il traffico verso le istanze di macchina virtuale. Le regole di un gruppo di sicurezza di rete possono essere modificate in qualsiasi momento e le modifiche vengono applicate a tutte le istanze associate. Per usare un gruppo di sicurezza di rete, è necessario disporre di una rete virtuale (VNet) associata a un'area (località).
 
->[AZURE.WARNING]I gruppi di sicurezza di rete non sono compatibili con reti virtuali associate a un gruppo di affinità. Se non si dispone di una rete virtuale di area e si vuole controllare il traffico verso gli endpoint, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)](../virtual-networks-acl).
+>[AZURE.WARNING]I gruppi di sicurezza di rete non sono compatibili con reti virtuali associate a un gruppo di affinità. Se non si dispone di una rete virtuale di area e si vuole controllare il traffico verso gli endpoint, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)](./virtual-networks-acl.md). È inoltre possibile [eseguire la migrazione della rete virtuale a una rete virtuale di area](./virtual-networks-migrate-to-regional-vnet.md).
 
 È possibile associare un gruppo di sicurezza di rete a una macchina virtuale o a una subnet in una rete virtuale. Se è associato a una macchina virtuale, il gruppo di sicurezza di rete si applica a tutto il traffico inviato e ricevuto dall'istanza della macchina virtuale. Se è associato a una subnet della rete virtuale, si applica a tutto il traffico inviato e ricevuto da TUTTE le istanze di macchina virtuale della subnet. Una macchina virtuale o una subnet può essere associata a un solo gruppo di sicurezza di rete, ognuno dei quali può contenere un massimo di 200 regole. È possibile disporre di 100 gruppi di sicurezza di rete per sottoscrizione.
 
@@ -130,13 +130,13 @@ Si supponga ad esempio di creare una nuova macchina virtuale e un nuovo gruppo d
 
 ## Considerazioni sulla progettazione
 
-È necessario comprendere come le macchine virtuali comunicano con i servizi di infrastruttura e i servizi PaaS ospitati da Azure quando si progetta il NSGs. La maggior parte dei servizi PaaS di Azure, ad esempio database SQL e archiviazione, sono accessibili solo tramite un indirizzo Internet pubblico. Lo stesso vale per le probe di bilanciamento del carico.
+È necessario comprendere come le macchine virtuali comunicano con i servizi di infrastruttura e i servizi PaaS ospitati da Azure quando si progettano i gruppi di sicurezza di rete. La maggior parte dei servizi PaaS di Azure, ad esempio database SQL e archiviazione, sono accessibili solo tramite un indirizzo Internet pubblico. Lo stesso vale per le probe di bilanciamento del carico.
 
 Uno scenario comune in Azure è la separazione dei ruoli di macchine virtuali e PaaS nelle subnet in base al fatto che questi oggetti richiedano l'accesso a internet o meno. In questo scenario, potrebbe esserci una subnet con macchine virtuali o istanze del ruolo che richiedono l'accesso ai servizi Paas di Azure, ad esempio database SQL e archiviazione, ma che non richiedono le comunicazioni in ingresso o in uscita all’Internet pubblico.
 
-Immaginiamo la seguente regola NSG per tale scenario:
+Tenere presente la seguente regola del gruppo di sicurezza di rete per tale scenario:
 
-| Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Access |
+| Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
 |INTERNET NON DISPONIBILE|100| VIRTUAL\_NETWORK|& #42;|INTERNET|& #42;|TCP|NEGA| 
 
@@ -144,11 +144,12 @@ Poiché la regola consiste nel negare gli accessi ad Internet dalla rete virtual
 
 Invece di utilizzare una regola di negazione, bisognerebbe prendere in considerazione di utilizzare una regola per consentire l'accesso dalla rete virtuale a Internet, ma che neghi l'accesso da Internet alla rete virtuale, come illustrato di seguito:
 
-| Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Access |
+| Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
 |A INTERNET|100| VIRTUAL\_NETWORK|& #42;|INTERNET|& #42;|TCP|CONSENTI|
 |DA INTERNET|110| INTERNET|& #42;|VIRTUAL\_NETWORK|& #42;|TCP|NEGA| 
 
+>[AZURE.WARNING]Azure usa una subnet speciale definita **Gateway** per gestire il gateway VPN ad altre reti virtuali e reti locali. Se si associa un gruppo di sicurezza di rete a questa subnet, il gateway VPN smetterà di funzionare come previsto. Non associare i gruppi di sicurezza di rete alle subnet del gateway!
 
 ## Pianificazione: flusso di lavoro dei gruppi di sicurezza di rete
 
@@ -208,7 +209,7 @@ Al momento i gruppi di sicurezza di rete possono essere configurati e modificati
 	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
 	| Update-AzureVM
 
-**Visualizzare le NSG associate a una macchina virtuale**
+**Visualizzare i gruppi di sicurezza di rete associati a una macchina virtuale**
 
 	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
 	| Get-AzureNetworkSecurityGroupAssociation
@@ -225,7 +226,7 @@ Al momento i gruppi di sicurezza di rete possono essere configurati e modificati
 	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
 		-SubnetName 'FrontEndSubnet'
 
-**Visualizzare le NSG associate a una subnet**
+**Visualizzare i gruppi di sicurezza di rete associati a una subnet**
 
 	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
 		-VirtualNetworkName 'VNetUSWest' 
@@ -244,8 +245,8 @@ Al momento i gruppi di sicurezza di rete possono essere configurati e modificati
 
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
  
-**Visualizzare tutti gli Azure PowerShell cmdlet correlati alle NSG**
+**Visualizzare tutti i cmdlet di Azure PowerShell correlati ai gruppi di sicurezza di rete**
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

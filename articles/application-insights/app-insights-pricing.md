@@ -53,7 +53,10 @@ In qualsiasi momento, è possibile passare alla versione valutazione Premium gra
 * La quota dipende dal piano tariffario scelto.
 * La quota viene conteggiata da mezzanotte UTC il primo giorno di ogni mese.
 * Il grafico Punti dati mostra la quantità di quota che è stata usata questo mese.
-* La quota viene misurata in *punti dati*. Un singolo punto dati è una chiamata a uno dei metodi Track, se chiamato in modo esplicito nel codice o da uno dei moduli di telemetria standard. Ogni riga visibile nella ricerca di diagnostica è un punto dati. Ogni misurazione di una metrica, ad esempio un contatore delle prestazioni, è un punto dati. 
+* La quota viene misurata in *punti dati*. Un singolo punto dati è una chiamata a uno dei metodi Track, se chiamato in modo esplicito nel codice o da uno dei moduli di telemetria standard. I punti dati includono:
+ * Ogni riga visibile in [Ricerca diagnostica](app-insights-diagnostic-search.md). 
+ * Ogni misurazione non elaborata di una [metrica](app-insights-metrics-explorer.md), ad esempio un contatore delle prestazioni. I punti visualizzati nel grafico sono di solito aggregazioni di più punti dati non elaborati.
+ * Ogni punto nei grafici dei [test Web (disponibilità)](app-insights-monitor-web-app-availability.md). 
 * I *dati della sessione* non vengono conteggiati nella quota. Ciò include il numero di utenti, sessioni, ambienti e dati del dispositivo.
 
 
@@ -72,18 +75,18 @@ Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei p
 
 ![Nella parte inferiore del pannello dei prezzi](./media/app-insights-pricing/03-allocation.png)
 
-Fare clic sul grafico per altri dettagli o trascinare gli elementi per visualizzare i dettagli relativi a un determinato intervallo di tempo.
+Fare clic sul grafico per altri dettagli o trascinare e fare clic su (+) per visualizzare i dettagli relativi a un intervallo di tempo.
 
 
 ## Velocità dei dati
 
-Oltre alla quota mensile, esistono limiti della limitazione sulla percentuale di dati. Per il prodotto gratuito [livello di prezzo][pricing] il limite è di 200 dati punti/al secondi in media su 5 minuti e per livelli pagati è 500/s in media su 1 minuto.
+Oltre alla quota mensile, esistono limiti della limitazione sulla percentuale di dati. Per il [piano tariffario][pricing] gratuito il limite è di 200 punti dati al secondo in base a una media calcolata su 5 minuti; per piani a pagamento è di 500 punti dati al secondo in base a una media calcolata su 1 minuto.
 
 Esistono tre bucket che vengono conteggiati separatamente:
 
-* [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) e [captured logs](app-insights-asp-net-trace-logs.md)
-* [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), limitate a 50 punti/s.
-* Tutti gli altri dati di telemetria (visualizzazioni di pagina, sessioni, richieste, dipendenze, metriche, eventi personalizzati).
+* [Chiamate TrackTrace ](app-insights-api-custom-events-metrics.md#track-trace) e [log acquisiti](app-insights-asp-net-trace-logs.md)
+* [Eccezioni](app-insights-api-custom-events-metrics.md#track-exception), limitate a 50 punti al secondo.
+* Tutti gli altri dati di telemetria (visualizzazioni pagina, sessioni, richieste, dipendenze, metrica, eventi personalizzati, risultati dei test Web).
 
 Se l'app invia più rispetto al limite, alcuni dei dati vengono eliminati. Si visualizzerà una notifica che avviserà che ciò si è verificato.
 
@@ -91,8 +94,8 @@ Se l'app invia più rispetto al limite, alcuni dei dati vengono eliminati. Si vi
 
 Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
 
-* Disattivare i moduli di raccolta non necessari tramite [Modifica Applicationinsights](app-insights-configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
-* Pre-aggregare metriche. Se sono state inserite chiamate a TrackMetric nell'applicazione, è possibile ridurre il traffico utilizzando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. Oppure è possibile utilizzare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
+* Pre-aggregare metriche. Se sono state inserite chiamate a TrackMetric nell'applicazione, è possibile ridurre il traffico utilizzando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. In alternativa è possibile usare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
 ### Limiti del nome
@@ -118,7 +121,9 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
 ![Nel menu laterale scegliere Fatturazione.](./media/app-insights-pricing/02-billing.png)
 
+## Riepilogo dei limiti
 
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 
 <!--Link references-->
@@ -130,4 +135,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

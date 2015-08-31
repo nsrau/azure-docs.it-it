@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Esercitazione sull'invio di ultime notizie localizzate mediante Hub di notifica" 
-	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Esercitazione sull'invio di ultime notizie localizzate mediante Hub di notifica"
+	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Uso di Hub di notifica per inviare le ultime notizie localizzate
@@ -29,7 +29,7 @@ In questo argomento viene illustrato come utilizzare la funzionalità relativa a
 
 Lo scenario è composto da due parti:
 
-- l'app di Windows Store consente ai dispositivi client di specificare una lingua e di sottoscrivere categorie diverse di ultime notizie; 
+- l'app di Windows Store consente ai dispositivi client di specificare una lingua e di sottoscrivere categorie diverse di ultime notizie;
 
 - il back-end trasmette le notifiche utilizzando le funzionalità relative ai **tag** e ai **modelli** di Hub di notifica di Azure.
 
@@ -146,7 +146,7 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
 3. In MainPage.xaml.cs aggiornare il gestore degli eventi clic del pulsante recuperando il valore corrente della casella combinata Locale e fornendolo alla chiamata alla classe Notifications, come illustrato di seguito:
 
 		 var locale = (string)Locale.SelectedItem;
-            
+
          var categories = new HashSet<string>();
          if (WorldToggle.IsOn) categories.Add("World");
          if (PoliticsToggle.IsOn) categories.Add("Politics");
@@ -231,6 +231,5 @@ Per altre informazioni sull'uso dei modelli, vedere [Usare hub di notifica per i
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Risolvere i problemi del back-end .NET di Servizi mobili | Microsoft Azure" 
-	description="Informazioni su come diagnosticare e correggere problemi con Servizi mobili tramite il back-end .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Risolvere i problemi del back-end .NET di Servizi mobili | Microsoft Azure"
+	description="Informazioni su come diagnosticare e correggere problemi con Servizi mobili tramite il back-end .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # Risolvere i problemi del back-end .NET di Servizi mobili
@@ -34,7 +34,7 @@ Quando si sviluppano app con Servizi mobili, di solito si sfrutta l'SDK del clie
 È possibile usare qualsiasi debugger HTTP per inviare e ispezionare il traffico HTTP. [Fiddler](http://www.telerik.com/fiddler) è un popolare strumento comunemente usato dagli sviluppatori a tale scopo. Per facilitare l'operato degli sviluppatori, Servizi mobili aggrega un debugger HTTP basato su Web (chiamato anche "client di prova") direttamente al servizio mobile, riducendo la necessità di strumenti esterni. Quando il servizio mobile è ospitato in locale, sarà disponibile a un URI simile a [http://localhost:59233](http://localhost:59233), mentre quando è ospitato nel cloud, l'URI sarà nel formato [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). I passaggi seguenti funzionano in maniera analoga, indipendentemente dalla posizione in cui è ospitato il servizio:
 
 1. Per iniziare, aprire un progetto del server di Servizi mobili in **Visual Studio 2013 Update 2** o versione successiva. Se non è disponibile alcun progetto, è possibile crearne uno selezionando **File**, **Nuovo**, **Progetto**, quindi il nodo **Cloud** e infine il modello **Servizi mobili di Microsoft Azure**.
-2. Premere **F5** per avviare la compilazione e l'esecuzione del progetto. Nella pagina iniziale, selezionare **Prova**. 
+2. Premere **F5** per avviare la compilazione e l'esecuzione del progetto. Nella pagina iniziale, selezionare **Prova**.
 
     >[AZURE.NOTE]Se il servizio è ospitato in locale, fare clic sul collegamento per essere reindirizzati alla pagina successiva. Se invece il servizio è ospitato nel cloud, verrà richiesto un set di credenziali, al fine di garantire che gli utenti non autenticati non possano accedere alle informazioni sull'API e i payload. Per poter visualizzare la pagina è necessario eseguire l'accesso lasciando il **nome utente vuoto** e usando la **chiave dell'applicazione** come password. La chiave dell'applicazione è disponibile nel **portale di gestione di Azure** passando alla scheda **Dashboard** relativa al proprio servizio mobile e selezionando **Gestisci chiavi**.
     >
@@ -69,7 +69,7 @@ Una delle principali funzionalità del back-end .NET è la capacità di eseguire
     ![Configurare il caricamento del simbolo][SymbolLoading]
 
 3. Selezionare il nodo **Simboli** a sinistra e aggiungere un riferimento al server (SymbolSource)[http://symbolsource.org] usando l'URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). I simboli per il back-end .NET di Servizi mobili sono resi disponibili in ogni nuova versione.
- 
+
     ![Configurare il server dei simboli][SymbolServer]
 
 4. Impostare un punto di interruzione nel frammento di codice di cui si vuole eseguire il debug. Ad esempio, impostare un punto di interruzione nel metodo **GetAllTodoItems()** di **TodoItemController** presente nel modello di progetto di Servizi mobili in Visual Studio.
@@ -154,4 +154,4 @@ Le migrazioni possono essere complesse e richiedere di mantenere lo stato del da
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -42,7 +43,9 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 ##<a name="app"></a>Scrivere un'applicazione di formazione machine utilizzando MLlib Spark
 
-1. Avviare il notebook [Jupyter](https://jupyter.org). Selezionare il cluster Spark nel portale di Azure e, nella parte inferiore della barra delle applicazioni del portale, fare clic su **Jupyter Notebook**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
+1. Dal [portale di anteprima di Azure](https://ms.portal.azure.com/), dalla schermata iniziale fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È inoltre possibile passare al cluster in **Esplora tutto** > **Cluster HDInsight**. 
+ 
+2. Avviare il notebook [Jupyter](https://jupyter.org). Dal pannello del cluster Spark fare clic su **Collegamenti rapidi**, e dal pannello **Dashboard del Cluster**, fare clic su **Notebook Jupyter**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
 2. Creare un nuovo notebook. Fare clic su **Nuovo**, quindi su **Python 2**.
 
@@ -83,11 +86,11 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 		sc = SparkContext(conf=conf)
 		sqlContext = SQLContext(sc)
 
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo di finestra del browser web visualizzerà uno stato **(occupato)** accanto al titolo notebook. È inoltre possibile notare un cerchio pieno accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
+	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del browser web visualizzerà uno stato **(Occupato)** accanto al titolo notebook. È inoltre possibile notare un cerchio pieno accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Job.Status.png "Status of a Jupyter notebook job")
  
-4. È ora necessario caricare i dati (hvac.csv), da analizzare e utilizzare per eseguire il training del modello. A tale scopo, è possibile definire una funzione che controlla se la temperatura effettiva dell'edificio è maggiore della temperatura di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo, indicato dal valore **1.0**. Se la temperatura effettiva è inferiore, l’edificio è freddo, indicato dal valore **0,0**.
+4. È ora necessario caricare i dati (hvac.csv), da analizzare e utilizzare per eseguire il training del modello. A tale scopo, è possibile definire una funzione che controlla se la temperatura effettiva dell'edificio è maggiore della temperatura di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo, indicato dal valore **1.0**. Se la temperatura effettiva è inferiore, l’edificio è freddo, indicato dal valore **0.0**.
 
 	Incollare il seguente frammento di codice in una cella vuota e premere **MAIUSC + INVIO**.
 
@@ -126,7 +129,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 		training = documents.toDF()
 
 
-5. Configurare la pipeline di machine learning Spark che è costituita da tre fasi: tokenizer, hashingTF, e lr. Per altre informazioni su una pipeline e funzionamento vedere <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">pipeline machine learning di Spark</a>.
+5. Configurare la pipeline di machine learning Spark che è costituita da tre fasi: tokenizer, hashingTF, e lr. Per altre informazioni su una pipeline e sul suo funzionamento vedere <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">pipeline machine learning di Spark</a>.
 
 	Incollare il seguente frammento di codice in una cella vuota e premere **MAIUSC + INVIO**.
 
@@ -171,7 +174,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 	![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.First.Row.png "Snapshot dei dati HVAC")
 
-	Si noti come la temperatura effettiva è inferiore alla temperatura destinazione suggerendo che edificio è freddo. Pertanto nella formazione di output, il valore per **etichetta** nella prima riga è **0,0** che indica l’edificio non è caldo.
+	Si noti come la temperatura effettiva è inferiore alla temperatura destinazione suggerendo che edificio è freddo. Pertanto nella formazione di output, il valore per **etichetta** nella prima riga è **0.0** che indica l’edificio non è caldo.
 
 8.  Preparazione per l'esecuzione del training modello rispetto a un set di dati. A tale scopo, si passa un ID di sistema e l'età di sistema (indicato come **SystemInfo** nell'output di formazione), e il modello potrebbe prevedere se la compilazione con tale ID di sistema e l'età di sistema sarebbe più calda (indicato da 1.0) o fredda (indicato da 0.0).
 
@@ -204,7 +207,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 		Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
 		Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
 
-	La prima riga di stima, si noterà che per un sistema HVAC con ID 20 e validità del sistema di 25 anni, l’edificio sarà caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0,0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima = 1.0**.
+	Nella prima riga di stima, si noterà che per un sistema HVAC con ID 20 e validità del sistema di 25 anni, l’edificio sarà caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0,0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima = 1.0**.
 
 11. È ora possibile chiudere il notebook riavviando il kernel. Dalla barra del menu superiore, fare clic su **Kernel**, quindi fare clic su **Riavvia**, quindi fare clic su **Riavvia** nuovamente al prompt.
 
@@ -213,7 +216,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 ##<a name="anaconda"></a>Usare la libreria Anaconda scikit-informazioni per machine learning
 
-I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-informazioni** per l'apprendimento automatico. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'utilizzo della libreria scikit-informazioni, vedere [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-informazioni** per machine learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'utilizzo della libreria scikit-informazioni, vedere [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ##<a name="seealso"></a>Vedere anche
 
@@ -240,4 +243,4 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

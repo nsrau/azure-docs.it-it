@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/09/2015"
+   ms.date="08/19/2015"
    ms.author="andalmia"/>
 
 
@@ -36,7 +36,7 @@ Message Available | Send message
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Selezionare **App per le API** e cercare "Azure Service Bus Connector".
+2. Cercare "Azure Service Bus Connector", selezionarlo e scegliere **Crea**.
 3. Immettere il nome, il piano di servizio app e altre proprietà:
 <br/>
 ![][1]
@@ -50,8 +50,6 @@ Entity Name | Immettere il nome della coda o dell'argomento.
 Subscription Name | Immettere il nome della sottoscrizione da cui ricevere messaggi.
 
 5. Fare clic su **Crea**.
-
-Dopo aver creato il connettore, è possibile aggiungerlo a un'app per la logica nello stesso gruppo di risorse.
 
 ## Uso di Service Bus Connector nell'app per la logica
 Dopo aver creato il connettore, è possibile usare Azure Service Bus Connector come trigger o azione per l'app per la logica. A tale scopo, effettuare l'operazione seguente:
@@ -85,12 +83,12 @@ Dopo aver creato il connettore, è possibile usare Azure Service Bus Connector c
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-Creare app per le API con le API REST. Vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-azureservicebus/img1.PNG
 [2]: ./media/app-service-logic-connector-azureservicebus/img2.PNG
 [3]: ./media/app-service-logic-connector-azureservicebus/img3.png
@@ -100,4 +98,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

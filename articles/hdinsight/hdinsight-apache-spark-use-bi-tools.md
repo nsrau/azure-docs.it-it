@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -39,7 +40,9 @@ In questa sezione viene usato il notebook [Jupyter](https://jupyter.org) associa
 
 Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà effettuata la connessione alla tabella Hive mediante strumenti di Business Intelligence come Power BI e Tableau.
 
-1. Avviare il notebook Jupyter. Selezionare il cluster Spark nel portale di Azure e, nella parte inferiore della barra delle applicazioni del portale, fare clic su **Jupyter Notebook**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
+1. Dal [portale di anteprima di Azure](https://ms.portal.azure.com/), dalla schermata iniziale fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È inoltre possibile passare al cluster in **Esplora tutto** > **Cluster HDInsight**. 
+ 
+2. Avviare il notebook [Jupyter](https://jupyter.org). Dal pannello del cluster Spark fare clic su **Collegamenti rapidi**, e dal pannello **Dashboard del Cluster**, fare clic su **Notebook Jupyter**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
 2. Creare un nuovo notebook. Fare clic su **Nuovo**, quindi su **Python 2**.
 
@@ -59,7 +62,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		hiveCtx = HiveContext(sc)
 
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo di finestra del browser web visualizzerà uno stato **(occupato)** accanto al titolo notebook. È inoltre possibile notare un cerchio pieno accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
+	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del browser web visualizzerà uno stato **(Occupato)** accanto al titolo notebook. È inoltre possibile notare un cerchio pieno accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Status of a Jupyter notebook job")
 
@@ -107,33 +110,33 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 1. Accedere a [Power BI](http://www.powerbi.com/).
 
-2. Nella schermata iniziale, fare clic su **database e altro ancora**.
+2. Nella schermata iniziale, fare clic su **Database e altro ancora**.
 
 	![Recupero di dati in Power BI](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Get.Data.png "Recupero di dati in Power BI")
 
-3. Nella schermata successiva, fare clic su **Spark**e quindi fare clic su **Connect**.
+3. Nella schermata successiva, fare clic su **Spark**e quindi fare clic su **Connetti**.
 
-4. Nel grafico nella pagina di Azure HDInsight, fornire i valori per la connessione al cluster Spark e quindi fare clic su **Connect**.
+4. In Spark nella pagina di Azure HDInsight, fornire i valori per la connessione al cluster Spark e quindi fare clic su **Connetti**.
 
 	![Connettersi a un cluster di Spark in HDInsight](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Connect.Spark.png "Connettersi a un cluster di Spark in HDInsight")
 
 	Dopo aver stabilito la connessione, Power BI avvia l'importazione di dati dal cluster Spark in HDInsight.
 
-5. Power BI importa i dati e viene visualizzato il nuovo dashboard. È inoltre aggiunto un nuovo set di dati sotto l’intestazione **set di dati**. Fare clic sul riquadro Spark nel dashboard per aprire un foglio di lavoro per visualizzare i dati.
+5. Power BI importa i dati e viene visualizzato il nuovo dashboard. È inoltre stato aggiunto un nuovo set di dati sotto l’intestazione **Set di dati**. Fare clic sul riquadro Spark nel dashboard per aprire un foglio di lavoro per visualizzare i dati.
 
 	![Riquadro Spark nel dashboard di Power BI](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Tile.png "Riquadro Spark nel dashboard di Power BI")
 
-6. Si noti che l’elenco **campi** negli elenchi di destra la tabella **hvac** creata in precedenza. Espandere la tabella per visualizzare i campi della tabella, come definito in precedenza nel notebook.
+6. Si noti che l’elenco **Campi** a destra elenca la tabella **hvac** creata in precedenza. Espandere la tabella per visualizzare i campi della tabella, come definito in precedenza nel notebook.
 
 	  ![Elencare le tabelle Hive](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "Elencare le tabelle Hive")
 
-7. Creare una visualizzazione per mostrare la variazione tra temperatura di destinazione e temperatura effettiva per ogni compilazione. A tale scopo, trascinare e rilasciare il campo **BuildingID** nei campi **asse** e **ActualTemp**/ * * TargetTemp * * in **valore**.
+7. Creare una visualizzazione per mostrare la variazione tra temperatura di destinazione e temperatura effettiva per ogni compilazione. A tale scopo, trascinare e rilasciare il campo **BuildingID** nei campi **Asse** e **ActualTemp**/**TargetTemp** in **Valore**.
 
 	![Creare visualizzazioni](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "Creare visualizzazioni")
 
 	Selezionare inoltre **Area mappa** (visualizzato in rosso) per visualizzare i dati.
 
-8. Per impostazione predefinita la visualizzazione mostra la somma per **ActualTemp** e **TargetTemp**. Per entrambi i campi dall'elenco a discesa, selezionare **Media** per ottenere una media temperatura effettiva e di destinazione per gli edifici.
+8. Per impostazione predefinita la visualizzazione mostra la somma di **ActualTemp** e **TargetTemp**. Per entrambi i campi dall'elenco a discesa, selezionare **Media** per ottenere una media temperatura effettiva e di destinazione per gli edifici.
 
 	![Creare visualizzazioni](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.2.png "Creare visualizzazioni")
 
@@ -141,7 +144,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Creare visualizzazioni](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.3.png "Creare visualizzazioni")
 
-10. Fare clic su **salvare** nel menu principale e specificare un nome di report. È inoltre possibile aggiungere l'oggetto visivo. Quando si blocca una visualizzazione, verrà archiviata nel dashboard e consente di tenere traccia dell'ultimo valore in modo immediato.
+10. Fare clic su **Salva** nel menu principale e specificare un nome di report. È inoltre possibile aggiungere l'oggetto visivo. Quando si blocca una visualizzazione, verrà archiviata nel dashboard e consente di tenere traccia dell'ultimo valore in modo immediato.
 
 	È possibile aggiungere tutte le visualizzazioni per lo stesso dataset e aggiungerle al dashboard per uno snapshot dei dati. Inoltre, i cluster Spark in HDInsight sono direttamente connessi a Power BI. Ciò significa che Power BI è sempre più aggiornato dal cluster in modo che non è necessario pianificare gli aggiornamenti per il set di dati.
 
@@ -153,13 +156,13 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Connettersi a un cluster di Spark](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Connect.png "Connettersi a un cluster di Spark")
 
-	Gli elenchi a discesa autenticazione indica **Windows** **servizio Azure HDInsight** come opzione, solo se è installato il [Driver ODBC di Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) nel computer.
+	L’elenco a discesa autenticazione indica **Windows** **servizio Azure HDInsight** come opzione, solo se è installato il [Driver ODBC di Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) nel computer.
 
-3. Nella schermata successiva dal menu a discesa **Schema** fare clic sull’icona **trovare** e quindi fare clic su**predefinito**.
+3. Nella schermata successiva dal menu a discesa **Schema** fare clic sull’icona **Trova** e quindi fare clic su**Predefinito**.
 
 	![Trovare lo schema](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Schema.png "Trovare lo schema")
 
-4. Per il campo **tabella**fare clic sulla icona **trovare** per elencare tutte le tabelle Hive disponibile nel cluster. Verrà visualizzato la tabella **hvac** creata in precedenza tramite il notebook.
+4. Per il campo **Tabella**fare clic sulla icona **Trova** per elencare tutte le tabelle Hive disponibile nel cluster. Verrà visualizzata la tabella **hvac** creata in precedenza tramite il notebook.
 
 	![Find tables](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Table.png "Find tables")
 
@@ -167,7 +170,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Aggiunta di tabelle a Tableau](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Drag.Table.png "Aggiunta di tabelle a Tableau")
 
-6. Scegliere la scheda **Sheet1** nella parte inferiore sinistra. Apportare una visualizzazione che mostra la temperatura effettiva e destinazione media per tutti gli edifici e per ogni data. Trascinare **Data** e **compilazione ID** a **colonne** e **Temp effettivo**/ * * destinazione Temp * * per **righe**. In **contrassegni** selezionare **Area** per usare una visualizzazione mappa area.
+6. Scegliere la scheda **Sheet1** nella parte inferiore sinistra. Apportare una visualizzazione che mostra la temperatura effettiva e destinazione media per tutti gli edifici e per ogni data. Trascinare **Data** e **Compilazione ID** a **Colonne** e **Actual Temp**/**Target Temp** a **Righe**. In **Contrassegni** selezionare **Area** per usare una visualizzazione mappa area.
 
 	 ![Aggiungere campi per la visualizzazione](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Drag.Fields.png "Aggiungere campi per la visualizzazione")
 
@@ -183,7 +186,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Visualizzazione](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Final.Visual.png "Visualizzazione")
 	 
-9. Fare clic su **salvare** per salvare il foglio di lavoro. È possibile creare dashboard e aggiungervi uno o più fogli.
+9. Fare clic su **Salva** per salvare il foglio di lavoro. È possibile creare dashboard e aggiungervi uno o più fogli.
 
 ##<a name="seealso"></a>Vedere anche
 
@@ -205,4 +208,4 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

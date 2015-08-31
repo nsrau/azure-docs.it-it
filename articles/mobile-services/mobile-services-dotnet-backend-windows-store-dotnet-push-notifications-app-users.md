@@ -66,4 +66,4 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

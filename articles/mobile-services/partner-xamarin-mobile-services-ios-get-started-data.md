@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/18/2015"
 	ms.author="ggailey777"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -240,6 +240,5 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

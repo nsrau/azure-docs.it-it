@@ -1,13 +1,12 @@
 <properties
 	pageTitle="Informazioni su Hive e su come usare HiveQL | Microsoft Azure"
 	description="Informazioni su Apache Hive e su come usarlo con Hadoop in HDInsight. Scegliere come eseguire il processo Hive e usare HiveQL per analizzare un file Apache log4j di esempio."
-	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
-
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -17,7 +16,6 @@
 	ms.workload="big-data"
 	ms.date="07/06/2015"
 	ms.author="larryfr"/>
-
 
 # Usare Hive e HiveQL con Hadoop in HDInsight per analizzare un file Apache log4j di esempio
 
@@ -165,4 +163,4 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

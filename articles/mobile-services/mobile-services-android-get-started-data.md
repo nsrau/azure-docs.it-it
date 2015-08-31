@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -41,7 +41,7 @@
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-- Account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">versione di valutazione gratuita di Azure</a>.
+- Account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 
 - [Azure Mobile Services Android SDK].
@@ -101,7 +101,7 @@ L'esercitazione **Introduzione ai dati** per Android è terminata.
 
 ## Versioni del codice precedenti
 
-Per visualizzare la versione per Eclipse di questa esercitazione, vedere [Introduzione ai dati con Eclipse](mobile-services-android-get-started-data-EC.md).
+Per visualizzare la versione per Eclipse di questa esercitazione, vedere [Introduzione ai dati con Eclipse](mobile-services-android-get-started-data-ec.md).
 
 Per visualizzare una versione completa del codice sorgente in un progetto Eclipse, fare clic <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">qui</a>.
 
@@ -156,4 +156,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Metodi di routing di Gestione traffico"
+   pageTitle="Gestione traffico- Metodi di routing del traffico | Microsoft Azure"
    description="Questo articolo aiuterà a comprendere i diversi metodi di routing del traffico usati da Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Metodi di routing di Gestione traffico
 
-Sono disponibili tre metodi di routing in Gestione traffico. In ogni profilo di Gestione traffico può essere usato un solo metodo di routing alla volta, sebbene in qualsiasi momento sia possibile selezionarne uno diverso.
+Sono disponibili tre metodi di routing del traffico in Gestione traffico. In ogni profilo di Gestione traffico può essere usato un solo metodo di routing del traffico alla volta, sebbene in qualsiasi momento sia possibile selezionarne uno diverso.
 
-È importante notare che tutti i metodi di routing prevedono il monitoraggio degli endpoint. Dopo aver configurato il profilo di Gestione traffico per specificare il metodo di routing che meglio soddisfa le proprie esigenze, configurare le impostazioni di monitoraggio. Quando il monitoraggio è configurato correttamente, Gestione traffico monitora lo stato degli endpoint, costituiti da servizi cloud e siti Web, e non invia il traffico agli endpoint ritenuti non disponibili. Per informazioni su Gestione traffico, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
+È importante notare che tutti i metodi di routing del traffico prevedono il monitoraggio degli endpoint. Dopo aver configurato il profilo di Gestione traffico per specificare il metodo di routing che meglio soddisfa le proprie esigenze, configurare le impostazioni di monitoraggio. Quando il monitoraggio è configurato correttamente, Gestione traffico monitora lo stato degli endpoint, costituiti da servizi cloud e siti Web, e non invia il traffico agli endpoint ritenuti non disponibili. Per informazioni su Gestione traffico, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
 
-I tre metodi routing di Gestione traffico sono:
+I tre metodi di routing di Gestione traffico sono:
 
 - **Failover**: selezionare Failover quando gli endpoint si trovano nello stesso data center o in data center diversi di Azure, noti come regioni nel portale di gestione, e si desidera usare un endpoint primario per tutto il traffico, ma fornire backup da usare nel caso in cui l'endpoint primario o di backup non sia disponibile. Per ulteriori informazioni, vedere[Metodo di routing del traffico Failover](#failover-traffic-routing-method).
 
@@ -123,7 +123,7 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 ## Passaggi successivi
 
-[Panoramica di Gestione traffico](traffic-manager-overview.md)
+[Gestione traffico di Azure](traffic-manager-overview.md)
 
 [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
 
@@ -137,4 +137,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

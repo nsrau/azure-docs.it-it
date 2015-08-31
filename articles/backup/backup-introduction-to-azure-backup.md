@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Backup di Azure"
+	pageTitle="Introduzione al Backup di Azure | Microsoft Azure"
 	description="Questo articolo offre una panoramica del servizio Backup di Azure che consente il backup dei dati in Azure"
 	services="backup"
 	documentationCenter=""
@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Introduzione a Backup di Azure
 Questo articolo offre una panoramica di alto livello della soluzione di backup integrata nel cloud di Microsoft che consente ai clienti di eseguire il backup dei dati disponibili in locale o in Azure.
@@ -29,11 +22,9 @@ Le soluzioni di backup tradizionali si sono evolute e considerano ora un cloud c
 
 I vantaggi di questo approccio sono i seguenti:
 
-+ Architettura di archiviazione cloud efficiente, che consente un'archiviazione dei dati resiliente e conveniente
-
-+ Scalabilità automatica non invasiva del servizio con garanzia di disponibilità elevata
-
-+ Metodo coerente per il backup di distribuzioni IaaS, ibride e locali
+- Architettura di archiviazione cloud efficiente, che consente un'archiviazione dei dati resiliente e conveniente
+- Scalabilità automatica non invasiva del servizio con garanzia di disponibilità elevata
+- Metodo coerente per il backup di distribuzioni IaaS, ibride e locali
 
 Le funzionalità principali della soluzione sono le seguenti:
 
@@ -66,7 +57,8 @@ Le funzionalità principali della soluzione sono le seguenti:
 | Macchine virtuali IaaS di Azure (Windows)| - | Backup di Azure | | Macchine virtuali IaaS di Azure (Linux) | - | Backup di Azure |
 
 ## Passaggi successivi
-+ Le domande frequenti sul servizio di Backup di Azure sono disponibili [in questa pagina](backup-azure-backup-faq.md).
-+ Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins.md)
+- Le domande frequenti sul servizio di Backup di Azure sono disponibili [in questa pagina](backup-azure-backup-faq.md).
+- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

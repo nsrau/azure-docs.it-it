@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Il primo runbook grafico in Automazione di Azure"
+	pageTitle="Il primo runbook grafico in Automazione di Azure | Microsoft Azure"
 	description="Esercitazione in cui viene illustrata la creazione, il test e la pubblicazione di un semplice runbook testuale con flusso di lavoro PowerShell. Vengono trattati numerosi concetti, ad esempio l'autenticazione per le risorse di Azure, i parametri di input."
 	services="automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="08/18/2015"
 	ms.author="bwren"/>
 
 
@@ -82,14 +82,14 @@ Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo
 
 ## Passaggio 5: Aggiungere l'autenticazione per gestire le risorse di Azure
 
-Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Sarà tuttavia in grado di eseguire questa operazione solo dopo aver fatto in modo che esegua l'autenticazione con le credenziali indicate nei [prerequisiti](#prerequisites). A questo scopo si userà il cmdlet **Set-AzureAccount**.
+Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Sarà tuttavia in grado di eseguire questa operazione solo dopo aver fatto in modo che esegua l'autenticazione con le credenziali indicate nei [prerequisiti](#prerequisites). A questo scopo si userà il cmdlet **Add-AzureAccount**.
 
 1.  Aprire l'editor di testo facendo clic su **Modifica** nel pannello MyFirstRunbook-Textual.<br> ![Modificare il runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  Non è più necessaria la riga **Write-Output**, quindi andare avanti ed eliminarla.
 3.  Posizionare il cursore su una riga vuota tra parentesi graffe.
 3.  Nel controllo libreria, espandere**Assets**e quindi**Credentials**.
-4.  Fare clic con il pulsante destro sulle credenziali e fare clic su **Aggiungi all'area di disegno**. Questo aggiunge un’attività **Get AutomationCredential** per le credenziali.
-5.  Davanti a **Get AutomationCredential**, digitare *$Credential =*per assegnare le credenziali a una variabile. 
+4.  Fare clic con il pulsante destro sulle credenziali e fare clic su **Aggiungi all'area di disegno**. Questo aggiunge un’attività **Get-AutomationPSCredential** per le credenziali.
+5.  Davanti a **Get-AutomationPSCredential**, digitare *$Credential =*per assegnare le credenziali a una variabile. 
 3.  Nella riga successiva, digitare*Add-AzureAccount-Credential $Credential*. <br> ![Autentica](media/automation-first-runbook-textual/authentication.png) 
 3. Fare clic sul **Pannello di test** in modo da testare il runbook.
 10. Fare clic su **Avvia** per avviare il test. Una volta che viene completato, si dovrebbe ricevere un output simile al seguente che restituisce le informazioni per l'utente nella credenziale. Questo conferma che la credenziale è valida.<br> ![Autentica](media/automation-first-runbook-textual/authentication-test.png) 
@@ -122,4 +122,4 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 
 - [Il primo runbook grafico](automation-first-runbook-graphical.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

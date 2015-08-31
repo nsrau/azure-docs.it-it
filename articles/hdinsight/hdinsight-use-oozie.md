@@ -3,10 +3,10 @@
 	description="Usare Oozie di Hadoop in HDInsight, una servizio per Big Data. Informazioni su come definire un flusso di lavoro di Oozie e inviare un processo Oozie."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
-
 
 <tags
 	ms.service="hdinsight"
@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 
 # Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight
@@ -130,7 +129,6 @@ Il percorso di Hive è caratterizzato da un problema noto che si verifica durant
 		<workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
 		    <start to = "RunHiveScript"/>
 
-
 		    <action name="RunHiveScript">
 		        <hive xmlns="uri:oozie:hive-action:0.2">
 		            <job-tracker>${jobTracker}</job-tracker>
@@ -147,9 +145,7 @@ Il percorso di Hive è caratterizzato da un problema noto che si verifica durant
 		            <param>hiveOutputFolder=${hiveOutputFolder}</param>
 		        </hive>
 		        <ok to="RunSqoopExport"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <action name="RunSqoopExport">
@@ -175,9 +171,7 @@ Il percorso di Hive è caratterizzato da un problema noto che si verifica durant
 			    <arg>"\001"</arg>
 		        </sqoop>
 		        <ok to="end"/>
-
 		        <error to="fail"/>
-
 		    </action>
 
 		    <kill name="fail">
@@ -185,7 +179,6 @@ Il percorso di Hive è caratterizzato da un problema noto che si verifica durant
 		    </kill>
 
 		   <end name="end"/>
-
 		</workflow-app>
 
 	Nel flusso di lavoro vengono definite due azioni. L'azione start-to è *RunHiveScript*. Se l'azione viene eseguita correttamente, l'azione successiva è *RunSqoopExport*.
@@ -527,7 +520,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 
 **Per verificare il log degli errori del processo**
 
-Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* o *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* dal nodo head del cluster. Per altre informazioni su RDP, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di gestione di Azure][hdinsight-admin-portal].
+Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* o *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* dal nodo head del cluster. Per altre informazioni su RDP, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di anteprima di Azure][hdinsight-admin-portal].
 
 **Per ripetere l'esecuzione dell'esercitazione**
 
@@ -609,7 +602,7 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -630,4 +623,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

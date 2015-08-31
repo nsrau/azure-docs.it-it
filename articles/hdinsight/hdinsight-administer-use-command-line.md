@@ -5,6 +5,7 @@
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
+	tags="azure-portal"
 	documentationCenter=""/>
 
 <tags
@@ -17,6 +18,8 @@
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure
+
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-portal-management-selector.md)]
 
 Informazioni su come utilizzare l’interfaccia della riga di comando di Azure per gestire i cluster Hadoop in Azure HDInsight. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux.
 
@@ -52,9 +55,9 @@ Dopo avere importato il file di impostazioni di pubblicazione è possibile usare
 > [AZURE.NOTE]L'account di archiviazione deve trovarsi in HDInsight nel data center.
 
 
-Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di Azure, vedere [Creare, gestire o eliminare un account di archiviazione][azure-create-storageaccount].
+Per informazioni sulla creazione di un account di archiviazione di Azure tramite il portale di anteprima di Azure, vedere [Creare, gestire o eliminare un account di archiviazione][azure-create-storageaccount].
 
-Se si ha già un account di archiviazione, ma non si conoscono il nome dell'account e la chiave dell'account, è possibile usare i comandi seguenti per recuperare le informazioni:
+Se si dispone già di un account di archiviazione, ma non se ne conosce né il nome né la chiave, è possibile usare i comandi seguenti per recuperare tali informazioni:
 
 	-- Lists Storage accounts
 	azure account storage list
@@ -63,7 +66,7 @@ Se si ha già un account di archiviazione, ma non si conoscono il nome dell'acco
 	-- Lists the keys for a Storage account
 	azure account storage keys list <StorageAccountName>
 
-Per i dettagli sull'acquisizione delle informazioni mediante il portale di Azure, vedere la sezione "Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Creare, gestire o eliminare un account di archiviazione][azure-create-storageaccount].
+Per i dettagli sull'acquisizione delle informazioni mediante il portale di anteprima di Azure, vedere la sezione "Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" di [Creare, gestire o eliminare un account di archiviazione][azure-create-storageaccount].
 
 
 Il comando **azure hdinsight cluster create** crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile usare il comando seguente:
@@ -135,8 +138,8 @@ Utilizzare il comando seguente per eliminare un cluster:
 ##Passaggi successivi
 In questo articolo si è appreso come eseguire diverse attività amministrative relative ai cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Amministrare cluster Hadoop in HDInsight tramite il portale di Azure][hdinsight-admin-portal]
-* [Amministrare cluster Hadoop in HDInsight tramite Azure PowerShell][hdinsight-admin-powershell]
+* [Amministrare in HDInsight tramite il portale di anteprima di Azure][hdinsight-admin-portal]
+* [Gestire cluster Hadoop in HDInsight tramite Azure PowerShell][hdinsight-admin-powershell]
 * [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
 * [Come utilizzare l’interfaccia della riga di comando di Azure][azure-command-line-tools]
 
@@ -156,6 +159,5 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Elenco e visualizzazione di cluster"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

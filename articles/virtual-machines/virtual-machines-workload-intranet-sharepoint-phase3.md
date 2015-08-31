@@ -27,7 +27,7 @@ In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet 
 
 Sono presenti due macchine virtuali SQL server. Un server SQL server contiene la replica di database primario di un gruppo di disponibilità. Il secondo server SQL contiene la replica di backup secondaria. Il backup viene fornito per garantire disponibilità elevata. Un'altra macchina virtuale è per la maggioranza dei nodi del cluster.
 
-Utilizzare il seguente blocco di comandi di PowerShell per creare le macchine virtuali per i tre server. Specificare i valori per le variabili, rimuovendo i caratteri < and >. Si noti che in questo set di comandi di PowerShell vengono utilizzati i valori delle tabelle seguenti:
+Usare il seguente blocco di comandi di PowerShell per creare le macchine virtuali per i tre server. Specificare i valori per le variabili, rimuovendo i caratteri < and >. Si noti che in questo set di comandi di PowerShell vengono utilizzati i valori delle tabelle seguenti:
 
 - Tabella M, per le macchine virtuali.
 - Tabella V, per le impostazioni della rete virtuale.
@@ -165,7 +165,7 @@ Per entrambi i computer SQL server e per il nodo di maggioranza cluster, eseguir
 
 	Install-WindowsFeature Failover-Clustering -IncludeManagementTools
 
-A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azure, la creazione di un cluster di failover di Windows Server può avere esito negativo. Per ulteriori informazioni, cercare "Comportamento del cluster di failover di Windows Server nella rete di Azure" nella disponibilità elevata e nel ripristino di emergenza per SQL Server in macchine virtuali di Azure. Tuttavia, esiste una soluzione alternativa. Utilizzare i passaggi seguenti per testare il cluster:
+A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azure, la creazione di un cluster di failover di Windows Server può avere esito negativo. Per altre informazioni, cercare "Comportamento del cluster di failover di Windows Server nella rete di Azure" nella disponibilità elevata e nel ripristino di emergenza per SQL Server in macchine virtuali di Azure. Tuttavia, esiste una soluzione alternativa. Utilizzare i passaggi seguenti per testare il cluster:
 
 1.	Accedere alla macchina virtuale SQL Server primaria con l'account **sp\_install**.
 2.	Dalla schermata Start digitare **Failover**, quindi fare clic su **Gestione cluster di failover**.
@@ -180,7 +180,7 @@ A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azu
 11.	Fare clic con il pulsante destro del mouse sulla risorsa **Indirizzo IP** non riuscita, quindi fare clic su **Proprietà**.
 12.	Nella finestra di dialogo **Proprietà dell'indirizzo IP** fare clic su **Indirizzo IP statico**.
 13.	Digitare un indirizzo IP inutilizzato nell'intervallo di indirizzi corrispondente alla subnet in cui si trova il server SQL, quindi fare clic su **OK**.
-14.	Fare clic con il pulsante destro del mouse sulla risorsa Indirizzo IP non riuscita, quindi fare clic su **Connetti**. Attendere finché entrambe le risorse non siano online. Quando la risorsa del nome cluster torna online, il controller di dominio viene aggiornato con un nuovo account del computer di Active Directory. L'account di Active Directory viene successivamente utilizzato per eseguire il servizio cluster del gruppo di disponibilità.
+14.	Fare clic con il pulsante destro del mouse sulla risorsa Indirizzo IP non riuscita, quindi fare clic su **Connetti**. Attendere finché entrambe le risorse non siano online. Quando la risorsa del nome cluster torna online, il controller di dominio viene aggiornato con un nuovo account del computer di Active Directory. L'account di Active Directory viene successivamente usato per eseguire il servizio cluster del gruppo di disponibilità.
 15.	Una volta creato l'account di Active Directory, disconnettere il nome del cluster. Fare clic con il pulsante del mouse sul nome del cluster in **Risorse principali del cluster**, quindi fare clic su **Offline**.
 16.	Per rimuovere l'indirizzo IP del cluster, fare doppio clic su **Indirizzo IP**, fare clic su **Rimuovi**, quindi fare clic su **Sì** quando richiesto. Non è più possibile connettere la risorsa cluster perché dipende dalla risorsa indirizzo IP. Tuttavia, un gruppo di disponibilità non dipende dall'indirizzo IP o dal nome del cluster per il corretto funzionamento. Pertanto il nome del cluster può rimanere offline.
 17.	Per aggiungere i restanti nodi al cluster, fare clic con il pulsante destro del mouse sul nome del cluster nel riquadro sinistro, quindi fare clic su **Aggiungi nodo**.
@@ -226,4 +226,6 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 4: C
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

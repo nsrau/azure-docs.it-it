@@ -3,6 +3,7 @@
 	description="Informazioni su come caricare i dati per processi Hadoop e accedervi in HDInsight con Interfaccia della riga di comando di Azure, Azure Storage Explorer, Azure PowerShell, la riga di comando di Hadoop o Sqoop."
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -22,7 +23,7 @@
 
 Azure HDInsight include un'interfaccia completa per il file system HDFS (Hadoop Distributed File System) sull'archivio BLOB di Azure. Tale interfaccia è stata progettata come estensione HDFS per offrire un'esperienza lineare ai clienti tramite l'abilitazione del set completo di componenti nell'ecosistema Hadoop, con possibilità di agire direttamente sui dati gestiti da Hadoop stesso. L'archivio BLOB di Azure e HDFS sono file system distinti, ottimizzati per l'archiviazione di dati e per l'esecuzione di calcoli su di essi. Per i vantaggi dell'uso dell'archivio BLOB di Azure, vedere l'articolo relativo all'[uso dell'archivio BLOB di Azure con HDInsight][hdinsight-storage].
 
-##Prerequisiti
+**Prerequisiti**
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
@@ -57,7 +58,7 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 
 > [AZURE.NOTE]Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati all'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight e consente solo il caricamento dei dati dal file system locale nell'archivio BLOB di Azure.
 
-###<a id="xplatcli"></a>Interfaccia della riga di comando di Azure
+###<a id="xplatcli">Interfaccia della riga di comando di Azure</a>
 
 L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare dati nell'archivio BLOB di Azure, seguire questa procedura:
 
@@ -109,15 +110,20 @@ Azure PowerShell è un ambiente di scripting che può essere usato per controlla
 2. Impostare i valori delle prime cinque variabili nello script seguente:
 
 		$subscriptionName = "<AzureSubscriptionName>"
+		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
 		$fileName ="<LocalFileName>"
 		$blobName = "<BlobName>"
 
-		# Get the storage account key
+		Switch-AzureMode -Name AzureResourceManager
+
+		Add-AzureAccount
 		Select-AzureSubscription $subscriptionName
-		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+
+		# Get the storage account key
+		$storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
 
 		# Create the storage context object
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
@@ -205,6 +211,9 @@ Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'acc
 
 7. Specificare un file da caricare e quindi fare clic su **Open**.
 
+##Montare l'archiviazione BLOB di Azure come unità locale
+
+Vedere [Montaggio dell’archiviazione BLOB di Azure come unità locale](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ##Servizi
 
@@ -247,7 +256,7 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com
+[azure-management-portal]: https://porta.azure.com
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
@@ -277,6 +286,5 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

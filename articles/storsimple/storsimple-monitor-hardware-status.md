@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Stato e componenti hardware di StorSimple"
+   pageTitle="Stato e componenti hardware di StorSimple | Microsoft Azure"
    description="Informazioni su come monitorare i componenti hardware del dispositivo StorSimple tramite il servizio StorSimple Manager."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/31/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Stato e componenti hardware di StorSimple
@@ -45,14 +45,14 @@ Un dispositivo 8600 dispone di componenti aggiuntivi che corrispondono allo chas
 Per visualizzare lo stato dell'hardware di un componente del dispositivo, procedere come segue:
 
 1. Passare a **Dispositivi** e selezionare uno specifico dispositivo StorSimple. Fare clic per passare nel menu a livello di dispositivo e quindi scegliere la scheda **Manutenzione**. 
-2. Individuare la sezione **Stato hardware** e scegliere tra i componenti disponibili (come descritto in precedenza). Fare clic su una freccia che precede l'etichetta del componente per espandere l'elenco e visualizzare lo stato dei vari componenti del dispositivo. Vedere l'[elenco dettagliato dei componenti per lo chassis principale](Component-list-for-primary-enclosure) e l'[elenco dettagliato dei componenti per lo chassis EBOD](Component-list-for-EBOD-enclosure).
+2. Individuare la sezione **Stato hardware** e scegliere tra i componenti disponibili (come descritto in precedenza). Fare clic su una freccia che precede l'etichetta del componente per espandere l'elenco e visualizzare lo stato dei vari componenti del dispositivo. Vedere l'[elenco dettagliato dei componenti per lo chassis principale](#component-list-for-primary-enclosure-of-storsimple-device) e l'[elenco dettagliato dei componenti per lo chassis EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 2. Utilizzare il seguente schema di codifica a colori per interpretare lo stato del componente:
 	-  **Segno di spunta verde**: indica che il componente è **Integro** oppure **OK**.
 	-  **Giallo**: indica un componente in stato di **avviso**.
 	-  **Punto esclamativo rosso**; indica che un componente è nello stato di **Errore** o **Richiede attenzione**.
 	-  **Bianco con testo nero**: indica che un componente non è presente.
 
-3. Se si rileva un componente che non si trova in uno stato **Integro**, contattare il supporto tecnico Microsoft. Se gli avvisi sono attivati sul dispositivo, si riceverà un messaggio di avviso. Se è necessario sostituire un componente hardware in errore, vedere la [Guida alla sostituzione di componenti hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+3. Se si rileva un componente che non si trova in uno stato **Integro**, contattare il supporto tecnico Microsoft. Se gli avvisi sono attivati sul dispositivo, si riceverà un messaggio di avviso. Se è necessario sostituire un componente hardware in errore, vedere la [Guida alla sostituzione di componenti hardware](storsimple-hardware-component-replacement.md).
 
 
 ## Elenco di componenti per l’enclosure principale del dispositivo StorSimple
@@ -125,10 +125,10 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 |Connessione al controller del dispositivo|I/O|Fisico|Controller|No|Indica lo stato della connessione tra il modulo I/O EBOD e il controller del dispositivo.|
 
 ## Passaggi successivi
-Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o guasto, fare riferimento a [Risoluzione dei problemi relativi agli indicatori di monitoraggio](storsimple-monitoring-indicators).
+Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o guasto, fare riferimento a [Indicatori di monitoraggio di StorSimple](storsimple-monitoring-indicators.md).
 
-Per sostituire un componente hardware guasto, vedere la [Guida alla sostituzione di componenti hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+Per sostituire un componente hardware guasto, vedere la [Guida alla sostituzione di componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
 Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

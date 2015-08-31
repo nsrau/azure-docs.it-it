@@ -36,7 +36,7 @@ Questo argomento descrive come usare Servizi mobili di Azure per inviare notific
 
 ##<a id="register"></a>Abilitare Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configurare Servizi mobili per l'invio di richieste push
 
@@ -52,7 +52,7 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 
 ###Aggiungere Google Play Services al progetto
 
-[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Aggiungere Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Aggiungere codice
 
@@ -153,7 +153,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 
 <!-- URLs. -->
-[Introduzione alle notifiche push (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Introduzione alle notifiche push (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
@@ -178,4 +178,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

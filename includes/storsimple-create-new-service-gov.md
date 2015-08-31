@@ -1,4 +1,5 @@
 
+
 #### Per creare un nuovo servizio
 
 1. Utilizzare le credenziali dell'account Microsoft per accedere al [portale di Microsoft Azure per enti pubblici](https://manage.windowsazure.us/).
@@ -18,4 +19,4 @@
  
        ![creazione di un servizio](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

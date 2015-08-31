@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Asset di connessione in Automazione di Azure"
+   pageTitle="Asset di tipo connessione in Automazione di Azure | Microsoft Azure"
    description="Gli asset di connessione di Automazione di Azure contengono le informazioni necessarie per la connessione a un servizio esterno o a un'applicazione da un Runbook, Questo articolo illustra nel dettaglio le connessioni e spiega come usarle nella creazione testuale e grafica."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Asset di connessione in Automazione di Azure
@@ -120,4 +120,4 @@ La figura seguente mostra lo stesso esempio precedente ma usa il set di parametr
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

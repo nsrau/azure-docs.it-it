@@ -1,5 +1,7 @@
-##Azure portal and Azure preview portal
+##Portale di Azure e portale di anteprima di Azure
 
-> [AZURE.IMPORTANT] The steps in this document use the Azure portal. Microsoft recommends using the Azure preview portal when creating new services. For an explanation of the advantages of the preview portal, see [DevOps just got a whole lot more awesome](http://azure.microsoft.com/overview/preview-portal/). 
+> [AZURE.IMPORTANT]I passaggi descritti in questo documento usano il portale di Azure. Per la creazione di nuovi servizi, Microsoft consiglia di usare il portale di anteprima di Azure. Per una spiegazione dei vantaggi del portale di anteprima, vedere [DevOps è ancora più straordinario](http://azure.microsoft.com/overview/preview-portal/).
 
-For a version of this document that uses the Azure preview portal, see the following link:
+Per una versione di questo documento che usa il portale di anteprima di Azure, vedere il collegamento seguente:
+
+<!---HONumber=August15_HO8-->

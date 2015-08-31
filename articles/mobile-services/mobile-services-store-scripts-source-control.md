@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Archiviare il codice di progetto nel controllo del codice sorgente | Microsoft Azure" 
-	description="Informazioni su come archiviare i moduli e i file di script del server in un repository Git locale nel computer." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Archiviare il codice di progetto nel controllo del codice sorgente | Microsoft Azure"
+	description="Informazioni su come archiviare i moduli e i file di script del server in un repository Git locale nel computer."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # Archiviare il codice del progetto nel controllo del codice sorgente
@@ -126,7 +126,7 @@ Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste 
 		$ git add .
 		$ git commit -m "added node-uuid module"
 		$ git push origin master
-		
+
 	Verrà aggiunto il nuovo file, verrà effettuato il commit delle modifiche e verrà eseguito il push del nuovo modulo node-uuid e delle modifiche dello script todoitem.insert.js nel servizio mobile.
 
 ## <a name="next-steps"> </a>Passaggi successivi
@@ -134,7 +134,7 @@ Il metodo consigliato per aggiungere moduli Node.js al servizio mobile consiste 
 In questa esercitazione si è appreso ad archiviare gli script nel controllo del codice sorgente. Per altre informazioni sugli script del server e sulle API personalizzate, vedere:
 
 + [Utilizzo degli script del server in Servizi mobili] 
-	<br/>Altre informazioni su come usare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
+	<br/>Ulteriori informazioni su come utilizzare gli script del server, l'utilità di pianificazione dei processi e le API personalizzate.
 
 + [Chiamare un'API personalizzata dal client] 
 	<br/>Illustra come creare API personalizzate che possono essere chiamate dal client.
@@ -161,6 +161,5 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [Chiamare un'API personalizzata dal client]: mobile-services-ios-call-custom-api.md
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

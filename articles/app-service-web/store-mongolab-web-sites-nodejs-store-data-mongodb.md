@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/10/2014"
-	ms.author="mwasson"/>
+	ms.date="08/18/2015"
+	ms.author="tdykstra"/>
 
 
 
@@ -575,4 +575,4 @@ Congratulazioni. verrà lanciata un'applicazione Node.js supportata da un databa
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

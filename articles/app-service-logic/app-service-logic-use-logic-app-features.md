@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="08/19/2015"
 	ms.author="stepsic"/>
 	
 # Usare le funzionalità delle app per la logica
@@ -26,6 +26,15 @@ Nell'[argomento precedente][Create a new logic app] è stata creata la prima app
 - Opzioni per avviare un flusso di lavoro.
 
 Prima di completare questo argomento, completare i passaggi elencati nell'articolo [Creare una nuova app per la logica]. Nel [portale di Azure], passare all'app per la logica e fare clic su **Trigger e azioni** nel riepilogo per modificare la definizione di app per la logica.
+
+## Materiale di riferimento
+
+Di seguito sono riportati i collegamenti ad alcuni documenti utili:
+
+- [API REST di gestione e di runtime](https://msdn.microsoft.com/library/azure/dn948513.aspx): contiene anche informazioni su come richiamare direttamente le app per la logica
+- [Riferimento al linguaggio](https://msdn.microsoft.com/library/azure/dn948512.aspx): fornisce un elenco completo di tutte le funzioni/espressioni supportate
+- [Tipi di trigger e azioni](https://msdn.microsoft.com/library/azure/dn948511.aspx): descrive i diversi tipi di azioni e gli input che accettano
+- [Panoramica del servizio app](app-service-value-prop-what-is.md): fornisce informazioni sui componenti da scegliere per la creazione di una soluzione
 
 ## Aggiunta di logica condizionale e ripetizione
 
@@ -112,8 +121,9 @@ I servizi possono chiamare un endpoint dell'app per la logica per avviare un flu
 
 È possibile usare il callback per richiamare un'app per la logica all'interno dell'applicazione personalizzata. È necessario usare l'autenticazione **di base**. Il nome utente `default` viene creato per l'utente e la password è il campo **Chiave di accesso primaria** nel pannello **Proprietà**. ad esempio:
 
-        POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
+        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
+        Authorization: Basic << base-64 encoded string of default:<access key> >>
         {
             "name" : "nameOfTrigger",
             "outputs" : { "property" : "value" }
@@ -133,4 +143,4 @@ Per avviare l'app per la logica su richiesta, fare clic sul pulsante **Esegui ad
 [Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

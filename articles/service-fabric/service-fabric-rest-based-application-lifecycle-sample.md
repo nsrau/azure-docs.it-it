@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2015"
+   ms.date="08/17/2015"
    ms.author="ryanwi"/>
 
 # Esempio di ciclo di vita di un'applicazione basata su REST
@@ -49,7 +49,7 @@ Questo esempio utilizza [l'esempio WordCount](https://github.com/azure/servicefa
 
 Per creare i pacchetti di applicazioni e copiarli in ImageStore, procedere come segue:
 
-1. Copiare C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug in C:\\Temp\\WordCount. In questo modo viene creato il pacchetto dell'applicazione WordCount. 
+1. Copiare C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug in C:\\Temp\\WordCount. In questo modo viene creato il pacchetto dell'applicazione WordCount.
 2. Copiare C:\\Temp\\WordCount in C:\\Temp\\WordCountUpgrade. In questo modo viene creato il pacchetto dell'applicazione WordCountUpgrade.
 3. Aprire C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml in un editor di testo.
 4. Nell'elemento ApplicationManifest, modificare l'attributo ApplicationTypeVersion in "1.1.0.0". In questo modo viene aggiornato il numero di versione dell'applicazione.
@@ -710,6 +710,4 @@ namespace ServiceFabricRestCaller
 
 [Ciclo di vita dell'applicazione di Infrastruttura di servizi](service-fabric-application-lifecycle.md)
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

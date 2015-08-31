@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Esempi contestuali delle procedure consigliate per l'implementazione di modelli
 
 In questo argomento vengono forniti 7 esempi contestuali sull’implementazione dei modelli di Gestione risorse di Azure. Per una panoramica dei principi illustrati in questi esempi, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md).
+
+Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Spostamento di un modello con ambito di funzionalità in un modello con ambito di soluzione end-to-end
 
@@ -252,4 +254,4 @@ Infine, si potrebbe voler garantire che determinate risorse non vengano eliminat
 - Per consigli su come gestire la sicurezza in Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
 - Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione a Servizi mobili per app per Xamarin Android | Microsoft Azure" 
-	description="Informazioni su come usare Servizi mobili di Azure e Hub di notifica per inviare notifiche push all'app per Xamarin Android." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introduzione a Servizi mobili per app per Xamarin Android | Microsoft Azure"
+	description="Informazioni su come usare Servizi mobili di Azure e Hub di notifica per inviare notifiche push all'app per Xamarin Android."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -39,7 +39,7 @@ Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azu
 
 ##<a id="register"></a>Abilitare Google Cloud Messaging
 
-[AZURE.INCLUDE [Abilitare GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Abilitare GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configurare il servizio mobile per l'invio di richieste push
 
@@ -75,4 +75,4 @@ Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azu
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

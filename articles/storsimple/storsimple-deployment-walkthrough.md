@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale
@@ -123,15 +123,15 @@ Prima di configurare il dispositivo, verificare che:
 
 - Il dispositivo è completamente disimballato, montato su un rack e cablato per l’alimentazione, la rete e l’accesso seriale come descritto in:
 
-	-  [Disimballare il dispositivo 8100](storsimple-8100-hardware-installation.md)
-	-  [Disimballare il dispositivo 8600](storsimple-8600-hardware-installation.md)
+	-  [Decomprimere, montare su rack e cablare il dispositivo 8100](storsimple-8100-hardware-installation.md)
+	-  [Decomprimere, montare su rack e cablare il dispositivo 8600](storsimple-8600-hardware-installation.md)
 
 
 ### Per la rete nel datacenter
 
 Prima di iniziare, verificare che:
 
-- Per consentire il traffico iSCSI e cloud vengono aperte le porte nel firewall del data center come descritto in [Requisiti di rete per il dispositivo StorSimple]().
+- Per consentire il traffico iSCSI e cloud vengono aperte le porte nel firewall del data center come descritto in [Requisiti di rete per il dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 - Il dispositivo nel datacenter può connettersi alla rete esterna. Eseguire il seguente cmdlet[Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) (inserite sotto) per convalidare la connettività alla rete esterna. Esegui la convalida in un computer (nella rete datacenter) che dispone di connettività in Azure e in cui verrà distribuito il dispositivo StorSimple.  
 
 | Per questo parametro... | Per verificare la validità... | Eseguire i comandi/cmdlet seguenti. |
@@ -139,14 +139,14 @@ Prima di iniziare, verificare che:
 | **IP**</br>**Subnet**</br>**Gateway** | Si tratta di un indirizzo IPv4 o IPv6 valido?</br>Si tratta di una subnet valida?</br>Si tratta di un gateway valido?</br>Si tratta di un indirizzo IP duplicato sulla rete? | `ping ip`</br>`arp -a`</br>I comandi`ping`e`arp`devono avere esito negativo che indica che non esiste alcun dispositivo nella rete datacenter che utilizza tale IP.
 | | | |
 | **DNS** | Si tratta di un DNS valido e può risolvere gli URL di Azure? | `Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>`</br>Un comando alternativo che può essere utilizzato è:</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
-| | Verificare che la porta 53 sia aperta. Questa opzione è disponibile solo se si utilizza un server DNS esterno per il dispositivo. I DNS interni dovrebbero risolvere automaticamente gli URL esterni. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000`</br>[Ulteriori informazioni su questo cmdlet]()|
+| | Verificare che la porta 53 sia aperta. Questa opzione è disponibile solo se si utilizza un server DNS esterno per il dispositivo. I DNS interni dovrebbero risolvere automaticamente gli URL esterni. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000`</br>[Ulteriori informazioni su questo cmdlet](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/)|
 | | | |
-| **NTP** | È attiva la sincronizzazione dell'ora non appena il server NTP è di input. Controllare che la porta 123 sia aperta durante l'input`time.windows.com`o server di riferimento ora pubblico). | [Scaricare e utilizzare questo script](). |
+| **NTP** | È attiva la sincronizzazione dell'ora non appena il server NTP è di input. Controllare che la porta 123 sia aperta durante l'input`time.windows.com`o server di riferimento ora pubblico). | [Scaricare e utilizzare questo script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | `wget http://bing.com % {$_.StatusCode}`</br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy web. Se viene restituito 200, indica che la connessione ha esito positivo. |
+| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy Web. Se viene restituito un codice di stato 200, significa che la connessione ha avuto esito positivo. |
 | | Il traffico è indirizzabile tramite proxy? | Eseguire la convalida di DNS, il controllo NTP o HTTP dopo la configurazione del proxy sul dispositivo. Questo fornirà un quadro preciso se il traffico viene bloccato nel proxy o altrove. |
 | | | |
-| **Registrazione** | Controllare che le porte TCP in uscita 443, 80, 9354 siano aperte. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Ulteriori informazioni per il cmdlet Test-NetConnection]() |
+| **Registrazione** | Controllare che le porte TCP in uscita 443, 80, 9354 siano aperte. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Ulteriori informazioni per il cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
 
 ## Distribuzione passo per passo
 
@@ -164,7 +164,7 @@ Effettuare i passaggi seguenti per creare una nuova istanza del servizio StorSim
 
 > [AZURE.IMPORTANT]Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#Configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
+> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
 
@@ -195,7 +195,7 @@ Eseguire i passaggi seguenti nel portale di Azure per completare l'installazione
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup.md)]
 
-Una volta completata la configurazione del dispositivo, è necessario analizzare gli aggiornamenti e, se disponibili, installarli. Gli aggiornamenti possono richiedere diverse ore. Seguire le istruzioni in[cercare e applicare gli aggiornamenti](#scan-for-and-apply-updates).
+Una volta completata la configurazione del dispositivo, è necessario analizzare gli aggiornamenti e, se disponibili, installarli. Gli aggiornamenti possono richiedere diverse ore. Seguire le istruzioni in [cercare e applicare gli aggiornamenti](#scan-for-and-apply-updates).
 
 
 ## Passaggio 5: Creare un contenitore di volumi
@@ -260,9 +260,9 @@ L’aggiornamento del dispositivo può richiedere da 1 a 4 ore. Eseguire i passa
 > [AZURE.NOTE]Se si dispone di un gateway configurato su un’interfaccia di rete diversa da Data 0, è necessario disabilitare le interfacce di rete Data 2 e Data 3 prima di installare l'aggiornamento. Andare a**Dispositivi > Configura**e disabilitare le interfacce Data 2 e Data 3. Dopo aver aggiornato il dispositivo, è necessario attivare nuovamente tali interfacce.
 
 #### Per aggiornare il dispositivo
-1.	Nella pagina **Avvio rapido** del dispositivo fare clic su **Dispositivi**. Selezionare il dispositivo fisico, fare clic su**Manutenzione**e quindi fare clic su**Analisi aggiornamenti**.  
+1.	Nella pagina **Avvio rapido** del dispositivo fare clic su **Dispositivi**. Selezionare il dispositivo fisico, fare clic su **Manutenzione** quindi fare clic su **Analisi aggiornamenti**.  
 2.	Viene creato un processo che consente di cercare gli aggiornamenti disponibili. Se sono disponibili aggiornamenti, **Analisi aggiornamenti** diventa **Installa aggiornamenti**. Fare clic su **Installa aggiornamenti**. Può essere richiesto di disabilitare Data 2 e Data 3 prima di installare gli aggiornamenti. È necessario disabilitare queste interfacce di rete o gli aggiornamenti non avranno esito positivo.
-3.	Verrà creato un processo di aggiornamento. Monitorare lo stato dell'aggiornamento passando a**Processi**.
+3.	Verrà creato un processo di aggiornamento. Monitorare lo stato dell'aggiornamento passando a **Processi**.
 
 	> [AZURE.NOTE]Quando viene avviato il processo di aggiornamento, immediatamente lo stato viene visualizzato al 50%. Lo stato passa quindi al 100% solo dopo che è stato completato il processo di aggiornamento. Non esiste alcuno stato in tempo reale per il processo di aggiornamento.
 
@@ -290,4 +290,4 @@ Eseguire i passaggi seguenti nel portale di Azure per creare un backup manuale s
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

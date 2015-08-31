@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Hub di notifica: architettura push aziendale" 
-	description="Indicazioni sull'uso di Hub di notifica di Azure in un ambiente aziendale" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Hub di notifica: architettura push aziendale"
+	description="Indicazioni sull'uso di Hub di notifica di Azure in un ambiente aziendale"
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Guida all'architettura push aziendale
@@ -21,7 +21,7 @@
 Al giorno d'oggi, le aziende stanno gradualmente passando alla creazione di applicazioni per dispositivi mobili sia per gli utenti finali (esterni) che per i dipendenti (interni). Le aziende dispongono di sistemi back-end già esistenti, ovvero mainframe o applicazioni LoB che è necessario integrare nell'architettura delle applicazioni per dispositivi mobili. In questa Guida verrà illustrato come eseguire questa integrazione nel modo migliore possibile, fornendo possibili soluzioni per scenari comuni.
 
 Una richiesta frequente riguarda l'invio di notifiche push agli utenti tramite l'applicazione per dispositivi mobili in uso quando si verifica un evento di interesse nei sistemi back-end. Una cliente di una banca, ad esempio, ha installato sul proprio iPhone l'app dei servizi bancari della banca stessa e desidera ricevere una notifica quando sul conto viene effettuato un addebito superiore a un determinato importo. Oppure, in uno scenario intranet, un dipendente del reparto finanziario ha installato sul proprio Windows Phone una app per l'approvazione dei budget e desidera ricevere una notifica quando gli viene inviata una richiesta di approvazione.
- 
+
 È probabile che l'elaborazione del conto o dell'approvazione venga eseguita in un qualche sistema back-end che deve avviare un'operazione push verso l'utente. È possibile che siano presenti diversi sistemi back-end che devono eseguire lo stesso tipo di logica per implementare un push quando un evento attiva una notifica. In questo caso la complessità è dovuta alla necessità di integrare numerosi back-end con un singolo sistema di push, dove gli utenti finali possono aver eseguito la sottoscrizione a diverse notifiche e dove possono essere usate più applicazioni mobili, ad esempio nel caso di app per dispositivi mobili intranet che possono ricevere notifiche da diversi sistemi back-end. I sistemi back-end non conoscono o non hanno necessità di conoscere la semantica e/o la tecnologia di push. Per questo motivo, una soluzione comunemente usata fino ad ora consiste nell'introdurre un componente che esegue il polling dei sistemi back-end per qualsiasi evento di interesse ed è responsabile dell'invio di messaggi push al client. In questo documento viene presa in considerazione una soluzione ottimizzata che prevede l'uso del bus di servizio di Azure: si tratta di un modello argomento/sottoscrizione in grado di ridurre la complessità assicurando al tempo stesso la scalabilità della soluzione.
 
 Di seguito è descritta l'architettura generale della soluzione, descritta con numerose app per dispositivi mobili ma ugualmente applicabile nel caso in cui ne venga usata una soltanto.
@@ -41,7 +41,7 @@ L'elemento chiave del diagramma dell'architettura è costituito dal bus di servi
 	- Invia la notifica al client (tramite Hub di notifica di Azure)
 3. Applicazione per dispositivi mobili
 	- Riceve e visualizza la notifica
-		
+
 ###Vantaggi:
 
 1. Il disaccoppiamento tra il ricevitore (app/servizio per dispositivi mobili tramite Hub di notifica) e il mittente(sistemi back-end) consente l'integrazione di sistemi back-end aggiuntivi con modifiche minime.
@@ -52,19 +52,19 @@ L'elemento chiave del diagramma dell'architettura è costituito dal bus di servi
 ###Prerequisiti
 È necessario completare le seguenti esercitazioni per acquisire familiarità con i concetti e con i comuni passaggi di creazione e configurazione:
 
-1. [Come usare argomenti/sottoscrizioni del bus di servizio]\: illustrati i dettagli relativi all'uso di argomenti/sottoscrizioni del bus di servizio, come creare uno spazio dei nomi che contiene argomenti/sottoscrizioni e come inviare e ricevere messaggi da questi ultimi. 
-2. [Introduzione ad Hub di notifica]\: illustra come configurare un'app di Windows Store e usare Hub di notifica per registrare e quindi ricevere le notifiche. 
+1. [Come usare argomenti/sottoscrizioni del bus di servizio]\: illustrati i dettagli relativi all'uso di argomenti/sottoscrizioni del bus di servizio, come creare uno spazio dei nomi che contiene argomenti/sottoscrizioni e come inviare e ricevere messaggi da questi ultimi.
+2. [Introduzione ad Hub di notifica]\: illustra come configurare un'app di Windows Store e usare Hub di notifica per registrare e quindi ricevere le notifiche.
 
 ###Codice di esempio
 
 Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di notifica]. Il codice è suddiviso in tre componenti:
 
 1. **EnterprisePushBackendSystem**
-	
+
 	a. Il progetto usa il pacchetto *Nuget WindowsAzure.ServiceBus* ed è basato su quanto riportato in [Come usare argomenti/sottoscrizioni del bus di servizio].
 
 	b. Si tratta di una app console C# per simulare un sistema LoB che avvia il messaggio da recapitare all'app per dispositivi mobili.
-	
+
 		static void Main(string[] args)
         {
             string connectionString =
@@ -76,7 +76,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
             // Send message
             SendMessage(connectionString);
         }
-	
+
 	c. `CreateTopic` viene usato per creare l'argomento del bus di servizio a cui verranno inviati i messaggi.
 
         public static void CreateTopic(string connectionString)
@@ -100,7 +100,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
                 TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
 
             // Sends random messages every 10 seconds to the topic
-            string[] messages = 
+            string[] messages =
             {
                 "Employee Id '{0}' has joined.",
                 "Employee Id '{0}' has left.",
@@ -133,10 +133,10 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 	    {
 	        string connectionString =
 	                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	
+
 	        // Create the subscription which will receive messages
-	        CreateSubscription(connectionString);   
-	
+	        CreateSubscription(connectionString);
+
 	        // Receive message
 	        ReceiveMessageAndSendNotification(connectionString);
 	    }
@@ -164,14 +164,14 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
                     ("Microsoft.NotificationHub.ConnectionString");
             hub = NotificationHubClient.CreateClientFromConnectionString
                     (hubConnectionString, "enterprisepushservicehub");
-            
+
             SubscriptionClient Client =
                 SubscriptionClient.CreateFromConnectionString
                         (connectionString, sampleTopic, sampleSubscription);
 
             Client.Receive();
 
-            // Continuously process messages received from the subscription 
+            // Continuously process messages received from the subscription
             while (true)
             {
                 BrokeredMessage message = Client.Receive();
@@ -198,7 +198,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
                         message.Abandon();
                     }
                 }
-            } 
+            }
         }
         static async void SendNotificationAsync(string message)
         {
@@ -210,7 +210,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 	![][2]
 
 	f. Selezionare il proprio profilo di pubblicazione e, se non è già presente, creare un nuovo sito Web di Azure che ospiterà questo processo Web, quindi fare clic su **Pubblica**.
-	
+
 	![][3]
 
 	g. Configurare il processo per l'esecuzione continua, in modo che, quando si accede al portale di gestione d Azure, venga visualizzata una schermata simile alla seguente:
@@ -221,7 +221,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 3. **EnterprisePushMobileApp**
 
 	a. Si tratta di un'applicazione Windows Store che riceve notifiche di tipo avviso popup dal processo Web in esecuzione come parte del back-end Mobile e le visualizza. Si basa su quanto riportato in [Introduzione ad Hub di notifica - Esercitazione per Windows Universal].
-	
+
 	b. Verificare che l'applicazione sia abilitata alla ricezione di notifiche di tipo avviso popup.
 
 	c. Assicurarsi che all'avvio dell'app, dopo aver sostituito *HubName* e *DefaultListenSharedAccessSignature*, venga chiamato il seguente codice di registrazione di Hub di notifica:
@@ -244,9 +244,9 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 
 ### Esecuzione di esempio:
 
-1. Assicurarsi che il processo Web venga eseguito correttamente e che sia pianificato per l'esecuzione continua. 
-2. Eseguire **EnterprisePushMobileApp** che avvierà l'app di Windows Store. 
-3. Eseguire l'applicazione console **EnterprisePushBackendSystem** che simula il back-end LOB e avvia l'invio di messaggi. Verranno visualizzate notifiche di tipo avviso popup simili alle seguenti: 
+1. Assicurarsi che il processo Web venga eseguito correttamente e che sia pianificato per l'esecuzione continua.
+2. Eseguire **EnterprisePushMobileApp** che avvierà l'app di Windows Store.
+3. Eseguire l'applicazione console **EnterprisePushBackendSystem** che simula il back-end LOB e avvia l'invio di messaggi. Verranno visualizzate notifiche di tipo avviso popup simili alle seguenti:
 
 	![][5]
 
@@ -271,6 +271,5 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Web di Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

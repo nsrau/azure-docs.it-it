@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -51,7 +52,7 @@ Lo streaming comporta il passaggio di dati da parte di Hive e Pig a un'applicazi
 
 Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è consigliabile usare il modello **Applicazione console** per i progetti C#.
 
-##Hive e C&#35;
+##Hive e C&\#35;
 
 ###Creare il progetto C#
 
@@ -152,7 +153,7 @@ Poiché Hive e Pig devono richiamare l'applicazione in fase di esecuzione, è co
 
 6. Fare clic su **Aggiorna** per aggiornare il riepilogo fino all'impostazione del valore **Stato processo** su **Completato**. Per visualizzare l'output del processo, fare clic su **Output processo**.
 
-##Pig e C&#35;
+##Pig e C&\#35;
 
 ###Creare il progetto C#
 
@@ -240,4 +241,4 @@ Per informazioni su altri modi per usare Pig e Hive e sull'uso di MapReduce, ved
 
 * [Usare MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

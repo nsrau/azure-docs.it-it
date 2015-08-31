@@ -5,8 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
-
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -16,7 +16,6 @@
    ms.workload="big-data"
    ms.date="07/24/2015"
    ms.author="larryfr"/>
-
 
 # Informazioni sull'utilizzo di HDInsight in Linux (anteprima)
 
@@ -54,13 +53,16 @@ Il nome di dominio completo (FQDN) da usare per la connessione al cluster è **&
 	>
 	> L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
-* **SSH** - &lt;nome cluster>-ssh.azurehdinsight.net sulla porta 22
+* **SSH** - &lt;nome cluster>-ssh.azurehdinsight.net sulla porta 22 o 23. La porta 22 viene utilizzata per connettersi a headnode0, mentre la porta 23 viene utilizzata per connettersi a headnode1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
 	> [AZURE.NOTE]È possibile accedere al nodo head del cluster solo tramite SSH da un computer client. Una volta connessi, è quindi possibile accedere ai nodi di lavoro mediante SSH dal nodo head.
 
 ## Percorsi dei file
 
-I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp/current`.
+I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp`. La directory contiene le sottodirectory seguenti:
+
+* __2.2.4.9-1__: questa directory è denominata per la versione di Hortonworks Data Platform utilizzato da HDInsight, pertanto il numero il cluster potrebbe essere diverso da quelle elencate di seguito.
+* __corrente__: questa directory contiene collegamenti alle directory sotto la directory __2.2.4.9-1__ ed è presente ogni volta che si desidera accedere a un file in modo che sia necessario digitare un numero di versione (che può cambiare,).
 
 Dati di esempio e i file JAR sono disponibili nel file system Hadoop Distributed File System (HDFS) o nell'archivio BLOB di Azure in '/example' o 'wasb:///example'.
 
@@ -141,4 +143,4 @@ Oltre che con il comando Hadoop dal cluster, è possibile procedere in diversi m
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

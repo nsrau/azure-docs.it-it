@@ -3,29 +3,29 @@
 	description="Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service=”backup” ms.workload=”storage-backup-recovery” ms.tgt_pltfrm=”na” ms.devlang=”na” ms.topic=”article” ms.date=”08/18/2015” ms.author=”jimpark”; “aashishr”; “sammehta”/>
 
 
-# Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
-Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server DPM, e per gestire le operazioni di backup e ripristino.
+# Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante Azure PowerShell
+Questo articolo illustra come usare Azure PowerShell per configurare Backup di Azure in un server DPM e per gestire le operazioni di backup e ripristino.
 
-## Configurazione dell'ambiente di PowerShell
-Prima di poter usare PowerShell per gestire i backup da Data Protection Manager ad Azure, sarà necessario disporre dell'ambiente appropriato in PowerShell. All'inizio della sessione di PowerShell, assicurarsi di eseguire il comando seguente per importare i moduli appropriati e fare riferimento correttamente ai cmdlet DPM:
+## Configurazione dell'ambiente di Azure PowerShell
+Prima di poter usare Azure PowerShell per gestire i backup da Data Protection Manager ad Azure, sarà necessario disporre dell'ambiente appropriato in Azure PowerShell. All'inizio della sessione di Azure PowerShell, assicurarsi di eseguire il comando seguente per importare i moduli appropriati e fare riferimento correttamente ai cmdlet DPM:
 
 ```
 PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command 
-Only DPM cmdlets: Get-DPMCommand 
-Get general help: help 
-Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
-Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Full list of cmdlets: Get-Command
+Only DPM cmdlets: Get-DPMCommand
+Get general help: help
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -?
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax
 Sample DPM scripts: Get-DPMSampleScript
 ```
 
@@ -45,7 +45,7 @@ PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” �
 ### Installazione dell'agente di Backup di Azure in un server DPM
 Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall'[Area download Microsoft](http://aka.ms/azurebackup_agent).o dalla pagina Dashboard dell’archivio di backup. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\\Downloads*.
 
-Per installare l'agente, eseguire il comando seguente in una console di PowerShell con privilegi elevati **nel server DPM**:
+Per installare l'agente, eseguire il comando seguente in una console di Azure PowerShell con privilegi elevati **nel server DPM**:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -97,7 +97,7 @@ f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.Vaul
 La registrazione del computer con l'insieme di credenziali viene eseguita utilizzando il cmdlet [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787):
 
 ```
-PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> $cred = $credspath + $credsfilename
 PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 
@@ -300,4 +300,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 ## Passaggi successivi
 Per ulteriori informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di Azure DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

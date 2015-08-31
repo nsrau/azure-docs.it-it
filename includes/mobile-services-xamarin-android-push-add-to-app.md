@@ -26,7 +26,7 @@
 	        Categories = new string[] { "@PACKAGE_NAME@" })]
 	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
         Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
 	        // Set the Google app ID.
 	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
@@ -49,7 +49,7 @@
 
 	>[AZURE.NOTE]La classe **GcmServiceBase** implementa i metodi **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** e **OnError()**. È necessario eseguire l'override di questi metodi nella classe **PushHandlerService**.
 
-5. Aggiungere il codice seguente alla classe **ToDoBroadcastReceiver** che sostituisce il gestore di eventi **OnRegistered**.
+5. Aggiungere il codice seguente alla classe **PushHandlerService** che sostituisce il gestore di eventi **OnRegistered**.
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -116,7 +116,7 @@
             }
         }
 
-12. Aggiungere il metodo seguente per eseguire l'override di **OnUnRegistered()** e **OnError()**, che sono necessari per la compilazione del progetto.
+12. Eseguire l'override dei metodi **OnUnRegistered()** e **OnError()** con il codice seguente.
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {
@@ -129,4 +129,4 @@
                 string.Format("Error occurred in the notification: {0}.", errorId));
         }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in iOS"
-	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
+	pageTitle="Aggiungere l'autenticazione in iOS con le app per dispositivi mobili di Azure"
+	description="Informazioni su come usare le app per dispositivi mobili di Azure per autenticare gli utenti dell'app iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="mattchenderson" 
+	authors="krisragh" 
 	manager="dwrede"
 	editor=""/>
 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="mahender"/>
+	ms.date="08/12/2015"
+	ms.author="krisragh"/>
 
-# Aggiungere l'autenticazione all'app iOS
+# Autenticazione di iOS con le app per dispositivi mobili di Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]& nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
-
-Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato dal servizio app. In seguito all'autenticazione e all'autorizzazione da parte dell'app mobile, viene visualizzato il valore dell'ID utente.
-
-Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anche necessario completare prima l'esercitazione [Creare un'app iOS].
+Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [avvio rapido di iOS] tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di iOS], che deve essere completata per prima.
 
 ##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
-##<a name="register"></a>Registrare l'app per l'autenticazione e configurare i servizi app
+##<a name="create-gateway"></a>Creare un gateway del servizio app
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
+
+##<a name="register"></a>Registrare l'app per l'autenticazione e configurare il servizio app
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -38,28 +38,18 @@ Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anch
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li><p>In Xcode aprire il progetto. Premere il pulsante <b>Run</b> per avviare l'app. Verificare che dopo l'avvio dell'app venga generata un'eccezione con codice di stato 401 (Non autorizzato).</p>
-
-   	<p>L'eccezione non gestita viene generata perché l'app prova ad accedere al codice dell'app per dispositivi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
-</ol>
-
-A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
+In Xcode fare clic su **Run** per avviare l'app. L'eccezione non gestita viene generata perché l'app prova ad accedere al back-end come utente non autenticato, mentre ora la tabella _TodoItem_ richiede l'autenticazione.
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>Archiviare token di autenticazione nell'app
-
-[AZURE.INCLUDE [app-service-mobile-ios-authenticate-app-with-token](../../includes/app-service-mobile-ios-authenticate-app-with-token.md)]
-
 
 <!-- URLs. -->
 
-[Creare un'app iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[avvio rapido di iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

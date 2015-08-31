@@ -1,24 +1,24 @@
 <properties
-	pageTitle="Introduzione a Ricerca di Azure in Java"
-	description="Illustra la creazione di un'applicazione Ricerca di Azure personalizzata utilizzando Java come linguaggio di programmazione."
+	pageTitle="Introduzione a Ricerca di Azure in Java | Microsoft Azure"
+	description="Come creare un'applicazione di Ricerca di Azure personalizzata utilizzando Java come linguaggio di programmazione."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
-#Introduzione a Ricerca di Azure in Java#
+# Introduzione a Ricerca di Azure in Java
 
-Informazioni su come compilare un'applicazione di ricerca Java personalizzata che utilizza Ricerca di Azure per l’esperienza di ricerca. L'esercitazione utilizza l’[API REST del servizio Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx) per costruire gli oggetti e le operazioni utilizzate in questo esercizio.
+Informazioni su come compilare un'applicazione di ricerca Java personalizzata che utilizza Ricerca di Azure per l’esperienza di ricerca. Nell'esercitazione viene usata l’[API REST del servizio Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx) per costruire gli oggetti e le operazioni inclusi in questo esercizio.
 
 Per compilare e testare questo esempio è stato utilizzato il seguente software:
 
@@ -34,7 +34,7 @@ Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Az
 
 ## Informazioni sui dati
 
-L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un’applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
+L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un'applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
 
 In questa applicazione, il programma **SearchServlet.java** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali predefinite e la connessione all’origine dati online. In termini di accesso ai dati, non è necessaria alcuna ulteriore configurazione.
 
@@ -57,7 +57,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nell'indice, fare clic su **Nuovo** | **Dati + archiviazione** | **Ricerca**.
+2. Nell'indice, fare clic su **Nuovo** > **Dati e archiviazione** > **Ricerca**.
 
      ![][1]
 
@@ -72,7 +72,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 		- Il livello **gratuito** viene eseguito in cluster condivisi con altri sottoscrittori. Offre capacità sufficienti per provare le esercitazioni e scrivere codice per i modelli di prova, ma non è consigliato per le applicazioni in ambienti di produzione. La distribuzione di un servizio gratuito in genere richiede solo pochi minuti.
 		- Il livello **standard** viene eseguito su risorse dedicate ed è altamente scalabile. Inizialmente viene eseguito il provisioning di un servizio standard con una replica e una partizione, ma è possibile regolare la capacità una volta creato il servizio. La distribuzione di un servizio standard richiede più tempo, in genere circa 15 minuti.
 
-	- I **gruppi di risorse** sono contenitori per i servizi e le risorse usati per uno scopo comune. Ad esempio, se si intende creare un'applicazione di ricerca personalizzata basata su Ricerca di Azure, Siti Web di Azure, il servizio di archiviazione BLOB di Azure, è possibile creare un gruppo di risorse per raggruppare questi servizi nelle pagine di gestione del portale.
+	- I **gruppi di risorse** sono contenitori per i servizi e le risorse usati per uno scopo comune. Ad esempio, se si intende creare un'applicazione di ricerca personalizzata basata su Ricerca di Azure, Siti Web di Azure e sul servizio di archiviazione BLOB di Azure, è possibile creare un gruppo di risorse per raggruppare questi servizi nelle pagine di gestione del portale.
 
 	- L’opzione **Sottoscrizione** consente di scegliere tra più sottoscrizioni, se si dispone di più di una sottoscrizione.
 
@@ -80,7 +80,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 
 4. Fare clic su **Crea** per eseguire il provisioning del servizio.
 
-Controllare le notifiche nell'indice. Quando il servizio è pronto per l'utilizzo, viene visualizzato un avviso.
+Controllare le notifiche nell'indice. Quando il servizio è pronto per l'uso, viene visualizzato un avviso.
 
 <a id="sub-2"></a>
 ## Individuare il nome del servizio e la chiave API del servizio Ricerca di Azure
@@ -89,7 +89,7 @@ Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL
 
 1. Nell’indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio.
 
-2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
+2. Nel dashboard del servizio saranno presenti i riquadri per le informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
   	![][3]
 
@@ -107,7 +107,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 ## Importare il progetto
 
-1. In Eclipse scegliere **File** | **Import** | **General** | **Existing Projects into Workspace**.
+1. In Eclipse scegliere **File** > **Importa** > **Generale** > **Progetti esistenti nell'area di lavoro**.
 
     ![][4]
 
@@ -117,9 +117,9 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 3. Fare clic su **Finish**.
 
-4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Window** | **Show View** | **Project Explorer** oppure utilizzare il collegamento per aprirlo.
+4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Finestra** > **Mostra visualizzazione** > **Esplora progetti** oppure usare il collegamento per aprirlo.
 
-## Configurare l'URL del servizio e la chiave Api
+## Configurare l'URL del servizio e la chiave API
 
 1. In **Project Explorer**, fare doppio clic su **config.properties** per modificare le impostazioni di configurazione contenenti il nome del server e la chiave dell'api.
 
@@ -131,7 +131,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 ## Configurare gli ambienti di progetto, compilazione e runtime
 
-1. In Eclipse, in Project Explorer, fare clic con il pulsante destro del mouse sul progetto | **Properties** | **Project Facets**.
+1. In Eclipse, fare clic in Esplora progetti sul progetto e quindi su **Proprietà** > **Facet progetto**.
 
 2. Selezionare **Dynamic Web Module**, **Java** e **JavaScript**.
 
@@ -139,7 +139,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 3. Fare clic su **Apply**.
 
-4. Selezionare **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add..**.
+4. Selezionare **Finestra** > **Preferenze** > **Server** > **Ambienti di runtime** > **Aggiungi**.
 
 5. Espandere Apache e selezionare la versione del server Apache Tomcat installata in precedenza. In questo sistema è installata la versione 8.
 
@@ -149,7 +149,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 6. Fare clic su **Finish**.
 
-7. Selezionare **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**.
+7. Selezionare **Finestra** > **Preferenze** > **Java** > **JREs installato** > **Aggiungi**.
 
 8. In **Add JRE**, selezionare **Standard VM**.
 
@@ -157,13 +157,13 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 11. Nella definizione dell'ambiente JRE, nella home di JRE, fare clic su **Directory**.
 
-12. Passare a **Program Files** | **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.
+12. Passare a **Programmi** > **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.
 
 13. In Installed JREs, scegliere il **JDK**. Il risultato finale dovrebbe essere simile a quello riportato nella schermata seguente.
 
     ![][9]
 
-14. Facoltativamente, selezionare **Window** | **Web Browser** | **Internet Explorer** per aprire l'applicazione in una finestra del browser esterno. L’utilizzo di un browser esterno offre una migliore esperienza di applicazione Web.
+14. Facoltativamente, selezionare **Finestra** > **Web Browser** > **Internet Explorer** per aprire l'applicazione in una finestra del browser esterno. L’utilizzo di un browser esterno offre una migliore esperienza di applicazione Web.
 
     ![][8]
 
@@ -171,7 +171,7 @@ La configurazione del dispositivo è stata completata. A questo punto, compilare
 
 ## Compilare il progetto
 
-1. In Project Explorer, fare clic con il pulsante destro del mouse sul progetto e scegliere **Run As** | **Maven build...** per configurare il progetto.
+1. In Esplora progetti, fare clic con il pulsante destro del mouse sul progetto e scegliere **Esegui come** > **Build Maven...** per configurare il progetto.
 
     ![][10]
 
@@ -187,13 +187,13 @@ Se ancora non è stato specificato un ambiente di runtime del server in Eclipse,
 
 1. In Project Explorer espandere **WebContent**.
 
-5. Fare clic con il pulsante destro del mouse su **Search.jsp** | **Run As** | **Run on Server**. Selezionare il server Apache Tomcat, quindi fare clic su **Run**.
+5. Fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Esegui come controllo server**. Selezionare il server Apache Tomcat, quindi fare clic su **Run**.
 
-> [AZURE.TIP]Se si utilizza un'area di lavoro non predefinita per archiviare il progetto, è probabilmente necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Project Explorer, fare clic con il pulsante destro del mouse su **Search.jsp** | **Run As** | **Run Configurations**. Selezionare il server Apache Tomcat. Fare clic su **Arguments**. Fare clic su **Workspace** o **File system** per impostare la cartella contenente il progetto.
+> [AZURE.TIP]Se è stata utilizzata un'area di lavoro non predefinita per archiviare il progetto, è necessario modificare la **configurazione di esecuzione** in modo che punti al percorso del progetto per evitare un errore di avvio del server. In Esplora progetti, fare clic con il pulsante destro del mouse su **Search.jsp** > **Esegui come** > **Configurazione di esecuzione**. Selezionare il server Apache Tomcat. Fare clic su **Arguments**. Fare clic su **Workspace** o **File system** per impostare la cartella contenente il progetto.
 
 Quando si esegue l'applicazione viene visualizzata una finestra del browser con una casella di ricerca per l'immissione di termini.
 
-Attendere circa un minuto prima di fare clic su **Search** per consentire al servizio di creare e caricare l'indice. Se si verifica un errore HTTP 404, è necessario attendere un po' più a lungo prima di riprovare.
+Attendere circa un minuto prima di fare clic su **Ricerca** per consentire al servizio di creare e caricare l'indice. Se si verifica un errore HTTP 404, è necessario attendere un po' più a lungo prima di riprovare.
 
 ## Eseguire ricerche sui dati dei servizi geologici degli Stati Uniti
 
@@ -230,6 +230,5 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

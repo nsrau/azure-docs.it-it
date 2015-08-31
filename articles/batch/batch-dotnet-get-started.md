@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Esercitazione - Introduzione alla libreria Azure Batch .NET"
+	pageTitle="Esercitazione - Introduzione alla libreria Azure Batch .NET | Microsoft Azure"
 	description="Informazioni sui concetti di base di Azure Batch e su come sviluppare per il servizio Batch con uno scenario semplice."
 	services="batch"
 	documentationCenter=".net"
@@ -18,13 +18,13 @@
 
 # Introduzione alla libreria di Azure Batch per .NET  
 
-In questa esercitazione viene illustrato come creare un'applicazione console che consente di installare un programma e i file di supporto da eseguire su vari nodi di calcolo in un pool di Azure Batch. Le attività create in questa esercitazione prevedono la valutazione del testo dei file presenti in Archiviazione di Azure e quindi la restituzione delle parole usate con maggiore frequente. Gli esempi sono in codice C# e usano la libreria Azure Batch .NET.
+Iniziare a lavorare con la libreria .NET di Azure Batch tramite la creazione di un'applicazione console che consente di impostare i file di supporto e un programma che viene eseguito su più nodi di calcolo in un pool di Azure Batch. Le attività create in questa esercitazione prevedono la valutazione del testo dei file presenti in Archiviazione di Azure e quindi la restituzione delle parole usate con maggiore frequenza. Gli esempi sono in codice C# e usano la [Libreria Azure Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx).
 
 ## Prerequisiti
 
 - Gli account:
 
-	- **Account Azure**: è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+	- **Account Azure**: è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 	- **Account Batch**: vedere la sezione **Account Batch** in [Panoramica tecnica di Azure Batch](batch-technical-overview.md).
 
@@ -42,13 +42,15 @@ In questa esercitazione viene illustrato come creare un'applicazione console che
 
 	2. Cercare online **WindowsAzure.Storage** e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
+> [AZURE.TIP]In questa esercitazione vengono utilizzati alcuni concetti fondamentali di Batch illustrati in [Nozioni fondamentali di API per Azure Batch](batch-api-basics.md), la cui lettura è consigliata per i nuovi utenti.
+
 ## Passaggio 1: Creare e caricare i file di supporto
 
 Per supportare l'applicazione viene creato un contenitore in Archiviazione di Azure, vengono creati i file di testo e quindi i file di testo e i file di supporto vengono caricati nel contenitore.
 
 ### Configurare la stringa di connessione di archiviazione
 
-1. Aprire il file App.config per il progetto GettingStarted e quindi aggiungere l'elemento &lt;appSettings&gt; in &lt;configuration&gt;.
+1. Aprire il file App.config per il progetto GettingStarted e quindi aggiungere l'elemento *&lt;appSettings&gt;* in *&lt;configuration&gt;*.
 
 		<?xml version="1.0" encoding="utf-8" ?>
 		<configuration>
@@ -61,21 +63,24 @@ Per supportare l'applicazione viene creato un contenitore in Archiviazione di Az
 
 	- **[account-name]**: nome dell'account di archiviazione creato in precedenza.
 
-	- **[account key]**: chiave primaria dell'account di archiviazione. È possibile trovare la chiave primaria dalla pagina Archiviazione nel portale di gestione
+	- **[account key]**: chiave primaria dell'account di archiviazione. È possibile trovare la chiave primaria nella pagina Archiviazione nel portale di Azure.
 
 2. Salvare il file App.config.
 
-Per altre informazioni, vedere [Configurazione delle stringhe di connessione](http://msdn.microsoft.com/library/windowsazure/ee758697.aspx).
+Per ulteriori informazioni sulle stringhe di connessione di archiviazione di Azure, vedere [configurare stringhe di connessione di archiviazione di Azure](../storage/storage-configure-connection-string.md).
 
 ### Creare il contenitore di archiviazione
 
-1. Aggiungere queste dichiarazioni dello spazio dei nomi all'inizio del file Program.cs nel progetto GettingStarted:
+1. Aggiungere queste dichiarazioni all'inizio del file Program.cs nel progetto GettingStarted:
 
 		using System.Configuration;
+		using System.IO;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
-2. Aggiungere questo metodo alla classe Program che recupera la stringa di connessione di archiviazione, crea il contenitore e imposta le autorizzazioni:
+2. Aggiungere *System.Configuration* a **Riferimenti** in **Esplora soluzioni** per il progetto GettingStarted
+
+3. Aggiungere questo metodo alla classe Program che recupera la stringa di connessione di archiviazione, crea il contenitore e imposta le autorizzazioni:
 
 		static void CreateStorage()
 		{
@@ -96,21 +101,27 @@ Per altre informazioni, vedere [Configurazione delle stringhe di connessione](ht
 			Console.ReadLine();
 		}
 
-3. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
+4. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
 
 		CreateStorage();
 
-4. Salvare il file Program.cs.
+5. Salvare il file Program.cs.
 
-	> [AZURE.NOTE]In un ambiente di produzione, si consiglia di usare una firma di accesso condiviso.
+	> [AZURE.NOTE]In un ambiente di produzione, si consiglia di usare una [firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
-Per altre informazioni, vedere [Come utilizzare l’archiviazione BLOB da .NET](../storage-dotnet-how-to-use-blobs.md)
+Per altre informazioni sull’archiviazione BLOB, vedere [Come utilizzare l’archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 ### Creare il programma di elaborazione
 
-1. In Esplora soluzioni creare un nuovo progetto di applicazione console denominato **ProcessTaskData**.
+1. In **Esplora soluzioni** creare un nuovo progetto di applicazione console denominato **ProcessTaskData**.
 
-2. Aggiungere questo codice a Main per elaborare il testo dai file:
+2. Dopo aver creato il progetto in Visual Studio, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online **WindowsAzure.Storage** e poi fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
+
+3. Aggiungere la seguente direttiva using all’inizio del file Program.cs:
+
+		using Microsoft.WindowsAzure.Storage.Blob;
+
+4. Aggiungere questo codice a Main per elaborare il testo dai file:
 
 		string blobName = args[0];
 		Uri blobUri = new Uri(blobName);
@@ -132,54 +143,61 @@ Per altre informazioni, vedere [Come utilizzare l’archiviazione BLOB da .NET](
 			Console.WriteLine("{0} {1}", pair.Key, pair.Value);
 		}
 
-3. Salvare e compilare il progetto ProcessTaskData.
+5. Salvare e compilare il progetto ProcessTaskData.
 
 ### Creare i file di dati
 
-1. Nel progetto GettingStarted creare un nuovo file di testo denominato **taskdata1**, copiare il testo seguente nel file e quindi salvarlo.
+1. Nel progetto GettingStarted creare un nuovo file di testo denominato **taskdata1.txt**, copiare il testo seguente nel file e quindi salvarlo.
 
 	Quando sono necessarie risorse flessibili per soddisfare le esigenze aziendali, è possibile usare Macchine virtuali di Azure per eseguire il provisioning dell'infrastruttura di calcolo su richiesta e scalabile. Dalla raccolta è possibile creare macchine virtuali che eseguono Windows, Linux e applicazioni aziendali come SharePoint e SQL Server. In alternativa, è possibile acquisire e usare le proprie immagini per creare macchine virtuali personalizzate.
 
-2. Creare un nuovo file di testo denominato **taskdata2**, copiare il testo seguente nel file e quindi salvarlo.
+2. Creare un nuovo file di testo denominato **taskdata2.txt**, copiare il testo seguente nel file e quindi salvarlo.
 
 	Con Servizi cloud di Azure è possibile distribuire rapidamente e gestire potenti applicazioni e servizi. È sufficiente caricare l'applicazione e Azure gestirà i dettagli della distribuzione, dal provisioning al bilanciamento del carico, al monitoraggio dell'integrità per la disponibilità continua. L'applicazione è supportata da un contratto di servizio mensile del 99,95%, leader nel settore. L'utente può pertanto concentrarsi sull'applicazione anziché sull'infrastruttura.
 
-3. Creare un nuovo file di testo denominato **taskdata3**, copiare il testo seguente nel file e quindi salvarlo.
+3. Creare un nuovo file di testo denominato **taskdata3.txt**, copiare il testo seguente nel file e quindi salvarlo.
 
 	Siti Web di Azure fornisce un ambiente scalabile, affidabile e facile da usare per l'hosting delle applicazioni Web. È possibile scegliere tra una vasta gamma di framework e modelli per creare un sito Web in pochi secondi e anche usare qualsiasi strumento o sistema operativo per sviluppare un sito con .NET, PHP, Node.js o Python. È inoltre possibile scegliere tra numerose opzioni di controllo del codice sorgente, tra cui TFS, GitHub e BitBucket, per configurare l'integrazione continua ed eseguire attività di sviluppo in team. Le funzionalità del sito possono essere ampliate nel corso del tempo grazie ai servizi gestiti aggiuntivi di Azure come Archiviazione, CDN e Database SQL.
 
-### Caricare i file nel contenitore
+### Caricare i file nel contenitore di archiviazione
 
-1. Aprire il file Program.cs del progetto GettingStarted e quindi aggiungere questo metodo che carica i file:
+1. Aprire il file Program.cs del progetto **GettingStarted** e quindi aggiungere questo metodo che carica i file:
 
 		static void CreateFiles()
 		{
-		  privateCloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-			ConfigurationManager.AppSettings["StorageConnectionString"]);
-		  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-		  CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
-		  CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
-		  CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
-		  CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
-	  	CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
-	  	CloudBlockBlob storageassembly =
-			container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
-		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
-		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
-	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
-		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
-		  storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
-		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
-		  Console.ReadLine();
+			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+				ConfigurationManager.AppSettings["StorageConnectionString"]);
+			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+			CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+
+			CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
+			CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
+			CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
+			taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+			taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+			taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+
+			CloudBlockBlob storageassembly = container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
+			storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
+
+			CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
+			dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
+
+			Console.WriteLine("Uploaded the files. Press Enter to continue.");
+			Console.ReadLine();
 		}
 
-2. Salvare il file Program.cs.
+2. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
 
-## Passaggio 2. Aggiungere un pool al proprio account
+		CreateFiles();
+
+3. Salvare il file Program.cs.
+
+## Passaggio 2. Aggiungere un pool al proprio account Batch
 
 Un pool di nodi di calcolo è il primo set di risorse che è necessario creare per eseguire attività.
 
-1.	Aggiungere queste dichiarazioni dello spazio dei nomi all'inizio del file Program.cs nel progetto GettingStarted:
+1.	Aggiungere queste dichiarazioni all'inizio del file Program.cs nel progetto GettingStarted:
 
 			using Microsoft.Azure.Batch;
 			using Microsoft.Azure.Batch.Auth;
@@ -234,7 +252,7 @@ Un pool di nodi di calcolo è il primo set di risorse che è necessario creare p
 
 7. Salvare il file Program.cs.
 
-## Passaggio 2: Aggiungere un processo a un account
+## Passaggio 3: Aggiungere un processo a un account
 
 Creare un processo che consente di gestire le attività eseguite nel pool. Tutte le attività devono essere associate a un processo.
 
@@ -276,7 +294,7 @@ Creare un processo che consente di gestire le attività eseguite nel pool. Tutte
 
 5. Salvare il file Program.cs.
 
-## Passaggio 3: Aggiungere attività al processo
+## Passaggio 4: Aggiungere attività al processo
 
 Dopo aver creato il processo, è possibile aggiungervi attività. Ogni attività viene eseguita su un nodo di calcolo ed elabora un file di testo. Per questa esercitazione, è necessario aggiungere tre attività al processo.
 
@@ -286,7 +304,7 @@ Dopo aver creato il processo, è possibile aggiungervi attività. Ogni attività
 		{
 			CloudJob job = client.JobOperations.GetJob("testjob1");
 			ResourceFile programFile = new ResourceFile(
-				"https://[account-name].blob.azure.com/[]/ProcessTaskData.exe",
+				"https://[account-name].blob.core.windows.net/testcon1/ProcessTaskData.exe",
 				"ProcessTaskData.exe");
       	  ResourceFile assemblyFile = new ResourceFile(
 				"https://[account-name].blob.core.windows.net/testcon1/Microsoft.WindowsAzure.Storage.dll",
@@ -320,7 +338,9 @@ Dopo aver creato il processo, è possibile aggiungervi attività. Ogni attività
 			Console.ReadLine();
 		}
 
-	**[account-name]** deve essere sostituito con il nome dell'account di archiviazione creato in precedenza. Assicurarsi di ottenere tutte e quattro le posizioni.
+
+	**[account-name]** deve essere sostituito con il nome dell'account di archiviazione creato in precedenza. Nell'esempio precedente, aggiornare tutte le quattro istanze di **[nome-account]**.
+
 
 2. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
 
@@ -346,7 +366,7 @@ Dopo aver creato il processo, è possibile aggiungervi attività. Ogni attività
 
 5. Salvare il file Program.cs.
 
-## Passaggio 4: Eliminare le risorse
+## Passaggio 5: Eliminare le risorse
 
 Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile eliminare le risorse che non sono più necessarie.
 
@@ -382,7 +402,7 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 				Console.ReadLine();
 			}
 
-2. Aggiungere questo codice a Main per eseguire il metodo appena aggiunto:
+2. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
 
 		DeleteJob(client);
 
@@ -399,13 +419,13 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 			Console.ReadLine();
 		}
 
-2. Aggiungere questo codice a Main per eseguire il metodo appena aggiunto:
+2. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
 
 		DeletePool(client);
 
 3. Salvare il file Program.cs.
 
-## Passaggio 5: Eseguire l'applicazione
+## Passaggio 6: Eseguire l'applicazione
 
 1. Avviare il progetto GettingStarted. Nella finestra della console dovrebbe essere visualizzato il messaggio seguente dopo la creazione del contenitore:
 
@@ -475,4 +495,4 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 2. Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

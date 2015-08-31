@@ -147,7 +147,14 @@ Questi tipi sono supportati in una formula:
 - double
 - doubleVec
 - stringa
-- timestamp
+- timestamp. timestamp è una struttura composta che contiene i membri seguenti.
+	- year
+	- month (1-12)
+	- day (1-31)
+	- weekday (in formato numero. Ad esempio, 1 per lunedì)
+	- hour (in formato 24 ore. Ad esempio, 13 significa 1 del pomeriggio)
+	- minute (00-59)
+	- second (00-59)
 - timeInterval
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
@@ -457,6 +464,36 @@ Se è già stato configurato un pool con un numero specificato di nodi di calcol
 - [Proprietà ICloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx): quando si usa la libreria .NET, questa proprietà di un pool fornisce un'istanza della [classe AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), che fornisce una [proprietà AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), una [proprietà AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) e una [proprietà AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
 - [Recuperare informazioni su un pool](https://msdn.microsoft.com/library/dn820165.aspx): questa API REST restituisce informazioni relative al pool, che includono l'esecuzione più recente della scalabilità automatica.
 
+## esempi
+
+### Esempio 1.
+
+Si desidera modificare le dimensioni del pool in base al tempo della settimana.
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+Questa formula rileverà l'ora corrente. Se si tratta del giorno della settimana (1..5) e ore di lavoro (8 del mattino... 6 del mattino), la dimensione del pool di destinazione verrà impostata su 20. In caso contrario, le dimensioni del pool sono indirizzate al 10.
+
+### Esempio 2.
+
+Un altro esempio per la regolazione delle dimensioni del pool in base alle attività nella coda.
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
+
 ## Passaggi successivi
 
 1.	Potrebbe essere necessario accedere al nodo di calcolo per poter valutare completamente l'efficienza dell'applicazione. Per sfruttare i vantaggi dell'accesso remoto, è necessario aggiungere un account utente al nodo di calcolo a cui si desidera accedere e recuperare un file RDP da tale nodo. Aggiungere l'account utente in uno dei modi seguenti:
@@ -472,4 +509,4 @@ Se è già stato configurato un pool con un numero specificato di nodi di calcol
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): questo cmdlet recupera il file RDP dal nodo di calcolo specificato e lo salva nel percorso di file specificato oppure in un flusso.
 2.	Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

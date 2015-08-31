@@ -1,4 +1,3 @@
-
 #### Per installare gli aggiornamenti in modalità di manutenzione tramite Windows PowerShell per StorSimple
 
 1. Se non è già stato fatto, accedere alla console seriale del dispositivo e selezionare l'opzione 1, **Accedi con accesso completo**. 
@@ -9,7 +8,7 @@
 
      `Get-HcsUpdateAvailability`
     
-4. Verrà notificato se sono disponibili aggiornamenti e se gli aggiornamenti sono problematici o meno. Per applicare aggiornamenti problematici, è necessario attivare la modalità di manutenzione per il dispositivo. Vedere [Attivare la modalità di manutenzione](#enter-maintenance-mode) per visualizzare istruzioni.
+4. Verrà notificato se sono disponibili aggiornamenti e se gli aggiornamenti sono problematici o meno. Per applicare aggiornamenti problematici, è necessario attivare la modalità di manutenzione per il dispositivo. Per istruzioni, vedere [Passaggio 2: Attivare la modalità di manutenzione](storsimple-update-device.md#step2).
 
 5. Quando il dispositivo è in modalità di manutenzione, avviare il prompt dei comandi e digitare: `Start-HcsUpdate`
 
@@ -23,6 +22,6 @@
 
 7. Quando l'aggiornamento è installato nel controller corrente ed è stato riavviato, connettersi all'altro controller ed eseguire i passaggi da 1 a 6.
 
-8. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Vedere [Uscire dalla modalità di manutenzione](#exit-maintenance-mode) per visualizzare istruzioni.
+8. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Per istruzioni, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](storsimple-update-device.md#step4).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

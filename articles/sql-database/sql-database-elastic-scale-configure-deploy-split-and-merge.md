@@ -1,12 +1,9 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Esercitazione relativa allo strumento divisione-unione del database elastico | Microsoft Azure"
 	description="Suddivisione e unione con gli strumenti di database elastico"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
-
 
 <tags
 	ms.service="sql-database"
@@ -14,9 +11,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
-
 
 # Esercitazione relativa allo strumento divisione-unione del database elastico
 
@@ -48,7 +44,11 @@ I passaggi precedenti consentono di scaricare i file di divisione e unione nella
 
 2. Aprire ServiceConfiguration.cscfg in un editor di testo di propria scelta. Si consiglia di usare Visual Studio, in quanto quest'ultimo eseguirà la convalida degli input, come ad esempio quella del formato dell'identificazione personale del certificato.
 
-3. Creare un nuovo database o scegliere un database esistente da usare come database per lo stato delle operazioni di divisione e unione, quindi recuperare la stringa di connessione del database. Con il database SQL di Azure, la stringa di connessione presenta in genere un formato come il seguente:
+3. Creare un nuovo database o scegliere un database esistente da usare come database per lo stato delle operazioni di divisione e unione, quindi recuperare la stringa di connessione del database.
+
+	**Importante** A questo punto, il database dello stato deve utilizzare le regole di confronto Latin (SQL\_Latin1\_General\_CP1\_CI\_AS). Per ulteriori informazioni, vedere [Nome regole di confronto Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+
+	Con il database SQL di Azure, la stringa di connessione presenta in genere un formato come il seguente:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    Immettere la stringa di connessione nel file cscfg in entrambe le sezioni Ruolo **SplitMergeWeb** e **SplitMergeWorker** dell'impostazione ElasticScaleMetadata.
@@ -103,24 +103,16 @@ Passare al [portale di anteprima di Azure](https://portal.azure.com).
 Incollare l'identificazione personale del certificato copiata sopra nell'attributo identificazione personale/valore delle seguenti impostazioni: Per il ruolo Web:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
-
 
 Per il ruolo di lavoro:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
-
     <Setting name="AllowedClientCertificateThumbprints" value="" />
-
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
-
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
-
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
-
 
 
 Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, crittografia, server e client. Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione della sicurezza](sql-database-elastic-scale-split-merge-security-configuration.md).
@@ -340,4 +332,4 @@ In questo caso, controllare il file di configurazione, in particolare l'impostaz
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: rilevamento proattivo delle anomalie
@@ -67,13 +67,17 @@ Modificare l'intervallo di tempo e i filtri per esplorare i dati di telemetria.
 * *È necessario sottoscrivere questo servizio per ricevere le notifiche?*
  * No. L'apposito bot analizza periodicamente i dati di tutti gli utenti di Application Insights e invia le notifiche se vengono rilevati problemi.
 * *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
- * Fare clic sul collegamento nell'avviso o nel messaggio di posta elettronica. Aprire le impostazioni delle anomalie. ![](./media/app-insights-anomaly/01.png) Attualmente vengono inviate a coloro che hanno [accesso in scrittura alla risorsa Application Insights](app-insights-resources-roles-access-control.md).
+ * Fare clic sul collegamento nell'avviso o nel messaggio di posta elettronica. Aprire le impostazioni delle anomalie.
+ 
+    ![](./media/app-insights-anomaly/01.png)
+
+    Attualmente vengono inviate a coloro che hanno [accesso in scrittura alla risorsa Application Insights](app-insights-resources-roles-access-control.md).
 * *Non voglio ricevere un numero elevato di messaggi.*
  * Ogni giorno vengono ricevuti al massimo tre messaggi senza alcuna ripetizione dello stesso messaggio.
 * *Se non eseguo alcuna operazione, riceverò un promemoria?*
  * No, il messaggio relativo a un singolo problema viene ricevuto una sola volta.
 * *Non trovo più il messaggio di posta elettronica. Dove trovo le notifiche nel portale?*
- * Nel pannello di panoramica dell'app in Application Insights fare clic sul riquadro **Anomalie**. 
+ * Nella sezione di panoramica dell'app in Application Insights fare clic sul riquadro **Anomalie**. 
 
 
 
@@ -82,4 +86,4 @@ Modificare l'intervallo di tempo e i filtri per esplorare i dati di telemetria.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

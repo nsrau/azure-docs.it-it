@@ -5,8 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
-
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -16,7 +16,6 @@
    ms.workload="big-data"
    ms.date="07/06/2015"
    ms.author="larryfr"/>
-
 
 # Usare Pig con Hadoop in HDInsight
 
@@ -129,4 +128,4 @@ Dopo aver appreso come usare Pig con HDInsight, vedere i collegamenti seguenti p
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

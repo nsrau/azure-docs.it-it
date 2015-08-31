@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione all'autenticazione (Xamarin.Android) - Servizi mobili" 
-	description="Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.Android." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	manager="dwrede" 
-	authors="lindydonna" 
+<properties
+	pageTitle="Introduzione all'autenticazione (Xamarin.Android) - Servizi mobili"
+	description="Informazioni su come usare l'autenticazione nell'app Servizi mobili di Azure per Xamarin.Android."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	manager="dwrede"
+	authors="lindydonna"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -42,7 +42,7 @@ Per completare questa esercitazione, è necessario disporre di Xamarin.Android e
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. In Eclipse aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili]. 
+3. In Eclipse aprire il progetto creato dopo aver completato l'esercitazione [Introduzione a Servizi mobili].
 
 4. Nel menu **Run** fare clic su **Run** per eseguire l'app e verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato).
 
@@ -85,7 +85,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
         private async Task CreateTable()
         {
-            
+
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
@@ -136,6 +136,5 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Autorizzazione di utenti con script]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire il dispositivo StorSimple
@@ -72,7 +72,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |---|---|---|
 |Creare un servizio</br>Eliminare un servizio</br>Ottenere la chiave di registrazione del servizio</br>Rigenerare la chiave di registrazione|Servizio StorSimple Manager|[Distribuire un servizio StorSimple Manager](storsimple-manage-service.md)
 |Modificare la chiave DEK del servizio</br>Visualizzare i log delle operazioni|Servizio StorSimple Manager → Dashboard|[Utilizzare il dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md)|
-|Disattivare un dispositivo</br>Eliminare un dispositivo|Servizio StorSimple Manager → Dispositivi|[Disattivare o eliminare un dispositivo]()|
+|Disattivare un dispositivo</br>Eliminare un dispositivo|Servizio StorSimple Manager → Dispositivi|[Disattivare o eliminare un dispositivo](storsimple-deactivate-and-delete-device.md)|
 |Informazioni sul failover del dispositivo e sul ripristino di emergenza</br>Failover a un dispositivo fisico</br>Failover su un dispositivo virtuale</br>Ripristino di emergenza di continuità aziendale (BCDR)|Servizio StorSimple Manager → Dispositivi|[Failover e ripristino di emergenza per il dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)|
 |Elenco di backup per un volume</br>Selezionare un set di backup</br>Eliminare un set di backup|Servizio StorSimple Manager → Catalogo di backup|[Gestire i backup](storsimple-manage-backup-catalog.md)|
 |Clonare un volume|Servizio StorSimple Manager → Catalogo di backup|[Clonare un volume](storsimple-clone-volume.md)|
@@ -83,7 +83,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |Visualizzare i dettagli dei processi</br>Annullare un processo|Servizio StorSimple Manager → Processi|[Gestire i processi](storsimple-manage-jobs.md)
 |Ricevere notifiche di avviso</br>Gestire gli avvisi</br>Esaminare gli avvisi|Servizio StorSimple Manager → Avvisi|[Visualizzare e gestire gli avvisi di StorSimple](storsimple-manage-alerts.md)
 |Visualizzare gli iniziatori connessi</br>Trovare il numero di serie del dispositivo</br>Trovare il nome qualificato iSCSI di destinazione|Servizio StorSimple Manager → Dispositivi → Dashboard|[Utilizzare il dashboard del dispositivo StorSimple](storsimple-device-dashboard.md)|
-|Creare grafici di monitoraggio|Servizio StorSimple Manager → Dispositivi → Monitora|[Monitoraggio del dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
+|Creare grafici di monitoraggio|Servizio StorSimple Manager → Dispositivi → Monitora|[Monitoraggio del dispositivo StorSimple](storsimple-monitor-device.md)|
 |Aggiungere un contenitore del volume</br>Modificare un contenitore del volume</br>Eliminare un contenitore del volume|Servizio StorSimple Manager → Dispositivi → Contenitori dei volumi|[Gestisci contenitori dei volumi](storsimple-manage-volume-containers.md)|
 |Aggiungere un volume</br>Modificare un volume</br>Portare un volume offline</br>Eliminare un volume</br>Monitorare un volume|Servizio StorSimple Manager → Dispositivi → Contenitori dei volumi → Volumi|[Gestire i volumi](storsimple-manage-volumes.md)|
 |Modificare le impostazioni del dispositivo</br>Modificare le impostazioni di tempo</br>Modificare le impostazioni DNS.md</br>Configurare le interfacce di rete|Servizio StorSimple Manager → Dispositivi → Configura|[Modificare la configurazione per il dispositivo StorSimple](storsimple-modify-device-config.md)|
@@ -107,6 +107,6 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 
 Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, vedere:
 
--  [Contattare il supporto tecnico Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx)
+-  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione al database SQL"
+	pageTitle="Introduzione al database SQL | Microsoft Azure"
 	description="Creare il primo database cloud in pochi minuti con database SQL di Azure, servizio Microsoft di gestione di database relazionali (RDBMS) nel cloud, utilizzando il portale di Azure e il database di esempio AdventureWorks."
 	services="sql-database"
 	documentationCenter=""
@@ -46,7 +46,7 @@ In questa esercitazione si presuppone di disporre di una sottoscrizione ad Azure
 
 
 
-1. Nel pannello di database SQL, scegliere un **Nome** per il database, in questo esempio, **AdventureWorks**.
+1. Nel pannello di **database SQL**, scegliere un **Nome** per il database, in questo esempio, **AdventureWorks**.
 2. Per creare il server logico per il database, fare clic su **Server**, quindi su **Crea nuovo server**.
 
 
@@ -66,7 +66,7 @@ In questa esercitazione si presuppone di disporre di una sottoscrizione ad Azure
 ## Passaggio 4: Creare il database
 
 
-1. Nel pannello di database SQL, specificare l'origine del database facendo clic su **Seleziona origine**.
+1. Nel pannello di **database SQL**, specificare l'origine del database facendo clic su **Seleziona origine**.
  - Se si ignora questo passaggio, viene creato un database vuoto.
 2. Selezionare **Esempio**.
  - In tal modo viene creato un database che è una copia del database di esempio standard denominato **AdventureWorks**.
@@ -85,7 +85,7 @@ Nei passaggi seguenti viene illustrato come specificare gli intervalli di indiri
 
 1. Nella barra multifunzione sul lato sinistro della schermata, fare clic su **Sfoglia**, quindi su **SQL Server**.
 2. Dalle opzioni disponibili, fare clic sul server SQL creato in precedenza.
-3. Fare clic su **Impostazioni**, quindi su **Firewall**.
+3. Fare clic su **impostazioni**, quindi fare clic su **Firewall**.
 4. Fare clic su questo collegamento per ottenere l'indirizzo IP corrente da [Bing](http://www.bing.com/search?q=my%20ip%20address).
 5. In Impostazioni firewall, immettere un **Nome regola**, e incollare l'indirizzo IP pubblico del passaggio precedente nei campi**IP iniziale** e **IP finale**.
 6. Al termine, fare clic su **Salva** nella parte superiore della pagina.
@@ -109,6 +109,5 @@ A questo punto si è pronti a scrivere un piccolo programma client in grado di c
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -38,7 +38,7 @@ App Web del servizio app offre funzionalità diagnostiche per la registrazione d
 
 ### Diagnostica applicazioni
 
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/it-it/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
+La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -82,7 +82,7 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 
 * **Application logs** - /LogFiles/Application/. In questa cartella sono presenti uno o più file di testo contenenti le informazioni generate dalla registrazione dell'applicazione.
 
-* **Failed Request Traces** - /LogFiles/W3SVC#########/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
+* **Failed Request Traces** - /LogFiles/W3SVC\#\#\#\#\#\#\#\#\#/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
 
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. Questa cartella contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati.
 
@@ -236,7 +236,7 @@ L'aspetto dei dati memorizzati in un BLOB sarà simile al seguente:
 
 ### Tracce delle richieste non riuscite
 
-Le tracce delle richieste non riuscite vengono memorizzate nei file XML denominati __fr######.xml__. Per semplificare la visualizzazione delle informazioni registrate, è disponibile un foglio di stile XSL denominato __freb.xsl__ nella stessa directory dei file XML. L'apertura di uno dei file XML in Internet Explorer comporterà l'uso del foglio di stile XSL allo scopo di produrre una visualizzazione formattata delle informazioni di traccia. Il risultato sarà simile al seguente:
+Le tracce delle richieste non riuscite vengono memorizzate nei file XML denominati __fr\#\#\#\#\#\#.xml__. Per semplificare la visualizzazione delle informazioni registrate, è disponibile un foglio di stile XSL denominato __freb.xsl__ nella stessa directory dei file XML. L'apertura di uno dei file XML in Internet Explorer comporterà l'uso del foglio di stile XSL allo scopo di produrre una visualizzazione formattata delle informazioni di traccia. Il risultato sarà simile al seguente:
 
 ![richiesta non riuscita visualizzata nel browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -253,7 +253,7 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 ##<a name="nextsteps"></a> Passaggi successivi
 
 - [Come monitorare le app Web](/it-it/manage/services/web-sites/how-to-monitor-websites/)
-- [Risoluzione dei problemi di app Web di Azure in Visual Studio](/it-it/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+- [Risoluzione dei problemi delle app Web di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analisi dei log delle app Web in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -263,4 +263,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

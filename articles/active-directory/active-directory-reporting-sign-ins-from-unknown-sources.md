@@ -3,8 +3,8 @@
 	description="Un report che indica gli utenti che hanno effettuato correttamente l'accesso alla directory da un indirizzo IP proxy anonimo."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Accessi da origini sconosciute
 
@@ -24,4 +24,4 @@
 
 ![Accessi da origini sconosciute](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

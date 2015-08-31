@@ -3,8 +3,8 @@
 	description="Descrive le modalità di configurazione e utilizzo del controllo di accesso basato sui ruoli"
 	services=""
 	documentationCenter=""
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
 	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Controllo degli accessi in base al ruolo nel portale di Microsoft Azure
 
@@ -1293,4 +1293,4 @@ Di seguito sono riportate altre risorse utili per l'uso del controllo degli acce
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

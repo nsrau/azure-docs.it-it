@@ -1,8 +1,7 @@
 <properties 
 	pageTitle="Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga" 
 	description="Informazioni su come utilizzare gli strumenti di database elastici insieme alla sicurezza a livello di riga per compilare un’applicazione con un livello dati altamente scalabile in un database SQL di Azure che supporta partizioni multi-tenant." 
-	services="sql-database" 
-	documentationCenter="" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="08/19/2015" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga 
@@ -21,7 +20,7 @@
 
 * Gli **strumenti di database elastici** consentono agli sviluppatori di scalare il livello dati di un'applicazione tramite procedure di partizionamento orizzontale standard del settore, utilizzando un set di librerie .NET e i modelli di servizio di Azure. La gestione delle partizioni mediante la libreria client di database elastici consente di automatizzare e semplificare molte delle attività infrastrutturali generalmente associate al partizionamento orizzontale. 
 
-* La **sicurezza a livello di riga (anteprima)** consente agli sviluppatori di archiviare i dati per più tenant nello stesso database utilizzando criteri di protezione per filtrare le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di accesso con RLS all'interno del database, anziché dell'applicazione, semplifica la manutenzione e riduce il rischio di errori nel momento in cui la base di codici di un'applicazione cresce. RLS richiede la versione più recente dell’[aggiornamento di database SQL di Azure (V12)](sql-database-preview-whats-new.md).
+* La **sicurezza a livello di riga** consente agli sviluppatori di archiviare i dati per più tenant nello stesso database utilizzando criteri di protezione per filtrare le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di accesso con RLS all'interno del database, anziché dell'applicazione, semplifica la manutenzione e riduce il rischio di errori nel momento in cui la base di codici di un'applicazione cresce. RLS richiede la versione più recente dell’[aggiornamento di database SQL di Azure (V12)](sql-database-preview-whats-new.md).
 
 L’utilizzo combinato di queste funzionalità consente a un’applicazione di usufruire di miglioramenti in termini di efficienza e di risparmiare sui costi grazie alla possibilità di memorizzare i dati per più tenant nello stesso database di partizionamento. Allo stesso tempo, un'applicazione continua ad avere la flessibilità per offrire partizioni single-tenant per tenant "premium" che richiedono garanzie di prestazioni più severe, poiché le partizioni multi-tenant non garantiscono un’uguale distribuzione delle risorse tra i tenant.
 
@@ -340,4 +339,4 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="08/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -219,7 +219,7 @@ Un file VMAP inizia con un elemento <VMAP> che include uno o più elementi <AdBr
 1. Tempo: con formato hh:mm:ss o hh:mm:ss.mmm, dove .mmm corrisponde a millisecondi. Il valore di questo attributo specifica il tempo dall'inizio della sequenza temporale del video all'inizio dell'interruzione pubblicitaria.
 1. Percentuale: con formato n% dove n indica la percentuale della sequenza temporale del video da riprodurre prima della visualizzazione dell'annuncio.
 1. Inizio/Fine: specifica che un annuncio deve essere visualizzato prima o dopo la visualizzazione del video.
-1. Posizione: specifica l'ordine delle interruzioni pubblicitarie quando la tempistica delle interruzioni pubblicitarie è sconosciuta ad esempio nello streaming live. L'ordine di ogni interruzione è specificato con il formato #n dove n è un valore Integer pari a 1 o superiore. 1 indica che l'annuncio deve essere riprodotto alla prima opportunità, 2 indica che l'annuncio deve essere riprodotto alla seconda opportunità e così via.
+1. Posizione: specifica l'ordine delle interruzioni pubblicitarie quando la tempistica delle interruzioni pubblicitarie è sconosciuta ad esempio nello streaming live. L'ordine di ogni interruzione è specificato con il formato \#n dove n è un valore Integer pari a 1 o superiore. 1 indica che l'annuncio deve essere riprodotto alla prima opportunità, 2 indica che l'annuncio deve essere riprodotto alla seconda opportunità e così via.
 
 Nell'elemento <**AdBreak**> può essere presente un elemento <**AdSource**>. L'elemento <**AdSource**> contiene gli attributi seguenti:
 
@@ -356,9 +356,7 @@ Un annuncio eseguibile può essere inizializzato mediante l'elemento <AdParamete
 
 ##Implementazione di un lettore Windows o Windows Phone 8 con supporto per gli annunci
 
-Microsoft Media Platform: Player Framework per Windows 8 e Windows Phone 8 contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Player Framework per Windows 8 e Windows Phone 8](https://playerframework.codeplex.com/releases/view/105214).
-
-Per altre informazioni sull'inserimento di annunci, vedere [Inserimento di annunci nei file multimediali](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
+Microsoft Media Platform: Player Framework per Windows 8 e Windows Phone 8 contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Player Framework per Windows 8 e Windows Phone 8](https://playerframework.codeplex.com).
 
 Quando si apre la soluzione Microsoft.PlayerFramework.Xaml.Samples, verrà visualizzato un numero di cartelle all'interno del progetto. La cartella Advertising contiene il codice di esempio necessario per la creazione di un lettore video con supporto per gli annunci. All'interno della cartella Advertising è presente un numero di file XAML/cs, ognuno dei quali mostra come inserire gli annunci in una specifica modalità. L'elenco seguente descrive i singoli file:
 
@@ -400,7 +398,7 @@ Per altre informazioni su AdSchedulerPlugin, vedere la pagina relativa all'[inse
 
 ###AdSchedulingPage
 
-Questo esempio usa AdSchedulerPlugin. Vengono pianificati tre annunci, un annuncio preroll, un annuncio midroll e un annuncio postroll. L'URI per il file VAST è specificato in un elemento <RemoteAdSource>.
+Questo esempio usa AdSchedulerPlugin. Vengono pianificati tre annunci, un annuncio preroll, un annuncio midroll e un annuncio postroll. L'URI per il VAST per ciascuno di essi è specificato in un elemento <RemoteAdSource>.
 	
 	<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -573,7 +571,6 @@ Questo esempio usa l'elemento VmapSchedulerPlugin per pianificare annunci usando
 
 Microsoft Media Platform: Player Framework per iOS contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Media Player Framework di Azure](https://github.com/Azure/azure-media-player-framework). La pagina di GitHub include un collegamento a una pagina Wiki che contiene informazioni aggiuntive su player framework e un'introduzione all'esempio del lettore, ovvero la pagina [Wiki su Media Player di Azure](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
-Per altre informazioni sull'inserimento di annunci, vedere [Inserimento di annunci nei file multimediali](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
 
 ###Pianificazione di annunci con VMAP
 
@@ -802,6 +799,6 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
  
 ##Vedere anche
 
-[Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md) [Introduzione al Media Player Framework per iOS di Azure](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
+[Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

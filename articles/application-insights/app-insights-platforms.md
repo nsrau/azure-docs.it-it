@@ -22,8 +22,8 @@
 
 ## Linguaggi
 
-+ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
-+ [C#|VB (Windows Store)](app-insights-windows-get-started.md)
++ [C\#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C\#|VB (Windows Store)](app-insights-windows-get-started.md)
 + [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [Pagine Web JavaScript](app-insights-web-track-usage.md)
@@ -50,9 +50,9 @@
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ [Windows Store C#|VB](app-insights-windows-get-started.md)
++ [Windows Store C\#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
-+ [Servizi e applicazioni desktop di Windows](app-insights-windows-desktop.md)
++ [Ruoli di lavoro, servizi e applicazioni desktop di Windows](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Altro](#projects)
 
@@ -77,4 +77,4 @@ Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibi
 
 <!--Link references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

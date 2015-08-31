@@ -236,7 +236,7 @@ La tabella seguente descrive le proprietà disponibili.
  **Richiesta:**
 
 ```
-	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
+	$savedSearchParametersJson = "{'etag': 'W/`"datetime'2015-04-16T23%3A35%3A35.3182423Z'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
 	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
 ```
 
@@ -346,4 +346,4 @@ Questi marcatori indicano l'inizio e la fine del testo evidenziato che corrispon
 
 Si noti che il risultato precedente contiene un messaggio di errore con prefisso e suffisso.
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

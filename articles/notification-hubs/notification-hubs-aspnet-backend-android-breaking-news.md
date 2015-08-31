@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Esercitazione sull'invio di ultime notizie mediante Hub di notifica - Android" 
-	description="Informazioni su come usare Hub di notifica di Bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi Android." 
-	services="notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Esercitazione sull'invio di ultime notizie mediante Hub di notifica - Android"
+	description="Informazioni su come usare Hub di notifica di Bus di servizio di Azure per inviare notifiche relative alle ultime notizie a dispositivi Android."
+	services="notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 
@@ -37,7 +37,7 @@ Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all'attività principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag.
 
 1. Aprire il file res/layout/activity\_main.xml e sostituire il contenuto con il seguente:
-			
+
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
 		    android:layout_width="match_parent"
@@ -48,7 +48,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 		    android:paddingTop="@dimen/activity_vertical_margin"
 		    tools:context="com.example.breakingnews.MainActivity"
 		    android:orientation="vertical">
-		
+
 		        <CheckBox
 		            android:id="@+id/worldBox"
 		            android:layout_width="wrap_content"
@@ -104,38 +104,38 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 		import java.util.HashSet;
 		import java.util.Set;
-		
+
 		import android.content.Context;
 		import android.content.SharedPreferences;
 		import android.os.AsyncTask;
 		import android.util.Log;
 		import android.widget.Toast;
-		
+
 		import com.google.android.gms.gcm.GoogleCloudMessaging;
-		import com.microsoft.windowsazure.messaging.NotificationHub;		
-		
+		import com.microsoft.windowsazure.messaging.NotificationHub;
+
 		public class Notifications {
 			private static final String PREFS_NAME = "BreakingNewsCategories";
 			private GoogleCloudMessaging gcm;
 			private NotificationHub hub;
 			private Context context;
 			private String senderId;
-			
+
 			public Notifications(Context context, String senderId) {
 				this.context = context;
 				this.senderId = senderId;
-				
+
 				gcm = GoogleCloudMessaging.getInstance(context);
 		        hub = new NotificationHub(<hub name>, <connection string with listen access>, context);
 			}
-			
+
 			public void storeCategoriesAndSubscribe(Set<String> categories)
 			{
 				SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
 			    settings.edit().putStringSet("categories", categories).commit();
 			    subscribeToCategories(categories);
 			}
-			
+
 			public void subscribeToCategories(final Set<String> categories) {
 				new AsyncTask<Object, Object, Object>() {
 					@Override
@@ -149,7 +149,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 						}
 						return null;
 					}
-		
+
 					protected void onPostExecute(Object result) {
 						String message = "Subscribed for categories: "
 								+ categories.toString();
@@ -158,7 +158,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 					}
 				}.execute(null, null, null);
 			}
-			
+
 		}
 
 	Questa classe usa l'archiviazione locale per archiviare le categorie di notizie che il dispositivo deve ricevere. Contiene inoltre i metodi per effettuare la registrazione per queste categorie.
@@ -172,25 +172,25 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
 		private Notifications notifications;
- 
+
 5. A questo punto, nel metodo **onCreate** rimuovere l'inizializzazione del campo **hub** e il metodo **registerWithNotificationHubs**. Aggiungere quindi le righe seguenti, che inizializzano un'istanza della classe **Notifications**. Il metodo deve contenere le seguenti righe:
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_main);
-	
+
 			NotificationsManager.handleNotifications(this, SENDER_ID,
 					MyHandler.class);
-	
+
 			notifications = new Notifications(this, SENDER_ID);
 		}
 
 6. Aggiungere quindi il metodo seguente:
-	
+
 	    public void subscribe(View sender) {
 			final Set<String> categories = new HashSet<String>();
-	
+
 			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
 			if (world.isChecked())
 				categories.add("world");
@@ -209,10 +209,10 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 			CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
 			if (sports.isChecked())
 				categories.add("sports");
-	
+
 			notifications.storeCategoriesAndSubscribe(categories);
 	    }
-	
+
 	Questo metodo crea un elenco di categorie e usa la classe **Notifications** per archiviare l'elenco nell'archiviazione locale e registrare i tag corrispondenti nell'hub di notifica. Se le categorie vengono modificate, la registrazione viene ricreata con le nuove categorie.
 
 L'app può quindi archiviare un set di categorie nell'archiviazione locale del dispositivo ed effettuare la registrazione con l'hub di notifica ogni volta che l'utente modifica la selezione di categorie.
@@ -243,9 +243,9 @@ Questa procedura consente di effettuare la registrazione con l'hub di notifica a
 		@Override
 		protected void onStart() {
 			super.onStart();
-			
+
 			Set<String> categories = notifications.retrieveCategories();
-			
+
 			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
 			world.setChecked(categories.contains("world"));
 			CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
@@ -271,7 +271,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 ##Eseguire l'app e generare notifiche
 
 1. In Eclipse compilare l'app e avviarla in un dispositivo o emulatore.
-	
+
 	Si noti che l'interfaccia utente dell'app fornisce un set di interruttori che consentono di scegliere le categorie per le quali effettuare la sottoscrizione.
 
 2. Abilitare uno o più interruttori di categorie e quindi fare clic su **Subscribe**.
@@ -317,6 +317,5 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

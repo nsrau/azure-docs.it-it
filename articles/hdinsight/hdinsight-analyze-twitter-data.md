@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Analizzare i dati di Twitter con Hadoop in HDInsight | Microsoft Azure" 
-	description="Informazioni su come usare Hive per analizzare i dati di Twitter con Hadoop in HDInsight per rilevare la frequenza d'uso di una parola specifica." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Analizzare i dati di Twitter con Hadoop in HDInsight | Microsoft Azure"
+	description="Informazioni su come usare Hive per analizzare i dati di Twitter con Hadoop in HDInsight per rilevare la frequenza d'uso di una parola specifica."
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="jgao"/>
 
 # Analizzare i dati di Twitter con Hive in HDInsight
 
 I siti Web di social networking rappresentano una delle principali forze trainanti per l'adozione di Big Data. Le API pubbliche offerte da siti quali Twitter costituiscono un'utile origine di dati per l'analisi e la comprensione delle tendenze più popolari. In questa esercitazione si userà l'API di streaming di Twitter per ricevere tweet e quindi si userà Apache Hive in Azure HDInsight per ottenere un elenco di utenti di Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
-> [AZURE.NOTE] I passaggi descritti in questo articolo si basano sull'uso di un cluster HDInsight basato su Windows. Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md).
+> [AZURE.NOTE]I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 Un esempio simile è disponibile nella raccolta di esempi di HDInsight. Guardare il video di Channel 9 relativo all'<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">analisi delle tendenze di Twitter con Apache Hive in HDInsight</a>.
 
@@ -74,7 +74,7 @@ Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 File|Descrizione
 ---|---
 /tutorials/twitter/data/tweets.txt|I dati di origine per il processo Hive.
-/tutorials/twitter/output|Cartella di output per il processo Hive. Il nome file di output del processo Hive relativo al file predefinito è **000000\_0**. 
+/tutorials/twitter/output|Cartella di output per il processo Hive. Il nome file di output del processo Hive relativo al file predefinito è **000000\_0**.
 tutorials/twitter/twitter.hql|File script HiveQL.
 /tutorials/twitter/jobstatus|Stato del processo Hadoop.
 
@@ -112,7 +112,7 @@ Sito Web|http://www.myhdinsightapp.com
 
 In questa esercitazione si userà Windows PowerShell per effettuare la chiamata del servizio Web. Per un esempio di .NET C#, vedere [Analizzare i sentimenti Twitter in tempo reale con HBase in HDInsight][hdinsight-hbase-twitter-sentiment]. L'altro strumento di ampia diffusione per effettuare chiamate di servizi Web è [*Curl*][curl]. Curl può essere scaricato [da questa pagina][curl-download].
 
->[AZURE.NOTE]Quando si usa il comando curl in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
+>[AZURE.NOTE] Quando si usa il comando curl in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
 
 **Per ricevere tweet**
 
@@ -182,7 +182,7 @@ In questa esercitazione si userà Windows PowerShell per effettuare la chiamata 
 		$hmacsha1 = new-object System.Security.Cryptography.HMACSHA1;
 		$hmacsha1.Key = [System.Text.Encoding]::ASCII.GetBytes($signature_key);
 		$oauth_signature = [System.Convert]::ToBase64String($hmacsha1.ComputeHash([System.Text.Encoding]::ASCII.GetBytes($signature)));
-				
+
 		$oauth_authorization = 'OAuth ';
 		$oauth_authorization += 'oauth_consumer_key="' + [System.Uri]::EscapeDataString($oauth_consumer_key) + '",';
 		$oauth_authorization += 'oauth_nonce="' + [System.Uri]::EscapeDataString($oauth_nonce) + '",';
@@ -240,10 +240,11 @@ In questa esercitazione si userà Windows PowerShell per effettuare la chiamata 
 				
 		$sReader.close()
 		#endregion
-		
+
 		Write-Host "Completed!" -ForegroundColor Green
 
 3. Impostare le prime cinque-otto variabili dello script:
+
 
 Variabile|Descrizione
 ---|---
@@ -251,7 +252,7 @@ $clusterName|Nome del cluster HDInsight in cui eseguire l'applicazione.
 $oauth\_consumer\_key|Applicazione Twitter **consumer key** scritta in precedenza al momento della creazione dell'applicazione Twitter.
 $oauth\_consumer\_secret|L'applicazione Twitter **consumer secret** scritta in precedenza.
 $oauth\_token|L'applicazione Twitter **access token** scritta in precedenza.
-$oauth\_token\_secret|L'applicazione Twitter **access token secret** scritta in precedenza.	
+$oauth\_token\_secret|L'applicazione Twitter **access token secret** scritta in precedenza.
 $destBlobName|Il nome BLOB dell'output. Il valore predefinito è **tutorials/twitter/data/tweets.txt**. Se si modifica il valore predefinito, sarà necessario aggiornare gli script di Windows PowerShell di conseguenza.
 $trackString|Il servizio Web restituirà tweet correlati a queste parole chiave. Il valore predefinito è **Azure, Cloud, HDInsight**. Se si modifica il valore predefinito, si dovranno aggiornare gli script di Windows PowerShell di conseguenza.
 $lineMax|Il valore determina il numero di tweet che lo script leggerà. Per leggere 100 tweet sono necessari circa tre minuti. È possibile impostare un numero più elevato, ma il download richiederà più tempo.
@@ -558,6 +559,5 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

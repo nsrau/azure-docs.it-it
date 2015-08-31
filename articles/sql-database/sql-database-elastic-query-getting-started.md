@@ -62,12 +62,11 @@ Questi vengono utilizzati per la connessione per la gestione di gestore di mappe
 
 		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
-		CREATE CREDENTIAL ElasticDBQueryCred ON DATABASE
+		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
 		WITH IDENTITY = '<username>',
 		SECRET = '<password>';
 
 	"username" e "password" devono essere uguali alle informazioni di accesso utilizzate nel passaggio 6 della [Scaricare ed eseguire l'applicazione di esempio](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) in [Introduzione agli strumenti del database elastico](sql-database-elastic-scale-get-started.md).
-
 
 ### DROP EXTERNAL DATA SOURCE
 
@@ -143,4 +142,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://az
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2015"
+	ms.date="08/14/2015"
 	ms.author="garye" />
 
 
-#Importare dati di training in Azure Machine Learning Studio da varie origini dati
+# Importare dati di training in Azure Machine Learning Studio da varie origini dati
 
 Quando si sviluppa una soluzione di analisi predittiva in Azure Machine Learning Studio, si esegue il training del modello tramite dati rappresentativi dello spazio problema. In questa esercitazione viene illustrato come importare dati da diverse origini dati per il training del modello in Machine Learning Studio. Vengono inoltre illustrati i formati di dati supportati.
 
@@ -141,6 +141,5 @@ Al termine del salvataggio, il set di dati sarà disponibile per l'uso in qualsi
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -351,8 +351,8 @@ Di seguito viene descritto come modificare una raccolta esistente per sfruttare 
 Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in DocumentDB, è possibile:
 
 - Iniziare a programmare con gli [esempi di codice .NET geospaziale su Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
-- Utilizzare le query geospaziali nel [Query Playground di DocumentDB](www.documentdb.com/sql/demo)
+- Utilizzare le query geospaziali nel [Query Playground di DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 - Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 - Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

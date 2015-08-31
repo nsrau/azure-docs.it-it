@@ -3,17 +3,18 @@
    description="Catalogo dati di Azure: domande frequenti sul catalogo"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+<tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="08/19/2015"
+   ms.author="maroche"/>
 
 # Domande frequenti sul Catalogo dati di Azure
 
@@ -61,16 +62,18 @@ Durante l'anteprima, il Catalogo dati di Azure supporta i seguenti tipi di asset
 - Visualizzazione SQL Server
 - Dimensione di SQL Server Analysis Services
 - Misura di SQL Server Analysis Services
-- KPI di SQL Server Analysis Services 
+- KPI di SQL Server Analysis Services
 - Tabella di SQL Server Analysis Services
 - Report di SQL Server Reporting Services  
 - Tabella di Database Oracle
 - Vista di Database Oracle
+- BLOB di Archiviazione di Azure
+- Directory di archiviazione di Azure
 
 ## D: come si richiede il supporto per un'altra origine dati?
 
 Le richieste di funzionalità e altri commenti possono essere inviati nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
- 
+
 ## D: come si inizia a usare il Catalogo dati di Azure?
 
 Il modo migliore per iniziare consiste nel seguire le istruzioni dell’introduzione al catalogo dati. In questo articolo è riportata una presentazione end-to-end delle funzionalità in anteprima pubblica.
@@ -86,7 +89,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 - Nome dell’asset
 - Tipo di risorsa
 - Descrizione dell’asset
-- Nomi di colonna/attributo 
+- Nomi di colonna/attributo
 - Tipi di dati di colonna/attributo
 - Descrizione di colonna/attributo
 
@@ -120,9 +123,9 @@ Durante l’anteprima del **Catalogo dati di Azure**, non esiste alcun contratto
 
 ## D: come si condividono le informazioni con il team del Catalogo dati di Azure se si riscontrano problemi?
 
-Utilizzare il forum del **Catalogo dati di Azure** per segnalare problemi e condividere informazioni e domande. Il forum è disponibile alla pagina http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
+Utilizzare il forum del **Catalogo dati di Azure** per segnalare problemi e condividere informazioni e domande. Il forum è disponibile in http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
-##D: il Catalogo dati di Azure funziona con un'altra origine dati? 
+##D: il Catalogo dati di Azure funziona con un'altra origine dati?
 Stiamo lavorando attivamente per aggiungere più origini dati nel **Catalogo dati di Azure**. Se si desidera che un'origine dati venga supportata, scrivere un suggerimento in proposito (o esprimere il proprio sostegno se già suggerita) nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## D: qual è la correlazione tra il Catalogo dati di Azure e il catalogo dati di Power BI per Office 365?
@@ -157,4 +160,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del Ca
 
 Tenere sotto controllo il [forum del Catalogo dati Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

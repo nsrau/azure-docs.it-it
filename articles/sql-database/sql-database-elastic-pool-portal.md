@@ -1,45 +1,45 @@
-<properties 
-	pageTitle="Creare e gestire un pool di database elastici di database SQL " 
-	description="Creare un singolo pool di risorse da condividere tra un gruppo di database SQL di Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Creare e gestire un database di pool di database elastici SQL tramite PowerShelll | Microsoft Azure"
+	description="Creare un singolo pool di risorse da condividere tra un gruppo di database SQL di Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="08/13/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creare e gestire un pool di database elastici di database SQL
+# Creare e gestire un pool di database elastici di database SQL Azure
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-In questo articolo viene illustrato come creare un pool di database elastici con il [portale di anteprima](https://portal.azure.com).
+In questo articolo viene illustrato come creare un pool di database elastici con il [portale di anteprima di Azure](https://portal.azure.com).
 
 I pool di database elastici semplificano il processo di creazione, manutenzione e gestione delle prestazioni e dei costi per un numero elevato di database.
- 
+
 
 > [AZURE.NOTE]I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12.
 
- 
+
 
 
 ## Prerequisiti
 
 Per creare un pool di database elastici sono necessari i seguenti requisiti:
 
-- Una sottoscrizione ad Azure. Se si necessita di una sottoscrizione ad Azure, fare clic su VERSIONE DI VALUTAZIONE GRATUITA nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
-- Un server di database SQL di Azure versione 12. Se non si dispone di un server V12, crearne uno seguendo i passaggi in: [Creare il primo database SQL di Azure](sql-database-get-started.md).
+- Una sottoscrizione ad Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
+- Un server di database SQL di Azure versione 12. Se non si dispone di un server V12, crearne uno seguendo i passaggi indicati in questo articoo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
 
 
 
@@ -61,14 +61,13 @@ Configurare il pool impostando il livello di prezzo, aggiungendo i database e co
 
    ![Configurare un pool elastico][2]
 
-
 ## Configurare il livello di prezzo
 
 Il livello di prezzo di un pool di database elastici determina le funzionalità disponibili per i database elastici nel pool e il numero massimo di eDTU (MAX eDTU) e la memoria (GB) disponibili per ciascun database. Per ulteriori dettagli vedere [Limiti di archiviazione e di eDTU dei pool elastici e dei database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 >[AZURE.NOTE]Attualmente in anteprima, non è possibile modificare il livello di prezzo di un pool di database elastici dopo averlo creato. Per modificare il livello di prezzo per un pool di database elastici esistente creare un nuovo pool elastico nel livello di prezzo desiderato e migrare i database elastici in questo nuovo pool.
 
-   ![Pricing tier][9]
+   ![Livello di prezzo][9]
 
 
 ## Consigli sui livelli di prezzo dei pool di database elastici
@@ -90,7 +89,6 @@ Il servizio valuta le risorse necessarie e l'efficienza dei costi dello spostame
 
 >[AZURE.NOTE]I database Web e Business vengono mappati a uno dei nuovi livelli Basic, Standard o Premium in base alle dimensioni di database e alla cronologia di utilizzo. Il mapping ai nuovi livelli consiglia database Web e Business al pool appropriato.
 
-<br><br>
 
 ### Aggiungere database
 
@@ -101,7 +99,7 @@ In qualsiasi momento, è possibile selezionare i database specifici che si desid
 Quando si seleziona un database da aggiungere a un pool, è necessario soddisfare le condizioni seguenti:
 
 - Il pool deve disporre di spazio sufficiente per il database (non può già contenere il numero massimo di database). In particolare, il pool deve disporre di un numero di eDTU sufficiente a coprire la garanzia eDTU per ogni database (ad esempio, se la garanzia di eDTU per il gruppo è 400, e la garanzia di eDTU per ciascun database è 10, il numero massimo di database consentiti nel pool è 40 (400 eDTU/10 eDTU garantite per database = massimo 40 database).
-- Le funzionalità correnti utilizzate dal database devono essere disponibili nel pool. 
+- Le funzionalità correnti utilizzate dal database devono essere disponibili nel pool.
 
 
 ### Configurare le prestazioni
@@ -131,7 +129,7 @@ Dopo aver creato un pool di database elastici, è possibile monitorare e gestire
 Dopo aver creato un pool, è possibile effettuare le seguenti operazioni:
 
 - Selezionare **Configura pool** per modificare le impostazioni relative alle eDTU del pool e alle eDTU per database.
-- Selezionare **Crea processo** e gestire i database nel pool mediante la creazione di processi elastici. I processi elastici facilitano l’esecuzione di script T-SQL su qualsiasi numero di database nel pool. Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
+- Selezionare **Crea processo** e gestire i database nel pool mediante la creazione di processi elastici. I processi elastici facilitano l’esecuzione di script Transact-SQL su qualsiasi numero di database nel pool. Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 - Selezionare **Gestione processi** per amministrare i processi elastici esistenti.
 
 
@@ -157,11 +155,11 @@ Fare clic su **Modifica grafico** per aggiungere parametri in modo da poter visu
 
 
 ## Passaggi successivi
-Dopo aver creato un pool di database elastici, è possibile gestire i database nel pool mediante la creazione di processi elastici. I processi elastici facilitano l’esecuzione di script T-SQL su qualsiasi numero di database nel pool. Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
+Dopo aver creato un pool di database elastici, è possibile gestire i database nel pool mediante la creazione di processi elastici. I processi elastici facilitano l’esecuzione di script Transact-SQL su qualsiasi numero di database nel pool. Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 
 
 
-## Risorse correlate
+## Risorse aggiuntive
 
 - [Pool elastico di database SQL](sql-database-elastic-pool.md)
 - [Creare un pool elastico di database SQL con PowerShell](sql-database-elastic-pool-powershell.md)
@@ -181,4 +179,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database n
 [9]: ./media/sql-database-elastic-pool-portal/pricing-tier.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

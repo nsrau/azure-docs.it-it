@@ -12,7 +12,7 @@
 	ms.service="active-directory"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na" identity
+	ms.devlang="na" 
 	ms.topic="article"
 	ms.date="08/10/2015"
 	ms.author="femila"/>
@@ -48,4 +48,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

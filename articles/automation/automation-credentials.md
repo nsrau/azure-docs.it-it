@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Asset credenziali in Automazione di Azure"
+   pageTitle="Asset di tipo credenziali in Automazione di Azure | Microsoft Azure"
    description="Gli asset credenziali in Automazione di Azure includono le credenziali di sicurezza che possono essere usate per l'autenticazione nelle risorse a cui accede il Runbook. Questo articolo illustra come creare asset credenziali e usarli in un Runbook."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Asset credenziali in Automazione di Azure
@@ -103,4 +103,4 @@ La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

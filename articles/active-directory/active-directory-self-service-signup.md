@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Informazioni sull'iscrizione self-service per Azure" 
-	description="Una panoramica dell'iscrizione self-service per Azure, come gestire il processo di iscrizione e come." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Informazioni sull'iscrizione self-service per Azure"
+	description="Una panoramica dell'iscrizione self-service per Azure, come gestire il processo di iscrizione e come."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="05/13/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/14/2015" 
+	ms.author="stevenpo"/>
 
 
 # Informazioni sull'iscrizione self-service per Azure
@@ -26,12 +26,12 @@ In questo argomento viene illustrato il processo di iscrizione self-service (tal
 - Acquisire più velocemente clienti su servizi da loro richiesti.
 - Creare offerte (virali) basate sulla posta elettronica per un servizio.
 - Creare flussi di iscrizione basati sulla posta elettronica che rapidamente consentono agli utenti di creare identità usando i relativi alias di posta elettronica di lavoro facili da ricordare.
-- I tenant di Azure non gestiti possono aumentare e diventare tenant gestiti in un secondo momento ed essere riutilizzati per altri servizi. 
+- I tenant di Azure non gestiti possono aumentare e diventare tenant gestiti in un secondo momento ed essere riutilizzati per altri servizi.
 
 ## Termini e definizioni
 
-+ **Iscrizione self-service**: si tratta del metodo per cui un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure Active Directory basata sul loro dominio di posta elettronica. 
-+ **Tenant di Azure non gestito**: si tratta della directory in cui viene creata tale identità. Un tenant non gestito è una directory priva di un amministratore globale. 
++ **Iscrizione self-service**: si tratta del metodo per cui un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure Active Directory basata sul loro dominio di posta elettronica.
++ **Tenant di Azure non gestito**: si tratta della directory in cui viene creata tale identità. Un tenant non gestito è una directory priva di un amministratore globale.
 + **Utente verificato per la posta elettronica**: si tratta di un tipo di account utente in Azure AD. Un utente che dispone di un'identità creata automaticamente a seguito dell'iscrizione per un'offerta self-service è noto come utente di posta elettronica verificato. Un utente di posta elettronica verificato è un membro regolare di una directory contrassegnata con creationmethod=EmailVerified.
 
 ## Analisi utilizzo
@@ -46,8 +46,8 @@ Se Dan è il primo utente con un indirizzo di posta elettronica di BellowsColleg
 
 Un amministratore a cui appartiene il nome di dominio DNS di un tenant di Azure non gestito può assumere o unire il tenant dopo aver dimostrato di essere il proprietario. Nelle sezioni successive viene illustrata l'esperienza di amministratore in modo più dettagliato; in ogni caso qui di seguito è riportato un riepilogo:
 
-- Quando si usa un tenant di Azure non gestito, si diventa semplicemente l'amministratore globale del tenant non gestito. In alcuni casi si tratta di un'acquisizione interna. 
-- Quando si esegue l'unione di un tenant di Azure non gestito, è possibile aggiungere il nome di dominio DNS del tenant non gestito a quello Azure gestito e viene creato un mapping di utenti a risorse in modo che gli utenti possano continuare ad accedere ai servizi senza interruzioni. In alcuni casi si tratta di un'acquisizione esterna. 
+- Quando si usa un tenant di Azure non gestito, si diventa semplicemente l'amministratore globale del tenant non gestito. In alcuni casi si tratta di un'acquisizione interna.
+- Quando si esegue l'unione di un tenant di Azure non gestito, è possibile aggiungere il nome di dominio DNS del tenant non gestito a quello Azure gestito e viene creato un mapping di utenti a risorse in modo che gli utenti possano continuare ad accedere ai servizi senza interruzioni. In alcuni casi si tratta di un'acquisizione esterna.
 
 ### Cosa viene creato nella directory Microsoft Azure?
 
@@ -103,13 +103,13 @@ Si supponga, ad esempio, che un amministratore IT di Bellows College rileva che 
 In un'acquisizione esterna, si dispone già di un tenant gestito e si vuole che tutti gli utenti e gruppi di un tenant non gestito partecipino a quel tenant gestito, invece possedere due tenant separati.
 
 In qualità di amministratore di un tenant gestito si aggiunge un dominio e accade che questo dominio abbia un tenant non gestito associato.
-	
+
 Si supponga, ad esempio, di essere un amministratore IT e di disporre già di un tenant gestito per Contoso.com, il nome di dominio registrato per la propria organizzazione. Si scopre che gli utenti dell'organizzazione hanno eseguito l'iscrizione self-service per un'offerta usando il nome di dominio di posta elettronica user@contoso.co.uk, ovvero un altro nome di dominio dell'organizzazione di cui si è proprietari. Attualmente gli utenti dispongono di account in un tenant contoso.co.uk non gestito.
 
 Non si vogliono gestire due tenant separati, pertanto si unisce il tenant non gestito per contoso.co.uk al tenant gestito IT esistente per contoso.com.
-	
+
 L'acquisizione esterna segue lo stesso processo di convalida DNS dell'acquisizione interna. Differenza: utenti e servizi vengono rimappati al tenant IT gestito.
-	
+
 #### Qual è l'impatto dell'esecuzione di un'acquisizione esterna?
 
 Con un'acquisizione esterna viene creato un mapping di utenti a risorse in modo che gli utenti possono continuare ad accedere ai servizi senza interruzioni. Molte applicazioni, tra cui RMS per utenti singoli, gestiscono anche il mapping degli utenti alle risorse e gli utenti possono continuare ad accedere a questi servizi senza alcuna modifica. Se un'applicazione non gestisce il mapping degli utenti alle risorse in modo efficace, l'acquisizione esterna potrebbe essere bloccata in modo esplicito per impedire agli utenti un'esperienza deludente.
@@ -160,7 +160,7 @@ Sono disponibili alcune opzioni per la modalità di esecuzione della convalida d
 Ad esempio:
 
 1. Connettersi ad Azure AD usando le credenziali usate per rispondere all'offerta self-service: import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
-		
+
 2. Ottenere un elenco di domini:
 
 	Get-MsolDomain
@@ -205,8 +205,8 @@ Gli amministratori attualmente dispongono di due controlli self-service. Possono
 
 Un amministratore può configurare queste funzionalità usando questi parametri del cmdlet Set-MsolCompanySettings di Azure AD:
 
-+ **AllowEmailVerifiedUsers** controlla se un utente può creare o partecipare a un tenant non gestito. Se tale parametro è impostato su $false, nessun utente verificato per la posta elettronica può aggiungere il tenant. 
-+ **AllowAdHocSubscriptions** controlla la possibilità per gli utenti di eseguire l'iscrizione self-service. Se tale parametro è impostato su $false, nessun utente può eseguire l'iscrizione self-service. 
++ **AllowEmailVerifiedUsers** controlla se un utente può creare o partecipare a un tenant non gestito. Se tale parametro è impostato su $false, nessun utente verificato per la posta elettronica può aggiungere il tenant.
++ **AllowAdHocSubscriptions** controlla la possibilità per gli utenti di eseguire l'iscrizione self-service. Se tale parametro è impostato su $false, nessun utente può eseguire l'iscrizione self-service.
 
 
 ### Come operano congiuntamente i controlli?
@@ -234,6 +234,4 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Disabilitare, abilitare o eliminare un profilo di Gestione traffico"
+   pageTitle="Disabilitare, abilitare o eliminare un profilo di Gestione traffico | Microsoft Azure"
    description="Questo articolo illustrerà l'uso dei profili di Gestione traffico."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/09/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Disabilitare, abilitare o eliminare un profilo
@@ -31,7 +31,7 @@
 
 1. Selezionare il profilo da abilitare. Per selezionare il profilo, nella pagina di Gestione traffico evidenziare il profilo facendo clic sulla colonna accanto al nome del profilo. Non fare clic sul nome del profilo o sulla freccia accanto al nome, altrimenti verrà visualizzata la pagina delle impostazioni del profilo.
 1. Dopo aver selezionato il profilo, fare clic su Abilita nella parte inferiore della pagina.
-1. Modificare il record di risorse DNS sul server DNS Internet in modo che usi il tipo di record CNAME, che esegue il mapping del nome di dominio aziendale al nome di dominio del profilo di Gestione traffico. Per altre informazioni, vedere [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](../point-a-company-internet-domain-to-a-traffic-manager-domain.md).
+1. Modificare il record di risorse DNS sul server DNS Internet in modo che usi il tipo di record CNAME, che esegue il mapping del nome di dominio aziendale al nome di dominio del profilo di Gestione traffico. Per altre informazioni, vedere [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md).
 1. Il traffico verrà nuovamente indirizzato verso gli endpoint.
 
 ## Eliminare un profilo
@@ -44,11 +44,10 @@
 
 ## Passaggi successivi
 
-[Gestione traffico](../traffic-manager.md)
+[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
-[Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-
+[Gestione traffico di Azure](traffic-manager-overview.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

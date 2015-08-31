@@ -22,14 +22,14 @@
 # Come creare e distribuire un servizio Cloud
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-create-deploy.md)
-- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure portal](cloud-services-how-to-create-deploy.md)
+- [Azure preview portal](cloud-services-how-to-create-deploy-portal.md)
 
-Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: **Creazione rapida** e **Creazione personalizzata**.
+Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
 
-In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica**. Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando **Creazione personalizzata**.
+In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica**. Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
 
-> [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Online (VSO), usare Creazione rapida, quindi configurare la pubblicazione VSO da **Creazione rapida** o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Online][TFSTutorialForCloudService] o la Guida alla pagina **Avvio rapido**.
+> [AZURE.NOTE]Se si prevede di pubblicare il servizio cloud da Visual Studio Online (VSO), usare Creazione rapida, quindi configurare la pubblicazione VSO da creazione rapida o dal dashboard. Per ulteriori informazioni, vedere [Recapito continuo in Azure mediante Visual Studio Online][TFSTutorialForCloudService] o la Guida alla pagina **Avvio rapido**.
 
 ## Concetti
 Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre componenti:
@@ -51,9 +51,9 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 - Se si desidera configurare connessioni Desktop remoto a istanze del ruolo, configurare i ruoli per Desktop remoto. Per altre informazioni sulla preparazione del file di definizione del servizio di accesso remoto, vedere [Impostare una connessione Desktop remoto per un ruolo in Azure](http://msdn.microsoft.com/library/hh124107.aspx).
 
-- Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). "Monitoraggio dettagliato* raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
+- Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il *monitoraggio dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
 
-- Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di lavoro è necessario creare il pacchetto del servizio. Per informazioni sui file relativi al pacchetto vedere [Impostare un servizio cloud per Azure](http://msdn.microsoft.com/library/hh124108.aspx). Per creare il file del pacchetto vedere [Pacchetto di applicazione Azure](http://msdn.microsoft.com/library/hh403979.aspx). Se si usa Visual Studio per sviluppare l'applicazione, vedere [Pubblicazione di un servizio cloud con gli strumenti di Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di lavoro è necessario creare il pacchetto del servizio. Per informazioni sui file relativi al pacchetto vedere [Impostare un servizio cloud per Azure](http://msdn.microsoft.com/library/hh124108.aspx). Per creare il file del pacchetto vedere [Pacchetto di applicazione Azure](http://msdn.microsoft.com/library/hh403979.aspx). Se si usa Visual Studio per sviluppare l'applicazione, vedere [Pubblicazione di un servizio cloud con gli strumenti di Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 ## Prima di iniziare
 
@@ -61,25 +61,25 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 - Se un'istanza del ruolo lo richiede, creare i certificati. I servizi cloud richiedono un file con estensione pfx con una chiave privata. È possibile caricare i certificati in Azure nel corso della creazione e della distribuzione del servizio cloud. Per informazioni sui certificati, vedere [Gestione certificati](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- Se si prevede di distribuire il servizio cloud a un gruppo di affinità, creare il gruppo di affinità. Per distribuire il servizio cloud e altri servizi di Azure alla stessa posizione all'interno di un'area, è possibile usare un gruppo di affinità. È possibile creare il gruppo di affinità nell'area **Reti** del portale di gestione, alla pagina **Gruppi di affinità**. Per altre informazioni, vedere [Creare un gruppo di affinità nel portale di gestione](http://msdn.microsoft.com/library/jj156209.aspx).
+- Se si prevede di distribuire il servizio cloud a un gruppo di affinità, creare il gruppo di affinità. Per distribuire il servizio cloud e altri servizi di Azure alla stessa posizione all'interno di un'area, è possibile usare un gruppo di affinità. È possibile creare il gruppo di affinità nell'area **Reti** del portale di Azure, alla pagina **Gruppi di affinità**. Per altre informazioni, vedere [Creare un gruppo di affinità nel portale di gestione](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Passaggio 3: creare un servizio cloud e caricare il pacchetto di distribuzione
 
-1. Accedere al [portale di anteprima di Azure][]. 
-2. Fare clic su **Nuovo**, quindi su **Calcola**, scorrere verso il basso e fare clic su **Servizio cloud**.
+1. Accedere al [portale di anteprima di Azure][].
+2. Fare clic su **Nuovo > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
-3. Nel pannello del nuovo **servizio cloud** immettere un valore per il **nome DNS**
-4. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
-5. Selezionare un **percorso**.
+3. Nel nuovo pannello del **Servizio cloud** immettere un valore per il **nome DNS**.
+4. Creare un nuovo **Gruppo di risorse** o selezionarne uno esistente.
+5. Selezionare un **Percorso**.
 6. Selezionare **Pacchetto** e nel pannello **Caricare un pacchetto** compilare i campi obbligatori.  
-      
+
      Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuire anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 
-7. Assicurarsi che l'opzione **Avvia distribuzione** sia *selezionata*.
-8. Fare clic su **OK**. 
+7. Assicurarsi che l'opzione **Avvia distribuzione** sia selezionata.
+8. Fare clic su **OK**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
@@ -87,7 +87,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 Se il pacchetto di distribuzione è stato [configurato per usare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
 
-9. Selezionare **Certificati** e nel pannello **Aggiungi certificati** selezionare il file PXF del certificato SSL e fornire la **password** per il certificato. 
+9. Selezionare **Certificati** e nel pannello **Aggiungi certificati** selezionare il file PXF del certificato SSL e fornire la **password** per il certificato.
 10. Fare clic su **Collega certificato** e su **OK** nel pannello **Aggiungi certificati**.
 11. Fare clic su **Crea** nel pannello **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready**, è possibile procedere con i passaggi successivi.
 
@@ -106,6 +106,5 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

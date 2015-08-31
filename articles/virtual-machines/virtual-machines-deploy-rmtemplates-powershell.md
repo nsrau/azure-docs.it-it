@@ -18,6 +18,12 @@
 
 # Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell
 
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 Questo articolo illustra come usare i modelli di Gestione risorse di Azure e PowerShell per automatizzare le attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [App Framework](virtual-machines-app-frameworks.md).
 
 - [Distribuire una macchina virtuale Windows](#windowsvm)
@@ -48,7 +54,7 @@ Le risorse create con i modelli di Gestione risorse di Azure verranno distribuit
 - Controllare le operazioni.
 - Contrassegnare le risorse con metadati aggiuntivi per una gestione più efficiente.
 
-Ulteriori informazioni su Gestione risorse di Azure sono disponibili [qui](virtual-machines-azurerm-versus-azuresm.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+Altre informazioni su Gestione risorse di Azure sono disponibili [qui](virtual-machines-azurerm-versus-azuresm.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
 ## <a id="windowsvm"></a>ATTIVITÀ: Distribuire una macchina virtuale Windows
 
@@ -760,7 +766,7 @@ Inserire un nome per la distribuzione di Azure, il nome gruppo di risorse e la p
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Quando si esegue il comando **New-AzureResourceGroupDeployment**, verrà richiesto di fornire i valori dei parametri del file JSON. Dopo aver specificato tutti i valori dei parametri, il comando crea il gruppo di risorse e la distribuzione.
+Quando si esegue il comando **New-AzureResourceGroupDeployment**, viene richiesto di specificare i valori dei parametri del file JSON. Dopo aver specificato tutti i valori dei parametri, il comando crea il gruppo di risorse e la distribuzione.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
@@ -950,10 +956,10 @@ Verranno visualizzate informazioni come segue:
 
 [Panoramica di Gestione risorse di Azure](resource-group-overview.md)
 
-[Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+[Distribuire e gestire le macchine virtuali mediante modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-[Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Documentazione delle macchine virtuali](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

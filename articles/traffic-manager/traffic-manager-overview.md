@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Panoramica di Gestione traffico"
+   pageTitle="Che cos'è Gestione traffico | Microsoft Azure"
    description="In questo articolo vengono fornite istruzioni per comprendere cos'è e come funziona Gestione traffico"
    services="traffic-manager"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Gestione traffico di Azure
@@ -55,17 +55,17 @@ La *Figura 2* mostra i passaggi, in ordine, necessari per l'implementazione di G
 
 1. **Distribuire i servizi cloud di Azure, siti Web di Azure o altri endpoint nell'ambiente di produzione**. Quando viene creato un profilo di Gestione traffico, questo deve essere associato a una sottoscrizione. Bisogna poi aggiungere gli endpoint per i servizi cloud e i siti Web di livello standard nella produzione che fanno parte della stessa sottoscrizione. Se un endpoint si trova in gestione temporanea e non in un ambiente di produzione di Azure oppure non fa parte della stessa sottoscrizione, può essere aggiunto come endpoint esterno. Per altre informazioni sui servizi cloud, vedere [Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074). Per altre informazioni sui siti Web, vedere [Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 2. **Decidere un nome per il dominio di Gestione traffico**. Prendere in considerazione un nome per il dominio con un prefisso univoco. L'ultima parte del dominio, trafficmanager.net, è fissa. Per altre informazioni, vedere [Procedure consigliate](#best-practices).
-3. **Decidere il monitoraggio della configurazione da usare**. Gestione traffico monitora gli endpoint per assicurare che siano online, indipendentemente dal metodo di bilanciamento del carico. Dopo aver configurato le impostazioni di monitoraggio, in base al sistema di monitoraggio, Gestione traffico non dirigerà il traffico direttamente agli endpoint offline a meno che non rilevi che tutti gli endpoint sono offline o nel caso in cui non sia possibile rilevare lo stato di ciascun endpoint contenuto nel profilo. Per altre informazioni sul monitoraggio, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-4. **Decidere il metodo di bilanciamento del carico da usare**. Sono disponibili tre differenti metodi di bilanciamento del carico. Decidere accuratamente il metodo più adatto ai propri requisiti. Se necessario, il metodo scelto può essere modificato in qualunque momento. Considerare inoltre che ciascun metodo richiede passaggi di configurazione leggermente differenti. Per informazioni sui metodi di bilanciamento del carico, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md).
+3. **Decidere il monitoraggio della configurazione da usare**. Gestione traffico monitora gli endpoint per verificare che siano online, indipendentemente dal metodo di routing del traffico. Dopo aver configurato le impostazioni di monitoraggio, in base al sistema di monitoraggio, Gestione traffico non dirigerà il traffico direttamente agli endpoint offline a meno che non rilevi che tutti gli endpoint sono offline o nel caso in cui non sia possibile rilevare lo stato di ciascun endpoint contenuto nel profilo. Per altre informazioni sul monitoraggio, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
+4. **Decidere il metodo di routing del traffico che si desidera utilizzare**. Sono disponibili tre diversi metodi di routing del traffico. Decidere accuratamente il metodo più adatto ai propri requisiti. Se necessario, il metodo scelto può essere modificato in qualunque momento. Considerare inoltre che ciascun metodo richiede passaggi di configurazione leggermente differenti. Per informazioni sui metodi di routing del traffico, vedere [metodi di routing del traffico su gestione traffico](traffic-manager-load-balancing-methods.md).
 5. **Creare il profilo e configurare le impostazioni**. È possibile utilizzare API REST, Windows PowerShell o il portale di gestione per creare il profilo di Gestione traffico e configurare le impostazioni. Per altre informazioni, vedere [Come configurare le impostazioni di Gestione traffico](#how-to-configure-traffic-manager-settings). I seguenti passaggi presuppongono l'uso di **Creazione rapida** nel portale di gestione. 
    - **Creare il profilo di Gestione traffico**: per creare un profilo usando Creazione rapida nel portale di gestione, vedere [Gestire i profili di Gestione traffico](traffic-manager-manage-profiles.md).
-   - **Configurare le impostazioni del metodo di bilanciamento del carico**: in Creazione rapida, è necessario selezionare il metodo di bilanciamento del carico per il proprio profilo. Questa impostazione può essere modificata in qualsiasi momento una volta completati i passaggi di Creazione rapida. Per la procedura di configurazione, vedere l'argomento corrispondente al metodo di bilanciamento del carico in uso: [Configurare il bilanciamento del carico delle prestazioni](traffic-manager-configure-performance-load-balancing.md), [Configurare il bilanciamento del carico failover](traffic-manager-configure-failover-load-balancing.md), [Configurare il bilanciamento del carico round robin](traffic-manager-configure-round-robin-load-balancing.md).
+   - **Configurare impostazioni del metodo di routing del traffico** – nella creazione rapida, è necessario selezionare il metodo di routing del traffico per il profilo. Questa impostazione può essere modificata in qualsiasi momento una volta completati i passaggi di Creazione rapida. Per passaggi di configurazione, vedere l'argomento corrispondente per il metodo di routing del traffico: [Configurare prestazioni metodo di routing del traffico ](traffic-manager-configure-performance-load-balancing.md), [Configurare metodo di routing del traffico failover](traffic-manager-configure-failover-load-balancing.md), [Configurare metodo di routing del traffico Round Robin](traffic-manager-configure-round-robin-load-balancing.md).
    
-   >[AZURE.NOTE]Il metodo di bilanciamento del carico Round robin supporta ora anche la distribuzione ponderata del traffico di rete. In questo momento è tuttavia necessario usare le API REST o Windows PowerShell per configurare i pesi. Per altre informazioni e una configurazione di esempio, vedere [Endpoint esterni di Gestione traffico di Azure e metodo Round robin ponderato tramite PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) nel blog di Azure.
+   >[AZURE.NOTE]Il metodo Round Robin del metodo di routing del traffico supporta ora la distribuzione ponderata del traffico di rete. In questo momento è tuttavia necessario usare le API REST o Windows PowerShell per configurare i pesi. Per altre informazioni e una configurazione di esempio, vedere [Endpoint esterni di Gestione traffico di Azure e metodo Round robin ponderato tramite PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) nel blog di Azure.
 
-   - **Configurare gli endpoint**: gli endpoint non vengono configurati durante la Creazione rapida. Dopo aver creato il profilo e specificato il metodo di bilanciamento del carico, è necessario comunicare gli endpoint a Gestione traffico. Per la procedura di configurazione degli endpoint, vedere [Gestire gli endpoint in Gestione traffico](traffic-manager-endpoints.md).
+   - **Configurare gli endpoint**: gli endpoint non vengono configurati durante la Creazione rapida. Dopo aver creato il profilo e specificato il metodo di routing del traffico, è necessario consentire a gestione traffico conoscere gli endpoint. Per la procedura di configurazione degli endpoint, vedere [Gestire gli endpoint in Gestione traffico](traffic-manager-endpoints.md).
 
-   - **Configurare le impostazioni di monitoraggio**: le impostazioni di monitoraggio non vengono configurate durante la Creazione rapida. Dopo aver creato il profilo e specificato il metodo di bilanciamento del carico, è necessario consentire a Gestione traffico la gestione del monitoraggio. Per la procedura di configurazione del monitoraggio, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
+   - **Configurare le impostazioni di monitoraggio**: le impostazioni di monitoraggio non vengono configurate durante la Creazione rapida. Dopo aver creato il profilo e specificato il metodo di routing del traffico, è necessario consentire a gestione traffico di monitoraggio. Per la procedura di configurazione del monitoraggio, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
 6. **Testare il profilo di Gestione traffico**. Accertarsi che il profilo e il dominio lavorino come previsto. Per informazioni su come effettuare la verifica, vedere [Test delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md).
 7. **Impostare il record di risorse DNS del nome di dominio aziendale in modo che punti al profilo per attivarlo**. Per altre informazioni, vedere [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md).
 
@@ -79,7 +79,7 @@ Nonostante ogni elemento dell'API REST non sia visibile nel portale di gestione,
 
 Per altre informazioni sui cmdlet di Windows PowerShell per Gestione traffico, vedere [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
->[AZURE.NOTE]Non sono attualmente disponibili informazioni di supporto per la configurazione degli endpoint esterni (tipo = 'Any'), dei pesi per il metodo di bilanciamento del carico Round robin e dei profili annidati con il portale di gestione. È necessario utilizzare REST (vedere [Creare la definizione](http://go.microsoft.com/fwlink/p/?LinkId=400772)) o Windows PowerShell (vedere [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
+>[AZURE.NOTE]È attualmente supportata per la configurazione di endpoint esterni (tipo ' any '), metodo di routing e i profili nidificati al portale di gestione del traffico pesi per il criterio Round Robin. È necessario utilizzare REST (vedere [Creare la definizione](http://go.microsoft.com/fwlink/p/?LinkId=400772)) o Windows PowerShell (vedere [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
 
 ### Configurazione delle impostazioni nel portale di gestione
 
@@ -90,8 +90,8 @@ Nel portale di gestione è possibile configurare le seguenti impostazioni:
 - **Prefisso DNS**: prefisso univoco creato dall'utente. I profili vengono visualizzati nel portale di gestione in base al prefisso.
 - **TTL DNS**: il valore della durata (TTL) DNS controlla la frequenza con la quale il server dei nomi della cache locale del client eseguirà una query sul sistema DNS di Gestione traffico di Azure per le voci DNS aggiornate.
 - **Sottoscrizione**: selezionare la sottoscrizione corrispondente al profilo. Tenere presente che questa opzione viene visualizzata solo se si dispone di più sottoscrizioni.
-- **Metodo di bilanciamento del carico**: modo in cui si desidera che Gestione traffico gestisca il bilanciamento del carico.
-- **Ordine di failover**: ordine degli endpoint quando si utilizza il metodo di bilanciamento del carico con criterio di failover.
+- **metodo di routing del traffico** : la modalità di routing del traffico di gestione traffico.
+- **Ordine di Failover** : quando il metodo di routing, l'ordine degli endpoint tramite il failover del traffico.
 - **Monitoraggio**: le impostazioni di monitoraggio contengono il protocollo (HTTP o HTTPS), la porta e il nome file e percorso relativo.
 
 ### Configurazione delle impostazioni tramite le API REST
@@ -102,7 +102,7 @@ Nel portale di gestione è possibile configurare le seguenti impostazioni:
 - **Definizione**: una definizione contiene le impostazioni dei criteri e di monitoraggio. Una definizione corrisponde a un profilo. È possibile disporre di una sola definizione per profilo. Nonostante molte delle impostazioni contenute nella definizione vengano visualizzate e possano essere configurate nel portale di gestione, la definizione non viene visualizzata nel portale di gestione.
 - **Opzioni DNS**: ciascuna definizione contiene le opzioni DNS. Si tratta del punto in cui viene configurata la durata TTL del DNS.
 - **Monitoraggi**: ciascuna definizione contiene le impostazioni di monitoraggio. In questa area vengono configurati il protocollo, la porta, il percorso relativo e il nome del file. Le impostazioni di monitoraggio vengono visualizzate e possono essere configurate nel portale di gestione. Per altre informazioni, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-- **Criteri**: ciascuna definizione contiene le impostazioni dei criteri. Nei criteri vengono specificati i metodi di bilanciamento del carico e gli endpoint. Nonostante alcune delle impostazioni dei criteri vengano visualizzate e possano essere configurate nel portale di gestione, i criteri non vengono visualizzati nel portale di gestione. Per altre informazioni, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md).
+- **Criteri**: ciascuna definizione contiene le impostazioni dei criteri. I criteri sono in cui vengono specificati i metodi di routing del traffico e gli endpoint. Nonostante alcune delle impostazioni dei criteri vengano visualizzate e possano essere configurate nel portale di gestione, i criteri non vengono visualizzati nel portale di gestione. Per ulteriori informazioni, vedere [metodi di routing del traffico su gestione traffico](traffic-manager-load-balancing-methods.md).
 
 ## Configurazione delle impostazioni tramite Windows PowerShell
 
@@ -136,12 +136,12 @@ Questa procedura consente di configurare Gestione traffico in modo che le query 
 
 **Figura 3**
 
-È possibile annidare fino a 10 livelli e ogni profilo può essere configurato con un metodo di bilanciamento del carico differente.
+È possibile nidificare fino a 10 livelli e ogni profilo può essere configurato con un metodo di routing del traffico diverso.
 
 Ad esempio, si possono creare configurazione per i seguenti elementi:
 
-- Al livello superiore (il profilo di Gestione traffico mappato per il nome DNS esterno), è possibile configurare il profilo con il metodo di bilanciamento del carico basato sulle prestazioni.
-- A livello intermedio, un set di profili di Gestione traffico rappresenta differenti datacenter e l'utilizzo del metodo di bilanciamento del carico Round Robin.
+- Al livello superiore (il profilo di Gestione traffico che viene eseguito il mapping al nome DNS esterno), è possibile configurare il profilo con il metodo di routing del traffico delle prestazioni.
+- Livello intermedio, un set di profili di Gestione traffico rappresentano Data Center diversi e utilizzare il metodo di routing round robin del traffico.
 - A livello inferiore, un set di endpoint del servizio client in ciascun servizio datacenter richiesto dal traffico dell'utente.
 
 Il risultato è che gli utenti vengono indirizzati a un data center adeguato per l'area geografica in base alle prestazioni e a un servizio cloud all'interno del data center in base a una distribuzione del carico ponderata o equivalente. Ad esempio, la definizione del peso può essere usata per distribuire una ridotta percentuale di traffico a una distribuzione nuova o di prova a scopo di test o di invio di commenti e suggerimenti da parte del cliente.
@@ -172,4 +172,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

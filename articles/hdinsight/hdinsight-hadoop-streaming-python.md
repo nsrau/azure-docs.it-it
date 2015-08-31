@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/13/2015"
+   ms.date="08/04/2015"
    ms.author="larryfr"/>
 
 #Sviluppo di programmi per la creazione di flussi Python per HDInsight
 
 In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere funzioni di mapping e riduzione in linguaggi diversi da Java. In questo articolo si apprenderà come usare Python per eseguire operazioni MapReduce.
 
-> [AZURE.NOTE]Questo articolo si basa su informazioni ed esempi pubblicati da Michael Noll in [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] (scrittura di un programma MapReduce Hadoop in Python).
+> [AZURE.NOTE]Mentre il codice Python in questo documento può essere utilizzato con un cluster HDInsight basato su Windows, i passaggi descritti in questo documento sono specifici di cluster basati su Linux.
+
+Questo articolo si basa su informazioni ed esempi pubblicati da Michael Noll in [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] (scrittura di un programma MapReduce Hadoop in Python).
 
 ##Prerequisiti
 
@@ -202,4 +205,4 @@ Dopo aver appreso come usare i processi di flusso MapReduce con HDInsight, veder
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

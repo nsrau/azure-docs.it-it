@@ -5,7 +5,7 @@ Servizi cloud è un esempio di Platform-as-a-Service (PaaS). Analogamente ai [se
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
-Maggiore controllo significa anche minore semplicità d'uso. Pertanto, se non sono necessarie opzioni di controllo aggiuntive, in genere è più semplice e rapido creare ed eseguire un'applicazione Web in Siti Web rispetto a Servizi Cloud.
+Maggiore controllo significa anche minore semplicità d'uso. Pertanto, se non sono necessarie opzioni di controllo aggiuntive, in genere è più semplice e rapido creare ed eseguire un'applicazione Web, in esecuzione in App Web, in Servizio app rispetto a Servizi Cloud.
 
 La tecnologia offre due opzioni leggermente diverse relative alle macchine virtuali, ovvero istanze di *ruoli Web* che eseguono una variante di Windows Server con IIS e istanze di *ruoli di lavoro* che eseguono la stessa variante di Windows Server senza IIS. Un'applicazione di Servizi cloud si basa su una combinazione di tali opzioni.
 
@@ -30,4 +30,4 @@ Servizi cloud offre inoltre funzionalità di monitoraggio. Analogamente a Macchi
 
 L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre implicazioni, ad esempio il fatto che le applicazioni basate su tale tecnologia devono essere scritte in modo da essere eseguite correttamente in caso di errore di istanze dei ruoli Web o di lavoro. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali di Azure, le operazioni di scrittura effettuate nelle VM di Servizi cloud non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud vengano scritti esplicitamente in database SQL, BLOB, tabelle o altre tecnologie di archiviazione esterna. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, obiettivi essenziali di Servizi cloud.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -18,7 +18,7 @@
 
 # Aggiungere Servizi mobili a un'app esistente
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-ec.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -29,7 +29,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">video di esercitazione</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Riproduci video</span></a><span class="time">15:32:00</span></div>
 </div>
 
-> [AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Android e ripropone quindi molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](../get-started-android-EC.md).
+> [AZURE.NOTE]Questa esercitazione è stata ideata per illustrare come usare Servizi mobili di Azure per archiviare e recuperare i dati da un'app per Android e ripropone quindi molte delle procedure già completate nella guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione [Introduzione a Servizi mobili](../get-started-android-ec.md).
 > 
 > Per visualizzare il codice sorgente dell'app completata, fare clic [qui](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
 
@@ -49,16 +49,16 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ###Scaricare il codice di esempio
 
-[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-EC.md)]
+[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-ec.md)]
 
 ###Verificare la versione di Android SDK
 
-[AZURE.INCLUDE [Verificare l'SDK](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Verificare l'SDK](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 ###Esaminare ed eseguire il codice di esempio
 
-[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-ec.md)]
 
 ##<a name="create-service"></a>Creare un nuovo servizio mobile nel portale di gestione
 
@@ -70,7 +70,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ##<a name="update-app"></a>Aggiornare l'app per l'uso del servizio mobile per l'accesso ai dati
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-ec.md)]
 
 ##<a name="test-app"></a>Testare l'app nel nuovo servizio mobile
 
@@ -123,7 +123,7 @@ Successivamente, provare a eseguire le esercitazioni per Android seguenti:
 
 <!-- URLs. -->
 [Introduzione all'autenticazione]: mobile-services-android-get-started-users.md
-[Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push-ec.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [portale di gestione]: https://manage.windowsazure.com/
@@ -132,4 +132,4 @@ Successivamente, provare a eseguire le esercitazioni per Android seguenti:
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

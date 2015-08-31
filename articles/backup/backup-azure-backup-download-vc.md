@@ -37,7 +37,13 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 - Il file delle credenziali di insieme scade dopo 48 ore e può essere scaricato dal portale.
 - Per domande sul flusso di lavoro, fare riferimento alle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
+##Video della procedura dettagliata
+
+Di seguito è riportato un video con la procedura dettagliata di questa esercitazione.
+
+[AZURE.VIDEO using-vault-credentials-to-authenticate-with-the-azure-backup-service]
+
 ## Passaggi successivi
 [Scaricare, registrare e installare l'agente Azure Backup](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

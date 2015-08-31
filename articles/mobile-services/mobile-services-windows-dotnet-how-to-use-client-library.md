@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso delle libreria client .NET per Servizi mobili" 
-	description="Informazioni su come usare un client .NET per Servizi mobili di Azure." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso delle libreria client .NET per Servizi mobili"
+	description="Informazioni su come usare un client .NET per Servizi mobili di Azure."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Come usare un client .NET per Servizi mobili di Azure
@@ -296,7 +296,7 @@ Il client di Servizi mobili consente di registrarsi per le notifiche push con Hu
 		    var channel =
 		        await PushNotificationChannelManager
 		            .CreatePushNotificationChannelForApplicationAsync();
-		
+
 		    // Register for notifications using the new channel and a tag collection.
 			var tags = new List<string>{ "mytag1", "mytag2"};
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
@@ -697,6 +697,5 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Chiamata di un'API personalizzata dal client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

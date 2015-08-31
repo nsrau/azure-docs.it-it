@@ -31,9 +31,9 @@ In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet 
 
 Prima di iniziare la configurazione dei componenti di Azure, è necessario compilare le tabelle seguenti. Per agevolare le procedure per la configurazione di Azure, stampare questa sezione e prendere nota delle informazioni necessarie o copiare questa sezione in un documento e procedere con la compilazione.
 
-Per le impostazioni della rete virtuale (VNet), compilare la tabella V.
+Per le impostazioni della rete virtuale (VNet), compilare la Tabella V.
 
-Item | Elemento di configurazione | Descrizione | Valore
+Elemento | Elemento di configurazione | Descrizione | Valore
 --- | --- | --- | ---
 1\. | Nome della rete virtuale | Nome da assegnare alla rete virtuale di Azure (ad esempio SPFarmNet). | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | Posizione della rete virtuale | Il centro dati di Azure che conterrà la rete virtuale. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -53,11 +53,11 @@ Item | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
 
 **Tabella S: Subnet nella rete virtuale**
 
-> [AZURE.NOTE]Questa architettura predefinita utilizza una singola subnet per motivi di semplicità. Se si desidera sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile utilizzare i [Gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx) di Azure.
+> [AZURE.NOTE]Questa architettura predefinita usa una singola subnet per motivi di semplicità. Se si desidera sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile utilizzare i [Gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx) di Azure.
 
-Per i due server DNS locali che si desidera utilizzare quando si impostano inizialmente i controller di dominio nella rete virtuale, compilare tabella D. Assegnare a ciascun server DNS un nome descrittivo e un singolo indirizzo IP. Non è necessario che il nome descrittivo corrisponda al nome host o al nome del computer del server DNS. Si noti che sono elencate due voci vuote, ma è possibile aggiungerne altre. Collaborare con il reparto IT per stabilire questo elenco.
+Per i due server DNS locali da usare quando si impostano inizialmente i controller di dominio nella rete virtuale, compilare la Tabella D. Assegnare a ciascun server DNS un nome descrittivo e un singolo indirizzo IP. Non è necessario che il nome descrittivo corrisponda al nome host o al nome del computer del server DNS. Si noti che sono elencate due voci vuote, ma è possibile aggiungerne altre. Collaborare con il reparto IT per stabilire questo elenco.
 
-Item | Nome descrittivo per il server DNS | Indirizzo IP del server DNS
+Elemento | Nome descrittivo per il server DNS | Indirizzo IP del server DNS
 --- | --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -68,7 +68,7 @@ Per distribuire pacchetti dalla rete locale alla rete dell'organizzazione attrav
 
 Per il set di spazi degli indirizzi della rete locale, compilare la tabella L. Si noti che sono elencate tre voci vuote, ma in genere ne occorrono di più. Collaborare con il reparto IT per determinare questo elenco di spazi degli indirizzi.
 
-Item | Spazio degli indirizzi della rete virtuale
+Elemento | Spazio degli indirizzi della rete virtuale
 --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -138,7 +138,7 @@ Se questo comando restituisce "False", il nome proposto è univoco. Quindi, crea
 
 Successivamente, definire i nomi di quattro set di disponibilità. Compilare la tabella A.
 
-Item | Scopo | Nome set di disponibilità
+Elemento | Scopo | Nome set di disponibilità
 --- | --- | ---
 1\. | Controller di dominio | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | Server di SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -169,4 +169,6 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: C
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

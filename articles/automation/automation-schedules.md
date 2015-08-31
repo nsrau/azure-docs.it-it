@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Pianificazioni in Automazione di Azure"
+   pageTitle="Pianificazioni in Automazione di Azure | Microsoft Azure"
    description="Le pianificazioni di Automazione di Azure vengono usate per pianificare l'esecuzione automatica dei runbook in Automazione di Azure. Questo articolo illustra come creare pianificazioni."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Pianificazioni in Automazione di Azure
@@ -66,4 +66,4 @@ Il cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 - [Pianificazione di un runbook in Automazione di Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

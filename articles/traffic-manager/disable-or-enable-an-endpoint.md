@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Disabilitare o abilitare un endpoint di Gestione traffico"
+   pageTitle="Disabilitare o abilitare un endpoint di Gestione traffico | Microsoft Azure"
    description="Questo articolo aiuterà a disabilitare o abilitare gli endpoint del profilo di Gestione traffico."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Disabilitare o abilitare un endpoint di Gestione traffico
@@ -38,9 +38,9 @@
 
 ## Passaggi successivi
 
-[Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
 
-[Panoramica di Gestione traffico](../traffic-manager.md)
+[Gestione traffico di Azure](../traffic-manager.md)
 
 [Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -50,4 +50,4 @@
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

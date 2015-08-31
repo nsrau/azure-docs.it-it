@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Informazioni sul monitoraggio di Gestione traffico
 
@@ -27,7 +27,7 @@ Gestione traffico di Azure esegue il monitoraggio degli endpoint, tra cui i serv
 
 ## Informazioni sullo stato di integrità del monitoraggio
 
-Nel portale di gestione, Gestione traffico di Azure visualizza il profilo e l'integrità del servizio endpoint. La colonna dello stato per il profilo e l'endpoint visualizza lo stato di monitoraggio più recente. È possibile utilizzare tale stato per verificare l'integrità dei profili in base alle impostazioni di monitoraggio di Gestione traffico. Quando il profilo è integro, le query DNS verranno distribuite ai servizi in base alle impostazioni di bilanciamento del carico per il profilo (Round Robin, prestazioni o failover). Se il sistema di monitoraggio di Gestione traffico rileva una modifica nello stato di monitoraggio, la voce relativa allo stato viene aggiornata nel portale di gestione. L'aggiornamento della modifica relativa allo stato può richiedere fino a cinque minuti.
+Nel portale di gestione, Gestione traffico di Azure visualizza il profilo e l'integrità del servizio endpoint. La colonna dello stato per il profilo e l'endpoint visualizza lo stato di monitoraggio più recente. È possibile utilizzare tale stato per verificare l'integrità dei profili in base alle impostazioni di monitoraggio di Gestione traffico. Quando il profilo è integro, le query DNS verranno distribuite ai servizi in base alle impostazioni di routing del traffico per il profilo (Round Robin, prestazioni o failover). Se il sistema di monitoraggio di Gestione traffico rileva una modifica nello stato di monitoraggio, la voce relativa allo stato viene aggiornata nel portale di gestione. L'aggiornamento della modifica relativa allo stato può richiedere fino a cinque minuti.
 
 ### Stato monitoraggio endpoint
 
@@ -89,7 +89,7 @@ Di seguito viene visualizzata una sequenza temporale di esempio con un processo 
 
 ## Stato degli endpoint padre e figlio per i profili nidificati
 
-Nella seguente tabella viene descritto il comportamento del monitoraggio di Gestione traffico per i profili padre e figlio di un profilo nidificato e l'impostazione minChildEndpoints. Per altre informazioni, vedere [Panoramica di Gestione traffico](traffic-manager-overview.md).
+Nella seguente tabella viene descritto il comportamento del monitoraggio di Gestione traffico per i profili padre e figlio di un profilo nidificato e l'impostazione minChildEndpoints. Per altre informazioni, vedere [Gestione traffico di Azure](traffic-manager-overview.md).
 
 |Stato di monitoraggio del profilo figlio|Stato di monitoraggio dell'endpoint padre|Note|
 |---|---|---|
@@ -108,9 +108,9 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 
 ## Vedere anche
 
-[Panoramica di Gestione traffico](traffic-manager-overview.md)
+[Gestione traffico di Azure](traffic-manager-overview.md)
 
-[Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
 
 [Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -119,4 +119,4 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -70,4 +70,6 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: C
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

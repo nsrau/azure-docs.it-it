@@ -1,44 +1,44 @@
 <properties
-	pageTitle="Introduzione a Ricerca di Azure in NodeJS"
+	pageTitle="Introduzione a Ricerca di Azure in NodeJS | Microsoft Azure"
 	description="Illustra la creazione di un'applicazione Ricerca di Azure personalizzata utilizzando NodeJS come linguaggio di programmazione."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
-#Introduzione a Ricerca di Azure in NodeJS#
+# Introduzione a Ricerca di Azure in NodeJS
 
-Informazioni su come compilare un'applicazione di ricerca NodeJS personalizzata che utilizza Ricerca di Azure per l’esperienza di ricerca. L'esercitazione utilizza l’[API REST del servizio Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx) per costruire gli oggetti e le operazioni utilizzate in questo esercizio.
+Informazioni su come compilare un'applicazione di ricerca NodeJS personalizzata che utilizza Ricerca di Azure per l’esperienza di ricerca. L'esercitazione utilizza l’[API REST del servizio Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx) per costruire gli oggetti e le operazioni utilizzati in questo esercizio.
 
 Sono stati utilizzati [NodeJS](https://nodejs.org) e NPM, [Sublime Text 3](http://www.sublimetext.com/3) e Windows PowerShell in Windows 8.1 per sviluppare e testare il codice.
 
-Per eseguire questo esempio, è necessario disporre di un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com).
+Per eseguire questo esempio, è necessario un servizio Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Scaricare il codice sorgente per questa esercitazione in [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
-##Informazioni sui dati##
+## Informazioni sui dati
 
-L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un’applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
+L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno usati per compilare un'applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
 
-In questa applicazione, il programma **DataIndexer** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali e connessioni all’origine dati online. Non è necessaria ulteriore configurazione.
+In questa applicazione, il programma **DataIndexer** compila e carica l'indice utilizzando un costrutto [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando il set di dati filtrato dei servizi geologici degli Stati Uniti da un database SQL di Azure pubblico. Nel codice del programma vengono fornite credenziali e connessioni all'origine dati online. Non è necessaria ulteriore configurazione.
 
-> [AZURE.NOTE]A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si utilizza il livello standard, questo limite non si applica. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE]A questo set di dati è stato applicato un filtro per restare sotto il limite di 10.000 documenti del livello di prezzo gratuito. Se si usa il livello standard, questo limite non si applica. Per ulteriori informazioni sulla capacità per ogni livello di prezzo, vedere [Limiti e vincoli](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-##Creare il servizio##
+## Creare il servizio
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nell'indice, fare clic su **Nuovo** | **Dati + archiviazione** | **Ricerca**.
+2. Nell'indice, fare clic su **Nuovo** > **Dati e archiviazione** > **Ricerca**.
 
      ![][1]
 
@@ -61,12 +61,12 @@ In questa applicazione, il programma **DataIndexer** compila e carica l'indice u
 
 4. Fare clic su **Crea** per eseguire il provisioning del servizio.
 
-Controllare le notifiche nell'indice. Quando il servizio è pronto per l'utilizzo, viene visualizzato un avviso.
+Controllare le notifiche nell'indice. Quando il servizio è pronto per l'uso, viene visualizzato un avviso.
 
 <a id="sub-2"></a>
-##Individuare il nome del servizio e la chiave API del servizio Ricerca di Azure
+## Individuare il nome del servizio e la chiave API del servizio Ricerca di Azure
 
-Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL o `api-key`. Per le connessioni al servizio di ricerca è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
+Dopo aver creato il servizio, tornare al portale per ottenere l'URL o `api-key`. Per le connessioni al servizio Ricerca è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
 
 1. Nell’indice, fare clic su **Home**, quindi fare clic sul servizio Ricerca per aprire il dashboard del servizio.
 
@@ -74,9 +74,9 @@ Dopo aver creato il servizio, è possibile tornare al portale per ottenere l'URL
 
   	![][3]
 
-3. Copiare l'URL del servizio, una chiave di amministrazione e una chiave di query. Saranno necessarie in seguito, quando verranno aggiunti al file config.properties.
+3. Copiare l'URL del servizio, una chiave di amministrazione e una chiave di query. Saranno necessari in seguito, quando verranno aggiunti al file config.js.
 
-##Scaricare i file di esempio
+## Scaricare i file di esempio
 
 Utilizzare uno degli approcci seguenti per scaricare l'esempio.
 
@@ -87,9 +87,9 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 In alternativa, se si dispone di GIT nell’istruzione del percorso, è possibile aprire una finestra di PowerShell e digitare `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
-##Aggiornare config.js. con l'URL del servizio di ricerca e la chiave api
+## Aggiornare config.js. con l'URL del servizio di ricerca e la chiave api
 
-Utilizzando l'URL e le chiavi api copiate in precedenza, specificare l'URL, la chiave di amministrazione e la chiave di query nel file di configurazione.
+Utilizzando l'URL e la chiave API copiati in precedenza, specificare l'URL, la chiave di amministrazione e la chiave di query nel file di configurazione.
 
 Le chiavi di amministrazione forniscono il controllo completo sulle operazioni del servizio, incluse creazione ed eliminazione di un indice e caricamento di documenti. Le chiavi di query, invece, sono per le operazioni di sola lettura, in genere utilizzate dalle applicazioni client che si connettono a Ricerca di Azure.
 
@@ -100,7 +100,7 @@ La seguente schermata mostra **config.js** aperto in un editor di testo con le v
 ![][5]
 
 
-##Ospitare un ambiente di runtime per l'esempio
+## Ospitare un ambiente di runtime per l'esempio
 
 L'esempio richiede un server HTTP, che è possibile installare a livello globale tramite npm.
 
@@ -110,14 +110,14 @@ Eseguire i comandi seguenti da una finestra di PowerShell:
 2. Digitare `npm install`.
 2. Digitare `npm install -g http-server`.
 
-##Compilare l’indice ed eseguire l'applicazione.
+## Compilare l’indice ed eseguire l'applicazione.
 
 1. Digitare `npm run indexDocuments`.
 2. Digitare `npm run build`.
 3. Digitare `npm run start_server`.
 4. Inserire nel browser l'indirizzo `http://localhost:8080/index.html`
 
-##Eseguire ricerche sui dati dei servizi geologici degli Stati Uniti##
+## Eseguire ricerche sui dati dei servizi geologici degli Stati Uniti
 
 Il set di dati dei servizi geologici degli Stati Uniti include i dati relativi allo stato del Rhode Island. Se si fa clic su **Ricerca** su una casella di ricerca vuota, si otterranno le prime 50 voci, ossia l'impostazione predefinita.
 
@@ -132,11 +132,11 @@ L’immissione di un termine di ricerca fornirà al motore di ricerca un element
 - goose +cape
 
 
-##Passaggi successivi##
+## Passaggi successivi
 
 Questa è la prima esercitazione di Ricerca di Azure basata su NodeJS e sul set di dati dei servizi geologici degli Stati Uniti. Nel corso del tempo, l’esercitazione sarà ampliata per illustrare le funzionalità di ricerca aggiuntive che potrebbero essere utili nelle soluzioni personalizzate.
 
-Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base di prova per i suggerimenti di alternative (query di suggerimento per la digitazione e completamento automatico), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
+Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile usare questo esempio come base di prova per i suggerimenti di alternative (query di suggerimento per la digitazione e completamento automatico), filtri ed esplorazione basata su facet. È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
 Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](http://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](https://msdn.microsoft.com/library/azure/dn798933.aspx) per accedere a ulteriori informazioni.
 
@@ -146,6 +146,5 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

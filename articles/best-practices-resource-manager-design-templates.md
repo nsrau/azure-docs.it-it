@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure
 
 Nel nostro lavoro con aziende, integratori di sistemi (SI), fornitori di servizi cloud (CSV) e team di progetto per software open source (OSS), è spesso necessario distribuire rapidamente ambienti, carichi di lavoro o unità di scala. Queste distribuzioni devono essere supportate, seguire procedure consolidate ed essere conformi ai criteri identificati. Adottando un approccio flessibile basato su modelli di Gestione risorse di Azure, è possibile distribuire topologie complesse in modo rapido e coerente e adattare facilmente queste distribuzioni all’evolvere delle offerte di core oppure adattare varianti per scenari di outlier o clienti.
+
+Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 I modelli uniscono i vantaggi della Gestione risorse di Azure sottostante con l’adattabilità e la leggibilità di JavaScript Object Notation (JSON). Utilizzando i modelli, è possibile:
 
@@ -319,9 +321,9 @@ Con Redis, è opportuno installare ogni singolo nodo e quindi, una volta install
 
 Utilizzando il collegamento di modello, il modello principale si collega al modello di risorse condivise, stabilendo in tal modo la rete virtuale.
 
-All’interno del modello principale viene aggiunta la logica per consentire ai consumer del modello di specificare se un jumpbox dovrà essere distribuito o meno. Un valore *abilitato* per il parametro *EnableJumpbox* indica che il cliente desidera distribuire un jumpbox. Quando questo valore viene specificato, il modello concatena *\_abilitato* come suffisso al nome di un modello di base per la funzionalità di jumpbox.
+All’interno del modello principale viene aggiunta la logica per consentire ai consumer del modello di specificare se un jumpbox dovrà essere distribuito o meno. Un valore *abilitato* per il parametro *AbilitaJumpbox* indica che il cliente desidera distribuire un jumpbox. Quando questo valore viene specificato, il modello concatena *\_abilitato* come suffisso al nome di un modello di base per la funzionalità di jumpbox.
 
-Il modello principale utilizza il valore di parametro *large* come suffisso del nome di un modello di base per le taglie, quindi utilizza tale valore nel collegamento di un modello a *technology\_on\_os\_large.json*.
+Il modello principale applica il valore del parametro *grande* come suffisso al nome di un modello di base per le dimensioni della t-shirt, poi utilizza tale valore in un collegamento di modello per*technology\_on\_os\_large.json*.
 
 La topologia sarà simile a questa illustrazione.
 
@@ -335,7 +337,7 @@ Per i nodi del cluster, esistono due fasi per la configurazione dello stato, ent
 
 ### Supporto di distribuzioni di dimensioni diverse
 
-All'interno di variabili, il modello delle taglie specifica il numero di nodi di ogni tipo di distribuzione per la dimensione specificata (*large*). Quindi distribuisce tale numero di istanze di VM utilizzando i cicli di risorse che forniscono nomi univoci per le risorse mediante l'aggiunta di un nome di nodo con un numero di sequenza numerica ottenuto da *copyIndex()*. Questa operazione viene eseguita per le zone VM sia critiche e medie, come definito nel modello di assegnazione del nome
+All'interno di variabili, il modello di dimensioni della t-shirt specifica il numero di nodi di ogni tipo di distribuzione per la dimensione specificata (*grande*). Distribuisce poi il numero di istanze di macchina virtuale utilizzando i cicli di risorse, specificando nomi univoci alle risorse mediante l'aggiunta di un nome di nodo con un numero di sequenza numerica da *copyIndex()*. Questa operazione viene eseguita per le zone VM sia critiche e medie, come definito nel modello di assegnazione del nome
 
 ## Modelli con ambito di soluzione end-to-end e di scomposizione
 
@@ -377,8 +379,8 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 
 ## Passaggi successivi
 
-- Per vedere esempi contestuali di come implementare i principi di progettazione presentati in questo argomento, vedere [Esempi contestuali delle procedure consigliate per l’implementazione di modelli](best-practices-resource-manager-examples.md).
-- Per consigli su come gestire la sicurezza in Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
-- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
+- Per vedere esempi contestuali di come implementare i principi di progettazione presentati in questo argomento, vedere [Esempi contestuali di procedure consigliate per implementare i modelli](best-practices-resource-manager-examples.md).
+- Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
+- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno di modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

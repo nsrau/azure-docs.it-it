@@ -13,10 +13,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/10/2015" 
+	ms.date="08/20/2015" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di Analisi di flusso Microsoft
+
+## Note per la versione 20/08/2015 di Analisi di flusso ##
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+Titolo|Descrizione
+---|---
+Aggiunta funzione LAST |La funzione [LAST](http://msdn.microsoft.com/library/mt421186.aspx) è ora disponibile nei processi di analisi dei flussi. Consente di recuperare l'evento più recente in un flusso di eventi all'interno di un intervallo di tempo specificato.
+Nuove funzioni di matrice|Le funzioni di matrici [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx), [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) sono ora disponibili.
+Nuove funzioni di record|Le funzioni di record [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) sono ora disponibili.
 
 ## Note per la versione del 30/07/2015 di Analisi di flusso ##
 
@@ -63,7 +73,7 @@ Limitazione del volume di eventi del database SQL|Quando si usa un database SQL 
 I dataset PowerBI possono contenere solo una tabella|PowerBI non supporta più di una tabella in un dato dataset.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -74,4 +84,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

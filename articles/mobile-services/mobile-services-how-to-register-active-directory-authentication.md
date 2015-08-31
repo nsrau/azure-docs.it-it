@@ -66,4 +66,4 @@ Questo argomento illustra come registrare le app in modo da usare Azure Active D
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

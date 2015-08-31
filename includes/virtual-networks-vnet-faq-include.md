@@ -20,7 +20,7 @@ Usare le reti virtuali per:
 
 ### Come scoprire se è necessaria una rete virtuale?
 
-Vedere [Panoramica sulla rete virtuale](http://go.microsoft.com/fwlink/?LinkId=296649) per visualizzare una tabella che consentirà di scegliere la migliore opzione di progettazione della rete.
+Per una tabella che consenta di scegliere la migliore opzione di progettazione della rete, vedere [Panoramica sulla rete virtuale](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/).
 
 ### Come iniziare?
 
@@ -120,7 +120,7 @@ No, una rete virtuale è limitata a una singola area.
 
 Sì. È possibile creare reti virtuali per la comunicazione tra reti virtuali utilizzando le API REST o Windows PowerShell. Vedere [Configurazione di una connessione tra reti virtuali](virtual-networks-configure-vnet-to-vnet-connection.md).
 
-## Risoluzione del nome (DSN)
+## Risoluzione del nome (DNS)
 
 ### Quali sono le opzioni DNS per le reti virtuali?
 
@@ -246,9 +246,9 @@ No, non è possibile spostare i servizi all’interno e all’esterno delle reti
 
 Le reti virtuali sono completamente isolate l’una dall’altra e gli altri servizi sono ospitati nell'infrastruttura di Azure. Una rete virtuale è un limite di attendibilità.
 
-### È possibile definire ACL o NSG sulle reti virtuali?
+### È possibile definire elenchi di controllo di accesso o gruppi di sicurezza di rete sulle reti virtuali?
 
-No, non è possibile associare ACL o NSG alle reti virtuali. Tuttavia, è possibile definire ACL sugli endpoint di input per le macchine virtuali che sono state distribuite su una rete virtuale e associare NSG a subnet o NIC.
+No, non è possibile associare gli elenchi di controllo di accesso o i gruppi di sicurezza di rete alle reti virtuali. Tuttavia, è possibile definire elenchi di controllo di accesso sugli endpoint di input per le macchine virtuali distribuite su una rete virtuale e associare i gruppi di sicurezza di rete a subnet o schede di interfaccia di rete.
 
 ### Esiste un white paper sulla sicurezza della rete virtuale?
 
@@ -264,4 +264,4 @@ Sì. È possibile usare le API REST per gestire le reti virtuali e la connettivi
 
 Sì. È possibile usare gli strumenti di PowerShell e della riga di comando per un'ampia gamma di piattaforme. Ulteriori informazioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

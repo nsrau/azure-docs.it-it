@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrazione di runbook e Integration Pack a Orchestrator"
+   pageTitle="Migrazione da Orchestrator ad Automazione di Azure | Microsoft Azure"
    description="Descrive come eseguire la migrazione di runbook e Integration Pack da System Center Orchestrator in Automazione di Azure."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/22/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 
@@ -81,4 +81,4 @@ Questo strumento convertirà i runbook di Orchestrator in runbook grafici che po
 - [Attività Standard di Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

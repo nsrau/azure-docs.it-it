@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
  
 # Esplorare i log di traccia .NET in Application Insights  
 
 Se si usa NLog, log4Net o System.Diagnostics.Trace per l'analisi diagnostica nell'applicazione ASP.NET, è possibile fare in modo che i log vengano inviati a [Visual Studio Application Insights][start], dove è possibile esplorarli ed eseguirvi ricerche. I log verranno uniti con gli altri eventi di telemetria provenienti dall'applicazione, in modo da potere identificare le tracce associate alla gestione di ogni richiesta dell'utente e metterle in correlazione con altri eventi e i report di eccezioni.
 
-È anche possibile scrivere tracce di log e report di eventi ed eccezioni con Application Insights SDK.
+> [AZURE.NOTE]Se è necessario un modulo di acquisizione dei log, questo adattatore è utile per i logger terze parti, ma se non si usa già NLog, log4Net o System.Diagnostics.Trace, chiamare direttamente [TrackTrace() di Application Insights](app-insights-api-custom-events-metrics.md#track-trace).
 
-Se non si è ancora [configurato Application Insights per il progetto][start], è possibile farlo ora.
+Se non si è ancora [configurato Application Insights per il progetto][start], è possibile farlo ora. Il progetto deve contenere il file `ApplicationInsights.config` e il pacchetto NuGet `Microsoft.ApplicationInsights.Web`.
 
 
 ##  Installare un adattatore per il framework di registrazione
@@ -30,7 +30,7 @@ Se si usa un framework di registrazione, ad esempio log4Net, NLog o System.Diagn
 
 1. Se si intende usare log4Net o NLog, installarlo nel progetto. 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-3. Selezionare Online > Tutti, quindi selezionare **Includi versione preliminare** e cercare "Microsoft.ApplicationInsights".
+3. Cercare "Application Insights"
 
     ![Ottenere la versione preliminare dell'adattatore appropriato](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 
@@ -124,4 +124,4 @@ Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conser
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

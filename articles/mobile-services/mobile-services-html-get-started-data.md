@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="08/16/2015" 
 	ms.author="glenga"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -133,7 +133,7 @@ Ora che il servizio mobile è pronto, è possibile aggiornare l'app in modo che 
 
    	Questo codice crea un oggetto proxy (**todoItemTable**) per l'elemento **TodoItem** del database SQL.
 
-7. Sostituire il gestore di eventi **$('#add-item').submit** con il codice seguente:
+7. Sostituire il gestore di eventi **$('\#add-item').submit** con il codice seguente:
 
 		$('#add-item').submit(function(evt) {
 			var textbox = $('#new-item-text'),
@@ -257,4 +257,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app HT
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

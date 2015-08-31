@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/16/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 
@@ -78,4 +78,7 @@ Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di siste
 ## Supporto esteso per la famiglia di sistemi operativi guest 1 terminato il 3 novembre 2014
 I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più supportati. Disattivare la migrazione della famiglia 1 appena possibile per evitare l'interruzione del servizio.
 
-<!---HONumber=August15_HO7-->
+## Passaggi successivi
+Esaminare la versione più recente [versioni del sistema operativo Guest](cloud-services-guestos-update-matrix.md).
+
+<!---HONumber=August15_HO8-->

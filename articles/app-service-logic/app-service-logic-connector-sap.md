@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -52,7 +52,7 @@ Individuare l'applicazione API creata scegliendo Sfoglia -> App per le API -> <N
 
 ![][2]
 
-Per stabilire la connettività ibrida eseguire le operazioni seguenti:
+Il connettore SAP richiede la connettività ibrida per la connessione a *qualsiasi* endpoint SAP. Per stabilire la connettività ibrida eseguire le operazioni seguenti:
 
 1. Copiare la stringa di connessione primaria
 2. Fare clic sul collegamento 'Scarica e configura'
@@ -85,6 +85,13 @@ L'azione o il passaggio verrà ora visualizzato come configurato nell'app per la
 
 Completare l'app per la logica per definire il processo aziendale e quindi eseguirla per raggiungere lo scopo desiderato.
 
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sap/Create.jpg
 [2]: ./media/app-service-logic-connector-sap/BrowseSetupIncomplete.jpg
@@ -94,4 +101,4 @@ Completare l'app per la logica per definire il processo aziendale e quindi esegu
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

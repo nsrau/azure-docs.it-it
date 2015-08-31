@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Amministrazione del dispositivo tramite Windows PowerShell per StorSimple"
+   pageTitle="Utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple | Microsoft Azure"
    description="Leggere le informazioni su come gestire il dispositivo StorSimple tramite Windows PowerShell per StorSimple"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/04/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli@microsoft.com" />
 
 # Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
@@ -37,11 +37,9 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 
 >- I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet che consentono di automatizzare le attività StorSimple a livello di servizio e di migrazione dalla riga di comando. Per ulteriori informazioni sui cmdlet di Azure PowerShell per StorSimple, andare alla [documentazione di riferimento dei cmdlet di Azure StorSimple](https://msdn.microsoft.com/library/azure/dn920427.aspx).
 
-
-
 È possibile accedere a Windows PowerShell per StorSimple utilizzando uno dei metodi seguenti:
 
-- [Connessione alla console seriale del dispositivo StorSimple](#connect-to-windows-powershell-for-storsimple-via-device-serial-console)
+- [Connessione alla console seriale del dispositivo StorSimple](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 - [Connessione in remoto a StorSimple tramite Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 	
 
@@ -49,7 +47,7 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 
 È possibile [scaricare PuTTY](http://www.putty.org/) o software di emulazione di terminale simili per connettersi a Windows PowerShell per StorSimple. È necessario configurare PuTTY in modo specifico per accedere al dispositivo Microsoft Azure StorSimple. Nei seguenti argomenti vengono descritti i passaggi dettagliati su come configurare PuTTy e connettersi al dispositivo. Vengono anche illustrate varie opzioni di menu sulla console seriale.
 
-### Informazioni sulla console seriale
+### Uscire dalla console seriale.
 
 Quando si accede all'interfaccia Windows PowerShell del dispositivo StorSimple tramite la console seriale, viene visualizzato un messaggio di intestazione, seguito dalle opzioni di menu.
 
@@ -159,7 +157,7 @@ Nella tabella seguente viene illustrato un riepilogo di tutte le attività di ge
 |Arrestare un controller </br> Riavviare o arrestare un controller </br> Arrestare un dispositivo </br> Ripristinare il dispositivo alle impostazioni predefinite di fabbrica|[Gestire i controller dei dispositivi](storsimple-manage-device-controller.md)|
 |Installazione degli aggiornamenti in modalità di manutenzione e rapidi|[Aggiornare il dispositivo](storsimple-update-device.md)|
 |Inserire la modalità di manutenzione </br> Uscire dalla modalità di manutenzione|[Modalità del dispositivo StorSimple](storsimple-device-modes.md)|
-|Creare un pacchetto di supporto </br> Decrittografare e modificare un pacchetto di supporto|[Creare e gestire un pacchetto di supporto](storsimple-create-manage-support-package.md)|
+|Creare un pacchetto di supporto</br>Decrittografare e modificare un pacchetto di supporto|[Creare e gestire un pacchetto di supporto](storsimple-create-manage-support-package.md)|
 |Avviare una sessione di supporto </br>|[Avviare una sessione di supporto in Windows PowerShell per StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)
  
 
@@ -194,9 +192,9 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 1. Una volta installati i file della guida, digitare: `Get-Help Get-Command`. Verrà visualizzato un elenco dei cmdlet per cui è disponibile la guida.
 
 
->[AZURE.NOTE]**Per ottenere un elenco di tutti i cmdlet disponibili in ciascuno degli spazi di esecuzione, accedere all'opzione di menu corrispondente ed eseguire il cmdlet `Get-Command`.**
+>[AZURE.NOTE]Per ottenere un elenco di tutti i cmdlet disponibili in ciascuno degli spazi di esecuzione, accedere all'opzione di menu corrispondente ed eseguire il cmdlet `Get-Command`.
 
 ## Passaggi successivi
-Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento alla [risoluzione dei problemi relativi ai cmdlet](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting).
+Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,10 +1,10 @@
-1. In Visual Studio **Solution Explorer**, expand the **Controllers** folder in the mobile backend project. Open **TodoItemController.cs**. At the top of the file, add the following `using` statements:
+1. In **Esplora soluzioni** di Visual Studio espandere la cartella **Controller** nel progetto di back-end del servizio mobile. Aprire **TodoItemController.cs**. Aggiungere le istruzioni `using` seguenti all'inizio del file:
 
         using System.Collections.Generic;        
         using Microsoft.Azure.Mobile.Server.Notifications;
 
 
-2. Replace the `PostTodoItem` method with the following code:  
+2. Sostituire il metodo `PostTodoItem` con il codice seguente:
         
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -35,3 +35,4 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
+<!---HONumber=August15_HO8-->

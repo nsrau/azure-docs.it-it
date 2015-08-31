@@ -71,4 +71,4 @@ Ora che le immagini sono state caricate in modo sicuro integrando il servizio mo
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

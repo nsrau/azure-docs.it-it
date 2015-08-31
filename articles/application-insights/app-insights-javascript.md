@@ -25,6 +25,10 @@ Scoprire le prestazioni e l'utilizzo della pagina Web. Aggiungere Visual Studio 
 
 Se sono già stati configurati i dati di telemetria server per l'app Web [ASP.NET][greenbrown] o [Java][java], si otterrà l'immagine dal punto di vista client e server. I due flussi verranno integrati nel portale di Application Insights.
 
+#### Dimostrazione rapida
+
+Se non si ha una sottoscrizione di Azure e si vuole provare Application Insights in una pagina Web, visitare la pagina in cui è possibile [provare Application Insights](http://aka.ms/ainow).
+
 ## Creare una risorsa di Application Insights
 
 La risorsa di Application Insights è dove vengono visualizzati i dati sulle prestazioni e l'utilizzo della pagina. Se già stata creata una risorsa, forse per raccogliere dati da un server Web, ignorare questo passaggio.
@@ -124,7 +128,7 @@ Inserire una chiamata JavaScript simile a questa nel punto appropriato nel codic
 
     appInsights.trackPageView(myPageName);
 
-Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratteri successivi a "#" o "?" verranno ignorati.
+Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratteri successivi a "\#" o "?" verranno ignorati.
 
 
 ## Esaminare singoli eventi di visualizzazione pagina
@@ -182,4 +186,4 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

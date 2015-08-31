@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (Windows Phone) | Microsoft Azure" 
-	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Phone." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Aggiungere Servizi mobili a un'app esistente (Windows Phone) | Microsoft Azure"
+	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Windows Phone."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/12/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Aggiungere Servizi mobili a un'app esistente
@@ -32,13 +32,13 @@ Il servizio mobile creato in questa esercitazione supporta il runtime .NET. Ques
 Per completare questa esercitazione, è necessario disporre di:
 
 + Visual Studio 2013 Update 2 o versione successiva.
-+ Un account Microsoft Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">versione di valutazione gratuita di Azure</a>. 
++ Un account Microsoft Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ##Scaricare il progetto GetStartedWithData
 
 Questa esercitazione è basata sull'app [GetStartedWithMobileServices](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72) che è un progetto di app per Windows Phone Silverlight 8.1 per Visual Studio 2013.
 
-1. Scaricare la versione in C# dell'app di esempio GetStartedWithMobileServices dal [sito degli esempi di codice di Developer Network](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72). 
+1. Scaricare la versione in C# dell'app di esempio GetStartedWithMobileServices dal [sito degli esempi di codice di Developer Network](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72).
 
 	>[AZURE.NOTE]Per creare un'app per Windows Phone Silverlight 8.1, nel progetto di app per Windows Phone Silverlight 8 scaricato è sufficiente impostare il sistema operativo di destinazione su Windows Phone 8.1. Per creare un'app di Windows Phone Store, scaricare la [versione dell'app di Windows Phone Store](http://go.microsoft.com/fwlink/p/?LinkId=397372) del progetto di app di esempio GetStartedWithData.
 
@@ -66,7 +66,7 @@ Questa esercitazione è basata sull'app [GetStartedWithMobileServices](https://c
 ##Scaricare il progetto di servizio mobile e aggiungerlo alla soluzione
 
 1. Se necessario, scaricare e installare [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) o una versione successiva.
- 
+
 2. Nel [portale di gestione di Azure](https://manage.windowsazure.com/), fare clic sul nuovo servizio mobile, quindi nella pagina di Avvio rapido fare clic sulla piattaforma **Windows** e infine in **Attività iniziali** espandere **Connetti un'app Windows o per Windows Phone 8 esistente**.
 
     ![Download del progetto di servizio mobile](./media/mobile-services-dotnet-backend-windows-phone-get-started-data/download-service-project.png)
@@ -122,26 +122,26 @@ In questa sezione l'app per Windows Phone verrà aggiornata per l'utilizzo del s
         public sealed partial class MainPage : PhoneApplicationPage
         {
             private MobileServiceCollection<TodoItem, TodoItem> items;
-            private IMobileServiceTable<TodoItem> todoTable = 
-                App.MobileService.GetTable<TodoItem>();            
+            private IMobileServiceTable<TodoItem> todoTable =
+                App.MobileService.GetTable<TodoItem>();
             public MainPage()
             {
                 this.InitializeComponent();
             }
             private async void InsertTodoItem(TodoItem todoItem)
             {
-                await todoTable.InsertAsync(todoItem); 
+                await todoTable.InsertAsync(todoItem);
                 items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
-                items = await todoTable 
-                    .ToCollectionAsync(); 
+                items = await todoTable
+                    .ToCollectionAsync();
                 ListItems.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
             {
-                await todoTable.UpdateAsync(item);      
+                await todoTable.UpdateAsync(item);
             }
             private void ButtonRefresh_Click(object sender, RoutedEventArgs e)
             {
@@ -184,7 +184,7 @@ In questa sezione si userà Visual Studio per testare l'app e il servizio mobile
         //public static MobileServiceClient MobileService = new MobileServiceClient(
         //    "https://todolist.azure-mobile.net/",
         //    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        //);        
+        //);
 
 
 7. In Visual Studio premere F7 o scegliere **Compila soluzione** dal menu Compila per compilare sia l'app per Windows Phone che il servizio mobile. Verificare che entrambi i progetti vengano compilati senza errori nella finestra di output di Visual Studio
@@ -220,7 +220,7 @@ In questa sezione si userà Visual Studio per testare l'app e il servizio mobile
             public static MobileServiceClient MobileService = new MobileServiceClient(
                  "https://todolist.azure-mobile.net/",
                  "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-            );        
+            );
             ....
 
 2. In Visual Studio premere F5 o scegliere **Avvia debug** dal menu Debug. In questo modo, prima dell'esecuzione, l'app verrà ricompilata con la modifica precedente, per effettuare la connessione al servizio mobile ospitato in remoto in Azure.
@@ -251,7 +251,7 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 * [Aggiungere notifiche push all'app]() <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 * [Riferimento per i concetti e le procedure di Servizi mobili con .NET] <br/>Altre informazioni su come usare Servizi mobili con .NET.
-  
+
 
 
 <!-- Images. -->
@@ -270,6 +270,5 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 [Riferimento per i concetti e le procedure di Servizi mobili con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
-   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

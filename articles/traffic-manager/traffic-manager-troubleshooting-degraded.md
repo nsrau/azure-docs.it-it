@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
+
 # Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 Questa pagina descriverà come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato e fornirà alcune indicazioni chiave sui probe di Gestione traffico.
 
@@ -66,9 +67,9 @@ Se il probe usa il protocollo HTTPS, sarà necessario aggiungere il parametro "-
 ## Passaggi successivi
 
 
-[Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
 
-[Panoramica di Gestione traffico](../traffic-manmager-overview.md)
+[Gestione traffico di Azure](../traffic-manmager-overview.md)
 
 [Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -79,4 +80,4 @@ Se il probe usa il protocollo HTTPS, sarà necessario aggiungere il parametro "-
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

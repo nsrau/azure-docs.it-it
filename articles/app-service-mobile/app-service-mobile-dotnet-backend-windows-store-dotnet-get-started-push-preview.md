@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Aggiungere notifiche push all'app universale di Windows tramite il servizio app di Azure" 
-	description="Informazioni su come usare il servizio app di Azure per inviare notifiche push all'app universale di Windows." 
-	services="app-service\mobile" 
+	pageTitle="Aggiungere notifiche push all'app universale di Windows Runtime 8.1 | App per dispositivi mobili di Azure" 
+	description="Informazioni su come usare le app per dispositivi mobili del servizio app di Azure e gli hub di notifica di Azure per inviare notifiche push all'app di Windows." 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
-	authors="ysxu" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,118 +13,122 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
-	ms.author="yuaxu"/>
+	ms.date="08/14/2015" 
+	ms.author="glenga"/>
 
-# Aggiungere notifiche push all'app di Windows Store
+# Aggiungere notifiche push all'app universale di Windows Runtime 8.1
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]& nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Questo argomento descrive come inviare notifiche push a un'app universale di Windows da un back-end .NET tramite il servizio app di Azure. Al termine dell'esercitazione si potranno inviare notifiche push dal back-end .NET a tutte le app di Windows universale registrate dopo l'inserimento di un record.
+##Panoramica
 
-In questa esercitazione vengono descritte le operazioni di base per abilitare le notifiche push:
+Questo argomento descrive come inviare notifiche push a un'app universale di Windows Runtime 8.1 tramite le app per dispositivi mobili del servizio app di Azure e gli hub di notifica di Azure. In questo scenario, quando viene aggiungo un nuovo elemento, il back-end dell'app per dispositivi mobili invia una notifica push a tutte le app di Windows registrate al servizio di notifica Windows.
 
-1. [Registrare l'app per le notifiche push](#register)
-2. [Configura](#configure)
-3. [Aggiornare il servizio per l'invio di notifiche push](#update-service)
-4. [Aggiungere notifiche push all'app](#add-push)
-5. [Testare le notifiche push nell'app](#test)
+Questa esercitazione è basata sulla guida introduttiva delle app per dispositivi mobili del servizio app. Prima di iniziare questa esercitazione, è necessario completare l'esercitazione relativa alla guida introduttiva [Creare un'app di Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
 
-Questa esercitazione è basata sulla guida introduttiva delle app per dispositivi mobili del servizio app. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione alle app per dispositivi mobili del servizio app].
+##Prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un [account di Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045) attivo.
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
+* Completare l'[esercitazione relativa alla guida introduttiva](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
 
 ##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
-##<a id="register"></a>Registrare l'app per le notifiche push
+##<a name="create-gateway"></a>Creare un hub di notifica
 
-Per inviare notifiche push ad app di Windows universale con il servizio app di Azure, è necessario inviare l'app a Windows Store, quindi configurare le credenziali del servizio di notifica push dell'app mobile per l'integrazione con Servizi notifica push Windows.
+Eseguire questa procedura per creare un nuovo hub di notifica per gestire le notifiche push. Se è già disponibile un hub nello stesso gruppo di risorse, non è necessario completare questa sezione.
 
-1. Se l'app non è ancora stata registrata, passare alla pagina di <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">invio di app</a> nel Centro per sviluppatori di app di Windows Store, accedere con il proprio account Microsoft e quindi fare clic su **Nome app**.
+1. Visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili** > e sul back-end appena creato. Fare clic su **Impostazioni** > **Dispositivi mobili** > **Push**. 
 
-    ![][0]
+2. Seguire il flusso di lavoro per creare un hub di notifica. Sarà necessario creare un nuovo spazio dei nomi, se il gruppo di risorse attuale non include spazi dei nomi. Fare clic su **Crea** dopo avere configurato tutte le impostazioni.
 
-2. Immettere un nome per l'app in **Nome app**, fare clic su **Riserva nome applicazione** e quindi su **Salva**.
+Usare quindi l'hub di notifica per abilitare le notifiche push per l'app.
 
-    ![][1]
+##Registrare l'app per le notifiche push
 
-    Verrà creata una nuova registrazione a Windows Store per l'app.
+Per potere inviare notifiche push alle app di Windows da Azure, è prima di tutto necessario inviare l'app a Windows Store. Sarà quindi possibile configurare il progetto server per l'integrazione con il servizio di notifica Windows.
 
-4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app di Windows Store, scegliere **Store**, quindi fare clic su **Associa applicazione a Store**.
+1. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto app di Windows Store, quindi scegliere **Store** > **Associa applicazione a Store**. 
 
     ![][3]
+    
+2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva nuovo nome applicazione**, quindi fare clic su **Riserva**.
 
-    Viene visualizzata la procedura guidata **Associa l'applicazione con Windows Store**.
+3. Dopo la creazione della registrazione dell'app, selezionare il nuovo nome dell'app, fare clic su **Avanti** e quindi su **Associa**. Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
 
-5. Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft.
+7. Ripetere i passaggi 1 e 3 per il progetto app di Windows Phone Store usando la stessa registrazione creata in precedenza per l'app di Windows Store.
 
-6. Fare clic sull'app registrata nel passaggio 2, fare clic su **Avanti** e quindi su **Associa**.
+7. Passare a [Windows Dev Center](https://dev.windows.com/it-it/overview), accedere con l'account Microsoft, fare clic sulla nuova registrazione di app in **App personali**, quindi espandere **Servizi** > **Notifiche push**.
 
-    ![][4]
+8. Nella pagina **Notifiche push** fare clic su **Sito di servizi Live** in **Servizi mobili di Microsoft Azure**.
 
-    Le necessarie informazioni di registrazione a Windows Store verranno aggiunte al manifesto dell'applicazione.
-
-7. (Facoltativo) Ripetere i passaggi da 4 a 6 per il progetto di app di Windows Phone Store.
-
-7. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi**.
-
-    ![][5]
-
-8. Nella pagina **Servizi** fare clic su **sito di servizi Live** nel paragrafo **Servizi mobili di Microsoft Azure**.
-
-    ![][17]
-
-9. Nella scheda **Impostazioni app** prendere nota dei valori specificati nei campi **Chiave privata client** e **Identificatore di sicurezza del pacchetto (SID)**.
+9. Nella scheda **Impostazioni app** annotare i valori di **Segreto client** e **SID pacchetto**.
 
     ![][6]
 
-    > [AZURE.NOTE]**Nota sulla sicurezza**: il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
+    > [AZURE.IMPORTANT]Il segreto client e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
 
-##<a id="configure"></a>Configurare il servizio per app per dispositivi mobili per l'invio di richieste push
+##Configurare il servizio per app per dispositivi mobili per l'invio di richieste push
 
-1. Accedere al [portale di anteprima di Azure], selezionare **Sfoglia**, **App per dispositivi mobili** e quindi fare clic sull'app desiderata. Fare quindi clic su Servizi di notifica push.
+1. Accedere al [portale di Azure], selezionare **Sfoglia** > **App per dispositivi mobili** > app > **Servizi notifica Push**.
 
-2. In Servizio di notifica Windows, immettere il **Segreto client** e l'**Identificatore di sicurezza del pacchetto (SID)**, quindi salvare.
+2. In **Servizio di notifica Windows** immettere la **Chiave di sicurezza** (segreto client) e il **SID pacchetto** ottenuti dal sito di servizi Live, quindi fare clic su **Salva**.
 
-L'app mobile del servizio app è ora configurata per funzionare con i Servizi notifica Push Windows.
+Il back-end dell'app per dispositivi mobili è ora configurato per l'uso del Servizio di notifica Windows.
 
-<!-- URLs. -->
-[portale di anteprima di Azure]: https://portal.azure.com/
-
-##<a id="update-service"></a>Aggiornare il servizio per l'invio di notifiche push
+##<a id="update-service"></a>Aggiornare il server per l'invio di notifiche push
 
 Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il back-end dell'app per l'invio delle notifiche push.
 
-1. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione, quindi scegliere **Gestisci pacchetti NuGet**.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, quindi scegliere **Gestisci pacchetti NuGet**, cercare `Microsoft.Azure.NotificationHubs` e infine fare clic su **Installa**. Verrà installata la libreria client dell'Hub di notifica.
 
-2. Cercare **Microsoft.Azure.NotificationHubs** e fare clic su **Installa** per tutti i progetti nella soluzione.
+3. Nel progetto server aprire **Controller** > **TodoItemController.cs**, quindi aggiungere le istruzioni using seguenti:
 
-3. In Esplora soluzioni di Visual Studio espandere la cartella **Controller** nel progetto di back-end mobile. Open TodoItemController.cs. Aggiungere le istruzioni `using` seguenti all'inizio del file:
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.Mobile.Server.Config;
+	
 
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-        using Microsoft.Azure.Mobile.Server.Config;
+2. Nel metodo **PostTodoItem** aggiungere il codice seguente dopo la chiamata a **InsertAsync**:
 
-4. Aggiungere il frammento seguente al metodo `PostTodoItem` dopo la chiamata **InsertAsync**:
+        // Get the settings for the server project.
+        HttpConfiguration config = this.Configuration;
+        MobileAppSettingsDictionary settings = 
+			this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+        
+        // Get the Notification Hubs credentials for the Mobile App.
+        string notificationHubName = settings.NotificationHubName;
+        string notificationHubConnection = settings
+            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+        // Create a new Notification Hub client.
+        NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+		// Define a WNS payload
+		var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" 
+                                + item.Text + @"</text></binding></visual></toast>";
 
-        // windows payload
-        var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
+        try
+        {
+			// Send the push notification and log the results.
+            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
-        await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+            // Write the success result to the logs.
+            config.Services.GetTraceWriter().Info(result.State.ToString());
+        }
+        catch (System.Exception ex)
+        {
+            // Write the failure result to the logs.
+            config.Services.GetTraceWriter()
+                .Error(ex.Message, null, "Push.SendAsync Error");
+        }
 
-    Questo codice indicherà all'hub di notifica associato a questa app mobile di inviare una notifica push dopo l'inserimento di un elemento ToDo.
+    Questo codice indica all'hub di notifica di inviare una notifica push dopo l'inserimento di un nuovo elemento.
 
 
 ## <a name="publish-the-service"></a>Pubblicare il back-end mobile in Azure
@@ -137,31 +141,35 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 
     Verrà visualizzata la finestra di dialogo Gestisci pacchetti NuGet.
 
-2. Cercare l'SDK per client delle app per dispositivi mobili del servizio app e fare clic su **Installa**, selezionare tutti i progetti nella soluzione e accettare le condizioni per l'uso.
+2. Cercare l'SDK per client delle app per dispositivi mobili del servizio app e fare clic su **Installa**, selezionare tutti i progetti client nella soluzione e accettare le condizioni per l'uso.
 
-    Verrà quindi scaricato e installato il pacchetto e verrà aggiunto un riferimento in tutti i progetti alla libreria push mobile per Windows di Azure.
+    Verrà scaricato, installato e aggiunto un riferimento in tutti i progetti client per la libreria push per dispositivi mobili di Azure per Windows.
 
-3. Aprire il file di progetto **App.xaml.cs** e aggiungere le istruzioni `using` seguenti:
+3. Aprire il file di progetto condiviso **App.xaml.cs** e aggiungere le istruzioni `using` seguenti:
 
-        using Windows.Networking.PushNotifications;
-        using Microsoft.WindowsAzure.MobileServices;
-
-    In un progetto universale questo file si trova nella cartella `<project_name>.Shared`.
+		using System.Threading.Tasks;  
+        using Windows.Networking.PushNotifications;       
 
 4. Nello stesso file aggiungere la seguente definizione del metodo **InitNotificationsAsync** alla classe **App**:
     
-        private async void InitNotificationsAsync()
+        private async Task InitNotificationsAsync()
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-            
-            await MobileService.GetPush().RegisterAsync(channel.Uri);
+            var channel = await PushNotificationChannelManager
+                .CreatePushNotificationChannelForApplicationAsync();
+
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
-    Questo codice consente di recuperare il valore di ChannelURI per l'app da Servizi notifica Push Windows e quindi di registrarlo con l'app mobile del servizio app.
+    Questo codice consente di recuperare il valore di ChannelURI per l'app da Servizi notifica Push Windows e quindi di registrarlo con l'app per dispositivi mobili del servizio app.
     
-5. All'inizio del gestore dell'evento **OnLaunched** in **App.xaml.cs**, aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**:
+5. All'inizio del gestore eventi **OnLaunched** nel file **App.xaml.cs** aggiungere il modificatore **async** alla definizione del metodo, quindi aggiungere la chiamata seguente al nuovo metodo **InitNotificationsAsync**, come illustrato nell'esempio seguente:
 
-        InitNotificationsAsync();
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            await InitNotificationsAsync();
+
+			// ...
+		}
 
     In tal modo si garantirà che il valore di ChannelURI temporaneo venga registrato ogni volta che l'applicazione viene avviata.
 
@@ -169,18 +177,17 @@ Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il b
 
     Scegliere **Salva tutto** dal menu **File**.
 
-7. (Facoltativo) Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
-
-8. Premere **F5** per eseguire l'app.
+7. Ripetere il passaggio precedente nel progetto di app di Windows Phone Store.
 
 L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 ##<a id="test"></a>Testare le notifiche push nell'app
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-windows-universal-test-push-preview](../../includes/app-service-mobile-dotnet-backend-windows-universal-test-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-windows-universal-test-push-preview](../../includes/app-service-mobile-windows-universal-test-push-preview.md)]
 
 <!-- Anchors. -->
-
+<!-- URLs. -->
+[portale di Azure]: https://portal.azure.com/
 <!-- Images. -->
 [0]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-submit-win8-app.png
 [1]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-name.png
@@ -195,4 +202,4 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

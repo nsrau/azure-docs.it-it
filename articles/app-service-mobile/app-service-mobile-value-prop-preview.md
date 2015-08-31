@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>Informazioni sulle app per dispositivi mobili
 
->[AZURE.NOTE]**La documentazione di Servizi mobili è disponibile [qui](http://azure.microsoft.com/documentation/services/mobile-services/).**
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Il servizio app di Azure è un'offerta di piattaforma interamente gestita come servizio (PaaS) per sviluppatori professionisti che offre un set completo di funzionalità per scenari Web, mobili e di integrazione. Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo per applicazioni mobili altamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per le app per dispositivi mobili.
+Il servizio app di Azure è un'offerta di piattaforma interamente gestita come servizio (PaaS) per sviluppatori professionisti che offre un set completo di funzionalità per scenari Web, mobili e di integrazione. Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo di applicazioni mobili estremamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per gli sviluppatori di soluzioni per dispositivi mobili.
 
 ![App per dispositivi mobili](./media/app-service-mobile-value-prop-preview/overview.png)
 
 ##Perché le app per dispositivi mobili?
-Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo per applicazioni mobili altamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per le app per dispositivi mobili. Con le app per dispositivi mobili è possibile:
+Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo di applicazioni mobili estremamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per gli sviluppatori di soluzioni per dispositivi mobili. Con le app per dispositivi mobili è possibile:
 
 - **Compilare app native e multipiattaforma**: indipendentemente dal tipo di app compilata, ad esempio app native per iOS, Android e Windows oppure app multipiattaforma Xamarin o Cordova (Phonegap), è possibile sfruttare il servizio app usando SDK nativi.  
 - **Connettersi ai propri sistemi aziendali**: con le app per dispositivi mobili è possibile aggiungere l'accesso aziendale in pochi minuti e connettersi alle risorse aziendali locali o nel cloud.
@@ -44,6 +44,7 @@ Per iniziare a usare il servizio app per dispositivi mobili, seguire l'esercitaz
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure].
 
+>[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md
@@ -56,4 +57,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

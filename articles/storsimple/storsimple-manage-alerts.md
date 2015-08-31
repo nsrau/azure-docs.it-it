@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Visualizzare e gestire gli avvisi di StorSimple"
+   pageTitle="Consente di visualizzare e gestire gli avvisi di StorSimple | Microsoft Azure"
    description="Vengono descritti gli avvisi di StorSimple e la procedura per utilizzare il servizio StorSimple Manager per visualizzare e cancellare gli avvisi."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Visualizzare e gestire gli avvisi di StorSimple
@@ -137,8 +137,24 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Non è possibile stabilire la connessione a <*nome credenziali cloud*>.|Impossibile connettersi all'account di archiviazione.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet **Test-HcsmConnection** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema. Se le impostazioni sono corrette, il problema potrebbe essere relativo alle credenziali dell'account di archiviazione per cui è stato generato l'avviso. In questo caso, utilizzare il cmdlet **Test-HcsStorageAccountCredential** per determinare se sono presenti problemi che possono essere risolti. <ul><li>Controllare le impostazioni di rete.</li><li>Controllare le credenziali dell'account di archiviazione.</li></ul>|
-|Nessun heartbeat ricevuto dal dispositivo negli ultimi <*numero*> minuti.|Impossibile connettersi al dispositivo.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet **Test-HcsmConnection** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema oppure contattare l'amministratore della rete.|
+|Non è possibile stabilire la connessione a <*nome credenziali cloud*>.|Impossibile connettersi all'account di archiviazione.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il `Test-HcsmConnection` cmdlet dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema. Se le impostazioni sono corrette, il problema potrebbe essere relativo alle credenziali dell'account di archiviazione per cui è stato generato l'avviso. In questo caso, utilizzare il `Test-HcsStorageAccountCredential` cmdlet per determinare se sono presenti problemi che possono essere risolti.<ul><li>Controllare le impostazioni di rete.</li><li>Controllare le credenziali dell'account di archiviazione.</li></ul>|
+|Nessun heartbeat ricevuto dal dispositivo negli ultimi <*numero*> minuti.|Impossibile connettersi al dispositivo.|Potrebbe essersi verificato un problema di connettività con il dispositivo. Utilizzare il `Test-HcsmConnection` cmdlet dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema o contattare l'amministratore di rete.|
+
+### StorSimple comportamento quando si verifica un errore di connettività cloud
+
+Cosa accade se si verifica un errore di connettività cloud per il dispositivo StorSimple in esecuzione nell'ambiente di produzione?
+
+Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, quindi a seconda dello stato del dispositivo, può verificarsi quanto segue:
+
+- **Per i dati locali nel dispositivo**: non vi sarà alcuna interruzione del servizio e letture continueranno a essere serviti. Tuttavia, come il numero di IOs attesa aumenta e supera un limite, le operazioni di lettura è possibile avviare esito negativo. 
+
+	A seconda della quantità di dati nei livelli locale del dispositivo, le operazioni di scrittura anche continuerà a verificarsi per prima alcune ore dopo l'interruzione della connettività cloud. Le operazioni di scrittura verrà quindi rallentano e alla fine iniziano ad avere esito negativo se viene interrotta la connettività cloud per diverse ore.
+
+ 
+- **Per i dati nel cloud**: per la maggior parte degli errori di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, potrebbe essere necessario riportare in linea il volume dal portale di Azure l'intervento dell'utente.
+ 
+- **Per gli snapshot cloud in corso**: l'operazione verrà ripetuta alcune volte all'interno di 4-5 ore e se non viene ripristinata la connettività, gli snapshot cloud avrà esito negativo.
+
 
 ### Avvisi di cluster
 
@@ -155,8 +171,8 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Non è possibile ripristinare tutte le impostazioni per questo servizio. I dati di configurazione del dispositivo si trovano in uno stato incoerente per alcuni dispositivi.|Incoerenza dei dati rilevata dopo il ripristino di emergenza.|I dati crittografati del servizio non sono sincronizzati con quelli sul dispositivo. Autorizzare il dispositivo <*nome dispositivo*> da StorSimple Manager per avviare il processo di sincronizzazione. Utilizzare l'interfaccia di Windows PowerShell per StorSimple per eseguire il cmdlet **Restore-HcsmEncryptedServiceData nel dispositivo <*nome dispositivo*>, **fornire la vecchia password come input di questo cmdlet per ripristinare il profilo di sicurezza. Eseguire quindi il cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** per aggiornare la chiave DEK del servizio. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
-|Failover del servizio in un data center secondario a causa di un errore imprevisto.|Causa diversa/sconosciuta.|Per continuare, è necessario verificare le impostazioni di configurazione nel servizio StorSimple Manager. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. Per ulteriori informazioni su StorSimple Manager, vedere la [Guida dell'amministratore di StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772401.aspx).|
+|Non è possibile ripristinare tutte le impostazioni per questo servizio. I dati di configurazione del dispositivo si trovano in uno stato incoerente per alcuni dispositivi.|Incoerenza dei dati rilevata dopo il ripristino di emergenza.|I dati crittografati del servizio non sono sincronizzati con quelli sul dispositivo. Autorizzare il dispositivo <*nome dispositivo*> da StorSimple Manager per avviare il processo di sincronizzazione. Utilizzare l'interfaccia di Windows PowerShell per StorSimple per eseguire il `Restore-HcsmEncryptedServiceData` sul dispositivo <*nome dispositivo*> cmdlet, fornire la vecchia password come input per questo cmdlet per ripristinare il profilo di sicurezza. Eseguire quindi il `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet per aggiornare la chiave DEK del servizio. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
+|Failover del servizio in un data center secondario a causa di un errore imprevisto.|Causa diversa/sconosciuta.|Per continuare, è necessario verificare le impostazioni di configurazione nel servizio StorSimple Manager. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. Per ulteriori informazioni su StorSimple Manager, vedere il [servizio StorSimple Manager di utilizzare per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).|
 
 ### Avvisi di hardware
 
@@ -187,7 +203,7 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 |Password per <*elemento*> scadrà tra <*periodo di tempo*>.||Modificare la password prima della scadenza.|
 |Informazioni sulla configurazione di protezione mancanti per <*ID elemento*>.||Non è possibile usare i volumi associati a questo contenitore del volume per replicare la configurazione StorSimple. Per garantire che i dati vengano archiviati in modo sicuro, è consigliabile eliminare il contenitore del volume e gli eventuali volumi ad esso associati. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
 |<*numero*> tentativi di accesso non riusciti per <*ID elemento*>.|Più tentativi di accesso non riusciti.|È possibile che il dispositivo sia vittima di un attacco o che un utente autorizzato stia tentando di connettersi con una password non corretta.<ul><li>Contattare gli utenti autorizzati e verificare che questi tentativi provengano da un'origine legittima. Se viene rilevato un numero elevato di tentativi di accesso, provare a disabilitare la gestione remota e a contattare l'amministratore di rete. Dopo avere eseguito l'operazione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li><li>Verificare che le istanze di Gestione snapshot siano configurate con la password corretta. Dopo aver eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.</li></ul>|
-|Si sono verificati uno o più errori durante la modifica della chiave DEK del servizio.||Si sono verificati errori durante la modifica della chiave DEK del servizio. Dopo avere risolto le condizioni di errore, eseguire il cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per aggiornare il servizio. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo aver risolto il problema, cancellare questo avviso dalla pagina degli avvisi.|
+|Si sono verificati uno o più errori durante la modifica della chiave DEK del servizio.||Si sono verificati errori durante la modifica della chiave DEK del servizio. Dopo avere risolto le condizioni di errore, eseguire il `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per aggiornare il servizio. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo aver risolto il problema, cancellare questo avviso dalla pagina degli avvisi.|
 
 ### Avvisi del pacchetto per il supporto
 
@@ -217,4 +233,4 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 [Ulteriori informazioni sugli errori di StorSimple](storsimple-troubleshoot-operational-device.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

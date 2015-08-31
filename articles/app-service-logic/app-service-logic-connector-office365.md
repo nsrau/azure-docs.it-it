@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -29,92 +29,58 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 - Invio di un evento
 - Aggiunta di un contatto
 
-##Creare l'app per le API del connettore O365##
-Per creare l'app per le API del connettore O365, eseguire la procedura seguente:
+## Creare l'app per le API del connettore O365
+È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
-1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a destra nel portale di Azure.
-2.	Passare a "Web e dispositivi mobili > App per le API" e cercare "Office365".
-3.	Configurare il connettore Office 365 specificando i dettagli relativi al piano di hosting e al gruppo di risorse e selezionando il nome dell'app per le API.
-
-	![][21]
+1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
+2. Cercare "Office 365 Connector", selezionarlo e scegliere **Crea**.
+3.	Configurare Office 365 Connector specificando i dettagli relativi al piano di hosting e al gruppo di risorse e selezionando il nome dell'app per le API: ![][21]
 
 
-##Creare un'app per la logica##
+## Creare un'app per la logica
 È meglio creare un'app per la logica semplice che viene attivata quando viene ricevuto un messaggio di posta elettronica all'ID posta elettronica per le indagini sulle vendite, ad esempio sales@contoso.com). L'app crea un evento, aggiunge un contatto con i dettagli del mittente, invia un messaggio all'account personale e infine invia una risposta con una conferma.
 
-1.	Accedere al portale di Azure e fare clic su "Nuovo -> Web e dispositivi mobili -> App per la logica"
+1.	Accedere al portale di Azure e fare clic su 'Nuovo -> Web e dispositivi mobili -> App per la logica': ![][1]
 
-	![][1]
+2.	Nella pagina di creazione dell'app per la logica immettere le informazioni richieste, ad esempio nome, piano di servizio app e area: ![][2]
 
-2.	Nella pagina "Crea app per la logica" immettere le informazioni richieste, ad esempio nome, piano di servizio app e area.
+3.	Fare clic su 'Trigger e azioni' per aprire la schermata dell'editor dell'app per la logica: ![][3]
 
-	![][2]
+4.	Selezionare il trigger Office 365 dalla sezione relativa alle app per le API nel gruppo di risorse della raccolta per aggiungerlo al flusso: ![][4]
 
-3.	Fare clic su "Trigger e azioni" per aprire la schermata dell'editor dell'app per la logica.
+6.	Per la connessione a Office 365 è necessario autorizzare l'app per la logica ad accedere all'account. Fare clic su 'Auhorize' per immettere le credenziali di accesso di Office 365: ![][5]
 
-	![][3]
+7.	Si verrà reindirizzati alla pagina di accesso di Office 365 dove sarà possibile autenticarsi con le credenziali di accesso corrispondenti: ![][6] ![][7]
 
-4.	Selezionare il trigger Office 365 dalla sezione relativa alle app per le API nel gruppo di risorse della raccolta per aggiungerlo al flusso.
-
-	![][4]
-
-6.	Per la connessione a Office 365 è necessario autorizzare l'app per la logica ad accedere all'account. Fare clic su "Autorizza" per immettere le credenziali di accesso di Office 365.
-
-	![][5]
-
-7.	Si verrà reindirizzati alla pagina di accesso di Office 365 dove sarà possibile autenticarsi con le credenziali di accesso di Office 365.
-
-	![][6]
-
-	![][7]
-
-8.	Una volta completata l'autorizzazione, vengono visualizzati i trigger di Office 365.
-
-	![][8]
+8.	Una volta completata l'autorizzazione, verranno visualizzati i trigger di Office 365: ![][8]
 
 9.	Selezionare il trigger "Nuovo messaggio di posta elettronica" per visualizzare i parametri di input.
 
 
-10.	Impostare la frequenza del trigger su 'Minuti' e fare clic su ✓.
+10.	Impostare la frequenza del trigger su 'Minuti' e fare clic su ✓: ![][9]
 
-	![][9]
-
-11. Il trigger 'Nuovo messaggio di posta elettronica' di Office 365 viene configurato ed è possibile visualizzare anche i parametri di output.
-
-	![][10]
+11. Il trigger 'New Email' di Office 365 viene configurato ed è possibile visualizzare anche i parametri di output: ![][10]
 
 12.	Selezionare "Office 365 Connector" nella sezione "Usati di recente" della raccolta. Verrà aggiunta una nuova azione "Office 365".
 
-13.	Selezionare "Invia evento" nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione "Invia evento".
+13.	Selezionare 'Send Eventi' nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione 'Send Event': ![][11]
 
-	![][11]
-
-14.	Specificare i dettagli dell'evento e fare clic su ✓.
-
-	![][12]
+14.	Specificare i dettagli dell'evento e fare clic su ✓: ![][12]
 
 15.	Selezionare "Office 365 Connector" nella sezione "Usati di recente" della raccolta. Verrà aggiunta una nuova azione "Office 365".
 
-16.	Selezionare "Aggiungi contatto" nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione "Aggiungi contatto".
+16.	Selezionare 'Add Contact' nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione 'Add Contact': ![][13]
 
-	![][13]
+17.	Fare clic su '+' accanto al campo 'Email Address' e selezionare il valore 'From' del campo di output nel trigger: ![][14]
 
-17.	Fare clic su "+" accanto al campo 'Indirizzo di posta elettronica' e selezionare il valore 'Da' del campo di output nel trigger.
-
-	![][14]
-
-18. Fare clic su ✓ per completare la configurazione dell'azione.
-
-	![][15]
+18. Fare clic su ✓ per completare la configurazione dell'azione: ![][15]
 
 19.	Selezionare "Office 365 Connector" nella sezione "Usati di recente" della raccolta. Verrà aggiunta una nuova azione "Office 365".
 
 
-20.	Selezionare "Invia messaggio" nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione "Invia messaggio".
+20.	Selezionare 'Send Email' nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione 'Send Email': ![][19]
 
-	![][19]
-
-21.	Immettere le informazioni richieste per inviare il messaggio. Per creare un messaggio, digitare un testo come quello sotto. Dopo avere configurato l'azione 'Invia messaggio', fare clic su ✓.
+21.	Immettere le informazioni richieste per inviare il messaggio. Per creare un messaggio, digitare un testo come quello sotto. Dopo avere configurato l'azione 'Send Email', fare clic su ✓:
 
 		Body - @concat('You got a new sales enquiry from',triggers().output.body.From)
 
@@ -122,17 +88,20 @@ Per creare l'app per le API del connettore O365, eseguire la procedura seguente:
 22.	Selezionare "Office 365 Connector" nella sezione "Usati di recente" della raccolta. Verrà aggiunta una nuova azione "Office 365".
 
 
-23.	Selezionare "Rispondi a" nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione "Rispondi a".
+23.	Selezionare 'Reply To' nell'elenco di azioni. Verranno visualizzati i parametri di input dell'azione 'Reply To': ![][16]
 
-	![][16]
-
-24.	Fare clic su "+" accanto al campo 'Da', selezionare il valore nell'ID messaggio di output del trigger e fare clic su ✓.
-
-	![][17]
+24.	Fare clic su '+' accanto al campo 'From', selezionare il valore nell'ID messaggio di output del trigger e quindi fare clic su ✓: ![][17]
 
 25. Fare clic su OK nella schermata dell'editor dell'app per la logica, quindi fare clic su 'Crea'. Il completamento della creazione dell'app per le API richiederà circa 30 secondi.
 
 26. Inviare un messaggio all'account con cui si è configurato il trigger. Verranno visualizzati un messaggio nell'account di posta personale e un evento del calendario e un contatto nell'account di posta di Office. Si riceverà anche un messaggio che conferma che a breve arriverà una risposta all'indagine sulle vendite.
+
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-office365/1_New_Logic_App.png
@@ -157,4 +126,4 @@ Per creare l'app per le API del connettore O365, eseguire la procedura seguente:
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

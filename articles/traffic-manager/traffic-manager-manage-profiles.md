@@ -12,16 +12,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Gestione profili di Gestione traffico di Azure
 
-Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tramite Gestione traffico e il metodo di bilanciamento del carico da utilizzare per distribuire le connessioni con tali endpoint, viene utilizzato un profilo di Gestione traffico.
+Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tramite Gestione traffico e il metodo di routing del traffico da utilizzare per distribuire le connessioni con tali endpoint, viene utilizzato un profilo di Gestione traffico.
 
 ## Creare un profilo di Gestione traffico mediante Creazione rapida
 
-È possibile creare rapidamente un profilo di Gestione traffico usando Creazione rapida nel portale di Azure. Creazione rapida consente di creare profili con impostazioni di configurazione di base. Tuttavia, non è possibile utilizzare Creazione rapida per impostazioni come il set di endpoint (servizi cloud e siti Web), l'ordine di failover per il relativo metodo di bilanciamento del carico o per le impostazioni di monitoraggio. Dopo aver creato il proprio profilo è possibile configurare tali impostazioni nel portale di Azure. Gestione traffico supporta fino a 200 endpoint per profilo. Tuttavia, la maggior parte degli scenari di utilizzo richiede solo un numero ridotto di endpoint. Per un elenco delle procedure di configurazione, vedere [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx).
+È possibile creare rapidamente un profilo di Gestione traffico usando Creazione rapida nel portale di Azure. Creazione rapida consente di creare profili con impostazioni di configurazione di base. Tuttavia, non è possibile utilizzare Creazione rapida per impostazioni come il set di endpoint (servizi cloud e siti Web), l'ordine di failover per il relativo metodo di routing del traffico o per le impostazioni di monitoraggio. Dopo aver creato il proprio profilo è possibile configurare tali impostazioni nel portale di Azure. Gestione traffico supporta fino a 200 endpoint per profilo. Tuttavia, la maggior parte degli scenari di utilizzo richiede solo un numero ridotto di endpoint.
 
 ### Per creare un nuovo profilo di Gestione traffico
 
@@ -30,9 +30,10 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
 2. **Accedere al portale di Azure.** Per creare un nuovo profilo di Gestione traffico, fare clic su **Nuovo** in basso a sinistra nel portale, fare clic su **Servizi di rete > Gestione traffico**, scegliere **Creazione rapida** per avviare la configurazione del profilo.
 3. **Configurare il prefisso DNS.** Attribuire al profilo di Gestione traffico un nome del prefisso DNS univoco. È possibile specificare solo il prefisso per un nome di dominio di Gestione traffico.
 4. **Selezionare la sottoscrizione.** Selezionare la sottoscrizione di Azure appropriata. Ogni profilo è associato a una singola sottoscrizione. Se è disponibile solo una sottoscrizione, questa opzione non è visibile.
-5. **Selezionare il metodo di bilanciamento del carico.** Selezionare il metodo di bilanciamento del carico nella sezione relativa ai **criteri di bilanciamento del carico**. Per altre informazioni sui metodi di bilanciamento del carico, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](traffic-manager-load-balancing-methods.md).
+5. **Selezionare il metodo di routing del traffico.** Selezionare il metodo di routing del traffico in **criteri di routing del traffico**. Per altre informazioni sui metodi di routing del traffico, vedere [Informazioni sui metodi di routing del traffico di Gestione traffico](traffic-manager-load-balancing-methods.md).
 6. **Fare clic su "Crea" per creare il nuovo profilo.** Dopo il completamento della configurazione del profilo, è possibile individuare il proprio profilo nel riquadro Gestione traffico nel portale di Azure.
-7. **Configurare endpoint, monitoraggio e impostazioni aggiuntive nel portale di Azure.** Poiché con Creazione rapida è possibile configurare solo impostazioni di base, per completare la configurazione desiderata, è necessario configurare impostazioni aggiuntive, ad esempio l'elenco degli endpoint e l'ordine di failover dell'endpoint. Per un elenco delle procedure necessarie per completare la configurazione, vedere [Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx).
+7. **Configurare endpoint, monitoraggio e impostazioni aggiuntive nel portale di Azure.** Poiché con Creazione rapida è possibile configurare solo impostazioni di base, per completare la configurazione desiderata, è necessario configurare impostazioni aggiuntive, ad esempio l'elenco degli endpoint e l'ordine di failover dell'endpoint. 
+
 
 ## Disabilitare, abilitare o eliminare un profilo
 
@@ -74,13 +75,15 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
 
 ## Risorse aggiuntive
 
-[Panoramica di Gestione traffico](traffic-manager-overview.md)
+[Gestione traffico di Azure](traffic-manager-overview.md)
 
 [Gestione endpoint in Gestione traffico](traffic-manager-endpoints.md)
 
 [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
 
-[Attività di configurazione di Gestione traffico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
+
+[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
@@ -88,4 +91,4 @@ Per specificare gli endpoint dei servizi cloud o dei siti Web da monitorare tram
 
 [Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

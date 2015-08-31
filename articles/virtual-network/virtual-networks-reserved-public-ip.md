@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/17/2015"
    ms.author="telmos" />
 
 # Panoramica degli indirizzi IP riservati
@@ -32,12 +32,10 @@ Per impedire che gli indirizzi IP cambino, è possibile riservarli. Gli indirizz
   - Attualmente tutte le sottoscrizioni di Azure sono autorizzate a usare 20 indirizzi IP riservati. È tuttavia possibile richiedere altri indirizzi IP riservati. Per altre informazioni, vedere la pagina relativa ai [limiti per la sottoscrizione e i servizi](../azure-subscription-service-limits/).
 1. È previsto un addebito per gli indirizzi IP riservati? 
   - Per informazioni sui prezzi, vedere [Prezzi per gli indirizzi IP riservati](http://go.microsoft.com/fwlink/?LinkID=398482).
-1. Quanti indirizzi IP riservati è possibile assegnare a un servizio cloud? 
-  - È consentito un solo indirizzo IP per ogni endpoint in un servizio cloud, indipendentemente dal fatto che tale indirizzo IP sia riservato o meno. L'impostazione di un indirizzo IP come riservato non autorizza l'aggiunta di altri indirizzi IP a un servizio cloud.
 1. Come è possibile riservare un indirizzo IP? 
-  - È possibile usare PowerShell o l'[API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) per richiedere un indirizzo IP riservato di una determinata regione. Azure riserverà un indirizzo IP di tale regione e lo correlerà alla sottoscrizione. Sarà quindi possibile usare l'indirizzo IP riservato nella regione in questione. Non è possibile riservare un indirizzo IP tramite il portale di gestione.
+  - È possibile usare PowerShell o l'[API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) per richiedere un indirizzo IP riservato di una determinata area. Azure riserverà un indirizzo IP di tale area e lo correlerà alla sottoscrizione. Sarà quindi possibile usare l'indirizzo IP riservato nell'area in questione. Non è possibile riservare un indirizzo IP tramite il portale di gestione.
 1. È possibile usare gli indirizzi IP riservati con reti virtuali basate su gruppi di affinità? 
-  - Gli indirizzi IP riservati sono supportati solo nelle reti virtuali regionali. Non sono supportati per le reti virtuali associate a gruppi di affinità. Per altre informazioni sull'associazione di una rete virtuale a una regione o a un gruppo di affinità, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](https://msdn.microsoft.com/library/azure/jj156085.aspx). 
+  - Gli indirizzi IP riservati sono supportati solo nelle reti virtuali di area. Non sono supportati per le reti virtuali associate a gruppi di affinità. Per altre informazioni sull'associazione di una rete virtuale a un'area o a un gruppo di affinità, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](https://msdn.microsoft.com/library/azure/jj156085.aspx). 
 
 ## Come gestire gli indirizzi VIP riservati
 
@@ -115,10 +113,10 @@ Lo script seguente crea un nuovo servizio cloud denominato *TestService2* con un
 
 ## Passaggi successivi
 
-- Informazioni su[indirizzi IP privati riservati](../virtual-networks-reserved-private-ip).
+- Informazioni su [indirizzi IP privati riservati](../virtual-networks-reserved-private-ip).
 
-- Informazioni su[indirizzo IP pubblico a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 
-- Controllare [API REST IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+- Controllare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

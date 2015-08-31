@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Uso di File Connector nell'app per la logica #
@@ -27,9 +27,7 @@ Per usare File Connector, è necessario innanzitutto creare un'istanza dell'app 
 
 1.	Aprire Azure Marketplace con l'opzione + NUOVO nella parte sinistra nel portale di Azure.
 2.	Passare a "Web e dispositivi mobili > App per le API" e cercare "File Connector".
-3.	Configurare File Connector nel modo seguente:
-
-	![][1]
+3.	Configurare il connettore File nel modo seguente: ![][1]
 
 	- **Nome**: assegnare un nome al connettore File
 	- **Impostazioni pacchetto**
@@ -55,24 +53,25 @@ Dopo aver creato l'app per le API, è possibile usare File Connector come trigge
 
 3.	File Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
 
-4.	È possibile trascinare l'app per le API File Connector nell'editor facendo clic su “File Connector”. File Connector espone un trigger e quattro azioni.
+4.	È possibile trascinare l'app per le API File Connector nell'editor facendo clic su “File Connector”. Il connettore File espone un trigger e quattro azioni: ![][5]
 
-	![][5]
-
-6.	Ciascuna azione espone determinate proprietà. L'immagine seguente mostra le proprietà del trigger e dell'azione Get File
-
-	![][6]
+6.	Ciascuna azione espone determinate proprietà. L'immagine seguente mostra le proprietà del trigger e dell'azione Get File: ![][6]
 
 7. Una volta completata la configurazione, è possibile usare il trigger e l'azione nel flusso. È possibile configurare anche altre azioni nello stesso modo.
 
 > [AZURE.NOTE]Una volta letto dalla cartella, il trigger del file eliminerà il file.
 
 ## API REST del connettore File ##
-Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->File Connector. È ora possibile fare clic su Definizione API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
-
-  ![][7]
+Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->File Connector. Fare ora clic su API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore: ![][7]
 
 Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definizione delle API di File Connector].
+
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -82,7 +81,7 @@ Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definiz
 
 <!-- Links -->
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
-[definizione delle API di File Connector]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[definizione delle API di File Connector]: https://msdn.microsoft.com/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

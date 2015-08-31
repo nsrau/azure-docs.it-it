@@ -121,4 +121,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

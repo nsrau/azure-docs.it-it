@@ -29,7 +29,7 @@ La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per f
 - Applicazioni multilivello in singole aree geografiche con alto grado di isolamento 
 - Comunicazione tra sottoscrizioni e organizzazioni in Azure
 
-Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
 Per visualizzare un video:
 
@@ -256,8 +256,7 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-portal]: http://manage.windowsazure.com
-
+[azure-portal]: https://portal.azure.com
 
 [powershell-install]: ../install-configure-powershell
 
@@ -271,4 +270,4 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

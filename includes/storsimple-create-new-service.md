@@ -1,7 +1,6 @@
-
 #### Per creare un nuovo servizio
 
-1. Usare le credenziali dell'account Microsoft per accedere al portale di gestione al seguente URL: [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. Usare le credenziali dell'account Microsoft per accedere al portale di gestione all'URL seguente: [http://azure.microsoft.com/](http://azure.microsoft.com/).
 
 2. Nel portale di gestione, fare clic su **Nuovo** > **Servizi dati** > **StorSimple Manager** > **Creazione rapida**.
 
@@ -10,7 +9,7 @@
   2. Fornire una **Località** per il servizio. In generale, scegliere un percorso più vicino all'area geografica in cui si desidera distribuire il dispositivo. È inoltre possibile tenere in considerazione quanto segue: 
 	 
 		- If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in Management Portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service).
+		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Management Portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 		 
   3. Scegliere una **Sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
   4. Selezionare **Crea un nuovo account di archiviazione** per creare automaticamente un account di archiviazione con il servizio. Questo account di archiviazione avrà un nome speciale, ad esempio "storsimplebwv8c6dcnf". Se è necessario che i dati siano in un percorso diverso, deselezionare questa casella. 
@@ -22,4 +21,4 @@
  
    ![creazione di un servizio](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

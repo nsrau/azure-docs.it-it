@@ -107,11 +107,11 @@ Per informazioni dettagliate su questo report, vedere [Accessi da origini sconos
 
 ### Accessi dopo più errori
 
-Per informazioni dettagliate su questo report, vedere [Accessi dopo più errori](active-directory-sign-ins-after-multiple-failures.md).
+Per informazioni dettagliate su questo report, vedere [Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).
 
 ### Accessi da più aree geografiche
 
-Per informazioni dettagliate su questo report, vedere [Accessi da più aree geografiche](active-directory-sign-ins-from-multiple-geographies.md).
+Per informazioni dettagliate su questo report, vedere [Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md).
 
 ### Accessi da indirizzi IP con attività sospetta
 
@@ -302,4 +302,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

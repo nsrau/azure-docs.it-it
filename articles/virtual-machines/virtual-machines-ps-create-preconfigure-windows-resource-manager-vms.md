@@ -104,9 +104,11 @@ Per verificare che l'etichetta di nome di dominio pubblico sia un'etichetta univ
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+	Test-AzureDnsAvailability -DomainQualifiedName $domName -Location $loc
 
 Se DNSNameAvailability è "True", quello proposto è un nome univoco globale.
+
+>[AZURE.NOTE]Il cmdlet Test-AzureDnsAvailability è denominato Get-AzureCheckDnsAvailability nelle versioni di Azure PowerShell precedenti alla versione 0.9.5. Se si usa la versione 0.9.4 o precedenti, sostituire Test-AzureDnsAvailability con Get-AzureCheckDnsAvailability nel comando illustrato in precedenza.
 
 Le macchine virtuali basate su Gestione risorse possono trovarsi in un set di disponibilità basato su Gestione risorse. Se necessario, creare un nuovo set di disponibilità per la nuova macchina virtuale usando i comandi seguenti.
 
@@ -119,7 +121,7 @@ Usare il comando seguente per elencare i set di disponibilità esistenti.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per ulteriori informazioni, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per altre informazioni, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Le macchine virtuali basate su Gestione risorse richiedono una rete virtuale basata su Gestione risorse. Se necessario, creare una nuova rete virtuale basata su Gestione risorse con almeno una subnet per la nuova macchina virtuale. Di seguito è riportato un esempio di una nuova rete virtuale con due subnet denominati frontendSubnet e backendSubnet.
 
@@ -203,7 +205,7 @@ Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servi
 - Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
 - Il numero di indice della regola NAT in entrata da assegnare alla scheda di interfaccia di rete.
 
-Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole NAT in entrata, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Per informazioni su come creare un'istanza di bilanciamento del carico con le regole NAT in entrata, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
 
@@ -211,7 +213,7 @@ Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i 
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 La stringa $nicName deve essere univoca per il gruppo di risorse. Una procedura consigliata è quella di incorporare il nome della macchina virtuale nella stringa, ad esempio "LOB07-NIC".
@@ -223,14 +225,14 @@ Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servi
 - Il nome di un'istanza del servizio di bilanciamento carico creato in precedenza che dispone di una regola per il traffico con carico bilanciato.
 - Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
 
-Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole per il traffico con carico bilanciato, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Per informazioni su come creare un'istanza di bilanciamento del carico con le regole per il traffico con carico bilanciato, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
 
 	$nicName="<name of the NIC of the VM>"
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Successivamente, creare un oggetto macchina virtuale locale e, facoltativamente, aggiungerlo a un set di disponibilità. Copiare una delle due opzioni seguenti nel set di comandi e immettere il nome, le dimensioni e il nome del set di disponibilità.
@@ -377,9 +379,9 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 
 ## Risorse aggiuntive
 
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
+[Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
 
 [Distribuire e gestire macchine virtuali di Azure usando modelli di Gestione risorse e PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
@@ -387,4 +389,4 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

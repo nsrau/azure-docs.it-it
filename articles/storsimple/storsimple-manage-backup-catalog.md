@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/24/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos" />
 
 # Gestire il catalogo di backup di StorSimple
@@ -109,7 +109,7 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
     I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 
-3. Selezionare ed espandere un set di backup Le opzioni **Ripristina ed Elimina** sono visualizzate nella parte inferiore della pagina. Fare clic su **Elimina**. Eliminare un set di backup
+3. Selezionare ed espandere un set di backup Le opzioni **Ripristina ed Elimina** sono visualizzate nella parte inferiore della pagina. Fare clic su **Elimina**.
 
 4. Verrà visualizzata una notifica dell'operazione di eliminazione in corso e del corretto completamento. Al termine dell'eliminazione, aggiornare la query nella pagina. Il set di backup eliminato non verrà più visualizzato nell'elenco dei set di backup.
 
@@ -117,4 +117,4 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
 Informazioni su come usare la pagina Catalogo di backup per [ripristinare il dispositivo da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

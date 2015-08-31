@@ -3,6 +3,7 @@
 	description="Informazioni su come sfruttare i componenti di business intelligence e usare Power Query per Excel per accedere ai dati archiviati in Hadoop in HDInsight."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -84,6 +85,5 @@ In questo articolo è stato illustrato come usare Power Query per recuperare dat
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

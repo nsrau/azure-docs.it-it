@@ -13,29 +13,28 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/19/2015"
-	ms.author="bradyg;tarcher"/>
+	ms.date="08/14/2015"
+	ms.author="tdykstra"/>
 
 # Creare un'app per le API ASP.NET nel servizio app di Azure
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
 - [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
 ## Panoramica
 
-Questa esercitazione mostra come creare un progetto API Web ASP.NET usando un modello di Visual Studio 2013 che configura il progetto per la distribuzione nel cloud come [app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Per informazioni su come configurare un progetto API Web per la distribuzione come un'app per le API, vedere [Configurare un progetto API Web come un'app per le API](app-service-dotnet-create-api-app-visual-studio.md).
+Questa esercitazione mostra come creare un progetto API Web ASP.NET configurato per la distribuzione nel cloud come [app per le API nel servizio app di Azure](app-service-api-apps-why-best-platform.md). Per informazioni su come configurare un progetto API Web per la distribuzione come un'app per le API, vedere [Configurare un progetto API Web come un'app per le API](app-service-dotnet-create-api-app-visual-studio.md).
 
 Le esercitazione successive della serie illustrano come [distribuire](app-service-dotnet-deploy-api-app.md) ed [eseguire il debug](../app-service-dotnet-remotely-debug-api-app.md) del progetto app per le API creato in questa esercitazione.
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [installare-sdk-2015 2013](../../includes/install-sdk-2015-2013.md)]
 
-Per eseguire questa esercitazione, è necessario installare Azure SDK per .NET versione 2.5.1 o successive.
+Per eseguire questa esercitazione, è necessario installare Azure SDK per .NET versione 2.6 o successive.
 
 ## Creare un progetto app per le API
 
-Quando le istruzioni richiedono l'immissione di un nome per il progetto, indicare *ContactsList*.
+Quando le istruzioni richiedono l'immissione di un nome per il progetto, specificare *ContactsList*.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -50,4 +49,4 @@ Quando le istruzioni richiedono l'immissione di un nome per il progetto, indicar
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

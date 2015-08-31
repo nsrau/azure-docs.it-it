@@ -101,7 +101,7 @@ Causa: l'account utilizzato per la connessione non dispone dei diritti di access
 
 Ciascun computer basato su Windows dispone di un gruppo locale Utenti Desktop remoto, che contiene gli account e i gruppi che hanno il diritto di accedere con una connessione Desktop remoto. Anche i membri del gruppo Administrators locale dispongono dell’accesso, sebbene tali account non siano elencati come membri del gruppo locale Utenti Desktop remoto. Per le macchine appartenenti a un dominio, il gruppo Amministratori locale contiene anche gli amministratori di dominio per il dominio.
 
-Assicurarsi che l'account che si utilizza per avviare la connessione disponga dei diritti di accesso a Desktop remoto. Utilizzare un account amministratore di dominio o amministratore locale come soluzione temporanea per creare una connessione Desktop remoto e aggiungere l'account desiderato al gruppo Utenti Desktop remoto locale utilizzando lo snap-in Gestione computer (**Strumenti di sistema > Utenti e gruppi locali > Gruppi > Utenti Desktop remoto**).
+Assicurarsi che l'account che si utilizza per avviare la connessione disponga dei diritti di accesso a Desktop remoto. Usare un account amministratore di dominio o amministratore locale come soluzione temporanea per creare una connessione Desktop remoto e aggiungere l'account desiderato al gruppo Utenti Desktop remoto locale mediante lo snap-in Gestione computer (**Strumenti di sistema > Utenti e gruppi locali > Gruppi > Utenti Desktop remoto**).
 
 ### Finestra di messaggio di Connessione Desktop remoto: Impossibile connettersi al computer remoto per uno dei seguenti motivi...
 
@@ -134,7 +134,7 @@ L'impossibilità per il client Desktop remoto di raggiungere Servizi Desktop rem
 
 - Computer client Desktop remoto
 - Dispositivo periferico dell’Intranet dell’organizzazione
-- Endpoint del servizio del cloud ed elenco di controllo di accesso (ACL)
+- Endpoint del servizio cloud ed elenco di controllo di accesso (ACL)
 - Gruppi di sicurezza di rete
 - Macchina virtuale di Azure basata su Windows
 
@@ -171,7 +171,7 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni del disposi
 
 ### Origine 3: endpoint del servizio cloud e ACL
 
-Per eliminare l'endpoint del servizio cloud e l’ACL come fonti di problemi o errori di configurazione per le macchine virtuali create nella gestione dei servizi, verificare che un'altra macchina virtuale di Azure che si trova nello stesso servizio cloud o rete virtuale sia in grado di effettuare connessioni Desktop remoto alla macchina virtuale di Azure.
+Per eliminare l'endpoint del servizio cloud e l'elenco di controllo di accesso come fonti di problemi o errori di configurazione per le macchine virtuali create mediante l'API di Gestione dei servizi, verificare che un'altra macchina virtuale di Azure che si trova nello stesso servizio cloud o rete virtuale sia in grado di eseguire connessioni Desktop remoto alla macchina virtuale di Azure.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
 
@@ -210,7 +210,7 @@ Provare nuovamente la connessione dal computer. Se non riesce, alcuni dei proble
 - Windows Firewall o un altro firewall locale dispone di una regola in uscita che impedisce il traffico di Desktop remoto.
 - Il software di rilevamento delle intrusioni o il software per il monitoraggio della rete in esecuzione nella macchina virtuale di Azure impedisce le connessioni Desktop remoto.
 
-Per risolvere questi problemi per macchine virtuali create in Gestione dei servizi, è possibile utilizzare una sessione remota di Azure PowerShell nella macchina virtuale di Azure. In primo luogo, è necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Andare a [Configurare l’accesso remoto PowerShell protetto alle macchine virtuali di Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** in una cartella nel computer locale.
+Per risolvere questi problemi per le macchine virtuali create mediante l'API di Gestione dei servizi, è possibile usare una sessione remota di Azure PowerShell nella macchina virtuale di Azure. In primo luogo, è necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Andare a [Configurare l’accesso remoto PowerShell protetto alle macchine virtuali di Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** in una cartella nel computer locale.
 
 Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
 
@@ -263,7 +263,7 @@ Verificare che anche l'endpoint Desktop remoto per la macchina virtuale di Azure
 
 ## Passaggio 5: Inviare il problema ai forum di supporto tecnico di Azure
 
-Per ottenere assistenza dagli esperti di Azure di tutto il mondo, è possibile inviare il problema ai forum MSDN Azure oppure Overflow dello stack. Per ulteriori informazioni vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
+Per ottenere assistenza dagli esperti di Azure di tutto il mondo, è possibile inviare il problema ai forum MSDN Azure oppure Overflow dello stack. Per altre informazioni, vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
 
 ## Passaggio 6: Archiviare un incidente del supporto tecnico di Azure
 
@@ -283,8 +283,8 @@ Per informazioni sull'uso del supporto tecnico di Azure, vedere [Domande frequen
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-[Risoluzione dei problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
+[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

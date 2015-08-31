@@ -30,6 +30,12 @@ Per completare l'esercitazione, sarà necessaria una sottoscrizione di Azure. Se
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
+## Video con la procedura dettagliata
+
+Di seguito è riportata una procedura dettagliata di questa esercitazione.
+
+[AZURE.VIDEO get-started-with-azure-automation]
+
 ## <a name="automationaccount"></a>Creare un account di automazione
 
 Un account di automazione è un contenitore per le risorse di Automazione di Azure e consente di separare gli ambienti o di organizzare ulteriormente i flussi di lavoro. Per altre informazioni, vedere [Account di automazione](http://aka.ms/runbookauthor/azure/automationaccounts) nella sezione Automazione di MSDN Library. Se è già stato creato un account di automazione, è possibile ignorare questo passaggio.
@@ -141,4 +147,4 @@ Microsoft e la community di Automazione di Azure mettono a disposizione Runbook 
 **Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

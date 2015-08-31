@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/23/2015"
+	ms.date="08/14/2015"
 	ms.author="yuaxu"/>
 
 # Inviare notifiche multipiattaforma a un utente specifico
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]& nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 Questo argomento descrive come inviare notifiche a tutti i dispositivi registrati di un utente specifico dal proprio back-end mobile. È stato introdotto il concetto di [modelli], che offre alle applicazioni client la libertà di specificare i formati di payload e segnaposto di variabili al momento della registrazione. L'operazione di invio raggiunge tutte le piattaforme grazie a questi segnaposto, abilitando le notifiche multipiattaforma.
 
@@ -107,4 +107,4 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 [modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

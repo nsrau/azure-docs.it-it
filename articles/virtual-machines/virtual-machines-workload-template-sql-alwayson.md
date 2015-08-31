@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Distribuzione di SQL Server AlwaysOn con un modello di Gestione risorse di Azure"
+	pageTitle="Distribuire SQL Server AlwaysOn con un modello di Gestione risorse di Azure | Microsoft Azure"
 	description="Distribuire facilmente cinque server che supportano SQL Server AlwaysOn con un modello di Gestione risorse e il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,17 +17,17 @@
 	ms.date="06/29/2015"
 	ms.author="davidmu"/>
 
-# Distribuzione di SQL Server AlwaysOn con un modello di Gestione risorse di Azure
+# Distribuire SQL Server AlwaysOn con un modello di Gestione risorse di Azure
 
-Utilizzare le istruzioni riportate in questa sezione per distribuire SQL Server AlwaysOn utilizzando un modello di Gestione risorse. Questo modello consente di creare cinque macchine virtuali in una nuova rete virtuale in due diverse subnet.
+Usare le istruzioni riportate in questo articolo per distribuire SQL Server AlwaysOn usando un modello di Gestione risorse di Azure. Questo modello consente di creare cinque macchine virtuali in una nuova rete virtuale in due diverse subnet.
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
-È possibile eseguire il modello con il portale di anteprima di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure.
+È possibile eseguire il modello con il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## Portale di anteprima di Azure
 
-Per distribuire il carico di lavoro utilizzando un modello di gestione delle risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+Per distribuire il carico di lavoro mediante un modello di Gestione risorse di Azure e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -95,14 +95,14 @@ Una volta completata l'esecuzione del modello, si dispone di una nuova configura
 
 [Distribuzione e gestione delle macchine virtuali utilizzando i modelli di Gestione risorse di Azure e Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
+[Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
 
-[Distribuzione e gestione delle macchine virtuali utilizzando i modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+[Distribuire e gestire le macchine virtuali mediante modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-[Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Documentazione delle macchine virtuali](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

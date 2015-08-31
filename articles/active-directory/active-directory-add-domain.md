@@ -1,22 +1,20 @@
-<properties 
-	pageTitle="Aggiungere un nome di dominio personalizzato ad Azure AD" 
-	description="Argomento che illustra come aggiungere un nome di dominio personalizzato ad Azure AD e fornisce informazioni correlate." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Aggiungere il proprio nome di dominio a Azure AD| Microsoft Azure"
+	description="Argomento che illustra come aggiungere un nome di dominio personalizzato ad Azure AD e fornisce informazioni correlate."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="msStevenPo"
+	editor=""/>
 
-
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/12/2015" 
-	ms.author="Justinha"/>
-
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
+	ms.author="curtand"/>
 
 # Aggiungere un nome di dominio personalizzato ad Azure AD
 
@@ -43,7 +41,7 @@ Se l'organizzazione dispone già di un nome di dominio personalizzato, l'amminis
 È possibile aggiungere fino a 900 nomi di dominio al tenant di Azure AD usando uno degli strumenti seguenti:
 
 - Portale di gestione di Azure, portale di Office 365 o portale di Microsoft Intune.
-- Modulo di Azure Active Directory per Windows PowerShell. Per altre informazioni sui cmdlet che è possibile usare a questo scopo, vedere [Gestire i domini](https://msdn.microsoft.com/library/azure/dn919677.aspx).
+- Modulo di Azure Active Directory per Windows PowerShell. Per altre informazioni sui cmdlet che è possibile usare a questo scopo, vedere [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
 È necessario avere già registrato un nome di dominio e disporre delle credenziali di accesso necessarie per il registrar (ad esempio, GoDaddy o Register.com).
 
@@ -90,7 +88,7 @@ Se è stata appena completata la procedura guidata **Aggiungi un dominio**, fare
 
 Affinché le modifiche diventino effettive, sono necessari in genere 15 minuti. Per la propagazione del record DNS creato nel sistema DNS possono invece essere necessarie fino a 72 ore. Se è necessario visualizzare di nuovo queste impostazioni dei record, nella pagina **Domini** fare clic sul dominio e quindi, nella pagina **Proprietà dominio**, fare clic sulla scheda **Impostazioni DNS**.
 
-Per controllare lo stato del dominio, nella pagina **Domini** fare clic sul dominio e quindi, nella pagina **Proprietà dominio**, fare clic su **Risolvi problemi di dominio**.
+Per verificare lo stato del dominio, nella pagina **Domini**, fare clic sul dominio e poi scegliere la pagina **Proprietà del dominio**, fare clic su **Risolvi dei problemi di dominio**.
 
 ### Verificare un dominio presso qualsiasi registrar
 
@@ -98,7 +96,7 @@ Se si dispone già di un dominio registrato con un registrar e lo si vuole confi
 
 Per poter verificare il dominio, è prima necessario aggiungere un dominio personalizzato in Azure AD. Quando un dominio personalizzato è stato aggiunto, ma non è stato ancora verificato, lo stato sarà impostato su **Fare clic per verificare il dominio** o su **Non verificato**.
 
-#### Raccogliere informazioni sul dominio 
+#### Raccogliere informazioni sul dominio
 
 In base al portale in uso per amministrare la directory di Azure AD, sarà necessario raccogliere alcune informazioni sul dominio in modo che in un secondo momento sia possibile creare un record DNS che verrà usato durante il processo di verifica.
 
@@ -114,12 +112,12 @@ Se si usa Microsoft Intune o il portale degli account di Azure:
 
 Se si usa il portale di gestione:
 
-1. Nel portale fare clic su **Active Directory**, quindi sul nome della directory e infine su **Domini**. 
+1. Nel portale fare clic su **Active Directory**, quindi sul nome della directory e infine su **Domini**.
 2. Nell'elenco di nomi di dominio nella pagina **Domini** fare clic sul dominio che si vuole verificare e quindi su **Verifica**.
 2. Nell'elenco a discesa **Tipo di record** della pagina **Verifica** scegliere **Record TXT** o **Record MX**.
 3. Copiare o registrare le informazioni.
 
-#### Aggiungere un record DNS presso il registrar 
+#### Aggiungere un record DNS presso il registrar
 
 Azure AD usa un record DNS creato presso il registrar per confermare la proprietà del dominio. Fare riferimento alle istruzioni seguenti per creare un tipo di record TXT o MX per un dominio registrato presso il registrar.
 
@@ -133,7 +131,7 @@ Per istruzioni generali, attenersi alla procedura seguente per l'aggiunta di un 
 2. Nell'area di gestione DNS per l'account selezionare l'opzione per aggiungere un record TXT o MX per il dominio.
 3. Nella casella **TXT** o **MX** per il dominio digitare quanto segue: @
 4. Nella casella **Nome di dominio completo (FQDN)** o **Punta a** digitare o incollare le informazioni relative a **Indirizzo di destinazione o puntamento** registrate nel passaggio precedente.
-5. Per un record TXT, vengono chieste le informazioni relative a **TTL**. Digitare **1** per impostare la durata (TTL) su un'ora. 
+5. Per un record TXT, vengono chieste le informazioni relative a **TTL**. Digitare **1** per impostare la durata (TTL) su un'ora.
 
     Per un record MX, viene richiesta una priorità (o preferenza). Digitare un numero maggiore rispetto a quello specificato per i record MX esistenti. In questo modo, il nuovo record MX non interferisce con l'inoltro della posta per il dominio. Anziché una priorità, potrebbero venire visualizzate le opzioni seguenti: **Bassa**, **Media**, **Alta**. In questo caso, scegliere **Bassa**.
 
@@ -141,7 +139,7 @@ Per istruzioni generali, attenersi alla procedura seguente per l'aggiunta di un 
 
 Dopo avere creato il record TXT o il record MX ed essersi disconnessi dal sito Web, tornare al servizio cloud per verificare il dominio. Affinché le modifiche diventino effettive, sono necessari in genere 15 minuti. Per la propagazione del record creato nel sistema DNS possono invece essere necessarie fino a 72 ore.
 
-#### Verificare il dominio 
+#### Verificare il dominio
 
 Dopo che il record creato per il dominio è stato propagato correttamente nel sistema DNS, eseguire le operazioni seguenti per completare la verifica del dominio con Azure AD.
 
@@ -167,7 +165,7 @@ Dopo avere aggiunto il nome di dominio ad Azure AD, è possibile modificare il n
 
 Prima di rimuovere un nome di dominio, è consigliabile leggere le informazioni seguenti:
 
-- Il nome di dominio contoso.onmicrosoft.com originale fornito per la directory al momento dell'iscrizione non può essere rimosso. 
+- Il nome di dominio contoso.onmicrosoft.com originale fornito per la directory al momento dell'iscrizione non può essere rimosso.
 - Qualsiasi dominio di primo livello a cui sono associati sottodomini non può essere rimosso fino a quando non vengono rimossi i sottodomini. Ad esempio, non è possibile rimuovere adatum.com se è presente corp.adatum.com o un altro sottodominio che usa il nome di dominio di primo livello. Per altre informazioni, vedere questo [articolo del Supporto tecnico](https://support.microsoft.com/kb/2787792/).
 - Se è stata attivata la sincronizzazione della directory, all'account è stato aggiunto automaticamente un dominio simile al seguente: contoso.mail.onmicrosoft.com. Questo nome di dominio non può essere rimosso.
 - Per poter rimuovere un nome di dominio, è innanzitutto necessario rimuovere il nome di dominio da tutti gli account utente o di posta elettronica associati al dominio. È possibile rimuovere tutti gli account oppure modificare in blocco gli account utente per cambiare le informazioni sul nome di dominio e gli indirizzi di posta elettronica. Per altre informazioni, vedere [Creare o modificare utenti in Azure AD](active-directory-create-users.md).
@@ -181,7 +179,7 @@ Per rimuovere un nome di dominio:
 
 Se non è possibile rimuovere il nome di dominio, lo stato per il nome di dominio verrà visualizzato come Rimozione in sospeso nella pagina Domini. Se si continua a visualizzare questo stato, riprovare a rimuovere il nome di dominio.
 
-## Risoluzione dei problemi dopo la modifica del nome di dominio 
+## Risoluzione dei problemi dopo la modifica del nome di dominio
 
 ### Dopo aver apportato modifiche a un dominio, queste non vengono ancora visualizzate.
 
@@ -191,19 +189,19 @@ Inoltre, le modifiche apportate presso il registrar devono essere corrette. Se s
 
 Il tempo necessario dipende in parte dall'impostazione della durata (TTL) specificata per il record DNS che si sta sostituendo o aggiornando. Fino alla scadenza della durata (TTL), i server Internet che hanno memorizzato nella cache i dati precedenti non eseguono query sul server dei nomi autorevole per richiedere il nuovo valore.
 
-### È stato aggiunto e verificato un dominio e i record DNS nel sito del registrar sono stati configurati. Perché i nuovi account di posta elettronica non ricevono ancora la posta? 
+### È stato aggiunto e verificato un dominio e i record DNS nel sito del registrar sono stati configurati. Perché i nuovi account di posta elettronica non ricevono ancora la posta?
 
 Dopo aver aggiunto o aggiornato i record DNS per il dominio, possono essere necessarie fino a 72 ore affinché le modifiche diventino effettive.
 
 Inoltre, le informazioni relative alle impostazioni devono essere immesse correttamente nel sito del registrar. Verificare le impostazioni e assicurarsi di aver aspettato per un tempo sufficiente per la propagazione dei record DNS modificati nel sistema.
 
-### Non è possibile verificare il nome di dominio. Come è possibile capire qual è il problema? 
+### Non è possibile verificare il nome di dominio. Come è possibile capire qual è il problema?
 
 Un metodo per individuare i problemi consiste nell'usare la procedura guidata di risoluzione dei problemi dei domini. Per avviare la procedura guidata, eseguire le operazioni seguenti: nella pagina di amministrazione del portale di servizi cloud fare clic su **Domini** e quindi fare doppio clic sul nome di dominio che si vuole verificare. In **Risoluzione dei problemi** fare quindi clic su **Risolvi problemi di dominio**.
 
 La procedura guidata di risoluzione dei problemi richiede informazioni sul punto del processo di verifica in cui ci si trova e quindi fornisce indicazioni utili per completare la verifica.
 
-### È stato aggiunto e verificato un dominio, ma il nuovo nome di dominio non funziona per gli indirizzi di posta elettronica degli utenti esistenti. 
+### È stato aggiunto e verificato un dominio, ma il nuovo nome di dominio non funziona per gli indirizzi di posta elettronica degli utenti esistenti.
 
 Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiunta degli account utente, potrebbero essere necessari aggiornamenti per poter usare il nuovo nome di dominio. Ad esempio, sarà necessario modificare gli account utente impostando i relativi indirizzi di posta elettronica in modo che usino il dominio personalizzato.
 
@@ -212,6 +210,6 @@ Se si aggiunge il nome di dominio personalizzato al servizio cloud dopo l'aggiun
 - [Forum di Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
-- [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
+- [Gestire i domini in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

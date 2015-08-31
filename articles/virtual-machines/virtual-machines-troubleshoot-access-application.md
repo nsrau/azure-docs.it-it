@@ -21,7 +21,7 @@
 
 Se è impossibile accedere a un'applicazione in esecuzione in una macchina virtuale di Azure, in questo articolo viene descritto un approccio metodico per isolare l'origine del problema e risolverlo.
 
-> [AZURE.NOTE]Per supporto alla connessione a una macchina virtuale di Azure, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) o [Risolvere i problemi di connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md).
+> [AZURE.NOTE]Per supporto alla connessione a una macchina virtuale di Azure, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) o [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md).
 
 Esistono quattro aree principali per risolvere i problemi di accesso di un'applicazione che è in esecuzione in una macchina virtuale di Azure.
 
@@ -29,7 +29,7 @@ Esistono quattro aree principali per risolvere i problemi di accesso di un'appli
 
 1.	L’applicazione in esecuzione nella macchina virtuale di Azure.
 2.	La macchina virtuale di Azure.
-3.	Gli endpoint di Azure per il servizio cloud che contiene la macchina virtuale (per le macchine virtuali create nella gestione dei servizi), regole NAT in ingresso (per le macchine virtuali create in Gestione risorse) e i gruppi di sicurezza di rete.
+3.	Gli endpoint di Azure per il servizio cloud che contiene la macchina virtuale (per le macchine virtuali create mediante l'API di Gestione dei servizi), le regole NAT in ingresso (per le macchine virtuali create in Gestione risorse) e i gruppi di sicurezza di rete.
 4.	Dispositivo periferico di Internet
 
 Per i computer client che accedono all'applicazione tramite una connessione site-to-site VPN o ExpressRoute, le principali aree che possono causare problemi sono l'applicazione e la macchina virtuale di Azure. Per determinare l'origine del problema e la sua risoluzione, attenersi alla seguente procedura.
@@ -53,7 +53,7 @@ Nelle macchine virtuali basate su Windows o Linux, utilizzare il comando **netst
 
 ## <a id="step2"></a>Passaggio 2: È possibile accedere all'applicazione da un'altra macchina virtuale nella stessa rete virtuale?
 
-Tentare di accedere all'applicazione da un'altra macchina virtuale nella stessa rete virtuale come macchina virtuale in cui è in esecuzione l'applicazione utilizzando il nome host della macchina virtuale o l’indirizzo IP pubblico, privato o provider assegnato da Azure. Per le macchine virtuali create nella gestione dei servizi, non utilizzare l'indirizzo IP pubblico del servizio cloud.
+Tentare di accedere all'applicazione da un'altra macchina virtuale nella stessa rete virtuale come macchina virtuale in cui è in esecuzione l'applicazione utilizzando il nome host della macchina virtuale o l’indirizzo IP pubblico, privato o provider assegnato da Azure. Per le macchine virtuali create mediante l'API di Gestione dei servizi, non usare l'indirizzo IP pubblico del servizio cloud.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
@@ -80,9 +80,9 @@ Ad esempio, se l'applicazione è un server web, tentare di accedere a una pagina
 
 Se non è possibile accedere all'applicazione, verificare quanto segue:
 
-- Per le macchine virtuali create nella gestione dei servizi, che la configurazione dell'endpoint per la macchina virtuale consenta il traffico in entrata, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
-- Per le macchine virtuali create in gestione dei servizi, che gli elenchi di controllo di accesso (ACL) nell’endpoint non impediscano il traffico in entrata da internet. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
-- Per le macchine virtuali create in Gestione risorse, che la configurazione della regola NAT in entrata per la macchina virtuale consenta il traffico in entrata, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata. 
+- Per le macchine virtuali create mediante le API di Gestione dei servizi, che la configurazione dell'endpoint per la macchina virtuale consenta il traffico in entrata, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
+- Per le macchine virtuali create mediante le API di Gestione dei servizi, che gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscano il traffico in entrata da Internet. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
+- Per le macchine virtuali create in Gestione risorse, che la configurazione della regola NAT in entrata per la macchina virtuale consenta il traffico in entrata, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
 - Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita. Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](virtual-networks-nsg.md).
 
 Se la macchina virtuale o un endpoint è un membro di un set con carico bilanciato:
@@ -101,13 +101,13 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 
 Se si sono seguiti i passaggi da 1 a 3 in questo articolo e si desidera ulteriore assistenza per risolvere il problema, è possibile:
 
-- Ottenere assistenza dagli esperti di Azure in tutto il mondo. Presentare il problema nei forum MSDN Azure o Stack Overflow. Per altre informazioni vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
+- Ottenere assistenza dagli esperti di Azure in tutto il mondo. Presentare il problema nei forum MSDN Azure o Stack Overflow. Per altre informazioni, vedere [Forum di Microsoft Azure](http://azure.microsoft.com/support/forums/).
 - Archiviare un incidente del supporto tecnico di Azure. Aprire il [sito del supporto tecnico di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto** in **Supporto tecnico e alla fatturazione**.
 
 ## Risorse aggiuntive
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-[Risolvere i problemi di connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
+[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

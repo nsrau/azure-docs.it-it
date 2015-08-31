@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse" description="Informazioni su come usare i modelli di Hub di notifica per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse" description="Informazioni su come usare i modelli di Hub di notifica per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse
@@ -24,7 +24,7 @@ Nell'esercitazione precedente, [Utilizzo di Hub di notifica per inviare notifich
 
 Per inviare notifiche tra piattaforme diverse utilizzando i modelli, eseguire la procedure seguente:
 
-1. In Esplora soluzioni in Visual Studio espandere la cartella **Controllers** e quindi aprire il file RegisterController.cs. 
+1. In Esplora soluzioni in Visual Studio espandere la cartella **Controllers** e quindi aprire il file RegisterController.cs.
 
 2. Nel metodo **Post** individuare il blocco di codice che crea una nuova registrazione e sostituire il contenuto `switch` con il codice seguente:
 
@@ -54,7 +54,7 @@ Per inviare notifiche tra piattaforme diverse utilizzando i modelli, eseguire la
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-	
+
 	In questo codice viene chiamato il metodo specifico della piattaforma per creare una registrazione modello anziché una registrazione nativa. Non è necessario modificare le registrazioni esistenti, in quanto le registrazioni modello derivano da registrazioni native.
 
 3. Nel controller **Notifications** sostituire il metodo **sendNotification** con il codice seguente:
@@ -65,7 +65,7 @@ Per inviare notifiche tra piattaforme diverse utilizzando i modelli, eseguire la
             var userTag = "username:" + user;
 
             var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);   
+            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -84,7 +84,7 @@ Per inviare notifiche tra piattaforme diverse utilizzando i modelli, eseguire la
 
 Dopo avere completato questa esercitazione, è possibile reperire altre informazioni su Hub di notifica e sui modelli nei seguenti argomenti:
 
-+ **[Usare Hub di notifica per inviare le ultime notizie]** <br/>Questo argomento descrive un altro scenario per l'uso dei modelli. 
++ **[Usare Hub di notifica per inviare le ultime notizie]** <br/>Questo argomento descrive un altro scenario per l'uso dei modelli.
 
 +  **[Panoramica di hub di Hub di notifica di Azure][Templates]**<br/> Panoramica con informazioni dettagliate sui modelli.
 
@@ -110,6 +110,5 @@ Dopo avere completato questa esercitazione, è possibile reperire altre informaz
 [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

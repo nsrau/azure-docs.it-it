@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/10/2015"
+   ms.date="08/19/2015"
    ms.author="andalmia"/>
 
 # Connettore Box
@@ -32,9 +32,9 @@ Nome parametro | Descrizione | Obbligatorio
 --- | --- | ---
 Percorso cartella | Percorso della cartella da elencare. | Sì
 
-> [AZURE.NOTE]non restituisce i contenuti dei file.
+	>[AZURE.NOTE]non restituisce i contenuti dei file.
 
-b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Elenco dei parametri obbligatori per l'azione:
+    b. *Recupera file:* questa operazione recupera un file, inclusi il contenuto e le proprietà. Elenco dei parametri obbligatori per l'azione:
 
 Nome parametro | Descrizione | Obbligatorio
 --- | --- | ---
@@ -44,7 +44,7 @@ Tipo file | Specifica se il file è di testo o binario. | No
 > [AZURE.NOTE]Questa operazione non eliminerà il file dopo averlo letto.
 
 
-c. *Upload File*: Come suggerito dal nome, questa azione consente di caricare il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Elenco dei parametri obbligatori per l'azione:
+    c. *Upload File*: Come suggerito dal nome, questa azione consente di caricare il file nell'account Box. Se il file esiste già, non viene sovrascritto e viene generato un errore. Elenco dei parametri obbligatori per l'azione:
 
 Nome parametro | Descrizione | Obbligatorio
 --- | --- | ---
@@ -65,8 +65,8 @@ Percorso file | Percorso del file completo incluse le cartelle. | Sì
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Cercare "Connettore Box", selezionarlo e scegliere **Crea**.
-3. Immettere il nome, il piano di servizio app e altre proprietà: 
-	![][1]
+3. Immettere il nome, il piano di servizio app e altre proprietà:
+![][1]
 4. Selezionare **Crea**.
 
 
@@ -78,21 +78,22 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 
 	> [AZURE.NOTE]Se il Connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, è possono eseguire azioni su account Box utilizzando il connettore. Il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
 
-2. Autenticare e autorizzare le app per la logica in modo che eseguano operazioni per conto dell'utente. Selezionare **Authorize** nel Connettore Box: ![][2]
+2. Autenticare e autorizzare le app per la logica in modo che eseguano operazioni per conto dell'utente. Selezionare **Authorize** nel Connettore Box:
+![][2]
 
-	![][2]
+3. Immettere i dettagli di accesso dell'account Box su cui eseguire le operazioni:
+![][3]
 
-5. Facendo clic su Autorizza, si aprirà la finestra di dialogo di autenticazione di Box. Specificare i dettagli di accesso dell'account Box su cui si vuole eseguire le operazioni.
+4. Concedere alle app per la logica l'accesso al proprio account utente per eseguire l'operazione per proprio conto: 
+![][4]
 
-	![][3]
+5. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire:
+![][5]
 
-6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per conto dell'utente.
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-	![][4]
-
-7. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire.
-
-	![][5]
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
@@ -103,4 +104,4 @@ Una volta creata l'app per le API, è possibile usare il connettore Box come azi
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

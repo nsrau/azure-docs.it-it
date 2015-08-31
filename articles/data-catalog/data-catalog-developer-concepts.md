@@ -46,13 +46,13 @@ Il Catalogo dati di Azure utilizza Azure Active Directory per la gestione delle 
 
 ### Asset
 
-Il **catalogo** contiene gli asset di dati. Gli **asset** rappresentano l'unità di elemento gestito dal catalogo.
+Il **catalogo** contiene gli asset di dati. Gli **asset** rappresentano l'unità di granularità gestita dal catalogo.
 
-La granularità di un asset varia a seconda dell'origine dati. Per Database Oracle o SQL Server un asset può essere una tabella o una vista. Per SQL Server Analysis Services un asset può essere una misura, una dimensione o un indicatore di prestazioni chiave (KPI). Per SQL Server Reporting Services un asset può essere un report.
+La granularità di un asset varia a seconda dell'origine dati. Per Database Oracle o SQL Server un asset può essere una tabella o una vista. Per SQL Server Analysis Services un asset può essere una misura, una dimensione o un indicatore di prestazioni chiave (KPI). Per SQL Server Reporting Services un asset è un report.
 
 L’**asset** è l'elemento che si aggiunge o si rimuove da un catalogo. È l'unità di risultato ottenuto dalla **ricerca**.
 
-L’**asset** è composto dalle informazioni di base, dal relativo percorso e tipo, nonché dalle annotazioni che lo descrivono ulteriormente.
+L’**asset** è composto dal relativo nome, percorso e tipo, nonché dalle annotazioni che lo descrivono ulteriormente.
 
 ### Annotazioni
 
@@ -80,21 +80,7 @@ L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esi
 
 -	Il modello più semplice è "Mostra tutto". In questo modello vengono visualizzati tutti gli oggetti in una sorta di visualizzazione elenco. Ciò è quanto l’esperienza utente esegue nel portale del Catalogo dati di Azure per la descrizione.
 -	Un altro modello è "Merge". In questo modello, tutti i valori dagli utenti diversi vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell’esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
--	Un terzo modello è "ultima scrittura prevale". In questo modello viene visualizzato solo il valore digitato più di recente. friendlyName è un esempio di questo modello. Alcuni tipi non possono avere più istanze.
-
-Di seguito è riportato un elenco di tipi che possono e non possono avere più istanze:
-
-I tipi seguenti possono avere più istanze:
-
-- Descrizione
-- Esperti
-- Descrizione dello schema
-
-I seguenti tipi **non** possono avere più istanze:
-
-- Tipi radice
-- Schema
-- Anteprima
+-	Un terzo modello è "ultima scrittura prevale". In questo modello viene visualizzato solo il valore digitato più di recente. friendlyName è un esempio di questo modello.
 
 ## Modello a oggetti asset
 
@@ -245,4 +231,4 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere ut
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

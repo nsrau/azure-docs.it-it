@@ -5,8 +5,8 @@
 	documentationCenter=""
 	editor="cgronlun"
 	manager="paulettm"
-	authors="nitinme"/>
-
+	authors="nitinme"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -16,7 +16,6 @@
 	ms.topic="article"
 	ms.date="07/30/2015"
 	ms.author="nitinme"/>
-
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
@@ -1333,4 +1332,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

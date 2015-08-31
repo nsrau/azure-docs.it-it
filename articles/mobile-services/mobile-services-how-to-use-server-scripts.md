@@ -7,24 +7,18 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="08/17/2015" 
 	ms.author="ricksal"/>
-
 
 
 # Usare un servizio mobile back-end JavaScript
 
-> [AZURE.SELECTOR]
-[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
-[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
- 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end JavaScript in Servizi mobili di Azure.
 
 ##<a name="intro"></a>Introduzione
@@ -372,8 +366,7 @@ La funzione API personalizzata **OrderPizza** seguente restituisce un semplice d
 
 		exports.get = function(request, response) {
 		  response.set('content-type', 'application/xml');
-		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>
-';
+		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>';
 		  response.send(200, xml);
 		};
 
@@ -1058,4 +1051,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

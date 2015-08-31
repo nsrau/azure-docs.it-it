@@ -2,7 +2,7 @@
 
 > [AZURE.IMPORTANT]In modalità di manutenzione, è necessario applicare l’aggiornamento rapido prima in un controller e quindi nell’altro controller.
 
-1. Attivare la modalità di manutenzione per il dispositivo. Vedere [Attivare la modalità di manutenzione](#enter-maintenance-mode) del dispositivo per visualizzare istruzioni su come attivare la modalità di manutenzione.
+1. Attivare la modalità di manutenzione per il dispositivo. Per visualizzare istruzioni su come attivare la modalità di manutenzione, vedere [Passaggio 2: Attivare la modalità di manutenzione](storsimple-update-device.md#step2).
 
 2. Per applicare l’aggiornamento rapido, digitare:
 
@@ -14,6 +14,6 @@
 
 5. Dopo aver applicato l'aggiornamento rapido in un controller, accedere all’altro controller. Applicare l'aggiornamento rapido come è stato fatto per il precedente controller.
 
-6. Dopo aver applicato gli aggiornamenti rapidi, uscire dalla modalità di manutenzione. Vedere [Uscire dalla modalità di manutenzione](#exit-maintenance-mode) per visualizzare istruzioni.
+6. Dopo aver applicato gli aggiornamenti rapidi, uscire dalla modalità di manutenzione. Per istruzioni, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](storsimple-update-device.md#step4).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

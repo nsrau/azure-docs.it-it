@@ -99,9 +99,8 @@ A questo punto, il progetto di servizio mobile viene gestito nel controllo del c
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-ios-get-started.md
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Come modificare un modello di dati in un servizio mobile back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

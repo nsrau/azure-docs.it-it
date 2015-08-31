@@ -105,14 +105,16 @@ Assicurarsi che il server di database consenta di accedere ai servizi di Azure:
 
 Ora è possibile scrivere del [codice](https://sesitai.codeplex.com/) per analizzare il documento JSON nei BLOB esportati e creare record nei database. Dal momento che sia l'archivio di esportazione sia il database si trovano in Azure, il codice verrà eseguito in un ruolo di lavoro di Azure.
 
+Questo codice estrae automaticamente tutte le proprietà presenti nel documento JSON. Per le descrizioni delle proprietà, vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
+
 
 #### Creare un progetto di ruolo di lavoro
 
 In Visual Studio creare un nuovo progetto per il ruolo di lavoro:
 
-![Nuovo progetto, Visual C#, Cloud, Servizio cloud di Azure](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
+![Nuovo progetto, Visual C\#, Cloud, Servizio cloud di Azure](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
-![Nella finestra di dialogo del servizio cloud, scegliere Visual C#, Ruolo di lavoro](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
+![Nella finestra di dialogo del servizio cloud, scegliere Visual C\#, Ruolo di lavoro](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
 
 #### Effettuare la connessione all'account di archiviazione
@@ -132,11 +134,11 @@ In Visual Studio, configurare le impostazioni del ruolo di lavoro con la stringa
 In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto Ruolo di lavoro e scegliere Gestisci pacchetti NuGet. Cercare e installare i pacchetti seguenti:
 
  * EntityFramework 6.1.2 o versioni successive: verrà usato per generare uno schema di tabella del database al volo, basandosi sul contenuto del documento JSON nel BLOB.
- * JsonFx: verrà usato per rendere flat il documento JSON alle proprietà della classe C#.
+ * JsonFx: verrà usato per rendere flat il documento JSON alle proprietà della classe C\#.
 
-Usare questo strumento per generare la classe C# dal singolo documento JSON. È necessario apportare alcune modifiche secondarie come il rendering bidimensionale delle matrici JSON in una singola proprietà C# e la trasformazione di una singola colonna nella tabella di database (ad esempio: urlData\_port)
+Usare questo strumento per generare la classe C#dal singolo documento JSON. È necessario apportare alcune modifiche secondarie come il rendering bidimensionale delle matrici JSON in una singola proprietà C#e la trasformazione di una singola colonna nella tabella di database (ad esempio: urlData\_port)
 
- * [Generatore di classi C# JSON](http://jsonclassgenerator.codeplex.com/)
+ * [Generatore di classi C#JSON](http://jsonclassgenerator.codeplex.com/)
 
 ## Codice 
 
@@ -317,7 +319,7 @@ Sostituire il metodo di esecuzione esistente e scegliere l'intervallo preferito.
     	    }
         }
 
-#### Eseguire il cast del documento JSON in proprietà dell'oggetto telemetria della classe C#
+#### Eseguire il cast del documento JSON in proprietà dell'oggetto telemetria della classe C\#
 
      public object GetObject(IDictionary<string, object> d)
         {
@@ -355,6 +357,8 @@ Sostituire il metodo di esecuzione esistente e scegliere l'intervallo preferito.
         }
 
 #### File di classe PageViewPerformance generato dal documento JSON
+
+
 
     public class PageViewPerformance
     {
@@ -519,6 +523,7 @@ Per vedere questo esempio in azione, [scaricare](https://sesitai.codeplex.com/) 
 * [Esportare in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Esportazione continua in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Modello di dati di esportazione](app-insights-export-data-model.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
 <!--Link references-->
@@ -531,4 +536,4 @@ Per vedere questo esempio in azione, [scaricare](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

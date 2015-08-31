@@ -3,8 +3,8 @@
 	description="Gestione del controllo di accesso basato sui ruoli con Windows PowerShell"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor="mollybos"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Gestione del controllo di accesso basato sui ruoli con Windows PowerShell #
 
@@ -163,6 +163,5 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 - [Blog "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 - [Configurazione del controllo di accesso basato sui ruoli usando l'interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

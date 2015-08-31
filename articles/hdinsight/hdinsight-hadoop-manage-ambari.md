@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -56,9 +57,9 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 
 * **Logo di Ambari**: apre il dashboard, che può essere usato per monitorare il cluster.
 
-* **Numero di operazioni cluster**: visualizza il numero di operazioni in corso di Ambari. Se si seleziona il nome del cluster o **# ops**, verrà visualizzato un elenco delle operazioni in background.
+* **Numero di operazioni cluster**: visualizza il numero di operazioni in corso di Ambari. Se si seleziona il nome del cluster o **\# ops**, verrà visualizzato un elenco delle operazioni in background.
 
-* **# alerts**: eventuali messaggi di avviso o critici per il cluster. Se si seleziona questa opzione, verrà visualizzato un elenco di avvisi.
+* **\# alerts**: eventuali messaggi di avviso o critici per il cluster. Se si seleziona questa opzione, verrà visualizzato un elenco di avvisi.
 
 * **Dashboard**: visualizza il dashboard.
 
@@ -86,7 +87,7 @@ Ambari fornisce numerosi avvisi, che potranno avere uno dei seguenti stati:
 
 * **UNKNOWN**
 
-Gli avvisi con stato diverso da **OK** determineranno la compilazione del campo **# alerts** nella parte superiore della pagina con il numero di avvisi. Se si seleziona questa opzione, verranno visualizzati gli avvisi e il relativo stato.
+Gli avvisi con stato diverso da **OK** determineranno la compilazione del campo **\# alerts** nella parte superiore della pagina con il numero di avvisi. Se si seleziona questa opzione, verranno visualizzati gli avvisi e il relativo stato.
 
 Gli avvisi sono organizzati in diversi gruppi predefiniti, che possono essere visualizzati dalla pagina **Alerts**.
 
@@ -222,7 +223,7 @@ Il pulsante **Actions** consente di riavviare tutti i servizi, ma spesso si desi
 
 	> [AZURE.NOTE]Se si riavviano alcuni servizi mentre il cluster è in esecuzione, è possibile che vengano generati avvisi. Per evitare questo problema, è possibile abilitare la modalità di manutenzione facendo clic sul pulsante **Service Actions** e selezionando **Turn On Maintenance Mode** per il servizio prima di eseguire il riavvio.
 
-3. Dopo aver selezionato un'azione, il valore nel campo **# op** nella parte superiore della pagina aumenterà per indicare che è in corso un'operazione in background. Se configurato, viene visualizzato l'elenco delle operazioni in background.
+3. Dopo aver selezionato un'azione, il valore nel campo **\# op** nella parte superiore della pagina aumenterà per indicare che è in corso un'operazione in background. Se configurato, viene visualizzato l'elenco delle operazioni in background.
 
 	> [AZURE.NOTE]Se è stata abilitata la modalità di manutenzione selezionando **Turn On Maintenance Mode** per il servizio, ricordarsi di disabilitarla usando il pulsante **Service Actions** al termine dell'operazione.
 
@@ -250,4 +251,4 @@ Ambari Web si basa su un'API REST sottostante, che è possibile usare per creare
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

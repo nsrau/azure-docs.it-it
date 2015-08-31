@@ -31,7 +31,7 @@ Innanzitutto, è necessario configurare il bilanciamento del carico interno in m
 
 	Switch-AzureMode AzureServiceManagement
 	$vnet="<Table V – Item 1 – Value column>"
-	$testIP="<a chosen IP address from the subnet address space, Table S - Item 1 – Subnet address space column>"
+	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
 Se il campo **IsAvailable** nella visualizzazione del comando Test-AzureStaticVNetIP è **True**, è possibile usare l'indirizzo IP.
@@ -166,4 +166,6 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
+
+<!---HONumber=August15_HO8-->

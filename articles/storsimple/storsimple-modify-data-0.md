@@ -5,17 +5,15 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
-
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
-
 
 # Modificare le impostazioni dell'interfaccia di rete DATI 0 sul dispositivo StorSimple
 
@@ -42,7 +40,7 @@ Dopo aver letto questa esercitazione, si sarà in grado di:
 
 1. Verrà visualizzata una procedura guidata per configurare l'interfaccia DATI 0 del dispositivo. Fornire nuovi valori per l'indirizzo IP, il gateway e la netmask.
 
-> [AZURE.NOTE]Gli IP fissi dei controller dovranno essere riconfigurati tramite la pagina Configura del dispositivo StorSimple nel portale di gestione di Azure. Per ulteriori informazioni, andare a [Modificare l'interfaccia di rete tramite la pagina Configura (dispositivo)](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE]Gli IP fissi dei controller dovranno essere riconfigurati tramite la pagina **Configura** del dispositivo StorSimple nel portale di gestione di Azure. Per ulteriori informazioni, andare a [Modificare le interfacce di rete](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modificare le impostazioni di rete di DATI 0 tramite il cmdlet Set-HcsNetInterface
@@ -50,14 +48,13 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
 
 #### Per modificare le impostazioni di rete di DATI 0 tramite il cmdlet Set-HcsNetInterface
 
-1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è `Password1`.
+1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la password di amministratore del dispositivo. La password predefinita è `Password1`.
 
-1. Al prompt dei comandi digitare:
+2. Al prompt dei comandi digitare:
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
 	
-1. Digitare i valori per DATI 0 tra parentesi acute (<>) per i seguenti elementi:
+    Tra parentesi acute digitare i seguenti valori per DATA 0:
 											
 	- Indirizzo IPv4
 	
@@ -70,6 +67,7 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
 	- Indirizzo IPv4 fisso per controller 1
 
 ## Passaggi successivi
+
 Per configurare le interfacce di rete diverse da DATA 0, è possibile utilizzare la [pagina di configurazione nel portale di gestione](storsimple-modify-device-config.md). Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

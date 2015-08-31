@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli" />
 
 # Attivare o arrestare il dispositivo StorSimple 
@@ -28,7 +28,7 @@ Nella tabella seguente sono elencati diversi scenari per l'attivazione e l'arres
 |Attivare un nuovo dispositivo|[Attivare un nuovo dispositivo](#turn-on-a-new-device)<ul><li>[Nuovo dispositivo con solo l’enclosure principale](#new-device-with-primary-enclosure-only)</li><li>[Nuovo dispositivo con enclosure EBOD](#new-device-with-ebod-enclosure)</li></ul>|
 |Attivare un dispositivo dopo l'arresto|[Attivare un dispositivo dopo l'arresto](#turn-on-a-device-after-shutdown)<ul><li>[dispositivo con solo l’enclosure principale ](#device-with-primary-enclosure-only)</li><li>[Dispositivo con enclosure EBOD](#device-with-ebod-enclosure)</li></ul>|
 |Attivare un dispositivo dopo un'interruzione dell'alimentazione|[Attivare un dispositivo dopo un'interruzione dell'alimentazione](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo con solo l’enclosure principale](#8100)</li><li>[Dispositivo con enclosure EBOD](#8600)</li></ul>|
-|Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’EBOD|[Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’enclosure EBOD ](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’EBOD|[Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’enclosure EBOD ](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |Arrestare un dispositivo in esecuzione|[Disattivare un dispositivo in esecuzione](#turn-off-a-running-device)<ul><li>[Dispositivo con solo l’enclosure principale](#8100a)</li><li>[Dispositivo con enclosure EBOD](#8600a)</li></ul>|
 
 ## Attivare un nuovo dispositivo
@@ -37,7 +37,7 @@ I passaggi per l'attivazione di un dispositivo Microsoft Azure StorSimple per la
 
 - [Nuovo dispositivo con soltanto un’enclosure principale](#new-device-with-primary-enclosure-only)
 
-- [Nuovo dispositivo con enclosure EBOD](#new-device-with-EBOD-enclosure)
+- [Nuovo dispositivo con enclosure EBOD](#new-device-with-ebod-enclosure)
 
 ### Nuovo dispositivo con soltanto un’enclosure principale
 
@@ -241,4 +241,4 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Effettuare il provisioning di cluster HBase in una rete virtuale | Microsoft Azure" 
-	description="Introduzione all'uso di HBase in Azure HDInsight. Informazioni su come creare cluster HBase di HDInsight in Rete virtuale di Azure." 
-	services="hdinsight,virtual-network" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Effettuare il provisioning di cluster HBase in una rete virtuale | Microsoft Azure"
+	description="Introduzione all'uso di HBase in Azure HDInsight. Informazioni su come creare cluster HBase di HDInsight in Rete virtuale di Azure."
+	services="hdinsight,virtual-network"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags
@@ -12,26 +12,23 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="07/21/2015"
+   ms.workload="big-data"
+   ms.date="08/12/2015"
    ms.author="jgao"/>
 
 # Effettuare il provisioning di cluster HBase in Rete virtuale di Azure
 
 Questo articolo illustra come creare cluster HBase di Azure HDInsight in [Rete virtuale di Azure][1].
 
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Provisioning di cluster HBase nella rete virtuale di Azure](hdinsight-hbase-provision-vnet-v1.md)
+
 Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti nella stessa rete virtuale delle applicazioni, consentendo così alle applicazioni di comunicare direttamente con HBase. Questo approccio offre i vantaggi seguenti:
 
 - Connettività diretta dell'applicazione Web con i nodi del cluster HBase, che consente le comunicazioni tramite le API RPC (Remote Procedure Call) Java di HBase.
 - Miglioramento delle prestazioni, poiché il traffico non deve attraversare più gateway e servizi di bilanciamento del carico.
 - Possibilità di elaborare le informazioni sensibili in modo più sicuro, senza esporre un endpoint pubblico.
-
->[AZURE.NOTE]Azure HDInsight supporta solo reti virtuali basate sulla posizione e attualmente non funziona con le reti virtuali basate su gruppi di affinità. Usare il cmdlet Get-AzureVNetConfig di Azure PowerShell per verificare se una rete virtuale esistente di Azure è basata sulla posizione. Se la rete virtuale non è basata sulla posizione, saranno disponibili le opzioni seguenti:
->
-> - Esportare la configurazione di rete virtuale esistente, quindi creare una nuova rete virtuale. Per impostazione predefinita, tutte le nuove reti virtuali sono basate sulla posizione.
-> - Eseguire la migrazione a una rete virtuale basata sulla posizione. Vedere il post di blog relativo alla [migrazione di servizi esistenti a un ambito a livello di area](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
-
-
 
 ##Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
@@ -49,162 +46,107 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
-##Effettuare il provisioning di un cluster HBase in una rete virtuale 
+## Effettuare il provisioning di un cluster HBase in una rete virtuale
+
+Le applicazioni sono in genere costituite da molti componenti. In questa esercitazione sono presenti:
+
+- una rete virtuale di Azure
+- un Account di archiviazione di Azure
+- un Cluster HBase di HDInsight di Azure
+- (facoltativo) una macchina virtuale Azure che funge da server DNS
+
+Gestione risorse di Azure consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, gestione temporanea e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo.
+
+**Per creare un gruppo di risorse**
+
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+2. Fare clic su **NUOVO**, fare clic su **Gestione**, quindi fare clic su **Gruppo di risorse**.
+3. Digitare o selezionare i valori seguenti:
+
+	- **Nome gruppo di risorse**: immettere un nome per il gruppo di risorse.
+	- **Sottoscrizione**: selezionare la sottoscrizione di Azure utilizzata per questo gruppo di risorse.
+	- **Percorso gruppo di risorse**: selezionare un data center di Azure. Questo percorso non deve necessariamente corrispondere al percorso del cluster HDInsight.
+
+4. Fare clic su **Crea**.
 
 Per poter effettuare il provisioning di un cluster HBase, è necessario disporre di una rete virtuale di Azure.
 
 **Per creare una rete virtuale usando il portale di Azure**
 
-1. Accedere al [portale di Azure][azure-portal].
-2. Fare clic su **NUOVO** nell'angolo in basso a sinistra, scegliere **SERVIZI DI RETE**, quindi **RETE VIRTUALE** e infine **CREAZIONE RAPIDA**.
-3. Digitare o selezionare i valori seguenti:
+1. Accedere al [portale di anteprima](https://portal.azure.com).
+2. Fare clic su **NUOVO**, fare clic su **Rete**, quindi fare clic su **Rete virtuale**.
+3. In **Seleziona un modello di distribuzione**, selezionare **Classico**, quindi fare clic su **Crea**.
+
+	>[AZURE.NOTE]Il cluster HDInsight basato su Windows può essere distribuito solo in una rete virtuale classica.
+
+4. Digitare o selezionare i valori seguenti:
 
 	- **Nome**: nome della rete virtuale.
-	- **Spazio di indirizzi**: scegliere uno spazio di indirizzi per la rete virtuale con dimensioni sufficienti per fornire indirizzi per tutti i nodi del cluster. In caso contrario, il provisioning avrà esito negativo. Per completare questa esercitazione, è possibile scegliere una qualsiasi delle tre opzioni. 
-	- **Numero massimo VM**: scegliere uno dei valori disponibili per il numero massimo di macchine virtuali. Questo valore determinerà il numero di host (VM) che è possibile creare nello spazio di indirizzi. Per completare questa esercitazione, è sufficiente specificare **4096 [CIDR: /20]**. 
+	- **Spazio degli indirizzi**: scegliere uno spazio degli indirizzi per la rete virtuale di dimensioni sufficienti per fornire indirizzi per tutti i nodi del cluster. In caso contrario, il provisioning avrà esito negativo. Per questa esercitazione, è possibile utilizzare i valori predefiniti. Fare clic su **OK** per salvare le modifiche.
+	- **Gruppo di risorse**: selezionare il gruppo di risorse creato in precedenza nell'esercitazione.
+	- In **Sottoscrizione** selezionare la sottoscrizione di Azure che si desidera utilizzare per rete virtuale.
 	- **Percorso**: il percorso deve essere uguale a quello del cluster HBase che sarà creato.
-	- **Server DNS**: questa esercitazione usa un server DNS (Domain Name System) interno fornito da Azure. È quindi possibile scegliere **Nessuno**. Sono supportate anche configurazioni di rete più avanzate con server DNS personalizzati. Per istruzioni dettagliate, vedere [Risoluzione dei nomi (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
-4. Fare clic su **CREA RETE VIRTUALE** nell'angolo inferiore destro. Il nome della rete virtuale sarà visualizzato nell'elenco. Attendere l'impostazione del valore **Creata** nella colonna Stato.
-5. Nel riquadro principale fare clic sulla rete virtuale appena creata.
-6. Fare clic su **DASHBOARD** nella parte superiore della pagina.
-7. In **riepilogo rapido** annotare l'ID della rete virtuale, che sarà necessario per il provisioning del cluster HBase.
-8. Fare clic su **CONFIGURA** nella parte superiore della pagina.
-9. Nella parte inferiore della pagina il nome predefinito per la subnet è **Subnet-1**. Se si vuole, è possibile rinominare la subnet o aggiungere una nuova subnet per il cluster HBase. Annotare il nome della subnet, poiché sarà necessario durante il provisioning del cluster.
-10. Verificare il valore di **CIDR (CONTEGGIO INDIRIZZI)** per la subnet che sarà usata per il cluster. Il conteggio di indirizzi deve essere superiore al numero di nodi di lavoro più sette (gateway: 2, nodo head: 2, zookeeper: 3). Ad esempio, se è necessario un cluster HBase da 10 nodi, il conteggio di indirizzi per la subnet dovrà essere maggiore di 17 (10+7). In caso contrario, la distribuzione avrà esito negativo.
-11. Fare clic su **Salva** nella parte inferiore della pagina, se i valori della subnet sono stati aggiornati.
 
+5. Fare clic su **Crea**.
 
-**Per aggiungere una macchina virtuale del server DNS alla rete virtuale**
+Per impostazione predefinita, la rete virtuale utilizza un server Domain Name System (DNS) interno fornito da Azure. Sono supportate anche configurazioni di rete più avanzate con server DNS personalizzati. Per istruzioni dettagliate, vedere [Risoluzione dei nomi (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+
+**(Facoltativo) Per aggiungere una macchina virtuale del server DNS alla rete virtuale**
 
 Sebbene il server DNS sia generalmente facoltativo, in alcuni casi risulta necessario. La procedura è documentata nell'articolo [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-replication-dns]. Sostanzialmente, è necessario eseguire i passaggi seguenti:
 
 1. Aggiungere una macchina virtuale di Azure alla rete virtuale
 2. Impostare un indirizzo IP statico per la macchina virtuale
 3. Aggiungere il ruolo del server DNS alla macchina virtuale
-4. Assegnare il server DNS alla rete virtuale 
-
-
-**Per creare un account di archiviazione di Azure e un contenitore di archiviazione BLOB che potranno essere usati dal cluster**:
-
-> [AZURE.NOTE]I cluster HDInsight usano l'archiviazione BLOB di Azure per l'archiviazione dei dati. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con Hadoop in HDInsight](../hdinsight-use-blob-storage.md). Saranno necessari un account di archiviazione e un contenitore di archiviazione BLOB. Il percorso dell'account di archiviazione deve corrispondere al percorso della rete virtuale e al percorso del cluster.
-
-Come altri cluster HDInsight, anche il cluster HBase richiede un account di archiviazione di Azure e un contenitore di archiviazione BLOB come file system predefinito. Il percorso dell'account di archiviazione deve corrispondere al percorso della rete virtuale e al percorso del cluster. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con Hadoop in HDInsight][hdinsight-storage]. Quando si effettua il provisioning di un cluster HBase, è possibile scegliere se crearne di nuovi o usarne di esistenti. Questa procedura mostra come creare un account di archiviazione e un contenitore di archiviazione BLOB tramite il portale di Azure.
-
-1. Accedere al [portale di Azure][azure-portal].
-2. Fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **SERVIZI DATI**, quindi **ARCHIVIAZIONE** e infine **CREAZIONE RAPIDA**.
-
-3. Digitare o selezionare i valori seguenti:
-
-	- **URL**: nome dell'account di archiviazione.
-	- **PERCORSO**: percorso dell'account di archiviazione. Assicurarsi che corrisponda al percorso della rete virtuale. I gruppi di affinità non sono supportati.
-	- **REPLICA**: per finalità di testing, usare **Localmente ridondante** per ridurre i costi.
-
-4. Fare clic su **CREA ACCOUNT DI ARCHIVIAZIONE**. Il nuovo account di archiviazione verrà incluso nell'elenco di archiviazione.
-5. Attendere che il valore di **STATO** per il nuovo account di archiviazione sia modificato in **Online**.
-6. Fare clic sul nuovo account di archiviazione nell'elenco per selezionarlo.
-7. Fare clic su **MANAGE ACCESS KEYS** nella parte inferiore della pagina.
-8. Prendere nota del nome dell'account di archiviazione e della chiave di accesso primaria o di quella secondaria (funzionano entrambe le chiavi). Sarà necessario usarli più avanti nell'esercitazione.
-9. Nella parte superiore della pagina fare clic su **CONTENITORE**.
-10. Fare clic su **AGGIUNGI** nella parte inferiore della pagina.
-11. Immettere il nome del contenitore. Il contenitore sarà usato come contenitore predefinito per il cluster HBase. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster. Lasciare il campo **ACCESSO** impostato su **Privato**.  
-12. Fare clic sul segno di spunta per creare il contenitore.
+4. Assegnare il server DNS alla rete virtuale
 
 **Per effettuare il provisioning di un cluster HBase usando il portale di Azure**
 
 > [AZURE.NOTE]Per informazioni su come effettuare il provisioning di un nuovo cluster HBase usando Azure PowerShell, vedere [Effettuare il provisioning di un cluster HBase tramite Azure PowerShell](#powershell).
 
-1. Accedere al [portale di Azure][azure-portal].
 
-2. Fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **SERVIZI DATI**, quindi **HDINSIGHT** e infine fare clic su **CREAZIONE PERSONALIZZATA**.
+**Per creare un cluster HDInsight**
 
-3. Immettere un nome di cluster, selezionare HBase come tipo di cluster e Windows Server 2012 come sistema operativo, selezionare la versione di HDInsight desiderata e fare clic sul pulsante a destra.
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+2. Fare clic su **NUOVO**, fare clic su **Analisi di dati**, quindi fare clic su **HDInsight**.
 
-	![Specificare dettagli per il cluster HBase][img-provision-cluster-page1]
+    ![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Anteprima di Azure")
+
+3. Digitare o selezionare i valori seguenti:
+
+  - **Nome cluster**: Immettere un nome per il cluster. Un segno di spunta verde verrà visualizzato accanto al nome del cluster, se disponibile.
+  - **Tipo di cluster**: selezionare **HBase**.
+  - **Sistema operativo del cluster**: selezionare **Windows Server 2012 R2 Datacenter**.
+  - **Sottoscrizione**: selezionare la sottoscrizione di Azure che verrà utilizzata per eseguire il provisioning del cluster.
+  - **Gruppo di Risorse**: selezionare il gruppo di risorse creato in precedenza nell'esercitazione.
+  - **Credenziali**: configurare il nome utente e la password per l'utente di Hadoop (utente HTTP). Se si abilita desktop remoto per il cluster, è necessario configurare il nome utente di desktop remoto utente e password e la data di scadenza dell’account. Fare clic su **Seleziona** nella parte inferiore per salvare le modifiche.
+  - **Origine dati**: selezionare un nuovo o selezionare un account di archiviazione di Azure esistente da utilizzare come file system predefinito per il cluster. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster. Il percorso dell'account di archiviazione determina anche il percorso del cluster.
+  - **Livello di prezzo nodo**: A scopo di valutazione o di formazione, selezionare 1 nodo area per ridurre al minimo il costo.
+
+  	- **Metodo di selezione**: impostare questa proprietà su **Da tutte le sottoscrizioni** per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su **Tasto di scelta** se si desidera immettere il **Nome di archiviazione** e il **Tasto di scelta** di un account di archiviazione esistente.
+  	- **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. Fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
+    - **Scegli contenitore predefinito**: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+  	- **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione. Questo percorso determina il percorso del cluster. Il cluster e l'account di archiviazione predefinito devono trovarsi nello stesso data center di Azure.
+
+  - **Livelli di prezzi nodo**: Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
+	- **Configurazione facoltativa**: per questa esercitazione, è sufficiente configurare **Rete virtuale**. Selezionare la rete virtuale creata in precedenza nell'esercitazione. Assicurarsi di selezionare anche una subnet.
+
+4. Fare clic su **Crea**.
 
 
-	> [AZURE.NOTE]Per un cluster HBase, Windows Server è l'unica opzione disponibile tra i sistemi operativi.
-
-4. Nella pagina **Configura cluster** immettere o selezionare quanto segue:
-
-	![Specificare dettagli per il cluster HBase](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
-
-	<table border='1'>
-		<tr><th>Proprietà</th><th>Valore</th></tr>
-		<tr><td>Nodi dati</td><td>Selezionare il numero di dati che si desidera distribuire. Ai fini di test, creare un cluster a singolo nodo. <br />Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del supporto fatturazione di Azure.</td></tr>
-		<tr><td>Area/Rete virtuale</td><td><p>Selezionare un'area o una rete virtuale di Azure, se ne è già stata creata una. Per questa esercitazione, selezionare la rete creata in precedenza e selezionare quindi una subnet corrispondente. Il nome predefinito è <b>Subnet-1</b>.</p></td></tr>
-		<tr><td>Dimensione nodo head</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo head.</p></td></tr>
-		<tr><td>Dimensione nodo dati</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo dati.</p></td></tr>
-		<tr><td>Dimensione Zookeeper</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo Zookeeper.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
-
-	Fare clic sul pulsante a destra.
-
-5. Immettere il nome utente e la password di Hadoop da usare per il cluster, quindi fare clic sul pulsante a destra.
-
-	![Specificare l'account di archiviazione per il cluster Hadoop HDInsight](./media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
-
-	<table border='1'>
-	<tr><th>Proprietà</th><th>Valore</th></tr>
-	<tr><td>Nome utente HTTP</td>
-		<td>Specificare il nome utente del cluster HDInsight.</td></tr>
-	<tr><td>Password HTTP/Conferma password</td>
-		<td>Specificare la password utente del cluster HDInsight.</td></tr>
-	<tr><td>Abilita Desktop remoto per il cluster</td>
-		<td>Selezionare questa casella di controllo per specificare un nome utente, una password e una data di scadenza per un desktop remoto in grado di accedere in remoto ai nodi del cluster al termine del provisioning. È possibile abilitare Desktop remoto anche in un secondo momento, al termine del provisioning del cluster. Per istruzioni, vedere <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connettersi a cluster HDInsight tramite RDP</a>.</td></tr>
-	</table>
-
-6. Nella pagina **Account di archiviazione** specificare i valori seguenti:
-
-    ![Specificare l'account di archiviazione per il cluster Hadoop HDInsight](./media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
-
-	<table border='1'>
-	<tr><th>Proprietà</th><th>Valore</th></tr>
-	<tr><td>Account di archiviazione</td>
-		<td>Specificare l'account di archiviazione di Azure che verrà usato come file system predefinito per il cluster HDInsight. È possibile scegliere una delle tre opzioni seguenti:
-		<ul>
-			<li><strong>Usare l'archiviazione esistente</strong></li>
-			<li><strong>Crea nuova archiviazione</strong></li>
-			<li><strong>Usare l'archiviazione da un'altra sottoscrizione</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>Nome account</td>
-		<td><ul>
-			<li>Se si sceglie di usare l'archiviazione esistente, per il campo <strong>Nome account</strong> selezionare un account di archiviazione esistente. Nella casella di riepilogo vengono elencati solo gli account di archiviazione che si trovano nello stesso data center in cui si è scelto di effettuare il provisioning del cluster.</li>
-			<li>Se si sceglie l'opzione <strong>Crea nuova archiviazione</strong> o <strong>Usare l'archiviazione da un'altra sottoscrizione</strong> è necessario indicare il nome dell'account di archiviazione.</li>
-		</ul></td></tr>
-	<tr><td>Chiave account</td>
-		<td>Se si sceglie l'opzione <strong>Usare l'archiviazione da un'altra sottoscrizione</strong>, specificare la chiave dell'account relativa a tale account di archiviazione.</td></tr>
-	<tr><td>Contenitore predefinito</td>
-		<td><p>Specificare il contenitore predefinito nell'account di archiviazione usato come file system predefinito per il cluster HDInsight. Se si sceglie <strong>Usare l'archiviazione esistente</strong> per il campo <strong>Account di archiviazione</strong> e nell'account non è presente alcun contenitore, per impostazione predefinita il contenitore verrà creato con lo stesso nome del cluster. Se esiste già un contenitore con il nome del cluster, al nome del contenitore verrà aggiunto un numero di sequenza. Ad esempio, mycontainer1, mycontainer2 e così via. Tuttavia, se in un account di archiviazione esistente è presente un contenitore con un nome diverso da quello del cluster specificato, si potrà usare anche tale contenitore.</p>
-        <p>Se si è scelto di creare una nuova risorsa di archiviazione da un'altra sottoscrizione di Azure è necessario specificare il nome del contenitore predefinito.</p>
-    </td></tr>
-	<tr><td>Account di archiviazione aggiuntivi</td>
-		<td>Se necessario, specificare account di archiviazione aggiuntivi per il cluster. HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni nuovo account di archiviazione specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, non è stato selezionato un account di archiviazione aggiuntivo e, quindi, alla procedura guidata non è stata aggiunta alcuna nuova pagina.</td></tr>
-	</table>
-
-	Fare clic sulla freccia destra.
-
-7. Nella pagina **Azioni script** selezionare il segno di spunta nell'angolo inferiore destro. Non fare clic sul pulsante che consente di **aggiungere azioni di script**, poiché questa esercitazione non richiede una configurazione cluster personalizzata.
-	
-	![Configurare l'azione di script per personalizzare un cluster HBase di HDInsight][img-provision-cluster-page5]
-
-	> [AZURE.NOTE]Questa pagina consente di personalizzare il cluster durante la procedura di configurazione. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md).
-	
 Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le procedure disponibili in [Introduzione a HBase con Hadoop in HDInsight](../hdinsight-hbase-get-started.md).
 
 ##Eseguire la connessione al cluster HBase con provisioning nella rete virtuale tramite le API RPC Java di HBase
 
 1.	Effettuare il provisioning di una macchina virtuale IaaS (Infrastructure as a Service ) nella stessa rete virtuale di Azure e nella stessa subnet. In questo modo, sia la macchina virtuale che il cluster HBase useranno lo stesso server DNS interno per risolvere i nomi degli host. Per ottenere questo risultato, è necessario scegliere l'opzione **Da raccolta** e selezionare la rete virtuale anziché un data center. Per istruzioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines-windows-tutorial.md). È sufficiente un'immagine standard di Windows Server 2012 con una VM di dimensioni ridotte.
-	
+
 2.	Quando si usa un'applicazione Java per connettersi a HBase da remoto, è necessario usare il nome di dominio completo (FQDN). Per determinare quest'ultimo, è necessario ottenere il suffisso DNS specifico della connessione del cluster HBase. A questo scopo, usare Curl per eseguire query in Ambari oppure Desktop remoto per connettersi al cluster.
 
 	* **Curl** - Usare il comando seguente:
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
+		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host\_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -353,26 +295,27 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
 		$hadoopUserPassword = "<HBaseClusterUserPassword>"
 		$location = "<HBaseClusterLocation>"  #i.e. "West US"
 		$clusterSize = <HBaseClusterSize>  
+		$resourceGroup = "<AzureResourceGroupName>"
 		$vnetID = "<AzureVirtualNetworkID>"
 		$subNetName = "<AzureVirtualNetworkSubNetName>"
 		$storageAccountName = "<AzureStorageAccountName>" # Do not use the full name here
 		$storageAccountKey = "<AzureStorageAccountKey>"
 		$storageContainerName = "<AzureBlobStorageContainer>"
-		
+
 		$password = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
-		$creds = New-Object System.Management.Automation.PSCredential ($hadoopUserName, $password) 
-		
-		New-AzureHDInsightCluster -Name $hbaseClusterName `
-		                          -ClusterType HBase `
-		                          -Version 3.1 `
-		                          -Location $location `
-		                          -ClusterSizeInNodes $clusterSize `
-		                          -Credential $creds `
-		                          -VirtualNetworkId $vnetID `
-		                          -SubnetName $subNetName `
-		                          -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-		                          -DefaultStorageAccountKey $storageAccountKey `
-		                          -DefaultStorageContainerName $storageContainerName
+		$creds = New-Object System.Management.Automation.PSCredential ($hadoopUserName, $password)
+
+		New-AzureHDInsightCluster -ResourceGroupName $resourceGroup `
+		                          -ClusterName $hbaseClusterName `
+				                    	-ClusterType HBase `
+				                    	-Location $location `
+				                    	-ClusterSizeInNodes $clusterSize `
+		                          -HttpCredential $creds `
+				                    	-VirtualNetworkId $vnetID `
+				                    	-SubnetName $subNetName `
+				                    	-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+				                    	-DefaultStorageAccountKey $storageAccountKey `
+		                          -DefaultStorageContainer $storageContainerName
 
 
 3. Fare clic su **Esegui script** o premere **F5**.
@@ -401,7 +344,7 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
-[azure-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -435,6 +378,5 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Dettagli di provisioning per il nuovo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster?"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

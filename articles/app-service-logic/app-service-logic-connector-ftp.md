@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="08/19/2015"
 	ms.author="rajram"/>
 
-#Connettore FTP
+# Connettore FTP
 
-##Panoramica
+## Panoramica
 Il connettore FTP consente di spostare dati da/a un server FTP. Le principali funzionalità del connettore FTP sono:
 
 - Pull di file dal server FTP su richiesta
@@ -28,20 +28,14 @@ Il connettore FTP consente di spostare dati da/a un server FTP. Le principali fu
 - Possibilità di eseguire invii su richiesta
 - Possibilità di eliminare file sul server FTP su richiesta
 
-##Creare un nuovo connettore FTP
-Per creare un nuovo connettore FTP, attenersi alla procedura riportata di seguito. - Avviare il portale di Azure - Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace
-
-	![Launch Azure Marketplace][1]
+## Creare un nuovo connettore FTP
+Per creare un nuovo connettore FTP, seguire la procedura riportata di seguito. Avviare il portale di Azure. Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace: ![Avviare Azure Marketplace][1]
 
 - Fare clic su App per le API
-- Cercare FTP e selezionare FTP Connector
-
-	![Selezionare il connettore FTP][2]
+- Cercare FTP e selezionare FTP Connector: ![Selezionare il connettore FTP][2]
 
 - Fare clic su Crea.
-- Nel pannello del connettore FTP che si apre specificare i dati seguenti.
-
-	![Creare il connettore FTP][3]
+- Nel pannello del connettore FTP che si apre specificare i dati seguenti: ![Creare il connettore FTP][3]
 
 - **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 - **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
@@ -59,99 +53,79 @@ Per creare un nuovo connettore FTP, attenersi alla procedura riportata di seguit
 	- **Porta server**: specificare il numero di porta del server FTP
 - Fare clic su Crea. Verrà creato un nuovo connettore FTP.
 
-##Usare il connettore FTP nell'app per la logica
+## Usare il connettore FTP nell'app per la logica
 Una volta creato, il connettore FTP può essere usato dal flusso.
 
-Creare un nuovo flusso con +Nuovo -> Web e dispositivi mobili -> App per la logica. Specificare i metadati per il flusso, incluso il gruppo di risorse
+Creare un nuovo flusso con +Nuovo -> Web e dispositivi mobili -> App per la logica. Specificare i metadati per il flusso, incluso il gruppo di risorse: ![Creare un'app per la logica][4]
 
-![Creare un'app per la logica][4]
-
-Fare clic su *Trigger e azioni*. Si apre la finestra di progettazione del flusso
-
-![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
+Fare clic su *Trigger e azioni*. Viene aperta la finestra di progettazione del flusso: ![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
 
 Il connettore FTP può essere usato sia come trigger che come azione.
 
-###Trigger
-Nella finestra di progettazione del flusso vuota fare clic su FTP Connector nel riquadro della raccolta a destra.
+### Trigger
+Nella finestra di progettazione del flusso vuota fare clic su FTP Connector nel riquadro della raccolta a destra: ![Scegliere un trigger FTP][6]
 
-![Scegliere un trigger FTP][6]
-
-Il connettore FTP include un trigger - 'File Available (Read then Delete)'. Questo trigger
+Il connettore FTP include un trigger - 'File Available (Read then Delete)'. Questo trigger:
 
 - Esegue il polling della cartella percorso per i nuovi file
 - Crea un'istanza del flusso logico in qualsiasi momento per ogni nuovo file
 - Elimina il file dal percorso cartella, una volta creata l'istanza del flusso logico
 
-Fare clic sul trigger 'File Available (Read then Delete)'.
-
-![Trigger FTP per input di base][7]
+Fare clic sul trigger "File Available (Read then Delete)": ![Trigger FTP per input di base][7]
 
 Gli input consentono di configurare un determinato percorso cartella di cui eseguire il polling in base a una frequenza pianificata. Gli input di base sono i seguenti: - Frequenza: specifica la frequenza del polling FTP - Intervallo: specifica l'intervallo per la frequenza pianificata - Percorso cartella: specifica il percorso cartella sul server FTP - Tipo di file: specifica se il file è di tipo testo o binario
 
-Per visualizzare gli input avanzati, fare clic sui puntini di sospensione '...'.
+Per visualizzare gli input avanzati, fare clic sui puntini di sospensione "...": ![Trigger FTP per input di base][8]
 
-![Trigger FTP per input di base][8]
+Gli input avanzati sono i seguenti: File mask, specifica la maschera di file durante il polling. Exclude file mask, specifica le maschere di file da escludere durante il polling
 
-Gli input avanzati sono i seguenti: - Maschera file: specifica la maschera di file durante il polling - Escludi maschera file: specifica le maschere di file da escludere durante il polling
-
-Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input.
-
-![Trigger FTP per input di base][9]
+Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input: ![Trigger FTP per input di base][9]
 
 Si noti che il trigger FTP configurato mostra sia i parametri di input configurati che i parametri di output.
 
-####Uso dell'output del trigger FTP in azioni successive
+#### Uso dell'output del trigger FTP in azioni successive
 L'output del connettore FTP può essere usato come input di alcune altre azioni nel flusso.
 
 È possibile fare clic sui puntini di sospensione '...' nella finestra di dialogo di input dell'azione e selezionare l'output dell'FTP direttamente dalla casella di riepilogo a discesa.
 
-È anche possibile scrivere un'espressione direttamente nella casella di input dell'azione. Di seguito è riportata l'espressione del flusso per fare riferimento all'output del trigger FTP
+È anche possibile scrivere un'espressione direttamente nella casella di input dell'azione. Di seguito è riportata l'espressione del flusso per fare riferimento all'output del trigger FTP:
 
 	@triggers('ftpconnector').outputs.body.Content
 
-###Azioni
-Fare clic su FTP Connector nel riquadro destro. Il connettore FTP elenca le azioni supportate.
+### Azioni
+Fare clic su FTP Connector nel riquadro destro. FTP Connector elenca le azioni supportate: ![Elenco di azioni FTP][10]
 
-![Elenco di azioni FTP][10]
-
-Il connettore FTP supporta quattro azioni, ovvero
+FTP Connector supporta le azioni seguenti:
 
 - **Get File**: recupera i contenuti di un file specifico
 - **Upload File**: carica un file nel percorso cartella FTP
 - **Delete File**: elimina un file dal percorso cartella FTP
 - **List Files**: elenca tutti i file nel percorso cartella FTP
 
-Si consideri come esempio l'azione Upload File. Fare clic su Upload File
+Si consideri come esempio l'azione Upload File. Fare clic su Upload File.
 
-Vengono visualizzati prima gli input di base.
-
-![Input di base dell'azione Carica file][11]
+Vengono visualizzati per primi gli input di base: ![Input di base dell'azione Carica file][11]
 
 
 - **Content**: specificare il contenuto del file da caricare.
 - **Content Transfer Encoding**: specificare none o base64.
 - **File Path**: specificare il percorso del file da caricare.
 
-Fare clic su ... per gli input avanzati.
-
-![Input di base dell'azione Carica file][12]
+Fare clic su ... per visualizzare gli input avanzati: ![Input di base dell'azione Carica file][12]
 
 
 - **Append If Exists**: può essere True o False. Se abilitato, i dati vengono aggiunti al file, se esiste. Se disabilitato, il file viene sovrascritto, se esiste
 - **Temporary Folder**: facoltativo. Se specificato, l'adattatore caricherà il file in Temporary Folder Path. Al termine del caricamento, il file verrà spostato in Folder Path. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
-Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input.
+Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input: ![Azione Carica file configurata][13]
 
-![Azione Carica file configurata][13]
-
-Il parametro 'File Path' è impostato su
+Il parametro "File Path" è impostato su:
 
 	@concat('/Output/',triggers().outputs.body.FileName)
 
 Si noti che l'azione Carica file dell'FTP configurata mostra sia i parametri di input che i parametri di output.
 
-####Uso degli output delle azioni precedenti come input dell'azione FTP
+#### Uso degli output delle azioni precedenti come input dell'azione FTP
 Si noti che nella schermata configurata il valore del contenuto è impostato su un'espressione.
 
 	@triggers().outputs.body.Content
@@ -161,6 +135,12 @@ Si noti che nella schermata configurata il valore del contenuto è impostato su 
 
 	@actions('transformservice').outputs.body.OutputXML
 
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-ftp/LaunchAzureMarketplace.PNG
@@ -178,4 +158,4 @@ Si noti che nella schermata configurata il valore del contenuto è impostato su 
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

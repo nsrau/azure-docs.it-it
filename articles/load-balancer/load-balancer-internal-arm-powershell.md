@@ -15,7 +15,7 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure
+# Introduzione alla configurazione del servizio di bilanciamento del carico interno con Gestione risorse di Azure
 
 
 > [AZURE.SELECTOR]
@@ -245,4 +245,4 @@ Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

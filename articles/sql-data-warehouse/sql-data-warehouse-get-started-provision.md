@@ -30,7 +30,7 @@ Per completare le attività elencate di seguito, è necessario avere una sottosc
 È possibile accedere a una [versione di valutazione gratuita][] che consente di provare i servizi di Azure, incluso SQL Data Warehouse.
 
 
-## Accedere al portale Azure ##
+## Accedere al Portale di Azure. ##
 
 Dopo avere ottenuto una sottoscrizione, è possibile accedere al [portale di Azure][]. Procedere all'esecuzione dell'accesso.
 
@@ -48,13 +48,13 @@ Nell'angolo in basso a sinistra del portale di Azure è disponibile il pulsante 
 
 Quando si fa clic sul pulsante Nuovo vengono aperte tutte le categorie di servizi disponibili in Azure. SQL Data Warehouse si trova nella categoria "Dati e archiviazione".
 
-- Fare clic su "Dati e archiviazione" per esaminare e visualizzare i servizi offerti da Azure per questa categoria.
+- Fare clic su **Dati e archiviazione** per esaminare e visualizzare i servizi offerti da Azure per questa categoria.
 
 ### SQL Data Warehouse
 
 Come si può vedere, Azure offre molti motori di dati e archiviazione. Tuttavia, questa Guida introduttiva è per Data Warehouse di SQL.
 
-- Procedere e selezionare SQL Data Warehouse.
+- Procedere e selezionare **SQL Data Warehouse**.
 
 ## Configurare SQL Data Warehouse
 
@@ -74,7 +74,7 @@ La prima configurazione riguarda l'assegnazione di un nome al database.
 
 ### Prestazioni
 
-L'opzione relativa alle prestazioni è **importante**. Tramite questo dispositivo di scorrimento è possibile sfruttare le potenzialità scalabili di SQL Data Warehouse. Le prestazioni possono essere aumentate o diminuite in qualsiasi momento, non solo quando si configura il data warehouse. Spostando il dispositivo verso destra si hanno a disposizione maggiori risorse. Quando le risorse non sono più necessarie, è possibile spostare immediatamente il dispositivo di scorrimento a sinistra, risparmiando così sul costo. SQL Data Warehouse consente di modificare il profilo delle prestazioni su richiesta, senza dover ricreare il data warehouse o spostare dati.
+L'opzione relativa alle prestazioni è *importante*. Tramite questo dispositivo di scorrimento è possibile sfruttare le potenzialità scalabili di SQL Data Warehouse. Le prestazioni possono essere aumentate o diminuite in qualsiasi momento, non solo quando si configura il data warehouse. Spostando il dispositivo verso destra si hanno a disposizione maggiori risorse. Quando le risorse non sono più necessarie, è possibile spostare immediatamente il dispositivo di scorrimento a sinistra, risparmiando così sul costo. SQL Data Warehouse consente di modificare il profilo delle prestazioni su richiesta, senza dover ricreare il data warehouse o spostare dati.
 
 - Usare ora il dispositivo di scorrimento per vedere come aumentano le unità data warehouse quando lo si sposta a destra e come diminuiscono quando lo si risposta a sinistra.
 
@@ -117,7 +117,7 @@ Per creare il data warehouse personalizzato, è sufficiente fare clic sul pulsan
 
 Congratulazioni. La creazione del primo database di SQL Data Warehouse è così completata.
 
-Dovrebbe essere visualizzata di nuovo la home page del [portale di Azure][]. Notare che il nuovo database di SQL Data Warehouse è stato aggiunto alla pagina.
+Dovrebbe essere visualizzato di nuovo il [Portale Azure][]. Notare che il nuovo database di SQL Data Warehouse è stato aggiunto alla pagina.
 
 
 A questo punto nessuno può accedere al database di SQL Data Warehouse. Per garantire la sicurezza, per impostazione predefinita il database non è ancora configurato per l'accesso da parte dei client.
@@ -126,17 +126,17 @@ L'ultimo passaggio del processo di provisioning consiste quindi nel configurare 
 
 ## Configurare il firewall di Azure ##
 
-Per configurare il firewall di Azure per la prima volta, eseguire la procedura seguente:
+Per configurare il firewall di Azure per la prima volta:
 
-1. Fare clic su Sfoglia nel pannello di navigazione sinistro.
+1. Fare clic su **Sfoglia** nel Pannello di navigazione a sinistra.
 
-2. Scegliere SQL Server.
+2. Scegliere **SQL Server**.
 
 3. Selezionare il server SQL logico.
 
-4. Fare clic su Impostazioni.
+4. Scegliere impostazioni.
 
-5. Fare clic su Firewall.
+5. Fare clic su **Firewall**.
 
 6. Impostare la regola del firewall.
 
@@ -167,6 +167,7 @@ Nei prossimi passaggi si apprenderà quindi come:
 
 <!--External links-->
 [versione di valutazione gratuita]: https://azure.microsoft.com/it-it/pricing/free-trial/
+[Portale Azure]: https://portal.azure.com/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

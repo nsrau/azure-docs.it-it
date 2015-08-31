@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2015"
+   ms.date="07/27/2015"
    ms.author="cgronlun"/>
 
 
@@ -52,7 +52,7 @@ Category | Hadoop su Linux | Hadoop su Windows
 ---------| -------------------| --------------------
 **Sistema operativo del cluster** | Supporto a lungo termine (LST) Ubuntu 12.04 | Windows Server 2012 R2
 **Tipo di cluster** | Hadoop | Hadoop, Hbase, Storm
-**Distribuzione** | Portale di gestione di Azure, interfaccia della riga di comando di Azure, Azure PowerShell | Portale di gestione di Azure, interfaccia della riga di comando di Azure, Azure PowerShell, HDInsight .NET SDK
+**Distribuzione** | Portale di Azure, interfaccia della riga di comando di Azure, Azure PowerShell | Portale di Azure, interfaccia della riga di comando di Azure, Azure PowerShell, HDInsight .NET SDK
 **Interfaccia utente del cluster** | Ambari | Dashboard del cluster
 **Accesso remoto** | Secure Shell (SSH) | Remote Desktop Protocol (RDP)
 
@@ -177,7 +177,7 @@ Integrare questa introduzione a Hadoop su HDInsight e all'analisi dei Big Data c
 
 * [Introduzione a HDInsight su Linux](hdinsight-hadoop-linux-tutorial-get-started.md): un'esercitazione introduttiva per il provisioning di cluster HDInsight Hadoop in Linux e l'esecuzione di query Hive di esempio.
 
-* [Provisioning di HDInsight in Linux con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md): informazioni su come effettuare il provisioning di un cluster HDInsight Hadoop in Linux usando le opzioni personalizzate tramite il portale di gestione di Azure, l’interfaccia della riga di comando di Azure o Azure PowerShell.
+* [Provisioning di HDInsight in Linux con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md): informazioni su come effettuare il provisioning di un cluster HDInsight Hadoop in Linux usando le opzioni personalizzate tramite il portale di Azure, l’interfaccia della riga di comando di Azure o Azure PowerShell.
 
 * [Uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md): alcuni suggerimenti sull'uso di cluster Hadoop Linux di cui è stato eseguito il provisioning in Azure.
 
@@ -246,4 +246,4 @@ Usare l'analisi dei Big Data sui dati dell'organizzazione per ottenere informazi
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

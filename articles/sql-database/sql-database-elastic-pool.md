@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="08/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -27,9 +27,14 @@ Microsoft ha creato pool di database elastici specifici per risolvere questo pro
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
-Un pool di database elastico è una raccolta di risorse disponibili condivise dai database elastici nel pool. È possibile aggiungere database al pool o rimuoverli in qualsiasi momento. I database nel pool condividono le risorse (espresse in unità di velocità effettiva dei database elastici o eDTU) e la capacità di archiviazione del pool, ma ogni database usa solo le risorse necessarie nel momento in cui ne necessita, lasciando risorse disponibili per altri database che ne necessitano. Invece di fornire un provisioning eccessivo ai singoli database pagando per delle risorse inattive, si allocano risorse del pool in aggregazione, pagando un prezzo stimabile. In tal modo il costo viene spalmato, per cui è possibile ottenere un modello di business competitivo, e ogni database ottiene l’adattabilità delle prestazioni.
 
-I database maggiormente candidati per i pool di database elastici in genere sono attivi per un periodo inferiore al 50% del tempo. Un tipico modello di attività consiste nel fatto che i database restano inattivi per un periodo, sono attivi in caso di piccole richieste di risorse e attivi in caso di richieste di risorse elevate. Non tutti i database seguono questo modello. Alcuni database hanno una richiesta di risorse più costante. Questi database sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente a singoli database. Per determinare se i database possono costituire un vantaggio in un pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
+Pool elastica database forniscono una soluzione per i clienti che hanno bisogno per garantire che i relativi database Scarica tutte le risorse delle prestazioni che necessari quando ne hanno bisogno, ma offre anche un meccanismo di allocazione risorse semplice e un budget stimabile. La scalabilità delle prestazioni su richiesta dei singoli database all'interno di un pool database elastici infatti ogni database all'interno di un pool utilizza eDTUs da un set condiviso associato al pool. In questo modo i database con carichi di utilizzare altri per soddisfare la domanda, mentre i database con carico ridotto utilizzano minore e i database in alcun carico non consumano qualsiasi eDTUs. Effettuando il provisioning per il pool di risorse anziché per singoli database è non solo semplificare la gestione di più database, è anche un budget prevedibile per un carico di lavoro in caso contrario imprevedibile.
+
+Se più eDTUs sono necessari per soddisfare le esigenze di un pool (database aggiuntivi vengono aggiunti a un pool o l'avvio di database esistenti utilizzando più eDTUs), è possibile aggiungere ulteriori eDTUs a un pool esistente senza tempi di inattività del database o un impatto negativo sui database. Analogamente, se eDTUs aggiuntivi non sono più necessari e possono essere rimossi da un pool esistente in qualsiasi punto nel tempo.
+
+![database che condividono eDTUs][1]
+
+Database che sono ottimi candidati per il pool di database flessibile, in genere dispongono di periodi di attività e altri periodi di inattività. Si consideri l'esempio precedente in cui è possibile visualizzare l'attività di un singolo database, 4 database e infine un pool di database elastici con 20 database. Questi database con diverse attività nel tempo sono ottimi candidati per il pool di database flessibile perché non sono attive contemporaneamente e può condividere eDTUs. Non tutti i database seguono questo modello. Alcuni database hanno una richiesta di risorse più costante. Questi database sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente. Per determinare se i database possono costituire un vantaggio in un pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
 È possibile creare un pool di database elastici in pochi minuti usando il portale di Microsoft Azure, PowerShell, C#. Per i dettagli, vedere [Creare e gestire un pool di database elastici](sql-database-elastic-pool-portal.md). Per informazioni dettagliate sui pool di database elastici, inclusi i dettagli relativi ad API ed errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
@@ -44,23 +49,27 @@ Oltre a fornire un utilizzo più efficiente delle risorse e prestazioni prevedib
 
 ## Funzionalità di continuità aziendale per i database in un pool
 
-Attualmente in anteprima, i database elastici supportano la maggior parte delle funzionalità disponibili per i singoli database.
+Attualmente in anteprima, elastici database supportano la maggior parte [funzionalità di continuità aziendale](https://msdn.microsoft.com/library/azure/hh852669.aspx) che sono disponibili per singoli database su server V12.
 
-### Backup e ripristino dei database (ripristino temporizzato)
+### Backup e ripristino dei database ([ripristino temporizzato](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_PITR))
 
-Il backup dei database in un pool di database elastici viene eseguito automaticamente dal sistema e i criteri di conservazione del backup sono identici a quelli dei singoli database. Durante l'anteprima, i database in un pool verranno ripristinati in un nuovo database nello stesso pool; i database eliminati verranno sempre ripristinati come database autonomo all'esterno del pool come database S0 Standard. È possibile eseguire operazioni di ripristino dei database tramite il Portale di Azure o a livello di programmazione mediante l'API REST. Il supporto dei cmdlet PowerShell sarà disponibile a breve.
+Il backup dei database in un pool di database elastici viene eseguito automaticamente dal sistema e i criteri di conservazione del backup corrispondono al relativo livello di servizio per singoli database. In particolare, un database elastico in un pool di base può essere ripristinato in qualsiasi punto di ripristino negli ultimi 7 giorni, è possibile ripristinare un database elastico in un pool Standard a qualsiasi punto di ripristino negli ultimi 14 giorni e un database elastico in un pool Premium può essere ripristinato in qualsiasi punto di ripristino negli ultimi 35 giorni. Durante l'anteprima, verranno ripristinati i database in un pool in un nuovo database nello stesso pool. Database eliminati verranno sempre ripristinati come database autonomi all'esterno del pool nel livello di prestazioni più basso per tale livello di servizio. Ad esempio, verrà ripristinato un database in un pool Standard che viene eliminato elastico come database S0. È possibile eseguire operazioni di ripristino dei database tramite il Portale di Azure o a livello di programmazione mediante l'API REST. Il supporto dei cmdlet PowerShell sarà disponibile a breve.
 
-### Ripristino geografico
+### [Ripristino geografico](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_GEO)
 
 Il Ripristino geografico consente di ripristinare un database in un pool a un server in un'area diversa. Durante l'anteprima, per ripristinare un database in un pool su un server diverso, il server di destinazione deve disporre di un pool con lo stesso nome del pool di origine. Se necessario, creare un nuovo pool nel server di destinazione e assegnargli lo stesso nome prima di ripristinare il database. Se non esiste un pool con lo stesso nome nel server di destinazione, l'operazione Ripristino geografica avrà esito negativo. È possibile eseguire operazioni Ripristino geografico mediante il Portale di Azure o l'API REST. Il supporto dei cmdlet PowerShell sarà disponibile a breve.
 
 
-### Replica geografica
+### [Replica geografica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
-I database per i quali è già abilitata la replica geografica possono essere spostati all’interno e all’esterno di un pool di database elastici e la replica continuerà a funzionare normalmente. È possibile attivare la replica geografica su un database che si trova già nel pool, se il server di destinazione specificato contiene un pool con lo stesso nome del pool di origine. Attualmente nell’anteprima, non è possibile attivare la replica geografica su un database che si trova già in un pool a un pool con un nome diverso o a un database singleton secondario.
+I database per i quali è già abilitata la replica geografica possono essere spostati all’interno e all’esterno di un pool di database elastici e la replica continuerà a funzionare normalmente. È possibile attivare la replica geografica su un database che si trova già nel pool, se il server di destinazione specificato contiene un pool con lo stesso nome del pool di origine.
+
+### Importazione ed esportazione
+
+L’esportazione di un database dall’interno di un pool è supportata. Attualmente, non è supportata l'importazione di un database direttamente in un pool, ma è possibile importare in un singolo database e quindi spostare il database in un pool.
 
 
+<!--Image references-->
+[1]: ./media/sql-database-elastic-pool/databases.png
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

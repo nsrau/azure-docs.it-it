@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso" 
-	description="Argomento che illustra come molte aziende possano applicare un look e un aspetto coerenti a tutti i siti Web e servizi che gestiscono, in modo da evitare la confusione degli utenti finali ogni volta che usano tali siti." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso"
+	description="Argomento che illustra come molte aziende possano applicare un look e un aspetto coerenti a tutti i siti Web e servizi che gestiscono, in modo da evitare la confusione degli utenti finali ogni volta che usano tali siti."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/11/2015" 
+	ms.author="MarkVi"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
 
 > [AZURE.NOTE]
-> 
+>
 - La possibilità di aggiungere informazioni personalizzate distintive dell'azienda è disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 - Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -44,7 +44,7 @@ Gli utenti visualizzano una pagina di accesso personalizzata quando visitano un 
 Se gli utenti visitano un servizio con URL non specifici del tenant, come https://mail.office365.com, visualizzeranno una pagina di accesso non personalizzata. La pagina di accesso verrà aggiornata per mostrare la personalizzazione dopo che gli utenti immettono il proprio ID utente o selezionano un'icona utente.
 
 > [AZURE.NOTE]
-> 
+>
 - Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Active Directory** > **Directory** > **Domini** del portale di gestione di Azure una volta configurata la personalizzazione.
 - La personalizzazione della pagina di accesso non si applica alla pagina di accesso degli utenti di Microsoft. Questo significa che gli utenti che accedono con un account Microsoft personale (in precedenza chiamato Windows Live ID) potrebbero visualizzare un elenco personalizzato di icone utente reso disponibile da Azure AD, ma le informazioni di personalizzazione distintive dell'organizzazione non verranno applicate alla pagina di accesso degli account Microsoft.
 
@@ -167,7 +167,7 @@ Logo icona | Attualmente non usato nella pagina di accesso. In futuro, potrebbe 
 Etichetta nome utente pagina di accesso | Attualmente non usata nella pagina di accesso. In futuro, questo testo potrebbe essere usato per sostituire la stringa generica dell'account aziendale o dell'istituto di istruzione in diversi punti dell'esperienza. Il testo può essere impostato su qualcosa come "Account Contoso" o "ID Contoso". | <p>Testo Unicode, fino a 50 caratteri</p><p>Solo testo normale (senza collegamenti o tag HTML)</p> | <p>Mantenere breve e semplice</p><p>Chiedere agli utenti in che modo chiamano in genere l'account aziendale o dell'istituto di istruzione ricevuto.</p>
 Testo pagina di accesso | Questo "boilerplate" appare sotto il modulo della pagina di accesso e può essere usato per comunicare istruzioni aggiuntive o indicazioni su come ottenere informazioni e supporto tecnico. | <p>Testo Unicode, fino a 256 caratteri</p><p>Testo normale (senza collegamenti o tag HTML)</p> | Mantenere il numero di caratteri inferiore a 250 (circa tre righe di testo)
 Illustrazione pagina di accesso | Questa illustrazione è un'immagine di grandi dimensioni visualizzata nella pagina di accesso, a sinistra del modulo della pagina di accesso. | <p>JPG o PNG</p><p>1420x1200 pixel</p><p>500 KB</p> | <p>1420x1200 pixel</p><p>Importante: mantenere il file quanto più piccolo possibile, idealmente meno di 200 KB. Se l'immagine è troppo grande, avrà impatto sulle prestazioni della pagina di accesso quando non è memorizzata nella cache</p><p>Questa immagine VERRÀ quasi sempre ritagliata, in base alle diverse proporzioni dello schermo. Mantenere gli elementi visivi principali nell'angolo superiore sinistro (superiore destro per le lingue da destra a sinistra), perché il ridimensionamento, man mano che la finestra del browser si riduce, avverrà dall'angolo inferiore destro verso l'angolo superiore sinistro.</p>
-Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di accesso viene usato nell'area a sinistra del modulo della pagina di accesso. Il colore è visibile anche quando non è presente alcuna immagine della pagina di accesso. | Deve essere un colore RGB in formato esadecimale (esempio: #FFFFFF) | <p>Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta</p><p>È consigliabile scegliere il colore primario del logo del banner</p>
+Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di accesso viene usato nell'area a sinistra del modulo della pagina di accesso. Il colore è visibile anche quando non è presente alcuna immagine della pagina di accesso. | Deve essere un colore RGB in formato esadecimale (esempio: \#FFFFFF) | <p>Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta</p><p>È consigliabile scegliere il colore primario del logo del banner</p>
 
 
 ## Passaggi successivi
@@ -185,6 +185,4 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

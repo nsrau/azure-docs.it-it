@@ -1,13 +1,12 @@
 <properties
 	pageTitle="Informazioni sull'uso di Hadoop Tools per Visual Studio per HDInsight | Microsoft Azure"
 	description="Informazioni su come installare e usare Hadoop Tools per Visual Studio per HDInsight per connettersi a un cluster Hadoop ed eseguire una query Hive."
-	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
-
 
 <tags
 	ms.service="hdinsight"
@@ -15,13 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/21/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 # Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio per eseguire una query Hive
 
-Informazioni su come usare HDInsight Tools per Visual Studio per connettersi a cluster HDInsight e inviare query Hive. Per altre informazioni sull'uso di HDInsight, vedere [Introduzione ad HDInsight][hdinsight.introduction] e [Introduzione all'uso di HDInsight][hdinsight.get.started]. Per altre informazioni sulla connessione a un cluster Storm, vedere [Sviluppo di topologie C# per Apache Storm in HDInsight mediante Visual Studio][hdinsight.storm.visual.studio.tools].
+Informazioni su come usare HDInsight Tools per Visual Studio per connettersi a cluster HDInsight e inviare query Hive. Per altre informazioni sull'uso di HDInsight, vedere [Introduzione ad HDInsight][hdinsight.introduction] e [Introduzione all'uso di HDInsight][hdinsight.get.started]. Per altre informazioni sulla connessione a un cluster Storm, vedere [Sviluppo di topologie C#per Apache Storm in HDInsight mediante Visual Studio][hdinsight.storm.visual.studio.tools].
 
 >[AZURE.NOTE]La versione più recente ha introdotto alcune nuove funzionalità, ad esempio il supporto dell'editor Hive, la convalida locale di script Hive e l'accesso ai log YARN.
 
@@ -71,7 +69,7 @@ HDInsight Tools per Visual Studio consente di connettersi a cluster HDInsight, e
 
 	>[AZURE.NOTE]Si noti che la finestra **Elenco attività HDInsight** è aperta. Se tale finestra non è visualizzata, selezionare **Altre finestre** dal menu **Visualizza** e fare clic su **Finestra elenco attività HDInsight**.  
 4.	Immettere le credenziali della sottoscrizione di Azure e fare clic su **Accedi**. Questa operazione è necessaria solo se non si è mai eseguita la connessione alla sottoscrizione di Azure da Visual Studio sulla workstation.
-5.	In Esplora server verrà visualizzato un elenco di cluster HDInsight esistenti. Se non si dispone di cluster, è possibile effettuare il provisioning di un cluster usando il portale di Azure, Azure PowerShell o HDInsight SDK. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
+5.	In Esplora server verrà visualizzato un elenco di cluster HDInsight esistenti. Se non si dispone di cluster, è possibile effettuare il provisioning di un cluster usando il portale di anteprima di Azure, Azure PowerShell o HDInsight SDK. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
 
 	![Hadoop Tools: elenco di cluster in Esplora Server di HDInsight Tools per Visual Studio][5]
 6.	Espandere un cluster HDInsight. Verranno visualizzati i **database Hive**, un account di archiviazione predefinito, gli account di archiviazione collegati e il **log del servizio Hadoop**. È possibile espandere ulteriormente le entità.
@@ -137,7 +135,7 @@ Esistono due modi per creare ed eseguire query Hive:
 
 1. Da **Esplora server** espandere **Azure**, quindi **HDInsight Clusters**.
 2. Fare clic con il pulsante destro del mouse sul cluster in cui si desidera eseguire la query, quindi scegliere **Scrivi una query Hive**.
-3. Immettere le query Hive. Si noti che l'editor Hive supporta IntelliSense. HDInsight Tools per Visual Studio supporta il caricamento di metadati remoti durante la modifica dello script Hive. Ad esempio, quando si digita "SELECT * FROM", IntelliSense elencherà tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, i nomi delle colonne verranno elencati da IntelliSense. Lo strumento supporta quasi tutte le funzioni definite dall'utente predefinite, le sottoquery e le istruzioni DML Hive. 
+3. Immettere le query Hive. Si noti che l'editor Hive supporta IntelliSense. HDInsight Tools per Visual Studio supporta il caricamento di metadati remoti durante la modifica dello script Hive. Ad esempio, quando si digita "SELECT * FROM", IntelliSense elencherà tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, i nomi delle colonne verranno elencati da IntelliSense. Lo strumento supporta quasi tutte le funzioni definite dall'utente predefinite, le sottoquery e le istruzioni DML Hive.
 
 	![Hadoop Tools: IntelliSense di HDInsight Tools per Visual Studio][13]
 
@@ -238,4 +236,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -4,9 +4,8 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
-
 
 <tags
    ms.service="storsimple"
@@ -14,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos@microsoft.com"/>
-
 
 # Informazioni su StorSimple 
 
@@ -36,7 +34,7 @@ StorSimple utilizza la suddivisione in livelli di archiviazione per gestire i da
 
 Oltre alla gestione dell'archiviazione, le funzioni di protezione dei dati di StorSimple consentono di creare backup su richiesta e pianificati e di archiviarli in locale o nel cloud. I backup vengono eseguiti sotto forma di snapshot incrementali, il che significa che possono essere creati e ripristinati rapidamente. Gli snapshot cloud possono essere fondamentali in scenari di ripristino di emergenza perché sostituiscono i sistemi di archiviazione secondaria (come il backup su nastro) e consentono di ripristinare i dati nel data center o in siti alternativi, se necessario.
 
->[AZURE.NOTE]StorSimple serie 8000 con aggiornamento del software 1 o seguenti supporta Amazon S3 con RRS, HP, e i servizi cloud di OpenStack, nonché Microsoft Azure. (È comunque necessario un account di archiviazione di Microsoft Azure per la gestione dei dispositivi) Per ulteriori informazioni, vedere [Configurare un nuovo account di archiviazione](storsimple-deployment-walkthrough.md#configure-a-new-storage-account) in [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u1.md).
+>[AZURE.NOTE]StorSimple serie 8000 con aggiornamento del software 1 o seguenti supporta Amazon S3 con RRS, HP, e i servizi cloud di OpenStack, nonché Microsoft Azure. (È comunque necessario un account di archiviazione di Microsoft Azure per la gestione dei dispositivi) Per ulteriori informazioni, vedere [configurare un nuovo account di archiviazione per il servizio](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 
 ## Vantaggi dell'uso di StorSimple
 
@@ -68,11 +66,11 @@ La soluzione Microsoft Azure StorSimple include i componenti seguenti:
 
 ## Passaggi successivi
 
-Leggere [Panoramica delle soluzioni StorSimple](http://www.microsoft.com/it-it/server-cloud/products/storsimple/resources.aspx) e visualizzare il [chalk talk StorSimple](http://www.microsoft.com/it-it/server-cloud/products/storsimple/Features.aspx).
+Leggere [Panoramica delle soluzioni StorSimple serie 8000](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx) e visualizzare il [chalk talk StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx).
 
 Ulteriori informazioni su [componenti e terminologia di StorSimple](storsimple-components.md).
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

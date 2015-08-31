@@ -1,21 +1,19 @@
 <properties 
-   pageTitle="Gestire i modelli di larghezza di banda di StorSimple"
+   pageTitle="Gestire i modelli di larghezza di banda di StorSimple | Microsoft Azure"
    description="In questo articolo viene descritto come gestire i modelli di banda larga di StorSimple, i quali consentono di controllare il consumo di banda larga."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
-
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
-
 
 # Gestire i modelli di larghezza di banda di StorSimple
 
@@ -178,4 +176,4 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 Ulteriori informazioni sui [componenti di StorSimple](storsimple-components.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

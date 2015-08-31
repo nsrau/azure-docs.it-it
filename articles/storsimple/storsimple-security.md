@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos"/>
 
 # Sicurezza in StorSimple 
@@ -92,7 +92,7 @@ CHAP è uno schema di autenticazione usato dal dispositivo StorSimple per conval
 > * Non è possibile usare la stessa password sia per l'iniziatore CHAP che per la destinazione CHAP.
 > * Dopo aver impostato la password, è possibile cambiarla, ma non recuperarla. Se la password viene cambiata, assicurarsi di notificarlo a tutti gli utenti di accesso remoto in modo che riescano a connettersi al dispositivo StorSimple.
 
-Per ulteriori informazioni e per configurare CHAP, visitare[configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)
+Per ulteriori informazioni e per configurare CHAP, visitare [configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)
 
 ### Password di Gestione snapshot StorSimple
 
@@ -135,7 +135,7 @@ Lo scopo principale del servizio StorSimple Manager è di gestire e configurare 
 > [AZURE.IMPORTANT]
 > 
 > * La chiave DEK del servizio viene generata solo nel primo dispositivo registrato nel servizio. Ogni altro dispositivo registrato in seguito con il servizio deve usare la stessa chiave DEK del servizio. È molto importante creare una copia di questa chiave e salvarla in una posizione sicura. Si consiglia di archiviare una copia della chiave DEK del servizio in modo che sia accessibile a una persona autorizzata e possa essere facilmente comunicata all'amministratore del dispositivo.
-> * Per modificare la chiave DEK del servizio e il corrispondente certificato di crittografia dei dati, selezionare l'opzione **Modifica chiave DEK del servizio** nel dashboard del servizio. Per modificare le chiavi di crittografia, è necessario che ogni dispositivo venga aggiornato con la nuova chiave. Quindi, è consigliabile modificare la chiave quando tutti i dispositivi sono online. Se i dispositivi sono offline, le rispettive chiavi possono essere modificate in un altro momento. I dispositivi con chiavi scadute potranno ancora eseguire i backup, ma non potranno ripristinare i dati finché le chiavi non verranno aggiornate. Per altre informazioni, vedere [Utilizzo del dashboard del servizio](storsimple-service-dashboard.md).
+> * Per modificare la chiave DEK del servizio e il corrispondente certificato di crittografia dei dati, selezionare l'opzione **Modifica chiave DEK del servizio** nel dashboard del servizio. Per modificare le chiavi di crittografia, è necessario che ogni dispositivo venga aggiornato con la nuova chiave. Quindi, è consigliabile modificare la chiave quando tutti i dispositivi sono online. Se i dispositivi sono offline, le rispettive chiavi possono essere modificate in un altro momento. I dispositivi con chiavi scadute potranno ancora eseguire i backup, ma non potranno ripristinare i dati finché le chiavi non verranno aggiornate. Per altre informazioni, vedere [Utilizzo del dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 > * Per essere certi che la sicurezza dei dati non venga compromessa, è necessario usare un dispositivo StorSimple fisico per modificare la chiave DEK del servizio.
 > * Se si perde la chiave DEK del servizio, il personale di supporto Microsoft può aiutare a recuperarla purché almeno un dispositivo sia online. È consigliabile modificare la chiave DEK del servizio dopo averla recuperata. Per istruzioni, vedere [Modificare la chiave DEK del servizio](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * La chiave DEK del servizio e il certificato di crittografia dei dati non scadono. Tuttavia è consigliabile modificare regolarmente la chiave DEK del servizio per evitare che venga compromessa.</li></ul>
@@ -153,7 +153,7 @@ Il dispositivo StorSimple gestisce i dati archiviandoli in più livelli localmen
 
 ### Procedure di sicurezza aggiuntive
 
-- Per implementare la ridondanza, utilizzare percorsi multipli (MPIO) per evitare un singolo punto di errore in una SAN iSCSI. Per istruzioni sull'installazione di MPIO, vedere [Configurare MPIO per il dispositivo StorSimple](#storsimple-configure-mpio-windows-server.md).
+- Per implementare la ridondanza, utilizzare percorsi multipli (MPIO) per evitare un singolo punto di errore in una SAN iSCSI. Per istruzioni sull'installazione di MPIO, vedere [Configurare MPIO per il dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - Suddividere il traffico: isolare la rete SAN iSCSI dal traffico utente in una LAN aziendale distribuendo una rete completamente separata e utilizzando le VLAN dove l’isolamento fisico non è un'opzione. Una rete dedicata per l'archiviazione iSCSI garantisce sicurezza e prestazioni dei dati aziendali critici. Combinare il traffico di archiviazione e il traffico utente su una rete LAN aziendale non è consigliato e può aumentare la latenza e causare errori di rete.
 
@@ -250,7 +250,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 ## Passaggi successivi
 
-[Distribuire il dispositivo StorSimple](storsimple-deployment-walkthrough.md)
+[Distribuire il dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

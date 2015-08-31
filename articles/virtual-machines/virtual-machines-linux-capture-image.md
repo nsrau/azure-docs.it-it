@@ -26,7 +26,7 @@ Azure gestisce questo modello come immagine e lo archivia in **Immagini**. che �
 
 ## Prima di iniziare
 
-Questa procedura presuppone che sia stata creata una macchina virtuale di Azure e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se non si sono ancora effettuate queste operazioni, vedere le istruzioni seguenti:
+Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classico e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se non si sono ancora effettuate queste operazioni, vedere le istruzioni seguenti:
 
 - [Come creare una macchina virtuale che esegue Linux][]
 
@@ -86,7 +86,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 
 ## Passaggi successivi
-L'immagine è pronta per essere usata come modello per la creazione di macchine virtuali. È possibile utilizzare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine appena creata. Per informazioni dettagliate sul comando, vedere [Utilizzo dell'interfaccia della riga di comando con Gestione dei servizi](virtual-machines-command-line-tools.md). In alternativa, è possibile utilizzare il [portale di gestione][] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine appena creata. Per ulteriori dettagli, vedere [Come creare una macchina virtuale personalizzata][].
+L'immagine è pronta per essere usata come modello per la creazione di macchine virtuali. È possibile utilizzare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine appena creata. Per informazioni dettagliate sul comando, vedere [Utilizzo dell'interfaccia della riga di comando con l’API di gestione del servizio](virtual-machines-command-line-tools.md). In alternativa, è possibile utilizzare il [portale di gestione][] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine appena creata. Per ulteriori dettagli, vedere [Come creare una macchina virtuale personalizzata][].
 
 **Vedere anche:** [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -97,4 +97,4 @@ L'immagine è pronta per essere usata come modello per la creazione di macchine 
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Come creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

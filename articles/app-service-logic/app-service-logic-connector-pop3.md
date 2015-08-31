@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -62,12 +62,19 @@ Dopo aver creato l'app per le API, è possibile usare POP3 Connector come trigge
 
 5.	È ora possibile usare POP3 Connector nel flusso. Selezionare il trigger "Get Email" e configurare la frequenza e l'intervallo. È possibile usare il messaggio e-mail recuperato dal trigger di POP3 in altre azioni del flusso.
 		 
-	
+
 	![][5]
 	![][6]
 
+## Più vantaggi con il connettore
+Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-	<!--Image references-->
+Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
+
+
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-pop3/img1.PNG
 [2]: ./media/app-service-logic-connector-pop3/img2.PNG
 [3]: ./media/app-service-logic-connector-pop3/img3.png
@@ -75,4 +82,4 @@ Dopo aver creato l'app per le API, è possibile usare POP3 Connector come trigge
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

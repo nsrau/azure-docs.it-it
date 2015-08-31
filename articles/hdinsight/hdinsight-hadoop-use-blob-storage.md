@@ -1,23 +1,21 @@
 <properties
 	pageTitle="Eseguire query sui dati dall'archiviazione BLOB compatibile con HDFS | Microsoft Azure"
 	description="HDInsight usa l'archiviazione BLOB come archivio Big Data per HDFS. Informazioni su come eseguire query sui dati dall'archiviazione BLOB e archiviare i risultati dell'analisi."
-	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
-
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 
 #Usare l'archiviazione BLOB di Azure compatibile con HDFS con Hadoop in HDInsight
@@ -79,7 +77,7 @@ L'archiviazione dei dati nell'archiviazione BLOB di Azure anziché in HDFS offre
 * **Archiviazione dei dati:** l'archiviazione dei dati nell'archiviazione BLOB di Azure consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 * **Costo di archiviazione dei dati:** l'archiviazione a lungo termine dei dati in DFS è più costosa rispetto all'archiviazione BLOB di Azure, in quanto il costo di un cluster di calcolo è più alto di quello di un contenitore di archiviazione BLOB di Azure. Poiché, inoltre, non è necessario ricaricare i dati ogni volta che si genera un cluster di calcolo, si risparmiano anche i costi di caricamento dei dati.
 * **Scalabilità orizzontale elastica:** anche se HDFS offre scalabilità orizzontale del file system, la scala è determinata dal numero di nodi di cui si effettua il provisioning per il cluster. Modificare la scala può diventare quindi un processo più complicato rispetto al semplice fare affidamento sulla scalabilità elastica offerta automaticamente dall'archiviazione BLOB di Azure.
-* **Replica geografica:** è possibile eseguire la replica geografica dei contenitori di archiviazione BLOB di Azure tramite il portale di Azure. Sebbene questo offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È quindi consigliabile scegliere la replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
+* **Replica geografica:** è possibile eseguire la replica geografica dei contenitori di archiviazione BLOB di Azure. Sebbene questo offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È quindi consigliabile scegliere la replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
 
 Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non vale la pena di archiviare nell'archiviazione BLOB di Azure. In questo caso, è possibile scegliere di archiviare i dati nel file system HDFS locale. In effetti, HDInsight usa DFS per molti di questi risultati intermedi nei processi Hive e in altri processi.
 
@@ -94,23 +92,11 @@ Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente 
 Non condividere un contenitore di archiviazione predefinito con più cluster HDInsight. Se è necessario usare un contenitore condiviso per consentire l'accesso ai dati a più cluster HDInsight, è possibile aggiungerlo come ulteriore account di archiviazione nella configurazione del cluster. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. È comunque possibile riusare un contenitore di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase, in realtà, è possibile mantenere i dati e lo schema della tabella HBase effettuare il provisioning di un nuovo cluster HBase tramite il contenitore di archiviazione BLOB predefinito usato da un cluster HBase eliminato.
 
 
-###Uso del portale di Azure
+###Utilizzo del Portale di anteprima di Azure
 
-Quando si effettua il provisioning di un cluster HDInsight dal portale di Azure sono disponibili due opzioni: **Creazione rapida** e **Creazione personalizzata**. L'opzione di creazione rapida richiede la creazione anticipata di un account di archiviazione di Azure. Per istruzioni, vedere [Come creare un account di archiviazione][azure-storage-create].
+Durante il provisioning di un cluster HDInsight dal portale di anteprima, sono disponibili le opzioni per utilizzare un account di archiviazione esistente o creare un nuovo account di archiviazione:
 
-Usando l'opzione di creazione rapida è possibile scegliere un account di archiviazione esistente. Il processo di provisioning crea un nuovo contenitore con lo stesso nome del cluster HDInsight. Se un contenitore con lo stesso nome esiste già, verrà usato <clusterName>-<x>. Ad esempio, *myHDIcluster-1*. Tale contenitore viene usato come file system predefinito.
-
-![Uso dell'opzione di creazione rapida per un nuovo cluster Hadoop di HDInsight nel portale di Azure][img-hdi-quick-create]
-
-Usando l'opzione di creazione personalizzata si avrà una delle opzioni seguenti per l'account di archiviazione predefinito:
-
-- Utilizzare l'archiviazione esistente
-- Crea nuova archiviazione
-- Usare l'archiviazione da un'altra sottoscrizione
-
-Sarà anche possibile creare un contenitore proprio oppure usarne uno esistente.
-
-![Opzione per usare un account di archiviazione esistente per il cluster HDInsight.][img-hdi-custom-create-storage-account]
+![origine dati del provisioning di hdinsight hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ###Utilizzare l'interfaccia della riga di comando di Azure
 
@@ -328,6 +314,5 @@ Per altre informazioni, vedere gli articoli seguenti:
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

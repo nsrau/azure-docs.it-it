@@ -1,12 +1,20 @@
-<properties pageTitle="Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni | Microsoft Azure" description="Argomento che descrive come gestire i gruppi in Azure AD." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa"" editor="" tags="azure-classic-portal"/>
+<properties
+	pageTitle="Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni| Microsoft Azure"
+	description="Argomento che illustra come gestire i gruppi in Azure AD."
+	services="active-directory"
+	documentationCenter=""
+    authors="femila"
+	manager="swadhwa" 
+	editor=""
+	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="femila"/>
 
 #Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni
@@ -27,7 +35,7 @@ La gestione self-service dei gruppi è attualmente costituita da due scenari pri
 
 Nella scheda Configura del portale di gestione di Azure impostare l'opzione Gestione gruppi delegata su Abilitata e quindi impostare l'opzione Gli utenti possono creare i gruppi su Abilitato.
 
-Se l'opzione **Gli utenti possono creare i gruppi** è impostata su **Abilitato**, tutti gli utenti nella directory possono creare nuovi gruppi di sicurezza e aggiungere membri a tali gruppi. Si noti che questi nuovi gruppi sono visibili anche nel pannello di accesso per tutti gli altri utenti e che gli altri utenti possono creare richieste di iscrizione a questi gruppi se ciò è consentito dall'impostazione dei criteri del gruppo. Se questa opzione è impostata su Disabilitato, gli utenti non possono creare gruppi né modificare i gruppi esistenti di cui sono proprietari, ma possono comunque gestire le appartenenze a tali gruppi e approvare le richieste di iscrizione ricevute da altri utenti.
+Quando l'opzione **Gli utenti possono creare i gruppi** è impostata su **Abilitato**, tutti gli utenti nella directory possono creare nuovi gruppi di sicurezza e aggiungere membri a tali gruppi. Si noti che questi nuovi gruppi sono visibili anche nel pannello di accesso per tutti gli altri utenti e che gli altri utenti possono creare richieste di iscrizione a questi gruppi se ciò è consentito dall'impostazione dei criteri del gruppo. Se questa opzione è impostata su Disabilitato, gli utenti non possono creare gruppi né modificare i gruppi esistenti di cui sono proprietari, ma possono comunque gestire le appartenenze a tali gruppi e approvare le richieste di iscrizione ricevute da altri utenti.
 
 È inoltre possibile utilizzare l'opzione Utenti che possono usare la modalità self-service per i gruppi di sicurezza per ottenere un controllo più dettagliato dell'accesso alle funzionalità di gestione self-service dei gruppi. Quando l'opzione Gli utenti possono creare i gruppi è impostata su Abilitato, tutti gli utenti nella directory possono creare nuovi gruppi di sicurezza e aggiungere membri a tali gruppi. Inoltre, l'impostazione dell'opzione Utenti che possono usare la modalità self-service per i gruppi di sicurezza su Alcuni consente di limitare la gestione dei gruppi di sicurezza a un gruppo limitato di utenti. Quando questa opzione è impostata su Alcuni, nella directory viene creato un gruppo denominato SSGMSecurityGroupsUsers; solo gli utenti membri di questo gruppo possono quindi creare nuovi gruppi di sicurezza e aggiungere membri a tali gruppi all'interno della directory. Impostare l'opzione Utenti che possono usare la modalità self-service per i gruppi di sicurezza su Tutti per consentire a tutti gli utenti nella directory di creare nuovi gruppi di sicurezza.
 
@@ -41,4 +49,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

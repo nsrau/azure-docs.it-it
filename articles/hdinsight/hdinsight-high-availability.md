@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Disponibilità di cluster Hadoop in HDInsight | Microsoft Azure" 
-	description="HDInsight distribuisce cluster affidabili e ad alta disponibilità con un nodo head aggiuntivo." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="mumian" 
+<properties
+	pageTitle="Disponibilità di cluster Hadoop in HDInsight | Microsoft Azure"
+	description="HDInsight distribuisce cluster affidabili e ad alta disponibilità con un nodo head aggiuntivo."
+	services="hdinsight"
+	tags="azure-portal"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="mumian"
 	documentationCenter=""/>
 
-
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
-
 
 
 #Disponibilità e affidabilità dei cluster Hadoop in HDInsight
@@ -39,7 +38,7 @@ HDInsight consente ai clienti di distribuire svariati tipi di cluster, per diver
 	- Nodi Nimbus (2 nodi)
 	- Server Supervisor (almeno 1 nodo)
 	- Nodi Zookeeper (3 nodi)
- 
+
 Le implementazioni standard dei cluster Hadoop hanno in genere un singolo nodo head. HDInsight rimuove questo singolo punto di guasto con l'aggiunta di un nodo head/server head/nodo Nimbus secondario per aumentare la disponibilità e l'affidabilità del servizio necessario per gestire i carichi di lavoro. Questi nodi head/server head/nodi Nimbus hanno l'obiettivo di gestire semplicemente gli errori dei nodi di lavoro, ma eventuali interruzioni dei servizi principali in esecuzione sul nodo head potrebbero causare il mancato funzionamento del cluster.
 
 
@@ -51,7 +50,7 @@ Sono stati aggiunti i nodi [ZooKeeper](http://zookeeper.apache.org/) (ZK), usati
 
 
 ## Controllare lo stato del servizio dei nodi head attivi
-Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso, è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). Per istruzioni, vedere [Gestire i cluster Hadoop in HDInsight con il portale di Azure](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Dopo aver eseguito l'accesso in remoto al cluster, fare doppio clic sull'icona **Hadoop Service Available ** sul desktop per ottenere informazioni sul nodo head nel quale sono in esecuzione i servizi Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 oppure HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
+Per determinare quale nodo head è attivo e verificare lo stato dei servizi in esecuzione sullo stesso, è necessario connettersi al cluster Hadoop usando il protocollo RDP (Remote Desktop Protocol). Per istruzioni su RDP, vedere [Gestire i cluster Hadoop in HDInsight con il portale di anteprima di Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Dopo aver eseguito l'accesso in remoto al cluster, fare doppio clic sull'icona **Hadoop Service Available ** sul desktop per ottenere informazioni sul nodo head nel quale sono in esecuzione i servizi Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 oppure HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -97,14 +96,6 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 
 - [ZooKeeper](http://zookeeper.apache.org/)
 - [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp)
-- [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk) 
+- [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk)
 
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

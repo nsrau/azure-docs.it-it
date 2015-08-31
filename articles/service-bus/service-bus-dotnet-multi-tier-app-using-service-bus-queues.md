@@ -24,20 +24,20 @@ Microsoft Azure consente di sviluppare applicazioni con la stessa semplicità of
 
 Si acquisiranno le nozioni seguenti:
 
--   Abilitare il computer in uso per lo sviluppo in Azure tramite un singolo download e una singola installazione
--   Usare Visual Studio per lo sviluppo per Azure
--   Creare un'applicazione multilivello in Azure usando ruoli Web e ruoli di lavoro
--   Consentire le comunicazioni tra i livelli usando le code del bus di servizio
+-   Abilitare il computer in uso per lo sviluppo per Azure tramite un singolo download e una singola installazione.
+-   Utilizzare Visual Studio per lo sviluppo per Azure.
+-   Creare un'applicazione multilivello in Azure utilizzando ruoli Web e ruoli di lavoro.
+-   Consentire le comunicazioni tra i livelli usando le code del bus di servizio.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In questa esercitazione verrà creata ed eseguita un'applicazione multilivello in un servizio cloud di Azure. Il front-end sarà un ruolo Web ASP.NET MVC e il back-end sarò un ruolo di lavoro. È possibile creare la stessa applicazione multilivello con il front-end come progetto Web da distribuire in un sito Web di Azure anziché in un servizio cloud. Per istruzioni sulle procedure diverse per creare un front-end per un sito Web di Azure, vedere la sezione [Passaggi successivi](#nextsteps).
+In questa esercitazione verrà creata ed eseguita un'applicazione multilivello in un servizio cloud di Azure. Il front-end sarà un ruolo Web ASP.NET MVC e il back-end sarò un ruolo di lavoro. È possibile creare la stessa applicazione multilivello con il front-end come progetto Web distribuito in un sito Web di Azure anziché in un servizio cloud. Per le istruzioni sulle procedure diverse per un front-end di sito Web di Azure, vedere la sezione [Passaggi successivi](#nextsteps).
 
-Di seguito è riportata una schermata dell'applicazione completata:
+Nella schermata seguente è illustrata l'applicazione completata.
 
 ![][0]
 
-**Nota** In Azure è inoltre disponibile la funzionalità della coda di archiviazione. Per altre informazioni sulle code di archiviazione di Azure e sulle code del bus di servizio, vedere [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni][sbqueuecomparison].
+> [AZURE.NOTE]In Azure è inoltre disponibile la funzionalità della coda di archiviazione. Per ulteriori informazioni sulle code di archiviazione di Azure e sulle code del bus di servizio, vedere [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni][sbqueuecomparison].
 
 ## Informazioni generali sullo scenario: comunicazione tra ruoli
 
@@ -45,11 +45,11 @@ Per inviare un ordine per l'elaborazione, è necessario che il componente dell'i
 
 L'uso della messaggistica negoziata tra il livello Web e il livello intermedio consente di disaccoppiare i due componenti. Invece di usare la messaggistica diretta, ovvero TCP o HTTP, il livello Web non si connette direttamente al livello intermedio, ma inserisce unità di lavoro, ad esempio messaggi, nel bus di servizio, che li conserva in modo affidabile fino a quando il livello intermedio non sarà pronto per usarli ed elaborarli.
 
-Il bus di servizio offre due entità per il supporto della messaggistica negoziata, ovvero le code e gli argomenti. Se si usano le code, ogni messaggio inviato alla coda viene usato da un ricevitore singolo. Gli argomenti supportano il modello pubblicazione/sottoscrizione, in cui ogni messaggio pubblicato viene reso disponibile a una sottoscrizione registrata per l'argomento. Ogni sottoscrizione mantiene in modo logico la propria coda di messaggi. È inoltre possibile configurare le sottoscrizioni specificando regole per i filtri che consentono di limitare i set di messaggi passati alla coda della sottoscrizione ai soli messaggi corrispondenti al filtro. In questo esempio vengono usate le code del bus di servizio.
+Il bus di servizio offre due entità per il supporto della messaggistica negoziata, ovvero le code e gli argomenti. Se si usano le code, ogni messaggio inviato alla coda viene usato da un ricevitore singolo. Gli argomenti supportano il modello pubblicazione/sottoscrizione, in cui ogni messaggio pubblicato viene reso disponibile a una sottoscrizione registrata per l'argomento. Ogni sottoscrizione mantiene in modo logico la propria coda di messaggi. È inoltre possibile configurare le sottoscrizioni specificando regole per i filtri che consentono di limitare i set di messaggi passati alla coda della sottoscrizione ai soli messaggi corrispondenti al filtro. Nel seguente esempio vengono usate le code del bus di servizio.
 
 ![][1]
 
-Questo meccanismo di comunicazione presenta alcuni vantaggi rispetto alla messaggistica diretta, inclusi i seguenti:
+Questo meccanismo di comunicazione presenta alcuni vantaggi rispetto alla messaggistica diretta:
 
 -   **Disaccoppiamento temporaneo.** Grazie al modello di messaggistica asincrono, non è necessario che produttori e consumer siano online nello stesso momento. I messaggi vengono archiviati in modo affidabile nel bus di servizio fino a quando il consumer non sarà pronto per riceverli. Questo consente la disconnessione volontaria (ad esempio, per attività di manutenzione) o involontaria (a seguito di un guasto) dei componenti dell'applicazione distribuita senza ripercussioni sull'intero sistema. È inoltre possibile che l'applicazione consumer debba essere online solo in determinati orari.
 
@@ -65,7 +65,7 @@ Il codice che consente di implementare questa architettura viene illustrato nell
 
 Prima di iniziare a sviluppare l'applicazione di Azure, è necessario ottenere gli strumenti idonei e configurare l'ambiente di sviluppo:
 
-1.  Per installare Azure SDK per .NET, fare clic sul pulsante seguente:
+1.  Per installare Azure SDK per .NET, fare clic sul collegamento seguente.
 
     [Get Tools and SDK][]
 
@@ -73,7 +73,7 @@ Prima di iniziare a sviluppare l'applicazione di Azure, è necessario ottenere g
 
 	![][32]
 
-4. 	Quando viene richiesto se eseguire o salvare il file di installazione, fare clic su **Esegui**:
+4. 	Quando viene richiesto se eseguire o salvare il file di installazione, fare clic su **Esegui**.
 
     ![][3]
 
@@ -81,29 +81,31 @@ Prima di iniziare a sviluppare l'applicazione di Azure, è necessario ottenere g
 
     ![][33]
 
-6.  Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare applicazioni per Azure in Visual Studio. Se Visual Studio non è ancora installato, verrà installata anche la versione gratuita di Visual Studio Express per il Web.
+6.  Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo dell'app. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare applicazioni per Azure in Visual Studio. Se Visual Studio non è ancora installato, verrà installata anche la versione gratuita di Visual Studio Express per il Web.
 
 ## Configurare lo spazio dei nomi del bus di servizio
 
 Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi del servizio fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi del servizio. La combinazione di spazio dei nomi del servizio e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
 
-È inoltre possibile gestire gli spazi dei nomi e le entità di messaggistica del bus di servizio usando Esplora server di Visual Studio, ma è possibile creare spazi dei nomi nuovi solo all'interno del portale.
+> [AZURE.NOTE]È inoltre possibile gestire gli spazi dei nomi e le entità di messaggistica del bus di servizio usando Esplora server di Visual Studio, ma è possibile creare spazi dei nomi nuovi solo all'interno del portale di Azure.
 
-### Configurare lo spazio dei nomi tramite il portale di gestione
+### Configurare lo spazio dei nomi tramite il portale di Azure
 
-1.  Accedere al [portale di gestione di Azure][].
+1.  Accedere al [portale di Azure][].
 
-2.  Nel pannello di navigazione sinistro del portale di gestione fare clic su **Bus di servizio**.
+2.  Nel pannello di navigazione sinistro del portale di Azure fare clic su **Bus di servizio**.
 
-3.  Nel riquadro inferiore del portale di gestione fare clic su **Crea**.
+3.  Nel riquadro inferiore del portale di Azure fare clic su **Crea**.
 
     ![][6]
 
-4.  Nella finestra di dialogo **Add a new namespace** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.![][7]
+4.  Nella finestra di dialogo **Aggiungi un nuovo spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
+
+    ![][7]
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo. Verificare anche di aver selezionato **Messaggistica** nel campo **Tipo** dello spazio dei nomi e **Standard** nel campo **Livello di messaggistica**.
 
-    IMPORTANTE: selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+    > [AZURE.IMPORTANT]Selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6.  Fare clic sul segno di spunta. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -129,12 +131,11 @@ In questa sezione verrà creato il front-end dell'applicazione. Verranno innanzi
 
 ### Creare il progetto
 
-1.  Usando privilegi di amministratore, avviare Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Per avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)**, quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questa guida, è necessario che Visual Studio sia avviato con privilegi di amministratore.
+1.  Usando privilegi di amministratore, avviare Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Per avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse su **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)**, quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questo articolo, è necessario che Visual Studio sia avviato con privilegi di amministratore.
 
     In Visual Studio, nel menu **File** scegliere **Nuovo**, quindi fare clic su **Progetto**.
 
     ![][8]
-
 
 2.  Da **Modelli installati**, in **Visual C#**, fare clic su **Cloud** e quindi su **Servizio cloud Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
 
@@ -148,7 +149,7 @@ In questa sezione verrà creato il front-end dell'applicazione. Verranno innanzi
 
     ![][11]
 
-5.  Nella finestra di dialogo **Nuovo progetto ASP.NET**, nell'elenco **Selezionare un modello**, fare clic su **MVC**, quindi su **OK**.
+5.  Nella finestra di dialogo **Nuovo progetto ASP.NET**, nell'elenco **Selezionare un modello**, fare clic su **MVC** e quindi su **OK**.
 
     ![][12]
 
@@ -166,7 +167,7 @@ In questa sezione verrà creato il front-end dell'applicazione. Verranno innanzi
 
 In questa sezione verranno innanzitutto create le diverse pagine visualizzate dall'applicazione.
 
-1.  Nel file **OnlineOrder.cs** in Visual Studio sostituire la definizione dello spazio dei nomi esistente con il codice seguente:
+1.  In Visual Studio, nel file OnlineOrder.cs sostituire la definizione dello spazio dei nomi esistente con il codice seguente:
 
         namespace FrontendWebRole.Models
         {
@@ -177,13 +178,13 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
             }
         }
 
-2.  In **Esplora soluzioni** fare doppio clic su **Controllers\\HomeController.cs**. Aggiungere le istruzioni **using** seguenti nella parte iniziale del file per includere gli spazi dei nomi per il modello appena creato, oltre al bus di servizio:
+2.  In **Esplora soluzioni** fare doppio clic su **Controllers\\HomeController.cs**. Aggiungere le istruzioni **using** seguenti nella parte iniziale del file per includere gli spazi dei nomi per il modello appena creato, oltre al bus di servizio.
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
         using Microsoft.ServiceBus;
 
-3.  Nel file **HomeController.cs** in Visual Studio sostituire la definizione dello spazio dei nomi esistente con il codice seguente. Tale codice include metodi per la gestione dell'invio di elementi alla coda:
+3.  Anche nel file HomeController.cs sostituire la definizione dello spazio dei nomi esistente con il seguente codice. Tale codice include metodi per la gestione dell'invio di elementi alla coda.
 
         namespace FrontendWebRole.Controllers
         {
@@ -192,7 +193,7 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
                 public ActionResult Index()
                 {
                     // Simply redirect to Submit, since Submit will serve as the
-                    // front page of this application
+                    // front page of this application.
                     return RedirectToAction("Submit");
                 }
 
@@ -201,9 +202,9 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
                     return View();
                 }
 
-                // GET: /Home/Submit
+                // GET: /Home/Submit.
                 // Controller method for a view you will create for the submission
-                // form
+                // form.
                 public ActionResult Submit()
                 {
                     // Will put code for displaying queue message count here.
@@ -211,12 +212,12 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
                     return View();
                 }
 
-                // POST: /Home/Submit
+                // POST: /Home/Submit.
                 // Controller method for handling submissions from the submission
-                // form
+                // form.
                 [HttpPost]
 				// Attribute to help prevent cross-site scripting attacks and
-				// cross-site request forgery  
+				// cross-site request forgery.  
     			[ValidateAntiForgeryToken]
                 public ActionResult Submit(OnlineOrder order)
                 {
@@ -236,11 +237,11 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
 
 4.  Dal menu **Compila** fare clic su **Compila soluzione** per verificare la correttezza del lavoro svolto finora.
 
-5.  Verrà ora creata la visualizzazione per il metodo **Submit()** creato in precedenza. Fare clic con il pulsante destro del mouse nel metodo Submit(), quindi scegliere **Aggiungi visualizzazione**
+5.  Verrà ora creata la visualizzazione per il metodo **Submit()** creato in precedenza. Fare clic con il pulsante destro del mouse nel metodo **Submit()**, quindi scegliere **Aggiungi visualizzazione**.
 
     ![][14]
 
-6.  Verrà aperta una finestra di dialogo per la creazione di una visualizzazione. Nell'elenco a discesa **Modello** scegliere **Crea**. Nell'elenco a discesa **Classe modello** scegliere la classe **OnlineOrder**.
+6.  Viene visualizzata una finestra di dialogo per la creazione della visualizzazione. Nell'elenco **Modello** scegliere **Crea**. Nell'elenco **Classe modello** scegliere la classe **OnlineOrder**.
 
     ![][15]
 
@@ -258,20 +259,19 @@ In questa sezione verranno innanzitutto create le diverse pagine visualizzate da
 
         <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
-
 12. L'interfaccia utente è stata implementata. È possibile premere **F5** per eseguire l'applicazione e confermare che abbia l'aspetto previsto.
 
     ![][17]
 
 ### Scrivere codice per l'invio di elementi a una coda del bus di servizio
 
-Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata innanzitutto una classe contenente le informazioni di connessione della coda del bus di servizio. Verrà quindi inizializzata la connessione da **Global.aspx.cs**. Verrà infine aggiornato il codice di invio creato in precedenza in **HomeController.cs** in modo da inviare effettivamente elementi alla coda del bus di servizio.
+Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata innanzitutto una classe contenente le informazioni di connessione della coda del bus di servizio. Verrà quindi inizializzata la connessione da Global.aspx.cs. Verrà infine aggiornato il codice di invio creato in precedenza in HomeController.cs in modo da inviare effettivamente elementi alla coda del bus di servizio.
 
-1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **FrontendWebRole**. È necessario fare clic con il pulsante destro del mouse sul progetto, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Classe**.
+1.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **FrontendWebRole**. È necessario fare clic con il pulsante destro del mouse sul progetto, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Classe**.
 
-2.  Assegnare alla classe il nome **QueueConnector.cs**. Fare clic su **Aggiungi** per creare la classe.
+2.  Assegnare alla classe il nome QueueConnector.cs. Fare clic su **Aggiungi** per creare la classe.
 
-3.  A questo punto si aggiungerà codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. In QueueConnector.cs aggiungere il codice seguente e immettere i valori per **Namespace** (lo spazio dei nomi del servizio) e **yourKey**, ovvero la chiave di firma di accesso condiviso ottenuta in precedenza dal [portale di gestione di Azure][Azure Management Portal].
+3.  A questo punto si aggiungerà codice che incapsula le informazioni di connessione e inizializza la connessione a una coda del bus di servizio. In QueueConnector.cs aggiungere il codice seguente e immettere i valori per **Namespace** (lo spazio dei nomi del servizio) e **yourKey**, ovvero la chiave di firma di accesso condiviso ottenuta in precedenza dal [portale di Azure][Azure portal].
 
         using System;
         using System.Collections.Generic;
@@ -288,16 +288,16 @@ Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata 
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Management Portal
+                // Obtain these values from the Azure portal.
                 public const string Namespace = "your service bus namespace";
 
-                // The name of your queue
+                // The name of your queue.
                 public const string QueueName = "OrdersQueue";
 
                 public static NamespaceManager CreateNamespaceManager()
                 {
                     // Create the namespace manager which gives you access to
-                    // management operations
+                    // management operations.
                     var uri = ServiceBusEnvironment.CreateServiceUri(
                         "sb", Namespace, String.Empty);
                     var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
@@ -307,21 +307,21 @@ Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata 
 
                 public static void Initialize()
                 {
-                    // Using Http to be friendly with outbound firewalls
+                    // Using Http to be friendly with outbound firewalls.
                     ServiceBusEnvironment.SystemConnectivity.Mode =
                         ConnectivityMode.Http;
 
                     // Create the namespace manager which gives you access to
-                    // management operations
+                    // management operations.
                     var namespaceManager = CreateNamespaceManager();
 
-                    // Create the queue if it does not exist already
+                    // Create the queue if it does not exist already.
                     if (!namespaceManager.QueueExists(QueueName))
                     {
                         namespaceManager.CreateQueue(QueueName);
                     }
 
-                    // Get a client to the queue
+                    // Get a client to the queue.
                     var messagingFactory = MessagingFactory.Create(
                         namespaceManager.Address,
                         namespaceManager.Settings.TokenProvider);
@@ -335,13 +335,13 @@ Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata 
 
 4.  Al momento accertarsi che venga chiamato il metodo **Initialize**. In **Esplora soluzioni** fare doppio clic su **Global.asax\\Global.asax.cs**.
 
-5.  Aggiungere la riga seguente alla fine del metodo **Application\_Start**:
+5.  Aggiungere la riga seguente alla fine del metodo **Application\_Start**.
 
         FrontendWebRole.QueueConnector.Initialize();
 
 6.  Verrà infine aggiornato il codice Web creato in precedenza, in modo da inviare elementi alla coda. In **Esplora soluzioni** fare doppio clic su **Controllers\\HomeController.cs**.
 
-7.  Aggiornare il metodo **Submit()** come indicato di seguito, in modo da ottenere il conteggio dei messaggi per la coda:
+7.  Aggiornare il metodo **Submit()** come indicato di seguito, in modo da ottenere il numero di messaggio per la coda.
 
         public ActionResult Submit()
         {
@@ -356,16 +356,16 @@ Verrà ora aggiunto il codice per l'invio di elementi a una coda. Verrà creata 
             return View();
         }
 
-8.  Aggiornare il metodo **Submit(OnlineOrder order)** come indicato di seguito per inviare le informazioni sull'ordine alla coda:
+8.  Aggiornare il metodo **Submit(OnlineOrder order)** come indicato di seguito per inviare le informazioni sull'ordine alla coda.
 
         public ActionResult Submit(OnlineOrder order)
         {
             if (ModelState.IsValid)
             {
-                // Create a message from the order
+                // Create a message from the order.
                 var message = new BrokeredMessage(order);
 
-                // Submit the order
+                // Submit the order.
                 QueueConnector.OrdersQueueClient.Send(message);
                 return RedirectToAction("Submit");
             }
@@ -387,14 +387,14 @@ Se si archivia una stringa di connessione per lo spazio dei nomi del bus di serv
 
 ### Stringa di connessione
 
-Per creare un'istanza di un client, ad esempio un **QueueClient** del bus di servizio, è possibile rappresentare le informazioni di configurazione come una stringa di connessione. Sul lato client è disponibile un metodo `CreateFromConnectionString()` che consente di creare istanze del tipo di client mediante la relativa stringa di connessione. Ad esempio, con la sezione seguente di configurazione:
+Per creare un'istanza di un client, ad esempio un **QueueClient** del bus di servizio, è possibile rappresentare le informazioni di configurazione come una stringa di connessione. Sul lato client è disponibile un metodo `CreateFromConnectionString()` che consente di creare istanze del tipo di client mediante la relativa stringa di connessione. Ad esempio, con la sezione di configurazione seguente
 
 	<ConfigurationSettings>
     ...
     	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
 	</ConfigurationSettings>
 
-Il seguente codice recupera la stringa di connessione, crea una coda e inizializza la connessione alla coda:
+Il seguente codice recupera la stringa di connessione, crea una coda e inizializza la connessione alla coda.
 
 	QueueClient Client;
 
@@ -409,7 +409,7 @@ Il seguente codice recupera la stringa di connessione, crea una coda e inizializ
         namespaceManager.CreateQueue(QueueName);
     }
 
-	// Initialize the connection to Service Bus Queue
+	// Initialize the connection to Service Bus queue.
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
 Il codice nella sezione seguente usa la classe **CloudConfigurationManager**.
@@ -418,47 +418,47 @@ Il codice nella sezione seguente usa la classe **CloudConfigurationManager**.
 
 Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo esempio viene usato il modello di progetto **Worker Role with Service Bus Queue** di Visual Studio. Usare innanzitutto Esplora server in Visual Studio per ottenere le credenziali necessarie.
 
-1. Assicurarsi di aver collegato Visual Studio al proprio account di Azure, come descritto nella sezione "Gestire gli spazi dei nomi e le entità di messaggistica tramite Esplora server di Visual Studio".
+1. Assicurarsi che Visual Studio sia connesso all'account Azure.
 
 2.  In **Esplora soluzioni** in Visual Studio fare clic con il pulsante destro del mouse sulla cartella **Roles** nel progetto **MultiTierApp**.
 
-3.  Fare clic su **Aggiungi**, quindi su **Nuovo progetto di ruolo di lavoro**. Verrà visualizzata la finestra di dialogo **Aggiungi nuovo progetto di ruolo**.
+3.  Fare clic su **Aggiungi**, quindi su **Nuovo progetto di ruolo di lavoro**. Viene visualizzata la finestra di dialogo **Aggiungi nuovo progetto di ruolo**.
 
 	![][26]
 
-4.  Nella finestra di dialogo **Aggiungi nuovo progetto di ruolo** fare clic sul progetto relativo al ruolo **Worker Role with Service Bus Queue**, come illustrato nella seguente figura:
+4.  Nella finestra di dialogo **Aggiungi nuovo progetto di ruolo** fare clic su **Ruolo di lavoro con coda del bus di servizio**.
 
 	![][23]
 
 5.  Nella casella **Name** assegnare il nome **OrderProcessingRole** al progetto. Fare quindi clic su **Aggiungi**.
 
-6.  In Esplora server fare clic con il pulsante destro del mouse sul nome del proprio spazio dei nomi del servizio, quindi scegliere **Proprietà**. Nel riquadro **Proprietà** di Visual Studio la prima voce contiene una stringa di connessione popolata con l'endpoint dello spazio dei nomi che contiene le credenziali di autorizzazione necessarie. Vedere, ad esempio, la figura seguente: Fare doppio clic su **ConnectionString**, quindi premere **CTRL+C** per copiare questa stringa negli Appunti.
+6.  In **Esplora server** fare clic con il pulsante destro del mouse sul nome del proprio spazio dei nomi del servizio, quindi scegliere **Proprietà**. Nel riquadro **Proprietà** di Visual Studio la prima voce contiene una stringa di connessione popolata con l'endpoint dello spazio dei nomi che contiene le credenziali di autorizzazione necessarie. Nella schermata di seguito viene visualizzato un esempio. Fare doppio clic su **ConnectionString**, quindi premere **CTRL+C** per copiare questa stringa negli Appunti.
 
 	![][24]
 
-7.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul ruolo **OrderProcessingRole** creato nel passaggio 5. Verificare di aver fatto clic con il pulsante destro del mouse su **OrderProcessingRole** in **Roles**, non sulla classe. Fare quindi clic su **Proprietà**.
+7.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul ruolo **OrderProcessingRole** creato nel passaggio 5. Assicurarsi di fare clic con il pulsante destro del mouse su **OrderProcessingRole** in **Ruoli** e non sulla classe. Fare quindi clic su **Proprietà**.
 
 8.  Nella scheda **Impostazioni** della finestra di dialogo **Proprietà** posizionare il cursore all'interno della casella **Valore** per **Microsoft.ServiceBus.ConnectionString**, quindi incollare il valore dell'endpoint copiato al passaggio 6.
 
 	![][25]
 
-9.  Creare una classe **OnlineOrder** che rappresenti gli ordini elaborati dalla coda. È possibile riutilizzare una classe creata in precedenza. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **OrderProcessingRole**. È necessario fare clic con il pulsante destro del mouse sul progetto, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Elemento esistente**.
+9.  Creare una classe **OnlineOrder** che rappresenti gli ordini elaborati dalla coda. È possibile riutilizzare una classe creata in precedenza. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **OrderProcessingRole**. È necessario fare clic con il pulsante destro del mouse sul progetto, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Elemento esistente**.
 
 10. Selezionare la sottocartella per **FrontendWebRole\\Models** e fare doppio clic su **OnlineOrder.cs** per aggiungerlo al progetto corrente.
 
-11. In WorkerRole.cs modificare il valore della variabile **QueueName** in **WorkerRole.cs** da `"ProcessingQueue"` a `"OrdersQueue"` come nel codice seguente:
+11. In WorkerRole.cs modificare il valore della variabile **QueueName** in **WorkerRole.cs** da `"ProcessingQueue"` a `"OrdersQueue"` come indicato nel codice seguente.
 
-		// The name of your queue
+		// The name of your queue.
 		const string QueueName = "OrdersQueue";
 
-12. Aggiungere l'istruzione using seguente all'inizio del file WorkerRole.cs:
+12. Aggiungere l'istruzione using seguente all'inizio del file WorkerRole.cs.
 
 		using FrontendWebRole.Models;
 
 13. Nella funzione `Run()`, all'interno della chiamata `OnMessage`, aggiungere il codice seguente nella clausola `try`:
 
 		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-		// View the message as an OnlineOrder
+		// View the message as an OnlineOrder.
 		OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
 		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 		receivedMessage.Complete();
@@ -491,20 +491,20 @@ Per implementare l'applicazione creata in questa esercitazione come progetto Web
 
 3. È possibile verificare separatamente il front-end e il back-end oppure eseguirli simultaneamente in istanze distinte di Visual Studio.
 
-Per informazioni su come distribuire il front-end in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Per informazioni su come distribuire il back-end in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][mutitierstorage].
+Per informazioni su come distribuire il front-end in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Per informazioni su come distribuire il back-end in un servizio cloud di Azure, vedere [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione][mutitierstorage].
 
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
+  [sbqueuecomparison]: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
 
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [portale di gestione di Azure]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
+  [portale di Azure]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -534,9 +534,8 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
-  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
-  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
-  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
- 
+  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
+  [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

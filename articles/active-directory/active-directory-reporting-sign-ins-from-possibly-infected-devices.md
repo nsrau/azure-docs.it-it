@@ -3,8 +3,8 @@
 	description="Un report che include i tentativi di accesso che sono stati effettuati da dispositivi in cui potrebbe essere in esecuzione un software dannoso (malware)."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Accessi da dispositivi potenzialmente infetti
 
@@ -24,4 +24,4 @@
 
 ![Accessi da dispositivi potenzialmente infetti](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

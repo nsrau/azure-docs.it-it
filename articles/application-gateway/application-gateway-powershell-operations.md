@@ -1,32 +1,32 @@
-<properties 
+<properties
    pageTitle="Creare, avviare o eliminare un gateway applicazione | Microsoft Azure"
-   description="Questa pagina fornisce istruzioni per la creazione, la configurazione, l'avvio e l'eliminazione di un gateway applicazione di Azure."
+   description="Creare, configurare, avviare ed eliminare un gateway applicazione di Azure"
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
    manager="jdial"
    editor="tysonn"/>
-<tags 
+<tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="06/30/2015"
    ms.author="joaoma"/>
 
 # Creare, avviare o eliminare un gateway applicazione
 
-In questa versione è possibile creare un gateway applicazione usando PowerShell o le chiamate API REST. Il supporto per il portale e per CLI sarà disponibile in una versione futura. Questo articolo illustra in modo dettagliato i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
+In questa versione è possibile creare un gateway applicazione usando PowerShell o le chiamate API REST. Il supporto per il portale di Azure e per l'interfaccia della riga di comando sarà disponibile in una versione futura. Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
 2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida.
-3. Assicurasi di avere server back-end nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
+3. Assicurasi di avere server back-end nella rete virtuale oppure con assegnato un indirizzo IP/VIP pubblico.
 
 
-Per creare un nuovo gateway applicazione, eseguire i passaggi seguenti nell'ordine indicato.
+Per creare un nuovo gateway applicazione, seguire questa procedura nell'ordine indicato.
 
 1. [Creare un nuovo gateway applicazione](#create-a-new-application-gateway)
 2. [Configurare il gateway](#configure-the-gateway)
@@ -34,23 +34,23 @@ Per creare un nuovo gateway applicazione, eseguire i passaggi seguenti nell'ordi
 4. [Avviare il gateway](#start-the-gateway)
 4. [Verificare lo stato del gateway](#verify-the-gateway-status)
 
-Per eliminare un gateway applicazione, passare a [Eliminare un gateway applicazione](#delete-an-application-gateway).
+Per eliminare un gateway applicazione, vedere [Eliminare un gateway applicazione](#delete-an-application-gateway).
 
 ## Creare un nuovo gateway applicazione
 
-**Per creare il gateway**, usare il cmdlet `New-AzureApplicationGateway`, sostituendo i valori con quelli personalizzati. Si noti che la fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
+Per creare il gateway, usare il cmdlet `New-AzureApplicationGateway`, sostituendo i valori esistenti con quelli personalizzati. Si noti che la fatturazione per il gateway non viene applicata a partire da questo punto. La fatturazione viene applicata a partire da un passaggio successivo, dopo l'avvio corretto del gateway.
 
-Questo esempio illustra il cmdlet nella prima riga seguito dall'output.
-    
+Questo esempio mostra il cmdlet sulla prima riga seguito dall'output.
+
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
+	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
-**Per convalidare** la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
+Per convalidare la creazione del gateway, è possibile usare il cmdlet `Get-AzureApplicationGateway`.
 
 In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi. Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. Small e Large sono altri valori disponibili. *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
 
@@ -59,7 +59,7 @@ In questo esempio, *Description*, *InstanceCount* e *GatewaySize* sono parametri
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
-	Description   : 
+	Description   :
 	VnetName      : testvnet1
 	Subnets       : {Subnet-1}
 	InstanceCount : 2
@@ -75,13 +75,13 @@ La configurazione di un gateway applicazione è costituita da più valori. È po
 
 I valori possibili sono:
 
-- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet VNet o devono essere indirizzi IP/VIP pubblici. 
-- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
-- **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
+- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet VNet o devono essere indirizzi IP/VIP pubblici.
+- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Porta front-end:** è la porta pubblica aperta nel gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+- **Regola:** associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
-È possibile definire la configurazione creando un oggetto di configurazione oppure usando un file XML di configurazione. Per definire la configurazione mediante un file XML di configurazione, usare l'esempio seguente.
+È possibile definire la configurazione creando un oggetto di configurazione oppure usando un file XML di configurazione. Per creare la configurazione tramite un file XML di configurazione, usare l'esempio seguente.
 
  **Esempio di file XML di configurazione**
 
@@ -130,92 +130,92 @@ I valori possibili sono:
 
 ## Definire la configurazione del gateway
 
-Verrà quindi configurato il gateway applicazione. È possibile usare il cmdlet `Set-AzureApplicationGatewayConfig` con un oggetto di configurazione o con un file XML di configurazione.
+Si configurerà ora il gateway applicazione. È possibile usare il cmdlet `Set-AzureApplicationGatewayConfig` con un oggetto di configurazione o con un file XML di configurazione.
 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
+	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 
 ## Avviare il gateway
 
-Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
+Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione viene applicata a partire dall'avvio corretto del gateway.
 
 
-**Nota:** il completamento del cmdlet `Start-AzureApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
+> [AZURE.NOTE]Il completamento del cmdlet `Start-AzureApplicationGateway` potrebbe richiedere fino a 15-20 minuti.
 
 
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
+	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
 ## Verificare lo stato del gateway
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se *Start-AzureApplicationGateway* ha avuto esito positivo nel passaggio precedente, lo stato dovrebbe essere *In esecuzione* e i valori di Vip e DnsName dovrebbero essere validi.
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'azione *Start-AzureApplicationGateway* è riuscita, lo stato dovrebbe essere *In esecuzione* e le voci per l'indirizzo VIP e DnsName dovrebbero essere valide.
 
 Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico destinato a `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
+	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
-	Description   : 
-	VnetName      : testvnet1 
-	Subnets       : {Subnet-1} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
+	Name          : AppGwTest
+	Description   :
+	VnetName      : testvnet1
+	Subnets       : {Subnet-1}
+	InstanceCount : 2
+	GatewaySize   : Medium
+	State         : Running
+	Vip           : 138.91.170.26
 	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
 
 ## Eliminare un gateway applicazione
 
-Per eliminare un gateway applicazione, sarà necessario eseguire i passaggi seguenti nell'ordine indicato:
+Per eliminare un gateway applicazione:
 
-1. Usare il cmdlet `Stop-AzureApplicationGateway` per arrestare il gateway. 
+1. Usare il cmdlet `Stop-AzureApplicationGateway` per arrestare il gateway.
 2. Usare il cmdlet `Remove-AzureApplicationGateway` per rimuovere il gateway.
 3. Assicurarsi che il gateway sia stato rimosso usando il cmdlet `Get-AzureApplicationGateway`.
 
-Questo esempio illustra il cmdlet `Stop-AzureApplicationGateway` nella prima riga seguito dall'output.
+L'esempio seguente mostra il cmdlet `Stop-AzureApplicationGateway` sulla prima riga seguito dall'output.
 
-	PS C:\> Stop-AzureApplicationGateway AppGwTest 
+	PS C:\> Stop-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
+	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
 Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet `Remove-AzureApplicationGateway` per rimuovere il servizio.
 
 
-	PS C:\> Remove-AzureApplicationGateway AppGwTest 
+	PS C:\> Remove-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
+	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `Get-AzureApplicationGateway`. Questo passaggio non è obbligatorio.
 
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
+	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist. 
+	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 	.....
 
 ## Passaggi successivi
@@ -229,4 +229,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

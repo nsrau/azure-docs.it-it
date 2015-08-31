@@ -1,23 +1,21 @@
 <properties
 	pageTitle="Introduzione a un emulatore di Hadoop per HDInsight | Microsoft Azure"
 	description="Utilizzare un emulatore installato con un'esercitazione MapReduce e altri esempi per informazioni sull'ecosistema di Hadoop. L’emulatore di HDInsight funziona come un ambiente sandbox di Hadoop."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
 	authors="nitinme"
-	documentationCenter=""/>
-
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="05/07/2015"
+	ms.topic="article" 
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
-
 
 # Introduzione all’ecosistema Hadoop con HDInsight Emulator, un ambiente sandbox Hadoop
 
@@ -198,7 +196,7 @@ I dati di esempio sono organizzati in base agli scenari di elaborazione dei dati
 
 ###<a name="scenarios"></a>Scenari relativi ai dati di log IIS W3C
 
-Lo scenario W3C permette di generare e importare dati di log IIS W3C in HDFS o nell'archivio BLOB di Azure in tre dimensioni diverse: 1 MB (piccola), 500 MB (media) e 2 GB (grande). Include tre tipi di processo e consente di implementarli in C#, Java, Pig e Hive.
+Lo scenario W3C permette di generare e importare dati di log IIS W3C in HDFS o nell'archivio BLOB di Azure in tre dimensioni diverse: 1 MB (piccola), 500 MB (media) e 2 GB (grande). Include tre tipi di processo e consente di implementarli in C\#, Java, Pig e Hive.
 
 - **totalhits**: calcola il numero totale di richieste per una pagina specifica.
 - **avgtime**: calcola il tempo medio (in secondi) impiegato per una richiesta per ogni pagina.
@@ -243,7 +241,7 @@ Il file di dati è stato creato e importato in HDFS. È possibile iniziare a ese
 
 ###<a name="javamapreduce"></a> Eseguire processi MapReduce Java
 
-MapReduce è il motore di calcolo di base per Hadoop. Per impostazione predefinita, viene implementato in Java, ma sono disponibili anche esempi che si avvalgono di .NET ed esempi di streaming Hadoop in C#. La sintassi per l'esecuzione di un processo MapReduce è la seguente:
+MapReduce è il motore di calcolo di base per Hadoop. Per impostazione predefinita, viene implementato in Java, ma sono disponibili anche esempi che si avvalgono di .NET ed esempi di streaming Hadoop in C\#. La sintassi per l'esecuzione di un processo MapReduce è la seguente:
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -398,13 +396,17 @@ Prima di iniziare con le istruzioni riportate di seguito è necessario aver crea
 
 **Per creare un contenitore**
 
-1. Accedere al [portale di Azure][azure-management-portal].
-2. Fare clic su **ARCHIVIAZIONE** a sinistra. Verrà visualizzato un elenco degli account di archiviazione disponibili nella sottoscrizione.
-3. Selezionare nell'elenco l'account di archiviazione in cui si desidera creare il contenitore.
-4. Fare clic su **CONTENITORI** nella parte superiore della pagina.
-5. Fare clic su **AGGIUNGI** nella parte inferiore della pagina.
-6. Immettere un valore per **NOME** e selezionare **ACCESSO**. È possibile usare uno qualsiasi dei tre livelli di accesso. Il valore predefinito è **Privato**.
-7. Fare clic su **OK** per salvare le modifiche. Il nuovo contenitore è ora elencato nel portale.
+1. Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
+2. Fare clic su **NUOVO** a sinistra, fare clic su **Dati + archiviazione**, quindi fare clic su **Archiviazione**.
+3. Nel pannello Account di archiviazione, configurare le proprietà come illustrato nella schermata riportata di seguito.
+	
+	![Creare un account di archiviazione](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
+
+	Selezionare **Aggiungi alla schermata iniziale**, quindi scegliere **Crea**.
+4. Una volta creato l'account di archiviazione, dal pannello del nuovo account di archiviazione, fare clic su **Contenitori** per aprire il pannello di contenitori e fare clic su **Aggiungi**.
+5. Immettere il nome del contenitore e quindi fare clic su **Seleziona**.
+
+	![Creare un contenitore](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
 Prima di accedere all'account di archiviazione di Azure è necessario aggiungere il nome dell'account e la chiave dell'account al file di configurazione.
 
@@ -465,7 +467,7 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 
 - [Introduzione all'uso di Azure HDInsight](../hdinsight-get-started.md)
 - [Sviluppare programmi MapReduce Java per HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Sviluppare programmi MapReduce di streaming Hadoop in C# per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [Sviluppare programmi MapReduce di streaming Hadoop in C#per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Note sulla versione di HDInsight Emulator](hdinsight-emulator-release-notes.md)
 - [Forum MSDN relativo a HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -495,4 +497,4 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

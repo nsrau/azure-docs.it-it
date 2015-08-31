@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Aggiornare l'ambiente di sviluppo di Service Fabric"
+   pageTitle="Aggiornare l'ambiente di sviluppo di Service Fabric | Microsoft Azure"
    description="Aggiornare l'ambiente di sviluppo di Service Fabric per utilizzare il runtime, l’SDK e gli strumenti più recenti."
    services="service-fabric"
    documentationCenter=".net"
@@ -45,7 +45,7 @@
 
  2. Al termine, avviare una nuova finestra di PowerShell come amministratore e passare alla directory di installazione del cluster con `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
 
- 3. Eseguire la pulizia di `.\DevClusterSetup.ps1` per configurare il cluster locale
+ 3. Eseguire `.\DevClusterSetup.ps1` per configurare il cluster locale.
 
 L'operazione è terminata. È ora possibile avviare Visual Studio e continuare la compilazione delle applicazioni di Service Fabric.
 
@@ -53,4 +53,4 @@ L'operazione è terminata. È ora possibile avviare Visual Studio e continuare l
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

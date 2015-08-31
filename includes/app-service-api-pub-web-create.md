@@ -25,12 +25,10 @@
 
 	Poiché questo processo può richiedere alcuni minuti, Visual Studio visualizza una finestra di conferma.
 
-	![Messaggio di conferma dell'inizio della creazione del servizio API](./media/app-service-api-pub-web-create/25-api-provisioning-started-v3.png)
-
 6. Fare clic su **OK** nella finestra di conferma.
  
 	Il processo di provisioning crea il gruppo di risorse e l'app per le API nella sottoscrizione di Azure. Visual Studio mostra l'avanzamento nella finestra **Attività del servizio app di Azure**.
 
 	![Notifica sullo stato tramite la finestra Attività del servizio app di Azure](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Accessi da più aree geografiche"
-	description="Un report che indica agli utenti laddove due accessi avere avuto luogo da diverse aree e l’intervallo tra i due accessi fa sì che sia impossibile che l'utente si sia spostato tra tali aree.""
+	description="Report che segnala agli utenti situazioni in cui due accessi sembrano provenire da diverse aree, ma dato il tempo intercorso tra gli accessi non è possibile che l'utente si sia spostato da un'area all'altra."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Accessi da più aree geografiche
 
@@ -24,4 +24,4 @@
 
 ![Accessi da più aree geografiche](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -55,12 +55,9 @@ Per interrompere il flusso in modo permanente, eliminare l'esportazione. Questa 
 
 ## <a name="analyze"></a> Quali eventi si ottengono?
 
-I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, ad eccezione di quanto segue:
+I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, tranne che per l'aggiunta di dati del percorso calcolati dall'indirizzo IP del client.
 
-* I risultati dei test Web non sono attualmente inclusi. 
-* È possibile aggiungere dati del percorso che vengono calcolati dall'indirizzo IP del client.  
-
-Le metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati a partire dai quali viene calcolata la media.
+Le altre metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati a partire dai quali viene calcolata la media.
 
 ## <a name="get"></a> Esaminare i dati
 
@@ -85,7 +82,7 @@ Gli intervalli di tempo sono espressi in tick, dove 10 000 tick = 1 ms. Questi v
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](app-insights-export-data-model.md)
 
 ## Elaborazione dei dati
 
@@ -185,6 +182,13 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
     Sì. Fare clic su Disabilita.
 
+## Esempi di codice
+
+* [Flusso da Application Insights a Power BI](app-insights-export-power-bi.md)
+* [Analizzare un documento JSON esportato con un ruolo di lavoro][exportcode]
+* [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
+
+* [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
@@ -194,4 +198,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

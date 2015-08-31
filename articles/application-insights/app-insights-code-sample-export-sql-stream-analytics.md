@@ -161,6 +161,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
+In questo esempio vengono usati i dati delle visualizzazioni pagina. Per visualizzare gli altri dati disponibili, esaminare l'output JSON e vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
+
 ## Creare un'istanza di analisi di flusso di Azure
 
 Nel [portale di Azure classico](https://manage.windowsazure.com/) selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
@@ -200,7 +202,7 @@ Esempio:
 
 * `webapplication27` è il nome della risorsa di Application Insights. 
 * `1000...` è la chiave di strumentazione della risorsa di Application Insights. 
-* `PageViews` è il tipo di dati da analizzare. I tipi disponibili dipendono dal filtro impostato nell'esportazione continua. Esaminare i dati esportati per vedere gli altri tipi disponibili.
+* `PageViews` è il tipo di dati da analizzare. I tipi disponibili dipendono dal filtro impostato nell'esportazione continua. Esaminare i dati esportati per vedere gli altri tipi disponibili e vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
 * `/{date}/{time}` è uno schema scritto letteralmente.
 
 Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
@@ -305,4 +307,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

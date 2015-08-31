@@ -1,23 +1,20 @@
-<properties 
-	pageTitle="Amministrare la directory di Azure AD" 
-	description="Argomento che illustra il significato di tenant di Azure AD e come gestire una directory di Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Amministrare la directory di Azure AD"
+	description="Argomento che illustra il significato di tenant di Azure AD e come gestire una directory di Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="Markusvi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
-
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="05/05/2015"
+	ms.author="markvi"/>
 
 # Amministrare la directory di Azure AD
 
@@ -100,17 +97,17 @@ Quando si apporta una modifica ai dati dell'organizzazione usando uno dei portal
 
 È possibile gestire ogni directory come una risorsa completamente indipendente. Ciascuna directory è infatti un peer con funzionalità complete e indipendente dal punto di vista logico dalle altre directory gestite. Non vi è alcuna relazione padre-figlio tra le directory. Questa indipendenza tra le directory include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione.
 
-- **Indipendenza delle risorse**. Se si crea o si elimina una risorsa in una directory, ciò non influisce sulle risorse contenute in un'altra directory, con l'eccezione parziale degli utenti esterni, come spiegato più avanti. Se si usa un dominio personalizzato "contoso.com" con una directory, non è possibile usarlo con altre directory. 
-- **Indipendenza amministrativa**. Se un utente non amministratore della directory "Contoso" crea una directory di test denominata "Test", si verifica quanto segue: 
-    - ◦Strumento di sincronizzazione directory, per sincronizzare i dati con una singola foresta AD. 
-    - ◦Gli amministratori della directory "Contoso" non dispongono di privilegi amministrativi diretti per la directory "Test" se tali privilegi non vengono loro concessi specificamente da un amministratore di "Test". Gli amministratori di "Contoso" possono controllare l'accesso alla directory "Test" grazie al controllo di cui dispongono sull'account utente che ha creato "Test". 
+- **Indipendenza delle risorse**. Se si crea o si elimina una risorsa in una directory, ciò non influisce sulle risorse contenute in un'altra directory, con l'eccezione parziale degli utenti esterni, come spiegato più avanti. Se si usa un dominio personalizzato "contoso.com" con una directory, non è possibile usarlo con altre directory.
+- **Indipendenza amministrativa**. Se un utente non amministratore della directory "Contoso" crea una directory di test denominata "Test", si verifica quanto segue:
+    - ◦Strumento di sincronizzazione directory, per sincronizzare i dati con una singola foresta AD.
+    - ◦Gli amministratori della directory "Contoso" non dispongono di privilegi amministrativi diretti per la directory "Test" se tali privilegi non vengono loro concessi specificamente da un amministratore di "Test". Gli amministratori di "Contoso" possono controllare l'accesso alla directory "Test" grazie al controllo di cui dispongono sull'account utente che ha creato "Test".
 
     Se inoltre si cambia, ovvero si aggiunge o si rimuove, un ruolo di amministratore per un utente in una directory, la modifica non incide sul ruolo di amministratore che l'utente può avere in un'altra directory.
 
 
 - **Indipendenza della sincronizzazione**. È possibile configurare ogni implementazione di Azure AD in modo indipendente per sincronizzare i dati da una singola istanza di uno degli elementi seguenti:
     - ◦Strumento di sincronizzazione directory, per sincronizzare i dati con una singola foresta AD
-    - Connettore di Azure Active Directory per Forefront Identity Manager, per sincronizzare i dati con una o più foreste locali e/o origini dati non AD. 
+    - Connettore di Azure Active Directory per Forefront Identity Manager, per sincronizzare i dati con una o più foreste locali e/o origini dati non AD.
 
 Si noti, inoltre, che a differenza di altre risorse di Azure, le proprie directory non sono risorse figlio di una sottoscrizione di Azure. Se pertanto si annulla o si lascia scadere la propria sottoscrizione di Azure, sarà comunque possibile accedere ai dati delle directory mediante Azure AD PowerShell, l'API Graph di Azure o altre interfacce come l'interfaccia di amministrazione di Office 365. È anche possibile associare un'altra sottoscrizione alla directory.
 
@@ -126,8 +123,8 @@ Azure AD richiede che vengano soddisfatte determinate condizioni per eliminare u
 Viene verificato che siano soddisfatte le condizioni seguenti:
 
 - L'unico utente presente nella directory deve essere l'amministratore globale che eliminerà la directory. Tutti gli altri utenti devono essere eliminati prima che possa essere eliminata la directory. Se gli utenti vengono sincronizzati dall'ambiente locale, sarà necessario disattivare la sincronizzazione e gli utenti devono essere eliminati nella directory cloud mediante il portale di gestione o il modulo di Azure per Windows PowerShell. Non è necessario eliminare gruppi o contatti, ad esempio i contatti aggiunti dall'interfaccia di amministrazione di Office 365.
-- La directory non può contenere applicazioni. Tutte le applicazioni devono essere eliminate prima che possa essere eliminata la directory. 
-- Alla directory non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata una directory predefinita, non è possibile eliminare la directory se la propria sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare una directory se la sottoscrizione di un altro utente è associata a tale directory. Per associare la sottoscrizione a una directory diversa, accedere al portale di gestione di Azure e fare clic su **Impostazioni** nel pannello di navigazione a sinistra. Nella parte inferiore della pagina **Sottoscrizioni** fare quindi clic su **Modifica directory**. Per altre informazioni sulle sottoscrizioni Azure, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md). 
+- La directory non può contenere applicazioni. Tutte le applicazioni devono essere eliminate prima che possa essere eliminata la directory.
+- Alla directory non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata una directory predefinita, non è possibile eliminare la directory se la propria sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare una directory se la sottoscrizione di un altro utente è associata a tale directory. Per associare la sottoscrizione a una directory diversa, accedere al portale di gestione di Azure e fare clic su **Impostazioni** nel pannello di navigazione a sinistra. Nella parte inferiore della pagina **Sottoscrizioni** fare quindi clic su **Modifica directory**. Per altre informazioni sulle sottoscrizioni Azure, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
     > [AZURE.NOTE]Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
 
@@ -147,7 +144,4 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

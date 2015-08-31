@@ -189,6 +189,10 @@ Per altre informazioni sui limiti di Database SQL, vedere gli argomenti seguenti
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
+## Limiti di Application Insights
+
+[AZURE.INCLUDE [limiti di application-insights](../includes/application-insights-limits.md)]
+
 ## Limiti relativi a Gestione API
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
@@ -210,4 +214,4 @@ Per altre informazioni sui limiti di Database SQL, vedere gli argomenti seguenti
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->
