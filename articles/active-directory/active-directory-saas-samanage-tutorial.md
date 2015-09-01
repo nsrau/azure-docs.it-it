@@ -51,8 +51,8 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![Samanage](./media/active-directory-saas-samanage-tutorial/IC771708.png "Samanage")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Samanage tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Samanage tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
 Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
@@ -149,4 +149,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!------HONumber=August15_HO7-->
+<!-------HONumber=August15_HO7-->

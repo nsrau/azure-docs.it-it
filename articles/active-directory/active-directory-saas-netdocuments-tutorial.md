@@ -51,8 +51,8 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a NetDocuments tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.
-La configurazione dell'accesso Single Sign-On per NetDocuments richiede di recuperare un valore di identificazione personale da un certificato.
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a NetDocuments tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.  
+La configurazione dell'accesso Single Sign-On per NetDocuments richiede di recuperare un valore di identificazione personale da un certificato.  
 Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
@@ -145,4 +145,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!------HONumber=August15_HO7-->
+<!-------HONumber=August15_HO7-->

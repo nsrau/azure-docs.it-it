@@ -480,7 +480,6 @@ Per informazioni dettagliate sugli elementi JSON per la definizione di una pipel
 
 ## Vedere anche
 
-- [Copiare i dati con Data factory di Azure][adf-copyactivity]
 - [Attività di copia - Informazioni di riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Video: Introduzione all'attività di copia con Data factory di Azure][copy-activity-video]
 
@@ -488,4 +487,4 @@ Per informazioni dettagliate sugli elementi JSON per la definizione di una pipel
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
