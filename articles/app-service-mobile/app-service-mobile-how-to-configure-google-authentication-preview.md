@@ -33,7 +33,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 
 3. Passare al sito Web delle <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">API di Google</a>, accedere con le credenziali dell'account Google, fare clic su **Create Project**, specificare un valore in **Project name**, quindi fare clic su **Create**.
 
-4. Nella barra di spostamento a sinistra fare clic su **API & Auth**. Fare clic su **Consent screen**. Selezionare il proprio indirizzo in **Email Address**, quindi immettere un nome prodotto in **Product Name**. Fare quindi clic su **Salva**.
+4. Nella barra di spostamento a sinistra fare clic su **API & Auth**. Fare clic su **Consent screen**. Selezionare il proprio indirizzo in **Email Address**, quindi immettere un nome prodotto in **Product Name**. Fare quindi clic su **Save**.
 
 5. In **API & Auth** selezionare anche **APIs** e abilitare **Google+ API**. Si trova in **Social APIs**. È anche possibile cercare **Google+ API**.
 
