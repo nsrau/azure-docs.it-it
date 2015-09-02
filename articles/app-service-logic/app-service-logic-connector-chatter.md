@@ -65,12 +65,23 @@ Dopo aver creato l'app per le API, è possibile usare Connettore Chatter come tr
 	![][7]
 5.	È ora possibile usare Chatter Connector nel flusso. È possibile usare il nuovo messaggio recuperato dal trigger di Chatter ("New Message") in altre azioni del flusso. Configurare le proprietà di input per il trigger Chatter nel modo indicato di seguito:
 
-**Group ID** - Inserire l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal Feed dell'Utente: ![][8] ![][9]
+**Group ID** - Inserire l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal Feed dell'Utente:  
+	![][8]
+	![][9]
 
 
-Allo stesso modo, è possibile usare l'azione Chatter "Post Message" nel flusso per inviare un messaggio. Configurare le proprietà di input per l'azione "Messaggio Post" nel modo indicato di seguito:-**Message Text**- contenuto di testo del messaggio da inviare -**Group ID**-specificare l'ID del gruppo in cui deve essere inviato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il messaggio verrà inviato al feed dell'utente. - **File Name**- nome del file da allegare a questo messaggio - **Content Data** - Dati di contenuto dell'allegato - **Content Type** - tipo di contenuto dell'allegato - **Content Transfer Encoding** - Codifica transfer del contenuto dell'allegato ("none"|"base64")-**Mentions** - L’array dei nomi dell'utente deve essere contrassegnato in questo messaggio -**Hashtags**- L’array di hashtags deve essere registrato nel messaggio
+Allo stesso modo, è possibile usare l'azione Chatter "Post Message" nel flusso per inviare un messaggio. Configurare le proprietà di input per l'azione "Messaggio Post" nel modo indicato di seguito:  
+	- **Message Text** - contenuto di testo del messaggio da inviare
+	- **Group ID** -specificare l'ID del gruppo in cui deve essere inviato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il messaggio verrà inviato al feed dell'utente.
+	- 	**File Name**- nome del file da allegare a questo messaggio
+	- 	**Content Data** - Dati di contenuto dell'allegato
+	- 	**Content Type** - tipo di contenuto dell'allegato
+	- 	**Content Transfer Encoding** - Codifica transfer del contenuto dell'allegato ("none"|"base64")
+	- 	**Mentions** - L’array dei nomi dell'utente deve essere contrassegnato in questo messaggio
+	- 	**Hashtags**- L’array di hashtags deve essere registrato nel messaggio  
 
-![][10] ![][11]
+![][10]
+![][11]
 
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
@@ -93,4 +104,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

@@ -106,22 +106,22 @@ Nel caso di ArcGIS, il provisioning è un'attività manuale.
 
 1.  Accedere al tenant **ArcGIS**.
 
-2.  Fare clic su **Invite Members**.
+2.  Fare clic su **Invita membri**.
 
     ![Invite Members](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members")
 
-3.  Selezionare **Add members automatically without sending an email** e quindi fare clic su **Next**.
+3.  Selezionare **Aggiungi membri automaticamente senza inviare un'e-mail** e quindi fare clic su **Avanti**.
 
     ![Add Members Automatically](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Add Members Automatically")
 
-4.  Nella finestra di dialogo **Members** seguire questa procedura:
+4.  Nella finestra di dialogo **membri** seguire questa procedura:
 
     ![Add and review](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Add and review")
 
-    1.  Nelle caselle di testo **First Name**, **Last Name** e **Email** digitare nome, cognome e indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
+    1.  Nelle caselle di testo **Nome**, **Cognome** e **Email** digitare nome, cognome e indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Add And Review**.
 
-5.  Verificare i dati immessi e quindi fare clic su **Add Members**.
+5.  Verificare i dati immessi e quindi fare clic su **Aggiungi membri**.
 
     ![Add member](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Add member")
 
@@ -145,4 +145,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

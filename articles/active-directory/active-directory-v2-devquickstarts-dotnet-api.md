@@ -34,28 +34,29 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-The completed app is provided at the end of this tutorial as well.
+L'app completa viene inoltre fornita alla fine di questa esercitazione.
+
+## 1. Registrare un'app
+
+Creare una nuova app [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questi [passaggi dettagliati] (active-directory-v2-app-registration.md).  Assicurarsi di:
+
+- Copiare l'**ID applicazione** assegnato all'app; sarà necessario a breve.
+
+Questa soluzione di Visual Studio contiene anche una "TodoListClient", che è una semplice applicazione WPF.  L'applicazione TodoListClient viene utilizzata per dimostrare il modo in cui effettua l'accesso un utente e il modo in cui un client può emettere richieste per le API Web.  In questo caso, sia l'applicazione TodoListClient che TodoListService sono rappresentate dalla stessa applicazione.  Per configurare l'applicazione TodoListClient, inoltre, è necessario:
+
+- Aggiungere la piattaforma **mobile** per l'app.
+- Copiare l'**URI di reindirizzamento** dal portale. È necessario utilizzare il valore predefinito `urn:ietf:wg:oauth:2,0 :oob`.
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 2. Impostare l'app per l'utilizzo della pipeline di autenticazione OWIN
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
+Ora che è stata registrata un'app, è necessario impostarla per comunicare con l'endpoint v2.0 endpoint per convalidare le richieste in arrivo e i token.
 
-This visual studio solution also contains a "TodoListClient", which is a simple WPF app.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same app.  To configure the TodoListClient, you should also:
-
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
-
-
-## 2. Set up your app to use the OWIN authentication pipeline
-
-Now that you’ve registered an app, you need to set up your app to communicate with the v2.0 endpoint in order to validate incoming requests & tokens.
-
--	To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.
+-	Innanzitutto aprire la soluzione e aggiungere i pacchetti NuGet del middleware OWIN al progetto TodoListService usando la console di Gestione pacchetti
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService ```
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+```
 
 -	Aggiungere al progetto TodoListService una OWIN Startup Class denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> Cercare "OWIN". Il middleware OWIN richiamerà il metodo `Configuration(…)` all'avvio dell'app.
 -	Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Nel metodo `Configuration(…)` eseguire una chiamata a ConfigureAuth(...) per configurare l'autenticazione per l'app Web.
@@ -155,4 +156,4 @@ Come riferimento [è disponibile qui l'esempio completato (senza i valori di con
 
 Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
