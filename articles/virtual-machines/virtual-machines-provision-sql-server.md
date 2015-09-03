@@ -70,7 +70,7 @@ Per le informazioni più aggiornate sulle immagini di SQL Server supportate in A
 	- Nella casella **Servizio cloud** scegliere **Crea un nuovo servizio cloud**.
 	- Nella casella **Nome DNS del servizio cloud** specificare la prima parte del nome DNS desiderato, in modo che completi un nome nel formato **TESTNAME.cloudapp.net**. 
 	- Selezionare una **SOTTOSCRIZIONE** se sono presenti più sottoscrizioni. La scelta determina quali **account di archiviazione** saranno disponibili.
-- Nella casella **AREA/SET DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
+	- Nella casella **AREA/SET DI AFFINITÀ/RETE VIRTUALE** selezionare l'area in cui verrà ospitata l'immagine virtuale.
 	- Nella casella **Account di archiviazione** generare automaticamente un account o selezionarne uno dall'elenco. Modificare la **SOTTOSCRIZIONE** per visualizzare altri account. 
 	- Nella casella **SET DI DISPONIBILITÀ** selezionare **(none)**.
 	- Leggere e accettare le note legali.
@@ -150,4 +150,4 @@ Oltre a queste risorse, si consiglia di rivedere [ altri argomenti relativi all'
 
 - [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn574746.aspx)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

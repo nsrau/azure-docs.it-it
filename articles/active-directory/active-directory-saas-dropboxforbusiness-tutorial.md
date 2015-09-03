@@ -94,7 +94,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
      5\.2. Nella finestra di dialogo **Configura accesso Single Sign-On in Dropbox for Business** del portale di Azure copiare il valore di **URL pagina di accesso** e quindi incollarlo nella casella di testo **Sign in URL**.
 
 
-     5\.3. Creare un file con **codifica Base 64** dal certificato scaricato.[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+     5\.3. Creare un file con **codifica Base 64** dal certificato scaricato. > [AZURE.TIP] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 
      5\.4. Fare clic su **Choose certificate** e quindi selezionare il **file di certificato con codifica Base 64**.
@@ -173,4 +173,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

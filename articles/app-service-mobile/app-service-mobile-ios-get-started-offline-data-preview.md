@@ -162,7 +162,9 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | id | Stringa, contrassegnata come obbligatoria | chiave primaria nell'archivio remoto |
     | complete | Boolean | campo elemento ToDo |
     | text | String | campo elemento ToDo |
-    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | | ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
+    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | 
+	| ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | 
+	| ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
 
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
@@ -250,4 +252,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

@@ -27,7 +27,8 @@ Per connettersi e registrarsi al servizio Operational Insights, Microsoft Monito
 
 |**Risorsa agente**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Porta 443| |*.oms.opinsights.azure.com|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443|
+|*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net/*|Porta 443|
 
@@ -93,22 +94,29 @@ Le tabelle seguenti elencano le porte associate a queste attività.
 
 |**Risorsa agente**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Porta 443| |*.oms.opinsights.azure.com|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443|
+|*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net/*|Porta 443|
 
 |**Risorsa del server di gestione**|**Porte**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Porta 443| |service.systemcenteradvisor.com|Porta 443| |scadvisor.accesscontrol.windows.net|Porta 443| |scadvisorservice.accesscontrol.windows.net|Porta 443| |*.blob.core.windows.net/*|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443|
+|service.systemcenteradvisor.com|Porta 443|
+|scadvisor.accesscontrol.windows.net|Porta 443|
+|scadvisorservice.accesscontrol.windows.net|Porta 443|
+|*.blob.core.windows.net/*|Porta 443|
 |data.systemcenteradvisor.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
-|**.systemcenteradvisor.com|Porta 443|
+|*.systemcenteradvisor.com|Porta 443|
 
 
 |**Risorsa della console di Operational Insights e Operations Manager**|**Porte**|
 |---|---|
-|*.systemcenteradvisor.com|Porte 80 e 443| |*.live.com|Porte 80 e 443|
-|**.microsoftonline.com|Porte 80 e 443| |login.windows.net|Porte 80 e 443|
+|*.systemcenteradvisor.com|Porta 80 and 443|
+|*.live.com|Porta 80 and 443|
+|*.microsoftonline.com|Porta 80 and 443|
+|login.windows.net|Porta 80 and 443|
 
 
 Usare le procedure seguenti per registrare il gruppo di gestione di Operations Manager con il servizio Operational Insights. Se si verificano problemi di comunicazione tra il gruppo di gestione e il servizio Operational Insights, usare le procedure di convalida per risolvere i problemi relativi alla trasmissione dei dati al servizio Operational Insights.
@@ -166,4 +174,4 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 3. Aggiungere tutti i contatori che iniziano con **HTTP**. ![Aggiungi contatori](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se la configurazione di Operations Manager è valida, verrà visualizzata l'attività dei contatori di gestione Servizio integrità per gli eventi e altri elementi di dati in base ai Management Pack aggiunti a Operational Insights e ai criteri di raccolta del log configurati. ![Attività di Monitoraggio prestazioni](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

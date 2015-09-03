@@ -138,7 +138,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
      11\.4. Per **Format** selezionare **PEM**.
 
-     11\.5. Creare un file con codifica Base 64 dal certificato scaricato. >[AZURE.NOTE]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+     11\.5. Creare un file con codifica Base 64 dal certificato scaricato.  > [AZURE.NOTE] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
      11\.6. Nel **Blocco note** aprire il file con codifica Base 64 file e quindi copiarne il contenuto negli Appunti.
 
@@ -213,4 +213,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
