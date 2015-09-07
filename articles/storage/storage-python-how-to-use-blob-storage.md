@@ -3,7 +3,7 @@
 	description="Informazioni su come usare il servizio BLOB di Azure da Python per caricare, elencare, scaricare, elencare ed eliminare BLOB."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # Come usare l'archiviazione BLOB di Azure da Python
 
@@ -22,7 +22,7 @@
 
 ## Panoramica
 
-In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB. Gli esempi sono scritti in Python e usano il [pacchetto Python di Azure][]. Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB.
+In questo articolo verranno illustrati diversi scenari comuni di uso del servizio di archiviazione BLOB. Gli esempi sono scritti in Python e utilizzano il [pacchetto di archiviazione Python di Azure][]. Gli scenari presentati includono caricamento, visualizzazione in elenchi, download ed eliminazione di BLOB.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -34,7 +34,7 @@ In questo articolo verranno illustrati diversi scenari comuni di uso del servizi
 
 L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice seguente consente di creare un oggetto **BlobService**. Aggiungere il codice seguente vicino all'inizio del file Python da cui si desidera accedere all'archiviazione di Azure a livello di codice:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 Il codice seguente consente di creare un oggetto **BlobService** utilizzando il nome dell'account di archiviazione e la chiave dell'account. Sostituire 'myaccount' e 'mykey' con l'account e la chiave reali.
 
@@ -112,5 +112,6 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
+[pacchetto di archiviazione Python di Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Gestire volumi StorSimple | Microsoft Azure"
-   description="Viene illustrato come aggiungere, modificare e monitorare i volumi StorSimple e come portarli offline."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Viene illustrato come aggiungere, modificare e monitorare i volumi StorSimple e come portarli offline."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/21/2015"
+	ms.author="v-sharos"/>
 
 # Gestire volumi StorSimple
 
@@ -71,7 +71,7 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u1.md#step-6-creat
 
   1. Digitare un **Nome** per il volume.
   2. Specificare la **Capacità fornita** per il volume in GB o TB. La capacità deve essere compresa tra 1 GB e 64 TB per un dispositivo fisico. La capacità massima che è possibile fornire per un volume su un dispositivo virtuale StorSimple è di 30 TB.
-  3. Nell'elenco a discesa selezionare il **Tipo di utilizzo** per il volume. Scegliere **Volume di archiviazione** se si lavora con dati di archiviazione utilizzati con meno frequenza. Per tutti gli altri casi, selezionare **Volume principale**.
+  3. Nell'elenco a discesa selezionare il **Tipo di utilizzo** per il volume. Scegliere **Volume di archiviazione** se si lavora con dati di archiviazione utilizzati con meno frequenza. Per tutti gli altri casi, selezionare **Volume a livelli**. (I volumi a livelli erano in precedenza denominati volumi principali.)
   5. Fare clic sull'icona freccia ![icona a forma di freccia](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)per passare alla pagina **Impostazioni aggiuntive**.
 
      ![aggiungi-volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
@@ -181,4 +181,4 @@ Informazioni su come [clonare un volume StorSimple](storsimple-clone-volume.md)
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

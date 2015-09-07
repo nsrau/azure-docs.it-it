@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Connettore PostgreSQL - Spostare i dati da PostgreSQL" 
-	description="Informazioni su come il connettore PostgreSQL per il servizio Data factory consente di spostare dati dal database PostgreSQL" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare i dati da PostgreSQL | Data factory di Azure"
+	description="Informazioni su come spostare i dati dal database di PostgreSQL mediante Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Connettore PostgreSQL - Spostare i dati da PostgreSQL tramite Data factory di Azure
+# Spostare i dati da PostgreSQL mediante Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da PostgreSQL a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -34,15 +34,15 @@ Perché Gateway di gestione dati si connetta al database PostgreSQL, è necessar
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo OnPremisesPostgreSql.
-2.	Un servizio collegato di tipo AzureStorage.
-3.	Un set di dati di input di tipo RelationalTable.
-4.	Un set di dati di output di tipo BlobSink.
-4.	La pipeline con attività di copia che usa RelationalSource e BlobSink. 
+1.	Un servizio collegato di tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
+2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](data-factory-onprem-postgresql-connector.md#postgresql-dataset-type-properties).
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 L'esempio copia i dati dai risultati della query nel database PostgreSQL in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-Per prima cosa, impostare il Gateway di gestione dati seguendo le istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
+Innanzitutto, impostare il Gateway di gestione dati in base alle istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servizio collegato PostgreSQL:**
 
@@ -78,7 +78,7 @@ Per prima cosa, impostare il Gateway di gestione dati seguendo le istruzioni con
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in PostgreSQL e che contenga una colonna denominata "timestamp" per i dati di una serie temporale.
 
-Impostando "external" su true e specificando i criteri externalData si comunica alla data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su true e specificando i criteri externalData si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
 
 	{
 	    "name": "PostgreSqlDataSet",
@@ -163,7 +163,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **RelationalSource** e il tipo **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati dalla tabella public.usstates nel database PostgreSQL.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati dalla tabella public.usstates nel database PostgreSQL.
 	
 	{
 	    "name": "CopyPostgreSqlToBlob",
@@ -214,7 +214,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-type | La proprietà del tipo deve essere impostata su: **OnPremisesPostgreSql** | Sì
+type | La proprietà type deve essere impostata su: **OnPremisesPostgreSql** | Sì
 server | Nome del server PostgreSQL. | Sì 
 database | Nome del database PostgreSQL. | Sì 
 schema | Nome dello schema nel database. | No 
@@ -222,6 +222,8 @@ authenticationType | Tipo di autenticazione usato per connettersi al database Po
 username | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No 
 password | Specificare la password per l'account utente specificato per il nome utente. | No 
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database PostgreSQL locale. | Sì 
+
+Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati PostgreSQL locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 ## Proprietà del tipo del set di dati PostgreSQL
 
@@ -304,4 +306,4 @@ text | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

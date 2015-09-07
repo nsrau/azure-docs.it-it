@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement"
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #Come integrare Engagement in Android
 
@@ -54,10 +54,6 @@ La stringa di connessione per l'applicazione viene visualizzata nel portale di A
 
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
--   In alcuni modelli di dispositivi non è possibile generare l'identificatore di dispositivo di Engagement a partire da ANDROID\_ID (può avere bug o non essere disponibile). In questo caso, l'SDK genera un identificatore di dispositivo casuale e tenta di salvarlo nella risorsa di archiviazione esterna del dispositivo per consentire ad altre applicazioni Engagement di condividere lo stesso identificatore di dispositivo (viene salvato anche come preferenza condivisa per fare in modo che l'applicazione stessa usi sempre lo stesso identificatore di dispositivo, indipendentemente dalla risorsa di archiviazione esterna). Per consentire il funzionamento corretto di questo meccanismo, è necessario aggiungere l'autorizzazione seguente, se mancante, prima del tag `<application>`:
-
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 -   Aggiungere la sezione seguente tra i tag `<application>` e `</application>`:
 
@@ -177,15 +173,20 @@ Per fare in modo che le posizioni vengano segnalate, è necessario aggiungere al
 
 La segnalazione differita della posizione consente di segnalare il paese, l'area geografica e la località associati ai dispositivi. Questo tipo di segnalazione della posizione usa solo le posizioni di rete, sulla base dell'ID di cella o della connessione Wi-Fi. L'area del dispositivo viene segnalata al massimo una volta per sessione. Il GPS non viene mai usato, per cui l'impatto di questo tipo di segnalazione della posizione sulla batteria è minimo, se non addirittura nullo.
 
-Le aree segnalate vengono usate per calcolare statistiche geografiche relative a utenti, sessioni, eventi ed errori. Possono essere usate anche come criteri nelle campagne Reach. L'ultima area conosciuta segnalata per un dispositivo può essere recuperata grazie all'[API del dispositivo].
+Le aree segnalate vengono usate per calcolare statistiche geografiche relative a utenti, sessioni, eventi ed errori. Possono essere usate anche come criteri nelle campagne Reach.
 
-Per abilitare la segnalazione differita della posizione, aggiungere:
+Per abilitare la segnalazione differita della posizione, è possibile utilizzare la configurazione descritta in precedenza in questa procedura:
 
-			<meta-data android:name="engagement:locationReport:lazyArea" android:value="true"/>
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setLazyAreaLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+Oppure è possibile continuare a utilizzare ``ACCESS_FINE_LOCATION`` se è già utilizzato nell'applicazione.
 
 ### Segnalazione della posizione in tempo reale
 
@@ -193,19 +194,28 @@ La segnalazione della posizione in tempo reale consente di segnalare la latitudi
 
 Le posizioni in tempo reale *NON* sono usate per calcolare dati statistici. Il loro unico scopo è consentire l'uso del criterio di definizione del recinto virtuale in tempo reale <Reach-Audience-geofencing> nelle campagne Reach.
 
-Per abilitare la segnalazione della posizione in tempo reale, aggiungere:
+Per abilitare la segnalazione della posizione in tempo reale, è possibile utilizzare la configurazione descritta in precedenza in questa procedura:
 
-			<meta-data android:name="engagement:locationReport:realTime" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+Oppure è possibile continuare a utilizzare ``ACCESS_FINE_LOCATION`` se è già utilizzato nell'applicazione.
+
 #### Segnalazione basata su GPS
 
-Per impostazione predefinita, la segnalazione della posizione in tempo reale usa solo posizioni di rete. Per abilitare l'uso di posizioni basate su GPS (che sono molto più precise), aggiungere:
+Per impostazione predefinita, la segnalazione della posizione in tempo reale usa solo posizioni di rete. Per abilitare l'uso di posizioni basate su GPS (che sono molto più precise), utilizzare l’oggetto di configurazione:
 
-			<meta-data android:name="engagement:locationReport:realTime:fine" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setFineRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
@@ -213,9 +223,13 @@ Per impostazione predefinita, la segnalazione della posizione in tempo reale usa
 
 #### Segnalazione in background
 
-Per impostazione predefinita, la segnalazione della posizione in tempo reale è attiva solo quando l'applicazione viene eseguita in primo piano, ad esempio durante una sessione. Per abilitare la segnalazione anche in background, aggiungere:
+Per impostazione predefinita, la segnalazione della posizione in tempo reale è attiva solo quando l'applicazione viene eseguita in primo piano, ad esempio durante una sessione. Per abilitare la segnalazione anche in background, utilizzare l’oggetto di configurazione:
 
-			<meta-data android:name="engagement:locationReport:realTime:background" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setBackgroundRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 > [AZURE.NOTE]Quando l'applicazione viene eseguita in background, vengono segnalate solo le posizioni basate sulla rete, anche se è abilitato il GPS.
 
@@ -231,6 +245,63 @@ La segnalazione della posizione in background verrà arrestata se l'utente riavv
 È necessario aggiungere anche le autorizzazioni seguenti, se mancanti:
 
 			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+### Autorizzazioni Android M
+
+A partire da Android M, alcune autorizzazioni vengono gestite in fase di esecuzione e richiedono l'approvazione dell'utente.
+
+Le autorizzazioni di runtime verranno disattivate per impostazione predefinita per le installazioni di nuove app se la destinazione è il livello 23 dell’API Android. In caso contrario verranno attivate per impostazione predefinita.
+
+L'utente può abilitare o disabilitare le autorizzazioni dal menu delle impostazioni del dispositivo. La disattivazione delle autorizzazioni dal menu di sistema elimina i processi in background dell'applicazione; si tratta di un comportamento del sistema e non influisce sulla possibilità di ricevere push in background.
+
+Nel contesto di Mobile Engagement, le autorizzazioni che richiedono l'approvazione al runtime sono:
+
+- `ACCESS_COARSE_LOCATION`
+- `ACCESS_FINE_LOCATION`
+- `WRITE_EXTERNAL_STORAGE` (solo quando la destinazione è il livello 23 dell’API Android)
+
+L’archiviazione esterna viene utilizzata solo per la funzionalità della panoramica generale Reach. Se si ritiene che richiedere agli utenti questa autorizzazione sia problematico, è possibile rimuoverla se è stata utilizzata solo per Mobile Engagement, ma comporta la disattivazione delle funzionalità della panoramica generale.
+
+Per le funzionalità del percorso, è necessario richiedere le autorizzazioni all'utente tramite una finestra di dialogo di sistema standard. Se l'utente approva, è necessario specificare ``EngagementAgent`` per tenere in considerazione la modifica in tempo reale (in caso contrario la modifica verrà elaborata la volta successiva che l'utente avvia l'applicazione).
+
+Ecco un esempio di codice da utilizzare in un'attività dell'applicazione per richiedere autorizzazioni e inoltrare il risultato, se positivo, a ``EngagementAgent``:
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+      /* Other code... */
+    
+      /* Request permissions */
+      requestPermissions();
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private void requestPermissions()
+    {
+      /* Avoid crashing if not on Android M */
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+      {
+        /*
+         * Request location permission, but this won't explain why it is needed to the user.
+         * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
+         * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
+         */
+        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
+    
+        /* Only if you want to keep features using external storage */
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
+      }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+      /* Only a positive location permission update requires engagement agent refresh, hence the request code matching from above function */
+      if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        getEngagementAgent().refreshPermissions();
+    }
 
 ##Segnalazione avanzata
 
@@ -308,7 +379,7 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
 			  android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
-[API del dispositivo]: http://go.microsoft.com/?linkid=9876094
+[Device API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

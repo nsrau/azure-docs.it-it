@@ -1,20 +1,20 @@
 <properties
    pageTitle="Esecuzione del test chaos."
-   description="In questo articolo vengono discussi gli scenari di infrastruttura di servizi predefiniti forniti da Microsoft."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="anmolah"
-   manager="timlt"
-   editor=""/>
+	description="In questo articolo vengono discussi gli scenari di infrastruttura di servizi predefiniti forniti da Microsoft."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="anmolah"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2015"
-   ms.author="anmola"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="anmola"/>
 
 # Scenari di testabilità
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Infrastruttura di servizi fornisce agli sviluppatori la possibilità di scrivere servizi per l'esecuzione in infrastrutture inaffidabili. Per poter scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova tale infrastruttura inaffidabile per testarne la stabilità dei servizi. Infrastruttura di servizi offre agli sviluppatori la possibilità di causare azioni di errore per testare i servizi in presenza di errori. Tuttavia, gli errori simulati indotti sono in grado di arrivare fino a un certo punto. Per spingere il test oltre, Infrastruttura di servizi fornisce scenari di test predefiniti. Gli scenari di simulano continui interfoliati continui, sia normali che anomali, in tutto il cluster per lunghi periodi di tempo. Una volta configurato con la frequenza e il tipo di errori, viene eseguito come uno strumento lato client, tramite le API C# o PowerShell per generare errori nel cluster e nel servizio. Come parte della funzionalità di testabilità vengono forniti gli scenari seguenti.
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

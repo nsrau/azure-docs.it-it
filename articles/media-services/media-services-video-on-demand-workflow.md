@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure" 
-	description="Questo argomento descrive alcuni scenari comuni relativi alla distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure"
+	description="Questo argomento descrive alcuni scenari comuni relativi alla distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@ Si noti che è possibile integrare Servizi multimediali con gli strumenti e i pr
 
 Il seguente diagramma illustra le parti principali della piattaforma di Servizi multimediali interessate dal Flusso di lavoro Video on Demand. ![Flusso di lavoro VoD][vod-overview]
 
-##<a id="vod_scenarios"></a>Scenari comuni: distribuzione di contenuti multimediali su richiesta. 
+##<a id="vod_scenarios"></a>Scenari comuni: distribuzione di contenuti multimediali su richiesta
 
 ###Protezione dei contenuti nella risorsa di archiviazione e distribuzione dei flussi multimediali in chiaro (non crittografati)
 
@@ -220,4 +220,4 @@ Per altre informazioni, vedere l'articolo relativo alla [riproduzione di contenu
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

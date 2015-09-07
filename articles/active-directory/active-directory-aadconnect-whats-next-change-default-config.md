@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Modificare la configurazione predefinita di Azure AD Connect" 
-	description="Informazioni su come modificare la configurazione predefinita per Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Modificare la configurazione predefinita di Azure AD Connect"
+	description="Informazioni su come modificare la configurazione predefinita per Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Modifica della configurazione predefinita di Azure AD Connect 
@@ -27,4 +27,4 @@ Quando è necessario modificare la configurazione predefinita, eseguire le opera
 - Esportare le regole di sincronizzazione personalizzate usando l'Editor regole di sincronizzazione. In questo modo, viene fornito uno script di PowerShell che è possibile usare per ricrearle facilmente nel caso di uno scenario di ripristino di emergenza.
 - Se è necessario modificare l'ambito o l'impostazione di unione in una regola di sincronizzazione predefinita, documentare questa necessità e riapplicare la modifica dopo l'aggiornamento a una versione più recente di Azure AD Connect. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

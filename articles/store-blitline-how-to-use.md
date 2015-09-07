@@ -1,37 +1,25 @@
 <properties 
-	pageTitle="Come usare Blitline per l'elaborazione delle immagini - Guida alle funzionalità di Azure" 
-	description="Informazioni su come usare il servizio Blitline per elaborare immagini all'interno di un'applicazione Azure." 
-	services="" 
-	documentationCenter=".net" 
-	authors="blitline-dev" 
-	manager="jason@blitline.com" 
+	pageTitle="Come usare Blitline per l'elaborazione delle immagini - Guida alle funzionalità di Azure"
+	description="Informazioni su come usare il servizio Blitline per elaborare immagini all'interno di un'applicazione Azure."
+	services=""
+	documentationCenter=".net"
+	authors="blitline-dev"
+	manager="jason@blitline.com"
 	editor="jason@blitline.com"/>
 
-
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/09/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/09/2014"
 	ms.author="support@blitline.com"/>
-
-
-
-
-
-
-
 # Come utilizzare Blitline con Azure e l'archiviazione di Azure
 
 In questa guida verrà descritto come accedere ai servizi Blitline e come inviare i processi a Blitline.
 
-## Sommario
-
-[Informazioni su Blitline][] [Operazioni NON eseguite da Blitline][] [Creazione di un account Blitline][] [Come creare un processo di Blitline][] [Come salvare un'immagine nell'archiviazione di Azure][] [Passaggi successivi][]
-
-## <a id="whatis"></a>Informazioni su Blitline
+## Informazioni su Blitline
 
 Blitline è un servizio di elaborazione a livello aziendale delle immagini basate su cloud, dal costo nettamente inferiore a quello che comporterebbe la creazione autonoma delle stesse.
 
@@ -39,7 +27,7 @@ Il fatto è che l'elaborazione delle immagini è un'operazione ripetuta di conti
 
 Per ulteriori informazioni, visitare il sito [http://www.blitline.com](http://www.blitline.com).
 
-## <a id="whatisnot"></a>Operazioni NON eseguite da Blitline
+## Operazioni NON eseguite da Blitline
 
 Allo scopo di chiarire l'utilità di Blitline è spesso più semplice identificare le operazioni che Blitline NON esegue prima di procedere oltre.
 
@@ -51,11 +39,11 @@ Allo scopo di chiarire l'utilità di Blitline è spesso più semplice identifica
 
 - Blitline opera principalmente in parallelo e NON esegue alcuna elaborazione sincrona; vale a dire che l'utente deve comunicare un postback\_url affinché sia possibile avvisarlo del termine dell'elaborazione.
 
-## <a id="createaccount"></a>Creazione di un account Blitline
+## Creare un account Blitline
 
 [AZURE.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
-## <a id="createjob"></a>Come creare un processo di Blitline
+## Come creare un processo di Blitline
 
 Blitline utilizza JSON per definire le azioni da intraprendere riguardo un'immagine. Il codice JSON è composto da alcuni semplici campi:
 
@@ -99,7 +87,7 @@ Si otterrà un codice JSON che avrà più o meno l'aspetto seguente:
 
 Il codice informa che Blitline ha ricevuto la richiesta, inserendola in una coda di elaborazione, e che al termine l'immagine sarà disponibile all'indirizzo: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-## <a id="saveazure"></a>Come salvare un'immagine nell'account di archiviazione di Azure
+## Come salvare un'immagine nell'account di archiviazione di Azure
 
 Se si dispone di un account di archiviazione di Azure è possibile eseguire facilmente il push delle immagini elaborate in Blitline nel contenitore di Azure. Aggiungendo il frammento "azure\_destination" è possibile definire la posizione e le autorizzazioni per il push di Blitline.
 
@@ -123,7 +111,7 @@ Di seguito è fornito un esempio:
 
 Sostituendo i valori IN MAIUSCOLO con i propri, sarà possibile inviare questo codice JSON a http://api.blitline.com/job. L’immagine "src" verrà elaborata con un filtro sfocatura e quindi sottoposta a push verso la destinazione di Azure.
 
-<h3>Nota bene:</h3>
+###Nota bene:
 
 SAS deve contenere l'intero URL di SAS, incluso il nome file del file di destinazione.
 
@@ -135,7 +123,7 @@ Esempio:
 È anche possibile leggere l'ultima edizione dei documenti sull'archiviazione di Azure di Blitline [qui](http://www.blitline.com/docs/azure_storage).
 
 
-## <a id="nextsteps"></a>Passaggi successivi
+## Passaggi successivi
 
 Visitare blitline.com per informazioni su tutte le altre funzionalità:
 
@@ -144,12 +132,4 @@ Visitare blitline.com per informazioni su tutte le altre funzionalità:
 * Esempi delle API di Blitline <http://www.blitline.com/docs/examples>
 * Libreria NuGet di terze parti <http://nuget.org/packages/Blitline.Net>
 
-
-  [Passaggi successivi]: #nextsteps
-  [Informazioni su Blitline]: #whatis
-  [Operazioni NON eseguite da Blitline]: #whatisnot
-  [Creazione di un account Blitline]: #createaccount
-  [Come creare un processo di Blitline]: #createjob
-  [Come salvare un'immagine nell'archiviazione di Azure]: #saveazure
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

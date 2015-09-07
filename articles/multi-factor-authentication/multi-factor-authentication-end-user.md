@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Quali sono i vantaggi di Azure Multi-Factor Authentication?" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per utilizzare Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Quali sono i vantaggi di Azure Multi-Factor Authentication?"
+	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per utilizzare Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -49,4 +49,4 @@ Argomento|Descrizione
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

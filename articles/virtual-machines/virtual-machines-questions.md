@@ -59,7 +59,7 @@ In molti aspetti sono simili alla "generazione 1" di VM di Hyper-V, ma non sono 
 
 ## Queste macchine virtuali possono utilizzare l’infrastruttura di rete locale esistente?
 
-Per le macchine virtuali create in Gestione dei servizi, è possibile utilizzare la rete virtuale di Azure per estendere l'infrastruttura esistente. L'approccio è simile all’apertura di una succursale. È possibile effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure, nonché collegare queste reti in modo sicuro all’infrastruttura IT locale. Per informazioni dettagliate, vedere [Panoramica della rete virtuale](https://msdn.microsoft.com/library/jj156007.aspx).
+Per le macchine virtuali create in Gestione dei servizi, è possibile utilizzare la rete virtuale di Azure per estendere l'infrastruttura esistente. L'approccio è simile all’apertura di una succursale. È possibile effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure, nonché collegare queste reti in modo sicuro all’infrastruttura IT locale. Per informazioni dettagliate, vedere [Panoramica della rete virtuale](../virtual-network/virtual-networks-overview.md).
 
 È necessario specificare la rete alla quale si desidera che la macchina virtuale appartenga, quando quest’ultima viene creata. Ciò significa, ad esempio, che è possibile unire una macchina virtuale esistente a una rete virtuale. Tuttavia, è possibile risolvere il problema scollegando il disco rigido virtuale (VHD) dalla macchina virtuale esistente e quindi utilizzarlo per creare una nuova macchina virtuale con la configurazione di rete desiderata.
 
@@ -148,4 +148,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

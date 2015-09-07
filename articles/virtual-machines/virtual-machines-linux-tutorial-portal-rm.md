@@ -114,6 +114,8 @@ Ora è possibile aggiungere **ssh** alla macchina virtuale di Azure e proseguire
 	ops@ubuntuvm:~$
 
 
+> [AZURE.NOTE]È inoltre possibile configurare un nome di dominio completo (FQDN) per la macchina virtuale nel portale. Ulteriori informazioni sul FQDN [qui](virtual-machines-create-fqdn-on-portal.md).
+
 ## Passaggi successivi
 
 Per altre informazioni su Linux in Azure, vedere:
@@ -126,4 +128,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

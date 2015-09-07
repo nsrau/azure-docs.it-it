@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure"
-	description="È possibile distribuire SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure in cinque fasi."
+	pageTitle="Distribuire una farm di SharePoint Server 2013 | Microsoft Azure"
+	description="Distribuire una farm di SharePoint Server 2013 a disponibilità elevata con gruppi di disponibilità di SQL Server AlwaysOn in Azure in cinque fasi."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -49,7 +49,7 @@ Tenere presente quanto segue:
 
 - Gli utenti esperti nell'implementazione di SharePoint possono adattare le istruzioni delle fasi da 3 a 5 e realizzare la farm che meglio si adatta alle proprie esigenze.
 - Se si dispone già di un'implementazione di cloud ibrida Azure esistente, è possibile adattare o ignorare le istruzioni delle fasi 1 e 2 per ospitare la nuova farm di SharePoint nella subnet appropriata.
-- Tutti i server si trovano in una singola subnet nella rete virtuale di Azure. Se si desidera garantire una maggiore protezione equivalente all'isolamento di subnet, è possibile utilizzare i [gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+- Tutti i server si trovano in una singola subnet nella rete virtuale di Azure. Se si desidera garantire una maggiore protezione equivalente all'isolamento di subnet, è possibile usare i [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
 Per compilare un ambiente di sviluppo e test o un modello di prova di questa configurazione, vedere [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
@@ -72,4 +72,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Panoramica dell'API Hub eventi"
-   description="Un riepilogo di alcuni client .NET di Hub eventi chiave API."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+	description="Un riepilogo di alcuni client .NET di Hub eventi chiave API."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/10/2015"
+	ms.author="sethm"/>
 
 # Panoramica dell'API Hub eventi
 
@@ -186,6 +186,5 @@ I riferimenti API .NET sono qui:
 
 - [Riferimento API .NET di Hub eventi e bus di servizio](https://msdn.microsoft.com/library/jj933424.aspx)
 - [Host del processore riferimento all'API di eventi](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
-- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,58 +1,57 @@
 <properties 
-   pageTitle="Utilizzo di Emulator Express per l'esecuzione e il debug in locale di un servizio cloud"
-   description="Utilizzo di Emulator Express per l'esecuzione e il debug in locale di un servizio cloud"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Uso dell'emulatore Express per l'esecuzione e il debug di un servizio cloud in un computer locale | Microsoft Azure"
+	description="Uso di Emulator Express per l'esecuzione e il debug di un servizio cloud in un computer locale"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
 
-# Utilizzo di Emulator Express per l'esecuzione e il debug in locale di un servizio cloud
 
-##Panoramica
+# Uso di Emulator Express per l'esecuzione e il debug di un servizio cloud in un computer locale
 
-Con Emulator Express, è possibile testare ed eseguire il debug di un servizio cloud senza eseguire Visual Studio come amministratore. È possibile configurare le impostazioni del progetto per utilizzare Emulator Express o l'emulatore completo, in base ai requisiti del servizio cloud. Per ulteriori informazioni sull'emulatore completo, vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo]http://go.microsoft.com/fwlink/p/?LinkId=623050). Emulator Express è stato incluso per la prima volta in Azure SDK 2.1 e a partire da Azure SDK 2.3 è l'emulatore predefinito.
+Con l'emulatore Express, è possibile testare ed eseguire il debug di un servizio cloud senza eseguire Visual Studio come amministratore. È possibile configurare le impostazioni del progetto per usare l'emulatore Express o l'emulatore completo, in base ai requisiti del servizio cloud. Per altre informazioni sull'emulatore completo, vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo](https://msdn.microsoft.com/library/azure/hh403990.aspx). L'emulatore Express è stato incluso per la prima volta in Azure SDK 2.1 e a partire da Azure SDK 2.3 è l'emulatore predefinito.
 
-## Utilizzo di Emulator Express nell'IDE di Visual Studio
+## Uso dell'emulatore Express nell'IDE di Visual Studio
 
-Quando si crea un nuovo progetto in Azure SDK 2.3 o versione successiva, Emulator Express è già selezionato. Per i progetti esistenti creati con una versione precedente dell’SDK, attenersi alla procedura seguente per selezionare Emulator Express.
+Quando si crea un nuovo progetto in Azure SDK 2.3 o versione successiva, l'emulatore Express è già selezionato. Per i progetti esistenti creati con una versione precedente dell’SDK, attenersi alla procedura seguente per selezionare l'emulatore Express.
 
-### Per configurare un progetto per l'utilizzo di Emulator Express
+### Per configurare un progetto per l'uso dell'emulatore Express
 
 1. Nel menu di scelta rapida per il progetto di Azure, scegliere **Proprietà**, quindi scegliere la scheda **Web**.
 
-1. In **Server di sviluppo locale**, scegliere il pulsante **Usa l’opzione IIS Express**. Emulator Express non è compatibile con il Server Web IIS.
+1. In **Server di sviluppo locale** scegliere il pulsante di opzione **Usa IIS Express**. L'emulatore Express non è compatibile con il Server Web IIS.
 
-1. In **Emulatore**, scegliere il pulsante di opzione **Usa Emulator Express**.
+1. In **Emulatore** scegliere il pulsante di opzione **Usa emulatore Express**.
 
     ![Emulator Express](./media/vs-azure-tools-emulator-express-debug-run/IC673363.gif)
 
-## Avvio di Emulator Express in un prompt dei comandi
+## Avvio dell'emulatore Express in un prompt dei comandi
 
-Dal prompt dei comandi è possibile avviare la versione express dell'emulatore di calcolo di Azure, csrun.exe, utilizzando l'opzione /useemulatorexpress.
+Dal prompt dei comandi è possibile avviare la versione express dell'emulatore di calcolo di Azure, csrun.exe, usando l'opzione /useemulatorexpress.
 
 ## Limitazioni
 
-Prima di utilizzare Emulator Express, è necessario tenere presenti alcune limitazioni:
+Prima di usare l'emulatore Express, è necessario tenere presenti alcune limitazioni:
 
-- Emulator Express non è compatibile con il Server Web IIS.
+- L'emulatore Express non è compatibile con il Server Web IIS.
 
 - Il servizio cloud può contenere più ruoli, ma ogni ruolo è limitato a un'istanza.
 
-- È possibile accedere ai numeri di porta inferiori a 1000. Se si utilizza un provider di autenticazione che in genere utilizza una porta inferiore a 1000, ad esempio, potrebbe essere necessario modificare questo valore per un numero di porta superiore a 1000.
+- È possibile accedere ai numeri di porta inferiori a 1000. Se si usa un provider di autenticazione che in genere usa una porta inferiore a 1000, ad esempio, potrebbe essere necessario modificare questo valore per un numero di porta superiore a 1000.
 
-- Qualsiasi limitazione dell'emulatore di calcolo di Azure si applica anche ad Emulator Express. Ad esempio, non si può disporre di più di 50 istanze del ruolo per ogni distribuzione. Vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo](http://go.microsoft.com/fwlink/p/?LinkId=623050)
+- Qualsiasi limitazione dell'emulatore di calcolo di Azure si applica anche all'emulatore Express. Ad esempio, non si può disporre di più di 50 istanze del ruolo per ogni distribuzione. Vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo](http://go.microsoft.com/fwlink/p/?LinkId=623050)
 
 ## Passaggi successivi
 
-[Debug di Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=623041)
+[Debug di servizi cloud](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

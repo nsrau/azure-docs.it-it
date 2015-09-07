@@ -102,4 +102,4 @@ Per la maggior parte degli errori è possibile seguire l'azione consigliata nei 
 ## Passaggi successivi
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Procedure consigliate per modificare la configurazione predefinita"
+	pageTitle="Procedure consigliate per modificare la configurazione predefinita | Microsoft Azure"
 	description="Fornisce le procedure consigliate per modificare la configurazione predefinita del servizio di sincronizzazione Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,15 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="08/25/2015"
+	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita
 
-La configurazione creata da Azure AD Connect funziona "così com'è" per la maggior parte degli ambienti che sincronizzano in locale Active Directory con Azure AD.<br> In alcuni casi, tuttavia, è necessario applicare alcune modifiche a una configurazione per soddisfare un'esigenza o un requisito specifico.
+Questo argomento descrive le modifiche supportate e non supportate apportate al servizio di sincronizzazione Azure AD Connect.
 
-Anche se è possibile modificare la configurazione di Azure AD, si consiglia di applicare le modifiche con cautela perché si suppone che Azure AD sia il più possibile simile a un dispositivo.
+La configurazione creata da Azure AD Connect funziona "così com'è" per la maggior parte degli ambienti che sincronizzano l'istanza di Active Directory locale con Azure AD. In alcuni casi, tuttavia, è necessario applicare alcune modifiche a una configurazione per soddisfare un'esigenza o un requisito specifico.
+
+## Modifiche apportate all'account del servizio
+Il servizio di sincronizzazione Azure AD Connect viene eseguito tramite un account del servizio creato dall'installazione guidata. L'account del servizio contiene le chiavi di crittografia per il database usato dal servizio di sincronizzazione. Viene creato con una password con una lunghezza di 127 caratteri e la password è impostata per non scadere mai.
+
+- La modifica o la reimpostazione della password dell'account del servizio **non è supportata**. Questa operazione comporta l'eliminazione delle chiavi di crittografia impedendo così al servizio di accedere al database e di essere avviato.
+
+## Modifiche apportate all'utilità di pianificazione
+Il servizio di sincronizzazione Azure AD Connect è impostato per sincronizzare i dati relativi alle identità ogni 3 ore. Durante l'installazione viene creata un'attività pianificata che viene eseguita tramite un account del servizio con le autorizzazioni per eseguire operazioni sul server di sincronizzazione.
+
+- La modifica dell'attività pianificata **non è supportata**. La password per l'account del servizio non è nota. Vedere [Modifiche apportate all'account del servizio](#changes-to-the-service-account)
+- La sincronizzazione in base a una frequenza maggiore delle 3 ore predefinite **non è supportata**.
+
+## Modifiche apportate alle regole di sincronizzazione
+
+Anche se è possibile modificare la configurazione del servizio di sincronizzazione Azure AD Connect, si consiglia di applicare le modifiche con cautela perché si suppone che il servizio di sincronizzazione Azure AD Connect sia il più possibile simile a un dispositivo.
 
 Di seguito è riportato un elenco di comportamenti previsti:
 
@@ -40,19 +55,11 @@ Quando è necessario modificare la configurazione predefinita, eseguire le opera
 
 
 
-**Altre note importanti:**
-
-- Se è stata configurata una sincronizzazione dei filtri e delle password basata su attributo, assicurarsi che solo gli oggetti che vengono sincronizzati con Azure AD siano inclusi nell'ambito di sincronizzazione delle password. 
-
-
-
-
-
 ## Risorse aggiuntive
 
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

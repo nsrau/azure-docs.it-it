@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Panoramica di AMQP per il bus di servizio | Microsoft Azure" 
-	description="Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	pageTitle="Panoramica di AMQP per il bus di servizio | Microsoft Azure"
+	description="Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 
@@ -77,7 +77,7 @@ La figura riportata di seguito illustra una distribuzione di esempio, in cui i c
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
-
+| C# | AMQP .Net Lite |
 
 **Figura 2: Tabella delle librerie client del protocollo AMQP 1.0**
 
@@ -98,4 +98,4 @@ Per altre informazioni su come ottenere e usare queste librerie con il bus di se
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [Guida per gli sviluppatori di AMQP per il bus di servizio]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Panoramica della configurazione di KVSActorStateProvider per Reliable Actors di Service Fabric"
-   description="Informazioni sulla configurazione di attori con stato di tipo KVSActorStateProvider in Service Fabric"
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Informazioni sulla configurazione di attori con stato di tipo KVSActorStateProvider in Service Fabric"
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/20/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Configurazione di KVSActorStateProvider di Reliable Actors
 È possibile modificare la configurazione predefinita di KVSActorStateProvider cambiando il file "settings.xml" generato nella directory radice del pacchetto di Visual Studio all'interno della cartella "Config" per l'attore specificato.
@@ -84,4 +84,4 @@ Le configurazioni dell'archivio vengono usate per configurare l'archivio locale 
 BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement. Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

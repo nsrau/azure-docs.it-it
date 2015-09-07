@@ -7,7 +7,6 @@
 	manager="timlt"
 	editor=""/>
 
-
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="04/29/2015"
 	ms.author="kathydav"/>
-
 
 #Come configurare gli endpoint a una macchina virtuale
 
@@ -31,7 +29,7 @@ Ogni endpoint dispone di una porta pubblica e di una porta privata.
 
 I valori predefiniti per il protocollo IP e le porte TCP o UDP per i protocolli di rete noti vengono forniti quando si creano endpoint con il portale. Per gli endpoint personalizzati, è necessario specificare il protocollo IP corretto (TCP o UDP) e le porte pubbliche e private. Per distribuire il traffico in ingresso in modo casuale tra più macchine virtuali, è necessario creare un set con carico bilanciato costituito da più endpoint.
 
-Dopo aver creato un endpoint, è possibile usare un elenco di controllo di accesso (ACL) per definire regole che autorizzano o rifiutano il traffico in ingresso alla porta pubblica dell'endpoint in base al relativo indirizzo IP di origine. Tuttavia, se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare invece i gruppi di sicurezza di rete. Per altre informazioni, vedere l'articolo relativo ai [Gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Dopo aver creato un endpoint, è possibile usare un elenco di controllo di accesso (ACL) per definire regole che autorizzano o rifiutano il traffico in ingresso alla porta pubblica dell'endpoint in base al relativo indirizzo IP di origine. Tuttavia, se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare invece i gruppi di sicurezza di rete. Per altre informazioni, vedere l'articolo relativo ai [Gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
 **Importante**: la configurazione del firewall per le macchine virtuali di Azure viene eseguita automaticamente per le porte associate a Desktop remoto e a SSH (Secure Shell) e nella maggior parte dei casi per la comunicazione remota di Windows PowerShell. Per le porte specificate per tutti gli altri endpoint, non viene effettuata alcuna configurazione automatica del firewall della macchina virtuale. Quando si crea un endpoint per la macchina virtuale, è necessario assicurarsi che il firewall della macchina virtuale consenta anche il traffico per il protocollo e la porta privata corrispondente alla configurazione dell'endpoint.
 
@@ -67,7 +65,7 @@ Per definire il set di computer che può inviare il traffico, l'elenco di contro
 
 > [AZURE.NOTE]se l'endpoint fa parte di un set con carico bilanciato, qualsiasi modifica apportata all'elenco di controllo di accesso su un endpoint verrà applicata a tutti gli endpoint del set.
 
-Se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare invece i gruppi di sicurezza di rete. Per informazioni dettagliate, vedere [Informazioni sui gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare invece i gruppi di sicurezza di rete. Per informazioni dettagliate, vedere [Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
 
 1.	Accedere al portale, se questa operazione non è già stata eseguita.
@@ -87,7 +85,7 @@ Se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare
 
 Le regole sono valutate nell'ordine, dalla prima fino all'ultima. Questo significa che le regole devono essere ordinate dalla meno restrittiva alla più restrittiva. Per alcuni esempi e ulteriori informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](http://go.microsoft.com/fwlink/p/?linkid=303816).
 
-Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ## Risorse aggiuntive
 
@@ -95,6 +93,6 @@ Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vede
 
 [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
-[Informazioni sui gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx)
+[Informazioni sui gruppi di sicurezza di rete](virtual-networks-nsg.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

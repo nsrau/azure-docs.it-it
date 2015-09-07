@@ -1,28 +1,22 @@
 <properties 
-	pageTitle="Azure Active Directory Connect - Altre informazioni" 
-	description="Altre informazioni su Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Active Directory Connect - Altre informazioni"
+	description="Altre informazioni su Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect - Altre informazioni
-
-> [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect.md)
-- [How it Works](../active-directory-aadconnect-how-it-works.md)
-- [Getting Started](../active-directory-aadconnect-get-started.md)
-- [What's Next](../active-directory-aadconnect-whats-next.md) - [Learn More](../active-directory-aadconnect-learn-more.md)
 
 Di seguito è riportato un elenco di risorse aggiuntive per l'uso di Azure AD Connect e l'integrazione delle directory locali con Azure AD.
 
@@ -49,4 +43,4 @@ Questo video spiega come estendere facilmente le istanze locali di Active Direct
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

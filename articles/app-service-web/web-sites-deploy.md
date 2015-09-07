@@ -127,7 +127,6 @@ Per informazioni su come eseguire la distribuzione in App Web da Visual Studio, 
 
 Per informazioni su come eseguire la distribuzione in App Web da WebMatrix, vedere le risorse seguenti:
 
-* [Sviluppo e distribuzione di un'app Web con Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md). Come creare un'app ASP.NET semplice utilizzando un modello WebMatrix e distribuendola in App Web usando WebMatrix e Distribuzione Web.
 * [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Creazione e distribuzione di un'app Web PHP-MySQL tramite WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Git integrato e distribuzione in Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Come utilizzare WebMatrix per eseguire la distribuzione da un repository Git di controllo del codice sorgente.
@@ -228,4 +227,4 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

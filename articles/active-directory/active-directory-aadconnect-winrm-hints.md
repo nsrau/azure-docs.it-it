@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - Suggerimenti su Windows Remote Managed" 
-	description="Azure AD Connect - Suggerimenti su Windows Remote Managed da utilizzare con ADFS." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - Suggerimenti su Windows Remote Managed"
+	description="Azure AD Connect - Suggerimenti su Windows Remote Managed da utilizzare con ADFS."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect - Suggerimenti su Windows Remote Managed
@@ -43,6 +43,6 @@ Quando si utilizza Azure AD Connect per distribuire Active Directory Federation 
 
 * [Ulteriori informazioni sugli account e le autorizzazioni Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [Azure AD Connect in MSDN](active-directory-aadconnect.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

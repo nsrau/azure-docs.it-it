@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gestire le app per le API" 
-	description="Informazioni su come gestire le app per le API del servizio app di Azure nel portale di Azure e in Esplora server in Visual Studio." 
-	services="app-service\api" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Gestire le app per le API"
+	description="Informazioni su come gestire le app per le API del servizio app di Azure nel portale di Azure e in Esplora server in Visual Studio."
+	services="app-service\api"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="tdykstra"/>
 
 # Gestire le app per le API nel Servizio app di Azure
@@ -65,7 +65,7 @@ Le uniche funzioni presenti nel pannello **App per le API** che non costituiscon
 
 ### Attività che possono essere eseguite solo nel pannello Host di app per le API
 
-Usare il pannello **Host app per le API** per tutte le attività da eseguire per le app Web. Per altre informazioni, vedere [Gestire le app Web nel portale](../app-service-web/web-sites-manage.md).
+Usare il pannello **Host app per le API** per tutte le attività da eseguire per le app Web.
 
 ### Attività che possono essere eseguite solo nel pannello Gateway
 
@@ -80,7 +80,7 @@ I pannelli Gateway e Host gateway condividono la stessa interfaccia utente dei p
 
 ### Attività che possono essere eseguite solo nel pannello Host gateway
 
-Usare il pannello **Host gateway** per tutte le attività da eseguire per le app Web. Per altre informazioni, vedere [Gestire le app Web nel portale](web-sites-manage.md).
+Usare il pannello **Host gateway** per tutte le attività da eseguire per le app Web.
 
 ## <a id="navigate"></a>Come spostarsi ai pannelli App per le API e Gateway 
 
@@ -130,8 +130,8 @@ Per passare a un'app per le API in Esplora server, fare clic su **Azure > Serviz
 
 ## Passaggi successivi
 
-Questo articolo ha illustrato come usare il portale di Azure per eseguire le attività di gestione per le app per le API. Per le app per le API installate dalla raccolta di app per le API, vedere anche [Gestire e monitorare le app per le API e i connettori predefiniti](../app-service-logic/app-service-logic-monitor-your-connectors.md).
+Questo articolo ha illustrato come usare il portale di Azure per eseguire le attività di gestione per le app per le API. Per informazioni sulle app per le API installate dalla raccolta di app per le API, vedere anche [Gestire e monitorare le app per le API e i connettori predefiniti](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Per informazioni su come gestire le app per le API usando la riga di comando, vedere gli articoli nella sezione **Automazione** del menu che viene visualizzato sul lato sinistro dell'articolo (per finestre del browser di grandi dimensioni) o nella parte superiore della pagina (per finestre del browser ridotte).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

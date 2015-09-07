@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilizzare il telefono dell'ufficio come metodo di contatto con Azure MFA" 
-	description="Questa pagina mostrerà agli utenti l’uso del telefono dell'ufficio come metodo di contatto principale di Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Utilizzare il telefono dell'ufficio come metodo di contatto con Azure MFA"
+	description="Questa pagina mostrerà agli utenti l’uso del telefono dell'ufficio come metodo di contatto principale di Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Utilizzare il telefono dell'ufficio come metodo di contatto con Azure Multi-Factor Authentication
@@ -40,6 +40,4 @@ Se si desidera utilizzare il telefono dell'ufficio come metodo di contatto princ
 
 <center>![Installazione](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!-----HONumber=July15_HO4-->
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

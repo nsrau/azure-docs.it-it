@@ -1,20 +1,20 @@
 <properties
    pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure"
-   description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come gli analizzatori del linguaggio naturale e le ricerche moreLikeThis."
-   services="search"
-   documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
-   editor=""/>
+	description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come gli analizzatori del linguaggio naturale e le ricerche moreLikeThis."
+	services="search"
+	documentationCenter="na"
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
 <tags
    ms.service="search"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="search"
-   ms.date="07/22/2015"
-   ms.author="heidist"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="search"
+	ms.date="08/25/2015"
+	ms.author="heidist"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 
@@ -95,7 +95,7 @@ L'esempio seguente illustra uno schema usato per la ricerca di informazioni sugl
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -154,7 +154,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per
 - per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 <a name="RequestData"></a> **Sintassi del corpo della richiesta**
 
@@ -262,7 +262,7 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
   - **Nota**: se per un campo nessuno degli attributi elencati è impostato su `true` (`searchable`, `filterable`, `sortable` o `facetable`), il campo viene effettivamente escluso dall'indice invertito. Questa opzione è utile per i campi che non vengono usati nelle query, ma che sono necessari nei risultati della ricerca. L'esclusione di tali campi dall'indice consente di ottenere migliori prestazioni.
 
-  - `suggestions`: nelle versioni precedenti dell'API è inclusa una proprietà `suggestions`. Questa proprietà booleana è obsoleta e non è più disponibile in `2015-02-28` o `2015-02-28-Preview`. In alternativa, usare l'[API per i suggerimenti](#Suggesters). Nella versione `2014-07-31`, per specificare se un campo può essere usato per il completamento automatico durante la digitazione, viene usata la proprietà `suggestions` per i campi di tipo `Edm.String` o `Collection(Edm.String)`. La proprietà `suggestions` è `false` per impostazione predefinita perché richiede spazio aggiuntivo nell'indice, ma se si è scelto di abilitarla, vedere [Transizione dalla versione API di anteprima 2014* alla versione API 2015*](search-transition-from-preview.md) per istruzioni sul passaggio alla nuova API.
+`suggestions`: nelle versioni precedenti dell'API è inclusa una proprietà `suggestions`. Questa proprietà booleana è obsoleta e non è più disponibile in `2015-02-28` o `2015-02-28-Preview`. In alternativa, usare l'[API per i suggerimenti](#Suggesters). Nella versione `2014-07-31`, per specificare se un campo può essere usato per il completamento automatico durante la digitazione, viene usata la proprietà `suggestions` per i campi di tipo `Edm.String` o `Collection(Edm.String)`. La proprietà `suggestions` è `false` per impostazione predefinita perché richiede spazio aggiuntivo nell'indice, ma se si è scelto di abilitarla, vedere [Transizione dalla versione API di anteprima 2014* alla versione API 2015*](search-transition-from-preview.md) per istruzioni sul passaggio alla nuova API.
 
 `key`: contrassegna il campo come contenente identificatori univoci per i documenti all'interno dell'indice. È necessario scegliere un singolo campo come `key` e questo deve essere di tipo `Edm.String`. I campi chiave possono essere usati per la ricerca diretta di documenti tramite l'[API di ricerca](#LookupAPI).
 
@@ -270,7 +270,7 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
 `analyzer`: imposta il nome dell'analizzatore di testo da usare per il campo. Per il set di valori consentito, vedere [Supporto per le lingue](#LanguageSupport). Questa opzione può essere usata solo con i campi `searchable`. Una volta scelto, l'analizzatore non può essere cambiato per il campo.
 
-`sugggesters`: imposta la modalità di ricerca e i campi che sono l'origine del contenuto per i suggerimenti. Per informazioni dettagliate, vedere [Componenti per il suggerimento](#Suggesters).
+`suggesters`: imposta la modalità di ricerca e i campi che sono l'origine del contenuto per i suggerimenti. Per informazioni dettagliate, vedere [Componenti per il suggerimento](#Suggesters).
 
 `scoringProfiles`: definisce i comportamenti di punteggio personalizzati che consentono di determinare quali elementi verranno visualizzati più in alto nei risultati della ricerca. I profili di punteggio sono costituiti da funzioni e campi ponderati. Per altre informazioni sugli attributi usati in un profilo di punteggio, vedere [Aggiungere profili di punteggio a un indice di ricerca](https://msdn.microsoft.com/library/azure/dn798928.aspx).
 
@@ -279,894 +279,316 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
 I campi disponibili per la ricerca vengono sottoposti a un processo di analisi, che spesso comporta la suddivisione in parole, la normalizzazione del testo e l'esclusione di termini tramite filtro. Per impostazione predefinita, i campi disponibili per la ricerca in Ricerca di Azure vengono analizzati con l'[analizzatore Apache Lucene Standard](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), che suddivide il testo in elementi sulla base delle regole di [segmentazione del testo Unicode](http://unicode.org/reports/tr29/). L'analizzatore standard, inoltre, converte tutti i caratteri nel rispettivo formato minuscolo. I documenti indicizzati e i termini di ricerca vengono sottoposti ad analisi durante l'indicizzazione e l'elaborazione delle query.
 
-Ricerca di Azure supporta l'indicizzazione di campi in numerose lingue. Ogni lingua richiede un analizzatore di testo non standard che tenga conto delle caratteristiche specifiche della lingua. Ricerca di Azure offre due tipi di analizzatori:
+Ricerca di Azure supporta una varietà di linguaggi. Ogni lingua richiede un analizzatore di testo non standard che tenga conto delle caratteristiche specifiche della lingua. Ricerca di Azure offre due tipi di analizzatori:
 
-- 28 sono basati sulla tecnologia Lucene.
+- 35 sono basati sulla tecnologia Lucene.
 - 50 sono basati sulla tecnologia proprietaria di Microsoft per l'elaborazione del linguaggio naturale usata in Office e Bing.
 
-Alcuni sviluppatori potrebbero preferire la soluzione open source di Lucene, più semplice e familiare. Lucene è più veloce, ma gli analizzatori Microsoft hanno funzionalità avanzate, ad esempio la lemmatizzazione. Si consiglia di confrontare, se possibile, gli analizzatori Microsoft e Lucene per scegliere la soluzione più adatta al proprio caso.
+Alcuni sviluppatori potrebbero preferire la soluzione open source di Lucene, più semplice e familiare. Gli analizzatori Lucene sono più veloci, ma gli analizzatori Microsoft dispongono di funzionalità avanzate, ad esempio lemmatizzazione, scomposizione delle parole (in lingue come tedesco, danese, olandese, svedese, norvegese, estone, finlandese, ungherese, slovacco) e riconoscimento di entità (URL, messaggi di posta elettronica, date, numeri). Si consiglia di confrontare, se possibile, gli analizzatori Microsoft e Lucene per scegliere la soluzione più adatta al proprio caso.
 
 ***Analizzatori a confronto***
 
-L'analizzatore Lucene per la lingua inglese estende l'analizzatore standard. Rimuove il genitivo sassone (la 's finale) dalle parole, applica lo stemming in base all'[algoritmo Porter Stemming](http://tartarus.org/~martin/PorterStemmer/) e rimuove le [parole non significative](http://en.wikipedia.org/wiki/Stop_words) per la lingua inglese. Le operazioni di query e indicizzazione con gli analizzatori Lucene sono molto veloci.
+L'analizzatore Lucene per la lingua inglese estende l'analizzatore standard. Rimuove il genitivo sassone (la 's finale) dalle parole, applica lo stemming in base all'[algoritmo Porter Stemming](http://tartarus.org/~martin/PorterStemmer/) e rimuove le [parole non significative](http://en.wikipedia.org/wiki/Stop_words) per la lingua inglese.
 
-In confronto, l'analizzatore Microsoft implementa un stemmer espansivo che genera in fase di query tutte le forme possibili di ogni termine di query e consente quindi di ottenere risultati più precisi, anche se con maggiore latenza. Gli stemmer espansivi hanno in genere l'effetto di ridurre le prestazioni delle query. L'indicizzazione con gli analizzatori Microsoft è in media tre volte più lenta rispetto agli analizzatori Lucene corrispondenti.
+In confronto, l'analizzatore Microsoft esegue la lemmatizzazione anziché lo stemming. Significa che è possibile gestire le forme lessicali flesse e irregolari molto meglio, producendo risultati delle ricerche più rilevanti (esaminare il modulo 7 della [presentazione di Ricerca di Azure MVA](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) per ulteriori dettagli).
+
+L'indicizzazione con gli analizzatori Microsoft è in media da due a tre volte più lenta rispetto agli analizzatori Lucene corrispondenti, a seconda della lingua. Le prestazioni della ricerca non devono essere influenzate in modo significativo per le query di dimensioni medie.
 
 ***Configurazione***
 
-Per ogni campo nella definizione dell'indice, è possibile impostare la proprietà `analyzer` su un nome di analizzatore che specifica la lingua e il fornitore. Ad esempio, nello stesso indice possono essere presenti campi separati per le descrizioni di hotel in lingua inglese, francese e spagnola. La query definisce il campo specifico della lingua da restituire nei risultati della ricerca. È possibile esaminare gli esempi di query che includono la proprietà `analyzer` nella sezione [Eseguire ricerche nei documenti](#SearchDocs).
+Per ogni campo nella definizione dell'indice, è possibile impostare la proprietà `analyzer` su un nome di analizzatore che specifica la lingua e il fornitore. Lo stesso analizzatore verrà applicato per l'indicizzazione e la ricerca di tale campo. Ad esempio, nello stesso indice possono essere presenti campi separati per le descrizioni di hotel in lingua inglese, francese e spagnola. Utilizzare il [parametro di query 'searchFields'](#SearchQueryParameters) per specificare il campo specifico della lingua da ricercare nelle query. È possibile esaminare gli esempi di query che includono la proprietà `analyzer` nella sezione [Eseguire ricerche nei documenti](#SearchDocs).
 
 ***Elenco di analizzatori***
 
-Di seguito è riportato l'elenco di analizzatori supportati con una breve descrizione delle funzionalità disponibili:
+Di seguito è riportato l'elenco delle lingue supportate con i nomi degli analizzatori Lucene e Microsoft.
 
 <table style="font-size:12">
     <tr>
-		<th>Lingua</th>
-		<th>Nome analizzatore</th>
-		<th>Descrizione</th>
-	</tr>
-    <tr>
-		<td>Arabo</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>Implementa la normalizzazione ortografica per l'arabo</li>
-			<li>Applica lo stemming algoritmico semplificato</li>
-			<li>Esclude tramite filtro le parole arabe non significative</li>
-		</ul>
-		</td>
+		<th>Linguaggio</th>
+		<th>Nome analizzatore Microsoft</th>
+		<th>Nome analizzatore Lucene</th>
 	</tr>
     <tr>
 		<td>Arabo</td>
 		<td>ar.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-			<li>Esclude tramite filtro le parole arabe non significative</li>
-		</ul>
-		</td>
+		<td>ar.lucene</td>		
 	</tr>
     <tr>
     	<td>Armeno</td>
+		<td></td>
     	<td>hy.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applica lo stemming algoritmico semplificato</li>
-    		<li>Esclude tramite filtro le parole non significative in lingua armena</li>
-	    </ul>
-    	</td>
   	</tr>
     <tr>
 		<td>Bengalese</td>
-		<td>bg.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td>bn.microsoft</td>
+		<td></td>
 	</tr>
   	<tr>
     	<td>Basco</td>
+		<td></td>
     	<td>eu.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applica lo stemming algoritmico semplificato</li>
-    		<li>Esclude tramite filtro le parole non significative in basco</li>
-	    </ul>
-    	</td>
     </tr>
   	<tr>
- 	   <td>Bulgaro</td>
+ 		<td>Bulgaro</td>
+		<td>bg.microsoft</td>
     	<td>bg.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applica lo stemming algoritmico semplificato</li>
-    		<li>Esclude tramite filtro le parole non significative in lingua bulgara</li>
-	    </ul>
-    	</td>
   	</tr>
-    <tr>
-		<td>Bulgaro</td>
-		<td>bn.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
-	</tr>
   	<tr>
     	<td>Catalano</td>
-    	<td>ca.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applica lo stemming algoritmico semplificato</li>
-      		<li>Esclude tramite filtro le parole non significative in lingua catalana</li>
-      		<li>Rimuove le elisioni</li>
-   		</ul>
-    	</td>
+    	<td>ca.microsoft</td>
+		<td>ca.lucene</td>  		
   	</tr>
-    <tr>
-		<td>Catalano</td>
-		<td>ca.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Cinese semplificato</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>Usa modelli di conoscenza probabilistica per individuare la segmentazione ottimale per le parole</li>
-			<li>Esclude tramite filtro le parole cinesi non significative</li>
-		</ul>
-		</td>
-	</tr>
     <tr>
 		<td>Cinese semplificato</td>
 		<td>zh-Hans.microsoft</td>
-		<td>
-		<ul>
-			<li>Usa modelli di conoscenza probabilistica per individuare la segmentazione ottimale per le parole</li>
-		</ul>
-		</td>
+		<td>zh-Hans.lucene</td>		
 	</tr>
     <tr>
 		<td>Cinese tradizionale</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>Indicizza i bigrammi (gruppi sovrapposti di due caratteri cinesi adiacenti)</li>
-			<li>Normalizza le differenze di larghezza dei caratteri</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>Cinese tradizionale</td>
 		<td>zh-Hant.microsoft</td>
-		<td>
-		<ul>
-			<li>Usa modelli di conoscenza probabilistica per individuare la segmentazione ottimale per le parole</li>
-		</ul>
-		</td>
+		<td>zh-Hant.lucene</td>		
 	<tr>
     <tr>
 		<td>Croato</td>
 		<td>hr.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Ceco</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole ceche non significative</li>
-		</ul>
-		</td>
+		<td/></td>
 	</tr>
     <tr>
 		<td>Ceco</td>
 		<td>cs.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole ceche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Danese</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole danesi non significative</li>
-		</ul>
-		</td>
-	</tr>
+		<td>cs.lucene</td>		
+	</tr>    
     <tr>
 		<td>Danese</td>
 		<td>da.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole danesi non significative</li>
-			<li>Scomposizione</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Olandese</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole olandesi non significative</li>
-		</ul>
-		</td>
-	</tr>
+		<td>da.lucene</td>		
+	</tr>    
     <tr>
 		<td>Olandese</td>
 		<td>nl.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole olandesi non significative</li>
-			<li>Scomposizione</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
-	</tr>
+		<td>nl.lucene</td>	
+	</tr>    
     <tr>
-		<td>Inglese</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole inglesi non significative</li>
-			<li>Rimuove il genitivo sassone</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>English</td>
+		<td>Inglese</td>		
 		<td>en.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole inglesi non significative</li>
-			<li>Rimuove il genitivo sassone e i segni diacritici</li>
-		</ul>
-		</td>
+		<td>en.lucene</td>		
 	</tr>
     <tr>
 		<td>Estone</td>
 		<td>et.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-			<li>Scomposizione</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Finlandese</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole finlandesi non significative</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Finlandese</td>
 		<td>fi.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-			<li>Esclude tramite filtro le parole finlandesi non significative</li>
-			<li>Scomposizione</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Francese</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole francesi non significative</li>
-			<li>Rimuove le elisioni</li>
-		</ul>
-		</td>
-	</tr>
+		<td>fi.lucene</td>		
+	</tr>    
     <tr>
 		<td>Francese</td>
 		<td>fr.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole francesi non significative</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
+		<td>fr.lucene</td>		
 	</tr>
     <tr>
     	<td>Gallego</td>
-	    <td>gl.lucene</td>
-    	<td>
-    	<ul>
-    		<li>Applica lo stemming semplificato</li>
-      		<li>Esclude tramite filtro le parole non significative in lingua gallega</li>
-    	</ul>
-    	</td>
+	    <td></td>
+		<td>gl.lucene</td>    	
   	</tr>
     <tr>
 		<td>Tedesco</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole tedesche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Tedesco</td>
 		<td>de.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole tedesche non significative</li>
-			<li>Scomposizione</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Greco</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole greche non significative</li>
-		</ul>
-		</td>
+		<td>de.lucene</td>		
 	</tr>
     <tr>
 		<td>Greco</td>
 		<td>el.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole greche non significative</li>
-		</ul>
-		</td>
+		<td>el.lucene</td>		
 	</tr>
     <tr>
 		<td>Gujarati</td>
 		<td>gu.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Ebraico</td>
 		<td>he.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hindi</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole hindi non significative</li>
-			<li>Rimuove alcune differenze nelle variazioni di ortografia</li>
-			<li>Normalizza la rappresentazione Unicode del testo nelle lingue indiane</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Hindi</td>
 		<td>hi.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole hindi non significative</li>
-		</ul>
-		</td>
+		<td>hi.lucene</td>		
 	</tr>
     <tr>
-		<td>Ungherese</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole ungheresi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Ungherese</td>
+		<td>Ungherese</td>		
 		<td>hu.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-			<li>Esclude tramite filtro le parole ungheresi non significative</li>
-			<li>Scomposizione</li>
-		</ul>
-		</td>
+		<td>hu.lucene</td>
 	</tr>
     <tr>
 		<td>Islandese</td>
 		<td>is.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Indonesiano (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole indonesiane non significative</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Indonesiano (Bahasa)</td>
 		<td>id.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole indonesiane non significative</li>
-		</ul>
-		</td>
+		<td>id.lucene</td>		
 	</tr>
     <tr>
     	<td>Irlandese</td>
+		<td></td>
       	<td>ga.lucene</td>
-      	<td>
-      	<ul>
-        	<li>Applica lo stemming semplificato</li>
-        	<li>Esclude tramite filtro le parole non significative in lingua irlandese</li>
-      	</ul>
-      	</td>
     </tr>
     <tr>
 		<td>Italiano</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole italiane non significative</li>
-			<li>Rimuove le elisioni</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Italiano</td>
 		<td>it.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole italiane non significative</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Giapponese</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>Usa l'analisi morfologica</li>
-			<li>Normalizza le variazioni di ortografia katakana comuni</li>
-			<li>Esegue la rimozione semplificata di parole o tag non significativi</li>
-			<li>Normalizza la larghezza dei caratteri</li>
-			<li>Esegue la lemmatizzazione riducendo aggettivi e verbi flessi alla rispettiva forma base</li>
-		</ul>
-		</td>
+		<td>it.lucene</td>		
 	</tr>
     <tr>
 		<td>Giapponese</td>
 		<td>ja.microsoft</td>
-		<td>
-		<ul>
-			<li>Usa l'analisi morfologica</li>
-		</ul>
-		</td>
+		<td>ja.lucene</td>
+		
 	</tr>
     <tr>
 		<td>Kannada</td>
 		<td>ka.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Coreano</td>
+		<td></td>
 		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>Indicizza i bigrammi (gruppi sovrapposti di due caratteri Hangul adiacenti)</li>
-			<li>Normalizza le differenze di larghezza dei caratteri</li>
-		</ul>
-		</td>
-	</tr>
-  	<tr>
-		<td>Coreano</td>
-		<td>ko.Microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo (lemmatizzazione)</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
-		<td>Lettone</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole lettoni non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Lettone</td>
+		<td>Lettone</td>		
 		<td>lv.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-			<li>Esclude tramite filtro le parole lettoni non significative</li>
-		</ul>
-		</td>
+		<td>lv.lucene</td>	
 	</tr>
     <tr>
 		<td>Lituano</td>
 		<td>lt.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Malayalam</td>
 		<td>ml.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Malese (alfabeto latino)</td>
 		<td>ms.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Marathi</td>
 		<td>mr.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Norvegese</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole norvegesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Norvegese</td>
-		<td>no.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole norvegesi non significative</li>
-			<li>Scomposizione</li>
-		</ul>
-		</td>
+		<td>nb.microsoft</td>
+		<td>no.lucene</td>		
 	</tr>
   	<tr>
     	<td>Persiano</td>
-		<td>fa.lucene</td>
-    	<td>
-    	<ul>
-      		<li>Applica lo stemming algoritmico</li>
-      		<li>Esclude tramite filtro le parole non significative in lingua persiana</li>
-      		<li>Implementa la normalizzazione ortografica per l'arabo e per il persiano</li>
-    	</ul>
-    	</td>
+		<td></td>
+		<td>fa.lucene</td>    	
   	</tr>
     <tr>
 		<td>Polacco</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming algoritmico (Stempel)</li>
-			<li>Esclude tramite filtro le parole polacche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Polacco</td>
 		<td>pl.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole polacche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portoghese (Brasile)</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole brasiliane non significative</li>
-		</ul>
-		</td>
+		<td>pl.lucene</td>		
 	</tr>
     <tr>
 		<td>Portoghese (Brasile)</td>
 		<td>pt-Br.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole brasiliane non significative</li>
-		</ul>
-		</td>
+		<td>pt-Br.lucene</td>		
 	</tr>
     <tr>
 		<td>Portoghese (Portogallo)</td>
+		<td>pt-Pt.microsoft</td>		
 		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole portoghesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portoghese (Portogallo)</td>
-		<td>pt-Pt.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole portoghesi non significative</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
 		<td>Punjabi</td>
 		<td>pa.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Romeno</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole romene non significative</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Romeno</td>
 		<td>ro.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole romene non significative</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Russo</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole russe non significative</li>
-		</ul>
-		</td>
+		<td>ro.lucene</td>
 	</tr>
     <tr>
 		<td>Russo</td>
 		<td>ru.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole russe non significative</li>
-		</ul>
-		</td>
+		<td>ru.lucene</td>	
 	</tr>
     <tr>
 		<td>Serbo (alfabeto cirillico)</td>
 		<td>sr-cyrillic.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Serbo (alfabeto latino)</td>
 		<td>sr-latin.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Slovacco</td>
 		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-			<li>Scomposizione</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Sloveno</td>
-		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Spagnolo</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole spagnole non significative</li>
-		</ul>
-		</td>
+		<td>sl.microsoft</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Spagnolo</td>
 		<td>es.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole spagnole non significative</li>
-			<li>Rimuove i segni diacritici</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Svedese</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole svedesi non significative</li>
-		</ul>
-		</td>
+		<td>es.lucene</td>
 	</tr>
     <tr>
 		<td>Svedese</td>
 		<td>sv.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-			<li>Esclude tramite filtro le parole svedesi non significative</li>
-			<li>Scomposizione</li>
-		</ul>
-		</td>
+		<td>sv.lucene</td>
 	</tr>
+
     <tr>
 		<td>Tamil</td>
 		<td>ta.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Telugu</td>
 		<td>te.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Thai</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole thai non significative</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Thai</td>
 		<td>th.microsoft</td>
-		<td>
-		<ul>
-			<li>Esclude tramite filtro le parole thai non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Turco</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>Rimuove tutti i caratteri dopo un apostrofo (incluso l'apostrofo stesso)</li>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole turche non significative</li>
-		</ul>
-		</td>
+		<td>th.lucene</td>
 	</tr>
     <tr>
 		<td>Turco</td>
 		<td>tr.microsoft</td>
-		<td>
-		<ul>
-			<li>Stemmer riduttivo</li>
-			<li>Esclude tramite filtro le parole turche non significative</li>
-		</ul>
-		</td>
+		<td>tr.lucene</td>		
 	</tr>
     <tr>
 		<td>Ucraino</td>
 		<td>uk.microsoft</td>
-		<td>
-		<ul>
-		<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Urdu</td>
 		<td>ur.microsoft</td>
-		<td>
-		<ul>
-		<li>Stemmer espansivo (lemmatizzazione)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>Vietnamita</td>
 		<td>vi.microsoft</td>
-		<td>
-		<ul>
-
-		</ul>
-		</td>
+		<td></td>
 	</tr>
 	<td colspan="3">Ricerca di Azure fornisce inoltre configurazioni dell'analizzatore indipendenti dalla lingua</td>
     <tr>
@@ -1211,7 +633,7 @@ JavaScript sul lato client non può chiamare API per impostazione predefinita pe
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1565,7 +987,7 @@ Il corpo della risposta è nel formato seguente:
 
 ________________________________________
 <a name="DocOps"></a>
-## Operazioni sui documenti #
+## Operazioni sui documenti
 
 In Ricerca di Azure un indice viene archiviato nel cloud e popolato usando i documenti JSON che vengono caricati nel servizio. Tutti i documenti caricati costituiscono l'insieme dei dati di ricerca. I documenti includono campi, alcuni dei quali sono stati suddivisi in token corrispondenti a termini di ricerca durante il caricamento. Il segmento `/docs` dell'URL nell'API di Ricerca di Azure rappresenta la raccolta di documenti in un indice. Tutte le operazioni sulla raccolta, ad esempio caricamento, unione, eliminazione o query nei documenti, vengono eseguite nel contesto di un singolo indice e quindi gli URL per queste operazioni inizieranno sempre con `/indexes/[index name]/docs` per un nome di indice specifico.
 
@@ -1741,7 +1163,7 @@ La codifica con URL è consigliata solo per questi parametri. Se inavvertitament
 
 La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST con GET. La codifica dell'URL non è invece necessaria quando si chiama **Search** con POST o quando si usa la [libreria client .NET](https://msdn.microsoft.com/library/dn951165.aspx) che gestisce automaticamente la codifica dell'URL.
 
-**Parametri della query**
+<a name="SearchQueryParameters"></a> **Parametri della query**
 
 **Search** accetta diversi parametri che forniscono i criteri di query e specificano anche il comportamento di ricerca. Specificare questi parametri nella stringa di query dell'URL quando si chiama **Search** con GET e come proprietà JSON nel corpo della richiesta quando si chiama **Search** con POST. La sintassi per alcuni parametri è leggermente diversa tra GET e POST. Queste differenze sono riportate di seguito:
 
@@ -2144,7 +1566,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Accept`: questo valore deve essere impostato su `text/plain`.
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di **conteggio dei documenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -2243,7 +1665,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 
 - `api-key`: l'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per l'URL del servizio. La richiesta di recupero dei **suggerimenti** può specificare una chiave amministratore o una chiave di query per `api-key`.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -2307,4 +1729,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

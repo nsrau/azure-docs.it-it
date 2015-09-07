@@ -18,8 +18,6 @@
 
 # Attività di accesso irregolare
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Questo report include accessi identificati come "anomali" dagli algoritmi di apprendimento automatico. I motivi per contrassegnare un tentativo di accesso come irregolare prevedono posizioni di accesso imprevisto, ora del giorno e posizioni o una combinazione di queste. È possibile che un pirata informatico abbia tentato di accedere con questo account. L'algoritmo di apprendimento automatico classifica gli eventi come "anomali" o "sospetti", laddove "sospetti" indica una maggiore probabilità di una violazione della sicurezza.</p><p>Nei Risultati del report verranno mostrati questi accessi, insieme alla classificazione, alla posizione e a un timestamp associato a ogni accesso.</p><p>Se in un periodo di 30 giorni o meno verranno rilevati 10 o più eventi di accesso anomalo, Microsoft invierà agli amministratori globali una notifica tramite posta elettronica. Assicurarsi di includere aad-alerts-noreply@mail.windowsazure.com nell'elenco dei mittenti attendibili.</p> | Scheda Directory > Report |
+Gli accessi irregolari sono quelli che sono stati individuati dagli algoritmi di apprendimento automatico, in base a una condizione di tipo "tempo di spostamento impossibile" combinata con una posizione e un dispositivo di accesso anomali. È possibile che un pirata informatico abbia eseguito l'accesso con questo account. Microsoft invierà una notifica tramite posta elettronica agli amministratori globali se si verificano 10 o più eventi di accesso anomalo in un intervallo di 30 giorni o meno. Assicurarsi di includere aad-alerts-noreply@mail.windowsazure.com nell'elenco dei mittenti attendibili.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

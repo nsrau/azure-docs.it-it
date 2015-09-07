@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Creare una macchina virtuale con più NIC"
-   description="Vedere come creare e configurare macchine virtuali con più NIC"
-   services="virtual-network, virtual-machines"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Vedere come creare e configurare macchine virtuali con più NIC"
+	services="virtual-network, virtual-machines"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/10/2015"
+	ms.author="telmos"/>
 
 # Creare una macchina virtuale con più NIC
 
@@ -117,7 +117,7 @@ Le istruzioni seguenti consentono di creare una macchina virtuale Multi-NIC cont
 Per tentare di eseguire i comandi PowerShell riportati nell’esempio sono necessari i seguenti prerequisiti.
 
 - Una sottoscrizione di Azure.
-- Una rete virtuale configurata. Per altre informazioni sulle reti virtuali, vedere [Panoramica di Rete virtuale](https://msdn.microsoft.com/library/azure/jj156007.aspx).
+- Una rete virtuale configurata. Per altre informazioni sulle reti virtuali, vedere [Panoramica di Rete virtuale](virtual-networks-overview.md).
 - La versione più recente di Azure PowerShell scaricata e installata. Vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell).
 
 Per creare una macchina virtuale con più NICs, attenersi alla seguente procedura:
@@ -249,4 +249,4 @@ Per aggiungere una route predefinita nella NIC secondaria, attenersi alla proced
 
 Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento predefinito dell'host routing vulnerabile, è consigliabile che le schede NIC secondarie siano limitate ai flussi di traffico all'interno della stessa subnet. Tuttavia se alcune situazioni richiedono la connettività all'esterno della subnet, gli utenti devono attivare la “policy based routing” per fare in modo che il traffico in entrata e in uscita utilizzi la stessa scheda NIC.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

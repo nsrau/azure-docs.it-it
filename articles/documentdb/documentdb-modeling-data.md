@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Modellazione dei dati in Azure DocumentDB | Microsoft Azure" 
-	description="Informazioni su come modellare i dati per un database di documenti NoSQL come Azure DocumentDB." 
-	services="documentdb" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="mimig1" 
+	pageTitle="Modellazione dei dati in Azure DocumentDB | Microsoft Azure"
+	description="Informazioni su come modellare i dati per un database di documenti NoSQL come Azure DocumentDB."
+	services="documentdb"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="mimig1"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="ryancraw"/>
 
 #Modellazione dei dati in DocumentDB#
@@ -392,4 +392,4 @@ Per sapere come condividere i dati in più partizioni, fare riferimento a [Parti
 E infine, per informazioni aggiuntive sulla modellazione e la condivisione di dati per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

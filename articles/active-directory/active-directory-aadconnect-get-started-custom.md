@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Installazione personalizzata di Azure Ad Connect" 
-	description="In questo documento vengono descritte le opzioni di installazione personalizzata per Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Installazione personalizzata di Azure Ad Connect"
+	description="In questo documento vengono descritte le opzioni di installazione personalizzata per Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Installazione personalizzata di Azure Ad Connect
@@ -83,9 +83,9 @@ Attributo personale|Questa opzione consente di selezionare un attributo personal
 
 - **sourceAnchor**: l’attributo sourceAnchor non può essere modificato per la durata di un oggetto utente. È la chiave primaria che collega l'utente locale con l'utente in Azure AD. Poiché l'attributo non può essere modificato, è necessario pianificare un attributo valido da utilizzare. objectGUID è un candidato valido. Questo attributo non cambia, a meno che l'account utente viene spostato tra foreste o domini. In un ambiente a più foreste, nel quale è possibile spostare account tra foreste, è necessario utilizzare un altro attributo, ad esempio un attributo con il valore employeeID. Gli attributi da evitare sono quelli che cambiano se una persona si sposa o cambia le assegnazioni. Non è possibile utilizzare gli attributi con un segno @, pertanto non è possibile utilizzare posta elettronica e userPrincipalName. Inoltre, per l’attributo si applica la distinzione tra maiuscole e minuscole, per cui, se si sposta un oggetto tra foreste, accertarsi di mantenere la distinzione tra maiuscole e minuscole. Per gli attributi binari il valore è con codifica base64, ma per altri tipi di attributo rimane nello stato non codificato. Negli scenari di federazione e in alcune interfacce di Azure AD questo attributo è noto anche come immutableID.
 
-- **UserPrincipalName**: l’attributo userPrincipalName è l’attributo che gli utenti utilizzeranno quando effettuano l’accesso ad Azure AD e Office 365. I domini utilizzati, noti anche come suffisso UPN, devono essere verificati in Azure AD prima che gli utenti vengano sincronizzati. Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo attributo è non instradabile e non può essere verificato, è possibile selezionare un altro attributo, ad esempio posta elettronica, come attributo che contiene l'ID di accesso.
+- **UserPrincipalName**: l’attributo userPrincipalName è l’attributo che gli utenti utilizzeranno quando effettuano l’accesso ad Azure AD e Office 365. I domini utilizzati, noti anche come suffisso UPN, devono essere verificati in Azure AD prima che gli utenti vengano sincronizzati. Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo attributo è non instradabile e non può essere verificato, è possibile selezionare un altro attributo, ad esempio posta elettronica, come attributo che contiene l'ID di accesso. Questo attributo è noto come **ID alternativo**. Il valore dell'attributo ID alternativo deve essere conforme allo standard RFC822. È possibile usare un ID alternativo sia con una soluzione di accesso Single Sign-On tramite password che Single Sign-On federativo.
 
->[AZURE.WARNING]L’utilizzo di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per ulteriori informazioni, consultare [Configurazione dell’ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
+>[AZURE.WARNING]L’utilizzo di un ID alternativo non è compatibile con tutti i carichi di lavoro di Office 365. Per altre informazioni, vedere [Configurazione dell'ID di accesso alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
 
 
 
@@ -103,7 +103,7 @@ Il filtro sulla funzionalità dei gruppi consente di eseguire una piccola distri
 
 Questa schermata consente di selezionare le funzionalità facoltative per gli scenari specifici. Di seguito è riportata una breve spiegazione di ognuna delle singole funzionalità.
 
-<center>![Express Installation](./media/active-directory-aadconnect-get-started-custom/of.png)</center>
+<center>![Express Installation](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
 
 Funzionalità facoltative | Descrizione
@@ -111,7 +111,6 @@ Funzionalità facoltative | Descrizione
 Distribuzione ibrida di Exchange |La funzionalità Distribuzione ibrida di Exchange permette l'esistenza simultanea di cassette postali di Exchange sia in locale sia in Azure risincronizzando un set specifico di attributi da Azure AD alla directory locale.
 Filtro attributi e app di Azure AD|Se si abilita questa opzione, il set di attributi sincronizzati può essere adattato a un set specifico in una pagina successiva della procedura guidata. In questo caso, vengono visualizzate due pagine di configurazione aggiuntive della procedura guidata.  
 Writeback password|Se si abilita il writeback delle password, le modifiche delle password generate da Azure AD verranno riscritte nella directory locale.
-Writeback utenti|Se si abilita il writeback degli utenti, gli utenti creati in Azure AD verranno riscritti nella directory locale. In questo caso, viene visualizzata un'altra pagina di configurazione della procedura guidata.  
 Sincronizzazione attributi estensione della directory|Se si abilita questa opzione, gli attributi specificati verranno sincronizzati in Azure AD. In questo caso, viene visualizzata un'altra pagina di configurazione della procedura guidata.  
 
 Per altre opzioni di configurazione, come la modifica della configurazione predefinita e l'uso dell'Editor regole di sincronizzazione e del provisioning dichiarativo, vedere [Gestione di Azure AD Connect](active-directory-aadconnect-whats-next.md)
@@ -137,17 +136,7 @@ Questi attributi ora saranno disponibili tramite Graph:
 ![Filtro sincronizzazione](./media/active-directory-aadconnect-get-started-custom/extension4.png)
 
 
-## Writeback utenti (anteprima)
 
-> [AZURE.WARNING]Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect
-
-Il writeback utenti consente di riscrivere un utente creato in Azure AD (tramite portale, Graph, PowerShell o qualsiasi altro metodo) nell’ADDS locale. Per abilitare la funzionalità, selezionare "Writeback utenti"nella pagina delle funzionalità facoltative. Verrà ora visualizzato con il percorso in cui si desidera creare tali utenti. Tramite la configurazione predefinita tutti gli utenti verranno creati in una sola posizione in AD DS.
-
-![Filtro sincronizzazione](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
-
-Gli utenti verranno creati con una password casuale, pertanto è necessario reimpostare la password in AD DS affinché l'utente sia effettivamente in grado di effettuare l’ accesso.
-
->[AZURE.NOTE]La sincronizzazione delle password e il writeback delle password non sono compatibili con questa funzionalità di anteprima.
 
 ## Writeback gruppi (anteprima)
 
@@ -290,4 +279,4 @@ Inoltre, eseguire i passaggi di verifica seguenti:
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

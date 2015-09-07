@@ -4,7 +4,7 @@
    <th align="left" valign="middle">Limite predefinito</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Reti virtuali</a><sup>1</sup> per sottoscrizione</p></td>
+   <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">Reti virtuali</a><sup>1</sup> per sottoscrizione</p></td>
    <td valign="middle"><p>50 per area<sup>1</sup></p></td>
 </tr>
 <tr>
@@ -51,4 +51,4 @@
 
 <sup>1</sup>Il limite può essere aumentato contattando il supporto tecnico.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

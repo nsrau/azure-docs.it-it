@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creare e gestire un pool di database elastici di database SQL tramite PowerShell" 
-   description="Creare e gestire un pool di database elastici di database SQL di Azure tramite PowerShell" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Creare e gestire un pool di database elastici di database SQL tramite PowerShell"
+	description="Creare e gestire un pool di database elastici di database SQL di Azure tramite PowerShell"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/12/2015"
-   ms.author="adamkr; sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="adamkr; sstein"/>
 
 # Creare e gestire un pool di database elastici di database SQL tramite PowerShell
 
@@ -105,6 +105,7 @@ Ora si dispone di un gruppo di risorse, un server e una regola del firewall con 
 
 Il pool creato nel passaggio precedente è vuoto, non contiene alcun database elastico. Nelle sezioni seguenti viene illustrato come creare nuovi database elastici all'interno del pool, nonché come aggiungere database esistenti al pool.
 
+*Dopo la creazione di un pool è anche possibile utilizzare Transact-SQL per la creazione di nuovi database elastici nel pool e per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Creare un nuovo database elastico all'interno di un pool di database elastici
 
@@ -239,4 +240,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database e
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

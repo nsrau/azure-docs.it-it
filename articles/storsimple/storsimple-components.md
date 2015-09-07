@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Cosa sono i componenti di StorSimple? | Microsoft Azure" 
-   description="Descrive i dispositivi, i servizi e le tecnologie di gestione StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="Cosa sono i componenti di StorSimple? | Microsoft Azure"
+	description="Descrive il dispositivo StorSimple, il dispositivo virtuale, i servizi e le tecnologie di gestione e definisce i termini chiave utilizzati nella soluzione."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="AdinaH"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/13/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
 
-# Che cosa sono i componenti StorSimple? 
+# Quali sono i componenti di StorSimple e come funzionano? 
+
+## Panoramica
 
 Microsoft Azure StorSimple è una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Microsoft Azure. StorSimple è stato progettato per ridurre i costi e semplificare la gestione dell'archiviazione, migliorare le funzionalità e l'efficienza del ripristino di emergenza e assicurare la mobilità dei dati.
 
@@ -226,4 +228,4 @@ Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

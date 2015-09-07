@@ -1,20 +1,20 @@
 <properties
    pageTitle="Articolo di indice di HDInsight per il portale di Azure | Microsoft Azure"
-   description="Una pagina di indice con collegamenti ad articoli relativi a HDInsight nel portale di Azure. Microsoft consiglia di utilizzare il portale di anteprima di Azure per i nuovi cluster Hadoop in HDInsight:"
-   services="hdinsight"
-   documentationCenter="na"
-   authors="cjgronlund"
-   manager="pablissima"
-   editor=""/>
+	description="Una pagina di indice con collegamenti ad articoli relativi a HDInsight nel portale di Azure. Microsoft consiglia di utilizzare il portale di anteprima di Azure per i nuovi cluster Hadoop in HDInsight:"
+	services="hdinsight"
+	documentationCenter="na"
+	authors="cjgronlund"
+	manager="pablissima"
+	editor=""/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="index-page"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/17/2015"
-   ms.author="cjgronlund"/>
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/17/2015"
+	ms.author="cjgronlund"/>
 
 # Articolo di indice di HDInsight per il portale di Azure
 
@@ -63,11 +63,11 @@ Per un set completo di articoli sull'utilizzo di Linux e dei cluster Linux, visi
 * [Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
-## HBase: Analisi dei dati NoSQL
+## HBase: database NoSQL
 
 * [Configurare la replica geografica di HBase](hdinsight-hbase-geo-replication.md)
 * [Usare Maven per compilare applicazioni Java che usano HBase](hdinsight-hbase-build-java-maven.md)
-* [Analisi dei sentimenti Twitter in tempo reale con HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [Analisi dei sentimenti Twitter in tempo reale in HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm: Query di flusso
 
@@ -132,4 +132,4 @@ Per gli articoli sull'utilizzo di cluster Apache Spark nativi nel portale di ant
 * [Interpretare i messaggi di errore](hdinsight-debug-jobs.md)
 * [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come monitorare Cache Redis di Azure" 
-	description="Informazioni su come monitorare l'integrità e le prestazioni delle istanze di Cache Redis di Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Come monitorare Cache Redis di Azure"
+	description="Informazioni su come monitorare l'integrità e le prestazioni delle istanze di Cache Redis di Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
@@ -24,11 +24,11 @@ Quando è abilitata la diagnostica della cache, le metriche per le istanze di Ca
 
 Le metriche della cache vengono raccolte utilizzando il comando [INFO](http://redis.io/commands/info) di Redis. Per ulteriori informazioni sui diversi comandi INFO utilizzati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
 
-Per visualizzare le metriche della cache, [sfogliare](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) l’istanza della cache nel [portale di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Cache Redis**.
+Per visualizzare le metriche della cache, [sfogliare](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) l’istanza della cache nel [portale di anteprima di Azure](https://portal.azure.com). L’accesso alle metriche per le istanze di Cache Redis di Azure viene eseguito nel pannello **Cache Redis**.
 
 ![Monitoraggio][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Se viene visualizzato il messaggio seguente nel portale di Azure, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
+>[AZURE.IMPORTANT]Se viene visualizzato il messaggio seguente nel portale di anteprima, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -58,9 +58,9 @@ Dopo aver configurate le impostazioni di diagnostica, fare clic su **Salva** per
 
 >[AZURE.IMPORTANT]Le cache nella stessa area e nella stessa sottoscrizione condividono lo stesso account di archiviazione di diagnostica e quando viene modificata la configurazione, la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
 
-Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per ulteriori informazioni sull'accesso alle metriche archiviate all'esterno del portale di Azure, vedere l’esempio relativo all’[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per ulteriori informazioni sull'accesso alle metriche archiviate all'esterno del portale di anteprima, vedere l’esempio relativo all’[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Solo le metriche archiviate nell'account di archiviazione selezionato vengono visualizzate nel portale. Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale e non vengono eliminati quando l’intervallo di conservazione è trascorso.
+>[AZURE.NOTE]Solo le metriche archiviate nell'account di archiviazione selezionato vengono visualizzate nel portale di anteprima. Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale di anteprima e non vengono eliminati quando l’intervallo di conservazione è trascorso.
 
 ## Metriche disponibili e intervalli di report
 
@@ -80,7 +80,7 @@ Le metriche della cache vengono segnalate mediante vari intervalli di report, tr
 | Operazioni Set | Il numero di operazioni Set nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
 | Totale operazioni | Numero totale di comandi elaborati dal server di cache durante l'intervallo di report specificato. Questo valore è associato al comando INFO `total_commands_processed` di Redis. Si noti che quando Cache Redis di Azure viene utilizzata esclusivamente per la pubblicazione o la sottoscrizione non saranno disponibili metriche per `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, ma saranno disponibili metriche `Total Operations` che riflettono l'utilizzo della cache per le operazioni di pubblicazione/sottoscrizione. |
 | Memoria utilizzata | La quantità di memoria cache utilizzata in MB durante l'intervallo di report specificato. Questo valore è associato al comando INFO `used_memory` di Redis. |
-| CPU | L'utilizzo della CPU del server Cache Redis di Azure come percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)\% Processor Time` del sistema operativo. |
+| CPU | L'utilizzo della CPU del server Cache Redis di Azure come percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)% Processor Time` del sistema operativo. |
 | Lettura da cache | La quantità di dati letti dalla cache in KB/sec durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. |
 | Scrittura nella cache | La quantità di dati scritti nella cache in KB/sec durante l’intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. |
 
@@ -221,4 +221,4 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

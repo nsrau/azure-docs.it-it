@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights per ASP.NET 5" 
-	description="Monitorare la disponibilità, le prestazioni e l'utilizzo delle applicazioni Web." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="Application Insights per ASP.NET 5"
+	description="Monitorare la disponibilità, le prestazioni e l'utilizzo delle applicazioni Web."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="ronmart"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/27/2015"
 	ms.author="awills"/>
 
 # Application Insights per ASP.NET 5
@@ -90,16 +90,20 @@ In `startup.cs`:
 
 Nel metodo `Startup`:
 
-    // Setup configuration sources.
-    var configuration = new Configuration()
-       .AddJsonFile("config.json")
-       .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
-    configuration.AddEnvironmentVariables();
-    Configuration = configuration;
-
-    if (env.IsEnvironment("Development"))
+    public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
     {
-      configuration.AddApplicationInsightsSettings(developerMode: true);
+    	// Setup configuration sources.
+    	var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+	   		.AddJsonFile("config.json")
+	   		.AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
+    	builder.AddEnvironmentVariables();
+
+    	if (env.IsEnvironment("Development"))
+    	{
+	    	builder.AddApplicationInsightsSettings(developerMode: true);
+    	}
+    
+    	Configuration = builder.build();
     }
 
 Nel metodo `ConfigurationServices`:
@@ -171,4 +175,4 @@ Tornare al [portale di Azure][portal] e passare alla risorsa Application Insight
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Domande frequenti su Azure AD Connect Health" 
-	description="Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Domande frequenti su Azure AD Connect Health"
+	description="Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -45,7 +45,6 @@ I numeri indicati di seguito sono approssimativi.
 - Utilizzo della larghezza di banda di rete: ~1 MB/1000 richieste ADFS
 >[AZURE.NOTE]Se l'agente non è in grado di comunicare con Azure, archivierà i dati in locale, fino al limite massimo del 10% della memoria di sistema totale. Se l'agente raggiunge il 10% di tale memoria fisica totale e non è stato in grado di caricare i dati nel servizio, le nuove transazioni di ADFS sovrascriveranno tutte le transazioni memorizzate nella cache in base a quelle gestite meno recentemente.
 
-
 - Buffer locale per l'agente per l'integrità di AD: ~20 MB
 - Archiviazione dei dati necessaria per il canale di controllo
 
@@ -72,7 +71,6 @@ Eseguire questa operazione in qualsiasi momento prima dell'esecuzione di Registe
 Individuare il file machine.config. Il file si trova in %windir%\Microsoft.NET\Framework64[versione]\config\machine.config</li>
 
 Aggiungere la voce seguente nell'elemento <configuration></configuration> nel file machine.config.
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -85,7 +83,7 @@ Aggiungere la voce seguente nell'elemento <configuration></configuration> nel fi
 
  
 
-Altre <defaultProxy> informazioni sono disponibili [qui](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
+Per altre informazioni su <defaultProxy>, fare clic [qui]https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 Questa impostazione permette di configurare le applicazioni .NET a livello di sistema in modo che usino il proxy definito in modo esplicito quando effettuano richieste .NET HTTP. La modifica dei singoli file app.config non è consigliata, perché verrà annullata durante gli aggiornamenti automatici. È sufficiente modificare un file e le modifiche verranno mantenute anche in caso di applicazione di aggiornamenti, se si modifica solo il file machine.config.
 
@@ -129,4 +127,11 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 
 È necessario che siano aperte le porte TCP/UDP 80 e 443 perché l'agente di Azure AD Connect Health possa comunicare con gli endpoint del servizio Azure AD Connect Health.
 
-<!---HONumber=August15_HO6-->
+## Collegamenti correlati
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Installazione dell'agente di Azure AD Connect Health per AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+
+<!---HONumber=August15_HO9-->

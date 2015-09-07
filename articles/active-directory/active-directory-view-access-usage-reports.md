@@ -100,36 +100,8 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 
 
 ## Report Anomalie dell'attività
+I report relativi ad attività di acceso anomale contengono attività di accesso sospette al portale di gestione di Azure, al pannello di accesso di Azure AD, a Office 365, a SharePoint Online, a Dynamics CRM Online e ad altri servizi online Microsoft, indipendentemente dal provider di federazione. <p>Sono disponibili i report seguenti: </p><ul> <li>[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utenti con credenziali perse</li></ul>
 
-### Accessi da origini sconosciute
-
-Per informazioni dettagliate su questo report, vedere [Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).
-
-### Accessi dopo più errori
-
-Per informazioni dettagliate su questo report, vedere [Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).
-
-### Accessi da più aree geografiche
-
-Per informazioni dettagliate su questo report, vedere [Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md).
-
-### Accessi da indirizzi IP con attività sospetta
-
-Per informazioni dettagliate su questo report, vedere [Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
-
-### Attività di accesso irregolare
-
-Per informazioni dettagliate su questo report, vedere [Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).
-
-### Accessi da dispositivi potenzialmente infetti
-
-Per informazioni dettagliate su questo report, vedere [Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
-
-### Utenti con anomalie dell'attività di accesso
-
-Per informazioni dettagliate su questo report, vedere [Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
-
-<!-- Users with leaked credentials goes here -->
 
 
 
@@ -302,4 +274,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

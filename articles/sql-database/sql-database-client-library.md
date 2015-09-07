@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Creazione e gestione del database SQL di Azure con C#" 
-   description="In questo articolo viene illustrato come creare e gestire un database SQL di Azure con C# utilizzando la libreria di database SQL di Azure per .NET." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Creazione e gestione del database SQL di Azure con C#"
+	description="In questo articolo viene illustrato come creare e gestire un database SQL di Azure con C# utilizzando la libreria di database SQL di Azure per .NET."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/07/2015"
-   ms.author="sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="sstein"/>
 
-# Creazione e gestione di database SQL con C&#x23;
+# Creazione e gestione di database SQL con C&\#x23;
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-elastic-pool-portal.md)
@@ -335,6 +335,8 @@ Per creare un nuovo pool su un server:
 
 ## Spostare un database esistente in un pool di database elastici
 
+*Dopo aver creato un pool è anche possibile utilizzare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+
 Per spostare un database esistente in un pool:
 
     
@@ -364,6 +366,8 @@ Per spostare un database esistente in un pool:
 
 
 ## Creare un nuovo database in un pool di database elastici
+
+*Dopo la creazione di un pool è anche possibile utilizzare Transact-SQL per la creazione di nuovi database elastici nel pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Per creare un nuovo database direttamente in un pool:
 
@@ -780,7 +784,7 @@ Per eliminare un gruppo di risorse:
 
 [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-
+[Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md).
 
 
 <!--Image references-->
@@ -794,4 +798,4 @@ Per eliminare un gruppo di risorse:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

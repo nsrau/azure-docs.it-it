@@ -51,12 +51,12 @@ I server dell’applicazione e i controller di dominio vengono distribuiti all'i
     Pagina della procedura guidata | Valori da specificare
 	------------- | -------------
 	**Dettagli della rete virtuale** | <p>Nome: Digitare un nome per la rete virtuale, ad esempio WestUSVNet.</p><p>Regione: Scegliere l'area più vicina.</p>
-	**Server DNS e connettività VPN** | <p>Server DNS: Specificare il nome e l'indirizzo IP di uno o più server DNS locali.</p><p>Connettività: Selezionare **configurare una VPN da sito a sito**.</p><p>Rete locale: specificare una nuova rete locale.</p><p>Se si utilizza ExpressRoute anziché una connessione VPN, vedere [Configurare una connessione ExpressRoute tramite un Provider di Exchange](https://msdn.microsoft.com/library/azure/dn606306.aspx).</p>
+	**Server DNS e connettività VPN** | <p>Server DNS: specificare il nome e l'indirizzo IP di uno o più server DNS locali.</p><p>Connettività: selezionare **Configurare una VPN da sito a sito**.</p><p>Rete locale: specificare una nuova rete locale.</p><p>Se si utilizza ExpressRoute anziché una connessione VPN, vedere [Configurare una connessione ExpressRoute tramite un Provider di Exchange](../expressroute/expressroute-configuring-exps.md).</p>
 	**Connettività da sito a sito** | <p>Nome: Digitare un nome per la rete locale.</p><p>Indirizzo IP dispositivo VPN: specificare l'indirizzo IP pubblico del dispositivo che si connetterà alla rete virtuale. Il dispositivo VPN non può trovarsi dietro un NAT.</p><p>Indirizzo: Specificare gli intervalli di indirizzi della rete locale (ad esempio 192.168.0.0/16 nel diagramma scenario).</p>
 	**Spazi degli indirizzi della rete virtuale** | <p>Spazio degli indirizzi: Specificare l'intervallo di indirizzi IP per le macchine virtuali che si desidera eseguire nella rete virtuale di Azure (ad esempio 10.1.0.0/16 nel diagramma dello scenario). Questo intervallo di indirizzi non può sovrapporsi agli intervalli di indirizzi della rete locale.</p><p>Subnet: Specificare un nome e indirizzo per una subnet per i server dell’applicazione (ad esempio front-end, 10.1.1.0/24) e per i controller di dominio (ad esempio back-end, 10.1.2.0/24).</p><p>Fare clic su **Aggiungi subnet gateway**.</p>
 
-2. Quindi, si configurerà il gateway di rete virtuale per creare una connessione VPN da sito a sito sicura. Vedere [Configurare un gateway per la rete virtuale](https://msdn.microsoft.com/library/azure/jj156210.aspx) per informazioni.
-3. Creare la connessione VPN da sito a sito tra la nuova rete virtuale e un dispositivo VPN locale. Vedere [Configurare un gateway per la rete virtuale](https://msdn.microsoft.com/library/azure/jj156210.aspx) per informazioni.
+2. Quindi, si configurerà il gateway di rete virtuale per creare una connessione VPN da sito a sito sicura. Vedere [Configurare un gateway per la rete virtuale](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) per informazioni.
+3. Creare la connessione VPN da sito a sito tra la nuova rete virtuale e un dispositivo VPN locale. Vedere [Configurare un gateway per la rete virtuale](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) per informazioni.
 
 
 
@@ -86,7 +86,7 @@ Accedere a una macchina virtuale e verificare che sia disponibile la connettivit
 
 ## Riconfigurare il server DNS per la rete virtuale
 
-1. Nel portale di Azure classico, fare clic sul nome della rete virtuale, quindi fare clic sulla scheda **Configura** per [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](https://msdn.microsoft.com/library/azure/dn275925.aspx) allo scopo di usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
+1. Nel portale di Azure classico, fare clic sul nome della rete virtuale, quindi fare clic sulla scheda **Configura** per [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](virtual-networks-manage-dns-in-vnet.md) allo scopo di usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
 
 2. Per garantire che tutte le macchine virtuali dei controller di dominio di replica sulla rete virtuale siano configurati per usare i server DNS sulla rete virtuale, fare clic su **Macchine virtuali**, fare clic sulla colonna di stato per ciascuna macchina virtuale, quindi fare clic su **Riavvia**. Attendere fino a quando la macchina virtuale mostra lo stato **In esecuzione** prima di provare a effettuare l'accesso.
 
@@ -113,7 +113,7 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 -  [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Come caricare i controller di dominio Hyper-V locali in Azure tramite Azure PowerShell](http://support.microsoft.com/kb/2904015)
 -  [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](../active-directory-new-forest-virtual-machine.md)
--  [Rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md)
 -  [Microsoft Azure IaaS per professionisti IT: (01) Dati fondamentali delle macchine virtuali](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS per professionisti IT: (05) Creazione di reti virtuali e connettività cross-premise](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
@@ -122,4 +122,4 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

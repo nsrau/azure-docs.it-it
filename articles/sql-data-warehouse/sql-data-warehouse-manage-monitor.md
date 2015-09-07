@@ -1,20 +1,20 @@
 <properties
    pageTitle="Monitoraggio del carico di lavoro mediante DMV | Microsoft Azure"
-   description="Informazioni sul monitoraggio del carico di lavoro mediante DMV."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Informazioni sul monitoraggio del carico di lavoro mediante DMV."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/06/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/06/2015"
+	ms.author="sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
 
@@ -135,7 +135,11 @@ ORDER BY step_index;
 
 Salvare l'indice dell'istruzione eseguita in tempi prolungati.
 
-Controllare la colonna *operation\_type* dell'istruzione della query eseguita in tempi prolungati. Procedere al passaggio 4a per le **operazioni SQL**: OnOperation, RemoteOperation, ReturnOperation. Procedere al passaggio 4b per le **operazioni di spostamento dati**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation
+Controllare la colonna *operation\_type* dell'istruzione di query con esecuzione prolungata:
+
+- Procedere al passaggio 4a per le **operazioni SQL**: OnOperation, RemoteOperation, ReturnOperation.
+- Procedere al passaggio 4b per le **operazioni di spostamento dati**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+
 
 
 
@@ -213,4 +217,4 @@ Per ulteriori suggerimenti sulla gestione di SQL Data Warehouse, vedere [panoram
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Visualizzazione e modifica di nomi host"
-   description="Descrizione"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+	description="Descrizione"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="joaoma"/>
 
 # Visualizzazione e modifica di nomi host
 
@@ -61,14 +61,14 @@ Da un client REST, seguire queste istruzioni:
 
 Si può modificare il nome host per una macchina virtuale o istanza del ruolo caricando un file di configurazione del servizio modificato o rinominando il computer da una sessione Desktop remoto.
 
-## Vedere anche
+## Passaggi successivi
 
-[Risoluzione del nome (DSN)](https://msdn.microsoft.com/library/azure/jj156088.aspx)
+[Risoluzione del nome (DSN)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Schema di configurazione di Rete virtuale di Azure)](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configurare una rete virtuale usando un file di configurazione di rete](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Specificare le impostazioni DNS tramite i file di configurazione di rete](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

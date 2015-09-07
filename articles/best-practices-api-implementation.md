@@ -1,23 +1,21 @@
 <properties
    pageTitle="Linee Guida all'implementazione API | Microsoft Azure"
-   description="Indicazioni su come implementare un'API."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
-
+	description="Indicazioni su come implementare un'API."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/13/2015"
-   ms.author="masashin"/>
-
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="05/13/2015"
+	ms.author="masashin"/>
 
 # Guida all'implementazione API
 
@@ -1063,7 +1061,7 @@ Azure fornisce il [Servizio di gestione API](http://azure.microsoft.com/document
 
 Ulteriori informazioni che descrivono come eseguire queste attività sono reperibili alla pagina [Gestione API](http://azure.microsoft.com/services/api-management/) del sito Web Microsoft. Il Servizio di gestione API di Azure fornisce inoltre la propria interfaccia REST, consentendo di creare un'interfaccia personalizzata per semplificare il processo di configurazione di un'API Web. Per ulteriori informazioni, visitare la pagina [Riferimento API REST alla gestione API di Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sito Web Microsoft.
 
-> [AZURE.TIP]Azure offre la Gestione traffico di Azure che consente di implementare il failover e il bilanciamento del carico e ridurre la latenza tra più istanze di un sito Web ospitato in aree geografiche diverse. È possibile utilizzare la Gestione traffico di Azure in combinazione con il Servizio di gestione API. il Servizio di gestione API può indirizzare le richieste a istanze di un sito Web tramite la Gestione traffico di Azure. Per ulteriori informazioni, visitare la pagina [Metodi di bilanciamento del carico con Traffic Manager](https://msdn.microsoft.com/library/azure/dn339010.aspx) del sito Web Microsoft.
+> [AZURE.TIP]Azure offre la Gestione traffico di Azure che consente di implementare il failover e il bilanciamento del carico e ridurre la latenza tra più istanze di un sito Web ospitato in aree geografiche diverse. È possibile utilizzare la Gestione traffico di Azure in combinazione con il Servizio di gestione API. il Servizio di gestione API può indirizzare le richieste a istanze di un sito Web tramite la Gestione traffico di Azure. Per ulteriori informazioni, visitare la pagina [Metodi di bilanciamento del carico con Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) del sito Web Microsoft.
 
 > In questa struttura, se si utilizzano nomi DNS personalizzati per i siti Web, è necessario configurare il record CNAME appropriato per ogni sito Web per indicare il nome DNS del sito web di Gestione traffico di Azure.
 
@@ -1149,9 +1147,9 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Azure Notification hub di notifica utenti](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) sul sito Web Microsoft mostra come è possibile utilizzare un Hub di notifica di Azure per spingere le risposte asincrone alle applicazioni client.
 - La pagina[Gestione API](http://azure.microsoft.com/services/api-management/) sul sito Web Microsoft descrive come pubblicare un prodotto che fornisce un accesso sicuro e controllato a un'API Web.
 - La pagina[Riferimento API REST gestione API di Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) sul sito Web Microsoft descrive come utilizzare l'API REST di gestione per creare applicazioni di gestione personalizzate.
-- La pagina [Sui metodi di gestione traffico e bilanciamento del carico](https://msdn.microsoft.com/library/azure/dn339010.aspx) sul sito Web Microsoft riepiloga come Gestione traffico di Azure può essere utilizzato per le richieste di bilanciamento del carico tra più istanze di un sito Web che ospita un'API Web.
+- La pagina [Sui metodi di gestione traffico e bilanciamento del carico](../traffic-manager/traffic-manager-load-balancing-methods.md) sul sito Web Microsoft riepiloga come Gestione traffico di Azure può essere utilizzato per le richieste di bilanciamento del carico tra più istanze di un sito Web che ospita un'API Web.
 - La pagina [Application Insights - Avvia il monitoraggio dell'integrità e dell'utilizzo dell'app](app-insights-start-monitoring-app-health-usage.md) sul sito Web Microsoft fornisce informazioni dettagliate sull'installazione e configurazione di Application Insights in un progetto API Web ASP.NET.
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

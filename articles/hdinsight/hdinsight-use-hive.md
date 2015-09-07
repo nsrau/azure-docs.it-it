@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # Usare Hive e HiveQL con Hadoop in HDInsight per analizzare un file Apache log4j di esempio
@@ -119,13 +119,26 @@ HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | & nbsp; | ✔ | Linux o Windows | Windows |
 | [Desktop remoto](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+## Esecuzione di processi Hive in Azure HDInsight tramite SQL Server Integration Services locali
+
+È inoltre possibile utilizzare SQL Server Integration Services (SSIS) per eseguire un processo Hive. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Hive in HDInsight.
+
+
+- [Attività di Hive di Azure HDInsight][hivetask]
+- [Gestione connessione della sottoscrizione di Azure][connectionmanager]
+
+
+Ulteriori informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssispack].
+
+
 ##<a id="nextsteps"></a>Passaggi successivi
 
 Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i collegamenti seguenti per scoprire altre modalità di utilizzo di Azure HDInsight.
 
-* [Caricare dati in HDInsight][hdinsight-upload-data]
-* [Usare Pig con HDInsight][hdinsight-use-pig]
-* [Usare processi MapReduce con HDInsight][hdinsight-use-mapreduce]
+
+- [Caricare dati in HDInsight][hdinsight-upload-data]
+- [Usare Pig con HDInsight][hdinsight-use-pig]
+- [Usare processi MapReduce con HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -142,6 +155,9 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/en-US/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -163,4 +179,4 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

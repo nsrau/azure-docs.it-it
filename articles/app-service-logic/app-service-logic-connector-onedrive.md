@@ -1,6 +1,6 @@
 <properties
-	pageTitle="OneDrive Connector"
-	description="Introduzione a OneDrive Connector"
+	pageTitle="Uso del connettore OneDrive nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore OneDrive e usarlo in un'app per la logica in Azure App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,21 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Uso di OneDrive Connector nell'app per la logica #
+# Uso del connettore OneDrive e aggiunta all'app per la logica
+Connettersi a OneDrive per caricare, scaricare ed eliminare i file. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore OneDrive al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
-Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
-
-OneDrive Connector consente di caricare, scaricare ed eliminare file dall'account OneDrive.
-
-## Creare OneDrive Connector per l'app per la logica ##
-Per usare OneDrive Connector, è necessario innanzitutto creare un'istanza dell'app per le API OneDrive Connector. È possibile eseguire questa operazione direttamente dall'area di progettazione dell'app per la logica oppure dall'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
+## Creare un connettore OneDrive per l'app per la logica ##
+Per usare il connettore OneDrive, è innanzitutto necessario creare un'istanza dell'app per le API del connettore OneDrive. È possibile eseguire questa operazione direttamente dall'area di progettazione dell'app per la logica oppure dall'esterno. Per creare un'istanza all'esterno dell'area di progettazione, seguire questa procedura:
 
 1.	Aprire Azure Marketplace dalla home page del portale di Azure.
 2.	In "Tutto" cercare "OneDrive Connector".
-3.	Configurare OneDrive Connector nel modo seguente:
+3.	Configurare il connettore OneDrive nel modo seguente:
 
 	![][1]
 	- **Nome**: assegnare un nome al connettore
@@ -37,25 +34,25 @@ Per usare OneDrive Connector, è necessario innanzitutto creare un'istanza dell'
 	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
 	- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
 
-4. Fare clic su Crea. Verrà creato un nuovo OneDrive Connector.
-5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare OneDrive Connector.
+4. Fare clic su Create. Verrà creato un nuovo connettore OneDrive.
+5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore OneDrive.
 
-## Uso di OneDrive Connector nell'app per la logica ##
-Dopo aver creato l'app per le API, è possibile usare OneDrive Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
+## Usare il connettore OneDrive nell'app per la logica ##
+Dopo aver creato l'app per le API, è possibile usare il connettore OneDrive come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
-1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di OneDrive Connector. Seguire le istruzioni per [creare una nuova app per la logica].
+1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore OneDrive. Seguire le istruzioni per [creare una nuova app per la logica].
 
-2.	Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
+2.	Aprire "Triggers and Actions" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
 
-3.	OneDrive Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
+3.	Il connettore OneDrive viene visualizzato nella sezione relativa alle app per le API nel gruppo di risorse nella raccolta a destra.
 
 	![][2]
-4.	È possibile trascinare l'app per le API OneDrive Connector nell'editor facendo clic su "OneDrive Connector". Fare clic sul pulsante Autorizza. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
+4.	È possibile trascinare l'app per le API del connettore OneDrive nell'editor facendo clic su "OneDrive Connector". Fare clic sul pulsante Authorize. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
 
 	![][3]
 	![][4]
 
-5.	È ora possibile usare OneDrive Connector nel flusso. Attualmente in OneDrive Connector non sono disponibili trigger. Le azioni disponibili sono: Get File, Upload File, Delete File e List Files.
+5.	È ora possibile usare il connettore OneDrive nel flusso. Attualmente nel connettore OneDrive non sono disponibili trigger. Le azioni disponibili sono: Get File, Upload File, Delete File e List Files.
 
 	![][5]
 
@@ -72,13 +69,13 @@ Dopo aver creato l'app per le API, è possibile usare OneDrive Connector come tr
 
 7. Una volta fornite le informazioni richieste, l'azione "Upload File" è configurata e può essere usata nel flusso. È possibile configurare anche altre azioni nello stesso modo.
 
-8. Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->OneDrive Connector. È ora possibile fare clic su Definizione API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
+8. Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->OneDrive Connector. È ora possibile fare clic su API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore.
 
 	![][7]
 
 9. Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definizione dell'API OneDrive].
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -98,4 +95,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [definizione dell'API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

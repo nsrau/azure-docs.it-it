@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Esercitazione: Creare una rete virtuale solo cloud" 
-	description="Informazioni su come creare una rete virtuale di Azure di esempio solo cloud in questa esercitazione." 
-	services="virtual-machines, virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Esercitazione: Creare una rete virtuale solo cloud"
+	description="Informazioni su come creare una rete virtuale di Azure di esempio solo cloud in questa esercitazione."
+	services="virtual-machines, virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 # Esercitazione: Creare una rete virtuale solo cloud in Azure
@@ -24,7 +24,7 @@ Questa esercitazione illustra in modo dettagliato le procedure da eseguire nel p
 
 Ad esempio, è possibile usare FrontEndSubnet per server Web ed è possibile usare BackEndSubnet per server SQL o controller di dominio.
 
-In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Permette di acquisire familiarità con i passaggi necessari per creare una rete virtuale personalizzata, esaminando una configurazione di esempio. Per creare una rete virtuale solo cloud adatta alla configurazione specifica, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](http://msdn.microsoft.com/library/azure/dn631643.aspx). Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere [informazioni generali su Rete virtuale di Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Permette di acquisire familiarità con i passaggi necessari per creare una rete virtuale personalizzata, esaminando una configurazione di esempio. Per creare una rete virtuale solo cloud adatta alla configurazione specifica, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](../virtual-network/virtual-networks-create-vnet.md). Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere [informazioni generali su Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
 
 > [AZURE.NOTE]Questa esercitazione non esamina in modo dettagliato la creazione di una configurazione cross-premise, in cui la rete virtuale è connessa alla rete dell'organizzazione. Per un'esercitazione relativa alla creazione di una rete virtuale con connettività cross-premise e connessione VPN da sito a sito (ad esempio, con connessione ad Active Directory o SharePoint presenti nell'azienda), vedere [Esercitazione: Creare una rete virtuale cross-premise per la connettività da sito a sito](../virtual-network/virtual-networks-create-site-to-site-cross-premises-connectivity.md).
@@ -90,9 +90,9 @@ Per altre informazioni sui servizi di infrastruttura di Azure, vedere le risorse
 
 Per rimuovere questa rete virtuale, selezionarla, fare clic su **Elimina** e quindi su **Sì**.
 
-Quando si è pronti per creare una rete virtuale solo cloud adatta alla configurazione specifica, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](http://msdn.microsoft.com/library/azure/dn631643.aspx).
+Quando si è pronti per creare una rete virtuale solo cloud adatta alla configurazione specifica, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](../virtual-network/virtual-networks-create-vnet.md).
 
-Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere [Informazioni generali su Rete virtuale di Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere [Informazioni generali su Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
 Per altre procedure e impostazioni di configurazione di Rete virtuale, vedere [Attività di configurazione di Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?linkid=296652&clcid=0x409).
 
@@ -118,4 +118,4 @@ Per altre procedure e impostazioni di configurazione di Rete virtuale, vedere [A
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

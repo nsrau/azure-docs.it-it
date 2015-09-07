@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Effettuare l’accesso all'app per dispositivi mobili utilizzando un codice di verifica con Azure Multi-Factor Authentication" 
-	description="Questa pagina descriverà come un utente può accedere utilizzando un codice di verifica dell’app per dispositivi mobili con Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Effettuare l’accesso all'app per dispositivi mobili utilizzando un codice di verifica con Azure Multi-Factor Authentication"
+	description="Questa pagina descriverà come un utente può accedere utilizzando un codice di verifica dell’app per dispositivi mobili con Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Effettuare l’accesso all'app per dispositivi mobili utilizzando un codice di verifica con Azure Multi-Factor Authentication
@@ -39,4 +39,4 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

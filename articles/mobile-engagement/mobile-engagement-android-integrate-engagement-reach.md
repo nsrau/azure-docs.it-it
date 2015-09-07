@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android" 
+	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android"
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #Come integrare il servizio di copertura di Engagement in Android
 
-> [AZURE.IMPORTANT] Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
+> [AZURE.IMPORTANT]Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
 
 ##Integrazione standard
 
@@ -87,12 +87,14 @@ Modificare il file `AndroidManifest.xml`:
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT] Questa sezione è **obbligatoria** se si prevede di usare le notifiche di sistema durante la creazione di campagne Reach. Android impedisce la visualizzazione di notifiche di sistema senza icone. Se si omette questa sezione, gli utenti finali non saranno quindi in grado di riceverle.
+> [AZURE.IMPORTANT]Questa sezione è **obbligatoria** se si prevede di usare le notifiche di sistema durante la creazione di campagne Reach. Android impedisce la visualizzazione di notifiche di sistema senza icone. Se si omette questa sezione, gli utenti finali non saranno quindi in grado di riceverle.
 
 -   Se si crea una campagna con notifiche di sistema usando un'immagine di grandi dimensioni, è necessario aggiungere le autorizzazioni seguenti, se mancanti, dopo il tag `</application>`:
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+
+  -   Per Android M e se l'applicazione è destinata al livello dell’API Android 23 o superiore, l’autorizzazione ``WRITE_EXTERNAL_STORAGE`` richiede l'approvazione dell'utente. Leggere [questa sezione](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
 -   Nella campagna di copertura è anche possibile specificare se il dispositivo deve emettere un segnale e/o una vibrazione in caso di notifiche di sistema. A questo scopo, è necessario assicurarsi di avere dichiarato l'autorizzazione seguente dopo il tag `</application>`:
 
@@ -124,7 +126,7 @@ In tale caso, usare più file APK.
 
 ### Integrazione
 
-Se si vuole che l'applicazione sia in grado di ricevere push di dati del servizio di copertura, è necessario creare una classe secondaria di `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` e includere un riferimento a tale classe nel file `AndroidManifest.xml`, tra i tag `<application>` e/o `</application>`:
+Se si vuole che l'applicazione sia in grado di ricevere push di dati del servizio Reach, è necessario creare una classe secondaria di `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` e includere un riferimento a tale classe nel file `AndroidManifest.xml`, tra i tag `<application>` e/o `</application>`:
 
 			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
 			  android:exported="false">
@@ -191,7 +193,7 @@ Per impostazione predefinita, una notifica in-app è una visualizzazione che vie
 
 Per modificare l'aspetto delle sovrimpressioni delle notifiche, è sufficiente modificare il file `engagement_notification_area.xml` in base alle esigenze specifiche.
 
-> [AZURE.NOTE] Il file `engagement_notification_overlay.xml` è quello usato per creare una sovrimpressione di notifica e include il file `engagement_notification_area.xml`. È anche possibile personalizzarlo in base alle esigenze, ad esempio per posizionare l'area di notifica all'interno della sovrimpressione.
+> [AZURE.NOTE]Il file `engagement_notification_overlay.xml` è quello usato per creare una sovrimpressione di notifica e include il file `engagement_notification_area.xml`. È anche possibile personalizzarlo in base alle esigenze, ad esempio per posizionare l'area di notifica all'interno della sovrimpressione.
 
 ##### Includere il layout per le notifiche come parte del layout di un'attività
 
@@ -231,7 +233,7 @@ In questo esempio è stato aggiunto un contenitore padre, poiché il layout orig
 
 Engagement Reach SDK rileva automaticamente che il layout per le notifiche è incluso nell'attività e non aggiunge alcuna sovrimpressione per questa attività.
 
-> [AZURE.TIP] Se si usa un elemento ListActivity nell'applicazione, una sovrimpressione visibile relativa al servizio di copertura impedirà di reagire agli elementi selezionati nella visualizzazione elenco. Questo è un problema noto. Per risolvere questo problema, è consigliabile incorporare il layout per le notifiche nel layout personalizzato dell'attività List, come indicato nell'esempio precedente.
+> [AZURE.TIP]Se si usa un elemento ListActivity nell'applicazione, una sovrimpressione visibile relativa al servizio di copertura impedirà di reagire agli elementi selezionati nella visualizzazione elenco. Questo è un problema noto. Per risolvere questo problema, è consigliabile incorporare il layout per le notifiche nel layout personalizzato dell'attività List, come indicato nell'esempio precedente.
 
 ##### Disabilitazione delle notifiche dell'applicazione per le singole attività
 
@@ -247,7 +249,7 @@ Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notific
 
 Per registrare un gestore di categorie per le notifiche, è necessario aggiungere una chiamata durante l'inizializzazione dell'applicazione.
 
-> [AZURE.IMPORTANT]Prima di continuare, leggere le informazioni relative all'attributo android:process \<android-sdk-engagement-process\> nell'argomento "Come integrare Engagement in Android".
+> [AZURE.IMPORTANT]Prima di continuare, leggere le informazioni relative all'attributo android:process <android-sdk-engagement-process> nell'argomento "Come integrare Engagement in Android".
 
 L'esempio seguente presuppone che l'avviso precedente sia stato rispettato e che sia stata usata una classe secondaria di `EngagementApplication`:
 
@@ -497,7 +499,7 @@ Se l'implementazione di `EngagementNotifier` ignora il comportamento predefinito
 -   Per le notifiche di sistema, è stato eseguito l'override di `onNotificationPrepared` e sono state apportate modifiche a `contentIntent` o `deleteIntent` nell'oggetto `Notification`.
 -   Per le notifiche in-app, è stato eseguito l'override di `prepareInAppArea`. Assicurarsi di mappare almeno `actionNotification` a uno dei controlli dell'interfaccia utente.
 
-> [AZURE.NOTE] Se `handleNotification` genera un'eccezione, il contenuto viene eliminato e `dropContent` viene chiamato. Ciò viene segnalato nelle statistiche e sarà possibile elaborare le campagne successive.
+> [AZURE.NOTE]Se `handleNotification` genera un'eccezione, il contenuto viene eliminato e `dropContent` viene chiamato. Ciò viene segnalato nelle statistiche e sarà possibile elaborare le campagne successive.
 
 ### Annunci e sondaggi
 
@@ -565,7 +567,7 @@ Per i sondaggi è possibile estendere `EngagementPollActivity` e dichiarare l'at
 			
 ##### Implementazione da zero
 
-È possibile implementare le categorie per le attività di annuncio e sondaggio senza estendere una delle classi `Engagement*Activity` fornite da Reach SDK. Ciò risulta utile ad esempio se si vuole definire un layout che non usa la stessa visualizzazione dei layout standard.
+È possibile implementare le categorie per le attività di annuncio e sondaggio senza estendere una delle classi `Engagement*Activity` fornite dall'SDK di Reach. Ciò risulta utile ad esempio se si vuole definire un layout che non usa la stessa visualizzazione dei layout standard.
 
 Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminare il codice sorgente dell'implementazione standard.
 
@@ -647,4 +649,4 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

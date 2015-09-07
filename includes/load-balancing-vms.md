@@ -1,4 +1,3 @@
-
 #Bilanciamento del carico per i servizi di infrastruttura di Azure#
 
 Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanciamento del carico:
@@ -18,7 +17,7 @@ Per la distribuzione del traffico, Gestione traffico di Azure usa tre metodi di 
 - **Prestazioni**: questo metodo viene usato quando gli endpoint sono ubicati in aree geografiche diverse e si desidera che i client richiedenti si servano dell'endpoint "più vicino" in termini di minor latenza.
 - **Round Robin**: questo metodo viene usato quando si vuole distribuire il carico su un set di servizi cloud eseguiti nello stesso data center oppure su servizi cloud o siti Web eseguiti in data center diversi.
 
-Per altre informazioni, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](http://msdn.microsoft.com/library/azure/dn339010.aspx).
+Per altre informazioni, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 Nella figura seguente viene illustrato un esempio di bilanciamento del carico con metodo Round robin per la distribuzione del traffico tra diversi servizi cloud.
 
@@ -31,8 +30,6 @@ Il processo di base è il seguente:
 3.	Gestione traffico risponde inviando il nome DNS del servizio cloud presente nell'elenco round robin. Il server DNS del client Internet risolve il nome in un indirizzo IP e lo invia al client Internet.
 4.	Il client Internet si connette al servizio cloud scelto.
 
-Per altre informazioni, vedere [Gestione traffico](http://msdn.microsoft.com/library/azure/hh745750.aspx).
-
 ## Bilanciamento del traffico di Azure per macchine virtuali ##
 
 Le macchine virtuali appartenenti allo stesso servizio cloud o alla stessa rete virtuale possono comunicare direttamente tra loro usando i relativi indirizzi IP privati. I computer e i servizi esterni al servizio cloud o alla rete virtuale possono comunicare solo con le macchine virtuali di un servizio cloud o di una rete virtuale con un endpoint configurato. Un endpoint è un mapping di una porta o di un indirizzo IP pubblico alla porta o all'indirizzo IP privato di una macchina virtuale o di un ruolo Web all'interno di un servizio cloud di Azure.
@@ -43,7 +40,7 @@ Nella figura seguente è illustrato un endpoint con carico bilanciato per il tra
 
 ![bilanciamento del carico](./media/load-balancing-vms/LoadBalancing.png)
 
-Per altre informazioni, vedere [Bilanciamento del carico di Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Per altre informazioni, vedere [Bilanciamento del carico di Azure](../articles/load-balancer/load-balancer-overview.md). Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato](../load-balancer/load-balancer-overview.md).
 
 Azure è inoltre in grado di bilanciare il carico all'interno di un servizio cloud o una rete virtuale. Questo processo, noto come bilanciamento del carico interno, può essere usato per gli scopi seguenti:
 
@@ -57,8 +54,8 @@ Nella figura seguente viene illustrato un esempio di endpoint con carico bilanci
 
 ![bilanciamento del carico](./media/load-balancing-vms/LOBServers.png)
 
-Per altre informazioni, vedere [Bilanciamento del carico interno](http://msdn.microsoft.com/library/azure/dn690121.aspx). Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+Per altre informazioni, vedere [Bilanciamento del carico interno](../load-balancer/load-balancer-internal-overview.md). Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato interno](../load-balancer/load-balancer-internal-getstarted.md).
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

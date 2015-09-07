@@ -1,24 +1,24 @@
 <properties
     pageTitle="Come usare le code del bus di servizio (.NET) | Microsoft Azure"
-    description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+	description="Informazioni su come usare le code di Bus di servizio in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="get-started-article"
-    ms.date="07/02/2015"
-    ms.author="sethm"/>
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
+	ms.author="sethm"/>
 
-# Come usare le code del bus di servizio
+# Come usare le code del bus di servizio di Azure
 
-Questa guida illustra come usare le code del bus di servizio. Negli esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati includono **creazione di code** e **invio e ricezione di messaggi**. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi](#Next-steps).
+Questo articolo illustra come usare le code del bus di servizio. Negli esempi, scritti in C#, viene usata l'API .NET. Gli scenari presentati includono la creazione di code e l’invio e ricezione di messaggi. Per ulteriori informazioni sulle code, vedere la sezione [Passaggi successivi](#Next-steps).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -45,14 +45,14 @@ Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni segu
 
 Per archiviare endpoint e credenziali, nel bus di servizio viene usata una stringa di connessione. È possibile inserire la stringa di connessione in un file di configurazione, anziché impostarla come hardcoded:
 
-- Quando si usa Servizi cloud di Azure, è consigliabile archiviare la stringa di connessione usando il sistema di configurazione dei servizi di Azure (file ****.csdef** e ****.cscfg**).
-- Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file **Web.config**.
+- Quando si usa Servizi cloud di Azure, è consigliabile archiviare la stringa di connessione usando il sistema di configurazione dei servizi di Azure (file .csdef e .cscfg).
+- Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file Web.config.
 
-In entrambi i casi è possibile recuperare la stringa di connessione usando il metodo `CloudConfigurationManager.GetSetting`, come illustrato più avanti in questa guida.
+In entrambi i casi è possibile recuperare la stringa di connessione usando il metodo `CloudConfigurationManager.GetSetting`, come illustrato più avanti in questo articolo.
 
 ### Configurazione della stringa di connessione per l'uso con Servizi cloud
 
-Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal portale di gestione di Azure senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (****.csdef**), come illustrato di seguito:
+Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal portale di Azure senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (.csdef), come illustrato nell’esempio successivo.
 
     <ServiceDefinition name="Azure1">
     ...
@@ -64,7 +64,7 @@ Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi
     ...
     </ServiceDefinition>
 
-Specificare quindi i valori nel file di configurazione del servizio (****.cscfg**):
+Specificare quindi i valori nel file di configurazione (.cscfg) del servizio, come illustrato nell'esempio successivo.
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -77,11 +77,11 @@ Specificare quindi i valori nel file di configurazione del servizio (****.cscfg*
     ...
     </ServiceConfiguration>
 
-Usare i valori relativi alla chiave e al nome della chiave di firma di accesso condiviso recuperati dal portale di gestione come descritto nella sezione precedente.
+Usare i valori relativi alla chiave e al nome della chiave di firma di accesso condiviso recuperati dal portale di Azure come descritto nella sezione precedente.
 
-### Configurazione della stringa di connessione durante l'uso di Siti Web o Macchine virtuali
+### Configurazione della stringa di connessione durante l'uso di Siti Web o macchine virtuali di Azure
 
-Con Siti Web o Macchine virtuali è consigliabile usare il sistema di configurazione .NET, ad esempio il file **Web.config**. Per archiviare la stringa di connessione, usare l'elemento `<appSettings>`:
+Con Siti Web o Macchine virtuali è consigliabile usare il sistema di configurazione .NET, ad esempio il file **Web.config**. Per archiviare la stringa di connessione, usare l'elemento `<appSettings>`.
 
     <configuration>
         <appSettings>
@@ -90,19 +90,19 @@ Con Siti Web o Macchine virtuali è consigliabile usare il sistema di configuraz
         </appSettings>
     </configuration>
 
-Usare i valori relativi alla chiave e al nome della firma di accesso condiviso recuperati dal portale di gestione come descritto nella sezione precedente.
+Usare i valori relativi alla chiave e al nome della firma di accesso condiviso recuperati dal portale di Azure come descritto nella sezione precedente.
 
 ## Come creare una coda
 
 Per eseguire operazioni di gestione per le code del bus di servizio, è possibile usare la [classe `NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Questa classe fornisce i metodi per creare, enumerare ed eliminare le code.
 
-In questo esempio viene costruito un oggetto `NamespaceManager` mediante la classe `CloudConfigurationManager` di Azure con una stringa di connessione costituita dall'indirizzo di base di uno spazio dei nomi del servizio del bus di servizio e dalle credenziali di firma di accesso condiviso appropriate che dispongono delle autorizzazioni per gestirlo. Il formato della stringa di connessione è il seguente:
+In questo esempio viene costruito un oggetto `NamespaceManager` mediante la classe `CloudConfigurationManager` di Azure con una stringa di connessione costituita dall'indirizzo di base di uno spazio dei nomi del servizio del bus di servizio e dalle credenziali di firma di accesso condiviso appropriate che dispongono delle autorizzazioni per gestirlo. Questa stringa di connessione è nel formato illustrato nell'esempio successivo.
 
     Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey
 
-Considerate, ad esempio, le impostazioni di configurazione della sezione precedente:
+Usare il seguente esempio, per le impostazioni di configurazione della sezione precedente.
 
-    // Create the queue if it does not exist already
+    // Create the queue if it does not exist already.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -114,14 +114,14 @@ Considerate, ad esempio, le impostazioni di configurazione della sezione precede
         namespaceManager.CreateQueue("TestQueue");
     }
 
-Per il metodo [`CreateQueue`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) sono disponibili overload che consentono di ottimizzare le proprietà della coda, ad esempio per impostare il valore di durata TTL predefinito da applicare ai messaggi inviati alla coda. Per applicare queste impostazioni, viene usata la classe [`QueueDescription`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). L'esempio seguente illustra come creare una coda denominata "TestQueue" con una dimensione massima pari a 5 GB e una durata predefinita per i messaggi pari a 1 minuto:
+Per il metodo [`CreateQueue`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) sono disponibili overload che consentono di ottimizzare le proprietà della coda, ad esempio per impostare il valore di durata TTL predefinito da applicare ai messaggi inviati alla coda. Per applicare queste impostazioni, viene usata la classe [`QueueDescription`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). L'esempio seguente illustra come creare una coda denominata "TestQueue" con una dimensione massima pari a 5 GB e una durata predefinita per i messaggi pari a 1 minuto.
 
-    // Configure queue settings
+    // Configure queue settings.
     QueueDescription qd = new QueueDescription("TestQueue");
     qd.MaxSizeInMegabytes = 5120;
     qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-    // Create a new queue with custom settings
+    // Create a new queue with custom settings.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -139,7 +139,7 @@ Per il metodo [`CreateQueue`](https://msdn.microsoft.com/library/azure/microsoft
 
 Per inviare un messaggio a una coda del bus di servizio, nell'applicazione viene usata la stringa di connessione per creare un oggetto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx).
 
-Nel codice seguente viene illustrato come creare un oggetto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) per la coda "TestQueue" appena creata usando la chiamata API [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx):
+Nel seguente codice viene illustrato come creare un oggetto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) per la coda "TestQueue" appena creata usando la chiamata API [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx).
 
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -151,18 +151,18 @@ Nel codice seguente viene illustrato come creare un oggetto [`QueueClient`](http
 
 I messaggi inviati e ricevuti dalle code del bus di servizio sono istanze della classe [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Gli oggetti `BrokeredMessage` hanno un set di proprietà standard, ad esempio [`Label`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [`TimeToLive`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx), un dizionario usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Per impostare il corpo del messaggio, un'applicazione può passare qualsiasi oggetto serializzabile nel costruttore dell'oggetto [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). In tal caso per serializzare l'oggetto, verrà usato l'oggetto **DataContractSerializer** appropriato. In alternativa, è possibile fornire un oggetto **System.IO.Stream**.
 
-L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) "TestQueue" ottenuto nel frammento di codice riportato sopra:
+L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) "TestQueue" ottenuto nel codice di esempio riportato sopra.
 
      for (int i=0; i<5; i++)
      {
-       // Create message, passing a string message for the body
+       // Create message, passing a string message for the body.
        BrokeredMessage message = new BrokeredMessage("Test message " + i);
 
-       // Set some addtional custom app-specific properties
+       // Set some addtional custom app-specific properties.
        message.Properties["TestProperty"] = "TestValue";
        message.Properties["Message number"] = i;
 
-       // Send message to the queue
+       // Send message to the queue.
        Client.Send(message);
      }
 
@@ -183,28 +183,28 @@ L'esempio seguente illustra come ricevere ed elaborare messaggi usando la modali
     QueueClient Client =
       QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
 
-    // Configure the callback options
+    // Configure the callback options.
     OnMessageOptions options = new OnMessageOptions();
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    // Callback to handle received messages
+    // Callback to handle received messages.
     Client.OnMessage((message) =>
     {
         try
         {
-            // Process message from queue
+            // Process message from queue.
             Console.WriteLine("Body: " + message.GetBody<string>());
             Console.WriteLine("MessageID: " + message.MessageId);
             Console.WriteLine("Test Property: " +
             message.Properties["TestProperty"]);
 
-            // Remove message from queue
+            // Remove message from queue.
             message.Complete();
         }
             catch (Exception)
         {
-            // Indicates a problem, unlock message in queue
+            // Indicates a problem, unlock message in queue.
             message.Abandon();
         }
     }, options);
@@ -238,12 +238,11 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/azure/hh367516.aspx
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [esempi di Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

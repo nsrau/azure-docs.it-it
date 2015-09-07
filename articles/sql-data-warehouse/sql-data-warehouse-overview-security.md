@@ -1,20 +1,20 @@
 <properties
    pageTitle="Proteggere un database in SQL Data Warehouse | Microsoft Azure"
-   description="Suggerimenti per proteggere un database in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Suggerimenti per proteggere un database in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="sahajs"/>
 
 # Proteggere un database in SQL Data Warehouse
 
@@ -58,6 +58,28 @@ Esistono diversi modi per limitare ulteriormente le operazioni che un utente pu�
 La gestione di database e server logici dal portale di gestione di Azure o mediante l'API di gestione risorse di Azure viene controllata dalle assegnazioni di ruolo dell'account utente del portale. Per altre informazioni su questo argomento, vedere l'articolo relativo al [controllo degli accessi in base al ruolo nel portale di anteprima di Azure][].
 
 
+
+## Crittografia
+
+Azure SQL Data Warehouse consente di proteggere i dati mediante la crittografia dei dati quando sono in stato "inattivo" o vengono archiviati in file di database e backup, utilizzando la funzionalità [Transparent Data Encryption][]. Per crittografare il database, connettersi in qualità di proprietario del database ed eseguire:
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+È inoltre possibile abilitare Transparent Data Encryption dalle impostazioni del database del [portale di Azure][].
+
+
+
+## Controllo
+
+Il controllo e il monitoraggio di eventi del database consentono di mantenere la conformità alle normative e di identificare attività sospette. La funzionalità di controllo di SQL Data Warehouse consente di registrare gli eventi nel database in un log di controllo nell'account di archiviazione Azure. La funzionalità di controllo di SQL Data Warehouse si integra inoltre con Microsoft Power BI per facilitare l'esecuzione di analisi e report drill-down. Per ulteriori informazioni, vedere l'[Introduzione al controllo del database SQL][].
+
+
+
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
@@ -73,9 +95,11 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Gestione di database, account di accesso e utenti in database SQL di Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [autorizzazioni]: https://msdn.microsoft.com/library/ms191291.aspx
 [stored procedure]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Introduzione al controllo del database SQL]: sql-database-auditing-get-started.md
+[portale di Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [controllo degli accessi in base al ruolo nel portale di anteprima di Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

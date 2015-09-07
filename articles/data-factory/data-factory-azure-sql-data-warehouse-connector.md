@@ -1,24 +1,22 @@
 <properties 
-	pageTitle="Connettore SQL Data Warehouse di Azure- Spostare dati da e verso Azure SQL Data Warehouse " 
-	description="Informazioni sul connettore SQL Data Warehouse di Azure per il servizio Data factory che consente di spostare i dati da e verso Azure SQL Data Warehouse" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare dati da e verso Azure SQL Data Warehouse | Data factory di Azure"
+	description="Informazioni su come spostare i dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-
-# Connettore SQL Data Warehouse di Azure- Spostare dati da e verso Azure SQL Data Warehouse 
+# Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory per spostare dati in Azure SQL Data Warehouse da un altro archivio dati e spostare dati da un altro archivio dati a SQL Azure. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -26,11 +24,11 @@ Questo articolo illustra come usare l'attività di copia in una data factory per
 
 L'esempio seguente mostra:
 
-1. Un servizio collegato di tipo AzureSqlDW.
-2. Un servizio collegato di tipo AzureStorage. 
-3. Un set di dati di input di tipo AzureSqlDWTable. 
-4. Un set di dati di output di tipo AzureBlob.
-4. Una pipeline con attività di copia che usa SqlDWSource e BlobSink.
+1. Un servizio collegato di tipo [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
+2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties). 
+4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 Nell’esempio vengono copiati dati appartenenti a una serie temporale da una tabella nel database SQL Data Warehouse di Azure a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -62,7 +60,7 @@ Nell’esempio vengono copiati dati appartenenti a una serie temporale da una ta
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in Azure SQL Data Warehouse e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
  
-Impostando "external" su "true" e specificando i criteri externalData si comunica alla data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
 
 	{
 	  "name": "AzureSqlDWInput",
@@ -148,7 +146,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **SqlDWSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare dall'ultima ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlDWSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
 
 	{  
 	    "name":"SamplePipeline",
@@ -174,7 +172,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -199,11 +197,12 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo AzureSqlDWDatabase.
-2.	Un servizio collegato di tipo AzureStorage.
-3.	Un set di dati di input di tipo AzureBlob.
-4.	Un set di dati di output di tipo AzureSqlDWTable.
-4.	Una pipeline con attività di copia che usa BlobSource e SqlDWSink.
+1.	Un servizio collegato di tipo [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
+2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties).
+4.	Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlDWSink](#azure-sql-data-warehouse-copy-activity-type-properties).
+
 
 Nell’esempio vengono copiati dati appartenenti a una serie temporale dal BLOB di Azure a una tabella nel database SQL Data Warehouse di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -300,7 +299,7 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 
 **Set di dati di output di Azure SQL Data Warehouse:**
 
-Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in Azure SQL Data Warehouse. È necessario creare la tabella nel database SQL Data Warehouse di Azure con lo stesso numero di colonne di quelle previste nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
+Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in Azure SQL Data Warehouse. È necessario creare la tabella nel database SQL Data Warehouse di Azure con lo stesso numero di colonne di quelle previste nel file file con estensione csv del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
 
 	{
 	  "name": "AzureSqlDWOutput",
@@ -319,7 +318,7 @@ Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in Azure
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **source** è impostato su **BlobSource** e il tipo di **sink** è impostato su **SqlDWSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **SqlDWSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -375,11 +374,11 @@ Proprietà | Descrizione | Obbligatorio
 type | La proprietà del tipo deve essere impostata su: **AzureSqlDW** | Sì
 **connectionString** | Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. | Sì
 
-Nota: è necessario configurare[il firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). È necessario configurare il server del database per [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Inoltre, se si copiano dati in Azure SQL Data Warehouse dall’esterno di Azure e da origini dati locali con gateway di data factory, sarà necessario configurare un intervallo di indirizzi IP appropriato per la macchina che sta inviando dati a Azure SQL Data Warehouse.
+Nota: è necessario configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). È necessario configurare il server del database per [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Inoltre, se si copiano dati in Azure SQL Data Warehouse dall’esterno di Azure e da origini dati locali con gateway di data factory, sarà necessario configurare un intervallo di indirizzi IP appropriato per la macchina che sta inviando dati a Azure SQL Data Warehouse.
 
 ## Proprietà del tipo del set di dati Azure SQL Data Warehouse
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo [Creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **AzureSqlDWTable** presenta le proprietà seguenti.
 
@@ -389,7 +388,7 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 
 ## Proprietà del tipo di attività di copia di Azure SQL Data Warehouse
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
 **Nota:** l'attività di copia accetta solo un input e produce solo un output.
 
@@ -425,7 +424,7 @@ Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-da
 
 Quando si spostano dati da e verso SQL Azure, SQL Server, Sybase verranno usati i mapping seguenti dal tipo SQL di tipo .NET e viceversa.
 
-Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
+Il mapping è uguale al mapping del [tipo di dati di SQL Server per ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 
 | Tipo di motore di database di SQL Server | Tipo di .NET Framework |
 | ------------------------------- | ------------------- |
@@ -437,21 +436,21 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimale | Decimale |
+| Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte |
 | Float | Double |
-| immagine | Byte | 
+| image | Byte | 
 | int | Int32 | 
-| money | Decimale |
+| money | Decimal |
 | nchar | String, Char |
 | ntext | String, Char |
-| numeric | Decimale |
+| numeric | Decimal |
 | nvarchar | String, Char |
 | real | Single |
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimale | 
+| smallmoney | Decimal | 
 | sql\_variant | Object * |
 | text | String, Char |
 | time | TimeSpan |
@@ -468,4 +467,4 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

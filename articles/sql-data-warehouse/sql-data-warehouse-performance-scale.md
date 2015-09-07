@@ -1,20 +1,20 @@
 <properties
    pageTitle="Scalabilità e prestazioni elastiche con SQL Data Warehouse | Microsoft Azure"
-   description="Comprendere l'elasticità di SQL Data Warehouse mediante l'uso di unità data warehouse per aumentare o ridurre le risorse di calcolo. Esempi di codice forniti."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="TwoUnder"
-   manager="barbkess"
-   editor=""/>
+	description="Comprendere l'elasticità di SQL Data Warehouse mediante l'uso di unità data warehouse per aumentare o ridurre le risorse di calcolo. Esempi di codice forniti."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="TwoUnder"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/25/2015"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/25/2015"
+	ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # Scalabilità e prestazioni elastiche con SQL Data Warehouse
 Per aumentare o ridurre in modo elastico la potenza di calcolo di cui si dispone, è sufficiente modificare il numero delle unità data warehouse (DWU) allocate alla propria istanza di SQL Data Warehouse. Le unità data warehouse sono un nuovo concetto introdotto con SQL Data Warehouse per consentirne una gestione semplice ed efficace. Questo argomento è un'introduzione alle unità data warehouse in cui viene spiegato come usarle per scalare in modo elastico la potenza di calcolo. L'articolo fornisce anche alcune indicazioni iniziali su come impostare un valore DWU ragionevole per l'ambiente in uso.
@@ -39,15 +39,16 @@ Se si dispone di un'applicazione con un carico di lavoro molto variabile, è pos
 ## Aumento e riduzione delle risorse di calcolo
 L'elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU) in modo del tutto indipendente dall'archiviazione nel cloud. Questo conferisce la flessibilità necessaria per regolare la potenza di calcolo in modo ottimale per la propria azienda.
 
-Per aumentare la potenza di calcolo, è possibile usare il [portale di Azure][], T-SQL, le API REST oppure PowerShell. L'aumento o la riduzione annulla tutte le attività in esecuzione o in coda, ma avviene in pochi secondi, pertanto è possibile riprendere con più o meno potenza di calcolo.
+Per aumentare la potenza di calcolo è possibile aggiungere ulteriori DWU al servizio utilizzando il dispositivo di scorrimento scala nel portale di Azure. È inoltre possibile aggiungere DWU tramite T-SQL, le API REST o i cmdlet di Powershell. L'aumento o la riduzione annulla tutte le attività in esecuzione o in coda, ma avviene in pochi secondi, pertanto è possibile riprendere con più o meno potenza di calcolo.
 
-Il codice T-SQL seguente illustra come modificare l'allocazione di DWU per la propria istanza di SQL Data Warehouse:
+Nel [portale di Azure][], è possibile fare clic sull'icona "Scala" nella parte superiore della pagina SQL Data Warehouse e quindi utilizzare il dispositivo di scorrimento per aumentare o ridurre la quantità di DWU applicati al Data Warehouse prima di fare clic su "Salva". Se si vuole modificare la scalabilità a livello di programmazione, il codice T-SQL seguente illustra come modificare l'allocazione di DWU per il proprio SQL Data Warehouse:
 
 ```
 ALTER DATABASE MySQLDW 
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
+Si noti che questo T-SQL deve essere eseguito sul server logico e non sull’istanza stessa di SQL Data Warehouse.
 
 È possibile ottenere lo stesso risultato con PowerShell usando il codice seguente:
 
@@ -95,4 +96,4 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

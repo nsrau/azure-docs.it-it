@@ -50,7 +50,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 ## Elenco di funzioni
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [MatchRegex](#matchregex) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [ObsoleteReplace](#obsoletereplace) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceRegex](#replaceregex) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 
 
@@ -69,21 +69,6 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 |--- | ---                 | ---  | ---   |
 | **source** | Obbligatorio | String | In genere è il nome dell'attributo dell'oggetto di origine. |
 | **suffix** | Obbligatorio | String | Stringa da aggiungere alla fine del valore di origine. |
-
-
-----------
-### Coalesce
-
-**Funzione:**<br> Coalesce(source1, source2, …)
-
-**Descrizione:**<br> Restituisce il primo valore non vuoto dall'elenco di parametri di origine.
- 
-**Parametri:**<br>
-
-|Nome| Obbligatorio/Ripetuto | Tipo | Note |
-|--- | ---                 | ---  | ---   |
-| ****source1 .. sourceN ** | Obbligatorio, ripetuto per un numero variabile di volte | String | Valori del parametro **source** tra cui scegliere |
-
 
 
 ----------
@@ -122,26 +107,6 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 
 
-
-
-----------
-### MatchRegex
-
-**Funzione:**<br> MatchRegex(source, find, group)
-
-**Descrizione:**<br> Restituisce la sottostringa all'interno del valore che corrisponde al criterio di espressione regolare specificato nel parametro find. Se è specificato group, viene restituito solo il valore del gruppo RegEx specifico.
-
-
-**Parametri:**<br>
-
-|Nome| Obbligatorio/Ripetuto | Tipo | Note |
-|--- | ---                 | ---  | ---   |
-| **source** | Obbligatorio | String | Valore del parametro **Source** in cui eseguire la ricerca. |
-| **find** | Obbligatorio | String | Espressione regolare per cui trovare una corrispondenza nel valore **source**. |
-| **group** | Facoltativo | String | Nome del gruppo all'interno della corrispondenza dell'espressione regolare di cui si vuole usare il valore. |
-
-
-
 ----------
 ### Mid
 
@@ -155,8 +120,8 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 |Nome| Obbligatorio/Ripetuto | Tipo | Note |
 |--- | ---                 | ---  | ---   |
 | **source** | Obbligatorio | String | Corrisponde in genere al nome dell'attributo. |
-| **start** | Obbligatorio | numero intero | Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-| **length** | Obbligatorio | numero intero | Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+| **start** | Obbligatorio | integer | Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+| **length** | Obbligatorio | integer | Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 
 
@@ -178,14 +143,11 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 
 ----------
-### ObsoleteReplace
+### Replace
 
 **Funzione:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**Descrizione:**<br>
-> [AZURE.NOTE]questa funzione verrà deprecata a breve e verrà sostituita con versioni più semplici.
-
-Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
+**Descrizione:**<br> Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
 
 - Se vengono forniti **oldValue** e **replacementValue**:
 
@@ -195,15 +157,15 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
    - Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**.
 
-- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**:
+- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName** e **replacementValue**:
 
    - Sostituisce tutti i valori corrispondenti a oldValueRegexPattern nella stringa source con replacementValue.
 
-- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**:
+- Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName** e **replacementPropertyName**:
 
    - Se è presente un valore per **source**, verrà restituito **source**.
 
-- Se non sono presenti valori per **source**, verranno usati **oldValueRegexPattern** e **oldValueRegexGroupName** per estrarre il valore di sostituzione dalla proprietà con **replacementPropertyName**. Il valore di sostituzione viene restituito come risultato.
+   - Se non sono presenti valori per **source**, verranno usati **oldValueRegexPattern** e **oldValueRegexGroupName** per estrarre il valore di sostituzione dalla proprietà con **replacementPropertyName**. Il valore di sostituzione viene restituito come risultato.
 
 
 **Parametri:**<br>
@@ -217,42 +179,6 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 | **replacementValue** | Facoltativo | String | Nuovo valore con cui sostituire il precedente. |
 | **replacementAttributeName** | Facoltativo | String | Nome dell'attributo da usare per il valore di sostituzione, se non sono presenti valori per source. |
 | **template** | Facoltativo | String | Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore source. |
-
-
-
-----------
-### Replace
-
-**Funzione:**<br> Replace(source, find, replace)
-
-**Descrizione:**<br> Sostituisce tutte le occorrenze del valore **find** nella stringa **source** con il valore del parametro **replace**.
-
-**Parametri:**<br>
-
-|Nome| Obbligatorio/Ripetuto | Tipo | Note |
-|--- | ---                 | ---  | ---   |
-| **source** | Obbligatorio | String | Valore del parametro **Source** in cui eseguire la ricerca. |
-| **find** | Obbligatorio | String | Valore da cercare. |
-| **replace** | Obbligatorio | String | Valore di sostituzione. |
-
-
-
-----------
-### ReplaceRegex
-
-**Funzione:**<br> ReplaceRegex(source, find, replace, group)
-
-**Descrizione:**<br> All'interno della stringa **source** sostituisce tutte le sottostringhe corrispondenti all'espressione regolare **find** con il valore del parametro **replace**. Se è specificato **group**, viene sostituito solo il valore del gruppo RegEx specifico.
-
-**Parametri:**<br>
-
-|Nome| Obbligatorio/Ripetuto | Tipo | Note |
-|--- | ---                 | ---  | ---   |
-| **source** | Obbligatorio | String | Valore del parametro **Source** in cui eseguire la ricerca. |
-| **find** | Obbligatorio | String | Espressione regolare per cui trovare una corrispondenza nel valore **source**. |
-| **replace** | Obbligatorio | String | Valore di sostituzione. |
-| **group** | Facoltativo | String | Nome del gruppo all'interno della corrispondenza dell'espressione regolare di cui si vuole usare il valore. |
-
 
 
 
@@ -276,7 +202,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**. I parametri **Key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
+**Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**. I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
 
 **Parametri:**<br>
 
@@ -284,7 +210,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 |--- | ---                 | ---  | ---   |
 | **source** | Obbligatorio | String | Valore del parametro **source** da aggiornare. |
 | **defaultValue** | Facoltativo | String | Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **key** | Obbligatorio | String | Parametro **Key** con cui confrontare il valore di **source**. |
+| **key** | Obbligatorio | String | Parametro **key** con cui confrontare il valore di **source**. |
 | **value** | Obbligatorio | String | Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 
@@ -296,14 +222,13 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di un utente per ottenere il nome utente. <br> Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
 
 
-**Espressione:** <br> `Replace([mail], "@contoso.com", "")`
+**Espressione:** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
 
 **Input/output di esempio:** <br>
 
 - **INPUT** (mail): "john.doe@contoso.com"
 
 - **OUTPUT**: "john.doe"
-
 
 
 ### Aggiungere un suffisso costante al nome utente
@@ -328,7 +253,7 @@ Se si usa un ambiente sandbox Salesforce, potrebbe essere necessario aggiungere 
 
 ### Generare un alias utente concatenando parti del nome e del cognome
 
-Occorre generare un alias utente contenente le prime tre lettere del nome e le prime 5 lettere del cognome dell'utente.
+Occorre generare un alias utente contenente le prime tre lettere del nome e le prime cinque lettere del cognome dell'utente.
 
 
 **Espressione:** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
@@ -346,7 +271,7 @@ Occorre generare un alias utente contenente le prime tre lettere del nome e le p
 
 ### Eseguire l'output della data come stringa in un formato specifico
 
-Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> ad esempio, formattare le date per ServiceNow.
+Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> Ad esempio, formattare le date per ServiceNow.
 
 
 
@@ -382,4 +307,4 @@ Occorre inviare date a un'applicazione SaaS in un formato specifico, <br> ad ese
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

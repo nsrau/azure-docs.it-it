@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Eseguire Cassandra con Linux in Azure" 
-	description="Spiega come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un’app Node.js" 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Eseguire Cassandra con Linux in Azure"
+	description="Spiega come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un’app Node.js"
+	services="virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="MikeWasson"/>
 
 
@@ -53,7 +53,7 @@ Figura 1: Distribuzione in un'area singola
 
 Al momento della stesura di questo articolo, Azure non consente il mapping esplicito di un gruppo di macchine virtuali a un dominio di errore specifico. Quindi, anche con il modello di distribuzione mostrato nella figura 1, è statisticamente probabile che venga eseguito il mapping di tutte le macchine virtuali a due domini di errore invece che a quattro.
 
-**Traffico Thrift con bilanciamento del carico:** le librerie client Thrift all'interno del server web si connettono al cluster tramite un servizio di bilanciamento del carico interno. Questa operazione richiede il processo di aggiunta del servizio di bilanciamento del carico interno alla subnet "data" (vedere la figura 1) nel contesto del servizio cloud che ospita il cluster Cassandra. Una volta definito il servizio di bilanciamento del carico interno, per ogni nodo è necessaria l’aggiunta dell'endpoint con carico bilanciato con le annotazioni di un set con carico bilanciato con il nome del servizio di bilanciamento del carico definito in precedenza. Per ulteriori dettagli, vedere [Bilanciamento del carico interno di Azure](http://msdn.microsoft.com/library/azure/dn690121.aspx).
+**Traffico Thrift con bilanciamento del carico:** le librerie client Thrift all'interno del server web si connettono al cluster tramite un servizio di bilanciamento del carico interno. Questa operazione richiede il processo di aggiunta del servizio di bilanciamento del carico interno alla subnet "data" (vedere la figura 1) nel contesto del servizio cloud che ospita il cluster Cassandra. Una volta definito il servizio di bilanciamento del carico interno, per ogni nodo è necessaria l’aggiunta dell'endpoint con carico bilanciato con le annotazioni di un set con carico bilanciato con il nome del servizio di bilanciamento del carico definito in precedenza. Per ulteriori dettagli, vedere [Bilanciamento del carico interno di Azure](../load-balancer/load-balancer-internal-overview.md).
 
 **Valori di inizializzazione del cluster**: è importante selezionare i nodi con disponibilità più elevata per i valori di inizializzazione perché i nuovi nodi comunicheranno con i nodi dei valori di inizializzazione per individuare la topologia del cluster. Un nodo da ogni set di disponibilità viene designato come nodo di inizializzazione per evitare il singolo punto di errore.
 
@@ -301,7 +301,7 @@ Assicurarsi che la macchina virtuale sia evidenziata e fare clic sul collegament
 Dopo alcuni secondi l'immagine dovrebbe essere disponibile nella sezione IMMAGINI PERSONALI della raccolta immagini. La macchina virtuale di origine verrà automaticamente eliminata una volta acquisita l'immagine.
 
 ##Processo di distribuzione in un'area singola
-**Passaggio 1: Creare la rete virtuale** Accedere al portale di gestione e creare una rete virtuale con gli attributi elencati nella tabella. Per i passaggi dettagliati del processo, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](http://msdn.microsoft.com/library/azure/dn631643.aspx).
+**Passaggio 1: Creare la rete virtuale** Accedere al portale di gestione e creare una rete virtuale con gli attributi elencati nella tabella. Per i passaggi dettagliati del processo, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nome attributo macchina virtuale</th><th>Valore</th><th>Osservazioni</th></tr>
@@ -467,7 +467,7 @@ Si noti che il keyspace creato nel passaggio 4 usa SimpleStrategy con replicatio
 Verrà sfruttata la distribuzione in un'area singola completata e si ripeterà lo stesso processo per l'installazione della seconda area. La differenza principale tra la distribuzione in un'area singola e in più aree è la configurazione del tunnel VPN per la comunicazione tra le aree. Si inizierà con l'installazione di rete, il provisioning delle macchine virtuali e la configurazione di Cassandra.
 
 ###Passaggio 1: Creare la rete virtuale nella seconda area
-Accedere al portale di gestione e creare una rete virtuale con gli attributi elencati nella tabella. Per i passaggi dettagliati del processo, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](http://msdn.microsoft.com/library/azure/dn631643.aspx).
+Accedere al portale di gestione e creare una rete virtuale con gli attributi elencati nella tabella. Per i passaggi dettagliati del processo, vedere [Configurare una rete virtuale solo cloud nel portale di gestione](../virtual-network/virtual-networks-create-vnet.md).
 
 <table>
 <tr><th>Nome attributo    </th><th>Valore	</th><th>Osservazioni</th></tr>
@@ -700,4 +700,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

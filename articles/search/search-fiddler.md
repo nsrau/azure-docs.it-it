@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure"
+	pageTitle="Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure | Microsoft Azure"
 	description="Utilizzare Fiddler per un approccio senza scrittura di codice alla verifica della disponibilità di Ricerca di Azure e alla valutazione delle API REST."
 	services="search"
 	documentationCenter=""
@@ -16,30 +16,30 @@
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# Come utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
+# Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
 
 In questo articolo viene illustrato come utilizzare Fiddler, disponibile come un [gratuitamente dal Telerik](http://www.telerik.com/fiddler),, per eseguire richieste HTTP a e visualizzare le risposte utilizzando l'API REST di Ricerca di Azure, senza dover scrivere alcun codice. Le API REST del servizio di Ricerca di Azure sono documentate in [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-Nella procedura seguente verrà creato un indice, verranno caricati i documenti, si eseguirà una query sull'indice e quindi si eseguirà una query sul sistema per ottenere informazioni sul servizio.
+Nei seguenti passaggi verrà creato un indice, verranno caricati i documenti, si eseguirà una query sull'indice e quindi si eseguirà una query sul sistema per ottenere informazioni sul servizio.
 
 Per completare questi passaggi, è necessario disporre del servizio Ricerca di Azure e di `api-key`. Vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md) per istruzioni su come iniziare.
 
 ## Creare un indice
 
-1. Avviare Fiddler Nel menu File disattivare **Capture Traffic** per nascondere attività HTTP estranee non correlate all'attività corrente.
+1. Avviare Fiddler Nel menu **File** disattivare **Capture Traffic** per nascondere attività HTTP estranee non correlate all'attività corrente.
 
-3. Nella scheda Composer formulare una richiesta con l'aspetto simile al seguente:
+3. Nella scheda **Composer** formulare una richiesta con l'aspetto simile al seguente:
 
   	![][1]
 
 2. Selezionare **PUT**.
 
 3. Immettere un URL che specifichi l'URL del servizio (disponibile nella pagina delle proprietà), gli attributi della richiesta e la versione dell'API. Tenere presente quanto segue:
-   + Usare HTTP come prefisso
+   + Usare HTTPS come prefisso.
    + L'attributo della richiesta è "/indexes/hotels". In questo modo si comunica al servizio di ricerca di creare un indice denominato 'hotels'.
    + La versione API è in lettere minuscole, specificata come "?api-version=2015-02-28". Le versioni API sono importanti perché Ricerca di Azure distribuisce aggiornamenti su base regolare. In rare occasioni, un aggiornamento del servizio potrebbe introdurre modifiche significative all'API. Con le versioni API, è possibile continuare a usare la versione esistente ed effettuare l'aggiornamento a una più recente nel momento più opportuno.
 
-    L'URL completo dovrebbe avere un aspetto simile a quello dell'esempio seguente:
+    L'URL completo dovrebbe avere un aspetto simile a quello dell'esempio seguente.
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
@@ -77,13 +77,13 @@ Se viene restituita una risposta HTTP 504, verificare se nell'URL è specificato
 
 ## Caricare i documenti
 
-Nella scheda Composer la richiesta di pubblicazione dei documenti avrà un aspetto simile al seguente. Il corpo della richiesta contiene i dati di ricerca per 4 hotel.
+Nella scheda **Composer** la richiesta di pubblicazione dei documenti avrà un aspetto simile al seguente. Il corpo della richiesta contiene i dati di ricerca per 4 hotel.
 
    ![][2]
 
 1. Selezionare **POST**.
 
-2.	Immettere un URL che inizia con HTTPS, seguito dall'URL del servizio, seguito da "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". L'URL completo dovrebbe avere un aspetto simile a quello dell'esempio seguente:
+2.	Immettere un URL che inizia con HTTPS, seguito dall'URL del servizio, seguito da "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". L'URL completo dovrebbe avere un aspetto simile a quello dell'esempio seguente.
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -163,7 +163,7 @@ Entro pochi secondi si dovrebbe visualizzare una risposta HTTP 200 nella session
 
 ## Eseguire una query sull'indice
 
-Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query su di essi. Nella scheda Composer, un comando GET che esegue una query sul servizio avrà un aspetto simile al seguente:
+Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query su di essi. Nella scheda **Composer**, un comando **GET** che esegue una query sul servizio avrà un aspetto simile alla seguente schermata.
 
    ![][3]
 
@@ -182,7 +182,7 @@ Ora che l'indice e i documenti sono stati caricati, è possibile eseguire query 
         content-type: application/json
         api-key: 1111222233334444
 
-Il codice della risposta dovrebbe essere 200 e l'output della risposta dovrebbe avere un aspetto simile a quello dell'immagine seguente.
+Il codice della risposta dovrebbe essere 200 e l'output della risposta dovrebbe avere un aspetto simile a quello della seguente schermata.
 
    ![][4]
 
@@ -198,7 +198,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 ## Eseguire query sul sistema
 
-È possibile eseguire query sul sistema per ottenere il numero di documenti e informazioni sull'utilizzo dello spazio di archiviazione. Nella scheda Composer la richiesta avrà un aspetto simile al seguente e la risposta restituirà un conteggio relativo al numero di documenti e allo spazio utilizzato.
+È possibile eseguire query sul sistema per ottenere il numero di documenti e informazioni sull'utilizzo dello spazio di archiviazione. Nella scheda **Composer** la richiesta avrà un aspetto simile al seguente e la risposta restituirà un conteggio relativo al numero di documenti e allo spazio utilizzato.
 
  ![][5]
 
@@ -219,7 +219,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 
 5.	Fare clic su **Execute**. Entro pochi secondi si dovrebbe visualizzare un codice di stato HTTP 200 nell'elenco della sessione. Selezionare la voce inserita per il comando.
 
-6.	Fare clic sulla scheda **Inspectors** | **Headers**, quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione (in KB).
+6.	Fare clic sulla scheda **Controlli**, selezionare la scheda **Intestazioni** e quindi selezionare il formato JSON. Verrà visualizzato il numero di documenti e la dimensione dello spazio di archiviazione (in KB).
 
 ## Passaggi successivi
 
@@ -234,6 +234,5 @@ I collegamenti seguenti forniscono informazioni aggiuntive per un approccio senz
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

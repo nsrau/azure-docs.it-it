@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Carico di lavoro dell'applicazione line-of-business - Fase 5: Creare il gruppo di disponibilità e aggiungere i database dell'applicazione" 
-	description="In questa fase finale della distribuzione di un'applicazione line-of-business a disponibilità elevata si crea un gruppo di disponibilità e si aggiungono a tale gruppo i database dell'applicazione." 
+	pageTitle="Applicazione line-of-business fase 5 | Microsoft Azure"
+	description="Creare un gruppo di disponibilità e aggiungere a tale gruppo i database dell'applicazione nella fase 5 dell'applicazione line-of-business di Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 5: Creare il gruppo di disponibilità e aggiungere i database dell'applicazione
@@ -125,4 +125,4 @@ Dopo la configurazione del listener, è necessario configurare tutte le macchine
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

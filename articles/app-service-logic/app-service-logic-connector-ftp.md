@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connettore FTP"
-	description="Introduzione al connettore FTP"
+	pageTitle="Uso del connettore FTP nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore FTP e usarlo in un'app per la logica in Azure App Service"
 	authors="rajram"
 	manager="dwrede"
 	editor=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# Connettore FTP
-
-## Panoramica
-Il connettore FTP consente di spostare dati da/a un server FTP. Le principali funzionalità del connettore FTP sono:
+# Uso del connettore FTP e aggiunta all'app per la logica
+Connettersi a un server FTP per spostare dati o file. Le principali funzionalità del connettore FTP sono:
 
 - Pull di file dal server FTP su richiesta
 - Esecuzione di poll in base a una pianificazione configurabile
@@ -28,42 +26,44 @@ Il connettore FTP consente di spostare dati da/a un server FTP. Le principali fu
 - Possibilità di eseguire invii su richiesta
 - Possibilità di eliminare file sul server FTP su richiesta
 
+È possibile aggiungere il connettore FTP al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
+
 ## Creare un nuovo connettore FTP
 Per creare un nuovo connettore FTP, seguire la procedura riportata di seguito. Avviare il portale di Azure. Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace: ![Avviare Azure Marketplace][1]
 
 - Fare clic su App per le API
-- Cercare FTP e selezionare FTP Connector: ![Selezionare il connettore FTP][2]
+- Cercare FTP e selezionare il connettore FTP: ![Selezionare il connettore FTP][2]
 
-- Fare clic su Crea.
-- Nel pannello del connettore FTP che si apre specificare i dati seguenti: ![Creare il connettore FTP][3]
+- Fare clic su Create.
+- Nel pannello del connettore FTP visualizzato specificare i dati seguenti: ![Creare il connettore FTP][3]
 
-- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
-- **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
-- **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
-- **Piano tariffario**: scegliere un piano tariffario per il connettore
-- **Nome**: assegnare un nome al connettore FTP
+- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
+- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
+- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
+- **Web hosting plan**: selezionare o creare un piano di hosting Web
+- **Pricing tier**: scegliere un livello di prezzo per il connettore
+- **Name**: assegnare un nome al connettore FTP
 - **Impostazioni pacchetto**
-	- **Indirizzo server**: specificare il nome del server FTP o l'indirizzo IP
-	- **Nome utente**: specificare il nome utente per la connessione al server FTP
+	- **Server Address**: specificare il nome del server FTP o l'indirizzo IP
+	- **User Name**: specificare il nome utente per la connessione al server FTP
 	- **Password**: specificare la password per la connessione al server FTP
-	- **Cartella radice**: specificare il percorso della cartella radice.
-	- **Usa binario**: specificare true per usare la modalità di trasferimento binario, false per ASCII
-	- **Usa SSL**: specificare true per usare FTP su un canale SSL/TLS sicuro
-	- **Porta server**: specificare il numero di porta del server FTP
-- Fare clic su Crea. Verrà creato un nuovo connettore FTP.
+	- **Root Folder**: specificare il percorso della cartella radice.
+	- **Use Binary**: specificare true per usare la modalità di trasferimento binario, false per ASCII
+	- **Use SSL**: specificare true per usare FTP su un canale SSL/TLS sicuro
+	- **Server Port**: specificare il numero di porta del server FTP
+- Fare clic su Create. Verrà creato un nuovo connettore FTP.
 
 ## Usare il connettore FTP nell'app per la logica
 Una volta creato, il connettore FTP può essere usato dal flusso.
 
 Creare un nuovo flusso con +Nuovo -> Web e dispositivi mobili -> App per la logica. Specificare i metadati per il flusso, incluso il gruppo di risorse: ![Creare un'app per la logica][4]
 
-Fare clic su *Trigger e azioni*. Viene aperta la finestra di progettazione del flusso: ![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
+Fare clic su *Triggers and Actions*. Viene aperta la finestra di progettazione del flusso: ![Finestra di progettazione del flusso vuoto di un'app per la logica][5]
 
 Il connettore FTP può essere usato sia come trigger che come azione.
 
 ### Trigger
-Nella finestra di progettazione del flusso vuota fare clic su FTP Connector nel riquadro della raccolta a destra: ![Scegliere un trigger FTP][6]
+Nella finestra di progettazione del flusso vuota fare clic sul connettore FTP nel riquadro della raccolta a destra: ![Scegliere un trigger FTP][6]
 
 Il connettore FTP include un trigger - 'File Available (Read then Delete)'. Questo trigger:
 
@@ -84,7 +84,7 @@ Specificare gli input e fare clic sul segno di spunta per completare la configur
 Si noti che il trigger FTP configurato mostra sia i parametri di input configurati che i parametri di output.
 
 #### Uso dell'output del trigger FTP in azioni successive
-L'output del connettore FTP può essere usato come input di alcune altre azioni nel flusso.
+L'output del connettore FTP può essere usato come input di altre azioni nel flusso.
 
 È possibile fare clic sui puntini di sospensione '...' nella finestra di dialogo di input dell'azione e selezionare l'output dell'FTP direttamente dalla casella di riepilogo a discesa.
 
@@ -93,9 +93,9 @@ L'output del connettore FTP può essere usato come input di alcune altre azioni 
 	@triggers('ftpconnector').outputs.body.Content
 
 ### Azioni
-Fare clic su FTP Connector nel riquadro destro. FTP Connector elenca le azioni supportate: ![Elenco di azioni FTP][10]
+Fare clic sul connettore FTP nel riquadro destro. Il connettore FTP elenca le azioni supportate: ![Elenco di azioni FTP][10]
 
-FTP Connector supporta le azioni seguenti:
+Il connettore FTP supporta le azioni seguenti:
 
 - **Get File**: recupera i contenuti di un file specifico
 - **Upload File**: carica un file nel percorso cartella FTP
@@ -104,26 +104,26 @@ FTP Connector supporta le azioni seguenti:
 
 Si consideri come esempio l'azione Upload File. Fare clic su Upload File.
 
-Vengono visualizzati per primi gli input di base: ![Input di base dell'azione Carica file][11]
+Vengono visualizzati per primi gli input di base: ![Input di base dell'azione Upload file][11]
 
 
 - **Content**: specificare il contenuto del file da caricare.
 - **Content Transfer Encoding**: specificare none o base64.
 - **File Path**: specificare il percorso del file da caricare.
 
-Fare clic su ... per visualizzare gli input avanzati: ![Input di base dell'azione Carica file][12]
+Fare clic su ... per visualizzare gli input avanzati: ![Input di base dell'azione Upload file][12]
 
 
 - **Append If Exists**: può essere True o False. Se abilitato, i dati vengono aggiunti al file, se esiste. Se disabilitato, il file viene sovrascritto, se esiste
 - **Temporary Folder**: facoltativo. Se specificato, l'adattatore caricherà il file in Temporary Folder Path. Al termine del caricamento, il file verrà spostato in Folder Path. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
-Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input: ![Azione Carica file configurata][13]
+Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input: ![Azione Upload file configurata][13]
 
 Il parametro "File Path" è impostato su:
 
 	@concat('/Output/',triggers().outputs.body.FileName)
 
-Si noti che l'azione Carica file dell'FTP configurata mostra sia i parametri di input che i parametri di output.
+Si noti che l'azione Upload file dell'FTP configurata mostra sia i parametri di input che i parametri di output.
 
 #### Uso degli output delle azioni precedenti come input dell'azione FTP
 Si noti che nella schermata configurata il valore del contenuto è impostato su un'espressione.
@@ -135,7 +135,7 @@ Si noti che nella schermata configurata il valore del contenuto è impostato su 
 
 	@actions('transformservice').outputs.body.OutputXML
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -158,4 +158,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

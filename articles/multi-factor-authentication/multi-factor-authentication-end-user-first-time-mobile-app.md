@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilizzare app per dispositivi mobili come metodo di contatto con Azure MFA" 
-	description="Questa pagina mostrerà agli utenti l'utilizzo dell'app per dispositivi mobili come metodo di contatto principale per Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Utilizzare app per dispositivi mobili come metodo di contatto con Azure MFA"
+	description="Questa pagina mostrerà agli utenti l'utilizzo dell'app per dispositivi mobili come metodo di contatto principale per Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Utilizzare app per dispositivi mobili come metodo di contatto con Azure Multi-Factor Authentication
@@ -73,4 +73,4 @@ Se si usa un account di terze parti con l'app per dispositivi mobili, immettere 
 >[AZURE.NOTE]Il messaggio "Aggiungi account lavoro" eventualmente visualizzato riguarda l'aggiunta all'area di lavoro, non la Multi-Factor Authentication. È possibile ignorarlo.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Partizioni della tabella in SQL Data Warehouse | Microsoft Azure"
-   description="Suggerimenti per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+	description="Suggerimenti per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="jrowlandjones"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Partizioni della tabella in SQL Data Warehouse
 
@@ -24,9 +24,16 @@ Per eseguire la migrazione delle definizioni delle partizioni di SQL Server a SQ
 - Definire le partizioni quando si crea la tabella. Specificare semplicemente le delimitazioni della partizione e se si vuole che la delimitazione abbia effetto come `RANGE RIGHT` o `RANGE LEFT`.
 
 ### Dimensionamento della partizione
-Il dimensionamento della partizione è un aspetto importante da considerare per SQL Data Warehouse. In genere le operazioni di gestione dati e le routine di caricamento dei dati sono destinate a singole partizioni, piuttosto che a un'intera tabella contemporaneamente. Questo aspetto è particolarmente importante per gli indici columnstore cluster, che possono utilizzare quantità di memoria significative. Di conseguenza, mentre potrebbe essere utile esaminare la granularità del piano di partizionamento, non è consigliabile dimensionare le partizioni su valori tali da causare un utilizzo elevato di memoria quando si eseguono attività di gestione.
+SQL DW offre a un amministratore di database diverse opzioni per i tipi di tabella: heap, indice cluster (CI) e indice archivio colonne in cluster (ICC). Per ognuno di questi tipi di tabella, l'amministratore di database può inoltre partizionare la tabella, ovvero suddividerla in più sezioni per migliorare le prestazioni. Tuttavia, la creazione di una tabella con un numero eccessivo di partizioni in realtà potrebbe provocare un calo delle prestazioni o errori di query in alcune circostanze. Questi problemi valgono soprattutto per le tabelle ICC. Affinché il partizionamento sia utile, per un amministratore di database è importante capire quando utilizzare il partizionamento e il numero di partizioni da creare. Queste linee guida consentono agli amministratori di database di prendere le decisioni migliori per i loro scenari.
 
-Nel decidere la granularità delle partizioni, è importante ricordare che SQL Data Warehouse suddividerà automaticamente i dati in distribuzioni. Di conseguenza, i dati che sarebbero stati normalmente disponibili in una tabella in una partizione di un database di SQL Server, ora sono disponibili in una partizione in molte tabelle di un database di SQL Data Warehouse. Per mantenere un numero significativo di righe in ogni partizione, si modificano in genere le dimensioni dei limiti della partizione. Se ad esempio è stato usato il partizionamento a livello giornaliero per il data warehouse, è consigliabile considerare qualcosa di meno granulare, ad esempio mensile o trimestrale.
+In genere le partizioni della tabella sono utili in due modi principali:
+
+1. L’utilizzo del cambio di partizione per troncare rapidamente una sezione di una tabella. Un design di uso comune prevede una tabella dei fatti che contiene righe solo per un periodo limitato predeterminato. Ad esempio, una tabella dei fatti delle vendite potrebbe contenere dati solo per gli ultimi 36 mesi. Alla fine di ogni mese, il mese dei dati di vendita meno recenti viene eliminato dalla tabella. Questa operazione può essere effettuata semplicemente eliminando tutte le righe per il mese meno recente, ma l'eliminazione di una grande quantità di dati riga per riga può richiedere molto tempo. Per ottimizzare questo scenario, SQL DW supporta lo scambio di partizione, che consente di eliminare l'intero set di righe in una partizione in un'unica operazione veloce.   
+
+2. Il partizionamento consente alle query di escludere facilmente l’elaborazione di un elevato numero di righe (ad esempio una partizione) se le query inseriscono un predicato nella colonna di partizionamento. Ad esempio, se la tabella dei fatti delle vendite è suddivisa in 36 mesi tramite il campo della data di vendita, le query che filtrano la data di vendita possono ignorare l’elaborazione delle partizioni che non corrispondono al filtro. In effetti, il partizionamento utilizzato in questo modo è un’indicizzazione con granularità grossolana.
+
+Durante la creazione di indici dell'archivio colonne in cluster in SQL DW, un amministratore di database deve considerare un fattore aggiuntivo: il numero di riga. Le tabelle CCI possono raggiungere un elevato livello di compressione e consentono di accelerare le prestazioni delle query. A causa del funzionamento interno della compressione in SQL DW, ogni partizione in una tabella CCI deve avere un notevole numero di righe prima che i dati vengono compressi. Inoltre, SQL DW distribuisce i dati tra un numero elevato di distribuzioni e ogni distribuzione è ulteriormente suddivisa in partizioni. Per prestazioni e compressione ottimali, è necessario un minimo di 100.000 righe per partizione e distribuzione. Utilizzando l'esempio precedente, se la tabella dei fatti delle vendite contenesse 36 partizioni mensili e dato che SQL DW dispone di 60 distribuzioni, la tabella dei fatti delle vendite dovrebbe contenere 6 milioni di righe al mese o 216 milioni di righe quando tutti i mesi sono popolati. Se una tabella contiene un numero di righe significativamente inferiore a quello minimo consigliato, l'amministratore di database dovrebbe considerare la creazione della tabella con un minor numero di partizioni per aumentare il numero di righe per distribuzione.
+
 
 Per dimensionare il database corrente a livello di partizione, usare una query simile alla seguente:
 
@@ -319,4 +326,4 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, è possibile 
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

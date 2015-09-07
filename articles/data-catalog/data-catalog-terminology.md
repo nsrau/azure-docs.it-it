@@ -1,26 +1,26 @@
 <properties
    pageTitle="Terminologia del Catalogo dati di Azure"
-   description="Terminologia del Catalogo dati di Azure"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="Introduzione ai concetti e termini usati nella documentazione del Catalogo dati di Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/31/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/20/2015"
+	ms.author="maroche"/>
 
 # Terminologia del Catalogo dati di Azure
 
 ## Catalogo
 
-Il Catalogo dati di Azure è un repository di metadati basato su cloud in cui è possibile registrare asset di dati e origini dati. Il catalogo viene utilizzato come posizione di archiviazione centrale per i metadati strutturali estratti dalle origini dati e i metadati descrittivi aggiunti dagli utenti.
+Il Catalogo dati di Azure è un repository di metadati basato su cloud in cui è possibile registrare asset di dati e origini dati. Il catalogo viene usato come posizione di archiviazione centrale per i metadati strutturali estratti dalle origini dati e i metadati descrittivi aggiunti dagli utenti.
 
 ## Origine dati
 
@@ -32,7 +32,7 @@ Gli asset di dati sono oggetti contenuti nelle origini dati che possono essere r
 
 ## Posizione degli asset di dati
 
-Il catalogo include la posizione di un'origine dati o un asset di dati che può essere utilizzata per connettersi all'origine tramite un'applicazione client. Il formato e i dettagli della posizione variano in base al tipo di origine dati. Ad esempio, una tabella SQL Server può essere identificata tramite il nome composto da quattro parti (nome del server, nome del database, nome dello schema, nome dell'oggetto) mentre un report di SQL Server Reporting Services può essere identificato tramite il relativo URL.
+Il catalogo include la posizione di un'origine dati o un asset di dati che può essere usata per connettersi all'origine tramite un'applicazione client. Il formato e i dettagli della posizione variano in base al tipo di origine dati. Ad esempio, una tabella SQL Server può essere identificata tramite il nome composto da quattro parti (nome del server, nome del database, nome dello schema, nome dell'oggetto) mentre un report di SQL Server Reporting Services può essere identificato tramite il relativo URL.
 
 ## Metadati strutturali
 
@@ -48,7 +48,7 @@ I metadati descrittivi dell'asset di dati possono includere informazioni su come
 
 - Indirizzo di posta elettronica dell'utente o del team responsabile della concessione dell'accesso all'origine dati.
 - L'URL della procedura documentata che gli utenti devono seguire per ottenere l'accesso all'origine dati.
-- L'URL di un'identità e lo strumento di gestione dell’accesso (ad esempio Microsoft Identity Manager) che può essere utilizzato per accedere all'origine dati.
+- L'URL di un'identità e lo strumento di gestione dell'accesso (ad esempio Microsoft Identity Manager) che può essere usato per accedere all'origine dati.
 - Una voce di testo libero che descrive come gli utenti possono accedere all'origine dati.
 
 ## Anteprime
@@ -57,9 +57,9 @@ L'anteprima nel Catalogo dati di Azure è uno snapshot di 20 record al massimo c
 
 ## Prospettiva dell'utente
 
-Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi per un asset di dati registrato. Ogni utente dispone di una prospettiva diversa sui dati e sul relativo utilizzo. Ad esempio, l'amministratore responsabile di un server può fornire i dettagli delle finestre di backup o del contratto di servizio, un amministratore dei dati può fornire i collegamenti alla documentazione per i processi aziendali supportati dai dati e un analista può fornire una descrizione in termini rilevanti per altri analisti che può essere più significativa per gli utenti che necessitano di individuare e comprendere i dati.
+Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi per un asset di dati registrato. Ogni utente dispone di una prospettiva diversa sui dati e sul relativo uso. Ad esempio, l'amministratore responsabile di un server può fornire i dettagli delle finestre di backup o del contratto di servizio, un amministratore dei dati può fornire i collegamenti alla documentazione per i processi aziendali supportati dai dati e un analista può fornire una descrizione in termini rilevanti per altri analisti che può essere più significativa per gli utenti che necessitano di individuare e comprendere i dati.
 
-Ognuna di queste prospettive sono intrinsecamente utili e con il Catalogo dati di Azure ogni utente può fornire informazioni significative, mentre tutti gli utenti possono utilizzare tali informazioni per comprendere dati e scopo.
+Ognuna di queste prospettive sono intrinsecamente utili e con il Catalogo dati di Azure ogni utente può fornire informazioni significative, mentre tutti gli utenti possono usare tali informazioni per comprendere dati e scopo.
 
 ## Esperto
 
@@ -68,7 +68,7 @@ Un esperto è un utente che è stato identificato come avente una prospettiva in
 ## Proprietario
 
 Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asset di dati nel Catalogo dati di Azure. Gli utenti possono diventare proprietari di dati registrati e i proprietari possono aggiungere altri utenti come comproprietari.
-> [AZURE.NOTE]La gestione e la proprietà sono disponibili solo nel Catalogo dati di Azure Standard Edition.
+> [AZURE.NOTE]La gestione e la proprietà sono disponibili solo nell'edizione Standard del Catalogo dati di Azure.
 
 ## Registrazione
 
@@ -77,7 +77,7 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 ## Vedere anche
 
 - [Che cos'è il catalogo dei dati di Azure?](data-catalog-what-is-data-catalog.md). In questo articolo viene fornita una panoramica del servizio Catalogo dati di Azure, il valore restituito e gli scenari supportati.
-  
-- [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end in che illustra come utilizzare il Catalogo dati di Azure per l'individuazione dell’origine dati.
 
-<!---HONumber=August15_HO6-->
+- [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end che illustra come usare il Catalogo dati di Azure per l'individuazione dell'origine dati.
+
+<!---HONumber=August15_HO9-->

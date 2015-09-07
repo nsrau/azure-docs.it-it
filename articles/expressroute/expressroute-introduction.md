@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Introduzione a ExpressRoute | Microsoft Azure"
-   description="Questa pagina fornisce una panoramica del servizio ExpressRoute, inclusi funzionamento di una connessione ExpressRoute, utilizzo di provider di Exchange e provider di servizi di rete, oltre a ExpressRoute pubbliche, private e peering Microsoft."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	pageTitle="Introduzione a ExpressRoute | Microsoft Azure"
+	description="Questa pagina fornisce una panoramica del servizio ExpressRoute, inclusi funzionamento di una connessione ExpressRoute, utilizzo di provider di Exchange e provider di servizi di rete, oltre a ExpressRoute pubbliche, private e peering Microsoft."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
-   ms.author="cherylmc"/>
+	ms.service="expressroute"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Panoramica tecnica relativa a ExpressRoute
 
@@ -108,6 +108,6 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 ## Passaggi successivi
 
 - Trovare un provider di servizi. Vedere [Provider e sedi dei servizi ExpressRoute](expressroute-locations.md).
-- Configurare la connessione ExpressRoute. Per istruzioni, vedere [configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md) o [Configurare una connessione ExpressRoute mediante un provider di Exchange](expressroute-configuring-exps.md). 
+- Configurare la connessione ExpressRoute. Per istruzioni, vedere [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md) o [Configurare una connessione ExpressRoute mediante un provider di Exchange](expressroute-configuring-exps.md). 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

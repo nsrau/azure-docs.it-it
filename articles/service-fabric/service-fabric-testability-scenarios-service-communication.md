@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Scenari di Testabilità di Infrastruttura di servizi: comunicazione tra i servizi" 
-   description="Le comunicazioni da servizio a servizio sono un punto di integrazione critico di un'applicazione Infrastruttura di servizi. In questo articolo vengono illustrate alcune considerazioni di progettazione e tecniche di test." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="vturecek" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Scenari di Testabilità di Infrastruttura di servizi: comunicazione tra i servizi"
+	description="Le comunicazioni da servizio a servizio sono un punto di integrazione critico di un'applicazione Infrastruttura di servizi. In questo articolo vengono illustrate alcune considerazioni di progettazione e tecniche di test."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="vturecek"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/17/2015"
-   ms.author="vturecek"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="vturecek"/>
 
 # Scenari di Testabilità di Infrastruttura di servizi: comunicazione tra i servizi
 
@@ -101,4 +101,4 @@ In questo esempio, viene impostato `QuorumLossMode` su `PartialQuorumLoss`, per 
 
 [Ulteriori informazioni sugli scenari di Testabilità](service-fabric-testability-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

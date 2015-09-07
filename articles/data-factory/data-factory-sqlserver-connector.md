@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Connettore di SQL Server - Spostare i dati da e verso SQL Server" 
-	description="Informazioni sul connettore SQL Server per il servizio Data factory che consente di spostare i dati al e dal database di SQL Server in locale o in una macchina virtuale di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare dati da e verso SQL Server | Data factory di Azure"
+	description="Informazioni su come spostare i dati da/verso il database di SQL Server locale o in una VM di Azure utilizzando Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Connettore di SQL Server - Spostare i dati da e verso SQL Server locale o in IaaS (macchina virtuale di Azure)
+# Spostare i dati da e verso SQL Server locale o in IaaS (VM di Azure) utilizzando Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati in SQL Server da un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -32,11 +32,11 @@ Sebbene sia possibile installare il gateway nello stesso computer locale o istan
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo OnPremisesSqlServer.
-2.	Un servizio collegato di tipo AzureStorage.
-3.	Un set di dati input di tipo SqlServerTable. 
-4.	Un set di dati di output di tipo AzureBlob.
-4.	La pipeline con attività di copia che usa SqlSource e BlobSink.
+1.	Un servizio collegato di tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 L'esempio copia i dati appartenenti a una serie temporale da una tabella nel database di SQL Server in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -183,7 +183,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -208,11 +208,11 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 L'esempio seguente mostra:
 
-1.	Il servizio collegato di tipo OnPremisesSqlServer.
-2.	Il servizio collegato di tipo AzureStorage.
-3.	Un set di dati di input di tipo AzureBlob.
-4.	Un set di dati output di tipo SqlServerTable.
-4.	La pipeline con attività di copia che usa BlobSource e SqlSink.
+1.	Il servizio collegato di tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Il servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 L'esempio copia i dati appartenenti a una serie temporale dal BLOB di Azure a una tabella nel database di SQL Server ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -388,6 +388,10 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | username | Specificare il nome utente se si usa l'autenticazione Windows. | No |
 | password | Specificare la password per l'account utente specificato per il nome utente. | No |
 
+È possibile crittografare le credenziali utilizzando il cmdlet **New-AzureDataFactoryEncryptValue** e utilizzarle nella stringa di connessione, come illustrato nell'esempio seguente (proprietà **EncryptedCredential**):
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
 ### Esempi
 
 **JSON per l'uso dell'Autenticazione di SQL**
@@ -418,6 +422,8 @@ Se vengono specificati nome utente e password, il gateway li userà per rapprese
 	     } 
 	}
 
+Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati SQl Server.
+
 ## Proprietà del tipo del set di dati SQL Server
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Server, BLOB di Azure, tabelle di Azure e così via).
@@ -440,7 +446,7 @@ In caso di attività di copia con origine di tipo **SqlSource**, sono disponibil
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. | No |
 
-**SqlSink** supporta le proprietà seguenti:
+**SqlSink** supporta le seguenti proprietà:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -467,7 +473,7 @@ Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-da
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
 
-Quando si spostano dati da e verso SQL di Azure, SQL Server, Sybase verranno usati i mapping seguenti dal tipo SQL di tipo .NET e viceversa.
+Quando si spostano dati da e verso SQL Azure, SQL Server, Sybase verranno usati i mapping seguenti dal tipo SQL di tipo .NET e viceversa.
 
 Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
@@ -481,21 +487,21 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
+| Decimale | Decimale |
 | FILESTREAM attribute (varbinary(max)) | Byte |
 | Float | Double |
-| image | Byte | 
+| immagine | Byte | 
 | int | Int32 | 
-| money | Decimal |
+| money | Decimale |
 | nchar | String, Char |
 | ntext | String, Char |
-| numeric | Decimal |
+| numeric | Decimale |
 | nvarchar | String, Char |
 | real | Single |
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimal | 
+| smallmoney | Decimale | 
 | sql\_variant | Object * |
 | text | String, Char |
 | time | TimeSpan |
@@ -512,4 +518,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

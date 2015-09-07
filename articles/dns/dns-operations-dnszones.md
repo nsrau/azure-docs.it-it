@@ -1,22 +1,26 @@
 <properties 
-   pageTitle="Operazioni sulle zone DNS | Microsoft Azure" 
-   description="È possibile gestire le zone DNS usando i cmdlet PowerShell di Azure. Come aggiornare, eliminare e creare le zone DNS in DNS di Azure" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
-   editor=""/>
+   pageTitle="Operazioni sulle zone DNS | Microsoft Azure"
+	description="È possibile gestire le zone DNS usando i cmdlet PowerShell di Azure o CLI. Come aggiornare, eliminare e creare le zone DNS in DNS di Azure"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="07/30/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 # Come gestire le zone DNS
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-dnszones-cli.md)
+- [Azure Powershell](dns-operations-dnszones.md)
 
 
 Questa guida descrive come gestire per la zona DNS. E consentirà di comprendere la sequenza delle operazioni da eseguire per amministrare la zona DNS.
@@ -27,11 +31,11 @@ Per creare una nuova zona DNS in cui ospitare il dominio, usare il cmdlet New-Az
 
 		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
-L'operazione crea una nuova zona DNS nel servizio DNS di Azure e restituisce un oggetto locale corrispondente a tale area. È possibile specificare facoltativamente una matrice di tag di Gestione risorse di Azure. Per altre informazioni, vedere [ETag e tag](../dns-getstarted-create-dnszone#Etags-and-tags).
+L'operazione crea una nuova zona DNS nel servizio DNS di Azure e restituisce un oggetto locale corrispondente a tale area. È possibile specificare facoltativamente una matrice di tag di Gestione risorse di Azure. Per altre informazioni, vedere [ETag e tag](../dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 Il nome della zona deve essere univoco all'interno del gruppo di risorse e la zona non deve esistere già, altrimenti l'operazione non riuscirà.
 
-Lo stesso nome di zona può essere usato nuovamente in un gruppo di risorse diverso o in un'altra sottoscrizione Azure. Se più zone condividono lo stesso nome, a ogni istanza verranno assegnati diversi indirizzi del server dei nomi e può essere delegata solo un'istanza dal dominio padre. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](../dns-domain-delegation).
+Lo stesso nome di zona può essere usato nuovamente in un gruppo di risorse diverso o in un'altra sottoscrizione Azure. Se più zone condividono lo stesso nome, a ogni istanza verranno assegnati diversi indirizzi del server dei nomi e può essere delegata solo un'istanza dal dominio padre. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
 
 ## Ottenere una zona DNS
 
@@ -48,7 +52,7 @@ Omettendo il nome della zona da Get-AzureDnsZone, è possibile enumerare tutte l
 Questa operazione restituisce una matrice di oggetti di zona.
 
 ## Aggiornare una zona DNS
-È possibile apportare modifiche a una risorsa di zona DNS usando Set-AzureDnsZone. Ciò non consente di aggiornare alcuni dei set di record DNS compresi nella zona (vedere [Come gestire i record DNS](../dns-operations-recordsets)). Questa operazione permette solo di aggiornare le proprietà della risorsa di zona stessa. Attualmente è limitata ai tag di Gestione risorse di Azure relativi alla risorsa di zona. Per altre informazioni, vedere [Etag e tag](../dns-getstarted-create-dnszone#Etags-and-tags).
+È possibile apportare modifiche a una risorsa di zona DNS usando Set-AzureDnsZone. Ciò non consente di aggiornare alcuni dei set di record DNS compresi nella zona (vedere [Come gestire i record DNS](dns-operations-recordsets.md)). Questa operazione permette solo di aggiornare le proprietà della risorsa di zona stessa. Attualmente è limitata ai tag di Gestione risorse di Azure relativi alla risorsa di zona. Per altre informazioni, vedere [Etag e tag](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 Usare una delle due opzioni seguenti per aggiornare la zona DNS:
 
@@ -65,7 +69,7 @@ Specificare la zona usando un oggetto $zone da Get-AzureDnsZone:
 	PS C:\> <..modify $zone.Tags here...>
 	PS C:\> Set-AzureDnsZone -Zone $zone [-Overwrite]
 
-Quando si usa il cmdlet Set-AzureDnsZone con un oggetto $zone, i controlli "etag" vengono usati per verificare che le modifiche simultanee non vengano sovrascritte. Puoi usare l'opzione "-Overwrite" facoltativa per disattivare questi controlli. Per altre informazioni, vedere [Etag e tag](../dns-getstarted-create-dnszone#Etags-and-tags).
+Quando si usa il cmdlet Set-AzureDnsZone con un oggetto $zone, i controlli "etag" vengono usati per verificare che le modifiche simultanee non vengano sovrascritte. Puoi usare l'opzione "-Overwrite" facoltativa per disattivare questi controlli. Per altre informazioni, vedere [Etag e tag](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 ## Eliminare una zona DNS
 
@@ -91,7 +95,7 @@ Specificare la zona usando un oggetto $zone da Get-AzureDnsZone:
 
 L'opzione "-Force" è la stessa dell'opzione 1.
 
-Come per "Set-AzureDnsZone", specificare la zona usando un oggetto consente di abilitare i controlli "etag" per garantire che le modifiche simultanee non vengano eliminate. <BR> Il flag "-Overwrite" facoltativo disattiva questi controlli. Per altre informazioni, vedere [Etag e tag](../dns-getstarted-create-dnszone#Etags-and-tags).
+Come per "Set-AzureDnsZone", specificare la zona usando un oggetto consente di abilitare i controlli "etag" per garantire che le modifiche simultanee non vengano eliminate. <BR> Il flag "-Overwrite" facoltativo disattiva questi controlli. Per altre informazioni, vedere [Etag e tag](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 L'oggetto di zona può essere anche reindirizzato invece che passato come parametro:
 
@@ -100,8 +104,8 @@ L'oggetto di zona può essere anche reindirizzato invece che passato come parame
 ## Passaggi successivi
 
 
-[Gestire i record DNS](../dns-operations-recordsets)
+[Gestire i record DNS](dns-operations-recordsets.md)
 
-[Automatizzare le operazioni usando .NET SDK](../dns-sdk)
+[Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -8,7 +8,7 @@ Letture API Gestione risorse|32000 all'ora|32000 all'ora
 Scritture API Gestione risorse|1200 all'ora|1200 all'ora
 Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 byte
 [Servizi cloud](cloud-services-what-is.md) per sottoscrizione|Deprecato<sup>3</sup>|Deprecato<sup>3</sup>
-[Gruppi di affinità](http://msdn.microsoft.com/library/azure/jj156085.aspx) per sottoscrizione|Deprecato<sup>3</sup>|Deprecato<sup>3</sup>
+[Gruppi di affinità](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione|Deprecato<sup>3</sup>|Deprecato<sup>3</sup>
 
 <sup>1</sup>I limiti predefiniti variano in base al tipo di categoria di offerta, ad esempio Versione di valutazione gratuita, Pagamento in base al consumo e così via.
 
@@ -16,4 +16,4 @@ Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 by
 
 <sup>3</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse di Azure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Uso di Slack Connector nel servizio app di Azure"
-	description="Guida introduttiva a Slack Connector"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Uso del connettore Slack nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore Slack e usarlo in un'app per la logica in Azure App Service"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,25 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Slack Connector
-
-Consente di connettersi ai canali Slack e di inviare messaggi al team. I connettori possono essere usati nelle app per la logica come parte di un "flusso di lavoro" per eseguire diverse attività. Quando si usa Slack Connector nel flusso di lavoro, è possibile ottenere un'ampia gamma di scenari con altri connettori. Ad esempio, è possibile usare [Facebook Connector](app-service-logic-connector-facebook.md) nel flusso di lavoro per inviare un messaggio al canale Slack.
+# Uso del connettore Slack e aggiunta all'app per la logica
+Consente di connettersi ai canali Slack e di inviare messaggi al team. I connettori possono essere usati nelle app per la logica come parte di un "flusso di lavoro" per eseguire diverse attività. Quando si usa il connettore Slack nel flusso di lavoro, è possibile ottenere un'ampia gamma di scenari con altri connettori. Ad esempio, è possibile usare il [connettore Facebook](app-service-logic-connector-facebook.md) nel flusso di lavoro per inviare un messaggio al canale Slack.
 
 ## Trigger e azioni
 I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Quando ad esempio si aggiorna un ordine, viene inviato un avviso al venditore oppure quando si aggiunge un nuovo cliente, viene inviato un messaggio di benvenuto.
 
-Slack Connector può essere usato come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Attualmente non sono disponibili trigger per Slack Connector.
+Il connettore Slack può essere usato come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Attualmente non sono disponibili trigger per il connettore Slack.
 
-Per Slack Connector sono disponibili i trigger e le azioni seguenti:
+Per il connettore Slack sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
 Nessuno | Post Message
 
-## Creare Slack Connector
+## Creare il connettore Slack
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
@@ -45,23 +44,25 @@ Nessuno | Post Message
 
 > [AZURE.IMPORTANT]I connettori e le app per la logica devono essere sempre creati nello stesso gruppo di risorse.
 
-Dopo aver creato Slack Connector, è possibile aggiungerlo come azione all'app per la logica:
+Dopo aver creato il connettore Slack, è possibile aggiungerlo come azione all'app per la logica:
 
-1.	Nell'app per la logica aprire **Trigger e azioni**. [Creare una nuova app per la logica](app-service-logic-create-a-logic-app.md)
+1.	Nell'app per la logica aprire **Triggers and Actions**. [Creare una nuova app per la logica](app-service-logic-create-a-logic-app.md)
 
 2.	Slack Connector è elencato nella raccolta a destra: <br/>
  ![][2]
 
-3.	Selezionare Slack Connector creato in precedenza per aggiungerlo automaticamente all'app per la logica.
-4.	Selezionare **Authorize**. Accedere all'account Slack. Verso la fine, viene chiesto di concedere al connettore l'autorizzazione per accedere all'account Slack. Selezionare **Authorizify**: <br/>
- ![][3] ![][4] ![][5] ![][6]
+3.	Selezionare il connettore Slack creato in precedenza per aggiungerlo automaticamente all'app per la logica.
+4.	Selezionare **Authorize**. Accedere all'account Slack. Verso la fine, viene chiesto di concedere al connettore l'autorizzazione per accedere all'account Slack. Selezionare **Authorizify**: 
+![][3] 
+![][4] 
+![][5] 
+![][6]  
 	
-5.	È ora possibile usare il connettore Slack nel flusso. È disponibile l'azione Post Message: <br/>
- ![][7]
+5.	È ora possibile usare il connettore Slack nel flusso. È disponibile l'azione Post Message: 
+![][7]
 
 
-Di seguito viene descritto l'uso dell'azione "Post Message". È possibile usare questa azione per pubblicare un messaggio in qualsiasi canale Slack:
- 
+Di seguito viene descritto l'uso dell'azione "Post Message". È possibile usare questa azione per pubblicare un messaggio in qualsiasi canale Slack: 
 ![][8]
 
 Configurare le proprietà di input per l'azione "Post Message":
@@ -70,15 +71,14 @@ Proprietà | Descrizione
 --- | ---
 Text | Immettere il testo del messaggio da inviare.
 Channel Name | Immettere il canale Slack in cui viene inviato il messaggio Se non si specifica il canale, il messaggio viene inviato a #general.
-Proprietà avanzate | **Bot User name**: nome del bot da usare per questo messaggio. Se non si specifica questo valore, il messaggio verrà inviato come "Bot".<p><p>**Icon URL**: URL dell'immagine da usare come icona per il messaggio.<p><p>**Icon Emoji**: emoji da usare come icona per il messaggio. Questa proprietà esegue l'override della proprietà Icon URL.
+Advanced Properties | **Bot User name**: nome del bot da usare per questo messaggio. Se non si specifica questo valore, il messaggio viene inviato come "Bot".<p><p>**Icon URL**: URL dell'immagine da usare come icona per il messaggio.<p><p>**Icon Emoji**: emoji da usare come icona per il messaggio. Questa proprietà esegue l'override della proprietà Icon URL.
 
 
-Per Slack Connector sono disponibili API REST, quindi è possibile usarlo all'esterno di un'app per la logica. Aprire Slack Connector e selezionare **API definition**:
-
+Per il connettore Slack sono disponibili API REST, quindi è possibile usarlo all'esterno di un'app per la logica. Aprire il connettore Slack e selezionare **API definition**: 
 ![][9]
 
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -97,4 +97,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

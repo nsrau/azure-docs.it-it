@@ -12,11 +12,15 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-aes128.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 ##Panoramica
 
@@ -144,7 +148,7 @@ In Servizi multimediali, la chiave simmetrica contiene la chiave con cui si desi
 
 Per informazioni dettagliate, vedere [Creare una chiave simmetrica](media-services-dotnet-create-contentkey.md).
 
-##<a id="configure_key_auth_policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica.
+##<a id="configure_key_auth_policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica
 
 Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client (lettore) affinché la chiave possa essere distribuita al client. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open, Token o IP.
 
@@ -217,7 +221,7 @@ Ad esempio, il manifesto radice è: http://test001.origin.mediaservices.windows.
 	QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
 	…
 
-Se si apre uno dei file del segmento nell'editor di testo (ad esempio, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), deve essere presente #EXT-X-KEY che indica che il file è crittografato.
+Se si apre uno dei file del segmento nell'editor di testo (ad esempio, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), deve essere presente \#EXT-X-KEY che indica che il file è crittografato.
 	
 	#EXTM3U
 	#EXT-X-VERSION:4
@@ -659,4 +663,4 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 		    }
 		}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

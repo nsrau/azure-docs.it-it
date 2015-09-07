@@ -1,13 +1,13 @@
 <properties
    pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
-   description="Domande frequenti sul servizio Backup di Azure"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Domande frequenti sul servizio Backup di Azure"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Backup di Azure - Domande frequenti
 Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -21,6 +21,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 | Windows 8 e versioni più recenti di SP | 64 bit | Enterprise, Pro |
 | Windows 7 e versioni più recenti di SP | 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 e versioni più recenti di SP | 64 bit | Enterprise, Pro |
+| Windows 10 | 64 bit | Enterprise, Pro, Home |
 |Windows Server 2012 R2 e più recenti SPs|	64 bit|	Standard, Datacenter, Foundation|
 |Windows Server 2012 e versioni più recenti di SP|	64 bit|	Datacenter, Foundation, Standard|
 |Windows Storage Server 2012 R2 e versioni più recenti di SP |64 bit|	Standard, Workgroup|
@@ -31,7 +32,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D2. Dov'è possibile scaricare l'agente Backup di Azure più recente?** <br/> R2. È possibile scaricare la versione più recente dell'agente da [questa pagina](http://aka.ms/azurebackup_agent). Può essere installato su Windows Server, server SCDPM o client Windows
 
-**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente](http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a febbraio 2015)
+**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente](http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
 
 **D4. Quando si configura l'agente Backup di Azure, viene richiesto di immettere le "credenziali di insieme". Le credenziali di insieme hanno una data di scadenza?** <br/> R4. Sì, le credenziali di insieme scadono dopo 48 ore. Se il file scade, accedere al portale di Azure e scaricare i file delle credenziali di insieme dall'insieme di credenziali per il backup.
 
@@ -77,11 +78,11 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D16. È possibile eseguire la migrazione dell'insieme di credenziali per il backup tra sottoscrizioni?** <br/> R16: No. L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
 
-**D17. L'agente di Azure Backup funziona in un server che usa la deduplicazione di Windows Server 2012?** <br/>A17: Sì. Il servizio agente converte i dati deduplicati in dati normali quando si prepara l'operazione di backup. Quindi l'ottimizzazione dei dati per il backup, i dati vengono crittografati e quindi invia i dati crittografati al servizio di backup in linea.
+**D17. L'agente di Azure Backup funziona in un server che usa la deduplicazione di Windows Server 2012?** <br/> R17: Sì. Il servizio agente converte i dati deduplicati in dati normali quando si prepara l'operazione di backup. Quindi l'ottimizzazione dei dati per il backup, i dati vengono crittografati e quindi invia i dati crittografati al servizio di backup in linea.
 
-**D18. I dati di backup vengono eliminati se si annulla un backup successivamente all'avvio?** <br/>A18: No. Credenziali per il backup vengono archiviati i backup dei dati trasferiti fino al punto dell'annullamento. Backup di Azure utilizza un meccanismo di checkpoint in modo che i dati di backup Ottiene il controllo a cui fa riferimento in alcuni casi durante il backup e il successivo processo di backup può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Questo fornisce un migliore utilizzo della larghezza di banda in modo che non è necessario trasferire ripetutamente gli stessi dati.
+**D18. I dati di backup vengono eliminati se si annulla un backup successivamente all'avvio?** <br/> R18: No. Nell'insieme di credenziali per il backup vengono archiviati i dati sottoposti a backup trasferiti fino al momento dell'annullamento. Backup di Azure utilizza un meccanismo di checkpoint in modo che i dati di backup Ottiene il controllo a cui fa riferimento in alcuni casi durante il backup e il successivo processo di backup può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Questo fornisce un migliore utilizzo della larghezza di banda in modo che non è necessario trasferire ripetutamente gli stessi dati.
 
-**D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/>A19: Ciò può verificarsi quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'archivio di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. In questo caso, è necessario riconfigurare i criteri di backup e quindi**eseguire subito il backup**per risincronizzare il server locale con Azure.
+**D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/> R19: Questa situazione può verificarsi quando le impostazioni per la pianificazione del backup archiviate nel server locale non coincidono con quelle archiviate nell'insieme di credenziali per il backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. In questo caso, è opportuno riconfigurare i criteri di backup e quindi **eseguire subito il backup** per risincronizzare il server locale con Azure.
 
 **D20. Quali regole del firewall devono essere configurate per il backup di Azure Backup?** <br/> R20. Assicurarsi che le regole del firewall consentano la comunicazione con gli URL seguenti per facilitare il backup locale per la protezione in Azure e la protezione del carico di lavoro in Azure:
 
@@ -93,13 +94,25 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 
 ## Backup e conservazione
-**D1. Esiste un limite alle dimensioni di ogni origine dati sottoposta a backup?** <br/> R1. A partire da marzo 2015, le dimensioni di ogni origine dati deve essere minore o uguale a 1,7 TB. Un'origine dati può essere
+**D1. Esiste un limite alle dimensioni di ogni origine dati sottoposta a backup?** <br/> R1. A partire da agosto 2015, le dimensioni massime delle origini dati per i diversi sistemi operativi sono indicate di seguito
 
-- Un volume file o cartella
-- Un database SQL
-- Una farm di SharePoint
-- Un server di Exchange
-- Una macchina virtuale Hyper-V
+|Numero S. |	Sistema operativo |	Dimensione massima origine dati |
+| :-------------: |:-------------| :-----|
+|1| Windows Server 2012 o versioni successive| 54400 GB|
+|2| Windows Server 8 o versioni successive| 54400 GB|
+|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
+|4| Windows 7 | 1700 GB|
+ 
+La modalità di misurazione delle dimensioni dell'origine dati è indicata di seguito
+
+|	Origine dati |	Dettagli |
+| :-------------: |:-------------|
+|Volume |Quantità di dati sottoposti a backup dal volume singolo di una macchina. Questa opzione è disponibile per i volumi protetti sul computer server e sul computer client.|
+|Macchina virtuale Hyper-V|Somma dei dati di tutti i dischi rigidi virtuali della macchina virtuale di cui viene eseguito il backup|
+|Database di Microsoft SQL Server|Dimensioni di un singolo database SQL di cui viene eseguito il backup |
+|Microsoft SharePoint|Somma dei database di contenuto e di configurazione all'interno di una farm di SharePoint di cui viene eseguito il backup|
+|Microsoft Exchange|Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup|
+|Stato del sistema/ripristino bare metal|Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup|
 
 **D2. Esistono limiti al numero di backup giornalieri che è possibile pianificare?**<br/> R2. Sì, Backup di Azure consente di eseguire 3 copie di backup al giorno tramite un server o client Windows e 2 copie di backup al giorno tramite SCDPM.
 
@@ -166,4 +179,4 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

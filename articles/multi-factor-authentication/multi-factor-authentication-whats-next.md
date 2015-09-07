@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Passaggi successivi" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive le successive azioni da eseguire con Multi-Factor Authentication. Sono inclusi i report, gli avvisi di illecito, il bypass monouso, i messaggi vocali personalizzati, la memorizzazione nella cache, gli indirizzi IP attendibili e le password dell'app." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Multi-Factor Authentication - Passaggi successivi"
+	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive le successive azioni da eseguire con Multi-Factor Authentication. Sono inclusi i report, gli avvisi di illecito, il bypass monouso, i messaggi vocali personalizzati, la memorizzazione nella cache, gli indirizzi IP attendibili e le password dell'app."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -46,7 +46,7 @@ Avviso di illecito può essere configurato e impostato in modo che gli utenti po
 5. Nel portale di gestione di Azure Multi-Factor Authentication, a sinistra fare clic su Impostazioni.
 6. Nella sezione Avviso di illecito selezionare Consenti agli utenti di inviare avvisi di illeciti.
 7. Se si desidera che gli utenti siano bloccati quando viene segnalato un illecito, selezionare Blocca utente se viene segnalato un illecito.
-8. Nella casella sotto Codice per segnalare illeciti durante il messaggio introduttivo iniziale immettere un codice numerico che può essere usato durante la verifica della chiamata. Se un utente immette questo codice anziché il simbolo #, verrà segnalato un avviso di illecito.
+8. Nella casella sotto Codice per segnalare illeciti durante il messaggio introduttivo iniziale immettere un codice numerico che può essere usato durante la verifica della chiamata. Se un utente immette questo codice anziché il simbolo \#, verrà segnalato un avviso di illecito.
 9. Nella parte inferiore fare clic su Salva.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -228,6 +228,8 @@ In alcune app, come Office 2010 o versioni precedenti e Apple Mail, non è possi
 >
 > I Client di Office 2013 (tra cui Outlook) ora supportano i nuovi Protocolli di autenticazione e possono essere abilitati per supportare la Multi-Factor Authentication. Ciò significa che una volta attivati, le password della app non vengono richieste per l'utilizzo con i Client di Office 2013. Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
+
+
 ### Informazioni importanti sulle password dell'app
 
 Di seguito è riportato un elenco delle informazioni importanti da conoscere sulle password dell'app.
@@ -240,6 +242,11 @@ Esperienza di autenticazione|Per le app basate su browser|Per le app non basate 
 - Le app che memorizzano le password nella cache e le usano in scenari locali potrebbero smettere di funzionare, perché la password dell'app non sarà nota all'esterno dell'ID organizzazione. Un esempio sono i messaggi di posta elettronica di Exchange in locale, mentre la posta archiviata si trova nel cloud. La stessa password non funzionerà.
 - La password effettiva viene generata automaticamente e non viene fornita dall'utente. Questo avviene perché è più difficile per un utente malintenzionato indovinare una password generata automaticamente, aumentando quindi la sicurezza.
 - Al momento esiste un limite di 40 password per utente. Verrà richiesto di eliminare una delle password dell'app esistenti prima di crearne una nuova.
+- Dopo aver abilitato Multi-factor Authentication nell’account di un utente, le password di app possono essere utilizzate con la maggior parte dei client non basati su browser come Outlook e Lync, ma non è possibile eseguire azioni amministrative usando password di app tramite applicazioni non basate su browser come Windows PowerShell, anche se tale utente dispone di un account di amministrazione. Assicurarsi di creare un account di servizio con una password complessa per l'esecuzione degli script di PowerShell e di non abilitare tale account per Multi-factor Authentication.
+
+>[AZURE.WARNING]Le password di app non funzioneranno in ambienti ibridi dove i client comunicano con endpoint di individuazione automatica sia locali che nel cloud.
+>
+>Tenere presente che le password di app non funzionano in ambienti ibridi dove i client comunicano con endpoint di individuazione automatica sia locali che nel cloud, poiché per l'autenticazione locale sono necessarie le password di dominio e per l’autenticazione nel cloud sono necessarie le password di app.
 
 
 ### Indicazioni per la denominazione delle password dell'app
@@ -305,8 +312,8 @@ Gli utenti possono inoltre creare password dell'app in un secondo momento modifi
 3. A sinistra selezionare Verifica aggiuntiva di sicurezza.
 4. A destra selezionare **Aggiorna i numeri telefonici usati per la sicurezza dell'account**
 5. Nella parte superiore della pagina di verifica selezionare le password dell'app.
-6. Fare clic su **Crea**.
-7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
+6. Fare clic su **Crea**
+7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**
 8. Copiare la password dell'app negli Appunti, quindi incollarla nell'app.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/security.png)</center>
@@ -317,8 +324,8 @@ Gli utenti possono inoltre creare password dell'app in un secondo momento modifi
 1. Accedere al portale di gestione di Azure
 3. Nella parte superiore fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
 5. Nella parte superiore della pagina di verifica selezionare le password dell'app.
-6. Fare clic su **Crea**.
-7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
+6. Fare clic su **Crea**
+7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**
 8. Copiare la password dell'app negli Appunti, quindi incollarla nell'app.
 
 
@@ -330,8 +337,8 @@ Gli utenti possono inoltre creare password dell'app in un secondo momento modifi
 2. Nella parte superiore selezionare il profilo.
 3. Fare clic sul nome utente e selezionare Verifica aggiuntiva di sicurezza.
 5. Nella parte superiore della pagina di verifica selezionare le password dell'app.
-6. Fare clic su **Crea**.
-7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
+6. Fare clic su **Crea**
+7. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**
 8. Copiare la password dell'app negli Appunti, quindi incollarla nell'app.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
@@ -358,4 +365,4 @@ Per garantire la sicurezza degli account utente, è necessario ripristinare Mult
 <li>Nella pagina Impostazioni servizio, in Gestisci impostazioni del dispositivo utente, selezionare o deselezionare **Consenti agli utenti di sospendere Multi-Factor Authentication memorizzando i relativi dispositivi**.</li>
 ![Sospensione dei dispositivi](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Impostare il numero di giorni per cui si desidera consentire la sospensione. Il valore predefinito è 14 giorni.</li> <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

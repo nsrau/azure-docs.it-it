@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Recapito continuo per Servizi cloud con TFS in Azure"
+	pageTitle="Recapito continuo per Servizi cloud con TFS in Azure | Microsoft Azure"
 	description="Informazioni sulla configurazione del recapito continuo per le app cloud di Azure. Esempi di codice Code per istruzioni della riga di comando MSBuild e script di PowerShell."
 	services="cloud-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/19/2015"
 	ms.author="kempb"/>
 
 # Recapito continuo per Servizi cloud in Azure
@@ -31,14 +31,16 @@ Prima di creare un pacchetto di Azure usando MSBuild, è necessario installare i
 L'installazione di Visual Studio nel server di compilazione non è necessaria. Se si desidera usare il servizio Team Foundation Build per gestire il server di compilazione, seguire le istruzioni riportate nella documentazione del [servizio Team Foundation Build][].
 
 1.  Nel server di compilazione installare [.NET Framework 4][], [.NET Framework 4.5][] o [.NET Framework 4.5.2][] che include MSBuild.
-2.  Installare gli [strumenti di creazione di Azure][] (cercare MicrosoftAzureAuthoringTools-x86.msi o MicrosoftAzureAuthoringTools-x64.msi, a seconda del processore del server di compilazione). Nel nome file delle versioni precedenti potrebbe essere indicato WindowsAzure.
-3. Installare le [librerie di Azure][] (cercare MicrosoftAzureLibsForNet-x86.msi o MicrosoftAzureLibsForNet-x64.msi).
-4.  Copiare il file Microsoft.WebApplication.targets da un'installazione di Visual Studio nel server di compilazione. In un computer con installato Visual Studio, il file si trova nella directory C:\\Programmi(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 per Visual Studio 2013). Copiare il file nella stessa cartella del server di compilazione.
-5.  Installare gli [strumenti di Azure per Visual Studio][]. Cercare MicrosoftAzureTools.VS110.exe per compilare progetti di Visual Studio 2012, MicrosoftAzureTools.VS120.exe per compilare progetti di Visual Studio 2013 e MicrosoftAzureTools.VS140.exe per compilare progetti di Visual Studio 2015 Preview.
+2.  Installare gli [strumenti di creazione di Azure per .NET](http://go.microsoft.com/fwlink/?LinkId=623518) (inserire MicrosoftAzureAuthoringTools-x86.msi nel collegamento al posto di MicrosoftAzureAuthoringTools-x64.msi, se il server di compilazione dispone di un processore/sistema operativo a 32 bit).
+3. Installare le [librerie di Azure per .NET](http://go.microsoft.com/fwlink/?LinkId=623519) (se necessario, inserire MicrosoftAzureLibsForNet-x86.msi nel collegamento).
+4.  Copiare il file Microsoft.WebApplication.targets da un'installazione di Visual Studio al server di compilazione.
+
+	In un computer in cui è installato Visual Studio questo file si trova nella directory C:\\Programmi(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications (v12.0 per Visual Studio 2013). Copiare il file nella stessa cartella del server di compilazione.
+5.  Installare gli [strumenti di Azure per Visual Studio](http://go.microsoft.com/fwlink/?LinkId=623520). Usare MicrosoftAzureTools.VS140.exe per compilare progetti Visual Studio 2015 o MicrosoftAzureTools.VS120.exe per compilare progetti Visual Studio 2013.
 
 ## Passaggio 2: Compilare un pacchetto usando i comandi MSBuild
 
-Questa sezione descrive come creare un comando MSBuild per compilare un pacchetto di Azure. Eseguire questo passaggio nel server di compilazione per verificare che tutto sia configurato correttamente e che il comando MSBuild abbia l'effetto desiderato. È possibile aggiungere questa riga di comando agli script di compilazione esistenti nel server di compilazione oppure è possibile usare la riga di comando in una definizione di compilazione di TFS, come descritto nella sezione successiva. Per altre informazioni sui parametri della riga di comando e su MSBuild, vedere [Riferimenti alla riga di comando di MSBuild][].
+Questa sezione descrive come creare un comando MSBuild per compilare un pacchetto di Azure. Eseguire questo passaggio nel server di compilazione per verificare che tutto sia configurato correttamente e che il comando MSBuild abbia l'effetto desiderato. È possibile aggiungere questa riga di comando agli script di compilazione esistenti nel server di compilazione oppure è possibile usare la riga di comando in una definizione di compilazione di TFS, come descritto nella sezione successiva. Per altre informazioni sui parametri della riga di comando e su MSBuild, vedere [Riferimenti alla riga di comando di MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
 1.  Se Visual Studio è installato nel server di compilazione, fare clic su **Start**, scegliere **Tutti i programmi**, quindi individuare e fare clic su **Prompt dei comandi di Visual Studio** nella cartella **Strumenti di Visual Studio**.
 
@@ -54,7 +56,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
     Per questa opzione è possibile usare la sintassi abbreviata /t:Publish. Quando è installato Azure SDK, l'opzione /t:Publish in MSBuild non va confusa con i comandi di pubblicazione disponibili in Visual Studio. L'opzione /t:Publish compila unicamente pacchetti di Azure ma non li distribuisce come accade con i comandi di pubblicazione di Visual Studio.
 
-    Facoltativamente, è possibile specificare il nome del progetto come parametro di MSBuild. Se non specificato, viene usata la directory corrente. Per altre informazioni sui parametri della riga di comando di MSBuild, vedere [Riferimenti alla riga di comando di MSBuild][1].
+    Facoltativamente, è possibile specificare il nome del progetto come parametro di MSBuild. Se non specificato, viene utilizzata la directory corrente. Per ulteriori informazioni sui parametri della riga di comando di MSBuild, vedere [Riferimenti per la riga di comando di MSBuild][1].
 
 4.  Individuare l'output. Per impostazione predefinita, questo comando crea una directory in relazione alla cartella radice del progetto, ad esempio *DirProgetto*\\bin\*Configurazione*\\app.publish\\. Quando si compila un progetto Azure, vengono generati due file, il file del pacchetto e il file di configurazione di accompagnamento:
 
@@ -75,7 +77,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
 ## Passaggio 3: Compilare un pacchetto usando TFS Team Build (facoltativo)
 
-Se si dispone di Team Foundation Server (TFS) configurato come controller di compilazione, e il server di compilazione è impostato come computer di compilazione TFS, è possibile configurare una compilazione automatica per il pacchetto Azure. Per informazioni su come configurare e usare Team Foundation Server come sistema di compilazione, vedere [Informazioni sul sistema di compilazione di Team Foundation][]. In particolare, nella seguente procedura si presuppone che il server di compilazione sia stato configurato come descritto in [Distribuire e configurare un server di compilazione][] e che siano stati creati un progetto team e un progetto servizio cloud nel progetto team.
+Se si dispone di Team Foundation Server (TFS) configurato come controller di compilazione, e il server di compilazione è impostato come computer di compilazione TFS, è possibile configurare una compilazione automatica per il pacchetto Azure. Per informazioni su come configurare e usare Team Foundation Server come sistema di compilazione, vedere [Scalare orizzontalmente il sistema di compilazione][]. In particolare, nella procedura seguente si presuppone che il server di compilazione sia stato configurato come descritto in [Distribuire e configurare un server di compilazione][] e che siano stati creati un progetto team e un progetto servizio cloud nel progetto team.
 
 Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedura seguente:
 
@@ -295,7 +297,7 @@ In questo passaggio verrà collegato TFS Team Build con lo script creato nel pas
 	            </Sequence.Variables>
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:InvokeProcess Arguments="[String.Format("; -File ";";{0}";"; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation ";";{3}";";&#xD;&#xA;            -cloudConfigLocation ";";{4}";"; -subscriptionDataFile ";";{5}";";&#xD;&#xA;            -selectedSubscription {6} -environment ";";{7}";";";,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
 	              <mtbwa:InvokeProcess.ErrorDataReceived>
 	                <ActivityAction x:TypeArguments="x:String">
 	                  <ActivityAction.Argument>
@@ -553,19 +555,15 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 ## Passaggi successivi
 
-Per abilitare il debug remoto con la distribuzione continua, vedere [queste istruzioni](http://go.microsoft.com/fwlink/p/?LinkID=402354).
+Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere [Abilitare il debug remoto con la distribuzione continua per la pubblicazione in Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
   [Recapito continuo in Azure mediante Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md
   [servizio Team Foundation Build]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
-  [strumenti di creazione di Azure]: http://go.microsoft.com/fwlink/?LinkId=239600
-  [librerie di Azure]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [strumenti di Azure per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [Riferimenti alla riga di comando di MSBuild]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
-  [Informazioni sul sistema di compilazione di Team Foundation]: http://go.microsoft.com/fwlink/?LinkId=238798
+	[1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
+  [Scalare orizzontalmente il sistema di compilazione]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Distribuire e configurare un server di compilazione]: http://go.microsoft.com/fwlink/?LinkId=238799
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
@@ -578,4 +576,4 @@ Per abilitare il debug remoto con la distribuzione continua, vedere [queste istr
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

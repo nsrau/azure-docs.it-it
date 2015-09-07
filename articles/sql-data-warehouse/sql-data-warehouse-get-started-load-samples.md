@@ -1,20 +1,20 @@
 <properties
    pageTitle="Caricare i dati di esempio in SQL Data Warehouse | Microsoft Azure"
-   description="Caricare i dati di esempio in SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+	description="Caricare i dati di esempio in SQL Data Warehouse"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/05/2015"
-   ms.author="lodipalm;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/05/2015"
+	ms.author="lodipalm;barbkess"/>
 
 #Caricare i dati di esempio in SQL Data Warehouse
 
@@ -24,7 +24,18 @@ Dopo aver configurato un'istanza di SQL Data Warehouse è possibile caricare fac
 
 2. Dopo aver scaricato il file, estrarre il contenuto del file AdventureWorksPDW2012.zip e aprire la nuova cartella AdventureWorksPDW2012.
 
-3. Modificare il file aw\_create.bat e impostare i valori seguenti nella parte superiore del file: a. **Server**: il nome completo del server di SQL Data Warehouse risiede in b. **Utente**: l'utente per il server c indicato sopra. **Password**: la password dell’account di accesso d fornito. **Database**: il nome dell'istanza di SQL Data Warehouse su cui si desidera caricare i dati
+3. Modificare il file aw\_create.bat e impostare i valori seguenti nella parte superiore del file:
+
+   a. **Server**: il nome completo del server di SQL Data Warehouse risiede in
+
+   b. **Utente**: l'utente per il server indicato sopra
+   
+   c. **Password**: la password dell’account di accesso d fornito
+   
+   d. **Database**: il nome dell'istanza di SQL Data Warehouse su cui si desidera caricare i dati
+   
+   Assicurarsi che non vi sia alcun spazio vuoto tra '=' e questi parametri.
+   
 
 4. Eseguire aw\_create.bat dalla directory in cui si trova. Verrà creato lo schema e verranno caricati i dati in tutte le tabelle tramite BCP.
 
@@ -72,4 +83,4 @@ Dopo esserci esercitati con i dati di esempio, esaminiamo come [sviluppare][], [
 <!--Other Web references-->
 [script di dati di esempio]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

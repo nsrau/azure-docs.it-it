@@ -1,23 +1,20 @@
 <properties 
-	pageTitle="Macchine virtuali e contenitori in Azure" 
-	description="Descrive le Macchine virtuali, i contenitori Docker e Linux e il relativo utilizzo in gruppi di ciascuno di essi in Azure, includendo i vantaggi di ciascuno e gli scenari in cui ciascun approccio funziona in maniera ottimale." 
-	services="virtual-machines" 
-	solutions="infrastructure" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" 
-/>
+	pageTitle="Macchine virtuali e contenitori in Azure"
+	description="Descrive le Macchine virtuali, i contenitori Docker e Linux e il relativo utilizzo in gruppi di ciascuno di essi in Azure, includendo i vantaggi di ciascuno e gli scenari in cui ciascun approccio funziona in maniera ottimale."
+	services="virtual-machines"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"/>
 	
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="infrastructure"
+	ms.workload="infrastructure"
+	ms.date="07/02/2015"
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Macchine virtuali e contenitori in Azure
@@ -124,7 +121,7 @@ Queste capacità poi sono spesso migrate a strumenti come [Puppet](https://puppe
 
 ### Modelli di gruppo di risorse di Azure
 
-Più di recente, Azure ha rilasciato l’API REST [Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md) e aggiornato gli strumenti di PowerShell e dell’interfaccia della riga di comando di Azure per utilizzarla con facilità. È possibile distribuire, modificare o ridistribuire intere topologie di applicazioni utilizzando i [modelli di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx) con l'API di gestione risorse di Azure utilizzando:
+Più di recente, Azure ha rilasciato l’API REST [Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md) e aggiornato gli strumenti di PowerShell e dell’interfaccia della riga di comando di Azure per utilizzarla con facilità. È possibile distribuire, modificare o ridistribuire intere topologie di applicazioni usando i [modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) con l'API di Gestione risorse di Azure usando:
 
 - il [Portale di anteprima di Azure utilizzando i modelli](https://github.com/Azure/azure-quickstart-templates)&mdash;si consiglia di utilizzare il pulsante "Distribuisci su Azure"
 - L’[Interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -237,4 +234,4 @@ Vedere [Docker](https://www.docker.com) e [Windows Server Containers](https://ms
 [microservizio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

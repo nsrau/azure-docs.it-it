@@ -1,51 +1,45 @@
 <properties 
-   pageTitle="Wait Connector" 
-   description="Wait Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Uso del connettore Wait nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore Wait e usarlo in un'app per la logica in Azure App Service"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-#Wait Connector
-Wait Connector consente di ritardare l'esecuzione di un'app per una durata specificata o fino al verificarsi di un orario specificato. Quando viene usato in un flusso di lavoro, può consentire di ritardare l'esecuzione.
+# Uso del connettore Wait e aggiunta all'app per la logica
+Il connettore Wait consente di ritardare l'esecuzione di un'app per una durata specificata o fino al verificarsi di un orario specificato. È possibile aggiungere il connettore Wait al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica. Quando viene usato in un'app per la logica, può consentire di ritardare l'esecuzione.
 
-##Uso di Wait Connector
-Per usare Wait Connector, è necessario creare prima di tutto un'istanza dell'app per le API Wait Connector. Questa operazione può essere eseguita inline durante la creazione di un'app per la logica o selezionando l'app per le API Wait Connector da Azure Marketplace.
+## Uso del connettore Wait
+Per usare il connettore Wait, è innanzitutto necessario creare un'istanza dell'app per le API del connettore Wait. Questa operazione può essere eseguita inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API del connettore Wait da Azure Marketplace.
 
-##Uso di Wait Connector nell'area di progettazione delle app per la logica
-Wait Connector può essere usato come azione. Non include trigger.
+## Uso del connettore Wait nell'area di progettazione delle app per la logica
+Il connettore Wait può essere usato come azione. Non include trigger.
 
-###Azione
-- Fare clic su Wait Connector nel riquadro destro.
-
-	![Elenco di azioni][1]
-- Wait Connector supporta due azioni: 
+### Azione
+- Fare clic sul connettore Wait nel riquadro destro: ![Elenco di azioni][1]
+- Il connettore Wait supporta due azioni: 
 	- Delay
 	- Delay Until
 	 
-- Selezionare *Delay*.
-
-	![Input relativo al ritardo][2]
-- Fornire gli input per l'azione e configurarla.
-
-	![Azione configurata][3]
+- Selezionare *Delay*: ![Input relativo al ritardo][2]
+- Fornire gli input per l'azione e configurarla: ![Azione configurata][3]
 
 Parametro|Tipo|Descrizione del parametro
 ---|---|---
-Duration In Minutes|numero intero|Durata del ritardo in minuti
+Duration In Minutes|integer|Durata del ritardo in minuti
 
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -57,4 +51,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

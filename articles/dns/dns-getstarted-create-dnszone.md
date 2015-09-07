@@ -1,22 +1,28 @@
 <properties
    pageTitle="Introduzione a DNS di Azure | Microsoft Azure"
-   description="Altre informazioni su come creare zone DNS per DNS di Azure. È una procedura dettagliata che consente di creare la prima zona DNS per iniziare a ospitare il proprio dominio DNS."
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor=""/>
+	description="Altre informazioni su come creare zone DNS per DNS di Azure. È una procedura dettagliata che consente di creare la prima zona DNS per iniziare a ospitare il proprio dominio DNS."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 
 # Introduzione a DNS di Azure
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+
 Il dominio "contoso.com" può contenere una serie di record DNS, ad esempio "mail.contoso.com" (per un server di posta elettronica) e "www.contoso.com" (per un sito Web). Una zona DNS viene usata per ospitare i record DNS per un particolare dominio.<BR><BR> Per iniziare a ospitare il dominio è necessario prima di tutto creare una zona DNS. Qualsiasi record DNS creato per un particolare dominio sarà all'interno di una zona DNS per il dominio.<BR><BR> In queste istruzioni viene usato Microsoft Azure PowerShell. Assicurarsi di eseguire l'aggiornamento alla versione più recente di Azure PowerShell per usare i cmdlet di DNS di Azure. Gli stessi passaggi possono essere eseguiti anche usando l'interfaccia della riga di comando, le API REST o l'SDK di Microsoft Azure.<BR><BR>
 
 ## Configurare PowerShell in DNS di Azure
@@ -24,7 +30,7 @@ Il dominio "contoso.com" può contenere una serie di record DNS, ad esempio "mai
 I passaggi seguenti devono essere completati prima di poter gestire DNS di Azure con Azure PowerShell.
 
 ### Passaggio 1
- DNS di Azure usa Gestione risorse di Azure (ARM). Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager).<BR><BR>
+ DNS di Azure usa Gestione risorse di Azure (ARM). Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -55,7 +61,7 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network. La sottoscrizione di Azure deve essere registrata per usare questo provider di risorse prima di poter usare DNS di Azure. Si tratta di un'operazione una tantum per ogni sottoscrizione.
 
-	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -91,7 +97,7 @@ La zona DNS è stata creata nel servizio DNS di Azure. La creazione di una zona 
 
 
 - Il record "Start of Authority" (SOA), presente nella directory principale di ogni zona DNS.
-- I record del server del nomi autorevole (NS), che mostrano quali server dei nomi ospitano la zona. DNS di Azure usa un pool di server dei nomi e dunque diversi server dei nomi potrebbero essere assegnati ad aree diverse nel servizio DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](../dns-domain-delegation).<BR>
+- I record del server del nomi autorevole (NS), che mostrano quali server dei nomi ospitano la zona. DNS di Azure usa un pool di server dei nomi e dunque diversi server dei nomi potrebbero essere assegnati ad aree diverse nel servizio DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).<BR>
 
 Per visualizzare questi record, usare Get-AzureDnsRecordSet:
 
@@ -147,4 +153,4 @@ Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azu
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS](dns-operations-dnszones.md)<BR> [Come gestire i record DNS](dns-operations-recordsets.md)<BR> [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)<BR> [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

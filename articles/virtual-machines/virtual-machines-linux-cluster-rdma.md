@@ -1,19 +1,19 @@
 <properties
  pageTitle="Configurare un cluster Linux RDMA per eseguire applicazioni MPI | Microsoft Azure"
- description="Scoprire come creare un cluster Linux di macchine virtuali di dimensioni A8 o A9 per utilizzare RDMA per eseguire app MPI."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="Scoprire come creare un cluster Linux di macchine virtuali di dimensioni A8 o A9 per utilizzare RDMA per eseguire app MPI."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
- ms.date="07/17/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="07/17/2015"
+	ms.author="danlep"/>
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 
@@ -190,7 +190,7 @@ Modificare lo script seguente con i valori appropriati per l'ambiente ed eseguir
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -339,4 +339,4 @@ In un cluster di lavoro con due nodi verrà visualizzato un output simile al seg
 
 * Per le linee guida su Intel MPI, vedere la [documentazione Intel MPI Library](https://software.intel.com/it-it/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

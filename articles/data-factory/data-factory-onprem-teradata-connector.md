@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Connettore Teradata - Spostare i dati da Teradata" 
-	description="Informazioni su come il connettore Teradata per il servizio Data factory consente di spostare dati dal database Teradata" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare i dati da Teradata | Data factory di Azure"
+	description="Informazioni su come il connettore Teradata per il servizio Data factory consente di spostare dati dal database Teradata"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Connettore Teradata - Spostare i dati da Teradata
+# Spostare i dati da Teradata utilizzando Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da Teradata a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -34,11 +34,11 @@ Perché Gateway di gestione dati si connetta al database Teradata, è necessario
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo OnPremisesTeradata.
-2.	Un servizio collegato di tipo AzureStorage.
-3.	Un set di dati di input di tipo RelationalTable.
-4.	Un set di dati di output di tipo AzureBlob. 
-4.	La pipeline con attività di copia che usa RelationalSource e BlobSink.
+1.	Un servizio collegato di tipo [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
+2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](data-factory-onprem-teradata-connector.md#teradata-dataset-type-properties).
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 L'esempio copia i dati dai risultati della query nel database Teradata in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -180,7 +180,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \'{0:yyyy-MM-ddTHH:mm:ss}\' AND timestamp < \'{1:yyyy-MM-ddTHH:mm:ss}\'', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -230,6 +230,8 @@ authenticationType | Tipo di autenticazione usato per connettersi al database Te
 username | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No 
 password | Specificare la password per l'account utente specificato per il nome utente. | No 
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database Teradata locale. | Sì
+
+Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati Teradata locale.
 
 ## Proprietà del tipo del set di dati Teradata
 
@@ -310,4 +312,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

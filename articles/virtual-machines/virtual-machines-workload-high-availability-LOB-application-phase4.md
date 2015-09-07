@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Carico di lavoro dell'applicazione line-of-business - Fase 4: Configurare i server Web" 
-	description="In questa quarta fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono creati i server Web in cui caricare l'applicazione line-of-business." 
+	pageTitle="Applicazione line-of-business fase 4 | Microsoft Azure"
+	description="Creare i server Web e caricare l'applicazione line-of-business nella fase 4 dell'applicazione line-of-business di Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 4: Configurare i server Web
@@ -168,4 +168,4 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

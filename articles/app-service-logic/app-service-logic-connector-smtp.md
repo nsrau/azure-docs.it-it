@@ -1,41 +1,41 @@
 <properties
-   pageTitle="App per le API SMTP Connector"
-   description="Come usare SMTP Connector"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del connettore SMTP nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o del connettore SMTP e usarlo in un'app per la logica in Azure App Service"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# SMTP Connector
+# Uso del connettore SMTP e aggiunta all'app per la logica
+Connettersi a un server SMTP e inviare messaggi di posta elettronica con allegati. L'azione "Send Email" del connettore SMTP consente di inviare e-mail a indirizzi specificati.
 
-Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte di un flusso di lavoro.
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte di un flusso di lavoro. È possibile aggiungere il connettore SMTP al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
-SMTP Connector consente di connettersi a un server SMTP e di eseguire un'azione per inviare e-mail con allegati. L'azione "Send Email" di SMTP Connector consente di inviare e-mail a indirizzi specificati.
 
 ## Trigger e azioni
 I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Ad esempio, quando si aggiorna un ordine o si aggiunge un nuovo cliente, viene inviato un messaggio di posta elettronica al nuovo cliente
 
-SMTP Connector può essere usato come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Attualmente non sono disponibili trigger per questo connettore.
+Il connettore SMTP può essere usato come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Attualmente non sono disponibili trigger per questo connettore.
 
-Per SMTP Connector sono disponibili i trigger e le azioni seguenti:
+Per il connettore SMTP sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
 Nessuno | Send email
 
 
-## Creare SMTP Connector
+## Creare il connettore SMTP
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
@@ -52,23 +52,20 @@ Nessuno | Send email
 	Server Port | Sì | Immettere il numero di porta del server SMTP.
 	Enable SSL | No | Immettere *true* per usare SMTP su un canale SSL/TLS sicuro.
 
-6. Selezionare **Crea**.
+6. Selezionare **Create**.
 
-## Uso di SMTP Connector nell'app per la logica
-Dopo aver creato il connettore, è possibile usare SMTP Connector come azione per l'app per la logica. A tale scopo, effettuare l'operazione seguente:
+## Usare il connettore SMTP nell'app per la logica
+Dopo aver creato il connettore, è possibile usare il connettore SMTP come azione per l'app per la logica. A tale scopo, seguire questa procedura:
 
-1.	Creare una nuova app per la logica:
-
+1.	Creare una nuova app per la logica: 
 	![][2]
-2.	Aprire **Trigger e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro:
-
+2.	Aprire **Triggers and Actions** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro: 
 	![][3]
-3.	SMTP Connector viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo:
-
+3.	Il connettore SMTP viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo: 
 	![][4]
-4.	Selezionare SMTP Connector per aggiungerlo automaticamente alla finestra di progettazione del flusso di lavoro.
+4.	Selezionare il connettore SMTP per aggiungerlo automaticamente alla finestra di progettazione del flusso di lavoro.
 
-È ora possibile configurare SMTP Connector per usarlo nel flusso di lavoro. Selezionare l'azione **Send Email** e configurare le proprietà di input:
+È ora possibile configurare il connettore SMTP per usarlo nel flusso di lavoro. Selezionare l'azione **Send Email** e configurare le proprietà di input:
 
 	Proprietà | Descrizione
 	--- | ---
@@ -84,7 +81,7 @@ Dopo aver creato il connettore, è possibile usare SMTP Connector come azione pe
 	![][5]
 	![][6]
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -99,4 +96,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Esercitazione: creare una rete virtuale cross-premise per la connettività da sito a sito" 
-	description="In questa esercitazione vengono fornite informazioni su come creare una rete virtuale di Azure con connettività cross-premise." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Esercitazione: creare una rete virtuale cross-premise per la connettività da sito a sito"
+	description="In questa esercitazione vengono fornite informazioni su come creare una rete virtuale di Azure con connettività cross-premise."
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -24,7 +24,7 @@ Questa esercitazione descrive le procedure da seguire per creare una rete virtua
 
 Se si desidera creare una rete virtuale solo cloud, vedere [Esercitazione: creare una rete virtuale solo cloud in Azure](../virtual-machines/create-virtual-network.md). Se si desidera creare una rete VPN da punto a sito utilizzando certificati e un client VPN, vedere [Configurare una VPN da punto a sito utilizzando la procedura guidata del portale di gestione](http://go.microsoft.com/fwlink/p/?LinkId=296653).
 
-In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. L'utente avrà quindi la possibilità di acquisire familiarità con le procedure necessarie per creare una rete virtuale cross-premise di esempio. Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere le [informazioni generali su Rete virtuale di Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. L'utente avrà quindi la possibilità di acquisire familiarità con le procedure necessarie per creare una rete virtuale cross-premise di esempio. Per scenari di progettazione e informazioni avanzate su Rete virtuale, vedere le [informazioni generali su Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
 
 Al termine di questa esercitazione, si disporrà di una rete virtuale cross-premise di esempio. La figura seguente mostra i dettagli, in base alle impostazioni di esempio in questa esercitazione.
 
@@ -253,9 +253,9 @@ Per esportare le impostazioni della rete virtuale in un file di configurazione d
 
 ## Vedere anche
 
--  [Panoramica di Rete virtuale](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md)
 
--  [Domande frequenti su Rete virtuale](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [Domande frequenti su Rete virtuale](virtual-networks-faq.md)
 
 -  [Configurare una rete virtuale usando file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
 
@@ -272,4 +272,4 @@ Per esportare le impostazioni della rete virtuale in un file di configurazione d
 
  
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

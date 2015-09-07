@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Primo accesso ad Azure Multi-Factor Authentication" 
-	description="In questa pagina viene descritta la prima esperienza d’accesso per gli utenti." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Primo accesso ad Azure Multi-Factor Authentication"
+	description="In questa pagina viene descritta la prima esperienza d’accesso per gli utenti."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 # Esperienza di installazione per Azure multi-Factor Authentication
 
  Le impostazioni per la verifica aggiuntiva di sicurezza vengono utilizzate quando un amministratore ha configurato l'account in modo tale che la verifica dell’identità dell’utente avvenga tramite password e risposta sul telefono dello stesso. Se un amministratore ha configurato l'account per richiedere la verifica aggiuntiva di sicurezza, **non sarà possibile effettuare l'accesso fino a quando non si completa il processo di autoregistrazione**.
@@ -37,4 +36,4 @@ Metodo|Descrizione
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

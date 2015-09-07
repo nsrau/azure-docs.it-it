@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Farm di SharePoint ospitate nei servizi di infrastruttura di Azure"
+	pageTitle="Farm di SharePoint Server 2013 in Azure | Microsoft Azure"
 	description="Trovare i principali argomenti che descrivono come impostare un farm di sviluppo/test o produzione di SharePoint 2013 nei servizi di infrastruttura di Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines"
@@ -63,4 +63,4 @@ Per ulteriori informazioni e configurazioni di SharePoint in Azure vedere queste
 
 - [Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

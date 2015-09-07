@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Application Insights per app per Android" 
-    description="Analizzare l'utilizzo e le prestazioni dell'app Android con Application Insights." 
-    services="application-insights" 
-    documentationCenter="android"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="Application Insights per app per Android | Microsoft Azure"
+	description="Analizzare l'utilizzo e le prestazioni dell'app Android con Application Insights."
+	services="application-insights"
+	documentationCenter="android"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-android" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-	ms.date="04/28/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/28/2015"
+	ms.author="awills"/>
 
 # Application Insights per app per Android
 
@@ -35,38 +35,38 @@ Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights.
 
 Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo relativi all'app. Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, nella schermata Start dovrebbe venire visualizzato un riquadro per l'app. In alternativa, fare clic su Sfoglia per cercarla.
 
-## Installare il plug-in Application Insights in Studio Android
+## Installare il plug-in Application Insights in Android Studio
 
 (se non lo si è già fatto).
 
-1.  Avviare Studio Android e configurare il plug-in
+1.  Avviare Android Studio e configurare i plug-in.
 
     ![Scegliere Configura](./media/app-insights-android/01-configure.png)
 
-2.  Selezionare e installare il plug-in Application Insights Android Studio.
+2.  Selezionare e installare il plug-in Application Insights in Android Studio.
 
     ![Selezionare il plug-in](./media/app-insights-android/03-select-plugin.png)
 
-## <a name="sdk"></a>Installare SDK nell'applicazione
+## <a name="sdk"></a>Installare l'SDK nell'applicazione
 
 
-1.  Selezionare Strumenti -> Integra Application Insights.
+1.  Selezionare **Strumenti** > **Integra Application Insights SDK**.
 
     ![Integrare Azure Application Insights](./media/app-insights-android/04-tools-integrate.png)
-    
-3.  Creare un componente nella sottoscrizione
+
+3.  Creare un componente nella sottoscrizione.
 
     ![Creare un componente](./media/app-insights-android/07-create-component.png)
 
     Usare la chiave di strumentazione ricevuta dalla risorsa di Application Insights.
 
-4.  Sincronizzare gradle per scaricare l'SDK ed eseguire l'integrazione con il progetto
+4.  Sincronizzare gradle per scaricare l'SDK ed eseguire l'integrazione con il progetto.
 
     ![Sincronizzare i file gradle per scaricare l'SDK](./media/app-insights-android/08-successful-integration.png)
-    
+
     Altre informazioni sono disponibili alla [pagina di utilizzo](http://go.microsoft.com/fwlink/?LinkID=533220).
-    
-A questo punto il riferimento seguente è stato aggiunto al build.gradle dei moduli, autorizzazioni per `INTERNET` e `ACCESS_NETWORK_STATE`, e un tag di metadati contenente la chiave di strumentazione del componente è stato aggiunto al file `AndroidManifest.xml` del modulo
+
+A questo punto il riferimento seguente è stato aggiunto ai moduli build.gradle, le autorizzazioni per `INTERNET` e `ACCESS_NETWORK_STATE` e un tag di metadati contenente la chiave di strumentazione del componente è stato aggiunto al file `AndroidManifest.xml` del modulo.
 
 ```java
 
@@ -80,7 +80,7 @@ A questo punto il riferimento seguente è stato aggiunto al build.gradle dei mod
     <manifest>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application>
         <meta-data
             android:name="com.microsoft.applicationinsights.instrumentationKey"
@@ -91,7 +91,7 @@ A questo punto il riferimento seguente è stato aggiunto al build.gradle dei mod
 
 #### Facoltativo: impostare la chiave di strumentazione nel codice
 
-È anche possibile impostare la chiave di strumentazione nel codice. Questa impostazione sostituirà quello impostato in `AndroidManifest.xml`
+È anche possibile impostare la chiave di strumentazione nel codice. Questa impostazione sostituirà quella impostato in `AndroidManifest.xml`.
 
 ```java
 
@@ -104,14 +104,14 @@ A questo punto il riferimento seguente è stato aggiunto al build.gradle dei mod
 
 Inizializzare l'SDK e iniziare a tenere traccia dei dati di telemetria.
 
-Aggiungere l'importazione seguente all'attività radice dell'app
+Aggiungere l'importazione seguente all'attività radice dell'app:
 
 ```java
 
      import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
-E aggiungere quanto segue al callback `onCreate` dell'attività.
+Aggiungere, quindi, quanto segue al callback `onCreate` dell'attività.
 
 ```java
 
@@ -130,7 +130,7 @@ Oltre a questi possono essere raccolti eventi personalizzati, tracce, metriche e
 * TrackHandledException(exception) in clausole catch
 * TrackMetric(name, value) in un'attività in background per inviare report periodici delle metriche non associate a eventi specifici.
 
-Un esempio di inizializzazione e di una raccolta di dati di telemetria manuale sono riportati di seguito.
+Il codice seguente è un esempio di inizializzazione e raccolta di dati di telemetria manuale.
 
 ```java
 
@@ -138,11 +138,11 @@ Un esempio di inizializzazione e di una raccolta di dati di telemetria manuale s
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
-        
+
         ApplicationInsights.setup(this);
         //... other initialization code ...//
         ApplicationInsights.start();
-        
+
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
         HashMap<String, String> properties = new HashMap<String, String>();
@@ -163,11 +163,11 @@ Eseguire l'applicazione (MAIUSC+F10 in Windows, CTRL+R in OS X) per generare dat
 
 Tornare a http://portal.azure.com e passare alla risorsa di Application Insights.
 
-Fare clic su Cerca per aprire [Ricerca diagnostica][diagnostic], ovvero la finestra in cui vengono visualizzati i primi eventi. Se non viene visualizzato alcun contenuto, attendere uno o due minuti e fare clic su Aggiorna.
+Fare clic su **Cerca** per aprire [Ricerca diagnostica][diagnostic], ovvero la finestra in cui vengono visualizzati i primi eventi. Se non viene visualizzato alcun contenuto, attendere uno o due minuti e fare clic su **Aggiorna**.
 
 ![Fare clic su Ricerca diagnostica](./media/app-insights-android/21-search.png)
 
-I dati verranno visualizzati nel pannello Panoramica non appena l'app viene usata.
+I dati vengono visualizzati nel pannello Panoramica non appena l'app viene usata.
 
 ![Pannello Panoramica](./media/app-insights-android/22-oview.png)
 
@@ -195,8 +195,6 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

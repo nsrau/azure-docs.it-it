@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Specifiche e conformità tecniche per il dispositivo StorSimple | Microsoft Azure"
-   description="Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per il dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="Specifiche tecniche StorSimple | Microsoft Azure"
+	description="Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per i componenti hardware di StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
  <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
 # Specifiche e conformità tecniche per il dispositivo StorSimple
 
@@ -172,4 +172,4 @@ Per le interfacce di rete 10 GbE, DATA 2 e DATA 3, fare riferimento all'[elenco 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

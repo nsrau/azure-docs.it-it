@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Report di Azure Multi-Factor Authentication" 
-	description="Viene descritto come modificare le impostazioni utente (ad esempio, come imporre agli utenti di ripetere il processo di registrazione)." 
-	documentationCenter="" 
-	services="multi-factor-authentication" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Report di Azure Multi-Factor Authentication"
+	description="Viene descritto come modificare le impostazioni utente (ad esempio, come imporre agli utenti di ripetere il processo di registrazione)."
+	documentationCenter=""
+	services="multi-factor-authentication"
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Gestione delle impostazioni utente con Azure Multi-Factor Authentication nel cloud
@@ -80,4 +80,4 @@ Gli amministratori hanno la possibilità di reimpostare Multi-Factor Authenticat
 <li>Nella parte superiore fare clic su Utenti.</li>
 <li>Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina di multi-factor authentication. <li>Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.</li> <li>A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. Fare clic su di esso.</li> <li>Inserire un segno di spunta in Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi.</li> ![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

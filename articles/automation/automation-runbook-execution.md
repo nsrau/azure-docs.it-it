@@ -1,19 +1,19 @@
 <properties
    pageTitle="Esecuzione di runbook in Automazione di Azure"
-   description="Descrive i dettagli dell'elaborazione di un runbook in Automazione di Azure."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	description="Descrive i dettagli dell'elaborazione di un runbook in Automazione di Azure."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/22/2015"
+	ms.author="bwren"/>
 
 # Esecuzione di runbook in Automazione di Azure
 
@@ -89,7 +89,7 @@ I comandi di esempio seguenti recuperano l'ultimo processo per un runbook di ese
 
 ## Condivisione equa
 
-Per condividere le risorse tra tutti i runbook nel cloud, Automazione di Azure scaricherà temporaneamente qualsiasi processo in esecuzione da tre ore e quindi lo riavvierà dall'ultimo [checkpoint](http://aka.ms/runbookauthor/checkpoints). Durante questo periodo, per il processo verrà visualizzato lo stato Running, waiting for resources. Se il runbook non dispone di alcun checkpoint o non ha raggiunto il primo checkpoint prima di essere scaricato, verrà riavviato dall'inizio.
+Per condividere le risorse tra tutti i runbook nel cloud, Automazione di Azure scaricherà temporaneamente qualsiasi processo in esecuzione da tre ore e quindi lo riavvierà dall'ultimo [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Durante questo periodo, per il processo verrà visualizzato lo stato Running, waiting for resources. Se il runbook non dispone di alcun checkpoint o non ha raggiunto il primo checkpoint prima di essere scaricato, verrà riavviato dall'inizio.
 
 Se il runbook viene riavviato dallo stesso checkpoint o dall'inizio per tre volte consecutive, verrà terminato con lo stato Failed, waiting for resources. Questo avviene per impedire che i runbook vengano eseguiti all'infinito senza essere completati, in quanto non riusciranno a giungere al checkpoint successivo senza essere scaricati di nuovo. In tal caso, l'operazione avrà esito negativo e si riceverà un'eccezione che indica quanto segue.
 
@@ -101,8 +101,6 @@ Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario 
 
 ## Articoli correlati
 
-- [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook)
-- [Visualizzazione dello stato di un processo di runbook in Automazione di Azure](automation-viewing-the-status-of-a-runbook-job)
- 
+- [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

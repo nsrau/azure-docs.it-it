@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Uso dell'Editor regole di sincronizzazione di Azure AD Connect" 
-	description="Informazioni sull’uso dell'Editor regole di sincronizzazione di Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Uso dell'Editor regole di sincronizzazione di Azure AD Connect"
+	description="Informazioni sull’uso dell'Editor regole di sincronizzazione di Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Editor regole di sincronizzazione di Azure AD
@@ -74,4 +74,4 @@ Per contestualizzare, in una distribuzione con una foresta di account e una di r
 Quello delle trasformazioni è un argomento molto vasto e riguarda in larga misura le configurazioni personalizzate che è possibile implementare con Azure AD Connect. Le configurazioni personalizzate non vengono discusse in questo argomento di panoramica. Nel corso del documento, tuttavia, verranno presi in esame alcuni flussi di attributi aggiuntivi.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

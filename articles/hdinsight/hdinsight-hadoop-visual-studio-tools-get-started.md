@@ -19,7 +19,7 @@
 
 # Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio per eseguire una query Hive
 
-Informazioni su come usare HDInsight Tools per Visual Studio per connettersi a cluster HDInsight e inviare query Hive. Per altre informazioni sull'uso di HDInsight, vedere [Introduzione ad HDInsight][hdinsight.introduction] e [Introduzione all'uso di HDInsight][hdinsight.get.started]. Per altre informazioni sulla connessione a un cluster Storm, vedere [Sviluppo di topologie C#per Apache Storm in HDInsight mediante Visual Studio][hdinsight.storm.visual.studio.tools].
+Informazioni su come usare HDInsight Tools per Visual Studio per connettersi a cluster HDInsight e inviare query Hive. Per altre informazioni sull'uso di HDInsight, vedere [Introduzione ad HDInsight][hdinsight.introduction] e [Introduzione all'uso di HDInsight][hdinsight.get.started]. Per altre informazioni sulla connessione a un cluster Storm, vedere [Sviluppo di topologie C# per Apache Storm in HDInsight mediante Visual Studio][hdinsight.storm.visual.studio.tools].
 
 >[AZURE.NOTE]La versione più recente ha introdotto alcune nuove funzionalità, ad esempio il supporto dell'editor Hive, la convalida locale di script Hive e l'accesso ai log YARN.
 
@@ -74,7 +74,7 @@ HDInsight Tools per Visual Studio consente di connettersi a cluster HDInsight, e
 	![Hadoop Tools: elenco di cluster in Esplora Server di HDInsight Tools per Visual Studio][5]
 6.	Espandere un cluster HDInsight. Verranno visualizzati i **database Hive**, un account di archiviazione predefinito, gli account di archiviazione collegati e il **log del servizio Hadoop**. È possibile espandere ulteriormente le entità.
 
-Dopo la connessione alla sottoscrizione di Azure, è possibile eseguire le operazioni seguenti:
+Dopo la connessione alla sottoscrizione di Azure, sarà possibile eseguire le operazioni seguenti:
 
 **Per connettersi al portale di Azure da Visual Studio**
 
@@ -97,7 +97,7 @@ Testare script Hive in un cluster HDInsight è un'operazione che può richiedere
 
 HDInsight Tools per Visual Studio consente inoltre di visualizzare i contenuti del processo Hive raccogliendo ed esponendo i log YARN di alcuni processi Hive.
 
-###Visualizzare **hivesampletable**
+### Visualizzare **hivesampletable**
 I cluster HDInsight includono una tabella Hive di esempio denominata *hivesampletable*. Questa tabella verrà usata per mostrare come elencare tabelle Hive, visualizzare gli schemi di tabella ed elencare le righe nella tabella Hive.
 
 
@@ -113,7 +113,7 @@ I cluster HDInsight includono una tabella Hive di esempio denominata *hivesample
 
 	![Hadoop Tools: query dello schema di Visual Studio Hive di HDinsight][6]
 
-###Creare tabelle Hive
+### Creare tabelle Hive
 
 Per creare una tabella Hive è possibile usare l'interfaccia utente grafica o query Hive. Per informazioni sull'uso di query Hive, vedere [Eseguire query Hive](#run.queries).
 
@@ -125,7 +125,7 @@ Per creare una tabella Hive è possibile usare l'interfaccia utente grafica o qu
 
 	![Hadoop Tools: HDInsight Tools per Visual Studio crea la tabella Hive][7]
 
-###<a name="run.queries"></a>Convalidare ed eseguire query Hive
+### <a name="run.queries"></a>Convalidare ed eseguire query Hive
 Esistono due modi per creare ed eseguire query Hive:
 
 - Creare query ad hoc
@@ -135,7 +135,7 @@ Esistono due modi per creare ed eseguire query Hive:
 
 1. Da **Esplora server** espandere **Azure**, quindi **HDInsight Clusters**.
 2. Fare clic con il pulsante destro del mouse sul cluster in cui si desidera eseguire la query, quindi scegliere **Scrivi una query Hive**.
-3. Immettere le query Hive. Si noti che l'editor Hive supporta IntelliSense. HDInsight Tools per Visual Studio supporta il caricamento di metadati remoti durante la modifica dello script Hive. Ad esempio, quando si digita "SELECT * FROM", IntelliSense elencherà tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, i nomi delle colonne verranno elencati da IntelliSense. Lo strumento supporta quasi tutte le funzioni definite dall'utente predefinite, le sottoquery e le istruzioni DML Hive.
+3. Immettere le query Hive. Si noti che l'editor Hive supporta IntelliSense. HDInsight Tools per Visual Studio supporta il caricamento di metadati remoti durante la modifica dello script Hive. Ad esempio, quando si digita "SELECT * FROM", IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, i nomi delle colonne sono elencati da IntelliSense. Lo strumento supporta quasi tutte le funzioni definite dall'utente predefinite, le sottoquery e le istruzioni DML Hive.
 
 	![Hadoop Tools: IntelliSense di HDInsight Tools per Visual Studio][13]
 
@@ -168,7 +168,7 @@ Esistono due modi per creare ed eseguire query Hive:
 4. Per convalidare lo script Hive, è possibile fare clic sul pulsante **Convalida script** oppure fare clic con il pulsante destro del mouse sullo script nell'editor di Hive e quindi fare clic su **Convalida script** nel menu di scelta rapida.
 
 
-###Visualizzare processi Hive
+### Visualizzare processi Hive
 È possibile visualizzare query di processo, output di processo, log di processo e log Yarn per i processi Hive. Per altre informazioni, vedere la schermata precedente.
 
 La versione più recente dello strumento consente di visualizzare i contenuti dei processi Hive raccogliendo ed esponendo i log YARN. Un log YARN consente di analizzare eventuali problemi di prestazioni. Per altre informazioni su come HDInsight raccoglie log YARN, vedere [Accedere ai log dell'applicazione HDInsight a livello di codice][hdinsight.access.application.logs].
@@ -183,7 +183,7 @@ La versione più recente dello strumento consente di visualizzare i contenuti de
 
 ### Grafico delle prestazioni del processo Hive Tez
 
-Gli Strumenti di Visual Studio per HDInsight supportano la visualizzazione di grafici delle prestazioni per i processi Hive eseguiti dal motore di esecuzione Tez. Per informazioni sull'abilitazione di Tez, vedere [Usare Hive in HDInsight][hdinsight.hive]. Dopo avere inviato un processo Hive in Visual Studio, Visual Studio mostrerà il grafico al termine del processo. Per ottenere l'ultimo stato del processo, potrebbe essere necessario fare clic sul pulsante Aggiorna.
+Gli Strumenti di Visual Studio per HDInsight supportano la visualizzazione di grafici delle prestazioni per i processi Hive eseguiti dal motore di esecuzione Tez. Per informazioni sull'abilitazione di Tez, vedere [Usare Hive in HDInsight][hdinsight.hive]. Dopo avere inviato un processo Hive in Visual Studio, Visual Studio mostra il grafico al termine del processo. Per ottenere l'ultimo stato del processo, potrebbe essere necessario fare clic sul pulsante **Aggiorna**.
 
 > [AZURE.NOTE]Questa funzionalità è disponibile solo per le versioni del cluster HDInsight successive alla 3.2.4.593 e può funzionare solo per i processi completati. Si possono usare cluster basati sia su Windows che su Linux.
 
@@ -236,4 +236,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

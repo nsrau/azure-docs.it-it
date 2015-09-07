@@ -17,11 +17,9 @@
 	ms.author="saah;kenhoff"/>
 
 # Accessi da origini sconosciute
+<p>Questo report indica gli utenti che hanno eseguito correttamente l'accesso alla directory mentre gli era assegnato un indirizzo IP riconosciuto da Microsoft come un indirizzo IP proxy anonimo (Tor IP). Questi proxy vengono spesso usati dagli utenti che vogliono nascondere l'indirizzo IP del computer e possono essere usati per attacchi dannosi. </p><p> I risultati del report mostreranno il numero di volte in cui un utente ha effettuato correttamente l'accesso alla directory da quell'indirizzo e l'indirizzo IP del proxy.</p>
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Questo report indica gli utenti che hanno effettuato correttamente l'accesso alla directory mentre gli era assegnato un indirizzo IP riconosciuto da Microsoft come un indirizzo IP proxy anonimo. Questi proxy vengono spesso usati dagli utenti che vogliono nascondere l'indirizzo IP del computer e possono essere usati per attacchi dannosi, talvolta pirati informatici usano questi proxy. </p><p> I risultati del report mostreranno il numero di volte in cui un utente ha effettuato correttamente l'accesso alla directory da quell'indirizzo e l'indirizzo IP del proxy.</p> | Scheda Directory > Report |
 
 ![Accessi da origini sconosciute](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

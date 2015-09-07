@@ -1,0 +1,33 @@
+<properties
+   pageTitle="Novità del Catalogo dati di Azure"
+	description="Panoramica delle nuove funzionalità nell'anteprima del Catalogo dati di Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
+<tags
+   ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/21/2015"
+	ms.author="maroche"/>
+
+# Novità del Catalogo dati di Azure
+
+Gli aggiornamenti sul **Catalogo dati di Azure** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune versioni sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio **Catalogo dati di Azure**.
+
+## Novità della versione della settimana del 21 agosto 2015
+
+Nella settimana del 21 agosto 2015, sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
+
+- Supporto per fornire informazioni sulla richiesta di accesso per le origini dati registrate. Per qualsiasi asset di dati registrato, gli utenti possono ora fornire istruzioni per richiedere l'accesso, inclusi URL o collegamenti di posta elettronica, per una facile integrazione con i processi e gli strumenti esistenti.
+- Descrizioni comandi per i tag e gli esperti, per semplificare l'individuazione dei metadati forniti dagli utenti per gli asset di dati registrati.
+- Nuovo menu e pulsante "User" nella barra di spostamento superiore. Questo menu consente di vedere l'account usato per accedere al **Catalogo dati di Azure** e di disconnettersi se lo si desidera. Questo menu visualizza inoltre il nome del catalogo, utile per gli sviluppatori che usano l'API REST del **Catalogo dati di Azure**.
+- Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta gli account utente e i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
+- Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
+
+<!---HONumber=August15_HO9-->

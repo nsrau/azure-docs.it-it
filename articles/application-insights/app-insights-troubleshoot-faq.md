@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Risoluzione dei problemi e domande su Application Insights" 
-	description="Questo articolo contiene le risposte ai dubbi più comuni su Application Insights di Visual Studio ai dubbi più comuni." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="Risoluzione dei problemi e domande su Application Insights"
+	description="Questo articolo contiene le risposte ai dubbi più comuni su Application Insights di Visual Studio ai dubbi più comuni."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande - Application Insights per ASP.NET
@@ -217,9 +217,9 @@ Vedere l'argomento relativo a [conservazione dei dati e privacy][data].
 <tr><td>Telemetria di dipendenza</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installare Monitoraggio dello stato di Application Insights nel server</a></td><td>Diagnosticare i problemi relativi a database o altri componenti esterni</td></tr>
 <tr><td>Ricavare analisi dello stack dalle eccezioni</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Inserire chiamate TrackException nel codice</a> (ma alcune sono segnalate automaticamente)</td><td>Rilevare e diagnosticare le eccezioni</td></tr>
 <tr><td>Eseguire la ricerca di tracce dei log</td><td><a href="../app-insights-search-diagnostic-logs/">Aggiungere un adattatore di registrazione</a></td><td>Diagnosticare le eccezioni, problemi di prestazioni</td></tr>
-<tr><td>Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">Inizializzatore JavaScript nelle pagine Web</a></td><td>Analisi dell'utilizzo</td></tr>
-<tr><td>Metriche personalizzate client</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tenere traccia delle chiamate nelle pagine Web</a></td><td>Migliorare l'esperienza utente</td></tr>
-<tr><td>Metriche personalizzate server</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Tenere traccia delle chiamate nel codice del server</a></td><td>Business intelligence</td></tr>
+<tr><td>Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ...</td><td><a href="../app-insights-javascript/">Inizializzatore JavaScript nelle pagine Web</a></td><td>Analisi dell'utilizzo</td></tr>
+<tr><td>Metriche personalizzate client</td><td><a href="../app-insights-api-custom-events-metrics/">Tenere traccia delle chiamate nelle pagine Web</a></td><td>Migliorare l'esperienza utente</td></tr>
+<tr><td>Metriche personalizzate server</td><td><a href="../app-insights-api-custom-events-metrics/">Tenere traccia delle chiamate nel codice del server</a></td><td>Business intelligence</td></tr>
 </table>
 
 Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [ottenere la diagnostica][azurediagnostic] in tale posizione.
@@ -239,4 +239,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

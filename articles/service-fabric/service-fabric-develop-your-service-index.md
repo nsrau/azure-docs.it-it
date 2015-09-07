@@ -1,20 +1,20 @@
 <properties
    pageTitle="Sviluppare un servizio di Service Fabric"
-   description="Informazioni concettuali ed esercitazioni utili per comprendere come sviluppare un servizio di Service Fabric usando il modello di programmazione Reliable Actors o Reliable Services."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+	description="Informazioni concettuali ed esercitazioni utili per comprendere come sviluppare un servizio di Service Fabric usando il modello di programmazione Reliable Actors o Reliable Services."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="rwike77"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/14/2015"
-   ms.author="ryanwi"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/20/2015"
+	ms.author="ryanwi"/>
 
 # Sviluppare un servizio di Service Fabric
 Questa pagina contiene i collegamenti per accedere ad articoli di panoramica e concettuali e a un'esercitazione utili per imparare a sviluppare un servizio di Service Fabric. Service Fabric offre due modelli di programmazione di alto livello per la creazione di servizi: le API Reliable Actors e le API Reliable Services. In entrambi i casi si usufruisce degli stessi componenti principali di Service Fabric, ma si ottiene un diverso compromesso tra semplicità e flessibilità in termini di concorrenza, partizionamento e comunicazione. Per scegliere il framework più appropriato per un determinato servizio di un'applicazione, è utile comprendere tutti e due i modelli.
@@ -53,7 +53,7 @@ Per i metodi Reliable Actors viene garantita una semplice concorrenza basata su 
 - [Eventi e contatori delle prestazioni relativi alla concorrenza](service-fabric-reliable-actors-diagnostics.md)
 - [Reentrancy degli attori](service-fabric-reliable-actors-reentrancy.md)
 - [Timer degli attori](service-fabric-reliable-actors-timers-reminders.md)
- 
+
 Per informazioni sulla configurazione di Reliable Actors, vedere gli articoli seguenti:
 
 - [Configurazione di KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
@@ -86,6 +86,5 @@ La comunicazione con Reliable Services e le astrazioni utilizzabili dai client p
 I servizi Reliable Services emettono eventi e contatori delle prestazioni utilizzabili per eseguire la diagnostica e il monitoraggio del servizio:
 
 - [Diagnostica di Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

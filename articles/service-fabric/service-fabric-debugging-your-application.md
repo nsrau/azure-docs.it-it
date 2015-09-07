@@ -1,20 +1,20 @@
 <properties
    pageTitle="Debug dell'applicazione di Service Fabric in Visual Studio tramite F5"
-   description="Migliorare l'affidabilità e le prestazioni dei servizi mediante Visual Studio e un cluster di sviluppo locale."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="Migliorare l'affidabilità e le prestazioni dei servizi mediante Visual Studio e un cluster di sviluppo locale."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/18/2015"
-   ms.author="jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="jesseb"/>
 
 # Debug dell'applicazione di Service Fabric in Visual Studio tramite F5
 
@@ -28,7 +28,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 
 3. Impostare i punti di interruzione nel codice ed eseguire l'applicazione un'istruzione alla volta scegliendo i comandi dal menu **Debug**.
 
-    > [AZURE.NOTE]Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti, rendendoli condizionali in base all'ID del thread, oppure usare gli eventi di diagnostica.
+    > [AZURE.NOTE]Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti, rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
 
 4. La finestra degli eventi di diagnostica si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
 
@@ -66,4 +66,4 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

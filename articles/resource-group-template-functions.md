@@ -1,24 +1,36 @@
 <properties
    pageTitle="Funzioni del modello di Gestione risorse di Azure"
-   description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, stringhe di formato e informazioni sulla distribuzione."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, stringhe di formato e informazioni sulla distribuzione."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/27/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
 
 Questo argomento descrive tutte le funzioni che è possibile usare in un modello di Gestione risorse di Azure.
+
+## add
+
+**add(operand1, operand2)**
+
+Restituisce la somma dei due numeri interi forniti.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| operand1 | Sì | Primo operando da usare.
+| operand2 | Sì | Secondo operando da usare.
+
 
 ## base64
 
@@ -85,6 +97,23 @@ L'esempio seguente mostra come restituire le informazioni di distribuzione nella
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Restituisce la divisione Integer dei due numeri interi forniti.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| operand1 | Sì | Numero che viene diviso.
+| operand2 | Sì | Numero usato per dividere, deve essere diverso da 0.
+
+## length
+
+**length(array)**
+
+Restituisce il numero di elementi in una matrice. In genere usato per specificare il numero di iterazioni durante la creazione di risorse. Per un esempio di uso di questa funzione, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -104,6 +133,30 @@ L'esempio seguente mostra come restituire le chiavi da un account di archiviazio
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Restituisce la parte rimanente della divisione Integer usando i due numeri interi forniti.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| operand1 | Sì | Numero che viene diviso.
+| operand2 | Sì | Numero usato per dividere, deve essere diverso da 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Restituisce la moltiplicazione dei due numeri interi forniti.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| operand1 | Sì | Primo operando da usare.
+| operand2 | Sì | Secondo operando da usare.
+
 
 ## padLeft
 
@@ -311,8 +364,39 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
       }]
     }
 
+## split
 
-## sottoscrizione
+**split(inputString, delimiter)** **split(inputString, [delimiters])**
+
+Restituisce una matrice di stringhe che contiene le sottostringhe della stringa di input che sono delimitate dai delimitatori inviati.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| inputString | Sì | Stringa da dividere.
+| delimiter | Sì | Delimitatore da usare, può essere una stringa singola o una matrice di stringhe.
+
+Nell'esempio seguente la stringa di input viene divisa con una virgola.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Restituisce la sottrazione dei due numeri interi forniti.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| operand1 | Sì | Numero da cui sottrarre.
+| operand2 | Sì | Numero da sottrarre.
+
+
+## subscription
 
 **subscription()**
 
@@ -388,4 +472,4 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

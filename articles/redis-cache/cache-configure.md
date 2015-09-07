@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Come configurare Cache Redis di Azure"
-   description="Informazioni sulla configurazione di Redis predefinita per Cache Redis di Azure e su come configurare le istanze di Cache Redis di Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="dwrede"
-   editor="tysonn" />
+	description="Informazioni sulla configurazione di Redis predefinita per Cache Redis di Azure e su come configurare le istanze di Cache Redis di Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="dwrede"
+	editor="tysonn"/>
 <tags 
    ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
-   ms.author="sdanie" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sdanie"/>
 
 # Come configurare Cache Redis di Azure
 
@@ -21,7 +21,7 @@ In questo argomento viene descritto come esaminare e aggiornare la configurazion
 
 ## Configurare le impostazioni di Cache Redis di Azure
 
-Le cache sono accessibili nel [Portale di anteprima di Microsoft Azure](https://portal.azure.com) tramite il pannello **Sfoglia**.
+Le cache sono accessibili nel [Portale di anteprima di Azure](https://portal.azure.com) tramite il pannello **Sfoglia**.
 
 ![Pannello Sfoglia di Cache Redis di Azure](./media/cache-configure/IC796920.png)
 
@@ -98,7 +98,7 @@ Per ulteriori informazioni, vedere [Notifiche di Keyspace Redis](http://redis.io
 
 ![Utenti e tag di Cache Redis](./media/cache-configure/IC808320.png)
 
-La sezione **Utenti** fornisce il supporto del controllo degli accessi in base al ruolo (RBAC) nel portale per aiutare le organizzazioni a soddisfare i requisiti di gestione degli accessi in maniera semplice e precisa. Per altre informazioni, vedere [Controllo di accesso basato sui ruoli nel portale di anteprima di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
+La sezione **Utenti** fornisce il supporto del controllo di accesso in base al ruolo (RBAC) nel portale di anteprima per aiutare le organizzazioni a soddisfare i requisiti di gestione degli accessi in maniera semplice e precisa. Per altre informazioni, vedere [Controllo di accesso basato sui ruoli nel portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
 
 La sezione **Tag** consente di organizzare le risorse. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
@@ -110,13 +110,13 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->I valori configurabili, ad esempio **max-memory-policy**, possono essere configurati tramite il portale.
+>I valori configurabili, ad esempio **max-memory-policy**, possono essere configurati tramite il portale di anteprima.
 
 |Impostazione|Valore predefinito|Descrizione|
 |---|---|---|
 |database|16|Il database predefinito è DB 0. È possibile selezionarne uno diverso per ogni connessione utilizzando connection.GetDataBase(dbid) dove dbid è un numero compreso tra 0 e 15.|
 |maxclients|10\.000|Questo è il numero massimo consentito di client connessi contemporaneamente. Una volta raggiunto il limite, Redis chiuderà tutte le nuove connessioni inviando un errore di "numero massimo di client raggiunto".|
-|maxmemory-policy|volatile-lru|Il criterio maxmemory è l'impostazione che serve a stabilire il modo in cui Redis selezionerà gli elementi da rimuovere quando viene raggiunto il valore di maxmemory (la dimensione dell’offerta della cache selezionata in fase di creazione della cache). Con Cache Redis di Azure l'impostazione predefinita è volatile-lru, che rimuove le chiavi con una scadenza impostata usando l'algoritmo LRU. Questa impostazione può essere configurata nel portale. Per ulteriori informazioni, vedere [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
+|maxmemory-policy|volatile-lru|Il criterio maxmemory è l'impostazione che serve a stabilire il modo in cui Redis selezionerà gli elementi da rimuovere quando viene raggiunto il valore di maxmemory (la dimensione dell’offerta della cache selezionata in fase di creazione della cache). Con Cache Redis di Azure l'impostazione predefinita è volatile-lru, che rimuove le chiavi con una scadenza impostata usando l'algoritmo LRU. Questa impostazione può essere configurata nel portale di anteprima. Per ulteriori informazioni, vedere [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|Gli algoritmi LRU e TTL non sono precisi ma approssimativi (per risparmiare spazio in memoria), pertanto è possibile selezionare anche la dimensione del campione da controllare. Ad esempio, per impostazione predefinita Redis controllerà tre chiavi e sceglierà quella usata meno di recente.|
 |lua-time-limit|5\.000|Tempo massimo di esecuzione di uno script Lua in millisecondi. Se il tempo di esecuzione massimo viene raggiunto, Redis registrerà che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizierà a rispondere alle query con un errore.|
 |lua-event-limit|500|Questa è la dimensione massima della coda di eventi di script.|
@@ -124,7 +124,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 
 ## Comandi di Redis non supportati in Cache Redis di Azure
 
->[AZURE.IMPORTANT]Poiché la configurazione e gestione delle istanze di Cache Redis di Azure viene eseguita tramite il portale di Azure vengono disabilitati i comandi seguenti. Se si prova a richiamarli, si riceverà un messaggio di errore simile a `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT]Poiché la configurazione e gestione delle istanze di Cache Redis di Azure viene eseguita tramite il portale di anteprima vengono disabilitati i comandi seguenti. Se si prova a richiamarli, si riceverà un messaggio di errore simile a `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -154,4 +154,4 @@ Per un elenco dei comandi di Redis che sono disabilitati per Cache Redis di Azur
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

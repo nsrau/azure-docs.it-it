@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come gestire i contenuti multimediali con Servizi multimediali di Azure tramite il portale di gestione di Azure" 
-	description="Informazioni su come gestire i contenuti multimediali in Servizi multimediali di Azure. Sono inclusi: caricamento, l'indicizzazione, codifica, crittografia e pubblicazione." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Come gestire i contenuti multimediali con Servizi multimediali di Azure tramite il portale di gestione di Azure"
+	description="Informazioni su come gestire i contenuti multimediali in Servizi multimediali di Azure. Sono inclusi: caricamento, l'indicizzazione, codifica, crittografia e pubblicazione."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="juliako"/>
 
 
@@ -129,6 +129,7 @@ Questa sezione descrive la procedura per la codifica di contenuti con Azure Medi
 
 ##<a id="encrypt"></a>Procedura: Crittografare il contenuto
 
+
 Se si desidera crittografare in modo dinamico l'asset in Servizi multimediali con una chiave AES o PlayReady DRM, assicurarsi di seguire questa procedura:
 
 - Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti nella sezione [Codificare il contenuto](#encode)).
@@ -141,6 +142,11 @@ Se si desidera crittografare in modo dinamico l'asset in Servizi multimediali co
 	![Crittografare il contenuto][encrypt]
 
 	Dopo aver abilitato la crittografia, ogni volta che un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
+
+Vedere anche:
+
+- [Protezione con PlayReady DRM](media-services-rest-deliver-streaming-content.md)
+- [Protezione con AES-128](media-services-protect-with-aes128.md)
 
 ##<a id="publish"></a>Procedura: Pubblicare contenuti
 
@@ -215,4 +221,4 @@ Considerazioni applicabili:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

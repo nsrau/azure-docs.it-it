@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Aggiungere Application Insights SDK per monitorare l'app ASP.NET" 
-	description="Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Aggiungere Application Insights SDK per monitorare l'app ASP.NET | Microsoft Azure"
+	description="Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
 
 
@@ -54,7 +54,7 @@ Una [risorsa][roles] in Azure è un'istanza di un servizio. In questa risorsa la
 
 La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli delle risorse e le proprietà visibili in [Esplora metriche][metrics].
 
-####  Eseguire una copia della chiave di strumentazione.
+#### Eseguire una copia della chiave di strumentazione.
 
 La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizzare i dati alla risorsa.
 
@@ -64,7 +64,7 @@ La procedura appena effettuata per creare una nuova risorsa è un buon modo di i
 
 ## <a name="sdk"></a> 2. Installare l'SDK nell'applicazione
 
-L’nstallazione e la configurazione di Application Insights SDK varia a seconda della piattaforma in cui si sta lavorando. Per le applicazioni ASP.NET, è facile.
+L'installazione e la configurazione di Application Insights SDK varia a seconda della piattaforma in cui si sta lavorando. Per le applicazioni ASP.NET, è facile.
 
 1. In Visual Studio è possibile modificare i pacchetti NuGet del progetto di app desktop.
 
@@ -73,7 +73,6 @@ L’nstallazione e la configurazione di Application Insights SDK varia a seconda
 2. Installare Application Insights SDK per app Web.
 
     ![Cercare "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
-
 
 3. Modificare ApplicationInsights.config (che è stato aggiunto dall'installazione di NuGet). Inserire questo comando immediatamente prima del tag di chiusura:
 
@@ -85,14 +84,14 @@ L’nstallazione e la configurazione di Application Insights SDK varia a seconda
 
 Si rilascerà una nuova versione del SDK di tanto in tanto.
 
-Per eseguire l'aggiornamento a una [nuova versione dell'SDK](app-insights-release-notes-dotnet.md), riaprire Gestione pacchetti NuGet e filtrare i pacchetti installati. Selezionare Microsoft.ApplicationInsights.Web e scegliere Aggiorna
+Per eseguire l'aggiornamento a una [nuova versione dell'SDK](app-insights-release-notes-dotnet.md), riaprire Gestione pacchetti NuGet e filtrare i pacchetti installati. Selezionare **Microsoft.ApplicationInsights.Web** e scegliere **Aggiorna**
 
 Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationInsights.config, salvarne una copia prima di eseguire l'aggiornamento e, successivamente, unire le modifiche nella nuova versione.
 
 
 ## <a name="run"></a> 3. Eseguire il progetto
 
-Eseguire l'applicazione con F5 e provarla aprendo pagine diverse per generare alcuni dati di telemetria.
+Eseguire l'applicazione premendo **F5** e provarla aprendo pagine diverse per generare alcuni dati di telemetria.
 
 In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati inviati.
 
@@ -100,7 +99,7 @@ In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati in
 
 ## <a name="monitor"></a> 4. Visualizzare i dati di telemetria
 
-Tornare al [portale di Azure][portal] e passare alla risorsa di Application Insights.
+Tornare al [portale di Azure][portal] e passare alla risorsa Application Insights.
 
 
 Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. ad esempio:
@@ -118,14 +117,14 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 
 * Aprire il riquadro [Ricerca][diagnostic] per visualizzare i singoli eventi.
 * Usare l'applicazione, aprendo pagine diverse in modo da generare alcuni dati di telemetria.
-* Attendere alcuni secondi e fare clic su Aggiorna. I grafici si aggiornano periodicamente, ma è possibile aggiornare manualmente se si è in attesa di alcuni dati da visualizzare.
+* Attendere alcuni secondi e fare clic su **Aggiorna**. I grafici si aggiornano periodicamente, ma è possibile aggiornare manualmente se si è in attesa di alcuni dati da visualizzare.
 * Vedere [Risoluzione dei problemi][qna].
 
 #### Problemi del server di compilazione
 
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## Aggiungere il rilevamento delle dipendenze
+## 5\. Aggiungere il rilevamento delle dipendenze
 
 L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
 
@@ -143,7 +142,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 Quest’estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
 
-## Aggiungere il monitoraggio sul lato client
+## 6\. Aggiungere il monitoraggio sul lato client
 
 È stato installato l'SDK che invia i dati di telemetria dal lato server (back-end) dell'applicazione. Ora è possibile aggiungere il monitoraggio sul lato client, che fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel client.
 
@@ -166,7 +165,7 @@ Se l'applicazione soddisfa le richieste di client quali telefono o altri disposi
 Se si configura l'SDK client con la stessa chiave di strumentazione dell'SDK del server, i due flussi verranno integrati e sarà possibile visualizzarli insieme.
 
 
-## Completare l'installazione
+## 7\. Completare l'installazione
 
 Per ottenere una visione completa a 360 gradi dell'applicazione, è necessario eseguire ancora alcune operazioni:
 
@@ -176,13 +175,13 @@ Per ottenere una visione completa a 360 gradi dell'applicazione, è necessario e
 
 ## <a name="ide"></a> Il metodo automatico
 
-Nella parte superiore di questo articolo abbiamo detto che avremmo illustrato il metodo manuale per creare una risorsa di Application Insights e quindi installare il SDK. Crediamo sia bene capire le due parti di tale procedura. Ma per le applicazioni ASP.NET (e molti altri) esiste un modo automatico anche più rapido.
+All'inizio di questo articolo è stato affermato che sarebbe stato illustrato il metodo manuale per creare una risorsa di Application Insights e quindi installare l'SDK. È importante comprendere le due parti di tale procedura. Ma per le applicazioni ASP.NET (e molti altri) esiste un modo automatico anche più rapido.
 
 Saranno necessari [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 aggiornamento 3 o versione successiva) e un account in [Microsoft Azure](http://azure.com).
 
 #### Se è un nuovo progetto...
 
-Quando si crea un nuovo progetto in Visual Studio, assicurarsi che Application Insights sia selezionato.
+Quando si crea un nuovo progetto in Visual Studio, assicurarsi che l'opzione **Aggiungi Application Insights** sia selezionata.
 
 
 ![Creazione di un progetto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -193,7 +192,7 @@ Se il progetto contiene pagine Web, aggiunge anche [SDK JavaScript][client] alla
 
 #### o se è un progetto esistente
 
-Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere Aggiungi Application Insights.
+Fare clic con il pulsante destro del mouse su Esplora soluzioni e scegliere **Aggiungi Application Insights**.
 
 ![Scegliere Aggiungi Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -207,7 +206,7 @@ Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi al
 
 Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di configurazione per inserirla nello stesso gruppo di risorse degli altri componenti.
 
-*Se non è disponibile alcuna opzione di Application Insights, Verificare che si stia usando Visual Studio 2013 aggiornamento 3 o versioni successive, che gli Strumenti Application Insights siano abilitati in Estensioni e aggiornamenti.*
+*Se non è disponibile alcuna opzione di Application Insights, Verificare che si stia usando Visual Studio 2013 aggiornamento 3 o versioni successive e che gli Strumenti Application Insights siano abilitati in Estensioni e aggiornamenti.*
 
 #### Aprire Application Insights dal progetto.
 
@@ -241,6 +240,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

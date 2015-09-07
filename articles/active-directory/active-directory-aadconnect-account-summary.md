@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Ulteriori informazioni sulle credenziale e le autorizzazioni di Azure AD Connect" 
-	description="Descrizione delle impostazioni personalizzate delle credenziali e delle autorizzazioni di Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Ulteriori informazioni sulle credenziale e le autorizzazioni di Azure AD Connect"
+	description="Descrizione delle impostazioni personalizzate delle credenziali e delle autorizzazioni di Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 
 
 
@@ -90,7 +88,7 @@ Account AD FS:GMSA (aadcsvc$)|Utente di dominio|Account di accesso al servizio F
 * [Autorizzazioni per Exchange ibrido](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange)
 * [Autorizzazioni per il writeback delle password](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect in MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -80,14 +80,11 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 4. Compilare i campi come indicato di seguito:
 
-	- In **URL** digitare un nome di sottodominio da usare nell'URL per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo nome diventa il nome host all'interno dell'URL utilizzato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
+ - In **URL** digitare un nome di sottodominio da usare nell'URL per l'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo nome diventa il nome host all'interno dell'URL utilizzato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione.
+ - Selezionare la **posizione o il gruppo di affinità** per l'account di archiviazione. Un gruppo di affinità consente di collocare i servizi cloud e l'archiviazione nello stesso data center.
+ - Scegliere se si desidera usare la **replica geografica** per l'account di archiviazione. La replica geografica è attivata per impostazione predefinita. Se questa opzione è selezionata, i dati vengono replicati in una posizione secondaria, senza alcun costo aggiuntivo, per garantire il failover a tale posizione qualora si verifichi un errore grave nella posizione primaria. La posizione secondaria viene assegnata automaticamente e non può essere modificata. Se è necessario un maggiore controllo sulla posizione dell'archiviazione basata sul cloud a causa di requisiti legali o criteri dell'organizzazione, è possibile disattivare la replica geografica. Tenere presente che se si attiva la replica geografica in un momento successivo, verrà addebitato un corrispettivo di trasferimento dati una tantum per la replica dei dati esistenti nella posizione secondaria. I servizi di archiviazione senza replica geografica sono offerti a un prezzo scontato. Altri dettagli sulla gestione della replica geografica degli account di archiviazione sono disponibili nell'articolo: [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account/#replication-options).
 
-	- Selezionare la **posizione o il gruppo di affinità** per l'account di archiviazione. Un gruppo di affinità consente di collocare i servizi cloud e l'archiviazione nello stesso data center.
-
-	- Scegliere se si desidera usare la **replica geografica** per l'account di archiviazione. La replica geografica è attivata per impostazione predefinita. Se questa opzione è selezionata, i dati vengono replicati in una posizione secondaria, senza alcun costo aggiuntivo, per garantire il failover a tale posizione qualora si verifichi un errore grave nella posizione primaria. La posizione secondaria viene assegnata automaticamente e non può essere modificata. Se è necessario un maggiore controllo sulla posizione dell'archiviazione basata sul cloud a causa di requisiti legali o criteri dell'organizzazione, è possibile disattivare la replica geografica. Tenere presente che se si attiva la replica geografica in un momento successivo, verrà addebitato un corrispettivo di trasferimento dati una tantum per la replica dei dati esistenti nella posizione secondaria. I servizi di archiviazione senza replica geografica sono offerti a un prezzo scontato. Altri dettagli sulla gestione della replica geografica degli account di archiviazione sono disponibili nell'articolo: [Creare, gestire o eliminare un account di archiviazione](../storage-create-storage-account/#replication-options).
-
-	![Immissione dei dettagli dell'account di archiviazione](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
-
+      ![Immissione dei dettagli dell'account di archiviazione](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
 5. Fare clic su **Create Storage Account**. L'account verrà visualizzato in **Archiviazione**.
 
@@ -105,7 +102,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
 
 	![Nome del contenitore](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione "BLOB pubblico". Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione "Contenitore pubblico".
+	> [AZURE.NOTE]Per impostazione predefinita, il contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico ai BLOB nel contenitore, ma non alle proprietà e ai metadati del contenitore, usare l'opzione **BLOB pubblico**. Per consentire l'accesso in lettura pubblico completo per contenitori e BLOB, usare l'opzione **Contenitore pubblico**.
 
 ## Passaggio 3: preparare la connessione a Microsoft Azure ##
 
@@ -143,8 +140,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 ## Passaggio 4: caricare il file VHD
 
-È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione creato nel passaggio 2 e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel portale di gestione. **PathToVHDFile** è il percorso completo e il nome del file VHD.
-
+È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archiviazione BLOB. Negli esempi di comandi seguenti, **BlobStorageURL** è l'URL per l'account di archiviazione creato nel passaggio 2 e **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si desidera archiviare le immagini. **VHDName** è l'etichetta che identifica il disco rigido virtuale visualizzata nel portale classico. **PathToVHDFile** è il percorso completo e il nome del file VHD.
 
 1. Nella finestra di Azure PowerShell utilizzata nel passaggio precedente, digitare:
 
@@ -168,19 +164,23 @@ Dopo avere caricato il file VHD, aggiungerlo come immagine all'elenco di immagin
 
 4. In **Crea immagine da VHD** effettuare le seguenti operazioni:
 
-	- Specificare un **nome**.
-	- Specificare una **descrizione**.
+	- Specificare il **nome**.
+
+	- Specificare la **descrizione**.
+
 	- Per specificare l'**URL del VHD**, fare clic sul pulsante della cartella per aprire la seguente finestra di dialogo:
 
-	![Selezione del VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
+    ![Selezione del VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
 	- Selezionare l'account di archiviazione in cui è definito il VHD e fare clic su **Apri**. Viene nuovamente visualizzata la finestra **Crea immagine da VHD**.
-	- Una volta visualizzata la finestra **Crea immagine da VHD**, selezionare la famiglia di sistemi operativi.
+
+	- Una volta visualizzata la finestra **Crea immagine da VHD**, in Famiglia del sistema operativo selezionare il sistema operativo.
+
 	- Selezionare la casella **Sysprep eseguito sulla macchina virtuale associata a questo VHD** per confermare di avere generalizzato il sistema operativo nel passaggio 1 e quindi fare clic su **OK**.
 
-	![Aggiunta di un'immagine](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
+    ![Aggiunta di un'immagine](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
-5. **FACOLTATIVO:** è possibile usare il cmdlet Add-AzureVMImage invece del portale per aggiungere il proprio VHD come immagine. Nella console di Azure PowerShell, digitare:
+5. **FACOLTATIVO:** è possibile usare il cmdlet **Add-AzureVMImage** invece del portale per aggiungere il proprio VHD come immagine. Nella console di Azure PowerShell, digitare:
 
 	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
 
@@ -188,14 +188,13 @@ Dopo avere caricato il file VHD, aggiungerlo come immagine all'elenco di immagin
 
 6. Una volta completati i passaggi precedenti, quando si seleziona la scheda **Immagini** la nuova immagine risulta inclusa nell'elenco.
 
-
 	![immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
 	La nuova immagine è ora disponibile in **Immagini personali** quando si crea una macchina virtuale. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata che esegue Windows](virtual-machines-windows-create-custom.md).
 
 	![creazione di una macchina virtuale in base a un'immagine personalizzata](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero (espresso in MB)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet Add-AzureVMImage PowerShell anziché il portale di gestione per aggiungere l'immagine (vedere il passaggio 5, sopra). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
+	> [AZURE.TIP]Se si verifica un errore quando si tenta di creare una macchina virtuale e viene visualizzato il messaggio "Le dimensioni virtuali del VHD https://XXXXX.. pari a YYYY byte non sono supportate. La dimensione deve essere un numero intero (espresso in MB)", significa che il disco rigido virtuale non corrisponde a un numero intero di MB. Deve essere un VHD di dimensioni fisse. Provare a usare il cmdlet PowerShell **Add-AzureVMImage** anziché il portale per aggiungere l'immagine (vedere il passaggio 5, sopra). I cmdlet di Azure garantiscono che il VHD soddisfi i requisiti di Azure.
 
 ## Passaggi successivi ##
 
@@ -206,4 +205,4 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

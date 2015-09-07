@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 5: Creare il gruppo di disponibilità e aggiungere i database SharePoint."
-	description="In questa fase finale della distribuzione di una farm di SharePoint 2013 solo intranet, creare un gruppo di disponibilità e aggiungervi i database di SharePoint."
+	pageTitle="Farm di SharePoint Server 2013 fase 5 | Microsoft Azure"
+	description="Creare un gruppo di disponibilità e aggiungervi i database di SharePoint nella fase 5 della farm di SharePoint Server 2013 in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -126,4 +126,4 @@ Per ulteriori informazioni su SharePoint con gruppi di disponibilità di SQL Ser
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

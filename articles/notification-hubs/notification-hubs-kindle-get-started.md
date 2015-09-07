@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione ad Hub di notifica di Azure"
-	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche push."
+	pageTitle="Introduzione ad Hub di notifica di Azure | Microsoft Azure"
+	description="In questa esercitazione, sono presenti informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Kindle."
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -22,18 +22,18 @@
 
 ##Panoramica
 
-In questo argomento viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle. In questa esercitazione verrà creata un'app Kindle vuota che riceve notifiche push tramite Amazon Device Messaging (ADM).
+In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle. Verrà creata un'app Kindle vuota che riceve notifiche push tramite Amazon Device Messaging (ADM).
 
 ##Prerequisiti
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ Android SDK (si presuppone che verrà usato Eclipse), che è possibile scaricare da <a href="http://go.microsoft.com/fwlink/?LinkId=389797">questa pagina</a>.
-+ Attenersi alla procedura riportata in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">questa pagina</a> per impostare l'ambiente di sviluppo per Kindle.
++ Ottenere Android SDK (si presuppone che verrà utilizzato Eclipse) dal <a href="http://go.microsoft.com/fwlink/?LinkId=389797">sito Android</a>.
++ Seguire i passaggi in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Configurazione dell’ambiente di sviluppo</a> per impostare l'ambiente di sviluppo per Kindle.
 
 ##Aggiunta di una nuova app al portale per sviluppatori
 
-1. Innanzitutto, creare un'app nel [portale per gli sviluppatori].
+1. Innanzitutto, creare un'app nel [portale per gli sviluppatori di Amazon].
 
 	![][0]
 
@@ -49,7 +49,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 	![][3]
 
-5. Fare clic su "Security Profiles" per visualizzare il profilo di sicurezza creato. Copiare i valori **Client ID** e **Client Secret** per usarli in seguito.
+5. Fare clic su **Security Profiles** per visualizzare il profilo di sicurezza creato. Copiare i valori **Client ID** e **Client Secret** per usarli in seguito.
 
 	![][4]
 
@@ -76,12 +76,12 @@ Nel portale, aggiungere il segreto client e l'ID client alla scheda **Configure*
 
 > [AZURE.NOTE]Quando si crea un'applicazione, usare come requisito minimo il livello API 17.
 
-Aggiungere le librerie ADM al progetto Eclipse.
+Aggiungere le librerie ADM al progetto Eclipse:
 
 1. Per ottenere la libreria ADM, [scaricare l'SDK]. Estrarre il file zip SDK.
 2. In Eclipse fare clic con il pulsante destro del mouse sul progetto e scegliere **Properties**. Selezionare **Java Build Path** a sinistra, quindi selezionare la scheda **Libraries** nella parte superiore. Fare clic su **Add External Jar**, quindi selezionare il file `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dalla directory in cui è stato estratto Amazon SDK.
 3. Scaricare NotificationHubs Android SDK (collegamento).
-4. Decomprimere il pacchetto, quindi trascinare il file `notification-hubs-sdk.jar` nella cartella `libs ` in Eclipse.
+4. Decomprimere il pacchetto, quindi trascinare il file `notification-hubs-sdk.jar` nella cartella `libs` in Eclipse.
 
 Modificare il manifesto dell'app per supportare ADM:
 
@@ -107,7 +107,7 @@ Modificare il manifesto dell'app per supportare ADM:
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Inserire l'elemento seguente come primo figlio dell'elemento dell'applicazione. Ricordare di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva (incluso il pacchetto) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto usato per creare l'app.
+3. Inserire l'elemento seguente come primo figlio dell'elemento dell'applicazione. Ricordare di sostituire **[YOUR SERVICE NAME]** con il nome del gestore di messaggi ADM che verrà creato nella sezione successiva (incluso il pacchetto) e sostituire **[YOUR PACKAGE NAME]** con il nome del pacchetto utilizzato per creare l'app.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -132,7 +132,7 @@ Modificare il manifesto dell'app per supportare ADM:
 		    </intent-filter>
 		</receiver>
 
-## Creazione del gestore di messaggi ADM:
+## Creazione del gestore di messaggi ADM
 
 1. Creare una nuova classe che eredita da `com.amazon.device.messaging.ADMMessageHandlerBase` e denominarla `MyADMMessageHandler`, come mostrato nella figura seguente:
 
@@ -243,7 +243,7 @@ Modificare il manifesto dell'app per supportare ADM:
 ## Aggiunta della chiave API all'app
 
 1. In Eclipse creare un nuovo file denominato **api\_key.txt** negli asset della directory del progetto.
-2. Aprire il file e copiare la **chiave API** generata nel portale per sviluppatori Amazon.
+2. Aprire il file e copiare la chiave API generata nel portale per sviluppatori Amazon.
 
 ## Esecuzione dell'app
 
@@ -269,7 +269,7 @@ Per inviare un messaggio usando .NET:
 ![][7]
 
 <!-- URLs. -->
-[portale per gli sviluppatori]: https://developer.amazon.com/home.html
+[portale per gli sviluppatori di Amazon]: https://developer.amazon.com/home.html
 [scaricare l'SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
@@ -280,6 +280,5 @@ Per inviare un messaggio usando .NET:
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

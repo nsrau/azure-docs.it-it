@@ -1,6 +1,6 @@
 <properties
-	pageTitle="File Connector"
-	description="Introduzione a File Connector"
+	pageTitle="Uso del connettore File nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore File e usarlo in un'app per la logica in Azure App Service"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,47 +13,46 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Uso di File Connector nell'app per la logica #
+# Uso del connettore File e aggiunta all'app per la logica
+Connettersi a un file system per caricare, scaricare ed eseguire altre operazioni sui file in un computer host. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati. È possibile aggiungere il connettore File al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
-Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso.
+Il connettore File usa Gestione connessione ibrida per la connettività ibrida al file system host.
 
-File Connector consente di caricare, scaricare ed eliminare file dal file system su un computer host. Usa Gestione connessione ibrida per la connettività ibrida al computer host.
-
-## Creare File Connector per l'app per la logica ##
-Per usare File Connector, è necessario innanzitutto creare un'istanza dell'app per le API File Connector. Attenersi alla procedura riportata di seguito:
+## Creare il connettore File per l'app per la logica ##
+Per usare il connettore File, è innanzitutto necessario creare un'istanza dell'app per le API del connettore File. Attenersi alla procedura riportata di seguito:
 
 1.	Aprire Azure Marketplace con l'opzione + NUOVO nella parte sinistra nel portale di Azure.
-2.	Passare a "Web e dispositivi mobili > App per le API" e cercare "File Connector".
+2.	Passare a "Marketplace > App per le API" e cercare "File Connector".
 3.	Configurare il connettore File nel modo seguente: ![][1]
 
 	- **Nome**: assegnare un nome al connettore File
 	- **Impostazioni pacchetto**
-		- **Cartella radice**: specificare il percorso della cartella radice nel computer host. Ad esempio, D:\\FileConnectorTest
-		- **Stringa di connessione del bus di servizio**: specificare una stringa di connessione del bus di servizio. Assicurarsi che lo spazio dei nomi del bus di servizio sia del tipo Standard e NON Basic per consentire l'uso degli inoltri del bus di servizio. L'inoltro del bus di servizio viene usato per la connessione a Gestione connessione ibrida.
-	- **Piano di servizio app**: selezionare o creare un piano di servizio app
-	- **Piano tariffario**: scegliere un piano tariffario per il connettore
-	- **Gruppo di risorse**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
-	- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
+		- **Root Folder**: specificare il percorso della cartella radice nel computer host. Ad esempio, D:\\FileConnectorTest
+		- **Service Bus Connection String**: specificare una stringa di connessione del bus di servizio. Assicurarsi che lo spazio dei nomi del bus di servizio sia del tipo Standard e NON Basic per consentire l'uso degli inoltri del bus di servizio. L'inoltro del bus di servizio viene usato per la connessione a Gestione connessione ibrida.
+	- **App Service plan**: selezionare o creare un piano di servizio app
+	- **Pricing tier**: scegliere un livello di prezzo per il connettore
+	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
+	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
+	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 
-4. Fare clic su Crea. Verrà creato un nuovo File Connector.
+4. Fare clic su Create. Verrà creato un nuovo connettore File.
 
 ## Configurare Gestione connessione ibrida ##
-Una volta creata l'istanza dell'app per le API, individuare il relativo dashboard. Questa operazione può essere eseguita facendo clic su Sfoglia > App per le API > selezionare la propria app per le API connettore File. Verrà visualizzato lo strumento Gestione connessione ibrida da configurare. Per altre informazioni su come configurare e risolvere i problemi relativi a Gestione connessione ibrida, vedere l'articolo relativo all'[uso di Gestione connessione ibrida].
+Una volta creata l'istanza dell'app per le API, individuare il relativo dashboard. Questa operazione può essere eseguita facendo clic su Sfoglia > App per le API > selezionare la propria app per le API del connettore File. Viene visualizzato lo strumento Gestione connessione ibrida da configurare. Per altre informazioni su come configurare e risolvere i problemi relativi a Gestione connessione ibrida, vedere l'articolo relativo all'[uso di Gestione connessione ibrida].
 
-## Uso di File Connector nell'app per la logica ##
-Dopo aver creato l'app per le API, è possibile usare File Connector come trigger o azione per l'app per la logica. A questo scopo, è necessario:
+## Usare il connettore File nell'app per la logica ##
+Dopo aver creato l'app per le API, è possibile usare il connettore File come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
-1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse di File Connector. Seguire le istruzioni per [creare una nuova app per la logica].
+1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore File. Seguire le istruzioni per [creare una nuova app per la logica].
 
-2.	Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
+2.	Aprire "Triggers and Actions" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
 
-3.	File Connector verrà visualizzato nella sezione "API Apps in this resource group" della raccolta a destra.
+3.	Il connettore File viene visualizzato nella sezione relativa alle app per le API nel gruppo di risorse nella raccolta a destra.
 
-4.	È possibile trascinare l'app per le API File Connector nell'editor facendo clic su “File Connector”. Il connettore File espone un trigger e quattro azioni: ![][5]
+4.	È possibile trascinare l'app per le API del connettore File nell'editor facendo clic su "File Connector". Il connettore File espone un trigger e quattro azioni: ![][5]
 
 6.	Ciascuna azione espone determinate proprietà. L'immagine seguente mostra le proprietà del trigger e dell'azione Get File: ![][6]
 
@@ -64,9 +63,9 @@ Dopo aver creato l'app per le API, è possibile usare File Connector come trigge
 ## API REST del connettore File ##
 Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->File Connector. Fare ora clic su API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore: ![][7]
 
-Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definizione delle API di File Connector].
+Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definizione delle API del connettore File].
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -81,7 +80,7 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 <!-- Links -->
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
-[definizione delle API di File Connector]: https://msdn.microsoft.com/library/dn936296.aspx
+[definizione delle API del connettore File]: https://msdn.microsoft.com/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Microsoft Azure" 
-   description="Elenco di aggiornamenti applicati alle versioni del sistema operativo guest" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="markkie" 
-   editor=""/>
+   pageTitle="Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Microsoft Azure"
+	description="Elenco di aggiornamenti applicati alle versioni del sistema operativo guest"
+	services="cloud-services"
+	documentationCenter="na"
+	authors="yuemlu"
+	manager="markkie"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/24/2015"
+	ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
@@ -32,7 +32,6 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-088 | [3082458] | Il passaggio dei parametri della riga di comando non sicuro può consentire la divulgazione di informazioni | 4\.23, 3.30, 2.42 | 11 agosto 2015 |
 | MS15-089 | [3060716] | Le vulnerabilità in Microsoft Windows potrebbero consentire l'elevazione dei privilegi | 4\.23, 3.30, 2.42 | 11 agosto 2015 |
 | MS15-090 | [3076949] | La vulnerabilità in WebDAV potrebbe consentire la diffusione di informazioni | 4\.23, 3.30, 2.42 | 11 agosto 2015 |
-| MS15-092 | [3086251] | Le vulnerabilità in .NET Framework potrebbero consentire l'elevazione dei privilegi | 4\.23, 3.30, 2.42 | 11 agosto 2015 |
 
 
 ## Sistema operativo guest di luglio
@@ -265,4 +264,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

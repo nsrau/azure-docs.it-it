@@ -17,11 +17,11 @@
 	ms.author="saah;kenhoff"/>
 
 # Accessi da dispositivi potenzialmente infetti
+<p>Questo report tenta di identificare i dispositivi degli utenti che sono stati infettati e fanno ora parte di una botnet (nota anche come un esercito di zombie). Gli indirizzi IP di accesso degli utenti vengono messi in correlazione con gli indirizzi IP in contatto con i server della botnet.</p>
+<p>Raccomandazione: questo report contrassegna gli indirizzi IP, non i dispositivi dell'utente. Per verificarlo, si consiglia di contattare l'utente e di eseguire la scansione di tutti i dispositivi dell'utente. È inoltre possibile che un dispositivo personale dell'utente sia stato infettato o che un altro utente, che stava usando lo stesso indirizzo IP, abbia un dispositivo infetto. </p>
+<p>Per altre informazioni su come risolvere problemi correlati alle infezioni malware, vedere [Malware Protection Center] (http://go.microsoft.com/fwlink/?linkid=335773). </p>
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Usare questo report per visualizzare accessi eseguiti da dispositivi in cui è possibile sia presente malware. Gli indirizzi IP degli accessi vengono messi in correlazione con gli indirizzi IP dai quali si è tentato di contattare un server con malware.</p><p>Consiglio: poiché in questo report si presuppone che un indirizzo IP sia associato allo stesso dispositivo in entrambi i casi, si consiglia di contattare l'utente e analizzare il dispositivo dell'utente per verificare.</p><p>Per altre informazioni su come impedire la diffusione di malware, vedere il sito Web [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Scheda Directory > Report |
 
 ![Accessi da dispositivi potenzialmente infetti](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

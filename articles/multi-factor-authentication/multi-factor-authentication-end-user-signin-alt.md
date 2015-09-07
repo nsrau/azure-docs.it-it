@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Effettuare l’accesso utilizzando un metodo alternativo con Azure Multi-Factor Authentication" 
-	description="Questa pagina descriverà come un utente può accedere utilizzando un metodo alternativo con Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Effettuare l’accesso utilizzando un metodo alternativo con Azure Multi-Factor Authentication"
+	description="Questa pagina descriverà come un utente può accedere utilizzando un metodo alternativo con Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Effettuare l’accesso utilizzando un metodo alternativo con Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 
 <li>Scegliere un metodo alternativo ed effettuare l’accesso.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

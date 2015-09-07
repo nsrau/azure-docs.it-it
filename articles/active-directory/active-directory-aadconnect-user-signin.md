@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - Accesso utente" 
-	description="Accesso utente Azure Connect AD per le impostazioni personalizzate." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - Accesso utente"
+	description="Accesso utente Azure Connect AD per le impostazioni personalizzate."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -64,4 +64,4 @@ Per la maggior parte delle organizzazioni che desiderano semplicemente abilitare
 	- Accesso condizionale alle risorse sia locali che nel cloud mediante la registrazione del dispositivo, il join Azure AD o i criteri Intune MDM
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

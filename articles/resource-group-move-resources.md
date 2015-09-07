@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare le risorse in un nuovo gruppo di risorse" 
-	description="Usare Azure PowerShell o API REST per spostare le risorse a un nuovo gruppo di risorse per Gestione risorse di Azure." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	pageTitle="Spostare le risorse in un nuovo gruppo di risorse"
+	description="Usare Azure PowerShell o API REST per spostare le risorse a un nuovo gruppo di risorse per Gestione risorse di Azure."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -54,6 +54,11 @@ I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non un
 I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 - Reti virtuali
+
+Quando si usano le app Web non è possibile spostare solo un piano di servizio app. Per spostare le app Web, le opzioni disponibili sono:
+
+- Spostare tutte le risorse da un gruppo di risorse a un gruppo di risorse diverso, se il gruppo di risorse di destinazione non contiene già risorse Microsoft.Web.
+- Spostare le app Web in un gruppo di risorse diverso, ma conservare il piano di servizio app nel gruppo di risorse originale.
 
 ## Uso di PowerShell per spostare le risorse
 
@@ -96,4 +101,4 @@ Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

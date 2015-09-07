@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare un'app per le API ASP.NET nel servizio app di Azure"
-	description="Informazioni su come creare un'app per le API ASP.NET nel servizio app di Azure usando Visual Studio 2013"
+	pageTitle="Creare un'app per le API ASP.NET in Azure App Service | Microsoft Azure"
+	description="Informazioni su come creare un'app per le API ASP.NET in Azure App Service usando Visual Studio 2013."
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="bradygaster"
@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
@@ -34,7 +34,7 @@ Per eseguire questa esercitazione, è necessario installare Azure SDK per .NET v
 
 ## Creare un progetto app per le API
 
-Quando le istruzioni richiedono l'immissione di un nome per il progetto, specificare *ContactsList*.
+Quando le istruzioni richiedono l'immissione di un nome per il progetto, specificare **ContactsList**.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -47,6 +47,5 @@ Quando le istruzioni richiedono l'immissione di un nome per il progetto, specifi
 ## Passaggi successivi
 
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Distribuire un'applicazione con un modello di Gestione risorse di Azure"
-   services="azure-resource-manager"
-   description="Usare Gestione risorse di Azure per distribuire un’applicazione in Azure. Un modello è un file JSON e può essere usato dal portale, da PowerShell, dall'interfaccia della riga di comando di Azure per Mac, Linux e Windows o REST."
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	services="azure-resource-manager"
+	description="Usare Gestione risorse di Azure per distribuire un’applicazione in Azure. Un modello è un file JSON e può essere usato dal portale, da PowerShell, dall'interfaccia della riga di comando di Azure per Mac, Linux e Windows o REST."
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
 
@@ -22,7 +22,7 @@ In questo argomento viene illustrato come usare i modelli di Gestione risorse di
 
 I modelli di Gestione risorse di Azure consentono di eseguire rapidamente e facilmente il provisioning delle applicazioni in Azure tramite un modello JSON dichiarativo. In un unico modello JSON, è possibile distribuire più servizi, quali macchine virtuali, reti virtuali, archiviazione, servizi app e database. Lo stesso modello viene usato per distribuire più volte e in modo coerente l'applicazione durante ogni fase del ciclo di vita dell'applicazione.
 
-Per semplificare la gestione dell'applicazione, è possibile organizzare tutte le risorse che condividono un ciclo di vita comune in un singolo gruppo di risorse. I gruppi di risorse semplificano la distribuzione, l’aggiornamento e l’eliminazione di tutte le risorse correlate tra loro. Nella maggior parte dei casi, un gruppo di risorse viene associato a una singola applicazione o a un livello di applicazione (per le applicazioni di grandi dimensioni). La risorsa distribuita tramite un modello risiede all'interno di gruppi di una singola risorsa, ma può includere dipendenze in altri gruppi di risorse.
+Per semplificare la gestione dell'applicazione, è possibile organizzare tutte le risorse che condividono un ciclo di vita comune in un singolo gruppo di risorse. I gruppi di risorse semplificano la distribuzione, l'aggiornamento e l'eliminazione di tutte le risorse correlate tra loro. Nella maggior parte dei casi, un gruppo di risorse viene associato a una singola applicazione o a un livello di applicazione (per le applicazioni di grandi dimensioni). La risorsa distribuita tramite un modello risiede all'interno di gruppi di una singola risorsa, ma può includere dipendenze in altri gruppi di risorse.
 
 All'interno di un gruppo di risorse, è possibile tenere traccia dell'esecuzione di una distribuzione e visualizzare lo stato della distribuzione e l'output dell’esecuzione del modello.
 
@@ -256,12 +256,14 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
        }
     }
 
+La dimensione del file di parametro non può essere superiore a 64 KB.
+
 ## Passaggi successivi
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere[Distribuire le risorse usando le librerie .NET e un modello](../arm-template-deployment.md)
-- Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- Per altre informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli](../resource-group-authoring-templates.md)
-- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](../resource-group-template-functions.md)
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../arm-template-deployment.md).
+- Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Per altre informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli](../resource-group-authoring-templates.md).
+- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

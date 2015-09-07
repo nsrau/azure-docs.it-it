@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Come abilitare o disabilitare il componente aggiuntivo ExpressRoute Premium | Microsoft Azure"
-   description="Come abilitare o disabilitare il componente aggiuntivo ExpressRoute Premium per un circuito ExpressRoute. ExpressRoute Premium consente di aggiungere fino a 10.000 route per il peering pubblico e privato e fino a 10 reti virtuali per il circuito ExpressRoute. È inoltre possibile collegare una rete virtuale presente in un'area a un circuito ExpressRoute presente in un’altra area."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Come abilitare o disabilitare il componente aggiuntivo ExpressRoute Premium per un circuito ExpressRoute. ExpressRoute Premium consente di aggiungere fino a 10.000 route per il peering pubblico e privato e fino a 10 reti virtuali per il circuito ExpressRoute. È inoltre possibile collegare una rete virtuale presente in un'area a un circuito ExpressRoute presente in un’altra area."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Configurare il componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute
 
@@ -172,9 +172,9 @@ Usare i cmdlet in basso per importare il modulo PowerShell per ExpressRoute:
 		Sku                              : Premium
 		Status                           : Standard
 
-	Il circuito avrà il componente aggiuntivo ExpressRoute Premium disabilitato.
+	Il componente aggiuntivo Premium è ora disabilitato per il circuito.
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

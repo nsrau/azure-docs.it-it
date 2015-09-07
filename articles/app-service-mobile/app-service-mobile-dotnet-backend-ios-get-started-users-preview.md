@@ -3,7 +3,7 @@
 	description="Informazioni su come usare le app per dispositivi mobili di Azure per autenticare gli utenti dell'app iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh" 
+	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,18 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="08/27/2015"
 	ms.author="krisragh"/>
 
 # Autenticazione di iOS con le app per dispositivi mobili di Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]& nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [avvio rapido di iOS] tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di iOS], che deve essere completata per prima.
-
-##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [avvio rapido di iOS] tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa all'[avvio rapido di iOS], che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##<a name="create-gateway"></a>Creare un gateway del servizio app
 
@@ -38,7 +34,7 @@ Questa esercitazione illustra come aggiungere l'autenticazione al progetto di [a
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-In Xcode fare clic su **Run** per avviare l'app. L'eccezione non gestita viene generata perché l'app prova ad accedere al back-end come utente non autenticato, mentre ora la tabella _TodoItem_ richiede l'autenticazione.
+In Xcode fare clic su **Run** per avviare l'app. L'eccezione non gestita viene generata perché l'app tenta di accedere al back-end come utente non autenticato, mentre ora la tabella _TodoItem_ richiede l'autenticazione.
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
@@ -52,4 +48,4 @@ In Xcode fare clic su **Run** per avviare l'app. L'eccezione non gestita viene g
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -292,9 +292,9 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../articles/custom-dns.md
-[trafficmanager]: ../article/app-service-web/web-sites-traffic-manager.md
-[addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
+[trafficmanager]: ../articles/app-service-web/web-sites-traffic-manager.md
+[addendpoint]: ../articles/traffic-manager/traffic-manager-endpoints.md
+[createprofile]: ../articles/traffic-manager/traffic-manager-manage-profiles.md
 
 <!-- images -->
 
@@ -311,4 +311,4 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

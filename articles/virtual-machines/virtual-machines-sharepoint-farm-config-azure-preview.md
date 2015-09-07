@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Dettagli di configurazione della farm di SharePoint Server"
+	pageTitle="Configurazione di Server Farm di SharePoint | Microsoft Azure"
 	description="In questo articolo viene descritta la configurazione predefinita delle farm di SharePoint quando si utilizza la funzionalità della farm di SharePoint Server del portale di anteprima di Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -137,6 +137,6 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [SharePoint in Macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+[Configurare una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

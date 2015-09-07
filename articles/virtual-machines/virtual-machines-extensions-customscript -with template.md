@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilizzo dei modelli di Gestione risorse di Azure dell’estensione di script personalizzato"
-   description="Automazione delle attività di configurazione delle macchine virtuali di Azure utilizzando lo script personalizzato per modelli di Gestione risorse di Azure"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="madhana"
-   editor=""/>
+	description="Automazione delle attività di configurazione delle macchine virtuali di Azure utilizzando lo script personalizzato per modelli di Gestione risorse di Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kundanap"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
-   ms.author="kundanap"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/01/2015"
+	ms.author="kundanap"/>
 
 # Utilizzo dell’estensione di script personalizzato con modelli di gestione risorse di Azure
 
@@ -97,4 +97,4 @@ Consultare gli esempi seguenti per configurare applicazioni in una macchina virt
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Windows</a>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

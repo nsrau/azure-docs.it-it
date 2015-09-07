@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Scalare un'app Web in Servizio app di Azure" 
-	description="Collegamenti a risorse per la gestione di un'applicazione web nel servizio di applicazione Azure." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="erikre" 
-	manager="wpickett" 
+	pageTitle="Scalare un'app Web in Servizio app di Azure"
+	description="Collegamenti a risorse per la gestione di un'applicazione web nel servizio di applicazione Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="erikre"/>
 
 # Scalare un'app Web in Servizio app di Azure
@@ -22,7 +22,7 @@ In questo argomento vengono forniti collegamenti alle risorse per la gestione di
 
 Nel corso del ciclo di vita di un sito, vengono eseguite diverse attività di gestione, a mano a mano che si passa dalla distribuzione iniziale alle normali attività operative, di manutenzione e di aggiornamento.
 
-Nel portale Azure è possibile eseguire diverse attività di gestione dei siti Web. Per ulteriori informazioni, vedere [gestire applicazioni web mediante il portale di Azure](web-sites-manage.md).
+Nel portale Azure è possibile eseguire diverse attività di gestione dei siti Web.
 
 ## Prima della distribuzione del sito alla produzione
 
@@ -103,4 +103,4 @@ Se si utilizza Visual Studio Online, è possibile configurare la distribuzione c
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

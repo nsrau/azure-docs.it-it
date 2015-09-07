@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Controllo del traffico delle app Web di Azure con Gestione traffico di Azure" 
-	description="In questo articolo vengono fornite informazioni di riepilogo per Gestione traffico di Azure in relazione alle app Web di Azure.&quot;" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Controllo del traffico delle app Web di Azure con Gestione traffico di Azure"
+	description="In questo articolo vengono fornite informazioni di riepilogo per Gestione traffico di Azure in relazione alle app Web di Azure.&quot;"
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
 
 # Controllo del traffico delle app Web di Azure con Gestione traffico di Azure
@@ -57,11 +57,9 @@ Quando si utilizza Gestione traffico con Azure, è opportuno tenere presenti i f
 
 Per una panoramica concettuale e tecnica di Gestione traffico di Azure, vedere [Panoramica di Gestione traffico](../traffic-manager/traffic-manager-overview.md).
 
-Per informazioni su come configurare Gestione traffico di Azure, anche per l'uso con App Web, vedere [Attività di configurazione di Gestione traffico](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
-
 Per ulteriori informazioni sul bilanciamento del carico in Gestione traffico di Azure, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 Per altre informazioni sull'uso di Gestione traffico con Siti Web di Azure, vedere i post di blog relativi all'[uso di Gestione traffico di Azure con Siti Web di Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [all'integrazione di Gestione traffico di Azure con Siti Web di Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

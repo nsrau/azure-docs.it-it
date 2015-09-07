@@ -1,9 +1,4 @@
-Le notifiche push sono già abilitate nel progetto server scaricato dal portale.
 
-Nel progetto ASP.NET è possibile visualizzare gli elementi seguenti:
+>[AZURE.TIP]Il pacchetto di estensione notifica push è incluso nel pacchetto di estensione della Guida introduttiva. Le notifiche push sono già abilitate nel progetto server che si scarica dal portale. Per informazioni su come installare e inizializzare le notifiche push quando non si usa l'estensione della Guida introduttiva, vedere [Procedura: Aggiungere notifiche push a un progetto server](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-push-notifications-to-a-server-project).
 
-* Il pacchetto NuGet `Microsoft.Azure.Mobile.Server.Notifications` è installato.
-
-* In WebApiConfig.cs il metodo `UseDefaultConfiguration()` viene chiamato sull'oggetto MobileAppConfiguration, che a sua volta chiama il metodo di estensione `AddPushNotifications()` fornito dal pacchetto NuGet indicato.
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

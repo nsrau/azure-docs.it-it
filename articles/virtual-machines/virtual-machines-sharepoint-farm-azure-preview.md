@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Farm di SharePoint Server"
-	description="È possibile creare rapidamente una nuova farm di SharePoint Server 2013 utilizzando la funzionalità di Farm di SharePoint Server nel Portale di anteprima di Azure."
+	pageTitle="Farm di SharePoint Server | Microsoft Azure"
+	description="È possibile creare rapidamente una nuova farm base o a disponibilità elevata di SharePoint Server 2013 utilizzando la funzionalità di Farm di SharePoint Server nel Portale di anteprima di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -95,4 +95,4 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

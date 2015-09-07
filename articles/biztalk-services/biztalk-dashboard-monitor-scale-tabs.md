@@ -1,29 +1,29 @@
 <properties 
-	pageTitle="Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Microsoft Azure" 
-	description="Informazioni sui controlli per monitorare le prestazioni nelle schede del portale di gestione per Servizi BizTalk: Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Microsoft Azure"
+	description="Informazioni sui controlli per monitorare le prestazioni nelle schede del portale di gestione per Servizi BizTalk: Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride. MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
 
 
-# Servizi BizTalk: schede Dashboard, Monitoraggio, Scalabilità, Configura e Connessione ibrida
+# Analizzare le schede Dashboard, Monitor, Scala, Configura e Connessione ibrida
 
-Dopo aver creato il Servizio BizTalk e aver distribuito l'applicazione, è possibile modificare alcune impostazioni del Servizio BizTalk e monitorare le prestazioni dell'applicazione.
+Dopo aver creato il servizio BizTalk e aver distribuito l'applicazione, è possibile modificare alcune impostazioni del servizio BizTalk e monitorare le prestazioni dell'applicazione.
 
-Quando si apre il portale di gestione di Azure, viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**. Per visualizzare il Servizio BizTalk, selezionarlo nella scheda **TUTTI GLI ELEMENTI** oppure fare clic sulla scheda **SERVIZI BIZTALK**, quindi selezionare il nome del proprio servizio BizTalk Service.
+Quando si apre il portale di gestione di Azure, viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI**. Per visualizzare il servizio BizTalk, selezionarlo nella scheda **TUTTI GLI ELEMENTI** oppure fare clic sulla scheda **SERVIZI BIZTALK**, quindi selezionare il nome del proprio servizio BizTalk.
 
 Verrà aperta una nuova finestra con le schede seguenti, che sono descritte in questo argomento.
 
@@ -70,7 +70,7 @@ L'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=30365
 
 <tr>
 <td>Visualizzare <strong>Informazioni di connessione</strong> dello spazio dei nomi ACS</td>
-<td>Quando si seleziona Informazioni di connessione, vengono visualizzati i valori di Spazio dei nomi di Access Control, Autorità di certificazione predefinita e Chiave predefinita. È possibile copiare questi valori.
+<td>Quando si seleziona Informazioni di connessione, vengono visualizzati i valori di Spazio dei nomi di Access Control, Autorità emittente predefinita e Chiave predefinita. È possibile copiare questi valori.
 <br/><br/>
 È anche possibile aprire il portale di gestione di Access Control, L'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Creare uno spazio dei nomi di Controllo di accesso</a> offre altre informazioni sul portale di gestione del servizio di controllo di accesso.</td>
 </tr>
@@ -112,7 +112,7 @@ Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È
 Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metriche disponibili](#Metrics) in questo argomento.
 
 
-##### Riepilogo rapido: elenca le proprietà del Servizio BizTalk
+##### Riepilogo rapido: elenca le proprietà del servizio BizTalk
 
 <table border="1">
 
@@ -122,7 +122,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 </tr>
 <tr>
 <td><strong>Aggiorna certificato SSL</strong></td>
-<td>Consente di aggiornare il Servizio BizTalk in modo da usare un certificato SSL diverso. Quando si <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">crea il servizio BizTalk</a>, viene creato automaticamente un certificato SSL autofirmato.</td>
+<td>Consente di aggiornare il servizio BizTalk in modo da usare un certificato SSL diverso. Quando si <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">crea il servizio BizTalk</a>, viene creato automaticamente un certificato SSL autofirmato.</td>
 </tr>
 <tr>
 <td><strong>Scarica certificato</strong></td>
@@ -138,7 +138,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 </tr>
 <tr>
 <td><strong>Indirizzo IP virtuale pubblico (VIP)</strong></td>
-<td>L'indirizzo IP assegnato al servizio BizTalk. È usato per tutti gli endpoint di input ed è l'indirizzo di origine per il traffico in uscita. Questo indirizzo IP appartiene al proprio Servizio BizTalk, se viene creato. Se si elimina il Servizio BizTalk, l'indirizzo IP viene assegnato a un altro Servizio BizTalk.</td>
+<td>L'indirizzo IP assegnato al servizio BizTalk. È usato per tutti gli endpoint di input ed è l'indirizzo di origine per il traffico in uscita. Questo indirizzo IP appartiene al proprio servizio BizTalk, se viene creato. Se si elimina il servizio BizTalk, l'indirizzo IP viene assegnato a un altro servizio BizTalk.</td>
 </tr>
 <tr>
 <td><strong>Spazio dei nomi ACS</strong></td>
@@ -178,7 +178,7 @@ Nella pagina relativa alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302
 </tr>
 </table>
 
-Nell'articolo [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280) sono elencati i passaggi per creare un Servizio BizTalk.
+Nell'articolo [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280) sono elencati i passaggi per creare un servizio BizTalk.
 
 
 ##### Gestisci, Informazioni di connessione, Chiavi di sincronizzazione ed Elimina sulla barra delle applicazioni:
@@ -195,7 +195,7 @@ L'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=30365
 </tr>
 <tr>
 <td>Visualizzare <strong>Informazioni di connessione</strong> dello spazio dei nomi ACS</td>
-<td>Visualizza i valori di Spazio dei nomi di Access Control, Autorità di certificazione predefinita e Chiave predefinita, che possono essere copiati.
+<td>Visualizza i valori di Spazio dei nomi di Access Control, Autorità emittente predefinita e Chiave predefinita, che possono essere copiati.
 <br/><br/>
 È anche possibile aprire il portale di gestione di Access Control, che offre le stesse funzioni dell'opzione Active Directory nel pannello di navigazione a sinistra.
 <br/><br/>
@@ -278,7 +278,7 @@ Questa metrica indica il risultato del calcolo seguente:
 <td>Visualizza il numero totale di messaggi di cui il servizio BizTalk non eseguito correttamente il pull dagli endpoint di origine.</td>
 </tr>
 <tr>
-<td><strong>Utilizzo di CPU</strong></td>
+<td><strong>Utilizzo CPU</strong></td>
 <td>Consente di elencare il valore % tempo processore di tutte le istanze del ruolo.</td>
 </tr>
 <tr>
@@ -322,11 +322,11 @@ In uno scenario di tipo richiesta-risposta, la metrica viene incrementata quando
 ## Scalabilità
 Nella scheda Scale è possibile aggiungere o sottrarre il numero di unità usate dal servizio BizTalk. Per impostazione predefinita è configurata una sola unità. È possibile aggiungere ulteriori unità per la scalabilità del servizio BizTalk. Quando si aumenta la scalabilità si aumenta anche la velocità effettiva. Aumenta inoltre la quantità di risorse, inclusi i bridge distribuiti, i contratti, le connessioni LOB e la potenza di elaborazione. Se ad esempio si aumenta la scalabilità da 1 unità a 2 unità, è possibile distribuire un numero doppio di bridge, di contratti e di connessioni LOB, oltre a una quantità doppia di potenza di elaborazione.
 
-Alcune edizioni di BizTalk non offrono un'opzione di scalabilità: in questo caso è consentita una sola unità. Per determinare il numero di unità in base al quale è possibile scalare l'edizione in uso, vedere l'articolo [Servizi BizTalk: Grafico edizioni](http://go.microsoft.com/fwlink/p/?LinkID=302279).
+Alcune edizioni di BizTalk non offrono un'opzione di scalabilità: in questo caso è consentita una sola unità. Per determinare il numero di unità in base al quale è possibile scalare l'edizione in uso, vedere l'articolo [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md).
 
 L'aumento del numero di unità può incidere sui prezzi. Se si aumentano le unità, quando si seleziona **Salva** verrà visualizzato un messaggio che informa dell'impatto sulla fatturazione. Sta all'utente sceglie se continuare. Quando si aumenta il numero di unità, lo stato del servizio BizTalk passa da Active ad Updating. Nello stato Aggiornamento l'esecuzione del servizio BizTalk non verrà interrotta.
 
-Nell'articolo [Servizi BizTalk: Grafico edizioni](http://go.microsoft.com/fwlink/p/?LinkID=302279) viene definita una "Unità".
+Nell'articolo [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md) viene definita una "Unità".
 
 
 ## Configurare
@@ -334,7 +334,7 @@ Non si applica alle connessioni ibride.
 
 Imposta Stato backup su Nessuno o Automatico. Se è impostato su Nessuno, non vengono creati backup automaticamente. Se è impostato su Automatico, configurare il percorso di backup, la frequenza e la durata di mantenimento dei file di backup.
 
-Nell'articolo [Servizi BizTalk: backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873) sono disponibili informazioni dettagliate.
+Nell'articolo [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) sono disponibili informazioni dettagliate.
 
 
 ## <a name="HybridConnections"></a>Connessioni ibride
@@ -344,22 +344,22 @@ Per creare connessioni ibride in Siti Web di Azure, vedere [Accesso alle risorse
 
 Per usa re connessioni ibride in Servizi mobili di Azure, vedere l'articolo relativo a [Servizi mobili di Azure e connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-Per creare o gestire connessioni ibride in Siti Web di Azure, vedere l'articolo relativo alle [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+Per creare o gestire connessioni ibride in Siti Web di Azure, vedere l'articolo relativo alle [Connessioni ibride](integration-hybrid-connection-overview.md).
 
 
 
 ## Avanti
 Ora che è stata acquisita familiarità con le diverse schede è possibile ottenere altre informazioni sulle funzionalità dei Servizi BizTalk di Azure:
 
-- [Servizi BizTalk: limitazione](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Servizi BizTalk: nome e chiave dell'autorità emittente](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [Servizi BizTalk: backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)  
+- [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)  
+- [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md)
 
 ## Vedere anche
-- [Connessioni ibride](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-- [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Creare un servizio BizTalk mediante il portale di gestione di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Servizi BizTalk: Tabella degli stati del servizio](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Connessioni ibride](integration-hybrid-connection-overview.md)  
+- [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
+- [Creare un servizio BizTalk mediante il portale di gestione di Azure](biztalk-provision-services.md)  
+- [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)  
 - [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -368,4 +368,4 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

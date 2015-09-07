@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduzione al servizio Web app per dispositivi mobili del server MFA:" 
-	description="L'app Azure Multi-Factor Authentication offre un'opzione di autenticazione fuori banda aggiuntiva. Consente al server MFA di inviare notifiche push agli utenti." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Introduzione al servizio Web app per dispositivi mobili del server MFA:"
+	description="L'app Azure Multi-Factor Authentication offre un'opzione di autenticazione fuori banda aggiuntiva. Consente al server MFA di inviare notifiche push agli utenti."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Introduzione al servizio Web app per dispositivi mobili del server MFA:
@@ -89,4 +89,4 @@ Il servizio Web app per dispositivi mobili è ora installato. È necessario conf
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

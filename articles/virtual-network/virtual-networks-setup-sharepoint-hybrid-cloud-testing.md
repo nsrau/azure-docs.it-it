@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test" 
-	description="Informazioni su come creare una farm Intranet di SharePoint in un ambiente cloud ibrido per lo sviluppo o il test IT professionale." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Ambienti di test farm SharePoint 2013 | Microsoft Azure"
+	description="Informazioni su come creare una farm Intranet di SharePoint Server 2013 a due livelli in un ambiente cloud ibrido per lo sviluppo o il test IT professionale."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 
@@ -88,7 +88,7 @@ Successivamente, connettersi alla nuova macchina virtuale SQL1 *utilizzando l'ac
 3.	Quando viene richiesto di aprire SQL1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Quando vengono richieste le credenziali, usare le seguenti:
-	- Nome: **SQL1\** [Local administrator account name]
+	- Nome: **SQL1** [Local administrator account name]
 	- Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
@@ -211,4 +211,4 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

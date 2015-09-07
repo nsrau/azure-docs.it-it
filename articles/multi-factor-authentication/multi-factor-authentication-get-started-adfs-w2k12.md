@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Proteggere le risorse locali e cloud con Azure multi-factor Authentication Server ADFS di Windows Server 2012 R2" 
-	description="Questa è la pagina di autenticazione a più fattori di Azure che descrive come iniziare a utilizzare l'autenticazione a più fattori Azure e ADFS in Windows Server 2012 R2." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Proteggere le risorse locali e cloud con Azure multi-factor Authentication Server ADFS di Windows Server 2012 R2"
+	description="Questa è la pagina di autenticazione a più fattori di Azure che descrive come iniziare a utilizzare l'autenticazione a più fattori Azure e ADFS in Windows Server 2012 R2."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -229,4 +229,4 @@ Eseguire lo script \Programmi\\Multi-Factor Authentication Server\Register-Multi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

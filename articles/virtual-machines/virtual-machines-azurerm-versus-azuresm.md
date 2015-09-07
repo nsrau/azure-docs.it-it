@@ -1,21 +1,21 @@
 <properties
    pageTitle="Provider di calcolo,rete e archiviazione in Gestione risorse di Microsoft Azure"
-   description="Panoramica concettuale sui provider di calcolo, rete e risorse di archiviazione (CRP NRP e SRP)"
-   services="virtual-machines"
-   documentationCenter="dev-center-name"
-   authors="mahthi"
-   manager="coreysa"
-   editor=""
+	description="Panoramica concettuale sui provider di calcolo, rete e risorse di archiviazione (CRP NRP e SRP)"
+	services="virtual-machines"
+	documentationCenter="dev-center-name"
+	authors="mahthi"
+	manager="timlt"
+	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/29/2015"
+	ms.author="mahthi"/>
 
 # Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure
 
@@ -110,4 +110,4 @@ Tutti gli script e le automazioni creati continueranno a funzionare per le macch
 La funzionalità non è supportata al momento. Non è possibile connettere le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure con un circuito Express Route in uso. La funzionalità sarà supportata in futuro.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

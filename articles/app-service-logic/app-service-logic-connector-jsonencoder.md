@@ -1,29 +1,31 @@
 <properties
-   pageTitle="BizTalk JSON Encoder"
-   description="BizTalk JSON Encoder"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del connettore BizTalk JSON Encoder nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore BizTalk JSON Encoder e usarlo in un'app per la logica in Azure App Service"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# BizTalk JSON Encoder
+# Uso di BizTalk JSON Encoder e aggiunta all'app per la logica 
 Il connettore di codifica e decodifica BizTalk JSON consente l'interoperabilità di app tra i dati JSON e XML. Può convertire una determinata istanza JSON in XML e viceversa.
 
+È possibile aggiungere BizTalk JSON Encoder al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
+
 ## Uso di BizTalk JSON Encoder
-Per usare BizTalk JSON Encoder, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk JSON Encoder. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk JSON Encoder da Azure Marketplace.
+Per usare BizTalk JSON Encoder, è innanzitutto necessario creare un'istanza dell'app per le API di BizTalk di JSON Encoder. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API di BizTalk JSON Encoder da Azure Marketplace.
 
 ## Uso di BizTalk JSON Encoder nell'area di progettazione di app per la logica
-Seguire la procedura in [Creare una nuova app per la logica]. BizTalk JSON Encoder può essere usato come azione. Non include trigger.
+Seguire la procedura in [Creare un'app per la logica]. BizTalk JSON Encoder può essere usato come azione. Non include trigger.
 
 ### Azione
 - Fare clic su BizTalk JSON Encoder dal riquadro destro
@@ -41,12 +43,12 @@ Seguire la procedura in [Creare una nuova app per la logica]. BizTalk JSON Encod
 
 Parametro|Tipo|Descrizione del parametro
 ---|---|---
-XML di input|oggetto|Contenuto XML di input
-Remove Outer Envelope|stringa|Flag impostato per rimuovere il nodo radice dal contenuto XML
+Input Xml|object|Contenuto XML di input
+Remove Outer Envelope|string|Flag impostato per rimuovere il nodo radice dal contenuto XML
 
 L'azione restituisce una rappresentazione JSON del contenuto dell'input.
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -62,6 +64,6 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-json-encoder/EncodeConfigured.PNG
 
 <!--Links -->
-[Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
+[Creare un'app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

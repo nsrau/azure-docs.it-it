@@ -1,27 +1,29 @@
 <properties 
-   pageTitle="Configurare un gateway VPN nel portale di gestione | Microsoft Azure"
-   description="Questo articolo illustra come configurare la rete virtuale del gateway VPN e modificare il tipo di routing del gateway VPN da statico a dinamico o viceversa."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="Configurare un gateway VPN nel portale di Azure | Microsoft Azure"
+	description="Questo articolo illustra come configurare la rete virtuale del gateway VPN e modificare il tipo di routing del gateway VPN da statico a dinamico o viceversa."
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/12/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
-# Configurare un gateway VPN nel portale di gestione
+# Configurare un gateway VPN nel portale di Azure
 
 Se si desidera creare una connessione cross-premise sicura tra Azure e il percorso locale, sarà necessario configurare un gateway VPN. Esistono diversi tipi di gateway e il tipo di gateway da creare dipende dal piano di sviluppo della rete e dal dispositivo VPN locale che si desidera usare. Alcune opzioni di connettività, come una connessione Point-to-Site, richiedono ad esempio un gateway con routing dinamico. Se si desidera configurare il gateway per supportare connessioni Point-to-Site (P2S) e Site-to-Site (S2S), sarà necessario configurare un gateway di routing dinamico, anche se la connessione Site-to-Site può essere configurata con entrambi i tipi di routing del gateway. È necessario anche assicurarsi che il dispositivo che si desidera usare per la connessione Site-to-Site supporti il tipo di gateway che si intende creare. Vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
 
 ## Panoramica della configurazione
 
-Prima di configurare il gateway, è necessario innanzitutto creare la rete virtuale. Per i passaggi necessari per creare una rete virtuale per la connettività cross-premise, vedere l'articolo relativo alla [configurazione di una rete virtuale con VPN Site-to-Site](vpn-gateway-site-to-site-create.md) o l'articolo relativo alla [configurazione di una rete virtuale con VPN Point-to-Site](vpn-gateway-point-to-site-create.md). Seguire quindi i passaggi descritti di seguito per configurare il gateway VPN e raccogliere le informazioni necessarie per configurare il dispositivo VPN.
+Nella procedura riportata di seguito verrà illustrata la configurazione del gateway VPN nel portale di Azure. Questi passaggi si applicano ai gateway per reti virtuali che sono stati creati utilizzando la modalità Gestione dei servizi e sono visibili nel portale di Azure. Non si tratta dei passaggi per l'utilizzo del portale di anteprima o per reti virtuali configurate utilizzando la modalità Gestione delle risorse. È possibile trovare informazioni sulla creazione di gateway per le reti virtuali create utilizzando la modalità Gestione delle risorse nell'articolo relativo alla [creazione di una rete virtuale con una connessione Site-to-Site utilizzando Gestione risorse di Azure e PowerShell ](vpn-gateway-create-site-to-site-rm-powershell.md).
+
+Prima di configurare il gateway, è necessario innanzitutto creare la rete virtuale. Per i passaggi necessari per creare una rete virtuale per la connettività cross-premise, vedere l'articolo relativo alla [configurazione di una rete virtuale con connessione VPN Site-to-Site](vpn-gateway-site-to-site-create.md) o l'articolo relativo alla [configurazione di una rete virtuale con connessione VPN Point-to-Site](vpn-gateway-point-to-site-create.md). Seguire quindi i passaggi descritti di seguito per configurare il gateway VPN e raccogliere le informazioni necessarie per configurare il dispositivo VPN.
 
 Se si dispone già di un gateway VPN e si desidera modificare il tipo di routing, vedere la sezione [Come modificare il tipo di gateway VPN](#how-to-change-your-vpn-gateway-type).
 
@@ -35,7 +37,7 @@ Se si dispone già di un gateway VPN e si desidera modificare il tipo di routing
 
 ## Creare un gateway VPN
 
-1. Nella pagina **Reti** verificare che la colonna di stato per la rete virtuale sia impostata su **Creato**.
+1. Nel portale di Azure nella pagina **Reti** verificare che la colonna di stato relativa alla rete virtuale riporti la dicitura **Creata**.
 
 1. Nella colonna **Nome** fare clic sul nome della rete virtuale.
 
@@ -44,7 +46,7 @@ Se si dispone già di un gateway VPN e si desidera modificare il tipo di routing
 ![Gateway non creato](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-Fare quindi clic su **Crea gateway** nella parte inferiore della pagina. È possibile selezionare *Routing statico* o *Routing dinamico*. Il tipo di routing da selezionare dipende da diversi fattori, ad esempio dalle funzionalità che il dispositivo VPN deve supportare e dall'eventuale necessità di supportare connessioni Point-to-Site. Per determinare il tipo di routing necessario, fare riferimento a [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](http://go.microsoft.com/fwlink/p/?LinkId=615934). Una volta creato il gateway, non è possibile passare da un tipo di gateway a un altro senza eliminare e ricreare il gateway. Quando viene richiesto di confermare che si desidera procedere con la creazione del gateway, fare clic su **Sì**.
+Fare quindi clic su **Crea gateway** nella parte inferiore della pagina. È possibile selezionare *Routing statico* o *Routing dinamico*. Il tipo di routing da selezionare dipende da diversi fattori, ad esempio dalle funzionalità che il dispositivo VPN deve supportare e dall'eventuale necessità di supportare connessioni Point-to-Site. Per determinare il tipo di routing necessario, fare riferimento a [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](vpn-gateway-about-vpn-devices.md). Una volta creato il gateway, non è possibile passare da un tipo di gateway a un altro senza eliminare e ricreare il gateway. Quando viene richiesto di confermare che si desidera procedere con la creazione del gateway, fare clic su **Sì**.
 
 ![Tipo di gateway](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
@@ -69,7 +71,7 @@ Dopo avere creato il gateway, raccogliere le informazioni per la configurazione 
 
 ## Configurare il dispositivo VPN
 
-Dopo avere completato i passaggi precedenti, l'utente o l'amministratore di rete deve configurare il dispositivo VPN per creare la connessione. Per altre informazioni sui dispositivi VPN, vedere [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+Dopo avere completato i passaggi precedenti, l'utente o l'amministratore di rete deve configurare il dispositivo VPN per creare la connessione. Per altre informazioni sui dispositivi VPN, vedere [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](vpn-gateway-about-vpn-devices.md).
 
 Dopo avere configurato il dispositivo VPN, è possibile visualizzare le informazioni di connessione aggiornate nella pagina Dashboard per la rete virtuale.
 
@@ -126,7 +128,7 @@ Poiché alcune configurazioni di connettività sono disponibili solo per determi
 
 Se è necessario modificare il tipo di routing di un gateway VPN, eliminare il gateway esistente e quindi ricrearlo con il nuovo tipo di routing. Non è necessario eliminare l'intera rete virtuale per modificare il tipo di routing del gateway.
 
-Prima di modificare il tipo di gateway, verificare che il dispositivo VPN supporti il tipo di routing che si desidera usare. Per scaricare nuovi esempi di configurazione del routing e verificare i requisiti del dispositivo VPN, vedere [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+Prima di modificare il tipo di gateway, verificare che il dispositivo VPN supporti il tipo di routing che si desidera usare. Per scaricare nuovi esempi di configurazione del routing e verificare i requisiti del dispositivo VPN, vedere [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](vpn-gateway-about-vpn-devices.md).
 
 >[AZURE.IMPORTANT]Quando si elimina un gateway VPN di rete virtuale, il relativo indirizzo VIP assegnato viene rilasciato. Quando si ricrea il gateway, a esso verrà assegnato un nuovo indirizzo VIP.
 
@@ -141,7 +143,7 @@ Prima di modificare il tipo di gateway, verificare che il dispositivo VPN suppor
 
 ## Passaggi successivi
 
-Per altre informazioni sulla connettività cross-premise di rete virtuale, vedere l'articolo [Informazioni sulla connettività cross-premise protetta della rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=532884).
+Per altre informazioni sulla connettività cross-premise di rete virtuale, vedere l'articolo [Informazioni sulle connessioni cross-premise protette delle reti virtuali](vpn-gateway-cross-premises-options.md).
 
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
@@ -149,4 +151,4 @@ Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Aggiornamento dinamico della larghezza di banda di ExpressRoute | Microsoft Azure"
-   description="Come aumentare in modo dinamico le dimensioni della larghezza di banda di un circuito ExpressRoute senza tempi di inattività."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Come aumentare in modo dinamico le dimensioni della larghezza di banda di un circuito ExpressRoute senza tempi di inattività."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Aggiornare la larghezza di banda del circuito ExpressRoute dinamicamente senza tempi di inattività
 
@@ -85,4 +85,4 @@ Windows PowerShell è un ambiente di scripting potente che può essere usato per
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

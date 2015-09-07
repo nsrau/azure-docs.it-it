@@ -1,33 +1,34 @@
 <properties
-   pageTitle="Creare un connettore SharePoint da usare nell'app per la logica"
-   description="Creare un connettore SharePoint; Uso del connettore SharePoint nell'app per la logica"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del connettore SharePoint nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore SharePoint e usarlo in un'app per la logica in Azure App Service"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
-# Uso del connettore SharePoint nell'app per la logica
-
-Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. Il connettore Microsoft SharePoint consente di connettersi a Microsoft SharePoint Server o SharePoint Online e gestire documenti ed elementi elenco. È possibile eseguire varie azioni, ad esempio creare, aggiornare, ottenere ed eliminare documenti ed elementi elenco. Se si usa un ambiente SharePoint Server locale, immettere la stringa di connessione per il bus di servizio come parte della configurazione del connettore e installare l'agente listener locale per la connessione al server.
+# Uso del connettore SharePoint e aggiunta all'app per la logica
+Connettersi a SharePoint Server o SharePoint Online per gestire documenti ed elementi elenco. È possibile eseguire varie azioni, ad esempio creare, aggiornare, ottenere ed eliminare documenti ed elementi elenco. Se si usa un ambiente SharePoint Server locale, immettere la stringa di connessione per il bus di servizio come parte della configurazione del connettore e installare l'agente listener locale per la connessione al server.
 
 L'app della raccolta di connettori SharePoint Online e SharePoint Server forniscono trigger e azioni come meccanismi per interagire con SharePoint.
+
+Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore SharePoint al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 ## Creare un connettore SharePoint Online
 
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Selezionare **App per le API** e cercare "Connettore SharePoint Online".
+2. Selezionare **App per le API** e cercare "SharePoint Online Connector".
 3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
@@ -35,17 +36,17 @@ L'app della raccolta di connettori SharePoint Online e SharePoint Server fornisc
 --- | --- | ---
 Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: **https://microsoft.sharepoint.com/teams/wabstest*. URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/>
+5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:  
  ![][1]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Online.
 
-## Creazione di un connettore SharePoint Server
+## Creazione di SharePoint Server Connector
 
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Selezionare **App per le API** e cercare "Connettore SharePoint Server".
+2. Selezionare **App per le API** e cercare "SharePoint Server Connector".
 3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
@@ -64,36 +65,36 @@ Service Bus Connection String | No | Se ci si connette in locale, immettere la s
 [Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>
 [Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/>
+5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:
  ![][2]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Server.
 
 
-## Uso del connettore SharePoint nell'app per la logica
+## Usare il connettore SharePoint nell'app per la logica
 
-Una volta creata l'app per le API, è possibile usare il connettore SharePoint come trigger o come azione per l'app per la logica. A questo scopo, è necessario:
+Dopo aver creato l'app per le API, è possibile usare il connettore SharePoint come trigger o azione per l'app per la logica. A questo scopo, è necessario:
 
 1. Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore SharePoint.
 
-2. Aprire **Trigger e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro. Il connettore SharePoint apparirà nella sezione "Usati di recente" nella raccolta sulla destra. Selezionarlo.
+2. Aprire **Triggers and Actions** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro. Il connettore SharePoint viene visualizzato nella sezione "Recently used" a destra nella raccolta. Selezionarlo.
 
 3. Se viene selezionato all'avvio dell'app per la logica, il connettore SharePoint agisce come trigger, in caso contrario sarebbe possibile eseguire azioni sull'account SharePoint con il connettore.
 
-4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Autorizza** nel connettore SharePoint: <br/>
+4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Authorize** nel connettore SharePoint:
  ![][3]
 
-5. Facendo clic su Autorizza verrà visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni: <br/>
+5. Facendo clic su Authorize, viene visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni:
  ![][4]
 
-6. Concedere alle app per la logica l'accesso al proprio account per eseguire l'operazione per proprio conto: <br/>
-![][5]
+6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto:
+ ![][5]
 
-7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire: <br/>
+7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato un elenco di azioni ed è possibile scegliere l'operazione appropriata da eseguire:<br/>
  ![][6] <br/>
-**URL relativo configurato per l'elenco documenti** <br/>
+ **URL relativo configurato per la libreria di documenti** <br/>
  ![][7] <br/>
-**URL relativo configurato per l'elenco documenti**
+ **URL relativo configurato per l'elenco di documenti**
 
 > [AZURE.NOTE]Per i trigger seguenti si presuppone che l'utente abbia immesso "Documenti condivisi, Elenchi/attività" nelle impostazioni pacchetto del connettore, dove "Documenti condivisi" è una raccolta documenti ed "Elenchi/attività" è un elenco.
 
@@ -486,4 +487,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

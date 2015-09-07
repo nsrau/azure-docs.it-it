@@ -364,7 +364,7 @@ Un modello JSON per compilare un'infrastruttura a più livelli in Azure deve seg
 1.	Creare il comune (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) e macchina virtuale specifico (indirizzi IP pubblici, i set di disponibilità, le interfacce di rete e istanze del servizio di bilanciamento del carico) gli elementi dell'infrastruttura di Azure che sono necessari per la distribuzione.
 2.	Per ogni livello dell'applicazione (ad esempio l'autenticazione web, database), creare e configurare i server in tale livello mediante comuni (account di archiviazione, rete virtuale), livello specifico (set di disponibilità) ed elementi specifici della macchina virtuale (indirizzi IP pubblici, interfacce di rete, istanze del servizio di bilanciamento del carico).
 
-Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
 ## Risorse aggiuntive
 
@@ -374,4 +374,4 @@ Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

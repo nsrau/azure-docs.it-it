@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Data factory di Azure - Domande frequenti" 
-	description="Domande frequenti su Data factory di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Data factory di Azure - Domande frequenti"
+	description="Domande frequenti su Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="spelluru"/>
 
 # Data factory di Azure - Domande frequenti
@@ -90,17 +90,6 @@ Vedere gli articoli[Attività di spostamento dati](data-factory-data-movement-ac
 L'impostazione di configurazione **availability** della tabella dati di output determina quando viene eseguita l'attività. Prima dell'inizio dell'esecuzione, l'attività verifica se sono state soddisfatte tutte le dipendenze dei dati di input, ovvero lo stato **Pronto**.
 
 ## Attività di copia - Domande frequenti
-### Quali aree sono supportate dall'attività di copia?
-
-Supporta Attività di Copia che permette di copiare dati nelle aree seguenti: Stati Uniti orientali, 2 Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti centrale, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Asia Sud orientale, Giappone orientale e Brasile meridionale.
-
-È supportata anche la copia di dati in altre aree, purché venga usata una delle aree sopra indicate per il routing dei dati. Il consumo dell'operazione di copia viene misurato in base all'area geografica attraverso la quale i dati vengono reindirizzati.
-
-Area di destinazione della copia | Area usata per il routing
--------------------------- | -----------------------
-Asia orientale | Asia sudorientale
-Giappone occidentale | Giappone orientale
- 
 ### È consigliabile avere una pipeline con più attività o una pipeline distinta per ogni attività? 
 Le pipeline sono state progettate per aggregare attività correlate. È logicamente possibile mantenere le attività in un'unica pipeline se le tabelle che le connettono non vengono usate da altre attività esterne alla pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
 
@@ -192,4 +181,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

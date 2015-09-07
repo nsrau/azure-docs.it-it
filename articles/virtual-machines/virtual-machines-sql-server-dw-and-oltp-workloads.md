@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Carichi di lavoro transazionali e di data warehousing di SQL Server in Macchine virtuali di Azure
 
-Per usare SQL Server per carichi di lavoro transazionali e di data warehousing in una macchina virtuale di Azure, è consigliabile usare una delle immagini preconfigurate di macchine virtuali presenti nella raccolta Macchine virtuali di Azure. Queste immagini vengono ottimizzate in base alle raccomandazioni specificate in [Procedure consigliate per le prestazioni per SQL Server nelle macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+Per usare SQL Server per carichi di lavoro transazionali e di data warehousing in una macchina virtuale di Azure, è consigliabile usare una delle immagini preconfigurate di macchine virtuali presenti nella raccolta Macchine virtuali di Azure. Queste immagini vengono ottimizzate in base alle raccomandazioni specificate in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Questo articolo descrive l'esecuzione di carichi di lavoro su macchine virtuali di Azure (nota anche come Infrastructure-as-a-Service o IaaS). È possibile eseguire anche carichi di lavoro transazionali e di data warehousing come servizi di Azure. Per altre informazioni, vedere [Documentazione di SQL Data Warehouse](http://azure.microsoft.com/documentation/services/sql-data-warehouse/) e [Database SQL di Azure](http://azure.microsoft.com/documentation/services/sql-database/).
 
@@ -75,22 +75,25 @@ Per altre informazioni sulla creazione di immagini con PowerShell, vedere [Uso d
 
 ## Configurazioni specifiche incluse nelle immagini transazionali e per il data warehousing
 
-Le ottimizzazioni incluse nelle immagini si basano su quanto descritto in [Procedure consigliate per le prestazioni per SQL Server nelle macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). In particolare, la configurazione di queste immagini include le ottimizzazioni seguenti.
+Le ottimizzazioni incluse nelle immagini si basano su quanto descritto in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md). In particolare, la configurazione di queste immagini include le ottimizzazioni seguenti.
 
 >[AZURE.NOTE]Se si dispone di una licenza personale e si crea una macchina virtuale transazionale o di data warehousing da zero, è possibile eseguire le ottimizzazioni in base all'articolo sulle prestazioni e alle ottimizzazioni di esempio eseguite nelle immagini preconfigurate della raccolta seguenti.
 
 ### Configurazioni dei dischi
 
-
+|Configurazione|Impostazione|
 |---|---|
 |Numero di dischi dati collegati|15|
-|Spazi di archiviazione|Due pool di archiviazione:<br/>1 pool di dati con 12 dischi dati; dimensioni fisse da 12 TB; Colonna = 12<br/>1 pool di log con 3 dischi dati; dimensioni fisse da 3 TB; Colonna = 3<br/><br/>Un disco dati rimanente per l'utente da collegare e di cui determinare l'uso.<br/><br/>**DATA WAREHOUSING**: dimensione striping = 256 KB<br/>**Transazionale**: dimensione striping = 64 KB|
-|Dimensioni dei dischi, memorizzazione nella cache, dimensioni allocazione|1 TB ciascuno, HostCache=None, dimensione dell'unità di allocazione NTFS = 64 KB|
+|Spazi di archiviazione|Due pool di archiviazione:<br/>1 pool di dati con 12 dischi dati, dimensioni fisse da 12 TB, Colonna = 12<br/>1 pool di log con 3 dischi dati, dimensioni fisse da 3 TB, Colonna = 3<br/><br/>Un disco dati rimanente per l'utente da collegare e di cui determinare l'uso.<br/><br/>**DATA WAREHOUSING**: dimensione striping = 256 KB<br/>**Transazionale**: dimensione striping = 64 KB|
+|Dimensione disco|1 TB ciascuno|
+|Memorizzazione nella cache|HostCache = nessuna|
+|Dimensioni allocazione|Dimensioni delle unità di allocazione NTFS = 64 KB|
 
 ### Configurazioni di SQL Server
 
+|Configurazione|Impostazione|
 |---|---|
-|Parametri di avvio|-T1117 per mantenere le stesse dimensioni dei file di dati se è necessario l'aumento automatico del database<br/><br/>-T1118 per supportare la scalabilità di tempdb. Per altre informazioni, vedere l'articolo relativo all'[uso del flag di traccia 1118 (-T1118) di SQL Server (2005 e 2008)](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).|
+|Parametri di avvio|-T1117 per mantenere le stesse dimensioni dei file di dati se è necessario l'aumento automatico delle dimensioni del database<br/><br/>-T1118 per supportare la scalabilità di tempdb. Per altre informazioni, vedere l'articolo relativo all'[uso del flag di traccia 1118 (-T1118) di SQL Server (2005 e 2008)](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).|
 |Modalità di ripristino|**DATA WAREHOUSING**: impostare su SIMPLE per il database modello usando ALTER DATABASE<br/>**Transazionale**: nessuna modifica|
 |Percorsi di configurazione predefiniti|Spostare le directory dei file di traccia e dei log degli errori di SQL Server nei dischi dati|
 |Percorsi predefiniti per i database|Database di sistema spostati nei dischi dati.<br/><br/>Il percorso per la creazione di database utente è stato modificato in modo da usare dischi dati.|
@@ -132,4 +135,4 @@ Dopo l'installazione in una macchina virtuale con SQL Server, sarà possibile:
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

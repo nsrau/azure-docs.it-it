@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata" 
-	description="Informazioni sull'utilità di un'applicazione line-of-business basata sul Web distribuita in Azure, su come configurare un ambiente di sviluppo/testing e su come distribuire una configurazione di produzione a disponibilità elevata." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Applicazione line-of-business in Azure | Microsoft Azure"
+	description="Informazioni sul valore di un'applicazione line-of-business in Azure, configurare un ambiente di test e distribuire una configurazione a disponibilità elevata."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata
@@ -103,4 +103,4 @@ Dopo aver completato la configurazione, è possibile espandere facilmente questa
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

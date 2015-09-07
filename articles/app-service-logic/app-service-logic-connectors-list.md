@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Elenco di connettori e applicazioni API | Microsoft Azure"
-	description="Informazioni sui connettori e le app per le API nel servizio app di Azure; architettura dei microservizi"
+	pageTitle="Elenco dei connettori e delle app per le API disponibili | Microsoft Azure App Service"
+	description="Informazioni sui connettori e le app per le API in Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
 
-# Elenco di connettori e app per le API nel servizio app di Microsoft Azure
-Nella tabella seguente sono elencati tutti i connettori disponibili e le app per le API create da Microsoft.
+# Elenco di connettori e app per le API da usare nelle app per la logica
+Informazioni su tutti i connettori disponibili e le app per le API create da Microsoft che è possibile usare nelle app per la logica.
 
-Per informazioni sui prezzi e un elenco di ciò che è incluso in ogni livello di servizio, vedere le [Informazioni sui prezzi del servizio app di Azure](http://azure.microsoft.com/pricing/details/app-service/).
+Per informazioni sui prezzi e un elenco di ciò che è incluso in ogni livello di servizio, vedere le [Informazioni sui prezzi di Azure App Service](http://azure.microsoft.com/pricing/details/app-service/).
 
 
 ## Connettori Standard
@@ -30,7 +30,7 @@ Nome | Descrizione
 --- | ---
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Usare questo connettore per creare un cluster Hadoop in Azure e inviare diversi processi Hadoop e molto altro.
 [Bus di servizio di Azure](app-service-logic-connector-azureservicebus.md) | È possibile inviare messaggi da code e messaggi del bus di servizio e ricevere messaggi da code e sottoscrizioni del bus di servizio.
-[BLOB di Archiviazione di Azure](app-service-logic-connector-azurestorageblob.md) | Si connette all'archivio BLOB e può ottenere, eliminare, elencare file e molto altro. 
+[BLOB di archiviazione di Azure](app-service-logic-connector-azurestorageblob.md) | Si connette all'archivio BLOB e può ottenere, eliminare, elencare file e molto altro. 
 [Box](app-service-logic-connector-box.md) | Si connette a Box e può caricare, ottenere, eliminare ed elencare file ed eseguire altre attività sui file.
 [Chatter](app-service-logic-connector-chatter.md) | Si connette a Chatter e può inviare e cercare messaggi e anche recuperare nuovi messaggi.
 [Dropbox](app-service-logic-connector-dropbox.md) | Si connette a Dropbox e può ottenere, eliminare, elencare file ed eseguire altre attività sui file.
@@ -48,7 +48,7 @@ Nome | Descrizione
 [SFTP](app-service-logic-connector-sftp.md) (SSH File Transfer Protocol)| Si connette a SFTP e può caricare, ottenere, eliminare file e molto altro.
 [SMTP](app-service-logic-connector-smtp.md) (Simple Mail Transfer Protocol) | Si connette a un server SMTP e può inviare messaggi di posta elettronica con allegati.
 [Slack](app-service-logic-connector-slack.md) | Si connette a Slack e invia messaggi ai canali Slack.
-[Salesforce](app-service-logic-connector-salesforce.md) | Si connette all'account Salesforce personale e gestisce gli account, lead, opportunità e molto altro.
+[Salesforce](app-service-logic-connector-salesforce.md) | Si connette all'account Salesforce personale e gestisce account, clienti potenziali, opportunità e molto altro.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | Si connette a SugarCRM Online e può creare, aggiornare, leggere e molto altro con diversi tipi di moduli come account, contatti, e così via.
 [Twilio](app-service-logic-connector-twilio.md) | Si connette a Twilio e può inviare e ottenere messaggi, ottenere numeri disponibili, gestendo i numeri di telefono in ingresso e molto altro.
 [Twitter](app-service-logic-connector-twitter.md) | Si connette a Twitter e può ottenere le sequenze temporali, pubblicare tweet e molto altro.
@@ -60,13 +60,13 @@ Nella tabella seguente sono elencati tutti i connettori disponibili e le app per
 
 Nome | Descrizione
 ------------- | -------------
-[Connettore AS2](app-service-logic-connector-as2.md) | Può ricevere e inviare messaggi usando il protocollo di trasporto AS2. I dati vengono trasportati in modo sicuro e affidabile usando la crittografia e i certificati digitali.
-[BizTalk EDIFACT](app-service-logic-connector-edifact.md) | Riceve e invia messaggi usando il protocollo EDIFACT in comunicazioni business-to-business.
-[BizTalk X12](app-service-logic-connector-x12.md) | Riceve e invia messaggi usando il protocollo X12 in comunicazioni business-to-business.
+[AS2](app-service-logic-connector-as2.md) | Può ricevere e inviare messaggi usando il protocollo di trasporto AS2. I dati vengono trasportati in modo sicuro e affidabile usando la crittografia e i certificati digitali.
+[BizTalk EDIFACT](app-service-logic-connector-edifact.md) | Riceve e invia messaggi mediante il protocollo EDIFACT in comunicazioni Business to Business.
+[BizTalk X12](app-service-logic-connector-x12.md) | Riceve e invia messaggi mediante il protocollo X12 in comunicazioni Business to Business.
 [BizTalk Trading Partner Management](app-service-logic-connector-tpm.md) | Definisce e mantiene le relazioni business-to-business usando partner, contratti nonché schemi e certificati usati in contratti. Queste relazioni vengono applicate usando app per le API EDIFACT, AS2 e X12.
 [BizTalk JSON Encoder](app-service-logic-connector-jsonencoder.md) | Un codificatore e decodificatore che consente l'interoperabilità di app tra i dati JSON e XML. Può convertire una determinata istanza JSON in XML e viceversa.
 [BizTalk Rules](app-service-logic-use-biztalk-rules.md) | Usa le regole BizTalk per definire e controllare la logica di business all'interno di un'organizzazione. I criteri di business possono essere aggiornati senza ricompilare e ridistribuire le applicazioni associate.
-DB2 Connector | Si connette a un database IBM DB2, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language. <br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate<br/><br/>Questo connettore include anche il client Microsoft per DRDA per la connessione a un server Informix con una rete TCP/IP.
+DB2 | Si connette a un database IBM DB2, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language. <br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate<br/><br/>Questo connettore include anche il client Microsoft per DRDA per la connessione a un server Informix con una rete TCP/IP.
 Informix | Si connette a un database IBM Informix, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Può mappare le operazioni API Web e API OData ai comandi Informix Structured Query Language.<br/><br/>Nessun trigger. Le azioni includono la selezione, l'inserimento, l'aggiornamento e l'eliminazione di tabelle, nonché istruzioni personalizzate.<br/><br/>Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Questo connettore include anche un client Microsoft per DRDA per la connessione a un server Informix mediante una rete TCP/IP.
 MQ | Si connette a un database IBM WebSphere MQ Server versione 8, in locale e in una macchina virtuale di Azure che esegue un sistema operativo Windows. Se l'uso è in locale, è possibile usare VPN o Azure ExpressRoute. Il connettore include anche il client Microsoft per MQ.<br/><br/>Nessun trigger. Nessuna azione.<br/><br/>**Nota** Non può essere usato attualmente con app per la logica.
 [Oracle Database](app-service-logic-connector-oracle.md) | Si connette al database Oracle locale e può creare, aggiornare, ottenere ed eliminare voci in una tabella di database.
@@ -86,11 +86,11 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 È anche possibile usare i connettori come azioni nell'ambito dell'app per la logica. Le azioni sono utili per cercare nell'app per la logica i dati da usare nell'esecuzione. Può essere necessario ad esempio cercare in un database SQL altre informazioni su un cliente quando si elabora un ordine. In alternativa, potrebbe essere necessario scrivere, aggiornare o eliminare dati in una destinazione. A tale scopo, usare le azioni fornite dai connettori. Le azioni vengono mappate a operazioni nelle app per le API (come definito dai relativi metadati Swagger).
 
 ## Creare connettori e app per le API personalizzati
-[Informazioni di riferimento su connettori e app per le API](http://aka.ms/appservicesconnectorreference) [Trigger delle app per le API del servizio app di Azure ](../app-service-api/app-service-api-dotnet-triggers.md) [ Informazioni di riferimento sulle app per la logica](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Informazioni di riferimento su connettori e app per le API](http://aka.ms/appservicesconnectorreference) [Trigger delle app per le API di Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md) [ Informazioni di riferimento sulle app per la logica](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
 ## Altre informazioni su connettori e app per le API
 
-[Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
+[Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di gestione connessione ibrida in Azure App Service](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

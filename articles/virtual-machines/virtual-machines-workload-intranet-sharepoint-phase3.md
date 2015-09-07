@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Carico di lavoro di Farm Intranet di SharePoint Fase3: configurare l'infrastruttura di SQL Server"
-	description="In questa terza fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità AlwaysOn di SQL Server nei servizi di infrastruttura di Azure, si creano e si configurano i controller di dominio di Active Directory."
+	pageTitle="Farm di SharePoint Server 2013 fase 3 | Microsoft Azure"
+	description="Creare i computer e il cluster SQL Server e abilitare i gruppi di disponibilità nella fase 3 della farm di SharePoint Server 2013 in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -44,7 +44,7 @@ Una volta specificati tutti i valori appropriati, eseguire il blocco risultante 
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -143,7 +143,7 @@ SQL Server richiede una porta utilizzata dai client per accedere al server di da
 
 Per ognuna delle macchine virtuali SQL server, disconnettersi come amministratore locale.
 
-Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](https://msdn.microsoft.com/library/azure/dn133149.aspx). È inoltre possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione farm di SharePoint e utilizzare gli spazi di archiviazione per ottimizzare gli IOPS.
+Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-performance-best-practices.md). È inoltre possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione farm di SharePoint e utilizzare gli spazi di archiviazione per ottimizzare gli IOPS.
 
 ## Configurare il server di un nodo di maggioranza cluster
 
@@ -228,4 +228,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 4: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

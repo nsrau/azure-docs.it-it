@@ -1,26 +1,27 @@
-<properties 
- pageTitle="Informazioni sull'agente e sulle estensioni di macchine virtuali | Microsoft Azure" 
- description="Fornisce una panoramica dell'agente e delle estensioni e informazioni su come installare l'agente." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="kathydav"/>
+<properties
+ pageTitle="Informazioni sull'agente e sulle estensioni di macchine virtuali | Microsoft Azure"
+	description="Fornisce una panoramica dell'agente e delle estensioni e informazioni su come installare l'agente."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="03/10/2015"
+	ms.author="rasquill"/>
+ 
 #Informazioni sull'agente e sulle estensioni di macchine virtuali
 L'agente macchine virtuali di Azure (agente VM) viene usato per installare, configurare, gestire ed eseguire estensioni di macchine virtuali di Azure (estensioni VM). Le estensioni VM offrono funzionalità dinamiche sviluppate da Microsoft e da terze parti. L'agente e le estensioni vengono aggiunti principalmente tramite il portale di gestione, ma è anche possibile usare i cmdlet di [Powershell](../install-configure-powershell.md) o l'interfaccia [xplat-cli](virtual-machines-command-line-tools.md) per le operazioni di aggiunta e configurazione al momento della creazione di una macchina virtuale o su macchine virtuali esistenti. Le estensioni VM includono, ad esempio, il supporto per [Debug remoto in Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx), [System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx), [Diagnostica di Microsoft Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) e [Docker](virtual-machines-docker-vm-extension.md).
 
 Con le estensioni VM è possibile:
 
--   Modificare le funzionalità di sicurezza e identità, ad esempio la reimpostazione dei valori dell'account e l'uso di soluzioni antimalware. 
--   Avviare, arrestare o configurare il monitoraggio e la diagnostica. 
+-   Modificare le funzionalità di sicurezza e identità, ad esempio la reimpostazione dei valori dell'account e l'uso di soluzioni antimalware.
+-   Avviare, arrestare o configurare il monitoraggio e la diagnostica.
 -   Reimpostare o installare funzionalità di connettività, ad esempio RDP e SSH.
 -   Eseguire la diagnosi, il monitoraggio e la gestione delle macchine virtuali.
 
@@ -58,4 +59,4 @@ L'agente VM è abilitato nelle seguenti situazioni:
 
 Per informazioni dettagliate sulle attività, vedere [Aggiungere, trovare, aggiornare e rimuovere estensioni VM di Azure](https://msdn.microsoft.com/library/dn850373.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

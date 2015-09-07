@@ -1,22 +1,20 @@
 <properties 
    pageTitle="Gestione: modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)"
-   description="Funzionalità di gestione per la modalità di distribuzione del servizio di bilanciamento del carico di Azure" 
-   services="virtual-network" 
-   documentationCenter="" 
-   authors="telmosampaio" 
-   manager="carolz" 
-   editor=""
-   />
+	description="Funzionalità di gestione per la modalità di distribuzione del servizio di bilanciamento del carico di Azure"
+	services="virtual-network"
+	documentationCenter=""
+	authors="telmosampaio"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="telmos"
-   />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="telmos"/>
    
 # Gestione della rete virtuale: modalità di distribuzione del servizio di bilanciamento del carico (affinità IP di origine)
 **Affinità IP di origine** (nota anche come **affinità sessione** o **affinità del client IP**) è una modalità di distribuzione del servizio di bilanciamento del carico di Azure che consente di associare connessioni da un singolo client a un singolo server ospitato di Azure, anziché distribuire ogni connessione client in modo dinamico ai diversi server ospitati di Azure (comportamento predefinito del servizio di bilanciamento del carico).
@@ -32,7 +30,7 @@ L'affinità IP di origine risolve una precedente [incompatibilità tra il Gatewa
 L'affinità IP di origine può essere configurata per:
 
 * [Endpoint di macchina virtuale](../virtual-machines/virtual-machines-set-up-endpoints.md)
-* [Set di endpoint con carico bilanciato](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Set di endpoint con carico bilanciato](../load-balancer/load-balancer-overview.md)
 * [Ruoli Web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Ruoli di lavoro](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
@@ -161,4 +159,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

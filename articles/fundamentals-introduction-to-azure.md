@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduzione ad Azure | Microsoft Azure" 
-	description="Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso." 
-	services=" " 
-	documentationCenter=".net" 
-	authors="Rboucher" 
+	pageTitle="Introduzione ad Azure | Microsoft Azure"
+	description="Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso."
+	services=" "
+	documentationCenter=".net"
+	authors="Rboucher"
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015"  
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="robb"/>
 
 # Introduzione a Microsoft Azure
@@ -212,7 +212,7 @@ Grazie alla possibilità di creare macchine virtuali su richiesta e quindi di ri
 
 Affinché questa opzione risulti veramente utile, tuttavia, gli utenti dovrebbero essere in grado di trattare le applicazioni come se fossero in esecuzione nel proprio data center. E questo è il servizio offerto da Rete virtuale di Azure. Usando un dispositivo VPN, un amministratore può impostare una rete virtuale privata (VPN) tra la rete locale e le macchine virtuali distribuite in una rete virtuale di Azure. Assegnando indirizzi IPv4 personalizzati alle macchine virtuali del cloud, risulteranno come appartenenti alla rete in uso. Gli utenti dell'organizzazione potranno accedere alle applicazioni contenute in tali macchine virtuali come se fossero eseguite localmente.
 
-Per altre informazioni sulla pianificazione e sulla creazione di una rete virtuale adatta alle esigenze dell'utente, vedere [Rete virtuale](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Per altre informazioni sulla pianificazione e sulla creazione di una rete virtuale adatta alle esigenze dell'utente, vedere [Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
 ### Express Route
 
@@ -224,7 +224,7 @@ Se è necessaria ulteriore larghezza di banda o sicurezza rispetto a quelle che 
 
 L'impostazione di una connessione ExpressRoute richiede una maggiore quantità di tempo e di pianificazione, pertanto potrebbe essere necessario iniziare con una VPN da sito a sito ed effettuare quindi la migrazione a una connessione ExpressRoute.
 
-Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](http://msdn.microsoft.com/library/azure/dn606309.aspx).
+Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ### Gestione traffico
 
@@ -592,4 +592,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

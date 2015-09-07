@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Note sulla versione di Servizi multimediali" 
-	description="Note sulla versione di Servizi multimediali" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Note sulla versione di Servizi multimediali"
+	description="Note sulla versione di Servizi multimediali"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="media" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="media"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 - [Problemi noti correnti](#issues)
 - [Cronologia delle versioni dell'API REST](#rest_version_history)
+- [Versione di agosto 2015](#august_changes_15)
 - [Versione di luglio 2015](#july_changes_15)
 - [Versione di giugno 2015](#june_changes_15)
 - [Versione di maggio 2015](#may_changes_15)
@@ -72,12 +73,21 @@ Gli oggetti di Servizi multimediali nel modulo SDK non possono essere serializza
 
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
+##<a id="august_changes_15"></a>Versione di agosto 2015
+
+- La release Azure Media Services SDK per Java V0.8.0 e nuovi esempi sono ora disponibili. Per altre informazioni, vedere:
+
+	- [Post di blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
+	- [Repository di esempi Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- Aggiornamento di Azure Media Player con supporto per flussi multi-audio. Per altre informazioni, vedere:
+	- [Post di blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
+
 ##<a id="july_changes_15"></a>Versione di luglio 2015
 
-È stata annunciata la disponibilità generale del codificatore multimediale standard. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+- È stata annunciata la disponibilità generale del codificatore multimediale standard. Per altre informazioni, vedere [questo post di blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium**. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
-
+	Il codificatore multimediale standard usa i set di impostazioni descritti in [questa](http://go.microsoft.com/fwlink/?LinkId=618336) sezione. Si noti che, quando si usa un set di impostazioni per 4.000 codifiche, è consigliabile acquistare tipo di unità riservata **Premium**. Per altre informazioni, vedere [Come scalare la codifica](media-services-portal-encoding-units).
+- Didascalie live in tempo reale con servizi multimediali e Player di Azure. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###Aggiornamenti dell'SDK di Servizi multimediali per .NET
 
@@ -562,4 +572,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

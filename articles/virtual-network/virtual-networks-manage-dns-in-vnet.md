@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestire server DNS usati da una rete virtuale"
-   description="Informazioni su come aggiungere e rimuovere server DNS in una rete virtuale"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Informazioni su come aggiungere e rimuovere server DNS in una rete virtuale"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Gestire server DNS usati da una rete virtuale
 
@@ -49,11 +49,11 @@
 
 Per modificare un elenco di server DNS usando un file di configurazione di rete, è necessario prima esportare le impostazioni di configurazione dal portale di gestione. Modificare quindi il file di configurazione di rete e reimportarlo infine tramite il portale di gestione. Segue un elenco di carattere generale dei passaggi per il completamento del processo.
 
-1. Esportare le impostazioni della rete virtuale in un file di configurazione di rete. Per altre informazioni e per i passaggi per l'esportazione delle impostazioni della configurazione di rete, vedere [Esportare le impostazioni della rete virtuale in un file di configurazione di rete](https://msdn.microsoft.com/library/azure/dn133804.aspx).
+1. Esportare le impostazioni della rete virtuale in un file di configurazione di rete. Per altre informazioni e per i passaggi per l'esportazione delle impostazioni della configurazione di rete, vedere [Esportare le impostazioni della rete virtuale in un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
-1. Specificare le informazioni del server DNS per la rete virtuale. Per altre informazioni su come specificare un server DNS, vedere [Specifica delle impostazioni DNS in un file di configurazione della rete virtuale](https://msdn.microsoft.com/library/windowsazure/jj156098.aspx). Per altre informazioni sui file di configurazione di rete, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) e [Configurare una rete virtuale utilizzando un file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj156097.aspx).
+1. Specificare le informazioni del server DNS per la rete virtuale. Per altre informazioni su come specificare un server DNS, vedere [Specifica delle impostazioni DNS in un file di configurazione della rete virtuale](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Per altre informazioni sui file di configurazione di rete, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) e [Configurare una rete virtuale utilizzando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
-1. Importare il file di configurazione di rete. Per altre informazioni e per i passaggi relativi all'importazione del file di configurazione di rete, vedere [Importare un file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj156213.aspx).
+1. Importare il file di configurazione di rete. Per altre informazioni e per i passaggi relativi all'importazione del file di configurazione di rete, vedere [Importare un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
 1. Riavviare le macchine virtuali contenute nella rete virtuale in modo che possano acquisire le nuove impostazioni DNS.
 
@@ -65,4 +65,4 @@ Per modificare un elenco di server DNS usando un file di configurazione di rete,
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

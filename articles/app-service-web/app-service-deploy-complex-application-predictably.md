@@ -291,7 +291,7 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 <a name="resources"></a>
 ## Altre risorse ##
 
--	[Linguaggio del modello di Gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn835138.aspx)
+-	[Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 -	[Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 -	[Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md)
 -	[Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md)
@@ -303,4 +303,4 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -78,9 +78,13 @@ In entrambi i casi, le credenziali vengono archiviate in formato crittografato n
 
 Single Sign-On basato su password si basa su un'estensione del browser per recuperare in modo sicuro le informazioni specifiche dell’applicazione e dell'utente da Azure AD e applicarle al servizio. La maggior parte delle applicazioni SaaS di terze parti supportate da Azure AD supportano questa funzionalità.
 
-Per Single Sign-On basato su password, il browser dell'utente finale può essere: Internet Explorer 8, Internet Explorer 9 e Internet Explorer 10 in Windows 7 o versione successiva, Chrome in Windows 7 o versione successiva oppure MacOS X o versione successiva
+Per l'accesso Single Sign-On basato su password il browser dell'utente finale può essere uno dei seguenti:
 
-**Nota:** l'estensione SSO basata su password diventerà disponibile per Edge in Windows 10, quando le estensioni del browser saranno supportate per Edge.
+- Internet Explorer 8, 9 e 10 in Windows 7 o versione successiva
+- Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
+- Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
+
+**Nota:** l'estensione SSO basata su password sarà disponibile per Edge in Windows 10, quando saranno supportate le estensioni del browser per Edge.
 
 ###Single Sign-On esistente
 
@@ -94,7 +98,7 @@ Per selezionare le applicazioni, Azure AD abilita il provisioning e il deprovisi
 
 Quando un utente viene eliminato o le relative informazioni cambiano in Azure AD, tali modifiche si riflettono anche nell'applicazione SaaS. Ciò significa che la configurazione della gestione automatizzata del ciclo di vita dell’identità consente agli amministratori di controllare e fornire provisioning e deprovisioning automatizzato dalle applicazioni SaaS. In Azure AD questa automazione della gestione del ciclo di vita dell’identità è abilitata dal provisioning dell'utente.
 
-Per ulteriori informazioni, vedere [Provisioning e deprovisioning automatizzati degli utenti per le applicazioni SaaS](active-directory-saas-app-provisioning.md)
+Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 ##Iniziare a utilizzare la raccolta di applicazioni di Azure AD
 
@@ -102,15 +106,15 @@ Informazioni introduttive Per distribuire il servizio Single Sign-On tra Azure A
 
 ###Utilizzo della raccolta di applicazioni di Azure AD
 
-La [raccolta delle applicazioni di Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) fornisce un elenco di applicazioni che supportano una forma di Single Sign-On con Azure Active Directory.
+La [raccolta di Applicazioni Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) fornisce un elenco di applicazioni che supportano un formato di Single Sign-On con Azure Active Directory.
 
 ![][1]
 
 Di seguito sono riportati alcuni suggerimenti per la ricerca delle applicazioni in base alle funzionalità che supportano:
 
-*	Azure AD supporta il provisioning e deprovisioning automatico per tutte le applicazioni “In primo piano” nella [raccolta di applicazioni di Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD supporta il provisioning e deprovisioning automatico per tutte le app "In primo piano" nella [raccolta di Applicazioni Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
 
-*	Un elenco di applicazioni federate che supportano in particolar modo Single Sign-On federato tramite un protocollo, ad esempio SAML, WS-Federation oppure OpenID Connect è disponibile [qui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+*	Un elenco di applicazioni federate che supportano in particolare il Single Sign-On federato tramite un protocollo, ad esempio SAML, WS-Federation oppure OpenID Connect, è disponibile [qui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Dopo aver trovato l'applicazione, è possibile iniziare seguendo le istruzioni dettagliate presentate nella raccolta delle applicazioni e nel portale di gestione di Azure per abilitare Single Sign-On.
 
@@ -118,16 +122,16 @@ Dopo aver trovato l'applicazione, è possibile iniziare seguendo le istruzioni d
 
 Se l'applicazione non è presente nella raccolta di applicazioni Azure AD, sono disponibili queste opzioni:
 
-*	**Aggiungere un'applicazione non in elenco che si sta utilizzando**: utilizzare la categoria personalizzata nella raccolta di app all’interno del portale di gestione di Azure per connettere un'applicazione non in elenco utilizzata dall'organizzazione. È possibile aggiungere qualunque applicazione che supporta SAML 2.0 come applicazione federata o qualunque applicazione che dispone di una pagina di accesso basata su HTML come applicazione Single Sign-On con password. Per ulteriori informazioni, vedere l'articolo sull’[aggiunta della propria applicazione](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Aggiungere un'app non pubblicata attualmente in uso**: per connettere un'applicazione non in elenco usata dall'organizzazione, usare la categoria personalizzata nella raccolta di app del portale di gestione di Azure. È possibile aggiungere qualunque applicazione che supporta SAML 2.0 come applicazione federata o qualunque applicazione che dispone di una pagina di accesso basata su HTML come applicazione Single Sign-On con password. Per altre informazioni, vedere il blog sull'[aggiunta di un'applicazione personalizzata](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 
-*	**Aggiungere la propria applicazione che si sta sviluppando**: se l'applicazione è stata sviluppata personalmente, seguire le linee guida nella documentazione per sviluppatori di Azure AD per implementare Single Sign-On federato o il provisioning mediante l’API Graph di Azure AD. Per ulteriori informazioni, vedere le risorse:
+*	**Aggiungere l'app personalizzata che si sta sviluppando**: se l'applicazione è stata sviluppata personalmente, per implementare il Single Sign-On federato o il provisioning con l'API Graph di Azure AD, seguire le linee guida nella documentazione per sviluppatori di Azure AD. Per ulteriori informazioni, vedere le risorse:
   * [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Richiedere l'integrazione di un'applicazione**: richiedere il supporto per l'applicazione necessaria utilizzando il [forum dei commenti di Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Richiedere l'integrazione di un'app**: richiedere il supporto per l'applicazione necessaria tramite il [forum dei commenti di Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 ###Utilizzo del portale di gestione di Azure
 
@@ -162,23 +166,23 @@ Azure AD fornisce diverse soluzioni personalizzabili per distribuire le applicaz
 
 I metodi che è possibile scegliere per la distribuzione nell'organizzazione sono a discrezione dell'utente.
 
-###Pannello di accesso di Azure AD
+###Riquadro di accesso di Azure AD
 
-Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul Web che permette a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), è inoltre possibile utilizzare le funzionalità di gestione di gruppi in modalità self-service tramite il Pannello di accesso.
+Il riquadro di accesso in https://myapps.microsoft.com è un portale basato sul Web che permette a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud per le quali l'amministratore di Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), è anche possibile utilizzare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
 
 ![][3]
 
 Il Pannello di accesso è separato dal portale di gestione di Azure e non richiede agli utenti di disporre di una sottoscrizione di Azure o della sottoscrizione a Office 365.
 
-Per ulteriori informazioni sul Pannello di accesso di Azure AD, vedere l’[Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul riquadro di accesso di Azure AD, vedere [Introduzione al riquadro di accesso](active-directory-saas-access-panel-introduction.md).
 
 ###Applicazione di avvio di Office 365
 
-Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti tramite Azure AD verranno visualizzate anche nel portale di Office 365 in https://portal.office.com/myapps. Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
+Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti tramite Azure AD verranno visualizzate anche nel portale di Office 365 all'indirizzo https://portal.office.com/myapps. Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
 
 ![][4]
 
-Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzazione dell'applicazione nell’applicazione di avvio di Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Per altre informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzare l'app nell'icona di avvio delle app di Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ###Accesso diretto alle applicazioni federate
 
@@ -216,4 +220,4 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

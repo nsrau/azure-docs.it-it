@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="creazione di un'app ASP.NET MVC con autenticazione e database SQL e alla distribuzione in Servizio app di Azure" 
-	description="Informazioni su come sviluppare un'app ASP.NET MVC 5 con il back-end del database SQL, aggiungere autenticazione e autorizzazione e distribuirla in Azure." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="Rick-Anderson" 
-	manager="wpickett" 
+	pageTitle="Creare un'app ASP.NET MVC con autenticazione e database SQL e distribuirla in Azure App Service"
+	description="Informazioni su come sviluppare un'app ASP.NET MVC 5 con il back-end del database SQL, aggiungere autenticazione e autorizzazione e distribuirla in Azure."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="Rick-Anderson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="riande"/>
 
 
 
-# creazione di un'app ASP.NET MVC con autenticazione e database SQL e alla distribuzione in Servizio app di Azure
+# Creare un'app ASP.NET MVC con autenticazione e database SQL e distribuirla in Azure App Service
 
 In questa esercitazione verrà illustrato come creare un'app Web ASP.NET MVC 5 sicura che consente agli utenti di effettuare l'accesso utilizzando credenziali di Facebook o Google. L'applicazione verrà inoltre distribuita nel [Servizio app](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -36,9 +36,11 @@ Verrà creata una semplice app Web di elenco contatti basata su ASP.NET MVC 5 ch
 
 ![pagina di accesso][rxb]
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile <a href="/it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">attivare i benefici della sottoscrizione MSDN</a> oppure <a href="/it-it/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">iscriversi per ottenere una versione di valutazione gratuita</a>.
+>[AZURE.NOTE]Per creare pulsanti di accesso ai social network dall'aspetto gradevole presenti nella schermata precedente, vedere il post di blog relativo alla [creazione di pulsanti di accesso dall'aspetto gradevole per ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5).
 
->Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](../it-it/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) oppure [iscriversi per ottenere una versione di valutazione gratuita](../it-it/pricing/free-trial/?WT.mc_id=A261C142F).
+
+>Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) o versione superiore e la versione più recente di [Azure SDK per Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Il presente articolo è stato scritto per Visual Studio Update 4 e SDK 2.5.1.
 
@@ -77,7 +79,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 ### Impostare intestazione e piè di pagina
 
 
-1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\Shared*.
+1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
@@ -94,7 +96,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="navbar navbar-inverase navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -271,9 +273,8 @@ L'attività successiva consiste nell'abilitare la caratteristica [Migrazioni Cod
 		add-migration Initial
 
 
-	Il comando **add-migration Initial** consente di generare un file con nome **&lt;indicatore_data&gt;Initial** nella cartella *Migrations* che crea il database. Il primo parametro (**Initial**) è arbitrario e viene utilizzato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**.
-	Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, utilizzato quando si desidera tornare allo stato precedente, consente di rimuoverla.
-3. Aprire il file *Migrations\Configuration.cs*. 
+	Il comando **add-migration Initial** consente di generare un file con nome **&lt;indicatore\_data&gt;Initial** nella cartella *Migrations* che crea il database. Il primo parametro (**Initial**) è arbitrario e viene utilizzato per creare il nome del file. È possibile visualizzare i nuovi file di classe in **Esplora soluzioni**. Nella classe **Initial** il metodo **Up** consente di creare la cartella Contacts e il metodo **Down**, utilizzato quando si desidera tornare allo stato precedente, consente di rimuoverla.
+3. Aprire il file *Migrations\\Configuration.cs*. 
 4. Aggiungere lo spazio dei nomi seguente. 
 
     	 using ContactManager.Models;
@@ -363,7 +364,7 @@ Seguire le istruzioni fornite nell'esercitazione sulla creazione di un'[app MVC 
 ## Utilizzo dell'API di appartenenza
 In questa sezione verranno aggiunti al database di appartenenza un utente locale e il ruolo *canEdit*. Solo gli utenti con ruolo *canEdit* saranno in grado di modificare i dati. È consigliabile assegnare ai ruoli un nome corrispondente alle azioni che consentono di eseguire, quindi il nome *canEdit* è preferibile rispetto ad *admin*. Nel corso dell'evolversi dell'applicazione, sarà possibile aggiungere nuovi ruoli quali *canDeleteMembers*, invece di ruoli con nomi meno descrittivi quali *superAdmin*.
 
-1. Aprire il file *migrations\configuration.cs* e aggiungere le istruzioni `using` seguenti:
+1. Aprire il file *migrations\\configuration.cs* e aggiungere le istruzioni `using` seguenti:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -402,7 +403,7 @@ In questa sezione verranno aggiunti al database di appartenenza un utente locale
 
 	![Immagine del codice](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale **user1@contoso.com* e infine di aggiungere **user1@contoso.com* al ruolo *canEdit*. Per ulteriori informazioni, consultare le esercitazioni su [ASP.NET Identity](http://www.asp.net/identity/overview/features-api).
+	Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale **user1@contoso.com* e infine di aggiungere **user1@contoso.com* al ruolo *canEdit*. Per altre informazioni, consultare le [esercitazioni su ASP.NET Identity](http://www.asp.net/identity/overview/features-api).
 
 ## Utilizzo di codice temporaneo per aggiungere al ruolo canEdit nuovi utenti di accesso a social networking  ##
 In questa sezione sarà possibile modificare temporaneamente il metodo **ExternalLoginConfirmation** nel controller Account per aggiungere nuovi utenti che eseguono l'autenticazione con un provider OAuth oppure OpenID al ruolo *canEdit*. Il metodo **ExternalLoginConfirmation** verrà modificato temporaneamente per aggiungere automaticamente nuovi utenti a un ruolo amministrativo. Il codice temporaneo di registrazione automatica verrà utilizzato fino a quando non sarà disponibile uno strumento per l'aggiunta e la gestione dei ruoli. Ci auguriamo di riuscire a rendere disponibile in futuro uno strumento simile a [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) per consentire di creare e modificare account utente e ruoli.
@@ -535,8 +536,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic sul collegamento *CM Demo* e verificare che i dati siano visibili.
 1. Fare clic su un collegamento di modifica nella pagina. Si verrà reindirizzati alla pagina di accesso, poiché il nuovo utente locale non è stato aggiunto al ruolo *canEdit*.
-1. Accedere utilizzando il nome utente *user1@contoso.com* e la password "P_assw0rd1" (il carattere "0" in "Word" è uno zero). Si verrà reindirizzati alla pagina di modifica selezionata in precedenza. <br/>
-   Se non è possibile effettuare l'accesso con tale account e password, provare a copiare la password dal codice sorgente e incollarla. Se ancora non è possibile accedere, verificare la colonna **UserName** della tabella **AspNetUsers** per accertarsi che *user1@contoso.com* sia stato aggiunto. 
+1. Accedere usando il nome utente **user1@contoso.com* e la password "P\_assw0rd1" (il carattere "0" in "word" è uno zero). Si verrà reindirizzati alla pagina di modifica selezionata in precedenza. <br/> Se non è possibile effettuare l'accesso con tale account e password, provare a copiare la password dal codice sorgente e incollarla. Se ancora non è possibile accedere, verificare la colonna **UserName** della tabella **AspNetUsers** per accertarsi che **user1@contoso.com* sia stato aggiunto.
 
 1. Verificare che sia possibile apportare modifiche ai dati.
 
@@ -558,7 +558,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 	![Scheda Impostazioni](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. Fare clic su **Pubblica**.
-1. Effettuare l'accesso come *user1@contoso.com* (utilizzando la password "P_assw0rd1") e verificare che sia possibile modificare i dati.
+1. Effettuare l'accesso come **user1@contoso.com* (usando la password "P\_assw0rd1") e verificare che sia possibile modificare i dati.
 1. Effettuare la disconnessione.
 1. Passare alla [Google Developers Console](https://console.developers.google.com/) e nella scheda **Credentials** aggiornare gli URI di reindirizzamento e le origini JavaScript in modo che usino l'URL di Azure.
 1. Effettuare l'accesso utilizzando Google o Facebook. L'account Google o Facebook verrà aggiunto al ruolo **canEdit**. Se viene visualizzato un errore HTTP 400 e il messaggio *L'URI di reindirizzamento nella richiesta: https://contactmanager{my version}.azurewebsites.net/signin-google non corrisponde a un URI di reindirizzamento registrato.*, sarà necessario attendere che le modifiche apportate vengano propagate. Se questo errore viene visualizzato dopo qualche minuto, verificare che gli URI siano corretti.
@@ -617,7 +617,7 @@ Se nelle informazioni sull'account Google non sono stati compilati i campi relat
  
 3. Se non è stata effettuata la connessione a questo database in precedenza, potrebbe essere richiesto di aggiungere una regola del firewall per consentire l'accesso all'indirizzo IP corrente. L'indirizzo IP sarà precompilato. È sufficiente, fare clic su **Aggiungi regola firewall** per abilitare l'accesso.
 
-  ![Opzioni Aggiungi regola firewall](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
+	![Opzioni Aggiungi regola firewall](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
         
 	Quindi, accedere al database con il nome utente e la password specificati durante la creazione del database.
  
@@ -625,7 +625,7 @@ Se nelle informazioni sull'account Google non sono stati compilati i campi relat
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Prendere nota dell'Id dell'account Google usato per la registrazione nel ruolo **canEdit** e dell'id **user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
+1. Prendere nota dell'ID dell'account Google usato per la registrazione nel ruolo **canEdit** e dell'ID di **user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -633,7 +633,7 @@ Se nelle informazioni sull'account Google non sono stati compilati i campi relat
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-Verificare che i valori **UserId** provengano da *user1@contoso.com* e dall'account Google registrato. 
+Verificare che i valori **UserId** provengano da **user1@contoso.com* e dall'account Google registrato.
 
 
 ## Passaggi successivi
@@ -641,7 +641,7 @@ Verificare che i valori **UserId** provengano da *user1@contoso.com* e dall'acco
 Completare le esercitazioni basate su questo esempio:
 
 1.	[Creare un'app Web ASP.NET MVC 5 sicura con accesso, conferma tramite posta elettronica e reimpostazione della password](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset)
-2.	[App ASP.NET MVC 5 con SMS e messaggio di posta elettronica per autenticazione a due fattori](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication)
+2.	[App ASP.NET MVC 5 con SMS e messaggio di posta elettronica per l'autenticazione a due fattori](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication)
 3.	[Procedure consigliate per la distribuzione di password e altri dati sensibili in ASP.NET e Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) 
 4.	[Creare un'app ASP.NET MVC 5 con autenticazione OAuth2 mediante Facebook e Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) Sono fornite istruzioni su come aggiungere dati del profilo al database di registrazione utenti e sull'uso di Facebook come provider di autenticazione.
 5.	[Introduzione ad ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
@@ -655,7 +655,7 @@ Questa esercitazione e l'applicazione di esempio sono state scritte da [Rick And
 Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti utili e su eventuali miglioramenti da apportare, non solo in merito all'esercitazione ma anche ai prodotti illustrati nell'esercitazione. I commenti e suggerimenti degli utenti risulteranno utili per definire la priorità dei miglioramenti da apportare. È inoltre possibile richiedere nuovi argomenti e votare gli argomenti esistenti alla pagina [Show Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Azure App Service e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
@@ -717,4 +717,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

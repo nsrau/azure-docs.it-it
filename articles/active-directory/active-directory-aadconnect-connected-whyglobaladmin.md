@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Per quale motivo è richiesto un account amministratore globale di Azure AD per configurare Azure AD Connect" 
-	description="Descrizione del motivo per cui è necessario un account di amministratore globale." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Per quale motivo è richiesto un account amministratore globale di Azure AD per configurare Azure AD Connect"
+	description="Descrizione del motivo per cui è necessario un account di amministratore globale."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Per quale motivo è richiesto un account amministratore globale di Azure AD per configurare Azure AD Connect
@@ -32,6 +32,5 @@ Per le impostazioni personalizzate | La sincronizzazione viene abilitata nella d
 
 * [Ulteriori informazioni sugli account e le autorizzazioni Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect in MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,44 +1,43 @@
 <properties
-   pageTitle="Uso del connettore Oracle nel servizio app di Microsoft Azure"
-   description="Come usare Oracle Database Connector"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del connettore Oracle Database nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore Oracle Database e usarlo in un'app per la logica in Azure App Service"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Oracle Database Connector
-
-Connettersi a un server di database Oracle in locale per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore Oracle nel flusso di lavoro, è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
+# Uso del connettore Oracle Database e aggiunta all'app per la logica
+Connettersi a un server di database Oracle in locale per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore Oracle Database nel flusso di lavoro, è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
 - Esporre una sezione dei dati presenti nel database Oracle usando un'applicazione Web o per dispositivi mobili.
 - Inserire dati nella tabella del database Oracle per l'archiviazione. È ad esempio possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
-- Ottenere dati da Oracle per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in SalesForce.
+- Ottenere dati da Oracle per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in Salesforce.
 
 
 ## Trigger e azioni
 I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Quando ad esempio si aggiorna un ordine, viene inviato un avviso al venditore oppure quando si aggiunge un nuovo cliente, viene inviato un messaggio di benvenuto.
 
-Oracle Database Connector può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML. Se si usa un trigger o un'azione XML, è possibile usare l'[app per le API Transform](app-service-logic-transform-xml-documents.md) per convertire i dati in un altro formato dati XML.
+Il connettore Oracle Database può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML. Se si usa un trigger o un'azione XML, è possibile usare l'[app per le API Transform](app-service-logic-transform-xml-documents.md) per convertire i dati in un altro formato dati XML.
 
-Oracle Database Connector ha a disposizione i trigger e le azioni seguenti:
+Per il connettore Oracle Database sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
-Poll Data | <ul><li>Inserimento nella tabella</li><li>Aggiornamento della tabella</li><li>Selezione dalla tabella</li><li>Eliminazione dalla tabella</li><li>Chiamata della stored procedure</li>
+Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From Table</li><li>Delete From Table</li><li>Call Stored Procedure</li>
 
 
-## Creare un Oracle Database Connector
+## Creare un connettore Oracle Database
 
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
@@ -62,7 +61,7 @@ Poll Type | No | Immettere il tipo di polling. I valori consentiti sono "Select"
 Poll Statement | No | Immettere l'istruzione per il polling del database del server Oracle, ad esempio *SELECT * from table\_name*.
 Post Poll Statement | No | Immettere l'istruzione da eseguire dopo il polling, ad esempio *DELETE * from table\_name*.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente: <br/> ![][1]
+5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente: <br/> ![][1]
 
 
 ## Usare il connettore come trigger
@@ -98,7 +97,7 @@ Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro a
 
 Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -117,4 +116,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

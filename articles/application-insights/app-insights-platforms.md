@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="Application Insights: piattaforme" 
-	description="Si può usare Application Insights con ...?" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights: linguaggi e piattaforme | Microsoft Azure"
+	description="Linguaggi e piattaforme disponibili per Application Insights"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
- 
-# Application Insights: piattaforme
+
+# Application Insights: linguaggi e piattaforme
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
 ## Linguaggi
 
-+ [C\#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
-+ [C\#|VB (Windows Store)](app-insights-windows-get-started.md)
++ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (Windows Store)](app-insights-windows-get-started.md)
 + [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [Pagine Web JavaScript](app-insights-web-track-usage.md)
 + [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Ruby](https://rubygems.org/gems/application_insights)
 + [Altro](#projects)
 
 ## Piattaforme
@@ -41,7 +41,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [App Web e macchine virtuali di Azure](../insights-perf-analytics.md)
-+ [Servizi cloud di Azure](app-insights-cloudservices.md) che includono sia i ruoli Web che i ruoli di lavoro
++ [Servizi cloud di Azure](app-insights-cloudservices.md)&\#151;che includono sia i ruoli Web che i ruoli di lavoro
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - già live](app-insights-java-live.md)
@@ -50,7 +50,7 @@
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ [Windows Store C\#|VB](app-insights-windows-get-started.md)
++ [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Ruoli di lavoro, servizi e applicazioni desktop di Windows](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
@@ -61,7 +61,7 @@
 
 +	[Log4Net, NLog o System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J o Logback](app-insights-java-trace-logs.md)
-+   [Registrazione semantica](https://github.com/fidmor89/SLAB_AppInsights) - si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)
++   [Registrazione semantica](https://github.com/fidmor89/SLAB_AppInsights)&\#151;che si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Test di carico basato su cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Creare un SDK personalizzato
@@ -77,4 +77,4 @@ Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibi
 
 <!--Link references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

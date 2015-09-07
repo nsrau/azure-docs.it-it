@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #Procedure di aggiornamento
 
@@ -23,6 +23,8 @@ Se nell'applicazione è già stata integrata una versione precedente dell'SDK, �
 Per ogni nuova versione dell'SDK è necessario innanzitutto sostituire (rimuovere e importare nuovamente in Xcode) le cartelle EngagementSDK ed EngagementReach.
 
 ##Dalla versione 2.0.0 alla 3.0.0
+Eliminazione del supporto per iOS 4.X. A partire da questa versione, la destinazione della distribuzione dell'applicazione deve essere almeno iOS 6.
+
 Se si usa Reach nell'applicazione, è necessario aggiungere il valore `remote-notification` alla matrice `UIBackgroundModes` nel file Info.plist per ricevere notifiche remote.
 
 Il metodo `application:didReceiveRemoteNotification:` deve essere sostituito da `application:didReceiveRemoteNotification:fetchCompletionHandler:` nel delegato dell'applicazione.
@@ -70,4 +72,4 @@ Esempi:
 -   La classe `CapptainUtils` viene rinominata come `EngagementUtils`.
 -   La classe `CapptainViewController` viene rinominata come `EngagementViewController`.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

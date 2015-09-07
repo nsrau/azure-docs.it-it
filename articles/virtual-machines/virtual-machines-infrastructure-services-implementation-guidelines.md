@@ -25,7 +25,7 @@ Questa guida identifica molte aree per le quali la pianificazione è fondamental
 
 Questo articolo è stato adattato sulla base del contenuto del post di blog relativo alle [linee guida sull'implementazione di Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Un ringraziamento a Santiago Cánepa (Application Development Manager per Microsoft) e Hugo Salcedo (Application Development Manager per Microsoft) per il materiale originale.
 
-> [AZURE.NOTE]I gruppi di affinità sono stati deprecati e il loro uso non è illustrato in questo articolo. Per altre informazioni, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE]I gruppi di affinità sono stati deprecati e il loro uso non è illustrato in questo articolo. Per altre informazioni, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenzioni di denominazione
 
@@ -440,4 +440,4 @@ Questa configurazione include:
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

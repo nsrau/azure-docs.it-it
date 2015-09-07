@@ -182,7 +182,7 @@ Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o re
 Se è possibile creare una connessione Desktop remoto con una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare quanto indicato di seguito:
 
 - La configurazione dell'endpoint per il traffico Desktop remoto nella macchina virtuale di destinazione. La porta TCP privata dell'endpoint deve corrispondere alla porta TCP su cui è in ascolto il servizio Servizi Desktop remoto nella macchina virtuale, che per impostazione predefinita è 3389.
-- L’ACL per l'endpoint di traffico Desktop remoto sulla macchina virtuale di destinazione. Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Esaminare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per ulteriori informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](https://msdn.microsoft.com/library/azure/dn376541.aspx)
+- L’ACL per l'endpoint di traffico Desktop remoto sulla macchina virtuale di destinazione. Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Esaminare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](../virtual-network/virtual-networks-acl.md)
 
 Per eliminare l'endpoint come fonte del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-set-up-endpoints.md).
 
@@ -287,4 +287,4 @@ Per informazioni sull'uso del supporto tecnico di Azure, vedere [Domande frequen
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="genemi"/>
 
 
@@ -60,7 +60,9 @@ Gli errori temporanei sono detti anche guasti temporanei. Quando il programma ri
 |40197|17|Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova più tardi. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>Con la riconnessione al server di database SQL verrà effettuata la connessione automatica a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita.|
 |40501|20|Il servizio è attualmente occupato. Ripetere la richiesta dopo 10 secondi. ID evento imprevisto: %ls. Codice: %d.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limitazione del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|Il database '%.&#x2a;ls' nel server '%.&#x2a;ls' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se il problema persiste, contattare il supporto tecnico indicando l'ID di traccia della sessione di '%.&#x2a;ls'.|
-
+|49918|16|Impossibile elaborare una richiesta. Risorse insufficienti per elaborare la richiesta.<br/><br/>Il servizio è attualmente occupato. Si prega di ripetere la richiesta più tardi. |
+|49919|16|Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste di creazione o aggiornamento per la sottoscrizione o il server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) per operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
+|49920|16|Impossibile elaborare una richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste per la presente sottoscrizione. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) per le statistiche delle operazioni. Attendere che le richieste in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
 
 **Nota:** gli errori della federazione 10053 e 10054 potrebbero anche determinare l’inclusione nella logica di ripetizione tentativi.
 
@@ -103,7 +105,7 @@ Nella tabella seguente vengono illustrati gli errori causati dall'uso eccessivo 
 **Suggerimento:** il collegamento seguente fornisce altre informazioni relative alla maggior parte o a tutti gli errori in questa sezione:
 
 
-- [Limiti delle risorse del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338081.aspx)
+- [Limiti delle risorse del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338081.aspx).
 
 
 |Numero di errore|Gravità|Descrizione|
@@ -240,4 +242,4 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 - [Linee guida e limitazioni generali per il database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gestione delle risorse](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

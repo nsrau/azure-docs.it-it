@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Confronto degli strumenti di integrazione directory" 
-	description="Questa pagina fornirà tabelle complete che confrontano i vari strumenti di integrazione di directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Confronto degli strumenti di integrazione directory"
+	description="Questa pagina fornirà tabelle complete che confrontano i vari strumenti di integrazione di directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Confronto degli strumenti di integrazione directory
@@ -88,4 +88,4 @@ Possibilità di applicare differenti modelli di servizio ai flussi di attributi 
 Possibilità di interrompere il flusso di attributi da AD ad Azure AD | ● | ● | |  
 Personalizzazione avanzata dei flussi di attributi | ● | ● | | ●  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -17,6 +17,7 @@
 	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
+
 #Usare Sqoop con Hadoop in HDInsight (Windows)
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -39,8 +40,7 @@ Per informazioni sulle versioni di Sqoop supportate nei cluster HDInsight, veder
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). 
- Per eseguire gli script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere la pagina relativa all'[esecuzione di script di Windows PowerShell][powershell-script].
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per eseguire gli script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere la pagina relativa all'[esecuzione di script di Windows PowerShell][powershell-script].
 
 - **Cluster HDInsight di Azure**: per istruzioni sul provisioning dei cluster, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
 
@@ -60,14 +60,14 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	<tr><td>Password di accesso al database SQL di Azure</td><td>$sqlDatabasePassword</td><td></td><td>Password di accesso del database SQL di Azure.</td></tr>
 	<tr><td>Nome del database SQL di Azure</td><td>$sqlDatabaseName</td><td></td><td>Il database SQL di Azure nel quale Sqoop esporterà o dal quale importerà i dati. </td></tr>
 	</table>
-
-	> [AZURE.NOTE]Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
+	
+	> [AZURE.NOTE]Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di anteprima di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
 
 * **SQL Server**: se il cluster HDInsight si trova sulla stessa rete virtuale di Azure di SQL Server, è possibile usare la procedura descritta in questo articolo per importare ed esportare i dati in un database SQL Server.
 
 	> [AZURE.NOTE]HDInsight supporta solo reti virtuali basate sulla posizione e attualmente non funziona con le reti virtuali basate su gruppi di affinità.
 
-	* Per creare e configurare una rete virtuale, vedere [Attività di configurazione della rete virtuale](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+	* Per creare e configurare una rete virtuale, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
 
 		* Quando si usa SQL Server nel proprio data center, è necessario configurare la rete virtuale come *da sito a sito* o *da punto a sito*.
 
@@ -224,7 +224,7 @@ Verranno create due tabelle nel database SQL di Azure o in SQL Server, usate per
 		Write-Host "Done" -ForegroundColor Green
 
 5. Fare clic su **Esegui script** o premere **F5** per eseguire lo script.
-6. Usare il [portale di Azure][azure-management-portal] per esaminare le tabelle e gli indici cluster.
+6. Usare il [portale di anteprima][azure-management-portal] per esaminare le tabelle e gli indici cluster.
 
 **Per SQL Server**
 
@@ -347,7 +347,7 @@ Questa condizione può andar bene per altri esempi in cui vengono usati questi d
 		$destBlob.UploadFromStream($memStream)
 
 5. Fare clic su **Esegui script** o premere **F5** per eseguire lo script.
-6. Per esaminare il file di dati modificato, è possibile usare il portale di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. In [Introduzione all'uso di HDInsight][hdinsight-get-started] è presente un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
+6. Per esaminare il file di dati modificato, è possibile usare il portale di anteprima di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. In [Introduzione all'uso di HDInsight][hdinsight-get-started] è presente un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
 
 
 ##Usare PowerShell per eseguire l'esportazione con Sqoop
@@ -412,7 +412,7 @@ In questa sezione si userà Azure PowerShell per eseguire un comando di esportaz
 	Il delimitatore di campo è **\\0x20**, che corrisponde a uno spazio. Il delimitatore è definito nello script di Azure PowerShell del file sample.log. Per avere informazioni su **-m 1**, vedere la [Guida dell'utente di Sqoop][sqoop-user-guide-1.4.4].
 
 5. Fare clic su **Esegui script** o premere **F5** per eseguire lo script.
-6. Usare [il portale di Azure][azure-management-portal] per esaminare i dati esportati.
+6. Usare [il portale di anteprima][azure-management-portal] per esaminare i dati esportati.
 
 **Per esportare la tabella di Hive hivesampletable**
 
@@ -463,7 +463,7 @@ In questa sezione si userà Azure PowerShell per eseguire un comando di esportaz
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Fare clic su **Esegui script** o premere **F5** per eseguire lo script.
-6. Usare [il portale di Azure][azure-management-portal] per esaminare i dati esportati.
+6. Usare [il portale di anteprima][azure-management-portal] per esaminare i dati esportati.
 
 
 
@@ -615,7 +615,7 @@ In questa sezione si importeranno nuovamente in HDInsight i file di log log4j (e
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Fare clic su **Esegui script** o premere **F5** per eseguire lo script.
-6. Per esaminare il file di dati modificato, è possibile usare il portale di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. In [Introduzione all'uso di HDInsight][hdinsight-get-started] è presente un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
+6. Per esaminare il file di dati modificato, è possibile usare il portale di anteprima di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. In [Introduzione all'uso di HDInsight][hdinsight-get-started] è presente un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
 
 ##Passaggi successivi
 
@@ -648,4 +648,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazio
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

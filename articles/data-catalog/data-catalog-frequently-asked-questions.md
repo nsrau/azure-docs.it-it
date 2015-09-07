@@ -1,20 +1,20 @@
 <properties
    pageTitle="Domande frequenti sul Catalogo dati di Azure"
-   description="Catalogo dati di Azure: domande frequenti sul catalogo"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="Domande frequenti relative all'anteprima del Catalogo dati di Azure, incluse le funzionalità per la gestione, l'annotazione e l'individuazione dell'origine dati."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/21/2015"
+	ms.author="maroche"/>
 
 # Domande frequenti sul Catalogo dati di Azure
 
@@ -32,10 +32,10 @@ Il Catalogo dati di Azure risolve la richiesta di individuazione dell’origine 
 
 Il Catalogo dati di Azure offre funzionalità per gli utenti tecnici, tra cui:
 
-- Sviluppatori di dati e professionisti di analisi e Business Intelligence: responsabili della produzione di dati e contenuti di analisi ad uso di altri utenti
--	Amministratori dei dati: che dispongono di informazioni relative ai dati, sul significato dei dati, sul metodo di utilizzo e sullo scopo
-- Consumer di dati: che devono essere in grado di individuare, comprendere e connettersi ai dati necessari con facilità per svolgere il lavoro utilizzando uno strumento di propria scelta
-- Team IT centrale: che necessitano di rendere individuabile centinaia di origini dati per gli utenti aziendali e devono occuparsi della supervisione circa la modalità di utilizzo dei dati e gli utenti che li utilizzano
+- Sviluppatori di dati e professionisti di analisi e business intelligence: responsabili della produzione di dati e contenuti di analisi ad uso di altri utenti
+-	Amministratori dei dati: dispongono di informazioni relative ai dati, al significato dei dati, al metodo d'uso e allo scopo
+- Consumer di dati: devono essere in grado di individuare, comprendere e connettersi ai dati necessari con facilità per svolgere il lavoro mediante uno strumento di propria scelta
+- Team IT centrale: necessita di rendere individuabili centinaia di origini dati per gli utenti aziendali e si occupa della supervisione della modalità d'uso dei dati e degli utenti che li usano
 
 ## D: qual è la disponibilità delle aree geografiche per il Catalogo dati di Azure?
 
@@ -48,9 +48,9 @@ Durante l'anteprima, i servizi del Catalogo dati di Azure sono disponibili solo 
 
 ## D: quali sono i limiti sul numero di asset di dati nel Catalogo dati di Azure?
 
-L’edizione gratuita del Catalogo dati di Azure è limitata a 5.000 asset di dati registrati.
+L'edizione Free del Catalogo dati di Azure è limitata a 5000 asset di dati registrati.
 
-Il Catalogo dati di Azure Standard Edition supporta fino a 100.000 asset di dati registrati.
+L'edizione Standard del Catalogo dati di Azure supporta fino a 100.000 asset di dati registrati.
 
 ## D: quali sono i tipi di origine dati e di asset supportati?
 
@@ -80,7 +80,7 @@ Il modo migliore per iniziare consiste nel seguire le istruzioni dell’introduz
 
 ## D: come si registrano i dati?
 
-Per registrare i dati nel Catalogo dati di Azure, avviare lo strumento di registrazione del Catalogo dati di Azure nell'area "Pubblica" del portale del Catalogo dati di Azure. Nell'applicazione di pubblicazione del Catalogo dati di Azure, accedere utilizzando le stesse credenziali usate per accedere al portale del Catalogo dati di Azure, quindi selezionare l'origine dati e gli asset specifici da registrare.
+Per registrare i dati nel Catalogo dati di Azure, avviare lo strumento di registrazione del Catalogo dati di Azure nell'area "Pubblica" del portale del Catalogo dati di Azure. Nell'applicazione di pubblicazione del Catalogo dati di Azure, accedere usando le stesse credenziali usate per accedere al portale del Catalogo dati di Azure, quindi selezionare l'origine dati e gli asset specifici da registrare.
 
 ## D: quali proprietà vengono estratte per gli asset di dati registrati?
 
@@ -97,7 +97,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 
 <br/>
 
-> [AZURE.NOTE]Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms\_description per oggetti e colonne. Per ulteriori informazioni, vedere [Utilizzo di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
+> [AZURE.NOTE]Per le origini dati, ad esempio SQL Server Analysis Services che dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore della proprietà. Per i database relazionali di SQL Server, che non dispongono di una proprietà **Description** ottimale, l’applicazione di pubblicazione del **Catalogo dati di Azure** estrae il valore dalla proprietà estesa ms\_description per oggetti e colonne. Per altre informazioni, vedere [Utilizzo di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx) in TechNet.
 
 ## D: quanto tempo deve trascorrere prima che gli asset appena registrati vengano visualizzati nel Catalogo dati di Azure?
 
@@ -115,7 +115,7 @@ Il modo più semplice di fornire i metadati agli asset registrati consiste nel s
 
 ## D: cos'è un esperto?
 
-Un esperto è una persona che ha una prospettiva informata su un oggetto dati. Un oggetto può avere più esperti. Un esperto non deve necessariamente essere il "proprietario" dell’oggetto, ma è semplicemente una persona che sa come i dati possono e devono essere utilizzati.
+Un esperto è una persona che ha una prospettiva informata su un oggetto dati. Un oggetto può avere più esperti. Un esperto non deve necessariamente essere il "proprietario" dell'oggetto, ma è una persona che sa come i dati possono e devono essere usati.
 
 ## D: qual è il contratto di servizio per l'anteprima?
 
@@ -123,7 +123,7 @@ Durante l’anteprima del **Catalogo dati di Azure**, non esiste alcun contratto
 
 ## D: come si condividono le informazioni con il team del Catalogo dati di Azure se si riscontrano problemi?
 
-Utilizzare il forum del **Catalogo dati di Azure** per segnalare problemi e condividere informazioni e domande. Il forum è disponibile in http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
+Usare il forum del **Catalogo dati di Azure** per segnalare problemi e condividere informazioni e domande. Il forum è disponibile in http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
 ##D: il Catalogo dati di Azure funziona con un'altra origine dati?
 Stiamo lavorando attivamente per aggiungere più origini dati nel **Catalogo dati di Azure**. Se si desidera che un'origine dati venga supportata, scrivere un suggerimento in proposito (o esprimere il proprio sostegno se già suggerita) nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
@@ -138,7 +138,7 @@ L'utente che esegue lo strumento di registrazione **Catalogo dati di Azure** dev
 
 ## Q: il Catalogo dati di Azure sarà disponibile anche per la distribuzione locale?
 
-Il **Catalogo dati di Azure** è un servizio cloud che utilizza origini dati locali e del cloud, fornendo una soluzione ibrida di individuazione dell’origine dati. Non è attualmente prevista una versione del servizio **Catalogo dati Azure** da eseguire in locale.
+Il **Catalogo dati di Azure** è un servizio cloud che usa origini dati locali e del cloud, fornendo una soluzione ibrida di individuazione dell'origine dati. Non è attualmente prevista una versione del servizio **Catalogo dati di Azure** da eseguire in locale.
 
 ##D: è possibile estrarre metadati più numerosi o migliorati dalle origini dati registrate?
 
@@ -152,12 +152,12 @@ R: selezionare gli asset di dati nel Catalogo dati di Azure e fare clic sul puls
 
 R: per aggiornare i metadati degli asset di dati già registrati nel catalogo, è sufficiente registrare nuovamente l'origine dati che contiene gli asset. Le modifiche nell'origine dati, ad esempio l’aggiunta o la rimozione di colonne da tabelle o viste, vengono aggiornate nel catalogo, ma tutte le annotazioni fornite dagli utenti vengono conservate.
 
-## D: come si pongono domande o si richiede assistenza quando si utilizza il Catalogo dati di Azure?
+## D: come si pongono domande o si richiede assistenza quando si usa il Catalogo dati di Azure?
 
 Se si verificano dei problemi o per richiedere assistenza per l'anteprima del Catalogo dati di Azure, è possibile scrivere nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## D: la domanda non ha ricevuto risposta: cosa occorre fare?
 
-Tenere sotto controllo il [forum del Catalogo dati Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
+Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

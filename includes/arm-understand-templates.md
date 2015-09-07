@@ -1,6 +1,6 @@
 ## Informazioni su modelli di risorse e gruppi di risorse di Azure
 
-La maggior parte delle applicazioni, distribuite ed eseguite da Microsoft Azure, vengono create da una combinazione di tipi diversi di risorse cloud (ad esempio, una o più macchine virtuali e uno o più account di archiviazione, un database SQL, una rete virtuale, una rete CDN e così via). [I modelli di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx) consentono di distribuire e gestire insieme queste risorse diverse tra loro tramite una descrizione JSON delle risorse e parametri di configurazione e distribuzione associati.
+La maggior parte delle applicazioni, distribuite ed eseguite da Microsoft Azure, vengono create da una combinazione di tipi diversi di risorse cloud (ad esempio, una o più macchine virtuali e uno o più account di archiviazione, un database SQL, una rete virtuale, una rete CDN e così via). [I modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) consentono di distribuire e gestire insieme queste risorse diverse tra loro tramite una descrizione JSON delle risorse e parametri di configurazione e distribuzione associati.
 
 Dopo aver definito un modello di risorsa basato su JSON, è possibile eseguirlo e impostare la distribuzione del le risorse definite in Azure tramite un comando di PowerShell. È possibile eseguire questo comando di PowerShell in modo autonomo nella shell dei comandi PowerShell o integrandolo in uno script di PowerShell contenente logica di automazione aggiuntiva.
 
@@ -8,4 +8,4 @@ Le risorse create con i modelli di Gestione risorse di Azure verranno distribuit
 
 Gli esempi di automazione seguenti illustrano come usare i modelli di Gestione risorse di Azure e distribuire gruppi di risorse tramite PowerShell o CLI.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

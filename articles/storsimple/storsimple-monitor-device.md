@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple | Microsoft Azure"
-   description="Viene descritto come utilizzare il servizio StorSimple Manager per monitorare prestazioni I/O, utilizzo della capacità, velocità effettiva della rete e prestazioni del dispositivo."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Viene descritto come utilizzare il servizio StorSimple Manager per monitorare prestazioni I/O, utilizzo della capacità, velocità effettiva della rete e prestazioni del dispositivo."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/25/2015"
+	ms.author="alkohli"/>
 
 # Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple 
 
@@ -61,7 +61,7 @@ Il filegroup primario, cloud e dispositivi archiviazione capacità può essere d
 	![Utilizzo della capacità cloud dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- **Utilizzo della capacità di archiviazione dispositivo**mostra l'utilizzo totale del dispositivo, che sarà maggiore dell’utilizzo di archiviazione primario poiché include il livello lineare di unità SSD. Questo livello contiene una quantità di dati presente anche negli altri livelli del dispositivo. La capacità del livello di unità SSD lineare è ciclica in modo che all’arrivo di nuovi dati, i dati precedenti vengono spostati nel cloud (e vengono deduplicati e compressi).
+- **Utilizzo della capacità di archiviazione dispositivo**mostra l'utilizzo totale del dispositivo, che sarà maggiore dell’utilizzo di archiviazione primario poiché include il livello lineare di unità SSD. Questo livello contiene una quantità di dati presente anche negli altri livelli del dispositivo. La capacità del livello di unità SSD lineare è ciclica in modo che all’arrivo di nuovi dati, i dati precedenti vengono spostati nel livello HDD (e vengono deduplicati e compressi) e successivamente al cloud.
 
 	Nel corso del tempo, l’utilizzo della capacità primaria e l'utilizzo della capacità del dispositivo molto probabilmente aumenteranno contemporaneamente fino a quando i dati inizieranno ad essere archiviati a livelli nel cloud. A questo punto, l'utilizzo della capacità del dispositivo probabilmente inizierà a stabilizzarsi ma l'utilizzo della capacità primaria aumenterà mano a mano che vengono scritti più dati.
 
@@ -93,4 +93,4 @@ Grafici riportati di seguito mostrano la velocità effettiva della rete per Data
 
 [Imparare a utilizzare il dashboard del dispositivo del servizio StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

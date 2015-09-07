@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
 
@@ -54,8 +54,8 @@ Di seguito è riportato un elenco di consigli relativi alla sicurezza da conside
 
 ## Passaggi successivi
 
-Se si è interessati alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server nelle macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+Se si è interessati alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

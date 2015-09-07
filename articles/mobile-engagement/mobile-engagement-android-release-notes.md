@@ -1,30 +1,37 @@
 <properties 
-	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement"
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Note sulla versione
+
+##4\.1.0 (08/25/2015)
+
+- Gestione di un nuovo modello di autorizzazione per Android M.
+- Ora è possibile configurare le funzionalità di indirizzo in fase di esecuzione anziché utilizzare `AndroidManifest.xml`.
+- Correzione di un bug delle autorizzazioni: se si utilizza `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
+- Miglioramenti della stabilità.
 
 ##4\.0.0 (06/07/2015)
 
 -   Modifiche al protocollo interno per rendere più affidabili le analisi e il push.
 -   Il push nativo (GCM/ADM) viene ora usato anche per le notifiche in-app. È quindi necessario configurare le credenziali del push nativo per qualsiasi tipo di campagna push.
 -   Correzione della notifica generale: elementi visualizzati solo 10 secondi dopo il push.
--   Correzione della selezione di un collegamento in un annuncio Web che include un URL di azione predefinito.
+-   Correzione di un bug nella visualizzazione Web: facendo clic su un collegamento durante si eseguiva anche l'URL di azione predefinito.
 -   Correzione di un arresto anomalo raro correlato alla gestione dell'archivio locale.
 -   Correzione della gestione delle stringhe di configurazione dinamiche.
 -   Aggiornamento del contratto di licenza.
@@ -40,4 +47,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -17,11 +17,9 @@
 	ms.author="saah; kenhoff"/>
 
 # Accessi da indirizzi IP con attività sospetta
+<p>Questo report mostra accessi da indirizzi IP in cui è stata rilevata un'attività sospetta. In questo caso un'attività sospetta è definita da un numero insolitamente elevato di accessi non riusciti in rapporto agli accessi con esito positivo, che potrebbe indicare che un indirizzo IP è stato usato per scopi dannosi.</p>
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Questo report include tentativi di accesso eseguiti da indirizzi IP in cui è stata notata un'attività sospetta. Un'attività sospetta include molti tentativi di accesso non riusciti dallo stesso indirizzo IP in un breve periodo di tempo e altre attività ritenute sospette. È possibile che un pirata informatico abbia tentato l'accesso da questo indirizzo IP.</p><p>I risultati di questo report mostreranno che i tentativi originati da un indirizzo IP in cui è stata notata un'attività sospetta, insieme al timestamp associato all'accesso.</p> | Scheda Directory > Report |
 
 ![Accessi da indirizzi IP con attività sospetta](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

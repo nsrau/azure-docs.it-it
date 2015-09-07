@@ -1,39 +1,25 @@
 <properties 
-	pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) | Microsoft Azure" 
-	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in Java." 
-	services="" 
-	documentationCenter="java" 
-	authors="thinkingserious" 
-	manager="sendgrid" 
+	pageTitle="Come usare il servizio di posta elettronica SendGrid (Java) | Microsoft Azure"
+	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in Java."
+	services=""
+	documentationCenter="java"
+	authors="thinkingserious"
+	manager="sendgrid"
 	editor="mollybos"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="10/30/2014"
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
-
 # Come inviare messaggi di posta elettronica usando SendGrid da Java
 
-Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in Java. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][].
+Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in Java. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi](#next-steps).
 
-## Sommario
-
--   [Informazioni sul servizio di posta elettronica SendGrid][]
--   [Creare un account SendGrid][]
--   [Procedura: Usare le librerie javax.mail][]
--   [Procedura: Creare un messaggio di posta elettronica][]
--   [Procedura: Inviare un messaggio di posta elettronica][]
--   [Procedura: Aggiungere un allegato][]
--   [Procedura: Usare filtri per abilitare piè di pagina, monitoraggio e analisi][]
--   [Procedura: Aggiornare le proprietà dei messaggi di posta elettronica][]
--   [Procedura: Usare servizi aggiuntivi forniti da SendGrid][]
--   [Passaggi successivi][]
-
-## <a name="bkmk_WhatIsSendGrid"> </a>Informazioni sul servizio di posta elettronica SendGrid
+## Informazioni sul servizio di posta elettronica SendGrid
 
 SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
 
@@ -46,11 +32,11 @@ SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recap
 
 Per altre informazioni, vedere <http://sendgrid.com>.
 
-## <a name="bkmk_CreateSendGridAcct"> </a>Creare un account SendGrid
+## Creare un account SendGrid
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_HowToUseJavax"> </a>Procedura: Usare le librerie javax.mail
+## Procedura: Usare le librerie javax.mail
 
 Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwork/java/javamail> e importarle nel codice. Ad alto livello, la procedura per usare la libreria javax.mail per l'invio di messaggio di posta elettronica mediante SMTP è la seguente:
 
@@ -96,9 +82,9 @@ Ottenere le librerie javax.mail, ad esempio da <http://www.oracle.com/technetwor
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Creare il messaggio e assegnare i valori relativi ai campi **A**, **Da**, **Oggetto** e contenuto. Questa operazione è illustrata nella sezione [Procedura: Creare un messaggio di posta elettronica](#bkmk_HowToCreateEmail).
-5.  Inviare il messaggio tramite un oggetto *javax.mail.Transport*. Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica][How to: Send an Email].
+5.  Inviare il messaggio tramite un oggetto *javax.mail.Transport*. Questa operazione è illustrata nella sezione [Procedura: Inviare un messaggio di posta elettronica].
 
-## <a name="bkmk_HowToCreateEmail"> </a>Procedura: Creare un messaggio di posta elettronica
+## Procedura: Creare un messaggio di posta elettronica
 
 Il codice seguente illustra come specificare i valori per un messaggio di posta elettronica.
 
@@ -120,7 +106,7 @@ Il codice seguente illustra come specificare i valori per un messaggio di posta 
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## <a name="bkmk_HowToSendEmail"> </a>Procedura: Inviare un messaggio di posta elettronica
+## Procedura: Inviare un messaggio di posta elettronica
 
 Il codice seguente illustra come inviare un messaggio di posta elettronica.
 
@@ -132,7 +118,7 @@ Il codice seguente illustra come inviare un messaggio di posta elettronica.
     // Close the connection.
     transport.close();
 
-## <a name="bkmk_HowToAddAttachment"> </a>Procedura: Aggiungere un allegato
+## Procedura: Aggiungere un allegato
 
 Il codice seguente illustra come aggiungere un allegato.
 
@@ -148,7 +134,7 @@ Il codice seguente illustra come aggiungere un allegato.
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="bkmk_HowToUseFilters"> </a>Procedura: Usare filtri per abilitare piè di pagina, monitoraggio e analisi
+## Procedura: Usare filtri per abilitare piè di pagina, monitoraggio e analisi
 
 SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'utilizzo di *filtri*. Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio del clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via. Per un elenco completo dei filtri, vedere [Impostazioni dei filtri][].
 
@@ -178,7 +164,7 @@ SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'uti
 			{"settings": 
         	{"enable":1}}}}");
 
-## <a name="bkmk_HowToUpdateEmail"> </a>Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
+## Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
 
 Alcune proprietà relative alla posta elettronica possono essere sovrascritte usando **set*Property*** oppure aggiunte usando **add*Property***.
 
@@ -195,11 +181,11 @@ Per aggiungere un destinatario **Cc**, usare il codice seguente:
     message.addRecipient(Message.RecipientType.CC, new 
     InternetAddress("john@contoso.com"));
 
-## <a name="bkmk_HowToUseAdditionalSvcs"> </a>Procedura: Usare servizi aggiuntivi forniti da SendGrid
+## Procedura: Usare servizi aggiuntivi forniti da SendGrid
 
 SendGrid offre API basate sul Web che è possibile usare per sfruttare altre funzionalità di SendGrid dall'applicazione Azure. Per informazioni dettagliate, vedere la [documentazione sull'API SendGrid][].
 
-## <a name="bkmk_NextSteps"> </a>Passaggi successivi
+## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, è possibile usare i collegamenti seguenti per ottenere altre informazioni.
 
@@ -208,17 +194,6 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
 * Documentazione sull'API SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
 * Offerta speciale SendGrid per i clienti di Azure: <https://sendgrid.com/windowsazure.html>
 
-  [Passaggi successivi]: #bkmk_NextSteps
-  [Informazioni sul servizio di posta elettronica SendGrid]: #bkmk_WhatIsSendGrid
-  [Creare un account SendGrid]: #bkmk_CreateSendGridAcct
-  [Procedura: Usare le librerie javax.mail]: #bkmk_HowToUseJavax
-  [Procedura: Creare un messaggio di posta elettronica]: #bkmk_HowToCreateEmail
-  [How to: Send an Email]: #bkmk_HowToSendEmail
-  [Procedura: Inviare un messaggio di posta elettronica]: #bkmk_HowToSendEmail
-  [Procedura: Aggiungere un allegato]: #bkmk_HowToAddAttachment
-  [Procedura: Usare filtri per abilitare piè di pagina, monitoraggio e analisi]: #bkmk_HowToUseFilters
-  [Procedura: Aggiornare le proprietà dei messaggi di posta elettronica]: #bkmk_HowToUpdateEmail
-  [Procedura: Usare servizi aggiuntivi forniti da SendGrid]: #bkmk_HowToUseAdditionalSvcs
   [http://sendgrid.com]: https://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
   [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
@@ -230,4 +205,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
   [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

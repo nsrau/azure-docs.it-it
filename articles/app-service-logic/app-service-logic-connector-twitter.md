@@ -1,90 +1,82 @@
 <properties
-   pageTitle="Uso di Twitter Connector nel servizio app di Microsoft Azure"
-   description="Come usare l'app per le API Twitter Connector"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del connettore Twitter nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore Twitter e usarlo in un'app per la logica in Azure App Service"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Twitter Connector
+# Uso del connettore Twitter e aggiunta all'app per la logica
+Connettersi al feed di Twitter per inviare e ricevere tweet dalla propria sequenza temporale, dalla sequenza temporale degli amici e dai follower dell'account Twitter. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore Twitter nel flusso di lavoro, si può ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
-Connettersi al feed di Twitter per inviare e ricevere tweet dalla propria sequenza temporale, dalla sequenza temporale degli amici e dai follower dell'account Twitter. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa Twitter Connector nel flusso di lavoro, si può ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
-
-- Ottenere nuovi tweet associati a una parola chiave o un testo specificato. Quando viene recuperato un nuovo tweet, questo attiva una nuova istanza del flusso di lavoro e passa i dati al connettore successivo nel flusso di lavoro. Ad esempio, si crea Twitter Connector e si usa il trigger New Tweet From Search per monitorare #peanutbutterandjelly. Ogni volta che viene rilevato un nuovo tweet per #peanutbutterandjelly, il flusso di lavoro (detto anche app per la logica) viene attivato automaticamente.
+- Ottenere nuovi tweet associati a una parola chiave o un testo specificato. Quando viene recuperato un nuovo tweet, questo attiva una nuova istanza del flusso di lavoro e passa i dati al connettore successivo nel flusso di lavoro. Ad esempio, si crea il connettore Twitter e si usa il trigger New Tweet From Search per monitorare #peanutbutterandjelly. Ogni volta che viene rilevato un nuovo tweet per #peanutbutterandjelly, il flusso di lavoro (detto anche app per la logica) viene attivato automaticamente.
 - Usando le diverse azioni, ad esempio "Search Tweets", è possibile accettare la risposta e usarla nel flusso di lavoro. Ad esempio, è possibile cercare i tweet in base al nome della società. Quando si trovano, è possibile usare un'app per la logica per scrivere i dati in un database SQL Server. Usare quindi i dati di SQL Server per determinare cosa viene pubblicato su Twitter riguardo alla società. 
-- Usare tutti gli operatori nella [Ricerca di Twitter](https://twitter.com/search). Selezionare il collegamento degli **operatori**. Twitter Connector supporta tutti gli operatori elencati.
+- Usare tutti gli operatori nella [Ricerca di Twitter](https://twitter.com/search). Selezionare il collegamento degli **operatori**. Il connettore Twitter supporta tutti gli operatori elencati.
 
 
 ## Trigger e azioni
 I *trigger* sono eventi che si verificano, ad esempio, un nuovo tweet può attivare o avviare un flusso di lavoro o un processo. Un'*azione* è il risultato di un evento. Ad esempio, è possibile cercare un tweet specifico e, quando lo si trova, inviare un messaggio di posta elettronica o aggiornare un database.
 
-Twitter Connector può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML.
+connettore Twitter può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML.
 
-Per Twitter Connector sono disponibili i trigger e le azioni seguenti:
+Per il connettore Twitter sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
 New Tweet From Search | <ul><li>Get User Timeline</li><li>Search Tweets</li><li>Tweet</li><li>Get Mentions Timeline</li><li>Get Home Timeline</li><li>Get Followers</li><li>Get Friends</li><li>Get User Details</li><li>Tweet to User</li><li>Send Direct Message</li></ul>
 
-> [AZURE.IMPORTANT] Il trigger **New Tweet** è stato archiviato. Attualmente è ancora disponibile come operazione avanzata e può essere usato. L'azione **Retweet** è stata rimossa e non è più supportata. Se si usa l'azione Retweet, genera un errore in fase di esecuzione. Di conseguenza, è opportuno rimuovere l'azione Retweet dalle app per la logica.
+Il trigger **New Tweet** è stato archiviato. Attualmente è ancora disponibile come operazione avanzata e può essere usato. L'azione **Retweet** è stata rimossa e non è più supportata. Se si usa l'azione Retweet, genera un errore in fase di esecuzione. Di conseguenza, è opportuno rimuovere l'azione Retweet dalle app per la logica.
 
 
-## Creare Twitter Connector
+## Creare il connettore Twitter
 
-> [AZURE.IMPORTANT]Per creare un Twitter Connector è attualmente necessario registrare un'app per le API in Twitter. È possibile registrare gratuitamente un'applicazione all'indirizzo [http://apps.twitter.com](http://apps.twitter.com). Per creare un connettore saranno necessari una chiave e un segreto di API per Twitter.
+> [AZURE.IMPORTANT]Per creare un connettore Twitter è attualmente necessario registrare un'app per le API in Twitter. È possibile registrare gratuitamente un'applicazione all'indirizzo [http://apps.twitter.com](http://apps.twitter.com). Per creare un connettore saranno necessari una chiave e un segreto di API per Twitter.
 
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
-1. Creare un'applicazione gratuita per Twitter all'indirizzo [http://apps.twitter.com](http://apps.twitter.com)
+1. Creare un'applicazione gratuita per Twitter all'indirizzo [http://apps.twitter.com](http://apps.twitter.com).
     * Durante la registrazione dell'app, è possibile inserire qualsiasi URL per il sito Web e lasciare vuoto l'URL per il callback.
 2. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Cercare "Twitter Connector".
-3. Selezionare "Twitter Connector" e fare clic su "Crea". Verrà aperto il pannello Crea.
-3. Fare clic su 'Impostazioni del pacchetto' e incollare il valore di 'Consumer Key' dall'app Twitter al campo 'clientId'. Incollare il valore di 'Consumer Secret' dall'app Twitter al campo 'clientSecret'.
- ![][10]
-4. Immettere altre impostazioni necessarie relative al nome, al servizio app e al gruppo di risorse del connettore.
-5.	Fare clic su **Crea**.
+3. Cercare "Twitter Connector", selezionarlo e fare clic su **Crea**.
+4. Fare clic su 'Impostazioni del pacchetto' e incollare il valore di 'Consumer Key' dall'app Twitter al campo 'clientId'. Incollare il valore di 'Consumer Secret' dall'app Twitter al campo 'clientSecret': ![][10]
+5. Immettere altre impostazioni necessarie relative al nome, al servizio app e al gruppo di risorse del connettore.
+6.	Fare clic su **Crea**.
 
-> [AZURE.NOTE]Per proteggere ulteriormente l'API Twitter con l'URL di reindirizzamento, è possibile eseguire la procedura dettagliata disponibile [qui](app-service-logic-oauth-security.md)
+> [AZURE.NOTE]Per proteggere ulteriormente l'API Twitter con l'URL di reindirizzamento, è possibile eseguire la procedura dettagliata disponibile in [questo articolo](app-service-logic-oauth-security.md).
 
 
-## Uso del connettore Twitter nell'app per la logica
-Dopo aver creato l'app per le API, si può usare Twitter Connector come trigger o azione per le app per la logica. A tale scopo, effettuare l'operazione seguente:
+## Usare il connettore Twitter nell'app per la logica
+Dopo aver creato l'app per le API, è possibile usare il connettore Twitter come trigger o azione per l'app per la logica. A tale scopo, seguire questa procedura:
 
-1.	Creare una nuova app per la logica o aprirne una esistente:
-
+1.	Creare una nuova app per la logica o aprirne una esistente: 
 	![][2]
-2.	Aprire **Trigger e azioni** per visualizzare la finestra di progettazione delle app per la logica:
-
+2.	Aprire **Triggers and Actions** per visualizzare la finestra di progettazione delle app per la logica: 
 	![][3]
-3.	Twitter Connector è elencato sul lato destro. Selezionarlo per aggiungerlo automaticamente all'app per la logica.
-
+3.	Il connettore Twitter è elencato sul lato destro. Selezionarlo per aggiungerlo automaticamente all'app per la logica: 
 	![][4]
-4.	Selezionare **Authorize**, immettere le credenziali di Twitter e selezionare **Authorize app**:
-
+4.	Selezionare **Authorize**, immettere le credenziali di Twitter e selezionare **Authorize app**: 
 	![][5]
 
 
-È ora possibile configurare Twitter Connector per compilare il flusso di lavoro. I tweet recuperati dal trigger Twitter possono essere usati in altre azioni del flusso:
+È ora possibile configurare il connettore Twitter per compilare il flusso di lavoro. I tweet recuperati dal trigger Twitter possono essere usati in altre azioni del flusso: 
+	![][6]
 
-![][6]
+In modo analogo, si possono usare le azioni Twitter nel flusso. Selezionare un'azione Twitter e configurare gli input per l'azione: 
+	![][7] 
+	![][8]
 
-In modo analogo, si possono usare le azioni Twitter nel flusso. Selezionare un'azione Twitter e configurare gli input per l'azione:
-
-![][7] ![][8]
-
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -103,4 +95,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

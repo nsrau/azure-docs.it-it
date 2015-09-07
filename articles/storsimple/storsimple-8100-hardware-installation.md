@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Installare il dispositivo StorSimple 8100 | Microsoft Azure"
-   description="In questo argomento viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8100."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8100 prima di distribuire e configurare il software."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# Installare il dispositivo StorSimple 8100
+# Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
 
 ## Panoramica
 
@@ -275,4 +275,4 @@ Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello 
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

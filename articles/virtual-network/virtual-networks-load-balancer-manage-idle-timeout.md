@@ -1,22 +1,20 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Gestione: timeout di inattività del servizio di bilanciamento del carico" 
-   description="Funzionalità di gestione per il timeout di inattività del servizio di bilanciamento carico di Azure" 
-   services="virtual-network" 
-   />
+   authors="danielceckert"
+	documentationCenter="dev-center-name"
+	editor=""
+	manager="jefco"
+	pageTitle="Gestione: timeout di inattività del servizio di bilanciamento del carico"
+	description="Funzionalità di gestione per il timeout di inattività del servizio di bilanciamento carico di Azure"
+	services="virtual-network"/>
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   />
+	ms.date="05/27/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
    
 # Gestione della rete virtuale: timeout di inattività TCP del servizio di bilanciamento del carico
 
@@ -34,8 +32,8 @@ Per supportare scenari di dispositivi mobili, il servizio di bilanciamento del c
 
 Il timeout di inattività TCP può essere configurato per:
 
-* [Indirizzi IP pubblici a livello di istanza](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [Set di endpoint con carico bilanciato](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Indirizzi IP pubblici a livello di istanza](virtual-networks-instance-level-public-ip.md)
+* [Set di endpoint con carico bilanciato](../load-balancer/load-balancer-overview.md)
 * [Endpoint di macchina virtuale](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [Ruoli Web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Ruoli di lavoro](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -152,4 +150,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

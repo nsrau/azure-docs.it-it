@@ -18,7 +18,7 @@
 	ms.author="jgao"/>
 
 
-#Usare l'archiviazione BLOB di Azure compatibile con HDFS con Hadoop in HDInsight
+# Usare l'archiviazione BLOB di Azure compatibile con HDFS con Hadoop in HDInsight
 
 In questa esercitazione viene descritto come usare l'archiviazione BLOB di Azure a basso costo con HDInsight, creare un account di archiviazione di Azure e un contenitore di archiviazione BLOB e quindi indirizzare i dati al suo interno.
 
@@ -35,7 +35,7 @@ L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura 
 Per informazioni sul provisioning di un cluster HDInsight, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
 
 
-##<a id="architecture"></a>Architettura di archiviazione di HDInsight
+## <a id="architecture"></a>Architettura di archiviazione di HDInsight
 Nel diagramma seguente viene mostrata una visualizzazione astratta dell'architettura di archiviazione di HDInsight:
 
 ![I cluster Hadoop usano l'API HDFS per accedere e archiviare dati strutturati e non strutturati nell'archiviazione BLOB.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architettura di archiviazione di HDInsight")
@@ -77,13 +77,13 @@ L'archiviazione dei dati nell'archiviazione BLOB di Azure anziché in HDFS offre
 * **Archiviazione dei dati:** l'archiviazione dei dati nell'archiviazione BLOB di Azure consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 * **Costo di archiviazione dei dati:** l'archiviazione a lungo termine dei dati in DFS è più costosa rispetto all'archiviazione BLOB di Azure, in quanto il costo di un cluster di calcolo è più alto di quello di un contenitore di archiviazione BLOB di Azure. Poiché, inoltre, non è necessario ricaricare i dati ogni volta che si genera un cluster di calcolo, si risparmiano anche i costi di caricamento dei dati.
 * **Scalabilità orizzontale elastica:** anche se HDFS offre scalabilità orizzontale del file system, la scala è determinata dal numero di nodi di cui si effettua il provisioning per il cluster. Modificare la scala può diventare quindi un processo più complicato rispetto al semplice fare affidamento sulla scalabilità elastica offerta automaticamente dall'archiviazione BLOB di Azure.
-* **Replica geografica:** è possibile eseguire la replica geografica dei contenitori di archiviazione BLOB di Azure. Sebbene questo offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È quindi consigliabile scegliere la replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
+* **Replica geografica:** è possibile eseguire la replica geografica dei contenitori di archiviazione BLOB di Azure. Sebbene questo offra ripristino geografico e ridondanza dei dati, un failover nella posizione sottoposta a replica geografica incide molto negativamente sulle prestazioni e può comportare costi aggiuntivi. È pertanto consigliabile scegliere la scelta della replica geografica con oculatezza e solo se il valore dei dati giustifica i costi aggiuntivi.
 
 Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non vale la pena di archiviare nell'archiviazione BLOB di Azure. In questo caso, è possibile scegliere di archiviare i dati nel file system HDFS locale. In effetti, HDInsight usa DFS per molti di questi risultati intermedi nei processi Hive e in altri processi.
 
 
 
-##<a id="preparingblobstorage"></a>Creare un contenitore BLOB
+## <a id="preparingblobstorage"></a>Creare un contenitore BLOB
 
 Per usare i BLOB, è necessario creare innanzitutto un [account di archiviazione di Azure][azure-storage-create]. Nel corso di questa procedura si specifica il data center di Azure in cui verranno archiviati gli oggetti creati usando questo account. L'account di archiviazione deve trovarsi nello stesso data center del cluster. Il database SQL Server del metastore Hive, inoltre, deve trovarsi nello stesso data center del database SQL Server del metastore Oozie.
 
@@ -92,7 +92,7 @@ Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente 
 Non condividere un contenitore di archiviazione predefinito con più cluster HDInsight. Se è necessario usare un contenitore condiviso per consentire l'accesso ai dati a più cluster HDInsight, è possibile aggiungerlo come ulteriore account di archiviazione nella configurazione del cluster. Per altre informazioni, vedere [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. È comunque possibile riusare un contenitore di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase, in realtà, è possibile mantenere i dati e lo schema della tabella HBase effettuare il provisioning di un nuovo cluster HBase tramite il contenitore di archiviazione BLOB predefinito usato da un cluster HBase eliminato.
 
 
-###Utilizzo del Portale di anteprima di Azure
+### Utilizzo del Portale di anteprima di Azure
 
 Durante il provisioning di un cluster HDInsight dal portale di anteprima, sono disponibili le opzioni per utilizzare un account di archiviazione esistente o creare un nuovo account di archiviazione:
 
@@ -116,7 +116,7 @@ Per creare un contenitore, usare il comando seguente:
 
 	azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-###Uso di Azure PowerShell
+### Uso di Azure PowerShell
 
 Se è stato [installato e configurato Azure PowerShell][powershell-install], è possibile usare il comando seguente del prompt di Azure PowerShell per creare un account di archiviazione e un contenitore:
 
@@ -136,7 +136,7 @@ Se è stato [installato e configurato Azure PowerShell][powershell-install], è 
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-##<a id="addressing"></a>Riferimenti a file nell'archiviazione BLOB
+## <a id="addressing"></a>Riferimenti a file nell'archiviazione BLOB
 
 Lo schema URI per l'accesso ai file nell'archiviazione BLOB da HDInsight è il seguente:
 
@@ -166,7 +166,7 @@ Se non viene specificato né &lt;BlobStorageContainerName&gt; né &lt;StorageAcc
 
 > [AZURE.NOTE]Quando si usano i BLOB al di fuori di HDInsight, la maggior parte delle utilità non riconosce il formato WASB e richiede invece un formato del percorso di base, ad esempio `example/jars/hadoop-mapreduce-examples.jar`.
 
-##<a id="azurecli"></a>BLOB di accesso con l’interfaccia della riga di comando di Azure
+## <a id="azurecli"></a>BLOB di accesso con l’interfaccia della riga di comando di Azure
 
 Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
 
@@ -188,7 +188,7 @@ Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>BLOB di accesso con Azure PowerShell
+## <a id="powershell"></a>BLOB di accesso con Azure PowerShell
 
 > [AZURE.NOTE]I comandi in questa sezione forniscono un esempio di base dell'utilizzo di PowerShell per accedere ai dati archiviati nei BLOB. Per un esempio completo personalizzato per l'utilizzo di HDInsight, vedere [Strumenti HDInsight](https://github.com/Blackmist/hdinsight-tools).
 
@@ -290,13 +290,13 @@ Questo esempio illustra come elencare una cartella da un account di archiviazion
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-##<a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 
 In questo articolo si è appreso come usare l'archiviazione BLOB di Azure compatibile con HDFS con HDInsight e come l'archiviazione BLOB di Azure sia un componente fondamentale di HDInsight. In questo modo sarà possibile creare soluzioni scalabili di acquisizione e archiviazione a lungo termine dei dati con l'archiviazione BLOB di Azure e usare HDInsight per sbloccare le informazioni all'interno dei dati strutturati e non strutturati archiviati.
 
-Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni, vedere:
 
-* [Introduzione all'uso di Azure HDInsight][hdinsight-get-started]
+* [Introduzione ad Azure HDInsight][hdinsight-get-started]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Usare Hive con HDInsight][hdinsight-use-hive]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
@@ -315,4 +315,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

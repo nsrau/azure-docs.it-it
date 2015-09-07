@@ -1,20 +1,20 @@
 <properties
    pageTitle="Considerazioni sulle prestazioni per Gestione traffico di Azure | Microsoft Azure"
-   description="Informazioni sulle prestazioni in Gestione traffico e su come testare le prestazioni in un sito Web quando si usa Gestione traffico"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="kwill-MSFT"
-   manager="adinah"
-   editor="joaoma" />
+	description="Informazioni sulle prestazioni in Gestione traffico e su come testare le prestazioni in un sito Web quando si usa Gestione traffico"
+	services="traffic-manager"
+	documentationCenter=""
+	authors="kwill-MSFT"
+	manager="adinah"
+	editor="joaoma"/>
 
 <tags 
    ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2015"
+	ms.author="joaoma"/>
 
 
 # Considerazioni sulle prestazioni per Gestione traffico
@@ -28,7 +28,7 @@ Questa pagina illustrerà l'impatto diretto sulle prestazioni causato da Gestion
 
 ## Nota importante sul funzionamento di Gestione traffico
 
-http://msdn.microsoft.com/library/windowsazure/hh744833.aspx è un'eccellente risorsa per ottenere informazioni su come funziona Gestione traffico, ma la pagina contiene numerose informazioni e può essere difficile individuare i dati chiave relativi alle prestazioni. I punti importanti da esaminare nella documentazione MSDN sono i passaggi 5 e 6 della figura 3, che vengono illustrati più in dettaglio qui di seguito:
+[Panoramica di Gestione traffico](traffic-manager-overview.md) è un'eccellente risorsa per ottenere informazioni su come funziona Gestione traffico, ma la pagina contiene numerose informazioni e può essere difficile individuare i dati chiave relativi alle prestazioni. I punti importanti da esaminare nella documentazione MSDN sono i passaggi 5 e 6 della figura 3, che vengono illustrati più in dettaglio qui di seguito:
 
 - Gestione traffico essenzialmente esegue solo un'azione, ovvero la risoluzione DNS. Questo significa che l'unico impatto sulle prestazioni prodotto da Gestione traffico in un sito Web è la ricerca DNS iniziale.
 - Segue una spiegazione della ricerca DNS di Gestione traffico. Gestione traffico inserisce dati e aggiorna regolarmente i server radice DNS Microsoft normali in base ai criteri e ai risultati dei probe. Anche durante la ricerca DNS iniziale non esiste quindi alcun coinvolgimento da parte di Gestione traffico, poiché la richiesta DNS viene gestita dai normali server radice DNS Microsoft. In caso di inattività di Gestione traffico, ad esempio per un errore nelle macchine virtuali che eseguono il probe dei criteri e l'aggiornamento DNS, non si verificherà alcun impatto sul nome DNS di Gestione traffico poiché queste voci nei server DNS Microsoft continueranno a essere mantenute. Come unico effetto non verranno eseguiti il probe e l'aggiornamento in base ai criteri, ovvero se il sito primario diventa inattivo, Gestione traffico non sarà in grado di aggiornare il DNS in modo che punti al sito di failover.
@@ -98,4 +98,4 @@ Sulla base delle informazioni precedenti, l'unico impatto sulle prestazioni prod
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

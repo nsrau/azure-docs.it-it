@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Connettore file system - Spostare i dati da e verso il file system locale" 
-	description="Informazioni sul connettore file system per il servizio Data factory che consente di spostare i dati dal e verso il file system locale" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare i dati da e verso il file system | Data factory di Azure"
+	description="Informazioni su come spostare i dati da e verso il file system locale usando Data factory di Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Connettore file system - spostare i dati da e verso il file system locale
+# Spostare i dati da e verso il file system locale usando Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia in una data factory per spostare dati da e verso un file system locale. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -35,15 +35,15 @@ Eseguire i due passaggi seguenti per usare una condivisione di file Linux con il
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo OnPremisesFileServer.
-2.	Un servizio collegato di tipo AzureStorage.
-3.	Un set di dati di input di tipo FileShare.
-4.	Un set di dati di output di tipo AzureBlob.
-4.	La pipeline con attività di copia che usa FileSystemSource e BlobSink. 
+1.	Un servizio collegato di tipo [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
+2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 L'esempio seguente copia i dati appartenenti a una serie temporale dal file system locale a BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-Per prima cosa, impostare il Gateway di gestione dati seguendo le istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
+Innanzitutto, impostare il Gateway di gestione dati in base alle istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servizio collegato del file server locale:**
 
@@ -52,7 +52,7 @@ Per prima cosa, impostare il Gateway di gestione dati seguendo le istruzioni con
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -196,7 +196,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **FileSystemSource** e il tipo **sink** è impostato su **BlobSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **FileSystemSource** e il tipo di **sink** è impostato su **BlobSink**.
 	
 	{  
 	    "name":"SamplePipeline",
@@ -273,7 +273,7 @@ L'esempio copia i dati appartenenti a una serie temporale da una tabella nel dat
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -372,7 +372,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 	  }
 	}
 
-**Pipeline con un'attività di copia:** la pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **SqlSource** e il tipo **sink** è impostato su **FileSystemSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
+**Pipeline con un'attività di copia:** la pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlSource** e il tipo di **sink** è impostato su **FileSystemSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
 
 	
 	{  
@@ -399,7 +399,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -427,11 +427,13 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 type | La proprietà type deve essere impostata su **OnPremisesFileServer**. | Sì 
-host | Nome host del server. Usare ' \\ ' come carattere di escape, come nell'esempio seguente: se la condivisione è: \\servername, specificare \\\\servername.<p>Se il file system è locale rispetto al computer gateway, usare Local o localhost. Se il file system si trova su un server diverso dal computer gateway, usare \\\\servername.</p> | Sì
-userid | Specificare l'ID dell'utente che ha accesso al server | No (se si sceglie encryptedcredential)
-Password | Specificare la password per l'utente (userid) | No (se si sceglie encryptedcredential) 
-Encryptedcredential | Specificare le credenziali crittografate che è possibile ottenere eseguendo il cmdlet New-AzureDataFactoryEncryptValue<p>**Nota:** è necessario usare Azure PowerShell versione 0.8.14 o successiva per usare cmdlet come New-AzureDataFactoryEncryptValue con il parametro del tipo impostato su OnPremisesFileSystemLinkedService</p> | No (se si sceglie di specificare ID utente e password in testo normale)
-Gatewayname | Nome del gateway che il servizio Data factory deve usare per connettersi al database del file server locale | Sì
+host | Nome host del server. Usare ' \\ ' come carattere di escape, come nell'esempio seguente: se la condivisione è: \\servername, specificare \\\servername.<p>Se il file system è locale rispetto al computer gateway, usare Local o localhost. Se il file system si trova su un server diverso dal computer gateway, usare \\\servername.</p> | Sì
+userid | Specificare l'ID dell'utente che ha accesso al server | No (se si sceglie encryptedCredential)
+password | Specificare la password per l'utente (userid) | No (se si sceglie encryptedCredential) 
+encryptedCredential | Specificare le credenziali crittografate che è possibile ottenere eseguendo il cmdlet New-AzureDataFactoryEncryptValue<p>**Nota:** è necessario usare Azure PowerShell 0.8.14 o versione successiva per usare cmdlet come New-AzureDataFactoryEncryptValue con il parametro type impostato su OnPremisesFileSystemLinkedService</p> | No (se si sceglie di specificare ID utente e password in testo normale)
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database del file server locale | Sì
+
+Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati File System locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 **Esempio: Uso di nome utente e password in testo normale**
 	
@@ -440,7 +442,7 @@ Gatewayname | Nome del gateway che il servizio Data factory deve usare per conne
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -456,7 +458,7 @@ Gatewayname | Nome del gateway che il servizio Data factory deve usare per conne
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
 	      "host": "localhost",
-	      "encryptedcredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+	      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
 	      "gatewayName": "mygateway"
 	    }
 	  }
@@ -464,7 +466,7 @@ Gatewayname | Nome del gateway che il servizio Data factory deve usare per conne
 
 ## Proprietà del tipo del set di dati del file system locale
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure, file system locale e così via).
+Per un elenco completo delle proprietà e delle sezioni disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure, file system locale e così via).
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **FileShare** presenta le proprietà seguenti.
 
@@ -473,7 +475,7 @@ Proprietà | Descrizione | Obbligatorio
 folderPath | Percorso della cartella. Esempio: myfolder<p>Usare il carattere di escape ' \\ ' per i caratteri speciali nella stringa. Ad esempio: per folder\\subfolder, specificare folder\\subfolder e per d:\\samplefolder, specificare d:\\samplefolder.</p><p>È possibile unire questi percorsi a **partitionBy** per ottenere percorsi delle cartelle basati sull'intervallo di data di inizio e fine della sezione.</p> | Sì
 fileName | Specificare il nome del file in **folderPath** se si desidera che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<p>Quando fileName non è specificato per un set di dati di output, il nome del file generato è nel formato seguente:</p><p>Data.<Guid>.txt (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | No
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
-Format | Sono supportati due tipi di formati: **TextFormat**, **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. | No
+Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <p>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).</p><p>Esempio 1: "fileFilter": "*.log"</p>Esempio 2: "fileFilter": 2014-1-?.txt"</p><p>**Nota**: fileFilter è applicabile per un set di dati di input FileShare</p> | No
 
 > [AZURE.NOTE]filename e fileFilter non possono essere usati contemporaneamente.
@@ -482,7 +484,7 @@ fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di f
 
 Come indicato sopra, partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. È possibile eseguire questa operazione con le macro della data factory e le variabili di sistema SliceStart, SliceEnd, che indicano il periodo di tempo logico per una sezione di dati specificata.
 
-Vedere gli articoli sulla [creazione di set di dati](data-factory-create-datasets.md), [pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) e [creazione di pipeline](data-factory-create-pipelines.md) per ulteriori dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni.
+Per altri dettagli sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md), [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md) e [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
 
 #### Esempio 1.
 
@@ -492,7 +494,7 @@ Vedere gli articoli sulla [creazione di set di dati](data-factory-create-dataset
 	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 	],
 
-Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile di sistema SliceStart della data factory nel formato (AAAAMMGGHH) specificato. SliceStart fa riferimento all'ora di inizio della sezione. folderPath è diverso per ogni sezione. Ad esempio: wikisampledataout/wikidatagateway/2014100103 o wikisampledataout/wikidatagateway/2014100104.
+Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile di sistema SliceStart della data factory nel formato (AAAAMMGGHH) specificato. SliceStart fa riferimento all'ora di inizio della sezione. La proprietà folderPath è diversa per ogni sezione. Ad esempio: wikisampledataout/wikidatagateway/2014100103 o wikisampledataout/wikidatagateway/2014100104.
 
 #### Esempio 2:
 
@@ -508,7 +510,7 @@ Nell'esempio precedente, {Slice} viene sostituito con il valore della variabile 
 
 Nell'esempio precedente, anno, mese, giorno e ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
 
-### Indicazione di TextFormat
+### Specifica di TextFormat
 
 Se il formato è impostato su **TextFormat**, è possibile specificare le proprietà **facoltative** seguenti nella sezione **Format** all'interno della sezione **typeProperties**.
 
@@ -516,10 +518,10 @@ Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 columnDelimiter | Carattere/i usato/i come separatore di colonne in un file. Il valore predefinito è la virgola (,). | No
 rowDelimiter | Carattere/i usato/i come separatore raw in un file. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No
-escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Non è impostato un valore predefinito. È necessario specificare non più di un carattere per questa proprietà.<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
-quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Non è impostato un valore predefinito. È necessario specificare non più di un carattere per questa proprietà.<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire ‘"’ come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
+escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
+quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No
 nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Il valore predefinito è "\\N".> | No
-encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. <p>Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è: UTF-8.</p> | No
+encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà Encoding.EncodingName. <p>Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8.</p> | No
 
 #### Esempi:
 
@@ -539,11 +541,11 @@ L'esempio seguente illustra alcune delle proprietà del formato per **TextFormat
 	    }
 	},
 
-Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con gli elementi seguenti:
+Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con la stringa seguente:
 
 	"escapeChar": "$",
 
-### Indicazione di AvroFormat
+### Specifica di AvroFormat
 
 Se il formato è impostato su **AvroFormat**, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
@@ -556,7 +558,7 @@ Per usare il formato Avro in una tabella Hive successiva, fare riferimento all'[
 
 ## Proprietà del tipo per l'attività di copia di una condivisione file
 
-**FileSystemSource** e **FileSystemSink** attualmente non supportano proprietà.
+**FileSystemSource** e **FileSystemSink** attualmente non supportano alcuna proprietà.
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -571,4 +573,4 @@ Per usare il formato Avro in una tabella Hive successiva, fare riferimento all'[
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

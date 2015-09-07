@@ -1,36 +1,37 @@
 <properties
-   pageTitle="Uso del connettore SQL nel servizio app di Microsoft Azure"
-   description="Come usare SQL Connector"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del connettore SQL nelle app per la logica | Microsoft Azure App Service"
+	description="Come creare e configurare l'app per le API o il connettore SQL e usarlo in un'app per la logica in Azure App Service"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Microsoft SQL Connector
-
+# Uso del connettore Microsoft SQL e aggiunta all'app per la logica
 Connettersi a un'istanza di SQL Server in locale o a un database SQL di Azure per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore SQL nel flusso di lavoro è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
 - Esporre una sezione dei dati presenti nel database SQL usando un'applicazione Web o per dispositivi mobili.
 - Inserire dati in una tabella del database SQL per l'archiviazione. È ad esempio possibile immettere i record dei dipendenti, aggiornare gli ordini di vendita e così via.
-- Ottenere dati da SQL per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in SalesForce.
+- Ottenere dati da SQL per usarli in un processo aziendale. È ad esempio possibile ottenere i record cliente e inserirli in Salesforce.
+
+È possibile aggiungere il connettore SQL al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 ## Trigger e azioni
 I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Quando ad esempio si aggiorna un ordine, viene inviato un avviso al venditore oppure quando si aggiunge un nuovo cliente, viene inviato un messaggio di benvenuto.
 
 Il connettore SQL può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML.
 
-Il connettore SQL ha a disposizione i trigger e le azioni seguenti:
+Per il connettore SQL sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
@@ -41,7 +42,7 @@ Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From T
 È possibile creare un connettore nell'ambito di un'app per la logica oppure crearlo direttamente da Azure Marketplace. Per creare un connettore da Marketplace:
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
-2. Cercare "Connettore SQL", selezionarlo e scegliere **Crea**.
+2. Cercare "SQL Connector", selezionarlo e fare clic su **Crea**.
 3. Immettere il nome, il piano di servizio app e altre proprietà.
 4. Immettere le impostazioni pacchetto seguenti:
 
@@ -57,13 +58,12 @@ Service Bus Connection String | No | Se ci si connette in locale, immettere la s
 Partner Server Name | No | Se il server primario non è disponibile, è possibile immettere un server partner come server alternativo o di backup.
 Tables | No | Elencare le tabelle di database che possono essere aggiornate dal connettore. Immettere ad esempio *OrdersTable* o *EmployeeTable*. Se non viene immessa alcuna tabella, è possibile usare tutte le tabelle. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
 Stored procedure | No | Immettere una stored procedure esistente che può essere chiamata dal connettore, ad esempio *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
-Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table\_name. 
-Poll Data Query | Per il supporto dei trigger | L'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati.
+Data Available Query | Per il supporto dei trigger | Istruzione SQL per determinare se sono disponibili dati per il polling di una tabella di database di SQL Server. Deve restituire un valore numerico che rappresenta il numero di righe di dati disponibili. Esempio: SELECT COUNT(*) from table\_name. Poll Data Query | Per il supporto dei trigger | L'istruzione SQL per eseguire il polling della tabella di database di SQL Server. È possibile immettere un numero qualsiasi di istruzioni SQL, separate da punto e virgola. Questa istruzione viene eseguita a livello di transazione e ne viene eseguito il commit solo quando i dati vengono archiviati in modo sicuro nell'app per la logica. Esempio: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Nota**<br/>È necessario fornire un'istruzione di polling che evita un ciclo infinito eliminando, spostando o aggiornando i dati selezionati per garantire che non venga eseguito di nuovo il polling degli stessi dati.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto dovrebbe essere simile al seguente:
- ![][1]
+5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:  
+![][1]
 
-6. Selezionare **Crea**.
+6. Selezionare **Create**.
 
 
 ## Usare il connettore come trigger
@@ -89,35 +89,31 @@ Per usare il connettore SQL come trigger, immettere i valori per **Data Availabl
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Aggiungere il trigger
-1. Quando si crea o modifica un'app per la logica, selezionare il connettore SQL creato come trigger. In questo modo verranno elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**: <br/>
- ![][5]
+1. Quando si crea o modifica un'app per la logica, selezionare il connettore SQL creato come trigger. In questo modo vengono elencati i trigger disponibili, ovvero **Poll Data (JSON)** e **Poll Data (XML)**:  
+![][5]
 
-2. Selezionare il trigger **Poll Data (JSON)**, immettere la frequenza e fare clic su ✓: <br/>
- ![][6]
+2. Selezionare il trigger **Poll Data (JSON)**, immettere la frequenza e fare clic su ✓:  
+![][6]
 
-3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive: <br/>
- ![][7]
+3. Il trigger viene ora visualizzato come configurato nell'app per la logica. Vengono visualizzati gli output del trigger, che possono essere usati come input in eventuali azioni successive:  
+![][7]
 
 ## Usare il connettore come azione
 Usando un semplice scenario di app per la logica che esegue il polling dei dati da una tabella SQL, tali dati vengono aggiunti a un'altra tabella e quindi aggiornati.
 
 Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o delle stored procedure immesse durante la creazione del connettore SQL:
 
-1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), aggiungere il connettore SQL creato dalla raccolta. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*: 
-<br/>
- ![][8]
+1. Dopo il trigger (o dopo aver scelto di eseguire la logica manualmente), aggiungere il connettore SQL creato dalla raccolta. Selezionare una delle azioni di inserimento, ad esempio *Insert Into TempEmployeeDetails (JSON)*:  
+![][8]
 
 2. Immettere i valori di input del record da inserire e fare clic su ✓: 
-<br/>
- ![][9]
+![][9]
 
 3. Dalla raccolta, selezionare lo stesso connettore SQL creato. Come azione, selezionare l'azione Update nella stessa tabella, ad esempio *Update EmployeeDetails*: 
-<br/>
- ![][11]
+![][11]
 
 4. Immettere i valori di input per l'azione di aggiornamento e fare clic su ✓: 
-<br/>
- ![][12]
+![][12]
 
 È possibile testare l'app per la logica aggiungendo un nuovo record alla tabella di cui viene effettuato il polling.
 
@@ -143,7 +139,7 @@ Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro a
 Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
 
 
-## Più vantaggi con il connettore
+## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
@@ -162,4 +158,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

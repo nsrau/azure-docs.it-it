@@ -1,25 +1,25 @@
 <properties
    pageTitle="Delegare il dominio a DNS di Azure | Microsoft Azure"
-   description="Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio"
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
-   editor=""/>
+	description="Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 
 # Delegare un dominio a DNS di Azure
 
-DNS di Azure è un servizio di hosting per i domini DNS. Per consentire l'esecuzione di query DNS in modo che un dominio raggiunga DNS di Azure, il dominio deve essere delegato a DNS di Azure dal dominio padre. Questa pagina illustra il funzionamento della delega di dominio e come delegare domini a DNS di Azure.
+DNS di Azure è un servizio di hosting per i domini DNS. Per consentire l'esecuzione di query DNS in modo che un dominio raggiunga DNS di Azure, il dominio deve essere delegato a DNS di Azure dal dominio padre. Questo articolo illustra il funzionamento della delega di dominio e come delegare domini a DNS di Azure.
 
 
 ## Funzionamento della delega DNS
@@ -53,11 +53,10 @@ Questa procedura è definita risoluzione del nome DNS. La risoluzione DNS includ
 
 In che modo una zona padre "punta" ai server dei nomi per una zona figlio? Usando un tipo speciale di record DNS, denominato record NS (Name Server, server dei nomi). Ad esempio, la zona radice contiene record NS per "com", mostrando i server dei nomi per la zona "com". A sua volta, la zona "com" contiene record NS per "contoso.com" mostrando i server dei nomi per la zona "'contoso.com". La configurazione di record NS per una zona figlio in una zona padre è definita delega del dominio.
 
-Il diagramma seguente illustra questo processo:
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-Ogni delega include effettivamente due copie dei record NS: una nella zona padre, che punta al figlio, e un'altra nella stessa zona figlio; cioè la zona "contoso.com" contiene i record NS per "contoso.com" (oltre ai record NS contenuti in "com"). Questi sono denominati record NS autorevoli e si trovano al vertice della zona figlio.
+Ogni delega include effettivamente due copie dei record NS: una nella zona padre, che punta al figlio, e un'altra nella stessa zona figlio; la zona "contoso.com" contiene i record NS per "contoso.com" (oltre ai record NS contenuti in "com"). Questi sono denominati record NS autorevoli e si trovano al vertice della zona figlio.
 
 
 ## Delegare un dominio a DNS di Azure
@@ -117,12 +116,12 @@ Dopo aver configurato e delegato "contoso.com" in DNS di Azure, si supponga di v
 
 L'unica differenza è che nel passaggio 3 è necessario creare i record NS nella zona padre "contoso.com" in DNS di Azure, piuttosto che configurarli con un registrar.
 
-L'esempio di PowerShell seguente lo dimostra. È necessario prima creare le zone padre e figlio, che possono trovarsi nello stesso gruppo di risorse o in gruppi di risorse diversi:
+L'esempio di PowerShell seguente lo dimostra. È necessario prima creare le zone padre e figlio, che possono trovarsi nello stesso gruppo di risorse o in gruppi di risorse diversi.
 
 	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
 	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
-Successivamente, si recupereranno i record NS autorevoli dalla zona figlio:
+Successivamente, si recupereranno i record NS autorevoli dalla zona figlio, come indicato nel seguente esempio:
 
 	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -130,15 +129,15 @@ Infine, si crea un set di record NS corrispondente nella zona padre per completa
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
 
-Come nel caso della delega con un registrar, è possibile verificare che tutto sia configurato correttamente eseguendo la ricerca di record SOA della zona figlio:
+Come nel caso della delega con un registrar, è possibile verificare che tutto sia configurato correttamente eseguendo la ricerca di record SOA della zona figlio.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -159,6 +158,5 @@ Come nel caso della delega con un registrar, è possibile verificare che tutto s
 [Automatizzare le operazioni di Azure con .NET SDK](../dns-sdk)
 
 [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Panoramica di Service Fabric" 
-   description="Panoramica di Service Fabric, in cui le applicazioni sono costituite da microservizi. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="msfussell" 
-   manager="timlt" 
-   editor="masnider"/>
+   pageTitle="Panoramica dell'infrastruttura di servizi | Microsoft Azure"
+	description="Panoramica di Service Fabric, in cui le applicazioni sono costituite da microservizi. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="msfussell"
+	manager="timlt"
+	editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/14/2015"
-   ms.author="mfussell"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="mfussell"/>
 
 # Panoramica di Service Fabric
 Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud. Service Fabric fa fronte alle principali problematiche correlate allo sviluppo e alla gestione delle applicazioni cloud. Grazie a Service Fabric, gli sviluppatori e gli amministratori non devono più occuparsi di complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e articolati, avendo la consapevolezza che siano scalabili affidabili e gestibili. Service Fabric rappresenta la piattaforma middleware di prossima generazione per la creazione e la gestione di tali servizi cloud di livello 1 per l'azienda.
 
-## Applicazioni costituite da microservizi ##
+## Applicazioni costituite da microservizi
 Service Fabric consente di creare e gestire applicazioni scalabili e affidabili costituite da microservizi eseguiti a densità molto elevata in un pool condiviso di computer, comunemente chiamato cluster di Service Fabric. Sono disponibili un sofisticato runtime per creare microservizi con e senza stato scalabili e distribuiti, nonché funzionalità complete di gestione delle applicazioni per effettuare il provisioning, distribuire, monitorare, aggiornare ed eliminare le applicazioni distribuite oltre che per applicarvi patch.
 
 Service Fabric attualmente controlla numerosi servizi Microsoft, tra cui database SQL di Azure, Azure DocumentDB, Cortana, Power BI, Microsoft Intune, Hub eventi di Azure, molti servizi di base di Azure e Skype for Business per citarne solo alcuni.
@@ -42,7 +42,7 @@ Perché i microservizi con stato sono importanti? Perché non usare semplicement
 
 2) La semplificazione della progettazione delle applicazioni, in quanto per i microservizi con stato non è più necessario usare le code e le cache aggiuntive necessarie in passato per soddisfare i requisiti di disponibilità e latenza di un'applicazione interamente senza stato. L'elevata disponibilità e la bassa latenza dei servizi con stato implicano un uso ridotto di componenti mobili da gestire in un'applicazione nel suo insieme.
 
-Per altre informazioni sui modelli di applicazione e la progettazione con Service Fabric, vedere l'articolo relativo agli [scenari applicativi](../service-fabric-application-scenarios).
+Per altre informazioni sui modelli di applicazione e la progettazione con Service Fabric, vedere l'articolo relativo agli [scenari applicativi](service-fabric-application-scenarios.md).
 
 ## Gestione del ciclo di vita delle applicazioni
 Service Fabric offre un supporto di prima categoria per il ciclo di vita completo delle applicazioni cloud, dallo sviluppo alla distribuzione, alla gestione giornaliera, alla manutenzione e infine alla rimozione delle autorizzazioni.
@@ -51,7 +51,7 @@ Le funzionalità di gestione del ciclo di vita delle applicazioni di Service Fab
 
 La maggior parte delle applicazioni è costituita da una combinazione di microservizi con e senza stato e da altri runtime o file EXE distribuiti insieme. Grazie all'uso di tipi sicuri per le applicazioni e i microservizi contenuti nei pacchetti, Service Fabric consente la distribuzione di più istanze di applicazione, ognuna delle quali può essere gestita e aggiornata in modo indipendente. Un aspetto importante è dato dal fatto che Service Fabric è in grado di distribuire *qualsiasi* eseguibile o runtime e di renderlo affidabile. Ad esempio, può essere usato per distribuire codice ASP.NET 5, node.js, script o qualsiasi elemento costitutivo dell'applicazione.
   
-Per altre informazioni sulla gestione del ciclo di vita delle applicazioni, vedere l'articolo relativo al [ciclo di vita dell'applicazione](../service-fabric-application-lifecycle).
+Per altre informazioni sulla gestione del ciclo di vita delle applicazioni, vedere l'articolo relativo al [ciclo di vita dell'applicazione](service-fabric-application-lifecycle.md).
 
 ## Funzionalità principali
 Usando Service Fabric è possibile:
@@ -89,10 +89,13 @@ Usando Service Fabric è possibile:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
-Per altre informazioni, vedere l'articolo relativo alla [panoramica tecnica](../service-fabric-technical-overview).
+* Per altre informazioni, vedere l'articolo relativo alla [panoramica tecnica](service-fabric-technical-overview.md).
+* Configurare l'[ambiente di sviluppo](service-fabric-get-started.md) dell’infrastruttura di servizi.  
+* Scelta di un [framework](service-fabric-choose-framework.md) per il servizio.
+
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

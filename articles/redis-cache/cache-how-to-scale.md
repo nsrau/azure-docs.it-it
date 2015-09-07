@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Come scalare Cache Redis di Azure" 
-	description="Informazioni su come ridimensionare le istanze di Cache Redis di Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Come scalare Cache Redis di Azure"
+	description="Informazioni su come ridimensionare le istanze di Cache Redis di Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Come scalare Cache Redis di Azure
 
 >[AZURE.NOTE]Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima.
 
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare le dimensioni della cache utilizzando il pannello **Modifica livello di prezzo** nel [portale di Azure](https://portal.azure.com).
+Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare le dimensioni della cache utilizzando il pannello **Modifica livello di prezzo** nel [portale di anteprima di Azure](https://portal.azure.com).
 
 >[AZURE.NOTE]Quando si scala una Cache Redis di Azure è possibile modificare le dimensioni, ma non è possibile passare da una cache Standard a una Basic e viceversa.
 
@@ -38,7 +38,7 @@ Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilit
 Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile passare a un livello di prezzo della cache superiore o inferiore che sia adatto all'applicazione. Per ulteriori informazioni su come determinare quale tipo di livello di prezzo di cache utilizzare, vedere l’articolo relativo all’[offerta e alle dimensioni di Cache Redis da utilizzare](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Scalare una cache
-Per scalare la cache, [cercare la cache](https://msdn.microsoft.com/library/azure/dn793612.aspx#RedisCacheConfiguration) nel [portale di Azure](https://portal.azure.com) e fare clic su **Livello Standard** o su **Livello Basic** nel pannello **Cache Redis**.
+Per scalare la cache, [cercare la cache](cache-configure.md#configure-redis-cache-settings) nel [portale di anteprima](https://portal.azure.com) e fare clic su **Livello Standard** o su **Livello Basic** nel pannello **Cache Redis**.
 
 ![Pricing tier][redis-cache-pricing-tier-part]
 
@@ -58,12 +58,12 @@ Quando il ridimensionamento è completato, lo stato passa da **Ridimensionamento
 
 ## Come automatizzare un’operazione di ridimensionamento
 
-Oltre a scalare l'istanza di Cache Redis di Azure nel portale di Azure, è possibile eseguire il ridimensionamento mediante le [librerie di gestione di Microsoft Azure ](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Per scalare la cache, chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione per `RedisProperties.SKU.Capacity`.
+Oltre a scalare l'istanza di Cache Redis di Azure nel portale di anteprima, è possibile eseguire il ridimensionamento mediante le [librerie di gestione di Microsoft Azure ](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Per scalare la cache, chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione per `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
-        // https://msdn.microsoft.com/it-it/library/azure/dn790557.aspx#bk_portal
+        // https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
         string token = GetAuthorizationHeader();
 
         TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
@@ -120,7 +120,7 @@ Il ridimensionamento richiede circa 20 minuti, a seconda della quantità di dati
 
 ## Come è possibile stabilire quando il ridimensionamento è completato?
 
-Nel portale è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
+Nel portale di anteprima è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
 
 ## Perché questa funzionalità è in anteprima?
 
@@ -138,4 +138,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

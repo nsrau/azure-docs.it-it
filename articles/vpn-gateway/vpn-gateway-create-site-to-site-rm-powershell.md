@@ -1,21 +1,21 @@
 <properties
    pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito utilizzando Gestione risorse di Azure e PowerShell | Microsoft Azure"
-   description="Creare una connessione VPN da sito a sito dalla rete virtuale al percorso locale utilizzando Gestione risorse di Azure e PowerShell"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Creare una connessione VPN da sito a sito dalla rete virtuale al percorso locale utilizzando Gestione risorse di Azure e PowerShell"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito utilizzando Gestione risorse di Azure e PowerShell
 
@@ -96,9 +96,26 @@ Verrà inoltre specificato il prefisso dello spazio dell'indirizzo per il sito l
 - Il*GatewayIPAddress*è l'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT. 
 - L’*AddressPrefix*è lo spazio di indirizzo locale.
 
-Utilizzare questo esempio per aggiungere il sito locale:
+Utilizzare questo esempio per aggiungere un sito locale con un prefisso di indirizzo.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+
+Se si desidera aggiungere un sito locale con più prefissi di indirizzo, utilizzare questo esempio.
+
+		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+
+
+Per aggiungere i prefissi di indirizzo aggiuntivi per un sito locale già creato, utilizzare l'esempio riportato di seguito.
+
+		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+
+Per rimuovere un prefisso di indirizzo da un sito locale, utilizzare l'esempio riportato di seguito. Escludere i prefissi non più necessari. In questo esempio, non è più necessario il prefisso 20.0.0.0/24 (dell'esempio precedente). In tal modo, sarà possibile aggiornare il sito locale ed escludere tale prefisso.
+
+		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+
 
 ## Richiedere un indirizzo IP pubblico del gateway di rete virtuale
 
@@ -122,15 +139,15 @@ La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da u
 
 In questo passaggio si creerà il gateway di rete virtuale. Utilizzare i valori seguenti:
 
-- Il tipo di Gateway è*Vpn*.
-- Il VpnType può essere RouteBased * (definito Gateway dinamico in alcuni documenti), o*Policy Based*(detto Gateway statico in alcuni documenti). Per ulteriori informazioni sui tipi di gateway VPN, vedere[Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md). 	
+- Il tipo di Gateway è *Vpn*.
+- Il VpnType può essere RouteBased* (definito Gateway dinamico in alcuni documenti), o *Policy Based* (definito Gateway statico in alcuni documenti). Per ulteriori informazioni sui tipi di gateway VPN, vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 
 ## Configurare il dispositivo VPN
 
-A questo punto, è necessario l'indirizzo IP pubblico del gateway della rete virtuale per la configurazione del dispositivo VPN locale. Utilizzare il produttore del dispositivo per le informazioni di configurazione specifiche. Inoltre, fare riferimento a[Dispositivi VPN](http://go.microsoft.com/fwlink/p/?linkid=615099)per ulteriori informazioni.
+A questo punto, è necessario l'indirizzo IP pubblico del gateway della rete virtuale per la configurazione del dispositivo VPN locale. Utilizzare il produttore del dispositivo per le informazioni di configurazione specifiche. Inoltre, fare riferimento a [Dispositivi VPN](http://go.microsoft.com/fwlink/p/?linkid=615099) per ulteriori informazioni.
 
 Per trovare l'indirizzo IP pubblico del gateway di rete virtuale, utilizzare l'esempio seguente:
 
@@ -152,4 +169,4 @@ Dopo alcuni minuti, la connessione dovrebbe stabilirsi. A questo punto, le conne
 
 Aggiungere una macchina virtuale alla rete virtuale. [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

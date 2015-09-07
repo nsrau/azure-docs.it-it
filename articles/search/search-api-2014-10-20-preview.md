@@ -1,8 +1,8 @@
-<properties pageTitle="API REST di Ricerca di Azure: versione 2014-10-20-Preview" description="API REST di Ricerca di Azure: versione 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
+<properties pageTitle="API REST di Ricerca di Azure: versione 2014-10-20-Preview" description="API REST di Ricerca di Azure: versione 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
 
-# API REST di Ricerca di Azure versione 2014-10-20-Preview #
+#API REST di Ricerca di Azure versione 2014-10-20-Preview
 
 Questo documento descrive la versione **2014-10-20-Preview** precedente alla release dell'API REST di Ricerca di Azure, rilasciata come aggiornamento alla prima anteprima di Ricerca di Azure. Dal momento che questa versione verrà presto eliminata, si consiglia di usare la versione associata alla release disponibile a livello generale. Per indicazioni sulla migrazione del codice, vedere [Transizione dalla versione di anteprima alla versione dell'API disponibile a livello generale](search-transition-from-preview.md).
 
@@ -12,7 +12,7 @@ Alla versione **2014-10-20-Preview** è correlato anche il contenuto API seguent
 
 La documentazione relativa alla versione corrente e disponibile a livello generale dell'API REST di Ricerca di Azure è disponibile in MSDN. Per altre informazioni, vedere [API REST di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-##Informazioni sull'API REST del servizio##
+##Informazioni sull'API REST del servizio
 
 Ricerca di Azure è un servizio basato sul cloud che è possibile usare per creare applicazioni di ricerca personalizzate. Questo servizio è basato sui concetti di *servizi di ricerca* e *indici*, dove un servizio di ricerca contiene uno o più indici. Il servizio di ricerca è identificato in modo univoco da un nome di dominio completo, ad esempio `mysearchservice.search.windows.net`. Per effetto del provisioning del servizio viene generata una chiave API, usata per autenticare le richieste inviate a Ricerca di Azure.
 
@@ -126,7 +126,7 @@ L'esempio seguente illustra uno schema usato per la ricerca di informazioni sugl
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -649,7 +649,7 @@ Nella versione corrente dell'API è possibile avere un solo componente per il su
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1455,4 +1455,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

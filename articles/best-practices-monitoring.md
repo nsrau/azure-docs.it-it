@@ -1,21 +1,21 @@
 <properties
    pageTitle="Linee guida di monitoraggio e diagnostica | Microsoft Azure"
-   description="Procedure consigliate per il monitoraggio di applicazioni distribuite nel cloud."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="Procedure consigliate per il monitoraggio di applicazioni distribuite nel cloud."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="masashin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="04/28/2015"
+	ms.author="masashin"/>
 
 # Indicazioni di monitoraggio e diagnostica
 
@@ -608,8 +608,8 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 - La pagina [Configurazione di diagnostica per servizi Cloud di Azure e macchine virtuali](https://msdn.microsoft.com/library/azure/dn186185.aspx) del sito Web Microsoft.
 - Le pagine [Cache Redis di Azure](http://azure.microsoft.com/services/cache/), [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), e [HDInsight](http://azure.microsoft.com/services/hdinsight/) del sito Web Microsoft.
 - La pagina [Come utilizzare le code del Bus di servizio](http://azure.microsoft.com/) del sito Web Microsoft.
-- L'articolo [SQL Server Business Intelligence in macchine virtuali Azure](https://msdn.microsoft.com/library/azure/jj992719.aspx) del sito Web Microsoft.
+- L'articolo [SQL Server Business Intelligence in macchine virtuali Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) del sito Web Microsoft.
 - La pagina [informazioni sugli avvisi di monitoraggio e notifiche in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sito Web Microsoft.
 - La pagina [Application Insights](app-insights-get-started/) del sito Web Microsoft.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Analogie e differenze tra le code di Azure e le code del bus di servizio"
-   description="Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+	description="Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure."
+	services="service-bus"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="tysonn"/>
 <tags 
    ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="05/21/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sethm"/>
 
 # Analogie e differenze tra le code di Azure e le code del bus di servizio
 
@@ -290,8 +290,6 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - Al momento della stesura di questo documento, tutti i trasferimenti dei dati in ingresso non sono soggetti ad addebito.
 
-- Quando si effettuano operazioni di messaggistica su code del bus di servizio, il costo delle transazioni ACS è trascurabile. Il bus di servizio acquisisce un token ACS per una singola istanza dell'oggetto factory di messaggistica. Il token viene quindi riutilizzato fino alla scadenza, dopo circa 20 minuti. Pertanto, il volume di operazioni di messaggistica nel bus di servizio non è direttamente proporzionale alla quantità di transazioni ACS necessarie per supportare queste operazioni.
-
 - In base al supporto per polling prolungato, l'uso di code del bus di servizio può essere economicamente conveniente in situazioni in cui è richiesto il recapito a bassa latenza.
 
 >[AZURE.NOTE]Tutti i costi sono soggetti a modifiche. Questa tabella presenta il prezzo corrente al momento della stesura di questo articolo e non include i costi di eventuali offerte promozionali che possono essere attualmente disponibili. Per informazioni aggiornate sui prezzi di Azure, vedere la pagina relativa ai [prezzi di Azure](http://azure.microsoft.com/pricing/). Per altre informazioni sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/).
@@ -317,4 +315,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

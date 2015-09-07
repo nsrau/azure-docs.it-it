@@ -17,6 +17,7 @@
 	ms.date="06/15/2015"
 	ms.author="larryfr"/>
 
+
 #Usare Sqoop con Hadoop in HDInsight (SSH)
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -50,7 +51,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Informazioni sullo scenario
 
-I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di Hive denominata **hivesampletable** che fa riferimento al file di dati presente in ****wasb:///hive/warehouse/hivesampletable**. La tabella contiene alcuni dati relativi al dispositivo mobile. Lo schema della tabella Hive è il seguente:
+I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di Hive denominata **hivesampletable** che fa riferimento al file di dati presente in **wasb:///hive/warehouse/hivesampletable**. La tabella contiene alcuni dati relativi al dispositivo mobile. Lo schema della tabella Hive è il seguente:
 
 | Campo | Tipo di dati |
 | ----- | --------- |
@@ -66,7 +67,7 @@ I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di H
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel database SQL di Azure o in SQL Server in una tabella denominata **mobiledata**, quindi occorrerà importare nuovamente la tabella in HDInsight nel percorso ****wasb:///tutorials/usesqoop/importeddata**.
+Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel database SQL di Azure o in SQL Server in una tabella denominata **mobiledata**, quindi occorrerà importare nuovamente la tabella in HDInsight nel percorso **wasb:///tutorials/usesqoop/importeddata**.
 
 ##Creare un database
 
@@ -171,7 +172,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da ****wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
+    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da **wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
 
 5. Al termine dell'esecuzione del comando, utilizzare le informazioni seguenti per connettersi al database tramite TSQL:
 
@@ -186,7 +187,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 ##Importazione con Sqoop
 
-1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory ****wasb:///tutorials/usesqoop/importeddata** in HDInsight:
+1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -208,7 +209,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
     > [AZURE.NOTE]Per le reti virtuali da **punto a sito**, è necessario che su SQL Server venga eseguita l'applicazione di configurazione del client VPN, disponibile nel **dashboard** di configurazione della rete virtuale di Azure.
 
-    Per altre informazioni sulla creazione e la configurazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+    Per altre informazioni sulla creazione e la configurazione di una rete virtuale di Azure, vedere [Attività di configurazione della rete virtuale](../services/virtual-machines/).
 
 * SQL Server deve essere configurato per consentire l'autenticazione SQL. Per altre informazioni, vedere [Scegliere un metodo di autenticazione](https://msdn.microsoft.com/ms144284.aspx).
 
@@ -263,4 +264,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazio
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

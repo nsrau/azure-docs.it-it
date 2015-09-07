@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="App Web .NET in Azure App Service con gestione delle prestazioni delle applicazioni New Relic" 
-	description="Informazioni su come imparare a usare il monitoraggio delle prestazioni di New Relic per applicazioni ASP.NET in esecuzione su Azure App Service." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="App Web .NET in Azure App Service con gestione delle prestazioni delle applicazioni New Relic"
+	description="Informazioni su come imparare a usare il monitoraggio delle prestazioni di New Relic per applicazioni ASP.NET in esecuzione su Azure App Service."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
-
 
 
 
@@ -42,7 +40,7 @@ I clienti di Azure che distribuiscono l'agente New Relic hanno diritto a una sot
 
 Iscriversi a New Relic usando Azure Marketplace
 
-New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service di Azure.
+New Relic si integra facilmente con i ruoli Web, i ruoli di lavoro e Azure App Service.
 
 Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa procedura in quattro semplici passaggi.
 
@@ -55,7 +53,7 @@ Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa pro
 	- **Livello di prezzo**
 	- **Gruppo di risorse**
 	- **Sottoscrizione**
-	- **Località**
+	- **Posizione**
 	- **Note legali**
 
 11. Dopo aver fatto clic su **Crea**, verrà avviata la creazione dell'account New Relic. È possibile monitorare lo stato facendo clic sul pulsante **Notifiche**. Dopo che l'account New Relic è stato creato, verrà visualizzato il relativo pannello.
@@ -79,7 +77,7 @@ Per iscriversi a New Relic direttamente da Azure Marketplace, seguire questa pro
 
 ## Passaggio 3: Pubblicare l'app Web ASP.NET
 
-Pubblicare l'app Web con Visual Studio o WebMatrix. Se l'app Web è già stata pubblicata, pubblicarla nuovamente in modo che l'istanza dell'app Web aggiunga il pacchetto NuGet di New Relic necessario per abilitare il monitoraggio di New Relic.
+Pubblicare l'app Web con Visual Studio. Se l'app Web è già stata pubblicata, pubblicarla nuovamente in modo che l'istanza dell'app Web aggiunga il pacchetto NuGet di New Relic necessario per abilitare il monitoraggio di New Relic.
 
 ## Passaggio 4. Verificare le prestazioni dell'applicazione in New Relic.
 
@@ -164,14 +162,13 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): presentazione del modo in cui la funzionalità RUM registra i dettagli relativi all'ubicazione degli utenti, al tempo impiegato dai browser per caricare le pagine Web e ai tipi di browser usati
  * [Supporto](https://newrelic.com/docs/site/finding-help): risorse disponibili tramite l'Help Center di New Relic
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Azure App Service e impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
@@ -183,4 +180,4 @@ Per ulteriori informazioni, è possibile consultare le seguenti risorse aggiunti
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

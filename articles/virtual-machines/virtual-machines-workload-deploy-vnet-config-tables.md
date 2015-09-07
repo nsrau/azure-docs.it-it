@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare una rete virtuale cross-premise utilizzando le tabelle di configurazione"
-	description="In questo argomento viene descritto come configurare una rete virtuale cross-premise utilizzando tabelle di configurazione predeterminate."
+	pageTitle="Rete virtuale con le tabelle di configurazione | Microsoft Azure"
+	description="Informazioni su come configurare una rete virtuale cross-premise di Azure usando le impostazioni di una tabella di configurazione contenente impostazioni predeterminate."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -30,7 +30,7 @@ Queste tabelle in genere vengono compilate in un argomento che descrive la confi
 
 La procedura seguente fa riferimento alle informazioni in queste tabelle come guida nel processo di configurazione della rete virtuale. Se non sono già state specificate le impostazioni in queste tabelle in un altro argomento, ma si desidera comunque configurare una rete virtuale cross-premise, vedere [Configurazione di una connessione da sito a sito cross-premise a una rete virtuale di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [AZURE.NOTE]Questa procedura descrive la creazione di una rete virtuale che utilizza una connessione VPN da sito a sito. Per informazioni sull'utilizzo di ExpressRoute per la connessione da sito a sito, vedere [Panoramica tecnica di ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Questa procedura descrive la creazione di una rete virtuale che utilizza una connessione VPN da sito a sito. Per informazioni sull'utilizzo di Azure ExpressRoute per la connessione da sito a sito, vedere [Panoramica tecnica di ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## Creare una nuova rete virtuale di Azure cross-premise con le impostazioni delle tabelle di configurazione
 
@@ -61,10 +61,10 @@ La procedura seguente fa riferimento alle informazioni in queste tabelle come gu
 
 ## Risorse aggiuntive
 
-[Panoramica di Rete virtuale](https://msdn.microsoft.com/library/jj156007.aspx).
+[Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md).
 
-[Attività di configurazione della rete virtuale](https://msdn.microsoft.com/library/jj156206.aspx)
+[Attività di configurazione della rete virtuale](../documentation/services/virtual-machines/)
 
 [Configurare una connessione cross-premise Site-to-Site a una rete virtuale di Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

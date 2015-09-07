@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Che cos'è un elenco di controllo di accesso di rete (ACL)"
-   description="Informazioni sugli elenchi di controllo di accesso"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Informazioni sugli elenchi di controllo di accesso"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Che cos'è un elenco di controllo di accesso di rete (ACL)
 
@@ -21,7 +21,7 @@ Un elenco di controllo di accesso (ACL) di rete è un miglioramento della sicure
 
 > [AZURE.IMPORTANT]È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](../virtual-networks-nsg).
 
-Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx). Se si intende configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines-set-up-endpoints/).
+Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Se si intende configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines-set-up-endpoints/).
 
 Con gli elenchi di controllo di accesso di rete, è possibile effettuare le operazioni seguenti:
 
@@ -99,4 +99,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

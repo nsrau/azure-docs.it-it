@@ -17,11 +17,9 @@
 	ms.author="saah;kenhoff"/>
 
 # Utenti con anomalie dell'attività di accesso
+Si tratta di un rapporto di aggregazione che combina gli accessi sospetti dai report seguenti: <ul><li>Accessi da origini sconosciute</li> <li>Accessi dopo più errori</li> <li>Accessi da più aree geografiche</li> <li>Accessi da indirizzi IP con attività sospetta</li> <li>Accessi da dispositivi potenzialmente infetti</li> <li>Attività di accesso irregolare</li> </ul>
 
-| Descrizione | Percorso report |
-| :-------------     | :-------        |
-| <p>Usare questo report per visualizzare tutti gli account utente per i quali è stata individuata un'attività anomala. Nel report sono inclusi i dati provenienti da tutti gli altri report relativi ad attività anomale. I risultati del report conterranno i dettagli relativi all'utente, il motivo per cui l'evento di accesso è stato identificato come anomalo, data e ora e altre informazioni rilevanti sull'evento.</p> | Scheda Directory > Report |
 
 ![Utenti con anomalie dell'attività di accesso](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

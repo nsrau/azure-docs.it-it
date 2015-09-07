@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Connettore Sybase - Spostare i dati da Sybase" 
-	description="Informazioni su come il connettore Sybase per il servizio Data factory consente di spostare dati dal database Sybase" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare i dati da Sybase | Data factory di Azure"
+	description="Informazioni su come spostare i dati dal Database di Sybase utilizzando Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Connettore Sybase - Spostare i dati da Sybase 
+# Spostare i dati da Sybase utilizzando Data factory di Azure 
 
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da Sybase a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -34,11 +34,11 @@ Perché Gateway di gestione dati si connetta al database Sybase, è necessario i
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo OnPremisesSybase.
-2.	Un servizio collegato di tipo AzureStorage.
-3.	Un set di dati di input di tipo RelationalTable.
-4.	Un set di dati di output di tipo AzureBlob.
-4.	La pipeline con attività di copia che usa RelationalSource e BlobSink.
+1.	Un servizio collegato di tipo [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
+2.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](data-factory-onprem-sybase-connector.md#sybase-dataset-type-properties).
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](data-factory-onprem-sybase-connector.md#sybase-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 L'esempio copia i dati dai risultati della query nel database Sybase in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -225,6 +225,8 @@ username | Specificare il nome utente se si usa l'autenticazione di base o Windo
 password | Specificare la password per l'account utente specificato per il nome utente. | No
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database Sybase locale. | Sì 
 
+Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati Sybase locale.
+
 ## Proprietà del tipo del set di dati Sybase
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
@@ -262,4 +264,4 @@ Sybase supporta i tipi T-SQL e T-SQL. Per una tabella di mapping dai tipi SQL al
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

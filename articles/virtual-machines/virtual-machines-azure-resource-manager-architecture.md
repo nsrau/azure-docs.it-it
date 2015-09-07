@@ -1,20 +1,20 @@
 <properties
    pageTitle="Architettura di Gestione risorse di Azure"
-   description="Informazioni sull'architettura di Gestione risorse e sulle relazioni tra i provider di risorse di calcolo, rete e archiviazione."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="davidmu1"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Informazioni sull'architettura di Gestione risorse e sulle relazioni tra i provider di risorse di calcolo, rete e archiviazione."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="azure-resource-manager"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Architettura di Gestione risorse di Azure
@@ -79,4 +79,4 @@ Tutte le risorse dell'applicazione vengono gestite tramite il singolo gruppo di 
 
 [Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

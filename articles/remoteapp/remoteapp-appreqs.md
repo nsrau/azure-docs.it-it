@@ -1,27 +1,27 @@
 
 <properties 
     pageTitle="Requisiti per le app di Azure RemoteApp"
-    description="Informazioni sui requisiti per le app che si desidera usare in Azure RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+	description="Informazioni sui requisiti per le app che si desidera usare in Azure RemoteApp"
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"/>
 
 <tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
-    ms.author="elizapo" />
+    ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
+	ms.author="elizapo"/>
 
 
 
 # Requisiti delle app
 Azure RemoteApp supporta applicazioni basate su Windows a 32 bit o a 64 bit in streaming Windows da un'immagine di Windows Server 2012 R2. La maggior parte delle applicazioni basate su Windows a 32 bit o a 64 bit vengono eseguite "così come sono" in un ambiente Azure RemoteApp (Servizi Desktop remoto, in precedenza noti come Servizi terminal). Tuttavia, esiste una differenza tra esecuzione e corretta esecuzione: alcune applicazioni funzionano correttamente e offrono buone prestazioni, mentre altre no. Le informazioni seguenti forniscono indicazioni per lo sviluppo di applicazioni in un ambiente di Servizi Desktop remoto e l'esecuzione di test per garantire la compatibilità.
 
-Suggerimento: stiamo lavorando alla creazione di alcuni esempi di applicazioni per l'utente. Si noteranno nuovi argomenti che illustrano l'utilizzo di Microsoft Access, QuickBooks e App-V in RemoteApp.
+Suggerimento: è in corso la creazione di alcuni esempi di app per gli utenti. Verranno pubblicati altri argomenti sull'uso di Microsoft Access, QuickBooks e App-V in RemoteApp.
 
 ## Requisiti
 Questi tre requisiti, se seguiti, contribuiscono a una corretta esecuzione dell'applicazione in RemoteApp:
@@ -56,4 +56,4 @@ Usare le linee guida seguenti per lo sviluppo di applicazioni per RemoteApp.
 - Per ottimizzare le prestazioni, è consigliabile che le applicazioni [rilevino](https://msdn.microsoft.com/library/aa380798.aspx) se sono in esecuzione in una sessione client. 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurazione di un ambiente cloud ibrido per l'esecuzione di test" 
-	description="Informazioni su come creare un ambiente cloud ibrido per professionisti IT o per il test di sviluppo." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Ambienti di test cloud ibridi | Microsoft Azure"
+	description="Informazioni su come creare un ambiente cloud ibrido per professionisti IT o per il test di sviluppo, inclusa una rete locale semplificata."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configurazione di un ambiente cloud ibrido per l'esecuzione di test
@@ -326,4 +326,4 @@ Accedere ora a RRAS1 come amministratore locale ed eseguire questi comandi in un
 Passare quindi al portale di gestione di Azure nel computer locale e attendere che per la rete virtuale TestVNET venga visualizzato lo stato Connessa.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

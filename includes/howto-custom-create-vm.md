@@ -1,4 +1,3 @@
-
 #Come creare una macchina virtuale personalizzata
 
 Per macchina virtuale *personalizzata* si intende una macchina virtuale creata con il metodo **Da raccolta**, che consente di configurare un numero maggiore di opzioni rispetto al metodo **Creazione rapida**. Tali opzioni includono:
@@ -37,7 +36,7 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 
 	**Nota**: per altre informazioni su come aggiungere le macchine virtuali nello stesso servizio cloud, vedere [Come connettere macchine virtuali in un servizio cloud](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. In **Area/Gruppo di affinità/Rete virtuale** selezionare l'area, il gruppo di affinità o la rete virtuale da usare per la macchina virtuale. Per altre informazioni sui gruppi di affinità, vedere [Informazioni sui gruppi di affinità per Rete virtuale](http://msdn.microsoft.com/library/azure/jj156085.aspx).
+12. In **Area/Gruppo di affinità/Rete virtuale** selezionare l'area, il gruppo di affinità o la rete virtuale da usare per la macchina virtuale. Per altre informazioni sui gruppi di affinità, vedere [Informazioni sui gruppi di affinità per Rete virtuale](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 13. In **Account di archiviazione** selezionare un account di archiviazione esistente per il file VHD o usarne uno generato automaticamente. Verrà creato automaticamente un solo account di archiviazione per ogni area. Tutte le altre macchine virtuali create con questa impostazione verranno inserite in questo account di archiviazione. È possibile creare un massimo di 20 account di archiviazione.
 
@@ -60,4 +59,4 @@ Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal
 - [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

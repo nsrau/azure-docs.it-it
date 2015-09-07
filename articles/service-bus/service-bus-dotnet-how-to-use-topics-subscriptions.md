@@ -1,24 +1,24 @@
 <properties
     pageTitle="Come usare gli argomenti del bus di servizio (.NET) | Microsoft Azure"
-    description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni .NET."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+	description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni .NET."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="get-started-article" 
-    ms.date="07/02/2015"
-    ms.author="sethm"/>
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
+	ms.author="sethm"/>
 
-# Come usare gli argomenti e le sottoscrizioni del bus di servizio
+# Come usare gli argomenti e le sottoscrizioni del bus di servizio di Azure
 
-Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in C# e usano le API .NET. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni**, **creazione di filtri per le sottoscrizioni**, **invio di messaggi a un argomento**, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**. Per ulteriori informazioni sugli argomenti e sulle sottoscrizioni, vedere la sezione [Passaggi successivi](#Next-steps).
+Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in C# e usano le API .NET. Gli scenari presentati includono creazione di argomenti e sottoscrizioni, creazione di filtri per le sottoscrizioni, invio di messaggi a un argomento, ricezione di messaggi da una sottoscrizione ed eliminazione di argomenti e sottoscrizioni. Per ulteriori informazioni sugli argomenti e sulle sottoscrizioni, vedere la sezione [Passaggi successivi](#Next-steps).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -30,12 +30,12 @@ Quando si crea un'applicazione che usa il bus di servizio, è necessario aggiung
 
 ## Ottenere il pacchetto NuGet del bus di servizio
 
-Il pacchetto **NuGet** del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio.
+Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. L'estensione NuGet di Visual Studio semplifica l'installazione e l'aggiornamento di librerie e strumenti in Visual Studio e in Visual Studio Express. Il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio.
 
 Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
-2.  Cercare "Bus di servizio" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+2.  Cercare "Bus di servizio" e selezionare l'elemento **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere la finestra di dialogo successiva.
 
     ![][7]
 
@@ -45,14 +45,14 @@ Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni segu
 
 Per archiviare endpoint e credenziali, nel bus di servizio viene usata una stringa di connessione. È possibile inserire la stringa di connessione in un file di configurazione, anziché impostarla come hardcoded:
 
-- Quando si usa Servizi cloud di Azure, è consigliabile archiviare la stringa di connessione usando il sistema di configurazione dei servizi di Azure (file ****.csdef** e ****.cscfg**).
-- Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file **Web.config**.
+- Quando si usa Servizi cloud di Azure, è consigliabile archiviare la stringa di connessione usando il sistema di configurazione dei servizi di Azure (file .csdef e .cscfg).
+- Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile archiviare la stringa di connessione con il sistema di configurazione .NET, ad esempio il file Web.config.
 
 In entrambi i casi è possibile recuperare la stringa di connessione usando il metodo `CloudConfigurationManager.GetSetting`, come illustrato più avanti in questa guida.
 
 ### Configurazione della stringa di connessione per l'uso con Servizi cloud
 
-Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal portale di gestione di Azure senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (****.csdef**), come illustrato di seguito:
+Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi cloud di Azure e consente di modificare dinamicamente le impostazioni di configurazione dal portale di gestione di Azure senza ridistribuire l'applicazione. Aggiungere ad esempio un'etichetta `Setting` al file di definizione del servizio (****.csdef**), come illustrato di seguito.
 
     <ServiceDefinition name="Azure1">
     ...
@@ -64,7 +64,7 @@ Il meccanismo di configurazione dei servizi è univoco per i progetti di Servizi
     ...
     </ServiceDefinition>
 
-Specificare quindi i valori nel file di configurazione del servizio (****.cscfg**):
+Specificare quindi i valori nel file di configurazione del servizio (.cscfg).
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -79,9 +79,9 @@ Specificare quindi i valori nel file di configurazione del servizio (****.cscfg*
 
 Usare i valori relativi alla chiave e al nome della chiave di firma di accesso condiviso recuperati dal portale di gestione come descritto nella sezione precedente.
 
-### Configurazione della stringa di connessione durante l'uso di Siti Web o Macchine virtuali
+### Configurazione della stringa di connessione durante l'uso di siti Web Azure o macchine virtuali di Azure
 
-Quando si usa Siti Web o Macchine virtuali di Azure, è consigliabile usare il sistema di configurazione .NET (ad esempio, **Web.config**). Per archiviare la stringa di connessione, usare l'elemento `<appSettings>`:
+Con Siti Web o Macchine virtuali è consigliabile usare il sistema di configurazione .NET, ad esempio il file Web.config. Per archiviare la stringa di connessione, usare l'elemento `<appSettings>`.
 
     <configuration>
         <appSettings>
@@ -96,13 +96,13 @@ Usare i valori relativi alla chiave e al nome della firma di accesso condiviso r
 
 È possibile eseguire le operazioni di gestione per le sottoscrizioni e gli argomenti del bus di servizio usando la classe [`NamespaceManager`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx). Questa classe fornisce metodi per creare, enumerare ed eliminare gli argomenti.
 
-L'esempio seguente crea un oggetto `NamespaceManager` usando la classe `CloudConfigurationManager` di Azure con una stringa di connessione composta dall'indirizzo di base di uno spazio dei nomi del servizio di bus di servizio e dalle appropriate credenziali di firma di accesso condiviso con le autorizzazioni per gestirlo. Il formato della stringa di connessione è il seguente:
+L'esempio seguente crea un oggetto `NamespaceManager` usando la classe `CloudConfigurationManager` di Azure con una stringa di connessione composta dall'indirizzo di base di uno spazio dei nomi del servizio di bus di servizio e dalle appropriate credenziali di firma di accesso condiviso con le autorizzazioni per gestirlo. Il formato della stringa di connessione è il seguente.
 
     Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
 
-Considerate, ad esempio, le impostazioni di configurazione della sezione precedente:
+Usare il seguente esempio, per le impostazioni di configurazione della sezione precedente.
 
-    // Create the topic if it does not exist already
+    // Create the topic if it does not exist already.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -114,14 +114,14 @@ Considerate, ad esempio, le impostazioni di configurazione della sezione precede
         namespaceManager.CreateTopic("TestTopic");
     }
 
-Sono presenti overload del metodo [`CreateTopic`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createtopic.aspx) che consentono di ottimizzare le proprietà dell'argomento, ad esempio, per impostare il valore predefinito della durata da applicare ai messaggi inviati all'argomento. Per applicare queste impostazioni, viene usata la classe [`TopicDescription`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicdescription.aspx). L'esempio seguente illustra come creare un argomento denominato **TestTopic** con una dimensione massima di 5 GB e una durata predefinita del messaggio pari a 1 minuto.
+Sono presenti overload del metodo [`CreateTopic`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createtopic.aspx) che consentono di ottimizzare le proprietà dell'argomento, ad esempio, per impostare il valore predefinito della durata da applicare ai messaggi inviati all'argomento. Per applicare queste impostazioni, viene usata la classe [`TopicDescription`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicdescription.aspx). L'esempio seguente illustra come creare un argomento denominato TestTopic con una dimensione massima di 5 GB e una durata predefinita del messaggio pari a 1 minuto.
 
-    // Configure Topic Settings
+    // Configure Topic Settings.
     TopicDescription td = new TopicDescription("TestTopic");
     td.MaxSizeInMegabytes = 5120;
     td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-    // Create a new Topic with custom settings
+    // Create a new Topic with custom settings.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -141,7 +141,7 @@ Sono presenti overload del metodo [`CreateTopic`](https://msdn.microsoft.com/lib
 
 ### Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
-Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. L'esempio seguente crea una sottoscrizione denominata "AllMessages" e usa il filtro predefinito **MatchAll**.
+Il filtro predefinito **MatchAll** viene utilizzato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "AllMessages" e viene utilizzato il filtro predefinito **MatchAll**.
 
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -160,9 +160,9 @@ Il filtro predefinito **MatchAll** viene usato se non vengono specificati altri 
 
 Il tipo di filtro più flessibile supportato dalle sottoscrizioni è la classe [SqlFilter] che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][].
 
-L'esempio seguente crea una sottoscrizione denominata **HighMessages** con un oggetto [SqlFilter] che seleziona solo i messaggi che dispongono di una proprietà personalizzata **MessageNumber** maggiore di 3:
+L'esempio seguente crea una sottoscrizione denominata **HighMessages** con un oggetto [SqlFilter] che seleziona solo i messaggi che dispongono di una proprietà personalizzata **MessageNumber** maggiore di 3.
 
-     // Create a "HighMessages" filtered subscription
+     // Create a "HighMessages" filtered subscription.
      SqlFilter highMessagesFilter =
         new SqlFilter("MessageNumber > 3");
 
@@ -170,9 +170,9 @@ L'esempio seguente crea una sottoscrizione denominata **HighMessages** con un og
         "HighMessages",
         highMessagesFilter);
 
-Analogamente, l'esempio seguente crea una sottoscrizione denominata **LowMessages** con un filtro [SqlFilter] che seleziona solo i messaggi in cui il valore della proprietà **MessageNumber** è minore o uguale a 3:
+Analogamente, l'esempio seguente crea una sottoscrizione denominata **LowMessages** con un filtro [SqlFilter] che seleziona solo i messaggi in cui il valore della proprietà **MessageNumber** è minore o uguale a 3.
 
-     // Create a "LowMessages" filtered subscription
+     // Create a "LowMessages" filtered subscription.
      SqlFilter lowMessagesFilter =
         new SqlFilter("MessageNumber <= 3");
 
@@ -186,7 +186,7 @@ Quando un messaggio viene inviato a `TestTopic`, viene sempre recapitato ai rice
 
 Per inviare un messaggio a un argomento del bus di servizio, l'applicazione crea un oggetto [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) usando la stringa di connessione.
 
-Il codice seguente illustra come creare un oggetto [`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) per l'argomento **TestTopic** creato in precedenza tramite la chiamata all'API [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx):
+Il codice seguente illustra come creare un oggetto [`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) per l'argomento **TestTopic** creato in precedenza tramite la chiamata all'API [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx).
 
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -199,18 +199,18 @@ Il codice seguente illustra come creare un oggetto [`TopicClient`](https://msdn.
 
 I messaggi inviati ad argomenti del bus di servizio sono istanze della classe [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Gli oggetti **BrokeredMessage** dispongono di un set di proprietà standard (ad esempio [`Label`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [`TimeToLive`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un dizionario usato per contenere le proprietà personalizzate specifiche dell'applicazione e un corpo di dati arbitrari dell'applicazione. Un'applicazione può impostare il corpo del messaggio passando un oggetto serializzabile al costruttore dell'oggetto [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) e l'elemento **DataContractSerializer** appropriato viene quindi usato per serializzare l'oggetto. In alternativa, è possibile fornire un oggetto **System.IO.Stream**.
 
-L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto **TestTopic** [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) ottenuto nel frammento di codice precedente. Si noti che il valore della proprietà [`MessageNumber`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) di ogni messaggio varia a seconda dell'iterazione del ciclo (che determina quali sottoscrizioni lo riceveranno):
+L'esempio seguente illustra come inviare cinque messaggi di prova all'oggetto **TestTopic** [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) ottenuto nell’esempio di codice precedente. Si noti che il valore della proprietà [`MessageNumber`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) di ogni messaggio varia a seconda dell'iterazione del ciclo (che determina quali sottoscrizioni lo riceveranno).
 
      for (int i=0; i<5; i++)
      {
-       // Create message, passing a string message for the body
+       // Create message, passing a string message for the body.
        BrokeredMessage message =
         new BrokeredMessage("Test message " + i);
 
-       // Set additional custom app-specific property
+       // Set additional custom app-specific property.
        message.Properties["MessageNumber"] = i;
 
-       // Send message to the topic
+       // Send message to the topic.
        Client.Send(message);
      }
 
@@ -220,7 +220,7 @@ Gli argomenti del bus di servizio supportano una [dimensione massima di 256 KB p
 
 Il metodo consigliato per ricevere messaggi da una sottoscrizione consiste nell'usare un oggetto [`SubscriptionClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Gli oggetti **SubscriptionClient** possono essere usati in due modalità diverse: [`ReceiveAndDelete` e `PeekLock`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
-Quando si usa la modalità **ReceiveAndDelete**, l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve una richiesta di lettura relativa a un messaggio in una sottoscrizione, lo contrassegna come utilizzato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** costituisce il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
+Quando si utilizza la modalità **ReceiveAndDelete**, l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve una richiesta di lettura relativa a un messaggio in una sottoscrizione, lo contrassegna come utilizzato e lo restituisce all'applicazione. La modalità **ReceiveAndDelete** costituisce il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
 Nella modalità **PeekLock** predefinita, il processo di ricezione viene suddiviso in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, esegue la seconda fase del processo di ricezione chiamando [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) sul messaggio ricevuto. Quando il bus di servizio vede la chiamata `Complete`, contrassegna il messaggio come utilizzato e lo rimuove dalla sottoscrizione.
 
@@ -233,7 +233,7 @@ L'esempio seguente illustra come ricevere ed elaborare messaggi usando la modali
         SubscriptionClient.CreateFromConnectionString
                 (connectionString, "TestTopic", "HighMessages");
 
-    // Configure the callback options
+    // Configure the callback options.
     OnMessageOptions options = new OnMessageOptions();
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
@@ -242,19 +242,19 @@ L'esempio seguente illustra come ricevere ed elaborare messaggi usando la modali
     {
         try
         {
-            // Process message from subscription
+            // Process message from subscription.
             Console.WriteLine("\n**High Messages**");
             Console.WriteLine("Body: " + message.GetBody<string>());
             Console.WriteLine("MessageID: " + message.MessageId);
             Console.WriteLine("Message Number: " +
                 message.Properties["MessageNumber"]);
 
-            // Remove message from subscription
+            // Remove message from subscription.
             message.Complete();
         }
         catch (Exception)
         {
-            // Indicates a problem, unlock message in subscription
+            // Indicates a problem, unlock message in subscription.
             message.Abandon();
         }
     }, options);
@@ -271,12 +271,12 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, 
 
 ## Come eliminare argomenti e sottoscrizioni
 
-L'esempio seguente illustra come eliminare l'argomento denominato **TestTopic** dallo spazio dei nomi del servizio **HowToSample**:
+L'esempio seguente illustra come eliminare l'argomento denominato **TestTopic** dallo spazio dei nomi del servizio **HowToSample**.
 
-     // Delete Topic
+     // Delete Topic.
      namespaceManager.DeleteTopic("TestTopic");
 
-Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente. Nel codice seguente viene illustrato come eliminare una sottoscrizione denominata **HighMessages** dall'argomento **TestTopic**:
+Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente. Nel codice seguente viene illustrato come eliminare una sottoscrizione denominata **HighMessages** dall'argomento **TestTopic**.
 
       namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
@@ -289,7 +289,7 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sot
 -   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET][].
 -   Esempi del bus di servizio: scaricarli dagli [esempi di Azure][] o vedere i cenni preliminari in [MSDN][].
 
-  [Azure management portal]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -299,6 +299,5 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sot
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [esempi di Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

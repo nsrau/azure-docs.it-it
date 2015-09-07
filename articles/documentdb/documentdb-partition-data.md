@@ -1,19 +1,18 @@
 <properties      
-    pageTitle="Partizionamento dei dati in DocumentDB | Microsoft Azure"      
-    description="Informazioni su come eseguire il partizionamento dei dati in DocumentDB e quando usare il partizionamento hash, per intervalli e basato su ricerca."          
-    services="documentdb"      
-    authors="arramac"      
-    manager="jhubbard"      
-    editor="monicar"      
-    documentationCenter=""/>
-<tags      
-    ms.service="documentdb"      
-    ms.workload="data-services"      
-    ms.tgt_pltfrm="na"      
-    ms.devlang="na"      
-    ms.topic="article"      
-    ms.date="05/28/2015"      
-    ms.author="arramac"/>
+    pageTitle="Partizionamento dei dati in DocumentDB | Microsoft Azure"
+	description="Informazioni su come eseguire il partizionamento dei dati in DocumentDB e quando usare il partizionamento hash, per intervalli e basato su ricerca."
+	services="documentdb"
+	authors="arramac"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/> <tags      
+    ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/28/2015"
+	ms.author="arramac"/>
 
 # Partizionamento dei dati in DocumentDB
 
@@ -114,4 +113,4 @@ In questo articolo sono state introdotte alcune tecniche su come partizionare i 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

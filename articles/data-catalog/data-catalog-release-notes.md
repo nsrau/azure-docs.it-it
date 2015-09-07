@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Note sulla versione del catalogo dati di Azure"
-   description="Note sulla versione del 13 luglio 2015 del Catalogo dati di Azure"
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+   pageTitle="Note sulla versione del Catalogo dati di Azure"
+	description="Note sulla versione di anteprima pubblica del 13 luglio 2015 del Catalogo dati di Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Note per la versione del 13 luglio 2015 del Catalogo dati di Azure
 
@@ -67,4 +67,4 @@ Per altre informazioni, vedere [Configurazione dell'autenticazione Intranet basa
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

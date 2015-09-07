@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Riferimento al pool database elastico di SQL Azure" 
-	description="In questo riferimento vengono forniti collegamenti e dettagli relativi agli articoli sui pool di database elastici e informazioni di programmabilità." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="Riferimento al pool database elastico di SQL Azure"
+	description="In questo riferimento vengono forniti collegamenti e dettagli relativi agli articoli sui pool di database elastici e informazioni di programmabilità."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="08/25/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -33,7 +33,9 @@ Un pool di database elastici è una raccolta di unità di produttività di datab
 
 
 - I pool di database elastici sono disponibili unicamente nei server database SQL V12 di Azure.   
-- La creazione e la gestione di pool di database elastici è supportata tramite il [portale di anteprima](https://portal.azure.com), PowerShell e la libreria client .NET (costituita per le API REST) soltanto per Gestione risorse di Azure; il [portale classico](https://manage.windowsazure.com/) e i comandi di gestione del servizio non sono supportati. 
+- La creazione e la gestione di pool di database elastici è supportata tramite il [portale di anteprima](https://portal.azure.com), PowerShell e la libreria client .NET (costituita per le API REST) soltanto per Gestione risorse di Azure; il [portale classico](https://manage.windowsazure.com/) e i comandi di gestione del servizio non sono supportati.
+- Inoltre, Transact-SQL supporta la creazione di nuovi database elastici e lo spostamento dei database esistenti da e verso i pool di database elastici.
+
 
 
 ## Considerazioni sull’anteprima corrente
@@ -143,32 +145,31 @@ Azure V12 del Database di SQL Server si trovano in gruppi di risorse.
 
 
 
-## Cmdlet PowerShell dei pool di database elastici e i comandi dell’API REST (solo Gestione risorse di Azure)
+## Libreria Client .NET, API REST e PowerShell
 
-I cmdlet PowerShell e i comandi dell’API REST seguenti sono disponibili per la creazione e la gestione dei pool elastici:
+Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per la creazione e la gestione dei pool elastici: Per informazioni dettagliate ed esempi di codice, vedere [Creare e gestire un pool di database elastici del Database SQL utilizzando PowerShell](sql-database-elastic-pool-powershell.md), e [Creare e gestire Database SQL con C#](sql-database-client-library.md).
 
-| [Cmdlet PowerShell](https://msdn.microsoft.com/library/mt125356.aspx) | [Comandi API REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) |
+
+
+| [Cmdlet PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandi API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| Get-AzureSqlDatabase | Get Azure SQL database |
-| Get-AzureSqLElasticPool | Get Azure SQL Database elastic database pool |
-| Get-AzureSqlElasticPoolActivity | Get Azure SQL Database elastic database pool operations |
-| Get-AzureSqlElasticPoolDatabase | Get Azure SQL Database elastic database |
-| Get-AzureSqlElasticPoolDatabaseActivity | Get Azure SQL Database elastic database operations |
-| Get-AzureSqlServer | Get Azure SQL Database server |
-| Get-AzureSqlServerFirewallRule | Get Azure SQL Database server firewall rule |
-| Get-AzureSqlServerServiceObjective | Get Azure SQL Database server service objective |
-| New-AzureSqlDatabase | Create Azure SQL database |
-| New-AzureSqlElasticPool | Create Azure SQL Database elastic database pool |
-| New-AzureSqlServer | Create Azure SQL Database server |
-| New-AzureSqlServerFirewallRule | Create Azure SQL Database server firewall rule) |
-| Remove-AzureSqlDatabase | Remove Azure SQL database |
-| Remove-AzureSqlElasticPool | Remove Azure SQL Database elastic database pool |
-| Remove-AzureSqlServer | Remove Azure SQL Database server |
-| Set-AzureSqlDatabase | Set Azure SQL database |
-| Set-AzureSqlElasticPool | Set Azure SQL Database elastic database pool |
-| Set-AzureSqlServer | Set Azure SQL Database server |
-| Set-AzureSqlServerFirewallRule | Set Azure SQL Database server firewall rule |
-| Get-Metrics | Get Metrics |
+| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [Creare un pool di database elastici](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [Modificare le impostazioni delle prestazioni di un pool di database elastici](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [Eliminare un pool di database elastici](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [Ottiene i pool di database elastici e i relativi valori di proprietà](https://msdn.microsoft.com/it-it/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [Ottenere lo stato delle operazioni del pool di database elastici](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [Ottenere i database in un pool di database elastici](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [Ottiene lo stato di spostamento dei database da e verso un pool](https://msdn.microsoft.com/library/mt163669.aspx) |
+
+## Transact-SQL
+
+È possibile utilizzare Transact-SQL per eseguire le seguenti attività di gestione del database elastico:
+
+| Attività | Dettagli |
+| :-- | :-- |
+| Creare un nuovo database elastico (direttamente in un pool): | [CREARE DATABASE (database SQL di Azure)](https://msdn.microsoft.com/library/dn268335.aspx) |
+| Spostare i database esistenti da e verso un pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| Ottenere le statistiche di utilizzo delle risorse del pool | [sys.elastic\_pool\_resource\_stats (Database SQL di Azure)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 
 ## Informazioni sui prezzi e sulla fatturazione
@@ -180,7 +181,7 @@ I pool di database elastici vengono fatturati in base alle caratteristiche segue
 - Se un pool elastico viene ridimensionato per una nuova quantità di eDTU, non viene fatturato in base alla nuova quantità di eDTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database autonomi. 
 
 
-- Il prezzo di un pool elastico è basato sul numero di eDTU del pool e sul numero di database del pool.
+- Il prezzo di un pool elastico è basato sul numero di eDTU del pool e sul numero di database del pool. Il prezzo di un pool elastico è indipendente dall'utilizzo dei database elastici in esso contenuti.
 - Il prezzo viene calcolato nel modo seguente: (numero di eDTU del pool)x(prezzo unitario per eDTU) + (numero di database)x(prezzo unitario per database)
 
 Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitario delle eDTU per un database autonomo nello stesso livello di servizio. Per ulteriori informazioni, vedere [Database SQL Prezzi](http://azure.microsoft.com/pricing/details/sql-database/).
@@ -210,4 +211,4 @@ Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitar
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

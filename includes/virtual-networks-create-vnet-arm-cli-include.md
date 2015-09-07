@@ -1,15 +1,15 @@
-## How to create a VNet using the Azure CLI
+## Come creare una rete virtuale con l'interfaccia della riga di comando di Azure
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+È possibile usare l'interfaccia della riga di comando di Azure per gestire le risorse di Azure dal prompt dei comandi di qualsiasi computer con Windows, Linux o OSX. Per creare una rete virtuale con l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
-1. If you have never used the Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. Se non è mai stata usata l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+2. Eseguire il comando **azure config mode** per passare alla modalità di gestione delle risorse, come illustrato di seguito.
 
 		azure config mode arm
 
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
 
@@ -25,10 +25,10 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+	- **-n (o --name)**. Nome del nuovo gruppo di risorse. Per questo scenario, *TestRG*.
+	- **-l (o --location)**. L'area di Azure in cui verrà creato il nuovo gruppo di risorse. Per questo scenario, *centralus*.
 
-4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+4. Eseguire il comando per **creare reti virtuali di Azure** per creare una rete virtuale e una subnet, come illustrato di seguito. Si noti l'output del comando dell'interfaccia della riga di comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 5. 
 		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
@@ -45,12 +45,12 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      192.168.0.0/16
 		info:    network vnet create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
-	- **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *centralus*.
+	- **-g (o --resource-group)**. Nome del gruppo di risorse in cui verrà creata la rete virtuale. Per questo scenario, *TestRG*.
+	- **-n (o --name)**. Nome della rete virtuale da creare. Per questo scenario, *TestVNet*
+	- **-a (o --address-prefixes)**. Elenco di blocchi CIDR usati per lo spazio degli indirizzi della rete virtuale. Per questo scenario, *192.168.0.0/16*
+	- **-l (o --location)**. La regione in cui verrà creata la rete virtuale. Per questo scenario, *centralus*.
 
-5. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+5. Eseguire il comando per **creare la subnet della rete virtuale di Azure** per creare una subnet, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
@@ -66,15 +66,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    network vnet subnet create command OK
 
-	- **-e (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *FrontEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.1.0/24*.
+	- **-e (o --vnet-name**. Nome della rete virtuale in cui verrà creata la subnet. Per questo scenario, *TestVNet*.
+	- **-n (o --name)**. Nome della nuova subnet. Per questo scenario, *FrontEnd*.
+	- **-a (o --address-prefix)**. Blocco CIDR di subnet. Per questo scenario, *192.168.1.0/24*.
 
-6. Repeat step 5 above to create other subnets, if necessary. For our scenario, run the command below to create the *BackEnd* subnet.
+6. Ripetere il passaggio 5 per creare altre subnet, se necessario. Per questo scenario, eseguire il comando seguente per creare la subnet *BackEnd*.
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. Eseguire il comando **azure network vnet show** per visualizzare le proprietà della nuova rete virtuale, come illustrato di seguito.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -95,3 +95,5 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      Address prefix                : 192.168.2.0/24
 		data:
 		info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

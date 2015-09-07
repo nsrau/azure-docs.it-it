@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare dati tra un ambiente locale e il cloud mediante Data factory di Azure" 
-	description="Informazioni sullo spostamento di dati tra ambiente locale e cloud mediante il Gateway di gestione dati e Data factory di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare dati tra un ambiente locale e il cloud mediante Data factory di Azure"
+	description="Informazioni sullo spostamento di dati tra ambiente locale e cloud mediante il Gateway di gestione dati e Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati
@@ -26,7 +26,7 @@ Il Gateway di gestione dati offre le funzionalità seguenti:
 1.	Consente di modellare le origini dati locali e le origini dati nel cloud all'interno di un'unica istanza di Data factory e di spostare i dati al suo interno.
 2.	Consente di monitorare e gestire lo stato del gateway in un'unica schermata attraverso un dashboard di Data factory basato sul cloud.
 3.	Consente di gestire in modo sicuro l'accesso alle origini dati locali.
-	1. Non è richiesta alcuna modifica al firewall aziendale. Il gateway stabilisce soltanto connessioni basate su HTTP in uscita per accedere a Internet.
+	1. Non è richiesta alcuna modifica del firewall aziendale. Il gateway stabilisce soltanto connessioni basate su HTTP in uscita per accedere a Internet.
 	2. È possibile crittografare le informazioni sulle credenziali per gli archivi dati locali usando il proprio certificato.
 4.	Consente di spostare i dati in modo efficace: i dati vengono trasferiti in parallelo e sono resilienti ai problemi di rete intermittente grazie alla logica di ripetizione dei tentativi automatica.
 
@@ -37,7 +37,7 @@ Il Gateway di gestione dati offre le funzionalità seguenti:
 4.	È possibile disporre di **più gateway su diversi computer che si connettono alla stessa origine dati locale**. Ad esempio, potrebbero essere disponibili due gateway che servono due data factory, ma la stessa origine dati locale viene registrata con entrambe le data factory.
 5.	Se un gateway è già installato nel computer per uno scenario **Power BI**, installare un **gateway separato per Data factory di Azure** in un altro computer.
 6.	È necessario **usare il gateway anche quando si usa ExpressRoute**. 
-7.	È necessario considerare l'origine dati come un'origine dati locale, ovvero come se fosse protetta da firewall, anche quando si usa **ExpressRoute**. Occorre inoltre **usare il gateway** per stabilire la connessione tra il servizio e l'origine dati. 
+7.	È necessario considerare l'origine dati come un'origine dati locale, ovvero come se fosse protetta da firewall, anche quando si usa **ExpressRoute**. È necessario inoltre **usare il gateway** per stabilire la connessione tra il servizio e l'origine dati. 
 
 ## Installazione del gateway - Prerequisiti
 1.	Sono supportati i **sistemi operativi** Windows 7, Windows 8/8.1, Windows Server 2008 R2 e Windows Server 2012.
@@ -84,7 +84,7 @@ Se l'azienda usa un server proxy, sarà necessario aggiungere Microsoft Azure al
 ## Uso del Gateway di gestione dati: procedura dettagliata
 In questa procedura dettagliata viene creata un'istanza di Data factory con una pipeline che sposta i dati da un database di SQL Server locale a un BLOB di Azure.
 
-### Passaggio 1: Creare un'istanza di Data factory di Azure
+### Passaggio 1: creare un'istanza di Data factory di Azure
 In questo passaggio viene usato il portale di gestione di Azure per creare un'istanza di Data factory di Azure denominata **ADFTutorialOnPremDF**. È anche possibile creare un'istanza di Data factory con i cmdlet di Data factory di Azure.
 
 1.	Dopo aver eseguito l'accesso al [portale di anteprima di Azure](https://portal.azure.com), fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e infine fare clic su **Data factory** nel pannello **Analisi dei dati**.
@@ -140,7 +140,7 @@ In questo passaggio viene usato il portale di gestione di Azure per creare un'is
 
 	>[AZURE.NOTE]È necessario essere un amministratore nel computer locale per installare e configurare correttamente il gateway di gestione dati. È possibile aggiungere altri utenti al gruppo di Windows locale degli utenti del gateway di gestione dati. I membri di questo gruppo potranno usare lo strumento Gestione configurazione del gateway di gestione dati per configurare il gateway.
 
-4. Fare clic sull'hub **NOTIFICHE** a sinistra. Attendere la visualizzazione del messaggio **L'installazione rapida per "adftutorialgateway'' è stata completata.** nel pannello **Notifiche**.
+4. Fare clic sull'hub **NOTIFICHE** a sinistra. Attendere la visualizzazione del messaggio **L'installazione rapida per 'adftutorialgateway' è stata completata.** nel pannello **Notifiche**.
 
 	![Installazione rapida riuscita](./media/data-factory-move-data-between-onprem-and-cloud/express-setup-succeeded.png)
 6. Fare clic su **OK** nel pannello **Crea** e nel pannello **Nuovo gateway dati**.
@@ -168,7 +168,7 @@ In questo passaggio viene usato il portale di gestione di Azure per creare un'is
 
 
 ### Passaggio 2: Creare servizi collegati 
-In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **SqlServerLinkedService**. Il servizio **SqlServerLinkedService** collega un database di SQL Server locale, mentre il servizio collegato **StorageLinkedService** collega un archivio BLOB di Azure ad **ADFTutorialDataFactory**. Più avanti nella procedura dettagliata verrà creata una pipeline che copia i dati dal database di SQL Server locale all'archivio BLOB di Azure.
+In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **SqlServerLinkedService**. Il servizio **SqlServerLinkedService** collega un database di SQL Server locale, mentre il servizio collegato **StorageLinkedService** collega un archivio BLOB di Azure ad **ADFTutorialDataFactory**. Più avanti nella procedura dettagliata verrà creata una pipeline che copia i dati dal database SQL Server locale all'archivio BLOB di Azure.
 
 #### Aggiungere un servizio collegato a un database di SQL Server locale
 1.	Nel pannello **Servizi collegati** fare clic su **Nuovo archivio dati** nella barra dei comandi.
@@ -193,34 +193,23 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 5. Fare clic su **OK** nel pannello **Nuovo archivio dati**. 	
 6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online. ![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
-Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
-
-##### Impostazione delle credenziali e della sicurezza
-Quando si usa il metodo descritto in precedenza in cui l'applicazione "Impostazione credenziali" viene avviata dal portale di Azure per impostare le credenziali per un'origine dati locale, il portale crittografa le credenziali usando il certificato specificato nella scheda Certificato di Gestione configurazione del Gateway di gestione dati del computer del gateway.
-
-Se si desidera un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento EncryptedCredential di connectionString nel file JSON da usare con il cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) oppure nel frammento di codice JSON dell'editor delle data factory nel portale di Azure.
-
-	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Nota:** se si usa l'applicazione "Impostazione credenziali", le credenziali crittografate verranno automaticamente impostate nel servizio collegato come illustrato in precedenza.
-
-Esiste anche un altro approccio per impostare le credenziali usando l'editor delle data factory. Se si crea un servizio collegato di SQL Server usando l'editor e si immettono le credenziali in testo normale, le credenziali vengono crittografate tramite un certificato che appartiene al servizio Data factory, NON tramite il certificato usato dal gateway. Anche se questo approccio potrebbe apparire leggermente più veloce, in alcuni casi risulta meno sicuro. È pertanto consigliabile seguire questo approccio solo per scopi di sviluppo o di test.
+Per informazioni dettagliate sull'impostazione delle credenziali, vedere la sezione [Impostazione delle credenziali e della sicurezza](#setting-credentials-and-security).
 
 #### Aggiungere un servizio collegato per un account di archiviazione di Azure
  
 1. Nel pannello **Servizi collegati** fare clic su **Nuovo archivio dati** nella barra degli strumenti. 
 2. Immettere **StorageLinkedService** nel campo **Nome**. 
 3. Fare clic sulla freccia accanto a **Tipo** e selezionare **Archiviazione di Azure**.
-4. Sotto l'impostazione **Type** si dovrebbero visualizzare i nuovi campi **Nome account** e **Chiave account**. 
+4. Sotto l'impostazione **Tipo** si dovrebbero visualizzare i nuovi campi **Nome account** e **Chiave account**. 
 3. Nel campo **Nome account** immettere il nome dell'account di archiviazione di Azure.
 4. Nel campo **Chiave account** immettere la chiave per l'account di archiviazione di Azure. 
 5. Fare clic su **OK** per chiudere la finestra di dialogo. 
 
  
 ### Passaggio 3: creare set di dati di input e di output
-In questo passaggio vengono creati i set di dati di input e di output che rappresentano i dati di input e di output per l'operazione di copia (database di SQL Server locale => archiviazione BLOB di Azure). Prima di creare i set di dati o le tabelle (set di dati rettangolari), è necessario seguire questa procedura (i passaggi dettagliati seguono l'elenco):
+In questo passaggio vengono creati i set di dati di input e di output che rappresentano i dati di input e di output per l'operazione di copia (database SQL Server locale => archiviazione BLOB di Azure). Prima di creare i set di dati o le tabelle (set di dati rettangolari), è necessario eseguire quanto segue (i passaggi dettagliati seguono l'elenco):
 
-- Creare una tabella denominata **emp** nel database di SQL Server aggiunto come servizio collegato all'istanza di Data factory e inserire una coppia di voci di esempio nella tabella.
+- Creare una tabella denominata **emp** nel database SQL Server aggiunto come servizio collegato all'istanza di Data factory e inserire una coppia di voci di esempio nella tabella.
 - Creare un contenitore BLOB denominato **adftutorial** nell'account di archiviazione BLOB di Azure aggiunto come servizio collegato all'istanza di Data factory.
 
 ### Preparare SQL Server locale per l'esercitazione
@@ -279,8 +268,8 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 
 	Tenere presente quanto segue:
 	
-	- **type** è impostato su **SqlServerTable**.
-	- **tableName** è impostato su **emp**.
+	- L'oggetto **type** è impostato su **SqlServerTable**.
+	- **tablename** è impostato su **emp**.
 	- **linkedServiceName** è impostato su **SqlServerLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
 	- Per una tabella di input non generata da un'altra pipeline in Data factory di Azure, è necessario impostare **external** su **true**. Indica che i dati di input sono generati al di fuori del servizio Data factory di Azure. Se lo si desidera, è possibile specificare qualsiasi criterio di dati esterno usando l'elemento **externalData** nella sezione **policy**.    
 
@@ -315,14 +304,14 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
   
 	Tenere presente quanto segue:
 	
-	- **type** è impostato su **AzureBlob**.
-	- **linkedServiceName** è impostato su **StorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
-	- **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È necessario creare solo il contenitore **adftutorial**.
-	- **availability** è impostato su **hourly** (**frequency** è impostato su **hour** e **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
+	- L'oggetto **type** è impostato su **AzureBlob**.
+	- L'oggetto **linkedServiceName** è impostato su **StorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
+	- L'oggetto **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È necessario creare solo il contenitore **adftutorial**.
+	- L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
 
-	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file e i BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Vedere i file di esempio nell'[esercitazione][adf-tutorial] per gli esempi.
+	Se non si specifica un oggetto **fileName** per una **tabella di input**, tutti i file/BLOB della cartella di input (**folderPath**) vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input. Vedere i file di esempio nell'[esercitazione][adf-tutorial] per gli esempi.
  
-	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il formato seguente: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+	Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 	Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà partitionedBy. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Ad esempio, se una sezione viene generata per 2014-10-20T08:00:00, folderName è impostato su wikidatagateway/wikisampledataout/2014/10/20 e fileName è impostato su 08.csv.
 
@@ -349,7 +338,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 1.	Nel pannello **DATA FACTORY** fare clic sul riquadro **Creare e distribuire** per avviare l'**Editor** per la data factory.
 
 	![Riquadro Creare e distribuire](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-2.	Fare clic su **Nuova pipeline** sulla barra dei comandi. Se il pulsante non è presente, fare clic su **...(puntini di sospensione)** per visualizzarlo.
+2.	Fare clic su **Nuova pipeline** sulla barra dei comandi. Se il pulsante non è presente, fare clic su **... (puntini di sospensione)** per visualizzarlo.
 2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente:   
 
 
@@ -441,7 +430,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 
 	![Sezioni EmpOnPremSQLTable](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 
-6. Le sezioni di dati fino all'ora corrente sono state già generate e sono in stato **Ready**. Ciò è dovuto al fatto che i dati sono stati inseriti nel database di SQL Server database che è sempre presente. Verificare che non sia visualizzata alcuna sezione in **Sezioni con errori** nella parte inferiore della pagina.
+6. Le sezioni di dati fino all'ora corrente sono state già generate e sono in stato **Pronto**. Ciò è dovuto al fatto che i dati sono stati inseriti nel database SQL Server database che è sempre presente. Verificare che non sia visualizzata alcuna sezione in **Sezioni con errori** nella parte inferiore della pagina.
 
 
 	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
@@ -457,12 +446,12 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 7. A questo punto, nel pannello **Set di dati**, fare clic su **OutputBlobTable**.
 
 	![sezioni OputputBlobTable][image-data-factory-output-blobtable-slices]
-8. Controllare che le sezioni fino all'ora corrente siano state generate e siano in stato **Ready**. Attendere finché lo stato delle sezioni fino all'ora corrente non viene impostato **Ready**.
+8. Controllare che le sezioni fino all'ora corrente siano state generate e siano in stato **Pronto**. Attendere finché lo stato delle sezioni fino all'ora corrente non viene impostato **Pronto**.
 9. Fare clic su una qualsiasi sezione di dati dell'elenco per visualizzare il pannello **SEZIONE DI DATI**.
 
 	![Pannello Sezione dati](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
-	Se lo stato della sezione non è **Ready**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
+	Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
 
 10. Fare clic sull'**esecuzione attività** dall'elenco nella parte inferiore della pagina per visualizzare i **dettagli dell'esecuzione attività**.
 
@@ -476,11 +465,25 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 	![Esplora archivi Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 
+## Impostazione delle credenziali e della sicurezza
+Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
+
+Quando si usa l'applicazione "Impostazione credenziali" avviata dal portale di Azure per impostare le credenziali per un'origine dati locale, il portale crittografa le credenziali usando il certificato specificato nella scheda Certificato di Gestione configurazione del Gateway di gestione dati del computer del gateway.
+
+Se si desidera un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento EncryptedCredential di connectionString nel file JSON da usare con il cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) oppure nel frammento di codice JSON dell'editor delle data factory nel portale.
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
+**Nota:** se si usa l'applicazione "Impostazione credenziali", le credenziali crittografate verranno automaticamente impostate nel servizio collegato come illustrato in precedenza.
+
+Esiste un altro approccio per impostare le credenziali usando l'editor delle data factory. Se si crea un servizio collegato di SQL Server usando l'editor e si immettono le credenziali in testo normale, le credenziali vengono crittografate tramite un certificato che appartiene al servizio Data factory, NON tramite il certificato usato dal gateway. Anche se questo approccio potrebbe apparire leggermente più veloce, in alcuni casi risulta meno sicuro. È pertanto consigliabile seguire questo approccio solo per scopi di sviluppo o di test.
+
+
 ## Creazione e registrazione di un gateway con Azure PowerShell 
 Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azure PowerShell.
 
 1. Avviare **Azure PowerShell** in modalità di amministrazione. 
-2. I cmdlet di Data factory di Azure sono disponibili in modalità **AzureResourceManager**. Eseguire il comando seguente per passare in modalità **AzureResourceManager**.     
+2. I cmdlet di Data factory di Azure sono disponibili in modalità **AzureResourceManager**. Eseguire il seguente comando per passare in modalità **AzureResourceManager**.     
 
         switch-azuremode AzureResourceManager
 
@@ -517,7 +520,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. In Azure PowerShell passare alla cartella **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\** ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel comando seguente per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
+4. In Azure PowerShell passare alla cartella **C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\** ed eseguire lo script **RegisterGateway.ps1** associato alla variabile locale **$Key** come mostrato nel comando seguente per registrare l'agente client installato nel computer con il gateway logico creato in precedenza.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -535,7 +538,7 @@ Quando si usa un'attività di copia in una pipeline di dati per inserire dati lo
 
 Di seguito è riportato un flusso di dati di alto livello e un riepilogo dei passaggi per la copia con il gateway di dati: ![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
-1.	Un nuovo gateway per l'istanza di Data factory di Azure viene creato usando il [portale di Azure](http://portal.azure.com) oppure un [cmdlet di PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
+1.	Viene creato un nuovo gateway per l'istanza di Data factory di Azure usando il [portale di Azure](http://portal.azure.com) oppure un [cmdlet di PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Tramite il pannello "Servizi collegati" viene definito un nuovo servizio collegato per un archivio dati locale all'interno del gateway. Una parte della configurazione del servizio collegato consiste nell'uso dell'applicazione Impostazione credenziali per specificare i tipi di autenticazione e le credenziali come illustrato nella procedura dettagliata. La finestra di dialogo dell'applicazione Impostazione credenziali comunicherà con l'archivio dati per eseguire il test della connessione e con il gateway per salvare le credenziali.
 3.	Il gateway crittograferà le credenziali tramite il certificato associato al gateway (fornito dallo sviluppatore) prima di salvare le credenziali nel cloud.
 4.	Il servizio di spostamento di Data factory comunica con il gateway per la pianificazione e la gestione dei processi tramite un canale di controllo che usa una coda condivisa del bus di servizio di Azure. Quando occorre avviare il processo di attività di copia, Data factory inserisce in coda la richiesta insieme alle informazioni sulle credenziali. Il gateway avvia il processo dopo avere eseguito il polling della coda.
@@ -547,13 +550,13 @@ Di seguito è riportato un flusso di dati di alto livello e un riepilogo dei pas
 1. Come descritto in precedenza nella procedura dettagliata, sono disponibili diversi modi per impostare le credenziali per gli archivi dati locali con Data factory. Per le porte occorre fare considerazioni diverse a seconda delle opzioni selezionate.	
 
 	- Se si usa l'applicazione **Impostazione credenziali**: per impostazione predefinita il programma di installazione del Gateway di gestione dati apre le porte **8050** e **8051** in Windows Firewall nel computer del gateway. Queste porte vengono usate dall'applicazione Impostazione credenziali per trasmettere le credenziali al gateway e vengono aperte solo nel computer locale in cui è attivo Windows Firewall. Queste porte non sono raggiungibili da Internet e non è necessario tenerle aperte nel firewall aziendale.
-	2.	Se si usa il cmdlet di PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): Se si usa un cmdlet di PowerShell per crittografare le credenziali e di conseguenza non si desidera che durante l'installazione del gateway vengano aperte le porte in ingresso in Windows Firewall sul computer del gateway, questa operazione può essere eseguita usando il comando seguente durante l'installazione:
+	2.	Se si usa il cmdlet di PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): se si usa un cmdlet di PowerShell per crittografare le credenziali e di conseguenza non si desidera che durante l'installazione del gateway vengano aperte le porte in ingresso in Windows Firewall sul computer del gateway, questa operazione può essere eseguita usando il comando seguente durante l'installazione:
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Se si usa l'applicazione **Impostazione credenziali** è necessario avviare tale applicazione in un computer che possa connettersi al Gateway di gestione dati per poter impostare le credenziali per l'origine dati e testare la connessione all'origine dati.
 4.	Quando si copiano dati da e verso un database di SQL Server locale verso o da un database SQL di Azure, verificare quanto segue:	
 	- 	Il firewall nel computer del gateway consente la comunicazione TCP in uscita sulla porta **TCP** **1433**.
 	- 	Configurare le [impostazioni del firewall SQL di Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) aggiungendo l'**indirizzo IP relativo al computer del gateway** agli **indirizzi IP consentiti**.
-5.	Quando si copiano dati a/da SQL Server locale in qualsiasi destinazione e il gateway e i computer SQL Server sono diversi, seguire questa procedura: [configurare Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) sul computer SQL Server in modo che il gateway possa accedere al database con le porte su cui è in attesa l'istanza di SQL Server. Per l'istanza predefinita, la porta è 1433.
+5.	Quando si copiano dati a/da SQL Server locale in qualsiasi destinazione e il gateway e i computer SQL Server sono diversi, eseguire le operazioni seguenti: [configurare Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) sul computer SQL Server in modo che il gateway possa accedere al database con le porte su cui è in attesa l'istanza di SQL Server. Per l'istanza predefinita, la porta è 1433.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

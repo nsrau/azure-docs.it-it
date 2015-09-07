@@ -1,12 +1,12 @@
-<properties pageTitle="Distribuzione di risorse di Azure utilizzando un modello" description="Viene illustrato come utilizzare alcuni dei client disponibili nella libreria di gestione delle risorse di Azure per distribuire una macchina virtuale, una rete virtuale e un account di archiviazione" services="macchine virtuali, reti virtuali, archiviazione" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="Gestione risorse di Azure/>
+<properties pageTitle="Distribuzione di risorse di Azure utilizzando un modello" description="Viene illustrato come utilizzare alcuni dei client disponibili nella libreria di gestione delle risorse di Azure per distribuire una macchina virtuale, una rete virtuale e un account di archiviazione" services="macchine virtuali, reti virtuali, archiviazione" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="Gestione risorse di Azure"/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Distribuire le risorse di Azure usando le librerie .NET e un modello
@@ -75,7 +75,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire insiem
             "contentVersion": "1.0.0.0",
         }
 
-6. I [parametri](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters) non sono sempre obbligatori, ma semplificano la gestione dei modelli. Illustrano il tipo del valore, il valore predefinito, se necessario, ed eventualmente i valori consentiti del parametro. Per questa esercitazione vengono aggiunti al modello i parametri usati per creare una macchina virtuale, un account di archiviazione e una rete virtuale.
+6. I [parametri](../resource-group-authoring-templates.md#parameters) non sono sempre obbligatori, ma semplificano la gestione dei modelli. Illustrano il tipo del valore, il valore predefinito, se necessario, ed eventualmente i valori consentiti del parametro. Per questa esercitazione vengono aggiunti al modello i parametri usati per creare una macchina virtuale, un account di archiviazione e una rete virtuale.
 
     Aggiungere l'elemento parameters e i rispettivi elementi figlio dopo l'elemento contentVersion:
 
@@ -106,7 +106,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire insiem
           },
         }
 
-7.	Le [variabili](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables) possono essere usate in un modello per specificare i valori che possono subire modifiche frequenti o che devono essere creati da una combinazione di valori dei parametri.
+7.	Le [variabili](../resource-group-authoring-templates.md#variables) possono essere usate in un modello per specificare i valori che possono subire modifiche frequenti o che devono essere creati da una combinazione di valori dei parametri.
 
     Aggiungere l'elemento variables dopo la sezione parameters:
 
@@ -142,7 +142,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire insiem
           },
         }
 
-8.	Le [risorse](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources), ad esempio la macchina virtuale, la rete virtuale e l'account di archiviazione, vengono definite più avanti nel modello.
+8.	Le [risorse](../resource-group-authoring-templates.md#resources), ad esempio la macchina virtuale, la rete virtuale e l'account di archiviazione, vengono definite più avanti nel modello.
 
     Aggiungere la sezione resources dopo la sezione variables:
 
@@ -443,4 +443,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

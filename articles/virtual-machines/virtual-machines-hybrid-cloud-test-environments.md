@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ambienti di test basati su cloud ibrido"
-	description="Principali argomenti che descrivono come creare ambienti che è possibile utilizzare per sviluppo o a scopo di prova per il cloud ibrido di Azure."
+	pageTitle="Ambienti di test cloud ibridi in Azure | Microsoft Azure"
+	description="Collegamenti ad articoli che illustrano come creare ambienti di sviluppo/test o ambienti informatici professionali proof-of-concept per il cloud ibrido basato su Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -58,4 +58,4 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

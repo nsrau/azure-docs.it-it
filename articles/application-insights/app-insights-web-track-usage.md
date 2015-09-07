@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Analisi dell'utilizzo per applicazioni Web con Application Insights" 
-	description="Panoramica dell'analisi dell'uso con Application Insights" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Analisi dell'utilizzo per applicazioni Web con Application Insights"
+	description="Panoramica dell'analisi dell'uso con Application Insights"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # Analisi dell'utilizzo per applicazioni Web con Application Insights
@@ -109,13 +109,33 @@ Tuttavia, quando si analizzano intervalli di tempo più brevi, ad esempio il liv
 
 ## Utenti e conteggi utenti
 
+
 Ciascuna sessione utente è associata a un id utente univoco.
 
-Per impostazione predefinita, l'utente viene identificato inserendo un cookie. In questo caso, un utente che usa più browser o dispositivi viene conteggiato più di una volta.
+Per impostazione predefinita, l'utente viene identificato inserendo un cookie. Un utente che usa più browser o dispositivi viene conteggiato più di una volta. Vedere [utenti autenticati](#authenticated-users).
+
 
 La metrica **conteggio utenti** in un determinato intervallo viene definita come il numero di utenti univoci con attività registrate durante questo intervallo. Di conseguenza, quando si imposta un intervallo di tempo, gli utenti con sessioni lunghe potrebbero essere conteggiati più volte e il livello di dettaglio essere inferiore a un'ora o circa.
 
-**Nuovi utenti**: conteggia gli utenti le cui prime sessioni con l’app si sono verificate durante questo intervallo. Se viene usato il metodo predefinito di conteggio per utenti mediante cookie, vengono inclusi anche gli utenti che hanno cancellato i relativi cookie o che usano un nuovo dispositivo o browser per accedere all’app per la prima volta. ![Nel pannello Utilizzo fare clic sul grafico utenti per esaminare i nuovi utenti.](./media/app-insights-web-track-usage/031-dual.png)
+**Nuovi utenti**: conteggia gli utenti le cui prime sessioni con l’app si sono verificate durante questo intervallo. Se viene usato il metodo predefinito di conteggio per utenti mediante cookie, vengono inclusi anche gli utenti che hanno cancellato i relativi cookie o che usano un nuovo dispositivo o browser per accedere all'app per la prima volta. ![Nel pannello Utilizzo fare clic sul grafico utenti per esaminare i nuovi utenti.](./media/app-insights-web-track-usage/031-dual.png)
+
+### Utenti autenticati
+
+Se l'app Web consente agli utenti di accedere, è possibile ottenere un conteggio più preciso specificando Application Insights con un ID utente univoco. Non deve necessariamente essere il nome o lo stesso ID usato nell'app. Non appena l'app ha identificato l'utente, usare questo codice:
+
+
+*JavaScript nel client*
+
+      appInsights.setAuthenticatedUserContext(userId);
+
+Se l'app raggruppa gli utenti in account, è inoltre possibile passare un identificatore per l'account.
+
+      appInsights.setAuthenticatedUserContext(userId, accountId);
+
+Gli ID utente e account non devono contenere spazi o caratteri `,;=|`.
+
+
+In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **utenti autenticati ** e **account**.
 
 ## Traffico sintetico
 
@@ -144,7 +164,7 @@ Si supponga che, invece di implementare ogni gioco in una pagina Web separata, s
 
 Tuttavia, si vuole comunque che Application Insights registri il numero di volte in cui ogni gioco viene aperto, esattamente come se fossero in pagine Web separate. La risposta è semplice: inserire solo una chiamata nel modulo di telemetria in JavaScript in cui si vuole registrare l'apertura di una nuova 'pagina':
 
-	telemetryClient.trackPageView(game.Name);
+	appInsights.trackPageView(game.Name);
 
 ## Eventi personalizzati
 
@@ -152,7 +172,7 @@ Usare gli eventi personalizzati per . È possibile inviarli da app per dispositi
 
 *JavaScript*
 
-    telemetryClient.trackEvent("GameEnd");
+    appInsights.trackEvent("GameEnd");
 
 *C#*
 
@@ -371,4 +391,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

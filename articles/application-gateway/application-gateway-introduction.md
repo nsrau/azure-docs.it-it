@@ -1,24 +1,26 @@
 <properties 
    pageTitle="Introduzione al servizio Gateway applicazione | Microsoft Azure"
-   description="Questa pagina offre una panoramica del servizio Gateway applicazione per il bilanciamento del carico di livello 7, incluse dimensioni del gateway, bilanciamento del carico HTTP, affinità di sessione basata su cookie e offload SSL."
-   documentationCenter="na"
-   services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn"/>
+	description="Questa pagina offre una panoramica del servizio Gateway applicazione per il bilanciamento del carico di livello 7, incluse dimensioni del gateway, bilanciamento del carico HTTP, affinità di sessione basata su cookie e offload SSL."
+	documentationCenter="na"
+	services="application-gateway"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/24/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="joaoma"/>
 
-# Panoramica tecnica del servizio Gateway applicazione 
+# Informazioni sul servizio Gateway applicazione
 
 
-Il servizio Gateway applicazione di Microsoft Azure fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7. Il bilanciamento del carico delle applicazioni consente agli amministratori e sviluppatori IT di creare regole di routing per il traffico di rete basato su HTTP. Il servizio Gateway applicazione ha una disponibilità elevata ed è basato sul consumo. Per il contratto di servizio e i prezzi, fare riferimento alle pagine [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/) e [Prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).
+Il servizio Gateway applicazione di Microsoft Azure fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7.
+
+Il bilanciamento del carico delle applicazioni consente agli amministratori e sviluppatori IT di creare regole di routing per il traffico di rete basato su HTTP. Il servizio Gateway applicazione ha una disponibilità elevata ed è basato sul consumo. Per il contratto di servizio e i prezzi, fare riferimento alle pagine [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/) e [Prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Il servizio Gateway applicazione attualmente supporta la distribuzione di applicazioni di livello 7 per le funzionalità seguenti:
 
@@ -34,7 +36,7 @@ Azure fornisce il servizio di bilanciamento del carico di livello 4 che funziona
 
 Il gateway applicazione instraderà il traffico HTTP in base alla relativa configurazione, sia che si tratti di una macchina virtuale, di servizio cloud, di un'app Web o di un indirizzo IP esterno.
 
-Il diagramma seguente illustra il flusso di traffico per il gateway applicazione:![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
+Il diagramma seguente illustra il flusso di traffico per il servizio Gateway applicazione: ![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 Il bilanciamento del carico di livello 7 HTTP è utile per:
 
@@ -57,6 +59,6 @@ Il servizio Gateway applicazione è attualmente disponibile in 3 dimensioni: Sma
 
 Creare un gateway applicazione. Vedere [Creare un gateway applicazione](application-gateway-create-gateway.md).
 
-Configurare l'offload SSL. Vedere [Configurare l'offload SSL con un gateway applicazione](application-gateway-ssl.md).
+Configurare l'offload SSL. Vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

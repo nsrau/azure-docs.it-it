@@ -1,22 +1,20 @@
 <properties
    pageTitle="Panoramica del modello di programmazione Reliable Services di Service Fabric"
-   description="Informazioni sul modello di programmazione Reliable Services di Service Fabric e su come sviluppare servizi personalizzati."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
-
+	description="Informazioni sul modello di programmazione Reliable Services di Service Fabric e su come sviluppare servizi personalizzati."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="masnider"
+	manager="timlt"
+	editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/17/2015"
-   ms.author="masnider;jesseb"/>
-
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="masnider;jesseb"/>
 
 # Panoramica di Reliable Services
 Service Fabric semplifica la scrittura e la gestione di servizi affidabili con e senza stato. In questo documento verranno illustrate:
@@ -25,11 +23,11 @@ Service Fabric semplifica la scrittura e la gestione di servizi affidabili con e
 2. Le diverse opzioni disponibili durante lo sviluppo di un servizio affidabile
 3. Alcuni dei differenti scenari ed esempi dell'uso di Reliable Services e della relativa modalità di sviluppo
 
-Reliable Services è uno dei modelli di programmazione disponibili in Service Fabric. Per altre informazioni sul modello di programmazione Reliable Actors, consultare l'[introduzione](../service-fabric/service-fabric-reliable-actors-introduction.md).
+Reliable Services è uno dei modelli di programmazione disponibili in Service Fabric. Per altre informazioni sul modello di programmazione Reliable Actors, consultare l'[introduzione](service-fabric-reliable-actors-introduction.md).
 
 In Service Fabric un servizio è costituito da configurazione, codice dell'applicazione e stato (facoltativo).
 
-Service Fabric gestisce il ciclo di vita dei servizi, dalle fasi di provisioning e sviluppo fino all'aggiornamento e all'eliminazione, mediante gli strumenti di [gestione delle applicazioni di Service Fabric](../service-fabric/service-fabric-deploy-remove-applications.md).
+Service Fabric gestisce il ciclo di vita dei servizi, dalle fasi di provisioning e sviluppo fino all'aggiornamento e all'eliminazione, mediante gli strumenti di [gestione delle applicazioni di Service Fabric](service-fabric-deploy-remove-applications.md).
 
 ## Che cos'è Reliable Services?
 Reliable Services offre un modello di programmazione di alto livello, semplice e potente, per specificare gli elementi importanti per l'applicazione. Il modello di programmazione Reliable Services offre quanto indicato di seguito:
@@ -38,7 +36,7 @@ Reliable Services offre un modello di programmazione di alto livello, semplice e
 
 2. Un modello semplice per l'esecuzione di codice simile ai modelli di programmazione di uso comune: il codice dispone di un punto di ingresso ben definito e di un ciclo di vita di facile gestione.
 
-3. Un modello di comunicazione facilmente integrabile. È possibile usare il trasporto preferito, ad esempio HTTP con [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolli TCP personalizzati e così via. Reliable Services fornisce alcune interessanti opzioni predefinite, ma consente anche di realizzare funzionalità personalizzate.
+3. Un modello di comunicazione facilmente integrabile. È possibile usare il trasporto preferito, ad esempio HTTP con [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolli TCP personalizzati e così via. Reliable Services fornisce alcune interessanti opzioni predefinite, ma consente anche di realizzare funzionalità personalizzate.
 
 ## Quali sono le caratteristiche distintive di Reliable Services?
 Reliable Services in Service Fabric è diverso da eventuali servizi sviluppati in precedenza. Service Fabric offre affidabilità, disponibilità, coerenza e scalabilità.
@@ -54,7 +52,7 @@ Reliable Services in Service Fabric è diverso da eventuali servizi sviluppati i
 ## Ciclo di vita del servizio
 Reliable Services fornisce un ciclo di vita semplice che consente di attivare rapidamente il codice e iniziarne l'uso, sia per i servizi con stato sia per quelli senza stato. Per garantire l'operatività del servizio, è necessario implementare solo uno o due metodi.
 
-+ CreateCommunicationListener: con questo metodo il servizio definisce lo stack di comunicazione da usare. Lo stack di comunicazione, ad esempio [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), definisce gli endpoint di ascolto per il servizio, ovvero il modo in cui i client potranno raggiungerlo, nonché il modo in cui i messaggi che vengono visualizzati cessano l'interazione con il resto del codice del servizio.
++ CreateCommunicationListener: con questo metodo il servizio definisce lo stack di comunicazione da usare. Lo stack di comunicazione, ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md), definisce gli endpoint di ascolto per il servizio, ovvero il modo in cui i client potranno raggiungerlo, nonché il modo in cui i messaggi che vengono visualizzati cessano l'interazione con il resto del codice del servizio.
 
 + RunAsync - si tratta del luogo in cui il servizio esegue la logica di business. Il token di annullamento fornito indica quando l'operazione deve essere interrotta. Si supponga, ad esempio, di avere un servizio che deve effettuare costantemente il pull dei messaggi all'esterno di un oggetto ReliableQueue per elaborarli. RunAsync è il metodo con cui vengono eseguite tali attività.
 
@@ -65,13 +63,13 @@ I principali eventi del ciclo di vita di un servizio Reliable Service sono i seg
 2. Viene chiamato il metodo CreateCommunicationListener, così da consentire al servizio di restituire un listener di comunicazione di sua scelta.
   + Si noti che questa operazione è facoltativa anche se la maggior parte dei servizi espone alcuni endpoint direttamente.
 
-3. Una volta creato il CommunicationListener, esso viene aperto
-  + CommunicationListeners dispone di un metodo chiamato Open (), che viene chiamato a questo punto e che restituisce l'indirizzo di attesa per il servizio. Se il servizio Reliable Services usa una delle interfacce ICommunicationListener incorporate, l'operazione viene eseguita automaticamente.
+3. Una volta creato il listener di comunicazione, esso viene aperto
+  + I listener di comunicazione dispongono di un metodo chiamato Open(), che viene richiamato a questo punto e che restituisce l'indirizzo di attesa per il servizio. Se il servizio Reliable Services usa una delle interfacce ICommunicationListener incorporate, l'operazione viene eseguita automaticamente.
 
 4. Una volta che il listener di comunicazione è Open (), la chiamata RunAsync() nel servizio principale viene chiamata.
   + Si noti che RunAsync è facoltativo, se il servizio svolge tutto il suo lavoro direttamente solo per rispondere alle chiamate dell'utente, non è necessario implementare RunAsync().
 
-Quando il servizio viene arrestato, ovvero quando viene eliminato o semplicemente spostato da una particolare posizione, l'ordine delle chiamate rimane inalterato: prima viene chiamato Close() sul CommunicationListener, quindi viene eliminato il token di annullamento che era stato passato a RunAsync().
+Quando il servizio viene arrestato, ovvero quando viene eliminato o semplicemente spostato da una particolare posizione, l'ordine delle chiamate rimane inalterato: prima viene chiamato Close() sul listener di comunicazione, quindi viene eliminato il token di annullamento che era stato passato a RunAsync().
 
 ## Servizi di esempio
 Per mostrare il funzionamento del modello di programmazione descritto, di seguito sono illustrati due differenti servizi.
@@ -81,7 +79,7 @@ Un servizio senza stato è un servizio al cui interno non viene letteralmente ge
 
 Si prenda come esempio un servizio Calculator non dotato di memoria e che riceve in un'unica soluzione tutti i termini e le operazioni da eseguire.
 
-In questo caso il metodo RunAsync() del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un CommunicationListener, ad esempio [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai differenti metodi, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
+In questo caso il metodo RunAsync() del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un CommunicationListener, ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai differenti metodi, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
 
 Quando viene effettuata una chiamata da un client, viene richiamato il metodo appropriato. Il servizio Calculator esegue le operazioni sui dati forniti e restituisce il risultato, senza archiviare alcuno stato.
 
@@ -127,9 +125,9 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 
 
 ## Passaggi successivi
-+ [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](../service-fabric/service-fabric-reliable-services-quick-start.md)
++ [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
 + [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-+ [Modello di programmazione Reliable Actors](../service-fabric/service-fabric-reliable-actors-introduction.md)
++ [Modello di programmazione Reliable Actors](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

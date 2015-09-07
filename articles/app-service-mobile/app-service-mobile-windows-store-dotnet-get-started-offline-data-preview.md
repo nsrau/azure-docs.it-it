@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="wesmc"/>
 
 # Abilitare la sincronizzazione offline per l'app di Windows
@@ -24,7 +24,7 @@
 
 Questa esercitazione illustra come aggiungere il supporto offline a un'app di Windows 8.1 Store o di Windows Phone usando un back-end dell'app per dispositivi mobili di Azure. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il back-end remoto.
 
-In questa esercitazione si aggiornerà il progetto app di Windows 8.1 creato nell'esercitazione [Creare un'app di Windows] per supportare le funzionalità offline di App per dispositivi mobili di Azure.
+In questa esercitazione si aggiornerà il progetto app di Windows 8.1 creato nell'esercitazione [Creare un'app di Windows] per supportare le funzionalità offline di App per dispositivi mobili di Azure. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere al progetto il pacchetto di estensione per l'accesso ai dati. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
@@ -38,10 +38,6 @@ Per completare questa esercitazione, è necessario disporre di:
 * [SQLite per Windows 8.1](http://www.sqlite.org/downloads)
 
 >[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
-
-## Verificare la configurazione del progetto server (facoltativo)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## Aggiornare l'app client per supportare le funzionalità offline
 
@@ -88,7 +84,7 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
 
 7. In MainPage.cs, nell'area contrassegnata come `Offline sync`, rimuovere i simboli di commento dai metodi `InitLocalStoreAsync` e `SyncAsync`. Il metodo `InitLocalStoreAsync` inizializza il contesto di sincronizzazione del client con un archivio SQLite. In Visual Studio è possibile selezionare tutte le righe commentate e usare i tasti di scelta rapida **CTRL**+**K**+**U** per rimuovere i commenti.
 
-	Si noti che in `SyncAsync` viene eseguita un'operazione push da `MobileServiceClient.SyncContext` anziché `IMobileServicesSyncTable`. Ciò avviene perché il contesto tiene traccia delle modifiche apportate dal client per tutte le tabelle. Questa operazione serve per gli scenari in cui sono presenti relazioni tra tabelle. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
+	Si noti che in `SyncAsync` viene eseguita un'operazione push da `MobileServiceClient.SyncContext` anziché da `IMobileServicesSyncTable`. Questo avviene perché il contesto tiene traccia delle modifiche apportate dal client per tutte le tabelle. Questa operazione serve per gli scenari in cui sono presenti relazioni tra tabelle. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
         private async Task InitLocalStoreAsync()
         {
@@ -219,7 +215,7 @@ In questa sezione verrà effettuata la riconnessione dell'app al back-end dell'a
 
 4. Nell'app fare clic sulla casella di controllo accanto ad alcuni elementi da completare nell'archivio locale.
 
-  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push sia pull. Tuttavia, si noti che **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, perché viene eseguita automaticamente quando si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
+  `UpdateCheckedTodoItem` chiama `SyncAsync` per sincronizzare ogni elemento con il back-end dell'app per dispositivi mobili. `SyncAsync` chiama operazioni sia push sia pull. Si noti tuttavia che **ogni volta che si esegue un'operazione pull in una tabella in cui il client ha apportato modifiche, viene sempre eseguita prima un'operazione push automatica nel contesto di sincronizzazione del client**. Lo scopo è quello di assicurare che tutte le tabelle nell'archivio locale e le relazioni restino coerenti. In questo caso, quindi, sarebbe stato possibile rimuovere la chiamata a `PushAsync`, perché viene eseguita automaticamente quando si esegue un'operazione pull. Qualora non si sia consapevoli di questo comportamento, si potrebbe interpretare come un'operazione push non prevista. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 
 ##Riepilogo
@@ -255,7 +251,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
 
 * [Azure Friday: App con supporto offline in Servizi mobili di Azure]
 
@@ -285,4 +281,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

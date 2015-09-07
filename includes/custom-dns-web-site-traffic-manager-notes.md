@@ -1,3 +1,3 @@
-Se non si dispone già di un profilo di Gestione traffico, utilizzare le informazioni riportate in [Creare un profilo di Gestione traffico utilizzando Creazione rapida](/library/windowsazure/dn339012.aspx) per crearne uno. Prendere nota del nome di dominio **.trafficmanager.net** associato al profilo di Gestione traffico, in quanto verrà utilizzato nei passaggi successivi di questo documento.
+Se non si dispone già di un profilo di Gestione traffico, utilizzare le informazioni riportate in [Creare un profilo di Gestione traffico utilizzando Creazione rapida](../traffic-manager/traffic-manager-manage-profiles.md) per crearne uno. Prendere nota del nome di dominio **.trafficmanager.net** associato al profilo di Gestione traffico, in quanto verrà utilizzato nei passaggi successivi di questo documento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

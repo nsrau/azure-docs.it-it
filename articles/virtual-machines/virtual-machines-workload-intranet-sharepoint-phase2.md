@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 2: Configurare controller di dominio"
-	description="In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità AlwaysOn di SQL Server nei servizi di infrastruttura di Azure, si creano e si configurano i controller di dominio di Active Directory."
+	pageTitle="Farm di SharePoint Server 2013 fase 2 | Microsoft Azure"
+	description="Creare e configurare i due controller di dominio di replica di Active Directory nella fase 2 della farm di SharePoint Server 2013 in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -246,4 +246,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

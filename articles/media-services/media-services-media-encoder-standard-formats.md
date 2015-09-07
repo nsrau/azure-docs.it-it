@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Formati e codec Media Encoder Standard" 
-	description="Questo argomento fornisce una panoramica dei formati e dei codec di Azure Media Encoder." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Formati e codec Media Encoder Standard"
+	description="Questo argomento fornisce una panoramica dei formati e dei codec di Azure Media Encoder."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
@@ -27,7 +27,7 @@ Questo documento contiene un elenco dei formati di file di importazione ed espor
 [Formati di esportazione del codificatore multimediale](#export_formats)
 
 
-##<a id="import_formats"></a>Formati di importazione Media Encounter 
+##<a id="import_formats"></a>Formati di importazione di Standard Media Encoder 
 
 La sezione seguente include l'elenco dei codec e dei formati di file supportati per l'importazione.
 
@@ -69,7 +69,7 @@ GXF|.gxf
 WAVE/WAV |.wav
 
 
-##<a id="export_formats"></a>Formati di esportazione Media Encoder
+##<a id="export_formats"></a>Formati di esportazione di Standard Media Encoder
 
 La tabella seguente include l'elenco dei codec e dei formati di file supportati per l'esportazione.
 
@@ -83,4 +83,4 @@ MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

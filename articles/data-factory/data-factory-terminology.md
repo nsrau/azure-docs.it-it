@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Data Factory di Azure - Terminologia" 
-	description="Questo articolo presenta la terminologia usata nella creazione di data factory mediante il servizio Data factory di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Data Factory di Azure - Terminologia"
+	description="Questo articolo presenta la terminologia usata nella creazione di data factory mediante il servizio Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 #Data Factory di Azure - Terminologia
@@ -47,7 +47,7 @@ Un passaggio di elaborazione dati in una pipeline che acquisisce uno o più set 
 Il servizio Data factory di Azure supporta le attività seguenti in una pipeline:
 
 - Un'**Attività di copia** copia i dati da un archivio dati a un altro archivio dati.  
-- L'**Attività di HDInsight** elabora i dati tramite l'esecuzione di script Hive/Pig o di programmi MapReduce in un cluster HDInsight. Per informazioni dettagliate, vedere [Usare Pig e Hive con Data factory][use-pig-hive] e [Richiamare i programmi MapReduce da Data factory][run-map-reduce]. 
+- L'**Attività di HDInsight** elabora i dati tramite l'esecuzione di script Hive/Pig o di programmi MapReduce in un cluster HDInsight.  
 - L'**Attività di punteggio batch di Azure Machine Learning** richiama l'API di punteggio batch di Azure Machine Learning. Per informazioni dettagliate, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning][azure-ml-adf]. 
 - L'**Attività stored procedure** richiama una stored procedure in un database SQL di Azure. Per informazioni dettagliate, vedere [Attività stored procedure][msdn-stored-procedure-activity] in MSDN Library.   
 
@@ -82,8 +82,6 @@ Una caratteristica importante dell'hub riguarda il fatto che una pipeline viene 
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[use-pig-hive]: data-factory-pig-hive-activities.md
-[run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
 [adf-common-scenarios]: data-factory-common-scenarios.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
@@ -112,4 +110,4 @@ Una caratteristica importante dell'hub riguarda il fatto che una pipeline viene 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

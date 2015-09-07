@@ -1,24 +1,23 @@
 <properties
    pageTitle="Concetti per sviluppatori del Catalogo dati di Azure"
-   description="Concetti per sviluppatori del Catalogo dati di Azure: catalogo, utenti, risorse, crowdsourcing."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
-<tags 
+	description="Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l'API REST del Catalogo."
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/> <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Concetti per sviluppatori del Catalogo dati di Azure
 
-**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell’origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono utilizzare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
+**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell’origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
 
 ## Concetti chiave
 
@@ -38,11 +37,11 @@ Un catalogo contiene **utenti** e **asset**.
 
 Gli utenti sono entità di sicurezza che dispongono delle autorizzazioni per eseguire azioni nel catalogo (ricercare nel catalogo, aggiungere, modificare o rimuovere elementi e così via).
 
-Diversi sono i ruoli disponibili che un utente può avere. Per ulteriori informazioni sui ruoli, vedere la sezione Ruoli e autorizzazione.
+Diversi sono i ruoli disponibili che un utente può avere. Per altre informazioni sui ruoli, vedere la sezione Ruoli e autorizzazione.
 
 È possibile aggiungere solo singoli utenti (non gruppi di sicurezza).
 
-Il Catalogo dati di Azure utilizza Azure Active Directory per la gestione delle identità e degli accessi. Ogni utente del catalogo deve essere un membro di Active Directory per l'account.
+Il Catalogo dati di Azure usa Azure Active Directory per la gestione delle identità e degli accessi. Ogni utente del catalogo deve essere un membro di Active Directory per l'account.
 
 ### Asset
 
@@ -68,7 +67,7 @@ Questo approccio riflette il mondo reale dei dati aziendali in cui diversi utent
 
 -	Un amministratore del database può fornire informazioni sui contratti di servizio o la finestra di elaborazione disponibile per le operazioni ETL in blocco
 -	Un amministratore dei dati può fornire informazioni sui processi aziendali a cui si applica l'asset o le classificazioni a cui è stato applicato dall’azienda
--	Un analista finanziario può fornire informazioni sull'utilizzo dei dati durante le attività di reporting di fine periodo
+-	Un analista finanziario può fornire informazioni sull'uso dei dati durante le attività di reporting di fine periodo
 
 Per supportare questo esempio, ogni utente (l'amministratore del database, l'amministratore dei dati e l’analista) può aggiungere una descrizione a una singola tabella che è stata registrata nel catalogo. Tutte le descrizioni vengono gestite nel sistema e nel portale del Catalogo dati di Azure vengono visualizzate tutte le descrizioni.
 
@@ -84,7 +83,7 @@ L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esi
 
 ## Modello a oggetti asset
 
-Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Catalogo dati di Azure** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltativie. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
+Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Catalogo dati di Azure** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltative. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
 
 ### Proprietà comuni
 
@@ -92,36 +91,36 @@ Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi d
 
 > [AZURE.NOTE]Le proprietà i cui nomi iniziano con un doppio carattere di sottolineatura sono tipi di sistema.
 
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>Data e ora dell'ultima modifica apportata alla radice. Viene impostato dal client. Il server non gestisce questo valore.</td></tr><tr><td>__id</td><td>Guid</td><td>ID dell'elemento (sola lettura). Questo ID è univoco per l'asset. La chiave per l'elemento è quindi  __Id, __id della radice. Questa tupla è univoca all'interno di una directory.</td></tr><tr><td>__typeId</td><td>Guid</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>__creatorId</td><td>Stringa</td><td>Stringa utilizzata dall'autore dell'asset per identificare in modo univoco l'asset. </td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>Data e ora dell'ultima modifica apportata alla radice. Viene impostato dal client. Il server non gestisce questo valore.</td></tr><tr><td>__id</td><td>Guid</td><td>ID dell'elemento (sola lettura). Questo ID è univoco per l'asset. La chiave per l'elemento è quindi __Id, __id della radice. Questa tupla è univoca all'interno di una directory.</td></tr><tr><td>__typeId</td><td>Guid</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>__creatorId</td><td>String</td><td>Stringa usata dall'autore dell'asset per identificare in modo univoco l'asset. </td></tr></table>
 
 ### Proprietà radice comuni
 
 Queste proprietà si applicano a tutti i tipi di asset radice.
 
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>Stringa</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>Percorso dell'origine dati</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l’asset. Vedere la sezione relativa all’identità doppia. La struttura del percorso dell’origine dati varia in base al tipo di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l’asset più di recente. Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>Data e ora dell'ultima registrazione dell’asset nel catalogo.</td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>String</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>Percorso dell'origine dati</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l’asset. Vedere la sezione relativa all’identità doppia. La struttura del percorso dell’origine dati varia in base al tipo di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l’asset più di recente. Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>Data e ora dell'ultima registrazione dell’asset nel catalogo.</td></tr></table>
 
 ### Tipi di asset radice
 
 I tipi di asset radice rappresentano i diversi tipi di asset di dati che possono essere registrati nel catalogo.
 
-<table><tr><td><b>Tipo di asset</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>Tabella</td><td></td><td></td><td>Tabella che rappresenta i dati tabulari. Può trattarsi di una tabella SQL, vista SQL, tabella tabulare di Analysis Services, dimensione multidimensionale di Analysis Services, tabella Oracle e così via.   </td></tr><tr><td>Measure</td><td></td><td></td><td>Tipo che rappresenta una misura di Analysis Services.</td></tr><tr><td></td><td>Measure</td><td>Colonna</td><td>Metadati che descrivono la misura.</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Specifica se la misura viene calcolata o meno.</td></tr><tr><td></td><td>measureGroup</td><td>Stringa</td><td>Contenitore fisico per la misura</td></tr><tr><td>KPI</td><td></td><td></td><td>Tipo che rappresenta un indicatore di prestazioni chiave di Analysis Services.</td></tr><tr><td></td><td>goalExpression</td><td>Stringa</td><td>Espressione numerica MDX o calcolo che restituisce il valore di destinazione dell'indicatore KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Stringa</td><td>Espressione numerica MDX che restituisce il valore effettivo dell'indicatore KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Stringa</td><td>Espressione MDX che rappresenta lo stato dell'indicatore KPI in un punto specifico nel tempo.</td></tr><tr><td></td><td>trendExpression</td><td>Stringa</td><td>Espressione MDX che restituisce il valore dell'indicatore KPI nel tempo. La tendenza può essere un qualsiasi criterio basato sul tempo utile in un contesto aziendale specifico.</td></tr><tr><td></td><td>measureGroup</td><td>Stringa</td><td>Contenitore fisico per la misura.</td></tr><tr><td>Report</td><td></td><td></td><td>Tipo che rappresenta un report di SQL Server Reporting Services. </td></tr><tr><td></td><td>CreatedBy</td><td>Stringa</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>Stringa</td><td></td></tr></table>
+<table><tr><td><b>Tipo di asset</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>Tabella</td><td></td><td></td><td>Tabella che rappresenta i dati tabulari. Può trattarsi di una tabella SQL, vista SQL, tabella tabulare di Analysis Services, dimensione multidimensionale di Analysis Services, tabella Oracle e così via.   </td></tr><tr><td>Measure</td><td></td><td></td><td>Tipo che rappresenta una misura di Analysis Services.</td></tr><tr><td></td><td>Measure</td><td>Colonna</td><td>Metadati che descrivono la misura.</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Specifica se la misura viene calcolata o meno.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenitore fisico per la misura.</td></tr><tr><td>KPI</td><td></td><td></td><td>Tipo che rappresenta un indicatore di prestazioni chiave di Analysis Services.</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>Espressione numerica MDX o calcolo che restituisce il valore di destinazione dell'indicatore KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>Espressione numerica MDX che restituisce il valore effettivo dell'indicatore KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>Espressione MDX che rappresenta lo stato dell'indicatore KPI in un punto specifico nel tempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>Espressione MDX che restituisce il valore dell'indicatore KPI nel tempo. La tendenza può essere un qualsiasi criterio basato sul tempo utile in un contesto aziendale specifico.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenitore fisico per la misura.</td></tr><tr><td>Report</td><td></td><td></td><td>Tipo che rappresenta un report di SQL Server Reporting Services. </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr></table>
 
 ### Tipi di annotazione
 
 I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altri tipi all'interno del catalogo.
 
-<table><tr><td><b>Tipo di annotazione</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>Descrizione</td><td></td><td></td><td>Ogni utente del sistema può aggiungere i tag e la descrizione. Solo tale utente può modificare l'oggetto descrizione. Gli amministratori e i proprietari di asset possono eliminare l'oggetto descrizione ma non modificarlo. Il sistema mantiene separati questi elementi. Pertanto è disponibile una matrice di descrizioni in ogni asset (una per ogni utente che ha contribuito con le proprie conoscenze sull'asset, oltre a probabilmente una contenente le informazioni derivate dall'origine dati).</td></tr><tr><td></td><td>friendlyName</td><td>stringa</td><td>Nome descrittivo che può essere utilizzato al posto del nome derivato dall'origine dati. Ciò è utile per la visualizzazione e per la ricerca.</td></tr><tr><td></td><td>tags</td><td>string[]</td><td>Matrice di tag per l'asset.</td></tr><tr><td></td><td>description</td><td>stringa</td><td>Breve descrizione (2-3 righe) dell'asset.</td></tr><tr><td>Schema</td><td></td><td></td><td>Schema che descrive la struttura dei dati. Elenca i nomi e i tipi di attributo (ad esempio colonna, attributo, campo, ecc.) e altri metadati. Queste informazioni sono derivate dall'origine dati. In genere è presente un solo elemento di schema in un asset.</td></tr><tr><td></td><td>columns</td><td>Column[]</td><td>Matrice di oggetti colonna. Descrivono la colonna con le informazioni derivate dall'origine dati.</td></tr><tr><td>SchemaDescription</td><td></td><td></td><td>Contiene una descrizione e un set di tag per ogni attributo definito nello schema. Ogni utente del sistema può aggiungere i tag e la descrizione. Solo tale utente può modificare l'oggetto descrizione. Gli amministratori e i proprietari di asset possono eliminare l'oggetto SchemaDescription ma non modificarlo. Il sistema mantiene separati questi elementi. Pertanto è disponibile una matrice di oggetti SchemaDescription in ogni asset (una per ogni utente che ha contribuito con le proprie conoscenze sugli attributi, oltre a probabilmente una contenente le informazioni derivate dall'origine dati). SchemaAttributes è associato in modo generico allo schema e quindi potrebbe non essere sincronizzato, ossia SchemaDescription potrebbe descrivere colonne che non sono più presenti nello schema o non riuscire a creare il riferimento a una nuova colonna è stato aggiunta di recente. Spetta al writer tenere gli elementi sincronizzati. L'origine dati potrebbe avere anche le informazioni di descrizione. Si tratta di un oggetto schemaDescription aggiuntivo che verrebbe creato quando si esegue lo strumento.</td></tr><tr><td></td><td>columnDescriptions</td><td>ColumnDescription[]</td><td>Matrice di ColumnDescription che descrivono le colonne nello schema. </td></tr><tr><td>Esperto</td><td></td><td></td><td>Contiene l’elenco degli utenti considerati esperti nel set di dati. Le opinioni degli esperti (ad esempio le descrizioni) verranno propagate all'inizio dell'esperienza utente quando si elencano le descrizioni. Ogni utente può specificare il proprio elenco di esperti. Solo tale utente può modificare l'oggetto esperti. Gli amministratori e i proprietari di asset possono eliminare l'oggetto Experts ma non modificarlo.</td></tr><tr><td></td><td>esperti</td><td>string[]</td><td>Matrice di indirizzi e-mail.</td></tr><tr><td>Anteprima</td><td></td><td></td><td>L'anteprima contiene uno snapshot delle prime 20 righe di dati per l'asset. L’anteprima ha senso solo per alcuni tipi di asset (ad esempio per la tabella ma non per la misura).</td></tr><tr><td></td><td>preview</td><td>object[]</td><td>Matrice di oggetti che rappresentano una colonna. Ogni oggetto ha un mapping di proprietà a una colonna con un valore della colonna per la riga.</td></tr>
+<table><tr><td><b>Tipo di annotazione</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>Description</td><td></td><td></td><td>Ogni utente del sistema può aggiungere i tag e la descrizione. Solo tale utente può modificare l'oggetto descrizione. Gli amministratori e i proprietari di asset possono eliminare l'oggetto descrizione ma non modificarlo. Il sistema mantiene separati questi elementi. Pertanto è disponibile una matrice di descrizioni in ogni asset (una per ogni utente che ha contribuito con le proprie conoscenze sull'asset, oltre a probabilmente una contenente le informazioni derivate dall'origine dati).</td></tr><tr><td></td><td>friendlyName</td><td>string</td><td>Nome descrittivo che può essere usato al posto del nome derivato dall'origine dati. Ciò è utile per la visualizzazione e per la ricerca.</td></tr><tr><td></td><td>tags</td><td>string[]</td><td>Matrice di tag per l'asset.</td></tr><tr><td></td><td>description</td><td>string</td><td>Breve descrizione (2-3 righe) dell'asset.</td></tr><tr><td>Schema</td><td></td><td></td><td>Schema che descrive la struttura dei dati. Elenca i nomi e i tipi di attributo (ad esempio colonna, attributo, campo, ecc.) e altri metadati. Queste informazioni sono derivate dall'origine dati. In genere è presente un solo elemento di schema in un asset.</td></tr><tr><td></td><td>columns</td><td>Column[]</td><td>Matrice di oggetti colonna. Descrivono la colonna con le informazioni derivate dall'origine dati.</td></tr><tr><td>SchemaDescription</td><td></td><td></td><td>Contiene una descrizione e un set di tag per ogni attributo definito nello schema. Ogni utente del sistema può aggiungere i tag e la descrizione. Solo tale utente può modificare l'oggetto descrizione. Gli amministratori e i proprietari di asset possono eliminare l'oggetto SchemaDescription ma non modificarlo. Il sistema mantiene separati questi elementi. Pertanto è disponibile una matrice di oggetti SchemaDescription in ogni asset (una per ogni utente che ha contribuito con le proprie conoscenze sugli attributi, oltre a probabilmente una contenente le informazioni derivate dall'origine dati). SchemaAttributes è associato in modo generico allo schema e quindi potrebbe non essere sincronizzato, ossia SchemaDescription potrebbe descrivere colonne che non sono più presenti nello schema o non riuscire a creare il riferimento a una nuova colonna è stato aggiunta di recente. Spetta al writer tenere gli elementi sincronizzati. L'origine dati potrebbe avere anche le informazioni di descrizione. Si tratta di un oggetto schemaDescription aggiuntivo che verrebbe creato quando si esegue lo strumento.</td></tr><tr><td></td><td>columnDescriptions</td><td>ColumnDescription[]</td><td>Matrice di ColumnDescription che descrivono le colonne nello schema. </td></tr><tr><td>Expert</td><td></td><td></td><td>Contiene l’elenco degli utenti considerati esperti nel set di dati. Le opinioni degli esperti (ad esempio le descrizioni) verranno propagate all'inizio dell'esperienza utente quando si elencano le descrizioni. Ogni utente può specificare il proprio elenco di esperti. Solo tale utente può modificare l'oggetto esperti. Gli amministratori e i proprietari di asset possono eliminare l'oggetto Experts ma non modificarlo.</td></tr><tr><td></td><td>experts</td><td>string[]</td><td>Matrice di indirizzi e-mail.</td></tr><tr><td>Preview</td><td></td><td></td><td>L'anteprima contiene uno snapshot delle prime 20 righe di dati per l'asset. L’anteprima ha senso solo per alcuni tipi di asset (ad esempio per la tabella ma non per la misura).</td></tr><tr><td></td><td>preview</td><td>object[]</td><td>Matrice di oggetti che rappresentano una colonna. Ogni oggetto ha un mapping di proprietà a una colonna con un valore della colonna per la riga.</td></tr>
 <tr><td>AccessInstruction</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>mimeType</td><td>stringa</td><td>Il tipo mime del contenuto.</td></tr>
-<tr><td></td><td>content</td><td>stringa</td><td>Istruzioni su come ottenere l'accesso a questa risorsa di dati. Potrebbe trattarsi di un URL, un indirizzo di posta elettronica o un set di istruzioni.</td></tr>
+<tr><td></td><td>mimeType</td><td>string</td><td>Il tipo mime del contenuto.</td></tr>
+<tr><td></td><td>content</td><td>string</td><td>Istruzioni su come ottenere l'accesso a questa risorsa di dati. Potrebbe trattarsi di un URL, un indirizzo di posta elettronica o un set di istruzioni.</td></tr>
 
 </table>
 
 ### Tipi comuni
 
-I tipi comuni possono essere utilizzati come tipi per proprietà, ma non sono elementi.
+I tipi comuni possono essere usati come tipi per proprietà, ma non sono elementi.
 
-<table><tr><td><b>Tipo comune</b></td><td><b>Proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>stringa</td><td>Descrive il tipo di origine dati, ad esempio SQL Server, Database Oracle e così via.  </td></tr><tr><td></td><td>objectType</td><td>stringa</td><td>Descrive il tipo di oggetto nell'origine dati, ad esempio tabella, vista per SQL Server.</td></tr><tr><td></td><td>formatType</td><td>stringa</td><td>Descrive la struttura dei dati. I valori correnti sono strutturati o non strutturati.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>stringa</td><td>Indirizzo e-mail univoco dell'utente.</td></tr><tr><td></td><td>firstName</td><td>stringa</td><td>Nome dell'utente (per scopi di visualizzazione).</td></tr><tr><td></td><td>lastName</td><td>stringa</td><td>Cognome dell'utente (per scopi di visualizzazione).</td></tr><tr><td>Colonna</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>stringa</td><td>Nome della colonna o dell'attributo.</td></tr><tr><td></td><td>type</td><td>stringa</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset. È supportato un solo subset di tipi.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>Lunghezza massima consentita per la colonna o l’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>Precisione della colonna o dell’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>expression</td><td>stringa</td><td>Se il valore è una colonna calcolata, questo campo contiene l'espressione che esprime il valore. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>defaultValue</td><td>oggetto</td><td>Valore predefinito inserito se non è specificato nell'istruzione insert per l'oggetto. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>Matrice di tag che descrivono la colonna.</td></tr><tr><td></td><td>description</td><td>stringa</td><td>Descrizione della colonna.</td></tr><tr><td></td><td>columnName</td><td>stringa</td><td>Nome della colonna a cui fanno riferimento queste informazioni.</td></tr>
+<table><tr><td><b>Tipo comune</b></td><td><b>Proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Descrive il tipo di origine dati, ad esempio SQL Server, Database Oracle e così via.  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Descrive il tipo di oggetto nell'origine dati, ad esempio tabella, vista per SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Descrive la struttura dei dati. I valori correnti sono strutturati o non strutturati.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Indirizzo e-mail univoco dell'utente.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Nome dell'utente (per scopi di visualizzazione).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Cognome dell'utente (per scopi di visualizzazione).</td></tr><tr><td>Column</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nome della colonna o dell'attributo.</td></tr><tr><td></td><td>type</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset. È supportato un solo subset di tipi.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>Lunghezza massima consentita per la colonna o l’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>Precisione della colonna o dell’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>expression</td><td>string</td><td>Se il valore è una colonna calcolata, questo campo contiene l'espressione che esprime il valore. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>defaultValue</td><td>oggetto</td><td>Valore predefinito inserito se non è specificato nell'istruzione insert per l'oggetto. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>Matrice di tag che descrivono la colonna.</td></tr><tr><td></td><td>description</td><td>string</td><td>Descrizione della colonna.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>Nome della colonna a cui fanno riferimento queste informazioni.</td></tr>
 </table>
 
 ## Ruoli e autorizzazione
@@ -130,7 +129,7 @@ Catalogo dati di Microsoft Azure offre funzionalità di autorizzazione per le op
 
 ## Concetti chiave
 
-Catalogo dati di Azure utilizza due meccanismi di autorizzazione:
+Catalogo dati di Azure usa due meccanismi di autorizzazione:
 
 - Autorizzazione basata sui ruoli
 - Autorizzazione basata sulle autorizzazioni
@@ -155,7 +154,7 @@ Per impostazione predefinita tutti gli utenti autenticati hanno il diritto **Rea
 
 ## API REST
 
-Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere utilizzate per controllare i ruoli e le autorizzazioni: oltre alle due proprietà di sistema di payload dell’elemento è possibile specificare **\_ruoli** e **\_autorizzazioni**.
+Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere usate per controllare i ruoli e le autorizzazioni: oltre alle due proprietà di sistema di payload dell'elemento è possibile specificare **\_ruoli** e **\_autorizzazioni**.
 
 > [AZURE.NOTE]
 >
@@ -231,4 +230,4 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere ut
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -487,7 +487,7 @@ Se si desidera personalizzare le dimensioni della distribuzione del Redis Cluste
 
 Nota: le proprietà `totalMemberCountExcludingLast` e `totalMemberCount` sono necessarie perché il linguaggio del modello non dispone attualmente di operazioni "matematiche".
 
-Ulteriori informazioni relative al linguaggio del modello sono reperibili sul sito MSDN in [Linguaggio del modello di gestione delle risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Ulteriori informazioni relative al linguaggio del modello sono reperibili sul sito MSDN in [Linguaggio del modello di gestione delle risorse di Azure](../resource-group-authoring-templates.md).
 
 ### sezione "risorse"
 
@@ -664,6 +664,6 @@ In pratica, questo approccio suggerisce di:
 - Per i membri identici di un gruppo di risorse (nodi in un cluster e così via), creare modelli specifici che sfruttano il ciclo di risorse per poter distribuire più istanze con proprietà univoche.
 - Per tutte le attività di post distribuzione (installazione del prodotto, configurazioni e così via), usare estensioni di distribuzione di script e creare script specifici per ogni tecnologia.
 
-Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

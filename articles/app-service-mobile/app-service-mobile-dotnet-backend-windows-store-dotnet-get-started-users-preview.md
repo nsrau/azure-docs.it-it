@@ -3,7 +3,7 @@
 	description="Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell'app di Windows tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app Windows
@@ -22,11 +22,7 @@
 
 Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato dal servizio app. In seguito all'autenticazione e all'autorizzazione da parte dell'app mobile, viene visualizzato il valore dell'ID utente.
 
-Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È necessario completare prima l'esercitazione relativa alla [creazione di un'app per dispositivi mobili].
-
-##<a name="review"></a>Verificare la configurazione del progetto server (facoltativo)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È necessario completare prima l'esercitazione relativa alla [creazione di un'app per dispositivi mobili]. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
 ##<a name="create-gateway"></a>Creare un gateway del servizio app
 
@@ -44,7 +40,7 @@ Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È nece
 
 &nbsp;&nbsp;5. Dopo aver impostato uno dei progetti di app di Windows come progetto di avvio, premere F5 per eseguire l'app. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato).
 
-&nbsp;&nbsp;L'eccezione non gestita viene generata perché l'app prova ad accedere al codice dell'app per dispositivi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
+&nbsp;&nbsp;L'eccezione non gestita viene generata perché l'app tenta di accedere al codice dell'app per dispositivi mobili come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
 A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di richiedere risorse al servizio mobile.
 
@@ -64,4 +60,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [creazione di un'app per dispositivi mobili]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

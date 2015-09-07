@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure" 
-	description="Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure"
+	description="Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure (anteprima)
@@ -410,30 +410,7 @@ Arrestato|Arrestato|No
 - Alle emittenti professionali viene fornito il supporto RTP. Rivedere le note su RTP in [questo](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Le immagini dello slate devono essere conformi alle limitazioni descritte [qui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se si tenta di creare un canale con uno slate predefinito con una risoluzione superiore a 1920x1080, la richiesta genererà un errore.
 
-
-##<a id="tasks"></a>Attività relative allo streaming live
-
-###Creazione di un account di Servizi multimediali
-
-[Creare un account di Servizi multimediali di Azure](media-services-create-account.md).
-
-###Configurazione degli endpoint di streaming
-
-Per informazioni generali sugli endpoint di streaming e su come gestirli, vedere [Come gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-manage-origins.md).
-
-###Configurazione dell'ambiente di sviluppo  
-
-Scegliere **.NET** o **API REST** per l'ambiente di sviluppo.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Connessione a livello di codice  
-
-Scegliere **.NET** o **API REST** per connettersi a livello di codice a Servizi multimediali di Azure.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###Creazione di canali che eseguono la codifica live da una velocità in bit singola a un flusso a velocità in bit adattiva 
+###Come creare canali che eseguono la codifica live da una velocità in bit singola a un flusso a velocità in bit adattiva 
 
 Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire canali e programmi.
 
@@ -441,58 +418,6 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-
-###Protezione degli asset
-
-**Panoramica**:
-
-[Panoramica della protezione dei contenuti](media-services-content-protection-overview.md)
-
-Per crittografare un asset associato a un programma tramite AES (Advanced Encryption Standard) usando chiavi di crittografia a 128 bit oppure con DRM PlayReady, è necessario creare una chiave simmetrica.
-
-Usare **.NET** o **API REST** per creare le chiavi.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Dopo aver creato la chiave simmetrica, è possibile configurare i criteri di autorizzazione chiave tramite **.NET** o **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####Integrazione con i partner
-
-[Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure](media-services-castlabs-integration.md)
-
-
-###Pubblicazione e distribuzione degli asset
-
-**Panoramica**:
-
-- [Panoramica della creazione dinamica dei pacchetti](../media-services-dynamic-overview.md)
-
-
-Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di gestione di Azure** o **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-
-Distribuire contenuti
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-###Abilitazione della rete CDN di Azure
-
-Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per informazioni su come abilitare la rete CDN di Azure, vedere [Come gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-manage-origins.md#enable_cdn).
-
-###Ridimensionamento di un account di Servizi multimediali
-
-È possibile ridimensionare **Servizi multimediali** specificando il numero di **unità riservate di streaming** di cui eseguire il provisioning nell'account in uso.
-
-Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezione relativa al [ridimensionamento di unità di streaming](media-services-manage-origins.md#scale_streaming_endpoints.md)
 
 ##Argomenti correlati
 
@@ -505,4 +430,4 @@ Per informazioni sul ridimensionamento delle unità di streaming, vedere la sezi
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

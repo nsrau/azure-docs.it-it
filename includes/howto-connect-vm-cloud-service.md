@@ -1,4 +1,3 @@
-
 Le macchine virtuali create nel servizio di gestione vengono sempre inserite in un servizio cloud. Il servizio cloud funge da contenitore e fornisce un nome DNS pubblico univoco, un indirizzo IP pubblico e un set di endpoint per accedere alla macchina virtuale su Internet. Il servizio cloud può trovarsi facoltativamente in una rete virtuale.
 
 Se un servizio cloud non si trova in una rete virtuale, è detto servizio cloud *autonomo*. Le macchine virtuali in un servizio cloud autonomo possono comunicare solo con altre macchine virtuali usando i nomi DNS pubblici delle altre macchine virtuali e il traffico verrà trasmesso attraverso Internet. Se un servizio cloud si trova in una rete virtuale, le macchine virtuali in tale servizio cloud possono comunicare con tutte le altre macchine virtuali nella rete virtuale senza inviare traffico su Internet.
@@ -17,7 +16,7 @@ Le reti virtuali sono il metodo consigliato per connettere le macchine virtuali 
 
 Per connettere le macchine virtuali in una rete virtuale:
 
-1.	Creare la rete virtuale nel [portale di Azure](http://manage.windowsazure.com). Per altre informazioni, vedere [Attività di configurazione della rete virtuale](https://msdn.microsoft.com/library/azure/jj156206.aspx).
+1.	Creare la rete virtuale nel [portale di Azure](http://manage.windowsazure.com). Per altre informazioni, vedere [Attività di configurazione della rete virtuale](../documentation/services/virtual-machines/).
 2.	Creare il set di servizi cloud per la tua distribuzione al fine di mostrare il tuo design per i set di disponibilità e il bilanciamento del carico. Nel portale, fare clic su**Nuovo > Calcolo > Servizio Cloud > Creazione personalizzata**per ogni servizio cloud.
 3.	Per creare ogni nuova macchina virtuale, fare clic su**Nuovo > Calcolo > Macchina virtuale > Dalla raccolta**. Scegliere il servizio cloud corretto e la rete virtuale per la VM. Se il servizio cloud è stato già associato a una rete virtuale, il relativo nome sarà già selezionato.
 
@@ -35,7 +34,7 @@ Per connettere le macchine virtuali in un servizio cloud autonomo:
 
 [Gestione della disponibilità delle macchine virtuali](../articles/manage-availability-virtual-machines.md)
 
-[Attività di configurazione della rete virtuale](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[Attività di configurazione della rete virtuale](../documentation/services/virtual-machines/)
 
 Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco dati, in modo che i servizi e i carichi di lavoro possano usarlo per archiviare i dati. Vedere uno degli articoli seguenti:
 
@@ -43,4 +42,4 @@ Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco da
 
 [Come collegare un disco dati a una macchina virtuale Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Provider di risorse di rete"
-   description="Provider di risorse di rete"
-   services="azure-portal"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Provider di risorse di rete"
+	services="azure-portal"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="azure-portal"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/22/2015"
+	ms.author="telmos"/>
 
 # Provider di risorse di rete
 Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Gestione risorse di Azure (ARM) consente di creare tali applicazioni sotto forma di un'unica raccolta di risorse nei gruppi di risorse. Queste risorse vengono gestite tramite diversi provider di risorse in ARM.
@@ -210,7 +210,7 @@ I principali vantaggi associati all'uso dei modelli sono:
 
 Per i modelli di esempio, vedere i [modelli della guida introduttiva di Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Per altre informazioni sul linguaggio del modello ARM, vedere [Linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Per altre informazioni sul linguaggio del modello ARM, vedere [Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
 Il modello di esempio precedente usa la rete virtuale e le risorse della subnet. È possibile usare altre risorse di rete, come indicato di seguito:
 
@@ -349,7 +349,7 @@ Le proprietà principali di un endpoint includono:
 
 [Riferimento ad Azure PowerShell per le funzionalità di rete](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 
 [Rete di Azure: modelli di uso comune](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +363,4 @@ Le proprietà principali di un endpoint includono:
 
 [Distribuzioni modello](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

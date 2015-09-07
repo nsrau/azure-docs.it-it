@@ -1,6 +1,6 @@
 <properties pageTitle="API REST di Ricerca di Azure versione 2014-07-31-Preview" description="API REST di Ricerca di Azure: versione 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist"/>
 
 # API REST di Ricerca di Azure versione 2014-07-31-Preview
 
@@ -125,8 +125,7 @@ L'esempio seguente illustra uno schema usato per la ricerca di informazioni sugl
     "fields": [
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
-      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
+      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true}
       {"name": "hotelName", "type": "Edm.String", "suggestions": true},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -164,7 +163,7 @@ Per tutte le richieste del servizio, è necessario usare il protocollo HTTPS. La
 
 Il nome dell'indice deve essere scritto in caratteri minuscoli, deve iniziare con una lettera o un numero, non deve contenere barre o punti e deve avere una lunghezza inferiore ai 128 caratteri. Dopo l'iniziale costituita da una lettera o un numero, il resto del nome può contenere lettere, numeri e trattini, purché i trattini non siano consecutivi.
 
-L'elemento `api-version` è obbligatorio. I valori validi includono `2014-07-31-Preview` o `2014-10-20-Preview`. È possibile specificare il valore da usare in ogni richiesta per ottenere comportamenti specifici della versione, ma è in genere consigliabile usare la stessa versione in tutto il codice. La versione consigliata per un uso generico è `2014-07-31-Preview`. In alternativa, usare `2014-10-20-Preview` per valutare funzionalità sperimentali, ad esempio il supporto per gli analizzatori di lingua espressi tramite l'attributo dell'indice relativo all'analizzatore. Per informazioni dettagliate sulle versioni dell'API, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx). Per informazioni dettagliate sugli analizzatori di lingua, vedere [Supporto per le lingue](#LanguageSupport).
+L'elemento `api-version` è obbligatorio. I valori validi includono `2014-07-31-Preview` o `2014-10-20-Preview`. È possibile specificare il valore da usare in ogni richiesta per ottenere comportamenti specifici della versione, ma è in genere consigliabile usare la stessa versione in tutto il codice. La versione consigliata per un uso generico è `2014-07-31-Preview`. In alternativa, usare `2014-10-20-Preview` per valutare funzionalità sperimentali, ad esempio il supporto per gli analizzatori di lingua espressi tramite l'attributo dell'indice relativo all'analizzatore.
 
 **Intestazioni della richiesta**
 
@@ -274,321 +273,6 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
 `scoringProfiles`: definisce i comportamenti di punteggio personalizzati che consentono di determinare quali elementi verranno visualizzati più in alto nei risultati della ricerca. I profili di punteggio sono costituiti da funzioni e campi ponderati. Per altre informazioni sugli attributi usati in un profilo di punteggio, vedere [Aggiungere profili di punteggio a un indice di ricerca](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-`analyzer`: imposta il nome dell'analizzatore di testo da usare per il campo. Per il set di valori consentito, vedere [Supporto per le lingue](#LanguageSupport). Questa opzione può essere usata solo con i campi `searchable`. Una volta scelto, l'analizzatore non può essere cambiato per il campo.
-
-
-<a name="LanguageSupport"></a> **Supporto per le lingue**
-
-I campi disponibili per la ricerca vengono sottoposti a un processo di analisi, che spesso comporta la suddivisione in parole, la normalizzazione del testo e l'esclusione di termini tramite filtro. Per impostazione predefinita, i campi disponibili per la ricerca in Ricerca di Azure vengono analizzati con l'[analizzatore Apache Lucene Standard](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), che suddivide il testo in elementi sulla base delle regole di [segmentazione del testo Unicode](http://unicode.org/reports/tr29/). L'analizzatore standard, inoltre, converte tutti i caratteri nel rispettivo formato minuscolo. I documenti indicizzati e i termini di ricerca vengono sottoposti ad analisi durante l'indicizzazione e l'elaborazione delle query.
-
-Ricerca di Azure consente l'indicizzazione di campi in numerose lingue. Ogni lingua richiede un analizzatore di testo non standard che tenga conto delle caratteristiche specifiche della lingua. Ad esempio, l'analizzatore per la lingua francese applica uno stemmer denominato [Light French Stemmer](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html) per ridurre le parole alle rispettive [forme base](http://en.wikipedia.org/wiki/Stemming). Rimuove inoltre le [elisioni](http://en.wikipedia.org/wiki/Elision) e le parole francesi non significative dal testo analizzato. L'analizzatore per la lingua inglese estende l'analizzatore standard. Rimuove il genitivo sassone (la 's finale) dalle parole, applica lo stemming in base all'[algoritmo Porter Stemming](http://tartarus.org/~martin/PorterStemmer/) e rimuove le [parole non significative](http://en.wikipedia.org/wiki/Stop_words) per la lingua inglese.
-
-È possibile configurare l'analizzatore in modo indipendente per ogni campo nella definizione dell'indice impostando la proprietà `analyzer`. Ad esempio, nello stesso indice possono essere presenti campi separati per le descrizioni di hotel in lingua inglese, francese e spagnola. La query definisce il campo specifico della lingua da restituire nei risultati della ricerca.
-
-Di seguito è riportato l'elenco di analizzatori supportati con una breve descrizione delle funzionalità disponibili:
-
-<table style="font-size:12">
-    <tr>
-		<th>Lingua</th>
-		<th>Nome analizzatore</th>
-		<th>Descrizione</th>
-	</tr>
-    <tr>
-		<td>Arabo</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>Implementa la normalizzazione ortografica per l'arabo</li>
-			<li>Applica lo stemming algoritmico semplificato</li>
-			<li>Esclude tramite filtro le parole arabe non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Brasiliano</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole brasiliane non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Cinese semplificato</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>Usa modelli di conoscenza probabilistica per individuare la segmentazione ottimale per le parole</li>
-			<li>Esclude tramite filtro le parole cinesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Cinese tradizionale</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>Indicizza i bigrammi (gruppi sovrapposti di due caratteri cinesi adiacenti)</li>
-			<li>Normalizza le differenze di larghezza dei caratteri</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>Ceco</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole ceche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Danese</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole danesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Olandese</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole olandesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Tedesco</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole tedesche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Greco</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole greche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Inglese</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole inglesi non significative</li>
-			<li>Rimuove il genitivo sassone</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Finlandese</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole finlandesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Francese</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole francesi non significative</li>
-			<li>Rimuove le elisioni</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Hindi</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole hindi non significative</li>
-			<li>Rimuove alcune differenze nelle variazioni di ortografia</li>
-			<li>Normalizza la rappresentazione Unicode del testo nelle lingue indiane</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Ungherese</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole ungheresi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Indonesiano (Bahasa)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole indonesiane non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Italiano</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole italiane non significative</li>
-			<li>Rimuove le elisioni</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Giapponese</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>Usa l'analisi morfologica</li>
-			<li>Normalizza le variazioni di ortografia katakana comuni</li>
-			<li>Esegue la rimozione semplificata di parole o tag non significativi</li>
-			<li>Normalizza la larghezza dei caratteri</li>
-			<li>Esegue la lemmatizzazione riducendo aggettivi e verbi flessi alla rispettiva forma base</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Coreano</td>
-		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>Indicizza i bigrammi (gruppi sovrapposti di due caratteri cinesi adiacenti)</li>
-			<li>Normalizza le differenze di larghezza dei caratteri</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Lettone</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole lettoni non significative</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Norvegese</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole norvegesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Polacco</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming algoritmico (Stempel)</li>
-			<li>Esclude tramite filtro le parole polacche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Portoghese</td>
-		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole portoghesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>Romeno</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole romene non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Russo</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole russe non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Spagnolo</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole spagnole non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Svedese</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole svedesi non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Turco</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>Rimuove tutti i caratteri dopo un apostrofo (incluso l'apostrofo stesso)</li>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole turche non significative</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>Thai</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>Applica lo stemming semplificato</li>
-			<li>Esclude tramite filtro le parole thai non significative</li>
-		</ul>
-		</td>
-	</tr>
-</table>
-
-Tutti gli analizzatori con nomi contenenti la parola <i>lucene</i> sono basati sugli [analizzatori di lingua Apache Lucene](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html).
-
 **Opzioni CORS**
 
 JavaScript sul lato client non può chiamare API per impostazione predefinita perché il browser impedisce tutte le richieste con origini diverse. Per consentire query con origini diverse nell'indice, abilitare CORS (Cross-Origin Resource Sharing) impostando l'attributo `corsOptions`. Si noti che, per motivi di sicurezza, solo le API di query supportano CORS. Per CORS è possibile impostare le opzioni seguenti:
@@ -605,7 +289,6 @@ JavaScript sul lato client non può chiamare API per impostazione predefinita pe
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String", "suggestions": true},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -632,7 +315,7 @@ Per impostazione predefinita, il corpo della risposta contiene il codice JSON pe
     Content-Type: application/json
     api-key: [admin key]
 
-**Importante**: nella versione di anteprima pubblica di Ricerca di Azure è previsto un supporto limitato per gli aggiornamenti dello schema dell'indice. Gli aggiornamenti dello schema che richiedono la reindicizzazione, ad esempio la modifica dei tipi di campo, non sono attualmente supportati. È possibile aggiungere nuovi campi in qualsiasi momento, anche se i campi esistenti non possono essere modificati o eliminati.
+**Importante:** nell’anteprima pubblica della ricerca di Azure, non è presente il supportato per gli aggiornamenti dello schema che richiedono la reindicizzazione, inclusa la modifica di tipi di campo. È possibile aggiungere nuovi campi in qualsiasi momento, ma i campi esistenti non possono essere modificati o eliminati.
 
 Quando si aggiunge un nuovo campo a un indice, tutti i documenti esistenti nell'indice avranno automaticamente un valore Null per tale campo. Non verrà utilizzato ulteriore spazio di archiviazione finché non verranno aggiunti nuovi documenti all'indice.
 
@@ -999,7 +682,6 @@ Il codice di stato 429 indica che è stata superata la quota del numero di docum
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1014,7 +696,6 @@ Il codice di stato 429 indica che è stata superata la quota del numero di docum
           "hotelId": "2",
           "baseRate": 79.99,
           "description": "Cheapest hotel in town",
-	      "description_fr": "Hôtel le moins cher en ville",
           "hotelName": "Roach Motel",
 		  "category": "Budget",
           "tags": ["motel", "budget"],
@@ -1381,4 +1062,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

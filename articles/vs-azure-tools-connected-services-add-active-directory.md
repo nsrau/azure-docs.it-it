@@ -1,30 +1,29 @@
 <properties 
-   pageTitle="Aggiunta di Azure Active Directory utilizzando servizi connessi in Visual Studio"
-   description="Aggiungere un Azure Active Directory utilizzando la finestra di dialogo di Visual Studio Aggiungere servizi connessi"
+   pageTitle="Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio | Microsoft Azure"
+   description="Aggiungere un'istanza di Azure Active Directory usando la finestra di dialogo Aggiungi Servizi connessi di Visual Studio"
    services="visual-studio-online"
-   documentationCenter="n/a"
+   documentationCenter="na"
    authors="patshea123"
    manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="na" ms.date="08/12/2015" ms.author="patshea" />
+   editor="tlee" /> <tags ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea" />
 
-# Aggiunta di Azure Active Directory utilizzando servizi connessi in Visual Studio 
+# Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio 
 
 ##Panoramica
-Tramite Azure Active Directory (Azure AD), è possibile supportare Single Sign-On (SSO) per le applicazioni web ASP.NET MVC o l'autenticazione di Active Directory nei servizi Web API. Con l'autenticazione AD Azure, gli utenti possono utilizzare gli account da Azure AD per connettersi alle applicazioni web. I vantaggi dell'autenticazione AD Azure con l'API Web comprendono la protezione avanzata dei dati quando si espone un'API da un'applicazione web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
+Tramite Azure Active Directory (Azure AD), è possibile supportare Single Sign-On (SSO) per le applicazioni web ASP.NET MVC o l'autenticazione di Active Directory nei servizi Web API. Con l'autenticazione AD Azure, gli utenti possono usare gli account da Azure AD per connettersi alle applicazioni web. I vantaggi dell'autenticazione AD Azure con l'API Web comprendono la protezione avanzata dei dati quando si espone un'API da un'applicazione web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
 
-## Pypes di progetto supportati
+## Tipi di progetto supportati
 
-Per connettersi a Windows Azure nei seguenti tipi di progetto, è possibile utilizzare la finestra di dialogo dei servizi connessi.
+Per connettersi ad Azure AD nei seguenti tipi di progetto, è possibile usare la finestra di dialogo dei servizi connessi.
 
 - Progetti ASP.NET MVC
 
 - Progetti ASP.NET Web API
 
 
-### Connettersi a Azure AD utilizzando la finestra di dialogo dei servizi connessi
+### Connettersi a Azure AD usando la finestra di dialogo dei servizi connessi
 
-1. È necessario disporre di un account Azure. Se non si dispone di un account Azure, è possibile iscriversi per un [account gratuito](http://go.microsoft.com/fwlink/?LinkId=518146).
+1. È necessario disporre di un account Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://go.microsoft.com/fwlink/?LinkId=518146).
 
 1. In Visual Studio, aprire il menu di scelta rapida di **riferimenti** nodo del progetto e scegliere **Aggiungi servizi connessi**.
 1. Selezionare **Autenticazione AD Azure** e poi scegliere **Configura**.
@@ -37,7 +36,7 @@ Per connettersi a Windows Azure nei seguenti tipi di progetto, è possibile util
 
     ![Configurare Azure AD nella procedura guidata](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
 
-1.  Nella seconda pagina, selezionare un dominio dall’elenco a discesa **Dominio**. L'elenco di domini contiene tutti i domini accessibili dagli account elencati nella finestra di dialogo Impostazioni Account. In alternativa, è possibile immettere un nome di dominio se non è possibile trovare quello che si sta cercando, ad esempio mydomain.onmicrosoft.com. È possibile scegliere l'opzione per creare una nuova app Azure AD o utilizzare le impostazioni da un'app di Azure AD esistente.
+1.  Nella seconda pagina, selezionare un dominio dall’elenco a discesa **Dominio**. L'elenco di domini contiene tutti i domini accessibili dagli account elencati nella finestra di dialogo Impostazioni Account. In alternativa, è possibile immettere un nome di dominio se non è possibile trovare quello che si sta cercando, ad esempio mydomain.onmicrosoft.com. È possibile scegliere l'opzione per creare una nuova app Azure AD o usare le impostazioni da un'app di Azure AD esistente.
 
     ![Configurare Azure AD nella procedura guidata](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 
@@ -48,9 +47,7 @@ Per connettersi a Windows Azure nei seguenti tipi di progetto, è possibile util
 
 1. Fare clic sul pulsante **Finish**. La finestra di dialogo consente di aggiungere il codice di configurazione necessario e i riferimenti per abilitare il progetto per l'autenticazione di Azure AD. È possibile visualizzare il dominio di Active Directory nel portale di Azure.
 
-    ![Trovare il dominio nel Portale di gestione di Azure.](./media/vs-azure-tools-connected-services-add-active-directory/IC765882.png)
-
-1. Esaminare la pagina introduttiva che verrà visualizzata nel browser per idee sui passaggi successivi, e la pagina Cosa è successo per vedere come è stato modificato il progetto. Se si desidera controllare che tutto abbia funzionato, aprire uno dei file di configurazione modificati e verificare che le impostazioni indicate in Cosa è successo siano disponibili. Ad esempio, il Web. config principale in un progetto ASP.NET MVC avrà queste impostazioni aggiunte:
+1. Esaminare la pagina introduttiva visualizzata nel browser per ottenere informazioni sui passaggi successivi e la pagina relativa ai risultati per verificare il modo in cui è stato modificato il progetto. Per controllare che tutte le operazioni siano state eseguite correttamente, aprire uno dei file di configurazione modificati, quindi verificare che le impostazioni indicate nella pagina dei risultati siano presenti. Ad esempio, il Web. config principale in un progetto ASP.NET MVC avrà queste impostazioni aggiunte:
 
         <appSettings> 
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -62,7 +59,7 @@ Per connettersi a Windows Azure nei seguenti tipi di progetto, è possibile util
 
 ## Come viene modificato il progetto
 
-Quando si esegue la procedura guidata, Visual Studio aggiunge Azure AD e i riferimenti al progetto associati. Anche i file di configurazione e i file di codice nel progetto vengono modificati per aggiungere supporto per Azure AD. Le modifiche specifiche apportate in Visual Studio dipendono dal tipo di progetto. Per informazioni dettagliate come i progetti MVC ASP.NET vengono modificati, vedere [Cosa è successo - Progetti MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Per i progetti Web API, vedere [Cosa è successo: Progetti Web API](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Quando si esegue la procedura guidata, Visual Studio aggiunge Azure AD e i riferimenti al progetto associati. Anche i file di configurazione e i file di codice nel progetto vengono modificati per aggiungere supporto per Azure AD. Le modifiche specifiche apportate in Visual Studio dipendono dal tipo di progetto. Per informazioni dettagliate sul modo in cui vengono modificati i progetti MVC ASP.NET, vedere [Risultati - Progetti MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Per progetti API Web API, vedere [Risultati - Progetti API Web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Passaggi successivi
 
@@ -74,4 +71,4 @@ Porre domande e ottenere assistenza.
 
  - [Post di blog: Introduzione a Windows Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

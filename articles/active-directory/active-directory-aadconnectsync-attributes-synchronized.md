@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory"
+	pageTitle="Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory | Microsoft Azure"
 	description="Fornisce l'elenco degli attributi sincronizzati con Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,37 +13,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="08/24/2015"
+	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 
-Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizzazione Azure AD Connect.<br> Gli attributi sono raggruppati in base alle app Azure AD correlate.
- 
-
-
+Questo argomento descrive gli attributi sincronizzati dal servizio di sincronizzazione Azure AD Connect.<br> Gli attributi sono raggruppati in base alle app Azure AD correlate.
 
 
 ## Office 365 ProPlus
 
 | Nome attributo| Utente| Commento |
 | --- | :-: | --- |
-| accountEnabled| X| Derivato da userAccountControl|
+| accountEnabled| X| Definisce se un account è abilitato.|
 | cn| X| |
 | displayName| X| |
-| objectSID| X| |
-| pwdLastSet| X| |
-| sourceAnchor| X| L'attributo usato per gli utenti è configurato nella Guida all'installazione.|
-| usageLocation| X| msExchUsageLocation in AD DS|
-| userPrincipalName| X| |
+| objectSID| X| Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
+| pwdLastSet| X| Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
+| sourceAnchor| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
+| usageLocation| X| Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
+| userPrincipalName| X| Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
 
 
 ## Exchange Online
 
 | Nome attributo| Utente| Contatto| Gruppo| Commento |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Derivato da userAccountControl|
+| accountEnabled| X| | | Definisce se un account è abilitato.|
 | assistant| X| X| | |
 | authOrig| X| X| X| |
 | c| X| X| | |
@@ -132,7 +129,7 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | msExchTeamMailboxSharePointUrl| X| | | |
 | msExchUserHoldPolicies| X| | | |
 | msOrg-IsOrganizational| | | X| |
-| objectSID| X| | X| |
+| objectSID| X| | X| Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
 | oOFReplyToOriginator| | | X| |
 | otherFacsimileTelephone| X| X| | |
 | otherHomePhone| X| X| | |
@@ -142,12 +139,12 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | postalCode| X| X| | |
 | proxyAddresses| X| X| X| |
 | publicDelegates| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
 | reportToOriginator| | | X| |
 | reportToOwner| | | X| |
 | securityEnabled| | | X| Derivato da groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L'attributo usato per gli utenti è configurato nella Guida all'installazione.|
+| sourceAnchor| X| X| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | targetAddress| X| X| | |
@@ -156,18 +153,19 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | thumbnailphoto| X| X| | |
 | title| X| X| | |
 | unauthOrig| X| X| X| |
-| usageLocation| X| | | msExchUsageLocation in AD DS|
+| usageLocation| X| | | Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
 | userCertificate| X| X| | |
-| userPrincipalName| X| | | |
+| userPrincipalName| X| | | Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
 | userSMIMECertificates| X| X| | |
 | wWWHomePage| X| X| | |
+
 
 
 ## SharePoint Online
 
 | Nome attributo| Utente| Contatto| Gruppo| Commento |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Derivato da userAccountControl|
+| accountEnabled| X| | | Definisce se un account è abilitato.|
 | authOrig| X| X| X| |
 | c| X| X| | |
 | cn| X| | X| |
@@ -213,7 +211,7 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | msExchTeamMailboxOwners| X| | | |
 | msExchTeamMailboxSharePointLinkedBy| X| | | |
 | msExchTeamMailboxSharePointUrl| X| | | |
-| objectSID| X| | X| |
+| objectSID| X| | X| Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
 | oOFReplyToOriginator| | | X| |
 | otherFacsimileTelephone| X| X| | |
 | otherHomePhone| X| X| | |
@@ -227,12 +225,12 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | postOfficeBox| X| X| | |
 | preferredLanguage| X| | | |
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
 | reportToOriginator| | | X| |
 | reportToOwner| | | X| |
 | securityEnabled| | | X| Derivato da groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L'attributo usato per gli utenti è configurato nella Guida all'installazione.|
+| sourceAnchor| X| X| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | targetAddress| X| X| | |
@@ -242,15 +240,15 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | title| X| X| | |
 | unauthOrig| X| X| X| |
 | URL| X| X| | |
-| usageLocation| X| | | msExchUsageLocation in AD DS|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
+| userPrincipalName| X| | | Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
 | wWWHomePage| X| X| | |
 
 ## Lync Online
 
 | Nome attributo| Utente| Contatto| Gruppo| Commento |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Derivato da userAccountControl|
+| accountEnabled| X| | | Definisce se un account è abilitato.|
 | c| X| X| | |
 | cn| X| | X| |
 | co| X| X| | |
@@ -277,23 +275,23 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | msRTCSIP-OwnerUrn| X| | | |
 | msRTCSIP-PrimaryUserAddress| X| X| | |
 | msRTCSIP-UserEnabled| X| X| | |
-| objectSID| X| | X| |
+| objectSID| X| | X| Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
 | otherTelephone| X| X| | |
 | physicalDeliveryOfficeName| X| X| | |
 | postalCode| X| X| | |
 | preferredLanguage| X| | | |
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
 | securityEnabled| | | X| Derivato da groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L'attributo usato per gli utenti è configurato nella Guida all'installazione.|
+| sourceAnchor| X| X| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | telephoneNumber| X| X| | |
 | thumbnailphoto| X| X| | |
 | title| X| X| | |
-| usageLocation| X| | | msExchUsageLocation in AD DS|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
+| userPrincipalName| X| | | Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
 | wWWHomePage| X| X| | |
 
 
@@ -319,7 +317,7 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 
 | Nome attributo| Utente| Contatto| Gruppo| Commento |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Derivato da userAccountControl|
+| accountEnabled| X| | | Definisce se un account è abilitato.|
 | c| X| X| | |
 | cn| X| | X| |
 | description| X| X| X| |
@@ -327,20 +325,21 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | mail| X| X| X| |
 | mailnickname| X| X| X| |
 | member| | | X| |
-| objectSID| X| | X| |
+| objectSID| X| | X| Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
 | securityEnabled| | | X| Derivato da groupType|
-| sourceAnchor| X| X| X| L'attributo usato per gli utenti è configurato nella Guida all'installazione.|
-| usageLocation| X| | | msExchUsageLocation in AD DS|
-| userPrincipalName| X| | | |
+| sourceAnchor| X| X| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
+| usageLocation| X| | | Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
+| userPrincipalName| X| | | Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
+
 
 
 ## Dynamics CRM
 
 | Nome attributo| Utente| Contatto| Gruppo| Commento |
 | --- | :-: | :-: | :-: | --- |
-| accountEnabled| X| | | Derivato da userAccountControl|
+| accountEnabled| X| | | Definisce se un account è abilitato.|
 | c| X| X| | |
 | cn| X| | X| |
 | co| X| X| | |
@@ -355,27 +354,66 @@ Questo argomento descrive gli attributi sincronizzati dal Servizio di sincronizz
 | manager| X| X| | |
 | member| | | X| |
 | mobile| X| X| | |
-| objectSID| X| | X| |
+| objectSID| X| | X| Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
 | physicalDeliveryOfficeName| X| X| | |
 | postalCode| X| X| | |
 | preferredLanguage| X| | | |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
 | securityEnabled| | | X| Derivato da groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| L'attributo usato per gli utenti è configurato nella Guida all'installazione.|
+| sourceAnchor| X| X| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | telephoneNumber| X| X| | |
 | title| X| X| | |
-| usageLocation| X| | | msExchUsageLocation in AD DS|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
+| userPrincipalName| X| | | Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
+
+## Applicazioni di terze parti
+Si tratta di un set di attributi che può essere usato se non si usa la directory di Azure AD per supportare Office 365, Dynamics o Intune. Contiene un piccolo set di attributi principali.
+
+| Nome attributo| Utente| Contatto| Gruppo| Commento |
+| --- | :-: | :-: | :-: | --- |
+| accountEnabled| X| | | Definisce se un account è abilitato.|
+| cn| X| | X| |
+| displayName| X| X| X| |
+| givenName| X| X| | |
+| mail| X| | X| |
+| managedBy| | | X| |
+| mailNickName| X| X| X| |
+| member| | | X| |
+| objectSID| X| | | Proprietà meccanica. Identificatore utente di Active Directory usato per mantenere la sincronizzazione tra Azure AD e Active Directory.|
+| proxyAddresses| X| X| x| |
+| pwdLastSet| X| | | Proprietà meccanica. Consente di determinare quando invalidare token già rilasciati. Usata sia dal servizio di sincronizzazione delle password che dalla federazione.|
+| sn| X| X| | |
+| sourceAnchor| X| X| X| Proprietà meccanica. Identificatore immutabile per mantenere la relazione tra Servizi di dominio Active Directory e Azure AD.|
+| usageLocation| X| | | Proprietà meccanica. Paese dell'utente. Usato per l'assegnazione delle licenze.|
+| userPrincipalName| X| | | Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail].|
+
+
+## Writeback della distribuzione ibrida Exchange
+Se si sceglie di abilitare la distribuzione ibrida di Exchange, per questi attributi viene effettuato il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
+
+| Nome attributo| Utente| Contatto| Gruppo| Commento |
+| --- | :-: | :-: | :-: | --- |
+| msDS-ExternalDirectoryObject| X| | | Derivato da cloudAnchor in Azure AD.|
+| msExchArchiveStatus| X| | | Archivio online: consente ai clienti di archiviare la posta elettronica.|
+| msExchBlockedSendersHash| X| | | Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client.|
+| msExchSafeRecipientsHash| X| | | Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client.|
+| msExchSafeSendersHash| X| | | Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client.|
+| msExchUCVoiceMailSettings| X| | | Abilitare la messaggistica unificata - Segreteria telefonica online: usata dall'integrazione di Microsoft Lync Server per indicare a Lync Server locale che tra i servizi online dell'utente è presente la segreteria telefonica.|
+| msExchUserHoldPolicies| X| | | Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale.|
+| proxyAddresses| X| X| X| Viene inserito solo l'indirizzo x500 da Exchange Online.|
+
+## Note sugli attributi
+- Quando si usa un ID alternativo, l'attributo locale userPrincipalName verrà sincronizzato con l'attributo di Azure AD onPremisesUserPrincipalName. L'attributo dell'ID alternativo, ad esempio quello per la posta elettronica, verrà sincronizzato con l'attributo di Azure AD userPrincipalName.
 
 
 ## Risorse aggiuntive
 
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Carico di lavoro dell'applicazione line-of-business - Fase 1: Configurare Azure" 
-	description="In questa prima fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono creati la rete virtuale e altri elementi dell'infrastruttura di Azure." 
+	pageTitle="Applicazione line-of-business fase 1 | Microsoft Azure"
+	description="Creare la rete virtuale e altri elementi dell'infrastruttura di Azure nella fase 1 dell'applicazione line-of-business di Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 1: Configurare Azure
@@ -60,7 +60,7 @@ Elemento | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
 
 **Tabella S: Subnet nella rete virtuale**
 
-> [AZURE.NOTE]Questa architettura predefinita usa una singola subnet per motivi di semplicità. Per sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile usare i [Gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx) di Azure.
+> [AZURE.NOTE]Questa architettura predefinita usa una singola subnet per motivi di semplicità. Se si desidera sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile utilizzare i [Gruppi di sicurezza di rete](virtual-networks-nsg.md) di Azure.
 
 Per i due server DNS locali da usare quando si impostano inizialmente i controller di dominio nella rete virtuale, compilare la Tabella D. Assegnare a ciascun server DNS un nome descrittivo e un singolo indirizzo IP. Non è necessario che il nome descrittivo corrisponda al nome host o al nome del computer del server DNS. Si noti che sono elencate due voci vuote, ma è possibile aggiungerne altre. Collaborare con il reparto IT per stabilire questo elenco.
 
@@ -248,4 +248,4 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Aggiungere spazio di archiviazione di Azure mediante Servizi connessi in Visual Studio"
-   description="Aggiungere archiviazione di Azure all'applicazione utilizzando la finestra di dialogo Aggiungi servizi connessi di Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Aggiungere spazio di archiviazione di Azure mediante Servizi connessi in Visual Studio | Microsoft Azure"
+	description="Aggiungere archiviazione di Azure all'applicazione usando la finestra di dialogo Aggiungi servizi connessi di Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="mobile"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="mobile"
+	ms.date="08/12/2015"
+	ms.author="patshea"/>
 
 # Aggiunta dell’archiviazione di Azure tramite Servizi connessi di Visual Studio
 
@@ -23,7 +23,7 @@ Con Visual Studio 2015, è possibile connettersi a qualsiasi servizio cloud in C
 
 ## Tipi di progetto supportati
 
-Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è possibile utilizzare la finestra di dialogo Servizi connessi.
+Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è possibile usare la finestra di dialogo Servizi connessi.
 
 - Progetti Web ASP.NET
 
@@ -36,15 +36,15 @@ Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è poss
 - Progetti di Processo Web di Azure
 
 
-## Connettersi ad archiviazione di Azure utilizzando la finestra di dialogo Servizi connessi
+## Connettersi ad archiviazione di Azure usando la finestra di dialogo Servizi connessi
 
-1. È necessario disporre di un account Azure. Se non si dispone di un account di Azure, è possibile iscriversi per una [versione di valutazione gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Dopo aver creato un account Azure, è possibile creare account di archiviazione, creare servizi mobili e configurare Azure Active Directory.
+1. È necessario disporre di un account Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Dopo aver creato un account Azure, è possibile creare account di archiviazione, creare servizi mobili e configurare Azure Active Directory.
 
 1. Aprire il progetto in Visual Studio, aprire il menu di scelta rapida per il nodo **Riferimenti** in Esplora soluzioni, quindi scegliere **Aggiungi servizio connesso**.
 
     ![Aggiunta di un servizio connesso](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. Nella finestra di dialogo **Aggiungi servizio connesso** scegliere **Archiviazione di Azure**, quindi scegliere il pulsante **Configura**. Potrebbe essere richiesto l'accesso ad Azure se non è ancora stato effettuato.
+1. Nella finestra di dialogo **Aggiungi servizio connesso** scegliere **Account di archiviazione di Azure**, quindi fare clic su **Configura**. Se non è già stato effettuato, potrebbe essere richiesto l'accesso ad Azure.
 
     ![Finestra di dialogo Aggiungi servizio connesso - Archiviazione](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
@@ -58,7 +58,7 @@ Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è poss
 
     1. Scegliere il pulsante **Crea un nuovo Account di archiviazione** nella parte inferiore della finestra di dialogo Archiviazione di Azure.
 
-    1. Compilare la finestra di dialogo **Crea account di archiviazione** , quindi scegliere il pulsante **Crea**.
+    1. Compilare la finestra di dialogo **Crea account di archiviazione**, quindi scegliere il pulsante **Crea**.
     
         ![Finestra di dialogo Archiviazione di Azure](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
 
@@ -68,7 +68,7 @@ Per connettersi ad archiviazione di Azure nei seguenti tipi di progetto, è poss
 
 1. Il servizio di archiviazione connesso viene visualizzato sotto il nodo Riferimenti servizio del progetto WebJob.
 
-    ![Archiviazione di Azure in progetti WebJobs](./media/vs-azure-tools-connected-services-storage/IC796705.png)
+    ![Archiviazione di Azure in progetti di tipo processo Web](./media/vs-azure-tools-connected-services-storage/IC796705.png)
 
 1. Esaminare la pagina introduttiva visualizzata e controllare come è stato modificato il progetto. Ogni volta che si aggiunge un servizio connesso, nel browser verrà visualizzata una pagina introduttiva. È possibile esaminare i passaggi successivi e gli esempi di codice suggeriti o passare alla pagina Informazioni sull'evento per vedere quali riferimenti sono stati aggiunti al progetto e in che modo i file di configurazione e il codice sono stati modificati.
 
@@ -79,11 +79,11 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
  - Per i progetti ASP.NET, vedere [Informazioni sull'evento – Progetti ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - Per i progetti ASP.NET 5, vedere [Informazioni sull'evento – Progetti ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - Per i progetti del servizio cloud (ruoli Web e ruoli di lavoro), vedere [Informazioni sull'evento – Progetti del servizio cloud](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - Per i progetti WebJob, vedere [Informazioni sull'evento – Progetti WebJob](storage/vs-storage-webjobs-what-happened/).
+ - Per i progetti di tipo processo Web, vedere [Risultati - Progetti di tipo processo Web](vs-storage-webjobs-what-happened/).
 
 ## Passaggi successivi
 
-1. Utilizzando gli esempi di codice introduzione come guida, il tipo di archiviazione che si desidera creare e avviare la scrittura di codice per accedere all'account di archiviazione!
+1. Usando gli esempi di codice introduttivi come guida, creare il tipo di risorsa di archiviazione desiderato, quindi iniziare a scrivere codice per accedere all'account di archiviazione.
 
 1. Domande e assistenza
      - [Forum MSDN: Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
@@ -94,4 +94,4 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 
      - [Documentazione di archiviazione in azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

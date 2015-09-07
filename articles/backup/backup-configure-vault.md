@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Configurare il Backup di Azure per preparare il backup di Windows Server
 
@@ -26,9 +19,9 @@ Per eseguire il backup dei file e dei dati da Windows Server in Azure, è necess
 
 - **Creare un insieme di credenziali per il backup**: creare un insieme di credenziali nella console Backup di Azure.
 - **Scaricare le credenziali di insieme**: in Backup di Azure caricare il certificato di gestione creato nell'insieme di credenziali.
-- **Installare Azure Backup Agent e registrare il server** - Da Backup di Azure, installare l'agente e registrare tale server nell'archivio di backup.
+- **Installare l'agente di Backup di Azure e registrare il server** - Da Backup di Azure, installare l'agente e registrare il server nell'archivio di backup.
 
-[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
+[AZURE.INCLUDE [backup-create-vault-wgif](../../includes/backup-create-vault-wgif.md)]
 
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -39,6 +32,6 @@ Per eseguire il backup dei file e dei dati da Windows Server in Azure, è necess
 - [Gestione di Windows Server o Windows Client](backup-azure-manage-windows-server.md)
 - [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
-- [Forum del Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+- [Forum di Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

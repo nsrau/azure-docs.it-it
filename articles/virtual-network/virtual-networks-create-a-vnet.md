@@ -1,20 +1,20 @@
 <properties
    pageTitle="Creare una rete virtuale"
-   description="Seguire i passaggi per creare con facilità una rete virtuale di base."
-   services="virtual-network"
-   documentationCenter=""
-   authors="telmos"
-   manager="carolz"
-   editor="tysonn"/>
+	description="Seguire i passaggi per creare con facilità una rete virtuale di base."
+	services="virtual-network"
+	documentationCenter=""
+	authors="telmos"
+	manager="carolz"
+	editor="tysonn"/>
 
 <tags
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
-   ms.author="telmosampaio"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/06/2015"
+	ms.author="telmosampaio"/>
 
 # Creare una rete virtuale
 
@@ -22,7 +22,7 @@ Quando si crea una rete virtuale, i servizi e le macchine virtuali all'interno d
 
 Dopo aver creato la rete virtuale, è possibile aggiungere nuove macchine virtuali e istanze PaaS. Si noti che se si utilizza il portale di gestione per creare le macchine virtuali, è opportuno selezionare **Da raccolta** in modo da poter specificare la rete virtuale. Questo passaggio è importante perché non è possibile tornare indietro e inserire una macchina virtuale in una rete virtuale dopo aver creato la macchina virtuale.
 
-[Nota di Azure] **Utilizzare questa procedura per creare una rete virtuale solo cloud dedicata.** A causa della maggiore complessità coinvolta nella creazione di una configurazione cross-premise, non utilizzare questa procedura per creare una rete virtuale che in un secondo momento verrà connessa alla rete locale. Se si vuole creare una connessione cross-premise protetta tra Azure e la rete locale, vedere la pagina relativa alle [informazioni sulla connettività cross-premise protetta](https://msdn.microsoft.com/library/azure/dn133798.aspx).
+[Nota di Azure] **Utilizzare questa procedura per creare una rete virtuale solo cloud dedicata.** A causa della maggiore complessità coinvolta nella creazione di una configurazione cross-premise, non utilizzare questa procedura per creare una rete virtuale che in un secondo momento verrà connessa alla rete locale. Se si vuole creare una connessione cross-premise protetta tra Azure e la rete locale, vedere la pagina relativa alle [informazioni sulla connettività cross-premise protetta](vpn-gateway-cross-premises-options.md).
 
 ## Creazione della rete virtuale
 
@@ -35,7 +35,7 @@ Dopo aver creato la rete virtuale, è possibile aggiungere nuove macchine virtua
 
 
 
-4. Nella pagina **Server DNS e connettività VPN** non apportare modifiche. Passare semplicemente alla pagina successiva facendo clic sulla freccia. Per impostazione predefinita, Azure fornisce la risoluzione dei nomi di base per la rete virtuale. È possibile che i requisiti della risoluzione dei nomi in uso siano più complessi di quelli che possono essere gestiti dalla risoluzione dei nomi di Azure. In tal caso, è possibile aggiungere in un secondo momento una macchina virtuale che esegue DNS per la rete virtuale. Per ulteriori informazioni sulla risoluzione dei nomi di Azure e DNS, vedere [Risoluzione dei nomi](https://msdn.microsoft.com/library/azure/jj156088.aspx).
+4. Nella pagina **Server DNS e connettività VPN** non apportare modifiche. Passare semplicemente alla pagina successiva facendo clic sulla freccia. Per impostazione predefinita, Azure fornisce la risoluzione dei nomi di base per la rete virtuale. È possibile che i requisiti della risoluzione dei nomi in uso siano più complessi di quelli che possono essere gestiti dalla risoluzione dei nomi di Azure. In tal caso, è possibile aggiungere in un secondo momento una macchina virtuale che esegue DNS per la rete virtuale. Per ulteriori informazioni sulla risoluzione dei nomi di Azure e DNS, vedere [Risoluzione dei nomi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 5. Nella pagina **Spazi di indirizzi della rete virtuale** è possibile immettere lo spazio degli indirizzi che si vuole usare per la rete virtuale. A meno che non si richieda un determinato intervallo di indirizzi IP interni per le macchine virtuali o si desideri creare una subnet specifica per le macchine virtuali che riceveranno un DIP statico, non è necessario apportare modifiche in questa pagina. Se si intende creare più subnet, è possibile eseguire l'operazione in questa pagina facendo clic su **Aggiungi subnet**. Per ulteriori informazioni sulle impostazioni nella pagina dei dettagli, vedere la sezione **Dettagli della rete virtuale** in [Come gestire le proprietà della rete virtuale](../virtual-networks-settings).
 
 	-  Per ulteriori informazioni sulle impostazioni nella pagina dei dettagli, vedere la sezione **Dettagli della rete virtuale** in [Come gestire le proprietà della rete virtuale](../virtual-networks-settings).
@@ -48,8 +48,8 @@ Dopo aver creato la rete virtuale, è possibile aggiungere nuove macchine virtua
 
 
 ## Passaggi successivi
--  Leggere ulteriori informazioni sulle [reti virtuali](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) in Azure. 
+-  Leggere altre informazioni sulle [reti virtuali](../virtual-network/virtual-networks-overview.md) in Azure. 
 
 -  [Aggiungere una macchina virtuale](../virtual-machines/virtual-machines-create-custom.md) a una rete virtuale.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

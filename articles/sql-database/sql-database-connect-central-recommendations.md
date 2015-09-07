@@ -1,58 +1,48 @@
 <properties 
-	pageTitle="Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione" 
-	description="Un argomento di partenza che raggruppa collegamenti e indicazioni per i programmi client che si connettono al database SQL di Azure da tecnologie quali ADO.NET e PHP." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione"
+	description="Un argomento di partenza che raggruppa collegamenti e indicazioni per i programmi client che si connettono al database SQL di Azure da tecnologie quali ADO.NET e PHP."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="genemi"/>
 
 
 # Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione
 
 
-Questo argomento è un ottimo strumento per iniziare a utilizzare la connettività dei client al database SQL di Azure. Vengono forniti collegamenti agli esempi di codice per le varie tecnologie che è possibile utilizzare per connettersi e interagire con il database SQL. Rientrano in queste tecnologie Enterprise Library, JDBC e PHP e molte altre. Vengono fornite indicazioni in genere applicabili indipendentemente dalla tecnologia di connessione specifica o dal linguaggio di programmazione.
+Questo argomento è un ottimo strumento per iniziare a utilizzare la connettività dei client al database SQL di Azure. Vengono forniti collegamenti agli esempi di codice per le varie tecnologie che è possibile utilizzare per connettersi e interagire con il database SQL. Rientrano in queste tecnologie Enterprise Library, JDBC e PHP e molte altre. Le informazioni contenute in questa sezione si applicano indipendentemente dalla tecnologia specifica utilizzata per connettersi al database SQL.
 
 
 ## Indicazioni non correlate alla tecnologia
 
 
-Le informazioni contenute in questa sezione si applicano indipendentemente dalla tecnologia specifica utilizzata per connettersi al database SQL.
-
-
-- In [Linee guida per la connessione al database SQL di Azure a livello di programmazione](http://msdn.microsoft.com/library/azure/ee336282.aspx) sono trattati gli argomenti seguenti:
- - Porte
- - Firewall
+- Le discussioni[Linee guida per la connessione al database SQL di Azure a livello di programmazione](http://msdn.microsoft.com/library/azure/ee336282.aspx) includono:
+ - [Porte e firewall](https://azure.microsoft.com/it-it/documentation/articles/sql-database-configure-firewall-settings/)
  - Stringhe di connessione
-- In [Gestione delle risorse nel database SQL di Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) sono trattati gli argomenti seguenti:
+- Le discussioni [Gestione delle risorse nel database SQL di Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) includono:
  - Governance delle risorse
  - Applicazione dei limiti
  - Limitazione
 
 
-Indipendentemente dal tipo di tecnologia di connessione utilizzata, determinate impostazioni del firewall per il server del database SQL e di ogni singolo database, riguardano:
-
-
-- [Firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
 ## Indicazioni di autenticazione
 
 
-- Usare l'autenticazione del database SQL, non quella di Windows.
+- Utilizzare l'autenticazione del Database di SQL Azure, non l'autenticazione di Windows che non è disponibile nel Database di SQL Azure.
 - Specificare un database particolare, invece di usare il database predefinito *master*.
-- Talvolta è necessario fornire un nome utente dotato del suffisso *@tuonomeserver*, altre volte invece è possibile omettere il suffisso. Dipende dal modo in cui l'API o lo strumento in uso sono stati scritti.
- - Verificare i dettagli su ogni singola tecnologia.
 - Effettuare la connessione specificando un utente in un [database indipendente](http://msdn.microsoft.com/library/ff929071.aspx).
  - Questo approccio fornisce scalabilità e prestazioni migliori, senza la necessità di un account di accesso per il database master.
  - Non è possibile usare l'istruzione **USE myDatabaseName;** di Transact-SQL sul database SQL.
@@ -66,7 +56,7 @@ Indipendentemente dal tipo di tecnologia di connessione utilizzata, determinate 
 - Assicurarsi che il [firewall del database SQL di Azure](http://msdn.microsoft.com/library/ee621782.aspx) consenta la comunicazione TCP in uscita sulla porta 1433.
  - È possibile configurare le impostazioni del [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) su un server del database SQL o per un singolo database.
 - Se si utilizza un [pool di connessioni](http://msdn.microsoft.com/library/8xx3tyca.aspx), chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
- - A meno che la connessione non venga riutilizzata dal programma per un'altra operazione immediatamente, senza pause, si consiglia il modello seguente: <br/><br/>Aprire una connessione <br/>Eseguire un'operazione tramite la connessione. <br/>Chiudere la connessione.<br/><br/>
+ - A meno che la connessione non venga riutilizzata dal programma per un'altra operazione immediatamente, senza pause, si consiglia il modello seguente: <br/><br/>Aprire una connessione. <br/>Eseguire un'operazione tramite la connessione. <br/>Chiudere la connessione.<br/><br/>
 - Usare la logica di ripetizione dei tentativi con la logica di connessione, ma solo per gli errori temporanei. Quando si utilizza il database SQL, è possibile che i tentativi di aprire una connessione o di inviare una query abbiano esito negativo per vari motivi.
  - Un motivo permanente di errore può risiedere nel fatto che la stringa di connessione non sia valida.
  - Un motivo temporaneo di errore può risiedere nel fatto che il sistema del database SQL di Azure necessiti del bilanciamento del carico complessivo. Il motivo temporaneo si risolve autonomamente, ovvero attraverso nuovi tentativi del programma.
@@ -126,7 +116,7 @@ Il proxy middleware che funge da intermediario tra V11 e il client ADO.NET 4.5 g
 Il proxy V12 gestisce un sottoinsieme più piccolo di errori temporanei. In altri casi V12 il proxy viene ignorato per la velocità superiore di connessione diretta al Database SQL. Per un programma client ADO.NET 4.5, queste modifiche rendono il Database SQL V12 di Azure più simile a Microsoft SQL Server.
 
 
-Per esempi di codice che illustrino la logica di ripetizione tentativi, vedere:<br/>[Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md).
+Per esempi di codice che illustrino la logica di ripetizione tentativi, vedere: <br/>[Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
 > [AZURE.TIP]In un ambiente di produzione, è consigliabile che i client che si connettono al database SQL V11 o V12 di Azure implementino nel loro codice una logica di ripetizione tentativi. Il codice può essere personalizzato oppure può sfruttare un’API come la libreria Enterprise.
@@ -168,4 +158,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

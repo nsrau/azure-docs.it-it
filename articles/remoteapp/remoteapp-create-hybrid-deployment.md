@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come creare una raccolta ibrida per Azure RemoteApp" 
-	description="Informazioni su come creare una distribuzione di RemoteApp si connette alla rete interna." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+	pageTitle="Come creare una raccolta ibrida per Azure RemoteApp"
+	description="Informazioni su come creare una distribuzione di RemoteApp si connette alla rete interna."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
 	ms.author="elizapo"/>
 
 # Come creare una raccolta ibrida per Azure RemoteApp
@@ -53,9 +53,9 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 
 ### Creare una rete virtuale di Azure e aggiungerla alla distribuzione di Active Directory
 
-Iniziare creando un [rete virtuale](https://msdn.microsoft.com/library/azure/dn631643.aspx) nella scheda **Rete** nel portale di gestione di Azure. È necessario connettere la rete virtuale alla distribuzione di Active Directory sincronizzata con il tenant di Azure Active Directory.
+Iniziare creando un [rete virtuale](../virtual-network/virtual-networks-create-vnet.md) nella scheda **Rete** nel portale di gestione di Azure. È necessario connettere la rete virtuale alla distribuzione di Active Directory sincronizzata con il tenant di Azure Active Directory.
 
-Per altre informazioni, vedere [Informazioni sulle impostazioni della rete virtuale nel portale di gestione](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+Per altre informazioni, vedere [Informazioni sulle impostazioni della rete virtuale nel portale di gestione](../virtual-network/virtual-networks-settings.md).
 
 ### Assicurarsi che la rete virtuale sia pronta per RemoteApp
 Prima di creare la raccolta di RemoteApp, verificare che la nuova rete virtuale sia pronta. A questo scopo, eseguire le seguenti operazioni:
@@ -136,4 +136,4 @@ La procedura è stata completata e la raccolta ibrida RemoteApp è stata creata 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

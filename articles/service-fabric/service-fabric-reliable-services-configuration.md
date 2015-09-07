@@ -1,20 +1,20 @@
 <properties
    pageTitle="Configurazione di Reliable Services con stato"
-   description="Informazioni sulla configurazione di Reliable Services con stato in Service Fabric."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Informazioni sulla configurazione di Reliable Services con stato in Service Fabric."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/24/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Configurazione di Reliable Services con stato
 È possibile modificare la configurazione predefinita di Reliable Services con stato cambiando il file "settings.xml" generato nella directory radice del pacchetto di Visual Studio all'interno della cartella "Config" per ogni servizio dell'applicazione.
@@ -91,4 +91,4 @@ L'impostazione MaxRecordSizeInKB definisce la dimensione massima di un record ch
 Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file, in modo da ridurre le situazioni di contesa della testina. Si prevede che l'impostazione dovrà essere modificata solo in casi rari.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

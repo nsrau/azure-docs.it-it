@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creare un'app Web in Azure App Service con Azure SDK per Java" 
-	description="Informazioni su come creare un'app Web in Azure App Service a livello di codice usando Azure SDK per Java." 
+	pageTitle="Creare un'app Web in Azure App Service con Azure SDK per Java"
+	description="Informazioni su come creare un'app Web in Azure App Service a livello di codice usando Azure SDK per Java."
 	tags="azure-classic-portal"
-	services="app-service\web" 
-	documentationCenter="Java" 
-	authors="donntrenton" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter="Java"
+	authors="donntrenton"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="v-donntr"/>
 
 
@@ -438,7 +438,6 @@ Selezionare un client FTP di terze parti per pubblicare l'applicazione. Questa p
 
 Per altre informazioni sulla distribuzione in un'app Web del servizio app tramite FTP, vedere gli argomenti seguenti:
 
-- [Gestione delle app Web tramite il portale di Azure: distribuzione](web-sites-manage.md/#deployment)
 - [Distribuire mediante un'utilità FTP](web-sites-deploy.md)
 
 
@@ -590,4 +589,4 @@ Questa procedura crea un'app web del servizio app. Finché la risorsa esiste, i 
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

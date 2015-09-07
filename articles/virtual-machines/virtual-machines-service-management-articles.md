@@ -46,7 +46,7 @@ Questo è un elenco di articoli sull'utilizzo di macchine virtuali nella gestion
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[È necessario creare una rete virtuale?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[È necessario creare una rete virtuale?](../virtual-network/virtual-networks-overview.md)
 
 ## Creazione
 
@@ -150,4 +150,4 @@ Questo è un elenco di articoli sull'utilizzo di macchine virtuali nella gestion
 
 [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

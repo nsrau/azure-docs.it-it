@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Application Insights per app per iOS" 
-    description="Analizzare l'utilizzo e le prestazioni dell'app per iOS con Application Insights." 
-    services="application-insights" 
-    documentationCenter="ios"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="Application Insights per app per iOS | Microsoft Azure"
+	description="Analizzare l'utilizzo e le prestazioni dell'app per iOS con Application Insights."
+	services="application-insights"
+	documentationCenter="ios"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="04/27/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/27/2015"
+	ms.author="awills"/>
 
 # Application Insights per app per iOS
 
@@ -35,53 +35,51 @@ Nel [portale di Azure][portal] creare una nuova risorsa di Application Insights.
 
 Viene visualizzato un pannello che mostra le prestazioni e i dati di utilizzo relativi all'app. Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, nella schermata Start dovrebbe venire visualizzato un riquadro per l'app. In alternativa, fare clic su Sfoglia per cercarla.
 
-## Scaricare Application Insights per iOS
+## Scaricare Application Insights per Mac
 
 (se non lo si è già fatto).
 
-1. Scaricare [Application Insights per Mac](http://go.microsoft.com/fwlink/?LinkID=533209)
+1. Scaricare [Application Insights per Mac](http://go.microsoft.com/fwlink/?LinkID=533209).
 
-2. Estrarre il file zip
+2. Estrarre il file con estensione zip.
 
-3. Fare clic sull'icona dell'app per avviare Application Insights per Mac
+3. Fare clic sull'icona dell'app per avviare Application Insights per Mac.
 
 ## <a name="signin"></a>Accedere ad Azure
 
-1. Fare clic su Accedi
+1. Fare clic su **Sign In**.
 
-2. Accedere con l'account Azure
+2. Accedere con l'account Azure.
 
 ## Installare l'SDK nell'applicazione
 
-1. Fare clic su Integra per avviare l'integrazione di SDK
+1. Fare clic su **Integrate** per avviare l'integrazione dell'SDK.
 
-2. Selezionare il progetto Xcode dall'elenco o fare clic su Apri altri per trovare il progetto, quindi fare clic su Integra
+2. Selezionare il progetto Xcode dall'elenco o fare clic su **Open Other** per trovare il progetto, quindi fare clic su **Integrate**.
 
-3. Scegliere la cartella per Application Insights SDK, quindi fare clic su Installa
+3. Scegliere la cartella per Application Insights SDK, quindi fare clic su **Install**.
 
-4. Aggiungere lo script di esecuzione illustrato alle fasi di compilazione
+4. Aggiungere questa esecuzione dello script alle fasi di compilazione: [Aggiungere fase di esecuzione dello script](http://hockeyapp.net/help/runscriptbuildphase/).
 
-    [Aggiungere una fase per lo script di esecuzione](http://hockeyapp.net/help/runscriptbuildphase/)
+5. Aggiungere i framework mancanti al progetto Xcode.
 
-5. Aggiungere i framework mancanti al progetto Xcode
+6. Trascinare il framework di Application Insights sul progetto Xcode, quindi fare clic su **Next**.
 
-6. Trascinare il framework di Application Insights al progetto Xcode, quindi fare clic su Avanti
+7. Selezionare **Integrate SDK into Target** per la destinazione usata.
 
-7. Selezionare Integra l'SDK nella destinazione per la destinazione usata
+8. Fare clic su **Create New Component** per creare l'app nel portale di Application Insights.
 
-8. Fare clic su Crea nuovo componente per creare l'app nel portale di Application Insights
+9. Selezionare la sottoscrizione, il gruppo di risorse e immettere un nome per il componente. Nella maggior parte dei casi, questo nome deve corrispondere al nome dell'app. Confermare con il pulsante **Create Resource**.
 
-9. Selezionare la sottoscrizione, il gruppo di risorse e immettere un nome per il componente. Nella maggior parte dei casi, questo nome deve corrispondere al nome dell'app. Confermare con il pulsante Crea risorsa.
+10. Assicurarsi che sia selezionato il componente corretto, quindi fare clic su **Next**.
 
-10. Assicurarsi che sia selezionato il componente corretto, quindi fare clic su Avanti
+11. Modificare il codice sorgente come illustrato nella procedura guidata, quindi fare clic su **Finish**.
 
-11. Modificare il codice sorgente come illustrato nella procedura guidata, quindi fare clic su Fine
-
-12. Avviare l'app nel simulatore iOS con Compila ed esegui
+12. Avviare l'app nel simulatore iOS con **Build & Run**.
 
 ## Inserire le chiamate di telemetria
 
-Dopo avere chiamato `[MSAIApplicationInsights start]`, l'SDK inizierà a tenere traccia di sessioni, visualizzazioni pagina ed eccezioni non gestite o arresti anomali.
+Dopo avere chiamato `[MSAIApplicationInsights start]`, l'SDK inizia a tenere traccia di sessioni, visualizzazioni pagina ed eccezioni non gestite o arresti anomali.
 
 È possibile aggiungere altri eventi, come indicato di seguito:
 
@@ -102,14 +100,14 @@ Dopo avere chiamato `[MSAIApplicationInsights start]`, l'SDK inizierà a tenere 
                              properties:@{@"Test measurement 1":@(4.8)}];
 
     // Send custom metrics
-    [MSAITelemetryManager trackMetricWithName:@"Test metric" 
+    [MSAITelemetryManager trackMetricWithName:@"Test metric"
                                         value:42.2];
 
 ## Visualizzare i dati in Application Insights
 
 Tornare a http://portal.azure.com e passare alla risorsa di Application Insights.
 
-Fare clic su Cerca per aprire [Ricerca diagnostica][diagnostic], ovvero la finestra in cui vengono visualizzati i primi eventi. Se non viene visualizzato alcun contenuto, attendere uno o due minuti e fare clic su Aggiorna.
+Fare clic su **Cerca** per aprire [Ricerca diagnostica][diagnostic], ovvero la finestra in cui vengono visualizzati i primi eventi. Se non viene visualizzato alcun contenuto, attendere uno o due minuti e fare clic su **Aggiorna**.
 
 ![Fare clic su Ricerca diagnostica](./media/app-insights-ios/21-search.png)
 
@@ -117,7 +115,7 @@ I dati verranno visualizzati nel pannello Panoramica non appena l'app viene usat
 
 ![Pannello Panoramica](./media/app-insights-ios/22-oview.png)
 
-Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esempio gli arresti anomali:
+Per ottenere altri dettagli, fare clic su qualsiasi grafico. Selezionare ad esempio gli arresti anomali:
 
 ![Fare clic sul grafico per gli arresti anomali](./media/app-insights-ios/23-crashes.png)
 ## <a name="usage"></a>Passaggi successivi
@@ -137,8 +135,6 @@ Fare clic su qualsiasi grafico per ottenere altri dettagli. Selezionare ad esemp
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

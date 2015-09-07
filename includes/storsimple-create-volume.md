@@ -1,4 +1,3 @@
-
 #### Per creare un volume
 
 1. Nella pagina **Avvio rapido** del dispositivo fare clic su **Aggiungi un volume**. Verrà avviata la procedura guidata Aggiungi volume.
@@ -6,7 +5,7 @@
 2. Nella procedura guidata Aggiungi volume, in **Impostazioni di base**:
    1. Digitare un **Nome** per il volume.
    2. Specificare la **Capacità fornita** per il volume. **La capacità del volume deve essere tra 1 GB e 64 TB.**
-   3. Nell'elenco a discesa selezionare il **Tipo di utilizzo** per il volume. Per i dati di archiviazione a cui si accede con minore frequenza, selezionare un **Volume di archivio**. Per tutti gli altri tipi di dati, selezionare **Volume principale**.
+   3. Nell'elenco a discesa selezionare il **Tipo di utilizzo** per il volume. Per i dati di archiviazione a cui si accede con minore frequenza, selezionare un **Volume di archivio**. Per tutti gli altri tipi di dati, selezionare **Volume a livelli**. I volumi a livelli erano in precedenza denominati volumi primari.
    4. Fare clic sull'icona freccia ![icona a forma di freccia](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) per passare alla pagina successiva.
 
      ![Aggiungi volume](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
@@ -22,4 +21,4 @@
 
 4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Verrà creato un volume con le impostazioni specificate.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

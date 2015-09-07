@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Application Insights per app Web JavaScript" 
-	description="Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights per app Web JavaScript | Microsoft Azure"
+	description="Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, i dati client Web e la traccia dei modelli di utilizzo. Rilevare le eccezioni e i problemi di prestazioni nelle pagine Web JavaScript."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/10/2015"
 	ms.author="awills"/>
- 
+
 # Application Insights per app Web JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -55,12 +55,12 @@ Lo script contiene la chiave di strumentazione che indirizza i dati alla risorsa
 
 *(Se si usa un framework di pagine Web noto, cercare adattatori Application Insights. Ad esempio, [un modulo AngularJS](http://ngmodules.org/modules/angular-appinsights)).*
 
- 
+
 ## <a name="run"></a>Eseguire l'app
 
-Eseguire l'app Web, usarla un periodo di tempo per generare dati di telemetria e attendere alcuni secondi. È possibile eseguirla con F5 sul computer di sviluppo o pubblicarla e metterla a disposizione degli utenti.
+Eseguire l'app Web, usarla un periodo di tempo per generare dati di telemetria e attendere alcuni secondi. È possibile eseguirla premendo **F5** sul computer di sviluppo o pubblicarla e metterla a disposizione degli utenti.
 
-Se si vogliono controllare i dati di telemetria che un app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser (F12 in molti browser). I dati vengono inviati a dc.services.visualstudio.com.
+Se si desidera controllare i dati di telemetria che un'app Web sta inviando ad Application Insights, usare gli strumenti di debug del browser (**F12** in molti browser). I dati vengono inviati a dc.services.visualstudio.com.
 
 ## Esplorare i dati
 
@@ -96,7 +96,7 @@ Se si vogliono visualizzare le prestazioni delle pagine nel tempo, fare doppio c
 
 ## Panoramica sull'utilizzo del client
 
-Nel pannello Panoramica fare clic su Utilizzo:
+Nel pannello Panoramica fare clic su **Utilizzo**:
 
 ![](./media/app-insights-javascript/14-usage.png)
 
@@ -147,7 +147,7 @@ Selezionare qualsiasi evento per visualizzare altri dettagli. Nella pagina dei d
 
 ### Proprietà delle visualizzazioni di pagina
 
-* **Durata della visualizzazione di pagina:** tempo necessario per caricare la pagina e iniziare a eseguire gli script. In particolare, indica l'intervallo tra l'avvio del caricamento della pagina e l'esecuzione di trackPageView. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso. 
+* **Durata della visualizzazione di pagina**&\#151;tempo necessario per caricare la pagina e iniziare a eseguire gli script. In particolare, indica l'intervallo tra l'avvio del caricamento della pagina e l'esecuzione di trackPageView. Se si sposta trackPageView dalla posizione consueta dopo l'inizializzazione dello script, rifletterà un valore diverso.
 
 ## Traccia dell'utilizzo personalizzato
 
@@ -184,6 +184,4 @@ Se non è stata ancora eseguita questa operazione, è possibile ottenere informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,24 +1,22 @@
 <properties 
-	pageTitle="Connettore tabelle di Azure - Spostare dati da e verso le tabelle di Azure" 
-	description="Informazioni sul connettore tabelle di Azure per il servizio Data factory che consente di spostare i dati da e verso l’archivio tabelle di Azure" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Spostare dati da e verso le tabelle di Azure | Data factory di Azure"
+	description="Informazioni su come spostare i dati da e verso l'archiviazione tabelle di Azure mediante Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-
-# Connettore tabelle di Azure - Spostare dati da e verso le tabelle di Azure
+# Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
 
 Questo articolo illustra come usare l'attività di copia di una data factory di Azure per spostare dati nelle tabelle di Azure da un altro archivio dati e spostare data da un altro archivio dati alle tabelle di Azure. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
@@ -26,10 +24,10 @@ Questo articolo illustra come usare l'attività di copia di una data factory di 
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo AzureStorage (usato sia per tabelle che per BLOB).
-2.	Un set di dati di input di tipo AzureTable.
-3.	Un set di dati di output di tipo AzureBlob. 
-3.	La pipeline con attività di copia che usa AzureTableSource e BlobSink. 
+1.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usato sia per tabelle che per BLOB).
+2.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [AzureTable](#azure-table-dataset-type-properties).
+3.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+3.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [AzureTableSource](#azure-table-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 Nell'esempio vengono copiati i dati appartenenti alla partizione predefinita in una tabella di Azure a un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -49,7 +47,7 @@ Nell'esempio vengono copiati i dati appartenenti alla partizione predefinita in 
 
 Nell'esempio si presuppone di aver creato una tabella "MyTable" in tabelle di Azure.
  
-Impostando "external" su "true" e specificando i criteri externalData si comunica alla data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
 
 	{
 	  "name": "AzureTableInput",
@@ -134,7 +132,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con l’attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **source** è impostato su **AzureTableSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata con la proprietà **AzureTableSourceQuery** seleziona i dati da copiare dalla partizione predefinita ogni ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **AzureTableSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata con la proprietà **AzureTableSourceQuery** seleziona i dati da copiare dalla partizione predefinita ogni ora.
 
 	{  
 	    "name":"SamplePipeline",
@@ -185,10 +183,11 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 L'esempio seguente mostra:
 
-1.	Un servizio collegato di tipo AzureStorage (usato sia per tabelle che per BLOB)
-3.	Un set di dati di input di tipo AzureBlob.
-4.	Un set di dati di output di tipo AzureTable. 
-4.	La pipeline con attività di copia che usa BlobSource e AzureTableSink. 
+1.	Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usato sia per tabelle che per BLOB).
+3.	Un [set di dati](data-factory-create-datasets.md) di input di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureTable](#azure-table-dataset-type-properties). 
+4.	La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [AzureTableSink](#azure-table-copy-activity-type-properties). 
+
 
 Nell’esempio vengono copiati dati appartenenti a una serie temporale dal BLOB di Azure a una tabella in tabelle di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -273,7 +272,7 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 
 **Set di dati di output di tabelle di Azure**
 
-Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in tabelle di Azure. È necessario creare la tabella in tabelle di Azure con lo stesso numero di colonne di quelle contenute nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
+Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in tabelle di Azure. È necessario creare la tabella in tabelle di Azure con lo stesso numero di colonne di quelle contenute nel file file con estensione csv del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
 
 	{
 	  "name": "AzureTableOutput",
@@ -292,7 +291,7 @@ Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in tabel
 
 **Pipeline con l’attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **source** è impostato su **BlobSource** e il tipo di **sink** è impostato su **AzureTableSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **AzureTableSink**.
 
 
 	{  
@@ -353,7 +352,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 ## Proprietà del tipo del set di dati di tabelle di Azure
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo [Creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **AzureTable** presenta le proprietà seguenti.
 
@@ -363,7 +362,7 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 
 ## Proprietà del tipo di attività di copia di tabelle di Azure
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
@@ -372,8 +371,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | -------- 
 azureTableSourceQuery | Usare la query personalizzata per leggere i dati. | Stringa di query della tabella di Azure. Esempio: **ColumnA eq ValueA** | No
-azureTableSourceIgnoreTableNotFound | Indica se ignorare l'eccezione di tabella inesistente. | TRUE<br/>
-FALSE | No |
+azureTableSourceIgnoreTableNotFound | Indica se ignorare l'eccezione di tabella inesistente. | TRUE<br/>FALSE | No |
 
 **AzureTableSink** supporta le seguenti proprietà della sezione typeProperties:
 
@@ -383,8 +381,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatorio
 azureTableDefaultPartitionKeyValue | Valore predefinito della chiave di partizione che può essere usato dal sink. | Valore stringa. | No 
 azureTablePartitionKeyName | Nome della colonna specificato dall'utente, i cui valori di colonna vengono usati come chiave di partizione. Se non specificato, AzureTableDefaultPartitionKeyValue viene usato come chiave di partizione. | Nome colonna. | No |
 azureTableRowKeyName | Nome della colonna specificato dall'utente, i cui valori di colonna vengono usati come chiave di riga. Se non specificato, usare un GUID per ogni riga. | Nome colonna. | No  
-azureTableInsertType | La modalità per inserire dati in tabelle di Azure. | unione<br/>
-sostituzione | No 
+azureTableInsertType | La modalità per inserire dati in tabelle di Azure. | unione<br/>sostituzione | No 
 writeBatchSize | Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. | Numero intero compreso tra 1 e 100 (unità = conteggio righe) | No. (Predefinito = 100) 
 writeBatchTimeout | Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout | (Unità = intervallo di tempo)Esempio: "00:20:00" (20 minuti). | No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi)
 
@@ -392,7 +389,7 @@ writeBatchTimeout | Inserisce i dati nella tabella di Azure quando viene raggiun
 
 ### Mapping dei tipi per tabelle di Azure
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi.
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -408,7 +405,7 @@ Quando si spostano i dati da e verso tabelle di Azure, i seguenti [mapping defin
 | Edm.Guid | Guid | Un identificatore univoco globale a 128 bit. |
 | Edm.Int32 | Int32 o int | Un valore integer a 32 bit. |
 | Edm.Int64 | Int64 o long | Un valore integer a 64 bit. |
-| Edm.String | Stringa | Un valore con codifica UTF-16. I valori delle stringhe possono essere di dimensioni fino a 64 KB. |
+| Edm.String | String | Un valore con codifica UTF-16. I valori delle stringhe possono essere di dimensioni fino a 64 KB. |
 
 ### Esempio di conversione di tipo
 
@@ -488,4 +485,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

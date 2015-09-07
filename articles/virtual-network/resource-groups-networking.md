@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Provider di risorse di rete"
-   description="Provider di risorse di rete"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Provider di risorse di rete"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="telmos"/>
 
 # Provider di risorse di rete
 Un fattore essenziale per il successo di un'azienda è la possibilità di creare e gestire applicazioni presenti in rete su larga scala in modo agile, flessibile, sicuro e ripetibile. Gestione risorse di Azure (ARM) consente di creare tali applicazioni sotto forma di un'unica raccolta di risorse nei gruppi di risorse. Queste risorse vengono gestite tramite diversi provider di risorse in ARM.
@@ -210,7 +210,7 @@ I principali vantaggi associati all'uso dei modelli sono:
 
 Per i modelli di esempio, vedere i [modelli della guida introduttiva di Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Per altre informazioni sul linguaggio del modello ARM, vedere [Linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Per altre informazioni sul linguaggio del modello ARM, vedere [Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
 Il modello di esempio precedente usa la rete virtuale e le risorse della subnet. È possibile usare altre risorse di rete, come indicato di seguito:
 
@@ -267,6 +267,19 @@ I servizi di bilanciamento del carico contengono le risorse figlio seguenti:
 - **Probe**: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se la probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
 - **Regole NAT in ingresso**: regole NAT che definiscono il traffico in ingresso che attraversa l'IP front-end e viene distribuito all'IP back-end.
 
+## Gateway applicazione
+
+Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7. Il bilanciamento del carico applicazioni consente di usare le regole di routing per il traffico di rete basato su HTTP.
+
+I gateway applicazione contengono le risorse figlio seguenti:
+
+- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
+- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
+- **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola di base. La regola di base è una distribuzione del carico di tipo round robin.
+
+
 ## IP pubblico
 Una risorsa di indirizzo IP pubblico fornisce un indirizzo IP pubblico riservato o dinamico. L'indirizzo IP pubblico può essere assegnato a un bilanciamento del carico, a NAT o associato a un indirizzo IP privato in una scheda di interfaccia di rete di una macchina virtuale.
 
@@ -307,6 +320,8 @@ Le proprietà principali di un gateway VPN includono:
 - **Tipo di gateway**: gateway indirizzato in modo dinamico o statico. 
 - **Prefisso del pool di indirizzi del client VPN**: indirizzi IP da assegnare ai client che si connettono in una configurazione da punto a sito.
 
+
+
 ## Profilo di Gestione traffico
 Gestione traffico e la relativa risorsa endpoint figlio consentono la distribuzione del traffico agli endpoint all'interno e all'esterno di Azure. Questa distribuzione del traffico è regolata dai criteri. Gestione traffico consente anche il monitoraggio dell'integrità dell'endpoint e la corretta deviazione del traffico in base all'integrità di un endpoint.
 
@@ -329,6 +344,16 @@ Le proprietà principali di un endpoint includono:
 - **Peso**: peso dell'endpoint usato nella gestione del traffico. 
 - **Priorità**: priorità dell'endpoint, usata per definire un'azione di failover. 
 
+## DNS di Azure
+
+DNS di Azure è un servizio di hosting per i domini DNS, che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure.
+
+Le proprietà principali di DNS di Azure includono:
+
+- ** Zone DNS**: informazioni sulla zona del dominio per ospitare i record DNS di un particolare dominio.
+- **Set di record DNS**: insieme di record di un tipo specifico. I tipi supportati sono A, AAAA, CNAME, MX, NS, SOA, SRV e TXT.
+
+
 ## Uso di un modello
 
 È possibile distribuire servizi ad Azure da un modello tramite PowerShell, l'interfaccia della riga di comando di Azure oppure tramite clic per la distribuzione da GitHub. Per distribuire servizi da un modello in GitHub, eseguire i passaggi seguenti:
@@ -343,13 +368,14 @@ Le proprietà principali di un endpoint includono:
 
 ![Distribuzione del modello di esempio](./media/resource-groups-networking/Figure6.png)
 
+
 ## Vedere anche
 
 [Riferimento all'API per le funzionalità di rete di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 [Riferimento ad Azure PowerShell per le funzionalità di rete](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 
 [Rete di Azure: modelli di uso comune](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +389,4 @@ Le proprietà principali di un endpoint includono:
 
 [Distribuzioni modello](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

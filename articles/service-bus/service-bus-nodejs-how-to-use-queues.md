@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare le code del bus di servizio (Node.js) | Microsoft Azure" 
-	description="Informazioni su come usare le code del bus di servizio in Azure da un’app Node.js." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Come usare le code del bus di servizio (Node.js) | Microsoft Azure"
+	description="Informazioni su come usare le code del bus di servizio in Azure da un’app Node.js."
+	services="service-bus"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="07/06/2015"
 	ms.author="mwasson"/>
 
 # Come usare le code del bus di servizio
@@ -24,7 +24,7 @@ Questa guida illustra come usare le code del bus di servizio. Gli esempi sono sc
 
 ## Creare un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sito Web con WebMatrix].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure] o [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell).
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
@@ -66,7 +66,7 @@ Per un esempio di impostazione delle variabili di ambiente nel portale di gestio
 
 ## Come creare una coda
 
-L'oggetto **ServiceBusService** consente di usare le code. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo di Azure:
+L'oggetto **ServiceBusService** consente di usare le code. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo Azure:
 
     var serviceBusService = azure.createServiceBusService();
 
@@ -184,10 +184,9 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [Sito Web con WebMatrix]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
-  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Creare e distribuire un'applicazione Node.js in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servizio cloud Node.js con archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Applicazione Web Node.js con archiviazione]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

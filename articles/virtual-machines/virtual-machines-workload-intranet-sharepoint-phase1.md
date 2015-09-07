@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Carico di lavoro di farm intranet di SharePoint Fase 1: Configurare l'infrastruttura di SQL Server"
-	description="In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn in servizi di infrastruttura di Azure, si compila la rete virtuale e altri elementi dell'infrastruttura di Azure."
+	pageTitle="Farm di SharePoint Server 2013 fase 1 | Microsoft Azure"
+	description="Creare la rete virtuale e altri elementi dell'infrastruttura di Azure nella fase 1 della farm di SharePoint Server 2013 in Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -53,7 +53,7 @@ Item | Nome della subnet | Spazio degli indirizzi della subnet | Scopo
 
 **Tabella S: Subnet nella rete virtuale**
 
-> [AZURE.NOTE]Questa architettura predefinita usa una singola subnet per motivi di semplicità. Se si desidera sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile utilizzare i [Gruppi di sicurezza di rete](https://msdn.microsoft.com/library/azure/dn848316.aspx) di Azure.
+> [AZURE.NOTE]Questa architettura predefinita usa una singola subnet per motivi di semplicità. Se si desidera sovrapporre un set di filtri di traffico per emulare l'isolamento di subnet, è possibile utilizzare i [Gruppi di sicurezza di rete](virtual-networks-nsg.md) di Azure.
 
 Per i due server DNS locali da usare quando si impostano inizialmente i controller di dominio nella rete virtuale, compilare la Tabella D. Assegnare a ciascun server DNS un nome descrittivo e un singolo indirizzo IP. Non è necessario che il nome descrittivo corrisponda al nome host o al nome del computer del server DNS. Si noti che sono elencate due voci vuote, ma è possibile aggiungerne altre. Collaborare con il reparto IT per stabilire questo elenco.
 
@@ -78,7 +78,7 @@ Elemento | Spazio degli indirizzi della rete virtuale
 
 Per creare la rete virtuale con le impostazioni dalle tabelle V, S, D e G, utilizzare le istruzioni in [Creare una rete virtuale cross-premise utilizzando le tabelle di configurazione](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE]Questa procedura descrive la creazione di una rete virtuale che utilizza una connessione VPN da sito a sito. Per informazioni sull'utilizzo di ExpressRoute per la connessione da sito a sito, vedere [Panoramica tecnica di ExpressRoute](http://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Questa procedura descrive la creazione di una rete virtuale che utilizza una connessione VPN da sito a sito. Per informazioni sull'utilizzo di ExpressRoute per la connessione da sito a sito, vedere [Panoramica tecnica di ExpressRoute](../expressroute/expressroute-introduction.md).
 
 Dopo aver creato la rete virtuale di Azure, il portale di gestione di Azure determinerà le operazioni seguenti:
 
@@ -87,9 +87,9 @@ Dopo aver creato la rete virtuale di Azure, il portale di gestione di Azure dete
 
 Per visualizzare questi elementi nel portale di gestione di Azure dopo aver creato la rete virtuale, fare clic su **Reti**, selezionare il nome della rete virtuale e scegliere l’opzione di menu **Dashboard**.
 
-Quindi, configurare il gateway di rete virtuale per creare una connessione VPN da sito a sito sicura. Per istruzioni, vedere [Configurare un gateway di rete virtuale nel portale di gestione](http://msdn.microsoft.com/library/jj156210.aspx).
+Quindi, configurare il gateway di rete virtuale per creare una connessione VPN da sito a sito sicura. Per istruzioni, vedere [Configurare un gateway di rete virtuale nel portale di gestione](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
-Creare quindi la connessione VPN da sito a sito tra la nuova rete virtuale e un dispositivo VPN locale. Per informazioni dettagliate ed istruzioni, vedere [Configurare un gateway di rete virtuale nel portale di gestione](http://msdn.microsoft.com/library/jj156210.aspx).
+Creare quindi la connessione VPN da sito a sito tra la nuova rete virtuale e un dispositivo VPN locale. Per informazioni dettagliate ed istruzioni, vedere [Configurare un gateway di rete virtuale nel portale di gestione](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
 Successivamente, verificare che lo spazio degli indirizzi della rete virtuale sia raggiungibile da una rete locale. Ciò avviene di solito aggiungendo una route corrispondente allo spazio di indirizzi di rete virtuale al dispositivo VPN e annunciando quindi tale route al resto dell'infrastruttura di della rete dell'organizzazione. Collaborare con il reparto IT per stabilire come fare.
 
@@ -171,4 +171,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

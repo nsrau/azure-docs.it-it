@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement" 
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement"
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Android SDK per Azure Mobile Engagement
@@ -35,87 +35,17 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk
 
 ##Note sulla versione
 
-###4\.0.0 (06/07/2015)
+##4\.1.0 (08/25/2015)
 
--   Modifiche al protocollo interno per rendere più affidabili le analisi e il push.
--   Il push nativo (GCM/ADM) viene ora usato anche per le notifiche in-app. È quindi necessario configurare le credenziali del push nativo per qualsiasi tipo di campagna push.
--   Correzione della notifica generale: elementi visualizzati solo 10 secondi dopo il push.
--   Correzione della selezione di un collegamento in un annuncio Web che include un URL di azione predefinito.
--   Correzione di un arresto anomalo raro correlato alla gestione dell'archivio locale.
--   Correzione della gestione delle stringhe di configurazione dinamiche.
--   Aggiornamento del contratto di licenza.
+- Gestione di un nuovo modello di autorizzazione per Android M.
+- Ora è possibile configurare le funzionalità di indirizzo in fase di esecuzione anziché utilizzare `AndroidManifest.xml`.
+- Correzione di un bug delle autorizzazioni: se si utilizza `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
+- Miglioramenti della stabilità.
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md).
 
 ##Procedure di aggiornamento
 
-Se è già stata eseguita l'integrazione di una versione precedente dell'SDK nell'applicazione, sarà necessario tenere in considerazione gli aspetti seguenti durante l'aggiornamento dell'SDK.
+Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-Se non sono state applicate alcune versioni dell'SDK, potrebbe essere necessario eseguire più procedure. Vedere quindi le [procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md) complete. Se ad esempio si esegue la migrazione dalla versione 1.4.0 alla 1.6.0, è necessario eseguire prima la procedura per la migrazione "dalla 1.4.0 alla 1.5.0" e quindi la procedura per la migrazione "dalla 1.5.0 alla 1.6.0".
-
-Indipendentemente dalla versione di partenza dell'aggiornamento, è necessario sostituire il file `mobile-engagement-VERSION.jar` con il nuovo file.
-
-###Dalla versione 3.0.0 alla 4.0.0
-
-#### Push nativo
-
-Il push nativo (GCM/ADM) viene ora usato anche per le notifiche in-app. È quindi necessario configurare le credenziali del push nativo per qualsiasi tipo di campagna push.
-
-Se non è già stata eseguita, completare [questa procedura](mobile-engagement-android-integrate-engagement-reach.md#native-push).
-
-#### AndroidManifest.xml
-
-L'integrazione con il servizio di copertura è stata modificata in ``AndroidManifest.xml``.
-
-Sostituire:
-
-    <receiver
-      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-      android:exported="false">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-      </intent-filter>
-    </receiver>
-
-Con
-
-    <receiver
-      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-      android:exported="false">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
-      <intent-filter>
-        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-      </intent-filter>
-    </receiver>
-
-È ora possibile che venga visualizzata una schermata di caricamento quando si fa clic su un annuncio (con contenuto di tipo testo/Web) o un sondaggio. L'aggiunta del codice seguente consente il funzionamento delle campagne in 4.0.0:
-
-    <activity
-      android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
-      android:theme="@android:style/Theme.Dialog">
-      <intent-filter>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
-
-#### Risorse
-
-Incorporare il nuovo file `res/layout/engagement_loading.xml` nel progetto.
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

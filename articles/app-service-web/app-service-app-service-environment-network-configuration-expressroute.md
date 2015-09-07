@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Dettagli di configurazione di rete per l'uso di Express Route" 
-	description="Dettagli di configurazione di rete per eseguire ambienti del servizio app in reti virtuali connesse a un circuito ExpressRoute." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+	pageTitle="Dettagli di configurazione di rete per l'uso di Express Route"
+	description="Dettagli di configurazione di rete per eseguire ambienti del servizio app in reti virtuali connesse a un circuito ExpressRoute."
+	services="app-service\web"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsch"/>
 
 # Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute 
@@ -34,7 +34,7 @@ I requisiti per il corretto funzionamento degli ambienti del servizio app sono i
 
 Per soddisfare i requisiti DNS, assicurare una configurazione DNS valida per la rete virtuale.
 
-Per soddisfare i requisiti di accesso alla rete in ingresso, configurare un [gruppo di sicurezza di rete][NetworkSecurityGroups] nella subnet dell'ambiente del servizio app per consentire l'accesso richiesto come spiegato in questo [articolo][requiredports].
+Per soddisfare i requisiti di accesso alla rete in ingresso, configurare un [gruppo di sicurezza di rete][NetworkSecurityGroups] nella subnet dell'ambiente del servizio app per consentire l'accesso richiesto, come spiegato in questo [articolo][requiredports].
 
 ## Abilitazione della connettività di rete in uscita per un ambiente del servizio app##
 Per impostazione predefinita, un circuito ExpressRoute appena creato annuncia una route predefinita che consente la connettività Internet in uscita. Con questa configurazione, un ambiente del servizio app sarà in grado di connettersi ad altri endpoint di Azure.
@@ -77,7 +77,7 @@ Sarà necessario aggiungere una o più route alla tabella di route per consentir
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-Per un elenco completo e aggiornato di intervalli CIDR usati da Azure, è possibile scaricare un file XML contenente tutti gli intervalli dall'[Area download Microsoft][DownloadCenterAddressRanges]
+Per un elenco completo e aggiornato di intervalli CIDR usati da Azure, è possibile scaricare un file XML contenente tutti gli intervalli dall'[Area download Microsoft][DownloadCenterAddressRanges].
 
 **Nota:** in futuro sarà disponibile una forma CIDR abbreviata 0.0.0.0/0 da usare nel parametro *AddressPrefix*. Questa forma abbreviata equivale a "tutti gli indirizzi Internet". Per ora gli sviluppatori devono invece usare un ampio set di intervalli CIDR sufficienti a coprire tutti i possibili intervalli di indirizzi di Azure usati nell'area in cui è stato distribuito l'ambiente del servizio app.
 
@@ -113,12 +113,12 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureDownloads]: http://azure.microsoft.com/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/it-it/download/details.aspx?id=41653
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
  
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Intranet"
-	description="Informazioni sull'utilità di una farm di SharePoint Intranet distribuita in Azure, su come configurare un ambiente di sviluppo/testing e su come distribuire una configurazione di produzione a disponibilità elevata."
+	pageTitle="Farm di SharePoint Server 2013 in Azure | Microsoft Azure"
+	description="Informazioni sul valore di una farm di SharePoint Server 2013 in Azure, configurare un ambiente di test e distribuire una configurazione a disponibilità elevata."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -124,4 +124,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

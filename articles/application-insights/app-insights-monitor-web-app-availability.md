@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Monitorare la disponibilità e la velocità di risposta dei siti Web" 
-	description="Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Monitorare la disponibilità e la velocità di risposta dei siti Web | Microsoft Azure"
+	description="Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/08/2015"
 	ms.author="awills"/>
- 
+
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -42,7 +42,7 @@ Accedere a [Microsoft Azure](http://azure.com), passare al [portale di Azure](ht
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Verrà aperto il pannello Panoramica per la nuova risorsa. Per trovarlo in qualsiasi momento nel [portale di Azure](https://portal.azure.com) fare clic su Sfoglia.
+Verrà aperto il pannello Panoramica per la nuova risorsa. Per trovarlo in qualsiasi momento nel [portale di Azure](https://portal.azure.com), fare clic su **Sfoglia**.
 
 ### <a name="setup"></a>2. Creare un test Web
 
@@ -50,7 +50,7 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query, pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
+- L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&\#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
 
 - Se la casella **Abilitare tentativi** è selezionata, quando il test non riesce verrà riprovato dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti all'intervallo consueto. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni posizione di test.
 
@@ -67,12 +67,12 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
 #### Testare più URL
 
-Aggiungere altri test. Ad esempio, oltre a testare la home page è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
+Aggiungere altri test. Ad esempio, oltre a testare la home page, è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
 
 
 ### <a name="monitor"></a>3. Visualizzare i report di disponibilità
 
-Dopo 1-2 minuti fare clic su Aggiorna nel pannello della disponibilità o dei test Web. (l'aggiornamento non viene eseguito automaticamente).
+Dopo 1-2 minuti fare clic su **Aggiorna** nel pannello della disponibilità o dei test Web. (l'aggiornamento non viene eseguito automaticamente).
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -102,7 +102,7 @@ Ciò consente di visualizzare i risultati di tale test.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-Il test viene eseguito da diverse posizioni; selezionarne una in cui i risultati siano inferiori al 100%.
+Il test viene eseguito da diverse posizioni&\#151;selezionarne una in cui i risultati siano inferiori al 100%.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
@@ -127,6 +127,8 @@ In alternativa, scaricare il file dei risultati ed esaminarlo in Visual Studio.
 
 Per creare un test in più passaggi, registrare lo scenario con Visual Studio, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
 
+Si noti che non è possibile usare funzioni codificate nei test: i passaggi dello scenario devono essere contenuti sotto forma di script nel file con estensione webtest.
+
 #### 1\. Registrare uno scenario
 
 Usare Visual Studio Ultimate per registrare una sessione Web.
@@ -135,9 +137,9 @@ Usare Visual Studio Ultimate per registrare una sessione Web.
 
     ![In Visual Studio, creare un nuovo progetto dal modello di test di carico e prestazioni Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-2. Aprire il file .webtest e iniziare la registrazione.
+2. Aprire il file con estensione webtest e iniziare la registrazione.
 
-    ![Aprire il file .webtest e fare clic su Registra.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
+    ![Aprire il file con estensione webtest e fare clic su Registra.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
 
 3. Eseguire le azioni utente che si vuole simulare nel test: aprire il sito Web, aggiungere un prodotto al carrello e così via. Quindi, arrestare il test.
 
@@ -149,8 +151,8 @@ Usare Visual Studio Ultimate per registrare una sessione Web.
 
     Il programma di esecuzione del test Web apre un browser Web e ripete le azioni registrate. Verificare che funzioni come previsto.
 
-    ![In Visual Studio, aprire il file .webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
- 
+    ![In Visual Studio, aprire il file con estensione webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
+
 
 Non inserire cicli nel codice del test Web.
 
@@ -160,7 +162,7 @@ Non inserire cicli nel codice del test Web.
 
     ![Nel pannello Test Web, scegliere Aggiungi.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 
-2. Selezionare un test in più passaggi e caricare il file .webtest.
+2. Selezionare un test in più passaggi e caricare il file con estensione webtest.
 
     ![Selezionare Test Web in più passaggi.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
@@ -169,6 +171,8 @@ Visualizzare i risultati del test e gli eventuali errori nello stesso modo dei t
 Un motivo frequente di errore è l'eccessiva durata del test. L'esecuzione non deve superare i due minuti.
 
 Non dimenticare che, perché il test riesca, tutte le risorse di una pagina devono essere caricate correttamente, inclusi script, fogli di stile, immagini e così via.
+
+Si noti che il test Web deve essere interamente contenuto nel file con estensione webtest: non è possibile usare funzioni codificate nel test.
 
 
 ### Inserimento di plug-in relativi a tempo e numeri casuali nel test in più passaggi
@@ -195,7 +199,7 @@ I plug-in del test Web consentono di definire questa impostazione.
 
     ![Nel parametro di test usare {{nome plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Ora caricare il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
+Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
 
 ## <a name="edit"></a> Modificare o disabilitare un test
 
@@ -207,13 +211,14 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
 ## Domande? Problemi?
 
-* Si verifica un errore relativo ai “caratteri non validi” quando si 
 
-* **Esiste una differenza tra "test web" e "disponibilità"?
+* *Esiste una differenza tra "test Web" e "disponibilità"?*
 
-    Vengono utilizzati i due termini in modo intercambiabile.
+    I due termini vengono usati in modo intercambiabile.
 
+* *È possibile chiamare codice da un test Web?*
 
+    No. I passaggi del test devono essere nel file con estensione webtest.
 
 ## <a name="video"></a>Video
 
@@ -235,6 +240,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->
