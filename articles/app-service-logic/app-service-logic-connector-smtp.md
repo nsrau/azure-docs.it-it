@@ -69,14 +69,14 @@ Dopo aver creato il connettore, è possibile usare il connettore SMTP come azion
 
 	Proprietà | Descrizione
 	--- | ---
-	To |Inserire l'indirizzo e-mail dei destinatari. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Inserire l'indirizzo e-mail dei destinatari in copia. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Inserire l'oggetto dell'e-mail.
-	Body | Inserire il testo dell'e-mail.
-	Is HTML | Quando questa proprietà è impostata su true, i contenuti del testo dell'e-mail vengono inviati in formato HTML.
-	Bcc | Inserire l'indirizzo e-mail dei destinatari in copia nascosta. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Selezionare la priorità dell'e-mail. Le opzioni sono Normale, Bassa e Alta.
-	Attachments | Allegati da inviare insieme all'e-mail. Include i seguenti campi: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	A |Immettere l'indirizzo e-mail del/dei destinatario/i. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Immettere l'indirizzo e-mail del/dei destinatario/i in copia per conoscenza. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
+	Oggeto | Inserire l'oggetto dell'e-mail.
+	Corpo | Immettere il corpo del messaggio e-mail.
+	Is HTML | Se questa proprietà è impostata su true, i contenuti del corpo vengono inviati in formato HTML.
+	Bcc | Immettere l'indirizzo e-mail del/dei destinatario/i in copia per conoscenza nascosta.  Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
+	Priorità | Selezionare la priorità dell'e-mail. Le opzioni sono Normale, Bassa e Alta.
+	Attaccamento | Allegati da inviare insieme all'e-mail. Include i seguenti campi: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -96,4 +96,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

@@ -48,8 +48,8 @@ Creare una nuova app [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o 
 - Aggiungere la piattaforma **Web** all'app.
 - Inserire l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica Azure AD, dove devono essere dirette le risposte di autenticazione . L'URI predefinito per questo tutorial è `https://localhost:44326/`.
 
-## 2. Set up your app to use the OWIN authentication pipeline
-Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 2. Configurare l'app per l'uso della pipeline di autenticazione OWIN.
+In questo caso, verrà configurato il middleware OWIN per l'uso del protocollo di autenticazione OpenID Connect.  OWIN verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 -	Per iniziare, aprire il file 'web.config' alla radice del progetto e inserire i valori di configurazione dell'app nella sezione `<appSettings>` .
     -	`ida:ClientId` è l'**ID applicazione** assegnata alla tua app nel portale di registrazione.
