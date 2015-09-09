@@ -94,7 +94,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
      6\.6. Per **Sign LogoutRequest** selezionare **Yes**.
 
-     6\.7. Nella casella di testo **When SAML 2.0 single sign-on fails because the session is not authenticated, or this is the first login, redirect to this URL** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
+     6.7. Nella casella di testo **In caso di errore Single Sign-On SAML 2.0 per mancata autenticazione sessione o per primo accesso, reindirizza a questo URL** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
 
   
 
@@ -113,7 +113,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
      7\.6 Lasciare **Create an AuthnContextClass request in the AuthnRequest statement** deselezionata.
 
-     7\.7 Nella casella di testo **The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider** digitare ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+     7.7 Nella casella di testo **The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider** digitare **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
 
 
@@ -138,7 +138,7 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
      11\.4. Per **Format** selezionare **PEM**.
 
-     11\.5. Creare un file con codifica Base 64 dal certificato scaricato.  > [AZURE.NOTE] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+     11.5. Creare un file con codifica Base 64 dal certificato scaricato.  > [AZURE.NOTE] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
      11\.6. Nel **Blocco note** aprire il file con codifica Base 64 file e quindi copiarne il contenuto negli Appunti.
 
@@ -213,4 +213,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->

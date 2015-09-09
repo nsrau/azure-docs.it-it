@@ -78,8 +78,8 @@ Dopo aver creato il connettore, è possibile usare il connettore SMTP come azion
 	Priorità | Selezionare la priorità dell'e-mail. Le opzioni sono Normale, Bassa e Alta.
 	Attaccamento | Allegati da inviare insieme all'e-mail. Include i seguenti campi: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-	![][5]
-	![][6]
+![][5]
+![][6]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
@@ -96,4 +96,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!-----HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->
