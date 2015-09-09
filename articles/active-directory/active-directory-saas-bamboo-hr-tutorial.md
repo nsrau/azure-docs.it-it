@@ -94,7 +94,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
         >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **X.509 Certificate**
-    4.  Fare clic su **Save**.
+    4.  Fare clic su **Salva**.
 
 8.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -108,17 +108,17 @@ Nel caso di BambooHR, il provisioning è un'attività manuale.
 
 1.  Accedere al sito aziendale di **BambooHR** come amministratore.
 
-2.  Nel barra degli strumenti in alto fare clic su **Settings**.
+2.  Nel barra degli strumenti in alto fare clic su **Impostazioni**.
 
     ![Impostazione](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Impostazione")
 
-3.  Fare clic su **Overview**.
+3.  Fare clic su **Informazioni generali**.
 
-4.  Nel riquadro di spostamento sinistro passare a **Security > Users**.
+4.  Nel riquadro di spostamento sinistro passare a **Sicurezza > Utenti**.
 
 5.  Nelle caselle di testo corrispondenti digitare il nome utente, la password e l'indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
 
-6.  Fare clic su **Save**.
+6.  Fare clic su **Salva**.
 
 >[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da BambooHR per eseguire il provisioning degli account utente di Azure AD.
 
@@ -140,4 +140,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---------HONumber=August15_HO7-->
+<!----------HONumber=August15_HO7-->
