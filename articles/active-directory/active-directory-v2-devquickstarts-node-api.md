@@ -34,56 +34,70 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Registrare un'app
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Verificare di:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
+- Aggiungere la piattaforma **Mobile** per l'app.
+- Annotare  **Redirect URI** dal portale. È necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2: Download node.js for your platform
-To successfully use this sample, you must have a working installation of Node.js.
+## 2: Scaricare node.js per la piattaforma in uso
+Per usare correttamente questo esempio, è necessario disporre di un'installazione funzionante di Node.js.
 
 Install Node.js from [http://nodejs.org](http://nodejs.org).
 
-## 3: Install MongoDB on to your platform
+## 3: Installare MongoDB nella piattaforma in uso
 
-To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
+Per usare correttamente questo esempio, è necessario disporre di un'installazione funzionante di MongoDB. Si userà MongoDB per rendere l'API REST persistente nelle istanze del server.
 
 Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
+> [AZURE.NOTE] In questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, che al momento della stesura di questo articolo sono:  mongodb://localhost
 
-## 4: Install the Restify modules in to your Web API
+## 4: Installare i moduli Restify nell'API Web
 
-We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
+Si userà Resitfy per compilare l'API REST. Restify è un framework applicazioni di Node.js minimo e flessibile derivato da Express, che include una gamma completa di funzionalità per la compilazione di API REST su Connect.
 
-### Install Restify
+### Installare Restify
 
-From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
+Dalla riga di comando passare alla directory azuread. Se la directory **azuread** non esiste, crearla.
 
 `cd azuread` - or- `mkdir azuread;`
 
-Type the following command:
+Digitare il seguente comando:
 
 `npm install restify`
 
-This command installs Restify.
+Questo comando installa Restify.
 
-#### Did you get an error?
+#### È STATO VISUALIZZATO UN ERRORE?
 
-When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
+Quando si usa npm in alcuni sistemi operativi, è possibile che vengano visualizzati un errore di errore: EPERM, chmod '/usr/local/bin/..' e una richiesta di provare a eseguire l'account come amministratore. In questo caso, usare il comando sudo per eseguire npm a un livello di privilegi più elevato.
 
-#### Did you get an error regarding DTrace?
+#### È STATO VISUALIZZATO UN ERRORE RELATIVO A DTRACE?
 
-You may see something like this when installing Restify:
+Durante l'installazione di Restify, è possibile che venga visualizzato qualcosa di simile:
 
 ```Shell
-clang: error: no such file or directory: 'HD/azuread/node\_modules/restify/node\_modules/dtrace-provider/libusdt' make: *** [Release/DTraceProviderBindings.node] Error 1 gyp ERR! build error gyp ERR! stack Error: `make` failed with exit code: 2 gyp ERR! stack at ChildProcess.onExit (/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/lib/build.js:267:23) gyp ERR! stack at ChildProcess.EventEmitter.emit (events.js:98:17) gyp ERR! stack at Process.ChildProcess.\_handle.onexit (child\_process.js:789:12) gyp ERR! System Darwin 13.1.0 gyp ERR! command "node" "/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/bin/node-gyp.js" "rebuild" gyp ERR! cwd /Volumes/Development HD/azuread/node\_modules/restify/node\_modules/dtrace-provider gyp ERR! node -v v0.10.11 gyp ERR! node-gyp -v v0.10.0 gyp ERR! not ok npm WARN optional dep failed, continuing dtrace-provider@0.2.8 ```
+clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
+make: *** [Release/DTraceProviderBindings.node] Error 1
+gyp ERR! build error
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:267:23)
+gyp ERR! stack     at ChildProcess.EventEmitter.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:789:12)
+gyp ERR! System Darwin 13.1.0
+gyp ERR! command "node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Volumes/Development HD/azuread/node_modules/restify/node_modules/dtrace-provider
+gyp ERR! node -v v0.10.11
+gyp ERR! node-gyp -v v0.10.0
+gyp ERR! not ok
+npm WARN optional dep failed, continuing dtrace-provider@0.2.8
+```
 
 
 Restify offre un meccanismo efficace per tenere traccia delle chiamate REST usando DTrace. Tuttavia, per molti sistemi operativi DTrace non è disponibile. È possibile ignorare questi errori.
