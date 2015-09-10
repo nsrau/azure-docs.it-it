@@ -185,7 +185,8 @@ Configurare quindi SP1 per una nuova farm di SharePoint e un sito del team prede
 14.	Nella pagina Crea raccolta siti in **Titolo e descrizione**, digita**Contoso Corporation** in **Titolo**, specificare l'URL **http://sp1**/, quindi fare clic su **OK**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento. Questo passaggio crea un sito del team all'URL http://sp1.
 15.	Nella pagina Completamento della configurazione guidata della farm, fare clic su **Termina**. Nella scheda di Internet Explorer viene visualizzato il sito SharePoint 2013 Central Administration.
 16.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
-17.	Nella barra degli indirizzi digitare **http://sp1/**, quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti. 
+17.	Nella barra degli indirizzi digitare **http://sp1/**, quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti.  
+
 Questa è la configurazione corrente.
 
 ![](./media/virtual-networks-setup-sharepoint-hybrid-cloud-testing/CreateSPFarmHybridCloud_3.png)
@@ -211,4 +212,4 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
