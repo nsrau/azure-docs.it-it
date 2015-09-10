@@ -3,7 +3,8 @@
 #Esercitazione: Integrazione di Azure Active Directory con ServiceNow
 >[AZURE.TIP]Per inviare commenti e suggerimenti, fare clic [qui](http://go.microsoft.com/fwlink/?LinkId=521880).
   
-Questa esercitazione descrive l'integrazione di Azure e ServiceNow. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e ServiceNow.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant in ServiceNow
@@ -78,21 +79,21 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
 6. Nella pagina **SAML 2.0 Single Sign-on properties** seguire questa procedura:
 
-     6\.1 Per **Enable external authentication** selezionare **Yes**.
+     6.1. Per **Enable external authentication** selezionare **Yes**.
 
 
-     6\.2. Nella casella di testo **The Identity Provider URL which will issue the SAML2 security token with user info** digitare **https://sts.windows.net/<GUID del tenant>/**.
+     6.2. Nella casella di testo **The Identity Provider URL which will issue the SAML2 security token with user info** digitare **https://sts.windows.net/<GUID del tenant>/**.
 
 
-     6\.3. Nella casella di testo **The base URL to the Identity Provider's AuthnRequest service** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
+     6.3. Nella casella di testo **The base URL to the Identity Provider's AuthnRequest service** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
 
 
-     6\.4. Nella casella di testo **The base URL to the Identity Provider's SingleLogoutRequest service** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
+     6.4. Nella casella di testo **The base URL to the Identity Provider's SingleLogoutRequest service** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
 
 
-     6\.5. Nella casella di testo **The protocol binding for the Identity Provider's SingleLogoutRequest service** digitare **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+     6.5. Nella casella di testo **The protocol binding for the Identity Provider's SingleLogoutRequest service** digitare **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
-     6\.6. Per **Sign LogoutRequest** selezionare **Yes**.
+     6.6. Per **Sign LogoutRequest** selezionare **Yes**.
 
      6.7. Nella casella di testo **In caso di errore Single Sign-On SAML 2.0 per mancata autenticazione sessione o per primo accesso, reindirizza a questo URL** digitare **https://login.windows.net/<GUID del tenant>/saml2**.
 
@@ -100,26 +101,26 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
 7. Nella sezione **Service Provider (Service-Now) properties** seguire questa procedura:
 
-     7\.1. Nella casella di testo **The URL to Service-now instance homepage** digitare l'URL della home page dell'istanza di ServiceNow. L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL tenant di ServiceNow** e **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Home page dell'istanza di ServiceNow](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Home page dell'istanza di ServiceNow")
+     7.1. Nella casella di testo **The URL to Service-now instance homepage** digitare l'URL della home page dell'istanza di ServiceNow. L'URL della home page dell'istanza di ServiceNow è una concatenazione dell'**URL tenant di ServiceNow** e **/navpage.do**: **https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Home page dell'istanza di ServiceNow](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Home page dell'istanza di ServiceNow")
 
 
-     7\.2. Nella casella di testo **The entity identification, or the issuer** digitare l'URL del tenant.
+     7.2. Nella casella di testo **The entity identification, or the issuer** digitare l'URL del tenant.
 
-     7\.3. Nella casella di testo **The audience uri that accepts SAML2 token** digitare l'URL del tenant.
+     7.3. Nella casella di testo **The audience uri that accepts SAML2 token** digitare l'URL del tenant.
 
-     7\.4. Nella casella di testo **The User table field to match with the Subject's NameID element in the SAMLResponse** digitare **email**.
+     7.4. Nella casella di testo **The User table field to match with the Subject's NameID element in the SAMLResponse** digitare **email**.
 
-     7\.5. Nella casella di testo **The NameID policy to use for returning the Subject's NameID in the SAMLResponse** digitare **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+     7.5. Nella casella di testo **The NameID policy to use for returning the Subject's NameID in the SAMLResponse** digitare **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
 
-     7\.6 Lasciare **Create an AuthnContextClass request in the AuthnRequest statement** deselezionata.
+     7.6. Lasciare **Create an AuthnContextClass request in the AuthnRequest statement** deselezionata.
 
-     7.7 Nella casella di testo **The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider** digitare **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+     7.7. Nella casella di testo **The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider** digitare **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
 
 
 8. Nella sezione **Advanced settings** seguire questa procedura:
 
-     8\.1 Nella casella di testo **The number in seconds before "notBefore" constraint, or after "notOnOrAfter" constraint to consider still valid** digitare **60**.
+     8.1 Nella casella di testo **The number in seconds before "notBefore" constraint, or after "notOnOrAfter" constraint to consider still valid** digitare **60**.
 
 
 9. Per salvare la configurazione, fare clic su **Save**.
@@ -130,21 +131,21 @@ Come parte di questa procedura, verrà richiesto di caricare un file di certific
 
 11. Per caricare il certificato, nella pagina del certificato seguire questa procedura:
 
-     11\.1. Fare clic su **New**.
+     11.1. Fare clic su **New**.
 
-     11\.2. Nella casella di testo **Name** digitare **SAML 2.0**.
+     11.2. Nella casella di testo **Name** digitare **SAML 2.0**.
 
-     11\.3. Selezionare **Active**.
+     11.3. Selezionare **Active**.
 
-     11\.4. Per **Format** selezionare **PEM**.
+     11.4. Per **Format** selezionare **PEM**.
 
      11.5. Creare un file con codifica Base 64 dal certificato scaricato.  > [AZURE.NOTE] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-     11\.6. Nel **Blocco note** aprire il file con codifica Base 64 file e quindi copiarne il contenuto negli Appunti.
+     11.6. Nel **Blocco note** aprire il file con codifica Base 64 file e quindi copiarne il contenuto negli Appunti.
 
-     11\.7. Incollare il contenuto degli Appunti nella casella di testo **PEM Certificate**.
+     11.7. Incollare il contenuto degli Appunti nella casella di testo **PEM Certificate**.
 
-     11\.8. Fare clic su **Submit**.
+     11.8. Fare clic su **Submit**.
 
 
 
@@ -165,19 +166,19 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 2. Nella pagina **Immettere le credenziali di ServiceNow per abilitare il provisioning automatico degli utenti** specificare le impostazioni di configurazione seguenti: Configura provisioning utenti
 
-     2\.1. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
+     2.1. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
 
-     2\.2. Nella casella di testo **Nome utente amministratore ServiceNow** digitare il nome dell'account amministratore di ServiceNow.
+     2.2. Nella casella di testo **Nome utente amministratore ServiceNow** digitare il nome dell'account amministratore di ServiceNow.
 
-     2\.3. Nella casella di testo **Password amministratore ServiceNow** digitare la password per questo account.
+     2.3. Nella casella di testo **Password amministratore ServiceNow** digitare la password per questo account.
 
-     2\.4. Fare clic su **Convalida** per verificare la configurazione.
+     2.4. Fare clic su **Convalida** per verificare la configurazione.
 
-     2\.5. Fare clic sul pulsante **Avanti** per aprire la pagina **Passaggi successivi**.
+     2.5. Fare clic sul pulsante **Avanti** per aprire la pagina **Passaggi successivi**.
 
-     2\.6. Se si vuole effettuare il provisioning di tutti gli utenti in questa applicazione, selezionare "**Esegui automaticamente il provisioning di tutti gli account utente della directory in questa applicazione**". <br><br> ![Passaggi successivi](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Passaggi successivi")
+     2.6. Se si vuole effettuare il provisioning di tutti gli utenti in questa applicazione, selezionare "**Esegui automaticamente il provisioning di tutti gli account utente della directory in questa applicazione**". <br><br> ![Passaggi successivi](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Passaggi successivi")
 
-     2\.7. Nella pagina **Passaggi successivi** fare clic su **Completa** per salvare la configurazione.
+     2.7. Nella pagina **Passaggi successivi** fare clic su **Completa** per salvare la configurazione.
 
 
 
@@ -213,4 +214,4 @@ Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Pe
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!-----HONumber=August15_HO8-->
+<!------HONumber=August15_HO8-->
