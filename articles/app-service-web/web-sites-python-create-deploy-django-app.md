@@ -3,6 +3,7 @@
 	description="Un'esercitazione introduttiva è in esecuzione un'applicazione web di Python in Azure applicazione servizio Web App."
 	services="app-service\web"
 	documentationCenter="python"
+	tags="python"
 	authors="huguesv"
 	manager="wpickett"
 	editor=""/>
@@ -12,11 +13,9 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="hero-article" 
-	ms.date="04/15/2015"
+	ms.topic="hero-article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # Creazione di app Web con Django
@@ -36,7 +35,7 @@ Verrà creata un'applicazione usando il framework Web di Bottle (vedere le versi
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo Python 2.7)
 - Git
-- [Python Tools 2.1 per Visual Studio] - Questo è facoltativo
+- [Python Tools per Visual Studio][] (PTVS) - Nota: questo è facoltativo
 
 **Nota**: la pubblicazione TFS non è attualmente supportata per progetti Python.
 
@@ -46,7 +45,7 @@ Se non è già installato Python 2.7 o 3.4 (32 bit), si consiglia di installare 
 
 Per Git, è consigliabile [Git per Windows] o [GitHub per Windows]. Se si utilizza Visual Studio, è possibile utilizzare il supporto Git integrato.
 
-È inoltre consigliabile installare [Python Tools 2.1 per Visual Studio]. Si tratta di un'operazione facoltativa, ma se si dispone di [Visual Studio], inclusa la versione gratuita di Visual Studio Community 2013 o Visual Studio Express 2013 per il Web, si otterrà anche l'IDE Python.
+È inoltre consigliabile installare [Python Tools 2.2 per Visual Studio]. Si tratta di un'operazione facoltativa, ma se si dispone di [Visual Studio], inclusa la versione gratuita di Visual Studio Community 2013 o Visual Studio Express 2013 per il Web, si otterrà anche l'IDE Python.
 
 ### Mac/Linux
 
@@ -102,7 +101,7 @@ Database predefinito. Include le tabelle necessarie per l'applicazione da esegui
     \DjangoWebProject.pyproj
     \DjangoWebProject.sln
 
-File di progetto da utilizzare con [Python Tools per Visual Studio](http://pytools.codeplex.com).
+File di progetto da utilizzare con [Python Tools per Visual Studio].
 
     \ptvs_virtualenv_proxy.py
 
@@ -184,7 +183,7 @@ Premere F5 per avviare il debug. Il Web browser si aprirà automaticamente sulla
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
-È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Vedere il [documentazione PTVS] per ulteriori informazioni su varie funzionalità.
+È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Vedere la [documentazione di Python Tools per Visual Studio] per ulteriori informazioni sulle varie funzionalità.
 
 ### Apportare modifiche
 
@@ -486,8 +485,8 @@ Per ulteriori informazioni su Django e Python Tools per Visual Studio, seguire i
 
 Per informazioni sull'utilizzo di Database SQL e MySQL:
 
-- [Django e database SQL in Azure con Python Tools 2.1 per Visual Studio]
-- [Django e MySQL in Azure con Python Tools 2.1 per Visual Studio]
+- [Django e MySQL in Azure con Python Tools per Visual Studio]
+- [Django e database SQL in Azure con Python Tools per Visual Studio]
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -495,11 +494,10 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 
 
 <!--Link references-->
-[Django e MySQL in Azure con Python Tools 2.1 per Visual Studio]: web-sites-python-ptvs-django-mysql.md
-[Django e database SQL in Azure con Python Tools 2.1 per Visual Studio]: web-sites-python-ptvs-django-sql.md
+[Django e MySQL in Azure con Python Tools per Visual Studio]: web-sites-python-ptvs-django-mysql.md
+[Django e database SQL in Azure con Python Tools per Visual Studio]: web-sites-python-ptvs-django-sql.md
 [Database SQL]: web-sites-python-ptvs-django-sql.md
 [MySQL]: web-sites-python-ptvs-django-mysql.md
-
 
 <!--External Link references-->
 [Azure SDK per Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -507,12 +505,10 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 [python.org]: http://www.python.org/
 [Git per Windows]: http://msysgit.github.io/
 [GitHub per Windows]: https://windows.github.com/
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools per Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[documentazione PTVS]: http://pytools.codeplex.com/documentation
-[Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation
+[documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
 [Documentazione di Django]: https://www.djangoproject.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

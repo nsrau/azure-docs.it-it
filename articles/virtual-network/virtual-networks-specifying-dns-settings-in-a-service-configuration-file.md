@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Specifica le impostazioni DNS in un File di configurazione del servizio"
-   description="Descrizione"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="Specifica le impostazioni DNS in un File di configurazione del servizio | Microsoft Azure"
+	description="Specificare le impostazioni DNS personalizzate utilizzando il file di configurazione del servizio per la rete virtuale"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/01/2015"
+	ms.author="joaoma"/>
 
 # Specifica le impostazioni DNS in un File di configurazione del servizio
 
@@ -41,4 +41,4 @@ Un file di configurazione del servizio può contenere un elemento DnsServers con
 
 [Informazioni sulle impostazioni della rete virtuale nel portale di gestione](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

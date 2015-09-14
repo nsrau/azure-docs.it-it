@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins | Microsoft Azure" 
-	description="Questa esercitazione illustra come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati da una soluzione di Integrazione continuata Jenkins." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" />
+	pageTitle="Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins | Microsoft Azure"
+	description="Questa esercitazione illustra come usare il servizio BLOB di Azure come archivio di elementi di compilazione creati da una soluzione di Integrazione continuata Jenkins."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 # Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins
@@ -165,4 +165,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

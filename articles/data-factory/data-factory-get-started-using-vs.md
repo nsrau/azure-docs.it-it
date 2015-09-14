@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL" 
-	description="Questa esercitazione illustra come creare una pipeline di dati di esempio che consente di copiare dati da un BLOB a un'istanza del database SQL di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio"
+	description="In questa esercitazione si creerà una pipeline di Data factory di Azure con un'attività Copia utilizzando Visual Studio."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Visual Studio
@@ -37,7 +37,7 @@ In questo passaggio è possibile usare il portale di anteprima di Azure per crea
 
 1.	Dopo l'accesso al [portale di anteprima di Azure](http://portal.azure.com), fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e infine fare clic su **Data factory** nel pannello **Analisi dei dati**. 
 
-	![Nuovo->Data factory](./media/data-factory-get-started-using-vs/NewDataFactoryMenu.png)
+	![Nuovo->DataFactory](./media/data-factory-get-started-using-vs/NewDataFactoryMenu.png)
 
 6. Nel pannello **Nuova data factory**:
 	1. Immettere **ADFTutorialDataFactoryVS** come **nome**. 
@@ -250,4 +250,8 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 
 Vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) per istruzioni su come usare il portale di anteprima di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione.
 
-<!---HONumber=August15_HO6-->
+
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md) richiede solo alcuni minuti.
+
+<!---HONumber=September15_HO1-->

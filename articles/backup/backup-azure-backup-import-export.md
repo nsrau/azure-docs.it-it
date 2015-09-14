@@ -1,12 +1,12 @@
 <properties
    pageTitle="Backup di Azure: Backup offline o seeding iniziale tramite il servizio di importazione/esportazione di Azure"
-   description="Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio di importazione/esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio di importazione/esportazione di Azure"
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+	description="Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio di importazione/esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio di importazione/esportazione di Azure"
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flusso di lavoro di Backup offline in Backup di Azure
 
@@ -22,7 +22,7 @@ Con Backup di Azure e il servizio di importazione/esportazione di Azure, caricar
 2. Prima di avviare il flusso di lavoro, verificare che sia stato creato un insieme di credenziali per Backup di Azure, che siano state scaricate le credenziali di insieme, che l'agente Backup di Azure sia stato installato in Windows Server, nel client Windows o nel server System Center Data Protection Manager (SCDPM) e che il computer sia registrato nell'insieme di credenziali per Backup di Azure.
 3. Scaricare il file di impostazioni di pubblicazione di Azure [da questa pagina](https://manage.windowsazure.com/publishsettings) sul computer da cui si prevede di eseguire il backup dei dati.
 4. Preparare un *percorso di gestione temporanea* che può essere una condivisione di rete o un disco aggiuntivo nel computer. Verificare che nel percorso di gestione temporanea sia disponibile spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si prevede di eseguire il backup di un file server da 500 GB, verificare che la dimensione dell'area di gestione temporanea sia almeno di 500 GB, anche se verrà usata una quantità inferiore. L'area di gestione temporanea è uno spazio di archiviazione temporaneo usato durante il flusso di lavoro.
-5. Unità di scrittura SATA esterna e disco rigido SATA esterno da 3,5 pollici. con il servizio di importazione/esportazione sono supportati solo i dischi rigidi SATA II/III da 3,5 pollici. I dischi rigidi di dimensioni superiori a 4 TB non sono supportati. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA II/III. Consultare la documentazione di importazione/esportazione di Azure per il set più recente di unità supportate dal servizio.
+5. Unità di scrittura SATA esterna e disco rigido SATA esterno da 3,5 pollici. con il servizio di importazione/esportazione sono supportati solo i dischi rigidi SATA II/III da 3,5 pollici. I dischi rigidi di dimensioni superiori a 6 TB non sono supportati. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA II/III. Consultare la documentazione di importazione/esportazione di Azure per il set più recente di unità supportate dal servizio.
 6. Attivare BitLocker nel computer a cui è connessa l'unità di scrittura SATA.
 7. Scaricare lo strumento di importazione/esportazione di Azure da [questa pagina](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) nel computer a cui è connessa l'unità di scrittura SATA.
 
@@ -108,4 +108,4 @@ Dopo che i dati del backup iniziale sono disponibili nell'account di archiviazio
 - Per domande sul flusso di lavoro di importazione/esportazione di Azure, fare riferimento a questo [articolo](../storage-import-export-service.md).
 - Per domande sul flusso di lavoro, fare riferimento alla sezione relativa al backup offline delle [domande frequenti](backup-azure-backup-faq.md) di Backup di Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

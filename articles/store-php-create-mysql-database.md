@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 #Come creare un database MySQL in Azure
@@ -23,4 +23,4 @@
 
 Un esempio che illustra come usare MySQL con PHP in Azure è disponibile all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

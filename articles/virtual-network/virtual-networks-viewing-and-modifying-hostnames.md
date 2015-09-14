@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Visualizzazione e modifica di nomi host"
-	description="Descrizione"
+   pageTitle="Visualizzazione e modifica di nomi host | Microsoft Azure"
+	description="Come visualizzare e modificare i nomi host per macchine virtuali di Azure, web e ruoli di lavoro per la risoluzione dei nomi"
 	services="virtual-network"
 	documentationCenter="na"
 	authors="joaoma"
@@ -71,4 +71,4 @@ Si può modificare il nome host per una macchina virtuale o istanza del ruolo ca
 
 [Specificare le impostazioni DNS tramite i file di configurazione di rete](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

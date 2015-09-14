@@ -3,7 +3,7 @@
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin.Forms."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -174,4 +174,4 @@ Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mob
 [Installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

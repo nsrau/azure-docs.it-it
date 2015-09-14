@@ -1,20 +1,20 @@
 <properties
    pageTitle="Come registrare le origini dati"
-   description="Articolo sulle procedure che illustra come registrare origini dati nel Catalogo dati di Azure, inclusi i campi di metadati estratti e le origini dati supportate durante l'anteprima."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="Articolo sulle procedure che illustra come registrare origini dati nel Catalogo dati di Azure, inclusi i campi di metadati estratti e le origini dati supportate durante l'anteprima."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/25/2015"
+	ms.author="maroche"/>
 
 
 # Come registrare le origini dati
@@ -36,6 +36,7 @@ Nell'anteprima corrente il **Catalogo dati di Azure** supporta la registrazione 
 * Tabelle tabulari di SQL Server Analysis Services
 * Report di SQL Server Reporting Services
 * Directory e BLOB di archiviazione di Azure
+* File e directory HDFS
 
 > [AZURE.NOTE]Il supporto di SQL Server include anche il database SQL di Microsoft Azure
 
@@ -63,4 +64,4 @@ La nuova registrazione di un'origine dati già registrata esegue un'operazione d
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Dopo la registrazione di un'origine dati, questa potrà essere annotata, gestita e individuata tramite il portale del **Catalogo dati di Azure**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

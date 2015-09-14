@@ -1,31 +1,35 @@
 
-1. Per l'escalation dei privilegi, eseguire:
+1. Per l'escalation dei privilegi, digitare:
 
 		sudo -s
-	
+
 	Immettere la password.
 
-2. Eseguire il comando seguente per installare MySQL Community Server Edition:
+2. Per installare MySQL Community Server Edition, digitare:
 
 		# zypper install mysql-community-server
 
 	Attendere fino al termine del download e dell'installazione di MySQL.
-3. Per fare in modo che MySQL venga avviato all'avvio del sistema, eseguire il comando seguente:
+
+3. Per impostare MySQL in modo che si avvii all’avvio del sistema, digitare:
 
 		# insserv mysql
-4. Ora è possibile avviare manualmente il daemon MySQL (mysqld) usando il comando seguente:
+
+4. Avviare manualmente il daemon MySQL (mysqld) con questo comando:
 
 		# rcmysql start
 
-	Per controllare lo stato del daemon MySQL, eseguire:
+	Per controllare lo stato del daemon MySQL, digitare:
 
 		# rcmysql status
 
-	Per arrestare il daemon MySQL, eseguire:
+	Per arrestare il daemon MySQL, digitare:
 
 		# rcmysql stop
 
-5. Avviso Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita. È consigliabile eseguire **mysql\_secure\_installation**, uno script per la protezione di MySQL. Durante l'esecuzione di **mysql\_secure\_installation**, verrà richiesto di modificare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare gli account di accesso radice remoti, rimuovere i database di test e ricaricare la tabella dei privilegi. È consigliabile rispondere sì a tutte queste opzioni e modificare la password radice. Digitare il comando seguente per eseguire lo script:
+	> [AZURE.IMPORTANT]Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita. È consigliabile eseguire **mysql\_secure\_installation**, uno script per la protezione di MySQL. Lo script richiederà di cambiare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare gli account di accesso radice remoti, rimuovere i database di test e ricaricare la tabella dei privilegi. È consigliabile rispondere sì a tutte queste opzioni e modificare la password radice.
+
+5. Digitare quanto segue per eseguire lo script MySQL dello script di installazione:
 
 		$ mysql_secure_installation
 
@@ -48,37 +52,33 @@
 
 	Si noti che i nomi utente e le password per il database sono usati solo da script per la connessione al database. I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
 
-9. Per eseguire l'accesso da un altro computer, eseguire il comando seguente:
+9. Per accedere da un altro computer, digitare:
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
 	dove `ip-address` è l'indirizzo IP del computer dal quale verrà effettuata la connessione a MySQL.
-	
-10. Per uscire dall'utilità di amministrazione database MySQL, eseguire il comando seguente:
+
+10. Per uscire dall'utilità di amministrazione database MySQL, digitare:
 
 		quit
 
-11. Al termine dell'installazione di MySQL è necessario configurare un endpoint affinché sia possibile accedere a MySQL in modalità remota. Accedere al [portale di gestione di Azure][AzurePreviewPortal]. Nel portale di Azure fare clic su **Macchine virtuali**, quindi sul nome della nuova macchina virtuale e infine su **Endpoint**.
+11. Al termine dell'installazione di MySQL è necessario configurare un endpoint per accedere a MySQL in modalità remota. Accedere al [Portale di Azure][AzurePortal]. Fare clic su **Macchine virtuali**, poi fare clic sul nome della nuova macchina virtuale, e infine su **Endpoint**.
 
-	![Endpoints][Image7]
+12. Fare clic su **Add** nella parte inferiore della pagina.
 
-12. Fare clic su **Aggiungi** nella parte inferiore della pagina. ![Endpoints][Image8]
+13. Aggiungere un endpoint denominato "MySQL", con protocollo **TCP** e con entrambe le porte **pubblica** e **privata** impostate su "3306".
 
-13. Aggiungere un endpoint denominato "MySQL", con protocollo **TCP** e con entrambe le porte **pubblica** e **privata** impostate su "3306". In questo modo sarà possibile accedere a MySQL in remoto. ![Endpoint][Image9]
-
-14. Per eseguire la connessione remota a MySQL in esecuzione nella macchina virtuale OpenSUSE Azure, nel computer locale eseguire il comando seguente:
+14. Per connettersi in remoto alla macchina virtuale dal computer, digitare:
 
 		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-	Ad esempio, per la macchina virtuale creata in questa esercitazione, sarebbe necessario usare il comando seguente:
+	Ad esempio, per la macchina virtuale creata in questa esercitazione, digitare questo comando:
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. In questa esercitazione è stato illustrato come configurare MySQL, creare un database e un nuovo utente. Per ulteriori informazioni su MySQL, vedere la [Documentazione di MySQL][MySQLDocs].
-
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePreviewPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

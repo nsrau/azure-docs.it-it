@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare un'app iOS nelle app per dispositivi mobili di Azure"
+	pageTitle="Creare un'app iOS in App per dispositivi mobili del servizio app di Azure | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare i back-end dell'app per dispositivi mobili di Azure per lo sviluppo per iOS in Objective-C o Swift"
 	services="app-service\mobile"
 	documentationCenter="ios"
@@ -24,19 +24,19 @@
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili iOS mediante un back-end per app per dispositivi mobili di Azure. Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app iOS di tipo _elenco azioni_ che archivia dati delle app in Azure.
 
-Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni delle app per dispositivi mobili relative ad app iOS.
+Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni iOS relative all'uso della funzionalità di Azure App Service relativa alle app per dispositivi mobili.
 
 ##Prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
- 
+
 * [Visual Studio Community 2013] o versione successiva.
 
 * Computer Mac con Xcode v7.0 o versione successiva.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), dove è possibile creare un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -44,10 +44,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Scaricare il progetto server
 
-1. Nel PC visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili**, quindi fare clic sul back-end dell'app per dispositivi mobili appena creato.
- 
+1. Sul PC visitare il [portale di Azure]. Fare clic su **Esplora tutto** > **App per dispositivi mobili** e quindi fare clic sul back-end dell'app per dispositivi mobili appena creato.
+
 2. Nel pannello App per dispositivi mobili fare clic su **Impostazioni** e in **App per dispositivi mobili** fare clic su **Avvio rapido** > **iOS (Objective-C)**. Se si preferisce Swift, fare clic su **Avvio rapido** > **iOS (Swift)**.
- 
+
 3. In **Scarica ed esegui il progetto server** fare clic su **Scarica**. Estrarre i file compressi del progetto nel PC e aprire la soluzione in Visual Studio.
 
 ## Pubblicare il progetto server in Azure
@@ -73,8 +73,8 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [12]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-browse.png
 
 [portale di Azure]: https://portal.azure.com/
-[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
- 
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

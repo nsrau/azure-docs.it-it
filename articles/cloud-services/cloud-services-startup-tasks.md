@@ -29,7 +29,7 @@ Le attività di avvio sono azioni effettuate prima dell'inizio dei ruoli e vengo
 
 Le variabili di ambiente passano informazioni all'interno di un'attività di avvio e le risorse di archiviazione locale possono essere usate per il passaggio all'esterno di un'attività di avvio. In una variabile di ambiente può essere ad esempio specificato il percorso di un programma che si desidera installare e i file possono essere scritti nelle risorse di archiviazione locale e letti successivamente dai ruoli.
 
-Con l'attività di avvio è possibile registrare informazioni ed errori nella directory specificata dalla variabile di ambiente **TEMP**. Durante l'attività di avvio, la variabile di ambiente **TEMP** viene risolta nella directory *C:\\Resources\\temp\[guid].[nomeruolo]\\RoleTemp* in esecuzione nel cloud.
+Con l'attività di avvio è possibile registrare informazioni ed errori nella directory specificata dalla variabile di ambiente **TEMP**. Durante l'attività di avvio, la variabile di ambiente **TEMP** viene risolta nella directory *C:\\Resources\\temp\\[guid].[nomeruolo]\\RoleTemp* in esecuzione nel cloud.
 
 Le attività di avvio possono inoltre essere eseguite più volte tra un riavvio e l'altro. Ad esempio, l'attività di avvio viene eseguita a ogni riciclo del ruolo e tali ricicli non includono necessariamente un riavvio. Le attività di avvio devono essere scritte in modo da poter essere eseguite più volte senza problemi.
 
@@ -68,9 +68,9 @@ In questo esempio viene creata la variabile di ambiente **MyVersionNumber** per 
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-    <Environment>
-        <Variable name="MyVersionNumber" value="1.0.0.0" />
-    </Environment>
+        <Environment>
+            <Variable name="MyVersionNumber" value="1.0.0.0" />
+        </Environment>
     </Task>
 </Startup>
 ```
@@ -132,24 +132,24 @@ Ad esempio, per creare una variabile di ambiente che sia "**true**" se l'istanza
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
-    <Environment>
-
-        <!-- Create the environment variable that informs the startup task whether it is running
-            in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
-            running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-            in the cloud. -->
-
-        <Variable name="ComputeEmulatorRunning">
-            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
-        </Variable>
-
-    </Environment>
+        <Environment>
+    
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
+    
+            <Variable name="ComputeEmulatorRunning">
+                <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+            </Variable>
+    
+        </Environment>
     </Task>
 </Startup>
 ```
 
 ## Passaggi successivi
-Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-common-startup-tasks.md) con il servizio cloud.
+Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-startup-tasks-common.md) con il servizio cloud.
 
 [Creare il pacchetto](cloud-services-model-and-package.md) del servizio cloud.
 
@@ -163,4 +163,4 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

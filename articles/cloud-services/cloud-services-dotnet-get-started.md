@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # Introduzione a Servizi cloud di Azure e ASP.NET
@@ -399,7 +399,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 
 12. Nel riquadro sinistro selezionare **Aggiornamenti**.
 
-13. Cercare il pacchetto *Archiviazione di Azure* e, se è incluso nell'elenco, fare clic su **Aggiorna** per ottenere la versione più recente della libreria del client di archiviazione.
+13. Cercare il pacchetto *WindowsAzure.Storage* e, se è incluso nell'elenco, fare clic su **Aggiorna** per ottenere la versione più recente della libreria del client di archiviazione.
 
 	![Aggiornare la libreria del client di archiviazione](./media/cloud-services-dotnet-get-started/updstg.png)
 
@@ -408,6 +408,8 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 14. Nel riquadro sinistro selezionare **Online**.
 
 16. Individuare il pacchetto NuGet *EntityFramework* e installarlo nei tre progetti.
+
+17. Trovare il pacchetto NuGet *Microsoft.WindowsAzure.ConfigurationManager* e installarlo nel progetto del ruolo di lavoro.
 
 ### Configurare le preferenze del progetto
 
@@ -811,4 +813,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

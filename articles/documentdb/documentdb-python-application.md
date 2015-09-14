@@ -1,20 +1,20 @@
 <properties
     pageTitle="Creare un'app Web con Python e Flask usando DocumentDB | Microsoft Azure"
-    description="Informazioni sull'uso di DocumentDB per archiviare e accedere ai dati da un'applicazione Web Python e Flask (MVC) ospitata in Azure."
-    services="documentdb"
-    documentationCenter="python"
-    authors="ryancrawcour"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	description="Informazioni sull'uso di DocumentDB per archiviare e accedere ai dati da un'applicazione Web Python e Flask (MVC) ospitata in Azure."
+	services="documentdb"
+	documentationCenter="python"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="hero-article"
-    ms.date="07/07/2015"
-    ms.author="ryancraw"/>
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
+	ms.author="ryancraw"/>
 
 # Creare un'applicazione Web con Python e Flask (MVC) usando DocumentDB
 
@@ -338,6 +338,8 @@ Ora che l'applicazione completa funziona correttamente con DocumentDB, sarà pos
 
 Congratulazioni. Si è creata la prima applicazione Python usando Azure DocumentDB e la si è pubblicata in Siti Web di Azure.
 
+Desideriamo sapere se è questa esercitazione è stata utile, quindi utilizzare i pulsanti di voto all'inizio o alla fine dell'argomento per farci conoscere il giudizio. Questo argomento viene aggiornato attivamente, pertanto desideriamo il tuo feedback per migliorarlo. Se si desidera contattarsi, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
+
 Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nell'[SDK per Python di DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
   [Fare clic qui per accedere alle esercitazioni per Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
@@ -349,4 +351,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

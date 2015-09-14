@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Sostituzione del modulo della batteria di backup nel dispositivo StorSimple | Microsoft Azure"
-   description="Viene descritto come rimuovere, sostituire e mantenere il modulo della batteria di backup nel dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Sostituire la batteria sul dispositivo StorSimple | Microsoft Azure"
+	description="Viene descritto come rimuovere, sostituire e mantenere il modulo della batteria di backup nel dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
@@ -25,11 +25,11 @@ In questa esercitazione viene illustrato come:
 
 - Rimuovere il modulo della batteria di backup 
 - Installare un nuovo modulo della batteria di backup
-- Mantenere il modulo della batteria di backup
+- Mantenimento del modulo della batteria di backup
 
->[AZURE.IMPORTANT]Prima di rimuovere e sostituire un modulo della batteria di backup, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT]Prima di rimuovere e sostituire un modulo della batteria di backup, esaminare le informazioni di sicurezza descritte in [Introduzione alla sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-## Rimozione del modulo della batteria di backup
+## Rimuovere il modulo della batteria di backup
 
 Il modulo della batteria di backup per il dispositivo Microsoft Azure StorSimple è un'unità sostituibile sul campo. Prima di installarlo nel PCM, il modulo della batteria deve essere archiviato nel pacchetto originale.
 
@@ -115,4 +115,4 @@ Se viene visualizzato lo stato **DANNEGGIATO**, è consigliabile adottare la lin
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

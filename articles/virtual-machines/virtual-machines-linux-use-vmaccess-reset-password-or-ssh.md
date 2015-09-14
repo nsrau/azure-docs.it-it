@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 # Come reimpostare una password o SSH per le macchine virtuali Linux #
 
-Se non è possibile connettersi a una macchina virtuale Linux a causa di una password dimenticata, una chiave SSH (Secure Shell) non valida o un problema di configurazione di SSH, usare il portale di anteprima di Azure o l'estensione VMAccessForLinux per reimpostare la password o la chiave SSH oppure correggere la configurazione SSH.
+Se non è possibile connettersi a una macchina virtuale Linux a causa di una password dimenticata, una chiave SSH (Secure Shell) non valida o un problema di configurazione di SSH, usare il portale di anteprima di Azure o l'estensione VMAccessForLinux per reimpostare la password o la chiave SSH oppure correggere la configurazione SSH. Tenere presente che questo articolo fa riferimento alle macchine virtuali create tramite il modello di distribuzione **Classico**.
 
 ## Portale di anteprima di Azure
 
@@ -261,6 +262,5 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Come installare e configurare Azure PowerShell]: ../install-configure-powershell.md
 [Estensioni VM e funzionalità di Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

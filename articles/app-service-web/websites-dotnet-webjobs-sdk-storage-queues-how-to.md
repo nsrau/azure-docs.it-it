@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare il servizio di archiviazione code di Azure con WebJobs SDK" 
-	description="Informazioni su come usare il servizio di archiviazione code di Azure con WebJobs SDK. Creare ed eliminare code, inserire, visualizzare, ottenere ed eliminare messaggi dalla coda e altro ancora." 
-	services="app-service\web, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Come usare il servizio di archiviazione code di Azure con WebJobs SDK"
+	description="Informazioni su come usare il servizio di archiviazione code di Azure con WebJobs SDK. Creare ed eliminare code, inserire, visualizzare, ottenere ed eliminare messaggi dalla coda e altro ancora."
+	services="app-service\web, storage"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2015"
 	ms.author="tdykstra"/>
 
 # Come usare il servizio di archiviazione code di Azure con WebJobs SDK
@@ -538,7 +538,12 @@ Per scrivere [log di traccia dell’applicazione](web-sites-dotnet-troubleshoot-
 
 L'output di Console viene visualizzato nel dashboard solo se il programma viene eseguito in un processo Web di Azure e non se il programma viene eseguito localmente o in un altro ambiente.
 
-È possibile disabilitare la registrazione [impostando la stringa di connessione del dashboard su null](#config).
+Disabilitare la registrazione dei dashboard per scenari con velocità effettiva elevata. Per impostazione predefinita, l’SDK scrive i log nella memoria e questa attività potrebbe influire negativamente sulle prestazioni quando si elaborano numerosi messaggi. Per disabilitare la registrazione, impostare la stringa di connessione dashboard su null, come illustrato nell'esempio seguente.
+
+		JobHostConfiguration config = new JobHostConfiguration();       
+		config.DashboardConnectionString = “”;        
+		JobHost host = new JobHost(config);
+		host.RunAndBlock();
 
 Nell'esempio seguente vengono illustrati diversi modi per scrivere log:
 
@@ -581,4 +586,4 @@ In una tabella di Azure, i log `Console.Out` e `Console.Error` hanno un aspetto 
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

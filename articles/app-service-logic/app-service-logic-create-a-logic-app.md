@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare un'app per la logica"
-	description="Introduzione alla creazione di un'app per la logica di base"
+	pageTitle="Creare un'app per la logica | Microsoft Azure"
+	description="Informazioni su come creare un'app per la logica di base dei Servizi app"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -17,6 +17,13 @@
 	ms.author="stepsic"/>
 
 # Creare una nuova app per la logica
+
+| Riferimento rapido |
+| --------------- |
+| [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/it-IT/documentation/articles/app-service-logic-connectors-list/) |
+| [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
+
 Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica del servizio app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cartella Dropbox.
 
 Per usare questo scenario è necessario disporre di:
@@ -27,49 +34,49 @@ Per usare questo scenario è necessario disporre di:
 
 <!--- TODO: Add try it now information here -->
 
-## Recupero dei connettori
+## Ottenere i connettori
 
-Prima di tutto, è necessario creare i due connettori che verranno usati: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) e [**Twitter Connector**](app-service-logic-connector-twitter.md). A causa delle restrizioni relative all'API Twitter, sarà necessario registrarsi anche per un'app gratuita in Twitter. A questo scopo:
+Prima di tutto, è necessario creare i due connettori che verranno usati: [Dropbox Connector](app-service-logic-connector-dropbox.md) e [Twitter Connector](app-service-logic-connector-twitter.md). A causa delle restrizioni relative all'API Twitter, sarà necessario registrarsi anche per un'app gratuita in Twitter. A questo scopo:
 
-0. Accedere al portale di Azure.
+1. Accedere al portale di Azure.
 
-1. Fare clic su [**Marketplace** ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) nella schermata iniziale e cercare **Twitter** oppure [fare clic qui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2).
+2. Fare clic su [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) nella schermata iniziale e cercare Twitter oppure [fare clic qui](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2).
 
-2. Selezionare Twitter Connector e fare clic sul pulsante di creazione. Verrà visualizzata una panoramica di tutte le impostazioni. È possibile mantenere il nome **Twitter Connector**.
-3. Selezionare "Impostazioni pacchetto". Qui si dovranno immettere le informazioni dall'applicazione Twitter. È possibile configurare un'applicazione gratuita in tre passaggi:
+3. Selezionare **Twitter Connector** e fare clic su **Crea**. Verrà visualizzata una panoramica di tutte le impostazioni. È possibile mantenere il nome **Twitter Connector**.
+4. Selezionare **Impostazioni pacchetto**. Qui si dovranno immettere le informazioni dall'applicazione Twitter. È possibile configurare un'applicazione gratuita in tre passaggi:
 	1. Accedere alla [pagina per la registrazione di app Twitter](http://apps.twitter.com).
 	2. Creare una nuova app.
 	3. Assegnare all'app un nome e una descrizione. È possibile immettere un URL qualsiasi per il sito Web e lasciare vuota la casella per l'URL di callback.
-	4. Dopo aver completato la registrazione, copiare il valore di "Consumer Key" da Twitter nel campo "clientId" in Azure e il valore "Consumer Secret" da Twitter nel campo "clientSecret".
-	5. Fare clic su "OK" nel riquadro Azure per tornare alle altre impostazioni dell'API.
+	4. Dopo aver completato la registrazione, copiare il valore di **Consumer Key** da Twitter nel campo **clientId** in Azure e il valore **Consumer Secret** da Twitter nel campo **clientSecret**.
+	5. Fare clic su **OK** nel riquadro Azure per tornare alle altre impostazioni dell'API.
 
-3. Digitare un nome di piano in **Crea nuovo piano di servizio app**.
+5. Digitare un nome di piano in **Crea nuovo piano di servizio app**.
 
 	>[AZURE.NOTE]I passaggi in questa sezione presuppongono che si stia creando un nuovo piano di servizio app. Se si usa un piano di servizio app esistente, fare clic su **Seleziona esistente**, selezionare il piano esistente e procedere all'ultimo passaggio di questa sezione. È necessario un piano per ospitare tutte le app.
 
-4.  Selezionare un **Piano tariffario** per il nuovo piano.
+6.  Selezionare un **Piano tariffario** per il nuovo piano.
 
 	>[AZURE.NOTE]Per impostazione predefinita, vengono visualizzati solo i piani consigliati per le app per la logica. Fare clic su **Visualizza tutto** per vedere tutti i piani disponibili. Al livello gratuito è possibile eseguire l'app per la logica una volta ogni ora e usare un massimo di 1.000 azioni al mese.
 
-5. Creare un **Gruppo di risorse** per il flusso.
+7. Creare un **Gruppo di risorse** per il flusso.
 
 	I gruppi di risorse fungono da contenitori per le app. Tutte le risorse per l'app faranno parte dello stesso gruppo di risorse.
 
-6. Se si dispone di più di una sottoscrizione di Azure, scegliere quella che si intende usare.
+8. Se si dispone di più di una sottoscrizione di Azure, scegliere quella che si intende usare.
 
-7. Scegliere la **Località** di esecuzione dell'app per la logica.
+9. Scegliere la **Località** di esecuzione dell'app per la logica.
 
 	![Visualizzazione Crea app per le API](./media/app-service-logic-create-a-logic-app/gallery.png)
 
-8. Fare clic su **Crea**. L'operazione di provisioning può richiedere uno o due minuti.
+10. Fare clic su **Crea**. L'operazione di provisioning può richiedere uno o due minuti.
 
-9. Ripetere la procedura con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Ripetere la procedura con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
-## Avvio dell'app per la logica
+## Avviare l'app per la logica
 
 A questo punto è necessario creare l'app per la logica.
 
-1. Fare clic sul pulsante **+ Nuovo** in basso a sinistra nello schermo, espandere **Web e dispositivi mobili** e quindi fare clic su **App per la logica**.
+1. Fare clic sul pulsante **+ Nuovo** nella parte inferiore sinistra dello schermo, espandere **Web e dispositivi mobili**, quindi fare clic su **App per la logica**.
 
  	Verrà visualizzata la schermata Crea app per la logica, in cui è possibile specificare alcune impostazioni di base iniziali.
 
@@ -77,11 +84,11 @@ A questo punto è necessario creare l'app per la logica.
 
 2. In **Nome** digitare un nome significativo per l'app per la logica.
 
-3. Scegliere il **piano di servizio app** usato durante la creazione dei connettori. La località, la sottoscrizione e il gruppo di risorse dovrebbero essere selezionati automaticamente.
+3. Scegliere il **piano di servizio app** usato durante la creazione dei connettori. La località, la sottoscrizione e il gruppo di risorse vengono selezionati automaticamente.
 
 Le impostazioni di base sono state configurate, ma non fare ancora clic su **Crea**. Il prossimo passaggio consiste nell'aggiunta di trigger e azioni al flusso di lavoro.
 
-## Aggiunta di un trigger
+## Aggiungere un trigger
 
 I trigger attivano l'esecuzione dell'app per la logica. Si aggiungerà ora un trigger di ricorrenza, che avvia il flusso di lavoro in base a una pianificazione predefinita.
 
@@ -95,17 +102,15 @@ I trigger attivano l'esecuzione dell'app per la logica. Si aggiungerà ora un tr
 
 	![Ricorrenza](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-
-4.  Scegliere la **Frequenza** e l'**Intervallo**, ad esempio una volta ogni ora e quindi fare clic sul segno di spunta verde.
+3.  Scegliere la **Frequenza** e l'**Intervallo**, ad esempio una volta ogni ora e quindi fare clic sul segno di spunta verde.
 
 A questo punto si aggiungerà un'azione al flusso.
 
-## Aggiunta di un'azione Twitter
+## Aggiungere un'azione Twitter
 
 Le azioni sono le operazioni eseguite dal flusso di lavoro. Il numero di possibili azioni è illimitato ed è possibile organizzarle in modo che le informazioni di un'azione vengono passate alla successiva.
 
-1. Nel riquadro destro individuare il **connettore Twitter ** e quindi fare clic su esso.
-
+1. Nel riquadro destro fare clic sul **connettore Twitter**.
 
 2. Dopo il caricamento, fare clic sul pulsante **Autorizza**, accedere al proprio account Twitter e quindi fare clic su **Autorizza app**.
 
@@ -121,13 +126,13 @@ Le azioni sono le operazioni eseguite dal flusso di lavoro. Il numero di possibi
 
 Il connettore Twitter fa ora parte del flusso di lavoro.
 
-## Aggiunta di un'operazione Dropbox e creazione dell'app
+## Aggiungere un'operazione Dropbox e creare l'app
 
 Il passaggio finale consiste nell'aggiungere un'azione che carica un tweet in un file di Dropbox.
 
 1. Nel riquadro destro fare clic sul **connettore Dropbox**.
 
-2. Al termine del provisioning, fare clic sul pulsante **Autorizza**, accedere al proprio account Dropbox e selezionare **Consenti**.
+2. Al termine del provisioning, fare clic su **Autorizza**, accedere al proprio account Dropbox e selezionare **Consenti**.
 
 	![Autorizzare il connettore Dropbox](./media/app-service-logic-create-a-logic-app/authorize.png)
 
@@ -160,7 +165,7 @@ Il passaggio finale consiste nell'aggiungere un'azione che carica un tweet in un
 
 	Verrà creata la nuova app per la logica.
 
-## Gestione dell'app per la logica dopo la creazione
+## Gestire l'app per la logica dopo la creazione
 
 A questo punto l'app per la logica è operativa. Ogni volta che viene eseguito, il flusso di lavoro pianificato verifica la presenza di tweet con l'hashtag specificato. Quando viene trovato un tweet corrispondente, viene inserito nella cartella Dropbox. Infine, ecco come disabilitare l'applicazione e verificarne lo stato.
 
@@ -178,6 +183,5 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Azure portal]: https://portal.azure.com
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

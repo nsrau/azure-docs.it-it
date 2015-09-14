@@ -1,6 +1,6 @@
 <properties pageTitle="Specifica di una versione di Node.js" description="Informazioni su come specificare la versione di Node. js usata da Siti Web e Servizi cloud di Azure" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -40,9 +40,11 @@ Se si ospita l'applicazione in un sito Web, è possibile impostare la variabile 
 
 Se l'applicazione è ospitata in un servizio cloud e si sta distribuendo l'applicazione utilizzando Azure PowerShell, è possibile sostituire la versione predefinita di Node.js utilizzando il cmdlet di PowerShell **Set-AzureServiceProjectRole**. Ad esempio:
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-È inoltre possibile usare **Get-AzureServiceProjectRoleRuntime** per recuperare un elenco delle versioni di Node.js disponibili per le applicazioni ospitate come servizi cloud.
+Si noti che i parametri nell'istruzione precedente fanno la distinzione tra maiuscole e minuscole. È possibile verificare di aver selezionato la versione corretta di Node.js controllando la proprietà **engines** nel **package.json** del ruolo.
+
+È inoltre possibile usare **Get-AzureServiceProjectRoleRuntime** per recuperare un elenco delle versioni di Node.js disponibili per le applicazioni ospitate come servizi cloud. Verificare sempre che la versione di Node. js dipenda da se il progetto è incluso nell'elenco.
 
 ##Uso di una versione personalizzata con i siti Web di Azure
 
@@ -93,4 +95,4 @@ Dopo avere appreso come specificare la versione di Node.js utilizzata dall'appli
 [utilizzare i moduli]: nodejs-use-node-modules-azure-apps.md
 [creare e distribuire un sito Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

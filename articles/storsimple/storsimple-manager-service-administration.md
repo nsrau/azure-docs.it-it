@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Utilizzare il servizio StorSimple Manager per gestire il dispositivo StorSimple"
-   description="Gestire il dispositivo StorSimple mediante il servizio StorSimple Manager nel portale di gestione di Azure."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="Amministrazione del servizio StorSimple Manager | Microsoft Azure"
+	description="Informazioni su come gestire il dispositivo StorSimple mediante il servizio StorSimple Manager nel portale di gestione di Azure."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Utilizzare il servizio StorSimple Manager per gestire il dispositivo StorSimple
+# Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
 
 ## Panoramica
 
@@ -104,9 +104,8 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 - [Risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md)
 - [Utilizzare gli indicatori LED di monitoraggio di StorSimple](storsimple-monitoring-indicators.md)
 
-
 Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, vedere:
 
 -  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

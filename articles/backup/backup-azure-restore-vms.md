@@ -8,19 +8,13 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Ripristinare una macchina virtuale
 È possibile ripristinare una macchina virtuale in una nuova macchina virtuale dai backup archiviati in un insieme di credenziali per il backup di Azure.
 
-## Scegliere un elemento da ripristinare
+## Ripristinare un flusso di lavoro
+### 1\. Scegliere un elemento da ripristinare
 
 1. Passare alla scheda **Elementi protetti** e selezionare la macchina virtuale che si desidera ripristinare in una nuova macchina virtuale.
 
@@ -32,13 +26,13 @@
 
     ![Ripristinare un elemento](./media/backup-azure-restore-vms/restore-item.png)
 
-## Scegliere un punto di ripristino
+### 2\. Scegliere un punto di ripristino
 
 1. Nella schermata per la **selezione di un punto di ripristino** è possibile eseguire il ripristino dal punto più recente o da un punto precedente. L'opzione predefinita selezionata all'avvio della procedura guidata è *Punto di ripristino più recente*.
 
     ![Selezionare un punto di ripristino](./media/backup-azure-restore-vms/select-recovery-point.png)
 
-2. Per selezionare un punto precedente, scegliere l'opzione **Seleziona data** nell'elenco a discesa e selezionare una data nel controllo calendario facendo clic sull'**icona del calendario**. Nel controllo tutte le date in cui sono presenti punti di ripristino hanno un'ombreggiatura di colore grigio chiaro e sono selezionabili dall'utente.
+2. Per selezionare un punto precedente, scegliere l'opzione **Selezionare una data** nell'elenco a discesa e selezionare una data nel controllo calendario facendo clic sull'**icona del calendario**. Nel controllo tutte le date in cui sono presenti punti di ripristino hanno un'ombreggiatura di colore grigio chiaro e sono selezionabili dall'utente.
 
     ![Selezionare una data](./media/backup-azure-restore-vms/select-date.png)
 
@@ -48,16 +42,16 @@
 
 3. Selezionare il punto di ripristino dalla tabella **Punti di ripristino** e fare clic sulla freccia Avanti per passare alla schermata successiva.
 
-## Specificare un percorso di destinazione
+### 3\. Specificare un percorso di destinazione
 
 1. Nella schermata per la **selezione di un'istanza di ripristino** specificare i dettagli del percorso in cui ripristinare la macchina virtuale.
 
   - Specificare il nome della macchina virtuale: in un determinato servizio cloud il nome della macchina virtuale deve essere univoco. Se si prevede di sostituire una macchina virtuale esistente con lo stesso nome, eliminare prima la macchina virtuale esistente e i relativi dischi dati, quindi ripristinare i dati da Backup di Azure.
   - Selezionare un servizio cloud per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile scegliere di usare un servizio cloud esistente o di crearne uno nuovo.
 
-        Qualunque nome venga scelto per il servizio cloud deve essere univoco. In genere, il nome del servizio cloud viene associato a un indirizzo URL rivolto al pubblico, con un formato simile al seguente: [cloudservice].cloudapp.net.  Azure non consentirà la creazione di un nuovo servizio cloud se il nome scelto è già in uso. Se si decide di creare un nuovo servizio cloud, gli verrà dato lo stesso nome della macchina virtuale, il quale dovrebbe risultare univoco e, di conseguenza, essere applicato al servizio cloud associato.
+        Qualunque nome di servizio cloud selezionato deve essere univoco a livello globale. In genere, il nome del servizio cloud viene associato a un URL pubblico nel formato [serviziocloud].cloudapp.net. Azure non consente di creare un nuovo servizio cloud se il nome è già stato usato. Se si sceglie di creare un nuovo servizio cloud, a questo viene assegnato lo stesso nome della macchina virtuale. In tal caso, il nome della macchina virtuale deve essere sufficientemente univoco da poter essere applicato al servizio cloud associato.
 
-        Verranno visualizzati soltanto servizi cloud e reti virtuali non associati a gruppi di affinità nei dettagli dell'istanza di ripristino. [Ulteriori informazioni](https://msdn.microsoft.com/it-it/library/azure/jj156085.aspx).
+        Vengono visualizzati soltanto servizi cloud e reti virtuali che non sono associati a gruppi di affinità nei dettagli dell'istanza di ripristino. [Altre informazioni](https://msdn.microsoft.com/it-it/library/azure/jj156085.aspx).
 
 2. Selezionare un account di archiviazione per la macchina virtuale: questa operazione è necessaria per la creazione di una macchina virtuale. È possibile selezionare uno degli account di archiviazione esistenti nella stessa area geografica dell'insieme di credenziali di Backup di Azure. Gli account di archiviazione con ridondanza della zona o con archiviazione di tipo Premium non sono supportati.
 
@@ -90,16 +84,25 @@ Al termine dell'operazione di ripristino, l'operazione verrà contrassegnata com
 
 ![Processo di ripristino completato](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Dopo aver ripristinato la macchina virtuale, potrebbe essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](virtual-machines-set-up-endpoints) per la macchina virtuale nel portale di Azure.
+Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](virtual-machines-set-up-endpoints) per la macchina virtuale nel portale di Azure.
 
-## Risoluzione dei problemi
-Per la maggior parte degli errori è possibile seguire l'azione consigliata nei dettagli dell'errore. Di seguito sono riportate alcune informazioni aggiuntive per facilitare la risoluzione dei problemi:
+## Ripristino delle macchine virtuali del controller di dominio
+L'esecuzione del backup delle macchine virtuali del controller di dominio (DC) è uno scenario supportato da Backup di Azure. Tuttavia è necessario prestare attenzione ad alcuni aspetti durante il processo di ripristino. L'esperienza di ripristino è notevolmente diversa per le macchine virtuali del controller di dominio in una configurazione con un singolo controller di dominio rispetto a quella per le macchine virtuali in una configurazione con più controller di dominio.
 
-| Operazione di backup | Dettagli errore | Soluzione alternativa |
-| -------- | -------- | -------|
-| Ripristino | Ripristino non riuscito con errore interno del cloud | <ol><li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con le impostazioni DNS. Verificare <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se è presente un indirizzo configurato, le impostazioni DNS sono configurate.<br> <li>Il servizio cloud in cui si sta tentando di eseguire il ripristino è configurato con ReservedIP e le macchine virtuali esistenti nel servizio cloud si trovano in stato di interruzione.<br>Verificare che nel servizio cloud sia presente ReservedIP tramite i cmdlet di PowerShell seguenti:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+### Controller di dominio singolo
+La macchina virtuale può essere ripristinata (come qualsiasi altra macchina virtuale) dal portale di Azure o tramite PowerShell.
+
+### Più controller di dominio
+Se si dispone di un ambiente con più controller di dominio, i controller di dominio adottano una particolare procedura per mantenere i dati sincronizzati. Quando viene ripristinato un punto di backup meno recente *senza le dovute precauzioni*, il processo di rollback di un numero di sequenza di aggiornamento può causare seri problemi in un ambiente con più controller di dominio. Il modo migliore per ripristinare questa macchina virtuale è l'avvio in modalità DSRM.
+
+Il problema si verifica perché la modalità DSRM non è presente in Azure. Per ripristinare questa macchina virtuale, non è quindi possibile usare il portale di Azure. L'unico meccanismo di ripristino supportato è quello basato su disco tramite PowerShell.
+
+>[AZURE.WARNING]Per le macchine virtuali del controller di dominio in un ambiente con più controller di dominio, non usare il portale di Azure per il ripristino. È supportato solo il ripristino basato su PowerShell.
+
+Altre informazioni sul [problema del rollback di un numero di sequenza di aggiornamento](https://technet.microsoft.com/library/dd363553) e sulle strategie consigliate per risolverlo.
 
 ## Passaggi successivi
+- [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

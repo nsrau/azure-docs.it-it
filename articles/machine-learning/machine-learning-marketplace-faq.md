@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace | Microsoft Azure" 
-	description="Domande frequenti" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace | Microsoft Azure"
+	description="Domande frequenti"
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 #Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace
@@ -77,4 +77,4 @@ Per altre informazioni, contattare il team di Azure Marketplace in <datamarketbd
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

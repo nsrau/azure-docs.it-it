@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare Hudson con il servizio BLOB di Azure | Microsoft Azure" 
-	description="Descrive come usare Hudson con l'archiviazione BLOB di Azure come archivio per gli elementi di compilazione." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Come usare Hudson con il servizio BLOB di Azure | Microsoft Azure"
+	description="Descrive come usare Hudson con l'archiviazione BLOB di Azure come archivio per gli elementi di compilazione."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 #Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
@@ -168,4 +168,4 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

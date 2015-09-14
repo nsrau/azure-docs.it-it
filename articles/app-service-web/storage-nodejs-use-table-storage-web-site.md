@@ -8,16 +8,14 @@
 	manager="wpickett"
 	editor=""/>
 
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
-
 
 
 
@@ -46,7 +44,7 @@ Di seguito è riportata l'applicazione completata:
 
 ## Prerequisiti
 
-Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili i seguenti elementi:
+Prima di seguire le istruzioni di questo articolo, verificare che siano installati i seguenti elementi:
 
 * [node] 0.10.24 o versione successiva
 
@@ -88,7 +86,7 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
 
 		sudo npm install express-generator@4.2.0 -g
 
-    L'output sarà simile al seguente:
+    L'output appare simile all'esempio seguente:
 
 		express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
 		├── mkdirp@0.3.5
@@ -100,7 +98,7 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
 
         express
 
-	L'output di questo comando dovrebbe apparire simile al seguente:
+	L'output di questo comando appare simile al seguente esempio:
 
 		   create : .
 		   create : ./package.json
@@ -126,7 +124,7 @@ In questa sezione verrà creata una nuova applicazione Node e verrà usato npm p
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
-	Nella directory **tasklist** saranno disponibili diverse nuove directory e file.
+	Nella directory **tasklist** sono ora disponibili diverse nuove directory e file.
 
 ### Installare moduli aggiuntivi
 
@@ -136,7 +134,7 @@ Nella riga di comando, per installare i moduli descritti nel file **package.json
 
     npm install
 
-L'output di questo comando dovrebbe essere simile al seguente:
+L'output di questo comando appare simile al seguente esempio:
 
 	debug@0.7.4 node_modules\debug
 
@@ -153,7 +151,7 @@ Successivamente, immettere il comando riportato di seguito per installare i modu
 
 Il flag **--save** consente di aggiungere voci per questi moduli al file **package.json**.
 
-L'output di questo comando dovrebbe apparire simile al seguente:
+L'output di questo comando appare simile al seguente esempio:
 
 	async@0.9.0 node_modules\async
 
@@ -468,16 +466,17 @@ Per eseguire il test dell'applicazione nel computer locale, eseguire la procedur
 
 3. Aprire un Web browser e passare a http://127.0.0.1:3000.
 
-Verrà visualizzata una pagina Web simile alla seguente:
+	Verrà visualizzata una pagina Web simile all'esempio seguente.
 
-![Pagina Web con un elenco di attività vuoto][node-table-finished]
+	![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
-Per creare una nuova attività, immettere un nome e una categoria e fare clic su **Aggiungi elemento**. Per contrassegnare un'attività come completata, selezionare **Completa** e fare clic su **Aggiorna attività**.
+4. Per creare una nuova attività, immettere un nome e una categoria e fare clic su **Aggiungi elemento**.
 
-![Immagine del nuovo elemento nell'elenco delle attività][node-table-list-items]
+6. Per contrassegnare un'attività come completata, selezionare **Completa** e fare clic su **Aggiorna attività**.
+
+	![Immagine del nuovo elemento nell'elenco delle attività][node-table-list-items]
 
 Anche se l'applicazione è in esecuzione in locale, i dati vengono archiviati nel servizio tabelle di Azure.
-
 
 ## Distribuire l'applicazione in Azure
 
@@ -487,7 +486,7 @@ Nei passaggi di questa sezione vengono usati gli strumenti da riga di comando di
 >
 > Se questa è la prima app Web di Azure che si crea, per distribuire l'applicazione è necessario utilizzare il portale di Azure.
 
-Per iniziare, installare l'[interfaccia della riga di comando di Azure] immettendo il comando seguente nella riga di comando:
+Per iniziare, installare l'[Interfaccia della riga di comando di Azure] immettendo il seguente comando nella riga di comando:
 
 	npm install azure-cli -g
 
@@ -501,7 +500,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->Il download del file dovrebbe iniziare automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
+	<!-- ![The download page][download-publishing-settings] -->Il download del file inizia automaticamente. In caso contrario, è possibile fare clic sul collegamento all'inizio della pagina per scaricare manualmente il file. Salvare il file e prendere nota del percorso del file.
 
 2. Immettere il seguente comando per importare le impostazioni:
 
@@ -509,7 +508,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Specificare il percorso e il nome del file delle impostazioni di pubblicazione scaricato nel passaggio precedente.
 
-3. Una volta importate le impostazioni, si consiglia di eliminare il file di impostazioni di pubblicazione. Non è più necessario e contiene informazioni riservate relative alla sottoscrizione di Azure.
+3. Una volta importate le impostazioni, eliminare il file di impostazioni di pubblicazione. Non è più necessario e contiene informazioni riservate relative alla sottoscrizione di Azure.
 
 ### Creare un piano di servizio app
 
@@ -584,7 +583,7 @@ Per pubblicare l'app, confermare i file di codice per GIT, quindi effettuare il 
 
 		git push azure master
 
-	Usare **master** come diramazione di destinazione. Al termine della distribuzione, verrà visualizzata un'istruzione simile alla seguente:
+	Usare **master** come diramazione di destinazione. Al termine della distribuzione, viene visualizzata un'istruzione simile al seguente esempio:
 
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
@@ -601,8 +600,8 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [Interfaccia della riga di comando di Azure]
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Creazione e distribuzione di un'app Web Node.js nel Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
 [compilare e distribuire un'applicazione web di Node. js in Azure App servizio]: web-sites-nodejs-develop-deploy-mac.md
@@ -617,7 +616,7 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [GIT remoto]: http://git-scm.com/docs/git-remote
 
 [App Web Node.js con MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[Azure CLI]: ../xplat-cli.md
+[Interfaccia della riga di comando di Azure]: ../xplat-cli.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -644,4 +643,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

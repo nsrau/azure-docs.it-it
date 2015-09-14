@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Esercitazione sull'invio di ultime notizie localizzate per iOS mediante Hub di notifica" 
-	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate (iOS)." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Esercitazione sull'invio di ultime notizie localizzate per iOS mediante Hub di notifica"
+	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate (iOS)."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 # Uso di Hub di notifica per inviare le ultime notizie localizzate ai dispositivi iOS
 
@@ -221,6 +221,5 @@ In [Procedure di Hub di notifica per iOS] è disponibile un riferimento al lingu
 [Indicazioni su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

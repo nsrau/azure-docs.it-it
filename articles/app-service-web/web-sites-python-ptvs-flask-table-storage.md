@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Flask e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio" 
-	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure." 
+	pageTitle="Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio"
+	description="Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure."
 	services="app-service\web"
 	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Flask e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio 
+# Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio 
 
 In questa esercitazione si userà [Python Tools per Visual Studio] al fine di creare una semplice app Web per sondaggi con uno dei modelli di esempio PTVS. Questa esercitazione è anche disponibile in formato [video](https://www.youtube.com/watch?v=qUtZWtPwbTk).
 
@@ -32,10 +32,10 @@ Vedere il [Centro per sviluppatori Python] per consultare altri articoli che tra
 
 ## Prerequisiti
 
- - Visual Studio 2012 o 2013
- - [Python Tools 2.1 per Visual Studio]
- - [VSIX degli esempi di Python Tools 2.1 per Visual Studio]
- - [Strumenti di Azure SDK per VS 2013] o [Strumenti di Azure SDK per VS 2012]
+ - Visual Studio 2013 o 2015
+ - [Python Tools 2.2 per Visual Studio]
+ - [VSIX degli esempi di Python Tools 2.2 per Visual Studio]
+ - [Strumenti di Azure SDK per VS 2013] o [Strumenti di Azure SDK per VS 2015]
  - [Python 2.7 a 32 bit] o [Python 3.4 a 32 bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -195,19 +195,19 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure Management Portal]: https://portal.azure.com
 [Azure SDK per .NET]: http://azure.microsoft.com/downloads/
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[VSIX degli esempi di Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[VSIX degli esempi di Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Strumenti di Azure SDK per VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Strumenti di Azure SDK per VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Strumenti di Azure SDK per VS 2015]: http://go.microsoft.com/fwlink/?linkid=518003
 [Python 2.7 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation
+[Documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
 [Documentazione di Flask]: http://flask.pocoo.org/
-[Debug remoto in Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Progetti Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Progetti servizio cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Debug remoto in Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Progetti Web]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Progetti servizio cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Archiviazione di Azure]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

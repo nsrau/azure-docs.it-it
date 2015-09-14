@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Advanced Analytics Process and Technology in azione: uso di SQL Server | Microsoft Azure" 
-	description="Advanced Analytics Process and Technology in azione"  
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Advanced Analytics Process and Technology in azione: uso di SQL Server | Microsoft Azure"
+	description="Advanced Analytics Process and Technology in azione"
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mohabib;fashah;bradsev"/>
 
                 
 # Advanced Analytics Process and Technology in azione: uso di SQL Server
 
-In questa esercitazione, si seguirà la guida di Azure Advanced Analytics Process and Technology (ADAPT) end-to-end per creare e distribuire un modello tramite un set di dati disponibile pubblicamente, vale a dire il set di dati [Corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/).
+In questa esercitazione, si assisterà alla procedura dettagliata di costruzione e distribuzione di un modello utilizzando un set di dati disponibili pubblicamente -- il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procedura segue la guida di Advanced Analytics Process and Technology (ADAPT)
 
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
@@ -715,4 +715,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

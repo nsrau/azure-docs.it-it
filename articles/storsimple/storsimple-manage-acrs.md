@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Gestire i record di controllo di accesso in StorSimple | Microsoft Azure"
-   description="In questo articolo vengono descritti i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+	description="In questo articolo vengono descritti i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Gestire i record di controllo di accesso in StorSimple
+# Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
 
 ## Panoramica
 
@@ -34,7 +34,7 @@ In questa esercitazione vengono illustrate le seguenti attività comuni correlat
 
 ## Aggiungere un record di controllo di accesso
 
-Per aggiungere record di controllo di accesso, utilizzare la pagina **Configura** nel portale di gestione. In genere, un record di controllo di accesso verrà associato a un volume.
+Si utilizza la pagina **Configura** del servizio StorSimple Manager per aggiungere record di controllo di accesso. In genere, un record di controllo di accesso verrà associato a un volume.
 
 Attenersi alla seguente procedura per aggiungere un record di controllo di accesso.
 
@@ -94,4 +94,4 @@ Ulteriori informazioni su [la gestione di volumi StorSimple](storsimple-manage-v
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

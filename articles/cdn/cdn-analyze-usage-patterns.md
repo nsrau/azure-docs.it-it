@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Analizzare i modelli di utilizzo della rete CDN" 
-	description="È possibile visualizzare i modelli di utilizzo per la rete CDN utilizzando i seguenti report: larghezza di banda, dati trasferiti, riscontri, stati della Cache, percentuale riscontri Cache, dati trasferiti IPV4/IPV6." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Analizzare i modelli di utilizzo della rete CDN"
+	description="È possibile visualizzare i modelli di utilizzo per la rete CDN utilizzando i seguenti report: larghezza di banda, dati trasferiti, riscontri, stati della Cache, percentuale riscontri Cache, dati trasferiti IPV4/IPV6."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Analizzare i modelli di utilizzo della rete CDN 
@@ -139,4 +139,4 @@ Questo report mostra la distribuzione dell’utilizzo del traffico in IPV4 e IPV
 
 I report possono essere generati solo negli ultimi 18 mesi.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

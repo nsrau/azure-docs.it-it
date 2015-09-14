@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Caricamento di un sito Web Java personalizzato in Azure" 
-	description="In questa esercitazione viene illustrato come caricare un'applicazione web di Java personalizzata in Azure applicazione servizio Web Apps." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Caricamento di un sito Web Java personalizzato in Azure"
+	description="In questa esercitazione viene illustrato come caricare un'applicazione web di Java personalizzata in Azure applicazione servizio Web Apps."
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Caricamento di un sito Web Java personalizzato in Azure
 
-In questo argomento viene illustrato come caricare un'applicazione web di Java personalizzata di [servizio App Azure](http://go.microsoft.com/fwlink/?LinkId=529714) applicazioni Web. Sono incluse informazioni applicabili a qualsiasi sito Web Java e vengono forniti alcuni esempi per specifiche applicazioni.
+In questo argomento viene illustrato come caricare un'applicazione web di Java personalizzata di [servizio App Azure] applicazioni Web. Sono incluse informazioni applicabili a qualsiasi sito Web Java e vengono forniti alcuni esempi per specifiche applicazioni.
 
 Si noti che Azure fornisce un mezzo per la creazione di applicazioni web Java utilizzando l'interfaccia utente di configurazione del portale di anteprima di Azure e Azure Marketplace, come descritto in [creare un'applicazione web Java nel servizio di Azure App](web-sites-java-get-started.md). Questa esercitazione è adatta per gli scenari in cui si preferisce non usare l'interfaccia di configurazione di Azure o la raccolta di applicazioni di Azure.
 
@@ -46,11 +46,10 @@ Esempi (con **processPath** incluso):
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 
 
 **processPath**: percorso dell'eseguibile o dello script che avvierà un processo in ascolto delle richieste HTTP.
-
 
 Esempi:
 
@@ -84,7 +83,7 @@ I siti Web basati su Java possono essere distribuiti facilmente con quasi tutti 
 Per le applicazioni seguenti vengono forniti un file web.config e la configurazione dell'applicazione come esempi per illustrare come abilitare l'applicazione Java nei siti Web di Azure.
 
 ### Tomcat
-Con Siti Web di Azure vengono fornite due varianti Tomcat, ma è comunque possibile caricare istanze specifiche del cliente. Di seguito è riportato un esempio di installazione di Tomcat con una JVM diversa.
+Con Siti Web di Azure vengono fornite due varianti Tomcat, ma è comunque possibile caricare istanze specifiche del cliente. Di seguito è riportato un esempio di installazione di Tomcat con una Java Virtual Machine (JVM) diversa.
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -125,7 +124,7 @@ Come nel caso di Tomcat, i clienti possono caricare istanze personalizzate per J
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -235,5 +234,7 @@ Per ulteriori informazioni su Liferay, vedere [http://www.liferay.com](http://ww
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+<!-- External Links -->
+[servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

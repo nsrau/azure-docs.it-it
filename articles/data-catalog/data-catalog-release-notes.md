@@ -1,10 +1,10 @@
 <properties
    pageTitle="Note sulla versione del Catalogo dati di Azure"
-	description="Note sulla versione di anteprima pubblica del 13 luglio 2015 del Catalogo dati di Azure."
+	description="Note sulla versione di anteprima pubblica del 28 agosto 2015 del Catalogo dati di Azure."
 	services="data-catalog"
 	documentationCenter=""
-	authors="dvana"
-	manager="mblythe"
+	authors="steelanddata"
+	manager="NA"
 	editor=""
 	tags=""/>
 <tags
@@ -13,12 +13,28 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+	ms.date="08/28/2015"
+	ms.author="maroche"/>
 
-# Note per la versione del 13 luglio 2015 del Catalogo dati di Azure
+# Note sulla versione del Catalogo dati di Azure
 
-## Registrazione e connessione al database Oracle
+## Note per la versione del 28 agosto 2015 del Catalogo dati di Azure
+
+### Profilo dei dati mancante per alcune risorse di dati registrate
+
+Quando si registrano le origini dei dati con l'opzione di profiling dei dati selezionata nello strumento di registrazione delle origine dati, le informazioni sul profilo dei dati non possono essere incluse negli scenari seguenti:
+
+* Tabelle dei database SQL di Azure
+* Tabelle e visualizzazioni SQL Server in cui sono presenti più oggetti con lo stesso nome in schemi diversi
+* Tabelle e visualizzazioni SQL Server con nomi di colonna più lunghi di 118 caratteri
+* Tabelle e visualizzazioni Oracle con nomi di colonna più lunghi di 20 caratteri
+* Tabelle e visualizzazioni Oracle con spazi o caratteri multibyte nei nomi di colonna
+
+Queste restrizioni sono dovute a un problema noto nella versione del 28 agosto e verranno risolti in un aggiornamento futuro del Catalogo dati di Azure.
+
+## Note per la versione del 13 luglio 2015 del Catalogo dati di Azure
+
+### Registrazione e connessione al database Oracle
 
 Per la connessione alle origini dati del Database Oracle, gli utenti devono installare i driver Oracle corretti che corrispondono al numero di bit (32 bit o 64 bit) del software in uso.
 
@@ -27,21 +43,21 @@ Per la connessione alle origini dati del Database Oracle, gli utenti devono inst
 -	Per la connessione alle origini dati di Oracle tramite Excel in un computer che esegue la versione a 32 bit di Microsoft Office, incluso in Windows a 64 bit, verranno usati i driver di Oracle a 32 bit
 -	Per la connessione alle origini dati di Oracle tramite Excel in un computer che esegue la versione a 64 bit di Microsoft Office, verranno usati i driver di Oracle a 64 bit
 
-## Registrazione e la connessione a SQL Server Reporting Services
+### Registrazione e la connessione a SQL Server Reporting Services
 
 Il supporto per le origini dati di SQL Server Reporting Services (SSRS) nella versione di anteprima iniziale del Catalogo dati di Azure è limitato al server in modalità nativa. Il supporto per SSRS in modalità SharePoint verrà aggiunto in una versione successiva.
 
-## Apertura degli asset di dati in Excel
+### Apertura degli asset di dati in Excel
 
-Quando si aprono asset di dati in Microsoft Excel dal portale del Catalogo dati di Azure, potrebbe essere visualizzata una finestra di dialogo **Informazioni sulla sicurezza per Microsoft Excel**. È un comportamento standard e previsto e gli utenti possono selezionare **Abilita** per continuare.
+Quando si aprono asset di dati in Microsoft Excel dal portale del Catalogo dati di Azure, potrebbe essere visualizzata per gli utenti una finestra di dialogo **Informazioni sulla sicurezza per Microsoft Excel**. È un comportamento standard e previsto e gli utenti possono selezionare **Abilita** per continuare.
 
-Per altre informazioni, vedere [Attivazione o disattivazione degli avvisi di protezione relativi ai collegamenti a siti Web sospetti e a file scaricati da tali siti](https://support.office.com/it-it/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Per altre informazioni, vedere [Attivazione o disattivazione degli avvisi di protezione relativi ai collegamenti a siti Web sospetti e a file scaricati da tali siti](https://support.office.com/it-IT/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-## Colonne di BLOB e UTD mancanti nelle anteprime
+### Colonne di BLOB e UTD mancanti nelle anteprime
 
 Durante la registrazione di tabelle e viste che contengono colonne di oggetti binari di grandi dimensioni (BLOB) e di tipo definito dall'utente (UDT), se si sceglie di includere l'anteprima per gli asset di dati, queste colonne non verranno incluse nell'anteprima.
 
-## Configurazione di proxy e criteri e registrazione dell'origine dati
+### Configurazione di proxy e criteri e registrazione dell'origine dati
 
 È possibile che si verifichi una situazione in cui gli utenti possono accedere al portale del Catalogo dati di Azure, ma, quando tentano di accedere allo strumento di registrazione dell'origine dati, viene restituito un messaggio di errore che impedisce l'accesso.
 
@@ -67,4 +83,4 @@ Per altre informazioni, vedere [Configurazione dell'autenticazione Intranet basa
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

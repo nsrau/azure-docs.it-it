@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Consente di visualizzare e gestire i processi di StorSimple | Microsoft Azure"
-   description="Descrive la pagina relativa ai processi del servizio StorSimple Manager e come utilizzarlo per tenere traccia dei processi di backup recenti, correnti e pianificati."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor=""/>
+	description="Descrive la pagina relativa ai processi del servizio StorSimple Manager e come utilizzarlo per tenere traccia dei processi di backup recenti, correnti e pianificati."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Consente di visualizzare e gestire i processi di StorSimple
+# Utilizzare il servizio StorSimple Manager per visualizzare e gestire i processi di StorSimple.
 
 ## Panoramica
 
@@ -89,4 +89,4 @@ Questo processo ora viene annullato.
 
 [Informazioni su come gestire i criteri di backup di StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

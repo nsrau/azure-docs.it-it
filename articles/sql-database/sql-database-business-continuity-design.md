@@ -1,22 +1,20 @@
 <properties 
-   pageTitle="Progettazione del database SQL per la continuità aziendale" 
-   description="Linee guida per la scelta delle funzionalità di ripristino di emergenza per la continuità aziendale in base a requisiti specifici. Sono incluse le descrizioni delle funzionalità offerte automaticamente dal database SQL."
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
-
+   pageTitle="Progettazione del database SQL per la continuità aziendale"
+	description="Linee guida per la scelta delle funzionalità di ripristino di emergenza per la continuità aziendale in base a requisiti specifici. Sono incluse le descrizioni delle funzionalità offerte automaticamente dal database SQL."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
-
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 #Progettazione per la continuità aziendale
 
@@ -61,6 +59,8 @@ I database di livello Standard non consentono di usare la replica geografica att
 
 ###Portale di Azure
 
+[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
+
 1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA** e quindi selezionare **Database SQL**.
 3. Passare al pannello del database, selezionare la **mappa della replica geografica** e fare clic su **Configura replica geografica**.
@@ -70,7 +70,8 @@ I database di livello Standard non consentono di usare la replica geografica att
 7. Fare clic su **Crea** per completare la configurazione.
 
 > [AZURE.NOTE]L'area abbinata di ripristino di emergenza nel pannello della replica geografica verrà contrassegnata come *consigliata*. Se si usa un database di livello Premium, è possibile scegliere un'area diversa. Se si usa un database Standard, non è possibile cambiare l'area. Con il database Premium, si ha la possibilità di selezionare il tipo di database secondario (*Leggibile* o *Non leggibile*). Il database Standard consente solo la selezione di un database secondario *Non leggibile*.
- 
+
+
 ###PowerShell
 
 Per automatizzare la configurazione della replica geografica, usare il cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) di PowerShell.
@@ -101,4 +102,4 @@ Quando si progetta l'applicazione per la continuità aziendale, è necessario co
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

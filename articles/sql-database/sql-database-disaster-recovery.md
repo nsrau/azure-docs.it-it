@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Ripristino di emergenza del database SQL" 
-   description="Informazioni su come ripristinare un database da un errore o da un'interruzione del servizio del data center dell'area con le funzionalità di replica geografica e di ripristino geografico del database SQL." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Ripristino di emergenza del database SQL"
+	description="Informazioni su come ripristinare un database da un errore o da un'interruzione del servizio del data center dell'area con le funzionalità di replica geografica e di ripristino geografico del database SQL."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 # Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio
 
@@ -68,6 +68,8 @@ Usare REST per eseguire il ripristino del database a livello di codice.
 
 In caso di interruzione del servizio di un database, è possibile ripristinare il database dalla più recente copia di backup con ridondanza geografica usando la funzionalità di ripristino geografico.
 
+> [AZURE.NOTE]Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+
 ###Portale di Azure
 1. Accedere al [portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **NUOVO**, selezionare **Dati e archiviazione** e quindi **Database SQL**.
@@ -101,4 +103,4 @@ Usare REST per eseguire il ripristino del database a livello di codice.
 Dopo aver completato il ripristino del database, sarà possibile configurare il database per l'uso seguendo la guida [Finalizzare un database ripristinato](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

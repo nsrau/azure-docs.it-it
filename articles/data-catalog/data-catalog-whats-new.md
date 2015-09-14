@@ -13,12 +13,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/28/2015"
 	ms.author="maroche"/>
 
 # Novità del Catalogo dati di Azure
 
 Gli aggiornamenti sul **Catalogo dati di Azure** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune versioni sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio **Catalogo dati di Azure**.
+
+## Novità della versione della settimana del 28 agosto 2015
+
+Nella settimana del 28 agosto 2015, sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
+
+- Supporto per l'analisi dei dati di origini dati di SQL Server e Oracle. Quando si registrano le viste e le tabelle di SQL Server e Oracle, gli utenti possono scegliere di includere informazioni sul profilo dei dati per gli oggetti da registrare. Il profilo dei dati include le statistiche a livello di oggetto e a livello di colonna.
+- Supporto per le origini dati HDFS Hadoop. Gli utenti possono ora registrarsi e individuare directory e file HDFS.
 
 ## Novità della versione della settimana del 21 agosto 2015
 
@@ -30,4 +37,4 @@ Nella settimana del 21 agosto 2015, sono state aggiunte al **Catalogo dati di Az
 - Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta gli account utente e i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

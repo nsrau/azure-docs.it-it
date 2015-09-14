@@ -4,9 +4,9 @@ Numero massimo di account di archiviazione per sottoscrizione|100<sup>1</sup>
 TB per account di archiviazione|500 TB
 Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione|L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB)
 Dimensione massima di un singolo contenitore BLOB o di una singola tabella o coda|500 TB
-Numero massimo di blocchi in un BLOB in blocchi|50\.000
-Dimensione massima di un blocco di un BLOB in blocchi|4 MB
-Dimensione massima di un BLOB in blocchi|50\.000 x 4 MB (circa 195 GB) 
+Numero massimo di blocchi in un BLOB in blocchi o in un BLOB in coda|50\.000
+Dimensione massima di un blocco in un BLOB in blocchi o in un BLOB in coda|4 MB
+Dimensione massima di un BLOB in blocchi o di un BLOB in coda|50\.000 x 4 MB (circa 195 GB) 
 Dimensione massima di un BLOB di pagine |1 TB
 Dimensione massima di un'entità di tabella|1 MB
 Numero massimo di proprietà di un'entità di tabella|252
@@ -15,6 +15,7 @@ Dimensione massima di una condivisione file|5 TB
 Dimensione massima di un file in una condivisione file|1 TB
 Numero massimo di file in una condivisione file|L'unico limite è quello relativo alla capacità totale della condivisione file (5 TB)
 Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione|L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB)
+Numero massimo di criteri di accesso archiviati per ogni contenitore, condivisione di file, tabella o coda|5
 Max 8 KB IOPS per disco permanente (macchina virtuale di livello base)|300<sup>2</sup>
 Max 8 KB IOPS per disco permanente (macchina virtuale di livello Standard)|500<sup>2</sup>
 Frequenza di richiesta totale (presupponendo oggetti con dimensione di 1 KB) per account di archiviazione|Fino a 20.000 IOPS, entità al secondo o messaggi al secondo
@@ -37,4 +38,4 @@ Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree europee 
 
 <sup>4</sup>GRS fa riferimento al servizio di archiviazione con ridondanza geografica. ZRS fa riferimento al servizio di archiviazione con ridondanza della zona ed è disponibile solo per i BLOB in blocchi. LRS fa riferimento al servizio di archiviazione con ridondanza locale.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

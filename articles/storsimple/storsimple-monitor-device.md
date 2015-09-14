@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple | Microsoft Azure"
+   pageTitle="Monitorare il dispositivo StorSimple | Microsoft Azure"
 	description="Viene descritto come utilizzare il servizio StorSimple Manager per monitorare prestazioni I/O, utilizzo della capacità, velocità effettiva della rete e prestazioni del dispositivo."
 	services="storsimple"
 	documentationCenter="NA"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/25/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
 # Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple 
@@ -93,4 +93,4 @@ Grafici riportati di seguito mostrano la velocità effettiva della rete per Data
 
 [Imparare a utilizzare il dashboard del dispositivo del servizio StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

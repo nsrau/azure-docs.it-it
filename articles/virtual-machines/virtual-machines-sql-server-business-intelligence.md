@@ -98,7 +98,7 @@ Nella tabella seguente sono riepilogate le funzionalità di Business Intelligenc
 	
 	- L’unità**D**: è un'unità temporanea utilizzata principalmente per il file di paging. L’unità **D**: non è persistente e non viene salvata nell'archiviazione BLOB. Le attività di gestione, ad esempio la modifica delle dimensioni della macchina virtuale, reimpostano l’unità **D**:. È consigliabile **NON** utilizzare l’unità **D**: per i file di database, incluso tempdb.
 
-	Per istruzioni su come creare e collegare dischi, vedere [Come collegare un disco dati a una macchina virtuale](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/).
+	Per ulteriori informazioni su come creare e collegare dischi, vedere [Come collegare un disco dati a una macchina virtuale](storage-windows-attach-disk.md).
 
 - Arrestare o disinstallare i servizi che non si intende utilizzare. Ad esempio se la macchina virtuale viene utilizzata solo per Reporting Services, arrestare o disinstallare Analysis Services e SQL Server Integration Services. L'immagine seguente è un esempio dei servizi che vengono avviati per impostazione predefinita.
 
@@ -427,4 +427,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,28 +1,30 @@
 <properties
    pageTitle="Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp"
-   description="Informazioni su come condividere con gli utenti qualsiasi applicazione Windows tramite Azure RemoteApp."
-   services="remoteapp"
-   documentationCenter=""
-   authors="lizap"
-   manager="mbaldwin"
-   editor=""/>
+	description="Informazioni su come condividere con gli utenti qualsiasi applicazione Windows tramite Azure RemoteApp."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/10/2015"
-   ms.author="elizapo"/>
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="compute"
+	ms.date="09/02/2015"
+	ms.author="elizapo"/>
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp
 
-Questa esercitazione illustrerà come eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo. Che si tratti di Internet Explorer 6, un'applicazione personalizzata scritta 10 anni fa, o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo (come Windows XP) per quelle poche applicazioni.
+È possibile eseguire un'applicazione Windows ovunque e veramente su qualsiasi dispositivo - semplicemente utilizzando Azure RemoteApp. Che si tratti di Internet Explorer 6, un'applicazione personalizzata scritta 10 anni fa, o di un'app di Office, gli utenti non saranno più vincolati a uno specifico sistema operativo (come Windows XP) per quelle poche applicazioni.
 
-Grazie ad Azure RemoteApp, gli utenti possono usare dispositivi Android o Apple e usufruire della stessa esperienza che ottengono in Windows (o con i dispositivi Windows Phone). A questo scopo, occorre ospitare l'applicazione Windows in una raccolta di macchine virtuali Windows in Azure, dove gli utenti possono ottenere l'accesso ovunque sia disponibile una connessione Internet.
+Con Azure RemoteApp, gli utenti possono usare dispositivi Android o Apple e usufruire della stessa esperienza che ottengono in Windows (o con i dispositivi Windows Phone). A questo scopo, occorre ospitare l'applicazione Windows in una raccolta di macchine virtuali Windows in Azure, dove gli utenti possono ottenere l'accesso ovunque sia disponibile una connessione Internet.
 
-Per questa esercitazione si condividerà Access con tutti gli utenti. Tuttavia, è possibile usare QUALSIASI app. Poiché è possibile installare l'app in un computer Windows Server 2012 R2, è possibile condividerla usando la procedura seguente. È possibile esaminare i [requisiti dell'app](remoteapp-appreqs), per assicurarsi che l'app funzionerà.
+Continuare a leggere per un esempio di come eseguire esattamente questa operazione.
+
+In questo articolo, si condividerà Access con tutti gli utenti. Tuttavia, è possibile usare QUALSIASI app. Poiché è possibile installare l'app in un computer Windows Server 2012 R2, è possibile condividerla usando la procedura seguente. È possibile esaminare i [requisiti dell'app](remoteapp-appreqs), per assicurarsi che l'app funzionerà.
 
 Si noti che poiché Access è un database e come tale è necessario che sia utile, si eseguiranno alcuni passaggi aggiuntivi per consentire agli utenti di accedere alla condivisione dei dati di Access. Se l'app non è un database o non è necessario che gli utenti siano in grado di accedere a una condivisione di file, è possibile ignorare tali passaggi nell'esercitazione.
 
@@ -33,12 +35,12 @@ Si noti che poiché Access è un database e come tale è necessario che sia util
 
 Iniziare con la creazione di una raccolta, che servirà come contenitore per le app e gli utenti. Ogni raccolta si basa su un'immagine. È possibile creare un'immagine personalizzata o usarne una fornita con la sottoscrizione. Per questa esercitazione si userà l'immagine di valutazione di Office 2013 che contiene l'app da condividere.
 
-1. Nel portale di gestione di Azure scorrere verso il basso il pannello di navigazione sinistro fino a visualizzare Azure RemoteApp. Aprire la pagina.
+1. Nel Portale di Azure, scorrere verso il basso il pannello di navigazione sinistro fino a visualizzare RemoteApp. Aprire la pagina.
 2. Fare clic su **Crea una raccolta RemoteApp**.
 3. Fare clic su **Creazione rapida** e immettere un nome per la raccolta.
 4. Selezionare l'area da usare per creare la raccolta. Per un'esperienza ottimale, selezionare l'area geograficamente più vicina alla località in cui gli utenti accederanno all'app. Ad esempio, in questa esercitazione gli utenti risiederanno a Redmond, Washington. L'area di Azure più vicina è **Stati Uniti occidentali**.
 5. Selezionare il piano di fatturazione da usare. Il piano di fatturazione di base prevede 16 utenti in una macchina virtuale di Azure di grandi dimensioni, mentre il piano di fatturazione standard include 10 in una macchina virtuale di Azure di grandi dimensioni. Come esempio generale, il piano di base è un'ottima soluzione per un flusso di lavoro di tipo immissione dati. Per un'app di produttività come Office è consigliabile il piano standard.
-6. Infine selezionare l'immagine di Office 2013 Professional. Questa immagine contiene le app di Office 2013.  
+6. Infine selezionare l'immagine di Office 2013 Professional. Questa immagine contiene le app di Office 2013. Promemoria - questa immagine è valida solo per le raccolte della versione di valutazione e le POCs. Non è possibile utilizzare questa immagine in una raccolta di produzione.
 7. Fare clic su **Crea raccolta RemoteApp**.
 
 ![Creare una raccolta nel cloud in RemoteApp](./media/remoteapp-anyapp/ra-anyappcreatecollection.png)
@@ -53,7 +55,6 @@ Dopo la creazione della raccolta, pubblicare Access per gli utenti e aggiungere 
 
 Se durante la creazione della raccolta ci si è spostati dal nodo di Azure RemoteApp, ecco come ritornarvi dalla home page di Azure.
 
-1. Fare clic su **RemoteApp** nel pannello di navigazione sinistro.
 2. Fare clic sulla raccolta creata in precedenza per accedere ad altre opzioni e configurare la raccolta.
 ![Nuova raccolta nel cloud di RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. Nella scheda **Pubblicazione** fare clic su **Pubblica** nella parte inferiore della schermata e quindi fare clic su **Pubblica programmi del menu Start**.
@@ -63,6 +64,7 @@ Se durante la creazione della raccolta ci si è spostati dal nodo di Azure Remot
 
 
 1. Al termine della pubblicazione dell'app, passare alla scheda **Accesso utente** per aggiungere tutti gli utenti che richiedono l'accesso alle app. Immettere i nomi utente (indirizzo di posta elettronica) degli utenti e quindi fare clic su **Salva**.
+
 ![Aggiungere utenti a RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
 
@@ -84,12 +86,12 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 
 ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Dopo avere creato l'account di archiviazione, è necessaria la chiave di accesso primaria. Fare clic su **Gestisci chiavi di accesso** e quindi copiare la chiave di accesso primaria.
-6. Impostare il contesto dell'account di archiviazione e creare una nuova condivisione file per Access. Eseguire i cmdlet seguenti in una finestra di Windows PowerShell con privilegi elevati:
+6. Impostare ora il contesto dell'account di archiviazione e creare una nuova condivisione file per Access. Eseguire i cmdlet seguenti in una finestra di Windows PowerShell con privilegi elevati:
 
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
-	So for our share, these are the cmdlets we run:
+	Ecco i cmdlet da eseguire per questa condivisione:
 
 	    $ctx=New-AzureStorageContext accessstorage <key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -117,4 +119,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

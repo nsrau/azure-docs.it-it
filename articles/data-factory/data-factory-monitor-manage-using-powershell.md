@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL" 
-	description="Informazioni su come usare Azure PowerShell per creare e monitorare le data factory di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Esercitazione: Creare una pipeline con l’attività Copia utilizzando Azure PowerShell"
+	description="In questa esercitazione si creerà una pipeline di Data factory di Azure con un'attività Copia utilizzando Azure PowerShell."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare e monitorare una data factory mediante Azure PowerShell
@@ -409,6 +409,9 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 
 Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
 
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md) richiede solo alcuni minuti.
+
 
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -429,4 +432,4 @@ Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la document
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

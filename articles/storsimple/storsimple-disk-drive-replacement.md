@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Sostituzione di un'unità disco nel dispositivo StorSimple | Microsoft Azure"
-   description="Viene illustrato come sostituire un'unità disco in un dispositivo principale StorSimple o in uno chassis EBOD."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Sostituire un'unità disco nel dispositivo StorSimple | Microsoft Azure"
+	description="Viene illustrato come sostituire un'unità disco in un dispositivo principale StorSimple o in uno chassis EBOD."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Sostituzione di un'unità disco nel dispositivo StorSimple
 
@@ -124,4 +124,4 @@ Dopo aver rimosso un'unità guasta nel dispositivo Microsoft Azure StorSimple, s
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

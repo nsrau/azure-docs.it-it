@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Usare Gestione Snapshot StorSimple per amministrare la soluzione StorSimple | Microsoft Azure"
-   description="Vengono forniti collegamenti a ulteriori informazioni sulle attività di amministrazione di gestione Snapshot StorSimple soluzione e i flussi di lavoro."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Amministrazione di StorSimple Snapshot Manager | Microsoft Azure"
+	description="Viene fornita una panoramica e dei collegamenti a ulteriori informazioni sulle attività di amministrazione della soluzione Snapshot StorSimple Manager e sui flussi di lavoro."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/13/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="v-sharos"/>
 
 # Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
 
@@ -60,4 +60,4 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 [Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

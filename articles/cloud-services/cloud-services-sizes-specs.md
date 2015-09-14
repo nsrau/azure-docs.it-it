@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Dimensioni dei servizi cloud" 
- description="Elenca le varie dimensioni dei ruoli Web e di lavoro del servizio cloud di Azure." 
- services="cloud-services" 
- documentationCenter="" 
- authors="Thraka" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Dimensioni dei servizi cloud"
+	description="Elenca le varie dimensioni dei ruoli Web e di lavoro del servizio cloud di Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="cloud-services" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="na" 
- ms.workload="tbd"
- ms.date="06/04/2015" 
- ms.author="adegeo"/>
+ ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/01/2015"
+	ms.author="adegeo"/>
  
 # Dimensioni dei servizi cloud
 
@@ -76,4 +76,4 @@ Di seguito è riportato un esempio per impostare la dimensione ridotta del ruolo
 
 [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

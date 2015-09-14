@@ -10,10 +10,10 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/01/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,7 +41,7 @@ L'applicazione è una semplice applicazione "hello world":
 > [AZURE.NOTE]Questa esercitazione usa Azure PowerShell, che richiede Windows.
 
 - Installare e configurare [Azure PowerShell](../install-configure-powershell.md).
-- Scaricare e installare [Azure SDK per .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091). Nel programma di installazione, selezionare:
+- Scaricare e installare [Azure SDK per .NET 2.7](http://www.microsoft.com/it-IT/download/details.aspx?id=48178). Nel programma di installazione, selezionare:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -53,7 +53,8 @@ Per creare un nuovo progetto di Servizi cloud di Azure, oltre allo scaffolding d
 
 1. Eseguire **Azure PowerShell** come amministratore. Dal **menu Start** o dalla **schermata Start** cercare **Azure PowerShell**.
 
-2.  Immettere il seguente cmdlet di PowerShell per creare il progetto:
+2.  [Eseguire la connessione di PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) alla sottoscrizione.
+3.  Immettere il seguente cmdlet di PowerShell per creare il progetto:
 
         New-AzureServiceProject helloworld
 
@@ -116,11 +117,12 @@ Per distribuire l'applicazione in Azure, è necessario innanzitutto scaricare le
 
 ### Pubblicare l'applicazione
 
-Per pubblicare l'applicazione, eseguire il cmdlet **Publish-AzureServiceProject** come indicato di seguito:
+Quindi, eseguire i comandi seguenti:
 
-    Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- **-ServiceName** specifica il nome per la distribuzione. Deve essere un nome univoco, in caso contrario il processo di pubblicazione avrà esito negativo.
+- **-ServiceName** specifica il nome per la distribuzione. Deve essere un nome univoco, in caso contrario il processo di pubblicazione avrà esito negativo. Il comando **Get Data** consente di tracciare una stringa di data/ora che rende il nome univoco.
 
 - **-Location** specifica il datacenter su cui viene ospitata l'applicazione. Per visualizzare un elenco dei datacenter disponibili, usare il cmdlet **Get-AzureLocation**.
 
@@ -192,4 +194,4 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

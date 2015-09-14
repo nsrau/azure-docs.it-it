@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Procedura dettagliata: Monitorare Microsoft Dynamics CRM con Application Insights" 
-	description="Ottenere i dati di telemetria da Microsoft Dynamics CRM Online tramite Application Insights. Procedura dettagliate relative a installazione, recupero dei dati, visualizzazione ed esportazione." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
+	pageTitle="Procedura dettagliata: Monitorare Microsoft Dynamics CRM con Application Insights"
+	description="Ottenere i dati di telemetria da Microsoft Dynamics CRM Online tramite Application Insights. Procedura dettagliate relative a installazione, recupero dei dati, visualizzazione ed esportazione."
+	services="application-insights"
+	documentationCenter=""
+	authors="mazharmicrosoft"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
  
 # Procedura dettagliata: Abilitazione della telemetria per Microsoft Dynamics CRM Online tramite Application Insights
@@ -151,7 +151,7 @@ Per eseguire analisi più approfondite, è possibile [esportare i dati in Micros
 
 ## Soluzione di esempio Dynamics CRM
 
-[Ecco la soluzione di esempio implementata in Dynamics CRM](https://dynamicsandappinsights.codeplex.com/)
+[Ecco la soluzione di esempio implementata in Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## Altre informazioni
 
@@ -161,4 +161,4 @@ Per eseguire analisi più approfondite, è possibile [esportare i dati in Micros
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

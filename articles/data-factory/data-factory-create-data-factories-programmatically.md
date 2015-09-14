@@ -105,6 +105,7 @@
         );
 
 8. Aggiungere al metodo **Main** il codice seguente che crea un **servizio collegato**.
+
 	> [AZURE.NOTE]Usare il **nome account** e la **chiave dell'account** dell'account di archiviazione di Azure per **ConnectionString**.
 
         // create a linked service
@@ -117,7 +118,7 @@
                     Name = "LinkedService-AzureStorage",
                     Properties = new LinkedServiceProperties
                     (
-                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
                     )
                 }
             }
@@ -335,6 +336,7 @@
         Console.WriteLine("Getting run details of a data slice");
 
 		// give it a few minutes for the output slice to be ready
+        Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
         Console.ReadKey();
 
         var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -392,4 +394,4 @@ Articolo | Descrizione
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 	
-	pageTitle="Data factory di Azure - Esempi" 
-	description="Fornisce informazioni dettagliate sugli esempi inclusi nel servizio Data factory di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Data factory di Azure - Esempi"
+	description="Fornisce informazioni dettagliate sugli esempi inclusi nel servizio Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="spelluru"/>
 
 # Data factory di Azure - Esempi
@@ -54,6 +54,9 @@ Profilatura dei clienti dei giochi | Contoso è una società di giochi online ch
 ## Esempi in GitHub
 Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-datafactory) include alcuni esempi che permettono di acquisire rapidamente familiarità con il servizio Data factory di Azure (o) modificare gli script e usarlo nella propria applicazione. La cartella Samples\\JSON include frammenti di codice JSON per scenari comuni.
 
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md) richiede solo alcuni minuti.
+
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

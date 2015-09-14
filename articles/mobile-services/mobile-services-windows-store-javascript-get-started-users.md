@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione all'autenticazione (JavaScript) | Microsoft Azure" 
-	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app JavaScript per Windows Store tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introduzione all'autenticazione (JavaScript) | Microsoft Azure"
+	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app JavaScript per Windows Store tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -40,7 +40,7 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 <ol start="5">
 <li><p>(Facoltativo) Completare la procedura descritta in <a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Registrazione del pacchetto dell'app di Windows Store per l'autenticazione Microsoft</a>.</p>
 
-    
+
 	<p>Questo passaggio è facoltativo perché si applica solo al provider di accesso con account Microsoft. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Completare questo passaggio se si prevede di utilizzare il provider di identità per account Microsoft.</p>
 </li>
 </ol>
@@ -51,9 +51,9 @@ Il servizio mobile e l'app sono ora configurati per funzionare con il provider d
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
-<li><p>In Visual Studio 2012 Express per Windows 8 aprire il progetto creato dopo aver completato l'esercitazione <a href="/develop/mobile/tutorials/get-started/">Introduzione a Servizi mobili</a>.</p></li> 
+<li><p>In Visual Studio 2012 Express per Windows 8 aprire il progetto creato dopo aver completato l'esercitazione <a href="/develop/mobile/tutorials/get-started/">Introduzione a Servizi mobili</a>.</p></li>
 <li><p>Premere F5 per eseguire questa app basata sul progetto di guida introduttiva. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (non autorizzato).</p>
-   
+
    	<p>L'eccezione non gestita viene generata perché l'app tenta di accedere a Servizi mobili come utente non autenticato, mentre la tabella <em>TodoItem</em> richiede ora l'autenticazione.</p></li>
 </ol>
 
@@ -92,6 +92,5 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Creazione di un'identità di lavoro o scuola in Azure Active Directory"
-   description="Istruzioni per creare un'identità di lavoro o scuola dalla propria identità personale e usarla per varie finalità, ad esempio con i modelli dei gruppi di risorse o con l'accesso basato sui ruoli."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="Istruzioni per creare un'identità di lavoro o scuola dalla propria identità personale e usarla per varie finalità, ad esempio con i modelli dei gruppi di risorse o con l'accesso basato sui ruoli."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"
-   ms.date="05/05/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure"
+	ms.date="09/01/2015"
+	ms.author="rasquill"/>
 
 # Creazione di un'identità di lavoro o scuola in Azure Active Directory
 
@@ -140,4 +140,4 @@ Dovrebbe essere visualizzato un messaggio simile al seguente, che conferma il co
     data:
     info:    group create command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

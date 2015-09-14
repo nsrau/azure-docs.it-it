@@ -1,33 +1,33 @@
 <properties 
-	pageTitle="Spostamento dei dati da e verso l'archiviazione BLOB di Azure | Microsoft Azure" 
-	description="Spostamento dei dati da e verso l'archiviazione BLOB di Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Spostamento dei dati da e verso l'archiviazione BLOB di Azure | Microsoft Azure"
+	description="Spostamento dei dati da e verso l'archiviazione BLOB di Azure"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;sachouks;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;sachouks;mohabib;bradsev"/>
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure
 
-L’articolo [Scenari relativi ad ADAPT (Advanced Analytics Process and Technology) in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) consente di determinare le risorse necessarie per un'ampia gamma di flussi di lavoro di analisi scientifica dei dati usati nel processo di analisi avanzata. Per spostare i dati da e verso l'archiviazione BLOB di Azure in base al proprio scenario, usare uno dei metodi seguenti:
+In questo argomento vengono descritti tre metodi per spostare dati da e verso l'archiviazione BLOB di Azure:
 
 - [Utilizzo di Esplora archivi Azure](#explorer)
 - [Utilizzo dell'utilità della riga di comando AzCopy](#AzCopy)
 - [Utilizzo di Azure SDK in Python](#PythonSDK)
 
+Quale sia il metodo adatto dipenderà dallo scenario. L’articolo [Scenari relativi ad ADAPT (Advanced Analytics Process and Technology) in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) consente di determinare le risorse necessarie per un'ampia gamma di flussi di lavoro di analisi scientifica dei dati usati nel processo di analisi avanzata.
 
-> [AZURE.TIP]In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/it-it/services/data-factory/) per creare e pianificare una pipeline che scarica i dati dall'archiviazione BLOB di Azure, li passa a un servizio Web di Azure Machine Learning pubblicato, riceve i risultati dell'analisi predittiva e carica i risultati nella risorsa di archiviazione. Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP]In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/it-IT/services/data-factory/) per creare e pianificare una pipeline che scarica i dati dall'archiviazione BLOB di Azure, li passa a un servizio Web di Azure Machine Learning pubblicato, riceve i risultati dell'analisi predittiva e carica i risultati nella risorsa di archiviazione. Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
 
-<para></para>
 
 > [AZURE.NOTE]Per una completa introduzione dell'archiviazione BLOB di Azure, fare riferimento a [Informazioni di base sui BLOB di Azure](../storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
@@ -181,4 +181,4 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

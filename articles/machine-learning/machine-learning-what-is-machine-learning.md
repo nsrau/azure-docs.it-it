@@ -1,20 +1,20 @@
 <properties
     pageTitle="Cos'è Machine Learning in Azure? | Microsoft Azure"
-    description="Illustra i concetti di base del servizio Machine Learning completamente gestito, una tecnologia cloud che è possibile usare per creare, rendere operative e monetizzare le soluzioni."
+	description="Illustra i concetti di base del servizio Machine Learning completamente gestito, una tecnologia cloud che è possibile usare per creare, rendere operative e monetizzare le soluzioni."
 	services="machine-learning"
-    documentationCenter=""
-    authors="cjgronlund"
-    manager="neerajkh"
-    editor="cgronlun"/>
+	documentationCenter=""
+	authors="cjgronlund"
+	manager="neerajkh"
+	editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/23/2015"
-    ms.author="cgronlun;tedway;olgali"/>
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
+	ms.author="cgronlun;tedway;olgali"/>
 
 
 # Introduzione all'apprendimento automatico in Microsoft Azure
@@ -47,12 +47,12 @@ Azure Machine Learning include tutto quanto è necessario per creare soluzioni d
 
 È possibile creare modelli predittivi in [Machine Learning Studio](machine-learning-what-is-ml-studio.md), uno strumento basato sul browser, trascinando, rilasciando e connettendo i moduli.
 
-![Cos'è l'analisi predittiva: esempio di esperimento di analisi predittiva in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+![Cos'è l'analisi predittiva: esempio di esperimento di analisi predittiva in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Usare una grande libreria di [moduli e algoritmi di Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio per implementare rapidamente i modelli predittivi. Scegliere da una libreria esperimenti di esempio, pacchetti R e Python e i migliori algoritmi di aziende Microsoft, come Xbox e Bing. Estendere i moduli di Studio con gli script [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizzati.
 * Nella [raccolta della community di Machine Learning](machine-learning-gallery-how-to-use-contribute-publish.md), è possibile iniziare a usare Azure Machine Learning e imparare da altri utenti nella community. Provare gli esperimenti creati da altri utenti, porre domande o inviare commenti sugli esperimenti oppure pubblicare i propri esperimenti. Si possono anche condividere collegamenti a esperimenti tramite social network come LinkedIn e Twitter.  
 
-	![Provare gli esempi di esperimenti predittivi o pubblicare il proprio esperimento nella Raccolta di Azure Machine Learning](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
+	![Provare gli esempi di esperimenti predittivi o pubblicare il proprio esperimento nella Raccolta di Azure Machine Learning](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### Rendere operative le soluzioni di analisi predittiva: acquistare servizi Web o pubblicare i propri
 
@@ -115,4 +115,4 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

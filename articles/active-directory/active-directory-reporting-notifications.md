@@ -20,30 +20,11 @@
 
 ## Quali report generano notifiche tramite posta elettronica
 
-A questo punto, solo il rapporto Attività di accesso con anomalie e Utenti con anomalie dell'attività di accesso usano il sistema di notifica tramite posta elettronica.
+A questo punto, solo il report dell’attività di accesso irregolare attiva le notifiche di posta elettronica.
 
-## Che cosa attiva l'invio della notifica tramite posta elettronica?
+## Che cos'è un "Accesso irregolare"?
 
-Per impostazione predefinita, Azure Active Directory è impostato per l'invio automatico delle notifiche tramite posta elettronica a tutti gli amministratori globali. Il messaggio viene inviato quando si verificano le condizioni seguenti per ogni report.
-
-Per il report Utenti con anomalie dell'attività di accesso:
-
-- Origini sconosciute: 10 eventi
-- Più errori: 10 eventi
-- Accessi da indirizzi IP con attività sospetta: 10 eventi
-- Dispositivi infetti: 10 eventi
-
-Report Utenti con anomalie dell'attività di accesso
-
-- Origini sconosciute: 10 eventi
-- Più errori: 10 eventi
-- Accessi da indirizzi IP con attività sospetta: 10 eventi
-- Dispositivi infetti: 5 eventi
-- Report accessi anomali: 15 eventi
-
-Il messaggio di posta elettronica viene inviato se una delle condizioni precedenti viene soddisfatta entro 30 giorni o poiché l'ultimo messaggio di posta elettronica è stato inviato se è inferiore a 30 giorni.
-
-Per accessi anomali si intendono quelli che sono stati identificati come "anomali" dagli algoritmi di Machine Learning, sulla base di posizioni di accesso impreviste, ora del giorno e posizioni impreviste o una combinazione di questi fattori. È possibile che un pirata informatico abbia tentato di accedere con questo account. Per altre informazioni su questo report, vedere la tabella riportata in precedenza.
+Gli accessi irregolari sono quelli che sono stati individuati dagli algoritmi di apprendimento automatico, in base a una condizione di tipo "tempo di spostamento impossibile" combinata con una posizione e un dispositivo di accesso anomali. È possibile che un pirata informatico abbia tentato di accedere con questo account.
 
 ## A chi vengono inviate le notifiche tramite posta elettronica?
 
@@ -51,7 +32,9 @@ Il messaggio di posta elettronica viene inviato a tutti gli amministratori globa
 
 ## Con quale frequenza vengono inviati i messaggi di posta elettronica?
 
-Dopo l'invio di un messaggio di posta elettronica, quello successivo verrà inviato solo se entro 30 giorni dall'invio si verificano almeno 10 o nuovi eventi di accesso anomalo. Come si accede al report indicato nel messaggio di posta elettronica?
+Il messaggio di posta elettronica viene inviato se si verificano 10 nuove attività di accesso irregolare negli ultimi 30 giorni o dopo l'ultimo messaggio di posta elettronica inviato, a seconda del periodo più breve.
+
+## Come si accede al report indicato nel messaggio di posta elettronica?
 
 Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di gestione di Azure. Per accedere al report, è necessario essere:
 
@@ -67,4 +50,4 @@ Sì, per disattivare le notifiche correlate a anomali accessi all'interno del po
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

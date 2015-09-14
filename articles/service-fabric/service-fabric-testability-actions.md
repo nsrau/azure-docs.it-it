@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azione di Testabilità."
+   pageTitle="Azione di testabilità | Microsoft Azure"
 	description="In questo articolo vengono illustrate le azioni di Testabilità trovate in Infrastruttura di servizi di Microsoft Azure."
 	services="service-fabric"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="03/17/2015"
+	ms.date="08/31/2015"
 	ms.author="heeldin;motanv"/>
 
 # Azioni di Testabilità
@@ -234,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Errori di comunicazione da servizio a servizio](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Servizi cloud di Azure rappresentano l'opzione di calcolo desiderata?" 
-	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali" 
+	pageTitle="Servizi cloud di Azure rappresentano l'opzione di calcolo desiderata?"
+	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali"
 	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka" 
+	documentationCenter=""
+	authors="Thraka"
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="adegeo"/>
 
 # Perché scegliere Servizi cloud
@@ -36,4 +36,4 @@ In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applica
 [Macchine virtuali]: ../virtual-machines-choose-me.md
 [Servizi cloud]: #tellmecs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

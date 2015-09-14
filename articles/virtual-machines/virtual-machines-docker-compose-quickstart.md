@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introduzione a Docker e Compose in una macchina virtuale di Azure"
-   description="Breve introduzione all'utilizzo di Compose e Docker in Azure"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Breve introduzione all'utilizzo di Compose e Docker in Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Introduzione a Docker e Compose in una macchina virtuale di Azure
 
@@ -24,7 +24,7 @@ Se non si ha familiarità con Docker e i contenitori, vedere le [informazioni di
 
 ## Passaggio 1: configurare una macchina virtuale Linux come host Docker
 
-È possibile utilizzare una serie di procedure di Azure e le immagini disponibili nel Markeplace di Azure per creare una macchina virtuale Linux da configurare come host Docker. Ad esempio, vedere [Utilizzo dell’estensione VM Docker dall’interfaccia della riga di comando](virtual-machines-docker-with-xplat-cli) per una procedura rapida per la creazione di una macchina virtuale Ubuntu con estensione VM Docker. Quando si utilizza l'estensione VM Docker, la macchina virtuale viene automaticamente configurata come host Docker. Nell'esempio riportato in questo articolo viene illustrato come utilizzare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](xplat-cli.md)(CLI Azure) in modalità di gestione dei servizi per creare la macchina virtuale.
+È possibile utilizzare una serie di procedure di Azure e le immagini disponibili nel Markeplace di Azure per creare una macchina virtuale Linux da configurare come host Docker. Ad esempio, vedere [Utilizzo dell’estensione VM Docker dall’interfaccia della riga di comando](virtual-machines-docker-with-xplat-cli.md) per una procedura rapida per la creazione di una macchina virtuale Ubuntu con estensione VM Docker. Quando si utilizza l'estensione VM Docker, la macchina virtuale viene automaticamente configurata come host Docker. Nell'esempio riportato in questo articolo viene illustrato come utilizzare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md)(CLI Azure) in modalità di gestione dei servizi per creare la macchina virtuale.
 
 ## Passaggio 2: installare Compose
 
@@ -112,4 +112,4 @@ Viene visualizzata la schermata di avvio di WordPress, in cui è possibile compl
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

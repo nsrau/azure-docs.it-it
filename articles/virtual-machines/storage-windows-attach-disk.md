@@ -23,6 +23,12 @@
 
 > [AZURE.NOTE]È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Quando si crea una macchina virtuale di Azure, questa contiene un disco per il sistema operativo mappato all'unità C e un disco temporaneo mappato all'unità D. **Non utilizzare l’unità D per archiviare i dati.** Come si può dedurre dal nome, l’unità D fornisce solo un’archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
+## Video con la procedura dettagliata
+
+Di seguito è riportata una procedura dettagliata dei passaggi in questa esercitazione.
+
+[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
+
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
 ## <a id="initializeinWS"></a>Procedura: Inizializzare un nuovo disco dati in Windows Server
@@ -37,7 +43,7 @@
 
 4. Nella sezione **Dischi** è visualizzato un elenco con tre dischi: disco 0, disco 1 e disco 2. Il disco 0 è il disco del sistema operativo, il disco 1 è il disco temporaneo (che non deve essere usato per l'archiviazione dei dati) e il disco 2 è il disco dati connesso alla macchina virtuale. Il disco dati ha una capacità di 5 GB, come specificato quando il disco è stato collegato. Fare clic con il pulsante destro del mouse sul disco 2 e scegliere **Inizializza**.
 
-5.	Si riceverà una notifica che tutti i dati verranno cancellati quando viene inizializzato il disco. Fare clic su **Sì** per accettare il messaggio di avviso e inizializzare il disco. Quindi, fare di nuovo clic con il pulsante destro del mouse sul disco 2 e scegliere **Nuovo volume**.
+5.	Si riceverà una notifica che tutti i dati verranno cancellati quando viene inizializzato il disco. Fare clic su **Sì** per accettare il messaggio di avviso e inizializzare il disco. Poi, fare di nuovo clic con il pulsante destro del mouse sul disco 2 e scegliere **Nuovo volume**.
 
 6.	Completare la procedura guidata usando i valori predefiniti. Al termine della procedura guidata, nella sezione **Volumi** verrà visualizzato il nuovo volume. Il disco sarà ora online e pronto per l'archiviazione di dati.
 
@@ -53,4 +59,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

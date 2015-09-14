@@ -3,9 +3,9 @@
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="08/12/2015"
-	ms.author="normesta" />
+	ms.author="normesta"/>
 
 #Creare un'app per Xamarin.Android
 
@@ -101,4 +101,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

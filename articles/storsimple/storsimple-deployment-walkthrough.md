@@ -1,19 +1,19 @@
 <properties
    pageTitle="Distribuire il dispositivo StorSimple locale | Microsoft Azure"
-   description="Passaggi e procedure consigliate per la distribuzione del servizio e del dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="Descrive i passaggi e le procedure consigliate per la distribuzione del servizio e del dispositivo StorSimple. (Si applica alla versione 3 di Microsoft Azure StorSimple e alle versioni precedenti.)"
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
 # Distribuire un dispositivo StorSimple locale
 
@@ -290,4 +290,4 @@ Eseguire i passaggi seguenti nel portale di Azure per creare un backup manuale s
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/02/2015"
 	ms.author="mmercuri"/>
 
 # Condivisione dello stato in modelli di Gestione risorse di Azure
 
-Questo argomento descrive come gestire e condividere lo stato in un modello di Gestione risorse di Azure e nei modelli collegati.
+Questo argomento mostra le procedure consigliate per gestire e condividere lo stato in un modello di Gestione risorse di Azure e nei modelli collegati. I parametri e le variabili illustrati in questo argomento sono esempi del tipo di oggetti che è possibile definire per organizzare facilmente i requisiti di distribuzione. Da questi esempi, è possibile implementare gli oggetti con valori di proprietà utili per l'ambiente.
 
 ## Uso di oggetti complessi per condividere lo stato
 
@@ -366,7 +366,7 @@ Il seguente esempio mostra come passare l'indirizzo IP privato generato in un mo
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
             "type": "string"
          }
     }
@@ -381,4 +381,4 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
 - [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

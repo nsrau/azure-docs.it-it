@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Disattivare ed eliminare un dispositivo StorSimple | Microsoft Azure"
-   description="Viene descritto come rimuovere dispositivo StorSimple dal servizio disattivandolo per poi eliminarlo."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Viene descritto come rimuovere un dispositivo StorSimple dal servizio disattivandolo e poi eliminandolo."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
 # Disattivare ed eliminare un dispositivo StorSimple
 
@@ -91,4 +91,4 @@ Per ripristinare il dispositivo disattivato sulle impostazioni predefinite di fa
 
 Per assistenza tecnica,[contattare il supporto Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

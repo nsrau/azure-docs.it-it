@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery: domande frequenti" 
-	description="Questo articolo illustra le domande frequenti sull'utilizzo di Azure Site Recovery." 
-	services="site-recovery" 
+	pageTitle="Azure Site Recovery: domande frequenti"
+	description="Questo articolo illustra le domande frequenti sull'utilizzo di Azure Site Recovery."
+	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/02/2015" 
+	ms.date="08/26/2015"
 	ms.author="lauraa"/>
 
 
@@ -42,6 +42,28 @@ Sì. Quando si crea un insieme di credenziali di Site Recovery in un'area di pro
 
 Sì. I flussi di lavoro ASR possono essere automatizzati tramite API Rest, PowerShell o Azure SDK. È possibile trovare ulteriori dettagli nel post del blog [Introduzione a PowerShell per Azure Site Recovery](http://azure.microsoft.com/blog/2014/11/05/introducing-powershell-support-for-azure-site-recovery/).
 
+### Il ripristino automatico di sistema crittografa la replica? 
+La replica da siti locali ad Azure e la replica tra siti locali supporta la crittografia in transito per *gli scenari di protezione di Hyper-V e VMM*. La *protezione Hyper-V e VMM* per Azure supporta anche la crittografia in locale. Per altre informazioni, fare riferimento a [questo articolo](https://azure.microsoft.com/blog/2014/09/02/azure-site-recovery-privacy-security-part1/).
+
+### È possibile aumentare la frequenza di replica o copia di oltre 15 minuti?
+* **Scenari Hyper-V e VMM**: no, la replica delle macchine virtuali Hyper-V usando la replica basata su host può essere configurata solo per 30 secondi, 5 minuti e 15 min.
+* **Scenario VMware/fisico**: non è applicabile per la replica in-guest in quanto la tecnologia usa la protezione dei dati continua.
+
+### È possibile escludere dischi specifici dalla replica mediante il ripristino automatico di sistema?
+Questa funzione non è supportata. Inviare commenti e suggerimenti tramite il [forum dei commenti di Azure Site Recovery - Escludere un disco dalla replica](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+
+### È possibile replicare macchine virtuali basate su dischi dinamici?
+Gli *scenari Hyper-V e VMM* supportano i dischi dinamici. *Gli scenari con macchine virtuali VMware o macchine fisiche* non supportano i dischi dinamici. Inviare commenti e suggerimenti tramite il [forum dei commenti di Azure Site Recovery](http://feedback.azure.com/forums/256299-site-recovery).
+
+### Quali tipi di account di archiviazione sono supportati?
+È supportata l'[archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage). L'[account di archiviazione Premium] (../storage/storage-premium-storage-preview-portal/) è supportato solo per [scenari con macchine virtuali VMware o macchine fisiche](site-recovery-vmware-to-azure.md). Il supporto per l'archiviazione con ridondanza locale standard è in backlog, inviare commenti e suggerimenti tramite [il supporto per l'archiviazione con ridondanza locale](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+
+### È possibile estendere la replica dal sito di ripristino esistente a un sito terziario?
+Questa funzione non è supportata. Inviare commenti e suggerimenti tramite il [forum dei commenti di Azure Site Recovery - Supporto per l'estensione della replica](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+
+### È possibile eseguire il seeding dei dischi iniziali in Azure tramite un meccanismo offline?
+Questa funzione non è supportata. Inviare commenti e suggerimenti tramite il [forum dei commenti di Azure Site Recovery - Supporto per la replica offline](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
 ## Supporto della versione
 
 ### Quali versioni di cluster e host di Windows Server sono supportate?
@@ -57,7 +79,7 @@ Non è possibile configurare l'esecuzione di Hyper-V in un sistema operativo cli
 
 ### ASR supporta le macchine virtuali di seconda generazione?
 
-ASR supporta attualmente la replica delle macchine virtuali di seconda generazione in Hyper-V ad Azure. ASR esegue la conversione dalla seconda generazione alla prima durante il failover. In caso di failback, la macchina virtuale viene riconvertita nella prima generazione. [Altre informazioni](http://azure.microsoft.com/updates/azure-site-recovery-supports-gen-2-vm-protection-in-west-us-north-europe-and-japan-west/) sul supporto attuale.
+Sì, il ripristino automatico di sistema supporta la replica delle macchine virtuali di seconda generazione su Hyper-V in Azure. ASR esegue la conversione dalla seconda generazione alla prima durante il failover. In caso di failback, la macchina virtuale viene riconvertita nella prima generazione. Per altre informazioni, [leggere qui](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ## Distribuire tra siti di provider di servizi 
@@ -128,6 +150,11 @@ L'elenco più recente dei sistemi operativi guest supportati è disponibile nell
 
 No, questo tipo di replica concatenata non è supportato.
 
+### Sono necessari certificati per configurare la protezione tra due data center VMM?
+
+No. Specificare il tipo di autenticazione durante la configurazione della protezione tra cloud VMM nel ripristino automatico di sistema. Selezionare HTTPS a meno che sia stato configurato un ambiente Kerberos funzionante. Azure Site Recovery configura automaticamente i certificati per l'autenticazione HTTPS. Non è necessaria alcuna configurazione manuale. Se si seleziona Kerberos, verrà utilizzato un ticket Kerberos per l'autenticazione reciproca dei server host. Per impostazione predefinita, le porte 8083 (per Kerberos) e 8084 (per i certificati) sono aperte in Windows Firewall per i server host Hyper-V. Questa impostazione è rilevante solo per i server host Hyper-V in esecuzione su Windows Server 2012 R2.
+
+
 
 ## Distribuire tra due data center VMM con SAN
 
@@ -139,6 +166,15 @@ Nessun problema. ASR supporta lo scenario in cui la replica potrebbe già essere
 Sì. È necessario che l'array SAN sia gestito da VMM tramite un provider SMI-S specifico dell'array.
 
 Sono supportate le distribuzioni a disponibilità elevata di VMM in base al tipo di array, anche se la configurazione consigliata prevede l'uso di server VMM separati per la gestione dei siti.
+
+
+### Quali sono gli array di archiviazione supportati?
+
+NetApp, EMC e HP hanno attivato il supporto per la replica SAN di Azure Site Recovery con aggiornamenti per i propri provider SMI-S. Per altre informazioni, dettagliate vedere i collegamenti seguenti.
+
+- [NetApp Clustered Data ONTAP 8.2](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
+- [Serie VMAX EMC](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
+- [HP 3PAR](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
 
 
 ### Cosa accade in caso di dubbi sull’amministrazione dell’archiviazione?
@@ -200,4 +236,4 @@ Per avviare la distribuzione  
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

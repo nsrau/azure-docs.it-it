@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare ruoli Web e di lavoro"
+	pageTitle="Web PHP e Ruoli di lavoro | Microsoft Azure"
 	description="Guida alla creazione di ruoli Web e di lavoro PHP in un servizio cloud di Azure e configurazione del runtime PHP."
 	services=""
 	documentationCenter="php"
@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
-	ms.date="06/09/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 #Come creare ruoli Web e di lavoro PHP
@@ -23,13 +23,13 @@
 In questa guida verrà descritto come creare ruoli Web o di lavoro PHP in un ambiente di sviluppo Windows, scegliere una versione specifica di PHP tra le versioni incorporate disponibili, modificare la configurazione di PHP, abilitare le estensioni e, infine, come eseguire la distribuzione in Azure. Verrà inoltre descritto come configurare un ruolo Web o di lavoro per l'uso del runtime PHP (con configurazione ed estensioni personalizzate) fornito dall'utente.
 
 ## Cosa sono i ruoli Web e di lavoro PHP
-Azure offre tre modelli di calcolo per le applicazioni in esecuzione: [Siti Web di Azure][execution model-web sites], [Macchine virtuali di Azure][execution model-vms] e [Servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
+Azure offre tre modelli di calcolo per le applicazioni in esecuzione: Servizio App di Azure, Macchine virtuali di Azure e Servizi cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
 
-Per altre informazioni, vedere la pagina relativa alla [definizione di servizio cloud].
+Per ulteriori informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo fornite da Azure](./cloud-services/fundamentals-application-models.md).
 
 ## Scaricare Azure SDK per PHP
 
-[Azure SDK per PHP] è composto da diversi componenti. In questo articolo ne verranno usati due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione guidata piattaforma Web Microsoft disponibile nella pagina di: [installazione di Azure PowerShell e degli emulatori di Azure][install ps and emulators].
+[Azure SDK per PHP] è composto da diversi componenti. In questo articolo ne verranno usati due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
 ## Procedura: Creare un progetto di servizi cloud
 
@@ -99,7 +99,7 @@ In alcuni casi, invece di selezionare un runtime PHP incorporato e configurarlo 
 
 Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, eseguire la procedura seguente.
 
-1. Creare un progetto di servizio Azure e aggiungere un ruolo Web PHP come descritto nelle sezioni [Procedura: Creare un progetto di servizi cloud](#how-to-create-a-cloud-services-project) e [Procedura: Aggiungere ruoli Web o di lavoro PHP](#how-to-add-php-web-or-worker-roles) sopra riportate.
+1. Creare un progetto di servizio Azure e aggiungere un ruolo Web PHP come descritto precedentemente in questo argomento.
 2. Creare una cartella `php` nella cartella `bin` che si trova nella directory radice del proprio ruolo Web, quindi aggiungere il proprio runtime PHP (tutti i binari, i file di configurazione, le sottocartelle, ecc.) alla cartella `php`.
 3. (FACOLTATIVO) Se il proprio runtime PHP usa i [Driver Microsoft per PHP per SQL Server][sqlsrv drivers], sarà necessario configurare il proprio ruolo Web per installare [SQL Server Native Client 2012][sql native client] quando viene eseguito il provisioning. A tale scopo, aggiungere il programma di installazione `sqlncli.msi` alla cartella `bin` nella directory radice del proprio ruolo Web. È possibile scaricare il programma di installazione all'indirizzo: [sqlncli.msi x64 installer]. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non usa i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
 
@@ -133,7 +133,7 @@ Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, es
 
 Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'utente, eseguire la procedura seguente.
 
-1. Creare un progetto di servizio Azure e aggiungere un ruolo di lavoro PHP come descritto nelle sezioni [Procedura: Creare un progetto di servizi cloud](#how-to-create-a-cloud-services-project) e [Procedura: Aggiungere ruoli Web o di lavoro PHP](#how-to-add-php-web-or-worker-roles) sopra riportate.
+1. Creare un progetto di servizio Azure e aggiungere un ruolo di lavoro PHP come descritto precedentemente in questo argomento.
 2. Creare una cartella `php` nella directory radice del proprio ruolo Web, quindi aggiungere il proprio runtime PHP (tutti i binari, i file di configurazione, le sottocartelle, ecc.) alla cartella `php`.
 3. (FACOLTATIVO) Se il proprio runtime PHP usa i [Driver Microsoft per PHP per SQL Server][sqlsrv drivers], sarà necessario configurare il proprio ruolo di lavoro per installare [SQL Server Native Client 2012][sql native client] quando viene eseguito il provisioning. A tale scopo, aggiungere il programma di installazione `sqlncli.msi` alla directory radice del proprio ruolo di lavoro. È possibile scaricare il programma di installazione all'indirizzo: [sqlncli.msi x64 installer]. Lo script di avvio descritto nel passaggio successivo eseguirà il programma di installazione senza avvisi quando viene eseguito il provisioning del ruolo. Se il proprio runtime PHP non usa i Driver Microsoft per PHP per SQL Server è possibile rimuovere la seguente riga dallo script illustrato nel passaggio successivo:
 
@@ -172,7 +172,7 @@ Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'uten
 
 ## Procedura: Eseguire l'applicazione negli emulatori di calcolo e archiviazione
 
-Gli emulatori di calcolo e di archiviazione di Azure forniscono un ambiente locale in cui è possibile testare l'applicazione Azure prima di distribuirla nel cloud. Vi sono alcune differenze tra gli emulatori e l'ambiente Azure. Per meglio comprenderle, vedere [Differenze tra l'emulatore di calcolo e Azure](http://msdn.microsoft.com/library/windowsazure/gg432960.aspx) e [Differenze tra l'emulatore di archiviazione e i Servizi di archiviazione Azure](http://msdn.microsoft.com/library/windowsazure/gg433135.aspx).
+Gli emulatori di Azure forniscono un ambiente locale in cui è possibile testare l'applicazione Azure prima di distribuirla nel cloud. Vi sono alcune differenze tra gli emulatori e l'ambiente Azure. Per comprendere meglio, vedere [Uso dell'emulatore di archiviazione di Azure per lo sviluppo e i test](./storage/storage-use-emulator.md).
 
 Si noti che per usare l'emulatore di calcolo è necessario aver installato PHP in locale. L'emulatore di calcolo userà l'installazione locale di PHP per eseguire l'applicazione.
 
@@ -195,21 +195,15 @@ Per arrestare gli emulatori, eseguire il comando seguente:
 
 ## Procedura: Pubblicare l'applicazione
 
-Per pubblicare l'applicazione è necessario prima importare le impostazioni di pubblicazione con il cmdlet **Import-PublishSettingsFile**, quindi sarà possibile pubblicare l'applicazione con il cmdlet **Publish-AzureServiceProject**. Informazioni dettagliate sull'uso di ciascuno dei cmdlet sono disponibili rispettivamente nelle sezioni [Procedura: Importare le impostazioni di pubblicazione] e [Procedura: Distribuire un servizio cloud in Azure].
+Per pubblicare l'applicazione è necessario prima importare le impostazioni di pubblicazione con il cmdlet **Import-PublishSettingsFile**, quindi sarà possibile pubblicare l'applicazione con il cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Per informazioni sull’accesso, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
 
-[execution model-web sites]: /develop/net/fundamentals/compute/#WebSites
-[execution model-vms]: /develop/net/fundamentals/compute/#VMachine
-[execution model-cloud services]: /develop/net/fundamentals/compute/#CloudServices
 [Azure SDK per PHP]: /develop/php/common-tasks/download-php-sdk/
-[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-[definizione di servizio cloud]: /manage/services/cloud-services/what-is-a-cloud-service/
+[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [definizione del servizio (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [configurazione del servizio(.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
-[Procedura: Importare le impostazioni di pubblicazione]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[Procedura: Distribuire un servizio cloud in Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

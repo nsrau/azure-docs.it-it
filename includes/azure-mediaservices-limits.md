@@ -13,6 +13,7 @@ Programmi con stato in esecuzione per canale </p></td>|3</p></td>|N/D<sup>1</sup
 Endpoint di streaming con stato in esecuzione per ogni account AMS </p></td>|2</p></td>|N/D<sup>1</sup>
 Unità di streaming per endpoint di streaming </p></td>|10 </p></td>|N/D<sup>1</sup>
 Unità di codifica per ogni account AMS </p></td>|25</p></td>|N/D<sup>1</sup>
+Account di archiviazione | |1\.000<sup>5</sup>
 
 <sup>1</sup> È possibile richiedere l'aggiornamento dei limiti per questa quota aprendo un ticket di supporto. Non creare altri account di Servizi multimediali di Azure per aumentare i limiti, ma inviare invece un ticket di supporto.
 
@@ -22,4 +23,6 @@ Unità di codifica per ogni account AMS </p></td>|25</p></td>|N/D<sup>1</sup>
 
 <sup>4</sup> I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management).
 
-<!---HONumber=August15_HO7-->
+<sup>5</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
+
+<!---HONumber=September15_HO1-->

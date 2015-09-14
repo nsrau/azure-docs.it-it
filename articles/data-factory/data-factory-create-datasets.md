@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Creazione di set di dati" 
-	description="Comprendere i set di dati di Data Factory di Azure e come crearli." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Creazione di set di dati"
+	description="Comprendere i set di dati di Data Factory di Azure e come crearli."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="spelluru"/>
-
 
 # Set di dati
 
@@ -184,16 +182,34 @@ I set di dati esterni sono quelli che sono non stati prodotti da una pipeline in
 
 | Nome | Descrizione | Obbligatorio | Default Value |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati dovrebbero essere disponibili una volta ogni ora, il controllo per visualizzare se i dati esterni sono effettivamente disponibili e se il sezionamento corrispondente sia pronto può essere posticipato da dataDelay.<p>Si applica solo al momento; ad esempio, se è l’ 1:00 PM e questo valore è 10 minutes, la convalida verrà avviata all’1:10 PM.</p><p>Questa impostazione non interessa i passati sezionamenti (sezionamenti con Slice End Time + dataDelay < Now) che verranno elaborati senza alcun ritardo.</p> | No | 0 |
+| dataDelay | <p>Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati dovrebbero essere disponibili una volta ogni ora, il controllo per visualizzare se i dati esterni sono effettivamente disponibili e se il sezionamento corrispondente sia pronto può essere posticipato da dataDelay.</p><p>Si applica solo al momento; ad esempio, se è l’ 1:00 PM e questo valore è 10 minutes, la convalida verrà avviata all’1:10 PM.</p><p>Questa impostazione non interessa i passati sezionamenti (sezionamenti con Slice End Time + dataDelay < Now) che verranno elaborati senza alcun ritardo.</p> <p>L’orario maggiore di 23:59 deve essere specificato utilizzando il formato giorno.ore:minuti:secondi. Per specificare 24 ore, ad esempio, non utilizzare 24:00:00; utilizzare invece 1.00:00:00. Se si utilizza 24:00:00, verrà considerato come 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. </p>| No | 0 |
 | retryInterval | Il tempo di attesa tra un errore e il successivo tentativo. Si applica al tempo presente; Se il precedente tentativo non è riuscito, dopo di esso si aspetta tale tempo. <p>Se è l’1:00 pm, inizia il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo sarà all’1:00 + 1 min (durata) + 1 min (intervallo tentativi) = 1:02 pm. </p><p>Per i sezionamenti passati, non si verificherà alcun ritardo. Il tentativo verrà eseguito immediatamente.</p> | No | 00:01:00 (1 minute) | 
-| retryTimeout | Il timeout per ogni nuovo tentativo.<p>Se è impostato su 10 minutes, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo andrà in sospensione.</p><p>Se tutti i tentativi per la convalida scadono, il sezionamento verrà contrassegnato come TimedOut.</p> | No | 00:10:00 (10 minutes) |
+| retryTimeout | Il timeout per ogni nuovo tentativo.<p>Se è impostato su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo andrà in sospensione.</p><p>Se tutti i tentativi per la convalida scadono, il sezionamento verrà contrassegnato come TimedOut.</p> | No | 00:10:00 (10 minutes) |
 | maximumRetry | Numero di volte per controllare la disponibilità dei dati esterni. Il valore massimo consentito è 10. | No | 3 | 
 
+#### Ulteriori esempi
 
+Se è necessario eseguire una pipeline su base mensile a una data e ora specifiche (si supponga al 3 di ogni mese alle ore 8:00), è possibile utilizzare il tag **offset** per impostare la data e l’ora di esecuzione.
 
+	{
+	  "name": "MyDataset",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Month",
+	      "interval": 1,
+	      "offset": "3.08:10:00",
+	      "style": "StartOfInterval"
+	    }
+	  }
+	}
 
-
-
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md) richiede solo alcuni minuti.
 
 
 
@@ -201,4 +217,4 @@ I set di dati esterni sono quelli che sono non stati prodotti da una pipeline in
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

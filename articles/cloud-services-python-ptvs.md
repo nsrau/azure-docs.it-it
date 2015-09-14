@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ruoli Web e ruoli di lavoro Python con Python Tools 2.1 per Visual Studio"
+	pageTitle="Ruoli Web e ruoli di lavoro Python con Python Tools 2.2 per Visual Studio | Microsoft Azure"
 	description="Panoramica dell'uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro."
 	services=""
 	documentationCenter="python"
@@ -12,42 +12,42 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="hero-article" 
-	ms.date="02/09/2015"
+	ms.topic="hero-article"
+	ms.date="08/30/2015"
 	ms.author="huvalo"/>
 
 
 
 
-# Ruoli Web e ruoli di lavoro Python con Python Tools 2.1 per Visual Studio
+# Ruoli Web e ruoli di lavoro Python con Python Tools 2.2 per Visual Studio
 
-Questa guida fornisce una panoramica dell'uso dei ruoli Web e di lavoro con [Python Tools per Visual Studio][].
+Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Python Tools per Visual Studio][].
 
 ## Prerequisiti
 
- - Visual Studio 2012 o 2013
- - [Python Tools 2.1 per Visual Studio][]
- - [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2012][]
+ - Visual Studio 2013 o 2015
+ - [Python Tools 2.2 per Visual Studio][] (PTVS)
+ - [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2015][]
  - [Python 2.7 a 32 bit][] o [Python 3.4 a 32 bit][]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Cosa sono i ruoli Web e di lavoro Python?
 
-Azure offre tre modelli di calcolo per le applicazioni in esecuzione: [Siti Web di Azure][execution model-web sites], [Macchine virtuali di Azure][execution model-vms] e [Servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano Python. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
+Azure offre tre modelli di calcolo per l'esecuzione di applicazioni: [funzionalità App Web in Azure App Service][execution model-web sites], [macchine virtuali di Azure][execution model-vms] e [servizi cloud di Azure][execution model-cloud services]. Tutti e tre i modelli supportano Python. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. Nell'ambito di un servizio cloud, un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato su cui ospitare applicazioni Web front-end, mentre un ruolo di lavoro consente di eseguire attività asincrone, a esecuzione prolungata o perpetue, indipendenti dall'interazione o dall'input degli utenti.
 
 Per altre informazioni, vedere la pagina relativa alla [definizione di servizio cloud].
 
-> [AZURE.NOTE]**Come creare un semplice sito Web** Se si intende creare un semplice sito Web front-end, è possibile usare un sito Web di Azure semplificato. È possibile procedere all'aggiornamento a un servizio cloud con facilità, in base alla crescita del sito Web e all'insorgere di nuove esigenze. Vedere il <a href="/develop/python/">centro per sviluppatori di Python</a> che trattano lo sviluppo di siti Web di Azure. <br />
+> [AZURE.NOTE]*Come creare un semplice sito Web* Se si intende creare un semplice sito Web front-end, è possibile usare la funzionalità App Web in Azure App Service. È possibile procedere all'aggiornamento a un servizio cloud con facilità, in base alla crescita del sito Web e all'insorgere di nuove esigenze. Per articoli che trattano lo sviluppo della funzionalità App Web in Azure App Service, vedere il <a href="/develop/python/">centro per sviluppatori di Python</a>. <br />
 
 
 ## Creazione del progetto
 
-In Visual Studio, è possibile selezionare **Servizio Cloud Azure** nella finestra di dialogo **Nuovo progetto** sotto **Python**.
+In Visual Studio è possibile selezionare **Servizio Cloud Azure** nella finestra di dialogo **Nuovo progetto** sotto **Python**.
 
 ![Finestra di dialogo Nuovo progetto](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
-Nella procedura guidata del servizio cloud di Azure, è possibile scegliere di creare nuovi ruoli Web e di lavoro.
+Nella procedura guidata del servizio cloud di Azure è possibile creare nuovi ruoli Web e di lavoro.
 
 ![Finestra di dialogo del servizio cloud di Azure](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
@@ -59,13 +59,13 @@ Nel modello di ruolo di lavoro è disponibile il codice boilerplate per connette
 
 ![Comando per l'aggiunta di un ruolo](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-Il servizio cloud può contenere ruoli implementati in linguaggi diversi. Ad esempio, è possibile avere un ruolo Web Python implementato usando Django, con ruoli di lavoro Python e C#. È possibile mettere facilmente in comunicazione i ruoli con code di bus di servizio o code di archiviazione.
+Il servizio cloud può contenere ruoli implementati in linguaggi diversi. Ad esempio, è possibile avere un ruolo Web Python implementato usando Django, con ruoli di lavoro Python o C#. È possibile mettere facilmente in comunicazione i ruoli con code di bus di servizio o code di archiviazione.
 
 ## Esecuzione locale
 
 Se si imposta il progetto servizio cloud come progetto di avvio e si preme F5, il servizio cloud verrà eseguito nell'emulatore locale di Azure.
 
-Anche se PTVS supporta l'avvio nell'emulatore, il debug (punti di interruzione e così via) non funzionerà.
+Anche se PTVS supporta l'avvio nell'emulatore, il debug (ad esempio, punti di interruzione) non funzionerà.
 
 Per eseguire il debug dei ruoli di lavoro e Web, è possibile impostare il progetto di ruolo come progetto di avvio e ed eseguirne il debug. È anche possibile impostare più progetti di avvio. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**.
 
@@ -73,11 +73,11 @@ Per eseguire il debug dei ruoli di lavoro e Web, è possibile impostare il proge
 
 ## Pubblicazione in Azure
 
-Per pubblicare, fare clic con il pulsante destro del mouse sul progetto servizio cloud nella soluzione e scegliere **Pubblica**.
+Per pubblicare, fare clic con il pulsante destro del mouse sul progetto servizio cloud nella soluzione e quindi scegliere **Pubblica**.
 
 ![Accesso per la pubblicazione di Microsoft Azure](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
-Nella pagina delle impostazioni selezionare il servizio cloud che si vuole pubblicare.
+Nella pagina delle impostazioni selezionare il servizio cloud che si desidera pubblicare.
 
 ![Impostazioni di pubblicazione di Microsoft Azure](./media/cloud-services-python-ptvs/publish-settings.png)
 
@@ -99,11 +99,11 @@ Saranno necessari alcuni minuti per completare la distribuzione, quindi i ruoli 
 
 ## Passaggi successivi
 
-Per informazioni dettagliate sull'uso di ruoli di lavoro e Web in Python Tools per Visual Studio, vedere la documentazione PTVS:
+Per informazioni più dettagliate sull'uso di ruoli di lavoro e Web in Python Tools per Visual Studio, vedere la documentazione PTVS:
 
 - [Progetti servizio cloud][]
 
-Per informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e Web, ad esempio sull'uso dell'archiviazione o del bus di servizio di Azure, vedere le guide seguenti:
+Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e Web, ad esempio sull'uso dell'archiviazione o del bus di servizio di Azure, vedere gli articoli seguenti.
 
 - [Servizio BLOB][]
 - [Servizio tabelle][]
@@ -130,13 +130,12 @@ Per informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e 
 <!--External Link references-->
 
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
-[Progetti servizio cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-
-[Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Progetti servizio cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Strumenti di Azure SDK per VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Strumenti di Azure SDK per VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Strumenti di Azure SDK per VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 a 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

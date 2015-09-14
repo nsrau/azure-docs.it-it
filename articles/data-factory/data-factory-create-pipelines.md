@@ -1,20 +1,13 @@
 <properties 
-	pageTitle="Creazione di pipeline" 
-	description="Informazioni sulle pipeline di Data factory di Azure e su come crearle per spostare e trasformare i dati al fine di produrre informazioni che possano essere utilizzate per una maggiore conoscenza" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Creazione di pipeline"
+	description="Informazioni sulle pipeline di Data factory di Azure e su come crearle per spostare e trasformare i dati al fine di produrre informazioni che possano essere utilizzate per una maggiore conoscenza"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" y
-	ms.date="07/28/2015" 
-	ms.author="spelluru"/>
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" y" ms.date="07/28/2015" ms.author="spelluru"/>
 
 # Informazioni su pipeline e attività
 Questo articolo consentirà di conoscere le pipeline e le attività in Data factory di Azure e su come sfruttarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. In questo articolo si presuppone di avere verificato gli articoli sulla [panoramica](data-factory-introduction.md) e sulla [ creazione di set di dati](data-factory-create-datasets.md).
@@ -168,7 +161,7 @@ Ora che abbiamo una breve conoscenza di cosa sia un'attività, passiamo a vedere
  
 La pipeline è un raggruppamento logico di attività. Tali attività vengono usate per raggruppare in un'unità attività che eseguono un'operazione. **Una pipeline è anche l'unità di distribuzione e gestione per le attività.** Ad esempio, è possibile che si desideri raggruppare attività correlate logicamente come una pipeline, in modo che possano essere nello stato attivo o sospeso insieme.
 
-Un set di dati di output di un'attività in una pipeline può essere il set di dati di input per un’altra attività nella stessa pipeline o in un’altra pipeline, mediante la definizione delle dipendenze tra attività. Tutto questo è illustrato dettagliatamente nella sezione relativa alla [pianificazione e all’esecuzione](#scheduling-and-execution).
+Un set di dati di output di un'attività in una pipeline può essere il set di dati di input per un’altra attività nella stessa pipeline o in un’altra pipeline, mediante la definizione delle dipendenze tra attività. Tutto questo è illustrato dettagliatamente nella sezione relativa alla [pianificazione e all'esecuzione](#scheduling-and-execution).
 
 I passaggi tipici durante la creazione di una pipeline in Data factory di Azure sono:
 
@@ -246,11 +239,11 @@ I criteri influiscono sul comportamento in fase di esecuzione di un'attività, i
 Proprietà | Valori consentiti | Valore predefinito | Descrizione
 -------- | ----------- | -------------- | ---------------
 Concorrenza | Integer <p>Valore massimo: 10</p> | 1 | Numero di esecuzioni simultanee dell'attività.<p>Determina il numero di esecuzioni di attività parallele che possono verificarsi in sezioni diverse. Ad esempio, se un'attività deve passare attraverso grandi set di dati disponibili, con una concorrenza maggiore che consente di velocizzare l'elaborazione dei dati.</p> 
-executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determina l'ordine delle sezioni di dati che vengono elaborate.<p>Ad esempio, se si dispone di 2 sezioni (una alle 16.00 e l’altra alle 17.00) ed entrambe sono in attesa di esecuzione. Se si imposta executionPriorityOrder su NewestFirst, verrà elaborata per prima la sezione delle 17.00. Allo stesso modo, se si imposta executionPriorityORder su OldestFIrst, verrà elaborata per prima la sezione alle 16.00.</p> 
+executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determina l'ordine delle sezioni di dati che vengono elaborate.<p>Ad esempio, se si dispone di 2 sezioni (una alle 16.00 e l'altra alle 17.00) ed entrambe sono in attesa di esecuzione. Se si imposta executionPriorityOrder su NewestFirst, verrà elaborata per prima la sezione delle 17.00. Allo stesso modo, se si imposta executionPriorityORder su OldestFIrst, verrà elaborata per prima la sezione alle 16.00.</p> 
 retry | Integer<p>Il valore massimo può essere 10</p> | 3 | Numero di tentativi prima che l'elaborazione dei dati per la sezione sia contrassegnata come errore. L'esecuzione dell’attività per una sezione di dati viene ritentata fino al numero di tentativi specificato. Il tentativo viene eseguito appena possibile dopo l'errore.
 timeout | TimeSpan | 00:00:00 | Timeout per l'attività. Esempio: 00:10:00 (implica timeout 10 minuti)<p>Se un valore viene omesso oppure è 0, il timeout è infinito.</p><p>Se il tempo di elaborazione dei dati in una sezione supera il valore di timeout, viene annullato e il sistema tenta di ripetere l'elaborazione. Il numero di tentativi dipende dalla proprietà retry. Quando si verifica il timeout, lo stato sarà TimedOut.</p>
-delay | TimeSpan | 00:00:00 | Specificare il ritardo prima che l'elaborazione dei dati della sezione abbia inizio.<p>L'esecuzione dell’attività per una sezione di dati viene avviata una volta che delay ha superato il tempo di esecuzione previsto.</p><p>Esempio: 00:10:00 (implica un ritardo di 10 minuti)</p>
-longRetry | Integer<p>Valore massimo: 10</p> | 1 | Il numero di tentativi longRetry dell’esecuzione della sezione esecuzione non è riuscito.<p>I tentativi longRetry sono distanziati da longRetryInterval. Pertanto, se è necessario specificare un tempo tra i tentativi, utilizzare longRetry. Se viene specificato sia Retry che longRetry, ogni tentativo longRetry includerà dei tentativi Retry e il numero massimo di tentativi sarà Retry * longRetry.</p><p>Ad esempio, se nel criterio di attività è presente quanto segue:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>è presumibile che la sezione da eseguire sia una soltanto (lo stato è PendingExecution) e l’esecuzione dell’attività ha ogni volta esito negativo. All’inizio vi saranno tre tentativi di esecuzione consecutivi. Dopo ogni tentativo, lo stato della sezione sarà Retry. Una volta terminati i tre tentativi sulla sezione, lo stato sarà LongRetry.</p><p>Dopo un’ora (vale a dire il valore di longRetryInteval), verrà eseguito un’altra serie di tre tentativi di esecuzione consecutivi. Al termine, lo stato della sezione sarà Failed e non verranno eseguiti altri tentativi. Pertanto, sono stati eseguiti sei tentativi.</p><p>Nota: se l’esecuzione ha luogo, lo stato della sezione sarà Ready e non verranno effettuati altri tentativi.</p><p>longRetry può essere utilizzato nelle situazioni in cui i dati dipendenti arrivano in orari non deterministici o l’ambiente complessivo in cui si verifica l’elaborazione dei dati è abbastanza debole. In tali casi, l’esecuzione di tentativi consecutivi potrebbe non essere utile, mentre l’applicazione di un intervallo consente di ottenere il risultato desiderato.</p><p>Attenzione: non impostare valori elevati per longRetry o longRetryInterval. In genere, valori più elevati implicano altri problemi sistemici che vengono eliminati con questo sistema </p> 
+delay | TimeSpan | 00:00:00 | Specificare il ritardo prima che l'elaborazione dei dati della sezione abbia inizio.<p>L'esecuzione dell'attività per una sezione di dati viene avviata una volta che delay ha superato il tempo di esecuzione previsto.</p><p>Esempio: 00:10:00 (implica un ritardo di 10 minuti)</p>
+longRetry | Integer<p>Valore massimo: 10</p> | 1 | Il numero di tentativi longRetry prima che l'esecuzione della sezione dia esito negativo.<p>I tentativi longRetry sono distanziati da longRetryInterval. Pertanto, se è necessario specificare un tempo tra i tentativi, utilizzare longRetry. Se viene specificato sia Retry che longRetry, ogni tentativo longRetry includerà dei tentativi Retry e il numero massimo di tentativi sarà Retry * longRetry.</p><p>Ad esempio, se nel criterio di attività è presente quanto segue:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>è presumibile che la sezione da eseguire sia una soltanto (lo stato è PendingExecution) e l'esecuzione dell'attività ha ogni volta esito negativo. All’inizio vi saranno tre tentativi di esecuzione consecutivi. Dopo ogni tentativo, lo stato della sezione sarà Retry. Una volta terminati i tre tentativi sulla sezione, lo stato sarà LongRetry.</p><p>Dopo un'ora (vale a dire il valore di longRetryInteval), verrà eseguita un'altra serie di tre tentativi di esecuzione consecutivi. Al termine, lo stato della sezione sarà Failed e non verranno eseguiti altri tentativi. Pertanto, sono stati eseguiti sei tentativi.</p><p>Nota: se l'esecuzione ha luogo, lo stato della sezione sarà Ready e non verranno effettuati altri tentativi.</p><p>longRetry può essere usato nelle situazioni in cui i dati dipendenti arrivano in orari non deterministici o l'ambiente complessivo in cui si verifica l'elaborazione dei dati è abbastanza debole. In tali casi, è possibile che l'esecuzione di tentativi consecutivi non sia utile, mentre l'applicazione di un intervallo consenta di ottenere il risultato desiderato.</p><p>Attenzione: non impostare valori elevati per longRetry o longRetryInterval. In genere, valori più elevati implicano altri problemi sistemici che vengono eliminati con questo sistema</p> 
 longRetryInterval | TimeSpan | 00:00:00 | Il ritardo tra tentativi longRetry 
 
 ## Creazione e gestione di una pipeline
@@ -258,9 +251,9 @@ Data factory di Azure fornisce vari meccanismi per creare e distribuire le pipel
 
 ### Utilizzo del Portale di anteprima di Azure
 
-1. Eseguire l'accesso al [Portale di anteprima di Azure](https://portal.azure.com/).
+1. Eseguire l'accesso al [portale di anteprima di Azure](https://portal.azure.com/).
 2. Passare all'istanza di Data factory di Azure in cui si desidera creare una pipeline
-3. Fare clic sul riquadro **Crea e distribuisci**nella sezione **Riepilogo**. 
+3. Fare clic sul riquadro **Creare e distribuire** nella sezione **Riepilogo**. 
  
 	![Riquadro Creare e distribuire](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
@@ -277,20 +270,20 @@ Data factory di Azure fornisce vari meccanismi per creare e distribuire le pipel
 	**Nota:**durante la distribuzione, il servizio Data factory di Azure esegue alcuni controlli di convalida per risolvere alcuni problemi comuni. Nel caso in cui si verifica un errore, verranno visualizzate le informazioni corrispondenti. Intraprendere azioni correttive e quindi distribuire nuovamente la pipeline creata. È possibile utilizzare l'editor per aggiornare ed eliminare una pipeline.
 
 ### Utilizzo del plug-in Visual Studio
-È possibile utilizzare Visual Studio per creare e distribuire pipeline a Data factory di Azure. Per ulteriori informazioni, fare riferimento all’esercitazione [relativa alla copia dei dati da Archiviazione Azure ad SQL Azure (Visual Studio)](data-factory-get-started-using-vs.md).
+È possibile utilizzare Visual Studio per creare e distribuire pipeline a Data factory di Azure. Per altre informazioni, fare riferimento all'esercitazione relativa alla [copia dei dati da Archiviazione di Azure ad SQL Azure (Visual Studio)](data-factory-get-started-using-vs.md).
 
 ### Uso di Azure PowerShell
 È possibile utilizzare Azure PowerShell per creare pipeline nella Data factory di Azure. Ad esempio, è stata definita la pipeline di JSON in un file nella posizione c:\\DPWikisample.json. È possibile caricarla nell'istanza Data factory di Azure, come illustrato nell'esempio seguente.
 
 	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn820227.aspx).
+Per altre informazioni su questo cmdlet, vedere il [cmdlet New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn820227.aspx).
 
 ### Utilizzo dell'API REST
-È possibile creare e distribuire la pipeline anche tramite le API REST. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per ulteriori informazioni su questo argomento, vedere l’articolo sulla [creazione o l’aggiornamento di una pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
+È possibile creare e distribuire la pipeline anche tramite le API REST. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere l'articolo sulla [creazione o l'aggiornamento di una pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
 ### Utilizzo di .NET SDK
-È possibile creare e distribuire la pipeline anche tramite .NET SDK. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per ulteriori informazioni su questo argomento, vedere la sezione sulla [creazione, la gestione e il monitoraggio delle data factory a livello di programmazione ](data-factory-create-data-factories-programmatically.md).
+È possibile creare e distribuire la pipeline anche tramite .NET SDK. Questo meccanismo può essere utilizzato per creare pipeline a livello di programmazione. Per altre informazioni su questo argomento, vedere la sezione sulla [creazione, la gestione e il monitoraggio delle data factory a livello di codice ](data-factory-create-data-factories-programmatically.md).
 
 
 ## Pianificazione ed esecuzione
@@ -298,19 +291,20 @@ Finora si è appreso che cosa si intende per pipeline e attività. Inoltre è st
 
 Una pipeline è attiva solo tra l'ora di inizio e l’ora di fine. Non viene eseguita prima dell'ora di inizio o dopo l'ora di fine. Se la pipeline viene sospesa, non viene eseguita indipendentemente dall'ora di inizio e di fine. Per essere eseguita, una pipeline non deve essere in pausa.
 
-In realtà, non è la pipeline a essere eseguita, bensì le attività all’interno della pipeline. Tuttavia, l’esecuzione avviene nel contesto generale della pipeline. Vedere la sezione relativa alla [pianificazione e all’esecuzione](data-factory-scheduling-and-execution.md)per comprendere il funzionamento della pianificazione e dell'esecuzione in Data factory di Azure.
+In realtà, non è la pipeline a essere eseguita, bensì le attività all’interno della pipeline. Tuttavia, l’esecuzione avviene nel contesto generale della pipeline. Per comprendere il funzionamento della pianificazione e dell'esecuzione in Data factory di Azure, vedere la sezione [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md).
 
 ## Gestione e monitoraggio  
-Una volta distribuita una pipeline, è possibile gestire e monitorare le pipeline, le sezioni e le esecuzioni. Per ulteriori informazioni, vedere la sezione: [Monitoraggio e gestione delle pipeline](data-factory-monitor-manage-pipelines.md).
+Una volta distribuita una pipeline, è possibile gestire e monitorare le pipeline, le sezioni e le esecuzioni. Per altre informazioni, vedere la sezione [Monitorare e gestire le pipeline](data-factory-monitor-manage-pipelines.md).
 
 ## Passaggi successivi
 
 - Informazioni sulla [pianificazione e l'esecuzione in Data factory di Azure](data-factory-scheduling-and-execution.md).  
-- Per ulteriori informazioni sulle funzionalità di [spostamento dei dati](data-factory-data-movement-activities.md) e [trasformazione dei dati](data-factory-data-transformation-activities.md), vedere Data factory di Azure
+- Per altre informazioni sulle funzionalità di [spostamento dei dati](data-factory-data-movement-activities.md) e [trasformazione dei dati](data-factory-data-transformation-activities.md), vedere Data factory di Azure.
 - Informazioni sulla [gestione e il monitoraggio in Data factory di Azure](data-factory-monitor-manage-pipelines.md).
 - [Creare e distribuire la prima pipeline](data-factory-build-your-first-pipeline.md). 
 
-
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md) richiede solo alcuni minuti.
  
 
    
@@ -335,4 +329,4 @@ Una volta distribuita una pipeline, è possibile gestire e monitorare le pipelin
 
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

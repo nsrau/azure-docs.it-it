@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -22,7 +22,7 @@
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
-In questa guida verrà descritto come utilizzare gli argomenti e le sottoscrizioni del bus di servizio da applicazioni Ruby. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni, creazione di filtri per le sottoscrizioni, invio di messaggi** a un argomento, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**. Per ulteriori informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi](#NextSteps).
+In questa guida verrà descritto come utilizzare gli argomenti e le sottoscrizioni del bus di servizio da applicazioni Ruby. Gli scenari presentati includono **creazione di argomenti e sottoscrizioni, creazione di filtri per le sottoscrizioni, invio di messaggi** a un argomento, **ricezione di messaggi da una sottoscrizione** ed **eliminazione di argomenti e sottoscrizioni**. Per ulteriori informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
 
 ## Informazioni su argomenti e sottoscrizioni del bus di servizio
 
@@ -58,7 +58,7 @@ Il cmdlet PowerShell che è stato eseguito per creare lo spazio dei nomi del bus
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]È anche possibile trovare questa chiave se si accede al [portale di gestione di Azure](http://manage.windowsazure.com/) e si passa alle informazioni di connessione per lo spazio dei nomi del bus di servizio.
+> [AZURE.NOTE]È anche possibile trovare questa chiave se si accede al [Portale di Azure](http://manage.windowsazure.com/) e si passa alle informazioni di connessione per lo spazio dei nomi del bus di servizio.
 
 ## Creare un'applicazione Ruby
 
@@ -201,7 +201,7 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 ## Come eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il [portale di gestione di Azure](https://manage.windowsazure.com) o a livello di codice. Nell'esempio seguente viene illustrato come eliminare l'argomento denominato "test-topic".
+Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il [Portale di Azure](https://manage.windowsazure.com) o a livello di codice. Nell'esempio seguente viene illustrato come eliminare l'argomento denominato "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -218,4 +218,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 -	Archivio [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

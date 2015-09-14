@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Chiamare un'API personalizzata da un client Android | Microsoft Azure" 
-	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Android che usa Servizi mobili di Microsoft Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Chiamare un'API personalizzata da un client Android | Microsoft Azure"
+	description="Informazioni su come definire un'API personalizzata e chiamarla da un'app per Android che usa Servizi mobili di Microsoft Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 # Chiamare un'API personalizzata dal client
@@ -60,6 +60,5 @@ Dopo avere creato un'API personalizzata e averla chiamata dall'app per Android, 
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

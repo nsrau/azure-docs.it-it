@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Attività di spostamento dei dati" 
-	description="Informazioni sulle entità di Data factory che è possibile usare per spostare dati in una pipeline di Data factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Attività di spostamento dei dati"
+	description="Informazioni sulle entità di Data factory che è possibile usare per spostare dati in una pipeline di Data factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # Attività di spostamento dei dati
@@ -93,4 +93,8 @@ Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione
 
 Quando viene eseguita un'attività di copia, nella sezione **typeProperties** vengono visualizzate proprietà diverse a seconda dei tipi di origini e sink. Ciascuna pagina relativa agli archivi dati elencati sopra contiene informazioni su queste proprietà, che variano in base al tipo di archivio dati.
 
-<!---HONumber=August15_HO7-->
+
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md) richiede solo alcuni minuti.
+
+<!---HONumber=September15_HO1-->

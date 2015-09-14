@@ -171,7 +171,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -437,21 +437,21 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
+| Decimale | Decimale |
 | FILESTREAM attribute (varbinary(max)) | Byte |
 | Float | Double |
-| image | Byte | 
+| immagine | Byte | 
 | int | Int32 | 
-| money | Decimal |
+| money | Decimale |
 | nchar | String, Char |
 | ntext | String, Char |
-| numeric | Decimal |
+| numeric | Decimale |
 | nvarchar | String, Char |
 | real | Single |
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimal | 
+| smallmoney | Decimale | 
 | sql\_variant | Object * |
 | text | String, Char |
 | time | TimeSpan |
@@ -467,8 +467,11 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md) richiede solo alcuni minuti.
+
 
 
 	 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

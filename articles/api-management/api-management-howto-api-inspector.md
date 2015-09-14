@@ -1,26 +1,30 @@
 <properties 
-	pageTitle="Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure" 
-	description="Informazioni su come tenere traccia delle chiamate usando Controllo API in Gestione API di Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure"
+	description="Informazioni su come tenere traccia delle chiamate usando Controllo API in Gestione API di Azure."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="sdanie"/>
 
 # Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
 
-Gestione API fornisce uno strumento per il controllo delle API per aiutare gli sviluppatori ad eseguire il debug e la risoluzione dei problemi correlati alle API. È possibile usare Controllo API sia a livello di codice dalle applicazioni sia direttamente dal portale per sviluppatori. Questa guida contiene una procedura dettagliata sull'uso di Controllo API.
+Gestione API fornisce uno strumento per il controllo delle API per aiutare gli sviluppatori ad eseguire il debug e la risoluzione dei problemi correlati alle API. È possibile usare Controllo API sia a livello di codice sia direttamente dal portale per sviluppatori.
 
->[AZURE.NOTE]Oltre alle operazioni di analisi, Controllo API consente anche di tenere traccia delle valutazioni delle [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx). Per una dimostrazione, vedere il video [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanzare rapidamente al minuto 21:00.
+Oltre alle operazioni di analisi, Controllo API consente anche di tenere traccia delle valutazioni delle [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx). Per una dimostrazione, vedere il video [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanzare rapidamente al minuto 21:00.
+
+Questa guida contiene una procedura dettagliata sull'uso di Controllo API.
+
+>[AZURE.NOTE]Le tracce di Controllo API sono disponibili solo per gli [amministratori](api-management-howto-create-groups.md) dell'istanza del servizio Gestione API. Le tracce di Controllo API vengono restituite solo durante le chiamata a un [prodotto protetto](api-management-howto-add-products.md) che richiede una chiave di sottoscrizione.
 
 ## <a name="trace-call"> </a> Usare Controllo API per tenere traccia di una chiamata
 
@@ -226,7 +230,7 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 ## <a name="next-steps"> </a>Passaggi successivi
 
 -	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
--	Per una demo sulla traccia delle espressioni di criteri, vedere il video [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avanzare rapidamente al minuto 21:00 per vedere la demo.
+-	Per una demo sulla traccia delle espressioni di criteri, vedere il video [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avanzare rapidamente al minuto 21:00 per vedere la demo.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -257,4 +261,4 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

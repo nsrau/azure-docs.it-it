@@ -3,9 +3,9 @@
 	description="Configurazione di una macchina virtuale per l'analisi scientifica dei dati con SQL Server e IPython Server."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab" 
+	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun" />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
 
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

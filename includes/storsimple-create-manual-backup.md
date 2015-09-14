@@ -6,13 +6,13 @@
 
 3. Quando si sceglie una di queste opzioni, verrà richiesto di confermare. Fare clic su **Sì**.
 
-    ![Creazione del backup1 manuale](./media/storsimple-create-manual-backup/HCS_CreateManualBackup1-include.png)
+    ![Creare il backup manuale](./media/storsimple-create-manual-backup/HCS_CreateManualBackup1-include.png)
  
     Verrà avviato un processo di creazione di snapshot. Una volta completata la creazione del processo, verrà visualizzata una notifica nella parte inferiore della pagina.
 
 4. Per monitorare il processo, fare clic su **Visualizza processo** nell'area di notifica (nella parte inferiore della pagina).
 
-    ![Creazione del backup2 manuale](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
+    ![Monitorare il backup manuale](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 
 5. Una volta completato il processo di backup, andare alla scheda **Catalogo di backup**.
 
@@ -20,4 +20,4 @@
 
   Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

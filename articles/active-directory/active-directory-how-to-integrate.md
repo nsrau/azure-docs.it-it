@@ -1,20 +1,20 @@
 <properties
    pageTitle="Come eseguire l'integrazione con Azure Active Directory"
-   description="Guida ai vantaggi e alle risorse per l'integrazione con Azure Active Directory."
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Guida ai vantaggi e alle risorse per l'integrazione con Azure Active Directory."
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/30/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 # Integrazione con Azure Active Directory
 
@@ -50,7 +50,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 
 **Promuovere l'applicazione per farla conoscere a milioni di organizzazioni che usano già Azure AD.** Gli utenti che esplorano questi Marketplace usano già uno o più servizi cloud, di conseguenza rappresentano il pubblico di destinazione ideale per l'applicazione. Altre informazioni sulla promozione dell'applicazione in [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/).
 
-**Quando gli utenti effettuano l'iscrizione all'applicazione, questa verrà visualizzata nel riquadro di accesso di Azure AD e nell'icona di avvio delle app di Office 365.** Questo consente tornare all'applicazione in modo facile e veloce, migliorando così il coinvolgimento degli utenti. Altre informazioni sul [riquadro di accesso di Azure AD](https://msdn.microsoft.com/library/azure/dn308586.aspx).
+**Quando gli utenti effettuano l'iscrizione all'applicazione, questa verrà visualizzata nel riquadro di accesso di Azure AD e nell'icona di avvio delle app di Office 365.** Questo consente tornare all'applicazione in modo facile e veloce, migliorando così il coinvolgimento degli utenti. Altre informazioni sul [riquadro di accesso di Azure AD](active-directory-saas-access-panel-introduction.md).
 
 ### Comunicazione da dispositivo a servizio e da servizio a servizio sicura
 
@@ -78,7 +78,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 **Protocolli standard del settore.** Microsoft si impegna a supportare gli standard del settore. Azure AD supporta i protocolli di autenticazione SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2. L'API Graph è conforme a OData 4.0. Se l'applicazione supporta già i protocolli SAML 2.0 o OpenID Connect 1.0 per l'accesso federato, l'aggiunta del supporto per Azure AD è un'operazione semplice. Altre informazioni sui [protocolli di autenticazione supportati da Azure AD](../authentication-protocols.md).
 
-**Librerie open source.** Per accelerare lo sviluppo, Microsoft fornisce librerie open source completamente supportate per le piattaforme e i linguaggi più diffusi. Il codice sorgente è concesso in licenza secondo i termini della licenza Apache, versione 2.0 con la libertà di personalizzarlo e di contribuire ai progetti. Altre informazioni sulle [librerie open source di Azure AD](https://msdn.microsoft.com/library/azure/dn151135.aspx).
+**Librerie open source.** Per accelerare lo sviluppo, Microsoft fornisce librerie open source completamente supportate per le piattaforme e i linguaggi più diffusi. Il codice sorgente è concesso in licenza secondo i termini della licenza Apache, versione 2.0 con la libertà di personalizzarlo e di contribuire ai progetti. Ulteriori informazioni sulle [librerie di autenticazione Azure AD](active-directory-authentication-libraries.md).
 
 ### Presenza a livello globale e disponibilità elevata
 
@@ -90,4 +90,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

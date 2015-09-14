@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="Dati di esempio nell'archivio BLOB di Azure| Microsoft Azure" 
-	description="Dati di esempio nell'archivio BLOB di Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Dati di esempio nell'archivio BLOB di Azure| Microsoft Azure"
+	description="Dati di esempio nell'archivio BLOB di Azure"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Dati di esempio nell'archivio BLOB di Azure
 
 In questo documento vengono descritti i dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento usando un codice Python di esempio. Di seguito, è riportata la procedura per eseguire questa operazione:
 
+## Download e sotto-campionamento dei dati
 1. Scaricare i dati dall'archivio BLOB di Azure usando il servizio BLOB del seguente codice Python di esempio: 
 
 	    from azure.storage import BlobService
@@ -45,7 +46,7 @@ In questo documento vengono descritti i dati di campionamento che è possibile m
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Eseguire il campionamento dei dati usando `random.choice` di `numpy` nel modo seguente:
+3. Eseguire il sotto-campionamento dei dati usando `numpy`di `random.choice` nel modo seguente:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -55,7 +56,7 @@ In questo documento vengono descritti i dati di campionamento che è possibile m
 
 	A questo punto, è possibile utilizzare il frame di dati precedente con il campione dell'1% per esplorare ulteriormente i dati e creare funzionalità.
 
-##<a name="heading"></a>Connessione ad Azure Machine Learning
+##<a name="heading"></a>Caricamento e lettura dei dati in Azure Machine Learning
 
 È possibile usare il seguente codice di esempio per campionare i dati e usarli direttamente in Azure ML:
 
@@ -96,4 +97,4 @@ In questo documento vengono descritti i dati di campionamento che è possibile m
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

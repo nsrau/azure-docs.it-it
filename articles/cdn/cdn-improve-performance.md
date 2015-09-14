@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Rete CDN - Miglioramento delle prestazioni attraverso la compressione dei file" 
-	description="È possibile migliorare la velocità di trasferimento dei file e aumentare le prestazioni di caricamento delle pagine comprimendo i file." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Rete CDN - Miglioramento delle prestazioni attraverso la compressione dei file"
+	description="È possibile migliorare la velocità di trasferimento dei file e aumentare le prestazioni di caricamento delle pagine comprimendo i file."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Compressione dei file per migliorare le prestazioni
@@ -54,4 +54,4 @@ Esistono due modi con cui la rete CDN può supportare la compressione:
 1. Per endpoint di streaming abilitati alla rete CDN dei servizi multimediali, la compressione è abilitata per impostazione predefinita per i seguenti tipi di contenuto: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Non è possibile attivare o disattivare la compressione per i tipi indicati tramite il portale di Azure.  
 2. Una sola versione del file (compressa o non compressa) verrà memorizzata nella cache del server edge. La richiesta di una versione diversa genererà una transcodifica del contenuto dal server edge.  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

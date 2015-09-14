@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Panoramica del bilanciamento del carico di Azure | Microsoft Azure"
-   description="Panoramica di funzionalità, architettura e implementazione del bilanciamento del carico di Azure. Informazioni sul funzionamento del bilanciamento del carico e su come usarlo per il cloud"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Panoramica di funzionalità, architettura e implementazione del bilanciamento del carico di Azure. Informazioni sul funzionamento del bilanciamento del carico e su come usarlo per il cloud"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/10/2015"
+	ms.author="joaoma"/>
 
 
 # Panoramica del bilanciamento del carico 
@@ -21,7 +21,7 @@ Il bilanciamento del carico di Azure offre elevati livelli di disponibilità e p
  
 Il servizio può essere configurato per:
 
-- Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. In questo caso, si parla di [bilanciamento del carico Internet](load-balancer-overview.md).
+- Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. In questo caso, si parla di [bilanciamento del carico Internet](load-balancer-internet-overview.md).
 - Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. In questo caso, si parla di [bilanciamento del carico interno](load-balancer-internal-overview.md).
 - 	Inoltrare il traffico esterno a una specifica istanza di macchina virtuale
 
@@ -99,4 +99,4 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 [Introduzione - Bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

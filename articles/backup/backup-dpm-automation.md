@@ -7,20 +7,14 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags ms.service="”backup” ms.workload=”storage-backup-recovery” ms.tgt_pltfrm=”na” ms.devlang=”na” ms.topic=”article” ms.date=”08/18/2015” ms.author=”jimpark”; “aashishr”; “sammehta”"/>
 
-# Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante Azure PowerShell
-Questo articolo illustra come usare Azure PowerShell per configurare Backup di Azure in un server DPM e per gestire le operazioni di backup e ripristino.
 
-## Configurazione dell'ambiente di Azure PowerShell
-Prima di poter usare Azure PowerShell per gestire i backup da Data Protection Manager ad Azure, sarà necessario disporre dell'ambiente appropriato in Azure PowerShell. All'inizio della sessione di Azure PowerShell, assicurarsi di eseguire il comando seguente per importare i moduli appropriati e fare riferimento correttamente ai cmdlet DPM:
+# Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
+Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server DPM, e per gestire le operazioni di backup e ripristino.
+
+## Configurazione dell'ambiente di PowerShell
+Prima di poter usare PowerShell per gestire i backup da Data Protection Manager ad Azure, sarà necessario disporre dell'ambiente appropriato in PowerShell. All'inizio della sessione di PowerShell, assicurarsi di eseguire il comando seguente per importare i moduli appropriati e fare riferimento correttamente ai cmdlet DPM:
 
 ```
 PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
@@ -51,7 +45,7 @@ PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” �
 ### Installazione dell'agente di Backup di Azure in un server DPM
 Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall'[Area download Microsoft](http://aka.ms/azurebackup_agent).o dalla pagina Dashboard dell’archivio di backup. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\\Downloads*.
 
-Per installare l'agente, eseguire il comando seguente in una console di Azure PowerShell con privilegi elevati **nel server DPM**:
+Per installare l'agente, eseguire il comando seguente in una console di PowerShell con privilegi elevati **nel server DPM**:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -265,6 +259,8 @@ Quando si esegue il backup di un'origine dati per la prima volta, DPM deve crear
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
+### Modifica delle dimensioni della replica DPM e volume del punto di ripristino
+È inoltre possibile modificare le dimensioni del volume della replica DPM e del volume copia shadow utilizzando il cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/it-IT/library/hh881618(v=sc.20).aspx) come nell'esempio seguente: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Commit delle modifiche nel gruppo protezione dati
 Infine, è necessario eseguire il commit delle modifiche affinché DPM possa eseguire il backup in base alla nuova configurazione del gruppo protezione dati. A tale scopo, usare il cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758).
@@ -272,7 +268,6 @@ Infine, è necessario eseguire il commit delle modifiche affinché DPM possa ese
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-
 ## Visualizzare i punti di backup
 È possibile usare il cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) per ottenere un elenco di tutti i punti di ripristino per un'origine dati. In questo esempio vengono recuperati tutti i gruppi protezione dati nel server DPM che verranno archiviati in una matrice ```$PG```, vengono ottenute le origini dati corrispondenti a ```$PG[0]``` e vengono ottenuti tutti i punti di ripristino per un'origine dati.
 
@@ -306,4 +301,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 ## Passaggi successivi
 Per ulteriori informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di Azure DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

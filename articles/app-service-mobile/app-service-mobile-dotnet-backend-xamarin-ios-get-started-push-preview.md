@@ -3,7 +3,7 @@
 	description="Informazioni su come usare il servizio app di Azure per inviare notifiche push all'app Xamarin.iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -209,4 +209,4 @@ L'esercitazione è stata completata.
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

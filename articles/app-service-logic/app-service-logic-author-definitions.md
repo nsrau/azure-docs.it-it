@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creare definizioni di app per la logica" 
-	description="Informazioni su come scrivere la definizione JSON per le app per la logica." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Creare definizioni di app per la logica"
+	description="Informazioni su come scrivere la definizione JSON per le app per la logica."
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="06/16/2015"
 	ms.author="stepsic"/>
 	
 #Creare definizioni di app per la logica
@@ -99,7 +99,7 @@ A questo punto, si vuole ottenere un contenuto completamente diverso in base al 
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/it-it/default.aspx",
+                "microsoft": "https://www.microsoft.com/it-IT/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@ Nell'app per la logica figlio si userà quindi la funzione [`triggerBody()`](htt
 }
 ```
 
-Altre informazioni sono disponibili nell'articolo relativo all'[azione di tipo app per la logica su MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
+Altre informazioni sono disponibili nell'articolo relativo all'[azione di tipo app per la logica su MSDN](https://msdn.microsoft.com/it-IT/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]La finestra di progettazione di app per la logica non supporta le azioni di tipo app per la logica, quindi sarà necessario modificare la definizione manualmente.
 
@@ -250,7 +250,7 @@ In genere, è opportuno poter scrivere una *procedura di correzione*, cioè la l
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/it-it/default.aspx",
+                "https://www.microsoft.com/it-IT/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@ Per eseguire più azioni in parallelo, invece che in sequenza, è necessario rim
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/it-it/default.aspx",
+                "https://www.microsoft.com/it-IT/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -688,4 +688,4 @@ Quindi, nella richiesta `PUT` effettiva per l'app per la logica è possibile for
 
 In ogni ambiente è quindi possibile fornire un valore diverso per il parametro `connection`. Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

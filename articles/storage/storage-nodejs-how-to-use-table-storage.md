@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Come usare l'archiviazione tabelle da Node.js | Microsoft Azure" 
-	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti usando l'API Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Come usare l'archiviazione tabelle da Node.js | Microsoft Azure"
+	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti usando l'API Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
-
 
 
 # Come usare l'archiviazione tabelle da Node.js
@@ -48,17 +46,18 @@ Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK pe
 
 1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminale** (Mac) o **Bash** (Unix) e passare alla cartella in cui è stata creata l'applicazione.
 
-2.  Digitare **npm install azure-storage** nella finestra di comando, che dovrebbe restituire il seguente output:
+2.  Digitare **npm install azure-storage** nella finestra di comando. L'output da questo comando sarà simile al seguente esempio:
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. All'interno di questa cartella si trova il pacchetto **azure-storage**, che contiene le librerie necessarie per accedere all'archiviazione.
 
@@ -186,7 +185,7 @@ Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'
 >    
 > 3. Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore di ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` che indica che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
     
-Con **updateEntity** e **mergeEntity**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, è necessario utilizzare **insertOrReplaceEntity** oppure **insertOrMergeEntity**.
+Con **updateEntity** e **mergeEntity**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, utilizzare **insertOrReplaceEntity** oppure **insertOrMergeEntity**.
 
 In `result` per le operazioni di aggiornamento riuscite correttamente sarà incluso l'**Etag** dell'entità aggiornata.
 
@@ -277,9 +276,9 @@ Poiché **select** non viene usato, vengono restituiti tutti i campi. Per esegui
 	  }
 	});
 
-Se la query ha esito positivo, `result.entries` conterrà una matrice delle entità che corrispondono alla query. Se la query non è in grado di restituire tutte le entità, `result.continuationToken` sarà un valore diverso da -*null* e potrà essere usato come terzo parametro di **queryEntities** per recuperare più risultati. Per la query iniziale, il terzo parametro deve essere *null*.
+Se la query ha esito positivo, `result.entries` conterrà una matrice delle entità che corrispondono alla query. Se la query non è in grado di restituire tutte le entità, `result.continuationToken` sarà un valore diverso da -*null* e potrà essere usato come terzo parametro di **queryEntities** per recuperare più risultati. Per la query iniziale, utilizzare *null* per il terzo parametro.
 
-### Come eseguire query su un subset di proprietà di entità
+### Eseguire una query su un subset di proprietà di entità
 
 Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa tecnica permette di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola **select** e passare i nomi dei campi da restituire. Ad esempio, la query seguente restituisce solo i campi **description** e **dueDate**.
 
@@ -288,7 +287,7 @@ Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## Come eliminare un'entità
+## Eliminare un'entità
 
 È possibile eliminare un'entità usando le relative chiavi di riga e di partizione. In questo esempio, l'oggetto **task1** contiene i valori **RowKey** e **PartitionKey** dell'entità da eliminare. L'oggetto viene quindi passato al metodo **deleteEntity**.
 
@@ -303,9 +302,9 @@ Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa
 	  }
 	});
 
-> [AZURE.NOTE]Quando si eliminano elementi, è bene valutare l'uso di ETag per assicurarsi che l'elemento non sia stato modificato da un altro processo. Vedere [Procedura: Aggiornare un'entità][] per informazioni sull'uso di ETag.
+> [AZURE.NOTE]Quando si eliminano elementi, è bene valutare l'uso di ETag per assicurarsi che l'elemento non sia stato modificato da un altro processo. Vedere [Aggiornare un'entità](#update-an-entity) per informazioni sull'uso di ETag.
 
-## Come eliminare una tabella
+## Eliminare una tabella
 
 Nell'esempio di codice seguente viene illustrato come eliminare una tabella da un account di archiviazione.
 
@@ -317,9 +316,9 @@ Nell'esempio di codice seguente viene illustrato come eliminare una tabella da u
 
 Se non si è certi dell'esistenza della tabella, usare **deleteTableIfExists**.
 
-## Procedura: utilizzare i token di continuazione
+## Utilizzare i token di continuazione
 
-Quando si esegue una query di tabelle di grandi quantità di risultati, è necessario ricercare i token di continuazione. Potrebbero essere disponibili grandi quantità di dati per la query di cui si potrebbe non essere consapevoli se non si compila il riconoscimento della presenza di un token di continuazione.
+Quando si esegue una query di tabelle di grandi quantità di risultati, ricercare i token di continuazione. Potrebbero essere disponibili grandi quantità di dati per la query di cui si potrebbe non essere consapevoli se non si compila il riconoscimento della presenza di un token di continuazione.
 
 I risultati dell'oggetto restituito quando si esegue una query su entità imposta una proprietà `continuationToken` quando è presente un token di questo tipo. È possibile quindi utilizzarlo quando si esegue una query per continuare a spostarsi tra le entità della partizione e della tabella.
 
@@ -346,7 +345,7 @@ Se si osserva l’oggetto `continuationToken`, sono visualizzate proprietà come
 
 È inoltre disponibile un esempio di continuazione all’interno dell'archivio Node.js di Archiviazione di Azure su GitHub, cercare `examples/samples/continuationsample.js`.
 
-## Procedura: usare le firme di accesso condiviso di Azure
+## Usare le firme di accesso condiviso di Azure
 
 Le firme di accesso condiviso rappresentano un modo sicuro per fornire accesso granulare alle tabelle senza specificare il nome o le chiavi dell'account di archiviazione. Le firme di accesso condiviso vengono spesso usate per fornire accesso limitato ai dati, ad esempio per consentire a un'app per dispositivi mobili di eseguire query sui record.
 
@@ -451,4 +450,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

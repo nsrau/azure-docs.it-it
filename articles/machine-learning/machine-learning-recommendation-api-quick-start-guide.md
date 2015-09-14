@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Guida introduttiva: API Recommendations di Machine Learning | Microsoft Azure" 
-	description="Recommendations di Azure Machine Learning - Guida introduttiva" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Guida introduttiva: API Recommendations di Machine Learning | Microsoft Azure"
+	description="Recommendations di Azure Machine Learning - Guida introduttiva"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 # Guida introduttiva per l'API Recommendations di Machine Learning
@@ -40,9 +40,9 @@ Tutti i passaggi precedenti vengono eseguiti tramite l'API Recommendations di Ma
 
 * Il numero massimo di modelli per ogni sottoscrizione è 10.
 * Il numero massimo di elementi che possono essere inclusi nel catalogo è 100.000.
-* Il numero massimo di punti di utilizzo mantenuti è \~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
+* Il numero massimo di punti di utilizzo mantenuti è ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
 * Le dimensioni massime dei dati che possono essere inviati in POST (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
-* Il numero di transazioni al secondo per la compilazione di un modello di raccomandazione non attivo è di \~2 TPS. Un modello di raccomandazione attivo può includere un massimo di 20 TPS.
+* Il numero di transazioni al secondo per la compilazione di un modello di raccomandazione non attivo è di ~2 TPS. Un modello di raccomandazione attivo può includere un massimo di 20 TPS.
 
 ##Integrazione
 
@@ -673,4 +673,4 @@ XML OData
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

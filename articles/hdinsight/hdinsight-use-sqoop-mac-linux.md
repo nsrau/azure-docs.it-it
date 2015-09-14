@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
-
 
 #Usare Sqoop con Hadoop in HDInsight (SSH)
 
@@ -51,7 +50,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Informazioni sullo scenario
 
-I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di Hive denominata **hivesampletable** che fa riferimento al file di dati presente in **wasb:///hive/warehouse/hivesampletable**. La tabella contiene alcuni dati relativi al dispositivo mobile. Lo schema della tabella Hive è il seguente:
+I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di Hive denominata **hivesampletable** che fa riferimento al file di dati presente in ****wasb:///hive/warehouse/hivesampletable**. La tabella contiene alcuni dati relativi al dispositivo mobile. Lo schema della tabella Hive è il seguente:
 
 | Campo | Tipo di dati |
 | ----- | --------- |
@@ -67,7 +66,7 @@ I cluster HDInsight vengono forniti con alcuni dati di esempio. Una tabella di H
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel database SQL di Azure o in SQL Server in una tabella denominata **mobiledata**, quindi occorrerà importare nuovamente la tabella in HDInsight nel percorso **wasb:///tutorials/usesqoop/importeddata**.
+Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel database SQL di Azure o in SQL Server in una tabella denominata **mobiledata**, quindi occorrerà importare nuovamente la tabella in HDInsight nel percorso ****wasb:///tutorials/usesqoop/importeddata**.
 
 ##Creare un database
 
@@ -160,7 +159,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 2. Utilizzare il comando seguente per creare un collegamento al driver JDBC di SQL Server dalla directory lib di Sqoop. Ciò consentirà a Sqoop utilizzare tale driver per comunicare con il database SQL:
 
-        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
+        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /usr/hdp/current/sqoop-client/lib/sqljdbc41.jar
 
 3. Utilizzare il comando seguente per verificare che Sqoop possa visualizzare il database SQL:
 
@@ -172,7 +171,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da **wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
+    In questo modo, si indicherà a Sqoop di connettersi al database **sqooptest** e di esportare dati da ****wasb:///hive/warehouse/hivesampletable** (file fisici per la tabella *hivesampletable*) alla tabella **mobiledata**.
 
 5. Al termine dell'esecuzione del comando, utilizzare le informazioni seguenti per connettersi al database tramite TSQL:
 
@@ -187,7 +186,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 ##Importazione con Sqoop
 
-1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight:
+1. Utilizzare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory ****wasb:///tutorials/usesqoop/importeddata** in HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -264,4 +263,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazio
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

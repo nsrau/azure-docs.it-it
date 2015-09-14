@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL"
-	description="Questa esercitazione illustra come creare una pipeline di dati di esempio che consente di copiare dati da un BLOB a un'istanza del database SQL di Azure."
+	pageTitle="Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor"
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure con un’attività di copia utilizzando Data Factory Editor nel portale di Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
-# Esercitazione: Creare e monitorare una data factory mediante l'editor di Data factory
+# Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -42,7 +42,7 @@ In questo passaggio è possibile usare il portale di anteprima di Azure per crea
 
 1.	Dopo l'accesso al [portale di anteprima di Azure][azure-preview-portal], fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e infine fare clic su **Data factory** nel pannello **Analisi dei dati**. 
 
-	![Nuovo->Data factory][image-data-factory-new-datafactory-menu]
+	![Nuovo->DataFactory][image-data-factory-new-datafactory-menu]
 
 6. Nel pannello **Nuova data factory**:
 	1. Immettere **ADFTutorialDataFactory** come **nome**. 
@@ -381,6 +381,9 @@ Per un elenco di attività supportate, vedere l'argomento [Pipeline e attività]
  
 Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e gestire Data factory di Azure con Azure PowerShell][monitor-manage-using-powershell].
 
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md) richiede solo alcuni minuti.
+
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -498,4 +501,4 @@ Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e ges
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

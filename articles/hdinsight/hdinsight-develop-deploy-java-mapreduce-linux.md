@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 # Sviluppare programmi MapReduce Java per Hadoop in HDInsight
@@ -298,4 +298,4 @@ In questo documento si è appreso come sviluppare un processo Java MapReduce. Ve
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

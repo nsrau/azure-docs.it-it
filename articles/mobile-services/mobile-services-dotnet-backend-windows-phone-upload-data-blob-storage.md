@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Usare Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Phone) | Microsoft Azure" 
-	description="Informazioni su come usare Servizi mobili per caricare immagini nel servizio di archiviazione BLOB di Azure." 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="Usare Servizi mobili per caricare immagini nell'archiviazione BLOB (Windows Phone) | Microsoft Azure"
+	description="Informazioni su come usare Servizi mobili per caricare immagini nel servizio di archiviazione BLOB di Azure."
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Caricare immagini in Archiviazione di Azure mediante Servizi mobili
@@ -27,7 +27,7 @@ Non è possibile distribuire in modo sicuro con l'app client le credenziali nece
 
 Questa esercitazione consente di aggiungere funzionalità al progetto di app di esempio [GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) per scattare foto e caricare le immagini in Azure tramite una firma di accesso condiviso generata da Servizi mobili.
 
-##Prerequisiti 
+##Prerequisiti
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -54,7 +54,7 @@ Per poter usare una firma di accesso condiviso allo scopo di caricare immagini d
   	La libreria client per i servizi di archiviazione di Azure verrà aggiunta al progetto.
 
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -78,7 +78,4 @@ Per poter usare una firma di accesso condiviso allo scopo di caricare immagini d
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

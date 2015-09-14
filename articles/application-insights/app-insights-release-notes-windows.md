@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Note sulla versione per Application Insights" 
-	description="Gli aggiornamenti più recenti." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Note sulla versione per Application Insights per Windows"
+	description="Gli aggiornamenti più recenti."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="sergkanz"/>
  
 # Note sulla versione per Application Insights SDK per Windows Phone e Store
@@ -77,4 +77,4 @@ Anteprima del 28/04/2015
 
 Per le versioni precedenti non sono disponibili le note sulla versione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

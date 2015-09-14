@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Come usare Hub di notifica da Node.js
@@ -216,6 +216,5 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso di Hub di notifica
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

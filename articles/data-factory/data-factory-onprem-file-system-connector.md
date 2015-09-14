@@ -399,7 +399,7 @@ I dati vengono copiati in un nuovo file ogni ora e il percorso per il BLOB rifle
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -477,6 +477,7 @@ fileName | Specificare il nome del file in **folderPath** se si desidera che la 
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
 Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <p>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).</p><p>Esempio 1: "fileFilter": "*.log"</p>Esempio 2: "fileFilter": 2014-1-?.txt"</p><p>**Nota**: fileFilter è applicabile per un set di dati di input FileShare</p> | No
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Vedere la sezione [Supporto della compressione](#compression-support) per ulteriori dettagli. | No |
 
 > [AZURE.NOTE]filename e fileFilter non possono essere usati contemporaneamente.
 
@@ -556,6 +557,8 @@ Se il formato è impostato su **AvroFormat**, non è necessario specificare prop
 	
 Per usare il formato Avro in una tabella Hive successiva, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
 ## Proprietà del tipo per l'attività di copia di una condivisione file
 
 **FileSystemSource** e **FileSystemSink** attualmente non supportano alcuna proprietà.
@@ -573,4 +576,4 @@ Per usare il formato Avro in una tabella Hive successiva, fare riferimento all'[
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

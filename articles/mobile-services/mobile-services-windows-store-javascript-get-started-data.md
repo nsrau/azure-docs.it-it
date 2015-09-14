@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Aggiungere Servizi mobili a un'app esistente (Windows Store JavaScript) | Microsoft Azure" 
-	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app JavaScript per Windows Store." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Aggiungere Servizi mobili a un'app esistente (Windows Store JavaScript) | Microsoft Azure"
+	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app JavaScript per Windows Store."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -26,14 +26,14 @@ In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Visual Studio 2013, che verrà usato per connettere il progetto di app di Windows Store a Servizi mobili.
 
 ##Scaricare il progetto GetStartedWithData
 
 Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer Code Samples site], un progetto di app di Windows Store in Visual Studio 2013. L'interfaccia utente di questa app è identica a quella dell'app generata dalla guida introduttiva di Servizi mobili, ma in questo caso gli elementi aggiunti vengono archiviati nella memoria locale.
 
-1. Scaricare la versione JavaScript dell'app di esempio GetStartedWithData dal [sito degli esempi di codice di Developer Network]. 
+1. Scaricare la versione JavaScript dell'app di esempio GetStartedWithData dal [sito degli esempi di codice di Developer Network].
 
 2. In Visual Studio aprire il progetto scaricato, espandere la cartella **js** ed esaminare il file default.js.
 
@@ -52,7 +52,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7">
-<li><p>In Esplora soluzioni espandere le cartelle **services**, **mobile services**, **&lt;your_service>**, aprire il file di script service.js e osservare la nuova variabile globale, che presenta un aspetto simile al seguente:</p> 
+<li><p>In Esplora soluzioni espandere le cartelle **services**, **mobile services**, **&lt;your_service>**, aprire il file di script service.js e osservare la nuova variabile globale, che presenta un aspetto simile al seguente:</p>
 
 		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
                 "https://todolist.azure-mobile.net/",
@@ -81,7 +81,7 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
 3. Nel [portale di gestione] fare clic su **Servizi mobili** e quindi sul servizio mobile.
 
 4. Fare clic sulla scheda **Dati** e quindi su **Sfoglia**.
-  
+
    	Si noti che la tabella **TodoItem** ora contiene dati, con valori ID generati da Servizi mobili, e che alla tabella sono state aggiunte automaticamente colonne per garantire la corrispondenza con la classe TodoItem nell'app.
 
 5. Nell'app selezionare uno degli elementi nell'elenco, quindi tornare alla scheda Browse nel portale e fare clic su **Refresh**.
@@ -90,14 +90,14 @@ Questa esercitazione è basata sull'[app GetStartedWithMobileServices][Developer
 
 6. Nel file del progetto default.js sostituire la funzione **RefreshTodoItems** esistente con il codice seguente che consente di filtrare gli elementi completati:
 
-        var refreshTodoItems = function () {                     
-            // More advanced query that filters out completed items. 
+        var refreshTodoItems = function () {
+            // More advanced query that filters out completed items.
             todoTable.where({ complete: false })
                .read()
                .done(function (results) {
                    todoItems = new WinJS.Binding.List(results);
                    listItems.winControl.itemDataSource = todoItems.dataSource;
-               });            
+               });
         };
 
 7. Nell'app selezionare un altro elemento dell'elenco e fare clic sul pulsante **Refresh**.
@@ -139,6 +139,5 @@ In questa esercitazione vengono illustrate le nozioni di base per consentire a u
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

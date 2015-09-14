@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Dispositivo virtuale StorSimple | Microsoft Azure"
-	description="Informazioni su come creare, configurare, distribuire e gestire un dispositivo virtuale StorSimple con versione Update 1.0."
+   pageTitle="Dispositivo virtuale StorSimple Aggiornamento 1 | Microsoft Azure"
+	description="Informazioni su come creare, distribuire e gestire un dispositivo virtuale StorSimple in una rete virtuale di Microsoft Azure. (Si applica a StorSimple Aggiornamento 1)."
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Dispositivo virtuale StorSimple
+# Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
@@ -383,4 +383,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="aashishr"/>
 
 # Backup di macchine virtuali di Azure - Introduzione
@@ -92,48 +92,41 @@ La figura seguente mostra le relazioni tra le diverse entità di Backup di Azure
 
 4. In **Area** selezionare l'area geografica per l'insieme di credenziali. Si tenga presente che l'insieme di credenziali deve trovarsi nella stessa area geografica delle macchine virtuali che si desidera proteggere. Se si dispone di macchine virtuali situate in aree geografiche differenti, creare un insieme di credenziali in ciascuna di esse. Per archiviare i dati di backup non è necessario specificare account di archiviazione perché l'insieme di credenziali per il backup e il servizio Backup di Azure gestiranno questa operazione in modo automatico. ![Creare un insieme di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
 
-    >[AZURE.NOTE]Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato solo in specifiche aree geografiche. Controllare l'elenco delle [aree geografiche supportate](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
-
 5. Fare clic su **Crea insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale. ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino. ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino. Subito dopo la creazione dell'insieme di credenziali, assicurarsi di aver scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. Se si fa clic sull'insieme di credenziali per il backup, viene visualizzata la pagina **Guida introduttiva** in cui sono riportate le istruzioni per il backup delle macchine virtuali di Azure. ![Istruzioni per il backup delle macchine virtuali nella pagina Dashboard](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
-    >[AZURE.NOTE]Subito dopo la creazione dell'insieme di credenziali, assicurarsi di aver scelto l'opzione di ridondanza dell'archiviazione corretta. Leggere l'articolo relativo all'[impostazione dell'opzione di ridondanza nell'insieme di credenziali per il backup][vault-storage-redundancy].
 
 ### 2\. Agente di macchine virtuali
 Prima di iniziare ad eseguire il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure (agente VM) sia installato correttamente nella macchina virtuale. Per eseguire il backup della macchina virtuale, il servizio Backup di Azure installa un'estensione nell'agente di macchine virtuali. Poiché al momento della creazione della macchina virtuale l'agente VM è un componente opzionale, è necessario assicurarsi che la relativa casella di controllo sia selezionata prima di eseguire il provisioning della macchina virtuale.
 
 Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e all'[installazione dell'agente VM](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
->[AZURE.NOTE]Se si intende eseguire la migrazione della macchina virtuale dal data center locale a Azure, assicurarsi di scaricare e installare il file con estensione msi dell'agente VM prima di avviare il processo di migrazione. Questo vale anche per le macchine virtuali protette in Azure mediante Azure Site Recovery.
+## Limitazioni
 
-## Limitazioni durante l'anteprima
-
+- Il backup delle macchine virtuali IaaS (V2) non è supportato.
 - Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
 - Il backup di macchine virtuali con Archiviazione Premium non è supportato.
 - Il backup di macchine virtuali con più NIC (Network Interface Card) o presenti in una configurazione con bilanciamento del carico non è supportato.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
-- Il backup di macchine virtuali ripristinate mediante Azure Site Recovery non è supportato.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
 - Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato solo in specifiche aree geografiche. Controllare l'elenco delle [aree geografiche supportate](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 - Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi seguenti:
   - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
+- Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Ulteriori informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#multiple-dcs)
 
 Se si desidera includere funzionalità aggiuntive, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
 ## Passaggi successivi
 Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni relative a:
 
-- [Individuare, registrare e proteggere le macchine virtuali](backup-azure-vms.md)
+- [Backup delle macchine virtuali](backup-azure-vms.md)
 
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 
-+ Monitorare i processi di backup
+- [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

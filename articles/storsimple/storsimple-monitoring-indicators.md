@@ -1,21 +1,21 @@
 <properties 
-    pageTitle="Indicatori di monitoraggio di StorSimple | Microsoft Azure" 
-    description="Descrive i LED e gli avvisi utilizzati per monitorare lo stato del dispositivo StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="" />
+    pageTitle="Indicatori di monitoraggio di StorSimple | Microsoft Azure"
+	description="Descrive i diodi a emissione luminosa (LED) e gli avvisi sonori utilizzati per monitorare lo stato del dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/14/2015"
-    ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
-# Indicatori di monitoraggio di StorSimple   
+# Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo   
 
 ## Panoramica
 
@@ -33,9 +33,7 @@ Nel promemoria del presente articolo vengono descritti i vari indicatori LED di 
 
 Il pannello anteriore, noto anche come *pannello operativo* o *pannello delle operazioni.*, visualizza lo stato aggregato di tutti i moduli del sistema. Il pannello anteriore è identico sia sul dispositivo StorSimple che sullo chassis EBOD e viene illustrato di seguito.
 
-   ![][1]
-
-**Figura 1: Pannello anteriore del dispositivo**
+   ![Pannello anteriore del dispositivo][1]
  
 Il pannello anteriore include i seguenti indicatori:
 
@@ -72,10 +70,8 @@ Gli indicatori LED del modulo di alimentazione e raffreddamento (PCM) sono dispo
 
 Il dispositivo StorSimple dispone di un modulo PCM da 764 W con una batteria aggiuntiva. Nella figura seguente è illustrato il pannello LED per il dispositivo.
 
-   ![][2]
+   ![LED PCM per lo chassis principale][2]
 
-**Figura 2: LED PCM per lo chassis principale**
- 
 Legenda dei LED:
 
 1. Guasto dell’alimentazione CA
@@ -114,9 +110,7 @@ Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del d
 
 Lo chassis EBOD dispone di un PCM da 580 W senza batteria aggiuntiva. Il pannello PCM per lo chassis EBOD dispone di indicatori LED esclusivi per gli alimentatori e la ventola. Nella figura seguente vengono illustrati tali LED.
 
-   ![][3]
-
-**Figura 3: LED PCM per lo chassis EBOD**
+   ![LED PCM per lo chassis EBOD][3]
  
 È possibile utilizzare la tabella riportata di seguito per determinare lo stato del PCM.
 
@@ -138,10 +132,8 @@ Il dispositivo StorSimple contiene LED per il controller primario e i moduli del
 ### LED di monitoraggio per il controller primario
 La figura seguente facilita l’identificazione dei LED sul controller primario. Per facilitare l’orientamento, vengono elencati tutti i componenti.
 
-   ![][4]
+   ![LED di monitoraggio - controller primario][4]
  
-**Figura 4: LED di monitoraggio per il controller primario**
-
 Utilizzare la tabella seguente per determinare se il modulo controller funziona correttamente.
 
 ### Indicatori LED del controller  
@@ -162,10 +154,8 @@ Utilizzare la tabella seguente per determinare se il modulo controller funziona 
 
 Ogni controller EBOD SAS 6 Gb/s dispone di LED che indicano lo stato, come illustrato nella figura seguente.
 
-  ![][5]
+  ![LED di monitoraggio - chassis EBOD][5]
 
-**Figura 5: LED di monitoraggio per lo chassis EBOD**
- 
 Utilizzare la tabella seguente per determinare se il modulo controller EBOD funziona normalmente.
 
 ### Indicatori LED del modulo controller EBOD  
@@ -180,9 +170,7 @@ Le unità disco del dispositivo StorSimple sono collocate sia nello chassis prin
 
 Per le unità disco, lo stato dell’unità è indicato da un LED verde e un LED rosso-ambra montati sulla parte anteriore di ogni modulo supporto unità. Nella figura seguente vengono illustrati tali LED.
 
-  ![][6]
-
-**Figura 6: LED delle unità disco**
+  ![LED delle unità disco][6]
  
 Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che, a sua volta, influisce sullo stato generale del LED del pannello anteriore.
 
@@ -268,4 +256,4 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

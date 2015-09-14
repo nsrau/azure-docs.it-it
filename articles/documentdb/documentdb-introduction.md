@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduzione a Microsoft Azure DocumentDB - Versione di prova gratuita | Microsoft Azure" 
-	description="Informazioni su Azure DocumentDB, un account del database di documenti NoSQL, e su quali vantaggi può offrire alle applicazioni cloud e mobili. Viene inoltre illustrato come gestire i dati e come usarlo nello sviluppo di applicazioni." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Introduzione a Microsoft Azure DocumentDB - Versione di prova gratuita | Microsoft Azure"
+	description="Informazioni su Azure DocumentDB, un account del database di documenti NoSQL, e su quali vantaggi può offrire alle applicazioni cloud e mobili. Viene inoltre illustrato come gestire i dati e come usarlo nello sviluppo di applicazioni."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 # Introduzione a Microsoft Azure DocumentDB
@@ -103,7 +103,6 @@ Se non si dispone di un account Azure, è possibile:
 
 - Effettuare l'iscrizione alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/), che è valida 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. 
 - Gli abbonati a MSDN hanno invece diritto a [150 dollari statunitensi di crediti Azure gratuiti](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure. 
-- Oppure, se si desidera provare gratuitamente DocumentDB per 30 giorni senza fornire i dati della carta di credito, inviare un messaggio di posta elettronica all'indirizzo askdocdb@microsoft.com, includendo nell'oggetto del messaggio la dicitura "Introduzione alla documentazione, versione di valutazione di Azure". Si riceverà un messaggio contenente un codice promozionale fino all'esaurimento della disponibilità.
 
 Quindi, quando si è pronti per ulteriori informazioni, visitare il [percorso di formazione](http://azure.microsoft.com/documentation/learning-paths/documentdb/) per esplorare tutte le risorse di formazione disponibili.
 
@@ -111,4 +110,4 @@ Quindi, quando si è pronti per ulteriori informazioni, visitare il [percorso di
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

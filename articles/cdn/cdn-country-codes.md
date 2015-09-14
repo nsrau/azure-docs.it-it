@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Rete CDN - Codici paese" 
-	description="La funzionalità di filtro di paese utilizza i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Rete CDN - Codici paese"
+	description="La funzionalità di filtro di paese utilizza i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Codici paese
@@ -268,4 +268,4 @@ La funzionalità di **filtro di paese** utilizza i codici paese per definire i p
 | ZM | Zambia | |
 | ZW | Zimbabwe | |
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

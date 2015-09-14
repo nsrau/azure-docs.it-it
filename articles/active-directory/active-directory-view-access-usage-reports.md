@@ -39,8 +39,8 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 |	------												|	-----																						|
 |	**Report Anomalie dell'attività**
 |	[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md) |	Può indicare un tentativo di accedere senza tracciamento. |
-|	[Accessi dopo più errori](active-directory-sign-ins-after-multiple-failures.md) |	Può indicare un attacco di forza bruta riuscito. |
-|	[Accessi da più aree geografiche](active-directory-sign-ins-from-multiple-geographies.md) |	Può indicare che più utenti stanno accedendo con lo stesso account. |
+|	[Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md) |	Può indicare un attacco di forza bruta riuscito. |
+|	[Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md) |	Può indicare che più utenti stanno accedendo con lo stesso account. |
 |	[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	Può indicare un accesso riuscito in seguito a un prolungato tentativo di intrusione. |
 |	[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Può indicare un tentativo di accesso da dispositivi probabilmente infetti. |
 |	[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md) |	Può indicare eventi anomali nei modelli di utilizzo dell'accesso da parte degli utenti. |
@@ -76,7 +76,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 |	Utenti con anomalie dell'attività di accesso | | |	✓ |
 |	Utenti con credenziali perse | | |	✓ |
 |	**Log attività**
-|	Report di controllo | | |	✓ |
+|	Report di controllo |	✓ | | |
 |	Attività di reimpostazione password | | |	✓ |
 |	Attività di registrazione reimpostazione password | | |	✓ |
 |	Attività dei gruppi self-service | | |	✓ |
@@ -100,7 +100,9 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 
 
 ## Report Anomalie dell'attività
-I report relativi ad attività di acceso anomale contengono attività di accesso sospette al portale di gestione di Azure, al pannello di accesso di Azure AD, a Office 365, a SharePoint Online, a Dynamics CRM Online e ad altri servizi online Microsoft, indipendentemente dal provider di federazione. <p>Sono disponibili i report seguenti: </p><ul> <li>[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utenti con credenziali perse</li></ul>
+<p>I report relativi ad attività di acceso anomale segnalano le attività di accesso sospette ad Office 365, al portale di gestione di Azure, al pannello di accesso di Azure AD, a Office 365, a SharePoint Online, a Dynamics CRM Online e ad altri servizi online Microsoft.</p>
+<p>Tutti questi report, ad eccezione del report "Accessi dopo errori multipli", segnalano inoltre gli accessi <i>federati</i> ai servizi menzionati in precedenza, indipendentemente dal provider di federazione. </p>
+<p>Sono disponibili i report seguenti: </p><ul> <li>[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utenti con credenziali perse</li></ul>
 
 
 
@@ -226,7 +228,7 @@ Solo determinati tipi di eventi di accesso verranno visualizzati nel report dell
 | Accessi a un'app di business personalizzata che è stata aggiunta alla directory | No (disponibile a breve) |
 | Accessi a un'app del proxy di applicazione di Azure AD che è stata aggiunta alla directory | No (disponibile a breve) |
 
-> Nota: per ridurre la quantità di disturbo in questo report, non vengono visualizzati gli accessi all'app nativa [Lync/Skype per Business](http://products.office.com/it-it/skype-for-business/online-meetings) ed eseguiti dall'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/it-it/w/sso/534.aspx).
+> Nota: per ridurre la quantità di disturbo in questo report, non vengono visualizzati gli accessi all'app nativa [Lync/Skype per Business](http://products.office.com/it-IT/skype-for-business/online-meetings) ed eseguiti dall'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/it-IT/w/sso/534.aspx).
 
 
 
@@ -274,4 +276,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

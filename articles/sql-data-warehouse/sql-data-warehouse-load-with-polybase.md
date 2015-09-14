@@ -1,20 +1,20 @@
 <properties
    pageTitle="Esercitazione su PolyBase in SQL Data Warehouse | Microsoft Azure"
-   description="Informazioni su PolyBase e sul relativo uso per scenari di data warehousing."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor="jrowlandjones"/>
+	description="Informazioni su PolyBase e sul relativo uso per scenari di data warehousing."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="barbkess"
+	manager="jhubbard"
+	editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="05/09/2015"
-   ms.author="sahajs;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="05/09/2015"
+	ms.author="sahajs;barbkess"/>
 
 
 # Caricare dati con PolyBase
@@ -58,7 +58,7 @@ SELECT * FROM sys.database_credentials;
 -- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
 WITH IDENTITY = 'joe'
-,    Secret = 'myazurestoragekey=='
+,    Secret = '<azure_storage_account_key>'
 ;
 ```
 
@@ -318,13 +318,13 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP origine dati esterna (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/mt146367.aspx
-[eliminare FILE di formato esterno (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/mt146379.aspx
-[DROP TABLE esterno (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/mt130698.aspx
+[DROP origine dati esterna (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146367.aspx
+[eliminare FILE di formato esterno (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146379.aspx
+[DROP TABLE esterno (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-it/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

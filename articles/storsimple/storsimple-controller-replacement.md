@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Sostituire un modulo controller nel dispositivo StorSimple | Microsoft Azure"
-   description="Viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller nel dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Sostituire un controller di dispositivo StorSimple | Microsoft Azure"
+	description="Viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller nel dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Sostituire un modulo controller nel dispositivo StorSimple
 
@@ -266,4 +266,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

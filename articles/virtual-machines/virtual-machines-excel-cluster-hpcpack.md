@@ -1,19 +1,19 @@
 <properties
  pageTitle="Introduzione all’uso di un cluster HPC Pack per l’esecuzione di carichi di lavoro di Excel e SOA | Microsoft Azure"
- description="."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-windows"
- ms.workload="big-compute"
- ms.date="08/18/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/18/2015"
+	ms.author="danlep"/>
 
 # Introduzione all’uso di un cluster HPC Pack in Azure per l’esecuzione di carichi di lavoro di Excel e SOA
 
@@ -60,7 +60,7 @@ Utilizzare un modello di Guida introduttiva di Azure per distribuire con rapidit
     >
     >Le VM del nodo di calcolo verranno create dall'immagine più recente della famiglia di nodi di calcolo selezionata. Selezionare l’opzione **ComputeNode** per l’immagine più recente del nodo di calcolo di HPC Pack 2012 R2 Update 2 per usi generici. Selezionare l’opzione **ComputeNodeWithExcel** per l’immagine più recente del nodo di calcolo di HPC Pack che include una versione di valutazione di Microsoft Excel Professional Plus 2013. Se si desidera distribuire un cluster per sessioni SOA generiche o per l’offload di UDF di Excel, scegliere l’opzione **ComputeNode** (senza Excel installato).
     >
-    >Quando si utilizza **ComputeNodeWithExcel** per carichi di lavoro di produzione, è necessario fornire una licenza Excel valida per attivare Excel sui nodi di calcolo. In caso contrario, la versione di valutazione di Excel scade dopo 30 giorni e non sarà più possibile eseguire carichi di lavoro Excel.
+    >Quando si usa **ComputeNodeWithExcel** per carichi di lavoro di produzione, è necessario disporre di una licenza Excel valida per attivare Excel sui nodi di calcolo. In caso contrario, la versione di valutazione di Excel potrebbe scadere entro 30 giorni e l'esecuzione della cartella di lavoro di Excel restituirebbe costantemente l'errore COMExeption (0x800AC472). In questo caso, è possibile accedere al nodo head per eseguire il comando clusrun per il file "%ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe" in tutti i nodi di calcolo di Excel mediante la console HPC Cluster Manager per estendere il periodo di valutazione di Excel di altri 30 giorni. Il valore massimo della riattivazione del periodo di prova per il periodo di tolleranza è 2, dopodiché è necessaria una licenza di Excel valida.
 
     c. Selezionare la sottoscrizione.
 
@@ -222,7 +222,7 @@ Per eseguire l’offload di una cartella di lavoro di Excel da eseguire nel clus
 ```
 4.	Scaricare la versione completa di [installazione di HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755)e installare il client di HPC Pack oppure scaricare e installare le [utilità client di HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754)e il file ridistribuibile Visual C++ 2010 appropriato per il computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632)[x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	In questo esempio, viene utilizzata una cartella di lavoro di esempio di Excel denominata ConvertiblePricing\_Complete.xlsb, disponibile per il download [qui](https://www.microsoft.com/it-it/download/details.aspx?id=2939).
+5.	In questo esempio, viene utilizzata una cartella di lavoro di esempio di Excel denominata ConvertiblePricing\_Complete.xlsb, disponibile per il download [qui](https://www.microsoft.com/it-IT/download/details.aspx?id=2939).
 
 6.	Copiare la cartella di lavoro di Excel in una cartella di lavoro, ad esempio D:\\Excel\\Run.
 
@@ -259,11 +259,11 @@ Per eseguire l’offload di una cartella di lavoro di Excel da eseguire nel clus
 
 Per eseguire funzioni definite dall'utente di Excel, seguire i passaggi da 1 a 3 della precedente configurazione del computer client. Per le funzioni definite dall'utente di Excel, non è necessario che l’applicazione Excel sia installata sui nodi di calcolo, pertanto nel passaggio 1 è possibile scegliere un'immagine normale del nodo di calcolo anziché l'immagine del nodo di calcolo con Excel.
 
->[AZURE.NOTE]Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, non sarà corretto e le funzioni definite dall’utente non verranno eseguite. La soluzione alternativa è utilizzare lo script di distribuzione IaaS per distribuire un cluster con un nome più breve, ad esempio hpcexcelhn01.cloudapp.net. Questo problema verrà risolto in una versione successiva dell'API di sessione SOA.
+>[AZURE.NOTE]Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, lo spazio disponibile nella finestra di dialogo non sarà sufficiente. La soluzione alternativa consiste nell'applicare Update 2 QFE KB3085833 (scaricabile [qui](http://www.microsoft.com/it-IT/download/details.aspx?id=48725)) per l'API di sessione SOA sul computer client, quindi impostare una variabile per tutti i computer, ad esempio *CCP\_IAASHN* con il valore del nome di cluster lungo e l'input *%CCP\_IAASHN%* nella finestra di dialogo come nome del nodo head del cluster.
 
-Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall’utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, consultare queste [risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
+Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall’utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, vedere queste [risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
 
-1.	Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Add-Ins**. Quindi, nella finestra di dialogo, fare clic su **Sfoglia**, accedere alla cartella %CCP\_HOME%Bin\\XLL32 e selezionare il ClusterUDF32.xll di esempio.
+1.	Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Componenti aggiuntivi**. Quindi, nella finestra di dialogo fare clic su **Sfoglia**, accedere alla cartella %CCP\_HOME%Bin\\XLL32 e selezionare il ClusterUDF32.xll di esempio.
 
     ![Selezionare la UDF][udf]
 
@@ -357,9 +357,9 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 
 ## Passaggi successivi
 
-* Vedere [queste risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per ulteriori informazioni sull'esecuzione di carichi di lavoro di Excel con HPC Pack.
+* Vedere [queste risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per altre informazioni sull'esecuzione di carichi di lavoro di Excel con HPC Pack.
 
-* Vedere [Gestione dei servizi SOA in Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) per ulteriori informazioni sulla distribuzione e sulla gestione dei servizi SOA con HPC Pack.
+* Vedere [Gestione dei servizi SOA in Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) per altre informazioni sulla distribuzione e sulla gestione dei servizi SOA con HPC Pack.
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-excel-cluster-hpcpack/scenario.png
@@ -376,4 +376,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

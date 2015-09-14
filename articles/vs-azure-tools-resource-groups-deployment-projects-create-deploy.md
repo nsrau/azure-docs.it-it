@@ -85,7 +85,7 @@ Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il proget
 
     ![Finestra di dialogo Distribuisci in gruppo di risorse](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. Nella casella a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Per creare un gruppo di risorse, aprire la casella a discesa **Gruppo di risorse** e scegliere **<Create New...>**.
+1. Nella casella di riepilogo a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Per creare un gruppo di risorse, aprire la casella di riepilogo a discesa **Gruppo di risorse** e scegliere **<Create New...>**.
 
     Viene visualizzata la finestra di dialogo **Crea gruppo di risorse**.
 
@@ -195,4 +195,4 @@ Sono state apportate modifiche anche ad alcuni nomi di variabile e attività di 
 
 Per informazioni su come aggiungere risorse al gruppo di risorse di Azure in Visual Studio, vedere [Aggiunta di risorse a un gruppo di risorse di Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

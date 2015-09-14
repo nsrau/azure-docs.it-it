@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/03/2015"
+	ms.date="08/19/2015"
 	ms.author="jeffstok"/>
 
 
@@ -259,22 +259,22 @@ Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query s
 
 **Input**:
 
-| Targa | Assicurarsi | Time |
+| LicensePlate | Assicurarsi | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
+| YZK 5704 | Ford | 27-07-2015T00:02:17.0000000Z |
+| RMV 8282 | Honda | 27-07-2015T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 27-07-2015T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 27-07-2015T00:09:31.0000000Z |
+| QYF 9358 | Honda | 27-07-2015T00:12:02.0000000Z |
+| MDR 6128 | BMW | 27-07-2015T00:13:45.0000000Z |
 
 **Output**:
 
-| Targa | Assicurarsi | Time |
+| LicensePlate | Assicurarsi | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
+| QYF 9358 | Honda | 27-07-2015T00:12:02.0000000Z |
 
 **Soluzione**:
 
@@ -289,13 +289,13 @@ Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query s
 
 modificando il problema trovare la prima auto di una particolare casa automobilistica a intervalli di 10 minuti.
 
-| Targa | Assicurarsi | Time |
+| LicensePlate | Assicurarsi | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
+| YZK 5704 | Ford | 27-07-2015T00:02:17.0000000Z |
+| YHN 6970 | Toyota | 27-07-2015T00:06:00.0000000Z |
+| QYF 9358 | Honda | 27-07-2015T00:12:02.0000000Z |
+| MDR 6128 | BMW | 27-07-2015T00:13:45.0000000Z |
 
 **Soluzione**:
 
@@ -313,22 +313,22 @@ modificando il problema trovare la prima auto di una particolare casa automobili
 
 **Input**:
 
-| Targa | Assicurarsi | Time |
+| LicensePlate | Assicurarsi | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
+| YZK 5704 | Ford | 27-07-2015T00:02:17.0000000Z |
+| RMV 8282 | Honda | 27-07-2015T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 27-07-2015T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 27-07-2015T00:09:31.0000000Z |
+| QYF 9358 | Honda | 27-07-2015T00:12:02.0000000Z |
+| MDR 6128 | BMW | 27-07-2015T00:13:45.0000000Z |
 
 **Output**:
 
-| Targa | Assicurarsi | Time |
+| LicensePlate | Assicurarsi | Time |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| VFE 1616 | Toyota | 27-07-2015T00:09:31.0000000Z |
+| MDR 6128 | BMW | 27-07-2015T00:13:45.0000000Z |
 
 **Soluzione**:
 
@@ -358,7 +358,7 @@ modificando il problema trovare la prima auto di una particolare casa automobili
 
 **Input**:
 
-| Assicurarsi | Targa | Time |
+| Assicurarsi | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -443,7 +443,7 @@ Avvalendosi di quanto appreso su "LEFT Outer Join per includere valori NULL o pe
 L’insieme restituisce valido -> non valido -> valido senza altri eventi non validi intermedi. A questo punto è possibile calcolare la durata tra l'inizio e la fine degli eventi validi ottenendo la durata del bug.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -454,4 +454,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

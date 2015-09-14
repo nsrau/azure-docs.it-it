@@ -70,11 +70,9 @@ Oltre al dispositivo StorSimple e al dispositivo virtuale dedicati, Microsoft Az
 
 ### Suddivisione automatica in livelli dell'archiviazione
 
-Microsoft Azure StorSimple organizza automaticamente i dati in livelli logici in base all'uso corrente, alla data di creazione e alle relazioni con altri dati. I dati più attivi vengono archiviati in locale, mentre quelli meno attivi e non attivi vengono automaticamente migrati nel cloud. Nella figura 1 è illustrato questo approccio all’archiviazione.
+Microsoft Azure StorSimple organizza automaticamente i dati in livelli logici in base all'uso corrente, alla data di creazione e alle relazioni con altri dati. I dati più attivi vengono archiviati in locale, mentre quelli meno attivi e non attivi vengono automaticamente migrati nel cloud. Il diagramma seguente illustra questo approccio all'archiviazione.
  
 ![Livelli di archiviazione di StorSimple](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
-
-**Figura 1: Archiviazione di StorSimple**
 
 Per abilitare l'accesso rapido, StorSimple archivia i dati molto attivi (hot data) nelle unità SSD del dispositivo StorSimple. Archivia invece i dati usati occasionalmente (warm data) nelle unità disco rigido del dispositivo o nei server del data center. Infine, i dati inattivi, i dati di backup e quelli conservati per scopi di archiviazione o conformità vengono spostati nel cloud.
 
@@ -170,7 +168,7 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 | record di controllo di accesso | Record associato a un volume sul dispositivo Microsoft Azure StorSimple che determina quali host vi si possono connettere. Per determinarli, viene usato il nome qualificato iSCSI (IQN) degli host (contenuto nel record di controllo di accesso) che si connettono al dispositivo StorSimple.|
 | AES-256 | Algoritmo AES (Advanced Encryption Standard) a 256 bit per la crittografia dei dati in entrata e in uscita dal cloud. |
 | dimensioni delle unità di allocazione | Quantità minima di spazio su disco che può essere allocata per conservare un file nei file system di Windows. Se le dimensioni del file non sono un multiplo pari delle dimensioni del cluster, è necessario utilizzare altro spazio per conservare il file (fino al multiplo successivo delle dimensioni del cluster) con conseguenti perdita di spazio e frammentazione del disco rigido. <br>Le dimensioni delle unità di allocazione consigliate per i volumi di Azure StorSimple sono di 64 KB, che sono ideali per gli algoritmi di deduplicazione.|
-| suddivisione in livelli di archiviazione automatizzata | Spostamento automatico di dati meno attivi in un livello del cloud e abilitazione della gestione di tutta la memoria da un'interfaccia utente centrale.|
+| suddivisione in livelli di archiviazione automatizzata | Spostamento automatico di dati meno attivi dalle SSD alle HDD e poi in un livello del cloud e abilitazione della gestione di tutta la memoria da un'interfaccia utente centrale.|
 | catalogo di backup | Raccolta di backup, in genere correlati dal tipo di applicazione utilizzato. Questa raccolta viene visualizzata nella pagina Catalogo di backup dell'interfaccia utente di servizio StorSimple Manager.|
 | file del catalogo di backup | File contenente un elenco di snapshot disponibili attualmente archiviati nel database di backup di Gestione snapshot StorSimple. |
 | criterio di backup | Selezione di volumi, tipo di backup e orari che consente di creare backup in base a una pianificazione predefinita.|
@@ -228,4 +226,4 @@ Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

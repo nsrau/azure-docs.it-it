@@ -24,6 +24,8 @@ Per avviare una sessione di Desktop remoto si userà il pulsante **Connetti** ne
 
 ## Come eseguire l'accesso
 
+[AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
+
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Suggerimenti per la risoluzione dei problemi
@@ -36,4 +38,4 @@ Per problemi con la password, provare a reimpostarla dal portale. Dal dashboard 
 
 Se questa procedura non funziona, sarà necessario eseguire altre procedure di risoluzione dei problemi. Per istruzioni, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

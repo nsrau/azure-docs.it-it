@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configurare e usare l'API Recommendations di Machine Learning | Microsoft Azure" 
-	description="API Recommendations Microsoft create con le domande frequenti su Azure Machine Learning" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Configurare e usare l'API Recommendations di Machine Learning | Microsoft Azure"
+	description="API Recommendations Microsoft create con le domande frequenti su Azure Machine Learning"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 #Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning
@@ -31,7 +31,7 @@ RECOMMENDATIONS accetta come input un elemento o un insieme di elementi e restit
 
 **Sono previste limitazioni per l'utilizzo?**
 
-L'utilizzo di Recommendations ha le limitazioni seguenti: * Numero massimo di modelli per sottoscrizione: 10 * Numero massimo di elementi contenuti in un catalogo: 100.000 * Numero massimo di punti di utilizzo mantenuti \~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi. * Le dimensioni massime dei dati che possono essere inviati per posta elettronica (ad esempio, importazione dei dati di catalogo o dei dati di utilizzo) sono pari a 200 MB * Il numero di transazioni al secondo (TPS) per una compilazione di un modello di raccomandazioni non attiva è pari a \~2 TPS. Una compilazione del modello di raccomandazioni attiva può includere un massimo di 20 TPS.
+L'utilizzo di Recommendations ha le limitazioni seguenti: * Numero massimo di modelli per sottoscrizione: 10 * Numero massimo di elementi contenuti in un catalogo: 100.000 * Numero massimo di punti di utilizzo mantenuti ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi. * Le dimensioni massime dei dati che possono essere inviati per posta elettronica (ad esempio, importazione dei dati di catalogo o dei dati di utilizzo) sono pari a 200 MB * Il numero di transazioni al secondo (TPS) per una compilazione di un modello di raccomandazioni non attiva è pari a ~2 TPS. Una compilazione del modello di raccomandazioni attiva può includere un massimo di 20 TPS.
 
 ##Acquisto e fatturazione 
 
@@ -130,4 +130,4 @@ Il supporto tecnico è disponibile tramite il sito del [supporto tecnico di Micr
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure" 
-	description="In questa esercitazione viene illustrato come aggiungere una pagina o applicazione per l'istanza di Azure applicazione servizio Web App è già configurato per l'utilizzo di Java." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure"
+	description="In questa esercitazione viene illustrato come aggiungere una pagina o applicazione per l'istanza di Azure applicazione servizio Web App è già configurato per l'utilizzo di Java."
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
 
-Una volta inizializzata app web Java in [servizio App Azure](http://go.microsoft.com/fwlink/?LinkId=529714) come descritto in [creare un'applicazione web Java nel servizio di Azure App](web-sites-java-get-started.md), è possibile caricare l'applicazione inserendo il file WAR nel **webapps** cartella.
+Una volta inizializzata app web Java in [servizio App Azure][] come descritto in [creare un'applicazione web Java nel servizio di Azure App](web-sites-java-get-started.md), è possibile caricare l'applicazione inserendo il file WAR nel **webapps** cartella.
 
 Il percorso della cartella **webapps** varia a seconda della configurazione del sito Web.
 
@@ -32,7 +32,8 @@ Dopo avere caricato il file WAR nella cartella **webapps**, il server applicazio
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=August15_HO6-->
+<!-- External Links -->
+[servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+
+<!---HONumber=September15_HO1-->

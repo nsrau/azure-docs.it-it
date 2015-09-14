@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 # Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure
@@ -98,4 +98,4 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

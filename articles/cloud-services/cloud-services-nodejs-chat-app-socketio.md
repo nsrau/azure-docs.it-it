@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Applicazione Node.js con Socket.io | Microsoft Azure" 
-	description="Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Applicazione Node.js con Socket.io | Microsoft Azure"
+	description="Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -28,6 +28,14 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 ![Finestra del browser con il servizio ospitato in Azure][completed-app]
 
+## Prerequisiti
+
+Assicurarsi che i seguenti prodotti e versioni siano installati per completare correttamente l'esempio in questo articolo:
+
+* Installare [Visual Studio 2013](https://www.visualstudio.com/it-IT/downloads/download-visual-studio-vs.aspx)
+* Installare [Node.js](https://nodejs.org/download/)
+* Installare [Python versione 2.7.10](https://www.python.org/)
+
 ## Creazione di un progetto di servizio cloud
 
 Eseguire le operazioni seguenti per creare il progetto servizio cloud che ospiterà l'applicazione Socket.IO.
@@ -36,11 +44,15 @@ Eseguire le operazioni seguenti per creare il progetto servizio cloud che ospite
 
 	![Icona di Azure PowerShell][powershell-menu]
 
-	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
+2. Creare una directory denominata **C:\\node**.
+ 
+		PS C:\> md node
 
+3. Passare alla directory **C:\\node**
+ 
+		PS C:\> cd node
 
-
-2. Passare alla directory **c:\\node** e immettere i comandi seguenti per creare una nuova soluzione denominata **chatapp** e un ruolo Web denominato **WorkerRole1**:
+4. Immettere i comandi seguenti per creare una nuova soluzione denominata **chatapp** e un ruolo Web denominato **WorkerRole1**:
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -69,7 +81,7 @@ Per questo progetto, verrà usato l'esempio di chat dell'[archivio GitHub Socket
 
 Prima di testare l'applicazione nell'emulatore di Azure, è necessario apportare alcune piccole modifiche. Eseguire la procedura seguente per il file server.js:
 
-1.  Aprire il file server.js nel Blocco note o in un altro editor di testo.
+1.  Aprire il file **server. js** in Visual Studio o qualsiasi altro editor di testo.
 
 2.  Individuare la sezione **Module dependencies** all'inizio del file server.js e sostituire la riga contenente **sio = require('..//..//lib//socket.io')** con **sio = require('socket.io')**, come illustrato di seguito:
 
@@ -87,7 +99,7 @@ Prima di testare l'applicazione nell'emulatore di Azure, è necessario apportare
 		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 		});
 
-Dopo aver salvato le modifiche apportate al file server.js, eseguire la procedura seguente per installare i moduli necessari, quindi testare l'applicazione nell'emulatore di Azure:
+Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la procedura seguente per installare i moduli necessari, quindi testare l'applicazione nell'emulatore di Azure:
 
 1.  Tramite **Azure PowerShell** passare alla directory **C:\\node\\chatapp\\WorkerRole1** e usare il comando seguente per installare i moduli necessari per l'applicazione:
 
@@ -107,7 +119,9 @@ Dopo aver salvato le modifiche apportate al file server.js, eseguire la procedur
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Quando si apre la finestra del browser, immettere un nome alternativo e premere INVIO. In questo modo sarà possibile inviare messaggi con un nome alternativo specifico. Per testare la funzionalità multiutente, aprire altre finestre del browser usando lo stesso URL e immettere nomi alternativi diversi.
+2.  Aprire un browser e passare a ****http://127.0.0.1**.
+
+3.  Quando si apre la finestra del browser, immettere un nome alternativo e premere INVIO. In questo modo sarà possibile inviare messaggi con un nome alternativo specifico. Per testare la funzionalità multiutente, aprire altre finestre del browser usando lo stesso URL e immettere nomi alternativi diversi.
 
     ![Due finestre del browser con i messaggi della chat di User1 e User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
@@ -158,4 +172,4 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
   
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

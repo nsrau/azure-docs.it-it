@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come utilizzare la rete CDN | Microsoft Azure" 
-	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+	pageTitle="Come utilizzare la rete CDN | Microsoft Azure"
+	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico."
+	services="cdn"
+	documentationCenter=".net"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mazha"/>
 
 
@@ -113,7 +113,7 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: ../storage-custom-domain-name.md
 [Come creare un gruppo di affinità in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
-[Procedura: Gestire account di archiviazione per una sottoscrizione di Azure]: https://msdn.microsoft.com/it-it/library/azure/hh531793.aspx
+[Procedura: Gestire account di archiviazione per una sottoscrizione di Azure]: https://msdn.microsoft.com/it-IT/library/azure/hh531793.aspx
 [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato]: cdn-map-content-to-custom-domain.md
 
 
@@ -121,4 +121,4 @@ Nel portale di gestione di Azure non è attualmente supportata una funzionalità
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

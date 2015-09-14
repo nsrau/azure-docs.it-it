@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Rete CDN : Come limitare l'accesso al contenuto in base al paese" 
-	description="Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **Filtro di paese ** per configurare il servizio per consentire o bloccare l'accesso in base al paese." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Rete CDN : Come limitare l'accesso al contenuto in base al paese"
+	description="Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **Filtro di paese ** per configurare il servizio per consentire o bloccare l'accesso in base al paese."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Limitare l'accesso al contenuto in base al paese
@@ -65,4 +65,4 @@ La funzionalità di **filtro di paese** utilizza i codici paese per definire i p
 - La configurazione del filtro di paese associata al percorso relativo viene applicata in modo ricorsivo a tale percorso.
 - Può essere applicata solo una regola allo stesso percorso relativo (non è possibile creare più filtri di paese che puntano allo stesso percorso relativo). Tuttavia, una cartella potrebbe avere più filtri di paese. Ciò è dovuto alla natura ricorsiva dei filtri di paese. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata a un filtro di paese diverso.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

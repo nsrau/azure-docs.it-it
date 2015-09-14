@@ -137,7 +137,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 ```
 Il parametro **Id** supporta solo la ricerca di ID completi, senza caratteri jolly o filtri di tipo OData.
 
-### Usare la pipeline
+### Utilizzare la pipeline
 
 I cmdlet Batch possono usare la pipeline di PowerShell per inviare dati tra i cmdlet. Questo equivale a specificare un parametro, ma rende più semplice la visualizzazione di più entità. Ad esempio, è possibile trovare tutte le attività dell'account:
 
@@ -162,4 +162,4 @@ Per rimuovere il limite superiore, impostare **MaxCount** su 0 o un valore infer
 * [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Query di elenco efficienti](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

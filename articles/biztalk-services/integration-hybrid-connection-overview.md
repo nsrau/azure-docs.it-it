@@ -1,43 +1,43 @@
-<properties 
-	pageTitle="Panoramica delle connessioni ibride | Microsoft Azure" 
-	description="Informazioni sulle connessioni ibride, inclusa la sicurezza, le porte TCP e le configurazioni supportate. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="Panoramica delle connessioni ibride | Microsoft Azure"
+	description="Informazioni sulle connessioni ibride, inclusa la sicurezza, le porte TCP e le configurazioni supportate. MABS, WABS."
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/14/2015" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/14/2015"
 	ms.author="mandia"/>
 
 
 # Panoramica delle connessioni ibride
-Questo argomento presenta la funzionalità Connessioni ibride, descrive le configurazioni supportate e indica le porte TCP necessarie.
+Questo articolo presenta la funzionalità Connessioni ibride, descrive le configurazioni supportate e indica le porte TCP necessarie.
 
 
 ## Informazioni sulle connessioni ibride
 
-La funzionalità Connessioni ibride è inclusa in Servizi BizTalk di Azure. La funzionalità Connessioni ibride consente di connettere app Web di Azure (in precedenza siti Web) e app per dispositivi mobili di Azure (in precedenza Servizi mobili) alle risorse locali protette da firewall:
+La funzionalità Connessioni ibride è inclusa in Servizi BizTalk di Azure. La funzionalità Connessioni ibride consente di connettere in modo facile e intuitivo la funzione App Web di Azure App Service (in precedenza siti Web) e la funzione App per dispositivi mobili di Azure App Service (in precedenza Servizi mobili) alle risorse locali protette da firewall.
 
 ![connessioni ibride][HCImage]
 
 Vantaggi della funzionalità Connessioni ibride:
 
 - App Web e app per dispositivi mobili possono accedere ai dati e ai servizi locali esistenti in modo sicuro.
-- Più app Web o app per dispositivi mobili possono condividere una connessione ibrida per accedere a una risorsa locale. 
+- Più app Web o app per dispositivi mobili possono condividere una connessione ibrida per accedere a una risorsa locale.
 - Per accedere alla rete, è necessario un numero minimo di porte TCP.
 - Le applicazioni che usano la funzionalità Connessioni ibride accedono solo alla risorsa locale specifica pubblicata tramite la connessione ibrida.
 - È possibile connettere qualsiasi risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati.
 
 	> [AZURE.NOTE]I servizi basati su TCP che usano porte dinamiche, ad esempio la modalità FTP passiva o la modalità passiva estesa, non sono attualmente supportati.
 
-- È possibile usare la funzionalità con tutti i framework supportati da App Web di Azure (.NET, PHP, Java, Python, Node.js) e App per dispositivi mobili di Azure (Node.js, .NET).
+- È possibile usare la funzionalità con tutti i framework supportati da App Web (.NET, PHP, Java, Python, Node.js) e App per dispositivi mobili (Node.js, .NET).
 - App Web e app per dispositivi mobili possono accedere alle risorse locali come se l'app Web o l'app per dispositivi mobili si trovasse nella rete locale. Ad esempio, è possibile usare la stessa stringa di connessione sia per la rete locale che in Azure.
 
 
@@ -74,7 +74,7 @@ La funzionalità Connessioni ibride garantisce la distribuzione sicura delle chi
 
 Vedere [Creare e gestire connessioni ibride](integration-hybrid-connection-create-manage.md).
 
-**L'autorizzazione dell'applicazione è separata dalla connessione ibrida**. È possibile usare qualsiasi metodo di autorizzazione appropriato. Il metodo di autorizzazione dipende dai metodi di autorizzazione end-to-end supportati nel cloud di Azure e nei componenti locali. Si supponga, ad esempio, che l'applicazione Azure acceda a un'istanza di SQL Server locale. In questo scenario l'autorizzazione SQL potrebbe costituire il metodo di autorizzazione end-to-end supportato.
+*L'autorizzazione dell'applicazione è separata dalla connessione ibrida*. È possibile usare qualsiasi metodo di autorizzazione appropriato. Il metodo di autorizzazione dipende dai metodi di autorizzazione end-to-end supportati nel cloud di Azure e nei componenti locali. Si supponga, ad esempio, che l'applicazione Azure acceda a un'istanza di SQL Server locale. In questo scenario l'autorizzazione SQL potrebbe costituire il metodo di autorizzazione end-to-end supportato.
 
 #### Porte TCP
 La funzionalità Connessioni ibride richiede solo la connettività TCP o HTTP in uscita dalla rete privata. Non è necessario aprire le porte firewall o modificare la configurazione del perimetro di rete per consentire la connettività in ingresso alla rete.
@@ -84,23 +84,23 @@ Le seguenti porte TCP vengono usate dalle connessioni ibride:
 Porta | Perché sono necessari
 --- | ---
 9350 - 9354 | Queste porte vengono usate per la trasmissione dei dati. La gestione dell'inoltro del bus di servizio verifica la porta 9350 per determinare se è disponibile la connettività TCP. Se è disponibile, presuppone che sia disponibile anche la porta 9352. Il traffico dati passerà per la porta 9352. <br/><br/>Consentire le connessioni in uscita in queste porte.
-5671 | Quando la porta 9352 viene utilizzata per il traffico dati, la porta 5671 viene utilizzata come il canale di controllo. <br/><br/>Consentire le connessioni in uscita in questa porta. 
+5671 | Quando la porta 9352 viene utilizzata per il traffico dati, la porta 5671 viene utilizzata come il canale di controllo. <br/><br/>Consentire le connessioni in uscita in questa porta.
 80, 443 | Se le porte 9352 e 5671 non sono utilizzabili, verranno usate le porte 80 e 443 come porte di fallback per la trasmissione dei dati e il canale di controllo.<br/><br/>Consentire le connessioni in uscita in queste porte.<br/><br/>**Nota** Non è consigliabile usare queste porte di fallback al posto delle altre porte TCP. HTTP/WebSocket viene utilizzato come protocollo al posto del protocollo TCP nativo per i canali di dati. Può comportare prestazioni ridotte.
 
 
 
-## Avanti
+## Passaggi successivi
 
 [Creare e gestire connessioni ibride](integration-hybrid-connection-create-manage.md)<br/> [Connettere un sito Web d Azure a una risorsa locale](../web-sites-hybrid-connection-get-started.md)<br/> [Connettersi a un’istanza di SQL Server locale da un’app Web di Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Servizi mobili di Azure e connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## Vedere anche
 
-[API REST per la gestione di servizi BizTalk in Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md)<br/> [Creare un servizio BizTalk tramite il portale di gestione di Azure](biztalk-provision-services.md)<br/> [Servizi BizTalk: schede Dashboard, Monitor e Scale](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[API REST per la gestione di servizi BizTalk in Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md)<br/> [Creare un servizio BizTalk tramite il portale di Azure](biztalk-provision-services.md)<br/> [Servizi BizTalk: schede Dashboard, Monitor e Scale](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Usare Hub di notifica per inviare le ultime notizie (Windows Universal)" 
-	description="Usare Hub di notifica di Azure con i tag nella registrazione per inviare le ultime notizie a un'app Windows universale." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Usare Hub di notifica per inviare le ultime notizie (Windows Universal)"
+	description="Usare Hub di notifica di Azure con i tag nella registrazione per inviare le ultime notizie a un'app Windows universale."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Uso di Hub di notifica per inviare le ultime notizie
@@ -38,7 +38,7 @@ Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub
 Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente alla pagina principale esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione nell'hub di notifica con le categorie selezionate come tag.
 
 1. Aprire il file di progetto MainPage.xaml, quindi copiare il codice seguente nell'elemento **Grid**:
-			
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -137,7 +137,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-	
+
 	Questo metodo crea un elenco di categorie e utilizza la classe **Notifications** per archiviare l'elenco nell'archiviazione locale e registrare i tag corrispondenti nell'hub di notifica. Se le categorie vengono modificate, la registrazione viene ricreata con le nuove categorie.
 
 L'app può quindi archiviare un set di categorie nell'archiviazione locale del dispositivo ed effettuare la registrazione con l'hub di notifica ogni volta che l'utente modifica la selezione di categorie.
@@ -241,10 +241,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

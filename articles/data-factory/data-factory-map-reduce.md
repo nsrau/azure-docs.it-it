@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Richiamare il programma MapReduce da Data factory di Azure" 
-	description="Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Richiamare il programma MapReduce da Data factory di Azure"
+	description="Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="spelluru"/>
 
 # Richiamare i programmi MapReduce da Data factory
@@ -64,9 +64,9 @@ Nella definizione JSON per l'attività HDInsight:
 		            "-s",
 		            "SIMILARITY_LOGLIKELIHOOD",
 		            "--input",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Input/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--output",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Output/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--maxSimilaritiesPerItem",
 		            "500",
 		            "--tempDir",
@@ -102,4 +102,4 @@ Nella definizione JSON per l'attività HDInsight:
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

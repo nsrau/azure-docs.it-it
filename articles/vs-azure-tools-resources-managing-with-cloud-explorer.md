@@ -30,9 +30,9 @@ Cloud Explorer viene installato come parte di Visual Studio Tools per Azure SDK 
 - Visual Studio 2015 RTM.
 
 - Visual Studio Tools per Azure SDK.
-- Per visualizzare le risorse di Azure in Cloud Explorer, è necessario avere un account di Azure e avere effettuato l'accesso. Per altre informazioni, vedere [Creare un account Azure e abilitare l'anteprima delle funzionalità](../php-create-account/).
+- Per visualizzare le risorse di Azure in Cloud Explorer, è necessario avere un account di Azure e avere effettuato l'accesso. Se non si dispone di un account, è possibile crearne uno in un paio di minuti. Se si dispone di un abbonamento MSDN, vedere [Vantaggi di Azure per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). In caso contrario, vedere [creare un account di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- Se Cloud Explorer non è visibile, sarà possibile visualizzarlo scegliendo **Visualizza**, **Altre finestre**, **Cloud Explorer** dalla barra dei menu.
+- Se Cloud Explorer non è visibile, è possibile visualizzarlo scegliendo **Visualizzazione**, **Altre finestre,** **Cloud Explorer** sulla barra dei menu.
 
 ## Gestire gli account e le sottoscrizioni di Azure
 
@@ -50,15 +50,15 @@ Se si usa Azure per la prima volta o non sono stati aggiunti gli account necessa
 
     ![Selezione di sottoscrizioni di Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819515.png)
 
-1. Selezionare le caselle di controllo relative alle sottoscrizioni di account da esplorare, quindi fare clic su **Apply**.
+1. Selezionare le caselle di controllo per le sottoscrizioni di account che si desiderano individuare, poi premere il tasto**Applica**.
 
     Le risorse di Azure per le sottoscrizioni selezionate verranno visualizzate in Cloud Explorer.
 
 ## Per rimuovere un account Azure
 
-1. Scegliere **File**, **Impostazioni account** sulla barra dei menu.
+1. Scegliere **File**, **Impostazioni dell'Account** sulla barra dei menu.
 
-1. Nella sezione **Tutti gli account** della finestra di dialogo **Impostazioni account** scegliere il comando **Rimuovi** accanto all'account da rimuovere. Si noti che questo comando rimuove l'account solo da Visual Studio. Non influisce sull'account di Azure stesso.
+1. Nella sezione **Tutti gli account** della finestra di dialogo **Impostazioni dell'Account**, scegliere il comando **Rimuovere** accanto all'account che si desidera rimuovere. Si noti che questo comando rimuove l'account solo da Visual Studio. Non influisce sull'account di Azure stesso.
 
 ## Visualizzare i tipi o i gruppi di risorse
 
@@ -66,12 +66,12 @@ Per visualizzare le risorse di Azure, è possibile scegliere la visualizzazione 
 
 ![Elenco a discesa della visualizzazione delle risorse](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819516.png)
 
-- La visualizzazione **Resource Types**, che corrisponde anche alla visualizzazione comune usata nel portale di Azure, mostra le risorse di Azure classificate in base al rispettivo tipo, ad esempio app Web, account di archiviazione e macchine virtuali. È simile alla visualizzazione delle risorse di Azure in Esplora server.
+- Visualizzazione **Tipi di risorse**, che è anche la visualizzazione comune utilizzata nel portale di Azure, mostra le risorse di Azure classificate in base al tipo, ad esempio applicazioni web, agli account di archiviazione e alle macchine virtuali. È simile alla visualizzazione delle risorse di Azure in Esplora server.
 
 - La visualizzazione Resource Groups classifica le risorse di Azure in base al gruppo di risorse di Azure a cui sono associate.
 
  
-	Un gruppo di risorse è un bundle di risorse di Azure, in genere usate da un'applicazione specifica. Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Gestione risorse di Microsoft Azure](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+	Un gruppo di risorse è un bundle di risorse di Azure, in genere usate da un'applicazione specifica. Per ulteriori informazioni sui gruppi di risorse di Azure, vedere [Panoramica di gestione delle risorse di Azure](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
 
 ## Visualizzare ed esplorare le risorse
 
@@ -79,7 +79,7 @@ Per passare a una risorsa di Azure e visualizzare le informazioni corrispondenti
 
 ![Selezione di una visualizzazione delle risorse](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819517.png)
 
-- La scheda **Actions** mostra le azioni che possono essere eseguite in Cloud Explorer per la risorsa selezionata. È anche possibile visualizzare le azioni disponibili nel menu di scelta rapida della risorsa.
+- La scheda **Azioni** mostra le azioni da intraprendere in Cloud per la risorsa selezionata. È anche possibile visualizzare le azioni disponibili nel menu di scelta rapida della risorsa.
 
 - La scheda **Properties** mostra le proprietà della risorsa, ad esempio il tipo, le impostazioni locali e il gruppo di risorse a cui è associata.
 
@@ -95,4 +95,4 @@ Per trovare risorse con un nome specifico nelle sottoscrizioni dell'account Azur
 
 Quando si immettono caratteri nella casella Search, nell'albero delle risorse vengono visualizzate solo le risorse corrispondenti ai caratteri immessi.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun" />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="msolhab;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="msolhab;bradsev"/>
 
 
 # Preparazione dei dati per Machine Learning
@@ -44,7 +44,7 @@ La qualità dei dati è un prerequisito per modelli predittivi di qualità. Per 
 * I tipi di dati di attributi (nominali, ordinali o continui).
 * Il numero di valori mancanti.
 * La formulazione dei dati. Se i dati sono in .tsv o .csv, viene controllato se i separatori di colonne e righe separano correttamente colonne e righe. Se i dati sono in formato HTML o XML, controllare se i dati sono formulati correttamente in base ai rispettivi standard. L'analisi potrebbe inoltre essere necessaria per estrarre informazioni strutturate da dati non strutturati o semistrutturati.
-* Record di dati incoerenti. Ad esempio, se i dati contengono la media dello studente, controllare se il GPA è compreso nell'intervallo designato, ad esempio 0 \~ 4.
+* Record di dati incoerenti. Ad esempio, se i dati contengono la media dello studente, controllare se il GPA è compreso nell'intervallo designato, ad esempio 0 ~ 4.
 
 Quando si verificano problemi con i dati, sono necessari passaggi di elaborazione che spesso comportano la pulizia dei valori mancanti, normalizzazione dei dati, la discretizzazione, l'elaborazione di testo per rimuovere e/o sostituire i caratteri incorporati che possono influire sull'allineamento dei dati, tipi di dati misti nei campi comuni e altro.
 
@@ -104,4 +104,4 @@ L'**esplorazione dei dati** offre una visualizzazione anticipata dei dati. Duran
 >_Data Mining: Concepts and Techniques_, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

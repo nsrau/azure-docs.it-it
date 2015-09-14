@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Procedura: configurare le impostazioni del firewall (Database SQL di Azure)"
-	description="configurare il firewall per i database SQL di Azure"
+	pageTitle="Procedura: configurare le impostazioni del firewall | Microsoft Azure"
+	description="Configurare il firewall per gli indirizzi IP che accedono a database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
@@ -13,16 +13,16 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="06/22/2015"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="rickbyh"/>
 
 
-# Procedura: configurare le impostazioni del firewall (Database SQL di Azure)
+# Procedura: configurare le impostazioni del firewall su Database SQL
 
  Il database SQL di Microsoft Azure utilizza le regole del firewall per consentire le connessioni a server e database. È possibile definire le impostazioni del firewall a livello di server e a livello di database per un database master o utente nel server del database SQL di Azure per consentire l'accesso al database in modo selettivo.
 
-**Importante** Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+**Importante** Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md).
 
 
 ## Regole del firewall a livello di server
@@ -47,28 +47,34 @@ Le regole del firewall a livello di server possono essere create e gestite trami
 
 ## Gestione delle regole del firewall a livello di server tramite il Portale di gestione 
 
-1. Nel Portale di gestione fare clic su **Database SQL**. Di seguito sono elencati tutti i database e i server corrispondenti.
-1. Fare clic su **Servers** nella parte superiore della pagina.
-2. Fare clic sulla freccia accanto al server per il quale si desidera gestire le regole del firewall.
-3. Fare clic su **Configure** nella parte superiore della pagina.
+1. Nel Portale di gestione fare clic su **Database SQL** Di seguito sono elencati tutti i database e i server corrispondenti.
+2. Fare clic su **Servers** nella parte superiore della pagina.
+3. Fare clic sulla freccia accanto al server per il quale si desidera gestire le regole del firewall.
+4. Fare clic su **Configure** nella parte superiore della pagina.
 
 	*  Per aggiungere il computer corrente, fare clic su Aggiungi agli indirizzi IP consentiti.
 	*  Per aggiungere ulteriori indirizzi IP, digitare nome della regola, indirizzo IP iniziale e indirizzo IP finale.
 	*  Per modificare una regola esistente, fare clic su uno dei campi nella regola e modificare.
 	*  Per eliminare una regola esistente, passare il mouse sulla regola fino a quando non viene visualizzata la X alla fine della riga. Fare clic su X per rimuovere la regola.
-8. Per salvare le modifiche, fare clic su **Salva** nella parte inferiore della pagina.
+5. Per salvare le modifiche, fare clic su **Salva** nella parte inferiore della pagina.
 
 ## Gestire le regole del firewall a livello di server tramite Transact-SQL
+
 1. Avviare una finestra di query tramite il Portale di gestione o tramite SQL Server Management Studio.
 2. Verificare di essere connessi al database master.
-3. Le regole del firewall a livello di server possono essere create, aggiornate o eliminate all'interno della finestra di query.
-4. Per creare o aggiornare le regole del firewall a livello di server, eseguire la stored procedure della regola sp\_set\_firewall. Nell'esempio seguente viene abilitato un intervallo di indirizzi IP nel server di Contoso.
+3. Le regole del firewall a livello di server possono essere selezionate, create, aggiornate o eliminate all'interno della finestra di query.
+4. Per creare o aggiornare le regole del firewall a livello di server, eseguire la stored procedure della regola sp\_set\_firewall. Nell'esempio seguente viene abilitato un intervallo di indirizzi IP nel server di Contoso.<br/>Iniziare verificando quali regole esistono già.
 
-		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
+		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+
+	Successivamente, aggiungere una regola del firewall.
+
+		EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
+			@start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
 	Per eliminare una regola del firewall a livello di server, eseguire la stored procedure sp\_delete\_firewall\_rule. Nell'esempio seguente viene eliminata la regola denominata ContosoFirewallRule.
  
-		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
+		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
 ## Gestire le regole firewall a livello di Server tramite Azure PowerShell
 1. Avviare Azure PowerShell.
@@ -144,4 +150,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015"
+	ms.date="08/25/2015"
 	ms.author="rasquill"/>
 
 
@@ -53,4 +53,4 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 <!-- LINKS -->
 [Come reimpostare una password o SSH per le macchine virtuali Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

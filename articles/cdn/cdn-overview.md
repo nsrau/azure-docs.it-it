@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Panoramica della rete CDN di Azure" 
-	description="Informazioni sulla rete per la distribuzione di contenuti (rete CDN) di Azure e su come usarla per distribuire contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione nella cache di BLOB e contenuto statico." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+	pageTitle="Panoramica della rete CDN di Azure"
+	description="Informazioni sulla rete per la distribuzione di contenuti (rete CDN) di Azure e su come usarla per distribuire contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione nella cache di BLOB e contenuto statico."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mazha"/>
 
 #Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -114,4 +114,4 @@ Per altre informazioni sul mapping di un dominio personalizzato, vedere [Come es
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

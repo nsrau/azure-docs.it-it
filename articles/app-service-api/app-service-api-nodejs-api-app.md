@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Compilare e distribuire un'app per le API Node.js in Servizio app di Azure"
+	pageTitle="Compilare e distribuire un'app per le API Node.js in Servizio app di Azure | Microsoft Azure"
 	description="Informazioni su come creare un pacchetto dell'app per le API Node.js e distribuirlo nel servizio app di Azure."
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-  manager="" 
-  editor=""/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -20,7 +20,7 @@
 
 Questa esercitazione illustra come creare un'applicazione [Node.js](http://nodejs.org) e come distribuirla nelle app per le API del servizio app di Azure tramite [Git](http://git-scm.com). Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Node.
 
-Di seguito è riportata una schermata dell'applicazione completata:
+Nella schermata riportata di seguito viene illustrata l'applicazione completata:
 
 ![][sample-api-app-page]
 
@@ -34,7 +34,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 2. Fare clic su **NUOVO** nella parte inferiore sinistra del portale.
 
-3. Fare clic su **Web e dispositivi mobili > App per le API**.
+3. Fare clic su **Web e dispositivi mobili** > **App per le API**.
 
 	![][portal-quick-create]
 
@@ -50,7 +50,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 	Se la casella di controllo **Aggiungi a Schermata iniziale** è stata lasciata selezionata, il portale apre automaticamente il pannello relativo all'app per le API non appena questa viene creata. Se la casella di controllo è stata deselezionata, nella home page del portale fare clic su **Notifiche** per visualizzare lo stato della creazione dell'app per le API, quindi fare clic sulla notifica per passare al pannello relativo alla nuova app per le API.
 
-7. Fare clic su **Impostazioni > Impostazioni applicazione**.
+7. Fare clic su **Impostazioni** > **Impostazioni applicazione**.
 
 9. Impostare il livello di accesso su **Pubblico (anonimo)**.
 
@@ -171,7 +171,6 @@ In questa sezione verrà creato un repository Git locale e verrà eseguito il pu
 
 		git init
 
-
 2. Usare i comandi seguenti per aggiungere file al repository:
 
 		git add .
@@ -243,6 +242,5 @@ Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio 
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

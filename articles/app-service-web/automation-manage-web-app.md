@@ -40,7 +40,7 @@ Il servizio consente di ridurre i costi operativi e di liberare risorse dello st
 
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire App Web di Azure, consultare i seguenti collegamenti per altre informazioni su Automazione di Azure.
 
-* Vedere l'[esercitazione introduttiva](../automation-create-runbook-from-samples.md) di Automazione di Azure
+* Vedere l'[esercitazione introduttiva](../automation-intro.md) di Automazione di Azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

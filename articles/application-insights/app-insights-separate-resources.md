@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Creare una nuova risorsa di Application Insights" 
-	description="Configurare una nuova applicazione e ottenere una nuova chiave di strumentazione. Application Insights monitora prestazioni e utilizzo delle applicazioni attive." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Separare le risorse di Application Insights per lo sviluppo, il test e la produzione"
+	description="Monitorare le prestazioni e l'utilizzo dell'applicazione nelle diverse fasi di sviluppo"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="awills"/>
 
-# Creare una nuova risorsa di Application Insights
+# Separare le risorse di Application Insights per lo sviluppo, il test e la produzione
 
 
 Per evitare la confusione tra i dati di telemetria provenienti dalle versioni di debug, test e produzione, è consigliabile creare risorse separate di [Application Insights][start] per la ricezione di dati da ogni versione.
@@ -98,4 +98,4 @@ Il valore iKey viene usato anche nelle pagine Web dell'app, nello [script ottenu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -222,6 +222,8 @@ La scheda di interfaccia di rete, o NIC, rappresenta un'interfaccia di rete che 
 Le proprietà principali di una risorsa NIC includono:
 
 - Impostazioni IP
+- Nome DNS interno
+- Server DNS
 
 Una scheda di interfaccia di rete può essere associata anche alle seguenti risorse di rete:
 
@@ -240,6 +242,7 @@ Le proprietà principali di una risorsa della rete virtuale includono:
 - Spazio di indirizzi IP (blocco CIDR) 
 - Nome della rete virtuale
 - subnet
+- Server DNS
 
 Una rete virtuale può essere associata anche alle risorse di rete seguenti:
 
@@ -273,11 +276,11 @@ Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del car
 
 I gateway applicazione contengono le risorse figlio seguenti:
 
-- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
-- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-- **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
-- **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola di base. La regola di base è una distribuzione del carico di tipo round robin.
+- **Pool di server back-end** - L’elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
+- **Impostazioni del pool di server back-end** - Ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Porta front-end** - Questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+- **Listener:** - il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
+- **Regola** - La regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola di base. La regola di base è una distribuzione del carico di tipo round robin.
 
 
 ## IP pubblico
@@ -389,4 +392,4 @@ Le proprietà principali di DNS di Azure includono:
 
 [Distribuzioni modello](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

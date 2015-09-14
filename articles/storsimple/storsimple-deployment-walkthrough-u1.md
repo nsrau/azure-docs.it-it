@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Distribuire un dispositivo StorSimple locale"
-	description="Passaggi e procedure consigliate per la distribuzione dell'aggiornamento 1 del servizio e del dispositivo StorSimple."
+   pageTitle="Distribuire il dispositivo StorSimple Aggiornamento 1 | Microsoft Azure"
+	description="Descrive i passaggi e le procedure consigliate per la distribuzione dell'aggiornamento 1 del servizio e del dispositivo StorSimple."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="alkohli"
-	manager="adinah"
-	editor="tysonn"/>
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Distribuire un dispositivo StorSimple locale
+# Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
 
 [AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
@@ -287,4 +287,4 @@ Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

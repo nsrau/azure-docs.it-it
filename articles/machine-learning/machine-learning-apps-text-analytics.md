@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 
@@ -201,4 +201,4 @@ Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate a
 Gli ID immessi nel sistema corrispondono agli ID restituiti dal sistema. Il servizio Web non verifica che gli ID siano univoci. È responsabilità del chiamante verificarne l'univocità.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

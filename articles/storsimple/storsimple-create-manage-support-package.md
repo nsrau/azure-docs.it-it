@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Creare e gestire un pacchetto per il supporto | Microsoft Azure"
-   description="Informazioni su come creare, decrittografare e modificare un pacchetto per il supporto del dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Creare un pacchetto per il supporto StorSimple | Microsoft Azure"
+	description="Informazioni su come creare, decrittografare e modificare un pacchetto per il supporto del dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 
-# Creare e gestire un pacchetto per il supporto
+# Creare e gestire un pacchetto di supporto StorSimple
 
 ## Panoramica
 
@@ -198,4 +198,4 @@ Di seguito è riportato un esempio che illustra come decrittografare, modificare
 
 Informazioni su come [utilizzare i pacchetti per il supporto e i registri del dispositivo per risolvere i problemi di distribuzione del dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Distribuire il servizio StorSimple Manager | Microsoft Azure"
-   description="Descrizione delle procedure per creare ed eliminare il servizio StorSimple Manager nel portale di gestione e per gestire la chiave di registrazione del servizio."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Descrizione delle procedure per creare ed eliminare il servizio StorSimple Manager nel portale di gestione e per gestire la chiave di registrazione del servizio."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/18/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="v-sharos"/>
 
 # Distribuire il servizio StorSimple Manager
 
@@ -113,4 +113,4 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configurazione delle credenziali per l'autenticazione denominate"
 	description="Informazioni su come fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente."
 	services="visual-studio-online"
@@ -6,13 +6,13 @@
 	authors="kempb"
 	manager="douge"
 	editor="tglee"/>
-<tags 
+<tags
    ms.service="multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="multiple"
-	ms.date="08/13/2015"
+	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
 # Configurazione delle credenziali per l'autenticazione denominate
@@ -21,7 +21,7 @@ Per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizi
 
 Gli strumenti di Azure supportano un modo meno recente di fornire le credenziali, attraverso il file di sottoscrizione (file con estensione publishsettings). Questo argomento illustra tale metodo, che è ancora supportato in Azure SDK 2.2.
 
-Per l'autenticazione in Azure sono richiesti due dati:
+Per l'autenticazione in Azure sono richiesti i seguenti elementi.
 
 - ID sottoscrizione
 
@@ -41,9 +41,9 @@ Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e c
 
 È anche possibile impostare, modificare o esportare le credenziali di autenticazione nella finestra di dialogo **Nuova sottoscrizione**, visualizzata se si esegue una delle azioni seguenti:
 
-- In Esplora server aprire il menu di scelta rapida per il nodo di **Azure**, scegliere **Gestisci sottoscrizioni**, selezionare la scheda **Certificati** e infine fare clic su **Nuovo** o **Modifica**.
+- In **Esplora server** aprire il menu di scelta rapida per il nodo di **Azure**, scegliere **Gestisci sottoscrizioni**, selezionare la scheda **Certificati** e infine fare clic su **Nuovo** o **Modifica**.
 
-- Quando si pubblica un servizio cloud di Azure dalla procedura guidata **Pubblica l'applicazione Azure**, scegliere **<Manage>** dall'elenco **Scegliere la propria sottoscrizione**, quindi selezionare la scheda Certificati e infine fare clic su **Nuovo** o **Modifica**.
+- Quando si pubblica un servizio cloud di Azure dalla procedura guidata **Pubblica l'applicazione Azure**, scegliere **Gestire** dall'elenco **Scegliere la propria sottoscrizione**, quindi selezionare la scheda Certificati e infine fare clic su **Nuovo** o **Modifica**.
 
 La procedura riportata di seguito presuppone che sia visualizzata la finestra di dialogo **Nuova sottoscrizione**.
 
@@ -55,13 +55,13 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
     >[AZURE.IMPORTANT]Per pubblicare l'applicazione Azure da Visual Studio, è necessario caricare questo certificato nel portale di gestione.
 
-1. Per caricare il certificato nel portale di gestione:
+1. Per caricare il certificato al Portale di gestione di Azure:
 
     1. Scegliere il collegamento Portale di Azure.
 
-         Verrà aperto il [portale di gestione](http://go.microsoft.com/fwlink/?LinkID=213885).
+         Il [Portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=213885) si apre.
 
-    1. Accedere al portale di gestione usando l'account Microsoft, quindi selezionare il pulsante **Servizi cloud**.
+    1. Accedere al Portale di gestione di Azure utilizzando l'account Microsoft, e poi premere il tasto **Servizi Cloud**.
 
     1. Scegliere il servizio cloud desiderato.
 
@@ -71,4 +71,4 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
     1. Incollare il percorso completo del file con estensione cer appena creato e digitare la password specificata.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

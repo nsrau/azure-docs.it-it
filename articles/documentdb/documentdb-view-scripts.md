@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="stbaro"/>
 
-# Visualizzare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB
+# Visualizzare, modificare e creare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB
 
 In questo articolo viene fornita una panoramica di Esplora script di [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), uno strumento del portale di anteprima di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Ulteriori informazioni sulla programmazione sul lato server di DocumentDB sono disponibili [qui](documentdb-programming.md).
 
@@ -63,13 +63,29 @@ Esplora script può essere avviato da qualsiasi pannello di account, database e 
 	![Schermata del comando di aggiornamento di Esplora script](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-## Visualizzare stored procedure, trigger e funzioni definite dall'utente con Esplora script
+## Visualizzare, modificare, creare ed eliminare stored procedure, trigger e funzioni definite dall'utente con Esplora script
 
-Esplora script consente di visualizzare facilmente gli elementi di programmazione sul lato server di DocumentDB.
+Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di programmazione lato server di DocumentDB.
 
-- Fare clic sullo script di cui si desidera visualizzare il contenuto.
+- Per creare uno script, è sufficiente fare clic sul comando di creazione applicabile all'interno di Esplora script, fornire un id, immettere il contenuto dello script e fare clic sul comando **Salva**.
+
+	![Schermata dell’opzione di creazione di Esplora script](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
+
+- Quando si crea un trigger, è necessario specificare anche il tipo di trigger e l'operazione del trigger
+
+	![Schermata dell’opzione di creazione trigger di Esplora script](./media/documentdb-view-scripts/scriptexplorercreatetrigger.png)
+
+- Fare clic sullo script a cui si è interessati per visualizzarlo.
 
 	![Schermata dell’esperienza di visualizzazione script di Esplora script](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
+
+- Per modificare uno script, è sufficiente apportare le modifiche desiderate e fare clic sul comando **Salva**.
+
+	![Schermata dell’esperienza di visualizzazione script di Esplora script](./media/documentdb-view-scripts/scriptexplorereditscript.png)
+
+- Per annullare le modifiche in sospeso a uno script, fare semplicemente clic sul comando **Annulla**.
+
+	![Schermata dell’esperienza di annullamento modifiche di Esplora script](./media/documentdb-view-scripts/scriptexplorerdiscardchanges.png)
 
 - Esplora script consente, inoltre, di visualizzare facilmente le proprietà di sistema dello script attualmente caricato facendo clic sul comando **Proprietà**.
 
@@ -77,9 +93,17 @@ Esplora script consente di visualizzare facilmente gli elementi di programmazion
 
 	> [AZURE.NOTE]La proprietà timestamp (\_ts) viene rappresentata internamente come epoch time, ma Esplora script consente di visualizzare il valore in formato GMT leggibile.
 
+- Per eliminare uno script, selezionarlo in Esplora script e scegliere il comando **Elimina**.
+
+	![Schermata del comando di eliminazione di Esplora script](./media/documentdb-view-scripts/scriptexplorerdeletescript1.png)
+
+- Confermare l'azione di eliminazione facendo clic su **Sì** o annullare l'azione di eliminazione facendo clic su **No**.
+
+	![Schermata del comando di eliminazione di Esplora script](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
+
 ## Passaggi successivi
 
 Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -12,13 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # Connettere un'app mobile ad API SaaS
 
-In questa esercitazione si connetterà la propria app mobile a una soluzione SaaS (Software-as-a-Service). Si aggiornerà l'app dell'esercitazione [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library] per creare un documento di Word in SharePoint Online quando viene aggiunto un nuovo elemento TodoItem.
+In questa esercitazione si connetterà la propria app mobile a una soluzione SaaS (Software-as-a-Service). Si aggiornerà l'app dell'esercitazione [Autenticare l'app tramite il Single Sign-On di Azure Active Directory Authentication Library] per creare un documento di Microsoft Word in SharePoint Online quando viene aggiunto un nuovo elemento TodoItem.
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -35,11 +35,11 @@ Per impostazione predefinita, il token ricevuto da AAD dispone di autorizzazioni
 
     ![][1]
 
-A questo punto si è configurato AAD per il rilascio di un token di accesso di SharePoint al servizio app.
+A questo punto si è configurato Azure AD per il rilascio di un token di accesso di SharePoint al servizio app.
 
 ## <a name="store-credentials"></a>Aggiungere le informazioni di SharePoint all'app per dispositivi mobili
 
-Per poter effettuare una chiamata a SharePoint, è necessario specificare gli endpoint con cui l'app mobile deve comunicare. È inoltre necessario poter provare l'identità del servizio app. usando una coppia ID e segreto client. L'ID client del servizio app è già stato ottenuto e archiviato durante la configurazione dell'accesso ad AAD. Dal momento che queste credenziali sono riservate, è consigliabile non archiviarle come testo non crittografato nel codice. Questi valori verranno invece impostati come impostazioni applicazione del codice dell'app mobile.
+Per poter effettuare una chiamata a SharePoint, è necessario specificare gli endpoint con cui l'app mobile deve comunicare. È inoltre necessario poter provare l'identità del servizio app. usando una coppia ID e segreto client. L'ID client del servizio app è già stato ottenuto e archiviato durante la configurazione dell'accesso ad AAD. Dal momento che queste credenziali sono riservate, è consigliabile non archiviarle come testo non crittografato nel codice. Questi valori verranno invece configurati come impostazioni applicazione del codice dell'app mobile.
 
 1. Tornare alla scheda delle applicazioni AAD del tenant e selezionare l'applicazione Web per il servizio app.
 
@@ -57,7 +57,7 @@ A questo punto sarà possibile ottenere di nuovo i valori nel codice usando ApiS
 
 ## <a name="obtain-token"></a>Ottenere un token di accesso e chiamare l'API di SharePoint
 
-Per poter accedere a SharePoint, è necessario uno speciale token di accesso la cui destinazione è SharePoint. Per ottenere questo token, è necessario chiamare di nuovo AAD con l'identità del servizio app e il token rilasciato per l'utente.
+Per poter accedere a SharePoint, è necessario uno speciale token di accesso la cui destinazione è SharePoint. Per ottenere questo token, è necessario chiamare di nuovo Azure AD con l'identità del servizio app e il token rilasciato per l'utente.
 
 1. Aprire il progetto di codice dell'app mobile in Visual Studio.
 
@@ -182,9 +182,8 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [portale di gestione di Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/it-it/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/it-IT/sharepoint/
 [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

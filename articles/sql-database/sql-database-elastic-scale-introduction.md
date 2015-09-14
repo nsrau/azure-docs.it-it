@@ -1,20 +1,20 @@
 <properties
     pageTitle="Database SQL di Azure - strumenti di database elastici "
-    description="Ridimensionare facilmente le risorse del database nel cloud utilizzando gli strumenti dei database elastici."
-    services="sql-database"
-    documentationCenter=""
-    manager="jeffreyg"
-    authors="sidneyh"
-    editor=""/>
+	description="Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti"
+	services="sql-database"
+	documentationCenter=""
+	manager="jeffreyg"
+	authors="ddove"
+	editor=""/>
 
 <tags
     ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015"
-    ms.author="sidneyh"/>
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/27/2015"
+	ms.author="sidneyh"/>
 
 # Panoramica sulle funzionalità di database elastico
 
@@ -29,12 +29,14 @@ Nel grafico seguente è illustrata un'architettura che include le **funzionalit�
 
 ![Strumenti di database elastici][1]
 
+Per una versione stampabile di questo elemento grafico, andare su [download Panoramica database elastici](http://aka.ms/axmybc).
+
 In questo grafico, i colori del database rappresentano gli schemi. I database con lo stesso colore condividono gli stessi schemi.
 
 1. Un set di **database SQL di Azure** è ospitato in Azure tramite l'architettura di partizionamento orizzontale. 
 2. La **libreria client di database elastici** viene utilizzata per gestire un set di partizioni.
 3. Un subset dei database viene inserito in un **pool di database elastici**. (Vedere [Controllare la crescita esponenziale con i database elastici](sql-database-elastic-pool.md).) 
-4. Un **processo di database elastico** esegue gli script T-SQL in tutti i database.
+4. Un **Processo di database elastico** esegue gli script T-SQL in tutti i database.
 5. Lo **strumento di suddivisione-unione** viene utilizzato per spostare i dati da una partizione a un’altra.
 6. La **query di database elastico** consente di scrivere una query che si estende a tutti i database nel set di partizioni.
   
@@ -59,7 +61,7 @@ Per scalabilità verticale si intende l’aumento o la riduzione del livello del
 
 La maggior parte delle applicazioni di database su scala cloud utilizzano una combinazione di questi due strategie. Un'applicazione di software come servizio può, ad esempio, utilizzare la scalabilità orizzontale per eseguire il provisioning di nuovi clienti finali e la scalabilità verticale per consentire l’espansione o la riduzione delle risorse del database di ogni cliente finale in base alle esigenze del carico di lavoro.
 
-* La scalabilità orizzontale è gestita tramite la [libreria client di database elastici](sql-database-elastic-client-overview.md).
+* La scalabilità orizzontale è gestita tramite la [Libreria client di database elastici](sql-database-elastic-client-overview.md).
 
 * La scalabilità verticale viene eseguita utilizzando i cmdlet di Azure PowerShell per modificare il livello di servizio, o posizionando i database in un pool di database elastici.
 
@@ -102,4 +104,4 @@ Per visualizzare le specifiche del pool di database elastici, vedere [Consideraz
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

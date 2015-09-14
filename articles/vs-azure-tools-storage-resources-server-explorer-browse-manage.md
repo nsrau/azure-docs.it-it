@@ -205,7 +205,7 @@ La tabella è organizzata in entità (mostrate nelle righe) e proprietà (mostra
 
     - Una proprietà chiamata Timestamp non può essere creata perché una proprietà con quel nome è usata dai servizi di archiviazione di Azure.
 
-    - Se si immette un valore DateTime, è necessario applicare un formato appropriato alle impostazioni di area geografica e lingua del computer (ad esempio, MM/GG/AAAA HH:MM:SS [AM|PM] per l'inglese, Stati Uniti).
+    - Se si immette un valore DateTime, è necessario applicare un formato appropriato alle impostazioni di area geografica e lingua del computer (ad esempio, MM/GG/AAAA HH:MM:SS [AM|PM] per l'inglese degli Stati Uniti).
 
 ### Per aggiungere le entità
 
@@ -319,4 +319,4 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 [Accesso ai servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

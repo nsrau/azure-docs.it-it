@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare un'app universale di Windows Runtime 8.1 nelle app per dispositivi mobili di Azure"
-	description="Seguire questa esercitazione per iniziare a usare i back-end dell'app per dispositivi mobili di Azure per lo sviluppo per Windows Store in C#, VB o JavaScript."
+	pageTitle="Creare un'app universale di Windows Runtime 8.1 universale in app per dispositivi mobili del servizio app di Azure | Microsoft Azure"
+	description="Seguire questa esercitazione per iniziare a usare i back-end dell'app per dispositivi mobili di Azure per lo sviluppo per Windows Store in C#, Visual Basic o JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -22,7 +22,7 @@
 
 ##Panoramica
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app universale di Windows Runtime 8.1 mediante un back-end dell'app per dispositivi mobili di Azure. Le soluzioni per app universali di Windows includono progetti di app per Windows Store 8.1 e Windows Phone Store 8.1 e un progetto condiviso comune.
+Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app universale di Windows Runtime 8.1 mediante un back-end dell'app per dispositivi mobili di Azure. Le soluzioni per app universali di Windows includono progetti di app per Windows Store 8.1 e Windows Phone Store 8.1, oltre a un progetto condiviso comune.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started-preview](../../includes/app-service-mobile-windows-universal-get-started-preview.md)]
 
@@ -34,7 +34,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * [Visual Studio Community 2013] o versione successiva.
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), dove è possibile creare un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ##Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Scaricare il progetto server
 
-1. Nel [portale di Azure] fare clic su **Esplora tutto** > **App Web**, quindi fare clic sul back-end dell'app per dispositivi mobili appena creato. 
+1. Nel [portale di Azure] fare clic su **Esplora tutto** > **App Web**, quindi fare clic sul back-end dell'app per dispositivi mobili appena creato.
 
 2. Nel back-end dell'app per dispositivi mobili fare clic su **Tutte le impostazioni** e in **App per dispositivi mobili** fare clic su **Avvio rapido** > **Windows (C#)**.
 
@@ -60,10 +60,10 @@ Dopo aver creato il back-end dell'app per dispositivi mobili, usare l'avvio rapi
 
 In questa sezione viene scaricato un progetto di modello di app universale di Windows personalizzato per la connessione al back-end dell'app per dispositivi mobili di Azure.
 
-1. Nel pannello del back-end dell'app per dispositivi mobili fare clic su **Tutte le impostazioni** e in **App per dispositivi mobili** fare clic su **Avvio rapido** > **Windows (C#)**. 
+1. Nel pannello del back-end dell'app per dispositivi mobili fare clic su **Tutte le impostazioni** e quindi in **App per dispositivi mobili** fare clic su **Avvio rapido** > **Windows (C#)**.
 
 2.  In **Scarica ed esegui il progetto Windows** in **Crea una nuova app** fare clic su **Scarica** ed estrarre i file compressi del progetto nel computer locale.
-  
+
 3. (Facoltativo) Aggiungere il progetto di app universale di Windows alla soluzione con il progetto server. Ciò semplifica il debug e il test dell'app e del back-end nella stessa soluzione di Visual Studio, se si sceglie di eseguire questa operazione.
 
 4. Con l'app di Windows Store come progetto di avvio, premere il tasto F5 per ricompilare il progetto e avviare l'app di Windows Store.
@@ -74,7 +74,7 @@ In questa sezione viene scaricato un progetto di modello di app universale di Wi
 
 	Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure.
 
-6. Interrompere il debug, fare clic con il pulsante destro del mouse sul progetto `<your app name>.WindowsPhone`, quindi scegliere **Imposta come progetto di avvio** e premere di nuovo F5.
+6. Interrompere il debug, fare clic con il pulsante destro del mouse sul progetto `<your app name>.WindowsPhone`, quindi scegliere **Imposta come progetto di avvio** e quindi premere di nuovo F5.
 
 	![](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/mobile-quickstart-completed-wp8.png)
 
@@ -92,8 +92,6 @@ In questa sezione viene scaricato un progetto di modello di app universale di Wi
 [Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
-
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

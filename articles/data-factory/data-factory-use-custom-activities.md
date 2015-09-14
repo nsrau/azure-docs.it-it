@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="08/28/2015"
 	ms.author="spelluru"/>
 
 # Usare attività personalizzate in una pipeline di Data factory di Azure
@@ -213,7 +213,9 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 10. Compilare il progetto. Fare clic su **Compila** dal menu e scegliere **Compila soluzione**.
 11. Avviare **Esplora risorse** e passare alla cartella **bin\\debug** o **bin\\release**, a seconda del tipo di compilazione.
 12. Creare un file ZIP **MyDotNetActivity.zip** contenente tutti i file binari nella cartella <project folder>\\bin\\Debug. È possibile includere il file MyDotNetActivity.pdb in modo da ottenere ulteriori dettagli, ad esempio il numero della riga nel codice sorgente che ha causato il problema in caso di errore. 
-13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB: **customactivitycontainer** nell'archiviazione BLOB di Azure usata dal servizio collegato **StorageLinkedService** negli utilizzi **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**. 
+13. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB: **customactivitycontainer** nell'archiviazione BLOB di Azure usata dal servizio collegato **StorageLinkedService** negli utilizzi **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer**.
+
+> [AZURE.NOTE]Se si aggiunge questo progetto di attività .NET a una soluzione di Visual Studio che contiene un progetto Data factory, non è necessario eseguire gli ultimi due passaggi della creazione del file zip e caricarlo manualmente nell'archiviazione BLOB di Azure. Quando si pubblicano entità Data factory utilizzando Visual Studio, questi passaggi vengono eseguiti automaticamente dal processo di pubblicazione. Vedere gli articoli [Creare la prima pipeline utilizzando Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiare i dati da BLOB di Azure ad SQL Azure](data-factory-get-started-using-vs.md) per informazioni sulla creazione e pubblicazione di Data factory utilizzando Visual Studio.
 
 
 ## Passaggio 2: usare l'attività personalizzata in una pipeline
@@ -364,7 +366,7 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 
 	(percorso BLOB), (nome del BLOB), (numero di righe nel BLOB), (nodo in cui è stata eseguita l'attività), (indicatore data/ora)
 
-10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (specifically user-0.log) scaricabili dal portale o con i cmdlet.
+10.	Usare il [portale di Azure][azure-preview-portal] o i cmdlet di Azure PowerShell per monitorare l'istanza di Data factory, le pipeline e i set di dati. I messaggi possono essere visualizzati da **ActivityLogger** nel codice per l'attività personalizzata nei log (nello specifico, user-0.log) scaricabili dal portale o con i cmdlet.
 
 	![scaricare i log dall'attività personalizzata][image-data-factory-download-logs-from-custom-activity]
 	
@@ -410,7 +412,7 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 		  }
 		}
 
-	> [AZURE.NOTE]Aggiungere "**.<region name**" al nome dell'account batch per la proprietà **accountName**. Esempio: "mybatchaccount.eastus". Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di seguito.
+	> [AZURE.NOTE]Aggiungere "**.<region name**" al nome dell'account di batch per la proprietà **accountName**. Esempio: "mybatchaccount.eastus". Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di seguito.
 
 		accountName: "adfteam",
 		batchUri: "https://eastus.batch.azure.com",
@@ -465,4 +467,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

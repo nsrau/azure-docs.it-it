@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/02/2015"
 	ms.author="elizapo"/>
 
 # Come creare una raccolta ibrida per Azure RemoteApp
 
 Sono disponibili due tipi di raccolte RemoteApp:
 
-- Cloud: risiede completamente in Azure e viene creata tramite l'opzione **Creazione rapida** nel portale di gestione di Azure.  
-- Ibrida: include una rete virtuale per l'accesso locale e viene creata con l'opzione **Crea con rete virtuale** nel portale di gestione.
+- Cloud: risiede completamente in Azure. È possibile scegliere di salvare tutti i dati nel cloud (raccolta solo cloud) o connettere la raccolta a una rete virtuale e salvare i dati in questa posizione.   
+- Ibrida: include una rete virtuale per l'accesso in locale - è necessario l'uso di Azure Active Directory e un ambiente Active Directory locale.
+
+
+**Nota** *Questo argomento è in fase di rielaborazione. È in corso la scrittura di alcuni articoli che renderanno più semplice l'individuazione delle opzioni di autenticazione e raccolta. Se quindi le informazioni contenute in questo articolo non risultano chiare, tenere presente che verrà proposta una soluzione al più presto. Grazie.*
 
 Questa esercitazione illustra la creazione di una raccolta ibrida. Sono previsti otto passaggi:
 
 1.	Decidere quale [immagine](remoteapp-imageoptions.md) utilizzare per la raccolta. È possibile creare un'immagine personalizzata oppure usare una delle immagini Microsoft incluse nella sottoscrizione.
 2. Configurare la rete virtuale.
 2.	Creare una raccolta RemoteApp.
-2.	Collegare la raccolta alla rete virtuale.
+2.	Aggiungere la raccolta al dominio locale.
 3.	Aggiungere un'immagine modello alla raccolta.
 4.	Configurare la sincronizzazione della directory. RemoteApp richiede l'integrazione con Azure Active Directory 1) configurando Azure Active Directory Sync con l'opzione Sincronizzazione password o 2) configurando Azure Active Directory Sync senza l'opzione Sincronizzazione password ma usando un dominio federato ad ADFS. Verificare le [informazioni di configurazione per Active Directory con RemoteApp](remoteapp-ad.md).
 5.	Pubblicare app di RemoteApp.
@@ -42,14 +45,17 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 - Creare in Active Directory un account utente da usare come account del servizio RemoteApp. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio.
 - Raccogliere informazioni sulla rete locale: informazioni sull'indirizzo IP e dettagli sul dispositivo VPN.
 - Installare il modulo [Azure PowerShell](../install-configure-powershell.md).
-- Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com) per ogni utente.
+- Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com) per ogni utente. Assicurarsi che il nome UPN corrisponda tra Azure Active Directory e Active Directory.
 - Scegliere un'immagine modello. Un'immagine modello di RemoteApp contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Opzioni immagine di RemoteApp](remoteapp-imageoptions.md). 
+- Se si desidera usare l'immagine di Office 365 ProPlus, consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
 - [Configurare Active Directory per RemoteApp](remoteapp-ad.md).
 
 
 
 ## Passaggio 1: configurare la rete virtuale
 È possibile distribuire una raccolta ibrida di RemoteApp che usa una rete virtuale di Azure esistente oppure è possibile creare una nuova rete virtuale. Una rete virtuale consente agli utenti di accedere ai dati nella rete locale mediante le risorse remote di RemoteApp. L'uso di una rete virtuale di Azure offre alla raccolta accesso di rete diretto ad altri servizi e macchine virtuali di Azure distribuiti in tale rete virtuale.
+
+Assicurarsi di rivedere le informazioni relative alle [dimensioni delle reti virtuali](remoteapp-vnetsizing.md) prima di creare una rete virtuale.
 
 ### Creare una rete virtuale di Azure e aggiungerla alla distribuzione di Active Directory
 
@@ -72,21 +78,21 @@ Altre informazioni sulla creazione di macchine virtuali di Azure e su come colle
 
 
 
-1. Nel [portale di gestione di Azure](http://manage.windowsazure.com) passare alla pagina RemoteApp.
+1. Nel [Portale di Azure](http://manage.windowsazure.com), passare alla pagina RemoteApp.
 2. Fare clic su **Nuovo > Crea con rete virtuale**.
 3. Immettere un nome per la raccolta.
 4. Scegliere il piano che da usare: standard o di base.
+5. Scegliere la rete virtuale nell'elenco a discesa, poi scegliere la subnet.
+6. Scegliere di aggiungerla al dominio.
 5. Fare clic su **Crea raccolta RemoteApp**.
 
-Dopo aver creato la raccolta di RemoteApp, fare doppio clic sul nome della raccolta. Questo visualizzerà la pagina **Avvio rapido**: qui è possibile completare la configurazione della raccolta.
+Dopo aver creato la raccolta di RemoteApp, fare doppio clic sul nome della raccolta. Questo visualizzerà la pagina **Avvio rapido** - qui è possibile completare la configurazione della raccolta.
 
-## Passaggio 3: Collegare la raccolta alla rete virtuale ##
+## Passaggio 3: Collegare la raccolta al dominio locale ##
 
  
-1. Nella pagina **Avvio rapido** fare clic su **Collega una rete virtuale**.
-2. Selezionare la rete virtuale che si desidera usare dall'elenco a discesa.
-3. Selezionare l'area geografica da usare e assicurarsi che nel campo venga visualizzata la sottoscrizione corretta. 
-5. Fare clic su **Aggiungi dominio locale** nella pagina **Avvio rapido**. Aggiungere l'account del servizio RemoteApp al dominio di Active Directory locale. È necessario disporre di nome di dominio, unità organizzativa, nome utente e password dell'account del servizio. 
+1. Fare clic su **Aggiungi dominio locale** nella pagina **Avvio rapido**.
+2. Aggiungere l'account del servizio RemoteApp al dominio di Active Directory locale. È necessario disporre di nome di dominio, unità organizzativa, nome utente e password dell'account del servizio. 
 
 	Si tratta delle informazioni raccolte se è stata seguita la procedura descritta in [Configurare Active Directory per Azure RemoteApp](remoteapp-ad.md).
 
@@ -103,7 +109,11 @@ Se si crea un collegamento a un'immagine modello esistente, è sufficiente speci
 
 ## Passaggio 5: Configurare la sincronizzazione della directory di Active Directory ##
 
-RemoteApp richiede l'integrazione con Azure Active Directory 1) configurando Azure Active Directory Sync con l'opzione Sincronizzazione password o 2) configurando Azure Active Directory Sync senza l'opzione Sincronizzazione password ma usando un dominio federato ad ADFS. Per informazioni sulla pianificazione e le procedure dettagliate, vedere [Roadmap sulla sincronizzazione della directory](http://msdn.microsoft.com//library/azure/hh967642.aspx).
+RemoteApp richiede l'integrazione con Azure Active Directory 1) configurando Azure Active Directory Sync con l'opzione Sincronizzazione password o 2) configurando Azure Active Directory Sync senza l'opzione Sincronizzazione password ma usando un dominio federato ad ADFS.
+
+Consultare [Connetti AD](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) - questo articolo consente di impostare l'integrazione di directory in 4 passaggi.
+
+Per informazioni sulla pianificazione e le procedure dettagliate, vedere [Roadmap sulla sincronizzazione della directory](http://msdn.microsoft.com//library/azure/hh967642.aspx).
 
 ## Passaggio 6: Pubblicare app di RemoteApp ##
 
@@ -136,4 +146,4 @@ La procedura è stata completata e la raccolta ibrida RemoteApp è stata creata 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

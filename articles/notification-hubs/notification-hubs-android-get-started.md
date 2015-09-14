@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.date="09/01/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica
@@ -104,6 +104,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 		private NotificationHub hub;
     	private String HubName = "<Enter Your Hub Name>";
 		private String HubListenConnectionString = "<Your default listen connection string>";
+	    private static Boolean isVisible = false;
 
 
 	Assicurarsi di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: Impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure]. * **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub (**non** l'URL completo). Ad esempio, usare `"myhub"`.
@@ -139,6 +140,21 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
     	}
 
 
+7. Aggiungere il metodo **DialogNotify** all’attività per visualizzare la notifica quando l'applicazione è in esecuzione e visibile. Sostituire anche **onStart** e **onStop** per determinare se l'attività è visibile per visualizzare la finestra di dialogo.
+
+	    @Override
+	    protected void onStart() {
+	        super.onStart();
+	        isVisible = true;
+	    }
+	
+	    @Override
+	    protected void onStop() {
+	        super.onStop();
+	        isVisible = false;
+	    }
+
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -148,6 +164,9 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 		  */
     	public void DialogNotify(final String title,final String message)
     	{
+	        if (isVisible == false)
+	            return;
+
         	final AlertDialog.Builder dlg;
         	dlg = new AlertDialog.Builder(this);
 
@@ -170,7 +189,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
         	});
     	}
 
-7. Poiché il sistema operativo Android non consente la visualizzazione di notifiche, è necessario scrivere un apposito ricevitore. In **AndroidManifest.xml** aggiungere l'elemento seguente all'interno dell'elemento `<application>`.
+8. Poiché il sistema operativo Android non consente la visualizzazione di notifiche, è necessario scrivere un apposito ricevitore. In **AndroidManifest.xml** aggiungere l'elemento seguente all'interno dell'elemento `<application>`.
 
 	> [AZURE.NOTE]Sostituire il segnaposto con il nome del pacchetto.
 
@@ -183,14 +202,14 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
         </receiver>
 
 
-8. Nella visualizzazione del progetto espandere **app** -> **src** -> **main** -> **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java**, fare clic su **New** e quindi su **Java Class**.
+9. Nella visualizzazione del progetto espandere **app** -> **src** -> **main** -> **java**. Fare clic con il pulsante destro del mouse sulla cartella del pacchetto in **java**, fare clic su **New** e quindi su **Java Class**.
 
 	![][6]
 
-9. Nel campo **Name** digitare **MyHandler** per la nuova classe, quindi fare clic su **OK**.
+10. Nel campo **Name** digitare **MyHandler** per la nuova classe, quindi fare clic su **OK**.
 
 
-10. Aggiungere le istruzioni di importazione seguenti all'inizio di **MyHandler.java**:
+11. Aggiungere le istruzioni di importazione seguenti all'inizio di **MyHandler.java**:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -201,14 +220,14 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-11. Aggiornare la dichiarazione di classe come segue per impostare `MyHandler` come sottoclasse di `com.microsoft.windowsazure.notifications.NotificationsHandler`, come illustrato di seguito.
+12. Aggiornare la dichiarazione di classe come segue per impostare `MyHandler` come sottoclasse di `com.microsoft.windowsazure.notifications.NotificationsHandler`, come illustrato di seguito.
 
 		public class MyHandler extends NotificationsHandler {
 
 
-12. Aggiungere il codice seguente per la classe `MyHandler`.
+13. Aggiungere il codice seguente per la classe `MyHandler`.
 
-	Questo codice esegue l'override del metodo `OnReceive` in modo che il gestore visualizzi `AlertDialog` per mostrare le notifiche ricevute. Il gestore invia la notifica anche al gestore delle notifiche di Android usando il metodo `sendNotification()`.
+	Questo codice ignora il metodo `OnReceive` in modo che il gestore visualizzi `AlertDialog` per mostrare le notifiche ricevute. Il gestore invia la notifica anche al gestore delle notifiche di Android usando il metodo `sendNotification()`.
 
     	public static final int NOTIFICATION_ID = 1;
     	private NotificationManager mNotificationManager;
@@ -245,7 +264,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-13. In Android Studio, sulla barra dei menu, fare clic su **Build** -> **Rebuild Project** per assicurarsi che non vengano rilevati errori.
+14. In Android Studio, sulla barra dei menu, fare clic su **Build** -> **Rebuild Project** per assicurarsi che non vengano rilevati errori.
 
 ##Inviare notifiche
 
@@ -511,4 +530,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

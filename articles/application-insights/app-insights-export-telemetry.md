@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Esportazione continua dei dati di telemetria da Application Insights" 
-	description="Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Esportazione continua dei dati di telemetria da Application Insights"
+	description="Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -40,6 +40,7 @@ Scegliere i tipi di evento che si vuole esportare:
 
 Dopo averla creata, l'esportazione viene avviata. Si ottengono solo i dati che arrivano dopo aver creato l'esportazione.
 
+Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzati nel BLOB.
 
 Se si vogliono modificare i tipi di eventi in un secondo momento, è sufficiente modificare l'esportazione:
 
@@ -59,20 +60,23 @@ I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazion
 
 Le altre metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati a partire dai quali viene calcolata la media.
 
+I dati includono anche i risultati di ogni [test Web di disponibilità](app-insights-monitor-web-app-availability.md) impostato.
+
 ## <a name="get"></a> Esaminare i dati
 
-Quando si apre l'archivio BLOB con uno strumento come [Esplora server](http://msdn.microsoft.com/library/azure/ff683677.aspx), si noterà un contenitore con un set di file BLOB. L'URI di ogni file è application-id/telemetry-type/date/time.
+Per esaminare l'archiviazione di Azure in Visual Studio, aprire **Visualizza**, **Cloud Explorer**. (Se non si dispone di tale comando del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo **Nuovo progetto**, espandere Visual C#/Cloud e scegliere **Ottieni Microsoft Azure SDK per .NET**).
+
+Quando si apre l'archivio BLOB, si noterà un contenitore con un set di file BLOB. L'URI di ogni file è derivato dal nome della risorsa di Application Insights, la relativa chiave di strumentazione e tipo/data/ora della telemetria. (Il nome della risorsa viene scritto in minuscolo e la chiave di strumentazione omette i trattini).
 
 ![Controllare l'archivio BLOB con uno strumento adatto](./media/app-insights-export-telemetry/04-data.png)
 
 La data e ora sono UTC e lo sono quando i dati di telemetria sono stati depositati nell'archivio, non l'ora in cui sono stati generati. Di conseguenza, se si scrive codice per scaricare i dati, può spostarsi in modo lineare attraverso i dati.
 
 
-
 ## <a name="format"></a> Formato dati
 
 * Ogni BLOB è un file di testo che contiene più righe separate da '\\n'.
-* Ogni riga è un documento JSON non formattato. Se si vuole stare seduti e esaminali, usare un visualizzatore, ad esempio Blocco note++ con il plug-in JSON:
+* Ogni riga è un documento JSON non formattato. Se si desidera sedersi a osservare, aprirlo in Visual Studio e scegliere Modifica, Avanzate, File di formato:
 
 ![Visualizzare i dati di telemetria con uno strumento adatto](./media/app-insights-export-telemetry/06-json.png)
 
@@ -198,4 +202,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

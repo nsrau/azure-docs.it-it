@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Compilare app in tempo reale tramite Pusher (iOS) - Servizi mobili" 
-	description="Informazioni su come usare il servizio Pusher per inviare notifiche all'app Servizi multimediali di Azure in iOS." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Compilare app in tempo reale tramite Pusher (iOS) - Servizi mobili"
+	description="Informazioni su come usare il servizio Pusher per inviare notifiche all'app Servizi multimediali di Azure in iOS."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="lindydonna"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="donnam"/>
 
 
@@ -439,6 +439,5 @@ Per ulteriori informazioni sulla registrazione e l'utilizzo di script del server
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 
 [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

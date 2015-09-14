@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Gestire l'account di archiviazione Microsoft Azure StorSimple | Microsoft Azure"
-   description="In questa esercitazione viene illustrato come utilizzare la pagina Configura per aggiungere, modificare, eliminare o ruotare le chiavi di protezione per un account di archiviazione."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Gestire l'account di archiviazione StorSimple | Microsoft Azure"
+	description="Viene illustrato come utilizzare la pagina Configura di StorSimple Manager per aggiungere, modificare, eliminare o ruotare le chiavi di protezione per un account di archiviazione."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Gestire l’account di archiviazione di StorSimple
+# Utilizzare il servizio StorSimple Manager per gestire l’account di archiviazione
 
 ## Panoramica
 
@@ -28,8 +28,6 @@ La pagina **Configura** presenta tutti i parametri di servizio globali che posso
 In questa esercitazione viene illustrato come utilizzare la pagina **Configura** per aggiungere, modificare o eliminare gli account di archiviazione o ruotare le chiavi di protezione per un account di archiviazione.
 
  ![Pagina Configura](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
-
-**Figura 1: pagina Configura del servizio StorSimple Manager**
 
 Gli account di archiviazione contengono le credenziali utilizzate dal dispositivo per accedere all'account di archiviazione con il provider di servizi cloud. Per gli account di archiviazione di Microsoft Azure, queste sono le credenziali, ad esempio il nome dell'account e la chiave di accesso primaria.
 
@@ -50,7 +48,7 @@ Le attività più comuni relative agli account di archiviazione che possono esse
 
 Esistono tre tipi di account di archiviazione che è possibile utilizzare con il dispositivo StorSimple.
 
-- **Account di archiviazione generati automaticamente**: come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per ulteriori informazioni sulla creazione di questo account di archiviazione, vedere il [passaggio 1: Creare un nuovo servizio](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Distribuire il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md). 
+- **Account di archiviazione generati automaticamente**: come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per ulteriori informazioni sulla creazione di questo account di archiviazione, vedere il [Passaggio 1: Creare un nuovo servizio](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Distribuire il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md). 
 - **Account di archiviazione nella sottoscrizione del servizio**: sono gli account di archiviazione di Azure associati alla stessa sottoscrizione del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). 
 - **Account di archiviazione esterni alla sottoscrizione al servizio**: sono gli account di archiviazione di Azure non associati al servizio e probabilmente esistenti prima che il servizio fosse creato.
 
@@ -152,4 +150,4 @@ Per informare il servizio StorSimple Manager della modifica, sarà necessario ac
 
 Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

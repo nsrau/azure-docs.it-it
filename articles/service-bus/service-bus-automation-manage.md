@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="08/28/2015"
 	ms.author="csand"/>
 
 
 
-#Gestione del bus di servizio di Azure mediante Automazione di Azure
+# Gestione del bus di servizio di Azure mediante Automazione di Azure
 
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'uso per semplificare la gestione del bus di servizio di Azure.
 
@@ -30,11 +30,9 @@ Automazione di Azure offre un motore di esecuzione del flusso di lavoro a elevat
 
 Il servizio consente di ridurre i costi operativi e di liberare risorse dello staff IT e DevOp consentendo loro di concentrarsi su attività a valore aggiunto grazie al trasferimento delle attività di gestione del cloud all'esecuzione automatica di Automazione di Azure.
 
-
 ## In che modo Automazione di Azure può facilitare la gestione del bus di servizio di Azure
 
 Il bus di servizio può essere gestito in Automazione di Azure mediante l'[API REST del bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx). In Automazione di Azure è possibile scrivere script di flussi di lavoro di PowerShell per eseguire molte delle attività del bus di servizio mediante l'API REST. È anche possibile abbinare tali chiamate API REST in Automazione di Azure ai cmdlet per altri servizi di Azure allo scopo di automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
-
 
 ## Passaggi successivi
 
@@ -44,4 +42,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 * Vedere l'articolo [Gestire il bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

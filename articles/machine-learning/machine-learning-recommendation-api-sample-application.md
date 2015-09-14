@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Operazioni comuni nell'API Recommendations di Machine Learning | Microsoft Azure" 
-	description="Recommendations di Azure ML - Applicazione di esempio" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Operazioni comuni nell'API Recommendations di Machine Learning | Microsoft Azure"
+	description="Recommendations di Azure ML - Applicazione di esempio"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
-	ms.author="luiscabrer"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="luisca"/>
 
 
 # Operazioni comuni nell'API Recommendations di Machine Learning
@@ -89,4 +89,4 @@ Per una descrizione completa delle API, vedere la documentazione di Microsoft Az
 L'app di esempio non è destinata all'esecuzione in un ambiente di produzione. I dati forniti nel catalogo sono molto limitati e non offrono un modello di raccomandazione significativo. Vengono forniti per fini dimostrativi.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

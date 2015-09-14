@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare la prima pipeline con Data factory di Azure"
-	description="Questa esercitazione mostra come creare una pipeline di dati di esempio che trasforma i dati usando Azure HDInsight con Visual Studio"
+	pageTitle="Creare la prima pipeline di Data factory di Azure con Visual Studio"
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure utilizzando Visual Studio."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline con Data factory di Azure
+# Creare la prima pipeline di Data factory di Azure con Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -68,9 +68,7 @@ Nei passaggi successivi si apprenderà come creare i servizi collegati, i set di
 
 ### Prerequisiti
 
-Nel computer deve essere installato 
-- Visual Studio 2013 
-- Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
+Nel computer deve essere installato Visual Studio 2013. Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](http://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
 
 
 ### Creare il progetto di Visual Studio 
@@ -109,14 +107,14 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 3. Sostituire **JSON** con quanto segue:
 
 		{
-		    "name": "HDInsightOnDemandLinkedService",
-		    "properties": {
+		  "name": "HDInsightOnDemandLinkedService",
+		  "properties": {
 	        "type": "HDInsightOnDemandLinkedService",
-		        "version": "3.1",
-		        "clusterSize": 1,
-		        "timeToLive": "00:05:00",
-		        "linkedServiceName": "AzureStorageLinkedService1"
-		    }
+            "version": "3.1",
+	        "clusterSize": 1,
+	        "timeToLive": "00:05:00",
+	        "linkedServiceName": "AzureStorageLinkedService1"
+		  }
 		}
 	
 	La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
@@ -168,10 +166,10 @@ In questo passaggio si creerà la prima pipeline.
 3. Sostituire **JSON** con il frammento di codice seguente e sostituire **storageaccountname** con il nome del proprio account di archiviazione.
 
 		{
-			"name": "MyFirstPipeline",
-			"properties": {
-			"description": "My first Azure Data Factory pipeline",
-		 	"activities": [
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		    "description": "My first Azure Data Factory pipeline",
+		    "activities": [
 		      {
 		            "type": "HDInsightActivity",
 		            "transformation": {
@@ -186,7 +184,7 @@ In questo passaggio si creerà la prima pipeline.
 		                "policy": {  
 		                    "concurrency": 1,
 		                    "retry": 3
-						},
+		                },
 		                "name": "RunSampleHiveActivity",
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
@@ -198,14 +196,14 @@ In questo passaggio si creerà la prima pipeline.
  
 	Nel frammento di codice JSON si crea una pipeline costituita da una singola attività che usa Hive per elaborare i dati in un cluster HDInsight.
 	
-	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**), e in un contenitore denominato **script**.
+	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService1**), e in un contenitore denominato **script**.
 
 	La sezione **extendedProperties** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:PartitionedData}).
 
 	Le proprietà **start** e **end** della pipeline specificano il periodo attivo della pipeline.
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata dal servizio collegato, **HDInsightOnDemandLinkedService**.
-3. Salvare il file **HiveActivity1.json**. 
+3. Salvare il file **HiveActivity1.json**.
 
 ### Aggiungere partitionweblogs.hql come dipendenza 
 
@@ -251,5 +249,7 @@ Vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipe
 ## Passaggi successivi
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](data-factory-get-started.md).
   
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md) richiede solo alcuni minuti.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

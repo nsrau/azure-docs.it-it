@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/25/2015"
 	ms.author="maroche"/>
 
 # Domande frequenti sul Catalogo dati di Azure
@@ -69,6 +69,8 @@ Durante l'anteprima, il Catalogo dati di Azure supporta i seguenti tipi di asset
 - Vista di Database Oracle
 - BLOB di Archiviazione di Azure
 - Directory di archiviazione di Azure
+- File HDFS
+- Directory HDSF
 
 ## D: come si richiede il supporto per un'altra origine dati?
 
@@ -111,7 +113,7 @@ Il modo più semplice di fornire i metadati agli asset registrati consiste nel s
 
 ## D: come si eliminano gli oggetti dati registrati?
 
-È possibile eliminare un oggetto dal **Catalogo dati di Azure** selezionando l'oggetto nel portale e quindi scegliendo il pulsante **Elimina**. I metadati dell’oggetto vengono così rimossi dal **Catalogo dati di Azure** ma l’operazione non interessa l'effettiva origine dati sottostante.
+È possibile eliminare un oggetto dal **Catalogo dati di Azure** selezionando l'oggetto nel portale e quindi scegliendo il pulsante **Elimina**. I metadati dell’oggetto vengono così rimossi dal **Catalogo dati di Azure**, ma l’operazione non interessa l'effettiva origine dati sottostante.
 
 ## D: cos'è un esperto?
 
@@ -160,4 +162,4 @@ Se si verificano dei problemi o per richiedere assistenza per l'anteprima del Ca
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="08/28/2015"
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -124,7 +124,7 @@ Per visualizzare altri dettagli, fare clic su qualsiasi occorrenza.
 
 ## <a name="properties"></a>Filtrare, cercare e segmentare i dati con proprietà
 
-È possibile associare proprietà e misure agli eventi (anche a metriche, visualizzazioni pagine e altri dati di telemetria).
+È possibile associare proprietà e misure agli eventi (anche a metriche, visualizzazioni pagine, eccezioni e altri dati di telemetria).
 
 Le **proprietà** sono valori di stringa che è possibile usare per filtrare i dati di telemetria nei report di utilizzo. Ad esempio, se l'app comprende più giochi, è possibile associare il nome del gioco a ogni evento per vedere quali sono i giochi più diffusi.
 
@@ -140,13 +140,22 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, sui valori delle prop
 
 *JavaScript*
 
-    appInsights.trackEvent // or trackPageView, trackMetric, ...
+    appInsights.trackEvent
       ("WinGame",
          // String properties:
          {Game: currentGame.name, Difficulty: currentGame.difficulty},
          // Numeric metrics:
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
+
+    appInsights.trackPageView
+        ("page name", "http://fabrikam.com/pageurl.html",
+          // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+          
 
 *C#*
 
@@ -341,9 +350,10 @@ Questo metodo viene usato dal server SDK per registrare le richieste HTTP.
 
     // At start of processing this request:
 
-    // Operation Id is attached to all telemetry and helps you identify
+    // Operation Id and Name are attached to all telemetry and help you identify
     // telemetry associated with one request:
     telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
+    telemetry.Context.Operation.Name = requestName;
     
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -353,6 +363,8 @@ Questo metodo viene usato dal server SDK per registrare le richieste HTTP.
     telemetryClient.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
+
+
 
 ## Tenere traccia di un'eccezione
 
@@ -369,7 +381,30 @@ Inviare le eccezioni ad Application Insights: per [contarle][metrics], come un'i
        telemetry.TrackException(ex);
     }
 
-Nelle app per dispositivi mobili di Windows, l'SDK rileva le eccezioni non gestite, in modo da non doverle registrare. In ASP.NET è possibile [scrivere codice per rilevare automaticamente le eccezioni][exceptions].
+*JavaScript*
+
+    try
+    {
+       ...
+    }
+    catch (ex)
+    {
+       appInsights.trackException(ex);
+    }
+
+Gli SDK rilevano molte eccezioni automaticamente, pertanto non è sempre necessario richiamare TrackException in modo esplicito.
+
+* ASP.NET: [Scrivere codice per intercettare le eccezioni](app-insights-asp-net-exceptions.md)
+* J2EE: [Le eccezioni vengono rilevate automaticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
+* App Windows: [Arresti anomali del sistema vengono rilevati automaticamente](app-insights-windows-crashes.md)
+* JavaScript: Rilevato automaticamente. Se si desidera disabilitare la raccolta automatica, aggiungere una riga al frammento di codice che si inserisce nelle pagine Web:
+
+    ```
+    ({
+      instrumentationKey: "your key"
+      , disableExceptionTracking: true
+    })
+    ```
 
 
 ## Monitorare una traccia 
@@ -490,96 +525,10 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
     // ...
 
 
-## <a name="default-properties"></a>Inizializzatori di contesto - Impostare proprietà predefinite per tutti i dati di telemetria
-
-È possibile impostare un inizializzatore universale in modo che tutti i nuovi TelemetryClient usino automaticamente il contesto. Sono inclusi i dati di telemetria standard inviati dai moduli di telemetria specifici della piattaforma, ad esempio la traccia delle richieste del server Web.
-
-Un uso tipico consiste nell'identificare i dati di telemetria provenienti da diverse versioni o componenti dell'app. Nel portale, è possibile filtrare o raggruppare i risultati in base alla proprietà "Application Version".
-
-**Definire l'inizializzatore**
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-**Caricare l'inizializzatore**
-
-In ApplicationInsights.config:
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*In alternativa,* è possibile creare un'istanza dell'inizializzatore nel codice:
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
-
-### Client Web JavaScript
-
-Per i client Web di JavaScript, [usare gli inizializzatori di telemetria per impostare i valori predefiniti](#js-initializer).
 
 ## Inizializzatori di telemetria
 
-Usare gli inizializzatori di telemetria per eseguire l'override del comportamento selezionato dei moduli di telemetria standard.
+Utilizzare gli inizializzatori di telemetria per definire le proprietà globali che vengono inviate con tutti i dati di telemetria; eseguire l'override del comportamento selezionato dei moduli di telemetria standard.
 
 Ad esempio, il pacchetto Application Insights per il Web raccoglie dati di telemetria relativi alle richieste HTTP e, per impostazione predefinita, contrassegna come non riuscita qualsiasi richiesta con un codice di risposta > = 400. Tuttavia, se si vuole considerare 400 come un risultato positivo, è possibile fornire un inizializzatore di telemetria che imposti la proprietà Success.
 
@@ -702,6 +651,8 @@ Inserire un inizializzatore di telemetria immediatamente dopo il codice di inizi
 
 Per un riepilogo delle proprietà non personalizzate disponibili in telemetryItem, vedere il [modello di dati](app-insights-export-data-model.md/#lttelemetrytypegt).
 
+È possibile aggiungere tutti gli inizializzatori desiderati.
+
 ## <a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
 
 Per evitare di combinare i dati di telemetria da ambienti di sviluppo, test e produzione, è possibile [creare risorse distinte di Application Insights][create] e modificare le relative chiavi a seconda dell'ambiente.
@@ -774,7 +725,9 @@ Durante il debug, è utile che la telemetria venga velocizzata nella pipeline in
 
 ## TelemetryContext
 
-TelemetryClient dispone di una proprietà di contesto, che contiene un numero di valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli personalmente.
+TelemetryClient dispone di una proprietà di contesto, che contiene un numero di valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli personalmente. Ad esempio:
+
+    telemetryClient.Context.Operation.Name = “MyOperationName”;
 
 Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pertinente da [ApplicationInsights.config][config], in modo che i valori personali e quelli standard non si confondano.
 
@@ -784,11 +737,96 @@ Se si imposta uno di questi valori personalmente, provare a rimuovere la riga pe
 * **Percorso** identifica la posizione geografica del dispositivo.
 * **Operazione** nelle app Web, la richiesta HTTP corrente. In altri tipi di app è possibile impostarla per raggruppare gli eventi tra loro.
  * L'**ID**: un valore generato che mette in correlazione eventi diversi, in modo che quando si analizza qualsiasi evento in Ricerca diagnostica, è possibile trovare "Elementi correlati"
- * **Nome**: l'URL della richiesta HTTP
+ * **Nome**: un identificatore, in genere l'URL della richiesta HTTP. 
  * **SyntheticSource**: se non è null o vuota, questa stringa indica che l'origine della richiesta è stata identificata come un test Web o un robot. Per impostazione predefinita verranno esclusi dai calcoli in Esplora metriche.
 * **Proprietà** proprietà che vengono inviate con tutti i dati di telemetria. Può essere sostituita in singole chiamate Trace*.
 * **Sessione** identifica la sessione dell'utente. L'ID viene impostato su un valore generato, che viene modificato quando l'utente non è stato attivo per un periodo di tempo.
-* **Utente** le informazioni dell'utente. 
+* **Utente**: le informazioni dell'utente. 
+
+
+## <a name="default-properties"></a>Inizializzatori di contesto - Impostare proprietà predefinite per tutti i dati di telemetria
+
+È possibile impostare un inizializzatore universale in modo che tutti i nuovi TelemetryClient usino automaticamente il contesto. Sono inclusi i dati di telemetria standard inviati dai moduli di telemetria specifici della piattaforma, ad esempio la traccia delle richieste del server Web.
+
+Un uso tipico consiste nell'identificare i dati di telemetria provenienti da diverse versioni o componenti dell'app. Nel portale, è possibile filtrare o raggruppare i risultati in base alla proprietà "Application Version".
+
+In generale, [è consigliabile utilizzare gli inizializzatori di telemetria anziché gli inizializzatori di contesto](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
+
+#### Definire un inizializzatore di contesto
+
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MyNamespace
+    {
+      // Context initializer class
+      public class MyContextInitializer : IContextInitializer
+      {
+        public void Initialize (TelemetryContext context)
+        {
+            if (context == null) return;
+
+            context.Component.Version = "v2.1";
+        }
+      }
+    }
+```
+
+*Java*
+
+```Java
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyContextInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.Component.Version = "2.1";
+      }
+    }
+```
+
+#### Caricare l'inizializzatore di contesto
+
+In ApplicationInsights.config:
+
+    <ApplicationInsights>
+      <ContextInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
+        ...
+      </ContextInitializers>
+    </ApplicationInsights>
+
+*In alternativa,* è possibile creare un'istanza dell'inizializzatore nel codice:
+
+*C#*
+
+```C#
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyContextInitializer());
+    }
+```
+
+*Java*
+
+```Java
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
+```
 
 
 
@@ -865,4 +903,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

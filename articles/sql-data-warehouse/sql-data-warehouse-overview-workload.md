@@ -1,20 +1,20 @@
 <properties
    pageTitle="Carico di lavoro del data warehouse"
-   description="L'elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU). Questo articolo illustra le metriche del data warehouse e come sono correlate alle DWU."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+	description="L'elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU). Questo articolo illustra le metriche del data warehouse e come sono correlate alle DWU."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="barbkess"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="05/23/2015"
+	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
 
 # Carico di lavoro del data warehouse
 Per carico di lavoro del data warehouse si intendono tutte le operazioni che passano attraverso un data warehouse. Tale carico di lavoro include pertanto l'intero processo di caricamento dei dati nel data warehouse, l'esecuzione dell'analisi e la creazione dei report a esso relativi, la gestione dei dati in esso contenuti e l'esportazione dei dati da esso. La profondità e l'estensione di questi componenti sono spesso proporzionali al livello di maturità del data warehouse.
@@ -60,6 +60,9 @@ Un modo per rendere disponibili i dati per i report e l'analisi consiste nell'in
 ## Passaggi successivi
 Per iniziare a sviluppare il data warehouse, vedere la [panoramica sullo sviluppo][].
 
+## Documentazione
+[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) di Karthik Ramachandran Istvan Szededi e Richard L. Saltzer (Manning Publications). [Capitolo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+
 <!--Image references-->
 
 <!--Article references-->
@@ -69,4 +72,4 @@ Per iniziare a sviluppare il data warehouse, vedere la [panoramica sullo svilupp
 
 <!--Other web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

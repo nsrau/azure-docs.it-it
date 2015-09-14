@@ -6,7 +6,6 @@ Core per [sottoscrizione](http://msdn.microsoft.com/library/azure/hh531793.aspx)
 [Servizi cloud](cloud-services-what-is.md) per sottoscrizione|20|200
 [Reti locali](http://msdn.microsoft.com/library/jj157100.aspx) per sottoscrizione|10|500
 Server di database SQL per sottoscrizione|6|150
-Database SQL per server|150|500
 Server DNS per sottoscrizione|9|100
 IP riservati per sottoscrizione|20|100
 Circuiti ExpressRoute dedicati per sottoscrizione|10|25
@@ -17,4 +16,4 @@ Regole di avviso per ogni sottoscrizione|250|250
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

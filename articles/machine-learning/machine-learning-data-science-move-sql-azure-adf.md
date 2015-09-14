@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Spostare i dati da un Server SQL locale a SQL Azure con data factory di Azure | Azure" 
-	description="È necessario impostare una pipeline ADF che comprende due attività di migrazione di dati che insieme spostano i dati su base giornaliera tra un database locale e un database nel cloud." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="jacob.spoelstra" 
-	editor=""  />
+	pageTitle="Spostare i dati da un Server SQL locale a SQL Azure con data factory di Azure | Azure"
+	description="È necessario impostare una pipeline ADF che comprende due attività di migrazione di dati che insieme spostano i dati su base giornaliera tra un database locale e un database nel cloud."
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="jacob.spoelstra"
+	editor=""/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="fashah;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="fashah;bradsev"/>
 
 
 # Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure
@@ -300,4 +300,4 @@ Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizza
 
 Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="App di esempio di Machine Learning in Azure Marketplace | Microsoft Azure" 
-	description="Gli esempi di app di Azure Machine Learning illustrano come pubblicare i servizi di Machine Learning in Azure Marketplace in modo che gli utenti abbonati li usino nelle proprie app." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="App di esempio di Machine Learning in Azure Marketplace | Microsoft Azure"
+	description="Gli esempi di app di Azure Machine Learning illustrano come pubblicare i servizi di Machine Learning in Azure Marketplace in modo che gli utenti abbonati li usino nelle proprie app."
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 # App di esempio di Machine Learning in Azure Marketplace
@@ -57,6 +57,10 @@ Questa API può essere usata per analizzare testi non strutturati per attività 
 [Documentazione](machine-learning-apps-text-analytics.md)
 
  
- 
+ ##Previsione con varianza cliente## La previsione con varianza cliente è un servizio di analisi della varianza creato con Azure Machine Learning. È progettato per stimare quando si prevede che un cliente (player, sottoscrittore, utente e così via) possa interrompere la propria relazione con una società o un servizio. La possibilità di stimare quali clienti hanno un alto rischio di interrompere la relazione con un’azienda fornisce all'azienda l’opportunità di affrontare tali clienti e ridurre la probabilità che decidano di interrompere.
 
-<!---HONumber=August15_HO6-->
+[Collegamento a Data Market](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
+
+[Documentazione](https://churn.cloudapp.net/documentation)
+
+<!---HONumber=September15_HO1-->

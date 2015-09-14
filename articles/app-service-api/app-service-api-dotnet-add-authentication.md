@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Proteggere un'app per le API di Azure" 
-	description="Informazioni su come proteggere un'app per le API di Azure con Visual Studio." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Proteggere un'app per le API di Azure"
+	description="Informazioni su come proteggere un'app per le API di Azure con Visual Studio."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="tdykstra"/>
 
 # Proteggere un'app per le API: aggiungere l'autenticazione di Azure Active Directory o del provider di servizi di social networking
@@ -229,7 +229,11 @@ Questa sezione illustra come modificare il codice nell'app per le API ContactsLi
 	* "twitter"
 	* "facebook". 
 
-2. Nel file *ContactsController.cs* sostituire il codice nel metodo `Get` con il codice seguente.
+3. Nel file *ContactsController.cs*, aggiungere un’istruzione `using` nella parte superiore del file.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. Sostituire il codice metodo `Get` con il codice seguente.
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;
@@ -268,4 +272,4 @@ Questa sezione illustra come modificare il codice nell'app per le API ContactsLi
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

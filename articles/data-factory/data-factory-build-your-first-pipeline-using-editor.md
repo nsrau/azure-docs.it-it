@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare la prima pipeline con Data factory di Azure"
-	description="Questa esercitazione mostra come creare una pipeline di dati di esempio che trasforma i dati usando Azure HDInsight con l'editor di Data factory"
+	pageTitle="Creare la prima pipeline di Data factory di Azure con Data Factory Editor"
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure utilizzando Data Factory Editor nel portale di Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline con Data factory di Azure
+# Creare la prima pipeline di Data factory di Azure con Data Factory Editor (Portale di Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -230,4 +230,7 @@ In questo passaggio si creerà la prima pipeline.
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati da un BLOB di Azure ad Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO7-->
+## Invia commenti e suggerimenti
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md) richiede solo alcuni minuti.
+
+<!---HONumber=September15_HO1-->

@@ -1,57 +1,62 @@
 <properties
-	pageTitle="Componente aggiuntivo Excel per i servizi web Machine Learning | Microsoft Azure"
-	description="Come accedere ai servizi web di Azure Machine Learning direttamente in Excel senza scrivere alcun codice."
+	pageTitle="Componente aggiuntivo Excel per i servizi Web di Machine Learning | Microsoft Azure"
+	description="Come usare i servizi Web di Azure Machine Learning direttamente in Excel senza scrivere alcun codice."
 	services="machine-learning"
 	documentationCenter=""
 	authors="tedway"
 	manager="paulettm"
 	editor="cgronlun"
-    tags=""/>
+	tags=""/>
 
 <tags
 	ms.service="machine-learning"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/10/2015"
-	ms.author="tedway;garye" />
+	ms.date="08/25/2015"
+	ms.author="tedway;garye"/>
 
-# Componente aggiuntivo Excel per i servizi web di Azure Machine Learning
+# Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning
 
-Excel consente di chiamare servizi web direttamente senza dover scrivere alcun codice.
+Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
 
-## Procedura per utilizzare un servizio web esistente
+## Procedura per usare un servizio Web esistente nella cartella di lavoro
 
-1. Aprire il file di Excel di esempio qui o dalla scheda **DASHBOARD** dei servizi web.
-2. Scegliere un servizio web facendo clic su di esso-"Titanic superstite predittive (esempio di componente aggiuntivo Excel) [punteggio]" in questo esempio.
+1. Aprire il [file di Excel di esempio](http://aka.ms/amlexcel-sample-2) che contiene il componente aggiuntivo Excel e i dati relativi ai passeggeri sul Titanic.
+2. Scegliere un servizio Web facendo clic su di esso: in questo esempio "Stime sopravvissuti Titanic (esempio componente aggiuntivo Excel) [Score]".
 
-    ![Selezionare il servizio web][01]
+    ![Selezionare il servizio Web][01]
 
-3. Verrà visualizzata la sezione **Stima**. Selezionare una cella in Excel e fare clic su **Usa dati di esempio**. Se lo si desidera è possibile modificare i dati in Excel.
-
-	![Sezione stima][02]
-
-4. Evidenziare i dati e fare clic sull'icona dell’intervallo dei dati di input.
-5. In **Output**, immettere il numero di celle in cui si desidera inserire l'output.
+3. Viene visualizzata la sezione **Stima**. Questa cartella di lavoro contiene già dati di esempio, ma per una cartella di lavoro vuota è anche possibile selezionare una cella in Excel e fare clic su **Usare dati di esempio**.
+4. Selezionare i dati con intestazioni e fare clic sull'icona dell'intervallo dei dati di input. Assicurarsi che sia selezionata la casella "Dati con intestazioni".
+5. In **Output** immettere il numero di celle in cui si desidera inserire l'output, ad esempio "H1" di seguito.
 6. Fare clic su **Stima**.
 
-## Procedura per aggiungere un nuovo servizio web
+	![Sezione Stima][02]
 
-1. Pubblicare un servizio web (in [questa pagina](machine-learning-walkthrough-5-publish-web-service.md) viene illustrato come eseguire questa operazione) o trovare un servizio web esistente.
-2. Dopo aver creato un servizio Web, fare clic sulla sezione **SERVIZI WEB** sulla sinistra di Machine Learning Studio e quindi selezionare il servizio Web da utilizzare.
-3. Dalla scheda **DASHBOARD** per il servizio web, copiare la chiave dell'API per il servizio web.
-4. In Excel andare alla sezione **Servizi Web** (se si è nella sezione **Stima** fare clic sulla freccia indietro per andare alla lista dei servizi web).
+## Procedura per aggiungere un nuovo servizio Web
 
-	![Sezione servizi Web][03]
+1. Pubblicare un servizio Web (in [questa pagina](machine-learning-walkthrough-5-publish-web-service.md) viene illustrato come eseguire questa operazione) o usare un servizio Web esistente.
+2. In Excel andare alla sezione **Servizi Web** (se si è nella sezione **Stima**, fare clic sulla freccia indietro per andare all'elenco dei servizi Web).
 
-5. Fare clic su **Aggiungi servizio Web**.
-6. Incollare la chiave nella casella di testo **Chiave API**.
-7. Nella scheda **DASHBOARD** per il servizio web, fare clic sul collegamento**Pagina di assistenza API**.
-8. Copiare l'URI di richiesta in **Richiesta** e incollarlo nella casella di testo **URL**.
+	![Passare alla selezione Servizio Web][03]
+
+3. Fare clic su **Aggiungi servizio Web**.
+4. In Machine Learning Studio fare clic sulla sezione **SERVIZI WEB** sulla sinistra e quindi selezionare il servizio Web da usare.
+
+	![Selezione di Servizio Web in Studio][04]
+
+5. Copiare la chiave dell'API per il servizio Web.
+
+	![Chiave API in Studio][05]
+
+6. Incollare la chiave dell'API nella casella di testo **Chiave API** del componente aggiuntivo Excel.
+7. Nella scheda **DASHBOARD** per il servizio Web fare clic sul collegamento **RICHIESTA/RISPOSTA**.
+8. Cercare la sezione **Indirizzo dell'endpoint OData**. Copiare l'URL di richiesta e incollarlo nella casella di testo **URL**.
 9. Fare clic su **Aggiungi**.
 
-	![URL e chiave API][04]
+	![URL e chiave API][06]
 
 10.	Per utilizzare il servizio web, seguire le istruzioni sopra riportate, "Procedura per utilizzare un servizio Web esistente".
 
@@ -59,10 +64,13 @@ Excel consente di chiamare servizi web direttamente senza dover scrivere alcun c
 
 Se si salva la cartella di lavoro, verranno salvate anche le chiavi API per i servizi web che sono stati aggiunti. Pertanto, è necessario condividere la cartella di lavoro solo con persone attendibili.
 
+È possibile porre domande di seguito o sul [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/machine-learning-excel-add-in-for-web-services/image1.png
 [02]: ./media/machine-learning-excel-add-in-for-web-services/image2.png
 [03]: ./media/machine-learning-excel-add-in-for-web-services/image3.png
 [04]: ./media/machine-learning-excel-add-in-for-web-services/image4.png
+[05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
+[06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

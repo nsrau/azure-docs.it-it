@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="Modificare la modalità del dispositivo nel dispositivo StorSimple | Microsoft Azure"
-   description="Informazioni sulle varie modalità del dispositivo StorSimple e su come cambiare modalità del dispositivo."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Cambiare la modalità del dispositivo StorSimple | Microsoft Azure"
+	description="Vengono descritte le modalità del dispositivo StorSimple e viene illustrato come utilizzare Windows PowerShell per StorSimple per modificare la modalità del dispositivo."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Modalità del dispositivo StorSimple
+# Cambiare le modalità del dispositivo sul dispositivo StorSimple
 
 In questo articolo viene fornita una breve descrizione delle varie modalità in cui può operare il dispositivo StorSimple. Il dispositivo StorSimple può funzionare in tre modalità: normale, manutenzione e ripristino.
 
 Una volta letto l'articolo, si sarà in grado di:
 
-- modalità del dispositivo StorSimple
-- determinare la modalità corrente del dispositivo StorSimple
-- cambiare la modalità da normale a manutenzione e *viceversa*.
+- Quali sono le modalità del dispositivo StorSimple
+- Come determinare la modalità corrente del dispositivo StorSimple
+- Come cambiare la modalità da normale a manutenzione e *viceversa*.
 
 
 Le attività di gestione precedenti possono essere eseguite solo tramite l'interfaccia di Windows PowerShell del dispositivo StorSimple.
@@ -54,7 +54,7 @@ Se il sistema passa in modalità di ripristino, è necessario contattare il supp
 
 ## Determinare la modalità del dispositivo StorSimple
 
-Per determinare la modalità del dispositivo, effettuare le seguenti operazioni:
+#### Per determinare la modalità corrente del dispositivo
 
 1. Accedere alla console seriale del dispositivo seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 2. Esaminare il messaggio dell'intestazione nel menu della console seriale del dispositivo. Questo messaggio indica in modo esplicito se il dispositivo è in modalità di manutenzione o di ripristino. Se il messaggio non contiene informazioni specifiche relative alla modalità di sistema, il dispositivo è in modalità normale.
@@ -97,4 +97,4 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 Informazioni su come [applicare gli aggiornamenti in modalità normale e manutenzione](storsimple-update-device.md) al dispositivo StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Consente di visualizzare e gestire gli avvisi di StorSimple | Microsoft Azure"
-   description="Vengono descritti gli avvisi di StorSimple e la procedura per utilizzare il servizio StorSimple Manager per visualizzare e cancellare gli avvisi."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Vengono descritte le condizioni di avviso StorSimple e la loro gravità, come configurare le notifiche di avviso e come utilizzare il servizio StorSimple Manager per gestire gli avvisi."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
-# Visualizzare e gestire gli avvisi di StorSimple
+# Utilizzare il servizio StorSimple Manager per visualizzare e gestire gli avvisi di StorSimple.
 
 ## Panoramica
 
@@ -233,4 +233,4 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 [Ulteriori informazioni sugli errori di StorSimple](storsimple-troubleshoot-operational-device.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

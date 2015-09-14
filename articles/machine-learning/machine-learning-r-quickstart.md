@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 # Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
@@ -1117,4 +1117,4 @@ Alcune importanti risorse su Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

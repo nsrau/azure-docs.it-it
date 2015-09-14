@@ -36,7 +36,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione a Microsoft Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](../../../../pricing/free-trial).
 - Azure PowerShell 0.9.1 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
-- Un'applicazione che verrà configurata per usare la chiave o la password creata in questa esercitazione. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/it-it/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme associato.
+- Un'applicazione che verrà configurata per usare la chiave o la password creata in questa esercitazione. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/it-IT/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme associato.
 
 
 Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, come i moduli, i cmdlet e le sessioni. Per altre informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -85,7 +85,7 @@ Quando si usa Gestione risorse di Azure, tutte le risorse correlate vengono crea
 
 	New-AzureResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
-Per il parametro [\-Percorso](https://msdn.microsoft.com/library/azure/dn654582.aspx), usare il comando **Get-AzureLocation** per identificare come specificare una posizione alternativa a quella di questo esempio. Se servono altre informazioni, digitare: `Get-Help Get-AzureLocation`
+Per il parametro [-Percorso](https://msdn.microsoft.com/library/azure/dn654582.aspx), usare il comando **Get-AzureLocation** per identificare come specificare una posizione alternativa a quella di questo esempio. Se servono altre informazioni, digitare: `Get-Help Get-AzureLocation`
 
 
 ## <a id="vault"></a>Creare un insieme di credenziali chiave ##
@@ -179,6 +179,11 @@ Ad esempio, se il nome dell'insieme di credenziali è **ContosoKeyVault** e l'ap
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+	
+Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segreti nell'insieme di credenziali, eseguire le seguenti operazioni:
+
+
+	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
 ## <a id="HSM"></a>Per usare un modulo di protezione hardware ##
 
@@ -194,7 +199,7 @@ Quando si crea l'insieme di credenziali, aggiungere il parametro **-SKU**:
 
 
 
-È possibile aggiungere a questo insieme di credenziali chiavi protette tramite software (come illustrato in precedenza) e chiavi HSM protette. Per creare una chiave HSM protetta, impostare il parametro **Destinazione** su 'HSM':
+È possibile aggiungere a questo insieme di credenziali chiavi protette tramite software (come illustrato in precedenza) e chiavi HSM protette. Per creare una chiave HSM protetta, impostare il parametro **-Destination** su 'HSM':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -239,4 +244,4 @@ Per un elenco di cmdlet di Windows PowerShell per l'insieme di credenziali chiav
 
 Per riferimenti alla programmazione, vedere [Insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903625.aspx) nella libreria della documentazione di Microsoft Azure su MSDN.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

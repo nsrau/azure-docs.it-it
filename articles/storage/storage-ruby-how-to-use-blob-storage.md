@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come usare l'archiviazione BLOB da Ruby | Microsoft Azure" 
-	description="Informazioni su come usare il servizio BLOB di Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Ruby." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Come usare l'archiviazione BLOB da Ruby | Microsoft Azure"
+	description="Informazioni su come usare il servizio BLOB di Azure per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Ruby."
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 
@@ -60,11 +60,11 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 Per ottenere questi valori:
 
 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com/).
-2. Passare all'account di archiviazione che si desidera utilizzare
+2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Fare clic su **MANAGE KEYS** nella parte inferiore del pannello di navigazione.
 4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria.
 
-## Procedura: creare un contenitore
+## Creare un contenitore
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -83,7 +83,7 @@ Se si desidera rendere pubblici i file nel contenitore è possibile impostare le
 
 È possibile modificare solo la chiamata <strong>create\_container()</strong> per passare l'opzione **:public\_access\_level**:
 
-	container = azure_blob_service.create_container("test-container", 
+	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
 
 
@@ -94,12 +94,12 @@ I valori validi per l'opzione **:public\_access\_level** sono:
 * **contenitore:** consente di specificare l'accesso in lettura pubblico per i BLOB. I dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
 
 In alternativa, è possibile modificare il livello di accesso di un contenitore usando il metodo **set\_container\_acl()** per specificare il livello di accesso pubblico.
- 
-Nell'esempio seguente viene illustrata la modifica del livello di accesso pubblico al **contenitore**:
+
+Nell'esempio di codice seguente viene modificato il livello di accesso pubblico al **contenitore**:
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## Procedura: caricare un BLOB in un contenitore
+## Caricare un BLOB in un contenitore
 
 Per caricare contenuto in un BLOB, usare il metodo **create\_block\_blob()** per crearne uno, usando un file o una stringa come contenuto del BLOB.
 
@@ -110,7 +110,7 @@ Il codice seguente consentirà di caricare il file **test.png** come nuovo BLOB 
 	  "image-blob", content)
 	puts blob.name
 
-## Procedura: elencare i BLOB in un contenitore
+## Elencare i BLOB in un contenitore
 
 Per elencare i contenitori utilizzare il metodo **list\_containers()**. Per elencare i BLOB all'interno di un contenitore utilizzare il metodo **list\_blobs()**.
 
@@ -124,7 +124,7 @@ L'output sarà costituito dagli URL di tutti i BLOB in tutti i contenitori relat
 	  end
 	end
 
-## Procedura: scaricare i BLOB
+## Scaricare BLOB
 
 Per scaricare i BLOB usare il metodo **get\_blob()** per recuperare il contenuto.
 
@@ -133,18 +133,17 @@ Nell'esempio seguente viene illustrato l'utilizzo di **get\_blob()** per scarica
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## Procedura: eliminare un BLOB
+## Eliminare un BLOB
 Per eliminare un BLOB, infine, usare il metodo **delete\_blob()**. Nell'esempio seguente viene illustrato come eliminare un BLOB.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
+Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
-- Vedere la documentazione MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Riferimento MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- Archivio [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
- 
+- Archivio [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

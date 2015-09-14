@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Inviare notifiche push agli utenti autenticati" 
-	description="Informazioni su come inviare notifiche push a utenti specifici" 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Inviare notifiche push agli utenti autenticati"
+	description="Informazioni su come inviare notifiche push a utenti specifici"
+	services="mobile-services, notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 
@@ -28,7 +28,7 @@ Questo argomento descrive come inviare notifiche push a un utente autenticato su
 
 Questa esercitazione supporta le app Android.
 
-##Prerequisiti 
+##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario aver già completato queste esercitazioni su Servizi mobili:
 
@@ -46,21 +46,21 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 <pre><code>function insert(item, user, request) {
 
     // Definire un payload per una notifica di tipo avviso popup di Google Cloud Messaging.
-    var payload = 
+    var payload =
         '{"data":{"message" : "Hello from Mobile Services! An Item was inserted"}}';
 
     // Ottenere l'ID dell'utente che ha eseguito l'accesso.
-    var userId = user.userId;		
+    var userId = user.userId;
 
     request.execute({
         success: function() {
-            // Se l'inserimento ha esito positivo, inviare una notifica a tutti i dispositivi 
+            // Se l'inserimento ha esito positivo, inviare una notifica a tutti i dispositivi
             // registrati con l'utente che ha eseguito l'accesso come tag.
             push.gcm.send(userId, payload, {
                 success: function(pushResponse) {
                     console.log("Sent push with " + userId + " tag:", pushResponse, payload);
 	    			request.respond();
-                    },              
+                    },
                     error: function (pushResponse) {
                             console.log("Error Sending push:", pushResponse);
 	    				request.respond(500, { error: pushResponse });
@@ -96,6 +96,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

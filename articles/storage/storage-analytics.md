@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Analisi archiviazione" 
-	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="Analisi di Archiviazione | Microsoft Azure"
+	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="tamram"/>
 
 # Analisi archiviazione
@@ -22,11 +22,11 @@
 
 Analisi archiviazione di Azure esegue la registrazione e fornisce le metriche dei dati per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.
 
-Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. Tale operazione può essere eseguita dal [portale di gestione di Azure](https://manage.windowsazure.com/). Per i dettagli, vedere [Come monitorare un account di archiviazione](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Utilizzare le operazioni [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) e [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) per abilitare Analisi archiviazione per ciascun servizio.
+Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale Azure](https://manage.windowsazure.com/). Per i dettagli, vedere [Come monitorare un account di archiviazione](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Utilizzare le operazioni [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) e [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) per abilitare Analisi archiviazione per ciascun servizio.
 
 I dati aggregati vengono archiviati in un BLOB noto (per la registrazione) e in tabelle note (per le metriche), a cui è possibile accedere tramite le API del servizio BLOB e del servizio tabelle.
 
-Analisi archiviazione può archiviare un massimo di 20 TB di dati. Tale limite è indipendente dal limite totale dell'account di archiviazione. Per altre informazioni sulla fatturazione e sui criteri di conservazione dei dati, vedere [Analisi archiviazione e fatturazione](https://msdn.microsoft.com/library/hh360997.aspx). Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](https://msdn.microsoft.com/library/dn249410.aspx).
+Analisi archiviazione può archiviare un massimo di 20 TB di dati. Tale limite è indipendente dal limite totale dell'account di archiviazione. Per ulteriori informazioni sulla fatturazione e sui criteri di conservazione dei dati, vedere [Analisi archiviazione e fatturazione](https://msdn.microsoft.com/library/hh360997.aspx). Per informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](https://msdn.microsoft.com/library/dn249410.aspx).
 
 Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -74,7 +74,7 @@ Per i log creati nella stessa ora possono esistere record duplicati. È possibil
 ### Convenzioni di denominazione dei log
 Ciascun log verrà scritto nel seguente formato:
 
-    <service-name>/YYYY/MM/DD/hhmm/<counter>.log 
+    <service-name>/YYYY/MM/DD/hhmm/<counter>.log
 
 Nella tabella seguente vengono descritti i singoli attributi del nome del log:
 
@@ -85,7 +85,7 @@ Nella tabella seguente vengono descritti i singoli attributi del nome del log:
 | MM | Due cifre del mese del log. Ad esempio: 07 |
 | GG | Due cifre del mese del log. Ad esempio: 07 |
 | hh | Due cifre dell'ora che indica l'ora di inizio dei log, nel formato UTC 24 ore. Ad esempio: 18 |
-| mm | Numero di due cifre che indica il minuto di inizio per i log. >[AZURE.NOTE]Questo valore non è supportato nella versione corrente di Analisi archiviazione, e il relativo valore sarà sempre 00. |
+| mm | Numero di due cifre che indica il minuto di inizio per i log. Questo valore non è supportato nella versione corrente di Analisi archiviazione, e il relativo valore sarà sempre 00. |
 | <counter> | Contatore base zero con sei cifre che indica il numero di BLOB di log generati per il servizio di archiviazione in un'ora. Questo contatore parte da 000000. Ad esempio: 000001 |
 
 Di seguito viene riportato un nome di log di esempio completo che combina gli esempi precedenti:
@@ -94,9 +94,9 @@ Di seguito viene riportato un nome di log di esempio completo che combina gli es
 
 L'URI di esempio riportato di seguito può essere utilizzato per accedere al log precedente:
 
-    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log 
+    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
-Quando viene registrata una richiesta di archiviazione, il nome log risultante è correlato all'ora in cui è stata completata l'operazione richiesta. Ad esempio, se una richiesta GetBlob è stata completata alle 18.30 del 31/07/2011, il log avrà il seguente prefisso: `blob/2011/07/31/1800/`
+Quando viene registrata una richiesta di archiviazione, il nome log risultante è correlato all'ora in cui è stata completata l'operazione richiesta. Ad esempio, se una richiesta GetBlob è stata completata alle 18.30 del 31/07/2011, il log verrà scritto con il seguente prefisso: `blob/2011/07/31/1800/`
 
 ### Metadati dei log
 Tutti i BLOB dei log vengono archiviati con i metadati che possono essere utilizzati per identificare i dati di registrazione contenuti nei BLOB. Nella tabella seguente sono descritti i singoli attributi dei metadati:
@@ -104,13 +104,13 @@ Tutti i BLOB dei log vengono archiviati con i metadati che possono essere utiliz
 | Attributo | Descrizione |
 |------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | LogType | Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola. Esempio 1: scrittura Esempio 2: lettura, scrittura Esempio 3: lettura, scrittura, eliminazione |
-| StartTime | L'ora in cui è stata registrata la prima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 2011-07-31T18:21:46Z |
-| EndTime | L'ora in cui è stata registrata l'ultima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 2011-07-31T18:22:09Z |
-| LogVersion | Versione del formato del log. Al momento, l'unico valore supportato è: 1.0 |
+| StartTime | L'ora in cui è stata registrata la prima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 31-07-2011T18:21:46Z |
+| EndTime | L'ora in cui è stata registrata l'ultima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 31-07-2011T18:22:09Z |
+| LogVersion | Versione del formato del log. Al momento, l'unico valore supportato è: 1,0 |
 
 Nell'elenco seguente sono visualizzati i metadati di esempio completi tramite gli esempi precedenti:
 
-- LogType=write 
+- LogType=write
 
 - StartTime=2011-07-31T18:21:46Z
 
@@ -126,7 +126,7 @@ Tutti i dati del contenitore `$logs` sono accessibili tramite le API del servizi
 
 Analisi archiviazione è in grado di archiviare le metriche che includono le statistiche delle transazioni aggregate e i dati di capacità relativi alle richieste in un servizio di archiviazione. Le transazioni vengono segnalate sia a livello di operazione API, sia a livello di servizio di archiviazione, mentre la capacità viene segnalata a livello di servizio di archiviazione. I dati delle metriche possono essere utilizzati per analizzare l'uso del servizio di archiviazione, diagnosticare i problemi relativi alle richieste effettuate al servizio di archiviazione e per migliorare le prestazioni delle applicazioni che usano un servizio.
 
-Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. Tale operazione può essere eseguita dal [portale di gestione di Azure](https://manage.windowsazure.com/). Per i dettagli, vedere [Come monitorare un account di archiviazione](../how-to-monitor-a-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. [Utilizzare le operazioni Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) e [Get Table Service Properties per abilitare Analisi archiviazione](https://msdn.microsoft.com/library/hh452238.aspx) per ciascun servizio.
+Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale Azure](https://manage.windowsazure.com/). Per i dettagli, vedere [Come monitorare un account di archiviazione](../how-to-monitor-a-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. [Utilizzare le operazioni Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) e [Get Table Service Properties per abilitare Analisi archiviazione](https://msdn.microsoft.com/library/hh452238.aspx) per ciascun servizio.
 
 ### Metriche di transazione
 
@@ -150,20 +150,20 @@ I dati relativi alla capacità vengono registrati quotidianamente per il servizi
 
 - **ObjectCount**: il numero di BLOB di pagine o blocchi inviati nel servizio BLOB dell'account di archiviazione.
 
-Per altre informazioni sulle metriche della capacità, vedere Schema di tabella della metrica di Analisi di archiviazione.
+Per altre informazioni sulle metriche della capacità, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx).
 
 ### Come vengono archiviate le metriche
 
 Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiviati in tre tabelle riservate per tale servizio: una tabella per le informazioni sulle transazioni, una per le informazioni sulle transazioni al minuto e un'altra per le informazioni relative alla capacità. Le informazioni sulla transazione e sulle transazioni al minuto consistono nei dati di richiesta e di risposta, mentre le informazioni sulla capacità consistono nei dati d'uso dell'archiviazione. Metriche per ora, minuto e capacità del servizio BLOB di un account di archiviazione sono accessibili nelle tabelle denominate nel modo descritto nella tabella seguente.
 
-| Livello metrica | Nomi tabella | Supportato per le versioni |
+| Livello metrica | Nomi tabella | Versioni supportate |
 |------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------	|
 | Metriche orarie, posizione principale | $MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue | Solo le versioni precedenti al 15-08-2013. Sebbene tali nomi siano supportati, è consigliabile passare all'utilizzo delle tabelle elencate di seguito. |
-| Metriche orarie, posizione principale | $MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue | Tutte le versioni, inclusa quella del 15-08-2013 |
-| Metriche per minuto, posizione principale | $MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue | Tutte le versioni, inclusa quella del 15-08-2013 |
+| Metriche orarie, posizione principale | $MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue | Tutte le versioni, inclusa quella del 15-08-2013. |
+| Metriche per minuto, posizione principale | $MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue | Tutte le versioni, inclusa quella del 15-08-2013. |
 | Metriche orarie, posizione secondaria | $MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue | Tutte le versioni, inclusa quella del 15-08-2013. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica. |
 | Metriche al minuto, posizione secondaria | $MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue | Tutte le versioni, inclusa quella del 15-08-2013. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica. |
-| Capacità (solo servizio BLOB) | $MetricsCapacityBlob | Tutte le versioni, inclusa quella del 15-08-2013 |
+| Capacità (solo servizio BLOB) | $MetricsCapacityBlob | Tutte le versioni, inclusa quella del 15-08-2013. |
 
 
 Tali tabelle vengono create automaticamente quando viene abilitato Analisi archiviazione per un account di archiviazione. L'accesso alle tabelle viene eseguito tramite lo spazio dei nomi dell'account di archiviazione, ad esempio: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
@@ -193,17 +193,17 @@ Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le 
 ## Passaggi successivi
 
 ### Configurazione di Analisi archiviazione
-- [Come monitorare un account di archiviazione](../how-to-monitor-a-storage-account.md) 
+- [Come monitorare un account di archiviazione](../how-to-monitor-a-storage-account.md)
 - [Abilitazione e configurazione di Analisi archiviazione](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### Registrazione di Analisi archiviazione  
-- [Informazioni sulla registrazione di Analisi archiviazione](https://msdn.microsoft.com/library/hh343262.aspx) 
-- [Formato log Analisi archiviazione](https://msdn.microsoft.com/library/hh343259.aspx) 
-- [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoftcom/library/hh343260.aspx) 
+- [Informazioni sulla registrazione di Analisi archiviazione](https://msdn.microsoft.com/library/hh343262.aspx)
+- [Formato log Analisi archiviazione](https://msdn.microsoft.com/library/hh343259.aspx)
+- [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoftcom/library/hh343260.aspx)
 
 ### Metriche di Analisi archiviazione
 - [Informazioni sulle metriche di Analisi archiviazione](https://msdn.microsoft.com/library/hh343258.aspx)
-- [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx) 
+- [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

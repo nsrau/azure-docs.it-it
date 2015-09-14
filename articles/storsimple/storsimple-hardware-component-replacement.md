@@ -1,31 +1,31 @@
 <properties 
    pageTitle="Sostituzione di componenti hardware StorSimple | Microsoft Azure"
-   description="Viene descritto come sostituire in modo sicuro i PCM, la batteria, i moduli controller, i controller EBOD, le unità disco e chassis di un dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Viene descritto come sostituire in modo sicuro i PCM, la batteria, i moduli controller, i controller EBOD, le unità disco e chassis di un dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Sostituzione di componenti hardware di StorSimple
 
 ## Panoramica
 
-Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti hardware del dispositivo Microsoft Azure StorSimple e i passaggi necessari per rimuovere e sostituire i componenti. In queste esercitazioni si apprenderà quali componenti è possibile sostituire e come sostituirli.
+Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti hardware del dispositivo Microsoft Azure StorSimple e i passaggi necessari per rimuovere e sostituire i componenti. In questo articolo vengono descritte le icone di sicurezza, vengono forniti dei collegamenti alle esercitazioni dettagliate e vengono elencati i componenti che possono essere sostituiti.
 
-Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le[convenzioni di sicurezza](#safety-icon-conventions)e altre[precauzioni di sicurezza](storsimple-safety.md).
+>[AZURE.IMPORTANT]Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le[convenzioni di sicurezza](#safety-icon-conventions)e altre[precauzioni di sicurezza](storsimple-safety.md).
  
 ### Convenzioni di sicurezza
 
-Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in questa guida. Prestare particolare attenzione a queste icone di sicurezza quando si eseguono i passaggi per rimuovere e sostituire i componenti del dispositivo.
+Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in queste esercitazioni. Prestare particolare attenzione a queste icone di sicurezza quando si eseguono i passaggi per rimuovere e sostituire i componenti del dispositivo.
 
 | Icona | Text | Informazioni aggiuntive |
 |:---- |:---- |:-----------|
@@ -41,25 +41,25 @@ Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in que
 
 ### Prima di iniziare
 
-Acquisire familiarità con le informazioni di sicurezza relative al dispositivo e alle icone di sicurezza utilizzate in questa esercitazione. Andare a[Sicurezza del dispositivo](storsimple-safety.md)per informazioni complete. Rivedere le[precauzioni di sicurezza](storsimple-safety.md#handling-precautions)prima di gestire il dispositivo StorSimple.
+Acquisire familiarità con le informazioni di sicurezza relative al dispositivo e alle icone di sicurezza utilizzate in questa esercitazione. Andare a [Installazione sicura e funzionamento del dispositivo StorSimple](storsimple-safety.md) per informazioni più dettagliate. Rivedere le[precauzioni di sicurezza](storsimple-safety.md#handling-precautions)prima di gestire il dispositivo StorSimple.
 
 Prima di tentare di sostituire un componente, considerare le seguenti informazioni.
 
-![Icona di avviso](./media/storsimple-hardware-component-replacement/Warning.png)![Icona di scossa elettrica](./media/storsimple-hardware-component-replacement/Electric.png)**AVVISO!**
+![Icona di avviso](./media/storsimple-hardware-component-replacement/Warning.png) ![Icona di scossa elettrica](./media/storsimple-hardware-component-replacement/Electric.png) **AVVISO!**
 
 - Collegarsi a terra correttamente usando un elettrostatica o passepartout antistatiche durante la gestione di moduli e i componenti del dispositivo StorSimple.
 
 - Non toccare nessun circuito. Utilizzare maniglie e guide specificate durante la gestione di componenti che possono avere circuiti esposti..
 
-![Icona di avviso](./media/storsimple-hardware-component-replacement/Warning.png)![Icona di notifica](./media/storsimple-hardware-component-replacement/NoticeIcon.png)**NOTIFICA:**
+![Icona di avviso](./media/storsimple-hardware-component-replacement/Warning.png) ![Icona di notifica](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **NOTIFICA:**
 
 Quando si sostituisce un modulo,**non lasciare MAI un alloggiamento vuoto nella sporgenza dell’enclosure**. Procurarsi un ricambio o un modulo vuoto prima di rimuovere la parte del problema.
 
-## Componenti hardware del dispositivo
+## Procedure di sostituzione di componenti hardware
 
 Il dispositivo Microsoft Azure StorSimple è costituito da diversi moduli plug-in primari e/o chiassis EBOD. Il modello 8100 ha un solo chassis principale, mentre il 8600 è un dispositivo a chassis doppio con un chassis principale e uno EBOD.
 
-Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel dispositivo. Fare clic sul collegamento nella colonna della procedura di sostituzione per passare all'esercitazione associata.
+Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel dispositivo. Fare clic sul collegamento nella colonna della **Procedura di sostituzione** per passare all'esercitazione associata.
 
 |Componenti|# Presente|Modulo plug-in?|Procedura di sostituzione
 |:---------|:--------|:--------------|:---------------------|
@@ -142,4 +142,4 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 
 Rivedere tutte le[informazioni sulla sicurezza](storsimple-safety.md)prima di tentare di sostituire un componente hardware StorSimple.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,27 +1,27 @@
 <properties 
-	pageTitle="Introduzione alla crittografia lato client per Archiviazione di Microsoft Azure | Microsoft Azure" 
-	description="La libreria client di archiviazione di Azure per .NET offre supporto per la crittografia lato client e l'integrazione con l'insieme di credenziali chiave di Azure. La crittografia lato client offre una protezione massima per le applicazioni di Archiviazione di Azure poiché le chiavi di accesso dell'utente non sono mai disponibili per il servizio. La crittografia lato client è disponibile per BLOB, code e tabelle." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
+	pageTitle="Crittografia lato client per Archiviazione di Microsoft Azure | Microsoft Azure"
+	description="La libreria client di archiviazione di Azure per .NET offre supporto per la crittografia lato client e l'integrazione con l'insieme di credenziali chiave di Azure per la massima sicurezza delle applicazioni di archiviazioni Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carolz"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="tamram"/>
 
 
-# Introduzione alla crittografia lato client per Archiviazione di Microsoft Azure
+# Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure
 
 ## Panoramica
 
-Nella [libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) è disponibile una nuova funzionalità che consente agli sviluppatori di crittografare i dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché di decrittografare i dati durante il download. La libreria inoltre supporta l'integrazione con l'[insieme di credenziali chiave](http://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
+La [libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) supporta la crittografia dei dati all’interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché di decrittografare i dati durante il download al client. La libreria inoltre supporta l'integrazione con l'[insieme di credenziali chiave](http://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
 
 ## Crittografia e decrittografia tramite la tecnica basata su envelope
 
@@ -242,4 +242,4 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 
 Scaricare il [pacchetto NuGet della libreria client di archiviazione di Azure per .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Scaricare il [codice sorgente della libreria client di archiviazione di Azure per .NET](https://github.com/Azure/azure-storage-net) da GitHub Scaricare i pacchetti NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) ed [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) dell’insieme di credenziali chiave di Azure Visitare la pagina [Documentazione dell’insieme di credenziali chiave di Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso di modelli collegati con Gestione risorse di Azure"
-   description="Descrive come usare i modelli collegati in un modello di Gestione risorse di Azure per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Descrive come usare i modelli collegati in un modello di Gestione risorse di Azure per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="tomfitz"/>
 
 # Uso di modelli collegati con Gestione risorse di Azure
 
@@ -44,6 +44,14 @@ Per creare un collegamento tra due modelli, aggiungere una risorsa di distribuzi
       } 
     ] 
 
+Gestione risorse deve essere in grado di accedere al modello collegato, il che significa che non è possibile specificare un file locale per il modello collegato. È possibile fornire solo un valore URI che includa **http** o **https**. Una possibilità è quella di collocare il modello collegato in un account di archiviazione e utilizzare l'URI per tale elemento, come illustrato di seguito.
+
+    "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0",
+    }
+
+
 ## Collegamento a un file di parametri
 
 Nell'esempio successivo viene utilizzata la proprietà **parametersLink** per il collegamento a un file di parametri.
@@ -66,6 +74,8 @@ Nell'esempio successivo viene utilizzata la proprietà **parametersLink** per il
          } 
       } 
     ] 
+
+Il valore URI per il file di parametro collegato non può essere un file locale e deve includere o **http** o **https**.
 
 ## Uso di variabili per collegare i modelli
 
@@ -100,4 +110,4 @@ Se è necessario passare un valore dal modello collegato al modello principale, 
 - [Creazione di modelli](./resource-group-authoring-templates.md)
 - [Distribuzione di modelli](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

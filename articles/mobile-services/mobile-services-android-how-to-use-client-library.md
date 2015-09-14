@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso delle libreria client Android per Servizi mobili" 
-	description="Informazioni su come usare un client Android per Servizi mobili di Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso delle libreria client Android per Servizi mobili"
+	description="Informazioni su come usare un client Android per Servizi mobili di Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 
@@ -44,7 +44,7 @@ L'oggetto tipizzato corrispondente sul lato client è il seguente:
 		private String text;
 		private Boolean complete;
 	}
-	
+
 Quando è abilitato lo schema dinamico, in Servizi mobili di Azure vengono generate automaticamente nuove colonne basate sull'oggetto nella richiesta di inserimento o di aggiornamento. Per ulteriori informazioni, vedere [Schema dinamico](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
 ##<a name="create-client"></a>Procedura: Creare il client di Servizi mobili
@@ -52,7 +52,7 @@ Il codice seguente consente di creare l'oggetto [MobileServiceClient](http://dl.
 
 		MobileServiceClient mClient = new MobileServiceClient(
 				"MobileServiceUrl", // Replace with the above Site URL
-				"AppKey", 			// replace with the Application Key 
+				"AppKey", 			// replace with the Application Key
 				this)
 
 Nel codice riportato sopra sostituire `MobileServiceUrl` e `AppKey` con l'URL del servizio mobile e la chiave applicazione, nell'ordine specificato. Entrambi gli elementi sono disponibili nel portale di gestione di Azure selezionando il servizio mobile e quindi facendo clic su *Dashboard*.
@@ -130,7 +130,7 @@ Il codice seguente consente di restituire tutti gli elementi della tabella *ToDo
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final MobileServiceList<ToDoItem> result = 
+                    final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
                 		Log.i(TAG, "Read object with ID " + item.id);  
@@ -206,12 +206,12 @@ Nel codice seguente viene illustrato come restituire tutti gli elementi di una t
 
 		mToDoTable.select("complete", "text").execute().get();
 
-	
+
 In questo caso, i parametri della funzione select sono i nomi in formato stringa delle colonne della tabella che si desidera restituire.
 
 Il metodo [**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) deve essere inserito dopo metodi quali [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296) e [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313), se presenti. Può essere seguito da metodi quali [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731).
 
-### <a name="chaining"></a>Procedura: Concatenare metodi di query 
+### <a name="chaining"></a>Procedura: Concatenare metodi di query
 
 È possibile concatenare i metodi utilizzati per eseguire query su tabelle di servizi mobili. In questo modo è possibile eseguire operazioni quali selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici abbastanza complessi.
 
@@ -223,7 +223,7 @@ Nel codice di esempio seguente *mToDoTable* è un riferimento alla tabella *ToDo
 						.and().startsWith("text", "PRI0")
 						.or().field("duration").gt(10)
 					.select("id", "complete", "text", "duration")
-					.orderBy(duration, QueryOrder.Ascending).top(20)				
+					.orderBy(duration, QueryOrder.Ascending).top(20)
 					.execute().get();
 
 Per un corretto concatenamento dei metodi è essenziale inserire per primi il metodo *where* e i predicati. In seguito è possibile chiamare metodi successivi nell'ordine più appropriato alle esigenze dell'applicazione.
@@ -238,12 +238,12 @@ In primo luogo viene creata un'istanza della classe *ToDoItem* e vengono imposta
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.text = "Test Program";
 		mToDoItem.complete = false;
-		
+
  In seguito si esegue il seguente codice:
 
 		// Insert the new item
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -313,9 +313,9 @@ Il seguente codice illustra come aggiornare i dati in una tabella. In questo ese
 	    if (mClient == null) {
 	        return;
 	    }
-	
+
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -347,7 +347,7 @@ Il seguente codice illustra come eliminare i dati da una tabella. Elimina un ele
 
 		// Set the item as completed and update it in the table
 		item.setComplete(true);
-		
+
 		new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -461,7 +461,7 @@ Nel codice seguente viene illustrato come eseguire un'operazione di insert. Il p
 		item.addProperty("complete", false);
 
 Il passaggio successivo consiste nell'inserire l'oggetto. La funzione di callback passata al metodo [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) è un'istanza della classe [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532). Si noti che il parametro del metodo *insert* è un oggetto JsonObject.
-		 
+
         // Insert the new item
         new AsyncTask<Void, Void, Void>() {
 
@@ -492,7 +492,7 @@ Nel codice seguente viene illustrato come eliminare un'istanza, in questo caso l
 
 
 È inoltre possibile eliminare un'istanza direttamente utilizzando il relativo ID:
-		
+
 		 mToDoTable.delete(ID);
 
 
@@ -551,7 +551,7 @@ Nel codice viene specificato un layout di schermata che definisce la visualizzaz
 I due elementi vengono associati tra loro tramite un adattatore, che in questo codice è un'estensione della classe *ArrayAdapter&lt;ToDoItem&gt;*.
 
 ### <a name="layout"></a>Procedura: Definire il layout
- 
+
 Il layout è definito da diversi frammenti di codice XML. Dato un layout esistente, si presupponga che il codice seguente rappresenti l'oggetto **ListView** che si desidera popolare con i dati del server.
 
     <ListView
@@ -560,7 +560,7 @@ Il layout è definito da diversi frammenti di codice XML. Dato un layout esisten
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-	
+
 
 Nel codice precedente l'attributo *listitem* consente di specificare l'ID del layout per una singola riga dell'elenco. Di seguito è riportato il codice che consente di specificare una casella di controllo e il testo ad essa associato. Per tale codice viene creata una sola istanza per ogni elemento dell'elenco. In un layout più complesso vengono specificati altri campi nella visualizzazione. Il codice è incluso nel file *row\_list\_to\_do.xml*.
 
@@ -568,17 +568,17 @@ Nel codice precedente l'attributo *listitem* consente di specificare l'ID del la
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:orientation="horizontal">		    
+	    android:orientation="horizontal">
 	    <CheckBox
 	        android:id="@+id/checkToDoItem"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/checkbox_text" />
 	</LinearLayout>
-		
+
 
 ### <a name="adapter"></a>Procedura: Definire l'adattatore
-	
+
 Poiché l'origine dati della visualizzazione è una matrice di oggetti *ToDoItem*, verrà creata una sottoclasse per l'adattatore da una classe *ArrayAdapter&lt;ToDoItem&gt;*. Tale sottoclasse consentirà di ottenere una visualizzazione per ogni oggetto *ToDoItem* che utilizza il layout *row\_list\_to\_do*.
 
 Nel codice viene definita la classe seguente che costituisce un'estensione della classe *ArrayAdapter&lt;E&gt;*:
@@ -590,21 +590,21 @@ Nel codice viene definita la classe seguente che costituisce un'estensione della
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-	
+
 		final ToDoItem currentItem = getItem(position);
-	
+
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-	
+
 		row.setTag(currentItem);
-	
+
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-	
+
 		return row;
 	}
 
@@ -668,7 +668,7 @@ In Servizi mobili sono supportati i seguenti provider di identità esistenti che
 - Account Microsoft
 - Facebook
 - Twitter
-- Google 
+- Google
 - Azure Active Directory
 
 È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è inoltre possibile utilizzare l'ID di un utente autenticato.
@@ -690,24 +690,24 @@ Per le prime due attività viene utilizzato il [portale di gestione di Azure](ht
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
 2. Nel metodo **onCreate** della classe activity aggiungere la riga di codice seguente dopo il codice che crea l'oggetto `MobileServiceClient`. Si presuppone che il riferimento all'oggetto `MobileServiceClient` sia *mClient*.
-	
+
 	    // Login using the Google provider.
-	    
+
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
     	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
     		@Override
     		public void onFailure(Throwable exc) {
     			createAndShowDialog((Exception) exc, "Error");
-    		}   		
+    		}
     		@Override
     		public void onSuccess(MobileServiceUser user) {
     			createAndShowDialog(String.format(
                         "You are now logged in - %1$2s",
                         user.getUserId()), "Success");
-    			createTable();	
+    			createTable();
     		}
-    	}); 
+    	});
 
     L'utente viene autenticato nel codice tramite un account di accesso di Google. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato. Senza un'autenticazione positiva non è possibile procedere.
 
@@ -732,38 +732,38 @@ Il frammento di codice seguente mostra come ottenere un token per un accesso con
 		}
 		else
 		{
-			    // Login using the Google provider.    
+			    // Login using the Google provider.
 				ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-		
+
 		    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
 		    		@Override
 		    		public void onFailure(Throwable exc) {
 		    			createAndShowDialog("You must log in. Login Required", "Error");
-		    		}   		
+		    		}
 		    		@Override
 		    		public void onSuccess(MobileServiceUser user) {
 		    			createAndShowDialog(String.format(
 		                        "You are now logged in - %1$2s",
 		                        user.getUserId()), "Success");
 		    			cacheUserToken(mClient.getCurrentUser());
-		    			createTable();	
+		    			createTable();
 		    		}
 		    	});		}
-	}	
+	}
 
 
 	private boolean LoadCache()
 	{
 		SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
-		String tmp1 = prefs.getString("tmp1", "undefined"); 
+		String tmp1 = prefs.getString("tmp1", "undefined");
 		if (tmp1 == "undefined")
 			return false;
-		String tmp2 = prefs.getString("tmp2", "undefined"); 
+		String tmp2 = prefs.getString("tmp2", "undefined");
 		if (tmp2 == "undefined")
 			return false;
 		MobileServiceUser user = new MobileServiceUser(tmp1);
 		user.setAuthenticationToken(tmp2);
-		mClient.setCurrentUser(user);		
+		mClient.setCurrentUser(user);
 		return true;
 	}
 
@@ -793,7 +793,7 @@ Esistono diversi modi per personalizzare il comportamento predefinito del client
 
         @Override
         public ListenableFuture<ServiceFilterResponse> handleRequest(
-                	ServiceFilterRequest request, 
+                	ServiceFilterRequest request,
 					NextServiceFilterCallback next) {
 
             runOnUiThread(new Runnable() {
@@ -843,7 +843,7 @@ Si supponga che nel codice del client Java vengano utilizzati nomi standard Java
 
 	@com.google.gson.annotations.SerializedName("complete")
 	private boolean mComplete;
- 
+
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
@@ -873,12 +873,12 @@ Nel codice seguente viene utilizzato il metodo *setFieldNamingStrategy()*, nel q
 	            }
 	        })
 	        .setPrettyPrinting());
-	
+
 
 
 Tale codice deve essere eseguito prima di qualsiasi altra chiamata a metodi sull'oggetto client di Servizi mobili.
 
-### <a name="complex"></a>Procedura: Archiviare una proprietà di oggetto o di matrice in una tabella 
+### <a name="complex"></a>Procedura: Archiviare una proprietà di oggetto o di matrice in una tabella
 
 Finora in tutti gli esempi di serializzazione offerti hanno riguardato tipi primitivi, ad esempio interi e stringhe, che vengono serializzati facilmente in JSON e nella tabella di Servizi mobili. Si supponga di aggiungere al tipo di client un oggetto complesso che non viene serializzato automaticamente in JSON e nella tabella, ad esempio una matrice di stringhe all'oggetto client. In questo caso è necessario specificare la modalità di esecuzione della serializzazione e di archiviazione della matrice nella tabella di Servizi mobili.
 
@@ -926,6 +926,5 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: mobile-services-android-get-started.md
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

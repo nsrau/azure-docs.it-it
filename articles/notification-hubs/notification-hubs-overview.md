@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Hub di notifica di Azure" 
-	description="Informazioni su come usare le notifiche push in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET." 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Hub di notifica di Azure"
+	description="Informazioni su come usare le notifiche push in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET."
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
+	services="notification-hubs"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 
@@ -94,7 +94,7 @@ Eliminano la complessità: non è necessario gestire le problematiche delle noti
 
 Gli hub di notifica forniscono un'infrastruttura per notifiche push pronta all'uso in grado di supportare:
 
-- **Piattaforme multiple.**   
+- **Piattaforme multiple.**
 	+  Supporto per tutte le principali piattaforme mobili. Gli hub di notifica possono inviare notifiche push ad app di Windows Store, per iOS, per Android e per Windows Phone.
 
 
@@ -140,7 +140,7 @@ Nei seguenti argomenti sono disponibili altre informazioni su Hub di notifica:
 Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relativa alle notifiche push:
 
 + [Microsoft.WindowsAzure.Messaging.NotificationHub]
-+ [Microsoft.ServiceBus.Notifications] 
++ [Microsoft.ServiceBus.Notifications]
 
 
   [0]: ./media/notification-hubs-overview/registration-diagram.png
@@ -156,8 +156,5 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

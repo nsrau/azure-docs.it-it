@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Usare Hub di notifica e Servizi mobili di Azure per inviare notifiche push all'app di Windows Store" 
-	description="Informazioni su come usare Hub di notifica con Servizi mobili di Azure per inviare notifiche push all'app per Windows Phone." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Usare Hub di notifica e Servizi mobili di Azure per inviare notifiche push all'app di Windows Store"
+	description="Informazioni su come usare Hub di notifica con Servizi mobili di Azure per inviare notifiche push all'app per Windows Phone."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -38,8 +38,8 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 
 2. Aggiungere il metodo `AcquirePushChannel` seguente alla classe `App`:
 
-        public static HttpNotificationChannel CurrentChannel { get; private set; }	
-        
+        public static HttpNotificationChannel CurrentChannel { get; private set; }
+
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -68,13 +68,13 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
                     {
                         Deployment.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            MessageBox.Show(exception.Message, 
+                            MessageBox.Show(exception.Message,
                                             "Registering for Push Notifications",
                                             MessageBoxButton.OK);
                         });
                     }
             });
-            CurrentChannel.ShellToastNotificationReceived += 
+            CurrentChannel.ShellToastNotificationReceived +=
                 new EventHandler<NotificationEventArgs>((o, args) =>
                 {
                     string message = "";
@@ -90,7 +90,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
         }
 
     Questo codice recupera l'URI di canale dell'app, se esistente. In caso contrario, l'URI verrà creato. L'URI di canale verrà quindi aperto e associato alle notifiche di tipo avviso popup. Dopo la completa apertura dell'URI di canale, viene chiamato il gestore del metodo `ChannelUriUpdated` e il canale viene registrato per la ricezione di notifiche push. Se la registrazione ha esito negativo, il canale verrà chiuso in modo che le esecuzioni successive dell'app possano tentare nuovamente la registrazione. Il gestore `ShellToastNotificationReceived` è configurato in modo che l'app possa ricevere e gestire le notifiche push durante l'esecuzione.
-    
+
 4. Nel gestore dell'evento `Application_Launching` in App.xaml.cs, aggiungere la chiamata seguente al nuovo metodo `AcquirePushChannel`:
 
         AcquirePushChannel();
@@ -98,7 +98,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 	In questo modo la registrazione verrà richiesta ogni volta che viene caricata l'app. Nell'app dell'utente può essere preferibile eseguire la registrazione solo su base periodica, per verificare che sia aggiornata.
 
 5. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup con la chiave di registrazione.
-  
+
 6. In Visual Studio aprire il file Package.appxmanifest e verificare che nella scheda **Application UI** l'opzione **Toast capable** sia impostata su **Yes**.
 
    	![][1]
@@ -202,6 +202,5 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 [Riferimento per i concetti e le procedure di Servizi mobili con .NET]: mobile-services-html-how-to-use-client-library.md
 [app per Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [portale di gestione di Azure]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

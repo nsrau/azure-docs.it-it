@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copiare i dati di output dall'esercitazione a un database SQL Server locale"
-	description="La procedura dettagliata di questa esercitazione estende l'esercitazione relativa alla data factory alla copia dei dati dell'efficacia della campagna di marketing in un database SQL Server locale."
+	pageTitle="Copiare i dati di output in un database SQL Server locale (Portale di Azure)"
+	description="Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure in modo che le copie della pipeline producano dei dati in un database SQL Server."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -169,4 +169,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

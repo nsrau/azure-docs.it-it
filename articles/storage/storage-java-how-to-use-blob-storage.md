@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Come usare l'archiviazione BLOB da Java
@@ -253,12 +253,12 @@ Infine, per eliminare un contenitore BLOB, ottenere un riferimento al contenitor
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-- [Azure Storage SDK per Java]
-- [Riferimento all'SDK del client di archiviazione di Azure]
-- [API REST di Archiviazione di Azure]
-- [Blog del team di Archiviazione di Azure]
+- [Azure Storage SDK per Java][]
+- [Riferimento all'SDK del client di archiviazione di Azure][]
+- [API REST di Archiviazione di Azure][]
+- [Blog del team di Archiviazione di Azure][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK per Android]: https://github.com/azure/azure-storage-android
@@ -266,4 +266,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

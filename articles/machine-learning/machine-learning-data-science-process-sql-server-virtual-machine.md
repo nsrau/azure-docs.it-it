@@ -1,44 +1,40 @@
 <properties 
-	pageTitle="Elaborazione dei dati di SQL Azure | Microsoft Azure" 
-	description="Elaborazione dei dati di SQL Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="paulettm" 
-	editor="" />
+	pageTitle="Elaborazione dei dati di SQL Azure | Microsoft Azure"
+	description="Elaborazione dei dati di SQL Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="paulettm"
+	editor=""/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="fashah;garye" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;garye"/>
 
 #<a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 
-In questo documento viene descritta l'elaborazione dei dati e la creazione di funzionalità per i dati archiviati in una macchina virtuale di SQL Server su Azure. Questa operazione può essere eseguita nei modi seguenti:
-
-1. [Utilizzo di SQL](#sql)
-2. [Utilizzo di un linguaggio di programmazione quale Python](#python) 
+In questo documento viene descritta l'elaborazione dei dati e la creazione di funzionalità per i dati archiviati in una macchina virtuale di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
 
 
-**Nota**
->Le istruzioni SQL di esempio fornite nel documento presuppongono che i dati si trovino in SQL Server. In caso contrario, fare riferimento al processo di analisi scientifica dei dati cloud per visualizzare informazioni su come spostare i dati in SQL Server.
+> [AZURE.NOTE]Le istruzioni SQL di esempio fornite nel documento presuppongono che i dati si trovino in SQL Server. In caso contrario, fare riferimento al processo di analisi scientifica dei dati cloud per visualizzare informazioni su come spostare i dati in SQL Server.
 
-###<a name="SQL"></a>Utilizzo di SQL
+##<a name="SQL"></a>Utilizzo di SQL
 
 In questa sezione, vengono descritte le seguenti attività di gestione dei dati usando SQL:
 
 1. [Esplorazione dei dati](#sql-dataexploration)
 2. [Creazione di funzionalità](#sql-featuregen)
 
-####<a name="sql-dataexploration"></a>Esplorazione dei dati
+###<a name="sql-dataexploration"></a>Esplorazione dei dati
 Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplorare gli archivi dati in SQL Server.
 
-**Nota**
-> Per un esempio pratico, è possibile usare il [set di dati dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB intitolato [Gestione dei dati di NYC usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
+
+> [AZURE.NOTE]Per un esempio pratico, è possibile usare il [set di dati dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB intitolato [Gestione dei dati di NYC usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
 
 1. Visualizzare il numero di osservazioni per giorno
 
@@ -57,7 +53,7 @@ Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplor
 	`select <column_name>, count(*) from <tablename> group by <column_name>`
 
 
-####<a name="sql-featuregen"></a>Creazione di funzionalità
+###<a name="sql-featuregen"></a>Creazione di funzionalità
 
 In questa sezione viene descritto come creare funzionalità tramite SQL:
 
@@ -65,10 +61,10 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 2. [Creazione di contenitori per la creazione di funzionalità](#sql-binningfeature)
 3. [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
 
-**Nota**
->Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
 
-####<a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
+> [AZURE.NOTE]Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che può essere unita alla tabella originale.
+
+###<a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 
 In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
 
@@ -77,14 +73,14 @@ In questo documento vengono descritte due modalità per creare funzionalità di 
 	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
 	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-####<a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+###<a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 
 Nell'esempio seguente viene descritto come creare funzionalità categorizzate, inserendo una colonna numerico (usando 5 contenitori) che può essere utilizzata come funzionalità:
 
 	`SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-####<a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
+###<a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
 
 In questa sezione, viene descritto come implementare una singola colonna di una tabella al fine di creare ulteriori funzionalità. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
@@ -117,18 +113,18 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
 Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio.
 
 
-**SUGGERIMENTO**
+> [AZURE.TIP]A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+ 
 
-> 1. A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
-> 2. Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP]Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
-####<a name="sql-aml"></a>Connessione ad Azure Machine Learning
+###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
 La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create usando il modulo [Lettore][reader] in Azure ML, come descritto di seguito:
 
 ![lettori azureml][1]
 
-###<a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
+##<a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
 
 L'utilizzo di Python per esplorare dati e creare funzionalità (quando i dati si trovano in SQL Server) funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure usando Python, come descritto [qui](machine-learning-data-science-process-data-blob.md). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
 
@@ -145,7 +141,7 @@ La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 A questo punto, è possibile utilizzare il frame di dati di Pandas, come descritto nell'argomento [Elaborazione dei dati BLOB di Azure nell'ambiente di analisi scientifica dei dati](machine-learning-data-science-process-data-blob.md).
 
-### Analisi scientifica dei dati di Azure nell'esempio di azione
+## Analisi scientifica dei dati di Azure nell'esempio di azione
 
 Per un esempio della procedura dettagliata end-to-end del processo di analisi scientifica dei dati di Azure usando un set di dati pubblici, vedere [Processo di analisi scientifica dei dati di Azure in azione](machine-learning-data-science-process-sql-walkthrough.md).
 
@@ -156,4 +152,4 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

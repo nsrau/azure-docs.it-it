@@ -1,23 +1,21 @@
 <properties 
-	pageTitle="App Web Python con Bottle in Azure" 
-	description="Un'esercitazione introduttiva all'esecuzione di un'app Web di Python in App Web del servizio app di Azure." 
-	services="app-service\web" 
-	documentationCenter="python" 
+	pageTitle="App Web Python con Bottle in Azure"
+	description="Un'esercitazione introduttiva all'esecuzione di un'app Web di Python in App Web del servizio app di Azure."
+	services="app-service\web"
+	documentationCenter="python"
 	tags="python"
-	authors="huguesv" 
-	manager="wpickett" 
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # Creazione di app Web con Bottle in Azure
@@ -36,7 +34,7 @@ Si creerà un'app Web usando il framework Web di Bottle (vedere le versioni alte
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo Python 2.7)
 - Git
-- [Python Tools 2.1 per Visual Studio](optional)
+- [Python Tools 2.2 per Visual Studio][] (PTVS) - Nota: questo è facoltativo
 
 **Nota**: la pubblicazione TFS non è attualmente supportata per progetti Python.
 
@@ -46,7 +44,7 @@ Se non è già installato Python 2.7 o 3.4 (32 bit), si consiglia di installare 
 
 Per Git, è consigliabile [Git per Windows] o [GitHub per Windows]. Se si utilizza Visual Studio, è possibile utilizzare il supporto Git integrato.
 
-È inoltre consigliabile installare [Python Tools 2.1 per Visual Studio]. Si tratta di un'operazione facoltativa, ma se si dispone di [Visual Studio], inclusa la versione gratuita di Visual Studio Community 2013 o Visual Studio Express 2013 per il Web, si otterrà anche l'IDE Python.
+È inoltre consigliabile installare [Python Tools 2.2 per Visual Studio]. Si tratta di un'operazione facoltativa, ma se si dispone di [Visual Studio], inclusa la versione gratuita di Visual Studio Community 2013 o Visual Studio Express 2013 per il Web, si otterrà anche l'IDE Python.
 
 ### Mac/Linux
 
@@ -160,7 +158,7 @@ Premere F5 per avviare il debug. Il Web browser si aprirà automaticamente sulla
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Vedere il [documentazione PTVS][] per ulteriori informazioni su varie funzionalità.
+È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Vedere la [documentazione di Python Tools per Visual Studio] per ulteriori informazioni sulle varie funzionalità.
 
 ### Apportare modifiche
 
@@ -374,8 +372,8 @@ Visitare i seguenti collegamenti per altre informazioni su Bottle e Python Tools
 
 Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 
-- [Bottle e MongoDB in Azure con Python Tools 2.1 per Visual Studio]
-- [Bottle e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio]
+- [Bottle e MongoDB in Azure con Python Tools per Visual Studio]
+- [Bottle e archiviazione tabelle di Azure con Python Tools per Visual Studio]
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -383,8 +381,8 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 
 
 <!--Link references-->
-[Bottle e MongoDB in Azure con Python Tools 2.1 per Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
-[Bottle e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio]: web-sites-python-ptvs-bottle-mongodb.md
+[Bottle e MongoDB in Azure con Python Tools per Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle e archiviazione tabelle di Azure con Python Tools per Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
 
 <!--External Link references-->
 [Azure SDK per Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -393,11 +391,10 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Git per Windows]: http://msysgit.github.io/
 [GitHub per Windows]: https://windows.github.com/
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[documentazione PTVS]: http://pytools.codeplex.com/documentation
-[Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation
+[documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
 [Documentazione di Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

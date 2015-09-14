@@ -1,21 +1,21 @@
 <properties
    pageTitle="Firewall del database SQL di Azure | Microsoft Azure"
-   description="Come configurare il firewall del database SQL di Microsoft Azure."
-   services="sql-database"
-   documentationCenter=""
-   authors="BYHAM"
-   manager="jeffreyg"
-   editor=""
-   tags=""/>
+	description="Come configurare il firewall del database SQL di Microsoft Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="BYHAM"
+	manager="jeffreyg"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="08/04/2015"
-   ms.author="rickbyh"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="08/04/2015"
+	ms.author="rickbyh"/>
 
 # Firewall del database SQL di Azure
 
@@ -61,17 +61,17 @@ Quando si tenta di connettersi al server di database da un'applicazione di Azure
 
 È possibile abilitare le connessioni da Azure nel [portale di gestione](http://go.microsoft.com/fwlink/p/?LinkID=161793) in due modi:
 
-- Selezionare la casella di controllo **Consentire ai servizi di Windows Azure di accedere al server** quando si crea un nuovo server.
+- Selezionare la casella di controllo **Consentire ai servizi di Microsoft Azure di accedere al server** quando si crea un nuovo server.
 
-- Dalla scheda **Configura** in un server, nella sezione **Servizi consentiti**, fare clic su **Sì** per **Servizi di Windows Azure**.
+- Dalla scheda **Configura** in un server, nella sezione **Servizi consentiti** fare clic su **Sì** per **Servizi di Microsoft Azure**.
 
 ## Creazione della prima regola del firewall a livello di server
 
-La prima impostazione del firewall a livello di server può essere creata utilizzando il [portale di gestione](http://go.microsoft.com/fwlink/p/?LinkID=161793) o a livello di programmazione utilizzando l'API REST o Azure PowerShell. Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL. Per ulteriori informazioni sulle regole del firewall a livello di server, vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](article:sql-database-configure-firewall-settings).
+La prima impostazione del firewall a livello di server può essere creata utilizzando il [portale di gestione](http://go.microsoft.com/fwlink/p/?LinkID=161793) o a livello di programmazione utilizzando l'API REST o Azure PowerShell. Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL. Per ulteriori informazioni sulle regole del firewall a livello di server, vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md).
 
 ## Creazione di regole del firewall a livello di database
 
-Dopo aver configurato il primo firewall a livello di server, è possibile limitare l'accesso a determinati database. Se nella regola del firewall a livello di database si specifica un intervallo di indirizzi IP che non rientra nell'intervallo specificato nella regola del firewall a livello di server, solo i client che dispongono di indirizzi IP compresi nell'intervallo a livello di database possono accedere al database. Per un database è possibile avere un massimo di 128 regole del firewall a livello di database. Le regole del firewall a livello di database per database master e utente possono essere create e gestite tramite Transact-SQL. Per ulteriori informazioni, vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](article:sql-database-configure-firewall-settings).
+Dopo aver configurato il primo firewall a livello di server, è possibile limitare l'accesso a determinati database. Se nella regola del firewall a livello di database si specifica un intervallo di indirizzi IP che non rientra nell'intervallo specificato nella regola del firewall a livello di server, solo i client che dispongono di indirizzi IP compresi nell'intervallo a livello di database possono accedere al database. Per un database è possibile avere un massimo di 128 regole del firewall a livello di database. Le regole del firewall a livello di database per database master e utente possono essere create e gestite tramite Transact-SQL. Per ulteriori informazioni, vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md).
 
 ## Gestione di regole del firewall a livello di programmazione
 
@@ -82,7 +82,12 @@ Oltre al portale di gestione di Azure, le regole del firewall possono essere ges
 
 | Vista del catalogo o una Stored Procedure | Level | Descrizione |
 |--------------------------------------------------------------------------------------------|-----------|------------------------------------------------------|
-| [sys.firewall\\\_rules](https://msdn.microsoft.com/library/dn269980.aspx) | Server | Visualizza le regole del firewall a livello di server correnti | | [sp\\\_set\\\_firewall\\\_rule](https://msdn.microsoft.com/library/dn270017.aspx) | Server | Crea o aggiorna regole del firewall a livello di server | | [sp\\\_delete\\\_firewall\\\_rule](https://msdn.microsoft.com/library/dn270024.aspx) | Server | Rimuove regole del firewall a livello di server | | [sys.database\\\_firewall\\\_rules](https://msdn.microsoft.com/library/dn269982.aspx) | Database | Visualizza le regole del firewall a livello di database correnti | | [sp\_set\\\_database\\\_firewall\\\_rule](https://msdn.microsoft.com/library/dn270010.aspx) | Database | Crea o aggiorna le regole del firewall a livello di database | | [sp\\\_delete\\\_database\\\_firewall\_rule](https://msdn.microsoft.com/library/dn270030.aspx) | Databases | Rimuove regole del firewall a livello di database |
+| [sys. firewall\_rules](https://msdn.microsoft.com/library/dn269980.aspx) | Server | Visualizza le regole del firewall a livello di server correnti |
+| [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) | Server | Crea o aggiorna regole del firewall a livello di server |
+| [sp\_delete\_firewall\_rule](https://msdn.microsoft.com/library/dn270024.aspx) | Server | Rimuove regole del firewall a livello di server |
+| [sys.database\_firewall\_rules](https://msdn.microsoft.com/library/dn269982.aspx) | Database | Visualizza le regole del firewall a livello di database correnti |
+| [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) | Database | Crea o aggiorna regole del firewall a livello di database |
+| [sp\_delete\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270030.aspx) | Database | Rimuove le regole del firewall a livello di database |
 
 ### API REST
 
@@ -125,9 +130,9 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 ## Vedere anche
 
-[Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](article:sql-database-configure-firewall-settings)
+[Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

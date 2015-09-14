@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Chiamare un'API personalizzata da un client HTML - Servizi mobili" 
-	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app HTML che usa Servizi mobili di Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="bureado"  
-	manager="dwrede" 
+<properties
+	pageTitle="Chiamare un'API personalizzata da un client HTML - Servizi mobili"
+	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app HTML che usa Servizi mobili di Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Chiamare un'API personalizzata da un'applicazione HTML
@@ -32,9 +32,9 @@ Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mo
 
 ##<a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
 
-1. Nell'editor di testo aprire il file index.html, individuare l'elemento **button** denominato `buttonRefresh` e aggiungere subito dopo il nuovo elemento seguente: 
+1. Nell'editor di testo aprire il file index.html, individuare l'elemento **button** denominato `buttonRefresh` e aggiungere subito dopo il nuovo elemento seguente:
 
-		<button id="buttonCompleteAll">Complete All</button> 
+		<button id="buttonCompleteAll">Complete All</button>
 
 	Verrà aggiunto un nuovo pulsante nella pagina.
 
@@ -92,4 +92,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-html-get-started-data.md
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

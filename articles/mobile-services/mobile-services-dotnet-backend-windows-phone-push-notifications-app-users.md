@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Inviare notifiche push agli utenti autenticati" 
-	description="Informazioni su come inviare notifiche push a utenti specifici" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Inviare notifiche push agli utenti autenticati"
+	description="Informazioni su come inviare notifiche push a utenti specifici"
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Inviare notifiche push agli utenti autenticati
@@ -24,7 +24,7 @@ Questo argomento descrive come inviare notifiche push a un utente autenticato su
 
 Questa esercitazione supporta app per Windows Phone 8.0 e Windows Phone 8.1 Silverlight. Per le app per Windows Phone 8.1 Store, vedere la [versione per Windows Store di questo argomento](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
-##Prerequisiti 
+##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario aver già completato queste esercitazioni su Servizi mobili:
 
@@ -60,6 +60,5 @@ Dopo aver completato entrambe le esercitazioni, è possibile impedire agli utent
 [Aggiungere notifiche push all’app]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

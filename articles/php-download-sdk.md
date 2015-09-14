@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 #Scaricare Azure SDK per PHP
@@ -103,18 +103,10 @@ Per informazioni sull'utilizzo di Azure PowerShell, vedere [Come utilizzare Azur
 
 ##Interfaccia della riga di comando di Azure
 
-Un’interfaccia della riga di comando di Azure è un insieme di comandi per la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali. Nell'elenco seguente viene descritto come installare l’interfaccia della riga di comando di Azure in base al sistema operativo in uso:
-
-* **Mac**: scaricare il programma di installazione di Azure SDK: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Aprire il file con estensione pkg scaricato e completare i passaggi dell'installazione seguendo le istruzioni visualizzate.
-
-* **Linux**: installare la versione più recente di [Node.js][nodejs-org] (vedere l'articolo relativo all'[installazione di Node.js tramite Gestione pacchetti][install-node-linux]), quindi eseguire il comando seguente:
-
-		npm install azure-cli -g
-
-	> [AZURE.NOTE]Per l'esecuzione di questo comando potrebbero essere necessari privilegi elevati: `sudo npm install azure-cli -g`
+Un’interfaccia della riga di comando di Azure è un insieme di comandi per la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali. Per informazioni sull'installazione di Azure CLI, vedere [Installare Azure CLI](xplat-cli-install.md).
 
 
-Per informazioni su come usare l'interfaccia della riga di comando di Azure, vedere [Come usare l’interfaccia della riga di comando di Azure per Mac, Linux e Windows][azure cli]
+
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -136,4 +128,4 @@ Per informazioni su come usare l'interfaccia della riga di comando di Azure, ved
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

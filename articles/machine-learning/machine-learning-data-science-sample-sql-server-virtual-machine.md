@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Dati di esempio in SQL Server in Azure| Microsoft Azure" 
-	description="Dati di esempio in SQL Server in Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Dati di esempio in SQL Server in Azure| Microsoft Azure"
+	description="Dati di esempio in SQL Server in Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="fashah;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;garye;bradsev"/>
 
 #<a name="heading"></a>Dati di esempio in SQL Server in Azure
 
@@ -44,8 +44,7 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**Nota**
-> È possibile esplorare e generare le funzionalità da questi dati campionati archiviandoli in una nuova tabella
+>[AZURE.NOTE]È possibile esplorare e generare le funzionalità da questi dati campionati archiviandoli in una nuova tabella
 
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
@@ -114,4 +113,4 @@ Per un esempio della procedura dettagliata end-to-end di ADAPT (Advanced Analyti
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

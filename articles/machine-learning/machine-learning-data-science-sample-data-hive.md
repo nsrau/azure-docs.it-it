@@ -4,8 +4,8 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # Dati di esempio nelle tabelle Hive di Azure HDInsight
 
 Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il ruolo di tale operazione in Advanced Analytics Process and Technology (ADAPT) di Azure Machine Learning è consentire la rapida creazione di prototipi delle funzioni di elaborazione dei dati e dei modelli di apprendimento automatico.
 
-In questo articolo, viene descritto come eseguire il downsampling dei dati nelle tabelle Hive di Azure HDInsight usando le query Hive. Vengono descritti tre metodi di campionamento molto diffusi: campionamento casuale uniforme, campionamento casuale per gruppi e campionamento stratificato.
+In questo articolo, viene descritto come eseguire il downsampling dei dati nelle tabelle Hive di Azure HDInsight usando le query Hive. Vengono trattati i tre metodi di campionamento utilizzati più frequentemente:
+
+* Campionamento casuale uniforme 
+* campionamento casuale per gruppi 
+* campionamento stratificato
 
 Si consiglia di inviare le query Hive dalla console della riga di comando di Hadoop presente nel nodo head del cluster Hadoop. Per effettuare questa operazione, accedere al nodo head del cluster Hadoop, aprire la console della riga di comando e inviare le query Hive da tale posizione. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](machine-learning-data-science-process-hive-tables.md#submit).
 
@@ -95,4 +99,4 @@ Di seguito è fornito un esempio di query:
 Per informazioni su metodi di campionamento più avanzati disponibili in Hive, vedere [Campionamento di LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

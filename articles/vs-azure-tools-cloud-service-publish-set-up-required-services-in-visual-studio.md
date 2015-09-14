@@ -80,7 +80,7 @@ Un account di archiviazione fornisce l'accesso ai servizi BLOB, code e tabelle. 
     - Area o set di affinità (ad esempio Stati Uniti occidentali o Asia orientale).
     - Tipo di replica da usare per l'account di archiviazione, ad esempio Con ridondanza geografica.
 
-1. Al termine dell'operazione scegliere **Crea**. Il nuovo account di archiviazione viene visualizzato nell'elenco **Archiviazione** in Esplora soluzioni.
+1. Al termine dell'operazione, scegliere **Crea**. Il nuovo account di archiviazione viene visualizzato nell'elenco **Archiviazione** di Esplora server.
 
 ### Per creare un account di archiviazione usando il portale di gestione di Azure
 
@@ -153,4 +153,4 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 [Pubblicazione in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -7,16 +7,14 @@
 	manager="wpickett"
 	editor="jimbe"/>
 
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
-
 
 # Applicazione locale con archiviazione BLOB
 
@@ -29,7 +27,7 @@ Nell'esempio seguente viene illustrato come utilizzare Azure per archiviare imma
 - È installato Java Developer Kit (JDK) v1.6 o versione successiva.
 - Azure SDK installato.
 - JAR per le librerie di Azure per Java e qualsiasi JAR di dipendenza applicabile installati e presenti nel percorso di compilazione utilizzato dal compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di Azure SDK per Java].
-- Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice in questo articolo. Vedere [Come creare un account di archiviazione] per informazioni sulla creazione di un account di archiviazione e [Come gestire gli account di archiviazione] per informazioni sul recupero della chiave dell'account.
+- Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice in questo articolo. Vedere [Come creare un account di archiviazione] per informazioni sulla creazione di un account di archiviazione e [Come gestire gli account di archiviazione][] per informazioni sul recupero della chiave dell'account.
 - Aver creato un file di immagine locale denominato archiviato nel percorso c:\\myimages\\image1.jpg. In alternativa, modificare il costruttore **FileInputStream** nell'esempio per utilizzare un percorso e un nome file di immagine diversi.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -174,8 +172,7 @@ Creare un file locale denominato **index.html**.
 Scrivere nel file locale, aggiungendo negli elementi **&lt;html&gt;**, **&lt;header&gt;** e **&lt;body&gt;**.
 
     stream.println("<html>");
-    stream.println("<header/>
-");
+    stream.println("<header/>");
     stream.println("<body>");
 
 Scorrere l'elenco di BLOB caricati. Per ogni BLOB, nella pagina HTML creare un elemento **&lt;img&gt;** il cui attributo **src** è stato inviato all'URI del BLOB perché esiste nell'account di archiviazione di Azure. Anche se in questo esempio è stata aggiunta una sola immagine, se se ne aggiungono altre, il codice le itererà tutte.
@@ -185,9 +182,7 @@ Per maggior semplicità, in questo esempio si presume che ogni BLOB caricato sia
     // Enumerate the uploaded blobs.
     for (ListBlobItem blobItem : container.listBlobs()) {
     // List each blob as an <img> element in the HTML body.
-    stream.println("<img src='" + blobItem.getUri() + "'/>
-<br/>
-");
+    stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
     }
 
 Chiudere l'elemento **&lt;body&gt;** e l'elemento **&lt;html&gt;**.
@@ -280,16 +275,13 @@ Di seguito è riportato il codice completo per questo esempio. Si ricordi di mod
 
             // Create the opening <html>, <header>, and <body> elements.
             stream.println("<html>");
-            stream.println("<header/>
-");
+            stream.println("<header/>");
             stream.println("<body>");
 
             // Enumerate the uploaded blobs.
             for (ListBlobItem blobItem : container.listBlobs()) {
                 // List each blob as an <img> element in the HTML body.
-                stream.println("<img src='" + blobItem.getUri() + "'/>
-<br/>
-");
+                stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
             }
 
             stream.println("</body>");
@@ -361,12 +353,12 @@ Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB
 
 Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
-- [Azure Storage SDK per Java]
-- [Riferimento all'SDK del client di archiviazione di Azure]
-- [API REST di Archiviazione di Azure]
-- [Blog del team di Archiviazione di Azure]
+- [Azure Storage SDK per Java][]
+- [Riferimento all'SDK del client di archiviazione di Azure][]
+- [API REST di Archiviazione di Azure][]
+- [Blog del team di Archiviazione di Azure][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Come creare un account di archiviazione]: storage-create-storage-account.md#create-a-storage-account
   [Come gestire gli account di archiviazione]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Come utilizzare il servizio di archiviazione BLOB da Java]: storage-java-how-to-use-blob-storage.md
@@ -375,4 +367,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
   [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

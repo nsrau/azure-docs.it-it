@@ -1,22 +1,21 @@
 <properties 
-	pageTitle="Creazione di app Web con Flask in Azure" 
-	description="Esercitazione che illustra l'esecuzione di un'app Web Python in Azure." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Creazione di app Web con Flask in Azure"
+	description="Esercitazione che illustra l'esecuzione di un'app Web Python in Azure."
+	services="app-service\web"
+	documentationCenter="python"
+	tags="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # Creazione di app Web con Flask in Azure
@@ -35,7 +34,7 @@ Verrà creata un'applicazione usando il framework Web di Flask (vedere le versio
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo Python 2.7)
 - Git
-- [Python Tools 2.1 per Visual Studio](optional)
+- [Python Tools per Visual Studio][] (PTVS) - Nota: questo è facoltativo
 
 **Nota**: la pubblicazione TFS non è attualmente supportata per progetti Python.
 
@@ -45,7 +44,7 @@ Se non è già installato Python 2.7 o 3.4 (32 bit), si consiglia di installare 
 
 Per Git, è consigliabile [Git per Windows] o [GitHub per Windows]. Se si utilizza Visual Studio, è possibile utilizzare il supporto Git integrato.
 
-È inoltre consigliabile installare [Python Tools 2.1 per Visual Studio]. Si tratta di un'operazione facoltativa, ma se si dispone di [Visual Studio], inclusa la versione gratuita di Visual Studio Community 2013 o Visual Studio Express 2013 per il Web, si otterrà anche l'IDE Python.
+È inoltre consigliabile installare [Python Tools 2.2 per Visual Studio]. Si tratta di un'operazione facoltativa, ma se si dispone di [Visual Studio], inclusa la versione gratuita di Visual Studio Community 2013 o Visual Studio Express 2013 per il Web, si otterrà anche l'IDE Python.
 
 ### Mac/Linux
 
@@ -89,7 +88,7 @@ Supporto del server di sviluppo locale. Consente di eseguire l'applicazione loca
     \FlaskWebProject.pyproj
     \FlaskWebProject.sln
 
-File di progetto da utilizzare con [Python Tools per Visual Studio](http://pytools.codeplex.com).
+File di progetto da utilizzare con [Python Tools per Visual Studio].
 
     \ptvs_virtualenv_proxy.py
 
@@ -161,7 +160,7 @@ Premere F5 per avviare il debug. Il Web browser si aprirà automaticamente sulla
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Vedere il [documentazione PTVS] per ulteriori informazioni su varie funzionalità.
+È possibile impostare punti di interruzione nelle origini, utilizzare le finestre Espressioni di controllo e così via. Vedere la [documentazione di Python Tools per Visual Studio] per ulteriori informazioni sulle varie funzionalità.
 
 ### Apportare modifiche
 
@@ -375,8 +374,8 @@ Visitare i seguenti collegamenti per altre informazioni su Flask e Python Tools 
 
 Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 
-- [Flask e MongoDB in Azure con Python Tools 2.1 per Visual Studio]
-- [Flask e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio]
+- [Flask e MongoDB in Azure con Python Tools per Visual Studio]
+- [Flask e archiviazione tabelle di Azure con Python Tools per Visual Studio]
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -384,8 +383,8 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 
 
 <!--Link references-->
-[Flask e MongoDB in Azure con Python Tools 2.1 per Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
-[Flask e archiviazione tabelle di Azure con Python Tools 2.1 per Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
+[Flask e MongoDB in Azure con Python Tools per Visual Studio]: https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure
+[Flask e archiviazione tabelle di Azure con Python Tools per Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
 
 <!--External Link references-->
 [Azure SDK per Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -393,12 +392,11 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [python.org]: http://www.python.org/
 [Git per Windows]: http://msysgit.github.io/
 [GitHub per Windows]: https://windows.github.com/
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools per Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.2 per Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[documentazione PTVS]: http://pytools.codeplex.com/documentation
-[Documentazione di Python Tools per Visual Studio]: http://pytools.codeplex.com/documentation
+[documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
 [Documentazione di Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

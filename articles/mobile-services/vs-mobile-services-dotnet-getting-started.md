@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="" 
-	description="Come iniziare a usare Servizi mobili di Azure in un progetto di Visual Studio .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle=""
+	description="Come iniziare a usare Servizi mobili di Azure in un progetto di Visual Studio .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/22/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="patshea123"/>
 
 # Introduzione a Servizi mobili (progetti .NET)
@@ -47,22 +47,22 @@ Il codice seguente crea un riferimento a una tabella (`todoTable`) contenente i 
 
 Questo codice funziona se le autorizzazioni della tabella sono impostate su **Chiunque con la chiave applicazione**. Se si cambiano le autorizzazioni per proteggere il servizio mobile, sarà necessario aggiungere il supporto per l'autenticazione utente. Vedere [Introduzione all'autenticazione](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-#####Aggiungere un elemento della tabella 
+#####Aggiungere un elemento della tabella
 
 Inserire un nuovo elemento in una tabella dati.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####Leggere o eseguire una query su una tabella 
+#####Leggere o eseguire una query su una tabella
 
 Il codice seguente esegue in una tabella una query relativa a tutti gli elementi. Si noti che restituisce solo la prima pagina di dati, che per impostazione predefinita include 50 elementi. È possibile passare qualsiasi dimensione di pagina, poiché si tratta di un parametro facoltativo.
 
     List<TodoItem> items;
     try
     {
-        // Query that returns all items.   
-        items = await todoTable.ToListAsync();             
+        // Query that returns all items.
+        items = await todoTable.ToListAsync();
     }
     catch (MobileServiceInvalidOperationException e)
     {
@@ -85,4 +85,4 @@ Eliminare una riga nel database. L'elemento di parametro è l'oggetto TodoItem d
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

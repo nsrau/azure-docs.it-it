@@ -2,8 +2,8 @@
 	pageTitle="Aggiungere notifiche push all'app di Servizi mobili (Xamarin.Forms) - Servizi mobili"
 	description="Informazioni su come usare le notifiche push in app per Xamarin.Forms con Servizi mobili di Azure."
 	documentationCenter="xamarin"
-	authors="normesta"
-	manager="stevenpo"
+	authors="wesmc7777"
+	manager="dwrede"
 	services="mobile-services"
 	editor=""/>
 
@@ -293,7 +293,7 @@ Il servizio mobile è ora configurato per funzionare con il servizio APN.
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("it-IT"));
 
             var push = client.GetPush();
 
@@ -379,7 +379,7 @@ Le notifiche push verranno aggiunte all'app Android mediante il servizio Google 
 
 ###<a id="register"></a>Abilitare Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>Configurare il servizio mobile per l'invio di richieste push
 
@@ -846,4 +846,4 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 [esempio completo di notifiche push di Azure per Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

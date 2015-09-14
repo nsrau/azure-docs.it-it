@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Le query di elenco efficienti in Azure Batch | Microsoft Azure"
-	description="Informazioni su come ridurre il numero di elementi di Batch Azure restituiti in un elenco e la quantità di informazioni restituite per ogni elemento"
+	pageTitle="Query di tipo elenco efficienti in Azure Batch | Microsoft Azure"
+	description="Informazioni su come ridurre la quantità di dati restituiti e migliorare le prestazioni durante l'esecuzione di query su pool, processi, attività, nodi di calcolo e altri elementi di Azure Batch."
 	services="batch"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,70 +14,123 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/04/2015"
-	ms.author="davidmu"/>
+	ms.date="08/27/2015"
+	ms.author="davidmu;v-marsma"/>
 
-# Query di elenco Batch efficienti
+# Query di tipo elenco efficienti in Azure Batch
 
-I metodi descritti di seguito sono esempi di operazioni che praticamente tutte le applicazioni che usano Azure Batch devono eseguire, in molto casi anche di frequente:
+Azure Batch è un servizio per l'esecuzione di processi di calcolo di grandi dimensioni. Negli ambienti di produzione, le entità da elaborare, ad esempio processi, attività e nodi di calcolo, possono essere migliaia. Quando si prova a ottenere informazioni su questi elementi, viene generata una grande quantità di dati che deve essere trasferita in ogni query. Limitando il numero di elementi e il tipo di informazioni restituiti per ogni query consente di aumentarne la velocità e di migliorare le prestazioni dell'applicazione.
+
+I metodi dell'API [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) seguenti sono esempi di operazioni eseguite, anche di frequente, da tutte le applicazioni che usano Azure Batch:
 
 - [ListTasks](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx)
 - [ListJobs](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx)
 - [ListPools](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listpools.aspx)
-- [ListCertificates](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.certificateoperations.listcertificates.aspx)
+- [ListComputeNodes](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listcomputenodes.aspx)
 
-Il monitoraggio è un caso di uso comune. La determinazione della capacità e dello stato di un pool, ad esempio, richiede il calcolo delle query di tutti i nodi (VMs) in un pool. Un altro esempio è l'esecuzione di query relative alle attività di un processo per stabilire se qualcuna è ancora in coda. In alcuni casi è necessario un ampio set di dati, ma in altri casi è sufficiente il numero totale degli elementi o quello degli elementi che si trovano in un determinato stato.
+Il monitoraggio è un caso d'uso comune. La determinazione della capacità e dello stato di un pool, ad esempio, richiede l'esecuzione di una query su tutti i nodi di calcolo (macchine virtuali) in un pool. Un altro esempio è l'esecuzione di query sulle attività di un processo per stabilire se alcune di esse sono ancora nella coda. In alcuni casi è necessario un set di dati avanzato, mentre in altri è sufficiente il numero totale degli elementi o una raccolta di elementi con uno stato specifico.
 
-È importante tenere presente che sia il numero degli elementi che possono essere restituiti sia le dimensioni dei dati necessari per rappresentare l’elenco di elementi possono essere molto alti. La semplice esecuzione di query su un numero elevato di elementi può generare risposte di grandi dimensioni, causando diversi problemi:
+È importante tenere presente che il numero di elementi restituiti e la quantità di dati necessari per rappresentare tali elementi possono essere molto alti. La semplice esecuzione di query su un numero elevato di elementi può generare risposte di grandi dimensioni, causando diversi problemi:
 
-- I tempi di risposta dell'API Batch possono diventare eccessivamente lenti. Più elevato è il numero di elementi, maggiore è il tempo di esecuzione delle query richiesto dal servizio Batch. Un numero elevato di elementi devono essere suddivisi in blocchi, perciò è possibile che la libreria client debba eseguire più chiamate all'API del servizio per ottenere tutti gli elementi relativi a un unico elenco.
+- I tempi di risposta dell'API Batch possono diventare eccessivamente lenti. Più elevato è il numero di elementi, maggiore è il tempo di esecuzione delle query richiesto dal servizio Batch. Grandi quantità di elementi devono essere suddivise in blocchi, perciò è possibile che la libreria client debba eseguire più chiamate API al servizio per ottenere tutti gli elementi per un singolo elenco.
 - Più elevato è il numero di elementi da elaborare, maggiore sarà il tempo di elaborazione dell'API da parte dell'applicazione che chiama Batch.
-- Più elevato è il numero degli elementi o più grandi le relative dimensioni, maggiore sarà la quantità di memoria utilizzata nell'applicazione che chiama Batch.
-- L'elevato numero e/o le grandi dimensioni degli elementi portano a un aumento del traffico di rete. Questo allunga i tempi di trasferimento e, a seconda dell'architettura dell'applicazione, può determinare un aumento dei costi di rete per i dati trasferiti all'esterno dell'area dell'account Batch.
+- In presenza di grandi quantità di elementi o di elementi di dimensioni più elevate, l'applicazione che chiama il servizio Batch userà una maggiore quantità di memoria.
+- Grandi quantità di elementi o elementi di dimensioni più elevate determinano un aumento del traffico di rete. Questo allunga i tempi di trasferimento e, a seconda dell'architettura dell'applicazione, può determinare un aumento dei costi di rete per i dati trasferiti all'esterno dell'area dell'account Batch.
 
-L'API Batch offre la possibilità di ridurre sia il numero di elementi restituiti in un elenco sia la quantità di informazioni restituite per ogni elemento. Per le operazioni di elenco è possibile specificare un parametro di tipo [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx). DetailLevel è una classe base astratta. È necessario che venga effettivamente creato un oggetto [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) e che tale oggetto venga passato come parametro.
-
-Per tutte le API vale quanto riportato di seguito:
+Per tutte le API di Azure Batch vale quanto segue:
 
 - Ogni nome di proprietà è una stringa che esegue il mapping alla proprietà dell'oggetto
 - Per tutti i nomi di proprietà viene fatta distinzione tra maiuscole e minuscole, al contrario di quanto avviene per i valori delle proprietà
-- Le stringhe relative alla data e all'ora possono avere uno o due formati e devono essere precedute da DateTime
-	- W3CDTF (ad esempio creationTime gt DateTime’2011-05-08T08:49:37Z’)
-	- RFC1123 (ad esempio creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’)
+- I nomi di proprietà e le maiuscole/minuscole devono corrispondere agli elementi visualizzati nell'API Batch REST
+- Le stringhe relative a data e ora possono essere specificate in uno dei due formati consentiti e devono essere precedute da DateTime
+	- W3CDTF (ad esempio: *creationTime gt DateTime'2011-05-08T08:49:37Z'*)
+	- RFC1123 (ad esempio: *creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'*)
 - Le stringhe booleane hanno il valore "true" o "false"
-- Se si specifica una proprietà o un operatore non valido, verrà creata un'eccezione con eccezione interna "400 (Richiesta non valida)".
-- È anche possibile passare il parametro DetailLevel con clausole di tipo Select ed Expand ai metodi “Get” appropriati, ad esempio PoolOperations.GetPool()
+- Se viene specificata una proprietà o un operatore non valido, viene restituito un errore con il codice "400 (Richiesta non valida)"
 
-L'oggetto ODataDetailLevel presenta tre proprietà pubbliche che possono essere specificate nel costruttore o impostate direttamente. Le tre proprietà sono tutte stringhe:
+## Esecuzione efficiente di query in Batch .NET
+
+L'API Batch .NET consente di ridurre sia il numero di elementi restituiti in un elenco sia la quantità di informazioni restituite per ogni elemento specificando l'oggetto [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) di una query. DetailLevel è una classe base astratta che richiede che venga effettivamente creato un oggetto [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) che viene passato come parametro ai metodi appropriati.
+
+L'oggetto ODataDetailLevel presenta tre proprietà di stringa pubblica che possono essere specificate nel costruttore o impostate direttamente:
 
 - [FilterClause](#filter): filtra e potenzialmente riduce il numero di elementi restituiti
-- [SelectClause](#select): consente di indicare i valori di proprietà specifici che vengono restituiti, riducendo le dimensioni dell'elemento e della risposta
+- [SelectClause](#select): consente di specificare un sottoinsieme di valori della proprietà da restituire per ogni elemento, riducendo le dimensioni dell'elemento e della risposta
 - [ExpandClause](#expand): restituisce tutti i dati richiesti in una sola chiamata anziché in più chiamate
+
+> [AZURE.TIP]È possibile limitare la quantità di dati restituita passando un'istanza di DetailLevel configurata con le clausole SELECT ed EXPAND ai metodi GET appropriati, ad esempio [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx).
 
 ### <a id="filter"></a> FilterClause
 
-Il numero di elementi restituito può essere ridotto da una stringa filtro. Per assicurare che vengano restituiti solo gli elementi richiesti, è possibile specificare uno o più valori di proprietà. Di seguito sono riportati alcuni esempi: elencare solo attività per un processo in esecuzione, elencare solo i nodi di calcolo che sono pronti per eseguire le attività.
+Il numero di elementi restituito può essere ridotto da una stringa filtro. È possibile specificare uno o più valori della proprietà con qualificatori per garantire che vengano restituiti solo gli elementi pertinenti alla query. Ad esempio, è possibile ottenere un elenco contenente solo le attività in esecuzione per un processo o un elenco contenente solo i nodi di calcolo pronti per l'esecuzione di attività.
 
-[FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) è una stringa costituita da una o più espressioni, ciascuna delle quali composta da un nome di proprietà, un operatore e un valore. Le proprietà che è possibile indicare sono specifiche di ciascuna chiamata all'API, così come gli operatori supportati per ogni proprietà. È possibile combinare più espressioni usando gli operatori logici “and” e “or”.
+ [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) è una stringa costituita da una o più espressioni, con un'espressione costituta da un *nome di proprietà*, un *operatore* e un *valore*. Le proprietà che è possibile indicare sono specifiche di ciascuna chiamata all'API, così come gli operatori supportati per ogni proprietà. È possibile combinare più espressioni usando gli operatori logici **and** e **or**.
 
-Di seguito è riportato un possibile filtro per l'elenco di attività:
+Questo filtro, ad esempio, restituisce solo le attività in esecuzione il cui attributo *displayName* inizia con "MyTask":
 
-	startswith(name, 'MyTask') and (state eq 'Running')
+	startswith(displayName, 'MyTask') and (state eq 'Running')
+
+Ogni articolo relativo all'API Batch REST contiene una tabella che specifica le proprietà e le operazioni supportate su tali proprietà per le diverse operazioni di tipo elenco.
+
+- [Elencare i pool in un account](https://msdn.microsoft.com/library/azure/dn820101.aspx)
+- [Elencare i nodi di calcolo in un pool](https://msdn.microsoft.com/library/azure/dn820159.aspx)
+- [Elencare i processi in un account](https://msdn.microsoft.com/library/azure/dn820117.aspx)
+- [Elencare lo stato della preparazione del processo e le attività di rilascio di un processo per un processo](https://msdn.microsoft.com/library/azure/mt282170.aspx)
+- [Elencare le pianificazioni dei processi in un account](https://msdn.microsoft.com/library/azure/mt282174.aspx)
+- [Elencare i processi associati a una pianificazione di processi](https://msdn.microsoft.com/library/azure/mt282169.aspx)
+- [Elencare le attività associate a un processo](https://msdn.microsoft.com/library/azure/dn820187.aspx)
+- [Elencare i file associati a un'attività](https://msdn.microsoft.com/library/azure/dn820142.aspx)
+- [Elencare i certificati in un account](https://msdn.microsoft.com/library/azure/dn820154.aspx)
+- [Elencare i file in un nodo](https://msdn.microsoft.com/library/azure/dn820151.aspx)
+
+> [AZURE.IMPORTANT]Quando si specificano le proprietà in uno dei tre tipi di clausole, assicurarsi che il nome della proprietà e le lettere maiuscole/minuscole corrispondano alle relative controparti nell'API Batch REST. Ad esempio, quando si usa l'oggetto [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) .NET, è necessario specificare **state** invece di **State** anche se la proprietà .NET è [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Per verificare il nome e le lettere maiuscole/minuscoli corretti per la proprietà **state**, sarà necessario controllare il nome dell'elemento in [Ottenere le informazioni su un'attività](https://msdn.microsoft.com/library/azure/dn820133.aspx) nella documentazione dell'API Batch REST.
 
 ### <a id="select"></a> SelectClause
 
 È possibile limitare i valori di proprietà restituiti per ogni elemento usando una stringa di selezione. È possibile specificare un elenco di proprietà per un determinato elemento. Verranno restituiti solo i valori di tali proprietà.
 
-[SelectClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.selectclause.aspx) è una stringa costituita da un elenco di nomi di proprietà separati da virgole. È possibile specificare tutte le proprietà dell'elemento restituite dall'operazione di elenco.
+[SelectClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.selectclause.aspx) è una stringa costituita da un elenco di nomi di proprietà separati da virgole. È possibile specificare qualsiasi combinazione di proprietà disponibile per un elemento restituito da un'operazione elenco.
 
 	"name, state, stateTransitionTime"
 
 ### <a id="expand"></a> ExpandClause
 
-È possibile ridurre il numero di chiamate all'API usando una stringa di espansione. È possibile ottenere informazioni più dettagliate per ogni elemento dell'elenco con un'unica chiamata all'API elenco, anziché ottenere l'elenco e quindi effettuare una chiamata per ogni elemento incluso in quest'ultimo.
+È possibile ridurre il numero di chiamate API usando una clausola EXPAND. È possibile ottenere informazioni più dettagliate per ogni elemento dell'elenco con una singola chiamata API, anziché ottenere prima l'elenco, scorrerlo e quindi effettuare una chiamata per ogni elemento incluso in quest'ultimo.
 
-La proprietà [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) è simile a SelectClause, poiché controlla se determinati dati vengono restituiti nei risultati. La proprietà ExpandClause è supportata soltanto per l'elenco degli elementi di lavoro, l'elenco dei pool e quello dei processi; attualmente fornisce soltanto informazioni statistiche. Quando sono necessarie tutte le proprietà e non è presente SelectClause, per ottenere informazioni statistiche è necessario usare ExpandClause. Se si usa SelectClause per ottenere un sottoinsieme di proprietà, è possibile specificare le statistiche in tale proprietà e lasciare ExpandClause impostata su null.
+[ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) è simile alla clausola SELECT per il fatto che controlla se determinati dati vengono restituiti nei risultati. La clausola EXPAND è supportata solo per le richieste di elenco relative a processi, attività e pool e attualmente fornisce soltanto informazioni statistiche. Quando tutte le proprietà sono obbligatorie e non è stata specificata alcuna clausola SELECT, è necessario usare la clausola EXPAND per ottenere informazioni statistiche. Se viene usata una clausola SELECT per ottenere un sottoinsieme di proprietà, è possibile specificare "stats" nella clausola SELECT proprietà e lasciare la clausola EXPAND impostata su Null.
 
-> [AZURE.NOTE]Per assicurare la massima efficienza e le migliori prestazioni dell'applicazione, per le chiamate all'API elenco è consigliabile usare sempre clausole di filtro e selezione.
+## Esempio di query efficiente
 
-<!---HONumber=August15_HO7-->
+Di seguito è riportato un frammento di codice che usa l'API Batch .NET per eseguire query efficienti sul servizio Batch per ottenere le statistiche di un set di pool specificato. In questo scenario, l'utente Batch ha un pool di test e un pool di produzione. Gli ID del pool di test hanno il prefisso "test" mentre gli ID del pool di produzione hanno il prefisso "prod". Nel frammento di codice, *myBatchClient* è un'istanza correttamente inizializzata di [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient):
+
+	// First we need an ODATADetailLevel instance on which to set the expand, filter, and select
+	// clause strings
+	ODATADetailLevel detailLevel = new ODATADetailLevel();
+
+	// Specify the ExpandClause so that the .NET API pulls the statistics for the CloudPools in a single
+	// underlying REST API call. Note that we use the pool's REST API element name "stats" here as opposed
+	// to "Statistics" as it appears in the .NET API (CloudPool.Statistics)
+	detailLevel.ExpandClause = "stats";
+
+	// We want to pull only the "test" pools, so we limit the items returned by using a Filterclause and
+	// specifying that the pool IDs must start with "test"
+	detailLevel.FilterClause = "startswith(id, 'test')";
+
+	// To further limit the data that crosses the wire, configure the SelectClause to limit the
+	// properties returned on each CloudPool object to only CloudPool.Id and CloudPool.Statistics
+	detailLevel.SelectClause = "id, stats";
+
+	// Now get our collection of pools, minimizing the amount of data returned by specifying the
+	// detail level we configured above
+	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
+
+> [AZURE.TIP]Per garantire la massima efficienza e le migliori prestazioni dell'applicazione, per le chiamate API di tipo elenco è consigliabile usare *sempre* clausole FILTER e SELECT.
+
+## Passaggi successivi
+
+1. Se non è già stato fatto, leggere la documentazione relativa all'API Batch corrispondente al proprio scenario di sviluppo
+    - [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+    - [Batch .NET](https://msdn.microsoft.com/library/azure/dn865466.aspx)
+2. Scaricare gli [esempi per Azure Batch](https://github.com/Azure/azure-batch-samples) da GitHub ed esaminare il codice
+
+<!---HONumber=September15_HO1-->

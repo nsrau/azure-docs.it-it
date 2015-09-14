@@ -1,33 +1,33 @@
 <properties 
-   pageTitle="Utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple | Microsoft Azure"
-   description="Leggere le informazioni su come gestire il dispositivo StorSimple tramite Windows PowerShell per StorSimple"
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="PowerShell per la gestione dei dispositivi StorSimple | Microsoft Azure"
+	description="Informazioni su come utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="alkohli@microsoft.com" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="alkohli@microsoft.com"/>
 
 # Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
 ## Panoramica
+
 Windows PowerShell per StorSimple fornisce un'interfaccia della riga di comando che può essere utilizzata per gestire il dispositivo Microsoft Azure StorSimple. Come suggerisce il nome, è un'interfaccia della riga di comando basata su Windows PowerShell realizzata in uno spazio di esecuzione vincolato. Dal punto di vista dell'utente nella riga di comando, uno spazio di esecuzione vincolato viene considerato come una versione limitata di Windows PowerShell. Pur mantenendo alcune funzionalità di base di Windows PowerShell, questa interfaccia dispone di ulteriori cmdlet dedicati che sono pensati per la gestione del dispositivo Microsoft Azure StorSimple.
 
-In questo articolo vengono descritte le funzionalità di Windows PowerShell per StorSimple tra cui come è possibile connettersi a questa interfaccia e i collegamenti alle procedure dettagliate dei flussi di lavoro che possono essere eseguiti utilizzando questa interfaccia. I flussi di lavoro includono come registrare il dispositivo, configurare l'interfaccia di rete sul dispositivo, installare gli aggiornamenti che richiedono che il dispositivo sia in modalità di manutenzione, modificare lo stato del dispositivo e risolvere eventuali problemi che possono verificarsi.
+In questo articolo vengono descritte le funzionalità di Windows PowerShell per StorSimple, tra cui come è possibile connettersi a questa interfaccia e sono contenuti i collegamenti alle procedure dettagliate o flussi di lavoro che possono essere eseguiti utilizzando questa interfaccia. I flussi di lavoro includono come registrare il dispositivo, configurare l'interfaccia di rete sul dispositivo, installare gli aggiornamenti che richiedono che il dispositivo sia in modalità di manutenzione, modificare lo stato del dispositivo e risolvere eventuali problemi che possono verificarsi.
 
 Dopo aver letto l'articolo, l'utente sarà in grado di:
 
+- Connettersi al dispositivo StorSimple utilizzando Windows PowerShell per StorSimple
 
-- Connettersi al dispositivo StorSimple tramite Windows PowerShell per StorSimple
-
-- Amministrare il dispositivo StorSimple tramite Windows PowerShell per StorSimple
+- Amministrazione del dispositivo StorSimple utilizzando Windows PowerShell per StorSimple
 
 - Ottenere la guida in Windows PowerShell per StorSimple
 
@@ -95,7 +95,7 @@ Assicurarsi di utilizzare le seguenti impostazioni PuTTY per connettersi all'int
  	|---|---|
  	|Tasto backspace|Ctrl-? (127)|
 	|Tasti home o fine|Standard|
-	|Tasti e tastierino funzione|ESC[n\~|
+	|Tasti e tastierino funzione|ESC[n~|
 	|Stato iniziale dei tasti cursore|Normal|
 	|Stato iniziale del tastierino numerico|Normal|
 	|Abilitare le funzionalità di tastiera aggiuntive|Ctrl-Alt è diverso da AltGr|
@@ -197,4 +197,4 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 ## Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

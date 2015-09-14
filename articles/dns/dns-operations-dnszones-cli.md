@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # Come gestire le zone DNS
@@ -26,9 +26,9 @@ Questa guida descrive come gestire per la zona DNS. E consentirà di comprendere
 
 ## Creare una nuova zona DNS
 
-Per creare una nuova zona DNS per ospitare il dominio, utilizzare il `azure network dns-zone create`:
+Per creare una nuova zona DNS per ospitare il dominio, utilizzare il `azure network dns zone create`:
 
-		Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 L'operazione crea una nuova zona DNS in Azure DNS. È possibile specificare facoltativamente una matrice di tag di Gestione risorse di Azure. Per altre informazioni, vedere [ETag e tag](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -38,33 +38,33 @@ Lo stesso nome di zona può essere usato nuovamente in un gruppo di risorse dive
 
 ## Ottenere una zona DNS
 
-Per recuperare una zona DNS, utilizzare il `azure network dns-zone show`:
+Per recuperare una zona DNS, utilizzare il `azure network dns zone show`:
 
-	azure network dns-zone show myresourcegroup contoso.com
+	azure network dns zone show myresourcegroup contoso.com
 
 L'operazione restituisce una zona DNS con il relativo id, numero di set di record e tag.
 
 
 ## Elencare le zone DNS
 
-Per recuperare le zone DNS all'interno di un gruppo di risorse, utilizzare `azure network dns-zone list`:
+Per recuperare le zone DNS all'interno di un gruppo di risorse, utilizzare `azure network dns zone list`:
 
-	azure network dns-zone list myresourcegroup
+	azure network dns zone list myresourcegroup
 
 
 ## Aggiornare una zona DNS
 
-È possibile apportare modifiche a una risorsa di zona DNS usando `azure network dns-zone set`. Ciò non consente di aggiornare alcuni dei set di record DNS compresi nella zona (vedere [Come gestire i record DNS](dns-operations-recordsets.md)). Questa operazione permette solo di aggiornare le proprietà della risorsa di zona stessa. Attualmente è limitata ai tag di Gestione risorse di Azure relativi alla risorsa di zona. Per altre informazioni, vedere [Etag e tag](dns-getstarted-create-dnszone.md#Etags-and-tags).
+È possibile apportare modifiche a una risorsa di zona DNS usando `azure network dns zone set`. Ciò non consente di aggiornare alcuni dei set di record DNS compresi nella zona (vedere [Come gestire i record DNS](dns-operations-recordsets.md)). Questa operazione permette solo di aggiornare le proprietà della risorsa di zona stessa. Attualmente è limitata ai tag di Gestione risorse di Azure relativi alla risorsa di zona. Per altre informazioni, vedere [Etag e tag](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
-	azure network dns-zone set myresourcegroup contoso.com -t prod=value2
+	azure network dns zone set myresourcegroup contoso.com -t prod=value2
 
 ## Eliminare una zona DNS
 
-Le zone DNS possono essere eliminate utilizzando il `azure network dns-zone delete`.
+Le zone DNS possono essere eliminate utilizzando il `azure network dns zone delete`.
  
 Prima di eliminare una zona DNS di DNS di Azure, sarà necessario eliminare tutti i set di record, ad eccezione dei record NS e SOA alla radice della zona in cui sono stati creati automaticamente quando è stata creata la zona.
 
-	azure network dns-zone delete myresourcegroup contoso.com 
+	azure network dns zone delete myresourcegroup contoso.com 
 
 Questa operazione ha un'opzione "-q" facoltativa, che elimina la richiesta di conferma della rimozione della zona DNS.
 
@@ -76,4 +76,4 @@ Questa operazione ha un'opzione "-q" facoltativa, che elimina la richiesta di co
 
 [Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="MikeWasson"/>
+	ms.date="08/30/2015"
+	ms.author="mwasson"/>
 
 
 
@@ -124,7 +124,7 @@ Durante la distribuzione vengono usate le seguenti versioni software:
 
 Poiché il download di JRE richiede di accettare manualmente la licenza Oracle, per semplificare la distribuzione, scaricare tutto il software necessario nel desktop per caricarlo in seguito nell'immagine modello di Ubuntu che verrà creata come precursore della distribuzione cluster.
 
-Scaricare il software citato sopra in una directory per i download nota (ad esempio, %TEMP%/downloads in Windows o \~/downloads in Linux o Mac) nel desktop locale.
+Scaricare il software citato sopra in una directory per i download nota (ad esempio, %TEMP%/downloads in Windows o ~/downloads in Linux o Mac) nel desktop locale.
 
 ### CREARE UNA MACCHINA VIRTUALE UBUNTU
 In questo passaggio del processo verrà creata l'immagine di Ubuntu con i prerequisiti software per poter riusare l'immagine per il provisioning di più nodi di Cassandra.
@@ -165,7 +165,7 @@ Fare clic sulla freccia destra, lasciare le impostazioni predefinite nella scher
 
 ###INSTALLARE IL SOFTWARE NECESSARIO
 ####PASSAGGIO 1: Caricare i file tarball 
-Con scp o pscp, copiare il software scaricato in precedenza nella directory \~/downloads con il seguente formato del comando:
+Con scp o pscp, copiare il software scaricato in precedenza nella directory ~/downloads con il seguente formato del comando:
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -700,4 +700,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

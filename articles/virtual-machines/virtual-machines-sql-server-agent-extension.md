@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Estensione Agente IaaS di SQL Server" 
-	description="Descrive l'estensione agente di SQL Server, che consente alle macchine virtuali che eseguono SQL Server nel cloud di Azure di usare funzionalità di automazione e illustra come installare l'agente se non è già stato installato in modo automatico." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
+	pageTitle="Estensione Agente IaaS di SQL Server"
+	description="Descrive l'estensione agente di SQL Server, che consente alle macchine virtuali che eseguono SQL Server nel cloud di Azure di usare funzionalità di automazione e illustra come installare l'agente se non è già stato installato in modo automatico."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="jeffgoll"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
+	ms.workload="infrastructure-services"
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
@@ -33,8 +33,8 @@ Requisiti per l'uso dell'estensione nella macchina virtuale:
  
 ## Servizi disponibili con l'estensione
 
-- **Backup automatizzato per SQL**: questo servizio consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita di SQL Server nella macchina virtuale. Per altre informazioni su questo servizio, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn906091.aspx).
-- **Applicazione automatica per SQL**: questo servizio consente di configurare una finestra di manutenzione durante la quale eseguire gli aggiornamenti della macchina virtuale, evitandone l'esecuzione durante i periodi di picco del carico di lavoro. Per altre informazioni su questo servizio, vedere l'articolo sull'[applicazione automatica di patch per SQL Server in Macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn961166.aspx).
+- **Backup automatizzato per SQL**: questo servizio consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita di SQL Server nella macchina virtuale. Per altre informazioni su questo servizio, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-automated-backup.md).
+- **Applicazione automatica per SQL**: questo servizio consente di configurare una finestra di manutenzione durante la quale eseguire gli aggiornamenti della macchina virtuale, evitandone l'esecuzione durante i periodi di picco del carico di lavoro. Per altre informazioni su questo servizio, vedere l'articolo sull'[applicazione automatica di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-automated-patching.md).
 
 ## Aggiungere l'estensione con Powershell
 Se si esegue il provisioning della macchina virtuale di SQL Server usando il [portale di anteprima di Azure](https://portal.azure.com/), l'estensione verrà installata automaticamente. Nel caso di macchine virtuali di SQL Server di cui è stato eseguito il provisioning tramite il [portale di gestione di Azure](https://manage.windowsazure.com) o di macchine virtuali per le quali si dispone già di una licenza SQL, è possibile aggiungere questa estensione a una macchina virtuale esistente usando il seguente cmdlet di Azure PowerShell.
@@ -74,4 +74,4 @@ Se si desidera rimuovere l'estensione da una macchina virtuale, è possibile usa
 ### Sintassi
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

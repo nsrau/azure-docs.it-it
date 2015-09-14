@@ -1,23 +1,24 @@
 <properties 
    pageTitle="Gestire i controller del dispositivo StorSimple | Microsoft Azure"
-   description="Informazioni su come interrompere, riavviare, arrestare o reimpostare i controller del dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Informazioni su come interrompere, riavviare, arrestare o reimpostare i controller del dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # Gestire i controller del dispositivo StorSimple
 
 ## Panoramica
+
 In questa esercitazione vengono descritte le diverse operazioni che è possibile eseguire nei controller del dispositivo StorSimple. I controller del dispositivo StorSimple sono controller ridondanti (peer) in una configurazione attiva-passiva. In un determinato momento, un solo controller è attivo e sta elaborando tutte le operazioni su disco e di rete. L'altro controller è in modalità passiva. Se il controller attivo non restituisce l'esito positivo, il controller passivo diventa automaticamente attivo.
 
 In questa esercitazione sono incluse le istruzioni dettagliate per gestire i controller del dispositivo tramite:
@@ -221,4 +222,4 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 Se si verificano problemi con i controller del dispositivo StorSimple che non si risolvono utilizzando le procedure elencate in questa esercitazione, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

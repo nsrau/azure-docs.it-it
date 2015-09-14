@@ -1,20 +1,20 @@
 <properties
    pageTitle="Panoramica del modello di comunicazione con i servizi"
-   description="Questo articolo descrive le nozioni di base relative al modello di comunicazione supportato dall'API di Reliable Services."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="vipulm"
-   editor=""/>
+	description="Questo articolo descrive le nozioni di base relative al modello di comunicazione supportato dall'API di Reliable Services."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="vipulm"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # Modello di comunicazione con i servizi
 
@@ -70,7 +70,7 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
 
-> [AZURE.NOTE]Le risorse di endpoint sono comuni all'intero pacchetto del servizio e vengono allocate da Service Fabric quando viene attivato il pacchetto del servizio. Per altri dettagli, vedere la pagina relativa al [modello del servizio di Service Fabric](../service-fabric-service-model.md). In questo modo tutte le repliche ospitate nella stessa istanza di ServiceHost condividono la stessa porta. Ciò significa che il listener di comunicazione deve supportare la condivisione delle porte. Il metodo consigliato per eseguire questa operazione consiste nell'uso dell'ID partizione e dell'ID replica/istanza da parte del listener di comunicazione durante la generazione dell'indirizzo di ascolto.
+> [AZURE.NOTE]Le risorse di endpoint sono comuni all'intero pacchetto del servizio e vengono allocate da Service Fabric quando viene attivato il pacchetto del servizio. In questo modo tutte le repliche ospitate nella stessa istanza di ServiceHost condividono la stessa porta. Ciò significa che il listener di comunicazione deve supportare la condivisione delle porte. Il metodo consigliato per eseguire questa operazione consiste nell'uso dell'ID partizione e dell'ID replica/istanza da parte del listener di comunicazione durante la generazione dell'indirizzo di ascolto.
 
 ```csharp
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Scrittura di un servizio tramite l'API di Reliable Services che usa lo stack di comunicazione WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

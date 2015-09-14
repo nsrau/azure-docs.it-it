@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio" 
-	description="Informazioni su come aggiornare i database Web o Business del database SQL di Azure ai nuovi livelli di prestazioni e di servizio Basic, Standard e Premium del database SQL di Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio"
+	description="Informazioni su come aggiornare i database Web o Business del database SQL di Azure ai nuovi livelli di prestazioni e di servizio Basic, Standard e Premium del database SQL di Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
-
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="06/18/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
-
 
 
 # Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio
@@ -69,8 +67,7 @@ Il livello "Basic" viene usato soprattutto per database molto piccoli con un'att
 
 I livelli di prestazioni e le funzionalità del nuovo livello di servizio vengono riepilogati e messi a confronto nella seguente tabella:
 
-![Confronto delle funzionalità dei livelli di servizio][1]
-
+[AZURE.INCLUDE [Tabella livelli di servizio database SQL](../../includes/sql-database-service-tiers-table.md)]
 
 **Risorse aggiuntive per confrontare i livelli di servizio e di prestazioni:**
 
@@ -250,8 +247,8 @@ Dopo aver determinato il livello di servizio e il livello di prestazioni appropr
 Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](http://msdn.microsoft.com/library/dn369872.aspx)
 
 
-## 6. Monitorare l'aggiornamento al nuovo livello di servizio/prestazioni
-Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gestione (come CREATE, ALTER, DROP) eseguite su un database nella vista DMV sys.dm_operation_status nel database master del server logico in cui si trova il database corrente. [Vedere la documentazione su sys.dm _operation _status documentation.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Usare la DMV con lo stato delle operazioni per determinare l'avanzamento dell'operazione di aggiornamento per un database. Questa query di esempio mostra tutte le operazioni di gestione eseguite su un database:
+## 6\. Monitorare l'aggiornamento al nuovo livello di servizio/prestazioni
+Il database SQL di Azure fornisce informazioni di stato sulle operazioni di gestione (come CREATE, ALTER, DROP) eseguite su un database nella vista a gestione dinamica DMV sys.dm\_operation\_status nel database master del server logico in cui si trova il database corrente.[vedere la documentazione su sys.dm\_operation\_status](http://msdn.microsoft.com/library/azure/dn270022.aspx) Usare la DMV con lo stato delle operazioni per determinare l'avanzamento dell'operazione di aggiornamento per un database. Questa query di esempio mostra tutte le operazioni di gestione eseguite su un database:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -311,4 +308,4 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,29 +1,27 @@
 <properties
    pageTitle="Clonare il proprio volume StorSimple | Microsoft Azure"
-   description="Vengono descritti i diversi tipi di clone e le relative situazioni di utilizzo. Viene inoltre illustrato come utilizzare un set di backup per clonare un singolo volume."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="Vengono descritti i diversi tipi di clone e le relative situazioni di utilizzo. Viene inoltre illustrato come utilizzare un set di backup per clonare un singolo volume."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="alkohli"/>
 
-# Clonare un volume StorSimple
+# Utilizzare il servizio StorSimple Manager per clonare un volume
 
 ## Panoramica
 
-Nella pagina **Catalogo di backup** vengono visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
+Nella pagina **Catalogo di backup** del servizio StorSimple Manager vengono visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
 
-  ![backup-catalogo](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
-
-**Figura 1: catalogo di backup**
+  ![Pagina catalogo di backup](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 In questa esercitazione viene descritto come utilizzare un set di backup per clonare un singolo volume. Viene inoltre spiegata la differenza tra cloni *temporanei* e *permanenti*.
 
@@ -37,7 +35,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
 2. Espandere il set di backup per visualizzare i volumi associati. Fare clic e selezionare un volume dal set di backup.
 
-     ![Clone](./media/storsimple-clone-volume/HCS_Clone.png)
+     ![Clonare un volume](./media/storsimple-clone-volume/HCS_Clone.png)
 
 3. Fare clic su **Clona** per iniziare a clonare il volume selezionato.
 
@@ -91,4 +89,4 @@ Informazioni su come [ripristinare un volume StorSimple da un set di backup](sto
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

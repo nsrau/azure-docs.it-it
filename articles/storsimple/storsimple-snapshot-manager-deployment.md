@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Distribuzione di StorSimple Snapshot Manager | Microsoft Azure"
-   description="Viene descritto come scaricare e installare StorSimple Snapshot Manager."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Informazioni su come scaricare e installare Snapshot StorSimple Manager, uno snap-in MMC per la gestione delle funzionalità di protezione e backup dei dati di StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/17/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Distribuzione StorSimple Snapshot Manager
+# Distribuire lo snap-in di StorSimple Snapshot Manager
 
 ## Panoramica
 
@@ -49,7 +49,7 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    > [AZURE.NOTE]Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
+    >[AZURE.NOTE]Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
 
 3. Assicurarsi che siano soddisfatti i requisiti di configurazione Microsoft Azure StorSimple. Per ulteriori informazioni, vedere[Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -95,7 +95,7 @@ Utilizzare la procedura seguente per installare StorSimple Snapshot Manager.
 
 3. Nella finestra**Estrarre cartelle compresse (zippate) **, **Selezionare una destinazione ed estrarre la casella o il tipo di file,**digitare o selezionare il percorso in cui si desidera estrarre i file.
 
-      >[AZURE.IMPORTANT]È necessario installare StorSimple Snapshot Manager sull'unità C.
+       >[AZURE.IMPORTANT]È necessario installare StorSimple Snapshot Manager sull'unità C.
  
 4. Selezionare la casella di controllo**Mostra i file estratti al termine dell'operazione**,quindi fare clic su**Estrarre**.
 
@@ -115,7 +115,7 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 
 1. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Verrà visualizzata la finestra di gestione StorSimple Snapshot Manager. La finestra contiene un riquadro **Ambito**, un riquadro **Risultati** e un riquadro **Azioni**. 
 
-    ![Interfaccia utente di StorSimple Snapshot Manager](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
+    ![Interfaccia utente di Gestione snapshot StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
 
     - Il riquadro**Ambito** (riquadro a sinistra) contiene un elenco di nodi organizzati in una struttura ad albero. È possibile espandere alcuni nodi per selezionare una vista o dati specifici relativi a tale nodo. Fare clic sull'icona di freccia per espandere o comprimere un nodo. Fare doppio clic su un elemento nel riquadro **Ambito** per visualizzare un elenco di azioni disponibili per quell'elemento. 
 
@@ -203,7 +203,7 @@ Utilizzare la procedura seguente per creare e salvare una copia del database di 
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
     >[AZURE.NOTE]ProgramData è una cartella nascosta.
 
@@ -235,7 +235,7 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in[Installare u
 
     4. Nel riquadro a destra, sotto **Servizio di gestione Microsoft StorSimple**, fare clic su **Arresta il servizio**.
 
-2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Passare a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
      >[AZURE.NOTE]ProgramData è una cartella nascosta.
 
@@ -255,4 +255,4 @@ Per ulteriori informazioni su StorSimple Snapshot Manager, passare a[Cos'è Stor
 
 Per ulteriori informazioni sull'interfaccia utente di Gestione snapshot StorSimple, passare a[Interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

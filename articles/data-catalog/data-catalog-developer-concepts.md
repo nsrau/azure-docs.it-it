@@ -6,7 +6,8 @@
 	authors="dvana"
 	manager="mblythe"
 	editor=""
-	tags=""/> <tags
+	tags=""/>
+<tags 
    ms.service="data-catalog"
 	ms.devlang="NA"
 	ms.topic="article"
@@ -114,13 +115,40 @@ I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altr
 <tr><td></td><td>mimeType</td><td>string</td><td>Il tipo mime del contenuto.</td></tr>
 <tr><td></td><td>content</td><td>string</td><td>Istruzioni su come ottenere l'accesso a questa risorsa di dati. Potrebbe trattarsi di un URL, un indirizzo di posta elettronica o un set di istruzioni.</td></tr>
 
+<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>Il numero di righe nel set di dati</td></tr>
+<tr><td></td><td>size</td><td>long</td><td>La dimensione in byte del set di dati.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>L’ora dell'ultima modifica apportata allo schema</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>L’ora dell'ultima modifica al set di dati (dati aggiunti, modificati o eliminati)</td></tr>
+
+<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>Il numero di righe nel set di dati</td></tr>
+
+
 </table>
 
 ### Tipi comuni
 
 I tipi comuni possono essere usati come tipi per proprietà, ma non sono elementi.
 
-<table><tr><td><b>Tipo comune</b></td><td><b>Proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Descrive il tipo di origine dati, ad esempio SQL Server, Database Oracle e così via.  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Descrive il tipo di oggetto nell'origine dati, ad esempio tabella, vista per SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Descrive la struttura dei dati. I valori correnti sono strutturati o non strutturati.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Indirizzo e-mail univoco dell'utente.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Nome dell'utente (per scopi di visualizzazione).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Cognome dell'utente (per scopi di visualizzazione).</td></tr><tr><td>Column</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nome della colonna o dell'attributo.</td></tr><tr><td></td><td>type</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset. È supportato un solo subset di tipi.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>Lunghezza massima consentita per la colonna o l’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>Precisione della colonna o dell’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>expression</td><td>string</td><td>Se il valore è una colonna calcolata, questo campo contiene l'espressione che esprime il valore. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>defaultValue</td><td>oggetto</td><td>Valore predefinito inserito se non è specificato nell'istruzione insert per l'oggetto. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>Matrice di tag che descrivono la colonna.</td></tr><tr><td></td><td>description</td><td>string</td><td>Descrizione della colonna.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>Nome della colonna a cui fanno riferimento queste informazioni.</td></tr>
+<table><tr><td><b>Tipo comune</b></td><td><b>Proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>Descrive il tipo di origine dati, ad esempio SQL Server, Database Oracle e così via.  </td></tr><tr><td></td><td>objectType</td><td>string</td><td>Descrive il tipo di oggetto nell'origine dati, ad esempio tabella, vista per SQL Server.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>Descrive la struttura dei dati. I valori correnti sono strutturati o non strutturati.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>Indirizzo e-mail univoco dell'utente.</td></tr><tr><td></td><td>firstName</td><td>string</td><td>Nome dell'utente (per scopi di visualizzazione).</td></tr><tr><td></td><td>lastName</td><td>string</td><td>Cognome dell'utente (per scopi di visualizzazione).</td></tr><tr><td>Column</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>Nome della colonna o dell'attributo.</td></tr><tr><td></td><td>type</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset. È supportato un solo subset di tipi.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>Lunghezza massima consentita per la colonna o l’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>Precision</td><td>byte</td><td>Precisione della colonna o dell’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>expression</td><td>string</td><td>Se il valore è una colonna calcolata, questo campo contiene l'espressione che esprime il valore. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr><tr><td></td><td>defaultValue</td><td>oggetto</td><td>Valore predefinito inserito se non è specificato nell'istruzione insert per l'oggetto. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td>
+
+</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>tags</td><td>string[]</td><td>Matrice di tag che descrivono la colonna.</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>Descrizione della colonna.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>Nome della colonna a cui fanno riferimento queste informazioni.</td></tr>
+
+</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName </td><td>string</td><td>Il nome della colonna</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>Il tipo della colonna</td></tr>
+<tr><td></td><td>min </td><td>string</td><td>Il valore minimo nel set di dati</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>Il valore massimo nel set di dati</td></tr>
+<tr><td></td><td>avg </td><td>double</td><td>Il valore medio del set di dati</td></tr>
+<tr><td></td><td>stdev </td><td>double</td><td>La deviazione standard per il set di dati</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>Il numero di valori null nel set di dati</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>Il numero di valori distinct nel set di dati</td></tr>
+
+
+
 </table>
 
 ## Ruoli e autorizzazione
@@ -228,6 +256,6 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere us
 > [AZURE.NOTE]In PUT non è necessario specificare un payload dell'elemento nel corpo: PUT consente di aggiornare solo i ruoli e/o le autorizzazioni.
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

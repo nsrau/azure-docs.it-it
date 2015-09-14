@@ -1,22 +1,20 @@
 <properties 
-	pageTitle="Creazione di uno snapshot di un BLOB" 
-	description="Guida introduttiva alla creazione di snapshot dei BLOB di archiviazione di Azure" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	pageTitle="Creazione di uno snapshot di un BLOB"
+	description="Guida introduttiva alla creazione di snapshot dei BLOB di archiviazione di Azure"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tamram"/>
-
 
 # Creare uno snapshot del BLOB
 
@@ -127,4 +125,4 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

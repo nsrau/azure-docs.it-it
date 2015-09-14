@@ -93,13 +93,13 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 		
 	- __Seleziona__: per salvare la configurazione dell’origine dati.
 	
-7. Selezionare __Livelli di prezzi nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, verrà impostato il numero di nodi di lavoro su __4__. Impostare questa proprietà su __1__, in quanto sarà sufficiente per questa esercitazione e consente di ridurre il costo del cluster. È inoltre possibile modificare il numero di nodi in un cluster dopo che ne è stato eseguito il provisioning.
+7. Selezionare __Livelli di prezzi nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, verrà impostato il numero di nodi di lavoro su __4__.
 
 	Verrà visualizzato il costo stimato del cluster in fondo al pannello.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
 	
-	Utilizzare il pulsante __Seleziona__ per salvare le informazioni sui __Livelli di prezzi nodo__.
+	Utilizzare il pulsante __Seleziona__ per salvare le informazioni sui __livelli di prezzi nodo__.
 
 8. Selezionare __Configurazione facoltativa__. Questo pannello consente di configurare i seguenti elementi:
 
@@ -146,7 +146,7 @@ Utilizzare quanto segue per comprendere le icone nella parte superiore di questo
 
 * __Documentazione__: collegamenti alla documentazione per Azure HDInsight.
 
-> [AZURE.IMPORTANT]Per gestire i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per ulteriori informazioni sull'utilizzo di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.IMPORTANT]Per gestire i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per ulteriori informazioni sull'utilizzo di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ##Monitorare un cluster
 
@@ -168,4 +168,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -179,9 +179,9 @@ Potrebbe essere necessario spostare un'elevata quantità di dati in Azure. Quest
 
 
 ### Servizio file
-![Servizio file di Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figura: Servizi file di Azure fornisce percorsi SMB \\\\server\\share per le applicazioni in esecuzione nel cloud.*
+![Servizio file di Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figura: Servizi file di Azure fornisce percorsi SMB \\\server\\share per le applicazioni in esecuzione nel cloud.*
 
-In locale è frequente la disponibilità di un'elevata quantità di archiviazione di file accessibile tramite il protocollo Server Message Block (SMB) usando un formato \\\\Server\\share. Azure ora offre un servizio che consente di usare questo protocollo nel cloud. Le applicazioni eseguite in Azure possono usarlo per condividere file tra macchine virtuali tramite API del file system note, quali ReadFile e WriteFile. Inoltre, è possibile accedere contemporaneamente ai file tramite un'interfaccia REST, che consente di accedere alle condivisioni in locale quando si imposta anche una rete virtuale. File di Azure si basa sul servizio BLOB, pertanto eredita le stesse caratteristiche di disponibilità, durata, scalabilità e ridondanza geografica integrate nell'archiviazione di Azure.
+In locale è frequente la disponibilità di un'elevata quantità di archiviazione di file accessibile tramite il protocollo Server Message Block (SMB) usando un formato \\\Server\\share. Azure ora offre un servizio che consente di usare questo protocollo nel cloud. Le applicazioni eseguite in Azure possono usarlo per condividere file tra macchine virtuali tramite API del file system note, quali ReadFile e WriteFile. Inoltre, è possibile accedere contemporaneamente ai file tramite un'interfaccia REST, che consente di accedere alle condivisioni in locale quando si imposta anche una rete virtuale. File di Azure si basa sul servizio BLOB, pertanto eredita le stesse caratteristiche di disponibilità, durata, scalabilità e ridondanza geografica integrate nell'archiviazione di Azure.
 
 **Scenari per File di Azure**
 
@@ -261,15 +261,35 @@ Include un sistema di controllo del codice sorgente ospitato denominato Team Fou
 
 Visual Studio Online fornisce un servizio di test del carico. È possibile eseguire test di carico creati in Visual Studio su macchine virtuali nel cloud. Si specifica il numero totale di utenti con i quali si desidera eseguire il test di carico e Visual Studio Online determinerà automaticamente il numero di agenti necessari, avvierà le macchine virtuali richieste ed eseguirà i test di carico. I sottoscrittori di MSDN ricevono migliaia di minuti-utente gratuiti di test di carico ogni mese.
 
-Visual Studio Online offre inoltre un servizio denominato Application Insights, che fornisce un'analisi dell'intera applicazione. Fornisce statistiche sulle prestazioni e sulla modalità di uso dell'applicazione. Se si usa già System Center Operations Manager, è anche possibile collegarlo a Visual Studio Online in modo da generare avvisi quando si verificano problemi.Viene anche fornito il supporto per lo sviluppo Agile con funzionalità quali compilazione di integrazione continua, bacheche kanban e chat del team virtuali.
-	
-Inoltre, viene fornito il supporto per lo sviluppo Agile con funzionalità quali compilazione di integrazione continua, bacheche kanban e chat del team virtuali.
+Visual Studio Online offre inoltre il supporto per lo sviluppo Agile con funzionalità quali compilazione di integrazione continua, bacheche kanban e chat del team virtuali.
 
 **Scenari di Visual Studio Online**
 
 Visual Studio Online è un'opzione adatta alle aziende che hanno la necessità di collaborare in tutto il mondo ma che non dispongono ancora dell'infrastruttura idonea a tale scopo. È possibile impostare in pochi minuti, scegliere un sistema di controllo del codice sorgente e iniziare a scrivere il codice e compilare il giorno stesso. Gli strumenti del team offrono uno spazio per il coordinamento e la collaborazione e gli strumenti aggiuntivi forniscono le analisi necessarie per testare e mettere a punto l'applicazione rapidamente.
 
 Tuttavia, le organizzazioni che hanno già un sistema locale possono testare nuovi progetti su Visual Studio Online per verificarne l'eventuale maggiore efficienza.
+
+### Application Insights
+
+![Application Insights](./media/fundamentals-introduction-to-azure/ApplicationInsights.png)
+
+*Figura: Application Insights esegue il monitoraggio delle prestazioni e dell'utilizzo dell'app Web o del dispositivo attiva.*
+
+Dopo aver pubblicato l'app, indipendentemente dal fatto che venga eseguita su dispositivi mobili, desktop o browser Web, Application Insights ne indica le prestazioni e le operazioni eseguite dagli utenti. Tiene il conto del numero di arresti anomali e dei tempi di risposta rallentati, invia avvisi se le cifre raggiungono valori di soglia inaccettabili e consente di diagnosticare eventuali problemi.
+
+Quando si sviluppa una nuova funzionalità, è opportuno pianificare la valutazione del relativo successo con gli utenti. Analizzando i modelli di utilizzo, è possibile ottenere informazioni sulle soluzioni migliori per i clienti e migliorare l'app in ogni ciclo di sviluppo.
+
+Anche se è ospitato in Azure, Application Insights funziona per una gamma sempre più vasta di app, sia in Azure che in altri ambienti. Sono supportate le app Web J2EE e ASP.NET, nonché le applicazioni per iOS, Android, OSX e Windows. I dati di telemetria vengono inviati da un SDK compilato con l'app per essere analizzati e visualizzati nel servizio Application Insights in Azure.
+
+Se si desidera un'analisi più specializzata, esportare il flusso di dati di telemetria in un database, in Power BI o in altri strumenti.
+
+**Scenari di Application Insights**
+
+Si sta sviluppando un'app. Può trattarsi di un'app Web o un'app per dispositivi mobili o un'app per dispositivi mobili con back-end Web.
+
+* Ottimizzare le prestazioni dell'app dopo la pubblicazione o durante il test di carico. Application Insights aggrega i dati di telemetria di tutte le istanze installate e presenta i grafici dei tempi di risposta, del numero di richieste ed eccezioni, dei tempi di risposta della dipendenza e di altri indicatori delle prestazioni. In questo modo, è possibile ottimizzare le prestazioni dell'app. È possibile inserire codice per segnalare dati più specifici, se necessario.
+* Rilevare e diagnosticare i problemi nell'app attiva. Se gli indicatori di prestazioni raggiungono valori di soglia accettabili, è possibile ottenere avvisi tramite posta elettronica. È possibile esaminare sessioni utente specifiche, ad esempio per visualizzare la richiesta che ha causato un'eccezione. 
+* Tenere traccia dell'utilizzo per valutare la riuscita di ogni nuova funzionalità. Quando si progetta una nuova cronologia utente, pianificare di misurarne l'uso e se gli utenti raggiungono gli obiettivi previsti. Application Insights fornisce dati di utilizzo di base, ad esempio le visualizzazioni di pagina Web, e consente di inserire codice per tenere traccia dell'esperienza dell'utente in modo più dettagliato.
 
 ### Automazione
 A nessun piace perdere tempo ripetendo continuamente gli stessi processi manuali. L'automazione di Azure consente di creare, monitorare, gestire e implementare risorse nell'ambiente Azure.
@@ -365,7 +385,7 @@ Poiché Azure supporta già un livello avanzato di scalabilità, è possibile ge
 
 Nonostante sia possibile scrivere un codice per l'invio di notifiche in App per dispositivi mobili di Azure, Hub di notifica è ottimizzato per trasmettere milioni di notifiche push altamente personalizzate nel giro di pochi minuti. Non è necessario preoccuparsi di dettagli come il gestore di servizi mobili o il produttore del dispositivo. Ora è possibile raggiungere singoli utenti o milioni di utenti con una singola chiamata API.
 
-Hub di notifica è progettato per funzionare con qualsiasi backend. È possibile usare App per dispositivi mobili di Azure, un backend personalizzato nel cloud eseguito su qualsiasi provider o su un backend locale.
+Hub di notifica è progettato per funzionare con qualsiasi back-end. È possibile usare App per dispositivi mobili di Azure, un back-end personalizzato nel cloud eseguito su qualsiasi provider o su un back-end locale.
 
 **Scenari di Hub di notifica** Si supponga, ad esempio, di compilare un gioco per dispositivi mobili in cui i vari giocatori si alternano nell'azione di gioco; potrebbe essere necessario comunicare al giocatore 2 che il giocatore 1 ha terminato il proprio turno. Se non occorre effettuare altre azioni, è sufficiente usare App per dispositivi mobili. Se invece fossero presenti 100.000 giocatori e si volesse inviare a tutti un'offerta gratuita in cui il fattore tempo è un elemento determinante, Hub di notifica è la scelta migliore.
 
@@ -592,4 +612,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

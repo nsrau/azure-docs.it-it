@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Utilizzare il dashboard del servizio StorSimple Manager | Microsoft Azure"
-   description="Viene descritto il dashboard del servizio e illustra come utilizzarlo per monitorare l'integrità della soluzione StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Dashboard del servizio StorSimple Manager | Microsoft Azure"
+	description="Viene descritto il dashboard del servizio StorSimple Manager e si illustra come utilizzarlo per monitorare l'integrità della soluzione StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/17/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="v-sharos"/>
 
 # Utilizzare il dashboard del servizio StorSimple Manager
 
@@ -76,4 +76,4 @@ I passaggi seguenti descrivono il processo di rollover per la chiave DEK del ser
 
 [Informazioni su come risolvere i problemi relativi a un dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->
