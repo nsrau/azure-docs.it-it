@@ -188,4 +188,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
 [Documentazione sull'API SendGrid]: https://sendgrid.com/docs
 [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
 [recapito transazionale di posta elettronica]: https://sendgrid.com/transactional-email
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

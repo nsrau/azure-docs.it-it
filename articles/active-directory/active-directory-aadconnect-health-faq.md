@@ -83,7 +83,7 @@ Aggiungere la voce seguente nell'elemento <configuration></configuration> nel fi
 
  
 
-Per altre informazioni su <defaultProxy>, fare clic [qui]https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
+Per altre informazioni su <defaultProxy>, fare clic [qui](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 Questa impostazione permette di configurare le applicazioni .NET a livello di sistema in modo che usino il proxy definito in modo esplicito quando effettuano richieste .NET HTTP. La modifica dei singoli file app.config non è consigliata, perché verrà annullata durante gli aggiornamenti automatici. È sufficiente modificare un file e le modifiche verranno mantenute anche in caso di applicazione di aggiornamenti, se si modifica solo il file machine.config.
 
@@ -134,4 +134,4 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
