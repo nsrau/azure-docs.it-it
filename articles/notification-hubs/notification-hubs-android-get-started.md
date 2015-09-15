@@ -522,7 +522,7 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 
 
 <!-- URLs. -->
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Introduzione alle notifiche push in Servizi mobili]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [portale di Azure]: https://manage.windowsazure.com/
@@ -530,4 +530,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

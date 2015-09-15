@@ -249,7 +249,7 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
 
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure] (nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure)
+* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]  \(nota: il video è relativo ai Servizi mobili, ma il funzionamento della sincronizzazione offline è simile nelle app per dispositivi mobili di Azure\)
 
 * [Azure Friday: App con supporto offline in Servizi mobili di Azure]
 
@@ -279,4 +279,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
