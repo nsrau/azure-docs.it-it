@@ -299,4 +299,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->
