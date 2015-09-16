@@ -73,7 +73,7 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        o portale di anteprima. Specificare la distribuzione **classica** per i servizi di calcolo, archiviazione e rete.
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -158,4 +158,4 @@ Per altre informazioni sulla connessione di reti virtuali da diversi modelli di 
 - Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!-----HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->

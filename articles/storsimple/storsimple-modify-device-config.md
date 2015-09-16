@@ -83,10 +83,7 @@ Per ogni interfaccia di rete, vengono visualizzati i seguenti parametri:
 
 - **Velocità**: non è un parametro configurabile dall'utente. DATA 0, DATA 1, DATA 4 e DATA 5 sono sempre da 1 GbE, mentre DATA 2 e DATA 3 sono interfacce di rete da 10 GbE.
 
-     >[AZURE.NOTE]
-     >
-     >- velocità e duplex sono sempre negoziati automatica.
-     >- I frame jumbo non sono supportati.
+     >[AZURE.NOTE] velocità e duplex sono sempre negoziati automatica. I frame jumbo non sono supportati.
  
 - **Stato interfaccia**– un'interfaccia può essere abilitata o disabilitata. Se abilitata, il dispositivo tenterà di utilizzare l'interfaccia. Si consiglia di abilitare solo tali interfacce che sono connesse alla rete e utilizzati. Disabilitare tutte le interfacce che non sono in uso.
 
@@ -131,4 +128,4 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
  
      
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

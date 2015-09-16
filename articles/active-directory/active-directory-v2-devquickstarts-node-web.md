@@ -43,16 +43,16 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 The completed application is provided at the end of this tutorial as well.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Registrare un'app
+Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md).  Verificare di:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect URI indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `http://localhost:3000/auth/openid/return`.
+- Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
+- Aggiungere la piattaforma **Web** per l'app.
+- Immettere l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica ad Azure AD dove indirizzare le risposte di autenticazione. Il valore predefinito per questa esercitazione è `http://localhost:3000/auth/openid/return`.
 
-## 2. Add pre-requisities to your directory
+## 2. Aggiungere prerequisiti alla directory
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+Dalla riga di comando passare alla directory della cartella radice, se non è già stato fatto, ed eseguire i comandi seguenti:
 
 - `npm install express`
 - `npm install ejs`
@@ -417,4 +417,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
