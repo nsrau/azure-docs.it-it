@@ -132,34 +132,34 @@ namespace ContactsList.Models
         public string Name { get; set; }
         public string EmailAddress { get; set; }
     }
-}
-</pre>
+	}
+	</pre>
 
 3. Fare clic con il pulsante destro del mouse sulla cartella **Controllers** e aggiungere un file *ContactsController.cs* in modo che venga visualizzato come segue:
 
 	<pre class="prettyprint">
-using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
-using ContactsList.Models;
-
-namespace ContactsList.Controllers
-{
-    [Route("api/[controller]")]
-    public class ContactsController : Controller
-    {
-        // GET: api/Contacts
-        [HttpGet]
-        public IEnumerable&lt;Contact> Get()
-        {
-            return new Contact[]{
-                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-            };
-        }
-    }
-}
-</pre>
+	using System.Collections.Generic;
+	using Microsoft.AspNet.Mvc;
+	using ContactsList.Models;
+	
+	namespace ContactsList.Controllers
+	{
+	    [Route("api/[controller]")]
+	    public class ContactsController : Controller
+	    {
+	        // GET: api/Contacts
+	        [HttpGet]
+	        public IEnumerable&lt;Contact&gt; Get()
+	        {
+	            return new Contact[]{
+	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+	            };
+	        }
+	    }
+	}
+	</pre>
 
 4. Assicurarsi che tutti i file vengano salvati selezionando **File** > **Save All**.
 5. In **Command Palette** immettere quanto segue per eseguire l'app in locale:
@@ -447,4 +447,4 @@ Nel portale di anteprima di Azure passare al pannello **HOST APP PER LE API** re
 In questa esercitazione si è appreso come creare un'app per le API in Visual Studio Code. Per altre informazioni su Visual Studio Code, vedere [Visual Studio Code](https://code.visualstudio.com/Docs/). Per informazioni sulle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
