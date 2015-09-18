@@ -98,7 +98,7 @@
      `Get-HcsSystem`
 
     Dovrebbero essere visualizzate le seguenti versioni:
-    -HcsSoftwareVersion: 6.3.9600.17491
+    - HcsSoftwareVersion: 6.3.9600.17491
     - CisAgentVersion: 1.0.9037.0
     - MdsAgentVersion: 26.0.4696.1433
  
@@ -155,4 +155,4 @@
      
         
 
-<!--------HONumber=August15_HO6-->
+<!---------HONumber=August15_HO6-->
