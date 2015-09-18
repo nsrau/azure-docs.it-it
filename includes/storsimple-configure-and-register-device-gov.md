@@ -97,7 +97,10 @@
 
      `Get-HcsSystem`
 
-    Dovrebbero essere visualizzate le seguenti versioni: -HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
+    Dovrebbero essere visualizzate le seguenti versioni:
+    -HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
+    - MdsAgentVersion: 26.0.4696.1433
  
 9. Eseguire il cmdlet seguente per verificare che l'aggiornamento del firmware sia stato applicato correttamente:
 
@@ -123,8 +126,7 @@
  
 13. Per motivi di sicurezza la password di amministratore del dispositivo scade dopo la prima sessione e sarà necessario modificarla ora. Quando richiesto, fornire una password di amministratore del dispositivo. Una password di amministratore dispositivo valida deve avere una lunghezza compresa tra gli 8 e i 15 caratteri. La password deve contenere tre dei seguenti tipi di caratteri: minuscole, maiuscole, numeri e caratteri speciali.
 
-	<br/>
-![StorSimple registrare il dispositivo 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
+	<br/>![StorSimple registrare il dispositivo 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
 14. Il passaggio finale dell'installazione guidata registra il dispositivo con il servizio StorSimple Manager. A tale scopo, è necessario il codice di registrazione del servizio ottenuto in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-get-service-registration-key-gov.md). Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
 
@@ -153,4 +155,4 @@
      
         
 
-<!------HONumber=August15_HO6-->
+<!--------HONumber=August15_HO6-->

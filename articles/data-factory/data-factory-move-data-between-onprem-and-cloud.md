@@ -188,10 +188,15 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 7.	Nel pannello **Credenziali** fare clic su **Fare clic qui per impostare le credenziali**.
 8.	Nella finestra di dialogo **Impostazione credenziali** seguire questa procedura:
 
-	![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Selezionare l'**autenticazione** che si desidera venga usata dal servizio Data factory per connettersi al database. 2. Per l'impostazione **NOME UTENTE** immettere il nome dell'utente che ha accesso al database. 3. Per l'impostazione **PASSWORD** immettere la password dell'utente. 4. Fare clic su **OK** per chiudere la finestra di dialogo. 
+	![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	Selezionare l'**autenticazione** che si desidera venga usata dal servizio Data factory per connettersi al database. 
+	2.	Per l'impostazione **NOME UTENTE** immettere il nome dell'utente che ha accesso al database. 
+	3.	Per l'impostazione **PASSWORD** immettere la password dell'utente. 
+	4.	Fare clic su **OK** per chiudere la finestra di dialogo. 
 4. Fare clic su **OK** per chiudere il pannello **Credenziali**. 
 5. Fare clic su **OK** nel pannello **Nuovo archivio dati**. 	
-6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online. ![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online.
+	![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Per informazioni dettagliate sull'impostazione delle credenziali, vedere la sezione [Impostazione delle credenziali e della sicurezza](#setting-credentials-and-security).
 
@@ -562,4 +567,4 @@ Di seguito è riportato un flusso di dati di alto livello e un riepilogo dei pas
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md) richiede solo alcuni minuti.
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

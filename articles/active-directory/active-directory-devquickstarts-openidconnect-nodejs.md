@@ -38,22 +38,22 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
-## 1. Register an App
-- Sign into the Azure Management Portal.
-- In the left hand nav, click on **Active Directory**.
-- Select the tenant where you wish to register the application.
-- Click the **Applications** tab, and click add in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **name** of the application will describe your application to end-users
-    -	The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
-    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+## 1. Registrare un'app
+- Accedere al portale di gestione di Azure.
+- Nel pannello di navigazione a sinistra fare clic su **Active Directory**.
+- Selezionare il tenant in cui si desidera registrare l'applicazione.
+- Fare clic sulla scheda **Applicazioni**, quindi fare clic su Aggiungi nel pannello in basso.
+- Seguire le istruzioni e creare una nuova **Applicazione Web e/o API Web**.
+    - Il **Nome** dell'applicazione deve essere una descrizione per gli utenti finali.
+    -	L' **URL accesso** è l'URL di base dell'app.  Il valore predefinito della struttura è `http://localhost:3000/auth/openid/return``.
+    - L' **URI ID app** è un identificatore univoco dell'applicazione.  Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `https://contoso.onmicrosoft.com/my-first-aad-app`
+- Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco.  Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
 
-## 2. Add pre-requisities to your directory
+## 2. Aggiungere prerequisiti alla directory
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+Dalla riga di comando passare alla directory della cartella radice, se non è già stato fatto, ed eseguire i comandi seguenti:
 
 - `npm install express`
 - `npm install ejs`
@@ -64,21 +64,21 @@ From the command-line, change directories to your root folder if not already the
 - `npm install assert-plus`
 - `npm install passport`
 
-- In addition, you'll need our `passport-azure-ad` as well:
+- Inoltre, è necessario anche `passport-azure-ad` :
 
 - `npm install passport-azure-ad`
 
-This will install the libraries that passport-azure-ad depend on.
+Verranno installate le librerie da cui dipende passport-azure-ad.
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. Configurare l'app per l'uso della strategia passport-node-js
+In questo caso, verrà configurato il middleware Express per l'uso del protocollo di autenticazione OpenID Connect.  Passport verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect Uri** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal
+-	Per iniziare, aprire il file `web.config` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `<appSettings>`.
+    -	`clientID`: rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
+    -	`returnURL` rappresenta l'**URI di reindirizzamento** immesso nel portale.
+    - `clientSecret` rappresenta il segreto generato nel portale.
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- Aprire quindi il file `app.js`  nella radice del progetto e aggiungere la chiamata seguente per richiamare la strategia `OIDCStrategy` fornita con `passport-azure-ad`.
 
 
 ```JavaScript
@@ -391,4 +391,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
