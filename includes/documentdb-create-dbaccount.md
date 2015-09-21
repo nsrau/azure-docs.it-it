@@ -1,16 +1,16 @@
 1.	Accedere al [portale di anteprima di Microsoft Azure](https://portal.azure.com/).
 2.	Nell'indice scegliere **Nuovo**, selezionare **Dati + archiviazione**, quindi fare clic su **DocumentDB**. 
 
-	![Schermata del portale di anteprima di Azure][1]   
+	![Schermata del portale di anteprima di Azure][88]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
-	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
+	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][89]    -->
    
 
 3. Nel pannello **Nuovo DocumentDB** specificare la configurazione desiderata per l'account DocumentDB.
  
-	![Schermata del pannello Nuovo DocumentDB][3] 
+	![Schermata del pannello Nuovo DocumentDB][90] 
 
 
 	- Nella casella **ID** immettere un nome per identificare l'account DocumentDB. Quando l’**ID** viene convalidato, appare un segno di spunta verde nella casella **ID**. Il valore **ID** diventa il nome host nell'URI. L'**ID** può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 50 caratteri. Tenere presente che al nome di endpoint scelto viene aggiunto *documents.azure.com* e il risultato finale sarà l'endpoint dell'account DocumentDB.
@@ -24,26 +24,26 @@
 	- Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.
 
 4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. La creazione dell'account DocumentDB può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale  
-	![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea][4]  
+	![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea][91]  
   
 	o dall'Hub di notifica.  
 
-	![Creare database rapidamente - schermata dell’hub Notifiche, che mostra che viene creato l'account DocumentDB- creatore di database on-line][5]  
+	![Creare database rapidamente - schermata dell’hub Notifiche, che mostra che viene creato l'account DocumentDB- creatore di database on-line][92]  
 
-	![Schermata dell'hub Notifica, che mostra l'account DocumentDB creato correttamente e distribuito a un gruppo di risorse][6]
+	![Schermata dell'hub Notifica, che mostra l'account DocumentDB creato correttamente e distribuito a un gruppo di risorse][93]
 
 5.	Dopo aver creato l'account DocumentDB, è pronto per l'utilizzo con le impostazioni predefinite nel portale in linea. Si noti che la coerenza predefinita dell'account DocumentDB è impostata su **Sessione**. È possibile modificare l'impostazione di coerenza predefinita facendo clic sul riquadro **Uniformità predefinita** sul pannello **DocumentDB account**.
 
-    ![Schermata del pannello Gruppo di risorse][7]  
+    ![Schermata del pannello Gruppo di risorse][94]  
 
 <!--Image references-->
-[1]: media/documentdb-create-dbaccount/ca1.png
-[2]: media/documentdb-create-dbaccount/ca2.png
-[3]: media/documentdb-create-dbaccount/ca3.png
-[4]: media/documentdb-create-dbaccount/ca4.png
-[5]: media/documentdb-create-dbaccount/ca5.png
-[6]: media/documentdb-create-dbaccount/ca6.png
-[7]: media/documentdb-create-dbaccount/ca7.png
+[88]: media/documentdb-create-dbaccount/ca1.png
+[89]: media/documentdb-create-dbaccount/ca2.png
+[90]: media/documentdb-create-dbaccount/ca3.png
+[91]: media/documentdb-create-dbaccount/ca4.png
+[92]: media/documentdb-create-dbaccount/ca5.png
+[93]: media/documentdb-create-dbaccount/ca6.png
+[94]: media/documentdb-create-dbaccount/ca7.png
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
