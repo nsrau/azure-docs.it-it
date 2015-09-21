@@ -1,20 +1,20 @@
 <properties
     pageTitle="Come usare gli argomenti del bus di servizio (.NET) | Microsoft Azure"
-	description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Informazioni su come usare le sottoscrizioni e gli argomenti di Bus di servizio in Azure. Gli esempi di codice sono scritti per applicazioni .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio di Azure
 
@@ -284,20 +284,19 @@ Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni regi
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sottoscrizioni del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
--   Vedere le informazioni di riferimento in MSDN: [Code, argomenti e sottoscrizioni][].
+-   Vedere [Code, argomenti e sottoscrizioni][].
 -   Riferimento sulle API per [SqlFilter][]
 -   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio: [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET][].
--   Esempi del bus di servizio: scaricarli dagli [esempi di Azure][] o vedere i cenni preliminari in [MSDN][].
+-   Esempi del bus di servizio: scaricarli dagli [esempi di Azure][] o vedere la [panoramica](service-bus-samples.md).
 
   [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [esempi di Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

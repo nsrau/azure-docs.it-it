@@ -318,7 +318,7 @@ Utilizzando del servizio di sola lettura disponibile sul sito[Prova Azure App Se
 
 Per eseguire tutte queste attività, è necessario iscriversi ad Azure in modo che sia possibile creare e popolare gli indici in un servizio. Per ulteriori informazioni su come registrarsi per un periodo di prova gratuita, visitare[https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Per ulteriori informazioni sulla ricerca di Azure, visitare la [Pagina della documentazione](http://azure.microsoft.com/documentation/services/search/)su[http://azure.microsoft.com](http://azure.microsoft.com)o verificare qualsiasi numero di[esempi e video](https://msdn.microsoft.com/library/dn818681.aspx)che esplorano le tutte le funzionalità della Ricerca di Azure.
+Per ulteriori informazioni sulla ricerca di Azure, visitare la [Pagina della documentazione](http://azure.microsoft.com/documentation/services/search/)su[http://azure.microsoft.com](http://azure.microsoft.com)o verificare qualsiasi numero di[esempi e video](search-video-demo-tutorial-list.md)che esplorano le tutte le funzionalità della Ricerca di Azure.
 
 <a name="Schema"></a>
 ##Informazioni sullo schema
@@ -529,4 +529,4 @@ Nella istantanea video che seguente viene illustrato lo schema utilizzato per cr
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

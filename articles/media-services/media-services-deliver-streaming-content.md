@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -156,9 +156,18 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 	Console.WriteLine(smoothStreamingUri);
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
- 
+
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Vedere anche
 
 [Scaricare asset](media-services-deliver-asset-download.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

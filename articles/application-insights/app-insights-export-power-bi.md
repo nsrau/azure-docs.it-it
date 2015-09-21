@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Visualizzare i dati di Application Insights in Power BI"
-	description="È possibile usare Power BI per monitorare le prestazioni e l'utilizzo dell'applicazione."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Visualizzare i dati di Application Insights in Power BI" 
+	description="È possibile usare Power BI per monitorare le prestazioni e l'utilizzo dell'applicazione." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Viste di Power BI per i dati di Application Insights
@@ -24,6 +24,9 @@
 Questo articolo descrive come esportare i dati da Application Insights e usare Analisi di flusso per spostare i dati in Power BI. [Analisi di flusso](http://azure.microsoft.com/services/stream-analytics/) è un servizio di Azure che verrà usato come un adattatore.
 
 ![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/020.png)
+
+
+> [AZURE.NOTE]È necessario un account aziendale o dell’istituto di istruzione (account aziendale MSDN) per inviare dati dall’analisi di flusso a Power BI.
 
 ## Video
 
@@ -78,7 +81,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     I dati verranno inoltre esportati nell'archivio.
 
-4. Esaminare i dati esportati. In Visual Studio scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
+4. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -140,13 +143,15 @@ Verificare il formato di serializzazione:
 
 Chiudere la procedura guidata e attendere il completamento dell'installazione.
 
+> [AZURE.TIP]Utilizzare il comando di esempio per scaricare alcuni dati. Utilizzare come esempio di test per eseguire il debug della query.
+
 ## Visualizzare l'output
 
 Selezionare il processo e impostare l'output.
 
 ![Selezionare il nuovo canale, fare clic su Output, su Aggiungi e quindi su Power BI](./media/app-insights-export-power-bi/160.png)
 
-Autorizzare Analisi di flusso ad accedere alla risorsa di Power BI, quindi creare un nome per l'output e per la tabella e il set di dati Power BI di destinazione.
+Fornire l’**account aziendale o dell’istituto di istruzione** per autorizzare l'analisi di flusso per l’accesso alla risorsa di Power BI. Creare quindi un nome per l'output e per il set di dati Power BI e la tabella di destinazione.
 
 ![Inventare tre nomi](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +160,11 @@ Autorizzare Analisi di flusso ad accedere alla risorsa di Power BI, quindi crear
 La query gestisce la conversione dall'input all'output.
 
 ![Selezionare il processo e fare clic su Query. Incollare l'esempio.](./media/app-insights-export-power-bi/180.png)
+
+
+Utilizzare la funzione Test per verificare di ottenere l'output corretto. Assegnare i dati di esempio presenti nella pagina di input.
+
+#### Query per visualizzare i conteggi degli eventi
 
 Incollare questa query:
 
@@ -173,7 +183,29 @@ Incollare questa query:
 
 * export-input è l'alias assegnato all'input del flusso
 * pbi-output è l'alias dell'output definito
-* Verrà usato l'oggetto GetElements perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola GROUP BY raggruppa gli elementi in periodi di tempo di 1 minuto.
+* Utilizziamo [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) raggruppa gli elementi in periodi di tempo di 1 minuto.
+
+
+#### Query per visualizzare i valori delle metriche
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* Questa query entra nella telemetria delle metriche per ottenere l'ora dell'evento e il valore della metrica. I valori delle metriche sono all'interno di una matrice, pertanto si utilizza il modello OUTER APPLY GetElements per estrarre le righe. "myMetric" è il nome della metrica in questo caso. 
+
+
 
 ## Eseguire il processo
 
@@ -185,7 +217,7 @@ Attendere fino al termine dell'esecuzione del processo.
 
 ## Visualizzare i risultati in Power BI
 
-Aprire Power Bi e selezionare il set di dati e la tabella definiti come output del processo di Analisi di flusso.
+Aprire Power BI con l’account aziendale o dell’istituto di istruzione e selezionare il set di dati e la tabella definiti come output del processo di Analisi di flusso.
 
 ![In Power BI selezionare il set di dati e i campi.](./media/app-insights-export-power-bi/200.png)
 
@@ -207,4 +239,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

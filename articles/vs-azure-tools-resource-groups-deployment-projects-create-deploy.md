@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure"
-	description="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Creazione e distribuzione di progetti di distribuzione Gruppo di risorse di Azure
 
 Il modello di progetto di distribuzione **Gruppo di risorse di Azure** è disponibile in Visual Studio quando è installato Azure SDK 2.6. Il progetto Gruppo di risorse di Azure consente di raggruppare e pubblicare con un'unica operazione di distribuzione più risorse di Azure correlate. Per il funzionamento dei progetti Gruppo di risorse di Azure, viene usata la tecnologia **Gestione risorse di Azure**. **Gestione risorse di Azure** è un servizio API REST che consente di definire gruppi di risorse di Azure, contenenti più risorse di Azure che vengono in genere usate insieme e hanno un ciclo di vita analogo. L'uso dei gruppi di risorse permette di operare su tutte le risorse in un gruppo con una sola chiamata della funzione, invece di chiamare funzioni diverse per ogni singola risorsa. Per altre informazioni sui gruppi di risorse di Azure, vedere [Uso dei gruppi di risorse per gestire le risorse di Azure](./azure-portal/azure-preview-portal-using-resource-groups/).
 
-I progetti di tipo Gruppo di risorse di Azure contengono modelli JSON di Gestione risorse di Azure, che definiscono gli elementi distribuiti in un gruppo di risorse. Per altre informazioni, vedere [Linguaggio del modello di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+I progetti di tipo Gruppo di risorse di Azure contengono modelli JSON di Gestione risorse di Azure, che definiscono gli elementi distribuiti in un gruppo di risorse. Per altre informazioni, vedere [Linguaggio del modello di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
 Gestione risorse di Azure include diversi provider di risorse, che possono essere usati per distribuire risorse quali Ubuntu Server e Windows Server 2012 R2. Questo argomento usa una risorsa **App Web**, che distribuisce un sito Web vuoto di base in Azure.
 
@@ -85,7 +85,7 @@ Quando si distribuisce un progetto di tipo Gruppo di risorse di Azure, il proget
 
     ![Finestra di dialogo Distribuisci in gruppo di risorse](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. Nella casella di riepilogo a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Per creare un gruppo di risorse, aprire la casella di riepilogo a discesa **Gruppo di risorse** e scegliere **<Create New...>**.
+1. Nella casella a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Per creare un gruppo di risorse, aprire la casella a discesa **Gruppo di risorse** e scegliere **<Create New...>**.
 
     Viene visualizzata la finestra di dialogo **Crea gruppo di risorse**.
 
@@ -195,4 +195,4 @@ Sono state apportate modifiche anche ad alcuni nomi di variabile e attività di 
 
 Per informazioni su come aggiungere risorse al gruppo di risorse di Azure in Visual Studio, vedere [Aggiunta di risorse a un gruppo di risorse di Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

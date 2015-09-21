@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup | Microsoft Azure"
+   pageTitle="Gestione snapshot StorSimple operazioni di backup | Microsoft Azure"
    description="Viene descritto come utilizzare lo snap-in MMC di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup pianificati, attualmente in esecuzione e completati."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/05/2015"
    ms.author="v-sharos" />
 
 
@@ -129,4 +129,4 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

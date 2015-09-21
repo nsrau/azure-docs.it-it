@@ -27,7 +27,7 @@ Questo argomento illustra come sincronizzare e gestire i conflitti quando si usa
 
 Se si preferisce guardare un video, nel clip seguente vengono eseguiti gli stessi passaggi dell'esercitazione.
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 In questa esercitazione si scaricherà una soluzione C# di Windows universale per un'app che supporta la gestione dei conflitti di sincronizzazione offline. Si integrerà un servizio mobile con l'app e quindi si eseguiranno i client Windows Store 8.1 e Windows Phone 8.1 per generare un conflitto di sincronizzazione e risolverlo.
 
@@ -164,4 +164,4 @@ Quando un push viene annullato, `PushAsync` genererà un'eccezione `MobileServic
 [esempio di Servizi mobili offline Todo]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

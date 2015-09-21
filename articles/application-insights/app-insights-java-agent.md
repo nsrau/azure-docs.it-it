@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
@@ -21,7 +21,11 @@
 
 Se l'[app Web Java è stata strumentata con Application Insights][java], sarà possibile usare l'agente Java per ottenere informazioni più dettagliate, senza modificare il codice:
 
-* **Dipendenze remote:** dati sulle chiamate effettuate dall'applicazione tramite un driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), ad esempio MySQL, SQL Server, PostgreSQL o SQLite.
+
+* **Dipendenze:** dati sulle chiamate effettuate dall'applicazione ad altri componenti, tra cui:
+ * **Chiamate REST** eseguite tramite HttpClient, OkHttp e RestTemplate (Spring).
+ * Chiamate **Redis** effettuate tramite il client Jedis. Se la chiamata durerà più di 10s, l'agente recupererà anche gli argomenti della chiamata.
+ * **[Chiamate JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - Sono supportate le chiamate MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby Apache o "executeBatch". Per MySQL e PostgreSQL, se la chiamata dura più di 10s, l'agente segnalerà il piano di query. 
 * **Eccezioni rilevate:** dati sulle eccezioni gestite dal codice.
 * **Tempo di esecuzione dei metodi:** dati sul tempo necessario per eseguire metodi specifici.
 
@@ -54,7 +58,14 @@ Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da 
       <Instrumentation>
         
         <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true"/>
+        <BuiltIn enabled="true">
+           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+               Defaults: enabled, 10000 ms -->
+           <Jedis enabled="true" thresholdInMS="1000"/>
+           
+           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
+        </BuiltIn>
 
         <!-- Collect data about caught exceptions 
              and method execution times -->
@@ -89,6 +100,8 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 
 [Diagnosi dei problemi di dipendenza - ulteriori informazioni](app-insights-dependencies.md#diagnosis).
 
+
+
 ## Domande? Problemi?
 
 [Risoluzione dei problemi Java](app-insights-java-troubleshoot.md)
@@ -109,4 +122,4 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

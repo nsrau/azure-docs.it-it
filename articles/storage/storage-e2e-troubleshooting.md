@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
@@ -23,7 +23,7 @@ Diagnostica e risoluzione dei problemi sono competenze fondamentali per la creaz
 
 In questa esercitazione viene illustrato come identificare alcuni errori che potrebbero influire sulle prestazioni e come risolverli in modo end-to-end usando gli strumenti forniti da Microsoft e Archiviazione di Azure, per ottimizzare l'applicazione client.
 
-Questa esercitazione offre un'esplorazione pratica di uno scenario di risoluzione dei problemi end-to-end. Per una guida approfondita sui concetti relativi alla risoluzione dei problemi delle applicazioni di archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione](../articles/storage-monitoring-diagnosing-troubleshooting.md).
+Questa esercitazione offre un'esplorazione pratica di uno scenario di risoluzione dei problemi end-to-end. Per una guida approfondita sui concetti relativi alla risoluzione dei problemi delle applicazioni di archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Strumenti per la risoluzione dei problemi delle applicazioni di archiviazione di Azure
 
@@ -356,7 +356,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 
 Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di archiviazione di Azure, vedere le risorse seguenti:
 
-- [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione](http://azure.microsoft.com/documentation/articles/storage-monitoring-diagnosing-troubleshooting/)
+- [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione](storage-monitoring-diagnosing-troubleshooting.md)
 - [Analisi dell'archiviazione](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Come monitorare un account di archiviazione](storage-monitor-storage-account.md)
 - [Come usare AzCopy con Archiviazione di Microsoft Azure](storage-use-azcopy.md)
@@ -364,4 +364,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

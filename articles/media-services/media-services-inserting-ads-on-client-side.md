@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -219,7 +219,7 @@ Un file VMAP inizia con un elemento <VMAP> che include uno o più elementi <AdBr
 1. Tempo: con formato hh:mm:ss o hh:mm:ss.mmm, dove .mmm corrisponde a millisecondi. Il valore di questo attributo specifica il tempo dall'inizio della sequenza temporale del video all'inizio dell'interruzione pubblicitaria.
 1. Percentuale: con formato n% dove n indica la percentuale della sequenza temporale del video da riprodurre prima della visualizzazione dell'annuncio.
 1. Inizio/Fine: specifica che un annuncio deve essere visualizzato prima o dopo la visualizzazione del video.
-1. Posizione: specifica l'ordine delle interruzioni pubblicitarie quando la tempistica delle interruzioni pubblicitarie è sconosciuta ad esempio nello streaming live. L'ordine di ogni interruzione è specificato con il formato \#n dove n è un valore Integer pari a 1 o superiore. 1 indica che l'annuncio deve essere riprodotto alla prima opportunità, 2 indica che l'annuncio deve essere riprodotto alla seconda opportunità e così via.
+1. Posizione: specifica l'ordine delle interruzioni pubblicitarie quando la tempistica delle interruzioni pubblicitarie è sconosciuta ad esempio nello streaming live. L'ordine di ogni interruzione è specificato con il formato #n dove n è un valore Integer pari a 1 o superiore. 1 indica che l'annuncio deve essere riprodotto alla prima opportunità, 2 indica che l'annuncio deve essere riprodotto alla seconda opportunità e così via.
 
 Nell'elemento <**AdBreak**> può essere presente un elemento <**AdSource**>. L'elemento <**AdSource**> contiene gli attributi seguenti:
 
@@ -796,9 +796,18 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 	{
 	    [self logFrameworkError];
 	}
+
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 ##Vedere anche
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

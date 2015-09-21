@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="09/08/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -34,6 +34,7 @@ Per saperne di più
 - Per altre informazioni sulla sincronizzazione delle password, vedere [Implementare la sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md).
 - Per altre informazioni sugli utenti e sui contatti nel servizio di sincronizzazione Azure AD Connect, vedere [Informazioni su utenti e contatti](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Per modificare la configurazione predefinita, vedere [Procedure consigliate per modificare la configurazione predefinita](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+- Se si desiderano ulteriori informazioni su come utilizzare il server di sincronizzazione, vedere [Considerazioni e attività operative](active-directory-aadconnectsync-operations.md)
 - Per esplorare gli attributi che vengono sincronizzati con Azure AD, vedere [Attributi sincronizzati con Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
 - Per altre informazioni sul provisioning dichiarativo, vedere [Informazioni sulle espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 - Per esplorare le funzioni di provisioning dichiarativo, vedere [Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md).
@@ -48,4 +49,4 @@ Per saperne di più
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

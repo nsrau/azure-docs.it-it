@@ -3,7 +3,7 @@
    description="Panoramica della creazione di report sul carico dinamico per Resource Balancer"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Panoramica della creazione di report sul carico dinamico
 
@@ -36,4 +36,4 @@ Si noti che, quando un servizio crea report sul carico, tali report sostituiscon
 Per altre informazioni: [Architettura di Resource Balancer](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

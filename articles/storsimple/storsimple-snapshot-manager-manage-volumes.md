@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Usare StorSimple Snapshot Manager per visualizzare e gestire volumi | Microsoft Azure"
+   pageTitle="StorSimple Snapshot Manager e volumi | Microsoft Azure"
    description="Descrive come utilizzare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire i volumi."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
@@ -270,4 +270,4 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

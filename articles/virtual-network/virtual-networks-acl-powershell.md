@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell
@@ -97,4 +97,4 @@ In alcuni scenari potrebbe essere necessario rimuovere un oggetto ACL di rete da
 
 [Come configurare la comunicazione con una macchina virtuale](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

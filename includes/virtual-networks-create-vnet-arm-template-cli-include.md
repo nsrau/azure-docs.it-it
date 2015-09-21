@@ -7,11 +7,16 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 		azure config mode arm
 
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		info:    New mode is arm
 
 3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
+
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -30,6 +35,8 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 4. Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale utilizzando il modello e il parametro file scaricato e modificato in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+
+	Di seguito è riportato l'output previsto per il comando precedente:
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -62,6 +69,8 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 		azure network vnet show -g TestRG -n TestVNet
 
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
 		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
@@ -80,4 +89,4 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

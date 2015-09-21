@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestire server DNS usati da una rete virtuale"
-	description="Informazioni su come aggiungere e rimuovere server DNS in una rete virtuale"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Informazioni su come aggiungere e rimuovere server DNS in una rete virtuale"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # Gestire server DNS usati da una rete virtuale
 
@@ -65,4 +65,4 @@ Per modificare un elenco di server DNS usando un file di configurazione di rete,
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

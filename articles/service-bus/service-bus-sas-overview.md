@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Panoramica delle firme di accesso condiviso"
+   pageTitle="Panoramica delle firme di accesso condiviso | Microsoft Azure"
    description="Quali sono le firme di accesso condiviso, come funzionano e come utilizzarle dal nodo, da PHP e da C#."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="09/04/2015"
    ms.author="darosa"/>
 
 # firme di accesso condiviso
@@ -24,7 +24,7 @@
 
 Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. SAS è un meccanismo estremamente efficace utilizzato da tutti i servizi del bus di servizio. Nell’uso effettivo, SAS presenta due componenti: un *criterio di accesso condiviso* e una *firma di accesso condiviso* (spesso chiamata *token*).
 
-Per ulteriori informazioni sulle firme di accesso condiviso con il bus di servizio vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://msdn.microsoft.com/library/azure/dn170477.aspx).
+Per ulteriori informazioni sulle firme di accesso condiviso con il bus di servizio vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md).
 
 ## Criterio di accesso condiviso
 
@@ -251,6 +251,8 @@ Dopo aver inviato il token SAS sul collegamento mittente, il server di pubblicaz
 
 Vedere [Informazioni di riferimento sulle API REST del bus di servizio](https://msdn.microsoft.com/library/azure/hh780717.aspx) per ulteriori informazioni sulle operazioni che è possibile eseguire con questi token SAS.
 
-Per ulteriori informazioni sulla firma di accesso condiviso, vedere il nodo di [autenticazione del bus di servizio](https://msdn.microsoft.com/library/azure/dn155925.aspx) su MSDN. Ulteriori esempi sulle associazioni di sicurezza in C# e Java Script sono disponibili nel [blog di Damir](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
+Per altre informazioni sull'autenticazione del bus di servizio, vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=August15_HO7-->
+Ulteriori esempi di firma di accesso condiviso in c# e Java Script sono in [questo post di blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
+
+<!---HONumber=Sept15_HO2-->

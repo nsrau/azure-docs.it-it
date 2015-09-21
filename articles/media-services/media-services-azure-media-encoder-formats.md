@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Formati e codec di Azure Media Encoder"
-	description="Questo argomento fornisce una panoramica dei formati e dei codec del Codificatore multimediale di Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Formati e codec di Azure Media Encoder" 
+	description="Questo argomento fornisce una panoramica dei formati e dei codec del Codificatore multimediale di Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/05/2015" 
 	ms.author="juliako"/>
 
 #Formati e codec di Azure Media Encoder
@@ -21,7 +21,7 @@
 Questo documento contiene un elenco dei formati di file di input e output e dei codec più comuni che è possibile usare con Azure Media Encoder.
 
 
-##Formati di file video di input (contenitori)
+##Formati di file di input (contenitori)
  
 Formato di file (estensioni di file)|Supportato
 ---|---
@@ -33,32 +33,25 @@ Videocamera digitale MPEG-2 (MOD) (.mod) |Sì
 File di flusso di trasporto (TS) DVD (.ts) |Sì
 File di oggetto video (VOB) DVD (.vob) |Sì
 File di Expression Encoder Screen Capture Codec (.xesc) |Sì
-MP4 (.mp4) |Sì
+MP4 (MP4, M4A,. m4v) / ISMV (ISMA, con estensione .ismv) |Sì
 Flusso di sistema MPEG-1 (.mpeg, .mpg) |Sì
 File video MPEG-2 (.m2v) |Sì
-Formato di file Smooth Streaming (PIFF 1.3) (.ismv) |Sì
 Windows Media Video (WMV) (.wmv) |Sì
+Audio AC-3 (Dolby Digital) (.ac3)|Sì
+Audio Interchange File Format (AIFF) (.aiff)|Sì
+Broadcast Wave Format (.bwf)|Sì
+MP3 (MPEG-1 Audio Layer 3) (.mp3)|Sì
+Audiolibro MPEG-4 (.m4b)|Sì
+File WAVE (.wav)|Sì
+Windows Media Audio(.wma)|Sì
 Adobe® Flash® F4V |No		
 MXF/SMPTE 377M |Limitato 
 GXF |No		 
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No
 Matroska/WebM |No
 
+
 Sono supportati alcuni formati non compressi. Per altre informazioni, vedere [Formati video non compressi supportati](#uncompressed)
-
-##Formati di file audio di input
-
-Formato di file (estensioni di file)|Supportato
----|---
-Audio AC-3 (Dolby Digital) (.ac3)|Sì
-Audio Interchange File Format (AIFF) (.aiff)|Sì
-Broadcast Wave Format (.bwf)|Sì
-MP3 (MPEG-1 Audio Layer 3) (.mp3)|Sì
-MP4 audio(.m4A)|Sì
-Audiolibro MPEG-4 (.m4b)|Sì
-File WAVE (.wav)|Sì
-Windows Media Audio(.wma)|Sì
-
 
 ##Codec video di input
 
@@ -141,4 +134,12 @@ Dati in formato YUV 211|Formato YUV compresso. Un campione Y ogni due pixel, un 
 Formato Cirrus Logic Jr YUV 411|Formato di Cirrus Logic Jr YUV 411 con meno di 8 bit per campione Y, U e V. Un campione Y per ciascun pixel, un campione U e V ogni quattro pixel in direzione orizzontale su ogni linea; ogni linea verticale campionata.
 Formato YVU9 prodotto da Indeo|Formato YVU9 prodotto da Indeo con informazioni aggiuntive sulle differenze rispetto all'ultimo fotogramma. 9,5 bit per pixel, ma rilevati come 9.
 
-<!---HONumber=September15_HO1-->
+
+##Percorsi di formazione di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Procedura: Controllare lo stato dei processi
@@ -32,7 +32,16 @@
 
 	![CheckStatus][checkstatus]
 
-##Passaggi successivi
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+##Passaggio successivo
 
 Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un asset](../media-services-manage-content#publish).
 
@@ -40,4 +49,4 @@ Pubblicare i contenuti. Per altre informazioni, vedere [Procedura: Codificare un
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

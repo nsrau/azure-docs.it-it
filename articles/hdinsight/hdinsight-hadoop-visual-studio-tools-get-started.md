@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Informazioni sull'uso di Hadoop Tools per Visual Studio per HDInsight | Microsoft Azure"
 	description="Informazioni su come installare e usare Hadoop Tools per Visual Studio per HDInsight per connettersi a un cluster Hadoop ed eseguire una query Hive."
+	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,17 +15,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/28/2015"
+	ms.date="09/03/2015"
 	ms.author="jgao"/>
 
 # Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio per eseguire una query Hive
 
 Informazioni su come usare HDInsight Tools per Visual Studio per connettersi a cluster HDInsight e inviare query Hive. Per altre informazioni sull'uso di HDInsight, vedere [Introduzione ad HDInsight][hdinsight.introduction] e [Introduzione all'uso di HDInsight][hdinsight.get.started]. Per altre informazioni sulla connessione a un cluster Storm, vedere [Sviluppo di topologie C# per Apache Storm in HDInsight mediante Visual Studio][hdinsight.storm.visual.studio.tools].
 
->[AZURE.NOTE]La versione più recente ha introdotto alcune nuove funzionalità, ad esempio il supporto dell'editor Hive, la convalida locale di script Hive e l'accesso ai log YARN.
-
-
-## Prerequisiti
+**Prerequisiti**
 
 Per completare questa esercitazione e usare Hadoop Tools in Visual Studio, sarà necessario quanto segue:
 
@@ -176,7 +174,7 @@ La versione più recente dello strumento consente di visualizzare i contenuti de
 **Per visualizzare processi Hive**
 
 1. Da **Esplora server** espandere **Azure**, quindi **HDInsight**.
-2. Fare clic con il pulsante destro del mouse su un cluster HDInsight, quindi scegliere **Visualizza processi Hive**. Verrà visualizzato l'elenco di processi Hive eseguiti nel cluster.
+2. Fare clic con il pulsante destro del mouse su un cluster HDInsight, quindi scegliere **Visualizza processi**. Verrà visualizzato l'elenco di processi Hive eseguiti nel cluster.
 3. Fare clic su un processo incluso nell'elenco dei processi per selezionarlo, quindi usare la finestra di **riepilogo del processo Hive** per aprire **Query processo**, **Output processo**, **Log processo** o il **log Yarn**.
 
 	![Hadoop Tools: HDInsight Tools per Visual Studio visualizzano i processi Hive][12]
@@ -188,6 +186,8 @@ Gli Strumenti di Visual Studio per HDInsight supportano la visualizzazione di gr
 > [AZURE.NOTE]Questa funzionalità è disponibile solo per le versioni del cluster HDInsight successive alla 3.2.4.593 e può funzionare solo per i processi completati. Si possono usare cluster basati sia su Windows che su Linux.
 
 ![grafico delle prestazioni tez hive hadoop](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+
+Per comprendere meglio la query Hive, è stata aggiunta la funzionalità Visualizzazione operatore Hive in questa versione. Per visualizzare tutti gli operatori all'interno di un vertice, fare doppio clic sui vertici del grafico del processo. Per visualizzare altri dettagli di un operatore specifico, passare il puntatore sull'operatore.
 
 ## Eseguire script Pig
 
@@ -236,4 +236,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

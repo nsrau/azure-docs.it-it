@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creare definizioni di app per la logica"
-	description="Informazioni su come scrivere la definizione JSON per le app per la logica."
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
+	pageTitle="Creare definizioni di app per la logica" 
+	description="Informazioni su come scrivere la definizione JSON per le app per la logica." 
+	authors="stepsic-microsoft-com" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 	
 #Creare definizioni di app per la logica
@@ -686,6 +686,41 @@ Quindi, nella richiesta `PUT` effettiva per l'app per la logica è possibile for
 }
 ``` 
 
-In ogni ambiente è quindi possibile fornire un valore diverso per il parametro `connection`. Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+In ogni ambiente è quindi possibile fornire un valore diverso per il parametro `connection`.
 
-<!---HONumber=September15_HO1-->
+## Esecuzione di un passaggio fino a quando non viene soddisfatta una condizione
+
+È un'API che si sta chiamando e si desidera attendere una risposta determinata prima di procedere. Si supponga, ad esempio, che si desideri attendere che un utente carichi un file in una directory prima di elaborare il file. È possibile farlo con *si-fino a quando non*:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "http0": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://mydomain/listfiles"
+            },
+            "until": {
+                "limit": {
+                    "timeout": "PT10M"
+                },
+                "conditions": [
+                    {
+                        "expression": "@greater(length(action().outputs.body),0)"
+                    }
+                ]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+
+<!---HONumber=Sept15_HO2-->

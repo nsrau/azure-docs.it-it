@@ -2,7 +2,7 @@
 	pageTitle="Monitorare la disponibilità e la velocità di risposta dei siti Web | Microsoft Azure"
 	description="Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -50,7 +50,7 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&\#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
+- L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione verrà effettuata fino a un numero massimo di 10 reindirizzamenti.
 
 - Se la casella **Abilitare tentativi** è selezionata, quando il test non riesce verrà riprovato dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti all'intervallo consueto. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni posizione di test.
 
@@ -102,7 +102,7 @@ Ciò consente di visualizzare i risultati di tale test.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-Il test viene eseguito da diverse posizioni&\#151;selezionarne una in cui i risultati siano inferiori al 100%.
+Il test viene eseguito da diverse posizioni&#151;selezionarne una in cui i risultati siano inferiori al 100%.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
@@ -218,7 +218,7 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
 * *È possibile chiamare codice da un test Web?*
 
-    No. I passaggi del test devono essere nel file con estensione webtest.
+    No. I passaggi del test devono essere nel file con estensione webtest. Esistono una serie di plug-in che potrebbero risultare utili.
 
 ## <a name="video"></a>Video
 
@@ -240,4 +240,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

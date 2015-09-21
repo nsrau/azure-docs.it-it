@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introduzione all'archiviazione di Azure e ai servizi relativi a Visual Studio (progetti WebJob)" 
-	description="Informazioni su come iniziare a usare l'archiviazione tabelle di Azure in un progetto Azure WebJobs 5 in Visual Studio."
+<properties
+	pageTitle="Introduzione all'archiviazione di Azure e ai servizi relativi a Visual Studio (progetti WebJob)"
+	description="Informazioni su come iniziare a usare l’archiviazione tabella di Azure in un progetto WebJobs di Azure in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
 	manager="douge"
 	editor="tglee"/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
 # Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
@@ -35,14 +35,14 @@ Questo articolo fornisce esempi di codice C# che illustrano come usare Azure Web
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Come usare l'archiviazione tabelle da .NET").
 
-		
-Alcuni dei frammenti di codice illustrano l'attributo `Table` usato nelle funzioni [chiamate manualmente](vs-storage-webjobs-getting-started-blobs.md#manual) e non mediante uno degli attributi del trigger.
 
-##Come aggiungere entità a una tabella
+Alcuni dei frammenti di codice illustrano l'attributo **Tabella** usato nelle funzioni [chiamate manualmente](vs-storage-webjobs-getting-started-blobs.md#manual) e non mediante uno degli attributi del trigger.
 
-Per aggiungere entità a una tabella, utilizzare l’attributo `Table` con un parametro `ICollector<T>` o `IAsyncCollector<T>` dove `T` specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
+## Come aggiungere entità a una tabella
 
-L’esempio di codice seguente aggiunge le entità `Person` a una tabella denominata *Ingress*.
+Per aggiungere entità a una tabella, utilizzare l’attributo **Tabella** con un parametro **ICollector<T>** o **IAsyncCollector<T>** dove **T** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
+
+L’esempio di codice seguente aggiunge le entità **Persona** a una tabella denominata *In entrata*.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -51,15 +51,15 @@ L’esempio di codice seguente aggiunge le entità `Person` a una tabella denomi
 		    for (int i = 0; i < 100000; i++)
 		    {
 		        tableBinding.Add(
-		            new Person() { 
-		                PartitionKey = "Test", 
-		                RowKey = i.ToString(), 
+		            new Person() {
+		                PartitionKey = "Test",
+		                RowKey = i.ToString(),
 		                Name = "Name" }
 		            );
 		    }
 		}
 
-In genere il tipo usato con `ICollector` deriva da `TableEntity` o implementa `ITableEntity`, anche se non necessariamente. Una delle seguenti classi `Person` usa il codice illustrato nel precedente metodo `Ingress`.
+In genere il tipo che si utilizza con **ICollector** deriva da **TableEntity** o implementa **ITableEntity**, ma non è necessario. Una delle seguenti classi **Persona** usa il codice illustrato nel precedente metodo **In entrata**.
 
 		public class Person : TableEntity
 		{
@@ -73,9 +73,9 @@ In genere il tipo usato con `ICollector` deriva da `TableEntity` o implementa `I
 		    public string Name { get; set; }
 		}
 
-Se si desidera usare direttamente l'API di archiviazione di Azure, è possibile aggiungere un parametro `CloudStorageAccount` alla firma del metodo.
+Se si desidera usare direttamente l’API dell'account di archiviazione di Azure, è anche possibile aggiungere un parametro **CloudStorageAccount** alla firma del metodo.
 
-##Monitoraggio in tempo reale
+## Monitoraggio in tempo reale
 
 Poiché spesso le funzioni di ingresso ai dati (Ingress) elaborano volumi elevati di informazioni, il dashboard di WebJobs SDK fornisce dati di monitoraggio in tempo reale. La sezione **Invocation Log** indica se la funzione è ancora in esecuzione.
 
@@ -89,12 +89,12 @@ Al termine della funzione, la pagina **Invocation Details** indica il numero di 
 
 ![Funzione Ingress completata](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-##Come leggere più entità da una tabella
+## Come leggere più entità da una tabella
 
-Per leggere una tabella, usare l’attributo `Table` con un parametro `IQueryable<T>` dove il tipo `T` deriva da `TableEntity` o implementa `ITableEntity`.
+Per leggere una tabella, utilizzare l’attributo **Tabella** con un parametro **IQueryable<T>** in cui il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
 
-Il seguente esempio di codice legge e registra tutte le righe dalla tabella `Ingress`:
- 
+Il seguente esempio di codice legge e registra tutte le righe dalla tabella **In entrata**:
+
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
 		    TextWriter logger)
@@ -102,16 +102,16 @@ Il seguente esempio di codice legge e registra tutte le righe dalla tabella `Ing
 		    var query = from p in tableBinding select p;
 		    foreach (Person person in query)
 		    {
-		        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}", 
+		        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
 		            person.PartitionKey, person.RowKey, person.Name);
 		    }
 		}
 
-###Come leggere una singola entità da una tabella
+### Come leggere una singola entità da una tabella
 
-È disponibile un costruttore dell'attributo `Table` con due parametri aggiuntivi che consentono di specificare la chiave di partizione e la chiave di riga quando si desidera l'associazione a un'entità di tabella singola.
+È disponibile un costruttore dell'attributo **Tabella** con due parametri aggiuntivi che consentono di specificare la chiave di partizione e la chiave di riga quando si desidera l'associazione a un'entità di tabella singola.
 
-Il seguente esempio di codice legge una riga della tabella per un'entità `Person` basata sui valori della chiave di partizione e della chiave di riga ricevuti in un messaggio di coda:
+Il seguente esempio di codice legge una riga della tabella per un'entità **Persona** basata sui valori della chiave di partizione e della chiave di riga ricevuti in un messaggio di coda:
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -131,14 +131,14 @@ Il seguente esempio di codice legge una riga della tabella per un'entità `Perso
 		}
 
 
-La classe `Person` in questo esempio non deve implementare `ITableEntity`.
+La classe **Persona** in questo esempio non deve implementare **ITableEntity**.
 
-##Come usare l'API di archiviazione .NET direttamente con una tabella
+## Come usare l'API di archiviazione .NET direttamente con una tabella
 
-È possibile usare l'attributo `Table` anche con un oggetto `CloudTable` per una maggiore flessibilità nell'uso di una tabella.
+È possibile usare l'attributo **Tabella** anche con un oggetto **CloudTable** per una maggiore flessibilità nell'uso di una tabella.
 
-Il seguente esempio di codice usa un oggetto `CloudTable` per aggiungere una singola entità alla tabella *Ingress*.
- 
+Il seguente esempio di codice usa un oggetto **CloudTable** per aggiungere una singola entità alla tabella *In entrata*.
+
 		public static void UseStorageAPI(
 		    [Table("Ingress")] CloudTable tableBinding,
 		    TextWriter logger)
@@ -153,17 +153,16 @@ Il seguente esempio di codice usa un oggetto `CloudTable` per aggiungere una sin
 		    tableBinding.Execute(insertOperation);
 		}
 
-Per altre informazioni su come usare l'oggetto `CloudTable`, vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables.md).
+Per altre informazioni su come usare l'oggetto **CloudTable**, vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](../storage-dotnet-how-to-use-tables.md).
 
-##Argomenti correlati trattati nell'articolo delle procedure sulle code
+## Argomenti correlati trattati nell'articolo delle procedure sulle code
 
 Per informazioni su come gestire l'elaborazione di tabelle attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di tabelle, vedere [Come usare il servizio di archiviazione code di Azure con WebJobs SDK](vs-storage-webjobs-getting-started-queues.md).
 
 
 
-##Passaggi successivi
+## Passaggi successivi
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -4,7 +4,7 @@ Core per [sottoscrizione](http://msdn.microsoft.com/library/azure/hh531793.aspx)
 [Coamministratori](http://msdn.microsoft.com/library/azure/gg456328.aspx) per sottoscrizione|Senza limiti|Senza limiti
 [Account di archiviazione](storage-create-storage-account.md) per sottoscrizione|100|100<sup>2</sup>
 [Gruppi di risorse](resource-group-overview.md) per sottoscrizione|800|800
-Letture API Gestione risorse|32000 all'ora|32000 all'ora
+Letture API Gestione risorse|15000 all'ora|15000 all'ora
 Scritture API Gestione risorse|1200 all'ora|1200 all'ora
 Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 byte
 [Servizi cloud](cloud-services-what-is.md) per sottoscrizione|Deprecato<sup>3</sup>|Deprecato<sup>3</sup>
@@ -16,4 +16,4 @@ Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 by
 
 <sup>3</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse di Azure.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

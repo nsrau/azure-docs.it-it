@@ -23,14 +23,9 @@ Lo strumento di suddivisione-unione gestisce la riduzione e l’aumento della sc
 
 ## Novità della suddivisione-unione
 
-Le versioni più recenti dello strumento di suddivisione-unione forniscono i seguenti miglioramenti:
+La versione 1.1.0 dello strumento suddivisione-unione consente di pulire automaticamente i metadati da richiesta completata. Un'opzione di configurazione controlla il periodo di conservazione di questi metadati prima che vengano rimossi.
 
-* Sono incluse API .Net per interfacciarsi con la suddivisione-unione: il ruolo Web ora è facoltativo 
-* Tipi di data e ora sono ora supportati per le chiavi di partizionamento 
-* Ora sono supportate le mappe partizioni di tipo elenco. 
-* I limiti dell'intervallo nelle richieste possono corrispondere più facilmente agli intervalli archiviati nella mappa partizioni.
-* Per migliorare la disponibilità ora sono supportate più istanze del ruolo di lavoro. 
-* Le credenziali archiviate come parte dell'operazione di suddivisione-unione ora vengono crittografate in stato inattivo.
+La versione 1.0.0 dello strumento suddivisione-unione offre i miglioramenti seguenti: * le API .Net sono incluse per interfacciarsi con divisione-unione - il ruolo web è ora facoltativo * Data e ora sono ora supportati per le chiavi di partizionamento orizzontale * Le mappe di partizionamento di elenco sono ora supportate. * I limiti di intervallo nelle richieste possono corrispondere più facilmente con gli intervalli archiviati nella mappa di partizionamento. * Più istanze del ruolo di lavoro sono ora supportate per migliorare la disponibilità. * Le credenziali archiviate come parte dell'operazione di suddivisione-unione vengono ora crittografate in stato inattivo.
 
 ## Come eseguire l'aggiornamento
 
@@ -162,13 +157,13 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
 * **OperationId**: GUID che identifica in modo univoco la richiesta. Questa richiesta può essere usata anche per annullare l'operazione durante l'esecuzione.
 
-* **Stato**: stato attuale della richiesta. per le richieste in corso indica anche la fase attuale dell'esecuzione della richiesta.
+* **Status**: stato attuale della richiesta. per le richieste in corso indica anche la fase attuale dell'esecuzione della richiesta.
 
 * **CancelRequest**: flag che indica se la richiesta è stata annullata.
 
-* **Avanzamento**: stima della percentuale di completamento dell'operazione. Un valore pari a 50 indica che la percentuale di completamento dell'operazione è pari a circa il 50%.
+* **Progress**: stima della percentuale di completamento dell'operazione. Un valore pari a 50 indica che la percentuale di completamento dell'operazione è pari a circa il 50%.
 
-* **Dettagli**: valore XML che fornisce un report di stato più dettagliato. Il report di stato viene aggiornato periodicamente durante la copia di set di righe dall'origine alla destinazione. In caso di errori o eccezioni, questa colonna include anche informazioni più dettagliate sull'errore.
+* **Details**: valore XML che fornisce un report di stato più dettagliato. Il report di stato viene aggiornato periodicamente durante la copia di set di righe dall'origine alla destinazione. In caso di errori o eccezioni, questa colonna include anche informazioni più dettagliate sull'errore.
 
 
 ### Diagnostica Azure
@@ -243,4 +238,4 @@ Una proprietà di univocità con la chiave di partizionamento orizzontale come c
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

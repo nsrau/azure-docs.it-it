@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Introduzione a Distribuzione di Video on Demand (VoD) tramite API REST 
@@ -906,7 +906,7 @@ Il seguente esempio mostra come chiamare la funzione CancelJob.
 
 Se l'esito è positivo, viene restituito un codice di risposta 204 senza il corpo di un messaggio.
 
->[AZURE.NOTE] È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
+>[AZURE.NOTE]È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
 
 
 ### Ottenere l'asset di output 
@@ -1190,6 +1190,16 @@ Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](h
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
 
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Risorse aggiuntive
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servizi multimediali di Azure 101 - Pubblicare un video online</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Servizi multimediali di Azure 102 - Creazione dinamica dei pacchetti e dispositivi mobili</a>
@@ -1202,4 +1212,4 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 
  
 
-<!-------HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

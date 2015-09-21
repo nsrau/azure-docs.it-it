@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Cosa sono i connettori e le app per le API di BizTalk"
-	description="Informazioni sulle app per le API, sui connettori e sulle app per le API BizTalk"
-	services="app-service\logic"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="Cosa sono i connettori e le app per le API di BizTalk" 
+	description="Informazioni sulle app per le API, sui connettori e sulle app per le API BizTalk" 
+	services="app-service\logic" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="mandia"/>
 
 # Cosa sono i connettori e le app per le API di BizTalk
@@ -48,4 +48,4 @@ Le regole di business incapsulano i criteri e le decisioni che controllano i pro
 Per un elenco completo di connettori e app per le API inclusi in ogni categoria, tra cui connettori Standard, EAI BizTalk, connettori Premium e così via, vedere [Elenco di connettori e app per le API](app-service-logic-connectors-list.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -213,9 +213,9 @@ Se si elimina un argomento, verranno eliminate anche tutte le sottoscrizioni reg
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
--   Vedere le informazioni di riferimento in MSDN: [Code, argomenti e sottoscrizioni](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
+-   Vedere [Code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md).
 -   Riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
 -	Archivio [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

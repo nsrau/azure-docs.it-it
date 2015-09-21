@@ -140,7 +140,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
     | Attributo | Tipo |
     |----------- |   ------    |
-    | id | Valore integer 64 |
+    | id | String |
     | key | String |
     | keyType | Valore integer 64 |
     | tabella | String |
@@ -248,4 +248,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `MSS
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

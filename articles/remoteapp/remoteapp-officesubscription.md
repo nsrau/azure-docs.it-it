@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Come usare l'abbonamento a Office 365 con Azure RemoteApp"
+    pageTitle="Come usare l'abbonamento a Office 365 con Azure RemoteApp | Microsoft Azure"
 	description="Informazioni su come usare l'abbonamento a Office 365 in Azure RemoteApp per condividere app di Office."
 	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/09/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -35,6 +35,8 @@ Piani di Office 365 che includono Office 365 ProPlus Verificare la tabella [Disp
 ## Uso delle licenze di Office 365 ProPlus con Azure RemoteApp
 
 Ogni licenza utente per Office 365 ProPlus consente a un singolo utente di attivare le applicazioni di Office in un massimo di 5 computer, oltre a tablet e telefoni. Ogni attivazione viene registrata con l'utente fino alla disattivazione di Office nel dispositivo. Gli utenti possono gestire i propri dispositivi nel [portale di Office 365](https://portal.office365.com/).
+
+Con RemoteApp di Azure un singolo utente può accedere in diversi computer nello stesso giorno inavvertitamente. Ciò avviene perché il servizio gestisce automaticamente e scala le risorse nel cloud, mentre l'utente visualizza solo le applicazioni e i programmi che sono stati condivisi. Per questo scenario Office 365 ProPlus offre una modalità di attivazione del computer condiviso - questo significa che l'utente non deve eseguire qualsiasi gestione della licenza per accedere a tali risorse e che i singoli computer non vengono conteggiati rispetto al limite di attivazione di 5 computer.
 
 Se, in qualità di amministratore, si assegnano agli utenti licenze di Office 365 ProPlus, gli utenti potranno usare Office nei propri dispositivi personali, nonché tramite la raccolta di Azure RemoteApp.
 
@@ -115,4 +117,4 @@ Altre informazioni sull'uso dello Strumento di distribuzione di Office per gli a
 - [Distribuzione e aggiornamento di Office 365 ProPlus mediante lo Strumento di distribuzione di Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (video)
 - [Configurare le impostazioni di aggiornamento di Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

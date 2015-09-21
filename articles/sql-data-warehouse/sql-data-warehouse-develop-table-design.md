@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Progettazione di tabelle in SQL Data Warehouse #
-SQL Data Warehouse è un sistema di database distribuito a elaborazione parallela massiva. Archivia perciò i dati in molte posizioni diverse, dette **distribuzioni**. Ogni **distribuzione** è simile a un bucket: archivia un subset univoco dei dati nel data warehouse. Distribuendo i dati e le funzionalità di elaborazione tra più nodi, SQL Data Warehouse è in grado di offrire un'enorme scalabilità, ben oltre qualsiasi sistema singolo.
+SQL Data Warehouse è un sistema di database distribuito a elaborazione parallela massiva. Archivia i dati in molte posizioni diverse, dette **distribuzioni**. Ogni **distribuzione** è simile a un bucket: archivia un subset univoco dei dati nel data warehouse. Distribuendo i dati e le funzionalità di elaborazione tra più nodi, SQL Data Warehouse è in grado di offrire un'enorme scalabilità, ben oltre qualsiasi sistema singolo.
 
 Quando si crea una tabella in SQL Data Warehouse, questa viene in effetti suddivisa tra tutte le distribuzioni.
 
@@ -92,9 +92,9 @@ OR  y.[is_user_defined] = 1
 
 ```
 
-La query include tutti i tipi di dati definiti dall'utente e non supportati.
+La query include tutti i tipi di dati definiti dall'utente che non sono supportati.
 
-L'eventuale presenza di tipi non supportati nel database in uso non costituisce un problema. Di seguito vengono proposte alcune alternative che è possibile usare.
+di seguito ci sono alcune alternative che è possibile utilizzare al posto di tipi di dati non supportati.
 
 Invece di:
 
@@ -126,7 +126,7 @@ Per distribuire i dati in SQL Data Warehouse sono disponibili due opzioni:
 1. Distribuire i dati in base ai valori hash di una singola colonna
 2. Distribuire i dati in modo uniforme ma casuale  
 
-La distribuzione dei dati viene decisa a livello di tabella. Tutte le tabelle sono distribuite in modo che l'utente abbia la possibilità di prendere questa decisione per ogni tabella nel database di SQL Data Warehouse.
+La distribuzione dei dati viene decisa a livello di tabella. Tutte le tabelle vengono distribuite. Si assegnerà distribuzione per ogni tabella nel database SQL Data Warehouse.
 
 La prima opzione è detta distribuzione **round robin** e a volte anche hash casuale. Può essere considerata come l'opzione predefinita o di tipo operatore alternativo.
 
@@ -134,7 +134,7 @@ La seconda opzione è nota come distribuzione **hash**. Può essere considerata 
 
 ## Distribuzione round robin
 
-La distribuzione round robin è un metodo di suddivisone quanto più possibile uniforme dei dati tra tutte le distribuzioni. I buffer contenenti righe di dati vengono allocati a rotazione (da ciò il nome round robin) a ogni distribuzione. Il processo viene ripetuto finché tutti i buffer di dati sono stati allocati. In nessuna fase i dati vengono ordinati o classificati in una tabella con distribuzione round robin. Per questo motivo, una distribuzione round robin viene a volte definita hash causale. I dati vengono semplicemente suddivisi nel modo più uniforme possibile tra le distribuzioni.
+La distribuzione round robin è un metodo di suddivisone quanto più possibile uniforme dei dati tra tutte le distribuzioni. I buffer contenenti righe di dati vengono allocati a rotazione (da ciò il nome round robin) a ogni distribuzione. Il processo viene ripetuto finché tutti i buffer di dati sono stati allocati. In nessuna fase i dati vengono ordinati o classificati in una tabella con distribuzione round robin. Per questo motivo, una distribuzione round robin viene a volte definita hash causale. I dati vengono suddivisi nel modo più uniforme possibile tra le distribuzioni.
 
 Di seguito è riportato un esempio di tabella con distribuzione round robin:
 
@@ -306,4 +306,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

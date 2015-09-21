@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp"
-	description="Informazioni su come condividere con gli utenti qualsiasi applicazione Windows tramite Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Eseguire qualsiasi app di Windows su qualsiasi dispositivo con Azure RemoteApp | Microsoft Azure"
+   description="Informazioni su come condividere con gli utenti qualsiasi applicazione Windows tramite Azure RemoteApp."
+   services="remoteapp"
+   documentationCenter=""
+   authors="lizap"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="remoteapp"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="compute"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="compute"
+   ms.date="09/02/2015"
+   ms.author="elizapo"/>
 
 # Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp
 
@@ -83,6 +83,7 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 3. È necessario creare un [account di archiviazione](../storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo (può essere presente un solo archivio "accessstorage").
 ![Account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione (percorso dell'endpoint), che verrà usato tra poco, quindi assicurarsi di copiarlo.
+
 ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Dopo avere creato l'account di archiviazione, è necessaria la chiave di accesso primaria. Fare clic su **Gestisci chiavi di accesso** e quindi copiare la chiave di accesso primaria.
 6. Impostare ora il contesto dell'account di archiviazione e creare una nuova condivisione file per Access. Eseguire i cmdlet seguenti in una finestra di Windows PowerShell con privilegi elevati:
@@ -118,4 +119,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

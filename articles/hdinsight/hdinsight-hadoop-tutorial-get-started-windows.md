@@ -1,6 +1,7 @@
 <properties
    pageTitle="Esercitazione di Hadoop: Introduzione a Hadoop in Windows | Microsoft Azure"
    description="Introduzione a Hadoop in HDInsight Informazioni su come eseguire il provisioning di cluster Hadoop in Windows, eseguire una query Hive sui dati e analizzare l'output in Excel."
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="09/03/2015"
    ms.author="nitinme"/>
 
 
@@ -144,10 +145,11 @@ Dopo il provisioning di un cluster HDInsight, il passaggio successivo consiste n
 
 **Per eseguire un processo Hive dal dashboard del cluster**
 
-1. Accedere al [portale di Azure][azure-management-portal].
-2. Fare clic su **HDINSIGHT** nel riquadro sinistro. Verrà visualizzato un elenco di cluster, incluso quello appena creato nella sezione precedente.
-3. Fare clic sul nome del cluster che si vuole usare per eseguire il processo Hive e quindi fare clic su **CONSOLE QUERY** nella parte inferiore della pagina.
-4. Verrà aperta una pagina Web in una scheda diversa del browser. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin**. La password corrisponde a quella immessa durante il provisioning del cluster. L'aspetto del dashboard è simile al seguente:
+1. Accedere al [portale di anteprima di Azure](https://ms.portal.azure.com/).
+2. Fare clic su **ESPLORA TUTTO** e poi fare clic su **cluster HDInsight** per visualizzare un elenco di cluster, tra cui il cluster appena creato nella sezione precedente.
+3. Fare clic sul nome del cluster che si vuole usare per eseguire il processo Hive e poi fare clic su **Dashboard** nella parte superiore della pagina.
+4. Verrà aperta una pagina Web in una scheda diversa del browser. Immettere l'account utente e la password per Hadoop. Il nome utente predefinito è **admin**. La password corrisponde a quella immessa durante il provisioning del cluster.
+5. Dal dashboard, fare clic sulla scheda **Editor Hive**. Verrà visualizzata la pagina web.
 
 	![Scheda Editor Hive nel dashboard del cluster HDInsight.][img-hdi-dashboard]
 
@@ -280,4 +282,4 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

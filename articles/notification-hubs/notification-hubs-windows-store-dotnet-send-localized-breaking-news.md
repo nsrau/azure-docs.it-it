@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Esercitazione sull'invio di ultime notizie localizzate mediante Hub di notifica"
-	description="Informazioni su come usare Hub di notifica del bus di servizio di Azure per inviare notifiche relative alle ultime notizie localizzate."
+	description="Informazioni su come usare Hub di notifica di Azure per inviare notifiche relative alle ultime notizie localizzate."
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/08/2015" 
 	ms.author="wesmc"/>
 
 # Uso di Hub di notifica per inviare le ultime notizie localizzate
@@ -232,4 +232,4 @@ Per altre informazioni sull'uso dei modelli, vedere [Usare hub di notifica per i
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

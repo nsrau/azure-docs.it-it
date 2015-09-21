@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery: domande frequenti"
-	description="Questo articolo illustra le domande frequenti sull'utilizzo di Azure Site Recovery."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: domande frequenti" 
+	description="Questo articolo illustra le domande frequenti sull'utilizzo di Azure Site Recovery." 
+	services="site-recovery" 
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -63,6 +63,17 @@ Questa funzione non è supportata. Inviare commenti e suggerimenti tramite il [f
 
 ### È possibile eseguire il seeding dei dischi iniziali in Azure tramite un meccanismo offline?
 Questa funzione non è supportata. Inviare commenti e suggerimenti tramite il [forum dei commenti di Azure Site Recovery - Supporto per la replica offline](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+### È possibile applicare limitazioni della larghezza di banda allocata per il traffico di replica quando si utilizza Hyper-v come origine?
+- Se si sta eseguendo la replica tra due siti locali è possibile utilizzare QoS di Windows. Di seguito c’è uno script di esempio: 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- Se si sta eseguendo la replica in Azure è possibile configurarla tramite il seguente cmdlet powershell di esempio:
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
 
 ## Supporto della versione
 
@@ -236,4 +247,4 @@ Per avviare la distribuzione  
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

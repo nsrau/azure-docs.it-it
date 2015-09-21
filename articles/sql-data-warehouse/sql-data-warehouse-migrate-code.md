@@ -3,7 +3,7 @@
    description="Suggerimenti per la migrazione del codice SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Eseguire la migrazione del codice SQL in SQL Data Warehouse
 
-Per garantire che il codice sia compatibile con SQL Data Warehouse, è molto probabile che debbano essere apportate modifiche alla base di codice. Alcune funzionalità di SQL Data Warehouse possono anche migliorare in modo significativo le prestazioni perché sono progettate per funzionare direttamente in modalità distribuita. Per mantenere tuttavia le prestazioni e la scalabilità, alcune funzionalità non sono disponibili.
+Per garantire che il codice sia compatibile con SQL Data Warehouse, è molto probabile che debbano essere apportate modifiche alla base di codice. Alcune funzionalità di SQL Data Warehouse possono migliorare in modo significativo le prestazioni perché sono progettate per funzionare direttamente in modalità distribuita. Per mantenere tuttavia le prestazioni e la scalabilità, alcune funzionalità non sono disponibili.
 
 ## Modifiche del codice Transact-SQL
 
-L'elenco seguente riepiloga le funzionalità principali che non sono supportate in Azure SQL Data Warehouse: I collegamenti forniti consentono di realizzare soluzioni alternative per la caratteristica non supportata:
+L'elenco seguente riepiloga le funzionalità principali non supportate in Azure SQL Data Warehouse: I collegamenti consentono di realizzare soluzioni alternative per la caratteristica non supportata:
 
 - [Join ANSI sugli aggiornamenti][]
 - [Join ANSI sulle eliminazioni][]
@@ -50,7 +50,7 @@ L'elenco seguente riepiloga le funzionalità principali che non sono supportate 
 - [Uso di select per l'assegnazione di variabili][]
 - [Nessun tipo di dati MAX per stringhe SQL dinamiche][]
 
-Fortunatamente è possibile ovviare alla maggior parte di queste limitazioni. Le spiegazioni sono incluse negli articoli pertinenti a cui viene fatto riferimento più indietro.
+Fortunatamente è possibile ovviare alla maggior parte di queste limitazioni. Le spiegazioni sono fornite dagli articoli pertinenti a cui viene fatto riferimento più indietro.
 
 ### Espressioni tabella comune ricorsive
 
@@ -113,4 +113,4 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

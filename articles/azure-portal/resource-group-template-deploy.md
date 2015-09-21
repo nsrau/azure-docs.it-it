@@ -1,63 +1,33 @@
 <properties
-   pageTitle="Distribuire un'applicazione con un modello di Gestione risorse di Azure"
-	services="azure-resource-manager"
-	description="Usare Gestione risorse di Azure per distribuire un’applicazione in Azure. Un modello è un file JSON e può essere usato dal portale, da PowerShell, dall'interfaccia della riga di comando di Azure per Mac, Linux e Windows o REST."
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   pageTitle="Distribuire le risorse con il modello di gestione risorse | Microsoft Azure"
+   services="azure-resource-manager"
+   description="Usare Gestione risorse di Azure per distribuire una risorsa in Azure. Un modello è un file JSON e può essere usato dal portale, da PowerShell, dall'interfaccia della riga di comando di Azure per Mac, Linux e Windows o REST."
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/09/2015"
+   ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
 
 In questo argomento viene illustrato come usare i modelli di Gestione risorse di Azure per distribuire l'applicazione in Azure. Viene descritto come distribuire l'applicazione usando Azure PowerShell, l’interfaccia della riga di comando di Azure, API REST o il portale di anteprima di Microsoft Azure.
 
-I modelli di Gestione risorse di Azure consentono di eseguire rapidamente e facilmente il provisioning delle applicazioni in Azure tramite un modello JSON dichiarativo. In un unico modello JSON, è possibile distribuire più servizi, quali macchine virtuali, reti virtuali, archiviazione, servizi app e database. Lo stesso modello viene usato per distribuire più volte e in modo coerente l'applicazione durante ogni fase del ciclo di vita dell'applicazione.
-
-Per semplificare la gestione dell'applicazione, è possibile organizzare tutte le risorse che condividono un ciclo di vita comune in un singolo gruppo di risorse. I gruppi di risorse semplificano la distribuzione, l'aggiornamento e l'eliminazione di tutte le risorse correlate tra loro. Nella maggior parte dei casi, un gruppo di risorse viene associato a una singola applicazione o a un livello di applicazione (per le applicazioni di grandi dimensioni). La risorsa distribuita tramite un modello risiede all'interno di gruppi di una singola risorsa, ma può includere dipendenze in altri gruppi di risorse.
-
-All'interno di un gruppo di risorse, è possibile tenere traccia dell'esecuzione di una distribuzione e visualizzare lo stato della distribuzione e l'output dell’esecuzione del modello.
+Per un'introduzione a Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md). Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
 Quando si distribuisce un'applicazione con un modello, è possibile fornire valori di parametri per personalizzare la modalità di creazione delle risorse. È possibile specificare i valori di questi parametri inline o in un file di parametri.
-
-## Concetti
-
-- Gruppo di risorse: raccolta di entità che condividono un ciclo di vita comune
-- Modello di Gestione risorse: file JSON dichiarativo che definisce lo stato obiettivo di una distribuzione
-- Distribuzione: operazione che tiene traccia dell'esecuzione di un modello di Gestione risorse
-- Parametri: valori forniti dall'utente che esegue la distribuzione per personalizzare le risorse distribuite
-- File di parametri: file JSON in cui sono archiviati nomi e valori di parametri 
-
-## Scenari
-
-Con i modelli di Gestione risorse di Azure è possibile:
-
-- Distribuire applicazioni a più livelli complesse, quali Microsoft SharePoint.
-- Distribuire le applicazioni più volte e in modo coerente.
-- Supportare ambienti di sviluppo, di test e di produzione.
-- Visualizzare lo stato delle distribuzioni.
-- Risolvere i problemi di distribuzione usando i registri di controllo di distribuzione.
-
-## Distribuire con il portale di anteprima
-
-Novità Ogni applicazione creata con il [portale di anteprima](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuova** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
-
-![Nuovo](./media/resource-group-template-deploy/new.png)
-
-Per altre informazioni sull'uso del portale con Gestione risorse di Azure, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
 
 
 ## Distribuire con PowerShell
 
-Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
 1. Accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
@@ -171,13 +141,13 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
    
      Per specificare i valori dei parametri sono disponibili le opzioni seguenti:
 
-     - Usare i parametri inline e un modello locale.
+     - Usare i parametri inline e un modello locale. Ogni parametro è nel formato: `"ParameterName": { "value": "ParameterValue" }`. Nell'esempio seguente vengono illustrati i parametri con caratteri di escape.
 
-             azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Usare i parametri inline e collegamento a un modello.
 
-             azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Usare un file di parametri. Per informazioni sul file di modello, vedere [File di parametri](./#parameter-file).
     
@@ -236,6 +206,15 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## Distribuire con il portale di anteprima
+
+Novità Ogni applicazione creata con il [portale di anteprima](https://portal.azure.com/) è supportata da un modello di Gestione risorse di Azure. Creando semplicemente una macchina virtuale, una rete virtuale, un account di archiviazione, un servizio app o database tramite il portale, si sfruttano automaticamente i vantaggi di Gestione risorse di Azure. È sufficiente selezionare l'icona **Nuova** e si sarà sulla strada giusta per distribuire un'applicazione con Gestione risorse di Azure.
+
+![Nuovo](./media/resource-group-template-deploy/new.png)
+
+Per altre informazioni sull'uso del portale con Gestione risorse di Azure, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
+
+
 ## File di parametri
 
 Se si usa un file di parametri per passare i valori di parametro al modello durante la distribuzione, è necessario creare un file JSON con un formato simile all'esempio seguente.
@@ -266,4 +245,4 @@ La dimensione del file di parametro non può essere superiore a 64 KB.
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

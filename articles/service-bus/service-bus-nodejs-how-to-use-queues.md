@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare le code del bus di servizio (Node.js) | Microsoft Azure"
-	description="Informazioni su come usare le code del bus di servizio in Azure da un’app Node.js."
-	services="service-bus"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="Come usare le code del bus di servizio (Node.js) | Microsoft Azure" 
+	description="Informazioni su come usare le code del bus di servizio in Azure da un’app Node.js." 
+	services="service-bus" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="07/06/2015" 
 	ms.author="mwasson"/>
 
 # Come usare le code del bus di servizio
@@ -165,8 +165,8 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
--   Vedere le informazioni di riferimento in MSDN: [Code, argomenti e sottoscrizioni][].
--   Archivio [Azure SDK for Node] su GitHub
+-   Vedere [Code, argomenti e sottoscrizioni][].
+-   Archivio [Azure SDK for Node][] su GitHub
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Passaggi successivi]: #next-steps
@@ -183,10 +183,10 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
   [Creare e distribuire un'applicazione Node.js in un sito Web di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servizio cloud Node.js con archiviazione]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Applicazione Web Node.js con archiviazione]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

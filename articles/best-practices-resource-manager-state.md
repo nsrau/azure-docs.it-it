@@ -13,16 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/04/2015"
 	ms.author="mmercuri"/>
 
 # Condivisione dello stato in modelli di Gestione risorse di Azure
 
 Questo argomento mostra le procedure consigliate per gestire e condividere lo stato in un modello di Gestione risorse di Azure e nei modelli collegati. I parametri e le variabili illustrati in questo argomento sono esempi del tipo di oggetti che è possibile definire per organizzare facilmente i requisiti di distribuzione. Da questi esempi, è possibile implementare gli oggetti con valori di proprietà utili per l'ambiente.
 
+Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+
+
 ## Uso di oggetti complessi per condividere lo stato
 
-Oltre ai parametri a valore singolo, è possibile usare oggetti complessi come parametri in un modello di Gestione risorse di Azure. Con gli oggetti complessi, è possibile implementare e fare riferimento a raccolte di dati per un'area specifica, ad esempio la taglia (per descrivere una macchina virtuale), le impostazioni di rete, le impostazioni del sistema operativo e le impostazioni di disponibilità.
+Anziché offrire un modello che fornisce massima flessibilità e innumerevoli variazioni, uno schema diffuso è fornire la possibilità di selezionare configurazioni note, ovvero taglie standard quali sandbox, small, medium e large. Altri esempi di taglie sono le offerte di prodotti, come Community Edition o Enterprise Edition. In altri casi, potrebbero essere configurazioni specifiche per i carichi di lavoro di una determinata tecnologia, ad esempio map reduce o no sql.
+
+Con gli oggetti complessi, è possibile creare variabili che contengono insiemi di dati, talvolta note come "contenitori di proprietà" e utilizzare tali dati per guidare la dichiarazione delle risorse nel modello. Questo approccio fornisce configurazioni note ed efficienti di dimensioni variabili, preconfigurate per i clienti. Senza configurazioni note, i clienti devono determinare autonomamente la dimensione del cluster, includere i limiti di risorse della piattaforma ed effettuare calcoli matematici per identificare il partizionamento risultante degli account di archiviazione e altre risorse (a causa della dimensione del cluster e dei limiti di risorse). Le configurazioni note consentono ai clienti di selezionare con facilità la taglia appropriata, ovvero una specifica distribuzione. Oltre a migliorare l'esperienza del cliente, un numero limitato di configurazioni note è più facile da supportare e consente di offrire un livello superiore di densità.
+
 
 Il seguente esempio mostra come definire variabili contenenti oggetti complessi per rappresentare raccolte di dati. Le raccolte definiscono i valori usati per le dimensioni della macchina virtuale, le impostazioni di rete, le impostazioni del sistema operativo e le impostazioni di disponibilità.
 
@@ -381,4 +387,4 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
 - [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

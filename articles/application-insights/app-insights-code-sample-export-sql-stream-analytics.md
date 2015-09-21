@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Procedura dettagliata: esportare i dati di telemetria nel database SQL da Application Insights"
-	description="Scrivere il codice per la propria analisi dei dati di telemetria in Application Insights usando la funzionalità di esportazione continua."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Procedura dettagliata: esportare i dati di telemetria nel database SQL da Application Insights" 
+	description="Scrivere il codice per la propria analisi dei dati di telemetria in Application Insights usando la funzionalità di esportazione continua." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
@@ -97,7 +97,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     I dati verranno inoltre esportati nell'archivio.
 
-4. Esaminare i dati esportati. In Visual Studio, scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
+4. Esaminare i dati esportati, o nel portale - scegliere **Sfoglia**, selezionare l'account di archiviazione, quindi **Contenitori** - o in Visual Studio. In Visual Studio, scegliere **Visualizza/Cloud Explorer** e aprire Azure/Archiviazione. (Se non si dispone di tale opzione del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo Nuovo progetto, aprire Visual C#/Cloud/Ottieni Microsoft Azure SDK per .NET).
 
     ![In Visual Studio aprire Esplora server, Azure, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
@@ -196,7 +196,7 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).
+Assicurarsi di impostare il formato della data su **AAAA-MM-GG** (con i **trattini**).
 
 Lo schema prefisso percorso specifica il modo in cui l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
@@ -218,6 +218,8 @@ Verificare il formato di serializzazione:
 ![Confermare e chiudere la procedura guidata](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
 Chiudere la procedura guidata e attendere il completamento dell'installazione.
+
+>[AZURE.TIP]Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di errore: verificare che ci siano dati nell’archiviazione per l’intervallo di tempo esemplificativo che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
 
 ## Impostare la query
 
@@ -312,4 +314,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

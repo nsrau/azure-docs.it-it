@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Come visualizzare i report di integrità di Infrastruttura di servizi
@@ -174,7 +174,7 @@ HealthEvents            : None
 Il seguente cmdlet Powershell ottiene lo stato di integrità del cluster con il criterio di applicazione personalizzato. Il cmdlet filtra i risultati per ottenere solo le applicazioni e i nodi in stato di errore o avviso. Di conseguenza, non verrà restituito alcun nodo, come se fossero tutti integri. Solo l’applicazione fabric:/WordCount rispetta il filtro delle applicazioni. Poiché il criterio personalizzato specifica di prendere in considerazione l'avviso come errore per l’applicazione fabric:/WordCount, l’applicazione viene valutata in stato di errore e lo stesso accade per il cluster.
 
 ```powershell
-PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -326,7 +326,7 @@ Il cmdlet per ottenere lo stato dell’applicazione è Get-ServiceFabricApplicat
 Il cmdlet seguente restituisce lo stato dell’applicazione fabric:/WordCount.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -836,4 +836,4 @@ Ogni volta che si verifica un problema in cluster o in un'applicazione, osservar
 [Aggiornamento di un’applicazione Infrastruttura di servizi](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

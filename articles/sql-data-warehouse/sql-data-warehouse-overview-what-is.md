@@ -1,12 +1,11 @@
 <properties
-   pageTitle="Che cos'è SQL Data Warehouse | Microsoft Azure"
-   description="Database distribuito di livello aziendale, disponibile nel cloud di Azure e in grado di elaborare volumi di dati relazionali e non relazionali anche nell'ordine di petabyte. Si tratta del primo data warehouse basato sul cloud del settore con possibilità di aumento, riduzione e sospensione in pochi secondi."
+   pageTitle="Che cos'è SQL Data Warehouse di Azure | Microsoft Azure"
+   description="Database distribuito di livello aziendale, in grado di elaborare volumi di dati relazionali e non relazionali anche nell'ordine di petabyte. Si tratta del primo data warehouse basato sul cloud del settore con possibilità di aumento, riduzione e sospensione in pochi secondi."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="twounder"
    manager="jhubbard"
    editor=""/>
-
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="09/09/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
+# Che cos'è SQL Data Warehouse di Azure?
 
-# Che cos'è SQL Data Warehouse?
-
-SQL Data Warehouse è un database distribuito di livello aziendale, disponibile nel cloud di Azure e in grado di elaborare volumi di dati relazionali e non relazionali anche nell'ordine di petabyte. Si tratta del primo data warehouse basato sul cloud del settore con possibilità di aumento, riduzione e sospensione in pochi secondi.
+SQL Data Warehouse è un database distribuito di livello aziendale, in grado di elaborare volumi di dati relazionali e non relazionali anche nell'ordine di petabyte. Si tratta del primo data warehouse basato sul cloud del settore che consente di aumentare, ridurre e sospendere le risorse in pochi secondi con comprovate funzionalità SQL.
 
 SQL Data Warehouse coniuga il meglio della qualità e affidabilità dei database relazionali aziendali di SQL Server con il cloud computing. Leggere altre informazioni relative ai principali componenti di progettazione di SQL Data Warehouse.
 
 ## Aumentare, ridurre o sospendere le risorse di calcolo
-Con SQL Data Warehouse, i dati vengono archiviati in un archivio con scalabilità cloud e il calcolo viene scalato in modo indipendente, consentendo di pagare i costi relativi alle prestazioni delle query quando necessario. È ora possibile distribuire, aumentare, ridurre e persino sospendere il calcolo in modo dinamico, nonché sfruttare al meglio l'archiviazione con scalabilità cloud e applicare il calcolo delle query in base alle esigenze del periodo specifico. Quando il calcolo viene sospeso, si paga soltanto l'archiviazione.
+SQL Data Warehouse introduce risorse di archiviazione e calcolo separate in grado di permettere ad ogni archiviazione di essere ridimensionata in mondo indipendente. Utilizzando l’archiviazione con scalabilità cloud e il calcolo di Azure, SQL Data Warehouse consente di pagare per le prestazioni delle query necessarie, solo quando è necessario. E’ possibile distribuire, aumentare, ridurre e anche sospendere le attività di calcolo in pochi secondi in modo dinamico in modo da acquistare le prestazioni necessarie all'azienda. Modificare la quantità di calcolo è semplice come spostare il cursore a sinistra o a destra.
+
+Grazie alla possibilità di controllare completamente la quantità del calcolo in modo indipendente dall'archiviazione, SQL Data Warehouse consente di sospendere il calcolo. Il calcolo sospeso, viene nuovamente inserito nel pool centrale permettendo di risparmiare sui costi Quando è necessario, basta riprendere semplicemente il calcolo e i dati e il calcolo saranno disponibili per il carico di lavoro.
 
 > [AZURE.NOTE]Le unità data warehouse (DWU) sono l'unità di scala per le risorse di calcolo in SQL Data Warehouse.
 
@@ -78,4 +78,4 @@ Scoprire cosa si intende per [carico di lavoro del data warehouse]. Eseguire il[
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

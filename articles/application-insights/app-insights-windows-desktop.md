@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="09/07/2015" 
 	ms.author="awills"/>
 
 # Application Insights in app desktop, servizi e ruoli di lavoro di Windows
@@ -23,7 +23,9 @@
 
 Application Insights consente di monitorare un'applicazione distribuita in base all'uso e alle prestazioni.
 
-Tutte le applicazioni Windows, incluse le app desktop, i servizi in background e i ruoli di lavoro, possono usare l'SDK di base di Application Insights per inviare dati di telemetria ad Application Insights. L'SDK di base fornisce solo un'API: a differenza degli SDK per dispositivi o Web non include moduli che raccolgono dati automaticamente, quindi è necessario scrivere codice per l'invio di dati di telemetria personalizzati.
+Tutte le applicazioni Windows, incluse le app desktop, i servizi in background e i ruoli di lavoro, possono usare Application Insights SDK per inviare dati di telemetria ad Application Insights. È anche possibile aggiungere Application Insights SDK a un progetto di tipo libreria di classi.
+
+L'SDK di base fornisce solo un'API: a differenza degli SDK per dispositivi o Web non include moduli che raccolgono dati automaticamente, quindi è necessario scrivere codice per l'invio di dati di telemetria personalizzati. Alcuni degli altri pacchetti, ad esempio l'agente di raccolta del contatore delle prestazioni, funzioneranno anche in un'app desktop.
 
 
 ## <a name="add"></a> Creare una risorsa Application Insights
@@ -46,25 +48,27 @@ Tutte le applicazioni Windows, incluse le app desktop, i servizi in background e
 
     ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Installare il pacchetto di Application Insights Core API.
+2. Installare il pacchetto dell'API di base di Application Insights, Microsoft.ApplicationInsights.
 
     ![Cercare "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-    Si possono installare altri pacchetti, ad esempio pacchetti di contatori delle prestazioni o di acquisizione dei log se si vogliono usare le funzionalità che offrono.
+    *È possibile usare altri pacchetti?*
 
-3. Impostare L’InstrumentationKey nel codice, ad esempio in main ().
+    Sì, si possono installare altri pacchetti, ad esempio pacchetti di contatori delle prestazioni o di agenti di raccolta dipendenze se si vogliono usare i relativi moduli. Microsoft.ApplicationInsights.Web include molti di questi pacchetti. Per usare i [pacchetti di agenti di raccolta dati di traccia o di log](app-insights-asp-net-trace-logs.md), iniziare con il pacchetto del server Web.
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+    Non usare però Microsoft.ApplicationInsights.Windows, che è destinato alle app di Windows Store.
 
-*Perché non vi è un file applicationinsights. config?*
+3. Impostare InstrumentationKey.
 
-* Il file. config non è installato dal pacchetto di API Core, viene utilizzato solo per configurare gli agenti di raccolta di telemetria. È quindi possibile scrivere il codice per impostare la chiave di strumentazione e inviare dati di telemetria.
-* Se è stato installato uno degli altri pacchetti, si avrà un file con estensione CONFIG. È possibile inserire la chiave di strumentazione in questo file, invece di impostarla nel codice.
+    * Se è stato installato solo il pacchetto dell'API di base Microsoft.ApplicationInsights, è necessario impostare la chiave nel codice, ad esempio in main(): 
 
-*Si può utilizzare un pacchetto NuGet diverso?*
+     `TelemetryConfiguration.Active.InstrumentationKey = "`*nome della chiave*`";`
 
-* Sì, si può usare il pacchetto del server Web (Microsoft.ApplicationInsights.Web), che comporta l'installazione di agenti di raccolta per diversi moduli di raccolta, ad esempio i contatori delle prestazioni. È necessario installare un file. config, dove inserire la chiave di strumentazione. Usare [ApplicationInsights.config per disabilitare i moduli che non si usano](app-insights-configuration-with-applicationinsights-config.md), ad esempio l'agente di raccolta delle richieste HTTP. 
-* Se si vogliono usare i [pacchetti di agenti di raccolta dati di traccia o di log](app-insights-asp-net-trace-logs.md), iniziare con il pacchetto del server Web. 
+    * Se è stato installato uno degli altri pacchetti, è possibile impostare la chiave tramite il codice o in ApplicationInsights.config:
+ 
+     `<InstrumentationKey>`*nome della chiave*`</InstrumentationKey>`
+
+
 
 ## <a name="telemetry"></a>Inserire le chiamate di telemetria
 
@@ -108,14 +112,12 @@ Ad esempio, in un'applicazione Windows Form, è possibile scrivere:
 
 Usare l'[API di Application Insights][api] per inviare dati di telemetria. Nelle applicazioni Desktop di Windows, non vengono inviati automaticamente i dati di telemetria. In genere è necessario usare:
 
-* TrackPageView(pageName) nel passare a moduli, pagine o tabelle
-* TrackEvent(eventName) per altre azioni utente
-* TrackMetric(name, value) in un'attività in background per inviare report periodici delle metriche non associate a eventi specifici.
-* TrackTrace(logEvent) per la [registrazione diagnostica][diagnostic]
-* TrackException(exception) in clausole catch
-
-
-Per assicurarsi che tutti i dati di telemetria vengano inviati prima della chiusura dell'app, usare `TelemetryClient.Flush()`. In genere, i dati di telemetria vengono inseriti in batch e inviati a intervalli regolari. Lo scaricamento dei dati è consigliabile unicamente se si usa solo l'API di base. Gli SDK per dispositivi o Web implementano automaticamente questo comportamento.
+* `TrackPageView(pageName)` per il passaggio a form, pagine o schede
+* `TrackEvent(eventName)` per altre azioni utente
+* `TrackMetric(name, value)` in un'attività in background per inviare report periodici della metrica non associata a eventi specifici.
+* `TrackTrace(logEvent)` per la [registrazione diagnostica][diagnostic]
+* `TrackException(exception)` nelle clausole catch
+* `Flush()` per assicurarsi che tutti i dati di telemetria vengano inviati prima della chiusura dell'app. Usare questa chiamata solo se si usa l'API di base Microsoft.ApplicationInsights. Gli SDK per dispositivi e Web implementano automaticamente questo comportamento. Se l'app è in esecuzione in contesti in cui Internet non è sempre disponibile, vedere anche [Canale di persistenza](#persistence-channel).
 
 
 #### Inizializzatori di contesto
@@ -160,12 +162,114 @@ In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati in
 
 Tornare al pannello dell'applicazione nel portale di Azure.
 
-I primi eventi verranno visualizzati in Ricerca diagnostica.
+I primi eventi verranno visualizzati in [Ricerca diagnostica](app-insights-diagnostic-search.md).
 
 Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
-Se si usa TrackMetric o il parametro delle misurazioni di TrackEvent, aprire l'[area di esplorazione delle metriche][metrics] e aprire il pannello Filtri, in cui verranno visualizzate le metriche.
+Se si usa TrackMetric o il parametro delle misurazioni di TrackEvent, aprire [Esplora metriche][metrics] e quindi il pannello Filtri. Dovrebbe essere visualizzata la metrica, ma a volte il trasferimento dei dati attraverso la pipeline richiede alcuni istanti, quindi potrebbe essere necessario chiudere il pannello Filtri, attendere qualche minuto e quindi aggiornare la visualizzazione.
 
+
+
+## Canale di persistenza 
+
+Se l'app viene eseguita in ambienti in cui la connessione Internet non è sempre disponibile o è lenta, è possibile usare il canale di persistenza invece del canale in memoria predefinito.
+
+Il canale in memoria predefinito perde tutti i dati di telemetria che non sono stati inviati prima della chiusura dell'app. Anche se è possibile usare `Flush()` per provare a inviare i dati rimanenti nel buffer, in assenza di una connessione Internet si verificherà un timeout e l'arresto dell'app verrà ritardato.
+
+Al contrario, il canale di persistenza memorizza la telemetria in un file prima di inviare i dati al portale. `Flush()` assicura che i dati siano archiviati nel file. Gli eventuali dati non inviati prima della chiusura dell'app rimangono nel file. Al riavvio dell'app, i dati saranno inviati se è disponibile una connessione Internet. I dati si accumulano nel file per tutto il tempo necessario, finché non sarà disponibile una connessione.
+
+### Per usare il canale di persistenza
+
+1. Importare il pacchetto NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel).
+2. Includere questo codice nell'app in una posizione di inizializzazione appropriata:
+ 
+    ```C# 
+
+      using Microsoft.ApplicationInsights.Channel;
+      using Microsoft.ApplicationInsights.Extensibility;
+      ...
+
+      // Set up 
+      TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
+ 
+      TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+    
+    ``` 
+3. Usare `telemetryClient.Flush()` prima della chiusura dell'app, per assicurare che i dati siano inviati al portale o salvati nel file.
+
+ 
+Il canale di persistenza è ottimizzato per gli scenari con dispositivi in cui il numero di eventi prodotti dall'applicazione è relativamente piccolo e la connessione è spesso inaffidabile. Questo canale scriverà gli eventi prima sul disco in uno spazio di archiviazione affidabile e quindi proverà a inviarli.
+
+#### Esempio
+
+Si supponga di voler monitorare le eccezioni non gestite. Sottoscrivere l'evento `UnhandledException`. Includere nel callback una chiamata a Flush per assicurarsi che la telemetria sia persistente.
+ 
+```C# 
+
+AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
+ 
+... 
+ 
+private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
+{ 
+    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
+    excTelemetry.SeverityLevel = SeverityLevel.Critical; 
+    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
+ 
+    telemetryClient.TrackException(excTelemetry); 
+ 
+    telemetryClient.Flush(); 
+} 
+
+``` 
+
+All'arresto dell'app verrà visualizzato un file in `%LocalAppData%\Microsoft\ApplicationInsights` che contiene gli eventi compressi.
+ 
+Al prossimo avvio dell'applicazione il canale usa questo file e recapita la telemetria ad Application Insights, se possibile.
+
+#### Esempio di test
+
+```C#
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Send data from the last time the app ran
+            System.Threading.Thread.Sleep(5 * 1000);
+
+            // Set up persistence channel
+
+            TelemetryConfiguration.Active.InstrumentationKey = "YOUR KEY";
+            TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+
+            // Send some data
+
+            var telemetry = new TelemetryClient();
+
+            for (var i = 0; i < 100; i++)
+            {
+                var e1 = new Microsoft.ApplicationInsights.DataContracts.EventTelemetry("persistenceTest");
+                e1.Properties["i"] = "" + i;
+                telemetry.TrackEvent(e1);
+            }
+
+            // Make sure it's persisted before we close
+            telemetry.Flush();
+        }
+    }
+}
+
+```
+
+
+Il codice del canale di persistenza è disponibile in [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel).
 
 
 ## <a name="usage"></a>Passaggi successivi
@@ -190,4 +294,4 @@ Se si usa TrackMetric o il parametro delle misurazioni di TrackEvent, aprire l'[
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -3,7 +3,7 @@
    description="Una panoramica della configurazione delle descrizioni del servizio per il bilanciamento delle risorse da utilizzare"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Panoramica delle descrizioni del servizio
 
@@ -229,4 +229,4 @@ Per ulteriori informazioni: [Architettura del bilanciamento delle risorse](servi
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

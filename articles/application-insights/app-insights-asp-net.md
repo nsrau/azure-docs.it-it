@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
 
 
@@ -154,11 +154,13 @@ Per un'applicazione importante è consigliabile inviare dati di telemetria da de
 
 
 
-## Aggiungere il rilevamento delle dipendenze
+## Aggiungere i contatori delle prestazioni del sistema e del rilevamento delle dipendenze
 
 Queste [metriche relative alle dipendenze](app-insights-dependencies.md) possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni. Misurano le chiamate dall'app a database, API REST e altri componenti esterni.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
+
+Questo passaggio consente inoltre il [report dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters) come il CPU,la memoria, l’occupazione della rete.
 
 #### Se l'app è in esecuzione nel server IIS
 
@@ -172,7 +174,11 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ![Nell'app Web scegliere Impostazioni, Estensioni, Aggiungi, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-Quest’estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di strumentare un'app esistente.
+Quest’estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
+
+#### Ruoli di servizi per il monitoraggio cloud di Azure
+
+Esiste una [procedura manuale per aggiungere il monitoraggio dello stato](app-insights-cloudservices.md).
 
 ## Test Web di disponibilità
 
@@ -220,4 +226,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

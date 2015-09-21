@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Creazione di uno snapshot di un BLOB"
+<properties
+	pageTitle="Creare uno snapshot di un blob | Microsoft Azure"
 	description="Guida introduttiva alla creazione di snapshot dei BLOB di archiviazione di Azure"
 	services="storage"
 	documentationCenter=""
@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tamram"/>
 
 # Creare uno snapshot del BLOB
@@ -30,7 +30,7 @@ Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengon
 
 Eventuali lease associati al BLOB di base non vengono copiati nello snapshot. Non è possibile acquisire un lease in uno snapshot.
 
-## Copia di snapshot 
+## Copiare gli snapshot
 
 Le operazioni di copia che interessano BLOB e snapshot si attengono alle seguenti regole:
 
@@ -42,15 +42,15 @@ Le operazioni di copia che interessano BLOB e snapshot si attengono alle seguent
 
 - Quando si crea uno snapshot di un BLOB in blocchi, anche l'elenco di blocchi di cui è stato eseguito il commit del BLOB viene copiato nello snapshot. Eventuali blocchi di cui non è stato eseguito il commit non vengono copiati.
 
-## Specifica di una condizione di accesso 
+## Specificare una condizione di accesso
 
-È possibile specificare una condizione di accesso in modo da creare lo snapshot solo se viene soddisfatta tale condizione. Per specificare una condizione di accesso, usare la proprietà AccessCondition. Se la condizione specificata non viene soddisfatta, lo snapshot non viene creato e il servizio BLOB restituisce il codice di stato HTTPStatusCode.PreconditionFailed.
+È possibile specificare una condizione di accesso in modo da creare lo snapshot solo se viene soddisfatta tale condizione. Per specificare una condizione di accesso, usare la proprietà **AccessCondition**. Se la condizione specificata non viene soddisfatta, lo snapshot non viene creato e il servizio BLOB restituisce il codice di stato HTTPStatusCode.PreconditionFailed.
 
-## Eliminazione di snapshot 
+## Eliminare gli snapshot
 
 Non è possibile eliminare un BLOB contenente snapshot a meno che non vengano eliminati anche gli snapshot. È possibile eliminare uno snapshot singolarmente o indicare al servizio di archiviazione di eliminare tutti gli snapshot quando si elimina il BLOB di origine. Se si tenta di eliminare un BLOB che presenta ancora degli snapshot, viene restituito un errore.
 
-## Snapshot con Archiviazione Premium
+## Snapshot con archiviazione Premium di Azure
 Per usare snapshot con Archiviazione Premium è necessario attenersi alle regole seguenti:
 
 - Il numero di snapshot per BLOB di pagine in un account di Archiviazione Premium è limitato a 100. Se tale limite viene superato, l'operazione Snapshot BLOB restituisce il codice errore 409 (**SnapshotCountExceeded**).
@@ -61,14 +61,14 @@ Per usare snapshot con Archiviazione Premium è necessario attenersi alle regole
 
 - Per leggere uno snapshot, è possibile usare l'operazione Copy BLOB per copiare uno snapshot in un altro BLOB di pagine nell'account. Il BLOB di destinazione per l'operazione di copia non deve contenere snapshot. Se il BLOB di destinazione contiene degli snapshot, l'operazione Copy BLOB restituisce il codice errore 409 (**SnapshotsPresent**).
 
-## L'URI assoluto deve tornare ad uno snapshot 
+## Restituire l'URI assoluto a uno snapshot
 
 Questo esempio di codice c# consente di creare un nuovo snapshot e scrive l'URI assoluto per la posizione primaria.
 
     //Create the blob service client object.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
+
     //Get a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
     container.CreateIfNotExists();
@@ -93,7 +93,7 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 - Quando si sostituisce un blocco all'interno di un BLOB in blocchi, tale blocco viene successivamente addebitato come blocco univoco. Ciò è vero persino se il blocco ha lo stesso ID blocco e la stessa data che ha nello snapshot. Una volta che il blocco viene inviato nuovamente, differisce dalla controparte in ogni snapshot e all'utente verrà addebitato un costo per i relativi dati. Lo stesso rimane vero per una pagina in un BLOB di pagine che viene aggiornata con dati identici.
 
-- Se si sostituisce un BLOB in blocchi richiamando il metodo UploadFile, UploadText, UploadStream o UploadByteArray vengono sostituiti tutti i blocchi di quel BLOB. Se si dispone di uno snapshot associato al BLOB, tutti i blocchi del BLOB di base e lo snapshot ora differiranno e all'utente verranno addebitati i costi di tutti i blocchi in entrambi i BLOB. Questo vale persino se i dati nel BLOB di base e nello snapshot restano identici.
+- Se si sostituisce un BLOB in blocchi richiamando il metodo **UploadFile**, **UploadText**, **UploadStream** o **UploadByteArray** vengono sostituiti tutti i blocchi di quel BLOB. Se si dispone di uno snapshot associato al BLOB, tutti i blocchi del BLOB di base e lo snapshot ora differiranno e all'utente verranno addebitati i costi di tutti i blocchi in entrambi i BLOB. Questo vale persino se i dati nel BLOB di base e nello snapshot restano identici.
 
 - Il servizio BLOB di Azure non dispone dei mezzi per determinare se due blocchi contengono dati identici. Ogni blocco che viene caricato e inviato viene trattato come univoco, persino se contiene gli stessi dati e ha lo stesso ID blocco. Poiché i costi aumentano per i blocchi univoci, è importante considerare che se si aggiorna un BLOB che contiene uno snapshot si genereranno altri blocchi univoci e costi aggiuntivi.
 
@@ -101,7 +101,7 @@ Nell'elenco seguente sono inclusi i punti principali da considerare quando si cr
 
 > - Eliminare e ricreare gli snapshot associati a un BLOB ogni volta che si aggiorna il BLOB, persino se l'aggiornamento viene eseguito con dati identici, a meno che la progettazione dell'applicazione non richieda di mantenerli. Eliminando e ricreando gli snapshot del BLOB è possibile essere sicuri che il BLOB e gli snapshot non differiscano.
 
-> - Se si stanno gestendo gli snapshot di un BLOB, evitare di chiamare UploadFile, UploadText, UploadStream, o UploadByteArray per aggiornare il BLOB, in quanto questi metodi sostituiscono tutti i blocchi del BLOB. Aggiornare, invece, il minor numero possibile di blocchi usando i metodi PutBlock e PutBlockList.
+> - Se si stanno gestendo gli snapshot di un BLOB, evitare di chiamare **UploadFile**, **UploadText**, **UploadStream**, o **UploadByteArray** per aggiornare il BLOB, in quanto questi metodi sostituiscono tutti i blocchi del BLOB. Aggiornare, invece, il minor numero possibile di blocchi usando i metodi **PutBlock** e **PutBlockList**.
 
 
 ### Scenari di fatturazione degli snapshot
@@ -118,11 +118,11 @@ Nello Scenario 2, il BLOB di base è stato aggiornato, ma lo snapshot no. Il blo
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 Nello Scenario 3, il BLOB di base è stato aggiornato, ma lo snapshot no. Il blocco 3 è stato sostituito con il blocco 4 nel BLOB di base, ma lo snapshot continua a riflettere il blocco 3. Di conseguenza, all'account vengono addebitati quattro blocchi.
- 
+
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
-Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci. Questo scenario può verificarsi se si sta usando un metodo di aggiornamento come UploadFile, UploadText, UploadFromStream o UploadByteArray, in quanto questi metodi sostituiscono tutto il contenuto di un BLOB.
+Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci. Questo scenario può verificarsi se si sta usando un metodo di aggiornamento come **UploadFile**, **UploadText**, **UploadFromStream** o **UploadByteArray**, in quanto questi metodi sostituiscono tutto il contenuto di un BLOB.
 
 ![Risorse di archiviazione di Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

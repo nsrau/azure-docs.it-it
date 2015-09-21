@@ -47,7 +47,7 @@ L'agente viene automaticamente installato e configurato per l'area di lavoro di 
 
 ![Immagine della pagina dei server di Operational Insights](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]L'[agente VM di Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) deve essere installato per installare automaticamente Operational Insights.
+ >[AZURE.NOTE]L'[agente VM di Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) deve essere installato per installare automaticamente Operational Insights. Se si dispone di una macchina virtuale di gestione risorse di Azure non verrà visualizzato nell'elenco ed è necessario utilizzare PowerShell o creare un modello ARM per installare l'agente.
 
 
 
@@ -56,6 +56,8 @@ L'agente viene automaticamente installato e configurato per l'area di lavoro di 
 Se si preferisce usare script per apportare modifiche alle macchine virtuali di Azure, è possibile abilitare Microsoft Monitoring Agent con PowerShell.
 
 Microsoft Monitoring Agent è una [estensione della macchina virtuale di Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) che può essere gestita tramite PowerShell, come illustrato nell'esempio riportato di seguito.
+
+Utilizzare questo PowerShell per macchine virtuali "classiche” di Azure:
 
 ```powershell
 Add-AzureAccount
@@ -67,8 +69,26 @@ $hostedService="enter hosted service here"
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
+Utilizzare questo PowerShell per macchine virtuali di Gestione risorse di Azure:
 
-Quando si esegue la configurazione tramite PowerShell, è necessario specificare l'ID e la chiave primaria dell'area di lavoro, che sono riportati nella pagina **Servers** del portale di Operational Insights.
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
+```
+
+Quando si esegue la configurazione tramite PowerShell, è necessario specificare l'ID e la chiave primaria dell'area di lavoro, che sono riportati nella pagina **Impostazioni** del portale di Operational Insights.
 
 ![origini](./media/operational-insights-analyze-data-azure/sources01.png)
 
@@ -249,4 +269,4 @@ Entro un'ora circa i dati dell'account di archiviazione inizieranno a essere dis
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

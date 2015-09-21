@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Installazione personalizzata di Azure Ad Connect"
-	description="In questo documento vengono descritte le opzioni di installazione personalizzata per Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Installazione personalizzata di Azure Ad Connect" 
+	description="In questo documento vengono descritte le opzioni di installazione personalizzata per Azure AD Connect." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory"  
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Installazione personalizzata di Azure Ad Connect
@@ -184,17 +184,6 @@ Con la modalità di gestione temporanea è possibile eseguire la configurazione 
 
 In modalità di gestione temporanea, è possibile apportare le modifiche necessarie al motore di sincronizzazione ed esaminare gli elementi da esportare. Durante la configurazione sembra essere corretta, eseguire nuovamente l'installazione guidata e disattivare la modalità di gestione temporanea. In questo modo sarà possibile esportare i dati in Azure AD. Assicurarsi di disabilitare l'altro server allo stesso tempo, in modo che soltanto un server esegua l’esportazione in modo attivo.
 
-### Impedire eliminazioni accidentali
-Durante l'installazione di Azure AD Connect verrà attivata per impostazione predefinita la funzionalità per evitare le eliminazioni accidentali e verrà configurata in modo da non consentire un'esportazione con più di 500 eliminazioni. 500 è un valore predefinito e può essere modificato. Con questa funzionalità abilitata, in caso di un numero eccessivo di eliminazioni, l'esportazione non continuerà e si riceverà un messaggio di posta elettronica simile a quello riportato di seguito:
-
-![Filtro sincronizzazione](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-Se si tratta di un messaggio inatteso, ricercare la causa e intraprendere eventuali azioni correttive.
-
-Per disabilitare temporaneamente la protezione e consentire l’esportazione di queste eliminazioni, eseguire: Disable-ADSyncExportDeletionThreshold
-
-Per riabilitare la protezione o per modificare l'impostazione della soglia predefinita, eseguire: Enable-ADSyncExportDeletionThreshold
 
 
 ## Configurazione della federazione con ADFS
@@ -279,4 +268,4 @@ Inoltre, eseguire i passaggi di verifica seguenti:
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

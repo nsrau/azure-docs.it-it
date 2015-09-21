@@ -76,7 +76,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 |	Utenti con anomalie dell'attività di accesso | | |	✓ |
 |	Utenti con credenziali perse | | |	✓ |
 |	**Log attività**
-|	Report di controllo |	✓ | | |
+|	Report di controllo |	✓ |	✓ |	✓ |
 |	Attività di reimpostazione password | | |	✓ |
 |	Attività di registrazione reimpostazione password | | |	✓ |
 |	Attività dei gruppi self-service | | |	✓ |
@@ -276,4 +276,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure"
+	pageTitle="Elenco di controllo di prestazioni e scalabilità per Archiviazione di Azure | Microsoft Azure"
 	description="Un elenco di controllo delle procedure consolidate per l'utilizzo dell'archiviazione di Azure nello sviluppo di applicazioni ad elevate prestazioni."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
+	manager="carolz"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
@@ -104,7 +104,7 @@ Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo 
 -	Se l'applicazione raggiunge gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi (vedere [Tentativi](#subheading14)). È meglio cercare di non raggiungere mai gli obiettivi di scalabilità (usando uno dei metodi descritti), tuttavia questo comporta che l'applicazione non riprende a eseguire rapidamente nuovi tentativi, peggiorando così la limitazione.  
 
 ####Risorse utili
-I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità: - È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure in MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx). - Ulteriori informazioni sulle opzioni di ridondanza di archiviazione nel blog post [Opzioni di ridondanza di Archiviazione di Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)– vedere la sezione successiva per ulteriori dettagli. - Per informazioni aggiornate sui prezzi per i servizi di Azure, vedere [Panoramica dei prezzi di Azure](http://azure.microsoft.com/pricing/overview/).
+I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabilità: - È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure in MSDN](storage-scalability-targets.md). - Vedere [Replica di archiviazione di Azure](storage-redundancy.md) e il blog post [Opzioni di ridondanza di Archiviazione di Azure e Archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) per informazioni sulle opzioni di ridondanza di archiviazione. - Per informazioni aggiornate sui prezzi per i servizi di Azure, vedere [Prezzi di Azure](http://azure.microsoft.com/pricing/overview/).
 
 ###Rete
 Oltre alle chiamate API, anche i vincoli fisici della rete dell'applicazione hanno spesso effetti significativi sulle prestazioni. Di seguito vengono descritte alcune limitazioni che gli utenti possono incontrare.
@@ -117,7 +117,7 @@ Per la larghezza di banda il problema dipende spesso dalle capacità del client.
 Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva. L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.
 
 #####Risorse utili
-Per altre informazioni sulle dimensioni delle macchine virtuali e sulla larghezza di banda allocata, vedere [Procedure consigliate per la progettazione di servizi su larga scala nei servizi cloud di Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx) in MSDN.
+Per altre informazioni sulle dimensioni della macchina virtuale e la larghezza di banda allocata, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md).
 
 ####<a name="subheading4"></a>Posizione
 In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un sito Web di Azure che usa l'archiviazione di Azure, posizionare entrambi in un'unica area (ad esempio, Stati Uniti occidentali o Asia sudorientale). In questo modo si riducono latenza e costi. Attualmente, infatti, l'uso della larghezza di banda in un'unica area è gratuito.
@@ -139,7 +139,7 @@ Entrambe le tecnologie possono aiutare a evitare carichi o colli di bottiglia no
 ####Risorse utili
 Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/).
 
-Per altre informazioni sulla condivisione risorse tra le origini, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per i servizi di archiviazione Azure in MSDN](http://msdn.microsoft.com/library/azure/dn535601.aspx).
+Per altre informazioni sulla condivisione risorse tra le origini, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per i servizi di archiviazione Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
 ###Memorizzazione nella cache
 ####<a name="subheading7"></a>Recupero dei dati
@@ -149,7 +149,7 @@ In alcuni casi si può impostare l'applicazione in modo che consideri valido il 
 
 I dati di configurazione, di ricerca e altri dati usati di frequente dall'applicazione sono ottimi candidati per la memorizzazione nella cache.
 
-Per un esempio di come recuperare le proprietà di un BLOB per individuare la data dell'ultima modifica con .NET, vedere [Impostare e recuperare proprietà e metadati](http://msdn.microsoft.com/library/azure/hh225342.aspx) in MSDN. Per altre informazioni sui download condizionali, vedere [Aggiornare una copia locale di un Blob in modo condizionale](http://msdn.microsoft.com/library/azure/dd179371.aspx) in MSDN.
+Per un esempio di come recuperare le proprietà di un BLOB per individuare la data dell'ultima modifica con .NET, vedere [Impostare e recuperare proprietà e metadati](storage-properties-metadata.md). Per altre informazioni sui download condizionali, vedere [Aggiornare una copia locale di un Blob in modo condizionale](http://msdn.microsoft.com/library/azure/dd179371.aspx).
 
 ####<a name="subheading8"></a>Caricamento dei dati in batch
 In alcuni scenari dell'applicazione è possibile aggregare i dati localmente e caricarli periodicamente in un batch invece di caricare subito i singoli dati. Ad esempio, un'applicazione Web può mantenere un file di log delle attività: l'applicazione può caricare i dettagli delle singole attività man mano che vengono eseguite come entità di tabella (il che richiede molte operazioni di archiviazione) oppure può salvarli in un file di log locale e caricare periodicamente tutti i dettagli dell'attività in un file delimitato in un BLOB. Se ogni voce di log ha una dimensione pari a 1 KB, è possibile caricare migliaia di voci in un'unica transazione “Put Blob” (è possibile caricare un BLOB con una dimensione massima di 64 MB in un'unica transazione). Ovviamente se il computer locale si arresta prima del caricamento, è possibile che vengano persi dei dati del log: lo sviluppatore di applicazioni deve tenere conto della possibilità di un arresto del dispositivo client o del caricamento. Se i dati dell'attività devono essere scaricati in base agli intervalli di tempo (non alle singole attività), si consiglia di usare i BLOB invece delle tabelle.
@@ -166,19 +166,19 @@ In .NET, il seguente codice aumenta il limite di connessione predefinito (in gen
 
 Per gli altri linguaggi di programmazione, vedere la documentazione specifica per determinare come impostare il limite di connessione.
 
-Per altre informazioni, vedere il post [Servizi Web: connessioni simultanee](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx) in MSDN.
+Per altre informazioni, vedere il blog post [Servizi Web: connessioni simultanee](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).
 
 ####<a name="subheading10"></a>Aumentare il numero minimo di thread di ThreadPool se si usa codice sincrono con attività asincrone
 Questo codice aumenta il numero minimo di thread del pool di thread:
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Per altre informazioni, vedere il [Metodo ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx) in MSDN.
+Per altre informazioni, vedere il [Metodo ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).
 
 ####<a name="subheading11"></a>Vantaggi della funzionalità Garbage Collection di .NET 4.5
 Usare .NET 4.5 o versione successiva per consentire all'applicazione client di sfruttare i miglioramenti delle prestazioni relativi alla funzionalità Garbage Collection del server.
 
-Per altre informazioni, vedere l'articolo [Panoramica dei miglioramenti delle prestazioni in .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx) in MSDN.
+Per altre informazioni, vedere l'articolo [Panoramica dei miglioramenti delle prestazioni in .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).
 
 ###<a name="subheading12"></a>Parallelismo non associato
 Il parallelismo è un metodo efficace per mantenere il livello delle prestazioni, tuttavia è necessario prestare attenzione quando si usa il parallelismo non associato (senza limiti sul numero di thread e/o di richieste parallele) per caricare o scaricare i dati, quando si usano più lavori per accedere a diverse partizioni (contenitori, code o partizioni di tabelle) nello stesso account di archiviazione o per accedere a più elementi nella stessa partizione. Se il parallelismo non è associato, l'applicazione può superare le capacità del dispositivo client o gli obiettivi di scalabilità dell'account di archiviazione producendo latenze più lunghe e limitazioni.
@@ -205,7 +205,7 @@ Oltre alle procedure comprovate per [Tutti i servizi](#allservices) descritte pr
 ####<a name="subheading16"></a>Larghezza di banda e operazioni per BLOB
 È possibile leggere o scrivere in un singolo BLOB a un massimo di 60 MB/secondo (circa 480 Mbps, un valore che supera le capacità di molte reti sul lato client inclusa la scheda di interfaccia di rete fisica nel dispositivo client). Inoltre, un singolo BLOB supporta fino a 500 richieste al secondo. Se si hanno più client che devono leggere lo stesso BLOB e si teme di superare questi limiti, valutare l'uso di una rete CDN per la distribuzione del BLOB.
 
-Per altre informazioni sulla velocità effettiva da raggiungere per i BLOB, vedere [Obiettivi di scalabilità e prestazioni di Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx) in MSDN.
+Per altre informazioni sulla velocità effettiva da raggiungere per i BLOB, vedere [Obiettivi di scalabilità e prestazioni di Azure](storage-scalability-targets.md).
 
 ###Copia e spostamento dei BLOB
 ####<a name="subheading17"></a>Copia Blob
@@ -215,7 +215,7 @@ Tuttavia, tenere presente che quando si eseguono copie tra gli account di archiv
 
 Le copie nello stesso account di archiviazione vengono generalmente completate rapidamente.
 
-Per altre informazioni, vedere [Copy Blob in MSDN](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+Per altre informazioni, vedere [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Usare AzCopy
 Il tema di archiviazione di Azure ha rilasciato lo strumento da riga di comando “AzCopy” progettato per supportare il trasferimento bulk di più BLOB verso, da e tra account di archiviazione. Questo strumento è ottimizzato per questo scenario e può raggiungere elevate velocità di trasferimento. Se ne consiglia l'uso negli scenari di caricamento, download e copia bulk. Per altre informazioni sullo strumento e per scaricarlo, andare [qui](storage-use-azcopy.md).
@@ -226,7 +226,7 @@ Per volumi di dati molto grandi (più di 1 TB), l'archiviazione di Azure offre i
 ###<a name="subheading20"></a>Usare i metadati
 Il servizio BLOB supporta le richieste head che possono includere i metadati relativi al BLOB. Ad esempio, se l'applicazione richiede i dati EXIF inclusi in una foto, può recuperare la foto ed estrarli. Per risparmiare larghezza di banda e migliorare le prestazioni, l'applicazione può archiviare i dati EXIF nei metadati del BLOB quando l'applicazione carica la foto: i dati EXIF possono essere poi recuperati nei metadati usando semplicemente una richiesta HEAD, risparmiando una notevole quantità di larghezza di banda e il tempo di elaborazione necessario a estrarre i dati EXIF a ogni lettura del BLOB. Questa funzionalità è utile in scenari in cui sono necessari solo i metadati e non l'intero contenuto di un BLOB. È possibile archiviare solo 8 KB di metadati per BLOB (il servizio non accetta richieste per valori superiori), quindi se i dati superano queste dimensioni non sarà possibile usare questo approccio.
 
-Per un esempio su come recuperare i metadati di un BLOB con .NET, vedere [Impostare e recuperare proprietà e metadati](http://msdn.microsoft.com/library/azure/hh225342.aspx) in MSDN.
+Per un esempio su come recuperare i metadati di un BLOB con .NET, vedere [Impostare e recuperare proprietà e metadati](storage-properties-metadata.md).
 
 ###Caricamento rapido
 Per caricare rapidamente i BLOB, è necessario definire se caricare un solo BLOB o più BLOB. Usare le indicazioni seguenti per determinare il metodo corretto da usare a seconda dello scenario.
@@ -245,7 +245,7 @@ Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura pi�
 ###<a name="subheading23"></a>Scelta del tipo di BLOB corretto
 Archiviazione di Azure supporta due tipi di BLOB: BLOB di *pagine* e BLOB in *blocchi*. Per un determinato scenario di utilizzo, la scelta del tipo di BLOB influisce sulle prestazioni e sulla scalabilità della soluzione. I BLOB in blocchi sono appropriati quando si vogliono caricare grandi quantità di dati in modo efficace: ad esempio nel caso di un'applicazione client che necessita di caricare foto o video nell'archiviazione BLOB. I BLOB di pagine sono appropriati quando l'applicazione deve eseguire scritture casuali sui dati: ad esempio, i dischi rigidi virtuali di Azure vengono archiviati come BLOB di pagine.
 
-Per altre informazioni, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx) in MSDN.
+Per altre informazioni, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tabelle
 Oltre alle procedure comprovate per [Tutti i servizi](#allservices) descritte prima, le seguenti procedure comprovate si applicano specificamente al servizio tabelle.
@@ -265,7 +265,7 @@ In questa sezione vengono elencate diverse impostazioni di configurazione rapide
 ####<a name="subheading25"></a>Usare JSON
 A partire dalla versione del servizio di archiviazione 2013-08-15, il servizio tabelle supporta l'uso di JSON al posto del formato AtomPub basato su XML per il trasferimento dei dati della tabella. Ciò consente di ridurre le dimensioni del payload di una percentuale massima del 75% e può migliorare notevolmente le prestazioni dell'applicazione.
 
-Per ulteriori informazioni, vedere il post [Tabelle di Microsoft Azure: Introduzione a JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [formato di Payload per operazioni del servizio tabelle](http://msdn.microsoft.com/library/azure/dn535600.aspx) in MSDN.
+Per ulteriori informazioni, vedere il post [Tabelle di Microsoft Azure: Introduzione a JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [formato di Payload per operazioni del servizio tabelle](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ####<a name="subheading26"></a>Disattivazione di Nagle
 L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). Nell'archiviazione di Azure l'algoritmo Nagle ha un impatto negativo sulle prestazioni delle richieste ai servizi tabelle e code e, se possibile, dovrebbe essere disabilitato.
@@ -353,7 +353,7 @@ A volte sembra che i dati strutturati debbano essere inseriti nelle tabelle, tut
 ###<a name=subheading39"></a>Limiti di scalabilità
 Una singola coda può elaborare circa 2000 messaggi (da 1 KB ciascuno) al secondo (in questo caso, i metodi AddMessage, GetMessage e DeleteMessage vengono considerati come singoli messaggi). Se questo non è sufficiente per l'applicazione, è consigliabile usare più code e distribuire i messaggi fra di esse.
 
-È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni di Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx) in MSDN.
+È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni di Azure](storage-scalability-targets.md).
 
 ###<a name=subheading40"></a>Disattivazione di Nagle
 Vedere la sezione nella configurazione della tabella che descrive l'algoritmo Nagle. Questo algoritmo in genere ha un effetto negativo sulle prestazioni delle richieste relative alle code ed è opportuno disabilitarlo.
@@ -384,4 +384,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

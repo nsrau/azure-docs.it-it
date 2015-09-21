@@ -1,19 +1,19 @@
-<properties 
+<properties
  pageTitle="Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali | Microsoft Azure"
-	description="Illustra molte delle estensioni delle macchine virtuali disponibili, raggruppate in base a ciò che offrono o migliorano, ad esempio connettività e gestione di base."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="Illustra molte delle estensioni delle macchine virtuali disponibili, raggruppate in base a ciò che offrono o migliorano, ad esempio connettività e gestione di base."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""/>
+<tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="rasquill"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="09/03/2015"
+ ms.author="rasquill"/>
 #Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali
 Microsoft Azure fornisce estensioni di VM sviluppate da Microsoft e da provider di terze parti attendibili per abilitare funzionalità relative a sicurezza, runtime, debug, gestione e di altro tipo che possono consentire di migliorare la produttività con le macchine virtuali di Azure. Questo argomento illustra le diverse funzionalità offerte dalle estensioni di VM di Azure per le macchine virtuali Windows e Linux usate e indica la documentazione specifica corrispondente.
 
@@ -94,6 +94,6 @@ Queste estensioni forniscono il supporto per altre funzionalità delle VM che po
 |Nome estensione VM|Descrizione della funzionalità|Altre informazioni|
 |---|---|---|
 |**BGInfo**|Quando si usa RDP, presenta sul desktop un'immagine consolidata delle informazioni utili sul server.|[Estensione BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
-|**HpcVmDrivers**|Installa, configura e gestisce i driver dei seguenti dispositivi di rete in una macchina virtuale di dimensioni A8 o A9 in modo che la macchina virtuale possa accedere alla rete con Accesso diretto a memoria remota (RDMA) di Azure.|[Estensione HpcVmDrivers](https://msdn.microsoft.com/library/dn690126.aspx)
+|**HpcVmDrivers**|Installa, configura e mantiene i driver del dispositivo di rete (RDMA) d’accesso alla memoria diretto remoto in una macchina virtuale di dimensioni A8 o A9 che esegue il server di Windows 2012 R2 il server di Windows 2012. Abilita le macchine virtuali A8 o A9 con cluster ad utilizzare la rete RDMA durante l'esecuzione di applicazioni MPI parallele.|[Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

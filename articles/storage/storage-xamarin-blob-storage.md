@@ -7,16 +7,14 @@
 	manager="carolz" 
 	editor=""/>
 
-
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
-
 
 # Come usare l'archivio BLOB da Xamarin (anteprima)
 
@@ -181,4 +179,4 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 [Come usare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

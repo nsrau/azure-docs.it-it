@@ -451,7 +451,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il locale dell'applicazione sul client. Se non specificato in modo esplicito per l'elemento di telemetria, proviene dall'elaborazione del campo agente utente. 
 
-    *Esempi*<br/> ru<br/>it-it<br/>de-DE<br/>sconosciuto
+    *Esempi*<br/> ru<br/>it-IT<br/>de-DE<br/>sconosciuto
 
 **machineName**
 
@@ -679,6 +679,18 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
     string context.user.accountId      Max: 100
 * 
     Un identificatore univoco che definisce un account all'interno dell'applicazione. Si tratta di uno sviluppatore fornito. 
+
+### Metriche personalizzate
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
 
 
 ## remotedependency
@@ -1069,4 +1081,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

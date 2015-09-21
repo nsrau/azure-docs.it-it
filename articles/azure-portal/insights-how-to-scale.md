@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Scalare il conteggio delle istanze manualmente o automaticamente
@@ -137,4 +137,4 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

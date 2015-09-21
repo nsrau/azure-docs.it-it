@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Passaggio 4: Eseguire il training e valutare i modelli analitici predittivi | Microsoft Azure" 
-	description="Passaggio 4 della procedura dettagliata Sviluppare una soluzione predittiva: Eseguire il training, classificare e valutare più modelli in Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Passaggio 4: Eseguire il training e valutare i modelli analitici predittivi | Microsoft Azure"
+	description="Passaggio 4 della procedura dettagliata Sviluppare una soluzione predittiva: Eseguire il training, classificare e valutare più modelli in Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Questo è il quarto passaggio della procedura dettagliata, [Sviluppo di una solu
 2.	[Caricare i dati esistenti](machine-learning-walkthrough-2-upload-data.md)
 3.	[Creare un nuovo esperimento](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	**Eseguire il training e valutare i modelli**
-5.	[Pubblicare il servizio Web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Distribuire il servizio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -51,7 +51,7 @@ Prima di tutto verrà configurato il modello di albero delle decisioni con boost
 Questa parte dell'esperimento avrà ora un aspetto analogo al seguente:
 
 ![Training a model][1]
- 
+
 Successivamente, si procederà alla configurazione del modello di macchina a vettori di supporto
 
 Gli alberi delle decisioni con boosting funzionano bene con qualsiasi tipo di funzionalità. Poiché tuttavia il modulo di macchina a vettori di supporto genera un classificatore lineare, il modello che genera ha l'errore di test migliore quando gli elementi numerici hanno la stessa scala. Per convertire tutte le funzioni numeriche nella stessa scala, si usa il modulo [Normalize Data][normalize-data] con una trasformazione tanh, che trasforma gli elementi nell'intervallo [0,1]. Notare che gli elementi numerici vengono convertiti dal modulo SVM in elementi di categoria e quindi in elementi 0/1 binari, quindi non è necessario trasformare manualmente gli elementi stringa. Non si deve inoltre trasformare la colonna Credit Risk (colonna 21): si tratta di un valore numerico, ma è anche il valore per il quale il modulo deve eseguire la previsione dopo il training e non dovrà pertanto essere alterato.
@@ -79,7 +79,7 @@ Verranno usati i dati di assegnazione del punteggio separati dal modulo **Dividi
 
 1.	Trovare il modulo [Calcola punteggio modello][score-model] e trascinarlo nell'area di disegno.
 2.	Connettere la porta di input sinistra di questo modulo al modello di albero delle decisioni con boosting (connetterlo alla porta di output del modulo [Esegui training modello][train-model] connesso al modulo [Albero delle decisioni con boosting a due classi][two-class-boosted-decision-tree]).
-3.	Connettere la porta di input destra del modulo [Calcola punteggio modello][score-model] all'output del modulo [Esecuzione script R][execute-r-script] destro. 
+3.	Connettere la porta di input destra del modulo [Calcola punteggio modello][score-model] all'output del modulo [Esecuzione script R][execute-r-script] destro.
 4.	Copiare e incollare il modulo [Calcola punteggio modello][score-model] per creare una seconda copia, oppure trascinare un nuovo modulo nell'area di disegno.
 5.	Connettere la porta di input sinistra di questo modulo al modello di macchina a vettori di supporto (connetterla alla porta di output del modulo [Esegui training modello][train-model] connesso al modulo [Macchina a vettori di supporto a due classi][two-class-support-vector-machine]).
 6.	Per il modello SVM, è necessario eseguire la stessa trasformazione sui dati di test eseguita in precedenza sui dati di training. Copiare e incollare il modulo [Normalize Data][normalize-data] per creare una seconda copia e connetterla all'output del modulo [Execute R Script][execute-r-script] destro.
@@ -94,7 +94,7 @@ Per valutare i due risultati di punteggio verrà usato il modulo [Valuta modello
 L'esperimento avrà ora un aspetto analogo al seguente:
 
 ![Evaluating both models][3]
- 
+
 Fare clic sul pulsante **ESEGUI** sotto l'area di disegno per eseguire l'esperimento. L'operazione potrebbe richiedere alcuni minuti. Verrà visualizzato un indicatore rotante su ogni modulo per indicare che il modulo è in esecuzione, quindi un segno di spunta verde quando l'esecuzione di un modulo è terminata.
 
 Quando tutti i moduli presentano il segno di spunta, l'esecuzione dell'esperimento sarà completa. Per verificare i risultati, fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] e selezionare **View Results**.
@@ -104,7 +104,7 @@ Il modulo [Valuta modello][evaluate-model] produce un paio di curve e metriche c
 Fare clic su **Scored dataset** o su **Scored dataset to compare** per evidenziare la curva associata e visualizzare la metrica associata in basso. Nella legenda per le curve, "Set di dati con punteggio" corrisponde alla porta di input sinistra del modulo [Valuta modello][evaluate-model]. In questo caso si tratta del modello di albero delle decisioni con boosting. "Scored dataset to compare" corrisponde alla porta di input destra, in questo caso il modello di macchina a vettori di supporto. Quando si fa clic su una di queste etichette, verrà evidenziata la curva per quel modello e verrà visualizzata in basso la metrica corrispondente.
 
 ![ROC curves for models][4]
- 
+
 Esaminando i valori è possibile decidere quale sia il modello che più si avvicina ai risultati attesi. È possibile tornare indietro ed eseguire l'iterazione dell'esperimento modificando i valori dei vari modelli.
 
 > [AZURE.TIP]Ogni volta che si esegue l'esperimento, viene conservato un record dell'iterazione nella cronologia di esecuzione. È possibile visualizzare le iterazioni e tornare a una qualsiasi di esse facendo clic su **VISUALIZZA CRONOLOGIA ESECUZIONI** sotto l'area di disegno. È anche possibile fare clic su **Esecuzione precedente** nel riquadro **Proprietà** per tornare all'iterazione immediatamente precedente a quella aperta. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
@@ -116,7 +116,7 @@ Come ulteriore accorgimento per tenere traccia delle modifiche apportate ai para
 
 ----------
 
-**Passaggio successivo: [Pubblicare il servizio Web](machine-learning-walkthrough-5-publish-web-service.md)**
+**Successivo: [Distribuire il servizio web](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
@@ -132,6 +132,5 @@ Come ulteriore accorgimento per tenere traccia delle modifiche apportate ai para
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

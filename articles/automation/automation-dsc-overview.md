@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Panoramica della piattaforma DSC di Automazione di Azure"
-	description="Panoramica della piattaforma DSC (Desired State Configuration) di Automazione di Azure, dei termini a essa relativi e dei problemi noti"
-	services="automation"
-	documentationCenter="dev-center-name"
-	authors="coreyp-at-msft"
-	manager="stevenka"
-	editor="tysonn"/>
+   pageTitle="Panoramica della piattaforma DSC di Automazione di Azure" 
+   description="Panoramica della piattaforma DSC (Desired State Configuration) di Automazione di Azure, dei termini a essa relativi e dei problemi noti" 
+   services="automation" 
+   documentationCenter="dev-center-name" 
+   authors="coreyp-at-msft" 
+   manager="stevenka" 
+   editor="tysonn"/>
 
 <tags
    ms.service="automation"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="TBD"
-	ms.date="08/18/2015"
-	ms.author="coreyp"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="TBD" 
+   ms.date="09/04/2015"
+   ms.author="coreyp"/>
 
 # Panoramica della piattaforma DSC di Automazione di Azure #
 
@@ -193,6 +193,12 @@ La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdle
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
+
+##Ciclo di vita della piattaforma DSC di Automazione di Azure##
+Passando da un account di automazione vuoto a un set gestito di nodi configurati correttamente si generano una serie di processi per la definizione delle configurazioni, l'attivazione di tali configurazioni in configurazioni di nodo e nodi di caricamento per DSC di automazione di Azure e le configurazioni di nodi. Nel diagramma seguente viene illustrato il ciclo di vita DSC di automazione di Azure:
+
+![testo alternativo](./media/automation-dsc-overview/DSCLifecycle.png)
+
 ##Problemi noti:##
 
 - Poiché la piattaforma DSC di Automazione di Azure è in anteprima, la prima volta che si usa tale funzionalità sarà necessario iscriversi mediante cmdlet di Azure PowerShell o il portale di anteprima di Azure. Per iscriversi è possibile chiamare i due cmdlet seguenti:
@@ -226,4 +232,4 @@ La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdle
 
 - I nodi DSC caricati in Automazione di Azure DSC mostrano inizialmente lo stato "Conforme", anche se non sono effettivamente conformi con la configurazione del nodo DSC al quale viene eseguito il mapping. Dopo che il nodo ha eseguito il primo pull nodo e inviato il primo report DSC ad Automazione di Azure DSC, è necessario correggere lo stato del nodo.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

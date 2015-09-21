@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Note sulla versione per Application Insights per Java"
-	description="Gli aggiornamenti più recenti."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Note sulla versione per Application Insights per Java" 
+	description="Gli aggiornamenti più recenti." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
  
 # Note sulla versione per Application Insights SDK per Java
@@ -38,11 +38,11 @@ Dopo l'aggiornamento, è necessario unire nuovamente le personalizzazioni apport
 Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modifiche visibili sono dovute all'aggiunta e alla rimozione di moduli. Ripristinare eventuali personalizzazioni apportate.
 
 ## Versione 1.0.1
-- L'agente Java supporta la raccolta delle informazioni sulle dipendenze per i seguenti elementi:
+- L'[agente Java](app-insights-java-agent.md) raccoglie le informazioni sulle dipendenze per i seguenti elementi:
 	- Chiamate HTTP eseguite tramite HttpClient, OkHttp e RestTemplate (Spring).
 	- Chiamate a Redis effettuate tramite il client Jedis. Quando viene superata una soglia configurabile, l’SDK recupererà inoltre gli argomenti della chiamata.
 	- Chiamate JDBC eseguite con i client Oracle DB e Apache Derby DB.
-	- Supporta il tipo di query 'executeBatch' per le istruzioni preparate: l’SDK visualizzaerà l'istruzione con il numero di batch.
+	- Supporta il tipo di query 'executeBatch' per le istruzioni preparate: l’SDK visualizzerà l'istruzione con il numero di batch.
 	- Fornire il piano di query per i client JDBC che dispongono del relativo supporto (MySql, PostgreSql); il piano di query viene recuperato solo quando viene superata una soglia configurabile
 
 ## Versione 1.0.0
@@ -68,4 +68,4 @@ Confrontare il vecchio e il nuovo file ApplicationInsights.xml. Molte delle modi
 - Possibilità di apporre un tag a un elemento di telemetria come sintetico aggiungendo una proprietà ```SyntheticSource``` all'elemento segnalato.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

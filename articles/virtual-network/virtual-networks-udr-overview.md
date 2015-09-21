@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Route e inoltro IP, definito dall'utente
@@ -90,4 +90,4 @@ Per informazioni su come abilitare l’inoltro IP per una macchina virtuale in A
 - Visualizzare le informazioni su come[creare route](../virtual-networks-udr-how-to#How-to-manage-routes)e associarle alle subnet.
 - Visualizzare le informazioni su come[attivare l'inoltro IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)per una macchina virtuale in esecuzione su un dispositivo virtuale. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

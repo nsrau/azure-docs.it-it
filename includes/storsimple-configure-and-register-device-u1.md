@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="Configurare e registrare il dispositivo"
+   description="Viene illustrato come utilizzare Windows PowerShell per StorSimple per configurare e registrare il dispositivo su cui è in esecuzione l’aggiornamento 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="alkohli" />
+
 
 ### Per configurare e registrare il dispositivo
 
@@ -25,11 +42,11 @@
    - Gateway
    - Indirizzo IP per il server DNS primario
     
-		Notare che il sistema convalida le impostazioni di rete dopo ogni passaggio del processo.
+		Note that the system is validating network settings after each step in the process.
    
       >[AZURE.NOTE]Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate. Se viene visualizzato un messaggio di errore "Controllare la connettività di rete a Data 0", controllare la connessione di rete fisica nell’interfaccia di rete DATA 0 del controllore attivo.
 
-8. (Facoltativo) configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, **tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui**. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Facoltativo) configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, **tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui**. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
 
 9. Configurare un server NTP primario per il dispositivo. I server NTP sono obbligatori, in quanto il dispositivo deve sincronizzare l'ora in modo da poter eseguire l’autenticazione con i provider del servizio cloud. Assicurarsi che la rete consenta il traffico NTP dal datacenter a Internet. Se non è possibile, specificare un server NTP interno.
  
@@ -58,10 +75,12 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        Se lo stato del dispositivo è **Offline**, attendere qualche minuto che il dispositivo torni in linea. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Se il dispositivo è ancora offline dopo alcuni minuti, sarà necessario assicurarsi che la rete del firewall sia stata configurata come illustrato nei [requisiti di rete per il dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Se il supporto per HTTP 1.1 non è disponibile, controllare la porta 9354 per assicurarsi che sia aperta per le comunicazioni in uscita. Questa porta viene usata per le comunicazioni tra il servizio StorSimple Manager e il dispositivo StorSimple.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

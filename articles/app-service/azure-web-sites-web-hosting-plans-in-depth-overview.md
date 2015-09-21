@@ -3,10 +3,9 @@
 	description="Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all'esperienza di gestione." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
-
 
 <tags 
 	ms.service="app-service" 
@@ -14,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="byvinyal"/>
-
 
 #Panoramica approfondita dei piani di Azure App Service#
 
@@ -52,17 +50,11 @@ Infine, se si desidera creare una nuova app in un'area diversa, in cui non è pr
 
 Non è possibile creare un piano di servizio app vuoto. Tuttavia, è possibile creare in modo esplicito un nuovo piano durante la creazione dell'app.
 
-A tale scopo, nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) fare clic su **NUOVO**, quindi selezionare **Web e dispositivi mobili** e infine **App Web**, **App per dispositivi mobili**, **App per la logica** o **app per le API**. È quindi possibile selezionare o creare il piano di servizio app per la nuova app.
- 
-![Domande frequenti sui piani di servizio app](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+A tale scopo, nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) fare clic su **NUOVO**, quindi selezionare **Web e dispositivi mobili** e infine **App Web**, **App per dispositivi mobili**, **App per la logica** o **app per le API**. ![][createWebApp]
 
-##Assegnare un'app a un piano di servizio app
-
-Le app possono essere assegnate a un piano esistente durante il processo di creazione.
-
-A tale scopo, nel [portale di Azure](http://portal.azure.com) fare clic su **NUOVO**, quindi selezionare **Web e dispositivi mobili** e infine **App Web**, **App per dispositivi mobili**, **App per la logica** o **app per le API**. È quindi possibile selezionare o creare il piano di servizio app per la nuova app. Se si fa clic su **Seleziona esistente**, verrà visualizzato l'elenco dei piani esistenti tra cui scegliere.
-
-![Domande frequenti sui piani di servizio app](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+È quindi possibile selezionare o creare il piano di servizio app per la nuova app.
+  
+ ![][createASP]
  
 ## Spostare un'app in un piano di servizio app diverso
 
@@ -72,7 +64,7 @@ Per spostare un'app in un altro piano, passare all'app che si intende spostare e
  
 Verrà aperto il pannello Piano di servizio app. A questo punto, è possibile scegliere un piano esistente o crearne uno nuovo. I piani in posizioni geografiche diverse sono visualizzati in grigio e non possono essere selezionati.
 
-![Domande frequenti sui piani di servizio app](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![][change]
 
 Si noti che è previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal livello **Gratuito** al livello **Standard**, l'app può sfruttare tutte le funzionalità e le risorse del livello **Standard**.
 
@@ -86,7 +78,7 @@ Sono disponibili tre modi per ridimensionare un piano:
 
 Nell'immagine seguente sono visualizzati il pannello **Piano di servizio app** e il pannello **Piano tariffario**. Se si fa clic sulla sezione **piano tariffario** nel pannello **Piano di servizio app**, si espande il pannello **Piano tariffario**, in cui è possibile modificare il piano tariffario e la dimensione dell'istanza per il piano.
  
-![Domande frequenti sui piani di servizio app](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+ ![][pricingtier]
 
 ##Riepilogo
 
@@ -97,5 +89,13 @@ I piani di servizio app rappresentano un set di funzionalità e capacità che è
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+ 
+ 
+ <!-- Images. -->
+[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
+[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
+[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
+[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
+[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

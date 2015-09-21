@@ -13,14 +13,15 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.topic="article" 
+	ms.date="09/04/2015"
 	ms.author="rickbyh"/>
 
 
 # Procedura: configurare le impostazioni del firewall su Database SQL
 
- Il database SQL di Microsoft Azure utilizza le regole del firewall per consentire le connessioni a server e database. È possibile definire le impostazioni del firewall a livello di server e a livello di database per un database master o utente nel server del database SQL di Azure per consentire l'accesso al database in modo selettivo.
+
+Il database SQL di Microsoft Azure utilizza le regole del firewall per consentire le connessioni a server e database. È possibile definire le impostazioni del firewall a livello di server e a livello di database per un database master o utente nel server del database SQL di Azure per consentire l'accesso al database in modo selettivo.
 
 **Importante** Per consentire alle applicazioni da Azure di stabilire la connessione al server di database, è necessario abilitare le connessioni da Azure. Per ulteriori informazioni sulle regole del firewall e l'abilitazione delle connessioni da Azure, vedere [Firewall di database SQL di Azure](sql-database-firewall-configure.md).
 
@@ -30,24 +31,14 @@
 Le regole del firewall a livello di server possono essere create e gestite tramite il portale di gestione di Microsoft Azure, Transact-SQL, Azure PowerShell o API REST.
 
 ### Gestione delle regole del firewall a livello di server tramite il nuovo portale di Azure
-1. Visitare il portale di Azure in https://portal.azure.com e accedere con l'account di Amministratore o Collaboratore di Azure.
-2. Nell'intestazione sinistra, fare clic su SFOGLIA TUTTO, scorrere verso il basso e quindi fare clic su Server SQL.
-3. Fare clic sul server per cui si desidera configurare le regole del firewall nell'elenco dei server SQL visualizzati.
 
-	![firewall][1]
 
-4. Nel pannello server, fare clic su Impostazioni nella parte superiore del pannello e quindi fare clic su Firewall per aprire il pannello Impostazioni del firewall per il server.
-5. Aggiungere o modificare una regola del firewall.
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-	* Per aggiungere l'indirizzo IP del computer in uso, fare clic su **Aggiungi IP client** nella parte superiore del pannello.
-	* Per aggiungere ulteriori indirizzi IP, digitare il **NOME REGOLA**, l’indirizzo **IP INIZIALE** e l’indirizzo **IP FINALE**.
-	* Per modificare una regola esistente, selezionare e modificare i campi nella regola.
-	* Per eliminare una regola esistente, fare clic sulla regola, fare clic sui puntini di sospensione (...) alla fine della riga e quindi fare clic su **Elimina**.
-6. Fare clic su Salva nella parte superiore del pannello Impostazioni del firewall per salvare le modifiche. ![pannello firewall][2] 
 
 ## Gestione delle regole del firewall a livello di server tramite il Portale di gestione 
 
-1. Nel Portale di gestione fare clic su **Database SQL** Di seguito sono elencati tutti i database e i server corrispondenti.
+1. Nel Portale di gestione fare clic su **Database SQL**. Di seguito sono elencati tutti i database e i server corrispondenti.
 2. Fare clic su **Servers** nella parte superiore della pagina.
 3. Fare clic sulla freccia accanto al server per il quale si desidera gestire le regole del firewall.
 4. Fare clic su **Configure** nella parte superiore della pagina.
@@ -150,4 +141,4 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare il primo dat
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

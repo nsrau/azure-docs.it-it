@@ -1,19 +1,19 @@
 <properties
    pageTitle="Backup di Azure in 10 minuti | Microsoft Azure"
-	description="Introduzione a Backup di Azure in 10 minuti"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Introduzione a Backup di Azure in 10 minuti"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
 
-# Provare Backup di Azure in 10 minuti
+# Introduzione al Backup di Azure
 La configurazione di Backup di Azure è estremamente semplice e i video procedurali seguenti forniscono informazioni utili per iniziare.
 
 ## Passaggio 1: Ottenere una sottoscrizione di Azure
-- Se non è disponibile una sottoscrizione di Azure, è possibile iniziare con una versione di valutazione gratuita che consente di accedere a qualsiasi servizio Azure. Per altre informazioni, visitare il collegamento seguente [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial).
+- Se non è disponibile una sottoscrizione di Azure, è possibile iniziare con una versione di valutazione gratuita che consente di accedere a qualsiasi servizio di Azure. Per altre informazioni, visitare il collegamento seguente [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial).
 - Se è disponibile una sottoscrizione di Azure, è possibile ignorare questo passaggio.
 
 ## Passaggio 2: Configurare il servizio Backup di Azure
@@ -46,4 +46,4 @@ Esaminare i passaggi illustrati in questo video[Introduzione a Backup di Azure 3
 - [Backup di Windows Server](backup-azure-backup-windows-server.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
+   ms.date="08/26/2015"
    ms.author="rsinha"/>
 
 # Architettura di Service Fabric
@@ -62,4 +62,4 @@ Questo sottosistema offre messaggistica affidabile nel cluster e rilevamento dei
 Il sottosistema di testabilità è costituito da strumenti progettati specificamente per il test di servizi basati su Service Fabric. Gli strumenti consentono allo sviluppatore di causare, in modo semplice, errori significativi ed eseguire scenari di test per verificare e convalidare i numerosi stati diversi e le transizioni sperimentate da un servizio nel corso della durata, il tutto in modo controllato e sicuro. Questo sottosistema fornisce anche un meccanismo per test a esecuzione prolungata in grado di eseguire l'iterazione di diversi possibili errori senza perdere la disponibilità fornendo agli utenti un ambiente di testing in produzione.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

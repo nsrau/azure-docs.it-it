@@ -91,11 +91,11 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
--   Vedere le informazioni di riferimento in MSDN: [Code, argomenti e sottoscrizioni][].
+-   Vedere [Code, argomenti e sottoscrizioni][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
-[Code, argomenti e sottoscrizioni]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Code, argomenti e sottoscrizioni]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

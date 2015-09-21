@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Introduzione all'utilità della riga di comando AzCopy
@@ -972,4 +972,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

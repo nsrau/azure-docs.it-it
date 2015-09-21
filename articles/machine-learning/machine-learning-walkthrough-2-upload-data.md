@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Passaggio 2: Caricare dati in un esperimento di Machine Learning | Microsoft Azure" 
-	description="Passaggio 2 della procedura dettagliata Sviluppare una soluzione predittiva: Caricare dati pubblici archiviati in Azure Machine Learning Studio" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Passaggio 2: Caricare dati in un esperimento di Machine Learning | Microsoft Azure"
+	description="Passaggio 2 della procedura dettagliata Sviluppare una soluzione predittiva: Caricare dati pubblici archiviati in Azure Machine Learning Studio"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Questo è il secondo passaggio della procedura dettagliata [Sviluppare una soluz
 2.	**Caricare i dati esistenti**
 3.	[Creare un nuovo esperimento](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Eseguire il training e valutare i modelli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Pubblicare il servizio Web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Distribuire il servizio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -70,7 +70,7 @@ Dopo aver convertito i dati in formato CSV, è necessario caricarli in Machine L
 
 ![Caricare il set di dati][1]
 
- 
+
 I dati vengono caricati in un modulo del set di dati che è possibile usare in un esperimento.
 
 Per altre informazioni sull'importazione di vari tipi di dati in un esperimento, vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-import-data.md).
@@ -78,6 +78,5 @@ Per altre informazioni sull'importazione di vari tipi di dati in un esperimento,
 **Passaggi successivi: [Creare un nuovo esperimento](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

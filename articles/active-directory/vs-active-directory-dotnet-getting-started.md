@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione ad Azure Active Directory (progetti .NET)" 
-	description="Come iniziare a usare Azure Active Directory in Visual Studio" 
+	pageTitle="Introduzione ad Azure Active Directory e ai servizi relativi a Visual Studio (progetti MVC)" 
+	description="Come iniziare a utilizzare Azure Active Directory nei progetti MVC dopo la connessione o la creazione ad Azure AD utilizzando Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea"/>
 
-# Introduzione ad Azure Active Directory (progetti .NET)
+# Introduzione ad Azure Active Directory e ai servizi relativi a Visual Studio (progetti MVC)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
@@ -77,4 +77,4 @@ Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usa
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

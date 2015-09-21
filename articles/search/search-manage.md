@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
@@ -36,7 +36,7 @@ Il servizio di ricerca standard è fatturabile perché fornisce accesso a risors
 
 Per pianificare la capacità e comprendere l'impatto di fatturazione, è consigliabile consultare le informazioni disponibili seguendo i collegamenti seguenti:
 
-+	[Limiti e vincoli](http://msdn.microsoft.com/library/dn798934.aspx)
++	[Limiti e vincoli](search-limits-quotas-capacity.md)
 +	[Dettagli sui prezzi](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Quando si è pronti a effettuare l'iscrizione, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
@@ -100,7 +100,7 @@ In questa anteprima pubblica, il monitoraggio delle risorse è limitato alle inf
 
 Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
 
-Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per dettagli, vedere [Limitazioni e vincoli](http://msdn.microsoft.com/library/dn798934.aspx).
+Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per dettagli, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md).
 
 +	[Ottenere le statistiche di indice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -193,4 +193,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

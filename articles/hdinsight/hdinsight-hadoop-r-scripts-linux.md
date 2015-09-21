@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Usare R in HDInsight per la personalizzazione dei cluster| Microsoft Azure"
 	description="Informazioni su come installare e usare R per personalizzare cluster Hadoop."
 	services="hdinsight"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -60,7 +60,7 @@ Vengono inoltre installati i pacchetti R seguenti:
 
 L'azione di script [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh) consente di installare R in un cluster HDInsight. Questa sezione fornisce istruzioni su come usare lo script quando si effettua il provisioning del cluster usando il portale di Azure.
 
-> [AZURE.NOTE]È anche possibile usare Azure PowerShell o .NET SDK per HDInsight per creare un cluster mediante lo script. Per altre informazioni sull'uso di questi metodi, vedere la pagina relativa alla [personalizzazione di cluster HDInsight mediante azioni di script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE]È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere la pagina relativa alla [personalizzazione di cluster HDInsight mediante azioni di script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare il provisioning di un cluster seguendo i passaggi descritti nella pagina relativa al [provisioning di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal) senza tuttavia completarlo.
 
@@ -84,11 +84,11 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 1. Connettersi al cluster HDInsight usando SSH:
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
-	
+
 	* [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Dal prompt `username@headnode1:~$` immettere il comando seguente per avviare una sessione R interattiva:
@@ -100,24 +100,24 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		
+
 
 	La prima riga chiama la libreria RHadoop rmr2, usata per le operazioni MapReduce.
-	
+
 	La seconda riga genera i valori 1 - 100, quindi li archivia nel file system Hadoop mediante `to.dfs`.
-	
+
 	La terza riga crea un processo MapReduce tramite la funzionalità offerta da rmr2 e avvia l'elaborazione. Quando l'elaborazione ha inizio, si dovrebbero visualizzare più righe che scorrono.
-	
+
 4. Usare quindi il comando seguente per visualizzare il percorso temporaneo in cui è stato archiviato l'output di MapReduce:
 
 		print(calc())
-		
+
 	Il percorso dovrebbe essere simile a `/tmp/file5f615d870ad2`. Per visualizzare l'output effettivo, usare il comando seguente:
-	
+
 		print(from.dfs(calc))
-	
+
 	L'output dovrebbe essere simile al seguente:
-	
+
 		[1,]  1 2
 		[2,]  2 4
 		.
@@ -126,7 +126,7 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 		[98,]  98 196
 		[99,]  99 198
 		[100,] 100 200
-		
+
 5. Per uscire da R, immettere quanto segue:
 
 		q()
@@ -148,6 +148,5 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

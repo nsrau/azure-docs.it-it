@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="hero-article" 
 	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
@@ -34,7 +34,7 @@ In questo articolo vengono trattati i seguenti scenari:
 
 Se non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicemente la soluzione efficace, non c'è nessun problema. La soluzione completa è disponibile in [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Per istruzioni rapide, vedere [ottenere la soluzione completa](#GetSolution).
 
-Dopo aver completato l'esercitazione, utilizzando i pulsanti di voto all'inizio o alla fine dell'argomento per farci conoscere il giudizio. Questo argomento viene aggiornato attivamente, pertanto desideriamo il tuo feedback per migliorarlo. Se si desidera contattarsi, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
+Aggiorniamo e miglioriamo spesso questo argomento in base al feedback degli utenti. Dopo aver completato l'esercitazione, utilizzare i pulsanti per la votazione nella parte superiore e inferiore della pagina e assicurarsi di includere il feedback sui miglioramenti che si desidera vedere. Se si desidera contattarci, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
 
 ## Prerequisiti
 
@@ -480,4 +480,4 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio 2013, fare
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

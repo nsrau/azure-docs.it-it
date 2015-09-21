@@ -4,6 +4,7 @@
 	services="azure-portal"
 	documentationCenter="na" 
 	authors="stepsic-microsoft-com" 
+	writer="" 
 	manager="terrylan" 
 	editor=""/>
 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Risoluzione dei problemi del controllo di accesso basato sui ruoli
@@ -22,7 +23,7 @@
 
 [Controllo degli accessi in base al ruolo](../role-based-access-control-configure.md) è uno strumento efficace che consente di delegare con estrema precisione l'accesso alle risorse in Azure. Ciò significa che si può accordare a una determinata persona l'accesso alle risorse specifiche di cui ha bisogno. Tuttavia, a volte il modello di risorse di Azure può essere complicato e può risultare difficile comprendere esattamente quali autorizzazioni si stanno concedendo.
 
-Questo documento illustra gli effetti prodotti dall'uso di alcuni dei nuovi ruoli nel portale di Azure. Esistono tre ruoli predefiniti inclusi in questa versione: * Proprietario * Collaboratore * Lettore
+Questo documento illustra gli effetti prodotti dall'uso di alcuni dei ruoli nel portale di Azure. Ci sono tre ruoli comuni inclusi che coprono tutti i tipi di risorsa: * Proprietario * Collaboratore * Lettore
 
 Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, con la differenza che il contributore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. [Vedere questo articolo](../role-based-access-control-configure.md) per maggiori dettagli sulle modalità di concessione dell'accesso.
 
@@ -82,4 +83,4 @@ Le risorse correlate delle macchine virtuali sono: * Nomi di dominio * Reti virt
     
 Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per il gruppo di risorse.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

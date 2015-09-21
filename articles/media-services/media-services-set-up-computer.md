@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 # Configurazione dell'ambiente
@@ -44,9 +44,12 @@ Scegliere .NET o REST API per connettersi a livello di codice a Servizi multimed
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
-## Passaggi successivi
 
-- [Introduzione a Distribuzione di contenuti Video on Demand (VoD) tramite .NET SDK](media-services-dotnet-get-started.md)
-- [Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit (anteprima)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+##Passaggi successivi: percorsi di apprendimento AMS
 
-<!---HONumber=September15_HO1-->
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

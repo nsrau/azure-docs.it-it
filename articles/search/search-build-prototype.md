@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Creazione di un'applicazione di prototipo per la Ricerca di Azure
@@ -80,7 +80,7 @@ Per default, questi file si trovano nella cartella della soluzione:
 
 Se è possibile ottenere i dati in file JSON, è possibile sovrascrivere i file esistenti con i dati e quindi eseguire l'applicazione per creare e caricare un indice. La distribuzione dei dati su più file consente di dimostrare un'operazione di caricamento del batch.
 
-Altri approcci per il caricamento di dati includono l'utilizzo di un indicizzatore (richiede un'origine dati di Azure DocumentDB o un'origine dati di Database SQL Azure). I codice di esempio che dimostrano ulteriori modalità di caricamento dei dati sono reperibili in [Ricerca di Azure Video ed esercitazioni elenco](https://msdn.microsoft.com/library/azure/dn818681.aspx) su MSDN.
+Altri approcci per il caricamento di dati includono l'utilizzo di un indicizzatore (richiede un'origine dati di Azure DocumentDB o un'origine dati di Database SQL Azure). I codice di esempio che dimostrano ulteriori modalità di caricamento dei dati sono reperibili in [Ricerca di Azure Video ed esercitazioni elenco](search-video-demo-tutorial-list.md) su MSDN.
 
 ### Modificare la query
 
@@ -133,4 +133,4 @@ Per ulteriori informazioni, visitare:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

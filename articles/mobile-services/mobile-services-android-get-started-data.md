@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione ai dati (Android) | Microsoft Azure" 
-	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Android." 
+	pageTitle="Introduzione ai dati su Android (back-end JavaScript) | Microsoft Azure" 
+	description="Informazioni su come iniziare a usare Servizi mobili per sfruttare i dati nell'app per Android.(back-end JavaScript)" 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# Aggiungere Servizi mobili a un'app esistente
+# Aggiungere Servizi mobili a un'app esistente (back-end JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +35,7 @@
 </div>
 
 
-<p>Questa esercitazione illustra più dettagliatamente in che modo Servizi mobili di Azure può archiviare e recuperare dati da un'app per Android. Vengono pertanto riproposte molte delle procedure già completate nell'esercitazione basata sulla guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione <a href="/it-it/develop/mobile/tutorials/get-started-android">Introduzione a Servizi mobili</a>.</p>
+<p>Questa esercitazione illustra più dettagliatamente in che modo Servizi mobili di Azure può archiviare e recuperare dati da un'app per Android. Vengono pertanto riproposte molte delle procedure già completate nell'esercitazione basata sulla guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione <a href="/it-IT/develop/mobile/tutorials/get-started-android">Introduzione a Servizi mobili</a>.</p>
 
 ## Prerequisiti
 
@@ -156,4 +156,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

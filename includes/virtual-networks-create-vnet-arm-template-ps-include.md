@@ -5,9 +5,11 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 1. Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione preferita.
 2. Eseguire il cmdlet **Switch-AzureMode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
-	Switch-AzureMode AzureResourceManager
+		Switch-AzureMode AzureResourceManager
 
-	AVVISO: il cmdlet Switch-AzureMode è obsoleto e verrà rimosso in una versione futura.
+	Di seguito è riportato l'output previsto per il comando precedente:
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
 
@@ -15,6 +17,8 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		ResourceGroupName : TestRG
 		Location          : centralus
 		ProvisioningState : Succeeded
@@ -29,7 +33,8 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-		
+			
+	Di seguito è riportato l'output previsto per il comando precedente:
 		
 		DeploymentName    : TestVNetDeployment
 		ResourceGroupName : TestRG
@@ -55,6 +60,7 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
+	Di seguito è riportato l'output previsto per il comando precedente:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -95,4 +101,4 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/14/2015"
+   ms.date="09/08/2015"
    ms.author="liviodlc"/>
 
 #Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) consente di automatizzare la creazione, la man
 **Di seguito sono riportati alcuni esempi di operazioni che questa funzionalità consente di eseguire:**
 
 - Creare automaticamente nuovi account nell'app SaaS appropriata per nuovi membri del team.
-- Ottenere la rimozione automatica dalle app SaaS degli account dei membri che lasciano il team.
+- Disattivare automaticamente degli account dalle app SaaS quando i membri lasciano il team.
 - Assicurarsi che le identità nelle app SaaS siano sempre aggiornate in base alle modifiche nella directory.
 - Eseguire il provisioning di oggetti non utente, ad esempio di gruppi, in app SaaS che li supportano.
 
@@ -108,4 +108,4 @@ Per contattare il team di progettazione di Azure AD per richiedere supporto sul 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

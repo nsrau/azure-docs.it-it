@@ -2,7 +2,7 @@
 	pageTitle="Aggiungere Application Insights SDK per monitorare l'app ASP.NET | Microsoft Azure"
 	description="Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 
@@ -108,11 +108,6 @@ Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due pun
 
 Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
 
-Ora distribuire l'applicazione e osservare l'accumulo dei dati.
-
-
-Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'app, i dati si accumulano più lentamente.
-
 #### Dati non visualizzati
 
 * Aprire il riquadro [Ricerca][diagnostic] per visualizzare i singoli eventi.
@@ -120,13 +115,22 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 * Attendere alcuni secondi e fare clic su **Aggiorna**. I grafici si aggiornano periodicamente, ma è possibile aggiornare manualmente se si è in attesa di alcuni dati da visualizzare.
 * Vedere [Risoluzione dei problemi][qna].
 
+## Pubblicare l'app
+
+Ora distribuire l'applicazione a ISS o ad Azure e osservare l'accumulo dei dati.
+
+Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'app, i dati si accumulano più lentamente.
+
+
 #### Problemi del server di compilazione
 
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## 5\. Aggiungere il rilevamento delle dipendenze
+## 5\. Aggiungere i contatori delle prestazioni e del rilevamento delle dipendenze
 
 L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
+
+Questo passaggio consente inoltre il [report dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters) come il CPU,la memoria, l’occupazione della rete.
 
 #### Se l'app è in esecuzione nel server IIS
 
@@ -138,9 +142,13 @@ Accedere al server con diritti di amministratore, quindi installare [Application
 
 Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Application Insights.
 
-![Nelle app Web, Strumenti, Monitoraggio delle prestazioni, Aggiungi, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![Nell'app Web scegliere Impostazioni, Estensioni, Aggiungi, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-Quest’estensione è applicabile solo a un'app compilata con l'SDK. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
+(Quest’estensione è applicabile solo a un'app compilata con l'SDK e pubblicata su Azure. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
+
+#### è un progetto di Servizi cloud di Azure
+
+[Aggiungere gli script ai ruoli web e di lavoro](app-insights-cloudservices.md)
 
 ## 6\. Aggiungere il monitoraggio sul lato client
 
@@ -240,4 +248,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

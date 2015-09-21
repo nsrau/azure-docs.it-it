@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Sviluppo di applicazioni di Servizi multimediali con .NET 
@@ -98,6 +98,14 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
 A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Servizi multimediali.
- 
 
-<!---HONumber=August15_HO7-->
+
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

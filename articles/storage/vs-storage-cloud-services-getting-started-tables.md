@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio"
-	description="Informazioni su come iniziare a usare l'archiviazione tabelle di Azure in un progetto di servizio cloud in Visual Studio"
+    pageTitle="Introduzione all'archiviazione di tabella e ai servizi relativi a Visual Studio (servizi di cloud) | Microsoft Azure"
+	description="Informazioni su come iniziare a usare il servizio di archiviazione di tabella in un progetto di servizio di cloud in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio
+# Introduzione all’archiviazione di tabella di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-cloud-services-getting-started-tables.md)
@@ -42,11 +42,11 @@ Per iniziare, è innanzitutto necessario creare una tabella nell'account di arch
 - Vedere[documentazione dei servizi Cloud](http://azure.microsoft.com/documentation/services/cloud-services/)per informazioni generali sui servizi cloud di Azure.
 - Vedere[ASP.NET](http://www.asp.net)per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
 
-##Accesso alle tabelle nel codice
+## Accesso alle tabelle nel codice
 
 Per accedere alle tabelle nei progetti di servizio cloud, è necessario includere gli elementi seguenti ai file di origine C# che consentono di accedere all'archiviazione delle tabelle di Azure.
 
-1. Assicurarsi che le dichiarazioni dello spazio dei nomi all'inizio del file C# includano queste istruzioni `using`.
+1. Assicurarsi che le dichiarazioni dello spazio dei nomi all'inizio del file C# includano queste istruzioni **using**.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -71,14 +71,14 @@ Per accedere alle tabelle nei progetti di servizio cloud, è necessario includer
     	// Get a reference to a table named "peopleTable".
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
-##Creazione di una tabella in codice
+## Creazione di una tabella in codice
 
-Per creare tabelle di Azure, è sufficiente aggiungere una chiamata a `CreateIfNotExistsAsync`per ottenere poi un oggetto `CloudTable` come descritto nella sezione "Accesso tabelle in codice".
+Per creare tabelle di Azure, è sufficiente aggiungere una chiamata a **CreateIfNotExistsAsync** per ottenere poi un oggetto **CloudTable** come descritto nella sezione "Accesso tabelle in codice".
 
 	// Create the CloudTable if it does not exist.
 	await table.CreateIfNotExistsAsync();
 
-##Aggiungere un'entità a una tabella
+## Aggiungere un'entità a una tabella
 
 Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente permette di definire una classe di entità denominata **CustomerEntity** che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
 
@@ -112,7 +112,7 @@ Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato 
 	// Execute the insert operation.
 	await peopleTable.ExecuteAsync(insertOperation);
 
-##Inserire un batch di entità
+## Inserire un batch di entità
 
 È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto **TableBatchOperation** utilizzando il metodo Insert, quindi avvia l'operazione richiamando **CloudTable.ExecuteBatchAsync**.
 
@@ -141,9 +141,9 @@ Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato 
     // Create the CloudTable if it does not exist
     await table.CreateIfNotExistsAsync();
 
-##Aggiungere un'entità a una tabella
+## Aggiungere un'entità a una tabella
 
-Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente consente di definire una classe di entità chiamata `CustomerEntity` che utilizza il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
+Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Il codice seguente permette di definire una classe di entità denominata **CustomerEntity** che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
 
     public class CustomerEntity : TableEntity
     {
@@ -160,7 +160,7 @@ Per aggiungere un'entità a una classe, creare una classe che definisca le propr
          public string PhoneNumber { get; set; }
     }
 
-Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato l'oggetto `CloudTable` creato in precedenza in "Accesso alle tabelle nel codice". L'oggetto `TableOperation` rappresenta l'operazione da eseguire. Il seguente esempio di codice mostra come creare un oggetto `CloudTable` e un oggetto `CustomerEntity`. Per preparare l'operazione, viene creato un oggetto `TableOperation` per inserire l'entità customer nella tabella. Infine, per eseguire l'operazione viene chiamato CloudTable.ExecuteAsync.
+Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato l'oggetto **CloudTable** creato in precedenza in "Accesso alle tabelle nel codice". L'oggetto **TableOperation** rappresenta l'operazione da eseguire. L'esempio di codice seguente mostra come creare un oggetto **CloudTable** e un oggetto **CustomerEntity**. Per preparare l'operazione, viene creato un oggetto **TableOperation** per inserire l'entità customer nella tabella. Infine, per eseguire l'operazione viene chiamato CloudTable.ExecuteAsync.
 
     // Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -175,9 +175,9 @@ Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato 
     // Execute the insert operation.
     await peopleTable.ExecuteAsync(insertOperation);
 
-##Inserire un batch di entità
+## Inserire un batch di entità
 
-È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto `TableBatchOperation` usando il metodo Insert e quindi avvia l'operazione chiamando `CloudTable.ExecuteBatchAsync`.
+È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto **TableBatchOperation** utilizzando il metodo Insert, quindi avvia l'operazione richiamando **CloudTable.ExecuteBatchAsync**.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -201,9 +201,9 @@ Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato 
     // Execute the batch operation.
     await peopleTable.ExecuteBatchAsync(batchOperation);
 
-##Ottenere tutte le entità di una partizione
+## Ottenere tutte le entità di una partizione
 
-Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto `TableQuery`. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
+Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto **TableQuery**. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -228,7 +228,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
     return View();
 
 
-##Ottenere una singola entità
+## Ottenere una singola entità
 
 È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in **TableResult.Result** è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **tabelle**.
 
@@ -246,7 +246,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-##Eliminare un'entità
+## Eliminare un'entità
 È possibile eliminare un'entità dopo averla individuata. Il codice seguente cerca un'entità customer denominata "Ben Smith" e, se la trova, la elimina.
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
@@ -274,8 +274,8 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-##Passaggi successivi
+## Passaggi successivi
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

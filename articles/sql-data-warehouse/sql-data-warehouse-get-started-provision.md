@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introduzione: effettuare il provisioning di SQL Data Warehouse #
 
-Questo articolo è una guida rapida al provisioning di SQL Data Warehouse in Azure. Attenendosi a questa guida, sarà possibile eseguire le attività seguenti:
+Questo articolo è una guida al provisioning di SQL Data Warehouse in Azure. Attenendosi a questa guida, sarà possibile eseguire le attività seguenti:
 
 1. Creare un nuovo database di SQL Data Warehouse
 2. Configurare un nuovo server logico
@@ -27,7 +27,7 @@ Questo articolo è una guida rapida al provisioning di SQL Data Warehouse in Azu
 ## Versione di valutazione gratuita di Azure ##
 Per completare le attività elencate di seguito, è necessario avere una sottoscrizione di Azure. Se non si ha già accesso a una sottoscrizione di Azure, risolvere prima di tutto questo passaggio.
 
-È possibile accedere a una [versione di valutazione gratuita][] che consente di provare i servizi di Azure, incluso SQL Data Warehouse.
+È possibile ottenere una [versione di valutazione gratuita][] che consente di provare i servizi di Azure, incluso SQL Data Warehouse.
 
 
 ## Accedere al Portale di Azure. ##
@@ -76,7 +76,7 @@ La prima configurazione riguarda l'assegnazione di un nome al database.
 
 L'opzione relativa alle prestazioni è *importante*. Tramite questo dispositivo di scorrimento è possibile sfruttare le potenzialità scalabili di SQL Data Warehouse. Le prestazioni possono essere aumentate o diminuite in qualsiasi momento, non solo quando si configura il data warehouse. Spostando il dispositivo verso destra si hanno a disposizione maggiori risorse. Quando le risorse non sono più necessarie, è possibile spostare immediatamente il dispositivo di scorrimento a sinistra, risparmiando così sul costo. SQL Data Warehouse consente di modificare il profilo delle prestazioni su richiesta, senza dover ricreare il data warehouse o spostare dati.
 
-- Usare ora il dispositivo di scorrimento per vedere come aumentano le unità data warehouse quando lo si sposta a destra e come diminuiscono quando lo si risposta a sinistra.
+- Usare ora il dispositivo di scorrimento per vedere come aumentano le unità data warehouse (DWU) quando lo si sposta a destra e come diminuiscono quando lo si risposta a sinistra.
 
 - Prima di completare questo passaggio, assicurarsi di riportare il dispositivo di scorrimento a sinistra. Il nuovo data warehouse è piccolo, quindi non servono molte risorse. Conservarle invece per il resto della versione di valutazione.
 
@@ -151,9 +151,7 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 ## Passaggi successivi
 
-Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibile procedere per imparare a usarlo.
-
-Nei prossimi passaggi si apprenderà quindi come:
+Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibile procedere per imparare a usarlo. Passaggi successivi:
 
 1. [Collegarsi al data warehouse ed eseguire query][].
 2. Caricare [dati di esempio].
@@ -166,8 +164,8 @@ Nei prossimi passaggi si apprenderà quindi come:
 [dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
-[versione di valutazione gratuita]: https://azure.microsoft.com/it-it/pricing/free-trial/
+[versione di valutazione gratuita]: https://azure.microsoft.com/it-IT/pricing/free-trial/
 [Portale Azure]: https://portal.azure.com/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

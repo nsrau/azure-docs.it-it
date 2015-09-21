@@ -24,9 +24,9 @@ Velocità effettiva da raggiungere per coda singola (messaggi di 1 KB)|Fino a 20
 Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KB)|Fino a 2000 entità al secondo
 Velocità effettiva da raggiungere per singolo file|Fino a 60 MB al secondo
 Numero massimo in entrata<sup>3</sup> per account di archiviazione (aree USA)|10 Gbps se GRS/ZRS<sup>4</sup> è abilitato, 20 Gbps per LRS
-Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree USA)|20 Gbps se GRS/ZRS<sup>4</sup> è abilitato, 30 Gbps per LRS
+Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree USA)|20 Gbps se RA-GRS/GRS/ZRS<sup>4</sup> è abilitato, 30 Gbps per LRS
 Numero massimo in entrata<sup>3</sup> per account di archiviazione (aree europee e asiatiche)|5 Gbps se GRS/ZRS<sup>4</sup> è abilitato, 10 Gbps per LRS
-Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree europee e asiatiche)|10 Gbps se GRS/ZRS<sup>4</sup> è abilitato, 15 Gbps per LRS
+Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree europee e asiatiche)|10 Gbps se RA-GRS/GRS/ZRS<sup>4</sup> è abilitato, 15 Gbps per LRS
 
 <sup>1</sup>Se sono necessari più di 100 account di archiviazione, contattare il [supporto Azure](http://azure.microsoft.com/support/faq/) per assistenza.
 
@@ -36,6 +36,11 @@ Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree europee 
 
 <sup>3</sup>Si intendono in *entrata* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
 
-<sup>4</sup>GRS fa riferimento al servizio di archiviazione con ridondanza geografica. ZRS fa riferimento al servizio di archiviazione con ridondanza della zona ed è disponibile solo per i BLOB in blocchi. LRS fa riferimento al servizio di archiviazione con ridondanza locale.
+<sup>4</sup>le opzioni di replica di archiviazione di Azure includono:
 
-<!---HONumber=September15_HO1-->
+- **RA-GRS**: Archiviazione con ridondanza geografica e accesso in lettura. Se RA-GRS è abilitata, le destinazioni di uscita per la posizione secondaria sono identiche a quelle per la posizione primaria.
+- **GRS**: archiviazione con ridondanza geografica. 
+- **ZRS**: archiviazione con ridondanza della zona. Disponibile solo per i BLOB in blocchi. 
+- **LRS**: archiviazione con ridondanza locale. 
+
+<!---HONumber=Sept15_HO2-->

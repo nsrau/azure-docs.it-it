@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/06/2015"
+	ms.date="09/03/2015"
 	ms.author="bwren"/>
 
 # Informazioni su Automazione di Azure
@@ -58,11 +58,11 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 - La sezione dedicata ad **Automazione di Azure di MSDN Library** è il punto in cui ci si trova in questo momento. Gli articoli inclusi in questa sezione forniscono la documentazione completa sulla configurazione e l'amministrazione di Automazione di Azure e sulla creazione di Runbook personalizzati.
 - In [Cmdlet di Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) vengono fornite informazioni per l'automazione di operazioni di Azure con Windows PowerShell. Questi cmdlet vengono usati nei Runbook per lavorare con le risorse di Azure.
-- Nel [blog su Automazione di Azure](http://azure.microsoft.com/blog/tag/azure-automation) vengono fornite informazioni aggiornate su Automazione di Azure rilasciate da Microsoft. Effettuare la sottoscrizione a questo blog per essere aggiornati sulle ultime novità del team di Automazione di Azure.
+- [Gestione Blog](http://azure.microsoft.com/blog/topics/management) fornisce le ultime informazioni sull'automazione di Azure e le altre tecnologie di gestione di Microsoft. Effettuare la sottoscrizione a questo blog per essere aggiornati sulle ultime novità del team di Automazione di Azure.
 - Il [forum su Automazione](http://go.microsoft.com/fwlink/p/?LinkId=390561) consente di pubblicare domande su Automazione di Azure a cui verrà data risposta da Microsoft e dalla community di Automazione.
 
 ## È possibile fornire commenti e suggerimenti?
 
 **Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

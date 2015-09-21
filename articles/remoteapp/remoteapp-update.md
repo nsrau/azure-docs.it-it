@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Aggiornare la raccolta di Azure RemoteApp"
+   pageTitle="Aggiornare la raccolta di Azure RemoteApp | Microsoft Azure"
    description="Informazioni su come aggiornare la raccolta di Azure RemoteApp"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="09/03/2015"
    ms.author="elizapo"/>
 
 # Aggiornare una raccolta in Azure RemoteApp
@@ -25,7 +25,7 @@ Tuttavia, se si utilizza un'immagine personalizzata (che è stata compilata da z
 Quindi, come si esegue l'aggiornamento della raccolta? È piuttosto semplice:
 
 1. Aggiornare l'immagine utilizzata nella raccolta. Applicare le patch o gli aggiornamenti necessari e quindi salvarla con un nuovo nome.
-2. [Caricare](remoteapp-uploadimage.md) o [importare](remoteapp-image-on-azurevm) l’immagine in RemoteApp.
+2. [Caricare](remoteapp-uploadimage.md) o [importare](remoteapp-image-on-azurevm.md) l’immagine in RemoteApp.
 3. A questo punto, nella pagina della raccolta, fare clic su **Aggiorna**.
 4. Scegliere la nuova immagine dall’elenco **Immagine modello**.
 4. Questa è la parte più complicata, è necessario decidere come gestire gli utenti che utilizzano attualmente un'app della raccolta. L'utente ha a disposizione le seguenti opzioni:
@@ -36,4 +36,4 @@ Quindi, come si esegue l'aggiornamento della raccolta? È piuttosto semplice:
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
-# Aggiornare il dispositivo StorSimple
+# Aggiornare il dispositivo StorSimple 8000 serie
 
 ## Panoramica
 
@@ -119,4 +119,4 @@ Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli ag
 [Informazioni su come utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple](storsimple-windows-powershell-administration.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

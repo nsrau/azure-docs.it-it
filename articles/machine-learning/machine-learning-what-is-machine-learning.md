@@ -1,20 +1,21 @@
 <properties
     pageTitle="Cos'è Machine Learning in Azure? | Microsoft Azure"
-	description="Illustra i concetti di base del servizio Machine Learning completamente gestito, una tecnologia cloud che è possibile usare per creare, rendere operative e monetizzare le soluzioni."
+    description="Illustra i concetti di base del servizio Machine Learning completamente gestito, una tecnologia cloud che è possibile usare per creare, rendere operative e monetizzare le soluzioni."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
-	documentationCenter=""
-	authors="cjgronlund"
-	manager="neerajkh"
-	editor="cgronlun"/>
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="neerajkh"
+    editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="cgronlun;tedway;olgali"/>
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="cgronlun;tedway;olgali"/>
 
 
 # Introduzione all'apprendimento automatico in Microsoft Azure
@@ -29,7 +30,7 @@ Queste previsioni o stime dell'apprendimento automatico possono rendere più int
 
 Azure Machine Learning è un potente servizio di analisi predittive basate sul cloud che consente di creare e distribuire rapidamente modelli predittivi come soluzioni di analisi.
 
-Azure Machine Learning fornisce non solo gli strumenti per l'analisi predittiva dei modelli, ma anche un servizio completamente gestito che è possibile usare per pubblicare i modelli predittivi come servizi Web pronti all'uso. Azure Machine Learning fornisce gli strumenti per creare soluzioni di analisi predittiva complete nel cloud: creare rapidamente, testare, rendere operativi e gestire i modelli predittivi. Non è necessario acquistare un hardware né gestire manualmente macchine virtuali.
+Azure Machine Learning fornisce non solo gli strumenti per l'analisi predittiva dei modelli, ma anche un servizio completamente gestito che è possibile usare per distribuire i modelli predittivi come servizi Web pronti all'uso. Azure Machine Learning fornisce gli strumenti per creare soluzioni di analisi predittiva complete nel cloud: creare rapidamente, testare, rendere operativi e gestire i modelli predittivi. Non è necessario acquistare un hardware né gestire manualmente macchine virtuali.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -59,7 +60,7 @@ Azure Machine Learning include tutto quanto è necessario per creare soluzioni d
 * Acquistare servizi Web pronti all'uso da [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), ad esempio Recommendations, Text Analytics e Anomaly Detection.
 
 * Rendere operativi i modelli di analisi predittiva:
-    * [Pubblicare i servizi Web](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Distribuire i servizi Web](machine-learning-publish-a-machine-learning-web-service.md)
     * [Eseguire e ripetere il training dei modelli tramite le API](machine-learning-retrain-models-programmatically.md)
     * [Gestire gli endpoint di servizio Web](machine-learning-create-endpoint.md)
     * [Scalare i servizi Web](machine-learning-scaling-endpoints.md)
@@ -115,4 +116,4 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

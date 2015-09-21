@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Porte superiori a 1433 per ADO.NET 4.5, e database SQL V12 | Microsoft Azure"
-	description="Le connessioni client al database SQL V12 di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti."
+	pageTitle="Porte per 1433 per il database SQL | Microsoft Azure"
+	description="Le connessioni client da ADO.NET al database SQL V12 di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor=""/>
+	editor="" />
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -62,37 +62,17 @@ La sequenza è la seguente:
 
 
 1. ADO.NET 4.5 (o versione successiva) avvia una breve interazione con il cloud di Azure e riceve un numero di porta identificato in modo dinamico.
- - Il numero di porta identificato in modo dinamico è compreso nell'intervallo tra 11000 e 11999.
+ - Il numero di porta identificato in modo dinamico è compreso nell'intervallo tra 11000-11999 o 14000-14999.
 
 2. ADO.NET quindi si connette direttamente al server del database SQL, senza alcun middleware intermedio.
 
 3. Le query vengono inviate direttamente al database e i risultati vengono restituiti direttamente al client.
 
 
-Assicurarsi che l'intervallo di porte 11000 - 11999 sul computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il database SQL V12.
+Assicurarsi che l'intervallo di porte 11000-11999 e 14000-14999 sul computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il database SQL V12.
 
 - In particolare, le porte nell'intervallo devono essere libere da eventuali altri blocchi in uscita.
 - Windows Firewall nella VM di Azure consente di controllare le impostazioni della porta.
-
-
-## Logica di ripetizione tentativi implicita contenuta nel percorso proxy
-
-
-In un ambiente di produzione, è consigliabile che i client che si connettono al database SQL V11 o V12 di Azure implementino nel loro codice una logica di ripetizione tentativi. Il codice può essere personalizzato oppure può sfruttare un’API come la libreria Enterprise.
-
-
-Il percorso proxy descritto in precedenza in questo argomento riguarda la questione della logica di ripetizione tentativi:
-
-
-- Nella versione V11, il modulo middleware che fungeva da proxy forniva anche un modesto livello di logica di ripetizione tentativi per gestire correttamente alcuni errori temporanei.
-
-- In V12, il proxy non fornisce alcuna logica di ripetizione tentativi.
-
-
-In entrambi gli scenari è consigliabile che i client implementino la logica di ripetizione tentativi nel proprio codice. Probabilmente la necessità di logica di ripetizione tentativi nel client è aumentata con il nuovo percorso proxy che non fornisce alcuna logica di questo tipo.
-
-
-Per esempi di codice che illustrino la logica di ripetizione tentativi, vedere:[Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
 ## Chiarimenti sulla versione
@@ -120,12 +100,6 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 ## Collegamenti correlati
 
 
-- [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
-
-
-- [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md)
-
-
 - ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. [Qui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx) è disponibile un annuncio di blog del team .NET.
 
 
@@ -135,4 +109,7 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 
 - [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=September15_HO1-->
+
+- [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md)
+
+<!---HONumber=Sept15_HO2-->

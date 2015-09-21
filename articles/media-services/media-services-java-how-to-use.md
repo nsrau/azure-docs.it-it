@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/07/2015" 
 	ms.author="robmcm"/>
 
 #Come usare Servizi multimediali con Java
@@ -350,6 +350,16 @@ Se occorre annullare un processo che è ancora in corso di elaborazione, usare i
 
     mediaService.action(Job.cancel(jobId));
 
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Risorse aggiuntive
 
 Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azure per la documentazione Java][].
@@ -362,4 +372,4 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

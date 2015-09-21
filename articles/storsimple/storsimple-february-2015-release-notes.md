@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Note sulla versione dell'aggiornamento 0.3 di StorSimple serie 8000 - Febbraio 2015 | Microsoft Azure"
-    description="Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative per la versione di febbraio 2015 di StorSimple."
+    pageTitle="Note sulla versione dell'aggiornamento 0.3 di StorSimple 8000 | Microsoft Azure"
+    description="Vengono descritte le nuove funzionalità e correzioni, i problemi e le soluzioni alternative disponibili per la versione di gennaio 2015 di Microsoft Azure StorSimple. (aggiornamento 0.3)."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/19/2015"
+    ms.date="09/04/2015"
     ms.author="v-sharos" />
 
 # Note sulla versione dell'aggiornamento 0.3 di StorSimple serie 8000 - Febbraio 2015
@@ -86,4 +86,4 @@ Questa versione non contiene aggiornamenti per il controller SAS (Serial Attache
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

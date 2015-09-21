@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Come creare API in Gestione API di Azure
@@ -96,4 +96,4 @@ Dopo aver creato un'API e configurato le impostazioni, i passaggi successivi con
 [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati in Gestione API di Azure]: api-management-howto-mutual-certificates.md
 [Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

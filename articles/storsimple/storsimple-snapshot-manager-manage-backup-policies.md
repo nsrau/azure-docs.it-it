@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup | Microsoft Azure"
+   pageTitle="Gestione snapshot StorSimple criteri di backup | Microsoft Azure"
    description="Viene descritto come utilizzare lo snap-in MMC di Gestione snapshot StorSimple per creare e gestire i criteri di backup che consentono di controllare i backup pianificati."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
@@ -118,4 +118,4 @@ Utilizzare la procedura seguente per eliminare un criterio di backup.
 
 [Utilizzo di Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

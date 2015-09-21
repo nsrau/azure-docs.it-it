@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Adattatore StorSimple per SharePoint | Microsoft Azure"
-	description="Viene descritto come installare e configurare l'adattatore StorSimple per SharePoint in una server farm di SharePoint."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Viene descritto come installare e configurare o rimuovere l'adattatore StorSimple per SharePoint in una server farm di SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/03/2015"
+   ms.author="v-sharos" />
 
 # Installare e configurare l’adattatore StorSimple per SharePoint
 
@@ -55,7 +55,7 @@ Spostando il contenuto BLOB nel file system è possibile ottenere altri vantaggi
 
 ### Limiti di capacità e prestazioni
 
-Prima di prendere in considerazione l'uso di RBS nella soluzione SharePoint, è necessario valutare i limiti di capacità e prestazioni testate di SharePoint Server 2010 e SharePoint Server 2013 e come tali limiti sono correlati a prestazioni accettabili. Per ulteriori informazioni, vedere Software Boundaries and Limits for SharePoint 2013.
+Prima di prendere in considerazione l'uso di RBS nella soluzione SharePoint, è necessario valutare i limiti di capacità e prestazioni testate di SharePoint Server 2010 e SharePoint Server 2013 e come tali limiti sono correlati a prestazioni accettabili. Per ulteriori informazioni, vedere [Limiti del software e limiti per SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
 Prima di configurare RBS, effettuare le operazioni seguenti:
 
@@ -197,9 +197,9 @@ Dopo aver installato l'adattatore StorSimple per SharePoint, configurare RBS com
 
 Quando gli oggetti vengono eliminati da un sito di SharePoint, non vengono eliminati automaticamente dal volume dell'archivio RBS. Al contrario, un programma di manutenzione in background asincrono elimina i BLOB orfani dall'archivio di file. Gli amministratori di sistema possono pianificare di eseguire periodicamente il processo oppure avviarlo quando necessario.
 
-Questo programma di manutenzione (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) viene installato automaticamente su tutti i server WFE e server applicazioni di SharePoint quando si abilita RBS. Il programma viene installato nel percorso seguente: <boot drive>: \\Programmi\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+Questo programma di manutenzione (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) viene installato automaticamente su tutti i server WFE e server applicazioni di SharePoint quando si abilita RBS. Il programma viene installato nel percorso seguente: <boot drive>:\\Programmi\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
-Per informazioni sulla configurazione e l'utilizzo del programma di manutenzione, vedere [Maintain RBS in SharePoint Server 2013][8].
+Per informazioni sulla configurazione e l'utilizzo del programma di manutenzione, vedere [Manutenzione di RBS in SharePoint Server 2013][8].
 
 >[AZURE.IMPORTANT]Il programma di manutenzione RBS è ad elevato consumo delle risorse. È consigliabile pianificarne l'esecuzione solo durante i periodi di minore attività della farm di SharePoint.
 
@@ -228,6 +228,74 @@ Utilizzare la procedura seguente per eseguire l'aggiornamento del server SharePo
 >
 >- Se si configura RBS per una farm di SharePoint che dispone di un numero molto elevato di database (più di 200), la pagina **Amministrazione centrale SharePoint** potrebbe scadere. In questo caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
 
+[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
+ 
+## Rimozione dell’adattatore StorSimple per SharePoint
+
+Le procedure seguenti descrivono come spostare nuovamente i BLOB nei database del contenuto di SQL Server e quindi disinstallare l'adattatore StorSimple per SharePoint.
+
+>[AZURE.IMPORTANT]È necessario spostare nuovamente i BLOB nei database del contenuto prima di disinstallare il software dell'adattatore.
+
+### Prima di iniziare 
+
+Prima di spostare i dati nei database del contenuto di SQL Server e iniziare il processo di rimozione dell’adattatore, raccogliere le informazioni seguenti:
+
+- I nomi di tutti i database per cui è abilitato RBS
+- Il percorso UNC dell'archivio BLOB configurato
+
+### Spostare i BLOB nei database del contenuto
+
+Prima di disinstallare l'adattatore StorSimple per il software di SharePoint, è necessario eseguire la migrazione di tutti i BLOB che sono stati esternalizzati ai database del contenuto di SQL Server. Se si tenta di disinstallare l'adattatore StorSimple per SharePoint prima di spostare nuovamente tutti i BLOB nei database del contenuto, verrà visualizzato il seguente messaggio di avviso.
+
+![Messaggio di avviso](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+ 
+####Per spostare nuovamente i BLOB nei database del contenuto 
+
+1. Scaricare ciascun oggetto esternalizzato.
+
+2. Aprire la pagina **Amministrazione centrale SharePoint** e passare a**Impostazioni di sistema**.
+
+3. Nella sezione**Azure StorSimple**fare clic su**Configura l'adattatore StorSimple**.
+
+4. Nella pagina **Configura l'adattatore StorSimple** fare clic sul pulsante **Disattiva** sotto ciascuno dei database di contenuto che si desidera rimuovere dall'archiviazione BLOB esterna.
+
+5. Eliminare gli oggetti da SharePoint e caricarli nuovamente.
+
+In alternativa, è possibile utilizzare il cmdlet di Microsoft PowerShell ` RBS Migrate()` incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
+
+Dopo aver spostato nuovamente i BLOB nel database di contenuto, andare al passaggio successivo: [Disinstallare l'adattatore](#uninstall-the-adapter).
+
+### Disinstallare l'adattatore
+
+Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, utilizzare una delle seguenti opzioni per disinstallare l'adattatore StorSimple per SharePoint.
+
+#### Per utilizzare il programma di installazione per disinstallare l'adattatore 
+
+1. Utilizzare un account con privilegi di amministratore per l'accesso al server front-end Web (WFE).
+2. Fare doppio clic sull'adattatore StorSimple per il programma di istallazione di SharePoint. Verrà avviata l'installazione guidata.
+
+![Installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+
+3. Fare clic su **Avanti**. Verrà visualizzata la pagina seguente.
+
+![Pagina di rimozione dell’istallazione guidata](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+
+4. Fare clic su **Rimuovi** per selezionare il processo di rimozione. Verrà visualizzata la pagina seguente.
+
+![Pagina di conferma dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+
+5. Fare clic su **Rimuovi** per confermare la rimozione. Verrà visualizzata la seguente pagina di avanzamento.
+
+![Pagina di stato di avanzamento dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+
+6. Una volta completata la rimozione, viene visualizzata la pagina di fine. Fare clic su**Fine**per chiudere l'installazione guidata.
+
+#### Per utilizzare il Pannello di controllo per disinstallare l'adattatore 
+
+1. Aprire il Pannello di controllo, quindi fare clic su **Programmi e funzionalità**.
+
+2. Selezionare l’**Adattatore StorSimple per SharePoint**, quindi fare clic su **Disinstalla**.
+
 ## Passaggi successivi
 
 [Ulteriori informazioni su StorSimple](storsimple-overview.md).
@@ -240,4 +308,4 @@ Utilizzare la procedura seguente per eseguire l'aggiornamento del server SharePo
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/it-IT/library/ff943565.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

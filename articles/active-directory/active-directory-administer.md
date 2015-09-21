@@ -4,6 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="Markusvi"
+	writer="markvi"
 	manager="stevenpo"
 	editor="LisaToft"/>
 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/05/2015"
+	ms.date="09/09/2015"
 	ms.author="markvi"/>
 
 # Amministrare la directory di Azure AD
@@ -144,4 +145,4 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

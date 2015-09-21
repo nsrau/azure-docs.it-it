@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Utilizzo delle azioni del menu MMC in Gestione snapshot StorSimple | Microsoft Azure"
-   description="Viene descritto come utilizzare le azioni del menu di Microsoft Management Console (MMC) in Gestione snapshot StorSimple."
+   pageTitle="StorSimple Snapshot Manager azioni del menu MMC | Microsoft Azure"
+   description="Viene descritto come utilizzare lo standard delle azioni di menu di Microsoft Management Console (MMC) in Gestione snapshot StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Utilizzo delle azioni del menu MMC in Gestione snapshot StorSimple
@@ -127,4 +127,4 @@ In questa esercitazione vengono descritte tali azioni e viene illustrato come ut
 
 [Ulteriori informazioni sull'interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

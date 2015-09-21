@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Backup di Azure: Gestire macchine virtuali"
+	pageTitle="Backup di Azure: Gestire macchine virtuali | Microsoft Azure"
 	description="Informazioni su come gestire una macchina virtuale di Azure"
 	services="backup"
 	documentationCenter=""
@@ -8,26 +8,27 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
 
 # Gestire le macchine virtuali
 
-
 ## Gestire le macchine virtuali protette
+
+Per gestire le macchine virtuali protette:
 
 1. Per visualizzare e gestire le impostazioni di backup per una macchina virtuale, fare clic sulla scheda **Elementi protetti**.
 
-  - Fare clic sul nome di un elemento protetto per visualizzare la scheda **Dettagli backup** contenente le informazioni sull'ultimo backup.
+2. Fare clic sul nome di un elemento protetto per visualizzare la scheda **Dettagli backup** contenente le informazioni sull'ultimo backup.
 
-        ![Virtual machine backup](./media/backup-azure-manage-vms/backup-vmdetails.png)
+    ![Backup di una macchina virtuale](./media/backup-azure-manage-vms/backup-vmdetails.png)
 
-2. Per visualizzare e gestire le impostazioni dei criteri di backup per una macchina virtuale fare clic sulla scheda **Criteri**.
+3. Per visualizzare e gestire le impostazioni dei criteri di backup per una macchina virtuale fare clic sulla scheda **Criteri**.
 
-  - Nella scheda **Criteri di backup** vengono visualizzati i criteri esistenti. È possibile modificare i criteri in base alle esigenze. Se è necessario creare un nuovo criterio, fare clic su **Crea** nella pagina **Criteri**. Si noti che un criterio può essere rimosso solo se non ha alcuna macchina virtuale associata.
+    Nella scheda **Criteri di backup** vengono visualizzati i criteri esistenti. È possibile modificare i criteri in base alle esigenze. Se è necessario creare un nuovo criterio, fare clic su **Crea** nella pagina **Criteri**. Si noti che un criterio può essere rimosso solo se non ha alcuna macchina virtuale associata.
 
-        ![Virtual machine policy](./media/backup-azure-manage-vms/backup-vmpolicy.png)
+    ![Criteri per una macchina virtuale](./media/backup-azure-manage-vms/backup-vmpolicy.png)
 
-3. È possibile ottenere altre informazioni sulle azioni o sullo stato di una macchina virtuale nella pagina**Processi**. Fare clic su un processo nell'elenco per ottenere informazioni dettagliate oppure filtrare i processi per una macchina virtuale specifica.
+4. È possibile ottenere altre informazioni sulle azioni o sullo stato di una macchina virtuale nella pagina**Processi**. Fare clic su un processo nell'elenco per ottenere informazioni dettagliate oppure filtrare i processi per una macchina virtuale specifica.
 
     ![Processi](./media/backup-azure-manage-vms/backup-job.png)
 
@@ -62,11 +63,11 @@ Per eseguire un backup su richiesta di una macchina virtuale:
 - Mantenere i dati di backup associati alla macchina virtuale nell'insieme di credenziali di Backup di Azure.
 - Eliminare i dati di backup associati alla macchina virtuale.
 
-Se è stata selezionata la prima opzione, sarà possibile usare i dati di backup per ripristinare la macchina virtuale. Per i dettagli relativi ai prezzi per queste macchine virtuali, fare clic [qui](http://azure.microsoft.com/pricing/details/backup/).
+Se si è scelto di conservare i dati di backup associati alla macchina virtuale, è possibile usarli per ripristinare la macchina virtuale. Per i dettagli relativi ai prezzi per queste macchine virtuali, fare clic [qui](http://azure.microsoft.com/pricing/details/backup/).
 
 Per arrestare la protezione per una macchina virtuale:
 
-1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come tipo di filtro, se non è già selezionata, quindi fare clic su **Seleziona**.
+1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come tipo di filtro, se non è già selezionata, quindi fare clic sul pulsante **Seleziona**.
 
     ![Tipo macchina virtuale](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -99,7 +100,7 @@ Se non è stata selezionata l'opzione **Elimina i dati di backup associati** in 
 
 Dopo la riattivazione della protezione, lo stato di protezione della macchina virtuale verrà cambiato in **Protetto** se sono presenti punti di ripristino prima di **Arresta protezione**.
 
-  ![Protezione VM riattivata](./media/backup-azure-manage-vms/reprotected-status.png)
+    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]Quando si riattiva la protezione della macchina virtuale, è possibile scegliere un criterio diverso rispetto ai criteri con cui la macchina virtuale è stata protetta inizialmente.
 
@@ -116,14 +117,14 @@ Per rimuovere la macchina virtuale dall'insieme di credenziali per il backup:
     ![Disabilita protezione](./media/backup-azure-manage-vms/confirm-unregister.png)
 
 ## Eliminare i dati di backup
-È possibile eliminare i dati di backup associati a una macchina virtuale:
+È possibile eliminare i dati di backup associati a una macchina virtuale in due modi:
 
 - Durante il processo Arresta protezione
 - Dopo il completamento del processo Arresta protezione in una macchina virtuale
 
-Per eliminare i dati di backup in una macchina virtuale con stato "Protezione arrestata" dopo il completamento corretto del processo **Arresta backup**:
+Per eliminare i dati di backup in una macchina virtuale con stato *Protezione arrestata* dopo il completamento corretto di un processo **Arresta backup**:
 
-1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come tipo, quindi fare clic su **Seleziona**.
+1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come **Tipo**, quindi fare clic sul pulsante *Seleziona*.
 
     ![Tipo macchina virtuale](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -145,11 +146,103 @@ Per eliminare i dati di backup in una macchina virtuale con stato "Protezione ar
 
     Dopo il completamento del processo, la voce corrispondente alla macchina virtuale verrà rimossa dalla pagina **Elementi protetti**.
 
-
-###Dashboard
-
+## Dashboard
 Nella pagina **Dashboard** è possibile esaminare le informazioni sulle macchine virtuali di Azure, le relative risorse di archiviazione e i processi associati nelle ultime 24 ore. È possibile visualizzare lo stato del backup ed eventuali errori di backup associati.
 
-  ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
-<!---HONumber=August15_HO6-->
+## Operazioni di controllo
+Backup di Azure consente di esaminare i "log operazioni" delle operazioni di backup attivate dal cliente, per vedere più facilmente e con esattezza quali operazioni di gestione sono state eseguite nell'insieme di credenziali per il backup. I log operazioni offrono un ottimo supporto per i controlli e le relazioni finali sulle operazioni di backup.
+
+Le operazioni seguenti vengono registrate nei log operazioni:
+
+- Registra
+- Annulla registrazione
+- Configura protezione
+- Backup (sia backup pianificato che su richiesta tramite BackupNow)
+- Ripristino
+- Arresta protezione
+- Elimina dati di backup
+- Aggiungi criteri
+- Elimina criteri
+- Aggiorna criteri
+- Annulla processo
+
+Per visualizzare i log operazioni corrispondenti all'insieme di credenziali per il backup:
+
+1. Nel portale di Azure passare a **Servizi di gestione** e quindi fare clic sulla scheda **Log operazioni**.
+
+    ![Log operazioni](./media/backup-azure-manage-vms/ops-logs.png)
+
+2. Nell'area dei filtri selezionare **Backup** come *Tipo* e specificate il nome dell'insieme di credenziali per il backup in *nome servizio* e fare clic su **Invia**.
+
+    ![Filtro dei log operazioni](./media/backup-azure-manage-vms/ops-logs-filter.png)
+
+3. Nei log operazioni selezionare un'operazione qualsiasi e fare clic su **Dettagli** per visualizzare le informazioni corrispondenti a un'operazione.
+
+    ![Log operazioni: recupero dei dettagli](./media/backup-azure-manage-vms/ops-logs-details.png)
+
+    La procedura guidata **Dettagli** include informazioni su operazione attivate, ID processo, risorsa nella quale è stata attivata l'operazione e la relativa data di inizio.
+
+    ![Dettagli operazione](./media/backup-azure-manage-vms/ops-logs-details-window.png)
+
+## Notifiche di avviso
+Nel portale è possibile ottenere notifiche di avviso personalizzate per i processi. Questo risultato si ottiene definendo le regole di avviso basate su PowerShell negli eventi dei log operativi.
+
+Gli avvisi basati su eventi funzionano in modalità risorse di Azure. Per passare alla modalità risorse di Azure eseguire il cmdlet seguente in modalità comandi con privilegi elevati:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+Per definire una notifica di avviso personalizzata per gli errori di backup, ecco un comando di esempio:
+
+```
+PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+```
+
+**ResourceId**: è possibile ottenere queste informazioni dalla finestra popup Log operazioni come descritto nella sezione precedente. ResourceUri nella finestra popup dei dettagli di un'operazione è il valore di ResourceId da fornire per questo cmdlet.
+
+**EventName**: per gli avvisi relativi ai backup delle VM IaaS i valori supportati sono Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy
+
+**Level**: i valori supportati sono Informational, Error. Per gli avvisi relativi alle azioni non riuscite usare Error, mentre per gli avvisi relativi ai processi riusciti usare Informational.
+
+**OperationName**: sarà nel formato "Microsoft.Backup/backupvault/<EventName>", dove EventName sarà come descritto in precedenza.
+
+**Status**: i valori supportati sono Started, Succeeded e Failed. È consigliabile mantenere Informational come livello per lo stato Succeeded.
+
+**SubStatus**: come Status per le operazioni di backup.
+
+**RuleType**: mantenerlo come *Event* perché gli avvisi relativi ai backup si basano sugli eventi.
+
+**ResourceGroup**: gruppo di risorse della risorsa in cui viene attivata l'operazione. È possibile ottenere queste informazioni dal valore di ResourceId. Il valore tra i campi */resourceGroups/* e */providers/* nel valore ResourceId è il valore per ResourceGroup.
+
+**Name**: nome della regola di avviso.
+
+**Description**: descrizione facoltativa della regola di avviso.
+
+**CustomEmails**: specificare l'indirizzo di posta elettronica personalizzato a cui inviare la notifica dell'avviso.
+
+**SendToServiceOwners**: questa opzione invia la notifica dell'avviso a tutti gli amministratori e i coamministratori della sottoscrizione.
+
+Ecco come appare un esempio di messaggio di posta elettronica di avviso:
+
+Intestazione di esempio:
+
+![Intestazione dell'avviso](./media/backup-azure-manage-vms/alert-header.png)
+
+Corpo di esempio del messaggio di posta elettronica di avviso:
+
+![Corpo dell'avviso](./media/backup-azure-manage-vms/alert-body.png)
+
+### Limitazioni per gli avvisi
+Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
+
+1. Gli avvisi vengono attivati in tutte le macchine virtuali nell'insieme di credenziali per il backup. Non è possibile personalizzare l'impostazione per ricevere avvisi per un set specifico di macchine virtuali in un insieme di credenziali per il backup.
+2. Gli avvisi vengono risolti automaticamente se non esiste un evento corrispondente all'avviso attivato nell'intervallo di durata dell'avviso successivo. Usare il parametro *WindowSize* nel cmdlet Add-AlertRule per impostare la durata di attivazione dell'avviso.
+
+## Passaggi successivi
+
+- [Ripristinare una macchina virtuale](backup-azure-restore-vms.md)
+
+<!---HONumber=Sept15_HO2-->

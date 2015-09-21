@@ -1,36 +1,30 @@
 <properties
    pageTitle="Note sulla versione del Catalogo dati di Azure"
-	description="Note sulla versione di anteprima pubblica del 28 agosto 2015 del Catalogo dati di Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Note sulla versione di anteprima pubblica del 28 agosto 2015 del Catalogo dati di Azure."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Note sulla versione del Catalogo dati di Azure
 
-## Note per la versione del 28 agosto 2015 del Catalogo dati di Azure
+## Note per la versione del 4 settembre 2015 del Catalogo dati di Azure
 
-### Profilo dei dati mancante per alcune risorse di dati registrate
+### Il profilo dei dati può essere mancante per alcune risorse di dati registrate
 
-Quando si registrano le origini dei dati con l'opzione di profiling dei dati selezionata nello strumento di registrazione delle origine dati, le informazioni sul profilo dei dati non possono essere incluse negli scenari seguenti:
+Quando si registrano le origini dei dati con l'opzione di profiling dei dati selezionata nello strumento di registrazione delle origine dati, le informazioni sul profilo dei dati non possono essere incluse durante la registrazione delle tabelle Oracle e delle visualizzazioni con caratteri multibyte in nomi di colonna.
 
-* Tabelle dei database SQL di Azure
-* Tabelle e visualizzazioni SQL Server in cui sono presenti più oggetti con lo stesso nome in schemi diversi
-* Tabelle e visualizzazioni SQL Server con nomi di colonna più lunghi di 118 caratteri
-* Tabelle e visualizzazioni Oracle con nomi di colonna più lunghi di 20 caratteri
-* Tabelle e visualizzazioni Oracle con spazi o caratteri multibyte nei nomi di colonna
-
-Queste restrizioni sono dovute a un problema noto nella versione del 28 agosto e verranno risolti in un aggiornamento futuro del Catalogo dati di Azure.
+Queste restrizioni sono dovute a un problema noto nella versione del 4 settembre e verranno risolte in un aggiornamento futuro del Catalogo dati di Azure.
 
 ## Note per la versione del 13 luglio 2015 del Catalogo dati di Azure
 
@@ -83,4 +77,4 @@ Per altre informazioni, vedere [Configurazione dell'autenticazione Intranet basa
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

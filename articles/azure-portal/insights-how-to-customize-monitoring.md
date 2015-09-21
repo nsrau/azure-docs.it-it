@@ -13,7 +13,7 @@ documentationCenter=""/>
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Monitorare le metriche del servizio
@@ -73,4 +73,4 @@ Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

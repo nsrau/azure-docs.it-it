@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # Come gestire le proprietà della rete virtuale (VNet)
-È possibile visualizzare e modificare le proprietà di una rete virtuale usando il portale di gestione.
+È possibile visualizzare e modificare le impostazioni di una rete virtuale usando il portale di Azure.
 
 ## Visualizzare le impostazioni della rete virtuale
 
@@ -100,4 +100,4 @@ Dopo aver distribuito la rete virtuale, è possibile modificare solo alcune impo
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

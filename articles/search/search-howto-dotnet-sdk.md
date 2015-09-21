@@ -396,7 +396,7 @@ Questo passaggio completa l'esercitazione. In **Passaggi successivi** vengono fo
 
 ## Passaggi successivi ##
 
-- Approfondire l'argomento tramite [video e altri esempi ed esercitazioni](https://msdn.microsoft.com/library/azure/dn818681.aspx).
+- Approfondire l'argomento tramite [video e altri esempi ed esercitazioni](search-video-demo-tutorial-list.md).
 - Reperire informazioni sulle caratteristiche e le funzionalità di questa versione di SDK di Ricerca di Azure: [Panoramica di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798933.aspx)
 - Rivedere le [convenzioni di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx) per informazioni sulle regole per la denominazione dei vari oggetti.
 - Rivedere i [tipi di dati supportati](https://msdn.microsoft.com/library/azure/dn798938.aspx) in Ricerca di Azure.
@@ -625,4 +625,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

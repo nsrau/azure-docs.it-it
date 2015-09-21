@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="09/03/2015"
 	ms.author="garye" />
 
 
-#Estendere l'esperimento con R 
+#Estendere l'esperimento con R
 
 È possibile estendere le funzionalità di ML Studio tramite il linguaggio R usando il modulo [Execute R Script][execute-r-script].
 
@@ -501,6 +501,5 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -26,7 +26,7 @@ Anche se le Macchine virtuali di Azure supportano più carichi di lavoro, questo
 
 Macchine virtuali di Azure riduce la necessità di acquisire hardware, consentendo alle organizzazioni di dedicarsi alla creazione e alla gestione di un'infrastruttura scalabile in base a specifiche esigenze, senza affrontare costi iniziali elevati e complessità. In questo modo possono innovare, sperimentare e ripetere le procedure in poche ore anziché in diversi giorni e settimane come nelle tradizionali distribuzioni.
 
-> [AZURE.NOTE]Per informazioni sulla distribuzione di SharePoint 2013 in Azure, vedere [Pianificazione per SharePoint 2013 nei servizi infrastruttura di Azure](https://msdn.microsoft.com/library/dn275958.aspx) e [farm SharePoint ospitate nei servizi infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md).
+> [AZURE.NOTE]Per informazioni sulla distribuzione di SharePoint 2013 in Azure, vedere [Architetture di Microsoft Azure per SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [farm di SharePoint ospitate nei servizi infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md).
 
 ## SharePoint su Macchine virtuali di Azure
 
@@ -58,17 +58,21 @@ Il servizio Macchine virtuali di Azure offre agli sviluppatori la flessibilità 
 
 La raccolta immagini in Azure fornisce l'elenco di VM preconfigurate disponibili. Gli utenti possono pubblicare contenuti di SharePoint Server, SQL Server, Windows Server e altri ISO/VHD nella raccolta immagini. Per semplificare la creazione di VM, nella raccolta vengono create e pubblicate immagini di base. Gli utenti autorizzati possono usare queste immagini per creare la macchina virtuale desiderata. Per ulteriori informazioni, vedere [Creazione di una macchina virtuale che esegue Windows nel portale di anteprima di Azure](virtual-machines-windows-tutorial.md). Nella figura 1 è illustrata la procedura di base per creare una macchina virtuale tramite il portale di Azure.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
+
 **Figura 1: Panoramica della procedura di creazione di una macchina virtuale**
 
 Gli utenti possono anche caricare un'immagine sottoposta a sysprep nel portale di gestione di Azure. Per ulteriori informazioni, vedere [Creare e caricare un disco rigido virtuale Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md). Nella figura 2 è illustrata la procedura di base per caricare un'immagine per creare una macchina virtuale.
 
 Nel portale di Azure, gli utenti possono inoltre caricare un'immagine in cui è già stato eseguito lo strumento SysPrep. Per ulteriori informazioni, vedere [Creare e caricare un disco rigido virtuale Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md). Nella figura 2 è illustrata la procedura di base per caricare un'immagine per creare una macchina virtuale.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
+
 **Figura 2: Panoramica della procedura di caricamento di un’immagine**
 
 ## Distribuzione di SharePoint 2010 in Azure 
 
-Per distribuire SharePoint 2010 in Azure, eseguire la procedura seguente:
+È possibile distribuire SharePoint 2010 in Azure utilizzando il modello di distribuzione classica attenendosi alla procedura seguente:
 
 1. Accedere al [Portale di gestione di Azure](http://manage.windowsazure.com/) con l'account della sottoscrizione di Azure. Se non si dispone di un account Azure, [iscriversi per una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 2. Per creare una macchina virtuale con sistema operativo di base, nel portale di Azure, fare clic su **Nuovo > Calcolo > Macchina virtuale > Da raccolta**.
@@ -117,7 +121,7 @@ Passaggio 2. Eseguire il provisioning dei server SharePoint creando un'altra mac
 Passaggio 3. Configurare SharePoint. Quando ogni macchina virtuale di SharePoint è pronta per essere utilizzata, configurare SharePoint Server in ogni server scegliendo una delle opzioni seguenti:
 
 - Configurare SharePoint dalla GUI.
-- Configurare SharePoint tramite Windows PowerShell. Per ulteriori informazioni, vedere [Installare SharePoint Server 2010 tramite Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx).
+- Configurare SharePoint tramite Windows PowerShell. Per altre informazioni, vedere [Installare SharePoint Server 2010 tramite Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx).
 - È anche possibile utilizzare CodePlex Project AutoSPInstaller, che comprende script di Windows PowerShell, un file di input XML e un file batch di Microsoft Windows standard. AutoSPInstaller fornisce un framework per uno script di installazione di SharePoint 2010 basato su Windows PowerShell. Per altre informazioni, vedere [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
 
 Passaggio 4. Al termine dello script, connettersi alla macchina virtuale utilizzando il Dashboard della macchina virtuale.
@@ -144,6 +148,8 @@ Per sfruttare appieno i computer dei test di carico, le organizzazioni possono c
 
 Nella figura 3 è illustrato un ambiente di test e sviluppo di SharePoint in una macchina virtuale di Azure. Per creare questa distribuzione, sfruttare inizialmente lo stesso ambiente di test e sviluppo di SharePoint usato per sviluppare applicazioni. Quindi, caricare e distribuire le applicazioni nella macchina virtuale di Azure per i test e lo sviluppo. In seguito, sarà possibile spostare di nuovo le applicazioni in locale senza la necessità di modificarle.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png)
+
 **Figura 3: Ambiente di sviluppo e test di SharePoint in macchine virtuali di Azure**
 
 Per implementare un ambiente di test e sviluppo di SharePoint in Azure, eseguire la procedura seguente:
@@ -153,7 +159,7 @@ Per implementare un ambiente di test e sviluppo di SharePoint in Azure, eseguire
 	- È possibile utilizzare l'immagine di SQL Server 2012 anziché quella di Windows Server 2008 R2 SP1. Per altre informazioni, vedere [Eseguire il provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-provision-sql-server.md).
 
 2. Installazione: installare SharePoint Server, Visual Studio e SQL Server nelle macchine virtuali usando una connessione Desktop remoto.
-	- Usare gli strumenti SharePoint 2010 Easy Setup Script per creare un computer SharePoint per lo sviluppo. Per ulteriori informazioni, vedere [SharePoint 2010 Easy Setup Script](http://www.microsoft.com/download/details.aspx?id=23415). Usare Windows PowerShell. Per altre informazioni, vedere [Installare SharePoint Server 2010 tramite Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx). Usare CodePlex Project AutoSPInstaller. Per ulteriori informazioni, vedere [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
+	- Usare gli strumenti SharePoint 2010 Easy Setup Script per creare un computer SharePoint per lo sviluppo. Per ulteriori informazioni, vedere [SharePoint 2010 Easy Setup Script](http://www.microsoft.com/download/details.aspx?id=23415). Usare Windows PowerShell. Per ulteriori informazioni, vedere [Installare SharePoint Server 2010 tramite Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx). Usare CodePlex Project AutoSPInstaller. Per ulteriori informazioni, vedere [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
 	- Installare Visual Studio. Per ulteriori informazioni, vedere [Installazione di Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 	- Installare SQL Server. Per ulteriori informazioni, vedere [Installare SQL Server tramite SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 3. Sviluppo di pacchetti e script di distribuzione per applicazioni e database: se si prevede di usare una macchina virtuale disponibile nella raccolta immagini, è possibile distribuire le applicazioni e i database locali desiderati in Macchine virtuali di Azure:
@@ -186,7 +192,7 @@ In questo scenario è necessario aggiungere altri server Web front-end per Share
 
 Per implementare una farm di SharePoint pubblica in Azure, eseguire la procedura seguente:
 
-1. Distribuzione di Active Directory: i requisiti di base per la distribuzione di Active Directory in Macchine virtuali di Azure sono simili, ma non identici, a quelli della distribuzione in macchine virtuali (e, in una certa misura, in computer fisici) in locale. Per altre informazioni su differenze, linee guida e altre considerazioni, vedere [Linee guida per la distribuzione di Active Directory in macchine virtuali di Azure](http://msdn.microsoft.com/library/jj156090). Per distribuire Active Directory in Azure:
+1. Distribuzione di Active Directory: i requisiti di base per la distribuzione di Active Directory in Macchine virtuali di Azure sono simili, ma non identici, a quelli della distribuzione in macchine virtuali (e, in una certa misura, in computer fisici) in locale. Per altre informazioni su differenze, linee guida e altre considerazioni, vedere [Linee guida per la distribuzione di Active Directory in Macchine virtuali di Azure](http://msdn.microsoft.com/library/jj156090). Per distribuire Active Directory in Azure:
 	- Definire e creare una rete virtuale in cui è possibile assegnare le macchine virtuali a specifiche subnet.
 	- Usare il portale di Azure per creare e distribuire il controller di dominio in una nuova macchina virtuale in Azure. È anche possibile fare riferimento allo script di Windows PowerShell per distribuire un dominio autonomo nel cloud usando Macchine virtuali e Rete virtuale di Azure. Per altre informazioni sulla creazione di una nuova foresta Active Directory in una macchina virtuale di Rete virtuale di Azure, vedere [Installazione di una nuova foresta Active Directory in Azure](active-directory-new-forest-virtual-machine.md).
 2. Eseguire il provisioning di una macchina virtuale: usare il portale di Azure per eseguire il provisioning di una nuova macchina virtuale da un'immagine della raccolta.
@@ -271,12 +277,12 @@ Per una corretta distribuzione di SharePoint Server in Macchine virtuali di Azur
 
 ## Risorse aggiuntive
 
-[SharePoint su Macchine virtuali di Azure](http://msdn.microsoft.com/library/dn275955.aspx)
-
 [Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO9-->
+[Test di SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
+
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso del connettore Salesforce nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore Salesforce e usarlo in un'app per la logica in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Come creare e configurare l'app per le API o il connettore Salesforce e usarlo in un'app per la logica in Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Uso del connettore Salesforce e aggiunta all'app per la logica
@@ -34,13 +34,13 @@ Tra le impostazioni del pacchetto del connettore, l'utente può specificare le e
 Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore Salesforce al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 
-## Creare un'app per le API del connettore Salesforce
+## Creare un'app API connettore di Salesforce
 1.	Aprire Azure Marketplace con l'opzione + NUOVO in basso a destra nel portale di Azure.
-2.	Passare a "Web e dispositivi mobili > App per le API" e cercare "Salesforce".
-3.	Configurare il connettore Salesforce specificando i dettagli relativi al piano di hosting e al gruppo di risorse e selezionando il nome dell'app per le API: ![][15]
-4. Configurare le entità Salesforce da leggere/scrivere in 'Impostazioni pacchetto'.
+2.	Passare a "Web e Mobile > app API " e cercare "Salesforce".
+3.	Configurare il connettore di Salesforce fornendo i dettagli per piano di Hosting, il gruppo di risorse e selezionando il nome dell'app API: ![][15]
+4. Configurare le entità di Salesforce a cui si è interessati in lettura/scrittura nelle ’Impostazioni del pacchetto' '.
 
-A questo punto è possibile creare un'app per le API del connettore Salesforce.
+Con questa operazione, è ora possibile creare un'app API Connector di Salesforce.
 
 
 ## Creare un'app per la logica
@@ -104,4 +104,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

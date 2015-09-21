@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="09/03/2015"
    ms.author="abhic"/>
 
 # Panoramica dei vincoli di posizionamento
@@ -39,4 +39,4 @@ NodeProperty. Mapping definito dall'utente o dal sistema tra una stringa e un va
 Per altre informazioni, vedere l'articolo relativo agli [scenari applicativi](../service-fabric-application-scenarios).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

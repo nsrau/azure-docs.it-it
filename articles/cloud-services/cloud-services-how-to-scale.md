@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come scalare un servizio cloud | Microsoft Azure" 
-	description="Informazioni su come scalare un servizio cloud e le risorse collegate in Azure." 
+	pageTitle="Configurare la scalabilità per un servizio cloud | Microsoft Azure" 
+	description="Informazioni su come utilizzare il portale per configurare le regole di scalabilità automatica per un servizio cloud e le risorse collegate in Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# Come scalare un'applicazione
+# Come scalare automaticamente un'applicazione
 
 Nella pagina Scale del portale di gestione di Azure è possibile scalare manualmente l'applicazione o impostare parametri per la scalabilità automatica. È possibile scalare le applicazioni che eseguono ruoli Web, ruoli di lavoro o macchine virtuali. Per scalare un'applicazione che esegue istanze di ruoli Web o ruoli di lavoro, vengono aggiunte o rimosse istanze dei ruoli per supportare il carico di lavoro.
 
@@ -227,4 +227,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

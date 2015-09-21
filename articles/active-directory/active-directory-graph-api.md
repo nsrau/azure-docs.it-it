@@ -1,21 +1,23 @@
 <properties
    pageTitle="API Graph di Azure Active Directory"
-	description="Panoramica e guida introduttiva per l'API Graph che consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST."
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Panoramica e guida introduttiva per l'API Graph che consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST."
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/08/2015"
+   ms.author="mbaldwin" />
 
 # API Graph di Azure Active Directory
+
+> *Visualizzare la [documentazione di riferimento interattiva sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)*
 
 L'API Graph di Azure Active Directory consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST. Le applicazioni possono usare l'API Graph per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory. Ad esempio, l'API Graph supporta le operazioni comuni seguenti per un oggetto utente:
 
@@ -31,7 +33,7 @@ L'API Graph di Azure Active Directory consente l'accesso a livello di codice ad 
 
 È possibile eseguire operazioni simili anche su altri oggetti, ad esempio gruppi e applicazioni. Per chiamare l'API Graph su una directory, è necessario che l'applicazione sia registrata in Azure AD e che sia configurata per consentire l'accesso alla directory. A tale scopo, viene in genere eseguito un flusso di consenso utente o amministratore.
 
-Per iniziare a usare l'API Graph di Azure Active Directory, vedere la [Guida introduttiva per l'API Graph](active-directory-graph-api-quickstart.md).
+Per iniziare a utilizzare l'API Azure Active Directory Graph, vedere la [Guida rapida di Graph API](active-directory-graph-api-quickstart.md), o visualizzare la [documentazione di riferimento interattiva per l’API Graph ](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 
 ## Funzionalità
@@ -64,4 +66,4 @@ Gli scenari di applicazione dell'API Graph sono numerosi. Ecco i più comuni:
 
 [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

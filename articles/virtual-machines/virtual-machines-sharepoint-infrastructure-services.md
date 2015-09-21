@@ -14,24 +14,26 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/21/2015"
+	ms.date="09/08/2015"
 	ms.author="josephd"/>
 
 # SharePoint nei servizi infrastruttura di Azure
 
 Impostare la prima o successiva di sviluppo e test o produzione farm di SharePoint nei servizi infrastruttura di Microsoft Azure, dove è possibile sfruttare facilità di configurazione e la possibilità di espandere rapidamente la farm per includere la nuova capacità o l'ottimizzazione delle funzionalità chiave.
 
+> [AZURE.NOTE]Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Base farm di sviluppo e test di SharePoint
 
-Per le macchine virtuali create in Gestione dei servizi, utilizzare la funzionalità [Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) del Portale di anteprima di Azure per creare una farm di sviluppo e test di base per un sito Web di SharePoint con connessione Internet.
+Per le macchine virtuali create utilizzando il modello di distribuzione classico, utilizzare la funzionalità [Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) del Portale di anteprima di Azure per creare una farm di sviluppo e test di base per un sito Web di SharePoint con connessione Internet.
 
 L'ambiente creato automaticamente è costituito da tre server per un controller di dominio, un server SQL e il server SharePoint in una rete virtuale Azure solo cloud.
 
-Per creare una configurazione simile con macchine virtuali create in Gestione risorse, utilizzare un modello. Vedere [Distribuire una farm di SharePoint da tre server](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Per creare una configurazione simile con il modello di distribuzione classico di Gestione risorse, utilizzare un modello. Vedere [Distribuire una farm di SharePoint da tre server](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
 ## Farm di sviluppo e test di SharePoint a disponibilità elevata
 
-Per le macchine virtuali create in Gestione dei servizi, utilizzare la funzionalità [Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) del Portale di anteprima di Azure per creare una farm di sviluppo e test di base a disponibilità elevata SharePoint per un sito Web di SharePoint con connessione Internet.
+Per le macchine virtuali classiche, utilizzare la funzionalità [Farm di SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) del Portale di anteprima di Azure per creare una farm di sviluppo e test di base a disponibilità elevata SharePoint per un sito Web di SharePoint con connessione Internet.
 
 L'ambiente creato automaticamente è costituito da nove server in una rete virtuale Azure solo cloud: due per i controller di dominio, tre per un cluster SQL server, due server SharePoint di livello applicazione e due server di SharePoint di livello Web.
 
@@ -41,13 +43,13 @@ Per creare una configurazione simile con macchine virtuali create in Gestione ri
 
 Con la [farm di SharePoint intranet in un ambiente di sviluppo e test del cloud ibrido](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), si crea una configurazione cloud ibrida simulato che ospita una farm di SharePoint semplice e a due livelli, è possibile utilizzare per testare una farm di SharePoint intranet ospitata in Azure dal percorso su Internet.
 
-In questa configurazione vengono utilizzate le macchine virtuali create nella gestione dei servizi.
+Questa configurazione utilizza macchine virtuali classiche.
 
 ## Farm di produzione SharePoint intranet a disponibilità elevata.
 
 Con la distribuzione di [SharePoint 2013 con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-intranet-sharepoint-overview.md), è possibile creare una farm di SharePoint Server 2013 intranet per l'ambiente di produzione e a disponibilità elevata in Azure.
 
-In questa configurazione vengono utilizzate le macchine virtuali create nella gestione dei servizi.
+Questa configurazione utilizza macchine virtuali classiche.
 
 ## Risorse aggiuntive
 
@@ -63,4 +65,4 @@ Per ulteriori informazioni e configurazioni di SharePoint in Azure vedere queste
 
 - [Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

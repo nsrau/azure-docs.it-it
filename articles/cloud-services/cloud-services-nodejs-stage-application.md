@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="mwasson"/>
 
 
@@ -24,18 +24,15 @@
 
 > [AZURE.NOTE]I passaggi illustrati in questo articolo riguardano esclusivamente le applicazioni Node ospitate come Servizio cloud di Azure.
 
-Questa attività include i passaggi seguenti:
-
--   [Passaggio 1: Gestire un'applicazione in modo temporaneo]
--   [Passaggio 2: Distribuire un'applicazione in produzione tramite lo scambio di indirizzi VIP]
-
 ## Passaggio 1: Gestire un'applicazione in modo temporaneo
 
-In questa attività viene illustrato come gestire un'applicazione in modo temporaneo usando **Azure PowerShell**.
+In questa attività viene illustrato come gestire un'applicazione in modo temporaneo usando **Microsoft Azure PowerShell**.
 
 1.  Quando si pubblica un servizio, è sufficiente passare il parametro **-Slot** al cmdlet **Publish-AzureServiceProject**.
 
-    **Gestione temporanea tramite Publish-AzureServiceProject -Slot**
+    ```powershell
+    Publish-AzureServiceProject -Slot staging
+    ```
 
 2.  Accedere al [portale di gestione di Azure] e selezionare **Servizi cloud**. Dopo la creazione del servizio cloud e l'aggiornamento dello stato della colonna **Staging** in **Running**, fare clic sul nome del servizio.
 
@@ -50,8 +47,6 @@ In questa attività viene illustrato come gestire un'applicazione in modo tempor
     ![URL sito][cloud-service-staging-url]
 
 È ora possibile verificare il corretto funzionamento dell'applicazione nell'ambiente di gestione temporanea, usando l'URL del sito di gestione temporanea.
-
-Per uno scenario di aggiornamento in cui l'applicazione di gestione temporanea è una versione aggiornata di un'applicazione già distribuita in produzione, è possibile [aggiornare l'applicazione nell'ambiente di produzione tramite lo scambio di indirizzi VIP][Step 2: Deploy an Application to Production by Swapping VIPs].
 
 ## Passaggio 2: Aggiornare un'applicazione in produzione tramite lo scambio di indirizzi VIP
 
@@ -72,18 +67,12 @@ La gestione temporanea di una distribuzione e l'aggiornamento di una distribuzio
 ## Risorse aggiuntive
 
 - [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]
-- [Panoramica della gestione delle distribuzioni in Azure]
 
-  [Passaggio 1: Gestire un'applicazione in modo temporaneo]: #step1
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [Passaggio 2: Distribuire un'applicazione in produzione tramite lo scambio di indirizzi VIP]: #step2
-  [portale di gestione di Azure]: http://manage.windowsazure.com
+[portale di gestione di Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-  [Panoramica della gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
- 
+[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+[Come distribuire un aggiornamento del servizio in produzione mediante lo scambio di indirizzi VIP in Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

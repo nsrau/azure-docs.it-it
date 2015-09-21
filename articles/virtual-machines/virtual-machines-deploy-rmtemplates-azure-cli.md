@@ -1,51 +1,51 @@
-<properties 
-	pageTitle="Distribuire e gestire le macchine virtuali di Azure utilizzando i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per Mac, Linux e Windows"
-	description="È possibile distribuire il set più comune di configurazioni di macchine virtuali di Azure e gestirle facilmente mediante modelli di Gestione risorse e l'interfaccia della riga di comando di Azure."
+<properties
+	pageTitle="Distribuire e gestire le macchine virtuali di Azure usando i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per Mac, Linux e Windows | Microsoft Azure"
+	description="Distribuire con facilità il set di configurazioni più comune per le macchine virtuali di Azure e gestirle usando i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/09/2015"
 	ms.author="rasquill"/>
 
-# Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
+# Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
 
-In questo articolo viene illustrato come utilizzare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [App Framework](virtual-machines-app-frameworks.md).
+Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
 
 - [Creazione rapida di una macchina virtuale in Azure](#quick-create-a-vm-in-azure)
 - [Distribuire una macchina virtuale in Azure da un modello](#deploy-a-vm-in-azure-from-a-template)
-- [Creare una macchina virtuale da un'immagine personalizzata](#create-a-custom-vm-image) 
-- [Creare una macchina virtuale con la rete virtuale e il bilanciamento del carico](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Creare una macchina virtuale da un'immagine personalizzata](#create-a-custom-vm-image)
+- [Distribuire una macchina virtuale che usa una rete virtuale e un servizio di bilanciamento del carico](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
 - [Rimuovere un gruppo di risorse](#remove-a-resource-group)
 - [Visualizzare il log per una distribuzione del gruppo di risorse](#show-the-log-for-a-resource-group-deployment)
-- [Visualizzare le informazioni relative a una macchina virtuale](#display-information-about-a-virtual-machine)
-- [Accedere a una macchina virtuale basata su Linux](#log-on-to-a-linux-based-virtual-machine)
+- [Visualizzare informazioni relative a una macchina virtuale](#display-information-about-a-virtual-machine)
+- [Connettersi a una macchina virtuale basata su Linux](#log-on-to-a-linux-based-virtual-machine)
 - [Arrestare una macchina virtuale](#stop-a-virtual-machine)
 - [Avviare una macchina virtuale](#start-a-virtual-machine)
 - [Collegare un disco dati](#attach-a-data-disk)
 
 ## Preparazione
 
-Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, sarà necessario disporre della versione corretta dell'interfaccia e un ID azienda o istituzione scolastica (noto anche come ID organizzazione).
+Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario installare la versione corretta dell'interfaccia della riga di comando di Azure e un account aziendale o dell'istituto di istruzione.
 
 ### Aggiornare la versione dell'interfaccia della riga di comando di Azure alla 0.9.0 o successiva
 
-Digitare `azure --version` per verificare se è già stata installata la versione 0.9.0. o una successiva
+Digitare `azure --version` per verificare se è già installata la versione 0.9.0. o una versione successiva.
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Se la versione installata non è la 0.9.0 o una successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) o l'aggiornamento utilizzando uno dei programmi di installazione nativi o tramite **npm** digitando `npm update -g azure-cli`.
+Se la versione installata non è la 0.9.0 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) o l'aggiornamento usando uno dei programmi di installazione nativi oppure tramite **npm** digitando `npm update -g azure-cli`.
 
-È inoltre possibile eseguire l'interfaccia della riga di comando di Azure come contenitore Docker usando la seguente [immagine Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/). Da un host Docker, eseguire il comando seguente:
+È anche possibile eseguire l'interfaccia della riga di comando di Azure come contenitore Docker usando l'[immagine Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) seguente. Da un host Docker, eseguire il comando seguente:
 
 	docker run -it microsoft/azure-cli
 
@@ -53,53 +53,53 @@ Se la versione installata non è la 0.9.0 o una successiva, sarà necessario [in
 
 Se non si dispone già una sottoscrizione di Azure, ma si dispone di un abbonamento MSDN, è possibile attivare i [Vantaggi per gli abbonati MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per una versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-È necessario sia presente un account aziendale o di istituto scolastico per utilizzare i modelli di gestione risorse di Azure. Se disponibile, è possibile digitare `azure login`, immettere il nome utente e la password e dovrebbe essere possibile eseguire correttamente l'accesso.
+Per usare i modelli di Gestione risorse di Azure è necessario avere un account aziendale o dell'istituto di istruzione. Se si ha un account, è possibile digitare `azure login`, immettere il nome utente e la password ed eseguire l'accesso.
 
-> [AZURE.NOTE]Se non è disponibile, verrà visualizzato un messaggio di errore che indica che è necessario un diverso tipo di account. Per crearne uno dal proprio account Azure corrente, vedere [Creazione di un'identità di lavoro o scuola in Azure Active Directory](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Se non è disponibile, verrà visualizzato un messaggio di errore che indica che è necessario un diverso tipo di account. Per crearne uno dall'account Azure corrente, vedere [Creazione di un'identità aziendale o dell'istituto di istruzione in Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
 L'account può includere più di una sottoscrizione. È possibile elencare le sottoscrizioni digitando `azure account list`, comando che potrebbe essere visualizzato in modo simile al seguente:
 
     azure account list
     info:    Executing command account list
-    data:    Name                              Id                                    Tenandt Id                            Current
+    data:    Name                              Id                                    Tenant Id                            Current
     data:    --------------------------------  ------------------------------------  ------------------------------------  -------
-    data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true   
+    data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true
     data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
     data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
     data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
-    
-È possibile impostare la sottoscrizione Azure corrente digitando
+
+È possibile impostare la sottoscrizione di Azure corrente digitando quanto segue. Usare il nome o l'ID della sottoscrizione che contiene le risorse da gestire.
 
 	azure account set <subscription name or ID> true
 
-con il nome della sottoscrizione o l'ID che dispone di risorse che si desidera gestire.
+
 
 ### Passare alla modalità gruppo di risorse dell'interfaccia della riga di comando di Azure
 
-Per impostazione predefinita, l'interfaccia della riga di comando viene avviata in modalità di Gestione servizi (modalità **asm**). Tipo
+Per impostazione predefinita, l'interfaccia della riga di comando di Azure viene avviata nella modalità di gestione dei servizi (modalità **Gestione dei servizi di Azure**). Digitare quanto segue per passare alla modalità gruppo di risorse.
 
 	azure config mode arm
 
-per passare alla modalità del gruppo di risorse.
+
 
 > [AZURE.NOTE]È possibile passare nuovamente al set predefinito di comandi digitando `azure config mode asm`.
 
-## Informazioni sui modelli di risorse di Azure e sui gruppi di risorse
+## Informazioni su modelli di risorse e gruppi di risorse di Azure
 
-La maggior parte delle applicazioni vengono create da una combinazione di tipi diversi di risorse (ad esempio, uno o più macchine virtuali e account di archiviazione, un database SQL, una rete virtuale o una rete di distribuzione dei contenuti o *CDN*). L'API di Gestione servizi di Azure predefinita e il portale Azure classico rappresentavano questi elementi che utilizzavano un approccio individuale, che richiede la distribuzione e la gestione dei singoli servizi in modo sequenziale (o altri strumenti che consentono di eseguire questa operazione) e non come una singola unità logica di distribuzione.
+La maggior parte delle applicazioni è costituita da una combinazione di tipi di risorse diversi, ad esempio una o più macchine virtuali e account di archiviazione, un database SQL, una rete virtuale o una rete per la distribuzione di contenuti. L'API di gestione del servizio Azure predefinita e il portale di Azure rappresentano questi elementi tramite un approccio servizio per servizio. Questo approccio prevede che i singoli servizi vengano distribuiti e gestiti individualmente (o tramite appositi strumenti) e non come una singola unità logica di distribuzione.
 
-*I modelli di Gestione risorse di Azure* consentono di distribuire e gestire queste diverse risorse come una singola unità logica di distribuzione in modo dichiarativo. Anziché in modo imperativo indicando a Azure gli elementi da distribuire un comando dopo l'altro, è possibile descrivere l'intera distribuzione in un file JSON (tutte le risorse, la configurazione associata e i parametri di distribuzione) e indicare ad Azure di distribuire le risorse come un singolo gruppo.
+I *modelli di Gestione risorse di Azure* consentono di distribuire e gestire queste risorse diverse come una singola unità logica di distribuzione in modo dichiarativo. Anziché in modo imperativo indicando a Azure gli elementi da distribuire un comando dopo l'altro, è possibile descrivere l'intera distribuzione in un file JSON (tutte le risorse, la configurazione associata e i parametri di distribuzione) e indicare ad Azure di distribuire le risorse come un singolo gruppo.
 
-È quindi possibile gestire il ciclo di vita complessivo delle risorse del gruppo utilizzando i comandi di Gestione risorse dell'interfaccia della riga di comando di Azure per effettuare quanto segue:
+È quindi possibile gestire il ciclo di vita complessivo delle risorse del gruppo tramite i comandi di gestione delle risorse dell'interfaccia della riga di comando di Azure per effettuare le operazioni seguenti:
 
-- Arrestare, avviare o eliminare tutte le risorse all'interno del gruppo contemporaneamente. 
-- Applicare le regole di controllo degli accessi in base al ruolo (RBAC) per bloccare le autorizzazioni di sicurezza su di essi. 
-- Controllare le operazioni. 
-- Contrassegnare le risorse con metadati aggiuntivi per una gestione più efficiente. 
+- Arrestare, avviare o eliminare tutte le risorse all'interno del gruppo contemporaneamente.
+- Applicare le regole di controllo degli accessi in base al ruolo (RBAC) per bloccare le autorizzazioni di sicurezza su di essi.
+- Controllare le operazioni.
+- Contrassegnare le risorse con metadati aggiuntivi per una gestione più efficiente.
 
-[Qui](../resource-group-overview.md) è possibile ottenere ulteriori informazioni sui gruppi di risorse di Azure e ciò che è possibile eseguire automaticamente. Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+Per altre informazioni sui gruppi di risorse di Azure e su come usarli, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-## <a id="quick-create-a-vm-in-azure"></a>ATTIVITÀ: Creazione rapida di una macchina virtuale in Azure
+## <a id="quick-create-a-vm-in-azure"></a>Attività: Creazione rapida di una macchina virtuale in Azure
 
 A volte si sa quale immagine è necessaria e occorre una macchina virtuale di tale immagine al momento e non è rilevante eccessivamente l'infrastruttura (forse potrebbe essere necessario testare un elemento in una nuova macchina virtuale). Ovvero quando si desidera utilizzare il comando `azure vm quick-create` e passare gli argomenti necessari per creare una macchina virtuale e la relativa infrastruttura.
 
@@ -107,21 +107,21 @@ Innanzitutto, creare il gruppo di risorse.
 
     azure group create coreos-quick westus
     info:    Executing command group create
-    + Getting resource group coreos-quick                                          
-    + Creating resource group coreos-quick                                         
+    + Getting resource group coreos-quick
+    + Creating resource group coreos-quick
     info:    Created resource group coreos-quick
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick
     data:    Name:                coreos-quick
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
 
-In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l'interfaccia della riga di comando di Azure, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md). Tuttavia, per questa Guida rapida, di seguito è riportato un breve elenco di immagini più diffuse. Verrà creata un'immagine stabile di CoreOS per questa creazione rapida.
 
-> [AZURE.NOTE]Per ComputeImageVersion, è anche possibile fornire semplicemente 'latest' come parametro nella lingua del modello e nell'interfaccia della riga di comando di Azure. In questo modo sarà possibile utilizzare sempre la versione più recente e corretta dell'immagine senza dover modificare script o modelli, come illustrato di seguito.
+In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l'interfaccia della riga di comando di Azure, vedere [Esplorazione e selezione di immagini delle macchine virtuali di Azure con PowerShell e l'interfaccia della riga di comando di Azure](resource-groups-vm-searching.md). In questo articolo è riportato un breve elenco delle immagini più diffuse. Verrà creata un'immagine stabile di CoreOS per questa creazione rapida.
+
+> [AZURE.NOTE]Per ComputeImageVersion, è anche possibile specificare semplicemente 'latest' come parametro nel linguaggio di modello e nell'interfaccia della riga di comando di Azure. In questo modo sarà possibile usare sempre la versione dell'immagine più recente e con l'applicazione di tutte le patch necessarie senza dover modificare script o modelli, come illustrato di seguito.
 
 | PublisherName | Offerta | Sku | Versione |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
@@ -143,9 +143,9 @@ In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l'inter
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
-Creare la macchina virtuale immettendo il `azure vm quick-create command` e prepararsi a seguire le istruzioni visualizzate. Dovrebbe essere visualizzata una schermata analoga alla seguente:
+Creare la macchina virtuale immettendo il comando `azure vm quick-create` e prepararsi a seguire le istruzioni visualizzate. Dovrebbe essere visualizzata una schermata analoga alla seguente:
 
-    azure vm quick-create 
+    azure vm quick-create
     info:    Executing command vm quick-create
     Resource group name: coreos-quick
     Virtual machine name: coreos
@@ -155,48 +155,48 @@ Creare la macchina virtuale immettendo il `azure vm quick-create command` e prep
     User name: ops
     Password: *********
     Confirm password: *********
-    + Looking up the VM "coreos"                                                   
+    + Looking up the VM "coreos"
     info:    Using the VM Size "Standard_A1"
     info:    The [OS, Data] Disk or image configuration requires storage account
-    + Retrieving storage accounts                                                  
+    + Retrieving storage accounts
     info:    Could not find any storage accounts in the region "westus", trying to create new one
-    + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"              
-    + Looking up the storage account cli9fd3fce49e9a9b3d14302                      
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
+    + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"
+    + Looking up the storage account cli9fd3fce49e9a9b3d14302
+    + Looking up the NIC "coreo-westu-1430261891570-nic"
     info:    An nic with given name "coreo-westu-1430261891570-nic" not found, creating a new one
-    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
+    + Looking up the virtual network "coreo-westu-1430261891570-vnet"
     info:    Preparing to create new virtual network and subnet
     / Creating a new virtual network "coreo-westu-1430261891570-vnet" [address prefix: "10.0.0.0/16"] with subnet "coreo-westu-1430261891570-sne+" [address prefix: "10.0.1.0/24"]
-    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
+    + Looking up the virtual network "coreo-westu-1430261891570-vnet"
     + Looking up the subnet "coreo-westu-1430261891570-snet" under the virtual network "coreo-westu-1430261891570-vnet"
     info:    Found public ip parameters, trying to setup PublicIP profile
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
+    + Looking up the public ip "coreo-westu-1430261891570-pip"
     info:    PublicIP with given name "coreo-westu-1430261891570-pip" not found, creating a new one
-    + Creating public ip "coreo-westu-1430261891570-pip"                           
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
-    + Creating NIC "coreo-westu-1430261891570-nic"                                 
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
-    + Creating VM "coreos"                                                         
-    + Looking up the VM "coreos"                                                   
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
+    + Creating public ip "coreo-westu-1430261891570-pip"
+    + Looking up the public ip "coreo-westu-1430261891570-pip"
+    + Creating NIC "coreo-westu-1430261891570-nic"
+    + Looking up the NIC "coreo-westu-1430261891570-nic"
+    + Creating VM "coreos"
+    + Looking up the VM "coreos"
+    + Looking up the NIC "coreo-westu-1430261891570-nic"
+    + Looking up the public ip "coreo-westu-1430261891570-pip"
     data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick/providers/Microsoft.Compute/virtualMachines/coreos
     data:    ProvisioningState               :Succeeded
     data:    Name                            :coreos
     data:    Location                        :westus
     data:    FQDN                            :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
     data:    Type                            :Microsoft.Compute/virtualMachines
-    data:    
+    data:
     data:    Hardware Profile:
     data:      Size                          :Standard_A1
-    data:    
+    data:
     data:    Storage Profile:
     data:      Image reference:
     data:        Publisher                   :coreos
     data:        Offer                       :coreos
     data:        Sku                         :stable
     data:        Version                     :633.1.0
-    data:    
+    data:
     data:      OS Disk:
     data:        OSType                      :Linux
     data:        Name                        :cli9fd3fce49e9a9b3d-os-1430261892283
@@ -204,13 +204,13 @@ Creare la macchina virtuale immettendo il `azure vm quick-create command` e prep
     data:        CreateOption                :FromImage
     data:        Vhd:
     data:          Uri                       :https://cli9fd3fce49e9a9b3d14302.blob.core.windows.net/vhds/cli9fd3fce49e9a9b3d-os-1430261892283.vhd
-    data:    
+    data:
     data:    OS Profile:
     data:      Computer Name                 :coreos
     data:      User Name                     :ops
     data:      Linux Configuration:
     data:        Disable Password Auth       :false
-    data:    
+    data:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
@@ -225,28 +225,28 @@ Creare la macchina virtuale immettendo il `azure vm quick-create command` e prep
     data:            Public IP address       :104.40.24.124
     data:            FQDN                    :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
     info:    vm quick-create command OK
-    
+
 La nuova macchina virtuale è stata completata.
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>ATTIVITÀ: Distribuire una macchina virtuale in Azure da un modello
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Attività: Distribuire una macchina virtuale in Azure da un modello
 
-Utilizzare le istruzioni in queste sezioni per distribuire una nuova macchina virtuale Azure con un modello di interfaccia della riga di comando di Azure. Questo modello consente di creare una singola macchina virtuale in una nuova rete virtuale con una sola subnet e, a differenza di `azure vm quick-create`, consente di descrivere esattamente cosa si desidera e ripeterlo senza errori. Di seguito ciò che viene creato da questo modello:
+Per distribuire una nuova macchina virtuale di Azure da un modello usando l'interfaccia della riga di comando di Azure, seguire le istruzioni riportate nelle sezioni seguenti. Questo modello consente di creare una singola macchina virtuale in una nuova rete virtuale con una sola subnet e, a differenza di `azure vm quick-create`, consente di descrivere esattamente cosa si desidera e ripeterlo senza errori. Di seguito ciò che viene creato da questo modello:
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/new-vm.png)
- 
+
 ### Passaggio 1: esaminare il file JSON per i parametri del modello
 
-Di seguito il contenuto del file JSON per il modello. Anche il modello è disponibile [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json) in GitHub.
+Di seguito il contenuto del file JSON per il modello. Anche il modello è disponibile in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).
 
-I modelli sono flessibili, in modo che la finestra di progettazione può scegliere di assegnare un numero elevato di parametri o potrebbe aver scelto di offrirne solo poche creando un modello più corretto. Per raccogliere le informazioni necessarie per passare il modello come parametri, aprire il file di modello (in questo argomento è un modello inline di seguito riportato) ed esaminare i valori dei **parametri**.
+I modelli sono flessibili, quindi l'autore potrebbe aver scelto di rendere disponibili molti parametri oppure di offrirne un numero più limitato creando un modello più rigido. Per raccogliere le informazioni necessarie per passare il modello come parametri, aprire il file di modello (in questo argomento è un modello inline di seguito riportato) ed esaminare i valori dei **parametri**.
 
 In questo caso, il modello riportato di seguito chiederà:
 
-- Un nome dell'account di archiviazione di univoco
-- Un nome utente dell'amministratore per la macchina virtuale
-- Una password
-- Un nome di dominio che dovrà essere utilizzato dal mondo esterno
-- e che accetterò un numero di versione Ubuntu Server, ma solo uno di un elenco. 
+- Un nome dell'account di archiviazione univoco.
+- Un nome utente dell'amministratore per la macchina virtuale.
+- Una password.
+- Un nome di dominio che potrà essere usato dall'esterno.
+- Un numero di versione di Ubuntu Server (verrà accettato un solo numero dall'interno di un elenco).
 
 Una volta definiti questi valori, è possibile creare un gruppo relativo e distribuire il modello nella sottoscrizione di Azure.
 
@@ -257,25 +257,25 @@ Una volta definiti questi valori, è possibile creare un gruppo relativo e distr
         "newStorageAccountName": {
         "type": "string",
         "metadata": {
-            "description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+            "description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
         }
         },
         "adminUsername": {
         "type": "string",
         "metadata": {
-            "description": "User name for the Virtual Machine."
+            "description": "User name for the virtual machine."
         }
         },
         "adminPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "Password for the Virtual Machine."
+            "description": "Password for the virtual machine."
         }
         },
         "dnsNameForPublicIP": {
         "type": "string",
         "metadata": {
-            "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            "description": "Unique DNS name for the public IP used to access the virtual machine."
         }
         },
         "ubuntuOSVersion": {
@@ -425,35 +425,35 @@ Una volta definiti questi valori, è possibile creare un gruppo relativo e distr
     ]
     }
 
-  
-### Passaggio 2: creare la macchina virtuale con il modello
+
+### Passaggio 2: Creare la macchina virtuale usando il modello
 
 Dopo aver preparato i valori di parametro, è necessario creare un gruppo di risorse per la distribuzione del modello, quindi procedere con l'operazione.
 
-Per creare il gruppo di risorse, digitare `azure group create <group name> <location>` con il nome del gruppo desiderato e la posizione del data center in cui si desidera effettuare la distribuzione. Ciò si verifica rapidamente:
+Per creare il gruppo di risorse, digitare `azure group create <group name> <location>` con il nome del gruppo desiderato e la località del data center in cui si intende effettuare la distribuzione. Ciò si verifica rapidamente:
 
     azure group create myResourceGroup westus
     info:    Executing command group create
-    + Getting resource group myResourceGroup                                       
-    + Creating resource group myResourceGroup                                      
+    + Getting resource group myResourceGroup
+    + Creating resource group myResourceGroup
     info:    Created resource group myResourceGroup
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup
     data:    Name:                myResourceGroup
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
+
 
 Per creare la distribuzione, chiamare `azure group deployment create` e passare:
 
-- Il file di modello (nel caso in cui il modello JSON precedente è stato salvato in un file locale) 
-- un URI del modello (nel caso in cui si desidera indicare il file in Github o un altro indirizzo Web)
-- Il gruppo di risorse in cui si desidera effettuare la distribuzione
-- e un nome di distribuzione facoltativo. 
+- Il file di modello (se il modello JSON precedente è stato salvato in un file locale).
+- Un URI del modello (se si vuole fare riferimento al file in GitHub o a un altro indirizzo Web).
+- Il gruppo di risorse in cui si vuole effettuare la distribuzione.
+- Un nome di distribuzione facoltativo.
 
-Verrà richiesto di fornire i valori dei parametri contenuti nella sezione **"parameters"** del file JSON. Dopo aver specificato tutti i valori dei parametri, verrà avviata la distribuzione.
+Verrà richiesto di fornire i valori dei parametri contenuti nella sezione "parameters" del file JSON. Dopo aver specificato tutti i valori dei parametri, verrà avviata la distribuzione.
 
 Di seguito è fornito un esempio:
 
@@ -464,17 +464,17 @@ Di seguito è fornito un esempio:
     adminUsername: ops
     adminPassword: password
     dnsNameForPublicIP: newdomainname
-    
+
 Verrà visualizzato il tipo di informazioni seguente:
 
-    + Initializing template configurations and parameters                          
-    + Creating a deployment                                                        
+    + Initializing template configurations and parameters
+    + Creating a deployment
     info:    Created template deployment "firstDeployment"
-    + Registering providers                                                        
+    + Registering providers
     info:    Registering provider microsoft.storage
     info:    Registering provider microsoft.network
     info:    Registering provider microsoft.compute
-    + Waiting for deployment to complete                                           
+    + Waiting for deployment to complete
     data:    DeploymentName     : firstDeployment
     data:    ResourceGroupName  : myResourceGroup
     data:    ProvisioningState  : Succeeded
@@ -482,24 +482,24 @@ Verrà visualizzato il tipo di informazioni seguente:
     data:    Mode               : Incremental
     data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
-    data:    Name                   Type          Value        
+    data:    Name                   Type          Value
     data:    ---------------------  ------------  -------------
     data:    newStorageAccountName  String        storageaccount
-    data:    adminUsername          String        ops          
-    data:    adminPassword          SecureString  undefined    
-    data:    dnsNameForPublicIP     String        newdomainname   
-    data:    ubuntuOSVersion        String        14.10        
+    data:    adminUsername          String        ops
+    data:    adminPassword          SecureString  undefined
+    data:    dnsNameForPublicIP     String        newdomainname
+    data:    ubuntuOSVersion        String        14.10
     info:    group deployment create command OK
-    
 
 
-## <a id="create-a-custom-vm-image"></a>ATTIVITÀ: Creare un'immagine di macchina virtuale personalizzata
 
-È stato osservato l'utilizzo di base dei modelli precedenti, pertanto è ora possibile utilizzare istruzioni simili per creare una macchina virtuale personalizzata da un file VHD in Azure con un modello tramite l'interfaccia della riga di comando di Azure. La differenza è che questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
+## <a id="create-a-custom-vm-image"></a>Attività: Creare un'immagine di macchina virtuale personalizzata
+
+Nelle sezioni precedenti è stato illustrato l'utilizzo di base dei modelli. È quindi possibile usare istruzioni simili per creare una macchina virtuale personalizzata da un file VHD in Azure usando un modello tramite l'interfaccia della riga di comando di Azure. La differenza è che questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
 
 ### Passaggio 1: esaminare il file JSON per il modello
 
-Di seguito il contenuto del file JSON per il modello di questa sezione viene utilizzato come esempio, ma è possibile trovare il modello stesso [qui](https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json).
+Ecco il contenuto del file JSON per il modello che viene usato come esempio in questa sezione.
 
 Anche in questo caso, è necessario trovare i valori da immettere per i parametri privi di valori predefiniti. Quando si esegue il comando `azure group deployment create` dell'interfaccia della riga di comando di Azure, verrà richiesto di immettere tali valori.
 
@@ -686,30 +686,30 @@ Anche in questo caso, è necessario trovare i valori da immettere per i parametr
 
 ### Passaggio 2: ottenere il disco rigido virtuale
 
-Ovviamente, è necessario un file VHD per questa operazione. È possibile utilizzare uno che già si trova in Azure oppure è possibile caricarne uno.
+Ovviamente, è necessario un file VHD per questa operazione. È possibile usarne uno già presente in Azure o caricarne uno.
 
 Per una macchina virtuale basata su Windows, vedere [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
-Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un disco rigido virtuale con Linux in Azure](virtual-machines-linux-create-upload-vhd.md).
+Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-### Passaggio 3: creare la macchina virtuale con il modello
+### Passaggio 3: Creare la macchina virtuale usando il modello
 
-A questo punto è possibile creare una nuova macchina virtuale in base al file VHD. Creare un gruppo di distribuzione, utilizzando `azure group create <location>`:
+A questo punto è possibile creare una nuova macchina virtuale in base al file VHD. Creare un gruppo in cui effettuare la distribuzione, usando `azure group create <location>`:
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
-    + Getting resource group myResourceGroupUser                                            
-    + Creating resource group myResourceGroupUser                                           
+    + Getting resource group myResourceGroupUser
+    + Creating resource group myResourceGroupUser
     info:    Created resource group myResourceGroupUser
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupUser
     data:    Name:                myResourceGroupUser
     data:    Location:            eastus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
-Quindi creare la distribuzione utilizzando l'opzione `--template-uri` che consente di chiamare direttamente nel modello (o è possibile utilizzare l'opzione `--template-file` per utilizzare un file salvato in locale). Si noti che poiché il modello dispone di valori predefiniti specificati, vengono richiesti solo per alcune operazioni. Se si distribuisce il modello in posizioni diverse, è probabile che si verificano alcuni conflitti di denominazione con i valori predefiniti (in particolare il nome DNS creato).
+
+Creare quindi la distribuzione usando l'opzione `--template-uri` che consente di chiamare direttamente il modello. In alternativa, usare l'opzione `--template-file` per usare un file salvato in locale. Si noti che poiché nel modello sono specificati valori predefiniti, sarà necessario fornire solo poche informazioni. Se si distribuisce il modello in posizioni diverse, potrebbero verificarsi alcuni conflitti di denominazione con i valori predefiniti (in particolare per il nome DNS creato).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
@@ -721,16 +721,16 @@ Quindi creare la distribuzione utilizzando l'opzione `--template-uri` che consen
     adminPassword: password
     osType: linux
     subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        
+
 Verrà visualizzata una schermata simile alla seguente:
 
-    + Initializing template configurations and parameters                          
-    + Creating a deployment                                                        
+    + Initializing template configurations and parameters
+    + Creating a deployment
     info:    Created template deployment "customVhdDeployment"
-    + Registering providers                                                        
+    + Registering providers
     info:    Registering provider microsoft.network
     info:    Registering provider microsoft.compute
-    + Waiting for deployment to complete                                           
+    + Waiting for deployment to complete
     error:   Deployment provisioning state was not successful
     data:    DeploymentName     : customVhdDeployment
     data:    ResourceGroupName  : myResourceGroupUser
@@ -739,34 +739,34 @@ Verrà visualizzata una schermata simile alla seguente:
     data:    Mode               : Incremental
     data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
-    data:    Name                           Type          Value                               
+    data:    Name                           Type          Value
     data:    -----------------------------  ------------  ------------------------------------
-    data:    userImageStorageAccountName    String        userImageStorageAccountName         
-    data:    userImageStorageContainerName  String        userImageStorageContainerName       
-    data:    userImageVhdName               String        userImageVhdName                    
-    data:    dnsNameForPublicIP             String        uniqueDnsNameForPublicIP            
-    data:    adminUserName                  String        ops                                 
-    data:    adminPassword                  SecureString  undefined                           
-    data:    osType                         String        linux                               
+    data:    userImageStorageAccountName    String        userImageStorageAccountName
+    data:    userImageStorageContainerName  String        userImageStorageContainerName
+    data:    userImageVhdName               String        userImageVhdName
+    data:    dnsNameForPublicIP             String        uniqueDnsNameForPublicIP
+    data:    adminUserName                  String        ops
+    data:    adminPassword                  SecureString  undefined
+    data:    osType                         String        linux
     data:    subscriptionId                 String        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    data:    location                       String        West US                             
-    data:    vmSize                         String        Standard_A2                         
-    data:    publicIPAddressName            String        myPublicIP                          
-    data:    vmName                         String        myVM                                
-    data:    virtualNetworkName             String        myVNET                              
-    data:    nicName                        String        myNIC                               
+    data:    location                       String        West US
+    data:    vmSize                         String        Standard_A2
+    data:    publicIPAddressName            String        myPublicIP
+    data:    vmName                         String        myVM
+    data:    virtualNetworkName             String        myVNET
+    data:    nicName                        String        myNIC
     info:    group deployment create command OK
-    
 
-## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>ATTIVITÀ: Distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico esterno
 
-Questo modello consente di creare 2 macchine virtuali in un servizio di bilanciamento del carico e configurare una regola sulla porta 80 di bilanciamento del carico. Questo modello consente inoltre di distribuire un account di archiviazione, una rete virtuale, l'indirizzo IP pubblico, il set di disponibilità e le interfacce di rete.
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Attività: Distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico esterno
+
+Questo modello consente di creare due macchine virtuali in un servizio di bilanciamento del carico e configurare una regola per il bilanciamento del carico sulla porta 80. Questo modello distribuisce anche un account di archiviazione, una rete virtuale, l'indirizzo IP pubblico, il set di disponibilità e le interfacce di rete.
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/multivmextlb.png)
- 
-Seguire questi passaggi per distribuire un'applicazione per più macchine virtuali che utilizza una rete virtuale e un servizio di bilanciamento del carico mediante un modello di Gestione risorse nell'archivio dei modelli Github tramite i comandi PowerShell di Azure.
 
-### Passaggio 1: esaminare il file JSON per il modello.
+Seguire queste procedure per distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico usando un modello di Gestione risorse nel repository dei modelli di GitHub tramite i comandi di Azure PowerShell.
+
+### Passaggio 1: esaminare il file JSON per il modello
 
 Di seguito il contenuto del file JSON per il modello. Se si desidera la versione più recente, si trova [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In questo argomento viene utilizzato lo switch `--template-uri` per passare la chiamata del modello, ma è anche possibile utilizzare lo switch `--template-file` per passare a una versione locale.
 
@@ -790,7 +790,7 @@ Di seguito il contenuto del file JSON per il modello. Se si desidera la versione
             "adminUsername": {
                 "type": "string",
                 "metadata": {
-                  "description": "Admin username"
+                  "description": "Admin user name"
                 }
             },
             "adminPassword": {
@@ -802,14 +802,14 @@ Di seguito il contenuto del file JSON per il modello. Se si desidera la versione
             "dnsNameforLBIP": {
                 "type": "string",
                 "metadata": {
-                  "description": "DNS for Load Balancer IP"
+                  "description": "DNS for load balancer IP"
                 }
             },
             "backendPort": {
                 "type": "int",
                 "defaultValue": 3389,
                 "metadata": {
-                  "description": "Backend port"
+                  "description": "Back-end port"
                 }
             },
             "vmNamePrefix": {
@@ -827,28 +827,28 @@ Di seguito il contenuto del file JSON per il modello. Se si desidera la versione
                 "type": "string",
                 "defaultValue": "myLB",
                 "metadata": {
-                  "description": "Load Balancer name"
+                  "description": "Load balancer name"
                 }
             },
             "nicNamePrefix": {
                 "type": "string",
                 "defaultValue": "nic",
                 "metadata": {
-                  "description": "Network Interface name prefix"
+                  "description": "Network interface name prefix"
                 }
             },
             "publicIPAddressName": {
                 "type": "string",
                 "defaultValue": "myPublicIP",
                 "metadata": {
-                  "description": "Public IP Name"
+                  "description": "Public IP name"
                 }
             },
             "vnetName": {
                 "type": "string",
                 "defaultValue": "myVNET",
                 "metadata": {
-                  "description": "VNET name"
+                  "description": "Virtual network name"
                 }
             },
             "vmSize": {
@@ -963,11 +963,11 @@ Di seguito il contenuto del file JSON per il modello. Se si desidera la versione
                                     "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/inboundNatRule/RDP-VM', copyindex())]"
                                 }
                             ]
-    
-    
+
+
                         }
                     ]
-    
+
                 }
             },
             {
@@ -993,7 +993,7 @@ Di seguito il contenuto del file JSON per il modello. Se si desidera la versione
                     "backendAddressPools": [
                         {
                             "name": "LBBE"
-    
+
                         }
                     ],
                     "inboundNatRules": [
@@ -1102,26 +1102,26 @@ Di seguito il contenuto del file JSON per il modello. Se si desidera la versione
         ]
     }
 
-### Passaggio 2: creare la distribuzione con il modello.
+### Passaggio 2: Creare la distribuzione usando il modello
 
-Creare un gruppo di risorse per il modello utilizzando `azure group create <location>`, quindi creare una distribuzione in tale gruppo di risorse utilizzando `azure group deployment create` e passando il gruppo di risorse, un nome di distribuzione e rispondere alle istruzioni visualizzate per i parametri di modello senza valori predefiniti.
+Creare un gruppo di risorse per il modello usando l'opzione `azure group create <location>`. Creare quindi una distribuzione nel gruppo di risorse usando `azure group deployment create` e passando il gruppo di risorse, un nome di distribuzione e specificando i parametri del modello per cui non sono previsti valori predefiniti.
 
 
     azure group create lbgroup westus
     info:    Executing command group create
-    + Getting resource group lbgroup                                               
-    + Creating resource group lbgroup                                              
+    + Getting resource group lbgroup
+    + Creating resource group lbgroup
     info:    Created resource group lbgroup
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/lbgroup
     data:    Name:                lbgroup
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
 
-A questo punto, utilizzare il comando `azure group deployment create` e l'opzione `--template-uri` per distribuire il modello. Quando viene richiesto, come mostrato di seguito, fornire i valori dei parametri.
+
+A questo punto, utilizzare il comando `azure group deployment create` e l'opzione `--template-uri` per distribuire il modello. Quando richiesto, specificare i valori dei parametri, come illustrato di seguito.
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json \
@@ -1134,14 +1134,14 @@ A questo punto, utilizzare il comando `azure group deployment create` e l'opzion
     adminUsername: ops
     adminPassword: password
     dnsNameforLBIP: lbdomainname
-    + Initializing template configurations and parameters                          
-    + Creating a deployment                                                        
+    + Initializing template configurations and parameters
+    + Creating a deployment
     info:    Created template deployment "newdeployment"
-    + Registering providers                                                        
+    + Registering providers
     info:    Registering provider microsoft.storage
     info:    Registering provider microsoft.compute
     info:    Registering provider microsoft.network
-    + Waiting for deployment to complete                                           
+    + Waiting for deployment to complete
     data:    DeploymentName     : newdeployment
     data:    ResourceGroupName  : lbgroup
     data:    ProvisioningState  : Succeeded
@@ -1149,44 +1149,44 @@ A questo punto, utilizzare il comando `azure group deployment create` e l'opzion
     data:    Mode               : Incremental
     data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
-    data:    Name                   Type          Value                 
+    data:    Name                   Type          Value
     data:    ---------------------  ------------  ----------------------
-    data:    location               String        westus                
-    data:    newStorageAccountName  String        storagename         
-    data:    adminUsername          String        ops                   
-    data:    adminPassword          SecureString  undefined             
-    data:    dnsNameforLBIP         String        lbdomainname         
-    data:    backendPort            Int           3389                  
-    data:    vmNamePrefix           String        myVM                  
+    data:    location               String        westus
+    data:    newStorageAccountName  String        storagename
+    data:    adminUsername          String        ops
+    data:    adminPassword          SecureString  undefined
+    data:    dnsNameforLBIP         String        lbdomainname
+    data:    backendPort            Int           3389
+    data:    vmNamePrefix           String        myVM
     data:    imagePublisher         String        MicrosoftWindowsServer
-    data:    imageOffer             String        WindowsServer         
-    data:    imageSKU               String        2012-R2-Datacenter    
-    data:    lbName                 String        myLB                  
-    data:    nicNamePrefix          String        nic                   
-    data:    publicIPAddressName    String        myPublicIP            
-    data:    vnetName               String        myVNET                
-    data:    vmSize                 String        Standard_A1           
+    data:    imageOffer             String        WindowsServer
+    data:    imageSKU               String        2012-R2-Datacenter
+    data:    lbName                 String        myLB
+    data:    nicNamePrefix          String        nic
+    data:    publicIPAddressName    String        myPublicIP
+    data:    vnetName               String        myVNET
+    data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
-    
-Si noti che questo modello consente di distribuire un'immagine di Windows Server; Tuttavia, potrebbe facilmente essere sostituita anche con qualsiasi immagine Linux. Si desidera creare un cluster docker in più aree? [Sì, è possibile](http://azure.microsoft.com/documentation/templates/201-discover-private-ip-dynamically/).
 
-## <a id="remove-a-resource-group"></a>ATTIVITÀ: Rimuovere un gruppo di risorse
+Si noti che questo modello distribuisce un'immagine di Windows Server. Questa immagine potrebbe essere tuttavia sostituita con qualsiasi immagine Linux. Si vuole creare un cluster Docker con più swarm manager? [Sì, è possibile](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-Tenere presente che è possibile effettuare una nuova distribuzione a un gruppo di risorse, ma in tal caso, se viene effettuata con un'unica risorsa, sarà possibile eliminare la distribuzione utilizzando il comando `azure group delete <group name>`.
+## <a id="remove-a-resource-group"></a>Attività: Rimuovere un gruppo di risorse
+
+Tenere presente che in un gruppo di risorse è possibile effettuare una nuova distribuzione, tuttavia, se il gruppo di risorse non è più necessario, è possibile eliminarlo usando il comando `azure group delete <group name>`.
 
     azure group delete myResourceGroup
     info:    Executing command group delete
     Delete resource group myResourceGroup? [y/n] y
-    + Deleting resource group myResourceGroup                                               
+    + Deleting resource group myResourceGroup
     info:    group delete command OK
-    
-## <a id="show-the-log-for-a-resource-group-deployment"></a>ATTIVITÀ: Visualizzare il log per una distribuzione del gruppo di risorse
 
-Questa operazione è piuttosto comune durante la creazione o l'utilizzo di modelli. Il comando per richiamare e visualizzare i log di distribuzione relativi a un gruppo è `azure group log show <groupname>`, che consente di visualizzare una certa quantità di informazioni utili per comprendere perché qualcosa si è verificato o meno un evento. Per ulteriori informazioni sulla risoluzione dei problemi delle distribuzioni, nonché altre informazioni sui problemi, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-group-deploy-debug.md).
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Attività: Visualizzare il log per una distribuzione nel gruppo di risorse
 
-Per errori specifici ad esempio, è possibile utilizzare strumenti come **jq** per eseguire query in modo più preciso, ad esempio individuare i singoli errori che è necessario correggere. Nell'esempio seguente viene utilizzato **jq** per analizzare un log di distribuzione denominato **lbgroup** al fine di individuare eventuali errori
+Questa operazione è piuttosto comune durante la creazione o l'utilizzo di modelli. Il comando per chiamare la visualizzazione dei log di distribuzione per un gruppo è `azure group log show <groupname>`, che fornisce numerose informazioni utili per comprendere il motivo per cui si è verificato, o non si è verificato, un evento. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni o ad altri errori, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-group-deploy-debug.md).
 
-    azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties' 
+Per errori specifici ad esempio, è possibile utilizzare strumenti come **jq** per eseguire query in modo più preciso, ad esempio individuare i singoli errori che è necessario correggere. Nell'esempio seguente viene usato **jq** per analizzare un log di distribuzione per **lbgroup** al fine di trovare eventuali errori.
+
+    azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 
 È possibile individuare molto rapidamente la causa dell'errore, correggerlo e riprovare. Nel caso seguente con il modello sono state create due macchine virtuali contemporaneamente, che hanno generato un blocco sul file VHD. Dopo aver modificato il modello, la distribuzione è stata completata rapidamente.
 
@@ -1194,42 +1194,42 @@ Per errori specifici ad esempio, è possibile utilizzare strumenti come **jq** p
       "statusCode": "Conflict",
       "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd."}]}}"
     }
-    
 
-## <a id="display-information-about-a-virtual-machine"></a>ATTIVITÀ: Visualizzare informazioni relative a una macchina virtuale
 
-È possibile visualizzare informazioni sulle specifiche macchine virtuali nel gruppo risorse in uso utilizzando il comando `azure vm show <groupname> <vmname> command`. In primo luogo, qualora si disponesse di più macchine virtuali potrebbe essere necessario includere le macchine virtuali in un gruppo utilizzando il comando `azure vm list <groupname>`.
+## <a id="display-information-about-a-virtual-machine"></a>Attività: Visualizzare informazioni relative a una macchina virtuale
+
+Per visualizzare informazioni sulle macchine virtuali specifiche nel gruppo di risorse in uso, usare il comando `azure vm show <groupname> <vmname> command`. Se nel gruppo sono presenti più macchine virtuali, potrebbe essere prima necessario elencare le macchine virtuali nel gruppo usando il comando `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
-    + Getting virtual machines                                                     
-    data:    Name   ProvisioningState  Location  Size       
+    + Getting virtual machines
+    data:    Name   ProvisioningState  Location  Size
     data:    -----  -----------------  --------  -----------
     data:    myVM0  Succeeded          westus    Standard_A1
     data:    myVM1  Failed             westus    Standard_A1
-    
-Quindi, osservando myVM1 si evince che:
+
+Selezionare quindi myVM1:
 
     azure vm show zoo myVM1
     info:    Executing command vm show
-    + Looking up the VM "myVM1"                                                    
-    + Looking up the NIC "nic1"                                                    
+    + Looking up the VM "myVM1"
+    + Looking up the NIC "nic1"
     data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
     data:    Type                            :Microsoft.Compute/virtualMachines
-    data:    
+    data:
     data:    Hardware Profile:
     data:      Size                          :Standard_A1
-    data:    
+    data:
     data:    Storage Profile:
     data:      Image reference:
     data:        Publisher                   :MicrosoftWindowsServer
     data:        Offer                       :WindowsServer
     data:        Sku                         :2012-R2-Datacenter
     data:        Version                     :latest
-    data:    
+    data:
     data:      OS Disk:
     data:        OSType                      :Windows
     data:        Name                        :osdisk
@@ -1237,14 +1237,14 @@ Quindi, osservando myVM1 si evince che:
     data:        CreateOption                :FromImage
     data:        Vhd:
     data:          Uri                       :http://zoostorageralph.blob.core.windows.net/vhds/osdisk.vhd
-    data:    
+    data:
     data:    OS Profile:
     data:      Computer Name                 :myVM1
     data:      User Name                     :ops
     data:      Windows Configuration:
     data:        Provision VM Agent          :true
     data:        Enable automatic updates    :true
-    data:    
+    data:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
@@ -1255,60 +1255,51 @@ Quindi, osservando myVM1 si evince che:
     data:          Location                  :westus
     data:            Private IP alloc-method :Dynamic
     data:            Private IP address      :10.0.0.5
-    data:    
+    data:
     data:    AvailabilitySet:
     data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
-    
 
-> [AZURE.NOTE]Se si desidera archiviare e modificare l'output dei comandi della console a livello di programmazione, è possibile utilizzare un formato JSON come strumento di analisi, tra cui **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** o librerie di linguaggi valido per l'attività.
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>ATTIVITÀ: Accedere a una macchina virtuale basata su Linux
+> [AZURE.NOTE]Per archiviare e modificare l'output dei comandi della console a livello di codice, è possibile usare uno strumento di analisi JSON, ad esempio **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** o le librerie dei linguaggi idonee per l'attività.
+
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
 
 In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md).
 
-## <a id="stop-a-virtual-machine"></a>ATTIVITÀ: Arrestare una macchina virtuale
+## <a id="stop-a-virtual-machine"></a>Attività: Arrestare una macchina virtuale
 
 Eseguire questo comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Utilizzare questo parametro per mantenere l'IP virtuale (VIP) del vnet, qualora fosse l'ultima macchina virtuale inclusa vnet. <br><br> Se si utilizza il parametro `StayProvisioned`, verrà ancora configurato per la macchina virtuale.
+>[AZURE.IMPORTANT]Utilizzare questo parametro per mantenere l'IP virtuale (VIP) del vnet, qualora fosse l'ultima macchina virtuale inclusa vnet. <br><br> Se si usa il parametro `StayProvisioned`, i costi per la macchina virtuale continueranno a essere addebitati.
 
-## <a id="start-a-virtual-machine"></a>ATTIVITÀ: Avviare una macchina virtuale
+## <a id="start-a-virtual-machine"></a>Attività: Avviare una macchina virtuale
 
 Eseguire questo comando:
 
     azure vm start <group name> <virtual machine name>
 
-## <a id="attach-a-data-disk"></a>ATTIVITÀ: Collegare un disco dati
+## <a id="attach-a-data-disk"></a>Attività: Collegare un disco dati
 
 È inoltre necessario decidere se collegare un nuovo disco o uno che contiene già dati. Per un nuovo disco, il comando permette di creare il file con estensione VHD e contemporaneamente di collegarlo.
 
 Per collegare un nuovo disco, eseguire questo comando:
 
-     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb> 
+     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
 Per collegare un disco dati esistente, eseguire questo comando:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
-    
+
 Quindi è necessario montare il disco, come si farebbe normalmente in Linux (o in Windows).
 
 
 ## Passaggi successivi
 
-Per ulteriori esempi di utilizzo dell'interfaccia della riga di comando di Azure in modalità **arm**, vedere il documento relativo all'[utilizzo dell'interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Microsoft Azure.](xplat-cli-azure-resource-manager.md). Per ulteriori informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
+Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure**, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e concetti correlati, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
 
-Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [App Framework](virtual-machines-app-frameworks.md).
+Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
 
-
-
-
-
-
-
-
- 
-
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="Impostare e recuperare proprietà e metadati per l'archiviazione Blob | Microsoft Azure" 
-  description="Informazioni su come impostare e recuperare proprietà e metadati per le risorse di Archiviazione di Azure e BLOB." 
+  pageTitle="Impostare e recuperare proprietà e metadati per gli oggetti in Archiviazione di Azure | Microsoft Azure" 
+  description="Archiviare i metadati personalizzati per oggetti di archiviazione di Azure, impostare e recuperare le proprietà di sistema." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="08/04/2015" 
+  ms.date="09/03/2015" 
   ms.author="tamram"/>
 
 
@@ -106,4 +106,4 @@ Nell’esempio di codice seguente viene creato un nuovo contenitore e vengono im
 - [Introduzione all’archiviazione BLOB per .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

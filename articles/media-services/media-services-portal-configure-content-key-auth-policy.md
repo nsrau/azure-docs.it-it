@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,15 @@ Quando si protegge il contenuto con **PlayReady**, è necessario includere nei c
 
 È possibile fare clic sul pulsante **importa xml criterio** e specificare codice XML differente, conforme allo schema XML definito [qui](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Passaggi successivi
 Dopo la configurazione dei criteri di autorizzazione della chiave, passare all'argomento [Procedura: Usare il portale di gestione di Azure per abilitare la crittografia](../media-services-manage-content#encrypt/).
 
@@ -93,4 +102,4 @@ Dopo la configurazione dei criteri di autorizzazione della chiave, passare all'a
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

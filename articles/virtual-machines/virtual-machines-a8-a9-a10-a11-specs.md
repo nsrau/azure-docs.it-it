@@ -5,14 +5,15 @@
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager, azure-service-management"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/22/2015"
+ ms.date="09/02/2015"
  ms.author="danlep"/>
 
 # Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo
@@ -53,7 +54,7 @@ Ethernet a 10 Gbps | Si connette ai servizi di Azure, come il servizio di archiv
 Rete back-end a 32 Gbps che supporta RDMA | Permette le comunicazioni di applicazioni a bassa latenza e velocità effettiva elevata tra le istanze presenti all'interno di un singolo servizio cloud o set di disponibilità. Riservata per il solo traffico MPI.
 
 
->[AZURE.IMPORTANT]Nelle VM A8 e A9 che eseguono Linux in IaaS, l'accesso alla rete RDMA è attualmente abilitato solo tramite applicazioni che utilizzano Azure Linux RDMA e Intel MPI Library 5.0 su SUSE Linux Enterprise Server 12 (SLES 12). Nelle istanze A8 e A9 che eseguono Windows Server in IaaS o PaaS, l'accesso alla rete RDMA è attualmente abilitato solo tramite applicazioni che utilizzano l'interfaccia Microsoft Network Direct. Per altre informazioni sui requisiti, vedere la sezione [Accedere alla rete RDMA](#access-the-rdma-network) in questo articolo.
+>[AZURE.IMPORTANT]Nelle VM A8 e A9 che eseguono Linux, l'accesso alla rete RDMA è attualmente abilitato solo tramite applicazioni che utilizzano Azure Linux RDMA e Intel MPI Library 5 su SUSE Linux Enterprise Server 12 (SLES 12). Nelle istanze A8 e A9 che eseguono Windows Server, l'accesso alla rete RDMA è attualmente abilitato solo tramite applicazioni che utilizzano l'interfaccia Microsoft Network Direct. Per altre informazioni sui requisiti, vedere la sezione [Accedere alla rete RDMA](#access-the-rdma-network) in questo articolo.
 
 Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps che si connette ai servizi di Azure e a Internet.
 
@@ -63,9 +64,9 @@ Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps
 
 * **Quota di core**: potrebbe essere necessario aumentare la quota di core della sottoscrizione di Azure rispetto alla quota predefinita di 20 core, che non è sufficiente per scenari con istanze da 8 o 16 core. Per i test iniziali potrebbe essere necessario richiedere un aumento della quota a 100 core. A tale scopo, aprire un ticket di supporto gratuito, come descritto nelle [informazioni sui limiti e gli aumenti di Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
->[AZURE.NOTE]Le quote di Azure sono limiti di credito e non garanzie di capacità. Viene addebitato solo l'uso dei core effettivamente impiegati.
+    >[AZURE.NOTE]Le quote di Azure sono limiti di credito e non garanzie di capacità. Viene addebitato solo l'uso dei core effettivamente impiegati.
 
-* **Gruppo di affinità**: attualmente un gruppo di affinità non è consigliato per la maggior parte delle nuove distribuzioni. Tuttavia, si noti che se si utilizza un gruppo di affinità contenente le istanze di dimensioni diverse da A8 - A11, non sarà possibile usarlo per le istanze A8 - A11 e viceversa.
+* **Set di affinità**: attualmente un set di affinità non è consigliato per la maggior parte delle nuove distribuzioni. Tuttavia, si noti che se si utilizza un gruppo di affinità contenente le istanze di dimensioni diverse da A8 - A11, non sarà possibile usarlo per le istanze A8 - A11 e viceversa.
 
 * **Rete virtuale**: non è necessaria una rete virtuale di Azure per poter utilizzare le istanze a elevato utilizzo di calcolo. Per molti scenari IaaS potrebbe essere tuttavia necessaria almeno una rete virtuale di Azure basata su cloud. Per l'accesso alle risorse locali, potrebbe essere necessaria anche una connessione da sito a sito, ad esempio un server licenze per le applicazioni. Prima di distribuire le istanze sarà necessario creare una nuova rete virtuale (di area). L'aggiunta di una macchina virtuale A8, A9, A10 o A11 a una rete virtuale in un gruppo di affinità non è supportata. Per maggiori informazioni, vedere [Creazione di una rete virtuale (VNet)](../virtual-network/virtual-networks-create-vnet.md) e [Configurare una rete virtuale con una connessione VPN Site-to-Site](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
@@ -75,7 +76,7 @@ Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps
 
 ### Considerazioni per HPC Pack e Linux
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) è una soluzione gratuita di Microsoft per la gestione di cluster HPC e dei processi per Windows. A partire da HPC Pack 2012 R2 Update 2, HPC Pack supporta varie distribuzioni di Linux per l'esecuzione su nodi di calcolo distribuiti in macchine virtuali di Azure, gestite da un nodo head di Windows Server. Con la versione più recente di HPC Pack è possibile distribuire un cluster basato su Linux in grado di eseguire applicazioni MPI che accedono alla rete RDMA in Azure. Per altre informazioni, vedere la [documentazione di HPC Pack](http://go.microsoft.com/fwlink/?LinkId=617894).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) è una soluzione gratuita di Microsoft per la gestione di cluster HPC e dei processi per Windows. A partire da HPC Pack 2012 R2 Update 2, HPC Pack supporta varie distribuzioni di Linux per l'esecuzione su nodi di calcolo distribuiti in macchine virtuali di Azure, gestite da un nodo head di Windows Server. Con la versione più recente di HPC Pack è possibile distribuire un cluster basato su Linux in grado di eseguire applicazioni MPI che accedono alla rete RDMA in Azure. Per ulteriori informazioni, vedere[Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-cluster-hpcpack.md)
 
 ### Considerazioni per HPC Pack e Windows
 
@@ -87,7 +88,7 @@ Per ulteriori informazioni ed elenchi di controllo sulla distribuzione e l'uso d
 
 ### Accedere da macchine virtuali Linux A8 e A9
 
-All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure per l’esecuzione di applicazioni MPI che utilizzano i driver RDMA Linux per la comunicazione tra le istanze. In questo momento Azure Linux RDMA è supportato solo con [Intel MPI Library 5.0](https://software.intel.com/it-it/intel-mpi-library/).
+All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure per l’esecuzione di applicazioni MPI che utilizzano i driver RDMA Linux per la comunicazione tra le istanze. In questo momento Azure Linux RDMA è supportato solo con [Intel MPI Library 5](https://software.intel.com/it-IT/intel-mpi-library/).
 
 >[AZURE.NOTE]Attualmente, i driver di Azure Linux RDMA non sono disponibili per l'installazione tramite estensioni del driver. Sono disponibili solo utilizzando l'immagine SLES 12 abilitata per RDMA da Azure Marketplace.
 
@@ -96,7 +97,7 @@ Vedere la tabella seguente per i prerequisiti per applicazioni MPI Linux per l'a
 Prerequisito | Macchine virtuali (IaaS)
 ------------ | -------------
 Sistema operativo | Immagine SLES 12 HPC di Azure Marketplace
-MPI | Intel MPI Library 5.0
+MPI | Intel MPI Library 5
 
 ### Accedere da istanze A8 e A9 di Windows
 
@@ -108,10 +109,10 @@ Vedere la tabella seguente per i prerequisiti per applicazioni MPI per l'accesso
 Prerequisito | Macchine virtuali (IaaS) | Servizi cloud (PaaS)
 ---------- | ------------ | -------------
 Sistema operativo | Windows Server 2012 R2 o Windows Server 2012 | Windows Server 2012 R2, Windows Server 2012 o la famiglia del sistema operativo guest Windows Server 2008 R2.
-MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC Pack 2012 R2 o versioni successive<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 o versioni successive, istallato tramite HPC Pack 2012 R2 o versioni successive<br/><br/>Intel MPI Library 5.0
+MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC Pack 2012 R2 o versioni successive<br/><br/>Intel MPI Library 5 | MS-MPI 2012 R2 o versioni successive, istallato tramite HPC Pack 2012 R2 o versioni successive<br/><br/>Intel MPI Library 5
 
 
->[AZURE.NOTE]Per gli scenari IaaS, è necessario aggiungere alle VM l'[estensione HpcVmDrivers](https://msdn.microsoft.com/library/azure/dn690126.aspx) per installare i driver di Windows necessari per la connettività RDMA.
+>[AZURE.NOTE]Per gli scenari IaaS, è necessario aggiungere alle VM l'estensione HpcVmDrivers per installare i driver di Windows necessari per la connettività RDMA. In base al metodo di distribuzione, l’estensione HpcVmDrivers potrebbe essere aggiunta automaticamente a una VM di dimensione A8 o A9 o potrebbe essere necessario aggiungerla manualmente. Per aggiungere l'estensione, vedere [Gestione delle estensioni delle VM](virtual-machines-extensions-install.md).
 
 
 ## Altre informazioni importanti
@@ -130,4 +131,4 @@ MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC P
 * Per distribuire e configurare un cluster Linux con istanze A8 e A9 per accedere alla rete RDMA di Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
 * Per iniziare a distribuire e utilizzare istanze A8 e A9 con HPC Pack in Windows, vedere [Istanze a elevato utilizzo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) e [Eseguire applicazioni MPI nelle istanze A8 e A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

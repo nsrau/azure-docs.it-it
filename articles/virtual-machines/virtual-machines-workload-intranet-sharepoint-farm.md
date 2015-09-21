@@ -33,6 +33,8 @@ L'hosting di una farm di SharePoint Intranet nei servizi di infrastruttura di Az
 
 Il passaggio successivo consiste nel configurare una farm di SharePoint Intranet di sviluppo/testing.
 
+> [AZURE.NOTE]Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Creare una farm di SharePoint Intranet di sviluppo/testing ospitata in Azure
 
 Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata in Azure, è possibile scegliere tra due opzioni:
@@ -124,4 +126,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

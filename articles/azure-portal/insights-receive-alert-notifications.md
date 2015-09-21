@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Ricevere notifiche di avviso
@@ -39,6 +39,8 @@ Per configurare e ottenere informazioni sulle regole di avviso a livello di codi
 5. Quando si seleziona **Metriche**, è possibile scegliere una condizione e un valore soglia per la metrica. Si tratta del periodo di tempo usato da Azure per monitorare e tracciare l'attività di avviso. ![Condizione e soglia](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. È inoltre possibile scegliere **Eventi** e ricevere una notifica quando si verifica un determinato evento. ![Eventi](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
+>[AZURE.NOTE]In questa fase gli eventi sono supportati solo per le app Web.
 
 7. Infine, si può scegliere di inviare la notifica tramite posta elettronica agli amministratori responsabili.
 
@@ -63,4 +65,4 @@ Questa regola di avviso può chiaramente essere modificata e **disabilitata** o 
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

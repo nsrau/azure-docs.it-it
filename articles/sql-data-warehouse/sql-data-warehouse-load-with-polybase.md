@@ -1,20 +1,20 @@
 <properties
    pageTitle="Esercitazione su PolyBase in SQL Data Warehouse | Microsoft Azure"
-	description="Informazioni su PolyBase e sul relativo uso per scenari di data warehousing."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor="jrowlandjones"/>
+   description="Informazioni su PolyBase e sul relativo uso per scenari di data warehousing."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/09/2015"
-	ms.author="sahajs;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/02/2015"
+   ms.author="sahajs;barbkess"/>
 
 
 # Caricare dati con PolyBase
@@ -137,6 +137,8 @@ La definizione della tabella esterna è simile alla definizione di una tabella r
 
 L'opzione LOCATION specifica il percorso dei dati dalla radice dell'origine dati. In questo esempio i dati si trovano in 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. Tutti i file per la stessa tabella devono trovarsi all'interno della stessa cartella logica nell'archiviazione BLOB di Azure.
 
+Facoltativamente, è possibile specificare le opzioni di rifiuto (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) che determinano la modalità di gestione da parte di PolyBase dei record sporchi riceve dall'origine dati esterna.
+
 ```
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
@@ -170,7 +172,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Quando si elimina una tabella esterna è necessario utilizzare `DROP EXTERNAL TABLE` è **Impossibile** utilizzare `DROP TABLE`.
+> [AZURE.NOTE]Quando si elimina una tabella esterna è necessario utilizzare `DROP EXTERNAL TABLE`. **Non è possibile** usare `DROP TABLE`.
 
 Argomento di riferimento: [DROP TABLE esterno (Transact-SQL)][].
 
@@ -197,21 +199,17 @@ Dopo aver migrato esterno tutte le tabelle per la nuova origine dati esterna, qu
 ## Eseguire query sui dati di archiviazione BLOB di Azure
 Le query su tabelle esterne usano semplicemente il nome della tabella come se fosse una tabella relazionale.
 
-Si tratta di una query ad hoc che esegue il join dei dati dei clienti delle assicurazioni archiviati in SQL Data Warehouse con i dati di un sensore per automobili archiviati nei BLOB di Archiviazione di Azure. Il risultato mostra gli automobilisti che guidano più velocemente rispetto ad altri.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE]Una query su una tabella esterna può avere esito negativo con l'errore *"Query interrotta: è stata raggiunta la soglia massima durante la lettura da un'origine esterna"*. Indica che i dati esterni contengono record *sporchi*. Un record di dati viene considerato "sporco" se i tipi/numero dei dati effettivi delle colonne non corrispondono a definizioni di colonna della tabella esterna o se i dati non sono conformi al formato di file esterno specificato. Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato del file esterno siano corrette e i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia sporco, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in CREATE EXTERNAL TABLE DDL.
+
 
 ## Caricare dati dall'archiviazione BLOB di Azure
 Questo esempio carica i dati dall'archiviazione BLOB di Azure nel database di SQL Data Warehouse.
@@ -327,4 +325,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

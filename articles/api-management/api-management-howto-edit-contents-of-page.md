@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Come modificare i contenuti di una pagina in Gestione API di Azure
@@ -35,4 +35,4 @@ Fare clic nella pagina di benvenuto per modificare gli elementi visualizzati nel
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Che cos'è Gestione snapshot StorSimple? | Microsoft Azure"
-   description="Vengono descritti Gestione snapshot StorSimple, la sua architettura e le sue funzionalità."
+   description="Vengono descritti la Gestione snapshot StorSimple, la sua architettura e le sue funzionalità."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/13/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Che cos’è Gestione snapshot StorSimple?
@@ -148,4 +148,4 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 [Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Esempi di archiviazione Azure | Microsoft Azure"
-	description="Visualizzare, scaricare e provare esempi di archiviazione di Azure. Individuare la Guida introduttiva agli esempi su BLOB, code, tabelle e file, utilizzando le librerie client di archiviazione .NET, Java, Node. js e C++."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="na"
-	editor="na"/>
-<tags 
+   description="Visualizzare, scaricare e provare esempi di archiviazione di Azure. Individuare la Guida introduttiva agli esempi su BLOB, code, tabelle e file, utilizzando le librerie client di archiviazione .NET, Java, Node. js e C++."
+   services="storage"
+   documentationCenter="na"
+   authors="tamram"
+   manager="na"
+   editor="na" />
+<tags
    ms.service="storage"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage"
+   ms.date="09/01/2015"
+   ms.author="tamram" />
 
 # Esempi di archiviazione di Azure
 
@@ -79,6 +79,6 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 ### Risorse C++
 
 - [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)
-- [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/) 
+- [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

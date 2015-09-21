@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione all'autenticazione (Android) | Microsoft Azure"
-	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
+	pageTitle="Introduzione all’autenticazione su Android (back-end JavaScript) | Microsoft Azure"
+	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Android tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft. (back-end JavaScript)"
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Aggiungere l'autenticazione all'app Android per Servizi mobili
+# Aggiungere l'autenticazione all'app Android per Servizi mobili (back-end JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -108,4 +108,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

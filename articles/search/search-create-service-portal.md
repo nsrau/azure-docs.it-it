@@ -50,7 +50,7 @@ In qualità di amministratore, è possibile aggiungere Ricerca a una sottoscrizi
 
 4. Fare clic su **Crea** per eseguire il provisioning del servizio.
 
-Controllare le notifiche nell'indice. Quando il servizio è pronto per l'utilizzo, viene visualizzato un avviso.
+Controllare le notifiche nell'indice. Quando il servizio è pronto per l'uso, viene visualizzato un avviso.
 
 <a id="sub-2"></a>
 ##Individuare il nome del servizio e le chiavi API del servizio Ricerca di Azure
@@ -84,7 +84,7 @@ Un servizio di ricerca al livello standard viene creato con una replica e una pa
 
 Le repliche e le partizioni aggiuntive vengono fatturate in termini di unità di ricerca. Le unità di ricerca totali per supportare qualsiasi configurazione di risorsa specifica vengono visualizzate nella pagina, durante l'aggiunta delle risorse.
 
-Per informazioni sul prezzo per unità, vedere [Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkID=509792). Per assistenza su come configurare le combinazioni di partizione e replica, vedere [Limitazioni e vincoli](http://msdn.microsoft.com/library/azure/dn798934.aspx).
+Per informazioni sul prezzo per unità, vedere [Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkID=509792). Per assistenza su come configurare le combinazioni di partizione e replica, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md).
 
 <a id="sub-4"></a>
 ##Testare le operazioni del servizio
@@ -120,4 +120,4 @@ Nel materiale aggiuntivo viene descritto come creare e gestire applicazioni di r
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

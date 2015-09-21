@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Informazioni sui concetti chiave dell'analisi di flusso | Microsoft Azure" 
 	description="Informazioni sui concetti fondamentali di un processo di analisi di flusso, inclusi input e output supportati, la configurazione del processo e le metriche." 
+	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok" />
 
 
@@ -92,12 +93,12 @@ A seconda del tipo di input usato nel processo, verranno generati alcuni campi a
 	</tr>
 </table>
 
-###Partizioni con dati lenti o non di input
+### Partizioni con dati lenti o non di input
 Durante la lettura da origini di input con più partizioni, se e una o più partizioni accumulano ritardo o non contengono dati, il processo di streaming deve decidere come gestire la situazione per garantire il flusso di eventi attraverso il sistema. L'impostazione di input "Massimo ritardo di recapito consentito" controlla tale comportamento ed è configurata per impostazione predefinita per attendere i dati per un tempo illimitato. Di conseguenza, i timestamp degli eventi non verranno modificati e il flusso di eventi si baserà sulla partizione di input più lenta e si arresterà se una o più partizioni di input non contengono dati. Ciò risulta utile se i dati vengono distribuiti uniformemente tra le partizioni di input ed è importante garantire uniformità temporale tra gli eventi.
 
 L'utente può anche decidere di attendere solo per un periodo di tempo limitato. L'impostazione "Massimo ritardo di recapito consentito" determina il periodo di tempo, trascorso il quale, il processo continuerà, tralasciando le partizioni di input in ritardo e agendo sugli eventi in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp se i dati arrivano in un secondo momento. Ciò è utile se la latenza è un elemento molto importante e se lo spostamento dei timestamp è tollerato, ma l'input potrebbe non essere distribuito in modo uniforme.
 
-###Partizioni con eventi non ordinati
+### Partizioni con eventi non ordinati
 Quando la query del processo di streaming usa la parola chiave TIMESTAMP BY, l'ordine in cui verranno recapitati gli eventi all'input non è garantito. Alcuni eventi nella stessa partizione di input potrebbero essere in ritardo, il parametro "Massimo disordine consentito all'interno di un input" fa sì che il processo di streaming agisca sugli eventi al di fuori della tolleranza d'ordine in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp.
 
 ### Risorse aggiuntive
@@ -138,7 +139,7 @@ La destinazione di output è l'ubicazione in cui verranno scritti i risultati de
 - Archiviazione tabelle di Azure: Archiviazione tabelle di Azure è un archivio dati strutturato con meno vincoli nello schema. Le entità con schemi e tipi diversi possono essere archiviate nella stessa tabella di Azure. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente. Per altre informazioni, vedere l'articolo relativo all'[introduzione all'archiviazione di Azure](../storage/storage-introduction.md) e [Progettazione di una strategia di partizionamento scalabile per l'archiviazione tabelle di Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Database SQL di Azure: questa destinazione di output è appropriata per dati di natura relazionale o per applicazioni che dipendono dal contenuto ospitato in un database.
 
-## Unità di streaming ##
+## Unità di streaming
 Allo scopo di offrire ai clienti un'esperienza di prestazioni prevedibili, Analisi di flusso di Azure usa le unità di streaming per rappresentare le risorse e le funzionalità dedicate all'esecuzione di un processo. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva. Ogni processo di Analisi di flusso di Azure richiede almeno un'unità di streaming, che è l'impostazione predefinita per tutti i processi. Per altre informazioni sulla selezione del numero adatto di unità di streaming per un processo, vedere [Ridimensionare i processi di Analisi di flusso di Azure](stream-analytics-scale-jobs.md)
 
 ## Ridimensionare i processi
@@ -167,7 +168,7 @@ Le seguenti metriche sono disponibili per il monitoraggio dell'uso e delle prest
 - Errori di conversione dati: numero di errori di conversione dei dati rilevati da un processo di Analisi dei flussi.
 
 ### Log delle operazioni
-L'approccio migliore per il debug o la risoluzione dei problemi relativi a un processo di Analisi dei flussi è l'uso dei registri operazioni di Azure. I registri operazioni sono accessibili nella sezione **Servizi di gestione** del portale. Per controllare i log di un processo, impostare **Tipo di servizio** su **Analisi dei flussi** e **Nome del servizio** sul nome del processo desiderato.
+L'approccio migliore per il debug o la risoluzione dei problemi relativi a un processo di Analisi dei flussi è l'uso dei log operazioni di Azure. I registri operazioni sono accessibili nella sezione **Servizi di gestione** del portale. Per controllare i log di un processo, impostare **Tipo di servizio** su **Analisi dei flussi** e **Nome del servizio** sul nome del processo desiderato.
 
 
 ## Gestire i processi 
@@ -181,7 +182,7 @@ Quando si avvia un processo, viene richiesto di specificare un valore di **Avvio
 - **Avvio output**: usare questa impostazione per specificare quando il processo verrà avviato restituendo un output. Se la query associata include una finestra, il processo inizierà la selezione di input dalle relative origini all'inizio della durata richiesta della finestra, in modo da produrre il primo evento di output all'ora specificata. Sono disponibili due opzioni: **Ora avvio processo** e **Personalizzato**. L'impostazione predefinita è **Ora avvio processo**. Per l'opzione **Personalizzato** è necessario specificare una data e un'ora. Questa impostazione è utile per specificare la quantità di dati cronologici nelle origini di input da usare o per il prelievo di dati da inserire a partire da un momento specifico, ad esempio dal momento in cui un processo è stato arrestato. 
 - **Criteri non ordinati**: impostazioni per la gestione degli eventi che non arrivano al processo di Analisi dei flussi in modo sequenziale. È possibile designare una soglia di tempo per riordinare gli eventi internamente specificando una finestra di tolleranza, nonché determinare un'azione da intraprendere per gli eventi al di fuori di questa finestra: **Elimina** o **Modifica**. **Rimuovi** consente di eliminare tutti gli eventi ricevuti in disordine, mentre **Regola** consente di cambiare il sistema. Timestamp degli eventi in disordine rispetto al timestamp dell'evento ordinato ricevuto più di recente. 
 - **Criteri di recapito tardivo**: durante la lettura da origini di input con più partizioni, se e una o più partizioni accumulano ritardo o non contengono dati, il processo di streaming deve decidere come gestire la situazione per garantire il flusso di eventi attraverso il sistema. L'impostazione di input "Massimo ritardo di recapito consentito" controlla tale comportamento ed è configurata per impostazione predefinita per attendere i dati per un tempo illimitato. Di conseguenza, i timestamp degli eventi non verranno modificati e il flusso di eventi si baserà sulla partizione di input più lenta e si arresterà se una o più partizioni di input non contengono dati. Ciò risulta utile se i dati vengono distribuiti uniformemente tra le partizioni di input ed è importante garantire uniformità temporale tra gli eventi. L'utente può anche decidere di attendere solo per un periodo di tempo limitato. L'impostazione "Massimo ritardo di recapito consentito" determina il periodo di tempo trascorso il quale il processo continuerà, tralasciando le partizioni di input in ritardo e agendo sugli eventi in base all'impostazione "Azione per gli eventi tardivi", eliminandoli o modificandone i timestamp se i dati arrivano in un secondo momento. Ciò è utile se la latenza è un elemento molto importante e se lo spostamento dei timestamp è tollerato, ma l'input potrebbe non essere distribuito in modo uniforme.
-- **Impostazioni locali**: usare questa impostazione per specificare le preferenze internazionali per il processo di Analisi dei flussi. Anche se i timestamp dei dati sono indipendenti dalle impostazioni locali, questa impostazione avrà influenza sulle modalità con cui il processo analizzerà, confronterà e ordinerà i dati. Per la versione di anteprima è supportata solo l'impostazione **en-US**.
+- **Impostazioni locali**: usare questa impostazione per specificare le preferenze internazionali per il processo di Analisi dei flussi. Anche se i timestamp dei dati sono indipendenti dalle impostazioni locali, questa impostazione avrà influenza sulle modalità con cui il processo analizzerà, confronterà e ordinerà i dati. Per la versione di anteprima è supportata solo l'impostazione **it-IT**.
 
 ### Stato
 
@@ -192,7 +193,7 @@ Lo stato dei processi di Analisi dei flussi può essere esaminato nel portale di
 
 
 ## Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi
@@ -206,4 +207,4 @@ A questo punto, si conoscono i concetti fondamentali dell'analisi di flusso ed �
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

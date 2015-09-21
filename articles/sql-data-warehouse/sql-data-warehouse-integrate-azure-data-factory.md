@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # Usare Data factory di Azure con SQL Data Warehouse
@@ -43,7 +43,7 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [Panoramica dell'integrazione di SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
 
@@ -51,6 +51,6 @@ Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQ
 
 <!--Other Web references-->
 [Documentazione di Data factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[Copiare i dati con Data factory di Azure]: https://azure.microsoft.com/it-it/documentation/articles/data-factory-data-movement-activities/
+[Copiare i dati con Data factory di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

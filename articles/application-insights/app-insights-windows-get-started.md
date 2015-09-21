@@ -2,7 +2,7 @@
 	pageTitle="Application Insights per app di Windows Phone e Store | Microsoft Azure"
 	description="Analizzare l'uso e le prestazioni dell'app per dispositivi Windows con Application Insights."
 	services="application-insights"
-	documentationCenter="windows"
+    documentationCenter="windows"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -23,8 +23,8 @@
 
 Visual Studio Application Insights consente di monitorare un'applicazione monitorata per le operazioni seguenti:
 
-* [**Uso**][windowsUsage]&\#151;acquisire informazioni sul numero di utenti a disposizione e su quali operazioni eseguono con l'app.
-* [**Arresti anomali**][windowsCrash]&\#151;ottenere report di diagnostica degli arresti anomali e comprendere l'impatto sugli utenti.
+* [**Uso**][windowsUsage]&#151;acquisire informazioni sul numero di utenti a disposizione e su quali operazioni eseguono con l'app.
+* [**Arresti anomali**][windowsCrash]&#151;ottenere report di diagnostica degli arresti anomali e comprendere l'impatto sugli utenti.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
@@ -69,6 +69,7 @@ Se si tratta di un'app di Windows universale, ripetere i passaggi per il progett
 4. Aggiungere un file ApplicationInsights.config alla radice del progetto e inserire la chiave di strumentazione copiata in precedenza. Di seguito è riportato un file XML di esempio per questo file di configurazione.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -82,6 +83,10 @@ Se si tratta di un'app di Windows universale, ripetere i passaggi per il progett
 5. Aggiungere il codice di inizializzazione seguente. È preferibile aggiungere questo codice al costruttore `App()`. Se si esegue in un'altra operazione, si potrebbe perdere la raccolta automatica delle prime PageViews.
 
 ```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
 	public App()
 	{
 	   // Add this initilization line.
@@ -96,7 +101,7 @@ Se si tratta di un'app di Windows universale, ripetere i passaggi per il progett
 
 ## <a name="network"></a>3. Abilitare l'accesso alla rete per l'app
 
-Se l'app non ha già [richiesto l'accesso alla rete in uscita](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), sarà necessario aggiungere il manifesto come una [funzionalità necessaria](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
+Se l'app non ha già [richiesto l'accesso a internet](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), sarà necessario aggiungere il manifesto come una [funzionalità necessaria](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
 ## <a name="run"></a>4. Eseguire il progetto
 
@@ -111,10 +116,7 @@ In modalità di debug la telemetria viene inviata non appena viene generata. In 
 
 ## <a name="monitor"></a>5. Visualizzare i dati monitorati
 
-Aprire Application Insights dal progetto.
-
-![Fare clic con il pulsante destro del mouse sul progetto e aprire il portale di Azure](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
-
+Nel [portale di Azure](https://portal.azure.com) aprire la risorsa di Application Insights creata in precedenza.
 
 All'inizio si vedranno solo uno o due punti. ad esempio:
 
@@ -165,7 +167,7 @@ Usare l'[API][api] per inviare eventi, metriche e dati di diagnostica ad Applica
 
 ```
 
-Per informazioni dettagliate, vedere [Metriche ed eventi personalizzati][api].
+Per informazioni dettagliate, vedere [Panoramica API: Metriche ed eventi personalizzati][api].
 
 ## Passaggi successivi
 
@@ -196,7 +198,10 @@ Aggiungere Application Insights da Esplora soluzioni.
 
 ## Per eseguire l'aggiornamento a una nuova versione dell'SDK
 
-Quando [viene rilasciata una nuova versione dell'SDK](app-insights-release-notes-windows.md): * Fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. * Selezionare i pacchetti di Application Insights installati e scegliere **Azione: aggiornamento**.
+Quando una [nuova versione SDK viene rilasciata](app-insights-release-notes-windows.md):
+
+* In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet.
+* Selezionare i pacchetti di Application Insights installati e scegliere **Azione: Aggiorna**.
 
 
 ## <a name="usage"></a>Passaggi successivi
@@ -227,4 +232,4 @@ Quando [viene rilasciata una nuova versione dell'SDK](app-insights-release-notes
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

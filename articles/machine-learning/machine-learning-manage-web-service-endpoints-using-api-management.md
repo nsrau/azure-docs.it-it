@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Informazioni su come gestire i servizi Web di AzureML con Gestione API | Microsoft Azure"
 	description="Guida che mostra come gestire i servizi Web di AzureML con Gestione API."
+	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/09/2015"
 	ms.author="roalexan" />
 
 
@@ -37,7 +38,7 @@ Per completare questa guida, è necessario:
 
 * Un account Azure. Se non si dispone di un account Azure, fare clic [qui](http://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
 * Un account AzureML. Se non si dispone di un account AzureML, fare clic [qui](https://studio.azureml.net/) per informazioni dettagliate su come creare un account di prova gratuito.
-* L'area di lavoro, il servizio e l'api\_key per un esperimento di AzureML pubblicato come servizio web. Per informazioni dettagliate su come creare un esperimento di AzureML, fare clic [qui](machine-learning/machine-learning-create-experiment.md). Per informazioni dettagliate su come pubblicare un esperimento di AzureML come servizio Web, fare clic [qui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md). In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e pubblicarlo come servizio Web.
+* L'area di lavoro, il servizio e l'api\_key per un esperimento di AzureML distribuito come servizio web. Per informazioni dettagliate su come creare un esperimento di AzureML, fare clic [qui](machine-learning/machine-learning-create-experiment.md). Per informazioni dettagliate su come distribuire un esperimento di AzureML come servizio Web, fare clic [qui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md). In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e distribuirlo come servizio Web.
 
 ##Creare un'istanza di Gestione API
 
@@ -147,7 +148,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 
 ###Creazione di un esperimento
 
-Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e pubblicarlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio:
+Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio:
 
 Text | Testo con hash
 --- | ---
@@ -383,4 +384,4 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

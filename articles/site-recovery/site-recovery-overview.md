@@ -48,7 +48,20 @@ Centro dati secondario | Singolo server VMM | Replicare le macchine virtuali nei
 
 Le tecnologie di replica ASR sono compatibili con qualsiasi applicazione in esecuzione in una macchina virtuale. Sono stati eseguiti ulteriori test in collaborazione con i team di prodotto dell’applicazione per ulteriore supporto per ogni applicazione.
 
-**Carico di lavoro**|<p>* * Replicare macchine virtuali Hyper-V * *</p><p>**(al sito secondario)**</p>|<p>**Replicare macchine virtuali Hyper-V * *</p><p>**(ad Azure)**</p>|<p>**Replicare macchine virtuali VMware * *</p><p>**(al sito secondario)**</p>|<p>**Replicare macchine virtuali VMware * *</p><p>**(ad Azure) * ***</p>---|---|---|---|---Active Directory, DNS | Y | Y | Y | app Web presto in arrivo (IIS, SQL) | Y | Y | Y | SCOM presto in arrivo| Y | Y | Y | Sharepoint presto in arrivo| Y | Y | Y | <p>SAP presto in arrivo</p><p>Replicare sito SAP in Azure per il cluster non</p>| Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Exchange (non DAG) presto in arrivo | Y | Presto in arrivo | Y | Desktop remoto un'infrastruttura VDI presto in arrivo | Y | Y | Y | <p>Linux</p><p>(sistema operativo e applicazioni) presto in arrivo</p>| Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Dynamics AX presto in arrivo | Y | Y | Y | Dynamics CRM presto in arrivo | Presto in arrivo | Presto in arrivo | Y | Oracle presto in arrivo | Presto in arrivo | Presto in arrivo | Y (testato da Microsoft) | Presto disponibile
+**Carico di lavoro** | <p>**Replicare macchine virtuali Hyper-V**</p> <p>**(al sito secondario)**</p>|<p>**Replicare macchine virtuali Hyper-V**</p><p>**(ad Azure)**</p> | <p>**Replicare macchine virtuali VMware**</p><p>**(al sito secondario)**</p>|<p>**Replicare macchine virtuali VMware**</p><p>**(ad Azure)**</p>
+---|---|---|---|---
+Active Directory, DNS | Y | Y | Y | Y
+app Web (IIS, SQL) | Y | Y | Y | Y 
+SCOM | Y | Y | Y | Y 
+Sharepoint | Y | Y | Y | Y 
+<p>SAP </p><p>Replicare sito SAP in Azure per il cluster non</p>| Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | (testato da Microsoft) 
+Exchange (non DAG) | Y | Presto in arrivo | Y | Y 
+Desktop remoto un'infrastruttura VDI | Y | Y | Y | N/A 
+<p>Linux</p><p>(sistema operativo e applicazioni) </p>| Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) 
+Dynamics AX | Y | Y | Y | Y  
+Dynamics CRM | Y | presto in arrivo | Y | presto in arrivo  
+Oracle presto in arrivo | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | 
+File server di Windows | Y | Y | Y | Y
 
 
 ## Funzionalità e requisiti 
@@ -77,4 +90,4 @@ Mapping dell'archiviazione|Non applicabile|Esegue il mapping delle classificazio
 Una volta completata questa panoramica [leggere le procedure consigliate](site-recovery-best-practices.md) che consentono di iniziare la pianificazione della distribuzione.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

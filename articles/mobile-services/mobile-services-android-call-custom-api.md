@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Chiamare un'API personalizzata da un client Android Media | Microsoft Azure"
-	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app per Android che usa Servizi mobili di Azure."
+	writer="ricksal"
+	pageTitle="Chiamare un'API personalizzata da un client Android (back-end JavaScript) | Microsoft Azure"
+	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app per Android che usa Servizi mobili di Azure.(back-end JavaScript)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="ricksal"/>
 
-# Chiamare un'API personalizzata dal client
+# Chiamare un'API personalizzata da un client Android (back-end JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-call-custom-api](../../includes/mobile-services-selector-call-custom-api.md)]
 
@@ -68,4 +69,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Passaggio 1: Creare un'area di lavoro di Machine Learning | Microsoft Azure" 
-	description="Passaggio 1 della procedura dettagliata Sviluppare una soluzione predittiva: informazioni su come configurare una nuova area di lavoro di Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Passaggio 1: Creare un'area di lavoro di Machine Learning | Microsoft Azure"
+	description="Passaggio 1 della procedura dettagliata Sviluppare una soluzione predittiva: informazioni su come configurare una nuova area di lavoro di Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Questo è il primo passaggio della procedura dettagliata, [Sviluppare una soluzi
 2.	[Caricare i dati esistenti](machine-learning-walkthrough-2-upload-data.md)
 3.	[Creare un nuovo esperimento](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Eseguire il training e valutare i modelli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Pubblicare il servizio Web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Distribuire il servizio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Accedere al servizio Web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -54,6 +54,5 @@ Per altre informazioni, vedere [Gestire un'area di lavoro di Azure Machine Learn
 **Passaggio successivo: [Caricare i dati esistenti](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

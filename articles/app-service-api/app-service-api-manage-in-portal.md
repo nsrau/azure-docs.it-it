@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gestire le app per le API"
-	description="Informazioni su come gestire le app per le API del servizio app di Azure nel portale di Azure e in Esplora server in Visual Studio."
-	services="app-service\api"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Gestire le app per le API" 
+	description="Informazioni su come gestire le app per le API del servizio app di Azure nel portale di Azure e in Esplora server in Visual Studio." 
+	services="app-service\api" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Gestire le app per le API nel Servizio app di Azure
@@ -134,4 +134,4 @@ Questo articolo ha illustrato come usare il portale di Azure per eseguire le att
 
 Per informazioni su come gestire le app per le API usando la riga di comando, vedere gli articoli nella sezione **Automazione** del menu che viene visualizzato sul lato sinistro dell'articolo (per finestre del browser di grandi dimensioni) o nella parte superiore della pagina (per finestre del browser ridotte).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

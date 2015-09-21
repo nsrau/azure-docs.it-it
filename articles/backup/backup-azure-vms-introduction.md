@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione al backup delle macchine virtuali di Azure"
+	pageTitle="Introduzione al backup delle macchine virtuali di Azure | Microsoft Azure"
 	description="Introduzione al backup delle macchine virtuali di Azure usando il servizio Backup di Azure"
 	services="backup"
 	documentationCenter=""
@@ -7,16 +7,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
-# Backup di macchine virtuali di Azure - Introduzione
+# Backup di una macchina virtuale di Azure
 
 Questa sezione offre un'introduzione all'uso del servizio Backup di Microsoft Azure per la protezione delle macchine virtuali di Azure. Leggendo l'articolo si apprenderà quanto segue:
 
@@ -80,7 +73,7 @@ La fatturazione inizia solo dopo il completamento del primo backup corretto. A q
 ### 1\. Insieme di credenziali per il backup
 Per avviare il backup delle macchine virtuali di Azure è prima necessario creare un insieme di credenziali per il backup. L'insieme di credenziali per il backup è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali contiene inoltre i criteri di backup che verranno applicati alle macchine virtuali di cui viene eseguito il backup.
 
-La figura seguente mostra le relazioni tra le diverse entità di Backup di Azure: ![Entità e relazioni di Backup di Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
+La figura seguente mostra le relazioni tra le diverse entità di backup di Azure: ![Entità e relazioni di Backup di Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
 
 ### Per creare un insieme di credenziali per il backup
 
@@ -106,13 +99,15 @@ Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go
 
 ## Limitazioni
 
-- Il backup delle macchine virtuali IaaS (V2) non è supportato.
+- Il Backup delle macchine virtuali di gestione risorse di Azure basato su (aka IaaS V2) non è supportato.
 - Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
 - Il backup di macchine virtuali con Archiviazione Premium non è supportato.
+- Il backup di macchine virtuali con più IP riservati non è supportato.
+- Il backup delle macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 - Il backup di macchine virtuali con più NIC (Network Interface Card) o presenti in una configurazione con bilanciamento del carico non è supportato.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. È necessario eliminare prima la macchina virtuale esistente e gli eventuali dischi associati e quindi ripristinare i dati dal backup.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
-- Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato solo in specifiche aree geografiche. Controllare l'elenco delle [aree geografiche supportate](http://azure.microsoft.com/regions/#services). Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
+- Il backup di macchine virtuali mediante l’utilizzo del servizio Backup di Azure è supportato in tutte le aree pubbliche. Ecco un [elenco](http://azure.microsoft.com/regions/#services) di aree geografiche supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 - Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi seguenti:
   - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
@@ -124,9 +119,7 @@ Se si desidera includere funzionalità aggiuntive, è possibile [inviare comment
 Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni relative a:
 
 - [Backup delle macchine virtuali](backup-azure-vms.md)
-
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
-
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduzione ad Azure | Microsoft Azure"
-	description="Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso."
-	services=" "
-	documentationCenter=".net"
-	authors="Rboucher"
+	pageTitle="Introduzione ad Azure | Microsoft Azure" 
+	description="Nuovo utente di Microsoft Azure? Visualizzare una panoramica di base dei servizi offerti assieme a esempi di uso." 
+	services=" " 
+	documentationCenter=".net" 
+	authors="Rboucher" 
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/30/2015"  
 	ms.author="robb"/>
 
 # Introduzione a Microsoft Azure
@@ -399,11 +399,11 @@ Ogni azienda deve eseguire il backup e il ripristino dei dati. È possibile usar
 
 ### Site Recovery
  
-Azure Site Recovery (in precedenza Gestione di ripristino di Hyper-V) può contribuire a proteggere le applicazioni importanti coordinando la replica e il ripristino delle immagini Hyper-V in più siti. È possibile eseguire il backup sul proprio sito secondario, sul sito di un provider di servizi di hosting oppure usare Azure ed evitare i costi e la complessità associati alla creazione e alla gestione della posizione secondaria. Azure crittografa i dati e le comunicazioni ed è possibile abilitare la crittografia anche per i dati at-rest.
+Azure Site Recovery (in precedenza Gestione di ripristino di Hyper-V) consente di proteggere le applicazioni importanti coordinando la replica e il ripristino in più siti. Site Recovery consente di proteggere le applicazioni basate su Hyper-v, VMWare o SAN nel sito secondario, nel sito di un host o in Azure e di evitare difficoltà e costi correlati con le operazioni di creazione e gestione della propria posizione secondaria. Azure crittografa i dati e le comunicazioni ed è possibile abilitare la crittografia anche per i dati at-rest.
 
 Monitora continuamente l'integrità dei servizi e contribuisce ad automatizzare il ripristino ordinato dei servizi nell'eventualità di un'interruzione del sito presso il data center primario. Le macchine virtuali possono essere attivate in modo orchestrato per facilitare il rapido ripristino del servizio, anche per carichi di lavoro multilivello complessi.
 
-Site Recovery funziona con tecnologie esistenti quali la replica Hyper-V, System Center e SQL Server AlwaysOn.
+Site Recovery funziona con tecnologie esistenti quali la replica Hyper-V, System Center e SQL Server AlwaysOn. Per informazioni dettagliate, consultare [Panoramica di Azure Site Recovery](site-recovery/site-recovery-overview.md).
 
 ### Backup di Azure
 ![Backup di Azure](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
@@ -612,4 +612,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
 
@@ -33,7 +33,7 @@ La procedura per aggiungere un riferimento al client di Servizi mobili dipende d
 
 - Per un'app basata su Web, aprire il file HTML e aggiungere il codice seguente ai riferimenti allo script per la pagina:
 
-        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
 
 - Per un'app di Windows Store scritta in JavaScript/HTML, aggiungere il pacchetto NuGet **WindowsAzure.MobileServices.WinJS** al progetto.
 
@@ -46,7 +46,7 @@ Nell'editor aprire o creare un file JavaScript e aggiungere il codice seguente p
 
 È necessario sostituire il segnaposto `AppUrl` con l'URL dell'applicazione del servizio mobile e `AppKey` con la chiave dell'applicazione. Per informazioni su come ottenere l'URL e la chiave dell'applicazione per il servizio mobile, vedere l'esercitazione relativa all'[aggiunta di Servizi mobili a un'app esistente](mobile-services-html-get-started-data.md).
 
->[AZURE.IMPORTANT]La chiave dell'applicazione consente di filtrare le richieste casuali nel servizio mobile e viene distribuita con l'applicazione. Poiché questa chiave non è crittografata, non può essere considerata sicura. Per proteggere i dati del servizio mobile, è necessario invece autenticare gli utenti prima di consentire l'accesso. Per altre informazioni, vedere la sezione [Procedura: Autenticare gli utenti](#caching).
+>[AZURE.IMPORTANT]La chiave dell'applicazione consente di filtrare le richieste casuali nel servizio mobile e viene distribuita con l'applicazione. Poiché questa chiave non è crittografata, non può essere considerata sicura. Per proteggere i dati del servizio mobile, è necessario invece autenticare gli utenti prima di consentire l'accesso. Per altre informazioni, vedere la sezione [Procedura: Autenticare gli utenti](#authentication).
 
 ##<a name="querying"></a>Procedura: Eseguire query sui dati da un servizio mobile
 
@@ -385,7 +385,7 @@ Un'API personalizzata consente di definire endpoint personalizzati che espongono
  
 Per esempi più realistici e una discussione completa sul metodo **invokeApi**, vedere l'articolo relativo all'[API personalizzata negli SDK dei client per Servizi mobili di Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-##<a name="caching"></a>Procedura: Autenticare gli utenti
+##<a name="authentication"></a>Procedura: Autenticare gli utenti
 
 Servizi mobili supporta l'autenticazione e l'autorizzazione di utenti di app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Introduzione all'autenticazione].
 
@@ -412,7 +412,7 @@ Se si usa un provider di identità diverso da Facebook, sostituire il valore pas
 
 In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. La funzione [login], quando è completa, restituisce un oggetto JSON (**user**) che espone l'ID utente e il token di autenticazione di Servizi mobili nei campi **userId** e **authenticationToken**, rispettivamente. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzare nella cache il token di autenticazione].
 
-> [AZURE.NOTE]**Windows Store app** Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è necessario anche registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per ulteriori informazioni sulla registrazione del pacchetto dell'app di Windows Store, vedere [Registrazione del pacchetto dell'app Windows Store per l'autenticazione Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Dopo la registrazione con Servizi mobili delle informazioni del pacchetto, per riutilizzare le credenziali è necessario chiamare il metodo [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") specificando il valore **true** per il parametro <em>useSingleSignOn</em> .
+> [AZURE.NOTE]**Windows Store app** Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è necessario anche registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per ulteriori informazioni sulla registrazione del pacchetto dell'app di Windows Store, vedere [Registrazione del pacchetto dell'app Windows Store per l'autenticazione Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Dopo la registrazione con Servizi mobili delle informazioni del pacchetto, per riutilizzare le credenziali è necessario chiamare il metodo [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") specificando il valore **true** per il parametro *useSingleSignOn*.
 
 ###Flusso client
 L'applicazione può inoltre contattare il provider di identità in modo indipendente e fornire il token restituito a Servizi mobili per l'autenticazione. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi.
@@ -580,7 +580,7 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #caching
+[How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
@@ -608,4 +608,4 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [Chiamata di un'API personalizzata dal client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

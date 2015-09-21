@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Utilizzare un servizio Web di Machine Learning | Microsoft Azure" 
-	description="Dopo la pubblicazione di un servizio di apprendimento automatico, può essere utilizzato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Utilizzare un servizio Web di Machine Learning | Microsoft Azure"
+	description="Dopo la pubblicazione di un servizio di apprendimento automatico, può essere utilizzato il servizio Web RESTFul che viene reso disponibile come servizio di richiesta-risposta o come un servizio di esecuzione del batch."
+	services="machine-learning"
+	solutions="big-data"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="tbd" 
-	ms.date="06/29/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/09/2015" 
 	ms.author="bradsev" />
 
 
@@ -34,7 +35,7 @@ Ciò significa che i servizi possono essere utilizzati da applicazioni Web, appl
 Un servizio Web di Azure Machine Learning può essere utilizzato in due modi diversi, come un servizio di richiesta-risposta o come un servizio di esecuzione batch. In ogni scenario, la funzionalità viene fornita tramite il servizio Web RESTFul reso disponibile per l'utilizzo dopo la pubblicazione dell'esperimento. La distribuzione di un servizio Web di apprendimento automatico in Azure con un endpoint del servizio Web di Azure, dove il servizio viene ridimensionato automaticamente in base all'utilizzo, è possibile evitare i costi iniziali e successivi per le risorse hardware.
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
+For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
 Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning][publish]. Per una procedura dettagliata di creazione e pubblicazione di un esperimento di Machine Learning, vedere [Sviluppare una soluzione predittiva mediante Azure Machine Learning][walkthrough].
@@ -45,15 +46,15 @@ Per informazioni su come creare e pubblicare un servizio Web di Azure Machine Le
 
 ## Servizio di richiesta-risposta (RRS)
 
-Un servizio di richiesta-risposta (RRS) è un servizio Web a bassa latenza e altamente scalabile utilizzato per fornire un'interfaccia ai modelli senza stato,creati e pubblicati da un esperimento Azure Machine Learning Studio.
+Un servizio di richiesta-risposta (RRS) è un servizio Web a bassa latenza e altamente scalabile utilizzato per fornire un'interfaccia ai modelli senza stato,creati e pubblicati da un esperimento Azure Machine Learning Studio. In questo modo abilita scenari in cui l'applicazione del consumo attende una risposta in tempo reale.
 
-RRS accetta una sola riga di parametri di input e genera una sola riga di output. La riga di output può contenere più colonne.
+RRS accetta una singola riga o più righe di parametri di input e può generare una singola riga o più righe come output. La riga di output può contenere più colonne.
 
 Un esempio per RRS convalida l'autenticità di un'applicazione. In questo caso, è possibile prevedere centinaia di milioni di installazioni di un'applicazione. All'avvio dell'applicazione, effettua una chiamata al servizio RRS con input pertinente. Quindi, l'applicazione riceve una risposta di convalida dal servizio che consente o blocca le esecuzioni da parte dell'applicazione.
 
 
 ## Servizio Esecuzione batch (BES)
- 
+
 Un servizio di esecuzione del batch (BES) è un servizio che gestisce volumi elevati, asincroni e valutazioni di un batch di record di dati. L'input per il BES contiene un batch di record da varie origini, ad esempio blob, tabelle di Azure, SQL Azure, HDInsight (i risultati di una Query Hive, ad esempio) e origini HTTP. L'output per il BES contiene i risultati della valutazione. I risultati vengono inseriti su un file nell'archiviazione blob di Azure e i dati dall'endpoint di archiviazione vengono restituiti nella risposta.
 
 Un BES potrebbe essere utile quando le risposte non sono necessarie immediatamente, ad esempio per valutazioni regolarmente pianificate per singoli utenti o dispositivi IOT (Internet of things).
@@ -124,7 +125,7 @@ Analogamente, la risposta dell'API viene chiamata nuovamente in particolare per 
 	}
 
 Nella parte inferiore della pagina si trovano gli esempi di codice. Di seguito si trova il codice di esempio per l'implementazione c#
-                   
+
 **Codice di esempio**
 
 	using System;
@@ -135,7 +136,7 @@ Nella parte inferiore della pagina si trovano gli esempi di codice. Di seguito s
 	using System.Net.Http.Headers;
 	using System.Text;
 	using System.Threading.Tasks;
-	
+
 	namespace CallRequestResponseService
 	{
 	    public class StringTable
@@ -143,24 +144,24 @@ Nella parte inferiore della pagina si trovano gli esempi di codice. Di seguito s
 	        public string[] ColumnNames { get; set; }
 	        public string[,] Values { get; set; }
 	    }
-	
+
 	    class Program
 	    {
 	        static void Main(string[] args)
 	        {
 	            InvokeRequestResponseService().Wait();
 	        }
-	
+
 	        static async Task InvokeRequestResponseService()
 	        {
 	            using (var client = new HttpClient())
 	            {
 	                var scoreRequest = new
 	                {
-	                    Inputs = new Dictionary<string, StringTable> () { 
-	                        { 
-	                            "input1", 
-	                            new StringTable() 
+	                    Inputs = new Dictionary<string, StringTable> () {
+	                        {
+	                            "input1",
+	                            new StringTable()
 	                            {
 	                                ColumnNames = new string[] {"cog_speed"},
 	                                Values = new string[,] {  { "0"},  { "1"}  }
@@ -168,12 +169,12 @@ Nella parte inferiore della pagina si trovano gli esempi di codice. Di seguito s
 	                        },
 	                    GlobalParameters = new Dictionary<string, string>() { }
 	                };
-	                
+
 	                const string apiKey = "abc123"; // Replace this with the API key for the web service
 	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
-	
+
 	                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/<workspace id>/services/<service id>/execute?api-version=2.0&details=true");
-	                
+
 	                // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
 	                // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
 	                // For instance, replace code such as:
@@ -182,7 +183,7 @@ Nella parte inferiore della pagina si trovano gli esempi di codice. Di seguito s
 	                //      result = await DoSomeTask().ConfigureAwait(false)
 
 	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-	
+
 	                if (response.IsSuccessStatusCode)
 	                {
 	                    string result = await response.Content.ReadAsStringAsync();
@@ -214,9 +215,9 @@ Quando si crea un processo batch per l'endpoint di servizio di Azure Machine Lea
 * **Outputs**: se il servizio ha definito uno o più output, al chiamante è consentito reindirizzare alcuni di essi verso un percorso BLOB di Azure di propria scelta. Ciò consentirà di salvare l'output del servizio in un percorso preferito e con un nome prevedibile. In caso contrario, il nome del BLOB di output viene generato casualmente. **NOTA**: il servizio prevede che l'output del contenuto, in base al relativo tipo, venga salvato in formati supportati:
   - Output di set di dati: possono essere salvati come file con estensione **CSV, TSV, ARFF**.
   - Output di modelli sottoposti a training: possono essere salvati come file con estensione **ILEARNER**.
-  
+
   Gli override del percorso di output vengono specificati come una raccolta di *<output name  blob reference>* coppie, dove il *nome di output* è il nome definito dall'utente per un nodo di output specifico (visualizzato anche nella pagina della Guida per l'API del servizio) e un *riferimento al BLOB* è un riferimento al percorso di un BLOB di Azure verso cui l'output deve essere reindirizzato.
-  
+
 Tutti questi parametri di creazione del processo possono essere facoltativi, a seconda della natura del servizio. Ad esempio, i servizi con nessun nodo di input definito, non richiedono il passaggio di un parametro *Input* e la funzionalità di override del percorso di output è completamente facoltativa. In caso contrario, gli output verranno archiviati nell'account di archiviazione predefinito configurato per l'area di lavoro di Azure Machine Learning. Di seguito, viene illustrato un payload di richiesta di esempio passato all'API REST, per un servizio in cui vengono passate solo le informazioni di input:
 
 **Richiesta di esempio**
@@ -234,7 +235,7 @@ Tutti questi parametri di creazione del processo possono essere facoltativi, a s
 	}
 
 La risposta all'API di creazione del processo batch è l'ID processo univoco associato al proprio processo. Questo ID è molto importante perché fornisce l'unico mezzo per poter fare riferimento al processo nel sistema per altre operazioni.
-  
+
 **Risposta di esempio**
 
 	"539d0bc2fde945b6ac986b851d0000f0" // The JOB_ID
@@ -242,11 +243,11 @@ La risposta all'API di creazione del processo batch è l'ID processo univoco ass
 **2. Avviare un processo di esecuzione batch**
 
 La creazione di un processo batch ne comporta solo la registrazione nel sistema e viene inserito in uno stato *Not started*. Per pianificare effettivamente il processo per l'esecuzione, sarà necessario chiamare l'API di **avvio** descritta nella pagina della Guida per l'API dell'endpoint di servizio e fornire l'ID processo ottenuto durante la creazione del processo stesso.
-  
+
 **3. Ottenere lo stato di un processo di esecuzione batch**
 
 È possibile eseguire il polling dello stato del processo batch asincrono in qualsiasi momento passando l'ID del processo all'API GetJobStatus. Se l'operazione è stata completata correttamente, la risposta dell'API conterrà un indicatore dello stato corrente del processo, nonché i risultati effettivi del processo batch. In caso di errore, vengono restituite altre informazioni sui motivi effettivi che hanno causato l'errore nella proprietà *Details*.
- 
+
 **Payload della risposta**
 
 	{
@@ -308,16 +309,16 @@ L'esempio di codice riportato di seguito illustra come inviare e monitorare un p
 	// This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
 	// Instructions for doing this in Visual Studio:
 	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.Azure.MachineLearning 
-	
+	// Install-Package Microsoft.Azure.MachineLearning
+
 	  using System;
 	  using System.Collections.Generic;
 	  using System.Threading.Tasks;
-	  
+
 	  using Microsoft.Azure.MachineLearning;
 	  using Microsoft.Azure.MachineLearning.Contracts;
 	  using Microsoft.Azure.MachineLearning.Exceptions;
-	
+
 	namespace CallBatchExecutionService
 	{
 	    class Program
@@ -326,73 +327,73 @@ L'esempio di codice riportato di seguito illustra come inviare e monitorare un p
 	        {	            
 	            InvokeBatchExecutionService().Wait();
 	        }
-	
+
 	        static async Task InvokeBatchExecutionService()
 	        {
 	            // First collect and fill in the URI and access key for your web service endpoint.
 	            // These are available on your service's API help page.
 	            var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
 	            string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
-	
+
 	            // Create an Azure Machine Learning runtime client for this endpoint
 	            var runtimeClient = new RuntimeClient(endpointUri, accessKey);
-	
+
 	            // Define the request information for your batch job. This information can contain:
 	            // -- A reference to the AzureBlob containing the input for your job run
 	            // -- A set of values for global parameters defined as part of your experiment and service
 	            // -- A set of output blob locations that allow you to redirect the job's results
-	
+
 	            // NOTE: This sample is applicable, as is, for a service with explicit input port and
 	            // potential global parameters. Also, we choose to also demo how you could override the
-	            // location of one of the output blobs that could be generated by your service. You might 
+	            // location of one of the output blobs that could be generated by your service. You might
 	            // need to tweak these features to adjust the sample to your service.
 	            //
 	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
 	            // your service, so it is not required to specify all with any request.  If you do not want to
 	            // use any of the parameters, a null value should be passed in its place.
-	            
+
 	            // Define the reference to the blob containing your input data. You can refer to this blob by its
-                    // connection string / container / blob name values; alternatively, we also support references 
+                    // connection string / container / blob name values; alternatively, we also support references
                     // based on a blob SAS URI
-                    
+
                     BlobReference inputBlob = BlobReference.CreateFromConnectionStringData(connectionString:                                         "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
                         containerName: "YOUR_CONTAINER_NAME",
                         blobName: "YOUR_INPUT_BLOB_NAME");
-                              
+
                     // If desired, one can override the location where the job outputs are to be stored, by passing in
                     // the storage account details and name of the blob where we want the output to be redirected to.
-                    
+
                     var outputLocations = new Dictionary<string, BlobReference>
                         {
                           {
-                           "YOUR_OUTPUT_NODE_NAME", 
+                           "YOUR_OUTPUT_NODE_NAME",
                            BlobReference.CreateFromConnectionStringData(                                     connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
                                 containerName: "YOUR_CONTAINER_NAME",
                                 blobName: "YOUR_DESIRED_OUTPUT_BLOB_NAME")
                            }
                         };
-	            
+
 	            // If applicable, you can also set the global parameters for your service
 	            var globalParameters = new Dictionary<string, string>
 	            {
 	                { "YOUR_GLOBAL_PARAMETER", "PARAMETER_VALUE" }
 	            };
-	                
+
 	            var jobRequest = new BatchJobRequest
 	            {
 	                Input = inputBlob,
 	                GlobalParameters = globalParameters,
 	                Outputs = outputLocations
 	            };
-	
+
 	            try
 	            {
 	                // Register the batch job with the system, which will grant you access to a job object
 	                BatchJob job = await runtimeClient.RegisterBatchJobAsync(jobRequest);
-	
+
 	                // Start the job to allow it to be scheduled in the running queue
 	                await job.StartAsync();
-	
+
 	                // Wait for the job's completion and handle the output
 	                BatchJobStatus jobStatus = await job.WaitForCompletionAsync();
 	                if (jobStatus.JobState == JobState.Finished)
@@ -431,6 +432,4 @@ L'esempio di codice riportato di seguito illustra come inviare e monitorare un p
 	    }
 	}
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

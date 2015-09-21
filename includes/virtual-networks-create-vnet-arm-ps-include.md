@@ -7,6 +7,8 @@ Per creare una rete virtuale con PowerShell, seguire questa procedura.
 
 		Switch-AzureMode AzureResourceManager
 	
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
@@ -14,6 +16,8 @@ Per creare una rete virtuale con PowerShell, seguire questa procedura.
 3. Se necessario, eseguire il cmdlet **New-AzureResourceGroup** per creare un nuovo gruppo di risorse, come illustrato di seguito. Per questo scenario, creare un gruppo di risorse denominato *TestRG*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
+
+	Di seguito è riportato l'output previsto per il comando precedente:
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -31,6 +35,8 @@ Per creare una rete virtuale con PowerShell, seguire questa procedura.
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -49,7 +55,7 @@ Per creare una rete virtuale con PowerShell, seguire questa procedura.
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Eseguire il cmdlet **Get-AzureVirtualNetwork** per archiviare l'oggetto rete virtuale in una variabile, come illustrato di seguito.
+5. Eseguire il cmdlet **Get AzureVirtualNetwork** per archiviare l'oggetto rete virtuale in una variabile, come illustrato di seguito.
 
 		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
@@ -60,6 +66,8 @@ Per creare una rete virtuale con PowerShell, seguire questa procedura.
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -98,6 +106,8 @@ Per creare una rete virtuale con PowerShell, seguire questa procedura.
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
+	Di seguito è riportato l'output previsto per il comando precedente:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -137,4 +147,4 @@ Per creare una rete virtuale con PowerShell, seguire questa procedura.
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

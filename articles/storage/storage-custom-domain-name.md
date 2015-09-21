@@ -7,16 +7,14 @@
 	manager="adinah" 
 	editor=""/>
 
-
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
-
 
 
 # Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure
@@ -119,4 +117,4 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

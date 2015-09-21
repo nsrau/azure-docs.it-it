@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Controllo degli accessi in base al ruolo in Servizi mobili e Azure Active Directory (Windows Store) | Microsoft Azure" 
-	description="Informazioni su come controllare gli accessi in base al ruolo di Azure Active Directory nell'applicazione per Windows Store." 
+	pageTitle="Controllo degli accessi in base al ruolo in Servizi mobili tramite .JavaScript e Azure Active Directory (Windows Store) | Microsoft Azure" 
+	description="Informazioni su come controllare gli accessi in base al ruolo di Azure Active Directory nell'applicazione per Windows Store tramite un Servizio Mobile con un back-end .JavaScript." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Controllo degli accessi in base al ruolo in Servizi mobili e Azure Active Directory
+# Controllo degli accessi in base al ruolo in Servizi mobili utilizzando .NET e l’Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -286,4 +286,4 @@ I passaggi seguenti illustrano come distribuire il controllo di accesso basato s
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [accesso alle informazioni di Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

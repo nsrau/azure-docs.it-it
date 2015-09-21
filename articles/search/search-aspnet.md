@@ -20,20 +20,6 @@
 
 ASP.NET è il framework per applicazioni Web più diffuso per soluzioni personalizzate integrate con Ricerca di Azure. In questo articolo verrà illustrato come connettere l'app Web ASP.NET a Ricerca di Azure, sfruttare i modelli di progettazione per le operazioni comuni ed esaminare alcune procedure di codifica che possono semplificare l'esperienza di sviluppo.
 
-##Organizzare il codice
-
-La suddivisione dei carichi di lavoro in progetti autonomi nella stessa soluzione di Visual Studio offre una maggiore flessibilità nella progettazione, gestione ed esecuzione di ogni programma. È consigliabile creare tre progetti:
-
-- Codice per la creazione dell'indice
-- Codice per l'inserimento di dati
-- Codice per l'interazione utente
-
-In Ricerca di Azure le operazioni di indicizzazione e le operazioni relative ai documenti, ad esempio l'aggiunta o l'aggiornamento di documenti o l'esecuzione di query, sono completamente indipendenti tra loro. È quindi possibile separare la gestione degli indici dal codice per l'interazione utente ASP.NET che formula le richieste di ricerca ed esegue il rendering dei risultati.
-
-Nella maggior parte degli esempi di codice l'indice viene creato e caricato in un progetto (indicato come DataIndexer, CatalogIndexer o DataCatalog in diversi esempi), mentre il codice che gestisce le richieste e le risposte di ricerca viene inserito in un progetto di applicazione MVC ASP.NET. Negli esempi di codice risulta utile aggregare la creazione dell'indice e il caricamento dei documenti in un progetto, ma è probabile che il codice di produzione isoli queste operazioni. Dopo la creazione, un indice viene raramente modificato (in caso di modifica, è necessario ricompilarlo), mentre è probabile che i documenti vengano aggiornati su base ricorrente.
-
-La separazione dei carichi di lavoro offre altri vantaggi, ad esempio livelli diversi di autorizzazioni per Ricerca di Azure (diritti amministrativi completi rispetto a diritti per la sola esecuzione di query), uso di linguaggi di programmazione diversi, dipendenze più specifiche per ogni programma, oltre alla possibilità di rivedere indipendentemente i programmi o creare più applicazioni front-end che operano insieme sull'indice compilato e gestito da un'applicazione di indicizzazione centrale.
-
 ##Esempi e demo che usano ASP.NET e Ricerca di Azure
 
 Sono già disponibili alcuni esempi di codice che illustrano l'integrazione di Ricerca con ASP.NET. È possibile passare direttamente al codice o a un'app demo selezionando uno dei collegamenti seguenti:
@@ -47,7 +33,7 @@ Sono già disponibili alcuni esempi di codice che illustrano l'integrazione di R
 Per stabilire una connessione al servizio ed emettere richieste, l'applicazione Web necessita solo dei tre elementi seguenti:
 
 - URL per il servizio Ricerca di Azure di cui è stato eseguito il provisioning, formattato come https://<service-name>.search.windows.net.
-- Chiave API (GUID) che autentica la connessione a Ricerca di Azure.
+- Chiave API (stringa) che autentica la connessione a Ricerca di Azure.
 - HTTPClient o SearchServiceClient per formulare la richiesta di connessione.
 
 ####URL e chiavi API
@@ -69,7 +55,7 @@ La chiave API è un token di autenticazione generato durante il provisioning del
 - Chiavi amministratore (autorizzazioni di lettura-scrittura, 2 per ogni servizio)
 - Chiavi di query (sola lettura, fino a 50 per ogni servizio)
 
-Tutte le chiavi API sono GUID. Non esiste alcuna distinzione visiva tra le chiavi amministratore e le chiavi di query. Per determinare il tipo di chiave, è necessario controllare il portale o usare l'API REST di gestione.
+Le chiavi API sono stringhe di 32 caratteri. Non esiste alcuna distinzione visiva tra le chiavi amministratore e le chiavi di query. Se si perde il tipo di chiave specificato nel codice, è necessario controllare il portale o utilizzare l'API REST di gestione in modo che restituisca il tipo di chiave. Per ulteriori informazioni sulle chiavi, visitare [API REST per il servizio Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 > [AZURE.TIP]Una chiave di query offre una soluzione di sola lettura al client. Per provare a usare le operazioni di Ricerca di Azure disponibili in un servizio di sola lettura, vedere [Provare il servizio app con Ricerca di Azure](search-tryappservice.md). Si noti che il codice dell'app Web disponibile in tale articolo è completamente modificabile: è possibile cambiare qualsiasi elemento del codice C# nel progetto ASP.NET per modificare il layout della pagina Web, la struttura della query di ricerca o i risultati di ricerca. Solo l'indice e le operazioni di carico dei documenti del servizio Ricerca di Azure sono di sola lettura, a causa dell'inclusione della chiave API relativa alla query nella connessione al servizio.
 
@@ -95,7 +81,7 @@ I due frammenti di codice seguenti stabiliscono una connessione al servizio di r
             }
             catch (Exception e)
             {
-                errorMessage = e.Message.ToString();
+                errorMessage = e.Message;
             }
         }
 
@@ -119,7 +105,7 @@ I due frammenti di codice seguenti stabiliscono una connessione al servizio di r
 
 ##Modelli di progettazione
 
-Un'app Web integrata con Ricerca di Azure dovrà formulare query ed eseguire il rendering dei risultati. Questa sezione fornisce indicazioni su come strutturare il codice per attività eseguite in un programma che contiene codice di interazione utente. La definizione dello schema, la generazione dell'indice e l'inserimento di dati vengono esclusi intenzionalmente. Per indicazioni su come scrivere codice per queste operazioni, vedere le procedure dettagliate e gli esempi elencati in [Video, esempi ed esercitazioni in Ricerca di Azure](search-video-demo-tutorial-list.md).
+Un'app Web integrata con Ricerca di Azure dovrà formulare query ed eseguire il rendering dei risultati. Questa sezione fornisce indicazioni su come strutturare il codice per attività eseguite in un programma che contiene codice di interazione utente. La definizione dello schema, la generazione dell'indice e l'inserimento di dati vengono esclusi intenzionalmente. Per indicazioni su come scrivere il codice per queste operazioni, vedere le procedure dettagliate e gli esempi elencati in [Video, esempi ed esercitazioni in Ricerca di Azure](search-video-demo-tutorial-list.md).
 
 ###Formulazione di query
 
@@ -454,6 +440,19 @@ Il codice per la serializzazione JSON è disponibile in molti esempi in un file 
 	    }
 	}
 
+###Organizzare il codice
+
+La suddivisione dei carichi di lavoro in progetti autonomi nella stessa soluzione di Visual Studio offre una maggiore flessibilità nella progettazione, gestione ed esecuzione di ogni programma. È consigliabile creare tre progetti:
+
+- Codice per la creazione dell'indice
+- Codice per l'inserimento di dati
+- Codice per l'interazione utente
+
+In Ricerca di Azure le operazioni di indicizzazione e le operazioni relative ai documenti, ad esempio l'aggiunta o l'aggiornamento di documenti o l'esecuzione di query, sono completamente indipendenti tra loro. È quindi possibile separare la gestione degli indici dal codice per l'interazione utente ASP.NET che formula le richieste di ricerca ed esegue il rendering dei risultati.
+
+Nella maggior parte degli esempi di codice l'indice viene creato e caricato in un progetto (indicato come DataIndexer, CatalogIndexer o DataCatalog in diversi esempi), mentre il codice che gestisce le richieste e le risposte di ricerca viene inserito in un progetto di applicazione MVC ASP.NET. Negli esempi di codice risulta utile aggregare la creazione dell'indice e il caricamento dei documenti in un progetto, ma è probabile che il codice di produzione isoli queste operazioni. Dopo la creazione, un indice viene raramente modificato (in caso di modifica, è necessario ricompilarlo), mentre è probabile che i documenti vengano aggiornati su base ricorrente.
+
+La separazione dei carichi di lavoro offre altri vantaggi, ad esempio livelli diversi di autorizzazioni per Ricerca di Azure (diritti amministrativi completi rispetto a diritti per la sola esecuzione di query), uso di linguaggi di programmazione diversi, dipendenze più specifiche per ogni programma, oltre alla possibilità di rivedere indipendentemente i programmi o creare più applicazioni front-end che operano insieme sull'indice compilato e gestito da un'applicazione di indicizzazione centrale.
 
 ##Passaggi successivi
 
@@ -463,4 +462,4 @@ Per una migliore comprensione dell'integrazione tra Ricerca di Azure e ASP.NET, 
 - [Case study per gli sviluppatori di Ricerca di Azure](search-dev-case-study-whattopedia.md)
 - [Flusso di lavoro tipico per lo sviluppo di Ricerca di Azure](search-workflow.md) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/20/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di Analisi di flusso Microsoft
+
+## Note per la versione 10/09/2015 di Analisi di flusso ##
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+Titolo|Descrizione
+---|---
+Supporto per i gruppi PowerBI|Per abilitare la condivisione dei dati con altri utenti di Power BI, i processi di analisi Stream ora possono scrivere ai gruppi all'interno di account di Power BI.
 
 ## Note per la versione 20/08/2015 di Analisi di flusso ##
 
@@ -73,7 +81,7 @@ Limitazione del volume di eventi del database SQL|Quando si usa un database SQL 
 I dataset PowerBI possono contenere solo una tabella|PowerBI non supporta più di una tabella in un dato dataset.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-it/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -84,4 +92,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

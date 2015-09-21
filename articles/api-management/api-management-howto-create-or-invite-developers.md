@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Come gestire gli account utente in Gestione API di Azure
@@ -26,7 +26,7 @@ Per creare un nuovo sviluppatore, fare clic su **Gestisci** nel portale di Azure
 
 ![Portale di pubblicazione][api-management-management-console]
 
-Fare clic su **Sviluppatori** dal menu **Gestione API** sulla sinistra, quindi scegliere **aggiungi utente**.
+Fare clic su **Utenti** dal menu **Gestione API** sulla sinistra, quindi scegliere **aggiungi utente**.
 
 ![Create developer][api-management-create-developer]
 
@@ -42,7 +42,7 @@ Gli account sviluppatore con stato **attivo** possono essere usati per accedere 
 
 ## <a name="invite-developer"> </a>Invitare uno sviluppatore
 
-Per invitare uno sviluppatore, fare clic su **Sviluppatori** dal menu **Gestione API** sulla sinistra, quindi scegliere **Invita utente**.
+Per invitare uno sviluppatore, fare clic su **Utenti** dal menu **Gestione API** sulla sinistra, quindi scegliere **Invita utente**.
 
 ![Invite developer][api-management-invite-developer]
 
@@ -91,4 +91,4 @@ Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed ef
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [Configurare modelli di posta elettronica]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

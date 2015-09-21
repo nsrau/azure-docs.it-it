@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Hub di notifica di Azure | Microsoft Azure"
+	pageTitle="Introduzione ad Hub di notifica di Azure per le app di Windows Store | Microsoft Azure"
 	description="Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione di Windows Store o per Windows Phone 8.1 o (non Silverlight)."
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/24/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introduzione a Hub di notifica
+# Introduzione ad Hub di notifica per le app di Windows Store
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -264,4 +264,4 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare le risorse in un nuovo gruppo di risorse"
-	description="Usare Azure PowerShell o API REST per spostare le risorse a un nuovo gruppo di risorse per Gestione risorse di Azure."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	pageTitle="Spostare le risorse in un nuovo gruppo di risorse" 
+	description="Usare Azure PowerShell o API REST per spostare le risorse a un nuovo gruppo di risorse per Gestione risorse di Azure." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -39,12 +39,13 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 
 - Gestione API
 - Ricerca di Azure
+- App Web di Azure (si applicano alcune [limitazioni](app-service-web/app-service-move-resources.md))
 - Data Factory
 - Insieme di credenziali di chiave
 - Mobile Engagement
 - Operational Insights
 - Cache Redis
-- App Web di Azure (si applicano alcune [limitazioni](app-service-web/app-service-move-resources.md))
+- Database SQL
 
 I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non una nuova sottoscrizione sono:
 
@@ -101,4 +102,4 @@ Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

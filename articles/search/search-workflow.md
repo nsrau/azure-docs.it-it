@@ -62,7 +62,7 @@ I dati caricati in un indice devono essere conformi allo schema definito nel pas
 
 Esistono diversi modi per caricare i documenti ed attualmente tutti richiedono un'API. Per la maggior parte dei prototipi, questo passaggio potrebbe risultare il più lungo a causa di un requisito di codifica. Le opzioni sono descritte più avanti in questo articolo.
 
-> [AZURE.NOTE]Si tenga presente che il servizio condiviso è limitato a 10.000 documenti per ogni indice. Assicurarsi di ridurre il set di dati in modo da restare entro i limiti. Per ulteriori informazioni, vedere [Limitazioni e vincoli](https://msdn.microsoft.com/library/dn798934.aspx).
+> [AZURE.NOTE]Si tenga presente che il servizio condiviso è limitato a 10.000 documenti per ogni indice. Assicurarsi di ridurre il set di dati in modo da restare entro i limiti. Per ulteriori informazioni, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md).
 
 #### Come caricare i dati in un indice
 
@@ -190,4 +190,4 @@ Si tenga presente che solo il livello di prezzo standard può essere aumentato o
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

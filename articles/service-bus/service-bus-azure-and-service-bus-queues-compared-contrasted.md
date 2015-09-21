@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Analogie e differenze tra le code di Azure e le code del bus di servizio"
-	description="Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure."
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="tysonn"/>
+   description="Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure."
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="tysonn" />
 <tags 
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/25/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="09/09/2015"
+   ms.author="sethm" />
 
 # Analogie e differenze tra le code di Azure e le code del bus di servizio
 
@@ -257,7 +257,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
 |Autenticazione|**Chiave simmetrica**|**Chiave simmetrica**|
-|Modello di controllo di accesso|Accesso delegato tramite token di firma di accesso condiviso.|RBAC tramite ACS|
+|Modello di protezione|Accesso delegato tramite token di firma di accesso condiviso.|SAS|
 |Federazione del provider di identità|**No**|**Sì**|
 
 ### Informazioni aggiuntive
@@ -265,10 +265,6 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 - Ogni richiesta a entrambe le tecnologie di accodamento deve essere autenticata. Le code pubbliche con accesso anonimo non sono supportate. L'uso della firma di accesso condiviso consente di ovviare a questo inconveniente mediante la pubblicazione di una firma di accesso condiviso di sola scrittura, di sola lettura o anche di accesso completo.
 
 - Lo schema di autenticazione fornito dalle code di Azure prevede l'uso di una chiave simmetrica, ovvero un codice HMAC (Hash Message Authentication Code) calcolato dall'algoritmo SHA-256 e codificato come stringa **Base64**. Per altre informazioni sul relativo protocollo, vedere [Autenticazione dell'accesso all'account di archiviazione](https://msdn.microsoft.com/library/hh225339.aspx). Le code del bus di servizio supportano un modello simile mediante l'uso di chiavi simmetriche. Per altre informazioni, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](https://msdn.microsoft.com/library/dn170477.aspx).
-
-- Microsoft Azure AD Access Control (noto anche come Servizio di controllo di accesso o ACS) supportato dal bus di servizio offre tre ruoli distinti, **amministratore**, **mittente** e **destinatario**, e non è attualmente supportato dalle code di Azure.
-
-- Poiché il bus di servizio offre l'integrazione di ACS, è possibile attuare la federazione con Active Directory (tramite l'uso di ADFS) e altri comuni provider di identità Web.
 
 ## Costi
 
@@ -315,4 +311,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

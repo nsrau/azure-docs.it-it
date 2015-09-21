@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 #Come impaginare i risultati della ricerca in Ricerca di Azure#
@@ -103,7 +103,7 @@ Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.c
 - [API REST per il servizio Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 - [Operazioni sugli indici](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 - [Operazioni sui documenti](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-- [Video ed esercitazioni su Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn818681.aspx)
+- [Video ed esercitazioni su Ricerca di Azure](search-video-demo-tutorial-list.md)
 - [Esplorazione in base a facet in Ricerca di Azure](search-faceted-navigation.md)
 
 
@@ -114,4 +114,4 @@ Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.c
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

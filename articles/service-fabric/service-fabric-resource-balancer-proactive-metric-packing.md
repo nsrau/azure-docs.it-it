@@ -3,7 +3,7 @@
    description="Panoramica dell'uso del raggruppamento proattivo basato sulle metriche in Resource Balancer"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Raggruppamento proattivo basato sulle metriche
 
@@ -74,4 +74,4 @@ Per altre informazioni: [Architettura di Resource Balancer](service-fabric-resou
 [Image1]: media/service-fabric-resource-balancer-proactive-metric-packing/PMP.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

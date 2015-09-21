@@ -1,0 +1,112 @@
+<properties
+	pageTitle="Importare un file BACPAC in un Database SQL di Azure"
+	description="Importare un file BACPAC in un Database SQL di Azure"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
+
+<tags
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="09/05/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
+
+
+# Importare un file BACPAC in un Database SQL
+
+**Database singolo**
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-import.md)
+- [PowerShell](sql-database-import-powershell.md)
+
+In questo articolo viene illustrato come creare un database SQL importando un file BACPAC con il [portale di anteprima di Azure](https://portal.azure.com).
+
+Un BACPAC è un file con estensione bacpac che contiene lo schema del database e dati. Per ulteriori informazioni, vedere il pacchetto di Backup (con estensione bacpac) in [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx).
+
+Il database viene creato da un file BACPAC importato da un contenitore di BLOB di archiviazione di Azure. Se non si dispone di un file con estensione bacpac nell'archiviazione di Azure è possibile crearne uno seguendo i passaggi in [Creazione ed esportazione di un file BACPAC di un Database SQL di Azure](sql-database-backup.md).
+
+
+> [AZURE.NOTE]Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell’utente che è possibile ripristinare. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+
+
+Per importare un database SQL da un file bacpac è necessario quanto segue:
+
+- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
+- Un server V12 del Database SQL di Azure. Se non si dispone di un server V12, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
+- Un file con estensione bacpac del database che si desidera importare in un contenitore di BLOB dell’[account di archiviazione di Azure (classico)](storage-create-storage-account.md).
+
+
+## Selezionare il server che conterrà il database
+
+Aprire il pannello di SQL Server per il database che si desidera importare:
+
+1.	Passare al [portale di anteprima di Azure](https//:portal.azure.com).
+2.	Fare clic su **ESPLORA TUTTO**.
+3.	Fare clic su **SQL Server**.
+2.	Fare clic sul server in cui ripristinare il database.
+3.	Nel pannello di SQL Server fare clic su **Importa database** per aprire il pannello **Importa database**:
+
+    ![importa database][1]
+
+1.  Fare clic su **Archiviazione** e selezionare il contenitore di BLOB, l’account di archiviazione e il file bacpac e fare clic su **OK**.
+
+    ![configurare le opzioni di archiviazione][2]
+
+1.  Selezionare il livello di prezzo per il nuovo database e fare clic su **Seleziona**.
+
+    ![selezionare un livello di prezzo][3]
+
+1.  Immettere un **NOME DEL DATABASE**.
+2.  Immettere l’ **account di accesso dell’amministratore del Server** e la **Password** per il server SQL di Azure in cui si sta importando il database.
+1.  Fare clic su **Crea** per creare il database dal BACPAC.
+
+    ![creazione del database][4]
+
+Facendo clic su **Crea** si invia una richiesta di importazione del database al servizio. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere diverso tempo.
+
+## Monitorare lo stato dell’operazione di importazione
+
+2.	Fare clic su **ESPLORA TUTTO**.
+3.	Fare clic su **SQL Server**.
+2.	Selezionare il server da ripristinare.
+3.	Nel pannello server SQL fare clic su **Cronologia importazione/esportazione**:
+
+    ![cronologia importazione/esportazione][5] ![cronologia importazione/esportazione][6]
+
+
+
+
+
+## Verificare che il database sia disponibile nel server
+
+2.	Fare clic su **ESPLORA TUTTO**.
+3.	Fare clic su **database SQL** e verificare che il nuovo database sia **Online**.
+
+
+
+## Passaggi successivi
+
+- [Connettersi con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+
+
+
+## Risorse aggiuntive
+
+- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+
+
+<!--Image references-->
+[1]: ./media/sql-database-import/import-database.png
+[2]: ./media/sql-database-import/storage-options.png
+[3]: ./media/sql-database-import/pricing-tier.png
+[4]: ./media/sql-database-import/create.png
+[5]: ./media/sql-database-import/import-history.png
+[6]: ./media/sql-database-import/import-status.png
+
+<!---HONumber=Sept15_HO2-->

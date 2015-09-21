@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Risoluzione per le macchine virtuali e le istanze del ruolo"
-	description="Scenari di risoluzione dei nomi per Azure IaaS, soluzioni ibride, tra diversi servizi cloud, Active Directory e utilizzando il proprio server DNS"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Scenari di risoluzione dei nomi per Azure IaaS, soluzioni ibride, tra diversi servizi cloud, Active Directory e utilizzando il proprio server DNS"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="GarethBradshawMSFT"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="joaoma" />
 
 # Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo
 
@@ -52,19 +52,17 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 
 - Facilità di utilizzo: non è necessaria alcuna configurazione per usare la risoluzione dei nomi fornita da Azure.
 
+- Il servizio di risoluzione dei nomi fornito da Azure garantisce la disponibilità elevata ed evita così di dover creare e gestire i cluster dei propri server DNS.
+
 - La risoluzione dei nomi viene fornita tra istanze del ruolo o VM presenti nello stesso servizio cloud senza necessità di un nome di dominio completo.
 
-- La risoluzione dei nomi viene fornita tra VM nelle reti virtuali basate su ARM senza necessità del nome di dominio completo, mentre le reti classiche richiedono il nome di dominio completo per la risoluzione dei nomi in servizi cloud diversi.
+- La risoluzione dei nomi viene fornita tra macchine virtuali nelle reti virtuali basate su Gestione risorse di Azure senza la necessità del nome di dominio completo, mentre le reti classiche richiedono il nome di dominio completo per la risoluzione dei nomi in servizi cloud diversi.
 
 - È possibile creare i nomi host che meglio descrivano le distribuzioni, anziché usare nomi generati automaticamente.
 
 **Considerazioni:**
 
-- La risoluzione dei nomi tra reti virtuali non è disponibile.
-
-- È possibile registrare i nomi host solo per VM e istanze del ruolo che si trovano nei primi 180 servizi cloud aggiunti a una rete virtuale di Azure. Se si dispone di più di 180 servizi cloud, indipendentemente dal numero di macchine virtuali e istanze del ruolo in ogni servizio, è necessario fornire il proprio server DNS per la risoluzione dei nomi.
-
-- La risoluzione dei nomi di più sedi locali non è disponibile.
+- La risoluzione dei nomi tra reti virtuali e tra Azure e computer locali non è disponibile.
 
 - Il suffisso DNS creato da Azure non può essere modificato.
 
@@ -74,7 +72,57 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 
 - I nomi host devono essere compatibili con DNS (devono utilizzare solo 0-9, a-z e '-' e non possono iniziare o terminare con un '-'. Vedere RFC 3696 sezione 2).
 
-- Il traffico di query DNS è limitato per ogni macchina virtuale. Se l'applicazione esegue query DNS frequenti su più nomi di destinazione, è possibile che alcune query superino il tempo disponibile. Per evitare questa situazione, è consigliabile abilitare la memorizzazione nella cache del client. Questa opzione è abilitata per impostazione predefinita in Windows, ma potrebbe non essere abilitata in alcune distribuzioni Linux.
+- Il traffico di query DNS è limitato per ogni macchina virtuale. Questo in genere non comporta alcun impatto sulla maggior parte delle applicazioni. Se viene osservata la limitazione delle richieste, assicurarsi che la memorizzazione nella cache sul lato client sia abilitata. Per altre informazioni, vedere l'articolo che illustra [come usare al meglio la risoluzione dei nomi fornita da Azure](#Getting-the-most-from-Azure-provided-name-resolution).
+
+- Solo le macchine virtuali nei primi 180 servizi cloud sono registrate per ogni rete virtuale classica. Questo non si applica alle reti virtuali basate su Gestione risorse di Azure.
+
+
+### Come usare al meglio la risoluzione dei nomi fornita da Azure
+**Memorizzazione nella cache sul lato client:**
+
+Non tutte le query DNS devono essere inviate attraverso la rete. La memorizzazione nella cache sul lato client consente di ridurre la latenza e migliorare la resilienza ai blip (brevi interruzioni) di rete, tramite la risoluzione di query DNS ricorrenti da una cache locale. I record DNS contengono una durata (TTL) che consente alla cache di memorizzare il record per il periodo di tempo più lungo possibile senza che questo influisca sullo stato di aggiornamento del record. Per questo motivo, la memorizzazione nella cache sul lato client è ideale per la maggior parte delle situazioni.
+
+Il client DNS di Windows predefinito contiene una cache DNS incorporata. Alcuni distro di Linux non includono la memorizzazione nella cache per impostazione predefinita, è quindi consigliabile aggiungerne una a ogni macchina virtuale Linux. Sono disponibili molti pacchetti di memorizzazione nella cache DNS diversi, ad esempio dnsmasq. Di seguito è riportata la procedura per installare dnsmasq nei distro più comuni:
+
+- **Ubuntu (usa resolvconf)**:
+	- installare il pacchetto dnsmasq ("sudo apt-get install dnsmasq").
+- **SUSE (usa netconf)**:
+	- installare il pacchetto dnsmasq ("sudo zypper install dnsmasq") 
+	- abilitare il servizio dnsmasq ("systemctl enable dnsmasq.service") 
+	- avviare il servizio dnsmasq ("systemctl start dnsmasq.service") 
+	- modificare "/etc/sysconfig/network/config" e sostituire NETCONFIG\_DNS\_FORWARDER="" con "dnsmasq"
+	- aggiornare resolv.conf ("netconfig update") per impostare la cache come resolver DNS locale
+- **OpenLogic (usa NetworkManager)**:
+	- installare il pacchetto dnsmasq ("sudo yum install dnsmasq")
+	- abilitare il servizio dnsmasq ("systemctl enable dnsmasq.service")
+	- avviare il servizio dnsmasq ("systemctl start dnsmasq.service")
+	- aggiungere "prepend domain-name-servers 127.0.0.1;" in "/etc/dhclient-eth0.conf"
+	- riavviare il servizio di rete ("service network restart") per impostare la cache come resolver DNS locale
+
+[AZURE.NOTE]\: il pacchetto 'dnsmasq' è solo una delle cache DNS disponibili per Linux. Prima di usarla, verificare che sia adatta in base alle esigenze specifiche e assicurarsi che non siano installate altre cache.
+
+**Ripetizione di tentativi sul lato client:**
+
+DNS è principalmente un protocollo UDP. Poiché il protocollo UDP non garantisce il recapito dei messaggi, la logica di ripetizione dei tentativi viene gestita nel protocollo DNS stesso. Ogni client DNS (sistema operativo) può includere una logica di ripetizione dei tentativi diversa, in base alle preferenze degli autori.
+
+ - I sistemi operativi Windows eseguono un nuovo tentativo dopo 1 secondo e ne eseguono un altro dopo 2, 4 e altri 4 secondi. 
+ - La configurazione di Linux predefinita esegue il tentativo dopo 5 secondi. È consigliabile modificare questa impostazione in modo da eseguire 5 tentativi a intervalli di 1 secondo.  
+
+Per verificare le impostazioni correnti in una macchina virtuale Linux, aprire il file 'cat /etc/resolv.conf' e osservare la riga 'options', ad esempio:
+
+	options timeout:1 attempts:5
+
+Il file resolv.conf è solitamente generato automaticamente e non deve essere modificato. La procedura specifica per aggiungere la riga 'options' varia a seconda del distro:
+
+- **Ubuntu** (usa resolvconf):
+	- aggiungere la riga per le opzioni in '/etc/resolveconf/resolv.conf.d/head' 
+	- eseguire 'resolvconf -u' per aggiornare
+- **SUSE** (usa netconf):
+	- aggiungere 'timeout:1 attempts:5' al parametro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" in '/etc/sysconfig/network/config' 
+	- eseguire 'netconfig update' per aggiornare
+- **OpenLogic** (usa NetworkManager):
+	- aggiungere 'echo "options timeout:1 attempts:5"' in '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- eseguire 'service network restart' per aggiornare
 
 ## Risoluzione dei nomi usando il server DNS
 
@@ -96,7 +144,7 @@ Se si prevede di usare una risoluzione dei nomi non fornita da Azure, il server 
 
 - Si consiglia inoltre di proteggere il server DNS dagli accessi da internet con i bot di scansione per i DNS open resolver ricorsivi.
 
-- Per prestazioni ottimali, quando si usano VM Azure come server DNS, è necessario disabilitare IPv6 e assegnare un [IP pubblico a livello di istanza](virtual-networks-instance-level-public-ip.mp) a ogni VM server DNS.
+- Per prestazioni ottimali, quando si usano macchine virtuali di Azure come server DNS, è necessario disabilitare IPv6 e assegnare un indirizzo [IP pubblico a livello di istanza](virtual-networks-instance-level-public-ip.mp) a ogni macchina virtuale del server DNS.
 
 ## Specificare i server DNS
 
@@ -110,14 +158,13 @@ Quando si crea una rete virtuale nel portale di gestione, è possibile specifica
 
 ### Impostazione di un server DNS usando file di configurazione (portale di Azure classico)
 
-Per le reti virtuali classiche, è possibile specificare le impostazioni DNS usando due file di configurazione diversi: il file di *configurazione della rete* e il file di *configurazione del servizio*.
+Per le reti virtuali classiche, è possibile specificare le impostazioni DNS usando due file di configurazione diversi: il file di *configurazione di rete* e il file di *configurazione del servizio*.
 
-> [AZURE.NOTE]I server DNS nel file di configurazione del servizio hanno la precedenza sulle impostazioni nel file di configurazione della rete.
- 
 Il file di configurazione della rete descrive le reti virtuali nella sottoscrizione. Quando si aggiungono istanze del ruolo o VM a un servizio cloud in una rete virtuale, le impostazioni DNS del file di configurazione della rete vengono applicate a ogni istanza del ruolo o VM, a meno che non siano stati specificati server DNS specifici del servizio cloud.
 
 Il file di configurazione del servizio viene creato per ogni servizio cloud aggiunto ad Azure. Quando si aggiungono istanze del ruolo o VM al servizio cloud, le impostazioni DNS del file di configurazione del servizio vengono applicate a ogni istanza del ruolo o VM.
 
+> [AZURE.NOTE]I server DNS nel file di configurazione del servizio hanno la precedenza sulle impostazioni nel file di configurazione della rete.
 
 
 ## Passaggi successivi
@@ -130,4 +177,4 @@ Il file di configurazione del servizio viene creato per ogni servizio cloud aggi
 
 [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

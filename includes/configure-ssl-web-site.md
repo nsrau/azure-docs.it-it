@@ -13,7 +13,7 @@ Questo documento fornisce anche informazioni dettagliate sull'abilitazione di HT
 
 ##<a name="bkmk_domainname"></a>Abilitare SSL per il dominio personalizzato
 
-Per abilitare HTTPS per un dominio personalizzato, ad esempio **contoso.com**, è necessario prima registrare un nome di dominio personalizzato presso un registrar. Per altre informazioni su come configurare il nome di dominio di un'app Web, vedere [Configurazione di un nome di dominio personalizzato per un sito Web di Azure](/it-it/develop/net/common-tasks/custom-dns-web-site/). Dopo la registrazione di un nome di dominio personalizzato e la configurazione dell'app Web per la risposta al nome personalizzato, è necessario richiedere un certificato SSL per il dominio.
+Per abilitare HTTPS per un dominio personalizzato, ad esempio **contoso.com**, è necessario prima registrare un nome di dominio personalizzato presso un registrar. Per altre informazioni su come configurare il nome di dominio di un'app Web, vedere [Configurazione di un nome di dominio personalizzato per un sito Web di Azure](/it-IT/develop/net/common-tasks/custom-dns-web-site/). Dopo la registrazione di un nome di dominio personalizzato e la configurazione dell'app Web per la risposta al nome personalizzato, è necessario richiedere un certificato SSL per il dominio.
 
 > [AZURE.NOTE]Per abilitare HTTPS per i nomi di dominio personalizzati, è necessario configurare l'app Web per la modalità **Standard**. Ciò potrebbe comportare costi aggiuntivi, se la modalità attualmente in uso è gratuita o condivisa. Per altre informazioni sui prezzi per la modalità condivisa e **Standard**, vedere [Dettagli prezzi][pricing].
 
@@ -39,7 +39,7 @@ Per ottenere un certificato SSL da usare con il servizio app di Azure, è necess
 - [Ottenere un certificato SubjectAltName tramite OpenSSL](#bkmk_subjectaltname)
 - [Generare certificati autofirmati (solo per scopi di test)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE]Nel corso della procedura viene richiesto di immettere un **Nome comune**, ad esempio `www.contoso.com`. Per i certificati con caratteri jolly, questo valore dovrebbe essere \*.nomedominio (ad esempio, \*.contoso.com). Se è necessario il supporto sia per un nome con caratteri jolly quale \*.contoso.com che per un nome di dominio radice quale contoso.com, è possibile usare un certificato subjectAltName con caratteri jolly.
+> [AZURE.NOTE]Nel corso della procedura viene richiesto di immettere un **Nome comune**, ad esempio `www.contoso.com`. Per i certificati con caratteri jolly, questo valore dovrebbe essere *.nomedominio (ad esempio, *.contoso.com). Se è necessario il supporto sia per un nome con caratteri jolly quale *.contoso.com che per un nome di dominio radice quale contoso.com, è possibile usare un certificato subjectAltName con caratteri jolly.
 >
 > I certificati di crittografia a curva ellittica (ECC) sono supportati nel servizio app di Azure, ma sono relativamente nuovi e per la procedura da seguire per la richiesta di firma del certificato è opportuno rivolgersi alla propria Autorità di certificazione.
 
@@ -61,7 +61,6 @@ Certreq.exe è un'utilità Windows per la creazione di richieste di certificato.
 		MachineKeySet = True
 		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
 		ProviderType = 12
-		RequestType = CMC
 
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
@@ -544,4 +543,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

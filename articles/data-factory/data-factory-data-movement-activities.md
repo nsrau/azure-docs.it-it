@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Attività di spostamento dei dati"
-	description="Informazioni sulle entità di Data factory che è possibile usare per spostare dati in una pipeline di Data factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Attività di spostamento dei dati" 
+	description="Informazioni sulle entità di Data factory che è possibile usare per spostare dati in una pipeline di Data factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/29/2015" 
 	ms.author="spelluru"/>
 
 # Attività di spostamento dei dati
@@ -86,7 +86,7 @@ Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'att
 Per trovare il mapping di un sistema di tipi nativo a .NET per uno specifico archivio dati, vedere gli argomenti relativi al connettore archivio dati corrispondente. È possibile usare tali mapping per determinare i tipi appropriati durante la creazione di tabelle, in modo che durante l'attività di copia vengano eseguite le conversioni corrette.
 
 ### Uso di diversi formati di file
-Per le origini basate su file l'attività di copia supporta una vasta gamma di formati di file, inclusi il formato binario, il formato testo e il formato Avro.
+Per le origini basate su file l'attività di copia supporta una vasta gamma di formati di file, inclusi il formato binario, il formato testo e il formato Avro. È possibile utilizzare l'attività di copia per convertire da un formato a altro. Esempio: testo (CSV) ad Avro.
 
 ### Proprietà dell'attività di copia
 Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via. Al contrario, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività.
@@ -97,4 +97,4 @@ Quando viene eseguita un'attività di copia, nella sezione **typeProperties** ve
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

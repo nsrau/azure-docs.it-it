@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Analisi di sopravvivenza con Azure Machine Learning? | Microsoft Azure"
-	description="Informazioni sulla probabilità che si verifichino eventi di Analisi di sopravvivenza."
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Analisi di sopravvivenza con Azure Machine Learning? | Microsoft Azure" 
+	description="Informazioni sulla probabilità che si verifichino eventi di Analisi di sopravvivenza." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="zhangya" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="zhangya"/>
 
 
 #Analisi di sopravvivenza 
@@ -207,4 +207,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

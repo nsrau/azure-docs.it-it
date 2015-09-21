@@ -1,18 +1,20 @@
 <properties 
-	pageTitle="Opzioni di hosting di calcolo fornite da Azure"
-	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Macchine virtuali, Siti Web, Servizi cloud e altre opzioni."
+	pageTitle="Opzioni di hosting di calcolo fornite da Azure" 
+	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Macchine virtuali, Siti Web, Servizi cloud e altre opzioni." 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
-	authors="Thraka"
+	authors="Thraka" 
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -53,7 +55,7 @@ Servizio app è la scelta migliore per la maggior parte delle app Web. La distri
 
 Per esercitare un controllo maggiore sull'ambiente server Web, ad esempio poter accedere in remoto al server o configurare attività di avvio del server, Servizi cloud di Azure è in genere l'opzione migliore.
 
-Se è presente un'applicazione esistente la cui esecuzione in Siti Web di Azure o Servizi cloud di Azure richiederebbe modifiche sostanziali, è possibile scegliere Macchine virtuali di Azure allo scopo di semplificare la migrazione al cloud. Tuttavia, la corretta configurazione, la protezione e la gestione delle VM richiede molto più tempo e competenza IT rispetto a Siti Web di Azure e a Servizi cloud. Se si sta valutando la possibilità di usare Macchine virtuali di Azure, assicurarsi di tenere conto delle operazioni di manutenzione continua necessarie per le attività di applicazione di patch, aggiornamento e gestione relative all'ambiente di VM.
+Se è presente un'applicazione esistente la cui esecuzione in Siti Web di Azure o Servizi cloud di Azure richiederebbe modifiche sostanziali, è possibile scegliere Macchine virtuali di Azure allo scopo di semplificare la migrazione al cloud. Tuttavia, la corretta configurazione, la protezione e la gestione delle VM richiede molto più tempo e competenza IT rispetto a Siti Web di Azure e a Servizi cloud. Se si sta valutando la possibilità di usare Macchine virtuali di Azure, assicurarsi di tenere conto delle operazioni di manutenzione continua necessarie per le attività di applicazione di patch, aggiornamento e gestione relative all'ambiente di VM. Se è presente un'applicazione esistente la cui esecuzione in Servizio app o Servizi cloud di Azure richiederebbe modifiche sostanziali, è possibile scegliere Macchine virtuali di Azure allo scopo di semplificare la migrazione al cloud. Tuttavia, la corretta configurazione, la protezione e la gestione delle VM richiede molto più tempo e competenza IT rispetto a Servizio app e a Servizi cloud. Se si sta valutando la possibilità di usare Macchine virtuali di Azure, assicurarsi di tenere conto delle operazioni di manutenzione continua necessarie per le attività di applicazione di patch, aggiornamento e gestione relative all'ambiente di VM.
 
 In alcuni casi nessuna opzione singola è corretta ed è pertanto possibile combinare diverse opzioni. Ad esempio, si sta creando un'applicazione per la quale si desiderano i vantaggi a livello di gestione offerti dai ruoli Web di Servizi cloud ma è anche necessario usare SQL Server standard ospitato in una macchina virtuale per motivi di compatibilità o prestazioni.
 
@@ -79,4 +81,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Informazioni su [Servizio cloud](services/cloud-services/)
 * Informazioni su [Macchine virtuali](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

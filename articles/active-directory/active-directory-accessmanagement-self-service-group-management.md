@@ -19,7 +19,7 @@
 
 #Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni
 
-La funzionalità di gestione self-service dei gruppi consente agli utenti di creare e gestire i gruppi di sicurezza in Microsoft Azure Active Directory (AD), nonché di richiedere l'appartenenza a tali gruppi. La richiesta può successivamente essere approvata o rifiutata dal proprietario del gruppo. Grazie alle funzionalità di gestione self-service dei gruppi, il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che ne conoscono il contesto aziendale.
+La funzionalità di gestione self-service dei gruppi consente agli utenti di creare e gestire i gruppi di sicurezza in Microsoft Azure Active Directory (AD), nonché di richiedere l'appartenenza a tali gruppi. La richiesta può successivamente essere approvata o rifiutata dal proprietario del gruppo. Grazie alle funzionalità di gestione self-service dei gruppi, il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che ne conoscono il contesto aziendale. Si noti che le funzionalità di gestione di gruppo self-service sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, non per i gruppi di sicurezza abilitato alla posta o alle liste di distribuzione.
 
 La gestione self-service dei gruppi è attualmente costituita da due scenari principali, ovvero gestione delegata e gestione self-service.
 
@@ -49,4 +49,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

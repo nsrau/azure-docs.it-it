@@ -1,20 +1,20 @@
 <properties
     pageTitle="Database SQL di Azure - strumenti di database elastici "
-	description="Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti"
-	services="sql-database"
-	documentationCenter=""
-	manager="jeffreyg"
-	authors="ddove"
-	editor=""/>
+    description="Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti"
+    services="sql-database"
+    documentationCenter=""
+    manager="jeffreyg"
+    authors="ddove"
+    editor=""/>
 
 <tags
     ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/27/2015"
-	ms.author="sidneyh"/>
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/27/2015"
+    ms.author="sidneyh"/>
 
 # Panoramica sulle funzionalità di database elastico
 
@@ -97,6 +97,10 @@ Per visualizzare le specifiche del pool di database elastici, vedere [Consideraz
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+### Commenti e suggerimenti!
+Cosa si può fare meglio? Questo argomento spiega chiaramente la funzionalità? O ci sono delle parti poco chiare? Il nostro desiderio è accontentarvi, quindi utilizzare il voto pulsanti per dirci dove abbiamo fallito (o fatto bene). E se si desidera essere contattati, includere la posta elettronica nei commenti degli utenti.
+
+
 <!--Anchors-->
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-introduction/tools.png
@@ -104,4 +108,4 @@ Per visualizzare le specifiche del pool di database elastici, vedere [Consideraz
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

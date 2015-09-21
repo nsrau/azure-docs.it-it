@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Monitorare le prestazioni di applicazioni Web
@@ -22,23 +22,26 @@
 
 Questo prodotto consente di accertarsi che le prestazioni della propria applicazione siano ottimali e di scoprire rapidamente eventuali errori. [Application Insights][start] rileverà qualsiasi problema ed eccezione relativi alle prestazioni e aiuterà a individuare e diagnosticare le cause principali.
 
-Application Insights è in grado di monitorare i servizi WCF e le applicazioni Web ASP.NET ospitate localmente o su macchine virtuali, oltre ai siti Web di Microsoft Azure.
+Application Insights può monitorare sia le applicazioni web Java e ASP.NET che i servizi, i servizi WCF. Possono essere ospitati in locale, su macchine virtuali o come siti Web di Microsoft Azure.
+
+Sul lato client, Application Insights può richiedere dati di telemetria di pagine web e un'ampia gamma di dispositivi, tra l’app Store iOS, Android e Windows.
 
 
 ## <a name="setup"></a>Configurare il monitoraggio delle prestazioni
 
 Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, se ApplicationInsights.config non è presente), scegliere uno dei modi seguenti per iniziare:
 
-* [Aggiungere Application Insights al progetto in Visual Studio][greenbrown]\: metodo consigliato. Oltre al monitoraggio passivo delle prestazioni, è possibile inserire registrazioni diagnostiche e tenere traccia dell'uso.
-* [Monitorare ora le prestazioni di un sito Web live][redfield]\: in questo modo non è necessario aggiornare il progetto dell'applicazione o ridistribuire il sito Web.
-* [Per un sito Web di Microsoft Azure](../insights-how-to-customize-monitoring.md) le metriche sono già visibili nel filtro di monitoraggio di tale sito. 
-
-Per visualizzare rapidamente i dati nel pannello della panoramica in Application Insights, usare uno dei metodi seguenti.
+* [App Web ASP.NET](app-insights-asp-net.md)
+* [App web J2EE](app-insights-java-get-started.md)
 
 
-## <a name="view"></a>Esplorazione delle metriche
+## <a name="view"></a>Esplorare le metriche delle prestazioni
 
-Fare clic su un riquadro qualsiasi per visualizzare altri dettagli e i risultati relativi a un periodo più lungo. Ad esempio, fare clic sul riquadro delle richieste e quindi selezionare un intervallo di tempo:
+Nel [portale di Azure](https://portal.azure.com), passare alla risorsa di Application Insights impostata per la propria applicazione. Il pannello della panoramica mostra i dati delle prestazioni di base:
+
+
+
+Fare clic su un riquadro qualsiasi per visualizzare altri dettagli e per vedere i risultati relativi a un periodo più lungo. Ad esempio, fare clic sul riquadro delle richieste e quindi selezionare un intervallo di tempo:
 
 
 ![Fare clic per visualizzare più dati e selezionare un intervallo di tempo](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
@@ -116,7 +119,7 @@ Se l'elenco di proprietà non include i contatori desiderati, è possibile aggiu
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)#Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
@@ -131,7 +134,7 @@ Se si preferisce, è possibile scrivere codice per ottenere lo stesso effetto:
     var perfCollector = new PerformanceCollectorModule();
     perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
-      @"\Sales(electronics)#Items Sold", "Items sold"));
+      @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
@@ -183,4 +186,4 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

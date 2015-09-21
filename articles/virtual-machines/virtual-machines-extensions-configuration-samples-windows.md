@@ -1,24 +1,30 @@
 <properties
    pageTitle="Esempio di configurazione per le estensioni di macchina virtuale di Azure | Microsoft Azure"
-	description="Configurazione di esempio per la creazione di modelli con le estensioni"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Configurazione di esempio per la creazione di modelli con le estensioni"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Esempi di configurazione dell’estensione delle macchine virtuali di Windows Azure.
 
-Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali IaaS di Windows Azure. Per ulteriori informazioni su queste estensioni fare clic <a href="https://msdn.microsoft.com/it-IT/library/azure/dn606311.aspx" target="_blank">qui</a>.
+Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali IaaS di Windows Azure.
+
+Per ulteriori informazioni su queste estensioni fare clic: [Panoramica delle Estensioni di macchina virtuale di Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+
+Per ulteriori informazioni sulla creazione di modelli di estensione fare clic qui [Creazione di modelli di estensione](virtual-machines-extensions-authoring-templates.md)
+
+In questo articolo vengono elencati i valori di configurazione previsti per alcune delle estensioni di Windows.
 
 ## Frammento di modello di esempio per le estensioni di macchina virtuale.
 Il frammento di modello per la distribuzione di estensioni appare come segue:
@@ -268,6 +274,29 @@ Prima di distribuire l'estensione, controllare la versione più recente dell'est
             }
           }
 
+### Diagnostica Azure
+
+Fare clic qui per una panoramica di [Estensione diagnostica Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+
+          {
+            "publisher": "Microsoft.Azure.Diagnostics",
+            "type": "IaaSDiagnostics",
+            "typeHandlerVersion": "1.4",
+            "settings": {
+              "xmlCfg": "[base64(variables('wadcfgx'))]",
+              "storageAccount": "[parameters('diagnosticsStorageAccount')]"
+            },
+            "protectedSettings": {
+            "storageAccountName": "[parameters('diagnosticsStorageAccount')]",
+            "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net"
+          }
+          }
+
 Negli esempi precedenti, sostituire il numero di versione con il numero di versione più recente.
 
-<!---HONumber=September15_HO1-->
+Di seguito è riportato un esempio di un modello di macchina virtuale completo con estensione dello Script personalizzato.
+
+[Estensione di script personalizzato in una macchina virtuale Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

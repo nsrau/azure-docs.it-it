@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Creare un semplice esperimento in Machine Learning Studio | Microsoft Azure"
 	description="Una prima esercitazione di Machine Learning per creare un semplice esperimento per eseguire il training e il test di un modello semplice in Azure Machine Learning Studio."
+	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/09/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
 #Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
@@ -197,11 +198,11 @@ Dopo aver completato la prima esercitazione di Machine Learning e aver configura
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-Una volta ottenuto il modello desiderato, è possibile pubblicarlo come servizio Web da usare per stimare i prezzi delle automobili utilizzando dati nuovi. Per altre informazioni, vedere [Pubblicare un servizio Web di Azure Machine Learning][publish].
+Una volta ottenuto il modello desiderato, è possibile distribuirlo come servizio Web da usare per stimare i prezzi delle automobili utilizzando dati nuovi. Per altre informazioni, vedere [Distribuire un servizio Web di Azure Machine Learning][publish].
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, la valutazione e la pubblicazione di un modello, vedere [Sviluppare una soluzione predittiva con Azure Machine Learning][walkthrough].
+Per una procedura più completa e dettagliata delle tecniche di modellazione predittiva per la creazione, il training, la valutazione e la distribuzione di un modello, vedere [Sviluppare una soluzione predittiva con Azure Machine Learning][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -231,4 +232,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

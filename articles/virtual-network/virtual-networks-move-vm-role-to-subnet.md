@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Come spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet
@@ -51,4 +51,4 @@ Per spostare un'istanza del ruolo, modificare il file CSCFG. Nell'esempio seguen
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

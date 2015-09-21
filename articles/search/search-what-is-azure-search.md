@@ -49,7 +49,7 @@ I documenti sono i dati dettagliati restituiti dal motore di ricerca nei risulta
 
 ##Vedere in azione
 
-Guarda il video per ulteriori informazioni sugli scenari e le funzionalità. Visitare [Ricerca di Azure: esempi di esercitazioni e demo video](https://msdn.microsoft.com/library/azure/dn818681.aspx) per collegamenti a contenuti video.
+Guarda il video per ulteriori informazioni sugli scenari e le funzionalità. Visitare [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md) per collegamenti a contenuti video.
 
 ##Funzionalità di drill-down
 
@@ -69,7 +69,7 @@ La Ricerca di Azure si espande automaticamente a documenti ed indici in tutte le
 
 Partizioni e repliche sono risorse a livello di servizio, con tutti gli indici in esecuzione su tutte le repliche. Se fosse necessario indicizzare un isolamento o si dispone di requisiti per dispersione geografica dei servizi e risorse in data center diversi, è possibile creare un secondo servizio.
 
-Vi sono limiti sull'archiviazione e il numero di indici e documenti caricati nel servizio. Il limite effettivo sarà rispettivamente: esaurimento di memoria fisica o soddisfazione del limite superiore sugli indici e conteggi dei documenti. Vedere [limiti e i vincoli (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798934.aspx) per informazioni dettagliate.
+Vi sono limiti sull'archiviazione e il numero di indici e documenti caricati nel servizio. Il limite effettivo sarà rispettivamente: esaurimento di memoria fisica o soddisfazione del limite superiore sugli indici e conteggi dei documenti. Vedere [limiti e i vincoli (Ricerca di Azure)](search-limits-quotas-capacity.md) per informazioni dettagliate.
 
 ###Programmabilità
 
@@ -85,7 +85,7 @@ L’autenticazione dall'applicazione host per la Ricerca di Azure avviene tramit
 
 ###Gli indici e documenti
 
-È possibile avere più indici (vedere [limiti e i vincoli (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798934.aspx) per limiti in base a livelli di prezzo). Si noti che non esiste attualmente supporto per l'unione degli indici. Una richiesta di ricerca può precisare un indice.
+È possibile avere più indici (vedere [limiti e i vincoli (Ricerca di Azure)](search-limits-quotas-capacity.md) per limiti in base a livelli di prezzo). Si noti che non esiste attualmente supporto per l'unione degli indici. Una richiesta di ricerca può precisare un indice.
 
 I**Documenti** contengono campi e attributi associati. I campi includono testo ricercabile, valori utilizzati prevalentemente (o persino esclusivamente) nei filtri e assegnazione dei punteggi profili, e molto probabilmente URL o puntatori al contenuto, ad esempio immagini, in altri dati. Molte applicazioni di ricerca utilizzano più tipi di archiviazione. Immagini o video possono essere archiviati un prezzo molto più conveniente in altri supporti di archiviazione, ad esempio l'archiviazione Blob di Azure.
 
@@ -129,6 +129,6 @@ Visitare [creare un servizio di ricerca di Azure](search-create-service-portal.m
 
 È inoltre possibile provare queste esercitazioni:
 
-[Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](https://msdn.microsoft.com/library/azure/dn818681.aspx)
+[Come utilizzare la Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) [iniziare a utilizzare Ricerca di Azure .NET](search-get-started-dotnet.md) [Ricerca di Azure: esempi di esercitazioni e demo video](search-video-demo-tutorial-list.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

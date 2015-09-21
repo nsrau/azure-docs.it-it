@@ -35,6 +35,8 @@ La farm di SharePoint a disponibilità elevata è costituita da nove macchine vi
 
 Per le informazioni di configurazione dettagliate per entrambe queste farm, vedere [Dettagli di configurazione della Farm di SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
+> [AZURE.NOTE]Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Procedura per la configurazione
 
 Per creare la farm di SharePoint con il modello Farm di SharePoint Server, eseguire le operazioni seguenti:
@@ -83,7 +85,7 @@ Note:
 
 ## Gestione risorse di Azure
 
-La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure consente di creare macchine virtuali nella gestione dei servizi. Per creare farm di SharePoint Server 2013 in Gestione risorse, vedere [Distribuzione di Farm di SharePoint con i modelli di Gestione risorse di Azure](virtual-machines-workload-template-sharepoint.md).
+La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure consente di creare macchine virtuali con il modello di distribuzione classico. Per creare farm di SharePoint Server 2013 con il modello di distribuzione di Gestione risorse, vedere [Distribuzione di Farm di SharePoint con i modelli di Gestione risorse di Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Risorse aggiuntive
 
@@ -95,4 +97,4 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [Farm di SharePoint ospitati nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

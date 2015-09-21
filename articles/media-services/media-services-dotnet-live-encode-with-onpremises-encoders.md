@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come eseguire la codifica live con codificatori locali"
-	description="In questo argomento viene illustrato come utilizzare .NET per eseguire la codifica live con codificatori in locale."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Come eseguire la codifica live con codificatori locali" 
+	description="In questo argomento viene illustrato come utilizzare .NET per eseguire la codifica live con codificatori in locale." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Come eseguire la codifica live con codificatori locali
@@ -375,4 +375,12 @@ Per informazioni su come configurare un codificatore live, vedere [Codificatori 
 		    }
 		}
 
-<!---HONumber=August15_HO9-->
+
+##Percorsi di apprendimento di Media Services
+
+È possibile visualizzare i percorsi di apprendimento AMS qui:
+
+- [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

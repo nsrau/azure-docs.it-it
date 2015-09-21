@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione all’archiviazione di accodamento di Azure e ai servizi connessi di Visual Studio (progetti Servizi cloud)" 
-	description="Informazioni su come iniziare a usare l'archiviazione di accodamento di Azure in un progetto di servizio cloud in Visual Studio." 
+    pageTitle="Introduzione all'archiviazione delle code e ai servizi relativi a Visual Studio (servizi di cloud) | Microsoft Azure"
+	description="Informazioni su come iniziare a usare il servizio di archiviazione di coda in un progetto di servizio di cloud in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio."
 	services="storage" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
 # Introduzione all’archiviazione di accodamento di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-##Panoramica
+## Panoramica
 
 In questo articolo viene descritto come iniziare a utilizzare l'archiviazione di accodamento di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto servizi cloud usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio.
 
@@ -44,7 +44,7 @@ L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti Nu
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione.
 
 
-##Code di accesso nel codice
+## Code di accesso nel codice
 
 Per accedere alle code nei progetti Servizi cloud di Visual Studio, è necessario aggiungere i seguenti elementi a un file di origine C# che accede all’archiviazione di accodamento di Azure.
 
@@ -72,7 +72,7 @@ Per accedere alle code nei progetti Servizi cloud di Visual Studio, è necessari
 
 **NOTA:** utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
 
-##Creare una coda in codice
+## Creare una coda in codice
 
 Per creare la coda nel codice, è sufficiente aggiungere una chiamata a **CreateIfNotExists**.
 
@@ -82,7 +82,7 @@ Per creare la coda nel codice, è sufficiente aggiungere una chiamata a **Create
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
-##Aggiungere un messaggio a una coda
+## Aggiungere un messaggio a una coda
 
 Per inserire un messaggio in una coda esistente, creare un nuovo oggetto **CloudQueueMessage**, quindi chiamare il metodo **AddMessage**.
 
@@ -97,7 +97,7 @@ Di seguito è riportato un esempio che inserisce il messaggio "Hello, World".
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
 
-##Leggere un messaggio in una coda
+## Leggere un messaggio in una coda
 
 È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **PeekMessage**.
 
@@ -107,7 +107,7 @@ Di seguito è riportato un esempio che inserisce il messaggio "Hello, World".
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-##Leggere e rimuovere un messaggio in una coda
+## Leggere e rimuovere un messaggio in una coda
 
 Il codice può rimuovere un messaggio da una coda in due passaggi.
 
@@ -128,7 +128,7 @@ Questo processo in due passaggi di rimozione di un messaggio assicura che, qualo
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## Utilizzare opzioni aggiuntive per l'elaborazione e la rimozione di messaggi in coda
+## Utilizzare opzioni aggiuntive per elaborare e rimuovere i messaggi in coda
 
 È possibile personalizzare il recupero di messaggi da una coda in due modi.
 
@@ -197,9 +197,9 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Eli
     // Delete the queue.
     messageQueue.Delete();
 
-##Passaggi successivi
+## Passaggi successivi
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Clonare il proprio volume StorSimple | Microsoft Azure"
-	description="Vengono descritti i diversi tipi di clone e le relative situazioni di utilizzo. Viene inoltre illustrato come utilizzare un set di backup per clonare un singolo volume."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Vengono descritti i diversi tipi di clone e le relative situazioni di utilizzo. Viene inoltre illustrato come utilizzare un set di backup per clonare un singolo volume."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/27/2015"
+   ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per clonare un volume
 
@@ -29,7 +29,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 
 È possibile creare un clone sullo stesso dispositivo, su un altro dispositivo o persino su una macchina virtuale utilizzando uno snapshot locale o del cloud.
 
-## Per clonare un volume
+#### Per clonare un volume
 
 1. Nella pagina del servizio StorSimple Manager, fare clic sulla scheda **Catalogo di Backup** e selezionare un set di backup.
 
@@ -89,4 +89,4 @@ Informazioni su come [ripristinare un volume StorSimple da un set di backup](sto
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

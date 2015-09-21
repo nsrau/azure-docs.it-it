@@ -109,18 +109,18 @@ In questa sezione si creerà una nuova classe del gestore di messaggi denominata
 
 ## Registrazione per le notifiche tramite il back-end WebAPI
 
-In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gestire le richieste per la registrazione di un utente e un dispositivo per le notifiche tramite la libreria client per gli hub di notifica, ovvero la libreria client del bus di servizio di Azure. Il controller aggiungerà un tag user per l'utente che è stato autenticato e collegato a HttpContext da `AuthenticationTestHandler`. Il tag avrà il formato della stringa, `"username:<actual username>"`.
+In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gestire le richieste per la registrazione di un utente e un dispositivo per le notifiche tramite la libreria client per gli hub di notifica. Il controller aggiungerà un tag user per l'utente che è stato autenticato e collegato a HttpContext da `AuthenticationTestHandler`. Il tag avrà il formato della stringa, `"username:<actual username>"`.
 
 
  
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **AppBackend**, quindi scegliere **Gestisci pacchetti NuGet**.
 
-2. Nella parte sinistra fare clic su **Online** e cercare **servicebus** nella casella di **ricerca**.
+2. Nella parte sinistra fare clic su **Online** e cercare **Microsoft.Azure.NotificationHubs** nella casella di **ricerca**.
 
-3. Nell'elenco risultati fare clic su **Bus di servizio di Microsoft Azure** e quindi su **Installa**. Completare l'installazione e chiudere la finestra di Gestione pacchetti NuGet.
+3. Nell'elenco dei risultati, fare clic su **Gestione libreria per il servizio di hub di notifica di Microsoft Azure**, quindi fare clic su **installare**. Completare l'installazione e chiudere la finestra di Gestione pacchetti NuGet.
 
-	![][B14]
+	Verrà aggiunto un riferimento a Azure Notification Hubs SDK mediante il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
 
 4. A questo punto si creerà un nuovo file di classe che rappresenta le diverse notifiche sicure che verranno inviate. In un'implementazione completa, le notifiche vengono archiviate in un database. Per semplicità, in questa esercitazione verrà archiviata in memoria. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, scegliere **Aggiungi** e quindi fare clic su **Classe**. Assegnare alla nuova classe il nome **Notifications.cs**, fare clic su **Aggiungi** per generare la classe.
 
@@ -128,7 +128,7 @@ In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gest
 
 5. In Notifications.cs aggiungere l'istruzione `using` seguente all'inizio del file:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. Sostituire la definizione di classe `Notifications` con il codice seguente e assicurarsi di sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub (disponibile nel [portale di gestione di Azure](http://manage.windowsazure.com)):
 
@@ -269,7 +269,7 @@ In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gest
 
 ## Invio di notifiche dal back-end WebAPI
 
-In questa sezione si aggiungerà un nuovo controller che espone un modo per consentire ai dispositivi client di inviare una notifica in base al tag username usando la libreria client del bus di servizio di Azure nel back-end WebAPI ASP.NET.
+In questa sezione si aggiungerà un nuovo controller che espone un modo per consentire ai dispositivi client di inviare una notifica in base al tag username usando la libreria di gestione del servizio delle Hub di notifica di Azure nel back-end WebAPI ASP.NET.
 
 
 1. Creare un altro nuovo controller denominato **NotificationsController**. Crearlo seguendo la stessa procedura usata per creare **RegisterController** nella sezione precedente.
@@ -359,4 +359,4 @@ In questa sezione si aggiungerà un nuovo controller che espone un modo per cons
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->
