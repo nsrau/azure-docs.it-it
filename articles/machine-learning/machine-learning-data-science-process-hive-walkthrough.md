@@ -75,7 +75,7 @@ Prima di usare i dati, è opportuno stabilire il tipo di stima che si desidera o
 
 ## <a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi avanzata
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **amministratore**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **amministratore**.
 
 Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDInsight è necessario seguire questa procedura composta da tre passaggi:
 
@@ -91,7 +91,7 @@ Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDIn
 
 ## <a name="getdata"></a>Acquisire i dati da un'origine pubblica
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **amministratore**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **amministratore**.
 
 Per acquisire il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) dal relativo percorso pubblico, è possibile usare uno dei metodi descritti in [Spostamento dei dati da e verso l'archiviazione BLOB di Azure](machine-learning-data-science-move-azure-blob.md) e copiare i dati nella nuova macchina virtuale.
 
@@ -107,7 +107,7 @@ Si descrive ora come usare AzCopy per trasferire i file contenenti i dati. Per s
 
 ## <a name="upload"></a>Caricare i dati nel contenitore predefinito del cluster Hadoop di Azure HDInsight
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **amministratore**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **amministratore**.
 
 Nei seguenti comandi AzCopy, sostituire i parametri seguenti con i valori effettivi specificati durante la creazione del cluster Hadoop e decomprimere i file di dati.
 
@@ -130,7 +130,7 @@ I dati si trovano ora nell'archiviazione BLOB di Azure e sono pronti per essere 
 
 ## <a name="#download-hql-files"></a>Accedere al nodo head del cluster Hadoop e preparare l'analisi esplorativa dei dati
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **amministratore**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **amministratore**.
 
 Per accedere al nodo head del cluster per l'analisi esplorativa e il sottocampionamento dei dati, seguire la procedura descritta in [Accedere al nodo head del cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
@@ -146,13 +146,13 @@ Questi due comandi consentiranno di scaricare tutti i file con estensione hql ne
 
 ## <a name="#hive-db-tables"></a>Creare database e tabelle Hive partizionati in base al mese
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **amministratore**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **amministratore**.
 
 È ora possibile creare tabelle Hive per il set di dati sui taxi di New York. Nel nodo head del cluster Hadoop, aprire la ***riga di comando di Hadoop*** sul desktop del nodo head e specificare la directory Hive immettendo il comando
 
     cd %hive_home%\bin
 
->[AZURE.NOTE]**Eseguire tutti i comandi di Hive in questa procedura dettagliata dal prompt della directory bin/ Hive sopra indicato. In questo modo, eventuali problemi di percorso verranno risolti automaticamente. I termini "prompt della directory Hive", "prompt della directory bin/ Hive" e "riga di comando di Hadoop" verranno usati in modo intercambiabile in questo documento.**
+>[AZURE.NOTE] **Eseguire tutti i comandi di Hive in questa procedura dettagliata dal prompt della directory bin/ Hive sopra indicato. In questo modo, eventuali problemi di percorso verranno risolti automaticamente. I termini "prompt della directory Hive", "prompt della directory bin/ Hive" e "riga di comando di Hadoop" verranno usati in modo intercambiabile in questo documento.**
 
 Dal prompt della directory Hive, immettere il comando seguente nella riga di comando di Hadoop del nodo head per inviare query Hive per la creazione di database e tabelle Hive:
 	
@@ -208,7 +208,7 @@ Per ricevere maggiore assistenza per lo svolgimento di queste procedure o per co
 
 ## <a name="#load-data"></a>Caricare i dati nelle tabelle Hive in base alle partizioni
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **amministratore**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **amministratore**.
 
 Il set di dati sui taxi di New York presenta un partizionamento naturale per mese, utile per velocizzare i tempi di elaborazione e ridurre la durata delle query. I comandi di PowerShell seguenti (specificati dalla directory Hive tramite la **riga di comando di Hadoop**) caricano i dati nelle tabelle Hive "trip" e "fare" partizionate per mese.
 
@@ -275,7 +275,7 @@ Di seguito è riportato l'output previsto:
    
 ## <a name="#explore-hive"></a>Esplorare i dati e progettare le funzionalità in Hive
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **data scientist**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **data scientist**.
 
 Le attività di esplorazione dei dati e di progettazione delle funzionalità relative ai dati caricati nelle tabelle Hive possono essere eseguite usando le query Hive. Di seguito sono riportati alcuni esempi delle attività che si affronteranno in questa sezione:
 
@@ -287,7 +287,7 @@ Le attività di esplorazione dei dati e di progettazione delle funzionalità rel
 
 ### Esplorazione: visualizzare i 10 record principali nella tabella delle corse
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **data scientist**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **data scientist**.
 
 Per visualizzare la natura dei dati, verranno esaminati 10 record di ogni tabella. Eseguire separatamente le due query seguenti dal prompt della directory Hive nella console della riga di comando di Hadoop per analizzare i record.
 
@@ -305,7 +305,7 @@ Per una maggiore comodità di visualizzazione, è spesso utile salvare i record 
 
 ### Esplorazione: visualizzare il numero di record in ognuna delle 12 partizioni
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **data scientist**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **data scientist**.
 
 È interessante osservare come il numero delle corse subisca sensibili variazioni nel corso dell'anno. Il raggruppamento in base al mese consente di vedere come sono distribuite le corse.
 	
@@ -373,7 +373,7 @@ Anche il numero totale di record coincide in entrambe le tabelle. Questo costitu
 
 ### Esplorazione: distribuzione delle corse per licenza
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **data scientist**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **data scientist**.
 
 In questo esempio viene identificata la licenza (numero del taxi) che ha eseguito più di 100 corse in un determinato periodo. Per la query verrà usata la tabella partizionata poiché è condizionata dalla variabile di partizione **month**. I risultati della query vengono scritti nel file locale queryoutput.tsv presente nella directory `C:\temp` del nodo head.
 
@@ -405,7 +405,7 @@ Dal prompt della directory Hive eseguire il comando seguente:
 
 ### Esplorazione: distribuzione delle corse per licenza e hack\_license
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **data scientist**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **data scientist**.
 
 Durante l'esplorazione di un set di dati, spesso si desidera esaminare il numero di co-occorrenze di gruppi di valori. L'esempio fornito in questa sezione illustra come eseguire questa operazione per i taxi e gli autisti.
 
@@ -428,7 +428,7 @@ I risultati della query vengono scritti nel file locale C:\\temp\\queryoutput.ts
 
 ### Esplorazione: valutazione della qualità dei dati mediante il controllo del record di longitudine/latitudine non validi
 
->[AZURE.NOTE]In genere, questa attività viene svolta da un **data scientist**.
+>[AZURE.NOTE] In genere, questa attività viene svolta da un **data scientist**.
 
 Un obiettivo comune di analisi esplorativa dei dati è quello di eliminare i record non validi. L'esempio riportato in questa sezione determina se i campi di longitudine o latitudine contengono un valore esterno all'area di New York. Poiché è probabile che in questi record siano presenti valori di longitudine/latitudine errati, è opportuno eliminarli da tutti i dati che dovranno essere usati per la modellazione.
 
@@ -794,9 +794,9 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 
 ## Riferimenti
 
-• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) 
-• [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) 
-• [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
+•	[Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -811,4 +811,4 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!----HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->
