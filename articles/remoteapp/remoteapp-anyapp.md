@@ -83,7 +83,6 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 3. È necessario creare un [account di archiviazione](../storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo (può essere presente un solo archivio "accessstorage").
 ![Account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione (percorso dell'endpoint), che verrà usato tra poco, quindi assicurarsi di copiarlo.
-
 ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Dopo avere creato l'account di archiviazione, è necessaria la chiave di accesso primaria. Fare clic su **Gestisci chiavi di accesso** e quindi copiare la chiave di accesso primaria.
 6. Impostare ora il contesto dell'account di archiviazione e creare una nuova condivisione file per Access. Eseguire i cmdlet seguenti in una finestra di Windows PowerShell con privilegi elevati:
@@ -119,4 +118,4 @@ Dopo avere appreso come si crea una raccolta, provare a creare una [raccolta che
 
 <!--Image references-->
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

@@ -44,8 +44,7 @@ Per visualizzare la tassonomia dei tag nel portale, usare l'hub Sfoglia per visu
 
 Aggiungere i tag più importanti alla propria schermata iniziale per accedervi velocemente. A questo punto si è pronti per iniziare. Buon divertimento!
 
-![Aggiungere tag alla Schermata iniziale  
-](./media/resource-group-using-tags/pin-tags.png)
+![Aggiungere tag alla Schermata iniziale](./media/resource-group-using-tags/pin-tags.png)
 
 ## Assegnazione di tag tramite PowerShell
 
@@ -159,4 +158,4 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 
   
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
