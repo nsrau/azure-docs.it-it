@@ -213,7 +213,7 @@ Una volta inserito in produzione un modello predittivo, è possibile monitorarlo
 
 Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È inoltre possibile scrivere un BLOB. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È inoltre possibile scrivere l'output in un database o in una tabella utilizzando il modulo di scrittura.
 
- ****È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
+ **È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
 
 
 ##Scalabilità
@@ -306,4 +306,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

@@ -70,7 +70,9 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 
 
-	La documentazione di riferimento per questi due pacchetti è accessibile tramite i collegamenti seguenti: * [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html) * [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+	La documentazione di riferimento per questi due pacchetti è accessibile tramite i collegamenti seguenti:
+	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
+	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
 
 
     > [AZURE.NOTE]È possibile che i numeri presenti alla fine del nome del file cambino nelle versioni successive dell'SDK.
@@ -107,7 +109,10 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 	    private static Boolean isVisible = false;
 
 
-	Assicurarsi di aggiornare i tre segnaposto: * **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: Impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure]. * **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub (**non** l'URL completo). Ad esempio, usare `"myhub"`.
+	Assicurarsi di aggiornare i tre segnaposto:
+	* **SENDER\_ID**: impostare `SENDER_ID` sul numero di progetto ottenuto in precedenza dal progetto creato in [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: Impostare `HubListenConnectionString` sulla stringa di connessione **DefaultListenAccessSignature** per l'hub. Per copiare la stinga di connessione, è possibile fare clic su **Visualizza stringa di connessione** nella scheda **Dashboard** dell'hub nel [portale di Azure].
+	* **HubName**: usare il nome dell'hub di notifica visualizzato nella parte superiore della pagina in Azure per l'hub (**non** l'URL completo). Ad esempio, usare `"myhub"`.
 
 
 
@@ -530,4 +535,4 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

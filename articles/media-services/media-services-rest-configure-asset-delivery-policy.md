@@ -270,7 +270,7 @@ Richiesta:
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
+##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
 
 ###AssetDeliveryProtocol 
 
@@ -422,4 +422,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
