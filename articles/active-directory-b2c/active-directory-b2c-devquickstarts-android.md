@@ -22,9 +22,13 @@ Azure AD B2C consente di aggiungere potenti funzionalità di gestione delle iden
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-> [AZURE.NOTE]Questa Guida rapida richiede come prerequisito che un'API Web sia protetta da Azure AD con B2C per poter funzionare completamente. È stata creata una da utilizzare sia per .Net che per node. js. Questa procedura dettagliata presuppone che l’API Web Node. js di esempio sia configurata. Consultare l’[esercitazione API Web Azure AD B2Cper Node.js](active-directory-b2c-devquickstarts-api-node.md).
+> [AZURE.NOTE]
+	Questa Guida rapida richiede come prerequisito che un'API Web sia protetta da Azure AD con B2C per poter funzionare completamente. È stata creata una da utilizzare sia per .Net che per node. js. 
+	Questa procedura dettagliata presuppone che l’API Web Node. js di esempio sia configurata. Consultare l’[esercitazione API Web Azure AD B2Cper Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
-> [AZURE.NOTE]Questo articolo non descrive come implementare l’accesso, l’iscrizione e la gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+> [AZURE.NOTE]
+	Questo articolo non descrive come implementare l’accesso, l’iscrizione e la gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione.
+    Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
 
 Per i client Android che devono accedere a risorse protette, Azure AD fornisce Active Directory Authentication Library (ADAL). La funzione di ADAL è di permettere all'app di ottenere facilmente i token di accesso. Per far capire quanto è semplice, verrà compilata un'applicazione Android To-Do List che:
 
@@ -36,11 +40,13 @@ Per i client Android che devono accedere a risorse protette, Azure AD fornisce A
 
 ### Passaggio 1: Ottenere una directory di Azure AD B2C
 
-Prima di poter utilizzare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, passare a [creare una directory B2C](active-directory-b2c-get-started.md) prima di continuare.
+Prima di poter utilizzare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via.
+Se non è già stato fatto, passare a [creare una directory B2C](active-directory-b2c-get-started.md) prima di continuare.
 
 ### Passaggio 2:Creare un'applicazione
 
-A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app Web che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, [seguire questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
+A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app Web che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app,
+[seguire questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Specificare `http://localhost:3000/auth/openid/return` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
@@ -61,7 +67,8 @@ Si noti che questo articolo non illustra come usare i criteri appena creati. Per
 
 ### Passaggio 4: Scaricare il codice
 
-Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android). Per creare l'esempio passo passo, è possibile 
+[scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/skeleton.zip) o clonare lo scheletro:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-Android.git
@@ -69,7 +76,8 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 > [AZURE.NOTE]**Il download dello scheletro è necessario per completare questa esercitazione.** Data la complessità dell'implementazione di un'applicazione pienamente funzionante su Android, lo **scheletro** prevede un codice UX che sarà eseguito dopo aver completato l'esercitazione seguente. Si tratta di una misura che consente di risparmiare tempo per gli sviluppatori. Il codice UX non è pertinente all'argomento di aggiunta B2C a un'applicazione Android.
 
-L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) o nel
+ramo `complete` dello stesso repository.
 
 
 Per compilare con Maven, è possibile usare pom.xml al livello principale.
@@ -366,7 +374,9 @@ Our `addTask` and `deleteTask` do the subsequent action and return TRUE or FALSE
 Let's write our `getTask` first:
 
 ```
-private void getTasks() { if (Constants.CURRENT\_RESULT == null || Constants.CURRENT\_RESULT.getAccessToken().isEmpty()) return;
+private void getTasks() {
+        if (Constants.CURRENT_RESULT == null || Constants.CURRENT_RESULT.getAccessToken().isEmpty())
+            return;
 
         List<String> items = new ArrayList<>();
         try {
@@ -382,9 +392,16 @@ private void getTasks() { if (Constants.CURRENT\_RESULT == null || Constants.CUR
     }
  ```
  
+ 
  Scrivere inoltre un metodo che consenta di inizializzare le nostre tabelle alla prima esecuzione:
  
- ``` private void initAppTables() { try { // Get the Mobile Service Table instance to use // mToDoTable = mClient.getTable(WorkItem.class); // mToDoTable.TABvLES\_URL = "/api/"; //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
+ ```
+     private void initAppTables() {
+        try {
+            // Get the Mobile Service Table instance to use
+//            mToDoTable = mClient.getTable(WorkItem.class);
+//            mToDoTable.TABvLES_URL = "/api/";
+            //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
 
             // Create an adapter to bind the items with the view
             //mAdapter = new WorkItemAdapter(ToDoActivity.this, R.layout.listViewToDo);
@@ -500,8 +517,12 @@ ADAL encrypts the tokens and store in SharedPreferences by default. You can look
 
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```java
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync();
-```Ulteriori informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+```
+Ulteriori informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=Sept15_HO3-->
