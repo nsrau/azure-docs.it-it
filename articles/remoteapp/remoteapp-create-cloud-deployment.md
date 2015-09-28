@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come creare una raccolta cloud di Azure RemoteApp"
-	description="Informazioni su come creare una distribuzione di Azure RemoteApp che salva i dati nel cloud Azure."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="Come creare una raccolta cloud di Azure RemoteApp | Microsoft Azure" 
+	description="Informazioni su come creare una distribuzione di Azure RemoteApp che salva i dati nel cloud Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # Come creare una raccolta cloud di Azure RemoteApp
@@ -41,13 +41,13 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 - Questa procedura presuppone che verrà usata una delle immagini modello fornite nell'ambito della sottoscrizione oppure che sia stata già caricata l'immagine modello da usare. Se è necessario caricare un'immagine modello diversa, è possibile effettuare questa operazione nella pagina Immagini modello. Fare clic su **carica un'immagine modello** e seguire i passaggi della procedura guidata. 
 - Se si desidera usare l'immagine di Office 365 ProPlus, consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
 - Se si vogliono offrire app personalizzate o programmi line-of-business, Creare una nuova [immagine](remoteapp-imageoptions.md) e usarla nella raccolta nel cloud.
-- Determinare se è necessario connettersi a una rete virtuale. Se si sceglie di connettersi a una rete virtuale, assicurarsi che soddisfi le linee guida sulle dimensioni e che possa connettersi a RemoteApp.
+- Determinare se è necessario connettersi a una rete virtuale. Se si sceglie di connettersi a una rete virtuale, assicurarsi che soddisfi le [linee guida sulle dimensioni](remoteapp-vnetsizing.md) e che [possa connettersi a RemoteApp](remoteapp-vnet.md). Vedere l’[articolo pianificazione di reti virtuali ](remoteapp-planvpn.md)per ulteriori informazioni.
 - Se si usa una rete virtuale, decidere se si desidera aggiungerla al dominio locale di Active Directory.
 
 ## Passaggio 1: Creare una raccolta cloud con o senza una rete virtuale##
 
 
-Per **creare una raccolta solo cloud**, seguire questa procedura:
+Utilizzare la procedura seguente per **creare una raccolta solo cloud**:
 
 1. Nel portale di gestione andare alla pagina RemoteApp.
 2. Fare clic su **Nuovo > Creazione rapida**.
@@ -62,7 +62,7 @@ Per **creare una raccolta solo cloud**, seguire questa procedura:
 	
 	**Importante:** il provisioning della raccolta può richiedere fino a 30 minuti.
 
-Dopo aver creato la raccolta di RemoteApp, fare doppio clic sul nome della raccolta. Questa operazione consente di visualizzare la pagina **Avvio rapido** in cui è possibile completare la configurazione della raccolta.
+Dopo aver creato la raccolta di RemoteApp, fare doppio clic sul nome della raccolta. Questo visualizzerà la pagina **Avvio rapido** - qui è possibile completare la configurazione della raccolta.
 
 Per creare una **raccolta cloud + rete virtuale**, seguire questa procedura:
 
@@ -70,7 +70,7 @@ Per creare una **raccolta cloud + rete virtuale**, seguire questa procedura:
 2. Fare clic su **Nuovo** > **Crea con rete virtuale**.
 3. Immettere un nome per la raccolta.
 4. Scegliere il piano che da usare: standard o di base.
-5. Scegliere la rete virtuale creata. Per informazioni su come eseguire questa operazione, consultare i passaggi nell'argomento [ibrido](remoteapp-create-hybrid-deployment.md).
+5. Scegliere la rete virtuale creata. Per informazioni su come eseguire questa operazione, Per ora, i passaggi sono presenti nell’argomento[ibrido](remoteapp-create-hybrid-deployment.md).
 6. Decidere se si desidera aggiungere la raccolta al dominio. In caso affermativo, è necessario usare Azure AD Connect per integrare Azure Active Directory e l'ambiente Active Directory. Questa procedura è descritta nel **passaggio 2** riportato di seguito.
 6. Fare clic su **Crea raccolta RemoteApp**.
 
@@ -109,4 +109,4 @@ La procedura è stata completata e la raccolta RemoteApp nel cloud è stata crea
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

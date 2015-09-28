@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Identificare le differenze con la funzionalità di rilevamento modifiche
@@ -54,4 +54,4 @@ Dopo l'installazione, è possibile visualizzare il riepilogo delle modifiche rel
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

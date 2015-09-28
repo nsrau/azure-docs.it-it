@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 L’utilizzo di un dominio predefinito consente di impostare lo stesso URL come URL interno ed esterno per l'accesso all'applicazione in modo che gli utenti dispongano solo di un URL per ricordare l’accesso all’app indipendentemente dal luogo da cui si accede, e consente di creare un collegamento singolo nel Pannello di accesso per l'applicazione. Se si utilizza il dominio predefinito fornito dal Proxy di applicazione Azure AD, non esiste alcuna configurazione aggiuntiva necessaria per abilitare il dominio. Nel caso in cui si utilizza un dominio personalizzato, esistono alcune cose da fare per assicurarsi che il Proxy di applicazione riconosca il dominio e convalidi i certificati.
 
@@ -40,4 +40,4 @@ D: è possibile selezionare un certificato già caricato senza caricarlo nuovame
 * [Iscriversi ad Azure come organizzazione](..sign-up-organization.md)
 * [Identità di Azure](..fundamentals-identity.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

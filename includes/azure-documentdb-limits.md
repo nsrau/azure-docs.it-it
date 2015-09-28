@@ -30,4 +30,4 @@ numero massimo di operazioni di scalabilità al minuto* | 5
 
 Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

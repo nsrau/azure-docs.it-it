@@ -3,7 +3,7 @@
 	description="Vengono descritti i passaggi per configurare un set di disponibilità per una macchina virtuale nuova o esistente in Azure usando il portale di Azure e i comandi di Azure PowerShell"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,9 +15,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#Come configurare un set di disponibilità per le macchine virtuali#
+# Come configurare un set di disponibilità per le macchine virtuali
 
 Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali durante il tempo di inattività, ad esempio durante la manutenzione. L'inserimento di due o più macchine virtuali con configurazione simile in un set di disponibilità crea la ridondanza necessaria a mantenere la disponibilità delle applicazioni o dei servizi eseguiti sulla macchina virtuale. Per i dettagli sul funzionamento, vedere [Gestione della disponibilità delle macchine virtuali][].
 
@@ -95,9 +95,9 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 
 >[AZURE.NOTE]Potrebbe essere necessario riavviare la macchina virtuale per completarne l'aggiunta al set di disponibilità.
 
-##Risorse aggiuntive
+## Risorse aggiuntive
 
-[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]
+[Articoli sulle Macchine virtuali nella gestione dei servizi]
 
 <!-- LINKS -->
 [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente]: #createset
@@ -107,6 +107,6 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 [Gestione della disponibilità delle macchine virtuali]: virtual-machines-manage-availability.md
 [Creazione di una macchina virtuale che esegue Windows]: virtual-machines-windows-tutorial.md
 [Panoramica di Rete virtuale]: virtual-networks-overview.md
-[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[Articoli sulle Macchine virtuali nella gestione dei servizi]: virtual-machines-service-management-articles.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

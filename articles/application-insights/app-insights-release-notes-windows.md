@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Note sulla versione per Application Insights per Windows"
-	description="Gli aggiornamenti più recenti."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Note sulla versione per Application Insights per Windows" 
+	description="Gli aggiornamenti più recenti." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
 # Note sulla versione per Application Insights SDK per Windows Phone e Store
@@ -31,6 +31,23 @@ Vedere [Introduzione ad Application Insights per app di Windows Phone e Store](a
 * Selezionare i pacchetti di Application Insights installati e scegliere Aggiorna.
 * Confrontare la vecchia e la nuova versione di ApplicationInsights.xml. Unire di nuovo eventuali personalizzazioni apportate alla versione precedente.
 * Ricompilare la soluzione.
+
+## Versione 1.2
+
+### Windows App SDK
+
+- Correggere un’eccezione FileNotFound che impediva l’invio delle telemetrie persistenti dopo la riapertura dell'applicazione.
+
+### SDK di base
+
+- La prima versione di SDK di Application Insights inviata da [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Versione 1.1
+
+### SDK di base
+
+- SDK ora rende disponibile un nuovo tipo di telemetria ```DependencyTelemetry``` che contiene informazioni sulla dipendenza chiamata dall'applicazione
+- Il nuovo metodo ```TelemetryClient.TrackDependency``` consente di inviare informazioni sulla dipendenza chiamata dall'applicazione
 
 ## Versione 1.0.0
 
@@ -77,4 +94,4 @@ Anteprima del 28/04/2015
 
 Per le versioni precedenti non sono disponibili le note sulla versione.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

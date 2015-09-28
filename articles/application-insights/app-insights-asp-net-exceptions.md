@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="09/10/2015" 
 	ms.author="awills"/>
  
 # Diagnosticare errori ed eccezioni nelle app ASP.NET con Application Insights  
@@ -50,7 +50,7 @@ Sarà quindi possibile esaminare l'analisi dello stack e le proprietà dettaglia
 
 Una *dipendenza* è un servizio che l'applicazione chiama in genere tramite un'API REST o una connessione di database. [Application Insights Status Monitor][redfield] monitora automaticamente un'ampia gamma di tipi di chiamata alle dipendenze, misurando la durata della chiamata e l'esito, positivo o negativo.
 
-Per ottenere i dati delle dipendenze, è necessario [installare Status Monitor][redfield] nel server IIS o, se l'app è un'app Web di Azure, usare l'[estensione Application Insights][azure]. È possibile eseguire entrambe le operazioni.
+Per ottenere i dati delle dipendenze, è necessario [installare Status Monitor][redfield] nel server IIS o, se l'app è un'app Web di Azure, usare l'[estensione Application Insights][azure].
 
 Le chiamate non riuscite alle dipendenze sono elencate nel pannello Errori ma sono anche disponibili nella sezione Elementi correlati nei dettagli delle richieste e nei dettagli delle eccezioni.
 
@@ -426,7 +426,15 @@ Aggiungere l'attributo alle implementazioni del servizio:
 
 [Esempio](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## Contatori delle prestazioni delle eccezioni
 
+Se si dispone di [Status Monitor istallato][redfield] sul server, è possibile ottenere un grafico della frequenza delle eccezioni, misurata da .NET. Include le eccezioni .NET gestite e non gestite.
+
+Aprire un pannello Esplora metrica, aggiungere un nuovo grafico e selezionare **Frequenza eccezione**, elencata sotto a Contatori delle prestazioni.
+
+.NET framework calcola la frequenza tramite il conteggio del numero delle eccezioni in un intervallo e dividendolo per la lunghezza dell'intervallo.
+
+Si noti che tale conteggio è diverso dal conteggio delle "Eccezioni" calcolato dal portale di Application Insights che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e il SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
 
 <!--Link references-->
 
@@ -441,4 +449,4 @@ Aggiungere l'attributo alle implementazioni del servizio:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

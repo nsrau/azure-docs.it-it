@@ -1,4 +1,4 @@
-Le macchine virtuali create nel servizio di gestione vengono sempre inserite in un servizio cloud. Il servizio cloud funge da contenitore e fornisce un nome DNS pubblico univoco, un indirizzo IP pubblico e un set di endpoint per accedere alla macchina virtuale su Internet. Il servizio cloud può trovarsi facoltativamente in una rete virtuale.
+Le macchine virtuali create con il modello di distribuzione del Servizio di gestione vengono sempre inserite in un servizio cloud. Il servizio cloud funge da contenitore e fornisce un nome DNS pubblico univoco, un indirizzo IP pubblico e un set di endpoint per accedere alla macchina virtuale su Internet. Il servizio cloud può essere in una rete virtuale, ma questo non è un requisito.
 
 Se un servizio cloud non si trova in una rete virtuale, è detto servizio cloud *autonomo*. Le macchine virtuali in un servizio cloud autonomo possono comunicare solo con altre macchine virtuali usando i nomi DNS pubblici delle altre macchine virtuali e il traffico verrà trasmesso attraverso Internet. Se un servizio cloud si trova in una rete virtuale, le macchine virtuali in tale servizio cloud possono comunicare con tutte le altre macchine virtuali nella rete virtuale senza inviare traffico su Internet.
 
@@ -10,7 +10,7 @@ Se si inseriscono le macchine virtuali in una rete virtuale, è possibile decide
 
 ![Macchine virtuali in una rete virtuale](./media/howto-connect-vm-cloud-service/VirtualNetworkExample.png)
 
-Le reti virtuali sono il metodo consigliato per connettere le macchine virtuali in Azure. La procedura consigliata consiste nel configurare ogni livello dell'applicazione in un servizio cloud separato. Tuttavia, potrebbe essere necessario combinare le macchine virtuali da diversi livelli dell'applicazione nello stesso servizio cloud in modo da rimanere entro il numero massimo di 200 servizi cloud per ogni sottoscrizione. Per esaminare questo e altri limiti, vedere[sottoscrizione Azure e limiti, quote e vincoli](../azure-subscription-service-limits.md).
+Le reti virtuali sono il metodo consigliato per connettere le macchine virtuali in Azure. La procedura consigliata consiste nel configurare ogni livello dell'applicazione in un servizio cloud separato. Tuttavia, potrebbe essere necessario combinare le macchine virtuali da diversi livelli dell'applicazione nello stesso servizio cloud in modo da rimanere entro il numero massimo di 200 servizi cloud per ogni sottoscrizione. Per esaminare questo e altri limiti, vedere[sottoscrizione Azure e limiti, quote e vincoli del servizio](../azure-subscription-service-limits.md).
 
 ## Connettere le macchine virtuali in una rete virtuale
 
@@ -42,4 +42,4 @@ Dopo avere creato una macchina virtuale, è consigliabile aggiungere un disco da
 
 [Come collegare un disco dati a una macchina virtuale Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

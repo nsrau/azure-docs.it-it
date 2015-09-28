@@ -1,20 +1,20 @@
 <properties
    pageTitle="Funzioni del modello di Gestione risorse di Azure"
-	description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, stringhe di formato e informazioni sulla distribuzione."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, stringhe di formato e informazioni sulla distribuzione."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/21/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
 
@@ -108,6 +108,25 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 | operand1 | Sì | Numero che viene diviso.
 | operand2 | Sì | Numero usato per dividere, deve essere diverso da 0.
 
+## int
+
+**int(valueToConvert)**
+
+Converte il valore specificato in numero intero.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sì | Il valore da convertire in numero intero. Il tipo di valore può essere solo Stringa o Numero Intero.
+
+Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in numero intero.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
@@ -129,7 +148,7 @@ L'esempio seguente mostra come restituire le chiavi da un account di archiviazio
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -208,7 +227,7 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
 
 ## provider
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 Restituisce informazioni su un provider di risorse e i relativi tipi di risorse supportati. Se non viene specificato un tipo, vengono restituiti tutti i tipi supportati.
 
@@ -384,6 +403,25 @@ Nell'esempio seguente la stringa di input viene divisa con una virgola.
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+## stringa
+
+**string(valueToConvert)**
+
+Converte il valore specificato in stringa.
+
+| Parametro | Obbligatorio | Descrizione
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sì | Il valore da convertire in Stringa. Il tipo di valore può essere solo Booleano, Numero intero o Stringa.
+
+Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in stringa.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
 ## sub
 
 **sub(operand1, operand2)**
@@ -467,9 +505,9 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 
 ## Passaggi successivi
-- Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+- Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

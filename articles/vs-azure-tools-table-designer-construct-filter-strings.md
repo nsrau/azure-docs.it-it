@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Creazione di stringhe di filtro per Progettazione tabelle"
-	description="Creazione di stringhe di filtro per Progettazione tabelle"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Creazione di stringhe di filtro per Progettazione tabelle"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Creazione di stringhe di filtro per Progettazione tabelle
 
-##Panoramica
+## Panoramica
 
 Per filtrare i dati in una tabella di Azure visualizzata in **Progettazione tabelle** di Visual Studio, creare una stringa di filtro e immetterla nel campo del filtro. La sintassi della stringa di filtro è definita da WCF Data Services ed è simile a una clausola WHERE SQL, ma viene inviata al servizio tabelle con una richiesta HTTP. **Progettazione tabelle** gestisce automaticamente la codifica appropriata, quindi per filtrare in base a un valore di proprietà desiderato, è necessario immettere solo il nome della proprietà, l'operatore di confronto, il valore dei criteri e, facoltativamente, l'operatore booleano nel campo del filtro. Non è necessario includere l'opzione di query $filter come quando si crea un URL per eseguire la query della tabella in base alle [Informazioni di riferimento sulle API REST dei servizi di archiviazione](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
@@ -55,11 +55,9 @@ L'esempio seguente applica filtri alle proprietà **PartitionKey** e **RowKey**.
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-
 Anche se non è necessario, è possibile racchiudere ogni espressione di filtro tra parentesi:
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
-
 
 Si noti che le query con caratteri jolly non sono supportate né nel servizio tabelle né in Progettazione tabelle. Tuttavia, è possibile eseguire la corrispondenza di prefissi usando gli operatori di confronto sul prefisso desiderato. L'esempio seguente restituisce le entità con una proprietà LastName che inizia con la lettera "A":
 
@@ -72,7 +70,6 @@ Per applicare filtri a un numero intero o a virgola mobile, specificare il numer
 Questo esempio restituisce tutte le entità con una proprietà Age il cui valore è maggiore di 30:
 
     Age gt 30
-
 
 Questo esempio restituisce tutte le entità con una proprietà AmountDue il cui valore è minore o uguale a 100,25:
 
@@ -88,11 +85,11 @@ L'esempio seguente restituisce tutte le entità in cui la proprietà IsActive è
 
 Questa espressione di filtro può essere scritta anche senza operatore logico. Nell'esempio seguente il servizio tabelle restituirà anche tutte le entità in cui IsActive è **true**:
 
-[Copy](javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode\_3d6a191e-f389-447a-bbbb-ef8b163bc645');)
+    IsActive
 
 Per restituire tutte le entità in cui IsActive è false, è possibile usare l'operatore not:
 
-    IsActive
+    not IsActive
 
 ## Applicazione di filtri alle proprietà DateTime
 
@@ -102,4 +99,4 @@ L'esempio seguente restituisce le entità in cui la proprietà CustomerSince è 
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

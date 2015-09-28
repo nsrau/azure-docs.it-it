@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del portale di anteprima di Azure per gestire le risorse di Azure" 
+	pageTitle="Uso del portale di anteprima di Azure per gestire le risorse di Azure | Microsoft Azure" 
 	description="Informazioni su come raggruppare più risorse in un gruppo logico che diventa il limite del ciclo di vita per le risorse in esso contenute." 
-	services="azure-portal" 
+	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-portal" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -21,47 +21,127 @@
 
 ## Introduzione
 
-In precedenza, per gestire risorse in Microsoft Azure, ovvero entità gestite dall'utente come un server di database, un database o un sito Web, era necessario eseguire operazioni su una risorsa alla volta. La gestione di applicazioni complesse costituite da più risorse era quindi un'attività complicata. Nel portale di anteprima di Azure è possibile creare gruppi di risorse per gestire tutte le risorse di un'applicazione contemporaneamente. Il gruppo di risorse è un nuovo concetto di Azure che funge da limite del ciclo di vita per ogni risorsa contenuta al suo interno.
+In precedenza, per gestire una risorsa in Microsoft Azure, ad esempio un server di database, un database o un'app Web, era necessario eseguire operazioni su una risorsa alla volta. Se si disponeva di un'applicazione complessa costituita da più risorse, era necessario coordinare manualmente le modifiche all'infrastruttura dell'applicazione. Nel portale di anteprima di Azure è possibile utilizzare Gestione risorse di Azure per creare gruppi di risorse per distribuire e gestire tutte le risorse di un'applicazione contemporaneamente.
 
-I gruppi di risorse consentono di gestire tutte le risorse di un'applicazione contemporaneamente. Sono resi disponibili dalla nuova funzionalità di gestione, ovvero Gestione risorse di Azure. Gestione risorse di Azure consente di raggruppare più risorse in un gruppo logico che funge da limite del ciclo di vita per ogni risorsa contenuta al suo interno. In genere, un gruppo conterrà risorse correlate a una specifica applicazione. Può ad esempio contenere una risorsa sito Web che ospita il sito Web pubblico dell'organizzazione, un database SQL in cui sono archiviati i dati relazionali usati dal sito e un account di archiviazione per le risorse non relazionali.
+In genere, un gruppo di risorse contiene risorse correlate a una specifica applicazione. Può ad esempio contenere un'app Web che ospita il sito Web pubblico dell'organizzazione, un database SQL in cui sono archiviati i dati relazionali usati dal sito e un account di archiviazione per le risorse non relazionali. Ogni risorsa in un gruppo di risorse deve condividere lo stesso ciclo di vita. Per altre informazioni su Gestione risorse, vedere la [panoramica di Gestione risorse](../resource-group-overview.md).
 
-Di seguito è riportata una panoramica sintetica su come usare i gruppi di risorse nel portale di Azure.
+Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di anteprima di Azure.
 
-## Creazione di gruppi di risorse
+## Creare risorse e un gruppo di risorse
 
-Tutte le nuove risorse create nel portale vengono sempre inserite all'interno di un gruppo. È possibile scegliere di creare un nuovo gruppo di risorse oppure di usarne uno esistente nel flusso di creazione. <br><br />
+Se è necessario creare un gruppo di risorse vuoto, è possibile selezionare **Nuovo**, **Gestione** e **Gruppo di risorse**.
 
-![crea gruppo di risorse](./media/resource-group-portal/1_createWebsite.png)
+![creare un gruppo di risorse vuoto](./media/resource-group-portal/create-empty-group.png)
 
-Le nuove applicazioni costituite da alcune risorse correlate, ad esempio sito Web e database, vengono sempre create in uno specifico gruppo di risorse, in modo che sia possibile gestire il ciclo di vita di tutte le risorse correlate tramite il gruppo. Con l'evoluzione dell'applicazione, è possibile aggiungere o rimuovere risorse dal gruppo.
+Assegnare un nome e un percorso e, se necessario, selezionare una sottoscrizione.
 
-![crea gruppo di risorse](./media/resource-group-portal/2_createWSandDB.png)
+![impostare i valori del gruppo](./media/resource-group-portal/set-group-properties.png)
 
-## Esplorazione dei gruppi di risorse
+Tuttavia, non è necessario creare in modo esplicito un gruppo di risorse vuoto. Quando si crea una nuova risorsa, è possibile scegliere di creare un nuovo gruppo di risorse oppure di usarne uno esistente. L'immagine seguente illustra come creare una nuova app Web con l'opzione di selezione di un gruppo di risorse esistente o di creazione di un nuovo gruppo.
 
-Per esplorare i gruppi di risorse, è possibile fare clic sull'indice a sinistra dello schermo. Un gruppo di risorse è associato a un pannello che fornisce tutte le informazioni correlate. Il pannello del gruppo di risorse offre inoltre una vista unificata delle informazioni di fatturazione e monitoraggio relative a tutte le risorse al suo interno.
+![creare un gruppo di risorse](./media/resource-group-portal/select-existing-group.png)
 
-Nella sezione riepilogativa viene visualizzata una mappa visiva di tutte le risorse del gruppo, oltre alle risorse di altri gruppi collegati a quest'ultimo. Viene inoltre mostrato lo stato di ogni risorsa. ![riepilogo gruppo di risorse](./media/resource-group-portal/3_1BrowseRGs.png)
+## Esplorare i gruppi di risorse
 
-La parte della mappa di risorse può essere personalizzata per ingrandirne le dimensioni e visualizzare tutte le risorse contenute all'interno del gruppo e in altri gruppi collegati. Questa parte può essere aggiunta e quindi copiata nella schermata iniziale.
+È possibile esplorare tutti i gruppi di risorse selezionando **Esplora tutto** e **Gruppi di risorse**.
 
-![pin](./media/resource-group-portal/3_2BrowseRGs.png)
+![esplorare i gruppi di risorse](./media/resource-group-portal/browse-groups.png)
 
-Fare clic sulla mappa di risorse per aprire la visualizzazione elenco di tutte le risorse presenti. In questa visualizzazione sono elencate tutte le risorse interne o collegate al gruppo. Fare clic su queste risorse per avviare i relativi pannelli.
+Quando si seleziona un gruppo di risorse specifico, viene visualizzato un pannello del gruppo di risorse che fornisce informazioni su tale gruppo, incluso un elenco di tutte le risorse nel gruppo.
 
-![visualizza risorse](./media/resource-group-portal/3_3BrowseRGs.png)
+![riepilogo del gruppo di risorse](./media/resource-group-portal/group-summary.png)
+
+Il pannello del gruppo di risorse offre inoltre una vista unificata delle informazioni di fatturazione e monitoraggio relative a tutte le risorse del gruppo.
+
+![monitoraggio e fatturazione](./media/resource-group-portal/monitoring-billing.png)
+
+## Personalizzazione dell'interfaccia
+
+Per accedere rapidamente al riepilogo del gruppo di risorse, è possibile aggiungere il pannello alla schermata iniziale.
+
+![aggiungere un gruppo di risorse](./media/resource-group-portal/pin-group.png)
+
+In alternativa, è possibile aggiungere una sezione del pannello alla schermata iniziale selezionando i puntini di sospensione (...) sopra la sezione. È inoltre possibile personalizzare le dimensioni della sezione nel pannello o rimuoverla completamente. L'immagine seguente illustra come aggiungere, personalizzare o rimuovere la sezione degli eventi.
+
+![sezione di aggiunta](./media/resource-group-portal/pin-section.png)
+
+Dopo aver aggiunto la sezione degli eventi alla schermata iniziale, è possibile visualizzare un riepilogo degli eventi nella schermata iniziale.
+
+![schermata iniziale degli eventi](./media/resource-group-portal/events-startboard.png)
+
+Se si seleziona tale sezione, è possibile visualizzare altri dettagli sugli eventi.
+
+## Visualizzazione di distribuzioni precedenti
+
+Nel pannello del gruppo di risorse è possibile visualizzare la data e lo stato dell'ultima distribuzione per questo gruppo di risorse. Se si seleziona il collegamento, viene visualizzata la cronologia delle distribuzioni per il gruppo.
+
+![ultima distribuzione](./media/resource-group-portal/last-deployment.png)
+
+Se si seleziona una distribuzione dalla cronologia, vengono visualizzate informazioni dettagliate su tale distribuzione.
+
+![riepilogo della distribuzione](./media/resource-group-portal/deployment-summary.png)
+
+È possibile visualizzare le singole operazioni eseguite durante la distribuzione. L'immagine seguente illustra un'operazione che ha avuto esito positivo e una che non è riuscita.
+
+![dettagli dell'operazione](./media/resource-group-portal/operation-details.png)
+
+Se si seleziona una delle operazioni, vengono visualizzate altre informazioni dettagliate sull'operazione. Ciò può rivelarsi particolarmente utile quando un'operazione ha esito negativo, come illustrato di seguito. Può consentire di risolvere un problema dovuto all'esito negativo di una distribuzione. Nell'immagine seguente è possibile notare che il sito Web non è stato distribuito perché il nome non era univoco.
+
+![messaggio dell'operazione](./media/resource-group-portal/operation-message.png)
+
+## Visualizzazione dei log di controllo
+
+Il log di controllo include non solo le operazioni di distribuzione, ma tutte le operazioni di gestione eseguite sulle risorse nella sottoscrizione. Ad esempio, nei log di controllo è possibile visualizzare quando un utente dell'organizzazione ha arrestato un'app. Per visualizzare i log di controllo, selezionare **Esplora tutto** e **Log di controllo**.
+
+![esplorare i log di controllo](./media/resource-group-portal/browse-audit-logs.png)
+
+Nella sezione delle operazioni è possibile visualizzare le singole operazioni eseguite nella sottoscrizione.
+
+![visualizzare i log di controllo](./media/resource-group-portal/view-audit-log.png)
+
+Selezionando una delle operazioni, è possibile visualizzare maggiori dettagli, tra cui informazioni sull'utente che ha eseguito l'operazione.
+
+Se si seleziona l'opzione **Filtro**, è possibile filtrare gli elementi da visualizzare nel log di controllo.
+
+![filtrare i log](./media/resource-group-portal/filter-logs.png)
+
+È possibile selezionare il tipo di operazioni da visualizzare, quelle appartenenti a un gruppo di risorse o a una risorsa, quelle eseguite in un intervallo di tempo specificato, quelle avviate da un chiamante specifico oppure i livelli dell'operazione.
+
+![opzioni di filtro](./media/resource-group-portal/filter-options.png)
 
 ## Aggiunta di risorse ai gruppi
 
-È possibile aggiungere risorse a un gruppo usando il comando **Add** nel pannello corrispondente. Di seguito sono riportati i passaggi del flusso che consentono di aggiungere altre risorse al gruppo.
+È possibile aggiungere risorse a un gruppo usando il comando **Aggiungi** nel pannello corrispondente.
 
-![aggiungi risorsa](./media/resource-group-portal/4_AddResource.png)
+![aggiungere una risorsa](./media/resource-group-portal/add-resource.png)
 
-Nota: non è consigliabile inserire il progetto team nello stesso gruppo di risorse di altre risorse di Azure. Se si crea un progetto team in un nuovo account e in un nuovo gruppo e quindi si crea un sito Web, per impostazione predefinita il gruppo del sito sarà l'ultimo usato (gruppo VSO) e alla fine le risorse di runtime/sviluppo si troveranno nello stesso gruppo.
+È possibile selezionare la risorsa desiderata dall'elenco disponibile.
 
 ## Eliminazione di gruppi di risorse
 
-Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le risorse contenute, l'eliminazione di un gruppo comporterà la rimozione di tutte le risorse al suo interno. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse, in quanto potrebbe essere collegato ad altre risorse. È possibile visualizzare le risorse collegate nella mappa e quindi eseguire i passaggi necessari per evitare conseguenze involontarie quando si eliminano i gruppi.
+Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le risorse contenute, l'eliminazione di un gruppo comporterà la rimozione di tutte le risorse al suo interno. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse, in quanto potrebbe essere collegato ad altre risorse. È possibile visualizzare le risorse collegate nella mappa e quindi eseguire i passaggi necessari per evitare conseguenze involontarie quando si eliminano i gruppi. Le risorse collegate non verranno eliminate, ma è possibile che non funzionino come previsto.
+
+![eliminare un gruppo](./media/resource-group-portal/delete-group.png)
+
+## Aggiunta di tag alle risorse
+
+È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni sull'utilizzo dei tag tramite il portale di anteprima, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
+
+## Distribuzione di un modello personalizzato
+
+Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+
+Per distribuire un modello personalizzato tramite il portale di anteprima, selezionare **Nuovo**, **Marketplace** e **Tutto**.
+
+![individuare la distribuzione del modello](./media/resource-group-portal/launch-template.png)
+
+Cercare la **distribuzione del modello** e selezionarla nell'elenco restituito.
+
+![cercare la distribuzione del modello](./media/resource-group-portal/search-template.png)
+
+Dopo aver avviato la distribuzione del modello, è possibile creare il modello personalizzato e impostare i valori per la distribuzione.
+
+![creare un modello](./media/resource-group-portal/show-custom-template.png)
 
 ## Passaggi successivi
 Introduzione
@@ -69,10 +149,9 @@ Introduzione
 - Per un'introduzione ai concetti di Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).  
 - Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md). 
-- Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
   
 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

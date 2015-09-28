@@ -4,23 +4,28 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
+	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Migrazione di un'app Web aziendale a un servizio app di Azure
 
-È possibile eseguire facilmente la migrazione dei siti Web esistenti che vengono eseguiti su Internet Information Service (IIS) 6 o versioni successive al [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714). [Migration Assistant di App Web](https://www.movemetothecloud.net/) può analizzare l'installazione del server IIS, identificare di quali siti è possibile eseguire la migrazione al servizio app, evidenziare eventuali elementi dei quali non è possibile eseguire la migrazione o che non sono supportati sulla piattaforma e quindi eseguire la migrazione dei propri siti Web e dei database associati in Azure.
+È possibile eseguire facilmente la migrazione dei siti Web esistenti che vengono eseguiti su Internet Information Service (IIS) 6 o versioni successive al [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 >[AZURE.IMPORTANT]Il supporto per Windows Server 2003 terminerà il 14 luglio 2015. Se i siti Web sono attualmente eseguiti su un server IIS che è Windows Server 2003, le app Web rappresentano una soluzione a basso rischio, a costo contenuto e ad attrito ridotto per mantenere i propri siti Web online, mentre Migration Assistant di App Web può aiutare ad automatizzare il processo di migrazione per conto dell'utente.
+
+[Migration Assistant di App Web](https://www.movemetothecloud.net/) può analizzare l'installazione del server IIS, identificare di quali siti è possibile eseguire la migrazione al servizio app, evidenziare eventuali elementi dei quali non è possibile eseguire la migrazione o che non sono supportati sulla piattaforma e quindi eseguire la migrazione dei propri siti Web e dei database associati in Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Elementi verificati durante l'analisi della compatibilità ## ##
 Il Migration Assistant crea un report di conformità per identificare le potenziali cause dei problemi di blocco che potrebbero impedire la corretta migrazione da IIS in locale al servizio app per app Web di Azure. Alcuni degli elementi chiavi da considerare sono:
@@ -131,4 +136,4 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

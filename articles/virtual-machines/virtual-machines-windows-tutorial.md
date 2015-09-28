@@ -3,7 +3,7 @@
 	description="Informazioni su come creare una macchina virtuale di Azure che esegue Windows usando Azure Marketplace nel portale di anteprima di Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure#
 
@@ -107,4 +107,4 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 * Usare Azure PowerShell e l'interfaccia della riga di comando di Azure per [individuare e selezionare le immagini della macchina virtuale](resource-groups-vm-searching.md).
 * Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro usando [Gestione risorse di Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e tramite i [modelli di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

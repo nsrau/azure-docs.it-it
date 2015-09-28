@@ -79,7 +79,7 @@ Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiorna
 | 9 | Interfacce di rete | Nelle versioni precedenti, un dispositivo StorSimple configurato con un gateway non indirizzabile poteva disconnettersi. In questa versione, la metrica di routing per Data 0 è stata effettuata al minimo; pertanto, anche se altre interfacce di rete sono abilitate per il cloud, tutto il traffico cloud dal dispositivo verrà indirizzato tramite Data 0. | Aggiornamento 1 | Sì | Sì | 
 | 10 | Backups | Un bug nell'aggiornamento 1 che ha causato errori nei backup dopo 24 giorni è stato risolto nella versione patch dell’aggiornamento 1.1. | Aggiornamento 1.1 | Sì | Sì |
 | 11 | Backups | Un bug nelle versioni precedenti che comprometteva le prestazioni degli snapshot cloud con bassi tassi di cambio. Questo bug è stato risolto in questa versione patch.| Aggiornamento 1.2 | Sì | Sì |
-| 12 | Backups | Un bug nell'aggiornamento 1 che segnalava un aggiornamento non riuscito e che ha determinato il passaggio dei controller alla modalità di ripristino, è stato risolto in questa versione patch.| Aggiornamento 1.2 | Sì | Sì |
+| 12 | Aggiornamenti | Un bug nell'aggiornamento 1 che segnalava un aggiornamento non riuscito e che ha determinato il passaggio dei controller alla modalità di ripristino, è stato risolto in questa versione patch.| Aggiornamento 1.2 | Sì | Sì |
 
 
 ## Problemi noti nell'aggiornamento 1.2
@@ -124,4 +124,4 @@ Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà ne
 - [Installare l'aggiornamento 1.2 nel dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

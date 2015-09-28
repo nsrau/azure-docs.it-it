@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure" pageTitle="Creazione di una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure" description="Seguire un esempio di creazione di un’immagine Oracle WebLogic Server 12c e Oracle Database 12c in esecuzione su Windows Server 2012 in Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Creazione di una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure" description="Seguire un esempio di creazione di un’immagine Oracle WebLogic Server 12c e Oracle Database 12c in esecuzione su Windows Server 2012 in Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 
 #Creare una macchina virtuale Oracle WebLogic Server 12c e Oracle Database 12c in Azure
@@ -21,7 +21,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 7.	Scegliere un **livello di prezzo**. Si noti che i livelli di prezzo consigliati vengono visualizzati per impostazione predefinita. Per visualizzare tutte le opzioni di configurazione, fare clic su**Visualizza tutto**in alto a destra.
 
-8. Impostare le configurazioni facoltative in base alle esigenze (vedere[Informazioni sulle impostazioni di configurazione di macchina virtuale Azure](https://msdn.microsoft.com/library/azure/dn763935.aspx). Seguire queste considerazioni:
+8. Impostare le configurazioni facoltative in base alle esigenze. Seguire queste considerazioni:
 
 	a. Lasciare **Account di archiviazione** invariato per creare un nuovo account di archiviazione con il nome della macchina virtuale.
 
@@ -33,7 +33,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 10. Scegliere una **Sottoscrizione**.
 
-11. Scegliere una **Posizione**.
+11. Selezionare un **Percorso**.
 
 
 ##Per creare il database ospitato in questa macchina virtuale
@@ -54,4 +54,4 @@ Seguire le istruzioni in [Creazione di una macchina virtuale Oracle WebLogic Ser
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

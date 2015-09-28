@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Ricerca di dati in Operational Insights
@@ -451,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Se si ha familiarità con Microsoft System Center - Operations Manager, è possibile considerare il comando where in termini di Management Pack. Se l'esempio fosse una regola, la prima parte della query sarebbe l'origine dati e il comando where sarebbe il rilevamento della condizione.
 
-È possibile usare la query come un riquadro in **My Dashboard**, come un monitoraggio di ordinamenti, per verificare se sono presenti CPU di computer sovrautilizzate. Per altre informazioni sui dashboard, vedere [Dashboard di Operational Insights](operational-insights-use-dashboards). È possibile creare e usare i dashboard anche tramite l'app per dispositivi mobili. Per altre informazioni vedere [App per dispositivi mobili di Azure Operational Insights](http://www.windowsphone.com/it-it/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nei due riquadri in basso dell'immagine seguente, il monitoraggio viene visualizzato come un elenco e come un numero. Essenzialmente, è auspicabile che il numero sia sempre zero e l'elenco sia sempre vuoto. In caso contrario, indica una condizione di avviso. Se necessario, è possibile usarlo per individuare quali computer sono sotto pressione.
+È possibile usare la query come un riquadro in **My Dashboard**, come un monitoraggio di ordinamenti, per verificare se sono presenti CPU di computer sovrautilizzate. Per altre informazioni sui dashboard, vedere [Dashboard di Operational Insights](operational-insights-use-dashboards). È possibile creare e usare i dashboard anche tramite l'app per dispositivi mobili. Per altre informazioni vedere [App per dispositivi mobili di Azure Operational Insights](http://www.windowsphone.com/it-IT/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nei due riquadri in basso dell'immagine seguente, il monitoraggio viene visualizzato come un elenco e come un numero. Essenzialmente, è auspicabile che il numero sia sempre zero e l'elenco sia sempre vuoto. In caso contrario, indica una condizione di avviso. Se necessario, è possibile usarlo per individuare quali computer sono sotto pressione.
 
 ![dashboard mobile](./media/operational-insights-search/search-mobile.png)
 
@@ -615,7 +615,7 @@ Sintassi:
 Nella tabella seguente vengono elencate le unità di data/ora supportate.
 
 Unità di data/ora|Descrizione
----|--- 
+---|---
 YEAR, YEARS|Viene arrotondata all'anno corrente o viene eseguito l'offset in base al numero di anni specificato.
 MONTH, MONTHS|Viene arrotondata al mese corrente o viene eseguito l'offset in base al numero di mesi specificato.
 DAY, DAYS, DATE|Viene arrotondata al giorno corrente del mese o viene eseguito l'offset in base al numero di giorni specificato.
@@ -2049,4 +2049,4 @@ Quando si usa Ricerca per trovare i dati, i risultati visualizzano vari campi e 
 ## Altre risorse:
 Stefan Roth ha creato un foglio informativo utile sulla ricerca. Per altre informazioni e per scaricare il foglio informativo, visitare il [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

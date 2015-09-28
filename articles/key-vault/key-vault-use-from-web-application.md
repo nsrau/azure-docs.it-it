@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/16/2015" 
 	ms.author="adhurwit"/>
 
 # Usare l'insieme di credenziali chiave di Azure da un'applicazione Web #
@@ -152,6 +152,11 @@ Per ulteriori informazioni sulla creazione di un certificato di prova, vedere [P
 	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 	
 	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
+	
+	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
+	
+	# get the thumbprint to use in your app settings
+	PS C:\>$x509.Thumbprint
 
 Dopo avere eseguito questi comandi, è possibile visualizzare l'applicazione in Azure AD. Se l'applicazione all’inizio non viene visualizzata , cercare "Applicazioni della mia azienda" anziché "Applicazioni usate dalla mia azienda".
 
@@ -238,4 +243,4 @@ Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

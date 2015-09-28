@@ -5,20 +5,22 @@
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015"
+	ms.date="09/15/2015"
 	ms.author="ccompy"/>
 
 # Come creare un'app Web in un ambiente del servizio app #
 
 La procedura di creazione di app Web è quasi simile a quella normalmente usata in un ambiente del servizio app. Se non si ha familiarità con la funzionalità dell'ambiente del servizio app, leggere il documento [Informazioni sull'ambiente del servizio app](app-service-app-service-environment-intro.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Per creare un'app Web in un ambiente del servizio app, è necessario verificare innanzitutto di disporre di un ambiente del servizio app. Per informazioni dettagliate sulla creazione di un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -91,4 +93,4 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

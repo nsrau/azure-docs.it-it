@@ -1,20 +1,20 @@
 <properties
    pageTitle="Come eseguire l'integrazione con Azure Active Directory"
-	description="Guida ai vantaggi e alle risorse per l'integrazione con Azure Active Directory."
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Guida ai vantaggi e alle risorse per l'integrazione con Azure Active Directory."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin"/>
 
 # Integrazione con Azure Active Directory
 
@@ -34,9 +34,9 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 
 ### Esplorare la directory per cercare utenti, gestire il provisioning degli utenti e controllare l'accesso all'applicazione
 
-**Esplorare la directory per cercare gli utenti.** L'API Graph consente agli utenti di cercare altri utenti all'interno dell'organizzazione per invitarli o concedere loro l'accesso alle applicazioni in modo da non dover digitare gli indirizzi di posta elettronica. Gli utenti possono esplorare la directory tramite un'interfaccia simile a una rubrica e possono visualizzare anche i dettagli della gerarchia all'interno dell'organizzazione. Altre informazioni sull'[API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx).
+**Esplorare la directory per cercare gli utenti.** L'API Graph consente agli utenti di cercare altri utenti all'interno dell'organizzazione per invitarli o concedere loro l'accesso alle applicazioni in modo da non dover digitare gli indirizzi di posta elettronica. Gli utenti possono esplorare la directory tramite un'interfaccia simile a una rubrica e possono visualizzare anche i dettagli della gerarchia all'interno dell'organizzazione. Altre informazioni sull'[API Graph](active-directory-graph-api.md).
 
-**Riutilizzare i gruppi e le liste di distribuzione di Active Directory che il cliente gestisce già.** In Azure AD sono già presenti i gruppi che il cliente usa per la distribuzione della posta elettronica e per la gestione degli accessi. L'API Graph consente di riutilizzare questi gruppi per evitare che il cliente debba creare e gestire un set di gruppi separato nell'applicazione. Le informazioni sui gruppi possono anche essere inviate all'applicazione nei token di accesso. Altre informazioni sull'[API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx).
+**Riutilizzare i gruppi e le liste di distribuzione di Active Directory che il cliente gestisce già.** In Azure AD sono già presenti i gruppi che il cliente usa per la distribuzione della posta elettronica e per la gestione degli accessi. L'API Graph consente di riutilizzare questi gruppi per evitare che il cliente debba creare e gestire un set di gruppi separato nell'applicazione. Le informazioni sui gruppi possono anche essere inviate all'applicazione nei token di accesso. Altre informazioni sull'[API Graph](active-directory-graph-api.md).
 
 **Usare Azure AD per controllare gli utenti che hanno accesso all'applicazione.** Gli amministratori e i proprietari di applicazioni in Azure AD possono assegnare l'accesso alle applicazioni a utenti e gruppi specifici. L'API Graph consente di leggere l'elenco e usarlo per controllare il provisioning e il deprovisioning delle risorse e gli accessi all'interno dell'applicazione.
 
@@ -72,7 +72,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 **Rilevamento di attività di accesso con anomalie.** Azure AD elabora oltre un miliardo di accessi al giorno e si avvale di algoritmi di apprendimento automatico per rilevare attività sospette e notificare agli amministratori IT eventuali problemi. Grazie al supporto dell'accesso tramite Azure AD, l'applicazione può usufruire di questa ulteriore protezione. Altre informazioni sulla [visualizzazione del report degli accessi di Azure Active Directory](active-directory-view-access-usage-reports.md).
 
-**Accesso condizionale.** Oltre all'autenticazione a più fattori, gli amministratori possono richiedere che vengano soddisfatte specifiche condizioni per consentire l'accesso degli utenti all'applicazione. Tra le condizioni che è possibile impostare, sono inclusi l'intervallo di indirizzi IP dei dispositivi client, l'appartenenza a gruppi specificati e lo stato del dispositivo usato per l'accesso. Altre informazioni sull'[accesso condizionale di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn906873.aspx).
+**Accesso condizionale.** Oltre all'autenticazione a più fattori, gli amministratori possono richiedere che vengano soddisfatte specifiche condizioni per consentire l'accesso degli utenti all'applicazione. Tra le condizioni che è possibile impostare, sono inclusi l'intervallo di indirizzi IP dei dispositivi client, l'appartenenza a gruppi specificati e lo stato del dispositivo usato per l'accesso. Altre informazioni sull'[accesso condizionale di Azure Active Directory](active-directory-conditional-access.md).
 
 ### Sviluppo semplificato
 
@@ -90,4 +90,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

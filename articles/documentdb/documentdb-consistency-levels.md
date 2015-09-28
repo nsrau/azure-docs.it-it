@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Livelli di coerenza in DocumentDB | Microsoft Azure" 
-	description="DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." 
+	description="Esaminare il modo in cui DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." 
+	keywords="eventual consistency, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -22,10 +23,10 @@ Gli sviluppatori devono spesso far fronte alla sfida posta dalla scelta tra due 
  
 Tutte le risorse di sistema, inclusi gli account di database, i database, le raccolte, gli utenti e le autorizzazioni, sono sempre fortemente coerenti per letture e query. I livelli di coerenza si applicano unicamente alle risorse definite dall'utente. Per query e operazioni di lettura sulle risorse definite dall'utente, tra cui documenti, allegati, stored procedure, trigger e funzioni definite dall'utente, DocumentDB offre quattro livelli di coerenza distinti:
 
- - Assoluta
- - Obsolescenza associata 
- - Sessione
- - Finale 
+ - Coerenza assoluta
+ - Coerenza obsolescenza limitata
+ - Coerenza di sessione
+ - Coerenza finale
 
 Questi livelli di coerenza granulari e ben definiti permettono di ottenere compromessi efficaci tra coerenza, disponibilità e prestazioni e sono supportati da livelli di prestazioni prevedibili, che garantiscono risultati coerenti per l'applicazione.
 
@@ -89,4 +90,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 -	Werner Vogels. Eventuale coerente, in particolare.[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

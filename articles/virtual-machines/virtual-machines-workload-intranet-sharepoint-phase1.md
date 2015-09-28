@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro di farm intranet di SharePoint Fase 1: Configurare l'infrastruttura di SQL Server
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn in servizi di infrastruttura di Azure, viene realizzata l'infrastruttura di rete e di archiviazione di Azure in Gestione dei servizi di Azure. È necessario completare questa fase prima di passare alla [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Per conoscere tutte le fasi, vedere [Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
 
@@ -171,4 +173,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

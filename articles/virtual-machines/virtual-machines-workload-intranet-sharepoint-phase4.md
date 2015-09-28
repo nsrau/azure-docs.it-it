@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro di Farm intranet di SharePoint Fase 4: Configurare i server SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità di SQL Server AlwaysOn in servizi di infrastruttura di Azure, vengono realizzati l'applicazione e i livelli Web della farm di SharePoint e viene creata la farm utilizzando la configurazione guidata di SharePoint.
 
@@ -136,7 +138,7 @@ Quando in SharePoint viene creata la farm, viene configurato un set di account d
 
 Tuttavia, per impostazione predefinita, i database di SharePoint non sono database indipendenti. Pertanto, sarà necessario configurare manualmente il server database secondario in modo che abbia lo stesso set di account di accesso per gli account farm di SharePoint server database primario. Effettuando la connessione a entrambi i server contemporaneamente, è possibile eseguire la sincronizzazione da SQL Server Management Studio.
 
-Al termine di questa configurazione iniziale, sono disponibili ulteriori opzioni di configurazione per le funzionalità della farm di SharePoint. Per ulteriori informazioni, vedere [Pianificazione per SharePoint 2013 nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/dn275958.aspx)
+Al termine di questa configurazione iniziale, sono disponibili ulteriori opzioni di configurazione per le funzionalità della farm di SharePoint. Per ulteriori informazioni, vedere [Pianificazione per SharePoint 2013 nei servizi infrastruttura di Azure](http://msdn.microsoft.com/library/dn275958.aspx).
 
 ## Configurare il bilanciamento del carico interno
 
@@ -193,4 +195,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

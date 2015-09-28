@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Connettere un'app Web a un'app per le API nel servizio app di Azure" 
-   description="Questa esercitazione illustra come usare un'app per le API da un'app Web ASP.NET ospitata nel servizio app di Azure." 
-   services="app-service\web" 
-   documentationCenter=".net" 
-   authors="syntaxc4" 
-   manager="yochayk" 
-   editor="jimbe"/>
+	pageTitle="Connettere un'app Web a un'app per le API nel servizio app di Azure" 
+	description="Questa esercitazione illustra come usare un'app per le API da un'app Web ASP.NET ospitata nel servizio app di Azure." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="syntaxc4" 
+	manager="yochayk" 
+	editor="jimbe"/>
 
 <tags
-   ms.service="app-service-web"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="web" 
-   ms.date="03/24/2015"
-   ms.author="cfowler"/>
+	ms.service="app-service"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="web" 
+	ms.date="09/15/2015"
+	ms.author="cfowler"/>
 
 # Connettere un'app Web a un'app per le API nel servizio app di Azure
 
@@ -71,16 +71,16 @@ Nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=52971
 
 1. Aggiornare la visualizzazione `Contact` in modo che rifletta l'elenco dinamico di contatti con il codice seguente:
 	<pre>// Add to the very top of the view file
-	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Replace the default email addresses with the following
-    &lt;h3&gt;Public Contacts&lt;/h3&gt;
-    &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
-            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
-    &lt;/ul&gt; 
+@model IList&lt;MyContactsList.Web.Models.Contact>
+
+// Replace the default email addresses with the following
+&lt;h3>Public Contacts&lt;/h3>
+&lt;ul>
+    @foreach (var contact in Model)
+    {
+        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+    }
+&lt;/ul> 
 	</pre>
 
 	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
@@ -96,4 +96,4 @@ Seguire le istruzioni fornite in [Come distribuire un'app Web di Azure](web-site
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

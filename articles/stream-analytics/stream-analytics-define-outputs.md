@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/17/2015" 
 	ms.author="jeffstok"/>
 
 # Informazioni sugli output di analisi di flusso
@@ -47,8 +47,8 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 <table>
 <tbody>
 <tr>
-<td>Nome proprietà</td>
-<td>Descrizione</td>
+<td>NOME PROPRIETÀ</td>
+<td>DESCRIZIONE</td>
 </tr>
 <tr>
 <td>Alias di output</td>
@@ -232,4 +232,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

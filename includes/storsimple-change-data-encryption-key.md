@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 ### Passaggio 1: Autorizzare un dispositivo a modificare la chiave DEK nel portale di gestione
 
@@ -73,4 +74,4 @@ Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispo
 
 3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](#to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -114,7 +114,7 @@ Le funzionalità seguenti sono attualmente disponibili in anteprima pubblica e v
 - Gestione identità con privilegi: offre una migliore supervisione per soddisfare i requisiti di conformità alle normative e dei contratti di servizio.
 - Richieste di applicazioni self-service: gli amministratori possono fornire agli utenti un elenco di app SaaS, dal quale è possibile scegliere le app da usare, che saranno disponibili immediatamente o dopo l'approvazione.
 - API di creazione report di Azure: i dati per ogni report di sicurezza di Azure Active Directory saranno disponibili per altri strumenti di monitoraggio o SIEM.
-
+- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/): una nuova directory consumer basata su cloud completa e a scalabilità elevata, e un servizio di gestione degli accessi e delle identità progettato per soddisfare le crescenti esigenze delle aziende che cercano di connettersi direttamente ai propri clienti.
 
 ## Passaggi successivi
 
@@ -122,4 +122,4 @@ Le funzionalità seguenti sono attualmente disponibili in anteprima pubblica e v
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

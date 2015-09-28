@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure"
-	description="Informazioni su come tenere traccia delle chiamate usando Controllo API in Gestione API di Azure."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure" 
+	description="Informazioni su come tenere traccia delle chiamate usando Controllo API in Gestione API di Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="sdanie"/>
 
 # Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
@@ -24,7 +24,7 @@ Oltre alle operazioni di analisi, Controllo API consente anche di tenere traccia
 
 Questa guida contiene una procedura dettagliata sull'uso di Controllo API.
 
->[AZURE.NOTE]Le tracce di Controllo API sono disponibili solo per gli [amministratori](api-management-howto-create-groups.md) dell'istanza del servizio Gestione API. Le tracce di Controllo API vengono restituite solo durante le chiamata a un [prodotto protetto](api-management-howto-add-products.md) che richiede una chiave di sottoscrizione.
+>[AZURE.NOTE]Le tracce di Controllo API sono generate e rese disponibili solo per le richieste contenenti chiavi di sottoscrizione che appartengono all’account [amministratore](api-management-howto-create-groups.md).
 
 ## <a name="trace-call"> </a> Usare Controllo API per tenere traccia di una chiamata
 
@@ -261,4 +261,4 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

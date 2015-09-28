@@ -38,6 +38,7 @@ Attualmente non tutti i servizi supportano lo spostamento di risorse.
 Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di risorse e in una sottoscrizione nuovi:
 
 - Gestione API
+- Azure DocumentDB
 - Ricerca di Azure
 - App Web di Azure (si applicano alcune [limitazioni](app-service-web/app-service-move-resources.md))
 - Data Factory
@@ -102,4 +103,4 @@ Nella richiesta includere un oggetto JSON che definisce il gruppo di risorse di 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

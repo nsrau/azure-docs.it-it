@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/14/2015" 
 	ms.author="antonba"/>
 
 # Come delegare la registrazione utente e la sottoscrizione ai prodotti
@@ -90,7 +90,7 @@ La delega della sottoscrizione ai prodotti funziona in modo analogo alla delega 
 1. Lo sviluppatore seleziona un prodotto nel portale per sviluppatori di Gestione API e fa clic sul pulsante Sottoscrivi.
 2. Il browser viene reindirizzato all'endpoint di delega.
 3. L'endpoint di delega esegue i passaggi necessari per la sottoscrizione ai prodotti. È possibile scegliere i passaggi da eseguire, ad esempio se reindirizzare a un'altra pagina per richiedere le informazioni di fatturazione, se porre altre domande o semplicemente se archiviare le informazioni senza richiedere alcun intervento da parte dell'utente.
-4. In caso di esito positivo, l'utente viene reindirizzato alla pagina del portale per sviluppatori di Gestione API da dove è partito.
+
 
 Per abilitare la funzionalità, nella pagina **Delega** fare clic su **Delega sottoscrizione ai prodotti**.
 
@@ -114,8 +114,6 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 3. Eseguire una qualsiasi elaborazione della sottoscrizione al prodotto in base al tipo di operazione richiesta in **operation**, ad esempio fatturazione, altre domande e così via.
 
 4. Dopo la corretta sottoscrizione al prodotto in locale, effettuare la sottoscrizione al prodotto in Gestione API [chiamando l'API REST per la sottoscrizione al prodotto].
-
-5. Reindirizzare l'utente all'URL **returnUrl** fornito alla ricezione della richiesta.
 
 ## <a name="delegate-example-code"> </a>Codice di esempio ##
 
@@ -168,4 +166,4 @@ Per altre informazioni sulla delega, vedere il video seguente.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

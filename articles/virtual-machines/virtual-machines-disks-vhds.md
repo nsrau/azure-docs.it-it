@@ -3,7 +3,7 @@
 	description="Leggere le informazioni di base sui dischi e sui dischi rigidi virtuali per le macchine virtuali in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali
 
@@ -65,4 +65,4 @@ Macchine virtuali Windows:
 -  [Acquisire una macchina virtuale Windows](virtual-machines-capture-image-windows-server.md)
 -  [Scollegare un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

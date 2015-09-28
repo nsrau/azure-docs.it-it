@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure (anteprima)
@@ -41,22 +41,13 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 
 ![Flusso di lavoro live][live-overview]
 
->[AZURE.NOTE]Non tutti i data center supportano la codifica live con Servizi multimediali di Azure.
->
->Se si usa il portale di gestione di Azure per creare i canali, saranno disponibili due opzioni per il tipo di codifica canale: **None** e **Standard**. Se è visualizzata solo l'opzione **None**, significa che il data center non supporta la codifica live con AMS.
->
->Se si usa .NET SDK o l'API REST, eseguire le operazioni seguenti per verificare:
->
->1. Provare a creare un canale con il tipo di codifica impostato su Standard. 
->2. Se viene restituito il codice di errore HTTP 412 (Condizione preliminare non riuscita) con un messaggio simile al seguente: *"Codifica live non supportata in quest'area. EncodingType deve essere impostato su 'None'."*, il data center non supporta la codifica live.
-
 
 ##Contenuto dell'argomento
 
 - Panoramica di uno [scenario comune di streaming live](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Descrizione di un canale e dei relativi componenti](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Considerazioni](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Attività relative allo streaming live](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Considerazioni](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Scenario comune di streaming live
 
@@ -397,6 +388,7 @@ Arrestato|Arrestato|No
 
 ##<a id="Considerations"></a>Considerazioni
 
+- Quando un canale del tipo di codifica **Standard** riscontra una perdita di origine di input/contributo feed, compensa sostituendo l’ audio/video di origine con uno slate di errore e inattività. Il canale continua a generare uno slate fino a quando l'input/contributo feed riprende il suo funzionamento. Si consiglia di non lasciare un canale live in tale stato per più di 2 ore. Dopo tale periodo, il comportamento del canale per la riconnessione dell’input non è garantito. Inoltre, il comportamento del canale non è in risposta a un comando di ripristino. È necessario interrompere il canale, eliminarlo e crearne uno nuovo.
 - Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input. 
 - Assicurarsi di chiamare il metodo **Reset** sul canale ogni volta che si riconfigura il codificatore live. Prima di reimpostare il canale, è necessario arrestare il programma. Dopo aver reimpostato il canale, riavviare il programma. 
 - È possibile interrompere un canale solo quando si trova nello stato In esecuzione e tutti i programmi nel canale sono stati arrestati.
@@ -438,4 +430,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

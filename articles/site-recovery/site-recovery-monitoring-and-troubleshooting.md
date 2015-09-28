@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Guida al monitoraggio e alla risoluzione dei problemi di VMM e di protezione dei siti di Hyper-V"
-	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali ubicate nei server locali in Azure o in un data center secondario. Utilizzare questo articolo per monitorare e risolvere i problemi di VMM e di protezione dei siti di Hyper-V"
-	services="site-recovery"
-	documentationCenter=""
-	authors="anbacker"
-	manager="mkjain"
+	pageTitle="Guida al monitoraggio e alla risoluzione dei problemi di VMM e di protezione dei siti di Hyper-V" 
+	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali ubicate nei server locali in Azure o in un data center secondario. Utilizzare questo articolo per monitorare e risolvere i problemi di VMM e di protezione dei siti di Hyper-V" 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="anbacker" 
+	manager="mkjain" 
 	editor=""/>
 
 <tags 
-	ms.service="site-recovery"
+	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="09/01/2015"
+	ms.workload="storage-backup-recovery" 
+	ms.date="09/01/2015" 
 	ms.author="anbacker"/>
 	
 # Monitorare e risolvere i problemi di protezione per VMware, VMM, Hyper-V e siti fisici
@@ -83,14 +83,6 @@ Come illustrato in precedenza, nel caso in cui lo l'integrità della macchina vi
 
 Nota: se vi sono operazioni attive in corso o non riuscite, passare alla visualizzazione PROCESSI come indicato in precedenza per visualizzare l'errore specifico del processo.
 
-## Registro eventi
-
-| Scenari | Origini eventi |
-|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| Protezione sito VMM | VMM Server <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Hyper-V Host <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Per Azure come destinazione)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
-| Protezione sito Hyper-V | <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
-
-
 ## Risoluzione dei problemi di Hyper-V a livello locale
 
 Connettersi alla console di gestione di Hyper-V locale, selezionare la macchina virtuale e vedere lo stato della replica.
@@ -104,6 +96,16 @@ In questo caso lo *stato della replica* viene indicato come critico; *Visualizza
 Per casi in cui la replica è in pausa per la macchina virtuale, fare clic con il pulsante destro del mouse su *Replica*->*Riprendi replica* ![Risoluzione dei problemi di Hyper-V a livello locale](media/site-recovery-monitoring-and-troubleshooting/image19.png)
 
 Nel caso in cui venga eseguita la migrazione della macchina virtuale su un nuovo host Hyper-V (all'interno del cluster o di un computer autonomo) configurato mediante il ripristino automatico di sistema, non vi sarebbero ripercussioni sulla replica per la macchina virtuale. Assicurarsi che il nuovo host Hyper-V soddisfi tutti i prerequisiti e sia configurato mediante il ripristino automatico di sistema.
+
+### Registro eventi
+
+| Origini eventi | Dettagli |
+|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| **Applicazioni e servizio Logs/Microsoft/VirtualMachineManager/Server/Admin** (Server VMM) | Fornisce log utili per la risoluzione di numerosi problemi diversi relativi a VMM. |
+| **Applicazioni e servizio Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V Host) | Fornisce log utili per la risoluzione di molti problemi relativi all’agente di servizi di ripristino di Microsoft Azure. <br/> ![Origine evento per host Hyper-V](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
+| **Applicazioni e servizio Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Host Hyper-V) | Fornisce log utili per la risoluzione di molti problemi relativi al servizio Azure Site Recovery di Microsoft. <br/> ![Origine evento per host Hyper-V](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
+| **Applicazioni e servizio Logs/Microsoft/Windows/Hyper-V-VMM/Admin** (Host Hyper-V) | Fornisce log utili per la risoluzione di molti problemi di gestione di macchine virtuali Hyper-V. <br/> ![Origine evento per host Hyper-V](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
+
 
 ### Opzioni di registrazione di replica Hyper-V
 
@@ -120,6 +122,8 @@ Quindi, nel riquadro **Actions** fare clic su **Enable Log**. Una volta attivato
 ![Risoluzione dei problemi di Hyper-V a livello locale](media/site-recovery-monitoring-and-troubleshooting/image16.png)
 
 Per visualizzare le informazioni raccolte, innanzitutto interrompere la sessione di traccia disabilitando il log, quindi salvare il registro e aprirlo nuovamente nel Visualizzatore eventi o utilizzare altri strumenti per convertirlo come desiderato.
+
+
 
 ## Contattare il supporto Microsoft
 
@@ -150,6 +154,10 @@ Per generare il ticket di supporto per il ripristino automatico di sistema, ragg
 
 Di seguito sono riportati gli errori comuni che è possibile ricevere e le relative soluzioni. Ogni errore è documentato in una pagina WIKI separata.
 
+### Generale
+-   <span style="color:green;">NUOVO</span> [Processi con esito negativo con l’errore "un'operazione è in corso". Error 505, 514, 532](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
+-   <span style="color:green;">NUOVO</span> [Processi con esito negativo con l’errore "il server non è connesso a Internet". Error 25018](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
+
 ### Impostazione
 -   [Impossibile registrare il server VMM a causa di un errore interno. Fare riferimento alla visualizzazione processi nel portale di Ripristino sito per ulteriori informazioni sull'errore. Eseguire nuovamente l'installazione per registrare il server.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 -   [Impossibile stabilire una connessione all'insieme di credenziali per la gestione del ripristino Hyper-V. Verificare le impostazioni del proxy o riprovare più tardi.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
@@ -161,11 +169,14 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
 -   [Impossibile selezionare l'account di archiviazione nella sottoscrizione durante la configurazione della protezione](http://social.technet.microsoft.com/wiki/contents/articles/32027.can-t-select-the-storage-account-within-the-subscription-while-configuring-protection.aspx)
 
 ### Protezione
+- <span style="color:green;">NUOVO</span> [L’abilitazione della protezione ha esito negativo con l'errore "Impossibile configurare la protezione per la macchina virtuale". Error 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
+- <span style="color:green;">NUOVO</span> [L’abilitazione della protezione ha esito negativo con l'errore "Impossibile abilitare la protezione per la macchina virtuale." Error 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
+- <span style="color:green;">NUOVO</span> [Errore di migrazione in tempo reale 23848 - La macchina virtuale sta per essere spostata utilizzando il tipo Live. Questo potrebbe interrompere lo stato di protezione del ripristino della macchina virtuale.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
 - [L’abilitazione della protezione non è riuscita perché l'agente non è installato nel computer host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 - [Impossibile trovare un host adatto per la macchina virtuale di replica a causa delle scarse risorse di calcolo](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 - [Impossibile trovare un host adatto per la macchina virtuale di replica a causa dell’assenza di una rete logica collegata](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
 - [Impossibile connettersi al computer host di replica. La connessione non è stata stabilita](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
-- [Errore di migrazione in tempo reale 23848: la macchina virtuale verrà spostata usando il tipo Live. Questo potrebbe interrompere lo stato di protezione del ripristino della macchina virtuale.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
+
 
 ### Ripristino
 - VMM non è in grado di completare l'operazione di host
@@ -183,9 +194,10 @@ Di seguito sono riportati gli errori comuni che è possibile ricevere e le relat
     -   [Impossibile avviare il failover perché il failover di test è in corso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
 ### Server di configurazione, server di elaborazione, server master di destinazione
-Server di configurazione, Server di elaborazione, Destinazione master: [l'host ESXi in cui è ospitato PS/CS come macchina virtuale presenta un errore con schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+Server di configurazione (CS), Server di elaborazione (PS), Destinazione master (MT): 
+-   [l'host ESXi in cui è ospitato PS/CS come macchina virtuale presenta un errore con schermata viola.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Risoluzione dei problemi del desktop remoto dopo il failover
 -   Molti clienti hanno avuto problemi a connettersi a una macchina virtuale in Azure dopo il failover. [Usare il documento sulla risoluzione dei problemi per effettuare una connessione tramite protocollo RDP alla macchina virtuale](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

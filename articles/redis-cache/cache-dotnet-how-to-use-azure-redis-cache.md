@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare Cache Redis di Azure"
-	description="Informazioni su come migliorare le prestazioni delle applicazioni Azure con Cache Redis di Azure"
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Come usare Cache Redis di Azure" 
+	description="Informazioni su come migliorare le prestazioni delle applicazioni Azure con Cache Redis di Azure" 
+	services="redis-cache,app-service" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="08/25/2015" 
 	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure
@@ -368,4 +368,4 @@ A questo punto, dopo aver appreso le nozioni di base di Cache Redis di Azure, us
 
 [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

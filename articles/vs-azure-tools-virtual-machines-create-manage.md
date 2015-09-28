@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Creare e gestire Macchine virtuali di Azure in Visual Studio"
-	description="Creare e gestire Macchine virtuali di Azure in Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Creare e gestire Macchine virtuali di Azure in Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Creare e gestire Macchine virtuali di Azure in Visual Studio
 
@@ -54,7 +54,7 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
     È possibile fare clic sul nome di un'immagine di macchina virtuale per visualizzare informazioni sull'immagine nel lato destro della pagina.
 
     >[AZURE.NOTE]Non è possibile aggiungere immagini di macchine virtuali agli elenchi **Immagini pubbliche** o **Immagini MSDN** perché sono di sola lettura. Tutte le macchine virtuali create vengono aggiunte all'elenco **Immagini private**.
-    
+
     >Gli abbonati MSDN con una sottoscrizione di livello Visual Studio possono creare una macchina virtuale di Azure predefinita contenente Visual Studio, oltre a diverse altre immagini. Per altre informazioni, vedere [Creare una macchina virtuale in Visual Studio mediante le immagini, l'immagine della raccolta di Visual Studio 2013 per gli abbonati MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) e le [sottoscrizioni di MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
 1. Nella pagina **Impostazioni di base della macchina virtuale** immettere il nome di una macchina, quindi aggiungere le specifiche della macchina virtuale, inclusi dimensione, nome utente e password. Al termine, fare clic su **Avanti**.
@@ -92,7 +92,6 @@ Anche se è possibile creare una macchina virtuale nel [portale di gestione di A
     ![Log attività macchina virtuale - completato.](./media/vs-azure-tools-virtual-machines-create-manage/IC744139.png)
 
     Se l'operazione viene completata correttamente, la nuova macchina virtuale viene visualizzata sotto il nodo **Macchine virtuali** in Esplora Server. È possibile accedervi facendo clic con il tasto destro del mouse e scegliendo **Connessione tramite desktop remoto**.
-
 
     ![Macchina virtuale visualizzata in Esplora server.](./media/vs-azure-tools-virtual-machines-create-manage/IC744140.png)
 
@@ -145,7 +144,7 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
     Sysprep è uno strumento che, tra le altre cose, rimuove i dati specifici del sistema dalla versione della macchina virtuale di Windows, rendendola un modello utilizzabile dagli altri utenti. Per altre informazioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 
 1. Dopo aver terminato di configurare le impostazioni di acquisizione, scegliere **Acquisisci** per creare il checkpoint.
- 
+
     Durante la creazione del checkpoint, la finestra **Log attività di Azure** mostra l'avanzamento dell'operazione.
 
     ![Acquisizione di un checkpoint della macchina virtuale](./media/vs-azure-tools-virtual-machines-create-manage/IC744144.png)
@@ -174,12 +173,8 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 
 1. Nel menu di scelta rapida, scegliere il comando **Arresta** oppure scegliere **Configura** per visualizzare la pagina di configurazione della macchina virtuale, quindi scegliere **Arresta**.
 
-## Vedere anche
+## Passaggi successivi
 
-[Macchine virtuali](https://msdn.microsoft.com/library/azure/)
+Per ulteriori informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-tutorial.md) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](virtual-machines-windows-tutorial.md).
 
-[Accesso alle macchine virtuali di Azure da Esplora server](https://msdn.microsoft.com/library/azure/jj131259.aspx)
-
-[Strumenti di Azure per Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

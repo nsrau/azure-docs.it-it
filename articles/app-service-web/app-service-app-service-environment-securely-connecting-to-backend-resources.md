@@ -1,25 +1,27 @@
 <properties 
-	pageTitle="Connessione sicura alle risorse back-end da un ambiente del servizio app"
-	description="Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Connessione sicura alle risorse back-end da un ambiente del servizio app" 
+	description="Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Connessione sicura alle risorse back-end da un ambiente del servizio app #
 
 ## Panoramica ##
-Poiché un ambiente del servizio app viene sempre creato in una [rete virtuale][virtualnetwork] regionale, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.
+Poiché un ambiente del servizio app viene sempre creato in una [rete virtuale][virtualnetwork] regionale classica “v1”, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.
+
+**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2".
 
 Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster di macchine virtuali con la porta 1433 bloccata. In base all'elenco di controllo di accesso definito per l'endpoint, potrebbe essere consentito solo l'accesso da altre risorse nella stessa rete virtuale.
 
@@ -27,12 +29,14 @@ Oppure, gli endpoint sensibili potrebbero essere eseguiti in locale ed essere co
 
 Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app potranno connettersi in modo sicuro ai server e alle risorse. Il traffico in uscita dalle app in esecuzione in un ambiente del servizio app agli endpoint privati nella stessa rete virtuale (o connessi alla stessa rete virtuale) transiterà solo attraverso la rete virtuale. Il traffico in uscita agli endpoint privati non transiterà attraverso la rete Internet pubblica.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Requisiti per DNS e connettività in uscita ##
-Si noti che per il corretto funzionamento di un ambiente del servizio app, è necessario l'accesso in uscita ad Archiviazione di Azure oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
+Si noti che per il corretto funzionamento di un ambiente del servizio app, è necessario l'accesso in uscita ad Archiviazione di Azure a livello mondiale oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
 
 Il cliente potrebbe anche avere configurato server DNS personalizzati nella rete virtuale. Gli ambienti del servizio app devono poter risolvere gli endpoint di Azure in *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
 
-È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo.
+È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo. Se esiste un server DNS personalizzato nell’altra estremità di un gateway VPN e il server DNS è irraggiungibile o non disponibile, anche il processo di creazione dell’ambiente del servizio App avrà esito negativo.
 
 ## Connessione a un'istanza di SQL Server
 Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla porta 1433:
@@ -110,4 +114,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/05/2015"
+    ms.date="09/10/2015"
     ms.author="banders"/>
 
 # Configurare l'area di lavoro e gestire le impostazioni
@@ -184,7 +184,7 @@ A ogni area di lavoro possono essere associati più account utente, ciascuno dei
 
 ## Eseguire l'aggiornamento dell'area di lavoro a un piano a pagamento
 
-In Operational Insights sono disponibili tre tipi di piano per l'area di lavoro: **Gratuito**, **Standard** e **Premium**. Si supponga di avere sottoscritto un piano di tipo *Free* e di avere raggiunto il limite massimo di 500 MB di dati. Per raccogliere dati oltre questo limite, è necessario aggiornare l'area di lavoro a un '**piano con pagamento in base al consumo**'. Il tipo di piano può essere cambiato in qualsiasi momento. Per altre informazioni sui prezzi di Operational Insights, vedere l'articolo relativo ai [dettagli sui prezzi](http://azure.microsoft.com/pricing/operational-insights/)
+In Operational Insights sono disponibili tre tipi di piano per l'area di lavoro: **Gratuito**, **Standard** e **Premium**. Si supponga di avere sottoscritto un piano di tipo *Free* e di avere raggiunto il limite massimo di 500 MB di dati. Per raccogliere dati oltre questo limite, è necessario aggiornare l'area di lavoro a un '**piano con pagamento in base al consumo**'. Il tipo di piano può essere cambiato in qualsiasi momento. Per altre informazioni sui prezzi di Operational Insights, vedere l'articolo relativo ai [dettagli sui prezzi](https://azure.microsoft.com/it-IT/pricing/details/operational-insights/)
 
 >[AZURE.IMPORTANT]È possibile modificare i piani relativi alle aree di lavoro solo se queste sono *collegate* a una sottoscrizione di Azure. Se l'area di lavoro è stata creata in Azure o se è *già* stata collegata, è possibile ignorare questo messaggio. Se l'area di lavoro è stata creata da [opinsights.azure.com](http://opinsights.azure.com), seguire la procedura riportata in [Collegare un'area di lavoro esistente a una sottoscrizione di Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
@@ -253,4 +253,4 @@ Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l
 - [Requisiti per il formato dei log di IIS in Azure Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Per informazioni sulle altre origini dati e sui tipi di log di cui la community richiede l'implementazione, vedere il [forum relativo a commenti e suggerimenti](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

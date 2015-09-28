@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestire l'account di archiviazione StorSimple | Microsoft Azure"
-	description="Viene illustrato come utilizzare la pagina Configura di StorSimple Manager per aggiungere, modificare, eliminare o ruotare le chiavi di protezione per un account di archiviazione."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Viene illustrato come utilizzare la pagina Configura di StorSimple Manager per aggiungere, modificare, eliminare o ruotare le chiavi di protezione per un account di archiviazione."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Utilizzare il servizio StorSimple Manager per gestire l’account di archiviazione
 
@@ -148,6 +148,7 @@ Per informare il servizio StorSimple Manager della modifica, sarà necessario ac
 
 ## Passaggi successivi
 
-Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
+- Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

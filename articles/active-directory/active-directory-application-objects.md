@@ -74,7 +74,7 @@ Proprietà | Descrizione
 | ------------- | -----------
 | ID client | Identificatore logico univoco per l'app. È necessario utilizzare questo identificatore nelle chiamate all'API Graph oppure ad altre API Web registrate con Azure AD. Azure AD genera automaticamente questo valore durante la registrazione dell'app e non può essere modificato.<BR><BR>Per consentire all'app di accedere alla directory (in lettura o in scrittura) tramite l'API Graph, sono necessari un ID client e una chiave (nota in OAuth 2.0 come segreto client). L'app utilizza l'ID client e la chiave per richiedere un token di accesso dall’endpoint del token Azure AD OAuth 2.0. Per visualizzare tutti gli endpoint di Azure AD, nella barra dei comandi, fare clic su **Visualizza endpoint**. Quando si utilizza l'API Graph per ottenere o impostare (modificare) i dati della directory, l'app utilizza questo token di accesso nell'intestazione Authorize della richiesta all'API Graph.
 | Chiavi | Se l'app legge o scrive i dati in Azure AD, ad esempio i dati resi disponibili tramite l'API Graph, necessita di una chiave. Quando si richiede un token di accesso per chiamare l'API Graph, l'app fornisce **Client ID** e **chiave**. L’endpoint del token utilizza l'ID e la chiave per autenticare l'app prima di rilasciare il token di accesso. È possibile creare più chiavi per risolvere gli scenari di rollover della chiave. Inoltre, è possibile eliminare le chiavi che sono scadute, compromesse o non più in uso.
-| Manage Access | Scegliere uno dei tre diversi livelli di accesso: Single Sign-On (SSO), SSO e lettura dati directory, oppure SSO e lettura/scrittura dati di directory. È inoltre possibile rimuovere l'accesso. Per ulteriori informazioni sull'accesso alla directory, vedere [Livelli di accesso applicazione](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels).<br><BR>* * Nota * *: le modifiche a livello di accesso directory dell'app vengono applicate solo alla directory. Le modifiche non si applicano ai clienti che hanno concesso l'accesso all'app.
+| Manage Access | Scegliere uno dei tre diversi livelli di accesso: Single Sign-On (SSO), SSO e lettura dati directory, oppure SSO e lettura/scrittura dati di directory. È inoltre possibile rimuovere l'accesso. <br><BR>***Nota**: le modifiche a livello di accesso della directory dell'applicazione si applicano solo alla directory. Le modifiche non si applicano ai clienti che hanno concesso l'accesso all'app.
 
 
 ### Client nativi
@@ -85,4 +85,4 @@ Proprietà | Descrizione
 
 ##
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

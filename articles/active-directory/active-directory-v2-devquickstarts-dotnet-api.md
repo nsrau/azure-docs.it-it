@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Modello App v 2.0 &gt; API Web Net| Microsoft Azure"
 	description="Come creare un'API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Proteggere un'API Web MVC
@@ -156,4 +156,4 @@ Come riferimento [è disponibile qui l'esempio completato (senza i valori di con
 
 Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

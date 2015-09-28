@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Ambienti di test di applicazioni LOB | Microsoft Azure"
-	description="Informazioni su come creare un'applicazione line-of-business basata su Web in un ambiente cloud ibrido per professionisti IT o test di sviluppo."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Ambienti di test di applicazioni LOB | Microsoft Azure" 
+	description="Informazioni su come creare un'applicazione line-of-business basata su Web in un ambiente cloud ibrido per professionisti IT o test di sviluppo." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 In questo argomento viene descritta la creazione di un ambiente cloud ibrido per testare un'applicazione line-of-business (LOB) Intranet ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
@@ -63,15 +65,15 @@ Successivamente, creare una macchina virtuale di Azure per SQL1 con questi coman
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SQL1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
-	Set-AzureStorageAccount –StorageAccountName $storageacct
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SQL1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
+	Set-AzureStorageAccount -StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Successivamente, connettersi alla nuova macchina virtuale SQL1 *utilizzando l'account amministratore locale*.
 
@@ -80,13 +82,13 @@ Successivamente, connettersi alla nuova macchina virtuale SQL1 *utilizzando l'ac
 3.	Quando viene richiesto di aprire SQL1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Quando vengono richieste le credenziali, usare le seguenti:
-	- Nome: **SQL1\** [Local administrator account name]
+	- Nome: **SQL1\**[Nome dell'account amministratore locale]
 	- Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
 Configurare le regole di Windows Firewall per consentire il traffico per il test di connettività di base e SQL Server. Da un prompt dei comandi di Windows PowerShell a livello di amministratore in SQL1 eseguire questi comandi.
 
-	New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
+	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
@@ -126,7 +128,7 @@ Configurare quindi SQL Server 2014 in modo che usi l'unità F: per i nuovi datab
 7.	Nel riquadro dell'albero **Esplora oggetti** aprire **Sicurezza**.
 8.	Fare clic con il pulsante destro del mouse su **Account di accesso**, quindi scegliere **Nuovo account di accesso**.
 9.	In **Nome account di accesso**, digitare **CORP\\User1**.
-10.	Nella pagina **Ruoli server** fare clic su **sysadmin**, quindi su **OK**.
+10.	Nella pagina **Ruoli Server** fare clic su **sysadmin**, quindi su **OK**.
 11.	Chiudere Microsoft SQL Server Management Studio.
 
 Questa è la configurazione corrente.
@@ -138,13 +140,13 @@ Questa è la configurazione corrente.
 Innanzitutto, creare una macchina virtuale di Azure per LOB1 con questi comandi in un prompt dei comandi di Azure PowerShell nel computer locale.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for LOB1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for LOB1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name LOB1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Successivamente, connettersi alla macchina virtuale LOB1 con le credenziali dell'account CORP\\User1.
 
@@ -161,7 +163,7 @@ Configurare LOB1 per IIS e verificare l'accesso da CLIENT1.
 2.	Nella pagina Prima di iniziare, fare clic su **Avanti**.
 3.	Nella pagina Selezione tipo di installazione fare clic su **Avanti**.
 4.	Nella pagina Selezione server di destinazione fare clic su **Avanti**.
-5.	Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco dei **Ruoli**.
+5.	Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco **Ruoli**.
 6.	Quando richiesto, fare clic su **Aggiungi funzionalità**, quindi su **Avanti**.
 7.	Nella pagina Selezione funzionalità fare clic su **Avanti**.
 8.	Nella pagina Server Web (IIS) fare clic su **Avanti**.
@@ -169,7 +171,7 @@ Configurare LOB1 per IIS e verificare l'accesso da CLIENT1.
 10.	Nella pagina Conferma selezioni per l'installazione fare clic su **Installa**.
 11.	Attendere il completamento dell'installazione dei componenti, quindi fare clic su **Chiudi**.
 12.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
-13.	Nella barra degli indirizzi digitare ****http://lob1/** e quindi premere INVIO. Viene visualizzata la pagina Web IIS 8 predefinita.
+13.	Nella barra degli Indirizzi digitare ****http://lob1/** e quindi premere INVIO. Viene visualizzata la pagina Web IIS 8 predefinita.
 
 Questa è la configurazione corrente.
 
@@ -196,4 +198,4 @@ Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web i
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

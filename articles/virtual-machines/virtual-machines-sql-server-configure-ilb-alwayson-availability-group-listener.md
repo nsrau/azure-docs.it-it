@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
 
@@ -34,8 +34,6 @@ Tenere presente le limitazioni seguenti per il listener del gruppo di disponibil
 - L'applicazione client deve trovarsi in un servizio cloud diverso rispetto a quello che contiene le VM del gruppo di disponibilità. Azure non supporta Direct Server Return con client e server residenti nello stesso servizio cloud.
 
 - Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità, perché il listener è configurato per usare l'indirizzo IP virtuale del servizio cloud o l'indirizzo IP virtuale del servizio di bilanciamento del carico interno. Si noti che questa limitazione è ancora attiva, anche se Azure supporta ora la creazione di più indirizzi IP virtuali in un determinato servizio cloud.
-
->[AZURE.NOTE]Questa esercitazione illustra l'uso di PowerShell per creare un listener per un gruppo di disponibilità che include repliche di Azure. Per altre informazioni su come configurare i listener con SSMS o Transact-SQL, vedere [Creare o configurare un listener del gruppo di disponibilità](https://msdn.microsoft.com/library/hh213080.aspx).
 
 ## Determinare l'accessibilità del listener
 
@@ -135,4 +133,4 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

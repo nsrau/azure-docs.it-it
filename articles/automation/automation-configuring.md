@@ -61,10 +61,10 @@ Quando si accede alle risorse di Azure tramite i [cmdlet di Azure](http://msdn.m
 	Add-AzureAccount –Credential $cred
 	Select-AzureSubscription –SubscriptionName "My Subscription"
 
-È necessario ripetere queste righe dopo ogni [checkpoints](automation-runbook-execution#checkpoints) del Runbook. Se il Runbook è sospeso e quindi ripreso da un altro thread di lavoro, sarà necessario eseguire di nuovo l'autenticazione.
+È necessario ripetere queste righe dopo ogni [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) del Runbook. Se il Runbook è sospeso e quindi ripreso da un altro thread di lavoro, sarà necessario eseguire di nuovo l'autenticazione.
 
 ## Articoli correlati
 - [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

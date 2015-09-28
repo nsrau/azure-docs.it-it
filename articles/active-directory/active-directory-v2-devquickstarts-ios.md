@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="App iOS del Modello App v2.0 | Microsoft Azure"
 	description="Come creare un'app per iOS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app per iOS
@@ -22,4 +22,4 @@ L'esercitazione introduttiva per iOS non è ancora disponibile... Riprovare più
 
 > [AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

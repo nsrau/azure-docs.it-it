@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/02/2015"
@@ -23,17 +23,15 @@
 Azure Active Directory è una piattaforma IDMaaS (Identity Management As A Service, gestione delle identità come servizio) che offre agli sviluppatori un modo efficace per integrare la gestione delle identità nelle applicazioni. Gli articoli seguenti forniscono panoramiche sull'implementazione e illustrano le funzionalità principali di Azure Active Directory. È consigliabile leggere gli articoli nell'ordine presentato oppure passare alla sezione [Per iniziare](#getting-started) se si è pronti a passare all'azione.
 
 
-1. [Integrazione con Azure Active Directory](active-directory-how-to-integrate.md): illustra il motivo per cui l'integrazione con Azure Active Directory offre la migliore soluzione per autorizzazione e accesso sicuro.
+1. [I vantaggi dell'integrazione di Azure Active Directory](active-directory-how-to-integrate.md): illustra il motivo per cui l'integrazione con Azure Active Directory offre la migliore soluzione per autorizzazione e accesso sicuro.
 
 1. [Scenari di autenticazione di Active Directory](active-directory-authentication-scenarios.md): illustra come sfruttare l'autenticazione semplificata di Azure Active Directory per fornire l'accesso all'applicazione.
 
-1. [API Graph di Azure Active Directory](active-directory-graph-api.md): illustra come usare l'API Graph di Azure Active Directory per accedere a livello di codice ad Azure AD tramite gli endpoint dell'API REST.
+1. [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md): informazioni su come aggiungere, aggiornare e rimuovere applicazioni da Azure Active Directory e sulle linee guida del marchio per le applicazioni integrate.
 
-1. [Integrazione di applicazioni in Azure Active Directory](active-directory-integrating-applications.md): fornisce informazioni sulla registrazione dell'applicazione e illustra le linee guida per la personalizzazione per le applicazioni multi-tenant.
+1. [API Graph di Azure Active Directory](active-directory-graph-api.md): illustra come usare l'API Graph di Azure Active Directory per accedere a livello di codice ad Azure Active Directory tramite gli endpoint dell'API REST.
 
 1. [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md): illustra come autenticare gli utenti in modo semplice per ottenere i token di accesso con le librerie di autenticazione di Azure.
-
-Per visualizzare le panoramiche di Azure Active Directory presentate in occasione della conferenza Build 2015, vedere la sezione [video](#videos) riportata di seguito.
 
 
 ## Introduzione
@@ -45,7 +43,6 @@ Queste esercitazioni sono disponibili per diverse piattaforme e consentono di in
 |[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
-
 
 ### Guide introduttive per applicazioni web
 
@@ -69,12 +66,13 @@ Queste esercitazioni sono disponibili per diverse piattaforme e consentono di in
 
 Questi articoli descrivono come eseguire attività specifiche usando Azure Active Directory:
 
-- [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)
+- [Ottenere un tenant Azure Active Directory](active-directory-howto-tenant.md)
 - [Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](active-directory-app-gallery-listing.md)
+- [Informazioni sul manifesto dell'applicazione in Azure Active Directory](active-directory-application-manifest.md)
 - [Creare un'app con le API di Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Inviare app Web per Office 365 al Dashboard venditori](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Anteprima: Come compilare app che consentono agli utenti di accedere sia con un account personale che con un account aziendale o dell'istituto di istruzione](active-directory-appmodel-v2-overview.md)
-
+- [Anteprima: Come creare applicazioni che permettono ai consumer di iscriversi e accedere](active-directory-b2c-overview.md)
 
 ## Riferimento
 
@@ -139,4 +137,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

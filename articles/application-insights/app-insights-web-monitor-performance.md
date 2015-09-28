@@ -32,7 +32,10 @@ Sul lato client, Application Insights può richiedere dati di telemetria di pagi
 Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, se ApplicationInsights.config non è presente), scegliere uno dei modi seguenti per iniziare:
 
 * [App Web ASP.NET](app-insights-asp-net.md)
+ * [Aggiungere il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md)
+ * [Aggiungere il monitoraggio delle dipendenze](app-insights-monitor-performance-live-website-now.md)
 * [App web J2EE](app-insights-java-get-started.md)
+ * [Aggiungere il monitoraggio delle dipendenze](app-insights-java-agent.md)
 
 
 ## <a name="view"></a>Esplorare le metriche delle prestazioni
@@ -138,7 +141,12 @@ Se si preferisce, è possibile scrivere codice per ottenere lo stesso effetto:
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### Conteggi delle eccezioni
 
+*Qual è la differenza tra il tasso di eccezione e le metriche delle eccezioni?*
+
+* *Tasso di eccezione* è un contatore delle prestazioni del sistema. Il CLR consente di contare tutte le eccezioni gestite e non gestite generate e divide il totale in un intervallo di campionamento per la lunghezza dell'intervallo. SDK di Application Insights raccoglie questo risultato e lo invia al portale.
+* *Eccezioni* è un conteggio dei report TrackException ricevuti dal portale nell'intervallo di campionamento del grafico. Include solo le eccezioni gestite in cui sono state scritte chiamate TrackException nel codice e non include [le eccezioni non gestite](app-insights-asp-net-exceptions.md). 
 
 ## Impostazione di avvisi
 
@@ -186,4 +194,4 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

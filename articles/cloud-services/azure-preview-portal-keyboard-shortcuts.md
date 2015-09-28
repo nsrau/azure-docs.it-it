@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter="dev-center-name"
    authors="curtand"
-   manager="terrylan"
+   manager="msStevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="05/28/2015"
+   ms.date="09/10/2015"
    ms.author="curtand"/>
 
 # Tasti di scelta rapida per il portale di Azure
@@ -49,6 +49,5 @@
 ## Passaggi successivi
 
 Altre informazioni sul portale di Azure: http://azure.microsoft.com.
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

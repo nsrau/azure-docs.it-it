@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/01/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼
 
@@ -23,8 +23,6 @@ In questo argomento vengono fornite le procedure consigliate per ottimizzare le 
 
 >[AZURE.NOTE]Questo documento offre informazioni su come ottenere le migliori prestazioni per SQL Server in Macchine virtuali di Azure. Se il carico di lavoro è contenuto, potrebbero non essere necessarie tutte le ottimizzazione elencate di seguito. Prendere in considerazione le esigenze di prestazioni e i modelli di carico di lavoro durante la valutazione di queste indicazioni.
 
-Per informazioni complementari su questo argomento, è possibile [scaricare il white paper seguente](http://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/Performance%20Guidance%20for%20SQL%20Server%20in%20Windows%20Azure%20Virtual%20Machines.docx). Si noti che le informazioni contenute in questo white paper sono obsolete in alcune aree. Ad esempio, il white paper è stato scritto prima dell'introduzione di Archiviazione Premium che ora è consigliato per le prestazioni ottimali.
-
 ## Elenco di controllo rapido
 
 Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazioni di SQL Server in Macchine virtuali di Azure:
@@ -32,7 +30,7 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 |Area|Ottimizzazioni|
 |---|---|
 |**Dimensioni macchina virtuale**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) o superiore per SQL Enterprise Edition<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) o superiore per SQL Standard Edition e Web Edition.|
-|**Archiviazione**|Usare l'[archiviazione Premium](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Mantenere l'[account di archiviazione](../storage/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area geografica.<br/><br/>Disabilitare l'[archiviazione con ridondanza geografica](../storage/storage-redundancy.md) di Azure nell'account di archiviazione.|
+|**Archiviazione**|Usare l'[archiviazione Premium](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Mantenere l'[account di archiviazione](../storage/storage-create-storage-account.md) e la VM di SQL Server nella stessa area geografica.<br/><br/>Disabilitare l'[archiviazione con ridondanza geografica](../storage/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione.|
 |**Dischi**|Usare un minimo di 2 [dischi P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage) (1 per i file di log, 1 per i file di dati e TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la lettura della cache sui dischi che ospitano i file di dati e TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate.|
 |**I/O**|Abilitare la compressione di pagina di database.<br/><br/>Abilitare l'inizializzazione immediata dei file per i file di dati.<br/><br/>Limitare o disabilitare l'aumento automatico delle dimensioni per il database.<br/><br/>Disabilitare la compattazione automatica per il database.<br/><br/>Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/>Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/>Configurare percorsi predefiniti per il backup e il file di database.<br/><br/>Abilitare le pagine bloccate.<br/><br/>Applicare le correzioni delle prestazioni di SQL Server.|
 |**Elementi specifici delle funzionalità**|Eseguire il backup direttamente nell'archivio BLOB.|
@@ -59,19 +57,19 @@ Quando si crea una macchina virtuale di Azure, la piattaforma associa almeno un 
 
 Per disco del sistema operativo si intende un disco rigido virtuale che è possibile avviare e montare come versione in esecuzione di un sistema operativo ed è etichettato come unità **C**.
 
-I criteri predefiniti di memorizzazione nella cache per il disco del sistema operativo predefinito sono **Lettura/Scrittura**. Per le applicazioni sensibili alle prestazioni, è consigliabile usare dischi dati anziché il disco del sistema operativo. Vedere la sezione relativa ai dischi di dati riportata di seguito.
+I criteri predefiniti di caching per il disco del sistema operativo predefinito sono **Lettura/Scrittura**. Per le applicazioni sensibili alle prestazioni, è consigliabile usare dischi dati anziché il disco del sistema operativo. Vedere la sezione relativa ai dischi di dati riportata di seguito.
 
 ### Disco temporaneo
 
 L'unità di archiviazione temporanea, etichettata come unità **D**:, non è persistente nell'archiviazione BLOB di Azure. Non archiviare i file di dati o di log nell'unità **D**:.
 
-Archiviare solo TempDB e/o le estensioni del pool di buffer nell'unità **D** quando si usano macchine virtuali serie D o G. Diversamente da altre serie di macchine virtuali, l'unità **D** nelle macchine virtuali serie D e G è basata su SSD. Ciò può migliorare le prestazioni dei carichi di lavoro che usano pesantemente oggetti temporanei o che hanno set di lavoro che non rientrano nella memoria. Per altre informazioni, vedere [Uso di SSD in Macchine virtuali di Azure per archiviare estensioni del pool di buffer e TempDB di SQL Server](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
+Archiviare solo TempDB e/o le estensioni del pool di buffer nell'unità **D** quando si usano macchine virtuali serie D o G. Diversamente da altre serie di VM, l'unità **D** nelle macchine virtuali serie D e G è basata su SSD. Ciò può migliorare le prestazioni dei carichi di lavoro che usano pesantemente oggetti temporanei o che hanno set di lavoro che non rientrano nella memoria. Per altre informazioni, vedere [Uso di SSD in Macchine virtuali di Azure per archiviare estensioni del pool di buffer e TempDB di SQL Server](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
 ### Disco dati
 
-- **Numero di dischi dati per file di dati e di log**: come minimo, usare 2 [dischi P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage), dove un disco contiene i file di log e l'altro contiene i file di dati e TempDB. Per aumentare la velocità effettiva, è possibile richiedere dischi dati aggiuntivi. Per determinare il numero di dischi dati, è necessario analizzare il numero di operazioni di input/output al secondo disponibili per i dischi dati e di log. Per altre informazioni, vedere le tabelle di operazioni di input/output al secondo per tutte le [dimensioni di macchina virtuale](virtual-machines-size-specs.md) e dimensioni di disco nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../storage/storage-premium-storage-preview-portal.md). Se è necessaria una maggiore larghezza di banda, è possibile associare dischi aggiuntivi usando lo striping del disco. Se non si usa l'archiviazione Premium, è consigliabile aggiungere il numero massimo di dischi dati supportati dalle [dimensioni della macchina virtuale](virtual-machines-size-specs.md) e usare lo striping del disco. Per altre informazioni sullo striping del disco, vedere la relativa sezione riportata di seguito.
+- **Numero di dischi dati per file di dati e di log**: come minimo, usare 2 [dischi P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whit-ITing-premium-storage), dove un disco contiene i file di log e l'altro contiene i file di dati e TempDB. Per aumentare la velocità effettiva, è possibile richiedere dischi dati aggiuntivi. Per determinare il numero di dischi dati, è necessario analizzare il numero di operazioni di input/output al secondo disponibili per i dischi dati e di log. Per altre informazioni, vedere le tabelle di operazioni di input/output al secondo per tutte le [dimensioni di VM](virtual-machines-size-specs.md) e dimensioni di disco nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../storage/storage-premium-storage-preview-portal.md). Se è necessaria una maggiore larghezza di banda, è possibile associare dischi aggiuntivi usando lo striping del disco. Se non si usa l'archiviazione Premium, è consigliabile aggiungere il numero massimo di dischi dati supportati dalle [dimensioni della VM](virtual-machines-size-specs.md) e usare lo striping del disco. Per altre informazioni sullo striping del disco, vedere la relativa sezione riportata di seguito.
 
-- **Criteri di memorizzazione nella cache**: abilitare la lettura della cache per i dischi dati che ospitano solo file di dati e TempDB. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati. Per istruzioni sulla configurazione della memorizzazione nella cache su disco, vedere gli argomenti seguenti: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+- **Criteri di caching**: abilitare la lettura del caching per i dischi dati che ospitano solo file di dati e TempDB. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati. Per istruzioni sulla configurazione del caching su disco, vedere gli argomenti seguenti: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
 - **Dimensioni unità di allocazione NTFS**: quando si formatta il disco dati, è consigliabile usare una dimensione di unità di allocazione di 64 KB per file di log e dati, nonché per TempDB.
 
@@ -129,4 +127,4 @@ Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni rel
 
 Esaminare altri argomenti relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

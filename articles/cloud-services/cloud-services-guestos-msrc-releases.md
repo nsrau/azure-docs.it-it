@@ -1,24 +1,38 @@
 <properties 
-   pageTitle="Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Microsoft Azure"
-	description="Elenco di aggiornamenti applicati alle versioni del sistema operativo guest"
-	services="cloud-services"
-	documentationCenter="na"
-	authors="yuemlu"
-	manager="markkie"
-	editor=""/>
+   pageTitle="Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Microsoft Azure" 
+   description="Elenco di aggiornamenti applicati alle versioni del sistema operativo guest" 
+   services="cloud-services" 
+   documentationCenter="na" 
+   authors="yuemlu" 
+   manager="markkie" 
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/24/2015"
-	ms.author="yuemlu"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd" 
+   ms.date="09/14/2015"
+   ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo guest di settembre
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-093 | [3088903] | Aggiornamento della sicurezza per Internet Explorer | 4\.24, 3.31, 2.43 | 8 settembre 2015 |
+| MS15-094 | [3089548] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.24, 3.31, 2.43 | 8 settembre 2015 |
+| MS15-096 | [3072595] | Una vulnerabilità nel servizio Active Directory potrebbe consentire il rifiuto del servizio | 4\.24, 3.31, 2.43 | 8 settembre 2015 |
+| MS15-097 | [3089656] | Le vulnerabilità del componente grafico Microsoft potrebbe consentire l'elevazione dei privilegi | 4\.24, 3.31, 2.43 | 8 settembre 2015 |
+| MS15-098 | [3089669] | Le vulnerabilità in Windows Journal potrebbe consentire l'esecuzione di codice in modalità remota | 4\.24, 3.31, 2.43 | 8 settembre 2015 |
+| MS15-101 | [3089662] | Le vulnerabilità in .NET Framework potrebbero consentire l'elevazione dei privilegi | 4\.24, 3.31, 2.43 | 8 settembre 2015 |
+| MS15-102 | [3089657] | Le vulnerabilità in Gestione attività Windows potrebbero consentire l'elevazione dei privilegi | 4\.24, 3.31, 2.43 | 8 settembre 2015 |
+| MS15-105 | [3091287] | La vulnerabilità in Hyper-V di Windows potrebbe consentire il bypass della funzionalità di sicurezza | 4\.24 | 8 settembre 2015 |
+
 
 ## Sistema operativo Guest di agosto
 
@@ -157,6 +171,16 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+
+[3088903]: http://support.microsoft.com/kb/3088903
+[3089548]: http://support.microsoft.com/kb/3089548
+[3072595]: http://support.microsoft.com/kb/3072595
+[3089656]: http://support.microsoft.com/kb/3089656
+[3089669]: http://support.microsoft.com/kb/3089669
+[3089657]: http://support.microsoft.com/kb/3089657
+[3091287]: http://support.microsoft.com/kb/3091287
+[3089662]: http://support.microsoft.com/kb/3089662
+
 [3082442]: http://support.microsoft.com/kb/3082442
 [3078662]: http://support.microsoft.com/kb/3078662
 [3080348]: http://support.microsoft.com/kb/3080348
@@ -184,7 +208,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/it-it/kb/3042553/
+[3042553]: https://support.microsoft.com/it-IT/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -264,4 +288,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

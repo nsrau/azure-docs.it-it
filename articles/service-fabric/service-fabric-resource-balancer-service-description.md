@@ -3,7 +3,7 @@
    description="Una panoramica della configurazione delle descrizioni del servizio per il bilanciamento delle risorse da utilizzare"
    services="service-fabric"
    documentationCenter=".net"
-   authors="GaugeField"
+   authors="masnider"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="09/15/2015"
    ms.author="masnider"/>
 
 # Panoramica delle descrizioni del servizio
@@ -202,7 +202,9 @@ Nell'esempio di codice vengono illustrate le definizioni ServiceTemplates tramit
    </StatefulService>
  </ServiceTemplates>
 ```
-Nell'esempio di codice vengono illustrate le definizioni DefaultServices tramite il manifesto dell'applicazione. ``` xml
+Nell'esempio di codice vengono illustrate le definizioni DefaultServices tramite il manifesto dell'applicazione.
+
+``` xml
 <DefaultServices>
   <Service Name="QueueServiceInstance">
     <StatefulService MinReplicaSetSize="3" ServiceTypeName="QueueService" TargetReplicaSetSize="3">
@@ -229,4 +231,4 @@ Per ulteriori informazioni: [Architettura del bilanciamento delle risorse](servi
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

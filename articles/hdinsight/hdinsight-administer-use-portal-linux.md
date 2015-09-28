@@ -37,13 +37,13 @@ Oltre al portale di Azure sono disponibili altri strumenti per amministrare HDIn
 
 - [Amministrare HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md): Azure PowerShell fornisce cmdlet di PowerShell per la gestione dei servizi di Azure
 
-##Prerequisiti
+## Prerequisiti
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
-##Provisioning di cluster HDInsight
+## Provisioning di cluster HDInsight
 
 È possibile effettuare il provisioning di cluster HDInsight dal portale di Azure tramite i seguenti passaggi:
 
@@ -56,75 +56,88 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 3. Immettere un __Nome cluster__, quindi selezionare il __Tipo cluster__ che si vuole creare. Un segno di spunta verde verrà visualizzato accanto al __Nome del cluster__, se disponibile.
 
 	![Nome del cluster, tipo di cluster e tipo di sistema operativo](./media/hdinsight-administer-use-portal-linux/clustername.png)
-	
-	> [AZURE.NOTE]Solo il tipo di cluster Hadoop è disponibile per l'anteprima di HDInsight basata su Linux.
 
-4. Se si dispone di più di una sottoscrizione, selezionare la voce__Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà utilizzata per il cluster.
+4. Se si dispone di più di una sottoscrizione, selezionare la voce __Sottoscrizione__ per selezionare la sottoscrizione di Azure che verrà usata per il cluster.
 
-5. Selezionare __Gruppo di risorse__ per visualizzare un elenco di gruppi di risorse esistenti, quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Crea nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
+5. Selezionare __Gruppo di risorse__ per visualizzare un elenco di gruppi di risorse esistenti e quindi selezionare quello in cui creare il cluster. In alternativa, è possibile selezionare __Crea nuovo__ e quindi immettere il nome del nuovo gruppo di risorse. Verrà visualizzato un segno di spunta verde per indicare se il nome del nuovo gruppo è disponibile.
 
 	> [AZURE.NOTE]Questa voce sarà impostata su uno dei gruppi di risorse esistenti, se disponibili.
 
-6. Selezionare __Credenziali__, quindi immettere una __Password di accesso al Cluster__ per il __Nome utente di accesso al cluster__. È inoltre necessario immettere un __Nome utente SSH__ e una __PASSWORD__ o __CHIAVE PUBBLICA__, che verrà utilizzata per autenticare l'utente SSH. Infine, utilizzare il pulsante __Seleziona__ per impostare le credenziali. Il desktop remoto non verrà utilizzato in questo documento, pertanto è possibile lasciarlo disabilitato.
+6. Selezionare __Credenziali__ e quindi immettere una __Password dell'account di accesso del cluster__ per il __Nome utente dell'account di accesso del cluster__. È anche necessario specificare un __Nome utente SSH__ e una __PASSWORD__ o una __CHIAVE PUBBLICA__, che verranno usati per autenticare l'utente SSH. Infine, usare il pulsante __Seleziona__ per impostare le credenziali. Il desktop remoto non verrà utilizzato in questo documento, pertanto è possibile lasciarlo disabilitato.
 
 	![Pannello credenziali del cluster](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
+    
+    > [AZURE.NOTE]Il protocollo SSH viene usato per accedere in modalità remota al cluster HDInsight tramite una riga di comando. Il nome utente e la password o la chiave pubblica specificati qui verranno usati per la connessione al cluster tramite SSH. Il nome utente SSH deve essere univoco, in quanto crea un account utente in tutti i nodi del cluster HDInsight. Di seguito sono riportati alcuni nomi di account riservati per l'uso da parte dei servizi nel cluster che __non devono__ essere usati come nome utente SSH:
+    >
+    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
-	Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
+    Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
 
 	* [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows)
 
-6. Per __Origine dati__, è possibile selezionare la voce per scegliere un'origine dati esistente o crearne una nuova.
+7. Selezionare la voce __Origine dati__ per scegliere un'origine dati esistente o crearne una nuova.
 
 	![Pannello di origine dati](./media/hdinsight-administer-use-portal-linux/datasource.png)
-	
-	Attualmente è possibile selezionare un Account di archiviazione di Azure come origine dati per un cluster HDInsight. Utilizzare quanto segue per comprendere le voci nel pannello __Origine dati__.
-	
-	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su __Tasto di scelta__ se si desidera immettere il __Nome di archiviazione__ e il __Tasto di scelta__ di un account di archiviazione esistente.
-	
-	- __Crea nuovo__: per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
-	
-	- __Scegli contenitore predefinito__: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
-	
-	- __Percorso__: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
-	
+
+	Attualmente è possibile selezionare un Account di archiviazione di Azure come origine dati per un cluster HDInsight. Per comprendere le voci nel pannello __Origine dati__, usare le informazioni seguenti.
+
+	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su __Chiave di accesso__ se si vuole specificare il __Nome archiviazione__ e la __Chiave di accesso__ di un account di archiviazione esistente.
+
+	- __Crea nuovo__: usare questa opzione per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
+
+	- __Scegliere il contenitore predefinito__: usare questa opzione per specificare il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+
+	- __Località__: l'area geografica in cui si trova o in cui verrà creato l'account di archiviazione.
+
 		> [AZURE.IMPORTANT]La selezione del percorso per l'origine dati predefinito imposterà anche il percorso del cluster HDInsight. L'origine dati del cluster e l’origine dati predefinita devono trovarsi nella stessa area.
-		
-	- __Seleziona__: per salvare la configurazione dell’origine dati.
-	
-7. Selezionare __Livelli di prezzi nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, verrà impostato il numero di nodi di lavoro su __4__.
+
+	- __Seleziona__: usare questa opzione per salvare la configurazione dell'origine dati.
+
+8. Selezionare __Piani tariffari per il nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, il numero di nodi di lavoro verrà impostato su __4__.
 
 	Verrà visualizzato il costo stimato del cluster in fondo al pannello.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
-	
-	Utilizzare il pulsante __Seleziona__ per salvare le informazioni sui __livelli di prezzi nodo__.
 
-8. Selezionare __Configurazione facoltativa__. Questo pannello consente di configurare i seguenti elementi:
+	Usare il pulsante __Seleziona__ per salvare le informazioni sui __Piani tariffari per il nodo__.
 
-	* __Versione HDInsight__: la versione di HDInsight utilizzata per il cluster. Per altre informazioni sulle versioni di HDInsight vedere [Controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
-	* __Metastore esterni__: consente di selezionare un Database SQL, che verrà utilizzato per archiviare informazioni di configurazione per Oozie e Hive. In questo modo è possibile riutilizzare la configurazione durante l'eliminazione e ricreazione di un cluster, anziché dover ricreare la configurazione Hive e Oozie ogni volta. **__Chiavi di archiviazione di azure__: permette di associare ulteriori account di archiviazione al server HDInsight.
+9. Selezionare __Configurazione facoltativa__. Questo pannello consente di configurare i seguenti elementi:
+
+	* __Versione HDInsight__: la versione di HDInsight usata per il cluster. Per altre informazioni sulle versioni di HDInsight, vedere [Controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md).
+
+	* __Metastore esterni__: consente di selezionare un database SQL, che verrà usato per archiviare informazioni di configurazione per Oozie e Hive. In questo modo è possibile riutilizzare la configurazione quando si elimina e si ricrea un cluster, anziché dover ricreare la configurazione Hive e Oozie ogni volta.
+
+	* __Rete virtuale__: consente di posizionare il cluster HDInsight nella stessa rete virtuale delle altre risorse, ad esempio il database SQL o una macchina virtuale di Azure. Se le risorse si trovano in una rete virtuale possono comunicare direttamente l'una con l'altra, ignorando i gateway pubblici che gestiscono il traffico in ingresso da Internet. Per altre informazioni sui vantaggi delle reti virtuali di Azure su HDInsight, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+
+		> [AZURE.IMPORTANT]È necessario creare la rete virtuale di Azure prima di creare il cluster HDInsight, perché non è possibile creare una nuova rete dalla configurazione di HDInsight.
+		>
+		> Al momento (25/08/2015) è prevista una limitazione in base alla quale può essere presente un solo cluster HDInsight basato su Linux in una rete virtuale di Azure.
+
+	* __Azioni script__: consente di specificare script Bash per personalizzare il cluster HDInsight durante il provisioning. Ad esempio, è disponibile uno [script che installa Hue](hdinsight-hadoop-hue-linux.md), un client grafico per l'utilizzo di Hadoop. Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
+
+	* __Chiavi di archiviazione di Azure__: consentono di associare account di archiviazione aggiuntivi al server HDInsight.
 
 		> [AZURE.NOTE]HDInsight può accedere solo agli account di archiviazione di Azure utilizzati come archivio di dati predefinito, aggiunti in questa sezione di configurazione, o accessibili pubblicamente.
 
 	![Pannello configurazione facoltativa](./media/hdinsight-administer-use-portal-linux/optionalconfiguration.png)
 
-9. Assicurarsi che __Aggiungi alla schermata iniziale__ sia selezionato e quindi selezionare __Crea__. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
+10. Assicurarsi che l'opzione __Aggiungi alla Schermata iniziale__ sia selezionata e quindi fare clic su __Crea__. Questo creerà il cluster e aggiungerà una sezione apposita nella schermata iniziale del portale di Azure. L'icona indica che il cluster sta eseguendo il provisioning e verrà visualizzata l'icona di HDInsight, una volta completato il provisioning.
 
 	| Durante il provisioning | Provisioning completato |
 	| ------------------ | --------------------- |
 	| ![Indicatore del provisioning sulla schermata iniziale](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Utilizzare il riquadro sulla schermata iniziale, o la voce __Notifiche__ a sinistra della pagina per controllare il processo di provisioning.
+	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale o la voce __Notifiche__ a sinistra della pagina per controllare il processo di provisioning.
 
-##Gestire un cluster
+## Gestire un cluster
 
 Selezionando un cluster dal portale di anteprima di Azure verranno visualizzate le informazioni essenziali sul cluster, ad esempio il nome, il gruppo di risorse, il sistema operativo e l'URL per il dashboard del cluster (utilizzato per accedere ad Ambari Web per i cluster Linux).
 
 ![Dettagli cluster](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
-Utilizzare quanto segue per comprendere le icone nella parte superiore di questo pannello e nelle sezioni __Essentials__ e __Collegamenti rapidi__:
+Usare le informazioni seguenti per comprendere le icone nella parte superiore di questo pannello e nelle sezioni __Informazioni di base__ e __Collegamenti__:
 
 * __Impostazioni__ e __Tutte le impostazioni__: consentono di visualizzare il pannello__Impostazioni__ per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
 
@@ -132,31 +145,39 @@ Utilizzare quanto segue per comprendere le icone nella parte superiore di questo
 
 * __Secure Shell__: informazioni necessarie per accedere al cluster tramite SSH.
 
-* __Scala Cluster__: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
+* __Ridimensiona cluster__: consente di modificare il numero di nodi di lavoro per questo cluster.
 
-* __Elimina__: consente di eliminare il cluster HDInsight.
+* __Elimina__: elimina il cluster HDInsight.
 
-* __Guide rapide__ (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png)): Visualizza le informazioni che consentiranno di iniziare a utilizzare HDInsight.
+* __Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))__: visualizza le informazioni necessarie per iniziare a usare HDInsight.
 
-* __Utenti__ (![icona utenti](./media/hdinsight-administer-use-portal-linux/users.png)): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
+* __Utenti(![icona utenti](./media/hdinsight-administer-use-portal-linux/users.png))__: consente di impostare le autorizzazioni per la _gestione del portale_ di questo cluster per altri utenti nella sottoscrizione di Azure.
 
 	> [AZURE.IMPORTANT]Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di anteprima di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
 
-* __Tag__ (![icona tag](./media/hdinsight-administer-use-portal-linux/tags.png)): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__, e utilizzare un valore comune per tutti i servizi associati a un progetto specifico.
+* __Categorie (![icona tag](./media/hdinsight-administer-use-portal-linux/tags.png))__: le categorie permettono di impostare coppie chiave-valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__ e usare un valore comune per tutti i servizi associati a un progetto specifico.
 
 * __Documentazione__: collegamenti alla documentazione per Azure HDInsight.
 
-> [AZURE.IMPORTANT]Per gestire i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per ulteriori informazioni sull'utilizzo di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT]Per gestire i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md).
 
-##Monitorare un cluster
+### <a name="scaling"></a>Ridimensionamento
 
-La sezione __Utilizzo__ del pannello cluster HDInsight visualizza informazioni relative al numero di core disponibili per la sottoscrizione per l'utilizzo con HDInsight, il numero di core allocati al cluster e il modo in cui vengono allocati per i nodi nel cluster.
+Per ridimensionare un cluster tramite il portale, selezionare il cluster HDInsight e quindi __Ridimensiona cluster__. Specificare il __Numero di nodi di lavoro__ da impostare per il cluster e quindi fare clic su __Salva__.
+
+![immagine dell'interfaccia utente di ridimensionamento](./media/hdinsight-administer-use-portal-linux/scaling.png)
+
+Per altre informazioni sulle operazioni di ridimensionamento, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md#scaling).
+
+## Monitorare un cluster
+
+La sezione __Utilizzo__ del pannello del cluster HDInsight visualizza informazioni relative al numero di core disponibili per la sottoscrizione da usare con HDInsight, il numero di core allocati al cluster e il modo in cui vengono allocati per i nodi nel cluster.
 
 ![Informazioni sull'utilizzo](./media/hdinsight-administer-use-portal-linux/usage.png)
 
-> [AZURE.IMPORTANT]Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per ulteriori informazioni sull'utilizzo di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT]Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
-##Passaggi successivi
+## Passaggi successivi
 In questo articolo è stato illustrato come creare un cluster HDInsight tramite il portale di Azure e come aprire lo strumento da riga di comando di Hadoop. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Amministrare HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md)
@@ -168,4 +189,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

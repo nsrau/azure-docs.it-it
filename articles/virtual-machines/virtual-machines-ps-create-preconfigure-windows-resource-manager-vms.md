@@ -3,7 +3,7 @@
 	description="Informazioni su come usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows e Gestione risorse in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell
 
@@ -389,4 +389,4 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

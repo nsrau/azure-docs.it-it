@@ -8,17 +8,19 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Ripristinare un'app Web in Azure App Service
 
 In questo articolo viene illustrato come ripristinare un'app Web in precedenza sottoposta a un backup tramite la funzionalità di backup delle [app Web di App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Per ulteriori informazioni, vedere [Backup delle app Web di App Service](web-sites-backup.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 La funzionalità di ripristino delle app Web consente di ripristinare su richiesta lo stato precedente dell'app Web o di creare una nuova app Web in base ai backup dell'app Web originale. Creare un nuovo sito Web eseguito in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
 
@@ -96,4 +98,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

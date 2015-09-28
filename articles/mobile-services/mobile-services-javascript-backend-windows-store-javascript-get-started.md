@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione a servizi mobili per applicazioni Windows Store | Microsoft Azure"
-	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per Windows Store in C# o JavaScript."
+	pageTitle="Introduzione a Servizi mobili per app JavaScript di Windows Store - Servizi mobili di Azure"
+	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo di Windows Store in JavaScript."
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
-# <a name="getting-started"> </a>Introduzione a Servizi mobili
+# Introduzione a Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app di Windows universale mediante Servizi mobili di Azure.
+In questa esercitazione viene illustrato come aggiungere un servizio back-end basato su cloud a un'app JavaScript di Windows Store mediante Servizi mobili di Azure.
 
-In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la versione per back-end .NET di questo argomento.
-
-[AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
+In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app *To do list* che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà utilizzato JavaScript per la logica di business sul lato server. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server nei linguaggi .NET supportati tramite Visual Studio, vedere la [versione per back-end .NET di questo argomento](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -35,22 +33,16 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-## Creare una nuova app di Windows universale
+## Creazione di una nuova app di Windows Store
 
-Dopo aver creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app di Windows universale o per modificare un progetto app esistente per Windows Store o Windows Phone per connettersi al servizio mobile.
+Dopo avere creato il servizio mobile, è possibile seguire una facile guida introduttiva nel portale di gestione per creare una nuova app JavaScript di Windows Store 8.1 che permetta la connessione al servizio mobile.
 
-In questa sezione si creerà una nuova app Windows universale connessa al servizio mobile.
-
-1.  Nel portale di gestione fare clic su **Mobile Services** e quindi sul servizio mobile appena creato.
+1.  Nel portale di gestione fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
 
 
 2. Nella scheda Quickstart fare clic su **Windows** in **Choose platform** ed espandere **Create a new Windows Store app**.
 
    	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
-
-   	Di seguito sono visualizzati i tre semplici passaggi per creare un'app di Windows Store connessa al servizio mobile.
-
-  	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png)
 
 3. Se necessario, scaricare e installare [Visual Studio 2013][Visual Studio 2013 Express for Windows] nel computer locale o nella macchina virtuale.
 
@@ -62,18 +54,23 @@ In questa sezione si creerà una nuova app Windows universale connessa al serviz
 
 ## Esecuzione dell'app per Windows
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-run-app](../../includes/mobile-services-javascript-backend-run-app.md)]
+La fase finale di questa esercitazione prevede la compilazione e l'esecuzione della nuova app.
+
+1. Individuare il percorso in cui sono stati salvati i file compressi del progetto ed espanderli sul computer in uso, quindi aprire il file di soluzione in Visual Studio.
+
+2. Premere **F5** per ricompilare il progetto e avviare l'app.
+
+3. Nell'app digitare un testo significativo, ad esempio *Complete the tutorial*, in **Insert a TodoItem**, quindi fare clic su **Save**.
+
+   	Verrà inviata una richiesta POST al nuovo servizio mobile ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal servizio mobile e i dati vengono visualizzati nella seconda colonna dell'app.
+
+4. (Facoltativo) Eseguire nuovamente l'app e notare se i dati salvati nel passaggio precedente vengano caricati dal servizio mobile dopo l'avvio dell'applicazione.
+ 
+4. Nel portale di gestione fare clic sulla scheda **Data** e quindi sulla tabella **TodoItems**.
+
+   	In questo modo sarà possibile visualizzare i dati inseriti nella tabella dall'app.
 
 >[AZURE.NOTE]È possibile esaminare il codice che accede al servizio mobile per eseguire una query e inserire i dati, disponibile nel file default.js.
-
-## Passaggi successivi
-Dopo aver completato la guida introduttiva, è possibile eseguire altre importanti attività in Servizi mobili:
-
-* [Aggiungere l'autenticazione all'app][Get started with authentication] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
-
-* [Aggiungere notifiche push all'app][Get started with push notifications] <br/>Informazioni sull'invio di una notifica push di base all'app.
-
-Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaforme per più dispositivi da un singolo servizio mobile](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -92,4 +89,4 @@ Per altre informazioni sulle app Windows universali, vedere [Supporto di piattaf
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

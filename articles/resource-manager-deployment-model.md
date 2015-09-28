@@ -1,20 +1,20 @@
 <properties
    pageTitle="Comprendere le differenze tra Gestione risorse e i modelli di distribuzione classici"
-	description="Vengono descritte le differenze tra il modello di distribuzione di Gestione risorse e il modello di distribuzione classico (o gestione dei servizi)."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Vengono descritte le differenze tra il modello di distribuzione di Gestione risorse e il modello di distribuzione classico (o gestione dei servizi)."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="tomfitz"/>
 
 # Comprendere la distribuzione di Gestione delle risorse e distribuzione classica
 
@@ -101,7 +101,7 @@ Gestione risorse ha aggiunto il concetto di gruppo di risorse. Tutte le risorse 
 - È possibile applicare i tag alle risorse per organizzare logicamente tutte le risorse nella sottoscrizione.
 
 
-Ogni risorsa creata da una distribuzione classica prima della Gestione risorse, non esiste all'interno di un gruppo di risorse. Quando è stato aggiunto Gestione risorse, tutte le risorse retroattive sono state aggiunti ai gruppi di risorse predefiniti. Se ora si crea una risorsa tramite la distribuzione classica, la risorsa viene creata automaticamente all'interno di un gruppo di risorse vuoto anche se non è stato specificato il gruppo di risorse in fase di distribuzione. Tuttavia, il solo fatto di esister all'interno di un gruppo di risorse non significa che la risorsa è stata convertita nel modello di Gestione risorse. Se la risorsa è stata creata da una distribuzione classica, è necessario continuare a operare su di essa tramite operazioni classiche.
+Ogni risorsa creata da una distribuzione classica prima della Gestione risorse, non esiste all'interno di un gruppo di risorse. Quando è stato aggiunto Gestione risorse, tutte le risorse retroattive sono state aggiunti ai gruppi di risorse predefiniti. Se ora si crea una risorsa tramite la distribuzione classica, la risorsa viene creata automaticamente all'interno di un gruppo di risorse predefinito per tale servizio anche se non è stato specificato il gruppo di risorse in fase di distribuzione. Tuttavia, il solo fatto di esister all'interno di un gruppo di risorse non significa che la risorsa è stata convertita nel modello di Gestione risorse. Per macchine virtuali, archiviazione e reti virtuali, se la risorsa è stata creata da una distribuzione classica, è necessario continuare a operare su di essa tramite operazioni classiche.
 
 È possibile spostare le risorse a un gruppo di risorse diverso e aggiungere nuove risorse al gruppo di risorse. Pertanto, il gruppo di risorse può contenere una combinazione di risorse creato tramite Gestione risorse e distribuzione classica. Questa combinazione di risorse può produrre risultati imprevisti perché le risorse non supportano le stesse operazioni.
 
@@ -158,4 +158,4 @@ Per altre informazioni sulla connessione di reti virtuali da diversi modelli di 
 - Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!------HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

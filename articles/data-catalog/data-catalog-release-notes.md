@@ -61,7 +61,7 @@ Le possibili cause di questo comportamento problematico sono due:
 
 In alcune situazioni, questo errore si verifica solo quando l'utente è nella rete aziendale o si connette dall'esterno della rete aziendale. I criteri di autenticazione globali consentono di abilitare i metodi di autenticazione separatamente per le connessioni Extranet e Intranet. Se l'autenticazione basata su form non è abilitata per la rete da cui l'utente si connette, è possibile che si verifichino errori di accesso.
 
-Per altre informazioni, vedere [Configurazione dell'autenticazione Intranet basata su form per dispositivi che non supportano WIA](https://technet.microsoft.com/library/dn727110.aspx).
+Per altre informazioni, vedere [Configurare i criteri di autenticazione](https://technet.microsoft.com/it-IT/library/dn486781.aspx).
 
 **Causa 2: la configurazione del proxy di rete** Se la rete aziendale usa un server proxy, lo strumento di registrazione potrebbe non essere in grado di connettersi ad Azure Active Directory tramite il proxy. Gli utenti possono abilitare lo strumento di registrazione modificando il file di configurazione dello strumento e aggiungendo questa sezione al file:
 
@@ -77,4 +77,4 @@ Per altre informazioni, vedere [Configurazione dell'autenticazione Intranet basa
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
@@ -265,9 +265,10 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 
 ## Passaggi successivi
 
-[Utilizzo di Gestione snapshot StorSimple per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md).
+- Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni sull’[Utilizzo di Gestione snapshot StorSimple per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

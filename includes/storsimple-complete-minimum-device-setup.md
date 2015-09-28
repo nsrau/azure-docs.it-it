@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 #### Per completare la configurazione minima del dispositivo StorSimple
 
 1. Nella pagina**Dispositivi**, selezionare il dispositivo, fare clic sulla freccia in base al nome di dispositivo per passare alla pagina del dispositivo specifico. 
@@ -32,4 +34,8 @@
 
  >[AZURE.NOTE]È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
 
-<!---HONumber=August15_HO7-->
+![Video disponibile](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come completare l'installazione minima del dispositivo, fare clic [qui](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+
+<!---HONumber=Sept15_HO3-->

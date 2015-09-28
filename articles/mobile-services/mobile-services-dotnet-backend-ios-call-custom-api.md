@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come chiamare un'API personalizzata da un client iOS"
+	pageTitle="Come chiamare un'API personalizzata da un client iOS (back-end .NET)"
 	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app per iOS che usa Servizi mobili di Azure."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -50,4 +50,4 @@ In questo argomento è stato illustrato come usare il metodo **invokeApi** per c
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

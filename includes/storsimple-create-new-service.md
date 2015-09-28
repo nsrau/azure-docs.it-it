@@ -1,3 +1,6 @@
+<!--author=alkohli last changed: 9/17/15-->
+
+
 #### Per creare un nuovo servizio
 
 1. Usare le credenziali dell'account Microsoft per accedere al portale di gestione all'URL seguente: [http://azure.microsoft.com/](http://azure.microsoft.com/).
@@ -15,10 +18,14 @@
   4. Selezionare **Crea un nuovo account di archiviazione** per creare automaticamente un account di archiviazione con il servizio. Questo account di archiviazione avrà un nome speciale, ad esempio "storsimplebwv8c6dcnf". Se è necessario che i dati siano in un percorso diverso, deselezionare questa casella. 
   5. Fare clic su **Crea StorSimple Manager** per creare il servizio.
 
-   ![creare un servizio](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Crea StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
   Si verrà indirizzati alla pagina di destinazione del **Servizio**. La creazione del servizio richiederà alcuni minuti. Dopo che il servizio è stato creato, l'utente verrà informato in modo appropriato e lo stato del servizio verrà modificato in **Attivo**.
  
-   ![creazione di un servizio](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Creazione del servizio](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!-----HONumber=August15_HO8-->
+![Video disponibile](./media/storsimple-create-new-service/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come creare un nuovo servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+
+<!---HONumber=Sept15_HO3-->

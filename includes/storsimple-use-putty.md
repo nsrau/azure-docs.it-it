@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per connettersi tramite console seriale
 
@@ -29,4 +30,4 @@
 7. Fare clic su **Apri** per avviare una sessione seriale.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

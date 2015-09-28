@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Modificare le password di StorSimple | Microsoft Azure"
-	description="Descrive come utilizzare il servizio StorSimple Manager per modificare le password di StorSimple Snapshot Manager e di amministratore del dispositivo."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Modificare le password di StorSimple | Microsoft Azure" 
+   description="Descrive come utilizzare il servizio StorSimple Manager per modificare le password di StorSimple Snapshot Manager e di amministratore del dispositivo." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Utilizzare il servizio StorSimple Manager per modificare la password di StorSimple
 
@@ -62,8 +62,10 @@ A questo punto, la password amministratore del dispositivo dovrebbe essere aggio
 
 ## Passaggi successivi
 
-[Altre informazioni sulla sicurezza di StorSimple](storsimple-security.md)
+- Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
-[Ulteriori informazioni su come modificare la configurazione del dispositivo](storsimple-modify-device-config.md).
+- [Ulteriori informazioni su come modificare la configurazione del dispositivo](storsimple-modify-device-config.md).
 
-<!---HONumber=September15_HO1-->
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

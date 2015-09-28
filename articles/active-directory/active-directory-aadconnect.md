@@ -112,7 +112,7 @@ Prima di installare Azure AD Connect con Impostazioni rapide, sono necessari alc
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>
@@ -273,4 +273,4 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

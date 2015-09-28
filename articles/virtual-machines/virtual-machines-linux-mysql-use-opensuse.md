@@ -3,7 +3,7 @@
 	description="Informazioni sull'installazione di MySQL in una macchina virtuale di Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -38,4 +38,4 @@ Per informazioni su MySQL, vedere la [Documentazione di MySQL][MySQLDocs].
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

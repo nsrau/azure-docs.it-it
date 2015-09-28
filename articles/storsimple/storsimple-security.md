@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Sicurezza in StorSimple | Microsoft Azure"
-	description="Descrive le funzionalità di sicurezza e privacy che proteggono il servizio, il dispositivo e i dati StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="Carolz"
-	editor=""/>
+   pageTitle="Sicurezza in StorSimple | Microsoft Azure" 
+   description="Descrive le funzionalità di sicurezza e privacy che proteggono il servizio, il dispositivo e i dati StorSimple." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="Carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/10/2015"
+   ms.author="v-sharos"/>
 
 # sicurezza e protezione dei dati di StorSimple
 
@@ -56,6 +56,7 @@ Per autorizzare un dispositivo, è necessario registrarlo con il servizio StorSi
 > 
 > * Se si perde la chiave di registrazione del servizio dopo aver registrato il primo dispositivo, è possibile generare una nuova chiave dal servizio StorSimple Manager. L'operazione non avrà effetto sul funzionamento dei dispositivi esistenti. 
 > * Un dispositivo, dopo essere stato registrato, usa i token per comunicare con Microsoft Azure. La chiave di registrazione del servizio non viene usata dopo la registrazione del dispositivo.
+> * È consigliabile rigenerare la chiave di registrazione del servizio dopo ogni utilizzo.
 
 ## Proteggere la soluzione StorSimple con le password
 
@@ -92,7 +93,7 @@ CHAP è uno schema di autenticazione usato dal dispositivo StorSimple per conval
 > * Non è possibile usare la stessa password sia per l'iniziatore CHAP che per la destinazione CHAP.
 > * Dopo aver impostato la password, è possibile cambiarla, ma non recuperarla. Se la password viene cambiata, assicurarsi di notificarlo a tutti gli utenti di accesso remoto in modo che riescano a connettersi al dispositivo StorSimple.
 
-Per ulteriori informazioni e per configurare CHAP, visitare [configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)
+Per ulteriori informazioni e per configurare CHAP, visitare [Configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)
 
 ### Password di Gestione snapshot StorSimple
 
@@ -107,7 +108,7 @@ Quando si configura un dispositivo per usare Gestione snapshot StorSimple, sarà
 
 Si consiglia di usare le linee guida seguenti per assicurarsi che le password di Azure StorSimple siano complesse e protette:
 
-- Cambiare le password ogni tre mesi.
+- Cambiare le password ogni tre mesi. La modifica della password viene richiesta ogni anno.
 - Usare password complesse. Per altre informazioni, vedere [Creare password più complesse e proteggerle](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Usare sempre password diverse per ogni meccanismo di accesso. Ogni password specificata deve essere univoca.
 - Non condividere le password con nessuno che non sia autorizzato ad accedere al dispositivo StorSimple.
@@ -150,10 +151,9 @@ Il dispositivo StorSimple gestisce i dati archiviandoli in più livelli localmen
 - Quando si immette la chiave di crittografia per l'archiviazione cloud nel servizio StorSimple Manager, la chiave viene crittografata con la parte pubblica della chiave DEK del servizio e quindi inviata al dispositivo.
 - La chiave di crittografia per l'archiviazione cloud non viene archiviata nel servizio ed è nota solo al dispositivo.
 - Specificare una chiave di crittografia per l'archiviazione cloud è facoltativo. È possibile inviare i dati crittografati nell'host al dispositivo.
+- È consigliabile ruotare la chiave di crittografia di archiviazione cloud trimestralmente. Non verrà richiesta la rotazione delle chiavi.
 
 ### Procedure di sicurezza aggiuntive
-
-- Per implementare la ridondanza, utilizzare percorsi multipli (MPIO) per evitare un singolo punto di errore in una SAN iSCSI. Per istruzioni sull'installazione di MPIO, vedere [Configurare MPIO per il dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - Suddividere il traffico: isolare la rete SAN iSCSI dal traffico utente in una LAN aziendale distribuendo una rete completamente separata e utilizzando le VLAN dove l’isolamento fisico non è un'opzione. Una rete dedicata per l'archiviazione iSCSI garantisce sicurezza e prestazioni dei dati aziendali critici. Combinare il traffico di archiviazione e il traffico utente su una rete LAN aziendale non è consigliato e può aumentare la latenza e causare errori di rete.
 
@@ -253,4 +253,4 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 [Distribuire il dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Creare una Cache Redis utilizzando un modello
 
-In questo argomento viene illustrato come creare un modello di Gestione risorse di Azure che consente di distribuire una Cache Redis di Azure. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+In questo argomento viene illustrato come creare un modello di Gestione risorse di Azure che consente di distribuire una Cache Redis di Azure. La cache è utilizzabile con un account di archiviazione esistente per mantenere i dati di diagnostica. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+
+Attualmente, le impostazioni di diagnostica sono condivise da tutte le cache nella stessa area di una sottoscrizione. L’aggiornamento di una cache nell'area avrà effetto su tutte le altre cache nell'area.
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
@@ -26,7 +28,7 @@ Per il modello completo, vedere il [modello di Cache Redis](https://github.com/A
 
 ## Elementi distribuiti
 
-In questo modello verrà distribuita una Cache Redis di Azure.
+In questo modello, verrà distribuita una Cache Redis di Azure che utilizza un account di archiviazione esistente per dati di diagnostica.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -48,6 +50,34 @@ Percorso della Cache Redics. Per prestazioni ottimali, utilizzare la stessa posi
       "type": "string"
     }
 
+### diagnosticsStorageAccountName
+
+Nome dell'account di archiviazione esistente da utilizzare per le diagnostiche.
+
+    "diagnosticsStorageAccountName": {
+      "type": "string"
+    }
+
+### enableNonSslPort
+
+Valore booleano che indica se è consentito l'accesso tramite le porte non SSL.
+
+    "enableNonSslPort": {
+      "type": "bool"
+    }
+
+### diagnosticsStatus
+
+Un valore che indica se la diagnostica è abilitata. Utilizzare ON o OFF.
+
+    "diagnosticsStatus": {
+      "type": "string",
+      "defaultValue": "ON",
+      "allowedValues": [
+            "ON",
+            "OFF"
+        ]
+    }
     
 ## Risorse da distribuire
 
@@ -56,23 +86,36 @@ Percorso della Cache Redics. Per prestazioni ottimali, utilizzare la stessa posi
 Crea la Cache Redis di Azure.
 
     {
-      "apiVersion": "2014-04-01-preview",
+      "apiVersion": "2015-08-01",
       "name": "[parameters('redisCacheName')]",
       "type": "Microsoft.Cache/Redis",
       "location": "[parameters('redisCacheLocation')]",
       "properties": {
-        "sku": {
-          "name": "[parameters('redisCacheSKU')]",
-          "family": "[parameters('redisCacheFamily')]",
-          "capacity": "[parameters('redisCacheCapacity')]"
-        },
+        "enableNonSslPort": "[parameters('enableNonSslPort')]",
         "redisVersion": "[parameters('redisCacheVersion')]",
-        "enableNonSslPort": true
-      }
+        "sku": {
+          "capacity": "[parameters('redisCacheCapacity')]",
+          "family": "[parameters('redisCacheFamily')]",
+          "name": "[parameters('redisCacheSKU')]"
+        }
+      },
+        "resources": [
+          {
+            "apiVersion": "2014-04-01",
+            "type": "diagnosticSettings",
+            "name": "service", 
+            "location": "[parameters('redisCacheLocation')]",
+            "dependsOn": [
+              "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
+            ],
+            "properties": {
+              "status": "[parameters('diagnosticsStatus')]",
+              "storageAccountName": "[parameters('diagnosticsStorageAccountName')]",
+              "retention": "30"
+            }
+          }
+        ]
     }
-     
-
-
 
 ## Comandi per eseguire la distribuzione
 
@@ -86,4 +129,4 @@ Crea la Cache Redis di Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

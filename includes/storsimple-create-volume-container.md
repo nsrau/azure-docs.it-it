@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Creare un contenitore di volumi"
-   description="Viene descritto come creare un contenitore di volumi in un dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per creare un contenitore di volumi
 
@@ -31,4 +16,8 @@
 
   Il contenitore di volumi appena creato verrà elencato nella pagina **Contenitori di volumi**.
 
-<!---HONumber=Sept15_HO2-->
+![Video disponibile](./media/storsimple-create-volume-container/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come creare un nuovo contenitore di volumi per la soluzione StorSimple, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+
+<!---HONumber=Sept15_HO3-->

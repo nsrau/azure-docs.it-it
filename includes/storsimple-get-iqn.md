@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per ottenere il nome qualificato iSCSI di un host di Windows
 
@@ -9,4 +10,4 @@
 
 3. Salvare la stringa.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

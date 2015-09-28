@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 #### Per aggiungere un account di archiviazione nell’aggiornamento 1.0 della serie 8000 di StorSimple
 
@@ -46,4 +47,4 @@
 
 7. L'account di archiviazione appena creato verrà visualizzato nella pagina **Configura** in **Account di archiviazione**. Fare clic su **Salva** per salvare il nuovo account di archiviazione. Fare clic su **OK** quando viene richiesto di confermare.
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Ambienti di test cloud ibridi | Microsoft Azure"
-	description="Informazioni su come creare un ambiente cloud ibrido per professionisti IT o per il test di sviluppo, inclusa una rete locale semplificata."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Ambienti di test cloud ibridi | Microsoft Azure" 
+	description="Informazioni su come creare un ambiente cloud ibrido per professionisti IT o per il test di sviluppo, inclusa una rete locale semplificata." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # Configurazione di un ambiente cloud ibrido per l'esecuzione di test
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Questo argomento illustra la creazione di un ambiente cloud ibrido in Microsoft Azure per attività di test. Di seguito è riportata la configurazione risultante.
 
@@ -57,8 +59,8 @@ Accedere a DC1 con le credenziali CORP\\User1. Per configurare il dominio CORP i
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet –Name "10.0.0.0/8" –Site "TestLab"
-	New-ADReplicationSubnet –Name "192.168.0.0/16" –Site "TestVNET
+	New-ADReplicationSubnet “Name "10.0.0.0/8" “Site "TestLab"
+	New-ADReplicationSubnet “Name "192.168.0.0/16" “Site "TestVNET
 
 Questa è la configurazione corrente.
 
@@ -85,15 +87,15 @@ Usare questi comandi in un prompt dei comandi di Windows PowerShell di livello a
 	$publicIPpreflength=<Prefix length of your public IP address>
 	[IPAddress]$publicDG="<Your ISP default gateway>"
 	[IPAddress]$publicDNS="<Your ISP DNS server(s)>"
-	Rename-NetAdapter –Name $corpnetAdapterName –NewName Corpnet
-	Rename-NetAdapter –Name $internetAdapterName –NewName Internet
-	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength –DefaultGateway $publicDG
+	Rename-NetAdapter -Name $corpnetAdapterName -NewName Corpnet
+	Rename-NetAdapter -Name $internetAdapterName -NewName Internet
+	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength “DefaultGateway $publicDG
 	Set-DnsClientServerAddress -InterfaceAlias Internet -ServerAddresses $publicDNS
 	New-NetIPAddress -InterfaceAlias "Corpnet" -IPAddress 10.0.0.2 -AddressFamily IPv4 -PrefixLength 24
 	Set-DnsClientServerAddress -InterfaceAlias "Corpnet" -ServerAddresses 10.0.0.1
 	Set-DnsClient -InterfaceAlias "Corpnet" -ConnectionSpecificSuffix corp.contoso.com
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-Out” –Protocol ICMPv4 –Direction Outbound
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Input" -Protocol ICMPv4
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Output" -Protocol ICMPv4 -Direction Outbound
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_msclient
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_server
 	ping dc1.corp.contoso.com
@@ -197,14 +199,14 @@ Configurare DC1, APP1 e CLIENT1 per usare RRAS1 come gateway predefinito.
  
 In DC1 eseguire questi comandi in un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
-	Set-DhcpServerv4OptionValue –Router 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
+	Set-DhcpServerv4OptionValue -Router 10.0.0.2
 
 Se il nome dell'interfaccia non è Ethernet, usare il comando **Get-NetAdapter** per determinare il nome dell'interfaccia.
 
 In APP1 eseguire questo comando in un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
 
 In CLIENT1 eseguire questo comando in un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
@@ -223,13 +225,13 @@ Innanzitutto, creare una macchina virtuale di Azure per DC2 con questi comandi a
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 
 Accedere quindi alla nuova macchina virtuale DC2.
@@ -326,4 +328,4 @@ Accedere ora a RRAS1 come amministratore locale ed eseguire questi comandi in un
 Passare quindi al portale di gestione di Azure nel computer locale e attendere che per la rete virtuale TestVNET venga visualizzato lo stato Connessa.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

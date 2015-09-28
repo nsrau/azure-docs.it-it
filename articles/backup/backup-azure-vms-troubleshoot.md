@@ -3,18 +3,11 @@
 	description="Informazioni su come risolvere i problemi relativi al backup e al ripristino delle macchine virtuali di Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Risoluzione dei problemi
@@ -30,7 +23,6 @@
 ## Registra
 | Operazione di backup | Dettagli errore | Soluzione alternativa |
 | -------- | -------- | -------|
-| Registra | Lo stato del ruolo VM di Azure non consente di installare l'estensione. Verificare che la VM si trovi nello stato di esecuzione. L'estensione dei servizi di ripristino di Azure richiede che VM sia in esecuzione. | Avviare la macchina virtuale e quando è nello stato di esecuzione, ripetere l'operazione di registrazione.|
 | Registra | Il numero di dischi dati collegati alla macchina virtuale ha superato il limite supportato. Scollegare alcuni dischi dati in questa macchina virtuale e ripetere l'operazione. Il backup di Azure supporta un massimo di 16 dischi dati collegati a una macchina virtuale di Azure per il backup | Nessuno |
 | Registra | Microsoft Azure Backup ha rilevato un errore interno. Attendere qualche minuto prima di ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. | È possibile che questo errore sia provocato da una delle configurazioni non supportate seguenti: <ol><li>Archiviazione con ridondanza locale Premium <li>Scheda di interfaccia di rete multipla <li>Bilanciamento del carico </ol> |
 | Registra | Registrazione non riuscita con timeout dell'operazione dell'agente di installazione | Controllare se la versione del sistema operativo della macchina virtuale è supportata. |
@@ -95,9 +87,20 @@ Per VM di Windows:
 - Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore.
 - [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato.
 
+Per le macchine virtuali Linux:
+
+- Installare l’[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da github. 
+- [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato.
+
 
 ### Aggiornamento dell'agente di VM
-L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). È tuttavia necessario assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM.
+Per VM di Windows:
+
+- L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). È tuttavia necessario assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM.
+
+Per le macchine virtuali Linux:
+
+- Seguire le istruzioni in [Aggiornamento agente delle macchine Virtuali Linux ](../virtual-machines-linux-update-agent.md). 
 
 
 ### Convalida dell'installazione dell'agente di VM
@@ -120,4 +123,4 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
 1. Ottenere l'elenco di [IP dei data center di Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) da aggiungere all'elenco di IP consentiti.
 2. Sbloccare gli IP mediante il cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Eseguire questo cmdlet entro la VM di VM, in una finestra di PowerShell con privilegi elevati, eseguita come amministratore.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

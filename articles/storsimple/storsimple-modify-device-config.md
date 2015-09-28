@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Modificare la configurazione del dispositivo StorSimple | Microsoft Azure"
-	description="Viene descritto come utilizzare il servizio StorSimple Manager per riconfigurare un dispositivo StorSimple che è già stato distribuito."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Modificare la configurazione del dispositivo StorSimple | Microsoft Azure" 
+   description="Viene descritto come utilizzare il servizio StorSimple Manager per riconfigurare un dispositivo StorSimple che è già stato distribuito." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/14/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple
 
@@ -83,7 +83,7 @@ Per ogni interfaccia di rete, vengono visualizzati i seguenti parametri:
 
 - **Velocità**: non è un parametro configurabile dall'utente. DATA 0, DATA 1, DATA 4 e DATA 5 sono sempre da 1 GbE, mentre DATA 2 e DATA 3 sono interfacce di rete da 10 GbE.
 
-     >[AZURE.NOTE] velocità e duplex sono sempre negoziati automatica. I frame jumbo non sono supportati.
+     >[AZURE.NOTE]Velocità e duplex sono sempre sottoposti alla negoziazione automatica. Non sono supportati i frame Jumbo.
  
 - **Stato interfaccia**– un'interfaccia può essere abilitata o disabilitata. Se abilitata, il dispositivo tenterà di utilizzare l'interfaccia. Si consiglia di abilitare solo tali interfacce che sono connesse alla rete e utilizzati. Disabilitare tutte le interfacce che non sono in uso.
 
@@ -94,7 +94,7 @@ Per ogni interfaccia di rete, vengono visualizzati i seguenti parametri:
 
     Si consiglia di isolare il traffico iSCSI dal traffico di archiviazione cloud. Si noti inoltre che se l'host è all'interno della stessa subnet del dispositivo, non è necessario assegnare un gateway. Tuttavia, se l'host si trova in una subnet diversa del dispositivo, è necessario assegnare un gateway.
 
-- **Indirizzo IP**: può trattarsi di IPv4 o IPv6 o entrambi. Sono supportate sia le famiglie di indirizzi IPv4 e sia IPv6 per le interfacce di rete del dispositivo. Quando si utilizza IPv4, specificare un indirizzo IP a 32 bit (* xxx.xxx.xxx.xxx*) in notazione decimale. Quando si utilizza IPv6, è sufficiente fornire un prefisso a 4 cifre e un indirizzo a 128 bit verrà generato automaticamente per l'interfaccia di rete del dispositivo in base al prefisso.
+- **Indirizzo IP**: può trattarsi di IPv4 o IPv6 o entrambi. Sono supportate sia le famiglie di indirizzi IPv4 e sia IPv6 per le interfacce di rete del dispositivo. Quando si utilizza IPv4, specificare un indirizzo IP a 32 bit (*xxx.xxx.xxx.xxx*) in notazione decimale. Quando si utilizza IPv6, è sufficiente fornire un prefisso a 4 cifre e un indirizzo a 128 bit verrà generato automaticamente per l'interfaccia di rete del dispositivo in base al prefisso.
 
 - **Subnet**: si riferisce alla subnet mask e viene configurata tramite l'interfaccia Windows PowerShell.
 
@@ -124,8 +124,9 @@ Per sostituire o riassegnare i VIP per qualsiasi interfaccia di rete, procedere 
 
 ## Passaggi successivi
 
-[Configurare MPIO per il dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
- 
+- Informazioni su come [Configurare MPIO per il dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
+
+- Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

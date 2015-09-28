@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Scalare un'app Web in Servizio app di Azure #
 
 Per migliorare le prestazioni e la velocità effettiva delle app Web in Microsoft Azure, è possibile utilizzare il [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) e scalare il piano [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) dalla modalità **Gratuita** a quella **Condivisa**, **Base**, **Standard** o **Premium**.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Scalare le app Web di Azure implica due azioni correlate: modifica della modalità del piano App Service a un livello più elevato e configurazione di determinate impostazioni dopo essere passati a un livello di servizio più elevato. In questo articolo vengono illustrati entrambi gli argomenti. Livelli di servizio più elevati quali le modalità **Standard** e **Premium** offrono maggiore potenza e flessibilità nella determinazione della modalità di utilizzo delle risorse in Azure.
 
@@ -199,4 +201,4 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

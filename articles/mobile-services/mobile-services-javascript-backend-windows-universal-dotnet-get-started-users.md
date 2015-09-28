@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduzione all'autenticazione (Windows Store) | Microsoft Azure" 
+	pageTitle="Aggiungere l'autenticazione all'app universale di Windows 8.1 | Servizi mobili di Azure"
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Store tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Aggiungere l'autenticazione all'app di Servizi mobili
+# Aggiungere l'autenticazione all'app universale della piattaforma UWP 8.1
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app di Windows universale. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
+Questo argomento illustra come autenticare gli utenti in Servizi mobili di Azure dalla propria app di Windows universale 8.1. Nell'esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato da Servizi mobili. In seguito all'autenticazione e all'autorizzazione di Servizi mobili, viene visualizzato il valore dell'ID utente.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili] o [Aggiungere Servizi mobili a un'app esistente](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md).
 
@@ -84,4 +84,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

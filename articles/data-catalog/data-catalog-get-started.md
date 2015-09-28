@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introduzione al Catalogo dati di Azure con catalogo dati"
-	description="Esercitazione end-to-end degli scenari e delle funzionalità del Catalogo dati di Azure."
-	documentationCenter=""
-	services="data-catalog"
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="Esercitazione end-to-end degli scenari e delle funzionalità del Catalogo dati di Azure."
+   documentationCenter=""
+   services="data-catalog"
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/11/2015"
+   ms.author="derrickv"/>
 
 # Introduzione al Catalogo dati di Azure
 
@@ -148,7 +148,16 @@ In questo esercizio si usa un altro utente per aggiungere i metadati agli asset 
 
 Chiedere a un collega di ripetere l’esercizio precedente **Annotazione delle origini dati registrate**. Dopo che il collega ha aggiunto una descrizione a un asset di dati, ad esempio ProductPhoto, verranno visualizzate più annotazioni.
 
-In questo esercizio sono state usate le funzionalità del Catalogo dati di Azure per i metadati crowdsourced, dove qualsiasi utente del catalogo può annotare gli asset di dati individuati. Esercizio: connessione alle origini dati. In questo esercizio si userà il portale del **Catalogo dati di Azure** per la connessione alle origini dati mediante Microsoft Excel.
+
+![crowdsource][13]
+
+In questo esercizio sono state usate le funzionalità del Catalogo dati di Azure per i metadati crowdsourced, dove qualsiasi utente del catalogo può annotare gli asset di dati individuati.
+
+
+## Esercizio 6: Connessione alle origini dati
+
+In questo esercizio si userà il portale del **Catalogo dati di Azure** per la connessione alle origini dati mediante Microsoft Excel.
+
 
 > [AZURE.NOTE]È importante ricordare che il **Catalogo dati di Azure** non consente agli utenti di accedere all'origine dati effettiva, ma ne semplifica per gli utenti l’individuazione e la comprensione. Quando gli utenti si connettono a un'origine dati, l'applicazione client scelta usa le credenziali di Windows o richiede le credenziali necessarie. Se l'utente non ha già ottenuto l'accesso all'origine dati, dovrà essere concesso l'accesso prima che possa connettersi.
 
@@ -168,7 +177,7 @@ In questo esercizio sono state usate le funzionalità del Catalogo dati di Azure
 
 In questo esercizio ci si connette alle origini dati individuate tramite il Catalogo dati di Azure. Il portale del **Catalogo dati di Azure** consente agli utenti di connettersi direttamente tramite le applicazioni client integrate nel menu **Apri in** e consente agli utenti di connettersi mediante qualsiasi applicazione scelta usando le informazioni sul percorso di connessione incluse nei metadati dell'asset.
 
-## Esercizio 6: rimozione dei metadati dell'origine dati
+## Esercizio 7: rimozione dei metadati dell'origine dati
 
 In questo esercizio si userà il portale del **Catalogo dati di Azure** per rimuovere i dati di anteprima dagli asset di dati registrati ed eliminare gli asset di dati dal catalogo.
 
@@ -185,7 +194,7 @@ Nel **Catalogo dati di Azure** è possibile rimuovere l’anteprima dall'elimina
 
 In questo esercizio sono stati rimossi asset di dati registrati dal catalogo.
 
-## Esercizio 7: gestione delle origini dati registrate
+## Esercizio 8: gestione delle origini dati registrate
 
 In questo esercizio si userà la funzionalità di gestione del **Catalogo dati di Azure** per assumere la proprietà di asset di dati e per controllare gli utenti che possono individuare e gestire tali asset.
 
@@ -221,5 +230,6 @@ In questa esercitazione sono state analizzate le funzionalità essenziali dell�
 [10]: ./media/data-catalog-get-started/connect1.png
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
+[13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

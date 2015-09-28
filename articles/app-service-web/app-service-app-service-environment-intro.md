@@ -1,30 +1,34 @@
 <properties 
-	pageTitle="Introduzione all'ambiente del servizio app"
-	description="Informazioni sulla funzionalità Ambiente del servizio app che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l'esecuzione di tutte le app."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Introduzione all'ambiente del servizio app" 
+	description="Informazioni sulla funzionalità Ambiente del servizio app che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l'esecuzione di tutte le app." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Introduzione all'ambiente del servizio app
 
 ## Panoramica ##
 Un ambiente del servizio app è un'opzione del piano di servizio [Premium][PremiumTier] di un Servizio app di Azure che offre un ambiente completamente isolato e dedicato per eseguire in modo sicuro tutte le app, tra cui [app Web][WebApps], [app per dispositivi mobili][MobileApps], [app per le API][APIApps] e [app per la logica][LogicApps] con opzioni di scalabilità estese.
 
-Le risorse di calcolo per un ambiente del servizio app sono dedicate esclusivamente all'esecuzione delle proprie app. Un ambiente del servizio app viene sempre creato in una rete virtuale regionale, che offre alle app nuove opzioni per l'isolamento della rete. Un ambiente del servizio app supporta inoltre opzioni di scalabilità aggiuntive e offre fino a un massimo di cinquanta (50) risorse di calcolo per l'esecuzione delle app. All'esterno di un ambiente del servizio app è previsto un limite di 20 risorse di calcolo per ospitare le applicazioni.
+Le risorse di calcolo per un ambiente del servizio app sono dedicate esclusivamente all'esecuzione delle proprie app. Un ambiente del servizio app viene sempre creato in una rete virtuale regionale “v1”, che offre alle app nuove opzioni per l'isolamento della rete. Un ambiente del servizio app supporta inoltre opzioni di scalabilità aggiuntive e offre fino a un massimo di cinquanta (50) risorse di calcolo per l'esecuzione delle app. All'esterno di un ambiente del servizio app è previsto un limite di 20 risorse di calcolo per ospitare le applicazioni.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Supporto della rete virtuale ##
-È possibile creare un ambiente del servizio app in una rete virtuale regionale preesistente o in una nuova rete virtuale regionale ([altre informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks]). Poiché un ambiente del servizio app è sempre incluso in una rete virtuale regionale, e più precisamente, all'interno di una subnet di una rete virtuale regionale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.
+È possibile creare un ambiente del servizio app in una rete virtuale regionale classica preesistente “v1”o in una nuova rete virtuale regionale “v1” ([altre informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks]). Poiché un ambiente del servizio app è sempre incluso in una rete virtuale regionale, e più precisamente, all'interno di una subnet di una rete virtuale regionale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.
+
+**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2".
 
 È possibile usare i [gruppi di sicurezza di rete][NetworkSecurityGroups] per limitare le comunicazioni di rete in ingresso alla subnet in cui risiede un ambiente del servizio app. In questo modo è possibile eseguire le app protette da dispositivi e servizi upstream, quali firewall per applicazioni Web e provider di servizi SaaS di rete.
 
@@ -79,4 +83,4 @@ Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

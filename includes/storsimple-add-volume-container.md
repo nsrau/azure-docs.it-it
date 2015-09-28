@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/16/15-->
+
 #### Per aggiungere un contenitore di volumi
 
 1. Nella pagina **Dispositivi**, selezionare il dispositivo facendo doppio clic, quindi selezionare la scheda **Contenitori di volumi**.
@@ -20,4 +22,4 @@
 Il contenitore di volumi verrà salvato e il contenitore di volumi appena creato verrà elencato nella pagina **Contenitori di volumi**.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

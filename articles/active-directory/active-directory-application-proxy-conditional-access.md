@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Utilizzo di access condizionale
-> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE]Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 È ora possibile abilitare le regole di accesso per garantire l'accesso condizionale a utenti e gruppi di accesso alle applicazioni pubblicate tramite Proxy dell'applicazione. Ciò consente di: - Richiedere l’autenticazione a più fattori per ogni applicazione - richiedere l'autenticazione a più fattori solo quando gli utenti non sono al lavoro - Impedire agli utenti l'accesso all'applicazione quando non sono al lavoro
 
@@ -44,10 +44,10 @@ Queste regole possono essere applicate a tutti gli utenti e gruppi o solo a uten
 
 
 ## Configurazione di autenticazione a più fattori per servizi di federazione
-Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale. Per impostazione predefinita, verrà eseguita l'autenticazione a più fattori in qualsiasi pagina ospitata da Azure Active Directory. Per configurare l'autenticazione a più fattori in locale, eseguire Windows PowerShell e utilizzare la proprietà – SupportsMFA per impostare il modulo di Azure AD. Nell'esempio seguente viene illustrato come abilitare l'autenticazione a più fattori in locale utilizzando il [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) del tenant contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` Oltre a impostare questo flag, l'istanza di tenant federato ADFS deve essere configurata per eseguire l'autenticazione a più fattori. Seguire le istruzioni per la [Distribuzione di Microsoft Azure Multi-Factor Authentication in locale](http://technet.microsoft.com/library/dn280946.aspx).
+Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale. Per impostazione predefinita, verrà eseguita l'autenticazione a più fattori in qualsiasi pagina ospitata da Azure Active Directory. Per configurare l'autenticazione a più fattori in locale, eseguire Windows PowerShell e utilizzare la proprietà – SupportsMFA per impostare il modulo di Azure AD. Nell'esempio seguente viene illustrato come abilitare l'autenticazione a più fattori in locale utilizzando il [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) del tenant contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` Oltre a impostare questo flag, l'istanza di tenant federato ADFS deve essere configurata per eseguire l'autenticazione a più fattori. Seguire le istruzioni per la [Distribuzione di Microsoft Azure Multi-Factor Authentication in locale](..multi-factor-authentication-get-started-server.md).
 ## Risorse aggiuntive
 
 * [Iscriversi ad Azure come organizzazione](..sign-up-organization.md)
 * [Identità di Azure](..fundamentals-identity.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

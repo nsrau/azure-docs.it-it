@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Ripristinare un volume StorSimple dal backup | Microsoft Azure"
-	description="Viene illustrato come utilizzare la pagina del catalogo di backup del servizio StorSimple Manager per ripristinare un volume StorSimple da un set di backup."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Viene illustrato come utilizzare la pagina del catalogo di backup del servizio StorSimple Manager per ripristinare un volume StorSimple da un set di backup."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Ripristinare un volume StorSimple da un set di backup
 
@@ -78,8 +78,14 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 8. Dopo aver completato il ripristino, è possibile verificare che i contenuti dei volumi siano sostituiti dai volumi dal backup.
 
+![Video disponibile](./media/storsimple-restore-from-backup-set/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come è possibile utilizzare le funzionalità di copia e ripristino di StorSimple per ripristinare file eliminati, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ## Passaggi successivi
 
-Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes.md)
+- Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=September15_HO1-->
+- Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

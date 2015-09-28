@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Applicazione Web di .NET di modello app v 2.0 | Microsoft Azure"
 	description="Come creare un'app Web .NET MVC che chiama servizi Web usando account Microsoft personali, aziendali e dell'istituto di istruzione per l'accesso."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Chiamata di un'API Web da un'app Web .NET
@@ -42,7 +42,7 @@ Per seguire la procedura è possibile [scaricare la struttura dell'app come file
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-In alternativa, è possibile [scaricare l'app completata in formato zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) oppure duplicare l'app completata
+Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
@@ -120,8 +120,8 @@ Nella notifica `AuthorizationCodeReceived` si intende usare [OAuth 2.0 insieme a
 - Per prima cosa installare la versione di anteprima di ADAL:
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- Inoltre, aggiungere un'istruzione  `using` al file `App_Start\Startup.Auth.cs` per C6.
-- A questo punto aggiungere un nuovo metodo, il gestore eventi `OnAuthorizationCodeReceived`.  Tale gestore utilizza ADAL per ottenere un token di accesso all'API dell'elenco To-Do e consente di archiviare il token nella cache token di ADAL per un uso successivo:
+- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
+- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -207,4 +207,4 @@ Per altre risorse consultare:
 - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

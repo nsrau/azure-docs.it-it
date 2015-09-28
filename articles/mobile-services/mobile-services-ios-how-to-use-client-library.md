@@ -233,6 +233,12 @@ In alternativa, eliminarlo specificando un ID di riga:
 
 Per le operazioni di eliminazione, è necessario che sia impostato almeno l'attributo `id`.
 
+##<a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
+
+Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON. Per un esempio di come creare un'API personalizzata nel servizio mobile, vedere [Procedura: definire un endpoint API personalizzato](mobile-services-dotnet-backend-define-custom-api.md).
+
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>Procedura: Autenticare gli utenti
 
@@ -326,4 +332,4 @@ Il file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azur
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestione dei problemi di conflitto]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="MikeWasson"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/16/2015"
 	ms.author="mwasson"/>
 
 # Configurare un nome di dominio personalizzato nel servizio app di Azure
@@ -24,14 +24,13 @@
 - [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 - [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
 Quando si crea un'app Web, Azure la assegna a un sottodominio di azurewebsites.net. Ad esempio, se l'app Web è denominata **contoso**, l'URL corrisponderà a **contoso.azurewebsites.net**. Azure assegna anche un indirizzo IP virtuale.
 
 Per un'app Web di produzione, è probabile che l'amministratore desideri che gli utenti vedano un nome di dominio personalizzato. Questo articolo spiega come acquistare e configurare un dominio personalizzato con [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
+[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## Panoramica
 
@@ -148,4 +147,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

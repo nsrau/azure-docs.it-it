@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usare la rete CDN di Azure nel servizio app di Azure"
-	description="Esercitazione che descrive come distribuire nel servizio app di Azure un'app Web che rende disponibile contenuto da un endpoint della rete CDN di Azure integrato"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Usare la rete CDN di Azure nel servizio app di Azure" 
+	description="Esercitazione che descrive come distribuire nel servizio app di Azure un'app Web che rende disponibile contenuto da un endpoint della rete CDN di Azure integrato" 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,6 +27,8 @@ L'integrazione di app Web con la rete CDN di Azure offre i vantaggi seguenti:
 - Facile aggiornamento dei pacchetti NuGet nell'app Web nel servizio app di Azure, come le versioni di jQuery o Bootstrap 
 - Gestione dell'applicazione Web e del contenuto gestito dalla rete CDN dalla stessa interfaccia di Visual Studio
 - Integrazione di creazione di bundle e minimizzazione ASP.NET con la rete CDN di Azure
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Obiettivo di compilazione ##
 
@@ -99,7 +101,7 @@ In questa sezione verrà distribuito nel servizio app il modello di applicazione
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Successivamente, provare ad accedere al file **\~/Content/bootstrap.css** nel progetto ASP.NET. Nella finestra del browser passare a **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Nella configurazione illustrata, questo URL è il seguente:
+1. Successivamente, provare ad accedere al file **~/Content/bootstrap.css** nel progetto ASP.NET. Nella finestra del browser passare a **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Nella configurazione illustrata, questo URL è il seguente:
 
 		http://az673227.vo.msecnd.net/Content/bootstrap.css
 
@@ -123,7 +125,7 @@ Tenere presente che non è sempre una buona idea (almeno in generale) rendere di
 
 -	Questo approccio richiede di rendere pubblico l'intero sito, perché la rete CDN di Azure non può gestire contenuti privati.
 -	Se l'endpoint della rete CDN passa in modalità offline per qualsiasi motivo, ad esempio per scopi di manutenzione o a causa dell'errore di un utente, passa in modalità offline anche l'intera app Web, a meno che non sia possibile reindirizzare i clienti all'URL di origine **http://*&lt;sitename>*.azurewebsites.net/**. 
--	Anche con impostazioni di controllo della cache personalizzate (vedere [Configurare le opzioni di memorizzazione nella cache dei file statici nell'app Web di Azure](#caching)), un endpoint della rete CDN non migliora le prestazioni dei contenuti altamente dinamici. Se si è provato a caricare la home page dall'endpoint della rete CDN come sopra illustrato, si è osservato che il caricamento della pagina iniziale predefinita, cioè una pagina abbastanza semplice, ha richiesto almeno cinque secondi la prima volta. Si può dunque immaginare quale sarebbe l'esperienza del cliente se questa pagina includesse contenuto dinamico da aggiornare ogni minuto. Gestire contenuti dinamici da un endpoint della rete CDN richiede una scadenza breve della cache, che si traduce in frequenti mancati riscontri nella cache sull'endpoint della rete CDN. Ciò influisce negativamente sulle prestazioni dell'app Web di Azure e vanifica lo scopo di una rete CDN.
+-	Anche con impostazioni di controllo della cache personalizzate (vedere [Configurare le opzioni di memorizzazione nella cache dei file statici nell'app Web di Azure](#configure-caching-options-for-static-files-in-your-azure-web-app)), un endpoint della rete CDN non migliora le prestazioni dei contenuti altamente dinamici. Se si è provato a caricare la home page dall'endpoint della rete CDN come sopra illustrato, si è osservato che il caricamento della pagina iniziale predefinita, cioè una pagina abbastanza semplice, ha richiesto almeno cinque secondi la prima volta. Si può dunque immaginare quale sarebbe l'esperienza del cliente se questa pagina includesse contenuto dinamico da aggiornare ogni minuto. Gestire contenuti dinamici da un endpoint della rete CDN richiede una scadenza breve della cache, che si traduce in frequenti mancati riscontri nella cache sull'endpoint della rete CDN. Ciò influisce negativamente sulle prestazioni dell'app Web di Azure e vanifica lo scopo di una rete CDN.
 
 L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla rete CDN di Azure, valutando caso per caso nell'app Web di Azure. A tale scopo, si è già visto come accedere ai singoli file di contenuto dall'endpoint della rete CDN. Più avanti verrà illustrato come gestire una specifica azione del controller attraverso l'endpoint CDN in [Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure](#serve-content-from-controller-actions-through-azure-cdn).
 
@@ -149,7 +151,7 @@ A questo punto, tutti i file statici nell'app Web di Azure osserveranno la stess
 	  </system.webServer>
 	</configuration>
 
-Queste impostazioni causano la memorizzazione nella cache di tutti i file statici della cartella *\Content* per 15 giorni.
+Queste impostazioni causano la memorizzazione nella cache di tutti i file statici della cartella *\\Content* per 15 giorni.
 
 Per altre informazioni su come configurare l'elemento `<clientCache>`, vedere l'argomento relativo alla [cache client &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -167,7 +169,7 @@ Si usa una semplice azione `Index` che consente ai clienti di specificare i supe
 
 Seguire i passaggi precedenti per configurare questa azione del controller:
 
-1. Nella cartella *\Controllers*, creare un nuovo file con estensione cs denominato *MemeGeneratorController.cs* e sostituire il contenuto con il codice seguente. Sostituire il percorso del file per `~/Content/chuck.bmp` e il nome della rete CDN per `yourCDNName`.
+1. Nella cartella *\\Controllers*, creare un nuovo file con estensione cs denominato *MemeGeneratorController.cs* e sostituire il contenuto con il codice seguente. Sostituire il percorso del file per `~/Content/chuck.bmp` e il nome della rete CDN per `yourCDNName`.
 
 
         using System;
@@ -405,9 +407,9 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 
 	Questo costruttore comunica alle operazioni di creazione di bundle e minimizzazione ASP.NET di eseguire il rendering dei singoli file di script quando ne viene eseguito il debug a livello locale, ma di usare l'indirizzo della rete CDN specificato per accedere allo script in questione. Notare tuttavia due importanti caratteristiche di questo URL della rete CDN definito con precisione:
 	
-	- L'origine per questo URL della rete CDN è `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, che in realtà è la directory virtuale dell'aggregazione di script nell'applicazione Web.
-	- Poiché si sta usando un costruttore CDN, il tag dello script CDN per il bundle non contiene più la stringa di versione generata automaticamente nell'URL di cui è stato eseguito il rendering. È necessario generare manualmente una stringa di versione univoca ogni volta che il bundle di script viene modificato per forzare un mancato riscontro nella cache nella rete CDN di Azure. Allo stesso tempo, questa stringa di versione univoca deve rimanere costante per tutta la durata della distribuzione per aumentare i riscontri nella cache nella rete CDN di Azure dopo aver distribuito il bundle.
-	- La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\\AssemblyInfo.cs* nel progetto ASP.NET. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
+	-	L'origine per questo URL della rete CDN è `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, che in realtà è la directory virtuale dell'aggregazione di script nell'applicazione Web.
+	-	Poiché si sta usando un costruttore CDN, il tag dello script CDN per il bundle non contiene più la stringa di versione generata automaticamente nell'URL di cui è stato eseguito il rendering. È necessario generare manualmente una stringa di versione univoca ogni volta che il bundle di script viene modificato per forzare un mancato riscontro nella cache nella rete CDN di Azure. Allo stesso tempo, questa stringa di versione univoca deve rimanere costante per tutta la durata della distribuzione per aumentare i riscontri nella cache nella rete CDN di Azure dopo aver distribuito il bundle.
+	-	La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\\AssemblyInfo.cs* nel progetto ASP.NET. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly "*". ad esempio:
 
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -481,10 +483,10 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 	Quando `CdnFallbackExpression` non è Null, lo script viene inserito nel linguaggio HTML per provare se l'aggregazione è stata caricata correttamente. In caso contrario, accedere all'aggregazione direttamente dal server Web dell'origine. Questa proprietà deve essere impostata su un'espressione JavaScript che verifichi se il rispettivo bundle CDN è stato caricato correttamente. L'espressione necessaria per testare ogni bundle differisce in base al contenuto. Per i bundle predefiniti sopra riportati:
 	
-	- `window.jquery` viene definito nel file jquery-{version}.js
-	- `$.validator` viene definito nel file jquery.validate.js
-	- `window.Modernizr` viene definito nel file modernizer-{version}.js
-	- `$.fn.modal` viene definito nel file bootstrap.js
+	-	`window.jquery` viene definito nel file jquery-{version}.js
+	-	`$.validator` viene definito nel file jquery.validate.js
+	-	`window.Modernizr` viene definito nel file modernizer-{version}.js
+	-	`$.fn.modal` viene definito nel file bootstrap.js
 	
 	Come è possibile osservare, non è stata impostata la proprietà CdnFallbackExpression per l'aggregazione `~/Cointent/css`, e questo perché attualmente esiste un [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) che inserisce un tag `<script>` per il file CSS di fallback invece del tag `<link>` previsto.
 	
@@ -507,28 +509,27 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Pubblicare di nuovo l'app Web di Azure e accedere alla home page.
 5. Visualizzare il codice HTML relativo alla pagina. Gli script inseriti dovrebbero essere simili al seguente:    
 	
-	```
+	``` 
 	... 
 	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	<script> (function() { 
+	<script>(function() { 
 		var loadFallback, 
 			len = document.styleSheets.length; 
 		for (var i = 0; i < len; i++) { 
-		var sheet = document.styleSheets[i]; 
-		if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { 
-			var meta = document.createElement('meta'); 
-			meta.className = 'sr-only'; 
-			document.head.appendChild(meta); 
-			var value = window.getComputedStyle(meta).getPropertyValue('width'); 
-			document.head.removeChild(meta); 
-			if (value !== '1px') { 
-			document.write('<link href="/Content/css" rel="stylesheet" type="text/css" >'); 
+			var sheet = document.styleSheets[i]; 
+			if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { 
+		 	   var meta = document.createElement('meta'); 
+		           meta.className = 'sr-only'; 
+			   document.head.appendChild(meta); 
+			   var value = window.getComputedStyle(meta).getPropertyValue('width'); 
+			   document.head.removeChild(meta); 
+			   if (value !== '1px') { 
+			   document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); 
+			   } 
 			} 
 		} 
-	} 
-	return true; 
-	}())||document.write('<script src="/Content/css"></script>');
-	</script>
+		return true; 
+	}())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -565,4 +566,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="Creare una macchina virtuale di Windows nel portale di Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Creare una macchina virtuale con Windows nel portale di Azure
 
@@ -52,8 +52,4 @@ Questa sezione illustra come usare l'opzione **Da Galleria** nel portale di gest
 
 - Collegare un disco per archiviare i dati. È possibile collegare sia dischi vuoti sia dischi contenenti dati. Per istruzioni, vedere [Collegare un'esercitazione su disco dati](storage-windows-attach-disk.md).
 
-## Risorse aggiuntive
-
-Per altre informazioni su ciò che è possibile configurare per una macchina virtuale e quando farlo, vedere [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

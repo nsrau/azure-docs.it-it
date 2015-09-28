@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Installare il dispositivo StorSimple 8600 | Microsoft Azure"
-	description="Viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8600 prima di distribuire e configurare il software."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8600 prima di distribuire e configurare il software."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/06/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
 
@@ -196,7 +196,7 @@ Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizio
 - Cavi seriali forniti
 - Convertitore seriale-USB con il driver appropriato installato sul PC (se necessario)
 - Adattatori singoli QSFP-SFP forniti per l'uso con interfacce di rete da 10 GbE
-- [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
+- [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### SAS e i cavi di alimentazione
 
@@ -289,4 +289,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

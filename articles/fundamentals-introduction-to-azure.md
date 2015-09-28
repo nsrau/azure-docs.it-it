@@ -132,7 +132,6 @@ Precedentemente denominato SQL Azure, il database SQL di Azure offre tutte le fu
 
 Tuttavia, il database SQL non rappresenta solo un DBMS nel cloud: si tratta infatti di un vero e proprio servizio PaaS che consente di mantenere il controllo sui dati e sugli utenti che possono accedervi, ma gestisce tutto le attività amministrative, ad esempio la gestione dell'infrastruttura hardware e l'aggiornamento automatico del software di database e del sistema operativo. Il database SQL fornisce disponibilità elevata, backup automatici, funzionalità di ripristino a un momento specifico e possibilità di replicare copie tra varie aree geografiche.
 
-Dietro pagamento di un importo leggermente superiore è inoltre disponibile un'opzione Premium che consente di avere il proprio server sottostante dedicato. Con l'opzione Standard il database viene eseguito su hardware condiviso, che può limitare la velocità delle query su database in un server molto occupato.
 
 **Scenari per il database SQL**
 
@@ -612,4 +611,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

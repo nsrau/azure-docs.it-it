@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="09/08/2015"
 	ms.author="josephd"/>
 
 # SharePoint nei servizi infrastruttura di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
 
 Impostare la prima o successiva di sviluppo e test o produzione farm di SharePoint nei servizi infrastruttura di Microsoft Azure, dove è possibile sfruttare facilità di configurazione e la possibilità di espandere rapidamente la farm per includere la nuova capacità o l'ottimizzazione delle funzionalità chiave.
 
@@ -29,7 +31,7 @@ Per le macchine virtuali create utilizzando il modello di distribuzione classico
 
 L'ambiente creato automaticamente è costituito da tre server per un controller di dominio, un server SQL e il server SharePoint in una rete virtuale Azure solo cloud.
 
-Per creare una configurazione simile con il modello di distribuzione classico di Gestione risorse, utilizzare un modello. Vedere [Distribuire una farm di SharePoint da tre server](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Per creare una configurazione simile con il modello di distribuzione classico di Gestione risorse, utilizzare un modello. Vedere [Distribuire una farm di SharePoint a tre server](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
 ## Farm di sviluppo e test di SharePoint a disponibilità elevata
 
@@ -37,7 +39,7 @@ Per le macchine virtuali classiche, utilizzare la funzionalità [Farm di SharePo
 
 L'ambiente creato automaticamente è costituito da nove server in una rete virtuale Azure solo cloud: due per i controller di dominio, tre per un cluster SQL server, due server SharePoint di livello applicazione e due server di SharePoint di livello Web.
 
-Per creare una configurazione simile con macchine virtuali create in Gestione risorse, utilizzare un modello. Vedere [Distribuire una farm di SharePoint da nove server](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)
+Per creare una configurazione simile con macchine virtuali create in Gestione risorse, utilizzare un modello. Vedere [Distribuire una farm di SharePoint a nove server](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
 ## Farm di sviluppo e test cloud ibrida
 
@@ -65,4 +67,4 @@ Per ulteriori informazioni e configurazioni di SharePoint in Azure vedere queste
 
 - [Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

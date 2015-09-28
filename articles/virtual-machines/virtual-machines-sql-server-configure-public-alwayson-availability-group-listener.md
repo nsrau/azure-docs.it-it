@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure
 
@@ -34,8 +34,6 @@ Occorre notare le limitazioni seguenti per il listener del gruppo di disponibili
 - Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità, perché il listener è configurato per usare l'indirizzo IP virtuale del servizio cloud. Si noti che questa limitazione è ancora attiva, anche se Azure supporta ora la creazione di più indirizzi IP virtuali in un determinato servizio cloud.
 
 - Se si sta creando un listener per un ambiente ibrido, la rete locale deve disporre di connettività a Internet pubblico oltre che al VPN da sito a sito con la rete virtuale di Azure. Quando nella subnet di Azure, il listener del gruppo di disponibilità è raggiungibile solo tramite indirizzo IP pubblico del rispettivo servizio cloud.
-
->[AZURE.NOTE]Questa esercitazione illustra l'uso di PowerShell per creare un listener per un gruppo di disponibilità che include repliche di Azure. Per altre informazioni su come configurare i listener con SSMS o Transact-SQL, vedere [Creare o configurare un listener del gruppo di disponibilità](https://msdn.microsoft.com/library/hh213080.aspx).
 
 ## Determinare l'accessibilità del listener
 
@@ -124,4 +122,4 @@ Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificar
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

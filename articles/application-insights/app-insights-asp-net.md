@@ -148,9 +148,18 @@ Dopo avere fornito una nuova storia utente, si vuole determinare quanto viene us
 
 Se l'app non è stata ancora pubblicata, dopo l'aggiunta di Application Insights, pubblicarla ora. È possibile verificare la crescita dei dati nei grafici man mano che gli utenti usano l'app.
 
+
+#### Nessun dato dopo la pubblicazione nel server?
+
+Aprire le seguenti porte per il traffico in uscita nel firewall del server:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 ### Mantenere risorse separate per sviluppo, test e rilascio
 
 Per un'applicazione importante è consigliabile inviare dati di telemetria da debug, test e produzione a [risorse separate](app-insights-separate-resources.md).
+
 
 
 
@@ -166,7 +175,7 @@ Questo passaggio consente inoltre il [report dei contatori delle prestazioni](ap
 
 Accedere al server con diritti di amministratore, quindi installare [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-È anche possibile usare Status Monitor per [strumentare un'app già in esecuzione](app-insights-monitor-performance-live-website-now.md), anche se non è stata compilata con l'SDK.
+È necessario verificare alcune [altre porte sono aperte nel firewall del server](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
 #### Se l'app è un'app Web di Azure
 
@@ -226,4 +235,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

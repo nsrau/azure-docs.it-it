@@ -10,7 +10,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
@@ -18,6 +18,8 @@
 
 
 # Dettagli di configurazione della farm di SharePoint Server
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Farm di SharePoint Server è una funzionalità del portale di anteprima di Azure che crea automaticamente una farm di SharePoint Server 2013 preconfigurata. Ci sono due configurazioni della farm:
 
@@ -139,4 +141,4 @@ La funzionalità di Farm di SharePoint Server del Portale di anteprima di Azure 
 
 [Configurare una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

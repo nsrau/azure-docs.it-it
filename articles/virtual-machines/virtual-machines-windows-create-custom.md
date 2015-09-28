@@ -3,7 +3,7 @@
 	description="Come creare una macchina virtuale personalizzata su cui è in esecuzione Linux in Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Creare una macchina virtuale che esegue Windows in Azure
 
@@ -32,6 +32,6 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 ##Per creare la macchina virtuale
 
-[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

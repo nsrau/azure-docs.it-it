@@ -200,6 +200,15 @@ Quando si utilizza la replica basata su array (SAN) per attivare la replica e la
 
 Gli array devono essere individuati da SCVMM tramite un provider SMI-S aggiornato reso disponibile dai fornitori delle risorse di archiviazione.
 
+## Distribuire tra VMware e Azure
+
+### Ho una macchina virtuale VMware clonata. È possibile proteggere la macchina virtuale clonata in Azure?
+Non è possibile clonare una macchina virtuale protetta. È possibile proteggere una macchina virtuale VMware clonata in Azure purché la macchina virtuale clonata non abbia il servizio di mobilità installato. È possibile clonare la macchina virtuale prima di installare il servizio di mobilità per evitare voci duplicate, poiché entrambe le macchine virtuali riporteranno lo stesso GUID e ciò avrà un impatto sulla replica.
+
+### È possibile clonare le macchine virtuali del server di elaborazione?
+No, non si dovrebbe clonare il server di elaborazione. Quando viene distribuito il server di elaborazione, esso crea il proprio ID univoco. Se clonato, i due server di elaborazione avranno lo stesso GUID e ciò avrà un impatto sulla replica esistente.
+
+
 ## Distribuire tra server fisici e Azure
 
 ### È possibile proteggere un server fisico locale in Azure?
@@ -247,4 +256,4 @@ Per avviare la distribuzione  
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

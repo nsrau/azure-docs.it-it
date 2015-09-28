@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Distribuire un'applicazione line-of-business | Microsoft Azure"
-	description="Distribuire un'applicazione line-of-business a disponibilità elevata basata sul Web con i gruppi di disponibilità SQL Server AlwaysOn in Azure in cinque fasi."
+	pageTitle="Distribuire un'applicazione line-of-business | Microsoft Azure" 
+	description="Distribuire un'applicazione line-of-business a disponibilità elevata basata sul Web con i gruppi di disponibilità SQL Server AlwaysOn in Azure in cinque fasi." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Distribuire un'applicazione line-of-business a disponibilità elevata in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
 
 Questo argomento fornisce collegamenti alle istruzioni dettagliate per la distribuzione di un'applicazione line-of-business a disponibilità elevata, solo intranet basata sul Web con i gruppi di disponibilità SQL Server AlwaysOn nei servizi di infrastruttura di Azure. L'applicazione è ospitata nei computer seguenti:
 
@@ -66,4 +68,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

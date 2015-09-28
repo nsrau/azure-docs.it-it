@@ -65,7 +65,6 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 [Collegare un disco dati][]
 
 ## Risorse aggiuntive
-[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure][]
 
 [Ambiente di test di configurazione di base][]
 
@@ -96,11 +95,10 @@ Utilizzare un'immagine basata su una macchina virtuale di Azure esistente *acqui
 
 [Collegare un disco dati]: virtual-machines-linux-how-to-attach-disk.md
 
-[Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [Ambiente di test di configurazione di base]: virtual-machines-base-configuration-test-environment.md
 [Ambienti di test basati su cloud ibrido di Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
 [Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
 [Creare una macchina virtuale personalizzata]: virtual-machines-create-custom.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

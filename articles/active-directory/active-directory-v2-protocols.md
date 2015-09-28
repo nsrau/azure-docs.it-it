@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Protocolli di Modello app v 2.0 | Microsoft Azure"
 	description="Protocolli supportati dall'anteprima pubblica di Modello app 2.0 di Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -475,4 +475,4 @@ Il flusso On-Behalf-Of o la concessione delle credenziali di connessione JWT è 
 
 Questo flusso non è attualmente supportato dall'anteprima di Modello app 2.0. Per vedere come funziona nel servizio Azure AD disponibile a livello generale, vedere [questo esempio di codice di Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

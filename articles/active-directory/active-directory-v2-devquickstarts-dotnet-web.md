@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Applicazione Web di .NET di modello app v 2.0 | Microsoft Azure"
 	description="Come creare un'app Web .NET MVC che consente agli utenti di accedere sia con un account Microsoft personale sia con quello aziendale o dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app Web .NET MVC
@@ -21,12 +21,12 @@
 Con Modello app 2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web con supporto per account Microsoft personali, aziendali e dell'istituto di istruzione. Nelle app Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5.
 
   >[AZURE.NOTE]
-	Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+    Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
 
  Qui si userà OWIN per:
-- Fare accedere l'utente all'app usando Azure AD e Modello app 2.0 
-- Visualizzare alcune informazioni sull'utente 
-- Disconnettere l'utente dall'app.
+-	Fare accedere l'utente all'app usando Azure AD e Modello app 2.0
+-	Visualizzare alcune informazioni sull'utente
+-	Disconnettere l'utente dall'app.
 
 A questo scopo è necessario:
 
@@ -39,28 +39,28 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-L'app completa viene inoltre fornita alla fine di questa esercitazione.
+Al termine dell'esercitazione, verrà fornita anche l'app completata.
 
 ## 1. Registrare un'app
-Creare una nuova app [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questi [passaggi dettagliati] (active-directory-v2-app-registration.md).  Assicurarsi di:
+Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md).  Verificare di:
 
-- Copiare l'**ID applicazione** assegnato all'app; sarà necessario a breve.
-- Aggiungere la piattaforma **Web** all'app.
-- Inserire l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica Azure AD, dove devono essere dirette le risposte di autenticazione . L'URI predefinito per questo tutorial è `https://localhost:44326/`.
+- Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
+- Aggiungere la piattaforma **Web** per l'app.
+- Immettere l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica ad Azure AD dove indirizzare le risposte di autenticazione. Il valore predefinito per questa esercitazione è `https://localhost:44326/`.
 
 ## 2. Configurare l'app per l'uso della pipeline di autenticazione OWIN.
 In questo caso, verrà configurato il middleware OWIN per l'uso del protocollo di autenticazione OpenID Connect.  OWIN verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
--	Per iniziare, aprire il file 'web.config' alla radice del progetto e inserire i valori di configurazione dell'app nella sezione `<appSettings>` .
-    -	`ida:ClientId` è l'**ID applicazione** assegnata alla tua app nel portale di registrazione.
-    -	`ida:RedirectUri` è l'URI di reindirizzamento inserito nel portale.
+-	Per iniziare, aprire il file `web.config` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `<appSettings>`.
+    -	`ida:ClientId`rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
+    -	`ida:RedirectUri`rappresenta l'**URI di reindirizzamento** immesso nel portale.
 
--	Quindi aggiungere i pacchetti NuGet middleware OWIN al progetto usando la Console di Gestione pacchetti: 
+-	Successivamente, aggiungere il middleware NuGet al progetto usando la console di Gestione pacchetti.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
-PM> Install-Package Microsoft.Owin.Security.Cookies 
-PM> Install-Package Microsoft.Owin.Host.SystemWeb 
+PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
+PM> Install-Package Microsoft.Owin.Security.Cookies
+PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 -	Aggiungere al progetto una classe di avvio OWIN chiamata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> cercare "OWIN". Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app.
@@ -206,8 +206,8 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Proteggere un'API Web con Modello app 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Per altre risorse consultare: 
-- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) 
+Per altre risorse consultare:
+- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

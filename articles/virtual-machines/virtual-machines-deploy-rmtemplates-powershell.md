@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Distribuire e gestire macchine virtuali di Azure usando modelli di Gestione risorse e PowerShell"
-	description="È possibile distribuire il set più comune di configurazioni di macchine virtuali di Azure e gestirle facilmente mediante modelli di Gestione risorse e PowerShell."
+	pageTitle="Gestire le macchine virtuali usando Gestione risorse di Azure e PowerShell | Microsoft Azure"
+	description="Gestire le macchine virtuali usando Gestione risorse di Azure, i modelli e PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,24 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="09/10/2015"
 	ms.author="davidmu"/>
 
-# Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell
+# Gestire le macchine virtuali usando Gestione risorse di Azure e PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Portal](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-Questo articolo illustra come usare i modelli di Gestione risorse di Azure e PowerShell per automatizzare le attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per ulteriori modelli da poter utilizzare, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [App Framework](virtual-machines-app-frameworks.md).
+L'uso dei modelli di Azure PowerShell e Gestione risorse offre numerosi vantaggi e grande flessibilità nella gestione delle risorse in Microsoft Azure. È possibile usare le attività disponibili in questo articolo per creare e gestire le risorse delle macchine virtuali.
 
-- [Distribuire una macchina virtuale Windows](#windowsvm)
-- [Creare un'immagine di macchina virtuale personalizzata](#customvm)
-- [Distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico esterno](#multivm)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la gestione delle risorse con il modello di distribuzione Gestione risorse. È anche possibile gestire le risorse con il [modello di distribuzione classica](virtual-machines-windows-tutorial-classic-portal.md).
+
+Queste attività usano un modello di Gestione risorse e PowerShell:
+
+- [Creare una macchina virtuale](#windowsvm)
+- [Creare una macchina virtuale con un disco specializzato](#customvm)
+- [Creare più macchine virtuali in una rete virtuale con un servizio di bilanciamento del carico esterno](#multivm)
+
+Queste attività usano solo PowerShell:
+
 - [Rimuovere un gruppo di risorse](#removerg)
-- [Accedere a una macchina virtuale](#logon)
 - [Visualizzare informazioni relative a una macchina virtuale](#displayvm)
 - [Avviare una macchina virtuale](#start)
 - [Arrestare una macchina virtuale](#stop)
@@ -41,241 +46,54 @@ Prima di iniziare, assicurarsi che Azure PowerShell sia pronto all’uso.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Informazioni su modelli di risorse e gruppi di risorse di Azure
 
-La maggior parte delle applicazioni distribuite ed eseguite in Microsoft Azure viene creata da una combinazione di tipi diversi di risorse cloud (ad esempio una o più macchine virtuali e account di archiviazione, un database SQL o una rete virtuale). I modelli di Gestione risorse di Azure consentono di distribuire e gestire insieme queste risorse diverse tra loro tramite una descrizione JSON delle risorse e parametri di configurazione e distribuzione associati.
 
-Dopo aver definito un modello di risorsa basata su JSON, è possibile eseguirlo e usare un comando PowerShell per distribuire le risorse definite in Azure. È possibile eseguire questi comandi separatamente nella shell dei comandi PowerShell o integrandoli con uno script che contenga la logica di automazione aggiuntiva.
+## Modelli e gruppi di risorse di Gestione risorse di Azure
 
-Le risorse create con i modelli di Gestione risorse di Azure verranno distribuite in un gruppo di risorse Azure nuovo o esistente. Un *gruppo di risorse Azure* consente di gestire più risorse distribuite insieme come gruppo logico: in questo modo è possibile gestire il ciclo di vita complessivo del gruppo o dell'applicazione e fornire le API di gestione che consentono quanto segue:
+Alcune delle attività incluse in questo articolo illustrano come usare i modelli di Gestione risorse di Azure e PowerShell per distribuire e gestire automaticamente le macchine virtuali di Azure.
 
-- Arrestare, avviare o eliminare tutte le risorse all'interno del gruppo contemporaneamente.
-- Applicare le regole di controllo degli accessi in base al ruolo (RBAC) per bloccare le autorizzazioni di sicurezza su di essi.
-- Controllare le operazioni.
-- Contrassegnare le risorse con metadati aggiuntivi per una gestione più efficiente.
+La maggior parte delle applicazioni in esecuzione in Microsoft Azure è basata su una combinazione di diversi tipi di risorse cloud, ad esempio una o più macchine virtuali e account di archiviazione, un database SQL o una rete virtuale. I modelli di Gestione risorse di Azure consentono di gestire le diverse risorse insieme usando una descrizione JSON delle risorse e dei parametri di configurazione e di distribuzione associati.
 
-Altre informazioni su Gestione risorse di Azure sono disponibili [qui](virtual-machines-azurerm-versus-azuresm.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+Dopo la definizione di un modello di risorsa basato su JSON, sarà possibile usarlo con un comando PowerShell per distribuire le risorse definite in Azure. È possibile eseguire questi comandi separatamente nella shell dei comandi PowerShell o integrandoli con uno script che contenga la logica di automazione aggiuntiva.
 
-## <a id="windowsvm"></a>ATTIVITÀ: Distribuire una macchina virtuale Windows
+Le risorse create con i modelli di Gestione risorse di Azure verranno distribuite in un *Gruppo di risorse di Azure* nuovo o esistente. Un gruppo di risorse consente di gestire insieme più risorse distribuite sotto forma di gruppo logico. Sarà quindi possibile gestire il ciclo di vita complessivo del gruppo/applicazione.
 
-Usare le istruzioni riportate in questa sezione per distribuire una nuova macchina virtuale di Azure usando un modello di Gestione risorse e Azure PowerShell. Questo modello consente di creare una singola macchina virtuale in una nuova rete virtuale con una sola subnet.
+Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+
+### Creare un gruppo di risorse
+
+Per le attività di creazione di una risorsa, sarà necessario un gruppo di risorse, se non è già disponibile.
+
+Nel comando seguente sostituire *resource group name* con il nome del nuovo gruppo di risorse e *Azure location* con la posizione del data center di Azure in cui si vuole posizionare la risorsa, quindi eseguirlo:
+
+	New-AzureResourceGroup -Name "resource group name" -Location "Azure location"
+
+## <a id="windowsvm"></a>ATTIVITÀ: Creare una macchina virtuale
+
+Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere [Distribuire una semplice VM di Windows VM negli Stati Uniti occidentali](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-Seguire questi passaggi per creare una macchina virtuale Windows usando un modello di Gestione risorse nel repository dei modelli GitHub con Azure PowerShell.
+Nel comando seguente sostituire *deployment name* con il nome da usare per la distribuzione e *resource group name* con il nome del gruppo di risorse esistente, quindi eseguirlo:
 
-### Passaggio 1: esaminare il file JSON per il modello
+	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-Di seguito è riportato il contenuto del file JSON per il modello.
+Ad esempio:
 
-	{
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "newStorageAccountName": {
-            "type": "string",
-            "metadata": {
-                "Description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
-            }
-        },
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-               "Description": "User name for the virtual machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "Description": "Password for the virtual machine."
-            }
-        },
-        "dnsNameForPublicIP": {
-            "type": "string",
-            "metadata": {
-                  "Description": "Unique DNS name for the public IP used to access the virtual machine."
-            }
-        },
-        "windowsOSVersion": {
-            "type": "string",
-            "defaultValue": "2012-R2-Datacenter",
-            "allowedValues": [
-                "2008-R2-SP1",
-                "2012-Datacenter",
-                "2012-R2-Datacenter",
-                "Windows-Server-Technical-Preview"
-            ],
-            "metadata": {
-                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
-            }
-        }
-    },
-    "variables": {
-        "location": "West US",
-        "imagePublisher": "MicrosoftWindowsServer",
-        "imageOffer": "WindowsServer",
-        "OSDiskName": "osdiskforwindowssimple",
-        "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16",
-        "subnetName": "Subnet",
-        "subnetPrefix": "10.0.0.0/24",
-        "storageAccountType": "Standard_LRS",
-        "publicIPAddressName": "myPublicIP",
-        "publicIPAddressType": "Dynamic",
-        "vmStorageAccountContainerName": "vhds",
-        "vmName": "MyWindowsVM",
-        "vmSize": "Standard_D1",
-        "virtualNetworkName": "MyVNET",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('newStorageAccountName')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[variables('location')]",
-            "properties": {
-                "accountType": "[variables('storageAccountType')]"
-            }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "[variables('publicIPAddressName')]",
-            "location": "[variables('location')]",
-            "properties": {
-                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                "dnsSettings": {
-                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-                }
-            }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[variables('virtualNetworkName')]",
-            "location": "[variables('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnetName')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnetPrefix')]"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/networkInterfaces",
-            "name": "[variables('nicName')]",
-            "location": "[variables('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-                            },
-                            "subnet": {
-                                "id": "[variables('subnetRef')]"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[variables('vmName')]",
-            "location": "[variables('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
-                "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-            ],
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "[variables('vmSize')]"
-                },
-                "osProfile": {
-                    "computername": "[variables('vmName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "[variables('imagePublisher')]",
-                        "offer": "[variables('imageOffer')]",
-                        "sku" : "[parameters('windowsOSVersion')]",
-                        "version":"latest"
-                    },
-                   "osDisk" : {
-                        "name": "osdisk",
-                        "vhd": {
-                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
-                        },
-                        "caching": "ReadWrite",
-                        "createOption": "FromImage"
-                    }
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-	}
+	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-
-### Passaggio 2: creare la macchina virtuale con il modello
-
-Inserire un nome per la distribuzione di Azure, il nome gruppo di risorse e la posizione del data center di Azure, quindi eseguire questi comandi.
-
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-Quando si esegue il comando **New-AzureResourceGroupDeployment**, verrà richiesto di fornire i valori dei parametri riportati nella sezione "parameters" del file JSON. Dopo aver specificato tutti i valori dei parametri necessari, il comando crea il gruppo di risorse e la macchina virtuale.
-
-Di seguito è fornito un esempio.
-
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-Verrà visualizzata una schermata simile alla seguente:
+Verrà chiesto di fornire i valori dei parametri nella sezione **parameters** del file JSON:
 
 	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
-	newStorageAccountName: newsaacct
+	newStorageAccountName: saacct
 	adminUsername: WinAdmin1
 	adminPassword: *********
 	dnsNameForPublicIP: contoso
+
+Verrà visualizzata una schermata simile alla seguente:
+
 	VERBOSE: 10:56:59 AM - Template is valid.
 	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
 	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
@@ -297,7 +115,7 @@ Verrà visualizzata una schermata simile alla seguente:
 	Parameters        :
                     	Name             Type                       Value
 	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     newsaacct
+	                    newStorageAccountName  String                     saacct
 	                    adminUsername    String                     WinAdmin1
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
@@ -305,123 +123,23 @@ Verrà visualizzata una schermata simile alla seguente:
 
 	Outputs           :
 
-È ora disponibile una nuova macchina virtuale Windows denominata MyWindowsVM nel nuovo gruppo di risorse.
+Il video seguente illustra l'esecuzione di questa attività:
 
-## <a id="customvm"></a>ATTIVITÀ: Creare un'immagine di macchina virtuale personalizzata
+[AZURE.VIDEO deploy-a-windows-virtual-machine-with-azure-resource-manager-templates-and-powershell]
 
-Usare le istruzioni riportate in questa sezione per creare un'immagine di macchina virtuale personalizzata in Azure con un modello di Gestione risorse usando Azure PowerShell. Questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
+## <a id="customvm"></a>ATTIVITÀ: Creare una macchina virtuale con un disco specializzato
 
-### Passaggio 1: esaminare il file JSON per il modello
+Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere [Creare una VM da un disco VHD specializzato](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
-Di seguito il contenuto del file JSON per il modello.
+Nel comando seguente sostituire *deployment name* con il nome da usare per la distribuzione e *resource group name* con il nome del gruppo di risorse esistente, quindi eseguirlo:
 
-	{
-	    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-	    "contentVersion": "1.0.0.0",
-	    "parameters": {
-	        "osDiskVhdUri": {
-	            "type": "string",
-	            "metadata": {
-	                "Description": "Uri of the existing VHD"
-	            }
-	        },
-	        "osType": {
-	            "type": "string",
-	            "allowedValues": [
-	                "windows",
-	                "linux"
-	            ],
-	            "metadata": {
-	                "Description": "Type of OS on the existing vhd"
-	            }
-	        },
-	        "location": {
-	            "type": "String",
-	            "defaultValue": "West US",
-	            "metadata": {
-	                "Description": "Location to create the VM in"
-	            }
-	        },
-	        "vmSize": {
-	            "type": "string",
-	            "defaultValue": "Standard_A2",
-	            "metadata": {
-	                "Description": "Size of the VM"
-	            }
-	        },
-	        "vmName": {
-	            "type": "string",
-	            "defaultValue": "myVM",
-	            "metadata": {
-	                "Description": "Name of the VM"
-	            }
-	        },
-	        "nicName": {
-	            "type": "string",
-	            "defaultValue": "myNIC",
-	            "metadata": {
-	                "Description": "NIC to attach the new VM to"
-	            }
-	        }
-	    },
-	    "resources": [{
-	        "apiVersion": "2014-12-01-preview",
-	        "type": "Microsoft.Compute/virtualMachines",
-	        "name": "[parameters('vmName')]",
-	        "location": "[parameters('location')]",
-	        "properties": {
-	            "hardwareProfile": {
-	                "vmSize": "[parameters('vmSize')]"
-	            },
-	            "storageProfile": {
-	                "osDisk": {
-	                    "name": "[concat(parameters('vmName'),'-osDisk')]",
-	                    "osType": "[parameters('osType')]",
-	                    "caching": "ReadWrite",
-	                    "vhd": {
-	                        "uri": "[parameters('osDiskVhdUri')]"
-	                    }
-	                }
-	            },
-	            "networkProfile": {
-	                "networkInterfaces": [{
-	                    "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-	                }]
-	            }
-	        }
-	    }]
-	}
+	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-### Passaggio 2: ottenere il disco rigido virtuale
+Ad esempio:
 
-Per una macchina virtuale basata su Windows, vedere [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](virtual-machines-create-upload-vhd-windows-server.md).
+	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un disco rigido virtuale con Linux in Azure](virtual-machines-linux-create-upload-vhd.md).
-
-### Passaggio 3: creare la macchina virtuale con il modello
-
-Per creare una nuova macchina virtuale basata sul disco rigido virtuale, sostituire gli elementi all'interno dei segni di minore/maggiore ("< >") con le informazioni specifiche ed eseguire questi comandi:
-
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-Verrà richiesto di fornire i valori dei parametri contenuti nella sezione "parameters" del file JSON. Dopo aver specificato tutti i valori dei parametri, Gestione risorse di Azure crea il gruppo di risorse e la macchina virtuale.
-
-Di seguito è fornito un esempio:
-
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-
-Verrà visualizzato il tipo di informazioni seguente:
+Verrà chiesto di fornire i valori dei parametri nella sezione **parameters** del file JSON:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -432,350 +150,23 @@ Verrà visualizzato il tipo di informazioni seguente:
 	vmSize: Standard_A3
 	...
 
-## <a id="multivm"></a>ATTIVITÀ: Distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico esterno
+> [AZURE.NOTE]L'esempio precedente usa un file vhd disponibile nell'account di archiviazione saacct. Il nome del disco è stato fornito come parametro per il modello.
 
-Usare le istruzioni riportate in queste sezioni per distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico con un modello di Gestione risorse tramite Azure PowerShell. Questo modello consente di creare due macchine virtuali in una nuova rete virtuale con una singola subnet in un nuovo servizio cloud e di aggiungerle a un set con carico bilanciato esterno per il traffico in ingresso alla porta TCP 80.
+Il video seguente illustra l'esecuzione di questa attività:
+
+[AZURE.VIDEO create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell]
+
+## <a id="multivm"></a>ATTIVITÀ: Creare più macchine virtuali in una rete virtuale con un servizio di bilanciamento del carico esterno
+
+Questa attività usa un modello della raccolta di modelli. Per altre informazioni sul modello, vedere [Creare una VM da un disco VHD specializzato](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
-Seguire questi passaggi per distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico mediante un modello di Gestione risorse nell'archivio dei modelli GitHub tramite i comandi di Azure PowerShell.
+Nel comando seguente sostituire *deployment name* con il nome da usare per la distribuzione e *resource group name* con il nome del gruppo di risorse esistente, quindi eseguirlo:
 
-### Passaggio 1: esaminare il file JSON per il modello
+	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
-Di seguito il contenuto del file JSON per il modello.
-
-	{
-	"$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-	    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "region": {
-            "type": "string"
-        },
-        "storageAccountName": {
-            "type": "string",
-            "defaultValue": "uniqueStorageAccountName"
-        },
-        "adminUsername": {
-            "type": "string"
-        },
-        "adminPassword": {
-            "type": "securestring"
-        },
-        "dnsNameforLBIP": {
-            "type": "string",
-            "defaultValue": "uniqueDnsNameforLBIP"
-        },
-        "backendPort": {
-            "type": "int",
-            "defaultValue": 3389
-        },
-        "vmNamePrefix": {
-            "type": "string",
-            "defaultValue": "myVM"
-        },
-        "vmSourceImageName": {
-            "type": "string",
-            "defaultValue": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"
-        },
-        "lbName": {
-            "type": "string",
-            "defaultValue": "myLB"
-        },
-        "nicNamePrefix": {
-            "type": "string",
-            "defaultValue": "nic"
-        },
-        "publicIPAddressName": {
-            "type": "string",
-            "defaultValue": "myPublicIP"
-        },
-        "vnetName": {
-            "type": "string",
-            "defaultValue": "myVNET"
-        },
-        "vmSize": {
-            "type": "string",
-            "defaultValue": "Standard_A1",
-            "allowedValues": [
-                "Standard_A0",
-                "Standard_A1",
-                "Standard_A2",
-                "Standard_A3",
-                "Standard_A4"
-            ]
-        }
-    },
-    "variables": {
-        "storageAccountType": "Standard_LRS",
-        "vmStorageAccountContainerName": "vhds",
-        "availabilitySetName": "myAvSet",
-        "addressPrefix": "10.0.0.0/16",
-        "subnetName": "Subnet-1",
-        "subnetPrefix": "10.0.0.0/24",
-        "publicIPAddressType": "Dynamic",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('vnetName'))]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables ('subnetName'))]",
-        "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]",
-        "lbID": "[resourceId('Microsoft.Network/loadBalancers',parameters('lbName'))]",
-        "numberOfInstances": 2,
-        "nicId1": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'), 0))]",
-        "nicId2": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'), 1))]",
-        "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/LBFE')]",
-        "backEndIPConfigID1": "[concat(variables('nicId1'),'/ipConfigurations/ipconfig1')]",
-        "backEndIPConfigID2": "[concat(variables('nicId2'),'/ipConfigurations/ipconfig1')]",
-        "sourceImageName": "[concat('/', subscription().subscriptionId,'/services/images/',parameters('vmSourceImageName'))]",
-        "lbPoolID": "[concat(variables('lbID'),'/backendAddressPools/LBBE')]",
-        "lbProbeID": "[concat(variables('lbID'),'/probes/tcpProbe')]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2014-12-01-preview",
-            "location": "[parameters('region')]",
-            "properties": {
-                "accountType": "[variables('storageAccountType')]"
-            }
-        },
-        {
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[variables('availabilitySetName')]",
-            "apiVersion": "2014-12-01-preview",
-            "location": "[parameters('region')]",
-            "properties": {}
-        },
-        {
-            "apiVersion": "2014-12-01-preview",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "[parameters('publicIPAddressName')]",
-            "location": "[parameters('region')]",
-            "properties": {
-                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                "dnsSettings": {
-                    "domainNameLabel": "[parameters('dnsNameforLBIP')]"
-                }
-            }
-        },
-        {
-            "apiVersion": "2014-12-01-preview",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('vnetName')]",
-            "location": "[parameters('region')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnetName')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnetPrefix')]"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "apiVersion": "2014-12-01-preview",
-            "type": "Microsoft.Network/networkInterfaces",
-            "name": "[concat(parameters('nicNamePrefix'), copyindex())]",
-            "location": "[parameters('region')]",
-            "copy": {
-                "name": "nicLoop",
-                "count": "[variables('numberOfInstances')]"
-            },
-            "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "subnet": {
-                                "id": "[variables('subnetRef')]"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "apiVersion": "2014-12-01-preview",
-            "name": "[parameters('lbName')]",
-            "type": "Microsoft.Network/loadBalancers",
-            "location": "[parameters('region')]",
-            "dependsOn": [
-                "nicLoop",
-                "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
-            ],
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "LBFE",
-                        "properties": {
-                            "publicIPAddress": {
-                                "id": "[variables('publicIPAddressID')]"
-                            }
-                        }
-                    }
-                ],
-                "backendAddressPools": [
-                    {
-                        "name": "LBBE",
-                        "properties": {
-                            "backendIPConfigurations": [
-                                {
-                                    "id": "[variables('backEndIPConfigID1')]"
-                                },
-                                {
-                                    "id": "[variables('backEndIPConfigID2')]"
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "inboundNatRules": [
-                    {
-                        "name": "RDP-VM1",
-                        "properties": {
-                            "frontendIPConfigurations": [
-                                {
-                                    "id": "[variables('frontEndIPConfigID')]"
-                                }
-                            ],
-                            "backendIPConfiguration": {
-                                "id": "[variables('backEndIPConfigID1')]"
-                            },
-                            "protocol": "tcp",
-                            "frontendPort": 50001,
-                            "backendPort": 3389,
-                            "enableFloatingIP": false
-                        }
-                    },
-                    {
-                        "name": "RDP-VM2",
-                        "properties": {
-                            "frontendIPConfigurations": [
-                                {
-                                    "id": "[variables('frontEndIPConfigID')]"
-                                }
-                            ],
-                            "backendIPConfiguration": {
-                                "id": "[variables('backEndIPConfigID2')]"
-                            },
-                            "protocol": "tcp",
-                            "frontendPort": 50002,
-                            "backendPort": 3389,
-                            "enableFloatingIP": false
-                        }
-                    }
-                ],
-                "loadBalancingRules": [
-                    {
-                        "name": "LBRule",
-                        "properties": {
-                            "frontendIPConfigurations": [
-                                {
-                                    "id": "[variables('frontEndIPConfigID')]"
-                                }
-                            ],
-                            "backendAddressPool": {
-                                "id": "[variables('lbPoolID')]"
-                            },
-                            "protocol": "tcp",
-                            "frontendPort": 80,
-                            "backendPort": 80,
-                            "enableFloatingIP": false,
-                            "idleTimeoutInMinutes": 5,
-                            "probe": {
-                                "id": "[variables('lbProbeID')]"
-                            }
-                        }
-                    }
-                ],
-                "probes": [
-                    {
-                        "name": "tcpProbe",
-                        "properties": {
-                            "protocol": "tcp",
-                            "port": 80,
-                            "intervalInSeconds": "5",
-                            "numberOfProbes": "2"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "apiVersion": "2014-12-01-preview",
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
-            "copy": {
-                "name": "virtualMachineLoop",
-                "count": "[variables('numberOfInstances')]"
-            },
-            "location": "[parameters('region')]",
-            "dependsOn": [
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('nicNamePrefix'), copyindex())]",
-                "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
-            ],
-            "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
-                },
-                "hardwareProfile": {
-                    "vmSize": "[parameters('vmSize')]"
-                },
-                "osProfile": {
-                    "computername": "[concat(parameters('vmNamePrefix'), copyIndex())]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                },
-                "storageProfile": {
-                    "sourceImage": {
-                        "id": "[variables('sourceImageName')]"
-                    },
-                    "destinationVhdsContainer": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/')]"
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'),copyindex()))]"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-	}
-
-
-### Passaggio 2: Creare la distribuzione con il modello
-
-Inserire un nome per la distribuzione di Azure, il nome gruppo di risorse e la posizione di Azure, quindi eseguire questi comandi.
-
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-Quando si esegue il comando **New-AzureResourceGroupDeployment**, viene richiesto di specificare i valori dei parametri del file JSON. Dopo aver specificato tutti i valori dei parametri, il comando crea il gruppo di risorse e la distribuzione.
-
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-Dovrebbe essere visualizzata una schermata analoga alla seguente:
+Verrà chiesto di fornire i valori dei parametri nella sezione **parameters** del file JSON:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -788,36 +179,42 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente:
 	vmNamePrefix: WEBFARM
 	...
 
+Il video seguente illustra l'esecuzione di questa attività:
+
+[AZURE.VIDEO deploy-multi-vm-app-with-a-virtual-network-and-load-balancer-in-azure-resource-manager]
+
 ## <a id="removerg"></a>ATTIVITÀ: Rimuovere un gruppo di risorse
 
-È possibile rimuovere qualsiasi gruppo di risorse è stato creato con il comando **Remove-AzureResourceGroup**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con il nome corretto.
+Nel comando seguente sostituire *resource group name* con il nome del gruppo di risorse da rimuovere, quindi eseguirlo:
 
-	Remove-AzureResourceGroup  -Name "<resource group name>"
+	Remove-AzureResourceGroup  -Name "resource group name"
 
-Verranno visualizzate informazioni come segue:
+> [AZURE.NOTE]È possibile usare il parametro **-Force** per ignorare la richiesta di conferma.
+
+Se non si usa il parametro -Force, verrà richiesta una conferma:
 
 	Confirm
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## <a id="logon"></a>ATTIVITÀ: Accedere a una macchina virtuale Windows
+Il video seguente illustra l'esecuzione di questa attività:
 
-Per i passaggi dettagliati, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md).
+[AZURE.VIDEO removing-a-resource-group-in-azure]
 
 ## <a id="displayvm"></a>ATTIVITÀ: Visualizzare informazioni relative a una macchina virtuale
 
-È possibile visualizzare informazioni sull'uso di una macchina virtuale con il comando **Get-AzureVM**. Questo comando restituisce un oggetto macchina virtuale che può essere modificato usando vari altri cmdlet per aggiornare lo stato della macchina virtuale. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Nel comando seguente sostituire *resource group name* con il nome del gruppo di risorse che include la macchina virtuale e *VM name* con il nome della macchina virtuale, quindi eseguirlo:
 
-	Get-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+	Get-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-Verranno visualizzate informazioni sulla macchina virtuale come segue:
+Verrà visualizzata una schermata simile alla seguente:
 
 	AvailabilitySetReference : null
 	Extensions               : []
 	HardwareProfile          : {
 	                             "VirtualMachineSize": "Standard_D1"
 	                           }
-	Id                       : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/BuildRG/providers/Microso
+	Id                       : /subscriptions/{subscription-id}/resourceGroups/BuildRG/providers/Microso
 	                           ft.Compute/virtualMachines/MyWindowsVM
 	InstanceView             : null
 	Location                 : westus
@@ -826,7 +223,7 @@ Verranno visualizzate informazioni sulla macchina virtuale come segue:
 	                             "NetworkInterfaces": [
 	                               {
 	                                 "Primary": null,
-	                                 "ReferenceUri": "/subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/Bu
+	                                 "ReferenceUri": "/subscriptions/{subscription-id}/resourceGroups/Bu
 	                           ildRG/providers/Microsoft.Network/networkInterfaces/myVMNic"
 	                               }
 	                             ]
@@ -863,7 +260,7 @@ Verranno visualizzate informazioni sulla macchina virtuale come segue:
 	                               "Name": "osdisk",
 	                               "SourceImage": null,
 	                               "VirtualHardDisk": {
-	                                 "Uri": "http://buildsaacct.blob.core.windows.net/vhds/osdiskforwindowssimple.vhd"
+	                                 "Uri": "http://saacct.blob.core.windows.net/vhds/osdiskforwindowssimple.vhd"
 	                               }
 	                             },
 	                             "SourceImage": null
@@ -871,14 +268,17 @@ Verranno visualizzate informazioni sulla macchina virtuale come segue:
 	Tags                     : {}
 	Type                     : Microsoft.Compute/virtualMachines
 
+Il video seguente illustra l'esecuzione di questa attività:
+
+[AZURE.VIDEO displaying-information-about-a-virtual-machine-in-microsoft-azure-with-powershell]
 
 ## <a id="start"></a>ATTIVITÀ: Avviare una macchina virtuale
 
-È possibile avviare una macchina virtuale con il comando **Start-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Nel comando seguente sostituire *resource group name* con il nome del gruppo di risorse che include la macchina virtuale e *VM name* con il nome della macchina virtuale, quindi eseguirlo:
 
-	Start-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+	Start-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-Verranno visualizzate informazioni come segue:
+Verrà visualizzata una schermata simile alla seguente:
 
 	EndTime             : 4/28/2015 11:11:41 AM -07:00
 	Error               :
@@ -889,18 +289,23 @@ Verranno visualizzate informazioni come segue:
 	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
 	StatusCode          : OK
 
+Il video seguente illustra l'esecuzione di questa attività:
+
+[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
+
 ## <a id="stop"></a>ATTIVITÀ: Arrestare una macchina virtuale
 
-È possibile arrestare una macchina virtuale con il comando **Stop-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Nel comando seguente sostituire *resource group name* con il nome del gruppo di risorse che include la macchina virtuale e *VM name* con il nome della macchina virtuale, quindi eseguirlo:
 
-	Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+	Stop-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-Verranno visualizzate informazioni come segue:
+Verrà richiesta una conferma:
 
 	Virtual machine stopping operation
 	This cmdlet will stop the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
+Verrà visualizzata una schermata simile alla seguente:
 
 	EndTime             : 4/28/2015 11:09:08 AM -07:00
 	Error               :
@@ -911,13 +316,17 @@ Verranno visualizzate informazioni come segue:
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
+Il video seguente illustra l'esecuzione di questa attività:
+
+[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
+
 ## <a id="restart"></a>ATTIVITÀ: Riavviare una macchina virtuale
 
-È possibile riavviare una macchina virtuale con il comando **Restart-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con il nome corretto.
+Nel comando seguente sostituire *resource group name* con il nome del gruppo di risorse che include la macchina virtuale e *VM name* con il nome della macchina virtuale, quindi eseguirlo:
 
-	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
+	Restart-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
 
-Verranno visualizzate informazioni come segue:
+Verrà visualizzata una schermata simile alla seguente:
 
 	EndTime             : 4/28/2015 11:16:26 AM -07:00
 	Error               :
@@ -928,18 +337,25 @@ Verranno visualizzate informazioni come segue:
 	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
 
+Il video seguente illustra l'esecuzione di questa attività:
+
+[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
+
 ## <a id="delete"></a>ATTIVITÀ: Eliminare una macchina virtuale
 
-È possibile eliminare una macchina virtuale con il comando **Remove-AzureVM**. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con il nome corretto. È possibile utilizzare il parametro **-Force** per ignorare la richiesta di conferma.
+Nel comando seguente sostituire *resource group name* con il nome del gruppo di risorse che include la macchina virtuale e *VM name* con il nome della macchina virtuale, quindi eseguirlo:
 
-	Remove-AzureVM -ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Remove-AzureVM -ResourceGroupName "resource group name" –Name "VM name"
 
-Verranno visualizzate informazioni come segue:
+> [AZURE.NOTE]È possibile usare il parametro **-Force** per ignorare la richiesta di conferma.
+
+Se non si usa il parametro -Force, verrà richiesta una conferma:
 
 	Virtual machine removal operation
 	This cmdlet will remove the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
+Verrà visualizzata una schermata simile alla seguente:
 
 	EndTime             : 4/28/2015 11:21:55 AM -07:00
 	Error               :
@@ -950,16 +366,17 @@ Verranno visualizzate informazioni come segue:
 	RequestId           : 6a30d2e0-63ca-43cf-975b-058631e048e7
 	StatusCode          : OK
 
+Il video seguente illustra l'esecuzione di questa attività:
+
+[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
+
 ## Risorse aggiuntive
+[Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Framework app](virtual-machines-app-frameworks.md)
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)
 
 [Panoramica di Gestione risorse di Azure](resource-group-overview.md)
 
-[Distribuire e gestire le macchine virtuali mediante modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+[Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Documentazione delle macchine virtuali](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Come installare e configurare Azure PowerShell](install-configure-powershell.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

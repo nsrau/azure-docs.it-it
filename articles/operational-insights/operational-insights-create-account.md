@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Creare un account di Operational Insights ed effettuare l'accesso
@@ -40,4 +40,4 @@ Per altre informazioni sulle operazioni iniziali con Operational Insights, veder
 
 - [installare e configurare l'area di lavoro](operational-insights-setup-workspace.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

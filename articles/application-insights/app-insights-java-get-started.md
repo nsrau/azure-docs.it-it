@@ -2,7 +2,7 @@
 	pageTitle="Introduzione ad Application Insights in un progetto Web Java | Microsoft Azure"
 	description="Monitoraggio delle prestazioni e l'uso del sito Web Java con Application Insights"
 	services="application-insights"
-	documentationCenter="java"
+    documentationCenter="java"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights in un progetto Web Java
@@ -206,19 +206,13 @@ Aggiungere questa voce al file di configurazione Struts (in genere denominato st
 
 Se si dispone di intercettori definiti in uno stack predefinito, l'intercettore può semplicemente essere aggiunto a tale stack.
 
-## 5\. Eseguire l'installazione nel server
 
-Nei server Windows installare:
 
-* [Microsoft Visual C++ Redistributable Package](http://www.microsoft.com/download/details.aspx?id=40784)
-
-(Ciò abilita i contatori delle prestazioni).
-
-## 6\. Eseguire l'applicazione
+## 5\. Eseguire l'applicazione
 
 Eseguire l'applicazione in modalità debug nel computer di distribuzione oppure pubblicarla nel server.
 
-## 7\. Visualizzare i dati di telemetria in Application Insights
+## 6\. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
@@ -248,17 +242,36 @@ Application Insights presuppone che il formato delle richieste HTTP per le appli
 
 Ad esempio, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` verranno raggruppati in `GET Home/Product`.
 
-Abilita le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
+In questo modo le aggregazioni significative delle richieste, ad esempio il numero di richieste e il tempo medio di esecuzione per le richieste.
+
+
+## 5\. Installare l'applicazione nel server
+
+A questo punto è possibile pubblicare l'applicazione nel server, permettere agli utenti di utilizzarla e visualizzare la telemetria mostrata nel portale.
+
+* Verificare che il firewall consenta all'applicazione di inviare i dati di telemetria a queste porte:
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* Nei server Windows installare:
+
+ * [Microsoft Visual C++ Redistributable Package](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (Ciò abilita i contatori delle prestazioni).
 
 ## Eccezioni e richieste non eseguite
 
-Vengono raccolte le eccezioni non gestite:
+Vengono raccolte automaticamente le eccezioni non gestite:
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
-* [Inserire chiamate a TrackException nel codice][apiexceptions].
+* [Inserire chiamate a TrackException nel codice][apiexceptions]. 
 * [Installare l'agente Java sul server](app-insights-java-agent.md). È possibile specificare i metodi da controllare.
 
 
@@ -349,6 +362,17 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 * [Cercare eventi e log][diagnostic] per facilitare la diagnosi dei problemi.
 
 
+## Test Web di disponibilità
+
+Application Insights può testare il sito Web a intervalli regolari per verificare che funzioni e risponda correttamente. Per eseguire la configurazione, selezionare il grafico del test Web vuoto nel pannello Panoramica e fornire l'URL pubblico.
+
+Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché notifiche di posta elettronica.
+
+![Esempio di test Web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+
+[Altre informazioni sui test Web di disponibilità.][availability]
+
+
 
 
 
@@ -370,4 +394,4 @@ Ora che è stato installato SDK, è possibile usare l'API per inviare i propri d
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

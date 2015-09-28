@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Come fornire l'accesso remoto sicuro alle applicazioni locali
@@ -46,14 +46,14 @@ La configurazione del proxy dell'applicazione viene eseguita in due passaggi:
 Si può fare molto di più con il proxy dell'applicazione:
 
 
-- [Pubblicare applicazioni mediante il proprio nome di dominio](https://msdn.microsoft.com/library/azure/mt210927.aspx)
-- [Abilitare l'accesso Single Sign-On](https://msdn.microsoft.com/library/azure/dn879065.aspx)
-- [Lavorare con applicazioni grado di riconoscere attestazioni](https://msdn.microsoft.com/library/azure/mt210926.aspx)
-- [Abilitare l'accesso condizionale](https://msdn.microsoft.com/library/azure/dn931796.aspx)
+- [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)
+- [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
+- [Lavorare con applicazioni grado di riconoscere attestazioni](active-directory-application-proxy-claims-aware-apps.md)
+- [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
 
 ### Ulteriori informazioni sul proxy dell’applicazione
-- [Dare un'occhiata alla nostra Guida in linea](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+- [Dare un'occhiata alla nostra Guida in linea](active-directory-application-proxy-enable.md)
 - [Blog del proxy dell'applicazione](http://blogs.technet.com/b/applicationproxyblog/)
 - [Guarda i nostri video su Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -61,4 +61,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Iscriversi ad Azure come organizzazione](../sign-up-organization.md)
 * [Identità di Azure](../fundamentals-identity.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Convalidare la rete virtuale di Azure da usare con Azure RemoteApp"
+    pageTitle="Convalidare la rete virtuale di Azure da usare con Azure RemoteApp | Microsoft Azure"
     description="Informazioni su come assicurarsi che la rete virtuale di Azure sia pronta all’utilizzo con Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -33,8 +33,9 @@ Se l'operazione viene completata, la rete virtuale di Azure è pronta per l'util
 
 Per ulteriori informazioni sul flusso di lavoro della raccolta ibrida end-to-end, vedere gli articoli seguenti:
 
+- [Come pianificare la rete virtuale per RemoteApp di Azure](remoteapp-planvpn.md)
 - [Creare una raccolta ibrida](remoteapp-create-hybrid-deployment.md)
 - [Distribuire la raccolta di Azure RemoteApp alla rete virtuale di Azure (con supporto per ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -28,7 +28,7 @@ Questa guida descrive come autenticare le richieste di Gestione risorse di Azure
 
 ## Autenticazione delle richieste di Gestione risorse di Azure
 
->[AZURE.IMPORTANT]L'API REST per il backup e ripristino usa Gestione risorse di Azure e include un meccanismo di autenticazione diverso rispetto alle API REST per la gestione delle entità di Gestione API. I passaggi descritti in questa sezione descrivono come autenticare le richieste di Gestione risorse di Azure. Per altre informazioni, vedere [Autenticazione delle richieste di Gestione risorse di Azure](http://msdn.microsoft.com/library/dn790557.aspx).
+>[AZURE.IMPORTANT]L'API REST per il backup e ripristino usa Gestione risorse di Azure e include un meccanismo di autenticazione diverso rispetto alle API REST per la gestione delle entità di Gestione API. I passaggi descritti in questa sezione descrivono come autenticare le richieste di Gestione risorse di Azure. Per altre informazioni, vedere [Autenticazione delle richieste di Gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Tutte le attività che è possibile eseguire sulle risorse tramite Gestione risorse di Azure devono essere autenticate con Azure Active Directory usando la procedura seguente.
 
@@ -189,4 +189,4 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

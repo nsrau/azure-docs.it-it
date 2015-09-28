@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/15/2015"
    ms.author="sahajs"/>
 
 
 # Pianificazione della continuità aziendale in SQL Data Warehouse
 
-Questo articolo illustra le nozioni di base della pianificazione della continuità aziendale e del ripristino di emergenza con SQL Data Warehouse. I data warehouse costituiscono il repository centrale di informazioni per le aziende e rivestono un ruolo fondamentale nelle operazioni di routine di analisi e business intelligence a tutti i livelli dell'organizzazione. È pertanto essenziale che il data warehouse sia affidabile e supporti la recuperabilità e il funzionamento continuo. In particolare questo articolo illustrerà il modo in cui SQL Data Warehouse supporta il ripristino da errori dell'utente e il ripristino di emergenza tramite le funzionalità di ripristino temporizzato e il ripristino geografico.
+Questo articolo illustra le nozioni di base della pianificazione della continuità aziendale e del ripristino di emergenza con SQL Data Warehouse. I data warehouse costituiscono il repository centrale di informazioni per le aziende e rivestono un ruolo fondamentale nelle operazioni di routine di analisi e business intelligence a tutti i livelli dell'organizzazione. È pertanto essenziale che il data warehouse sia affidabile e supporti la recuperabilità e il funzionamento continuo. In particolare questo articolo illustrerà il modo in cui SQL Data Warehouse supporta il ripristino da errori dell'utente e il ripristino di emergenza tramite le funzionalità di ripristino del database e il ripristino geografico.
 
 ## Concetti
 
@@ -78,4 +78,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale di altre edi
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

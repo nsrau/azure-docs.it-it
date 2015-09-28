@@ -17,7 +17,7 @@
 
 # API Graph di Azure Active Directory
 
-> *Visualizzare la [documentazione di riferimento interattiva sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)*
+> *Passare direttamente a [Guida rapida di API Graph](active-directory-graph-api-quickstart.md) e [la documentazione di riferimento API Graph interattiva](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).*
 
 L'API Graph di Azure Active Directory consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST. Le applicazioni possono usare l'API Graph per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory. Ad esempio, l'API Graph supporta le operazioni comuni seguenti per un oggetto utente:
 
@@ -42,9 +42,9 @@ L'API Graph offre le funzionalità seguenti:
 
 - **Endpoint API REST**: l'API Graph è un servizio RESTful che include endpoint a cui viene eseguito l'accesso tramite richieste HTTP standard. L'API Graph supporta i tipi di contenuto XML o JSON (JavaScript Object Notation) per le richieste e le risposte. Per altre informazioni, vedere [Riferimento all'API REST di Azure AD Graph](https://msdn.microsoft.com/library/azure/hh974478.aspx).
 
-- **Autenticazione con Azure AD**: ogni richiesta all'API Graph deve essere autenticata mediante l'aggiunta di un token Web JSON nell'intestazione dell'autorizzazione della richiesta. Per acquisire il token è necessario inviare una richiesta all'endpoint token di Azure AD e specificare credenziali valide. Per acquisire un token per chiamare l'API Graph, è possibile usare il flusso delle credenziali client OAuth 2.0 o il flusso di concessione del codice di autorizzazione. Per altre informazioni, vedere [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+- **Autenticazione con Azure AD**: ogni richiesta all'API Graph deve essere autenticata mediante l'aggiunta di un token Web JSON (JWT) nell'intestazione dell'autorizzazione della richiesta. Per acquisire il token è necessario inviare una richiesta all'endpoint token di Azure AD e specificare credenziali valide. Per acquisire un token per chiamare l'API Graph, è possibile usare il flusso delle credenziali client OAuth 2.0 o il flusso di concessione del codice di autorizzazione. Per altre informazioni, vedere [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 
-- **Autorizzazione in base al ruolo**: vengono usati gruppi di sicurezza per il controllo degli accessi in base al ruolo nell'API Graph. Se, ad esempio, si vuole stabilire se un utente può accedere a una risorsa specifica, l'applicazione può chiamare l'operazione di [controllo dell'appartenenza a gruppi (transitiva)](https://msdn.microsoft.com/library/azure/dn151601.aspx), che restituirà true o false.
+- **Autorizzazione in base al ruolo (RBAC)**: vengono usati gruppi di sicurezza per il controllo degli accessi in base al ruolo nell'API Graph. Se, ad esempio, si vuole stabilire se un utente può accedere a una risorsa specifica, l'applicazione può chiamare l'operazione di [controllo dell'appartenenza a gruppi (transitiva)](https://msdn.microsoft.com/library/azure/dn151601.aspx), che restituirà true o false.
 
 - **Query differenziale**: per verificare se sono state apportate modifiche a una directory tra due intervalli di tempo senza dover interrogare di frequente l'API Graph, è possibile inviare una richiesta di query differenziale. Questo tipo di richiesta restituisce solo le modifiche apportate nel periodo trascorso tra la richiesta di query differenziale precedente e la richiesta corrente. Per altre informazioni, vedere [Query differenziale dell'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/jj836245.aspx).
 
@@ -66,4 +66,4 @@ Gli scenari di applicazione dell'API Graph sono numerosi. Ecco i più comuni:
 
 [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

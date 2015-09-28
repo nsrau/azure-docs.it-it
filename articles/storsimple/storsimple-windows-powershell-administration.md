@@ -1,19 +1,19 @@
 <properties 
    pageTitle="PowerShell per la gestione dei dispositivi StorSimple | Microsoft Azure"
-	description="Informazioni su come utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Informazioni su come utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="alkohli@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="alkohli@microsoft.com" />
 
 # Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -66,7 +66,7 @@ Nell'immagine seguente vengono illustrate le varie opzioni di spazio di esecuzio
 
 È possibile scegliere tra le seguenti impostazioni:
 
-1. **Accedi con accesso completo** Questa opzione consente di connettersi (con le credenziali appropriate) allo spazio di esecuzione **SSAdminConsole** sul controller locale. (Il controller locale è il controller a cui si accede attualmente tramite la console seriale del dispositivo StorSimple.) Questa opzione può essere utilizzata anche per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza limitazioni (una sessione di supporto) per risolvere eventuali problemi relativi al dispositivo. Dopo aver utilizzato l'opzione 1 per l'accesso, è possibile consentire al tecnico del supporto Microsoft di accedere allo stazio di esecuzione senza limitazioni eseguendo un cmdlet specifico. Per informazioni dettagliate, consultare [Avvio di una sessione di supporto](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple). Questa opzione consente la connessione a uno spazio di esecuzione sul controller locale.
+1. **Accedi con accesso completo** Questa opzione consente di connettersi (con le credenziali appropriate) allo spazio di esecuzione **SSAdminConsole** sul controller locale. (Il controller locale è il controller a cui si accede attualmente tramite la console seriale del dispositivo StorSimple.) Questa opzione può essere utilizzata anche per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza limitazioni (una sessione di supporto) per risolvere eventuali problemi relativi al dispositivo. Dopo aver utilizzato l'opzione 1 per l'accesso, è possibile consentire al tecnico del supporto Microsoft di accedere allo stazio di esecuzione senza limitazioni eseguendo un cmdlet specifico. Per informazioni dettagliate, consultare [Avvio di una sessione di supporto](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
 
 1. **Accedere al controller peer con accesso completo**questa opzione equivale all'opzione 1, è la differenza che è possibile connettersi (con le credenziali appropriate) il**SSAdminConsole**spazio di esecuzione del controller peer. Poiché il dispositivo StorSimple è un dispositivo a elevata disponibilità con due controller in una configurazione attiva-passiva, peer fa riferimento all'altro controller del dispositivo a cui si accede tramite la console seriale). Simile all'opzione 1, questa opzione può inoltre essere utilizzata per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza restrizioni su un controller peer.
 
@@ -95,7 +95,7 @@ Assicurarsi di utilizzare le seguenti impostazioni PuTTY per connettersi all'int
  	|---|---|
  	|Tasto backspace|Ctrl-? (127)|
 	|Tasti home o fine|Standard|
-	|Tasti e tastierino funzione|ESC[n~|
+	|Tasti e tastierino funzione|ESC[n\~|
 	|Stato iniziale dei tasti cursore|Normal|
 	|Stato iniziale del tastierino numerico|Normal|
 	|Abilitare le funzionalità di tastiera aggiuntive|Ctrl-Alt è diverso da AltGr|
@@ -123,7 +123,7 @@ Assicurarsi di utilizzare le seguenti impostazioni PuTTY per connettersi all'int
 ## Connessione remota a StorSimple tramite Windows PowerShell per StorSimple
 È possibile utilizzare la comunicazione remota di Windows PowerShell per la connessione al dispositivo StorSimple. Quando ci si connette in questo modo, non verrà visualizzato un menu. (Verrà visualizzato un menu solo se si utilizza la console seriale del dispositivo per la connessione.) Con la comunicazione remota di Windows PowerShell, ci si connette a uno specifico spazio di esecuzione. È inoltre possibile specificare la lingua di visualizzazione.
 
-La lingua di visualizzazione è indipendente dalla lingua impostata tramite l'opzione Modifica lingua nel menu della console seriale. La sessione remota di PowerShell recupererà automaticamente le impostazioni locali del dispositivo da cui ci si connette se non è specificati.
+La lingua di visualizzazione è indipendente dalla lingua impostata tramite l'opzione **Modifica lingua** nel menu della console seriale. La sessione remota di PowerShell recupererà automaticamente le impostazioni locali del dispositivo da cui ci si connette se non è specificati.
 
 >[AZURE.NOTE]Se si lavora con gli host virtuali di Microsoft Azure e i dispositivi virtuali StorSimple, è possibile utilizzare la comunicazione remota di Windows PowerShell e l'host virtuale per connettersi al dispositivo virtuale. Se è stata configurata una posizione di condivisione nell'host in cui salvare le informazioni dalla sessione di Windows PowerShell è necessario tenere presente che l'entità Tutti include solo gli utenti autenticati. Pertanto, se è stata configurata la condivisione per consentire l'accesso a Tutti e ci si connette senza specificare le credenziali, verrà utilizzata l'entità Anonimo e verrà visualizzato un errore. Per risolvere questo problema, nell'host di condivisione è necessario abilitare l'account Guest e fornire all'account Guest l'accesso completo alla condivisione oppure è necessario specificare credenziali valide e il cmdlet di Windows PowerShell.
 
@@ -197,4 +197,4 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 ## Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

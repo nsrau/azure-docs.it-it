@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/07/2015"
+    ms.date="09/16/2015"
     ms.author="robb"/>
 
 # Migliorare la disponibilità usando coppie di aree di Azure
@@ -84,4 +84,4 @@ Come indicato nella figura 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residenza dei dati**: un'area si trova all'interno della stessa geografia della propria coppia (a eccezione del Brasile meridionale) per soddisfare i requisiti di residenza dei dati ai fini della giurisdizione per le imposizioni fiscali e normative.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

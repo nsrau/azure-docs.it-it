@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Eseguire query con DocumentDB SQL | Microsoft Azure" 
-	description="DocumentDB, un servizio di database di documenti NoSQL, supporta le query che usano una grammatica simile a quella di SQL sui documenti JSON gerarchici senza richiedere esplicitamente uno schema o la creazione di indici secondari." 
+	pageTitle="Query SQL in un Database di DocumentDB - Query SQL | Microsoft Azure" 
+	description="Informazioni relative alla modalità con cui DocumentDB supporta le query SQL sui documenti JSON gerarchici per l'indicizzazione automatica. Individua un ambiente di database di query SQL effettivamente senza schema." 
+	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -16,7 +17,7 @@
 	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-# Query DocumentDB
+# Query SQL in DocumentDB
 Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) su documenti JSON gerarchici. DocumentDB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
 
 Nella progettazione del linguaggio di query per DocumentDB sono stati tenuti in considerazione due obiettivi:
@@ -30,9 +31,9 @@ Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandra
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Tornare quindi a questo articolo, dove verranno illustrati alcuni semplici documenti JSON e alcune semplici query.
+Tornare quindi a questo articolo, dove verranno illustrati alcuni semplici documenti JSON e comandi SQL.
 
-## Introduzione
+## Guida introduttiva ai comandi Structured Query Language (SQL) in DocumentDB
 Per osservare il funzionamento del linguaggio SQL di DocumentDB, si inizierà con alcuni semplici documenti JSON e si procederà eseguendo alcune semplici query su tali documenti. Considerare questi due documenti JSON come se riguardassero due famiglie. Da notare che, con DocumentDB, non è necessario creare alcuno schema o indici secondari in maniera esplicita. È sufficiente inserire i documenti JSON in una raccolta di DocumentDB e successivamente eseguire una query. In questo caso è illustrato un semplice documento JSON relativo alla famiglia Andersen: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate.
 
 **Documento**
@@ -157,7 +158,7 @@ La query successiva restituisce i nomi di elementi figlio specificati nella fami
 È opportuno prestare attenzione ad alcuni aspetti salienti del linguaggio di query di DocumentDB attraverso gli esempi finora esaminati:
  
 -	Poiché il linguaggio SQL di DocumentDB elabora i valori JSON, deve gestire entità con struttura ad albero invece di righe e colonne. Di conseguenza, il linguaggio consente di fare riferimento ai nodi dell'albero a qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo analogo al linguaggio SQL relazionale che fa riferimento al riferimento in due parti di `<table>.<column>`.   
--	Il linguaggio interagisce con i dati senza schema, perciò il sistema di tipi deve essere associato in modo dinamico. La stessa espressione potrebbe produrre tipi differenti su documenti differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che appartenga a uno schema fisso.  
+-	Il linguaggio strutturato di interrogazione funziona con dati senza schema. perciò il sistema di tipi deve essere associato in modo dinamico. La stessa espressione potrebbe produrre tipi differenti su documenti differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che appartenga a uno schema fisso.  
 -	DocumentDB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](http://www.json.org/).  
 -	Una raccolta di DocumentDB è un contenitore senza schema dei documenti JSON. Le relazioni nelle entità di dati all'interno e tra i documenti in una raccolta vengono implicitamente acquisiti dal contenitore e non dalle relazioni chiave primaria e chiave esterna. È un aspetto importante da sottolineare alla luce dei join tra documenti, descritti più avanti in questo articolo.
 
@@ -182,7 +183,7 @@ Di conseguenza, durante la progettazione del sottosistema di indicizzazione di D
 Per un esempio che illustra come configurare i criteri di indicizzazione per una raccolta, vedere gli esempi relativi a [DocumentDB su MSDN](https://github.com/Azure/azure-documentdb-net). Verrà ora analizzato più dettagliatamente il linguaggio SQL di DocumentDB.
 
 
-## Nozioni di base sulle query di DocumentDB
+## Nozioni di base di una query SQL di DocumentDB
 Ogni query consiste in una clausola SELECT e clausole FROM e WHERE facoltative in base agli standard ANSI-SQL. In genere, l'origine nella clausola FROM per ogni query viene enumerata, quindi il filtro nella clausola WHERE viene applicato all'origine per recuperare un sottoinsieme di documenti JSON. Infine, viene usata la clausola SELECT per proiettare i valori JSON richiesti nell'elenco selezionato.
     
     SELECT <select_list> 
@@ -296,7 +297,7 @@ Saranno ora prese in esame alcune query che usano gli operatori binari.
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-Sono supportati anche gli operatori unari +,-, \~ e NOT, che possono essere usati all'interno delle query come illustrato di seguito:
+Sono supportati anche gli operatori unari +,-, ~ e NOT, che possono essere usati all'interno delle query come illustrato di seguito:
 
 	SELECT *
 	FROM Families.children[0] c
@@ -704,7 +705,7 @@ La query seguente recupera le famiglie in ordine di data di creazione, archiviat
 	  }
 	]
 	
-## Concetti avanzati
+## Concetti avanzati relativi ai database di query SQL
 ### Iterazione
 Nel linguaggio SQL di DocumentDB è stato aggiunto un nuovo costrutto tramite la parola chiave **IN** per fornire supporto all'iterazione nelle matrici JSON. L'origine FROM fornisce supporto per l'iterazione. Esaminare l'esempio seguente:
 
@@ -1055,7 +1056,7 @@ A differenza del linguaggio SQL tradizionale, nel linguaggio di query SQL di Doc
 
 Il linguaggio SQL di DocumentDB non esegue conversioni implicite, a differenza di JavaScript. Ad esempio, una query come `SELECT * FROM Person p WHERE p.Age = 21` corrisponde a documenti che contengono una proprietà Age il cui valore è 21. Qualsiasi altro documento la cui proprietà Age corrisponde alla stringa "21", o ad altre possibili variazioni come "021", "21.0", "0021", "00021" e così via, non verrà trovato. Questo comportamento è diverso da quanto avviene in JavaScript, che consente di eseguire implicitamente il cast dei valori di stringa al numero (in base all'operatore, ad esempio: ==). Questa scelta è fondamentale per la ricerca di indici corrispondenti nel linguaggio SQL di DocumentDB.
 
-## SQL con parametri
+## Query SQL con parametri
 DocumentDB supporta le query con parametri espressi con la consueta notazione @. SQL con parametri fornisce solide capacità di gestione ed escape dell'input utente, evitando l'esposizione accidentale di dati mediante attacchi SQL injection.
 
 Ad esempio, è possibile scrivere una query che accetta come parametri il cognome e lo stato di residenza e quindi eseguirla per diversi valori di cognome e stato di residenza in base all'input dell'utente.
@@ -1410,11 +1411,11 @@ DocumentDB supporta le seguenti funzioni predefinite di Open Geospatial Consorti
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Restituisce un valore JSON che contiene un valore booleano se l'espressione punto o poligono GeoJSON specificato è valida e, se non è valida, anche il motivo come valore stringa.</td>
+  <td>Restituisce un valore JSON che contiene un valore booleano valore se l'espressione punto o poligono GeoJSON specificata è valida e, se non valida, anche il motivo come valore stringa.</td>
 </tr>
 </table>
 
-Le funzioni spaziali possono essere usate per eseguire query di prossimità rispetto ai dati spaziali. Ad esempio, ecco una query che restituisce tutti i documenti della famiglia entro 30 km dalla posizione specificata utilizzando la funzione predefinita ST\_DISTANCE.
+Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità rispetto ai dati spaziali. Ad esempio, di seguito è riportata una query che restituisce tutti i documenti della famiglia entro 30 km della posizione specificata utilizzando la funzione predefinita ST\_DISTANCE.
 
 **Query**
 
@@ -1428,11 +1429,11 @@ Le funzioni spaziali possono essere usate per eseguire query di prossimità risp
       "id": "WakefieldFamily"
     }]
 
-Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per ulteriori informazioni sugli indici spaziali, vedere la sezione di seguito. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire le query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
+Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per ulteriori informazioni sull’indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire le query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true.
 
-ST\_WITHIN può essere utilizzato per controllare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente utilizzati per rappresentare limiti come codici postali, limiti di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "within" verranno servite in modo efficiente tramite l'indice.
+ST\_WITHIN può essere utilizzato per controllare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente utilizzati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
 
-Gli argomenti del poligono in ST\_WITHIN possono contenere solo un anello singolo, ovvero i poligoni non devono contenere aree vuote. Controllare i [limiti DocumentDB](documentdb-limits.md)per il numero massimo di punti consentiti in un poligono per una query ST\_WITHIN.
+Gli argomenti Polygon in ST\_WITHIN possono contenere solo un anello singolo, ad esempio i poligoni non devono contenere aree vuote. Controllare i [limiti DocumentDB](documentdb-limits.md)per il numero massimo di punti consentiti in un poligono per una query ST\_WITHIN.
 
 **Query**
 
@@ -1449,9 +1450,9 @@ Gli argomenti del poligono in ST\_WITHIN possono contenere solo un anello singol
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Simile al funzionamento dei tipi non corrispondenti come nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutata per **non definito** e il documento valutato deve essere ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug per il tipo spatail non valido.
+>[AZURE.NOTE]Simile al funzionamento dei tipi non corrispondenti come nella query di DocumentDB, se il valore del percorso specificato nell'argomento è non corretto o non valido, verrà valutata per **non definito** e il documento valutato deve essere ignorato dai risultati della query. Se la query non restituisce alcun risultato, eseguire ST\_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.
 
-ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la validità di un oggetto spaziale. Ad esempio, la query seguente controlla la validità di un punto con un intervallo di latitudine fuori scala (-132,8). ST\_ISVALID restituisce solo un valore booleano e ST\_ISVALIDDETAILED restituisce il valore booleano e una stringa contenente il motivo per cui è considerato non valido.
+ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la validità di un oggetto spaziale. Ad esempio, la seguente query controlla la validità di un punto con un valore di latitudine fuori scala (-132,8). ST\_ISVALID restituisce solo un valore booleano e ST\_ISVALIDDETAILED restituisce il valore booleano e una stringa contenente il motivo per cui è considerato non valido.
 
 **Query**
 
@@ -1463,7 +1464,7 @@ ST\_ISVALID e ST\_ISVALIDDETAILED possono essere utilizzati per verificare la va
       "$1": false
     }]
 
-Queste funzioni possono inoltre essere utilizzate per convalidare i poligoni. Ad esempio, qui utilizziamo ST\_ISVALIDDETAILED per convalidare un poligono che non è chiuso.
+Queste funzioni possono essere utilizzate anche per convalidare i poligoni. Ad esempio, qui utilizziamo ST\_ISVALIDDETAILED per convalidare un poligono che non è chiuso.
 
 **Query**
 
@@ -1487,7 +1488,7 @@ LINQ è un modello di programmazione .NET che esprime il calcolo come query su f
 
 Nell'immagine seguente è illustrata l'architettura di supporto delle query LINQ usando DocumentDB. Con il client di DocumentDB, gli sviluppatori possono creare un oggetto **IQueryable** che indirizza la query al provider di query di DocumentDB, il quale a sua volta traduce la query LINQ in una query di DocumentDB. Questa viene quindi passata al server di DocumentDB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
 
-![][1]
+![Architettura di supporto delle query LINQ usando DocumentDB.][1]
  
 
 
@@ -1603,7 +1604,7 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-### Operatori di query
+### Operatori di query SQL
 Di seguito sono riportati alcuni esempi che illustrano in che modo gli operatori di query LINQ standard vengono tradotti nelle query di DocumentDB.
 
 #### Operatore Select
@@ -1692,7 +1693,7 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
 	AND f.children[0].grade < 3
 
 
-### Query composite
+### Query SQL composte
 Gli operatori sopra riportati possono essere composti in modo da formare query più potenti. Poiché DocumentDB supporta raccolte nidificate, la composizione può essere concatenata o annidata.
 
 #### Concatenazione 
@@ -1797,7 +1798,7 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 	WHERE c.familyName = f.parents[0].familyName
 
 
-## Esecuzione di query
+## Esecuzione di query SQL
 DocumentDB espone risorse tramite un'API REST che può essere chiamata da qualsiasi linguaggio in grado di effettuare richieste HTTP/HTTPS. In DocumentDB sono inoltre disponibili librerie di programmazione per diversi linguaggi comuni, come NET, Node.js, JavaScript e Python. L'API REST e le varie librerie supportano tutte l'esecuzione di query tramite SQL. .NET SDK supporta l'esecuzione di query LINQ oltre a SQL.
 
 Negli esempi seguenti viene illustrato come creare una query e inviarla a fronte di un account di database di DocumentDB.
@@ -2088,4 +2089,4 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Accesso alle macchine virtuali di Azure da Esplora server"
-	description="Panoramica su come visualizzare, creare e gestire macchine virtuali di Azure (VM) in Esplora Server in Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Panoramica su come visualizzare, creare e gestire macchine virtuali di Azure (VM) in Esplora Server in Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Accesso alle macchine virtuali di Azure da Esplora server
 
@@ -26,31 +26,31 @@ Se ci sono macchine virtuali ospitate da Azure, è possibile accedervi in Esplor
 ### Per ottenere informazioni sulle macchine virtuali
 
 1. In Esplora server scegliere una macchina virtuale, quindi premere F4 per visualizzare la finestra delle proprietà.
- 
+
     La tabella seguente illustra le proprietà disponibili, le quali sono tuttavia di sola lettura. Per modificarle, usare il portale di gestione.
 
-	|Proprietà|Descrizione|
-	|---|---|
-	|Nome DNS|URL con l'indirizzo Internet della macchina virtuale.|
-	|Environment|Per una macchina virtuale, il valore di questa proprietà è sempre Produzione.|
-	|Nome|Nome della macchina virtuale.|
-	|Dimensione|Dimensioni della macchina virtuale corrispondenti alla quantità di memoria e spazio su disco disponibili. Per altre informazioni, vedere Come configurare le dimensioni della macchina virtuale.|
-	|Stato|I valori includono Avvio in corso, Avviato, Arresto, Arrestato e Recupero dello stato. Se viene visualizzato Recupero dello stato, lo stato corrente è sconosciuto. I valori di questa proprietà differiscono da quelli usati nel portale di gestione.|
-	|SubscriptionID|ID sottoscrizione dell'account Azure. Queste informazioni sono disponibili nel portale di gestione visualizzando le proprietà di una sottoscrizione.|
-	
+  	|Proprietà|Descrizione|
+  	|---|---|
+  	|Nome DNS|URL con l'indirizzo Internet della macchina virtuale.|
+  	|Environment|Per una macchina virtuale, il valore di questa proprietà è sempre Produzione.|
+  	|Nome|Nome della macchina virtuale.|
+  	|Dimensione|Dimensioni della macchina virtuale corrispondenti alla quantità di memoria e spazio su disco disponibili. Per altre informazioni, vedere Come configurare le dimensioni della macchina virtuale.|
+  	|Stato|I valori includono Avvio in corso, Avviato, Arresto, Arrestato e Recupero dello stato. Se viene visualizzato Recupero dello stato, lo stato corrente è sconosciuto. I valori di questa proprietà differiscono da quelli usati nel portale di gestione.|
+  	|SubscriptionID|ID sottoscrizione dell'account Azure. Queste informazioni sono disponibili nel portale di gestione visualizzando le proprietà di una sottoscrizione.|
+
 1. Scegliere un nodo di endpoint e quindi visualizzare la finestra **Proprietà**.
 
 1. La tabella seguente descrive le proprietà disponibili degli endpoint, che però sono di sola lettura. Per aggiungere o modificare gli endpoint di una macchina virtuale, usare il portale di gestione.
 
-	|Proprietà|Descrizione|
-	|---|---|
-	|Nome|Identificatore dell'endpoint.|
-	|Private Port|Porta per l'accesso di rete interno all'applicazione.|
-	|Protocollo|Protocollo usato dal livello di trasporto per l'endpoint TCP o UDP.|
-	|Public Port|Porta usata per l'accesso pubblico all'applicazione.|
+  	|Proprietà|Descrizione|
+  	|---|---|
+  	|Nome|Identificatore dell'endpoint.|
+  	|Private Port|Porta per l'accesso di rete interno all'applicazione.|
+  	|Protocollo|Protocollo usato dal livello di trasporto per l'endpoint TCP o UDP.|
+  	|Public Port|Porta usata per l'accesso pubblico all'applicazione.|
 
 ## Passaggi successivi
 
-[Uso di Desktop remoto con i ruoli Azure](http://go.microsoft.com/fwlink/p/?LinkID=623091)
+Per ulteriori informazioni sull'utilizzo dei ruoli di Azure in Visual Studio, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](http://go.microsoft.com/fwlink/p/?LinkID=623091).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

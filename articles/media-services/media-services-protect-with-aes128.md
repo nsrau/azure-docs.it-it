@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi
@@ -634,8 +634,8 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 		
 		            template.PrimaryVerificationKey = new SymmetricVerificationKey();
 		            template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-		            template.Audience = _sampleAudience;
-		            template.Issuer = _sampleIssuer;
+		            template.Audience = _sampleAudience.ToString();
+		            template.Issuer = _sampleIssuer.ToString();
 		
 		            template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
 		
@@ -671,4 +671,4 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

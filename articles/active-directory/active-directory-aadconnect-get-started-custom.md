@@ -24,7 +24,6 @@ Nella documentazione seguente vengono fornite informazioni sull'utilizzo dell'op
 Per informazioni sull’installazione rapida, vedere [Installazione rapida](active-directory-aadconnect.md#getting-started-with-azure-ad-connect). Per informazioni sull'aggiornamento da DirSync ad Azure AD Connect, vedere [Aggiornamento da DirSync ad Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
-
 ## Installare i componenti necessari
 
 Durante l'installazione dei servizi di sincronizzazione, è possibile lasciare deselezionata l'opzione di configurazione facoltativa perché Azure AD Connect esegua la configurazione in modo automatico. Sono incluse la configurazione di un'istanza di SQL Server 2012 Express e la creazione dei gruppi appropriati e l'assegnazione delle rispettive autorizzazioni. Se si vuole modificare le impostazioni predefinite, è possibile usare la tabella di seguito per informazioni sulle opzioni di configurazione facoltative disponibili.
@@ -174,7 +173,7 @@ Il cmdlet di PowerShell, prima di poter essere eseguito, deve essere importato.
 
 A tale scopo, sarà necessario installare localmente Active Directory e MSOnline PowerShell.
 
-
+Per ulteriori informazioni vedere [Attivazione del writeback dei dispositivi in AD Connect di Azure](active-directory-aadconnect-get-started-custom-device-writeback.md)
 
 ## Modalità di gestione temporanea
 Con la modalità di gestione temporanea è possibile eseguire la configurazione di un nuovo server di sincronizzazione in parallelo con un server esistente. Per l’operazione è supportato un solo server di sincronizzazione connesso a una directory nel cloud. Se, tuttavia, si desidera spostarsi da un altro server, ad esempio un server con DirSync, è possibile abilitare Azure AD Connect in modalità di gestione temporanea. Quando viene abilitato, il motore di sincronizzazione importa e sincronizza i dati normalmente, ma non esegue alcuna esportazione ad Azure AD e disattiva la sincronizzazione e il writeback delle password.
@@ -268,4 +267,4 @@ Inoltre, eseguire i passaggi di verifica seguenti:
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

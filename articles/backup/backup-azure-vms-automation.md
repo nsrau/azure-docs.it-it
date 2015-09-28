@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2015" ms.author="trinadhk";"aashishr" />
 
 
 # Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
@@ -31,7 +24,11 @@ I due flussi più importanti sono quelli relativi all'abilitazione della protezi
 
 
 ## Installazione e registrazione
-Per iniziare, abilitare i cmdlet del servizio Backup di Azure passando alla modalità *AzureResourceManager* usando il cmdlet **Switch-AzureMode**:
+Per iniziare:
+
+1. [Download la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 0.9.8)
+
+2. Per iniziare, abilitare i cmdlet del servizio Backup di Azure passando alla modalità *AzureResourceManager* usando il cmdlet **Switch-AzureMode**:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -49,8 +46,8 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRMBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
 È possibile ottenere un elenco di tutti gli insiemi di credenziali per il backup in una determinata sottoscrizione usando il cmdlet **Get-AzureRMBackupVault**.
@@ -148,7 +145,7 @@ PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM
 
 ### Scegliere un punto di ripristino
 
-A questo punto è possibile visualizzare l'elenco di tutti i punti di ripristino per l'elemento di backup usando il cmdlet **Get-AzureRMBackupRecoveryPoint** e quindi scegliere il punto di ripristino da ripristinare. In genere, gli utenti selezionano il punto di ripristino *coerente con l'app* più recente nell'elenco.
+A questo punto è possibile visualizzare l'elenco di tutti i punti di ripristino per l'elemento di backup usando il cmdlet **Get-AzureRMBackupRecoveryPoint** e quindi scegliere il punto di ripristino da ripristinare. In genere, gli utenti selezionano il punto di ripristino *AppConsistent* più recente nell'elenco.
 
 ```
 PS C:\> $rp =  Get-AzureRMBackupRecoveryPoint -Item $backupitem
@@ -234,4 +231,4 @@ Per altre informazioni su come creare una macchina virtuale dai dischi ripristin
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

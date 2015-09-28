@@ -7,16 +7,14 @@
 	manager="wpickett"
 	editor=""/>
 
-
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
-
 
 
 #Proteggere un'app Web nel servizio app di Azure
@@ -24,6 +22,8 @@
 Una delle sfide relative allo sviluppo di un'app Web riguarda l'offerta di un servizio sicuro e protetto ai clienti. In questo articolo vengono presentate le funzionalità del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) in grado di proteggere l'app Web.
 
 > [AZURE.NOTE]Una discussione completa sulle considerazioni relative alla sicurezza delle applicazioni basate su Web non rientra negli obiettivi di questo documento. Come punto di partenza per ulteriori informazioni sulla protezione delle applicazioni Web, vedere il sito [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) e, in particolare, la sezione relativa al [progetto Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) che elenca i 10 più gravi difetti di sicurezza correnti delle applicazioni Web individuati dai membri di OWASP.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a name="https"></a> Proteggere le comunicazioni
 
@@ -47,7 +47,7 @@ Quando si sviluppano applicazioni, si eseguono attività di gestione o si automa
 
 Se si usa un'utilità basata sulle impostazioni o sul profilo di pubblicazione, importare il file contenente le impostazioni o il profilo di pubblicazione nell'utilità, quindi **eliminare** il file. Se si vuole tenere il file, ad esempio per condividerlo con gli altri che lavorano sul progetto, archiviarlo in un percorso sicuro, ad esempio una directory **crittografata** con autorizzazioni limitate.
 
-Inoltre, assicurarsi che le credenziali importate siano protette. Ad esempio, **Azure PowerShell** e l'**interfaccia della riga di comando di Azure** archiviano entrambe le informazioni importate nella **home directory** (*\~* nei sistemi Linux oppure OS X e */users/yourusername* nei sistemi Windows). Per una maggiore protezione è opportuno **crittografare** questi percorsi con gli strumenti di crittografia disponibili per il sistema operativo.
+Inoltre, assicurarsi che le credenziali importate siano protette. Ad esempio, **Azure PowerShell** e l'**interfaccia della riga di comando di Azure** archiviano entrambe le informazioni importate nella **home directory** (*~* nei sistemi Linux oppure OS X e */users/yourusername* nei sistemi Windows). Per una maggiore protezione è opportuno **crittografare** questi percorsi con gli strumenti di crittografia disponibili per il sistema operativo.
 
 ### Impostazioni di configurazione e stringhe di connessione
 Di solito le stringhe di connessione, le credenziali di autenticazione e altre informazioni riservate vengono archiviate nei file di configurazione. Purtroppo questi file possono essere esposti nel sito Web o inseriti in un repository pubblico che ne espone le informazioni.
@@ -88,4 +88,4 @@ Per informazioni sulla registrazione per le app Web, utili per rilevare gli atta
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

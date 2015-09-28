@@ -3,11 +3,11 @@
 	description="Informazioni su come eseguire il backup di una macchina virtuale di Azure dopo la registrazione"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Eseguire il backup di macchine virtuali di Azure
@@ -89,7 +89,7 @@ Per proteggere una macchina virtuale, eseguire la procedura seguente:
 
 4. Tramite la procedura guidata **Proteggi elementi** è possibile selezionare le macchine virtuali da proteggere. Se sono presenti due o più macchine virtuali con lo stesso nome, usare il servizio cloud per distinguere tra le macchine virtuali.
 
-    L'operazione **Proteggi** può essere effettuata su vasta scala, il che significa che è possibile selezionare contemporaneamente più macchine virtuali da registrare. Questo riduce notevolmente il tempo di preparazione della macchina virtuale per il backup.
+    L'operazione **Proteggi** può essere effettuata su vasta scala, il che significa che è possibile selezionare contemporaneamente più macchine virtuali da proteggere. Questo riduce notevolmente il tempo di preparazione della macchina virtuale per il backup.
 
     ![Configurare la protezione su vasta scala](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -101,7 +101,7 @@ Per proteggere una macchina virtuale, eseguire la procedura seguente:
 
     ![Proteggere con nuovi criteri](./media/backup-azure-vms/policy-schedule.png)
 
-6. Nella terza schermata della procedura guidata **Proteggi elementi** scegliere un intervallo di conservazione da associare ai backup eseguiti. Queste schermate supportano lo standard di settore GFS (Grandfather-Father-Son) basato su uno schema di conservazione. Altre informazioni sulla [Conservazione a lungo termine](backup-azure-vms-introduction.md#Long term retention).
+6. Nella terza schermata della procedura guidata **Proteggi elementi** scegliere un intervallo di conservazione da associare ai backup eseguiti. Queste schermate supportano lo standard di settore GFS (Grandfather-Father-Son) basato su uno schema di conservazione. Ulteriori informazioni sulla [Conservazione a lungo termine](#long-term-retention).
 
     I criteri di backup comportano anche uno schema di conservazione dei backup pianificati. Se si selezionano i criteri di backup esistenti nella schermata precedente, viene disabilitata la modifica dello schema di conservazione e i backup seguono i criteri di conservazione definiti nei criteri.
 
@@ -136,12 +136,16 @@ Dopo la protezione, il numero di macchine virtuali aumenta anche nella pagina di
 
 ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
+>[AZURE.NOTE]I valori nel dashboard vengono aggiornati ogni 24 ore.
+
 ### Conservazione a lungo termine
 I criteri di conservazione specificano il periodo di tempo per cui il backup deve essere archiviato. Anziché specificare solo un criterio di "conservazione semplice" per tutti i punti di backup, i clienti possono specificare criteri di conservazione diversi a seconda di quando viene eseguito il backup. Potrebbe ad esempio essere necessario, a scopo di controllo, conservare il punto di backup eseguito alla fine di ogni trimestre per un periodo di tempo più lungo, mentre il punto di backup eseguito quotidianamente, usato come punto di ripristino operativo, deve essere conservato per 90 giorni.
 
+![Virtual machine is backed up with recovery point](./media/backup-azure-vms/long-term-retention.png)
+
 1. **Criteri di conservazione giornaliera**: i backup eseguiti ogni giorno vengono archiviati per 30 giorni.
-2. **Criteri di conservazione settimanale**: i backup eseguiti ogni domenica vengono conservati per 104 settimane.
-3. **Criteri di conservazione mensile**: i backup eseguiti l'ultima domenica di ogni mese vengono conservati per 120 mesi.
+2. **Criteri di conservazione settimanale**: i backup eseguiti ogni domenica vengono conservati per 104 settimane
+3. **Criteri di conservazione mensile**: i backup eseguiti l'ultima domenica di ogni mese vengono conservati per 120 mesi
 4. **Criteri di conservazione annuale**: i backup eseguiti la prima domenica di ogni gennaio vengono conservati per 99 anni.
 
 ## Coerenza dei punti di ripristino
@@ -157,7 +161,7 @@ La tabella seguente illustra i tipi di coerenza che si verificano durante il bac
 | Coerenza | Basato su VSS | Spiegazione e dettagli |
 |-------------|-----------|---------|
 | Coerenza con l'applicazione | Sì | Questa è la soluzione ideale per i carichi di lavoro Microsoft perché garantisce:<ol><li> L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*. <li>L'*assenza di perdite di dati*.<li> La coerenza dei dati con l'applicazione che li usa, grazie all'impiego dell'applicazione al momento del backup tramite il Servizio Copia Shadow del volume.</ol> Il Servizio snapshot del volume garantisce che i dati vengano scritti correttamente nell'archivio. La maggior parte dei carichi di lavoro di Microsoft ha writer del Servizio snapshot del volume che eseguono azioni specifiche di un carico di lavoro correlate alla coerenza dei dati. Ad esempio, Microsoft SQL Server ha un writer del Servizio snapshot del volume che garantisce l'esecuzione corretta delle operazioni di scrittura nel file di log delle transazioni e nel database.<br><br> Per il backup delle VM di Azure, il recupero di un punto di ripristino coerente con un'applicazione significa che l'estensione per il backup è riuscita a richiamare il flusso di lavoro del Servizio snapshot del volume e a essere completata *correttamente* prima dell'esecuzione dello snapshot della VM. Naturalmente, questo significa che anche i writer del Servizio snapshot del volume di tutte le applicazioni nella VM di Azure sono stati richiamati.<br><br>Leggere le [nozioni di base del Servizio snapshot del volume](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) per approfondimenti sui dettagli di [funzionamento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
-| Coerenza con i file system | Sì, per i computer Windows | Esistono due scenari in cui il punto di ripristino può essere coerente con i file system:<ul><li>Backup di VM in Azure, poiché Linux non dispone di una piattaforma equivalente al Servizio snapshot del volume.<li>Errore del Servizio snapshot del volume durante il backup di VM in Azure.</li></ul> In entrambi i casi la soluzione ottimale è garantire: <ol><li> L'*avvio* della macchina virtuale. <li>L'*assenza di qualsiasi danneggiamento*.<li>L'*assenza di perdite di dati*.</ol> Le applicazioni devono implementare il proprio meccanismo di correzione sui dati ripristinati.|
+| Coerenza con i file system | Sì, per i computer Windows | Esistono due scenari in cui il punto di ripristino può essere coerente con i file system:<ul><li>Backup di VM in Azure, poiché Linux non dispone di una piattaforma equivalente al Servizio snapshot del volume.<li>Errore del Servizio snapshot del volume durante il backup di VM in Azure.</li></ul> In entrambi i casi la soluzione ottimale è garantire: <ol><li> L'*avvio* della macchina virtuale. <li>L' *assenza di qualsiasi danneggiamento*.<li>L' *assenza di perdite di dati*.</ol> Le applicazioni devono implementare il proprio meccanismo di correzione sui dati ripristinati.|
 | Coerenza dei dati | No | Questa situazione è equivalente a quella di un computer che si sia arrestato in modo anomalo (a causa di un ripristino software o hardware). Ciò si verifica in genere quando la macchina virtuale di Azure viene arrestata durante il backup. Per il backup della macchina virtuale di Azure, il recupero di un punto di ripristino coerenti con l'arresto anomalo indica che Backup di Azure non offre alcuna garanzia di coerenza dei dati sul supporto di archiviazione, dal punto di vista del sistema operativo o dal punto di vista dell'applicazione. Solo i dati già esistente sul disco al momento del backup vengono acquisiti e sottoposti a backup. <br/> <br/> Anche se non ci sono garanzie, nella maggior parte dei casi il sistema operativo verrà avviato. Questa operazione è in genere seguita da una procedura di controllo come chkdsk per risolvere eventuali errori di danneggiamento del disco. I dati in memoria o le scritture che non sono state scaricate completamente sul disco andranno persi. In genere l'applicazione esegue il proprio meccanismo di verifica nel caso in cui sia necessario effettuare il rollback di dati. Per il backup delle VM di Azure, ottenere un punto di ripristino coerente con l'arresto anomalo significa che Backup di Azure non offre il alcuna garanzia riguardo alla coerenza dei dati di archiviazione, sia dal punto di vista del sistema operativo che dell'applicazione. Questo accade solitamente quando la VM di Azure è spenta al momento del backup.<br><br>Ad esempio, se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue un rollback fino a quando i dati non sono coerenti. Quando si usano dati distribuiti tra più dischi virtuali (ad esempio volumi con spanning), un punto di ripristino coerente con l'arresto anomalo del sistema non fornisce alcuna garanzia della correttezza dei dati.|
 
 
@@ -203,4 +207,4 @@ Per altre informazioni sulle operazioni iniziali Backup di Azure, vedere:
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Pianificare attività di back-end con l'Utilità di pianificazione | Microsoft Azure"
-	description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile."
+	pageTitle="Pianificare le attività di back-end in un servizio mobile back-end di JavaScript | Microsoft Azure"
+	description="Utilizzare l'utilità di pianificazione in servizi mobili di Azure per definire i processi back-end JavaScript eseguiti in una pianificazione."
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # Pianificare i processi ricorrenti in Servizi mobili
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
 Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire il codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
 
@@ -166,4 +166,4 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestire i criteri di backup di StorSimple | Microsoft Azure"
-	description="Viene illustrato come è possibile utilizzare il servizio StorSimple Manager per creare e gestire backup manuali, pianificazioni di backup e conservazione dei backup."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Viene illustrato come è possibile utilizzare il servizio StorSimple Manager per creare e gestire backup manuali, pianificazioni di backup e conservazione dei backup."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos"/>
 
 # Per gestire i criteri di backup, è possibile usare il servizio StorSimple Manager.
 
@@ -49,9 +49,13 @@ Le operazioni utilizzate di frequente che è possibile eseguire da questa pagina
 
 ## Aggiungere un criterio di backup
 
-Aggiungere un criterio di backup per la pianificazione automatica dei backup. Eseguire i passaggi seguenti nel portale di gestione per aggiungere un criterio di backup per il dispositivo StorSimple. Dopo aver aggiunto i criteri, è possibile definire una pianificazione (vedere [aggiungere o modificare una pianificazione](#add-or-modify-a-schedule).
+Aggiungere un criterio di backup per la pianificazione automatica dei backup. Eseguire i passaggi seguenti nel portale di gestione per aggiungere un criterio di backup per il dispositivo StorSimple. Dopo aver aggiunto i criteri, è possibile definire una pianificazione (vedere [Aggiungere o modificare una pianificazione](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-aggiungere-backup-policy](../../includes/storsimple-add-backup-policy.md)]
+
+![Video disponibile](./media/storsimple-manage-backup-policies/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come creare un criterio di backup cloud o locale, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Aggiungere o modificare una pianificazione
@@ -82,6 +86,6 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un criterio di b
 
 ## Passaggi successivi
 
-Informazioni su come [utilizzare Gestione snapshot StorSimple per visualizzare e gestire i processi di backup](storsimple-snapshot-manager-manage-backup-jobs.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -47,4 +47,4 @@ Se il valore non √® specificato in questa sezione, come valore predefinito verr√
 Per altre informazioni: [Architettura di Resource Balancer](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

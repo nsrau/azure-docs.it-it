@@ -1,12 +1,11 @@
 <properties
-	pageTitle="Introduzione a Servizi mobili di Azure per le app iOS"
+	pageTitle="Introduzione a Servizi mobili di Azure per le app iOS | Back-end JavaScript"
 	description="Seguire questa esercitazione per iniziare a usare Servizi mobili di Azure per lo sviluppo per iOS."
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
-
 
 <tags
 	ms.service="mobile-services"
@@ -17,7 +16,6 @@
 	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
-
 # <a name="getting-started"> </a>Introduzione a Servizi mobili
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
@@ -26,7 +24,7 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Per il servizio mobile creato verrà usato JavaScript per la logica di business sul lato server. Per creare un servizio mobile con la logica di business sul lato server in .NET, vedere la sezione [Versione per back-end .NET] di questo argomento.
 
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="\_blank").
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e [ottenere servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione](http://azure.microsoft.com/pricing/details/mobile-services/). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="\_blank").
 
 ## <a name="create-new-service"> </a>Creare un nuovo servizio mobile
 
@@ -53,17 +51,13 @@ Per creare una nuova app connessa al servizio mobile, è possibile seguire una f
 ## <a name="next-steps"> </a>Passaggi successivi
 Informazioni su come eseguire altre importanti attività in Servizi mobili:
 
-* [Aggiungere Servizi mobili a un'app esistente] <br/>
-Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
+* [Aggiungere Servizi mobili a un'app esistente] <br/>Altre informazioni sull'archiviazione e l'esecuzione di query sui dati tramite Servizi mobili.
 
-* [Introduzione alla sincronizzazione dei dati offline] <br/>
-Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
+* [Introduzione alla sincronizzazione dei dati offline] <br/>Informazioni su come usare la sincronizzazione dei dati offline per rendere l'app più affidabile e veloce nelle risposte.
 
-* [Aggiungere l'autenticazione a un'app esistente] <br/>
-Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+* [Aggiungere l'autenticazione a un'app esistente] <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 
-* [Aggiungere notifiche push a un'app esistente] <br/>
-Informazioni sull'invio di una notifica push di base all'app.
+* [Aggiungere notifiche push a un'app esistente] <br/>Informazioni sull'invio di una notifica push di base all'app.
 
 
 <!-- Anchors. -->
@@ -94,4 +88,4 @@ Informazioni sull'invio di una notifica push di base all'app.
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

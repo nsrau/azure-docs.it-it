@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 #<a name="howtomonitor"></a>Monitorare le app Web nel servizio app di Azure
 
 [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio per piani del servizio app Standard e Premium attraverso la pagina di gestione Monitoraggio. La pagina di gestione Monitoraggio offre statistiche sulle prestazioni di un'app Web, come descritto di seguito.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a name="websitemetrics"></a>Procedura: aggiungere metriche dell'app Web
 
@@ -98,7 +100,7 @@ Poiché la registrazione dell'applicazione nell'archivio richiede l'utilizzo di 
 
 > [AZURE.NOTE]La registrazione dell'applicazione si basa sulle informazioni di log generate dall'applicazione. Il metodo utilizzato per generare informazioni di registro, come il formato delle informazioni è specifico per la lingua in che dell'applicazione è scritta. Per informazioni specifiche della lingua sull'utilizzo di registrazione dell'applicazione, vedere gli articoli seguenti:
 >
-> - **.NET**: [Risolvere i problemi di un'app Web nel servizio app di Azure tramite Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+> - **.NET**: [Risolvere i problemi di un'app Web in Azure App Service tramite Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js**: [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](web-sites-nodejs-debug.md)
 >
 > La registrazione delle informazioni delle applicazioni nell'archiviazione BLOB o tabella è supportata solo per le applicazioni .NET.
@@ -277,4 +279,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

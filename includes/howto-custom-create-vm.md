@@ -3,13 +3,13 @@
 Per macchina virtuale *personalizzata* si intende una macchina virtuale creata con il metodo **Da raccolta**, che consente di configurare un numero maggiore di opzioni rispetto al metodo **Creazione rapida**. Tali opzioni includono:
 
 - Più possibilità di scelta per l'immagine da usare per creare la macchina virtuale
-- Connessione della macchina virtuale a una rete virtuale 
-- Aggiunta della macchina virtuale a un servizio cloud esistente 
+- Connessione della macchina virtuale a una rete virtuale
+- Aggiunta della macchina virtuale a un servizio cloud esistente
 - Aggiunta della macchina virtuale a un set di disponibilità
 
-**Importante**: se si vuole usare una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per altre informazioni sulle reti virtuali, vedere [Informazioni generali su Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> [AZURE.IMPORTANT]se si vuole usare una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per ulteriori informazioni sulle reti virtuali, vedere [Informazioni generali su Rete virtuale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com).
+1. Accedere al [portale di Azure](http://manage.windowsazure.com).
 
 2. Sulla barra dei comandi fare clic su **Nuovo**.
 
@@ -30,11 +30,11 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 10. Fare clic sulla freccia per continuare.
 
 11. In **Servizio cloud** eseguire una delle operazioni seguenti:
-	
+
 	- Se questa è la prima o l'unica macchina virtuale nel servizio cloud, selezionare **Crea un nuovo servizio cloud**. Quindi, in **Nome DNS del servizio cloud** digitare un nome composto da un minimo di 3 a un massimo di 24 caratteri, tra lettere in minuscolo e numeri. Tale nome sarà incluso nell'URI usato per contattare la macchina virtuale tramite il servizio cloud.
 	- Se questa macchina virtuale deve essere aggiunta a un servizio cloud, selezionarla nell'elenco.
 
-	**Nota**: per altre informazioni su come aggiungere le macchine virtuali nello stesso servizio cloud, vedere [Come connettere macchine virtuali in un servizio cloud](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
+	> [AZURE.NOTE]per ulteriori informazioni su come aggiungere le macchine virtuali nello stesso servizio cloud, vedere [Come connettere macchine virtuali in un servizio cloud](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
 12. In **Area/Gruppo di affinità/Rete virtuale** selezionare l'area, il gruppo di affinità o la rete virtuale da usare per la macchina virtuale. Per altre informazioni sui gruppi di affinità, vedere [Informazioni sui gruppi di affinità per Rete virtuale](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -42,14 +42,13 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 
 14. Se si desidera che la macchina virtuale faccia parte di un set di disponibilità, in **Set di disponibilità** selezionare **Crea set di disponibilità** o aggiungerla a un set di disponibilità esistente.
 
-	**Nota**: le macchine virtuali che fanno parte di un set di disponibilità vengono distribuite in diversi domini di errore. Collocando più macchine virtuali in un set di disponibilità è possibile garantire la disponibilità dell'applicazione in caso di errori della rete, guasti hardware di un disco locale ed eventuali tempi di inattività pianificati.
+	**Nota**: le macchine virtuali in un set di disponibilità vengono distribuite in diversi domini di errore. Collocando più macchine virtuali in un set di disponibilità è possibile garantire la disponibilità dell'applicazione in caso di errori della rete, guasti hardware di un disco locale ed eventuali tempi di inattività pianificati.
 
 15.  In **Endpoint** verificare che i nuovi endpoint che verranno creati consentano le connessioni alla macchina virtuale, ad esempio tramite Desktop remoto o un client Secure Shell (SSH). È inoltre possibile aggiungere subito gli endpoint o crearli in un secondo momento. Per istruzioni su come crearli in un secondo momento, vedere [Come configurare gli endpoint a una macchina virtuale](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
 
 16.  In **Agente di macchine virtuali** scegliere se installare l'agente VM. Tale agente offre l'ambiente per installare le estensioni che consentono di interagire con la macchina virtuale. Per informazioni dettagliate, vedere [Gestire le estensioni](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
 17. Fare clic sulla freccia per creare la macchina virtuale.
-
 
 	![Creazione della macchina virtuale personalizzata completata](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
@@ -59,4 +58,4 @@ Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal
 - [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

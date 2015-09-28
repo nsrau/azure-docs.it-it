@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Come gestire le configurazioni e i profili dei servizi"
-	description="Informazioni su come usare i file di configurazione del servizio e di configurazione dei profili che archiviano le impostazioni per gli ambienti di distribuzione e le impostazioni di pubblicazione per i servizi cloud."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Informazioni su come usare i file di configurazione del servizio e di configurazione dei profili che archiviano le impostazioni per gli ambienti di distribuzione e le impostazioni di pubblicazione per i servizi cloud."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Come gestire le configurazioni e i profili dei servizi
 
-##Panoramica
+## Panoramica
 
 Quando si pubblica un servizio cloud, Visual Studio archivia le informazioni di configurazione in due tipi di file di configurazione, ovvero le configurazioni e i profili del servizio. Le configurazioni del servizio (file con estensione cscfg) archiviano le impostazioni per gli ambienti di distribuzione per un servizio cloud di Azure. Azure usa questi file di configurazione quando gestisce i servizi cloud. I profili (file con estensione azurePubxml) invece archiviano le impostazioni di pubblicazione per i servizi cloud. Queste impostazioni sono un record delle opzioni selezionate durante la pubblicazione guidata e vengono usate localmente da Visual Studio. Questo argomento illustra come usare entrambi i tipi di file di configurazione.
 
@@ -33,7 +33,7 @@ Quando si pubblica un servizio cloud, Visual Studio archivia le informazioni di 
 
 ### Per aggiungere una configurazione del servizio
 
-1. In Esplora soluzioni aprire il menu di scelta rapida per il progetto Azure e fare clic su **Gestisci configurazioni**. 
+1. In Esplora soluzioni aprire il menu di scelta rapida per il progetto Azure e fare clic su **Gestisci configurazioni**.
 
     Verrà visualizzata la finestra di dialogo **Gestisci configurazioni di servizio**.
 
@@ -47,20 +47,20 @@ Quando si pubblica un servizio cloud, Visual Studio archivia le informazioni di 
 ### Per eliminare una configurazione del servizio
 
 1. In Esplora soluzioni aprire il menu di scelta rapida per il progetto Azure e fare clic su **Gestisci configurazioni**.
-    
+
     Verrà visualizzata la finestra di dialogo **Gestisci configurazioni di servizio**.
 
 1. Per eliminare una configurazione del servizio, selezionarla dall'elenco **Nome**, quindi fare clic su **Rimuovi**. Verrà visualizzata una finestra di dialogo per verificare se si vuole eliminare questa configurazione.
 
 1. Fare clic su **Elimina**.
- 
+
      Il file di configurazione del servizio viene rimosso dal progetto Azure in Esplora soluzioni.
 
 
 ### Per rinominare una configurazione del servizio
 
 1. In Esplora soluzioni aprire il menu di scelta rapida per il progetto Azure e fare clic su **Gestisci configurazioni**.
- 
+
     Verrà visualizzata la finestra di dialogo **Gestisci configurazioni di servizio**.
 
 1. Per rinominare una configurazione del servizio, scegliere la nuova configurazione del servizio dall'elenco **Nome**, quindi fare clic su **Rinomina**. Nella casella di testo **Nome** digitare il nome da usare per questa configurazione del servizio, quindi fare clic su **OK**.
@@ -94,7 +94,7 @@ Quando si esegue la procedura guidata per la prima volta, viene creato un profil
 1. Nell'elenco **Nome** scegliere un profilo, quindi **Crea copia**.
 
 1. Fare clic su **Chiudi**.
- 
+
     Il nuovo profilo viene visualizzato nell'elenco Profilo di destinazione.
 
 1. Nell'elenco **Profilo di destinazione** fare clic sul profilo appena creato. Le impostazioni della pubblicazione guidata vengono popolate in base alle opzioni relative al profilo selezionato.
@@ -131,4 +131,4 @@ Quando si esegue la procedura guidata per la prima volta, viene creato un profil
 
 Per informazioni sulla configurazione di altre parti del progetto Azure da Visual Studio, vedere [Configurazione di un progetto Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

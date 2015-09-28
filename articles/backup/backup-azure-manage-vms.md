@@ -4,11 +4,11 @@
 	description="Informazioni su come gestire una macchina virtuale di Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # Gestire le macchine virtuali
 
@@ -24,6 +24,8 @@ Per gestire le macchine virtuali protette:
 
 3. Per visualizzare e gestire le impostazioni dei criteri di backup per una macchina virtuale fare clic sulla scheda **Criteri**.
 
+    ![Criteri per una macchina virtuale](./media/backup-azure-manage-vms/manage-policy-settings.png)
+
     Nella scheda **Criteri di backup** vengono visualizzati i criteri esistenti. È possibile modificare i criteri in base alle esigenze. Se è necessario creare un nuovo criterio, fare clic su **Crea** nella pagina **Criteri**. Si noti che un criterio può essere rimosso solo se non ha alcuna macchina virtuale associata.
 
     ![Criteri per una macchina virtuale](./media/backup-azure-manage-vms/backup-vmpolicy.png)
@@ -37,7 +39,7 @@ Per gestire le macchine virtuali protette:
 
 Per eseguire un backup su richiesta di una macchina virtuale:
 
-1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come **Tipo**, se non è già selezionata, quindi fare clic su **Seleziona**.
+1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come **Tipo**, se non è già selezionata, quindi fare clic sul pulsante **Seleziona**.
 
     ![Tipo macchina virtuale](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -100,7 +102,7 @@ Se non è stata selezionata l'opzione **Elimina i dati di backup associati** in 
 
 Dopo la riattivazione della protezione, lo stato di protezione della macchina virtuale verrà cambiato in **Protetto** se sono presenti punti di ripristino prima di **Arresta protezione**.
 
-    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Protezione VM riattivata](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]Quando si riattiva la protezione della macchina virtuale, è possibile scegliere un criterio diverso rispetto ai criteri con cui la macchina virtuale è stata protetta inizialmente.
 
@@ -124,7 +126,7 @@ Per rimuovere la macchina virtuale dall'insieme di credenziali per il backup:
 
 Per eliminare i dati di backup in una macchina virtuale con stato *Protezione arrestata* dopo il completamento corretto di un processo **Arresta backup**:
 
-1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come **Tipo**, quindi fare clic sul pulsante *Seleziona*.
+1. Passare alla pagina **Elementi protetti** e selezionare **Macchina virtuale di Azure** come *Tipo*, quindi fare clic sul pulsante **Seleziona**.
 
     ![Tipo macchina virtuale](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -149,7 +151,9 @@ Per eliminare i dati di backup in una macchina virtuale con stato *Protezione ar
 ## Dashboard
 Nella pagina **Dashboard** è possibile esaminare le informazioni sulle macchine virtuali di Azure, le relative risorse di archiviazione e i processi associati nelle ultime 24 ore. È possibile visualizzare lo stato del backup ed eventuali errori di backup associati.
 
-    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE]I valori nel dashboard vengono aggiornati ogni 24 ore.
 
 ## Operazioni di controllo
 Backup di Azure consente di esaminare i "log operazioni" delle operazioni di backup attivate dal cliente, per vedere più facilmente e con esattezza quali operazioni di gestione sono state eseguite nell'insieme di credenziali per il backup. I log operazioni offrono un ottimo supporto per i controlli e le relazioni finali sulle operazioni di backup.
@@ -182,7 +186,7 @@ Per visualizzare i log operazioni corrispondenti all'insieme di credenziali per 
 
     ![Log operazioni: recupero dei dettagli](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-    La procedura guidata **Dettagli** include informazioni su operazione attivate, ID processo, risorsa nella quale è stata attivata l'operazione e la relativa data di inizio.
+    La **Procedura guidata dettagli** include informazioni su operazione attivate, ID processo, risorsa nella quale è stata attivata l'operazione e la relativa data di inizio.
 
     ![Dettagli operazione](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
@@ -245,4 +249,4 @@ Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 
 - [Ripristinare una macchina virtuale](backup-azure-restore-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

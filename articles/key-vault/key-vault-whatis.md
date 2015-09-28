@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.topic="get-started-article" 
+	ms.date="09/11/2015" 
 	ms.author="cabailey"/>
 
 
@@ -68,4 +68,4 @@ Per altre informazioni sull'uso di chiavi e segreti con l'insieme di credenziali
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -54,7 +54,13 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 
 ### Connettore e server pubblicato nello stesso dominio
 
-In Active Directory passare a **Strumenti** > **Utenti e computer**. Selezionare il server che esegue il connettore. Fare clic con il pulsante destro del mouse e scegliere **Proprietà** > **Delega**. Selezionare **Computer attendibile per la delega solo ai servizi specificati** e in **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità del nome dell'entità servizio (SPN) del server dell'applicazione. In questo modo il connettore proxy di applicazione può rappresentare gli utenti in AD nei confronti delle applicazioni definite nell'elenco.
+
+
+1. In Active Directory passare a **Strumenti** > **Utenti e computer**. 
+2. Selezionare il server che esegue il connettore. 
+3. Fare clic con il pulsante destro del mouse e scegliere **Proprietà** > **Delega**. 
+4. Selezionare **Computer attendibile per la delega solo ai servizi specificati** e in **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità del nome dell'entità servizio (SPN) del server dell'applicazione. 
+5. In questo modo il connettore proxy di applicazione può rappresentare gli utenti in AD nei confronti delle applicazioni definite nell'elenco.
 
 ![Schermata della finestra delle proprietà per Connector-SVR](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
 
@@ -87,11 +93,11 @@ In Active Directory passare a **Strumenti** > **Utenti e computer**. Selezionare
 
 | | |
 | --- | --- |
-| Metodo di autenticazione interna | Se si usa il proxy di applicazione per la preautenticazione, è possibile impostare un metodo di autenticazione interno per consentire agli utenti di usufruire dell'accesso Single Sign-On a questa applicazione. <br><br> Selezionare **Autenticazione integrata di Windows** se l'applicazione usa l'autenticazione integrata di Windows ed è possibile configurare la delega vincolata Kerberos per abilitare l'accesso Single Sign-On per questa applicazione. Le applicazioni con autenticazione integrata di Windows devono essere configurate usando la delega vincolata Kerberos, in caso contrario il proxy di applicazione non sarà in grado di pubblicare queste applicazioni. <br><br> Selezionare **Nessuna** se l'applicazione non usa l'autenticazione integrata di Windows. |
+| Metodo di autenticazione interna | Se si usa il proxy di applicazione per la preautenticazione, è possibile impostare un metodo di autenticazione interno per consentire agli utenti di usufruire dell'accesso Single Sign-On a questa applicazione. <br><br> Selezionare**Autenticazione integrata di Windows (IWA)** se l'applicazione utilizza l'autenticazione integrata di Windows (IWA) ed è possibile configurare la delega vincolata Kerberos (Kerberos Constrained Delegation, KCD) per abilitare SSO per questa applicazione. Le applicazioni con autenticazione integrata di Windows devono essere configurate usando la delega vincolata Kerberos, in caso contrario il proxy di applicazione non sarà in grado di pubblicare queste applicazioni. <br><br>Selezionare**Nessuna** se l'applicazione non utilizza l'autenticazione integrata di Windows. |
 | SPN dell’applicazione interna | Si tratta del nome dell'entità servizio (SPN) dell'applicazione interna come configurato nell'istanza di Azure AD locale. Il nome dell'entità servizio viene usato dal connettore proxy di applicazione per recuperare i token Kerberos per l'applicazione mediante la delega vincolata Kerberos. |
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

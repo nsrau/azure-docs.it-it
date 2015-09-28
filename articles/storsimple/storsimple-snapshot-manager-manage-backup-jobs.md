@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/05/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,8 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 
 ## Passaggi successivi
 
-[Uso di Gestione snapshot StorSimple per gestire il catalogo di backup](storsimple-snapshot-manager-manage-backup-catalog.md)
+- Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come[Utilizzare Gestione snapshot StorSimple per gestire il catalogo di backup](storsimple-snapshot-manager-manage-backup-catalog.md)
 
 
 
@@ -129,4 +130,4 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -131,7 +131,7 @@ Si noti che non è possibile usare funzioni codificate nei test: i passaggi dell
 
 #### 1\. Registrare uno scenario
 
-Usare Visual Studio Ultimate per registrare una sessione Web.
+Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
 
 1. Creare un progetto di test delle prestazioni Web.
 
@@ -147,14 +147,18 @@ Usare Visual Studio Ultimate per registrare una sessione Web.
 
     Non creare uno scenario lungo, in quanto è presente un limite di 100 passaggi e 2 minuti.
 
-4. Eseguire il test in Visual Studio per verificarne il corretto funzionamento.
+4. Modificare il test per:
+ - Aggiungere convalide per verificare i codici di testo e di risposta ricevuti.
+ - Rimuovere tutte le interazioni superflue. È inoltre possibile rimuovere le richieste dipendenti per le immagini o per Active Directory o i siti di rilevamento.
+
+    Tenere presente che è possibile modificare solo lo script del test ma non è possibile aggiungere codice personalizzato o chiamare altri test web. Non inserire cicli nel test. È possibile utilizzare i plug-in del test web standard.
+
+5. Eseguire il test in Visual Studio per verificarne il corretto funzionamento.
 
     Il programma di esecuzione del test Web apre un browser Web e ripete le azioni registrate. Verificare che funzioni come previsto.
 
     ![In Visual Studio, aprire il file con estensione webtest e fare clic su Esegui.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-
-Non inserire cicli nel codice del test Web.
 
 #### 2\. Caricare il test Web in Application Insights
 
@@ -218,7 +222,7 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 
 * *È possibile chiamare codice da un test Web?*
 
-    No. I passaggi del test devono essere nel file con estensione webtest. Esistono una serie di plug-in che potrebbero risultare utili.
+    No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono numerosi plug-in che potrebbero risultare utili.
 
 ## <a name="video"></a>Video
 
@@ -240,4 +244,4 @@ Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

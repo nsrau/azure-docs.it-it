@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/27/2015"
+	ms.topic="get-started-article" 
+	ms.date="09/10/2015"
 	ms.author="spelluru"/>
 
 # Creare la prima pipeline con Data factory di Azure
@@ -64,12 +64,10 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 
 1. Avviare il Blocco note, incollare il testo seguente e salvarlo come file **partitionweblogs.hql** nella cartella C:\\adfgettingstarted sul disco rigido. Questo script Hive crea due tabelle esterne: **WebLogsRaw** e **WebLogsPartitioned**.
 
-	> [AZURE.IMPORTANT]Sostituire **storageaccountname** nell'ultima riga con il nome del proprio account di archiviazione.
-
 		set hive.exec.dynamic.partition.mode=nonstrict;
-
+		
 		DROP TABLE IF EXISTS WebLogsRaw; 
-		CREATE EXTERNAL TABLE WebLogsRaw (
+		CREATE TABLE WebLogsRaw (
 		  date  date,
 		  time  string,
 		  ssitename string,
@@ -91,8 +89,9 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 		)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 		LINES TERMINATED BY '\n' 
-		LOCATION '/HdiSamples/WebsiteLogSampleData/SampleLog/'
 		tblproperties ("skip.header.line.count"="2");
+		
+		LOAD DATA INPATH '/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log' OVERWRITE INTO TABLE WebLogsRaw;
 		
 		DROP TABLE IF EXISTS WebLogsPartitioned ; 
 		create external table WebLogsPartitioned (  
@@ -119,7 +118,7 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
 		LOCATION '${hiveconf:partitionedtable}';
-
+		
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
 		  date,
@@ -143,8 +142,7 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-
-	 
+	
  
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
 	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Vedere l’articolo [Come usare AzCopy](../storage/storage-use-azcopy.md)per istruzioni sull'utilizzo dell'utilità.
@@ -153,7 +151,7 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 	
 
-	3. Passare alla cartella c:\\adfgettingstarted ed eseguire il comando seguente per caricare il file Hive .HQL nell'account di archiviazione. Sostituire **<StorageAccountName>** con il nome del proprio account di archiviazione e **<Storage Key>** con la chiave dell'account di archiviazione.
+	3. Passare alla cartella c:\\adfgettingstarted ed eseguire il comando seguente per caricare il file Hive .HQL nell'account di archiviazione. Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 	4. Dopo avere completato il caricamento del file, verrà visualizzato il seguente output da AzCopy.
@@ -174,6 +172,6 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio. 
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md) richiede solo alcuni minuti.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

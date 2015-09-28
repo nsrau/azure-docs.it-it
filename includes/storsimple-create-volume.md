@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 #### Per creare un volume
 
 1. Nella pagina **Avvio rapido** del dispositivo fare clic su **Aggiungi un volume**. Verrà avviata la procedura guidata Aggiungi volume.
@@ -21,4 +23,8 @@
 
 4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Verrà creato un volume con le impostazioni specificate.
 
-<!---HONumber=August15_HO9-->
+![Video disponibile](./media/storsimple-create-volume/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come creare un nuovo volume StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+
+<!---HONumber=Sept15_HO3-->

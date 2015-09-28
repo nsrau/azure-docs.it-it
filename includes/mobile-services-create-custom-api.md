@@ -6,7 +6,7 @@
 
 3. Digitare _completeall_ in **Nome API** e quindi fare clic sul segno di spunta per creare la nuova API.
 
-	> [AZURE.NOTE]Con le autorizzazioni predefinite, chiunque disponga della chiave dell'app può chiamare l'API personalizzata. La chiave dell'applicazione non è tuttavia considerata una credenziale di sicurezza, in quanto non può essere distribuita o archiviata in modo sicuro. Per maggiore sicurezza, è consigliabile limitare l'accesso ai soli utenti autenticati.
+	> [AZURE.TIP]Con le autorizzazioni predefinite, chiunque disponga della chiave dell'app può chiamare l'API personalizzata. La chiave dell'applicazione non è tuttavia considerata una credenziale di sicurezza, in quanto non può essere distribuita o archiviata in modo sicuro. Per maggiore sicurezza, è consigliabile limitare l'accesso ai soli utenti autenticati.
 
 4. Fare clic su **completeall** nella tabella dell'API.
 
@@ -26,8 +26,7 @@
 		};
 
 
-
-> [AZURE.NOTE]Gli oggetti <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> e <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> forniti a funzioni API personalizzate vengono implementati dalla libreria <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js</a>. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">API personalizzata</a>.
+> [AZURE.NOTE]Gli oggetti [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) e [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) forniti a funzioni API personalizzate vengono implementati dalla [libreria Express.js](http://go.microsoft.com/fwlink/p/?LinkId=309046).
 
 <!-- Anchors. -->
 
@@ -36,4 +35,4 @@
 <!-- URLs. -->
 [mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

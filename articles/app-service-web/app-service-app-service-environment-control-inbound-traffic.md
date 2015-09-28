@@ -1,31 +1,33 @@
 <properties 
-	pageTitle="Come controllare il traffico in ingresso a un ambiente del servizio app"
-	description="Informazioni su come configurare le regole di sicurezza di rete per controllare il traffico in ingresso a un ambiente del servizio app."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Come controllare il traffico in ingresso a un ambiente del servizio app" 
+	description="Informazioni su come configurare le regole di sicurezza di rete per controllare il traffico in ingresso a un ambiente del servizio app." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Come controllare il traffico in ingresso a un ambiente del servizio app
 
 ## Panoramica ##
-Un ambiente del servizio app viene sempre creato in una subnet di una [rete virtuale][virtualnetwork] regionale. È possibile definire una nuova rete virtuale regionale e una nuova subnet al momento della creazione di un ambiente del servizio app. In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale regionale e in una subnet preesistenti. Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
+Un ambiente del servizio app viene sempre creato in una subnet di una [rete virtuale][virtualnetwork] "v1" classica regionale. È possibile definire una nuova rete virtuale "v1" classica regionale e una nuova subnet al momento della creazione di un ambiente del servizio app. In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale "v1" classica regionale e in una subnet preesistenti. Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
 
 È sempre necessario creare un ambiente del servizio app all'interno di una subnet perché la subnet fornisce un limite di rete che può essere usato per bloccare il traffico in ingresso proveniente da dispositivi e servizi upstream, in modo che il traffico HTTP e HTTPS sia accettato solo da indirizzi IP upstream specifici.
 
 Il traffico in ingresso e in uscita a e da una subnet è controllato tramite un [gruppo di sicurezza di rete][NetworkSecurityGroups]. Per controllare il traffico in ingresso è necessario creare regole di sicurezza di rete in un gruppo di sicurezza di rete, quindi assegnare al gruppo di sicurezza di rete la subnet contenente l'ambiente del servizio app.
 
 Dopo aver assegnato un gruppo di sicurezza di rete a una subnet, il traffico in ingresso alle app nell'ambiente del servizio app è consentito/bloccato in base alle regole di autorizzazione consentita o negata definite nel gruppo di sicurezza di rete.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Porte di rete usate in un ambiente del servizio app ##
 Prima di bloccare il traffico di rete in ingresso tramite un gruppo di sicurezza di rete, è importante conoscere quali sono le porte di rete obbligatorie e facoltative usate da un ambiente del servizio app. Il blocco accidentale del traffico ad alcune porte può comportare una perdita di funzionalità nell'ambiente del servizio app.
@@ -43,14 +45,16 @@ Di seguito è riportato un elenco delle porte usate da un ambiente del servizio 
 - 4020: porta usata per il debug remoto con Visual Studio 2015. Questa porta può essere bloccata, se non si usa questa funzionalità.
 
 ## Requisiti per DNS e connettività in uscita ##
-Si noti che per il corretto funzionamento di un ambiente del servizio app, è anche necessario l'accesso in uscita ad Archiviazione di Azure oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
+Si noti che per il corretto funzionamento di un ambiente del servizio app, è anche necessario l'accesso in uscita ad Archiviazione di Azure a livello mondiale oltre che al database SQL nella stessa area di Azure. Se l'accesso a Internet in uscita è bloccato nella rete virtuale, gli ambienti del servizio app non potranno accedere a questi endpoint di Azure.
 
 Il cliente potrebbe anche avere configurato server DNS personalizzati nella rete virtuale. Gli ambienti del servizio app devono poter risolvere gli endpoint di Azure in *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
 
-È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo.
+È anche consigliabile che i server DNS personalizzati nella rete virtuale vengano configurati prima di creare un ambiente del servizio app. Se la configurazione DNS della rete virtuale viene modificata durante la creazione di un ambiente del servizio app, il processo di creazione dell'ambiente del servizio app avrà esito negativo. In modo analogo, se esiste un server DNS personalizzato nell’altra estremità di un gateway VPN e il server DNS è irraggiungibile o non disponibile, anche il processo di creazione dell’ambiente del servizio App avrà esito negativo.
 
 ## Creazione di un gruppo di sicurezza di rete ##
 Per i dettagli sul funzionamento dei gruppi di sicurezza di rete, vedere le [informazioni][NetworkSecurityGroups] seguenti. Di seguito sono riportate le informazioni principali relative ai gruppi di sicurezza di rete, con particolare attenzione alla configurazione e all'applicazione di un gruppo di sicurezza di rete a una subnet contenente un ambiente del servizio app.
+
+**Nota:** i gruppi di sicurezza di rete possono essere configurati solo tramite i cmdlet di Powershell descritti di seguito. I gruppi di sicurezza di rete non possono essere configurati graficamente utilizzando il nuovo portale (portal.azure.com), poiché il nuovo portale consente solo la configurazione grafica di NSG associati a reti virtuali "v2". Tuttavia, attualmente gli ambienti del servizio app funzionano solo in reti virtuali "v1" classiche. Di conseguenza è possibile utilizzare solo i cmdlet di Powershell per configurare i gruppi di sicurezza di rete associati alle reti virtuali "v1".
 
 I gruppi di sicurezza di rete vengono innanzitutto creati come un'entità autonoma associata a una sottoscrizione. Poiché i gruppi di sicurezza di rete vengono creati in un'area di Azure, assicurarsi di creare il gruppo di sicurezza di rete nella stessa area dell'ambiente del servizio app.
 
@@ -106,7 +110,7 @@ Per completezza, di seguito viene mostrato un esempio di come rimuovere e quindi
 ## Considerazioni speciali su IP SSL esplicito ##
 Se un'app è configurata con un indirizzo IP esplicito anziché con l'indirizzo IP predefinito dell'ambiente del servizio app, il traffico HTTP e HTTPS viene indirizzato alla subnet tramite un set di porte diverso dalle porte 80 e 443.
 
-Durante l'anteprima iniziale degli ambienti del servizio app, non sarà possibile determinare le porte specifiche usate da IP SSL. Tuttavia, non appena questa informazione verrà esposta tramite il portale, gli strumenti da riga di comando e le API REST, gli sviluppatori potranno configurare i gruppi di sicurezza di rete in modo da controllare anche il traffico tramite queste porte.
+La coppia individuale di porte utilizzate per ogni indirizzo IP-SSL è disponibile facendo clic su "Tutte le impostazioni"--> "Indirizzi IP" dal pannello dell’interfaccia utente di un ambiente servizio App. Il pannello "Indirizzi IP" mostra una tabella di tutti gli indirizzi IP-SSL configurati in modo esplicito per l'ambiente del servizio app, con la coppia speciale di porte che consente di instradare il traffico HTTP e HTTPS associato a ogni indirizzo IP-SSL. Questa è la coppia di porte che deve essere utilizzata per i parametri DestinationPortRange quando si configurano le regole in un gruppo di sicurezza di rete.
 
 ## Introduzione
 
@@ -130,4 +134,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

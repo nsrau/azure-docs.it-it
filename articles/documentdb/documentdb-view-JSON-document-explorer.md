@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="09/09/2015"
 	ms.author="stbaro"/>
 
 # Visualizzare, modificare, creare e caricare documenti JSON tramite Esplora documenti di DocumentDB #
@@ -26,7 +26,7 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 -	In che modo è possibile visualizzare facilmente le proprietà di sistema di un documento di DocumentDB tramite un Web browser?
 -	In che modo è possibile eseguire facilmente l'inserimento in blocco di documenti in DocumentDB tramite un Web browser?
 
-##<a id="Launch"></a>Avviare ed esplorare Esplora documenti##
+##<a id="Launch"></a>Avviare Esplora documenti##
 
 Esplora documenti può essere avviato da qualsiasi account, database e pannelli di raccolte di DocumentDB.
 
@@ -44,35 +44,6 @@ Esplora documenti può essere avviato da qualsiasi account, database e pannelli 
 
 	![Schermata di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
-3. Per impostazione predefinita, Esplora documenti carica i primi 100 documenti della raccolta selezionata, dal meno recente al più recente, in base alla data di creazione. È possibile caricare altri documenti (in batch di 100) selezionando l'opzione **Carica altro** nella parte inferiore del pannello di Esplora documenti. Il comportamento predefinito può essere modificato scegliendo il comando Impostazioni nella parte superiore del pannello di Esplora documenti.
-
-	![Schermata del pannello Impostazioni di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
-
-
-4. Nel pannello Impostazioni, è possibile modificare il numero di elementi da restituire per pagina, nonché fornire una clausola WHERE per caricare i documenti corrispondenti nella griglia di Esplora documenti. Ulteriori informazioni sulla grammatica SQL di DocumentDB sono disponibili [qui](documentdb-sql-query.md).
-
-	![Schermata del pannello Impostazioni di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
-
-	> [AZURE.NOTE]Dopo aver modificato le impostazioni di Esplora documenti, è necessario scegliere il comando **Aggiorna** per applicare le nuove impostazioni. Le impostazioni verranno mantenute solo nella sessione del browser corrente.
-	
-5. Gli elenchi a discesa **Database** e **Raccolta** possono essere usati per modificare facilmente la raccolta da cui sono attualmente visualizzati i documenti senza dover chiudere e riavviare Esplora documenti.
-
-5. Esplora documenti supporta anche l'applicazione di filtri al set di documenti attualmente caricato in base alla relativa proprietà ID. È sufficiente digitare nella casella del filtro.
-
-	![Schermata di Esplora documenti con filtro evidenziato](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
-
-	I risultati nell'elenco di Esplora documenti vengono filtrati in base ai criteri forniti.
-
-	![Schermata di Esplora documenti con risultati filtrati](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
-
-
-	> [AZURE.IMPORTANT]La funzionalità di filtro di Esplora documenti consente di filtrare solo dal set di documenti caricati ***attualmente*** e non esegue una query sulla raccolta attualmente selezionata.
-
-6. Per aggiornare l'elenco dei documenti caricati da Esplora documenti, fare semplicemente clic sul comando **Aggiorna** nella parte superiore del pannello.
-
-	![Schermata del comando di aggiornamento di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
-
-
 ##<a id="Create"></a>Visualizzare, creare e modificare i documenti con Esplora documenti##
 
 Esplora documenti consente di creare, modificare ed eliminare facilmente i documenti.
@@ -87,7 +58,7 @@ Esplora documenti consente di creare, modificare ed eliminare facilmente i docum
 
 	> [AZURE.NOTE]Se non si specifica una proprietà "ID", Esplora documenti aggiunge automaticamente una proprietà ID e genera un GUID come valore ID.
 
-- Se si dispone già di dati di file JSON, MongoDB, SQL Server, file CSV, archiviazione tabelle di Azure o di altre raccolte di DocumentDB, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati.
+- Se si dispone già di dati di file JSON, MongoDB, SQL Server, file CSV, archiviazione tabelle di Azure, Amazon DynamoDB, HBase o di altre raccolte di DocumentDB, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati.
 
 - Per modificare un documento esistente, è sufficiente selezionarlo in Esplora documenti, modificarlo nel modo che si preferisce, quindi fare clic sul comando **Salva**.
 
@@ -115,6 +86,38 @@ Esplora documenti consente di creare, modificare ed eliminare facilmente i docum
 
 	> [AZURE.NOTE]La proprietà timestamp (\_ts) viene rappresentata internamente come periodo, ma Esplora documenti consente di visualizzare il valore in un formato GMT leggibile.
 
+##<a id="Navigate"></a>Le opzioni di navigazione di Esplora documenti e le impostazioni avanzate##
+
+Esplora documenti supporta numerose opzioni di navigazione e impostazioni avanzate.
+
+1. Per impostazione predefinita, Esplora documenti carica i primi 100 documenti della raccolta selezionata, dal meno recente al più recente, in base alla data di creazione. È possibile caricare altri documenti (in batch di 100) selezionando l'opzione **Carica altro** nella parte inferiore del pannello di Esplora documenti. Il comportamento predefinito può essere modificato scegliendo il comando Impostazioni nella parte superiore del pannello di Esplora documenti.
+
+	![Schermata del pannello Impostazioni di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+
+
+2. Nel pannello Impostazioni, è possibile modificare il numero di elementi da restituire per pagina, nonché fornire una clausola WHERE per caricare i documenti corrispondenti nella griglia di Esplora documenti. Ulteriori informazioni sulla grammatica SQL di DocumentDB sono disponibili [qui](documentdb-sql-query.md).
+
+	![Schermata del pannello Impostazioni di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
+
+	> [AZURE.NOTE]Dopo aver modificato le impostazioni di Esplora documenti, è necessario scegliere il comando **Aggiorna** per applicare le nuove impostazioni. Le impostazioni verranno mantenute solo nella sessione del browser corrente.
+	
+3. Gli elenchi a discesa **Database** e **Raccolta** possono essere usati per modificare facilmente la raccolta da cui sono attualmente visualizzati i documenti senza dover chiudere e riavviare Esplora documenti.
+
+4. Esplora documenti supporta anche l'applicazione di filtri al set di documenti attualmente caricato in base alla relativa proprietà ID. È sufficiente digitare nella casella del filtro.
+
+	![Schermata di Esplora documenti con filtro evidenziato](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
+
+	I risultati nell'elenco di Esplora documenti vengono filtrati in base ai criteri forniti.
+
+	![Schermata di Esplora documenti con risultati filtrati](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
+
+
+	> [AZURE.IMPORTANT]La funzionalità di filtro di Esplora documenti consente di filtrare solo dal set di documenti caricati ***attualmente*** e non esegue una query sulla raccolta attualmente selezionata.
+
+5. Per aggiornare l'elenco dei documenti caricati da Esplora documenti, fare semplicemente clic sul comando **Aggiorna** nella parte superiore del pannello.
+
+	![Schermata del comando di aggiornamento di Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
+
 ##<a id="BulkAdd"></a>Aggiungere documenti in blocco con Esplora documenti##
 
 Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON esistenti.
@@ -137,7 +140,8 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
 ##<a name="NextSteps"></a>Passaggi successivi
 
-Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
+- Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

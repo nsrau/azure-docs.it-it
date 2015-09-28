@@ -11,11 +11,11 @@
 
 <tags 
 	ms.service="cloud-services" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/14/2015" 
 	ms.author="patshea"/>
 
 # Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
@@ -25,11 +25,8 @@
 In questo articolo viene illustrato il metodo Campionamento CPU per la profilatura, che può essere eseguito localmente nell'emulatore. Si tratta di un metodo di profilatura non eccessivamente invasivo. Il profiler salva uno snapshot dello stack di chiamate in base a intervalli di campionamento specificati. I dati vengono raccolti per un determinato periodo di tempo e vengono visualizzati in un rapporto. Questo metodo di profilatura tende a indicare la posizione in cui viene eseguita la maggior parte del lavoro della CPU in un'applicazione a elevato utilizzo di calcolo. Ciò consente di focalizzare l'attenzione sul "percorso critico" in cui l'applicazione trascorre la maggior parte del tempo.
 
 
-## Prerequisiti
 
-È possibile eseguire il profiler localmente solo se si dispone di Visual Studio Premium o Visual Studio Ultimate.
-
-## <a name="step1"> </a> Passaggio 1: Configurare Visual Studio per la profilatura
+## Passaggio 1: Configurare Visual Studio per la profilatura
 
 Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debugging** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**. È anche possibile vedere http://referencesource.microsoft.com/symbols, dove potrebbero essere disponibili file di simboli aggiuntivi.
 
@@ -73,7 +70,7 @@ Chiamare tale codice dal metodo RunAsync nella classe del ruolo di lavoro deriva
 
 Compilare ed eseguire localmente il servizio cloud senza eseguire il debug (CTRL+F5) con la configurazione della soluzione impostata su **Release**. In tale modo, tutti i file e le cartelle verranno creati per l'esecuzione locale dell'applicazione e tutti gli emulatori verranno avviati. Avviare l'interfaccia utente dell'emulatore di calcolo dalla barra delle applicazioni per verificare che il ruolo di lavoro sia in esecuzione.
 
-## <a name="step2"> </a> Passaggio 2: Connettersi a un processo
+## Passaggio 2: Connettersi a un processo
 
 Invece di eseguire la profilatura dell'applicazione avviandola dall'IDE di Visual Studio 2010, è necessario connettere il profiler a un processo in esecuzione.
 
@@ -107,7 +104,7 @@ Per interrompere la profilatura, scegliere il collegamento **Interrompi la profi
 
 ![][10]
 
-## <a name="step3"> </a>Passaggio 3: Visualizzare i report relativi alle prestazioni
+## Passaggio 3: Visualizzare i report delle prestazioni
 
 Viene visualizzato il rapporto relativo alle prestazioni dell'applicazione.
 
@@ -126,7 +123,7 @@ Se è stato aggiunto il codice di concatenazione di stringa disponibile in quest
 
 ![][14]
 
-## <a name="step4"> </a> Passaggio 4: Apportare modifiche e confrontare le prestazioni
+## Passaggio 4: Apportare modifiche e confrontare le prestazioni
 
 È anche possibile confrontare le prestazioni prima e dopo la modifica del codice. Arrestare il processo in esecuzione e modificare il codice per sostituire l'operazione di concatenazione di stringa usando StringBuilder:
 
@@ -151,7 +148,7 @@ Nei rapporti vengono evidenziate le differenze tra le due esecuzioni.
 
 Congratulazioni. sono state eseguite le operazioni preliminari con il profiler.
 
-## <a name="troubleshooting"> </a> Risoluzione dei problemi
+##  Risoluzione dei problemi
 
 - Assicurarsi di eseguire la profilatura di una compilazione di rilascio e avviarla senza eseguire il debug.
 
@@ -165,17 +162,11 @@ Congratulazioni. sono state eseguite le operazioni preliminari con il profiler.
 
 - Se durante il campionamento viene visualizzato il messaggio "PRF0025: Dati non raccolti", verificare che nel processo a cui ci si è connessi sia presente attività della CPU. È possibile che le applicazioni che non eseguono attività di calcolo non producano dati di campionamento. È inoltre possibile che il processo sia stato chiuso prima dell'esecuzione del campionamento. Verificare che il metodo Run di un ruolo da sottoporre a profilatura non preveda la terminazione.
 
-## <a name="nextSteps"> </a> Passaggi successivi
+## Passaggi successivi
 
 La strumentazione dei file binari di Azure nell'emulatore non è supportata nel profiler di Visual Studio. Se tuttavia si desidera testare l'allocazione della memoria, è possibile scegliere tale opzione durante la profilatura. È inoltre possibile scegliere la profilatura della concorrenza, che consente di determinare se i thread sprecano tempo nel tentativo di ottenere blocchi, oppure la profilatura di interazioni tra livelli, che consente di tenere traccia dei problemi di prestazioni durante l'interazione tra livelli di un'applicazione, nella maggior parte dei casi tra il livello dati e il ruolo di lavoro. È possibile visualizzare le query di database generate dall'applicazione e usare i dati di profilatura per ottimizzare l'uso del database. Per informazioni sulla profilatura dell'interazione tra livelli, vedere l'articolo relativo alla [procedura dettagliata sull'uso del profiler relativo alle interazioni tra livelli in Visual Studio Team System 2010][3].
 
 
-[Step 1: Configure Visual Studio for Profiling]: #step1
-[Step 2: Attach to a Process]: #step2
-[Step 3: View Profiling Reports]: #step3
-[Step 4: Make Changes and Compare Performance]: #step4
-[Troubleshooting]: #troubleshooting
-[Next Steps]: #nextSteps
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
@@ -195,4 +186,4 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

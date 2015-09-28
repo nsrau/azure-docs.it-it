@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Ulteriori informazioni sulle credenziale e le autorizzazioni di Azure AD Connect"
-	description="Descrizione delle impostazioni personalizzate delle credenziali e delle autorizzazioni di Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Ulteriori informazioni sulle credenziale e le autorizzazioni di Azure AD Connect" 
+	description="Descrizione delle impostazioni personalizzate delle credenziali e delle autorizzazioni di Azure AD Connect." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
@@ -47,7 +47,7 @@ Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessari
 ND|Credenziali di accesso dell'utente che esegue la procedura guidata|Amministratore del server locale| <li>Per impostazione predefinita, mediante la procedura guidata viene creato l'account di Active Directory che verrà utilizzato come account di accesso del servizio di sincronizzazione nel computer locale</li><li>L'account di accesso del servizio di sincronizzazione viene creato solo se l'amministratore non specifica un account particolare</li> <li>L'account è un utente locale, a meno che non si tratti di un controller di dominio. In questo caso l'account è un utente di dominio</li> 
 Pagina di installazione dei servizi di sincronizzazione, opzione Account di servizio | Active Directory o credenziali dell'account utente locale | Utente locale|Se l'amministratore specifica un account, questo account viene utilizzato come account di accesso per il servizio di sincronizzazione.
 Connettersi ad Azure AD|Credenziali di directory di Azure AD| Ruolo di amministratore in Azure AD|Mediante la procedura guidata viene creato l'account di Active Directory che verrà utilizzato come account di accesso del servizio di sincronizzazione nel computer locale.
-Connessione delle directory|Credenziali Active Directory locali per ciascuna foresta che sarà connessa ad Azure AD |<li>Il livello minimo di autorizzazioni richiesto per la procedura guidata è Domain user.</li> <li>Tuttavia, l'account specificato deve disporre delle autorizzazioni necessarie per lo scenario previsto.</li><li>Se si prevede di configurare la sincronizzazione delle password con Azure AD, assicurarsi che questo account disponga delle seguenti autorizzazioni assegnate: Replica modifiche directory - Replica di tutte le modifiche directory</li> <li>Se si prevede di configurare la sincronizzazione in modo da eseguire il 'writeback' delle informazioni da Azure AD all'Active Directory locale, verificare l'account disponga delle autorizzazioni di scrittura per gli oggetti directory e gli attributi di cui si desidera eseguire il writeback.</li> <li>Se si prevede di configurare ADFS per il Sign on, verificare che le credenziali di Active Directory fornite per la foresta in cui risiede il server ADFS disponga dei privilegi di amministratore di dominio.</li><li>Vedere la tabella seguente in cui viene fornito un elenco dei requisiti aggiuntivi per lo scenario in uso.</li>|<li>Questo è l’account che verrà utilizzato per l’account dell’agente di gestione dell’Active Directory locale. Verrà utilizzato per la lettura e la scrittura di oggetti e attributi nell’Active Directory locale per l'operazione di sincronizzazione in corso.</li><li>Assegnazione delle autorizzazioni corrette e delle impostazioni di controllo di accesso per le opzioni di sincronizzazione scelte all'account precedente e ad Active Directory.</li>
+Connessione delle directory|Credenziali Active Directory locali per ciascuna foresta che sarà connessa ad Azure AD |<li>Il livello minimo di autorizzazioni richiesto per la procedura guidata è Domain user.</li> <li>Tuttavia, l'account specificato deve disporre delle autorizzazioni necessarie per lo scenario previsto.</li><li>Se si prevede di configurare la sincronizzazione delle password con Azure AD, assicurarsi che questo account disponga delle seguenti autorizzazioni assegnate: Replica modifiche directory - Replica di tutte le modifiche directory</li> <li>Se si prevede di configurare la sincronizzazione in modo da eseguire il 'writeback' delle informazioni da Azure AD all'Active Directory locale, verificare l'account disponga delle autorizzazioni di scrittura per gli oggetti directory e gli attributi di cui si desidera eseguire il writeback.</li> <li>Se si prevede di configurare ADFS per il Sign on, verificare che le credenziali di Active Directory fornite per la foresta in cui risiede il server ADFS disponga dei privilegi di amministratore di dominio.</li><li>Vedere la tabella seguente in cui viene fornito un elenco dei requisiti aggiuntivi per lo scenario in uso.</li>|<li>Questo è l’account che verrà utilizzato per l’account dell’agente di gestione dell’Active Directory locale. Da utilizzare per la lettura e la scrittura di oggetti e attributi in Active Directory locale per l'operazione di sincronizzazione ricorrente.</li>
 Server ADFS|Per ogni server nell'elenco, la procedura guidata raccoglie le credenziali, se le credenziali di accesso dell'utente che esegue la procedura guidata non sono sufficienti per la connessione|Amministratore di domino|Installazione e configurazione del ruolo del server ADFS.|
 Server Proxy applicazione Web |Per ogni server nell'elenco, la procedura guidata raccoglie le credenziali, se le credenziali di accesso dell'utente che esegue la procedura guidata non sono sufficienti per la connessione|Amministratore locale nel computer di destinazione.|Installazione e configurazione del ruolo del server WAP.
 Credenziali di attendibilità del proxy |Credenziali di attendibilità del servizio federativo (le credenziali che saranno utilizzate dal proxy per richiedere un certificato di attendibilità da FS) |Account di dominio che è un amministratore locale del server ADFS|Registrazione iniziale del certificato di attendibilità di FS-WAP
@@ -64,7 +64,8 @@ Sincronizzazione delle password| <li>Replica modifiche directory.</li> <li>Repli
 Distribuzione ibrida di Exchange|Vedere [Attributi e autorizzazioni di writeback di AAD Sync per la distribuzione ibrida di Exchange con Office 365](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange).
 Writeback delle password | <li>Cambia password</li><li>Reimposta password</li>
 Writeback di utenti, gruppi e dispositivi|Autorizzazioni di scrittura per gli oggetti di directory e gli attributi di cui si desidera eseguire il "writeback"
-Single Sign-On e AD FS| Autorizzazioni di amministratore del dominio in cui si trovano i server federati.
+Single Sign-On e AD FS| Autorizzazioni di amministratore di dominio nel dominio in cui si trovano i server federati.
+Autorizzazioni di SQL Server|L'account del servizio di sincronizzazione AD Connect di Azure richiede autorizzazioni dbo in SQL. Queste autorizzazioni vengono impostate durante l'installazione di AD Connect di Azure e non sono supportate eventuali modifiche.
 
 <br> <br>
 ## Riepilogo degli account creati da Azure AD Connect
@@ -73,7 +74,7 @@ Single Sign-On e AD FS| Autorizzazioni di amministratore del dominio in cui si t
 
 Account creato |Autorizzazioni assegnate | Utilizzo
 ------------- | ------------- |------------- |
-Account Azure AD per la sincronizzazione| Amministratore globale|Operazioni di sincronizzazione ricorrenti (account AD MA di Azure)
+Account Azure AD per la sincronizzazione|Ruolo di sincronizzazione della Directory dedicato|Operazioni di sincronizzazione ricorrenti (account AD MA di Azure)
 Impostazioni rapide: account di Active Directory utilizzato per la sincronizzazione|Autorizzazioni di lettura/scrittura per la directory come richiesto per la sincronizzazione + sincronizzazione password|Operazioni di sincronizzazione ricorrenti (account AD MA di Azure)
 Impostazioni rapide: account di accesso al servizio di sincronizzazione | Credenziali di accesso dell'utente che esegue la procedura guidata|Account di accesso al servizio di sincronizzazione
 Impostazioni personalizzate: account di accesso al servizio di sincronizzazione |ND|Account di accesso al servizio di sincronizzazione
@@ -91,4 +92,4 @@ Account AD FS:GMSA (aadcsvc$)|Utente di dominio|Account di accesso al servizio F
 * [Azure AD Connect in MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

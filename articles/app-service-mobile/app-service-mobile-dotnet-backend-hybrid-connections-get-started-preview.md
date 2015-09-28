@@ -23,6 +23,8 @@ Quando un'azienda passa al cloud, potrebbe non essere possibile eseguire subito 
 
 In questa esercitazione si apprenderà come modificare un back-end .NET dell'app per dispositivi mobili in modo da usare un database SQL Server locale anziché il database SQL di Azure di cui viene effettuato il provisioning con il servizio.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## Prerequisiti ##
 
 Per completare questa esercitazione, è necessario disporre di:
@@ -57,7 +59,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 4. Fare clic su **Servizio BizTalk** e immettere un nome per il servizio BizTalk, quindi fare clic due volte su **OK**.
 
-	Questa esercitazione utilizza **mobile 1**; sarà necessario fornire un nome univoco per il nuovo servizio BizTalk.
+	Questa esercitazione utilizza **mobile1**; sarà necessario fornire un nome univoco per il nuovo servizio BizTalk.
 
 	Al termine del processo, nell'area **Notifiche** verrà visualizzata una luce di colore verde per segnalare l'**esito positivo dell'operazione** e il pannello **Connessione ibrida** mostrerà la nuova connessione ibrida con stato **Non connesso**.
 
@@ -162,4 +164,4 @@ Infine, è necessario pubblicare il back-end dell'app per dispositivi mobili in 
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

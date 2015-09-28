@@ -93,11 +93,11 @@ Nell'esempio precedente sono stati creare un gruppo di risorse denominato "NRP-R
 
 ### Passaggio 1
 
-Creare una rete virtuale:
+Crea una subnet per la rete virtuale e la assegna alla variabile $backendSubnet
 
 	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 
-Crea una subnet per la rete virtuale e la assegna alla variabile $backendSubnet
+Creare una rete virtuale:
 
 	$vnet= New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
@@ -111,7 +111,7 @@ Configurazione di un pool di indirizzi IP front-end per il traffico di rete in i
 
 ### Passaggio 1 
 
-Creare un pool IP front-end usando l'indirizzo IP privato 10.0.2.6 per la subnet 10.0.2.0/24 che sarà l'endpoint del traffico di rete in ingresso.
+Creare un pool IP front-end usando l'indirizzo IP privato 10.0.2.5 per la subnet 10.0.2.0/24 che sarà l'endpoint del traffico di rete in ingresso.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
 
@@ -245,4 +245,4 @@ Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a u
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

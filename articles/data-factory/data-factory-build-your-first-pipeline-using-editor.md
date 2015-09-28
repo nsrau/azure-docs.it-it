@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -45,7 +45,7 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 
 	![Pannello Nuova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] I nomi di Azure Data Factory sono univoci. È necessario anteporre al nome della data factory il proprio nome, per consentire la corretta creazione della factory. 
+	> [AZURE.IMPORTANT]I nomi di Azure Data Factory sono univoci. È necessario anteporre al nome della data factory il proprio nome, per consentire la corretta creazione della factory. 
 3.	Se non è stato creato un gruppo di risorse, sarà necessario crearne uno. A tale scopo, effettuare l'operazione seguente:
 	1.	Fare clic su **NOME DEL GRUPPO DI RISORSE**.
 	2.	Selezionare **Crea un nuovo gruppo di risorse** nel pannello **Gruppo di risorse**.
@@ -96,7 +96,7 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -157,7 +157,7 @@ In questo passaggio si creerà la prima pipeline.
 	![Pulsante Nuova pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1.
 
-	> [AZURE.IMPORTANT] Nel codice JSON sostituire **storageaccountname** con il nome dell'account di archiviazione.
+	> [AZURE.IMPORTANT]Nel codice JSON sostituire **storageaccountname** con il nome dell'account di archiviazione.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -233,4 +233,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md) richiede solo alcuni minuti.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

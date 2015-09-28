@@ -1,20 +1,22 @@
-<properties 
-	pageTitle="Le macchine virtuali di Azure rappresentano l'opzione di calcolo desiderata?" 
-	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali" 
+<properties
+	pageTitle="Le macchine virtuali di Azure rappresentano l'opzione di calcolo desiderata?"
+	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali"
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # Vantaggi delle macchine virtuali di Azure
 
@@ -29,4 +31,4 @@ Informazioni su [Macchine virtuali](https://msdn.microsoft.com/library/azure/jj1
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

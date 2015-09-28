@@ -3,7 +3,7 @@
 	description="Fornisce le risposte ad alcune delle domande più comuni sulle macchine virtuali di Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/17/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Domande frequenti sulle macchine virtuali di Azure
 
@@ -148,4 +148,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

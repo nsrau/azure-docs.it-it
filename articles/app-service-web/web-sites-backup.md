@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Eseguire il backup di un'app Web nel servizio app di Azure
@@ -22,6 +22,8 @@
 La funzionalità di backup e ripristino in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consente di creare facilmente backup di app Web in modo manuale o automatico. È possibile ripristinare lo stato precedente dell'app Web oppure creare una nuova app Web basata su uno dei backup dell'app originale.
 
 Per informazioni sul ripristino di un'app Web dal backup, vedere [Ripristino di un'app Web](web-sites-restore.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="whatsbackedup"></a>
 ## Elementi di cui viene eseguito il backup 
@@ -123,7 +125,7 @@ Per escludere i file e le cartelle dai backup, creare un file `_backup.filter` n
 
 Si supponga di avere un'app Web che contiene file di log e immagini statiche degli anni precedenti che non verranno mai modificati e di avere già un backup completo dell'app Web che include le vecchie immagini. Si vuole ora eseguire il backup dell'app Web ogni giorno, ma senza pagare per l'archiviazione di file di log o dei file di immagini statici che non vengono mai modificati.
 
-![Cartella dei log][LogsFolder]
+![Cartella dei log][LogsFolder] 
 ![Cartella delle immagini][ImagesFolder]
 	
 I passaggi seguenti illustrano come escludere tali file dal backup.
@@ -140,7 +142,7 @@ I passaggi seguenti illustrano come escludere tali file dal backup.
 
 2. Creare un file denominato `_backup.filter` e inserire l'elenco precedente nel file, ma rimuovere `D:\home`. Elencare una directory o un file per ogni riga. Il contenuto del file dovrebbe essere analogo al seguente:
 
-    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
 3. Caricare questo file nella directory `D:\home\site\wwwroot` del sito usando [ftp](web-sites-deploy.md#ftp) o qualsiasi altro metodo. Se si vuole, è possibile creare il file direttamente in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e inserire i contenuti nel file.
 
@@ -220,4 +222,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

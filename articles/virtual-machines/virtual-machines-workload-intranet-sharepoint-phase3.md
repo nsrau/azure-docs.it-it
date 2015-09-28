@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,9 +19,13 @@
 
 # Carico di lavoro di Farm Intranet di SharePoint Fase3: configurare l'infrastruttura di SQL Server
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+
 In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità SQL Server AlwaysOn in servizi di infrastruttura di Azure, vengono creati e configurati i due computer SQL Server e il computer del nodo di maggioranza cluster, quindi vengono combinati in un cluster Windows Server.
 
 È necessario completare questa fase prima di passare alla [Fase 4](virtual-machines-workload-intranet-sharepoint-phase4.md). Per conoscere tutte le fasi, vedere [Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
+
+> [AZURE.NOTE]In queste istruzioni viene usata un'immagine di SQL Server della raccolta immagini di Azure e vengono addebitati i costi per l'utilizzo della licenza di SQL Server. È inoltre possibile creare macchine virtuali in Azure e installare licenze di SQL Server, ma è necessario disporre di Software Assurance e della mobilità delle licenze per utilizzare la licenza di SQL Server in una macchina virtuale, compresa una macchina virtuale di Azure. Per ulteriori informazioni sull'installazione di SQL Server in una macchina virtuale, vedere [Installazione per SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Creare le macchine virtuali del cluster SQL Server in Azure
 
@@ -172,7 +176,7 @@ A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azu
 3.	Nel riquadro sinistro, fare clic con il pulsante destro del mouse su **Gestione cluster di failover**, quindi fare clic su **Crea cluster**.
 4.	Nella pagina Prima di iniziare, fare clic su **Avanti**.
 5.	Nella pagina Selezione server digitare il nome del computer SQL Server primario, fare clic su **Aggiungi**, quindi scegliere **Avanti**.
-6.	Nella pagina di avviso di convalida, fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti, viene proseguita la creazione del cluster**, quindi fare clic su **Avanti**.
+6.	Nella pagina di avviso di convalida, fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster **, quindi fare clic su **Avanti**.
 7.	Nella casella di testo **Nome cluster** della pagina Punto di accesso per l'amministrazione del cluster, digitare il nome del cluster, quindi fare clic su **Avanti**.
 8.	Nella pagina di conferma, fare clic su **Avanti** per iniziare la creazione del cluster.
 9.	Nella pagina Riepilogo fare clic su **Fine**.
@@ -186,7 +190,7 @@ A causa di un comportamento corrente non conforme a RFC da parte del DHCP in Azu
 17.	Per aggiungere i restanti nodi al cluster, fare clic con il pulsante destro del mouse sul nome del cluster nel riquadro sinistro, quindi fare clic su **Aggiungi nodo**.
 18.	Nella pagina Prima di iniziare, fare clic su **Avanti**.
 19.	Nella pagina Selezione server digitare il nome, quindi fare clic su **Aggiungi** per aggiungere il server SQL secondario e il nodo di maggioranza cluster al cluster. Dopo aver aggiunto i due computer, fare clic su **Avanti**. Se non è possibile aggiungere un computer e il messaggio di errore è "Servizio Registro di sistema remoto non è in esecuzione", effettuare le seguenti operazioni. Accedere al computer, aprire lo snap-in Servizi (Services. msc) e abilitare il Registro di sistema remoto. Per ulteriori informazioni, vedere [Impossibile connettersi al Servizio Registro di sistema remoto](http://technet.microsoft.com/library/bb266998.aspx).
-20.	Nella pagina di avviso di convalida, fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti, viene proseguita la creazione del cluster**, quindi fare clic su **Avanti**.
+20.	Nella pagina di avviso di convalida, fare clic su **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster **, quindi fare clic su **Avanti**.
 21.	Nella pagina di conferma, fare clic su **Avanti**.
 22.	Nella pagina Riepilogo fare clic su **Fine**.
 23.	Nel riquadro sinistro fare clic su **Nodi**. Verranno visualizzati tutti i tre computer elencati.
@@ -201,8 +205,8 @@ Utilizzare questi passaggi per abilitare i gruppi di disponibilità AlwaysOn di 
 2.	Nella schermata Start digitare **Configurazione di SQL Server**, quindi fare clic su **Gestione configurazione SQL Server**.
 3.	Nel riquadro sinistro fare clic su **Servizi di SQL Server**.
 4.	Nel riquadro del contenuto, fare doppio clic su **SQL Server (MSSQLSERVER)**.
-5.	In **Proprietà SQL Server (MSSQLSERVER)**, fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita i gruppi di disponibilità AlwaysOn**, fare clic su **Applica**, quindi fare clic su **OK** quando richiesto. Non chiudere ancora la finestra Proprietà.
-6.	Fare clic sulla scheda Macchine virtuali > Gestisci disponibilità, quindi digitare [Domain]**\\sqlservice** in **Nome account**. Digitare la password dell'account sqlservice in **Password** e **confermare la password**, quindi fare clic su **OK**.
+5.	In **Proprietà SQL Server (MSSQLSERVER)**, fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita i gruppi di disponibilità AlwaysOn**s fare clic su **Applica**, quindi fare clic su **OK** quando richiesto. Non chiudere ancora la finestra Proprietà.
+6.	Fare clic sulla scheda Macchine virtuali > Gestisci disponibilità, quindi digitare [Domain]**\\sqlservice** in **Nome account**. Digitare la password dell'account sqlservice in **Password** e **Confermare la password**, quindi fare clic su **OK**.
 7.	Nella finestra di messaggio, fare clic su **Sì** per riavviare il servizio SQL Server.
 8.	Accedere al server SQL secondario e ripetere questo processo.
 
@@ -228,4 +232,4 @@ Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 4: C
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

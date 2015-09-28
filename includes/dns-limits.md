@@ -5,4 +5,6 @@
 | Set di record per ogni zona| 1000
 | Record per ogni set di record| 20
 
-<!---HONumber=Sept15_HO2-->
+Contattare il team di supporto per aumentare il limite predefinito.
+
+<!---HONumber=Sept15_HO3-->

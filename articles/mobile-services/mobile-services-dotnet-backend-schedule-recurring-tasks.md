@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Pianificare i processi ricorrenti in Servizi mobili di Azure" 
-	description="Uso dell'utilità di pianificazione di Servizi mobili di Azure per pianificare processi per l'app mobile." 
+	pageTitle="Pianificare le attività di back-end in un servizio mobile back-end di .NET | Microsoft Azure"
+	description="Utilizzare l'utilità di pianificazione in servizi mobili di Azure per definire i processi back-end .NET eseguiti in una pianificazione."
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
-
 
 <tags 
 	ms.service="mobile-services" 
@@ -14,15 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
-
 
 # Pianificare i processi ricorrenti in Servizi mobili 
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
  
 Questo argomento illustra come usare la funzionalità di pianificazione processi nel portale di gestione per definire il codice dello script del server da eseguire in base a una pianificazione definita dall'utente. Lo script esegue verifiche periodiche con un servizio remoto, in questo caso Twitter, e archivia i risultati in una nuova tabella. Di seguito sono riportate altre attività periodiche che è possibile pianificare:
 
@@ -43,9 +41,7 @@ Questa esercitazione descrive come usare la pianificazione processi per creare u
 &nbsp;&nbsp;8. Nella stessa sezione, aggiungere le nuove impostazioni dell'app elencate di seguito, sostituendo i segnaposto con i valori di token di accesso e di segreto token di accesso configurati come impostazioni app nel portale:
 
 	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-
 	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
-
 
 Il servizio mobile utilizza le impostazioni memorizzate quando è in esecuzione sul computer locale, consentendo in tal modo di testare il processo pianificato prima di pubblicarlo. Quando è in esecuzione in Azure, il servizio mobile utilizza invece i valori configurati nel portale, ignorando le impostazioni di progetto.
 
@@ -304,4 +300,4 @@ In questa esercitazione è stato creato un nuovo processo pianificato nel serviz
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [progetto CodePlex di LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

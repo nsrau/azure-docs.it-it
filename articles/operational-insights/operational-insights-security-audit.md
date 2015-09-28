@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Esplorare i dati di sicurezza e controllo di Operational Insights
@@ -100,4 +100,4 @@ Tutti i dati di controllo che si desidera raccogliere e inviare a Operational In
 
 Se oltre alle impostazioni dei criteri locali si usa AppLocker per raccogliere dati di controllo, Operational Insights raccoglierà tali dati consentendone la visualizzazione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

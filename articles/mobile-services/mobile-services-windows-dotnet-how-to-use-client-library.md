@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Come usare un client .NET per Servizi mobili di Azure
@@ -276,7 +276,7 @@ Se si prova a eliminare un elemento prima di impostare il campo "Id", il servizi
 
 ##<a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
 
-Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON. Per un esempio completo, incluse informazioni per creare un'API personalizzata nel servizio mobile, vedere [Chiamata di un'API personalizzata dal client].
+Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON. Per un esempio di come creare un'API personalizzata nel servizio mobile, vedere [Procedura: definire un endpoint API personalizzato](mobile-services-dotnet-backend-define-custom-api.md).
 
 Per chiamare un'API personalizzata, è sufficiente chiamare uno degli overload del metodo [InvokeApiAsync] sul client. Ad esempio, la riga di codice seguente invia una richiesta POST all'API **completeAll** sul Servizio mobile:
 
@@ -472,11 +472,11 @@ Se si utilizza un provider di identità diverso da Facebook, sostituire il valor
 
 In questo caso, Servizi mobili gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione di Servizi mobili una volta eseguito correttamente l'accesso con il provider di identità. Il metodo [LoginAsync] restituisce un utente [MobileServiceUser], che fornisce sia un elemento [userId] dell'utente autenticato sia un elemento [MobileServiceAuthenticationToken] sotto forma di token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione].
 
-> [AZURE.NOTE]**Windows Store app** Quando si usa il provider di accesso con account Microsoft per autenticare gli utenti dell'app di Windows Store, è necessario anche registrare il pacchetto dell'app con Servizi mobili. Quando si registrano le informazioni del pacchetto dell'app di Windows Store con Servizi mobili, il client è in grado di riutilizzare le credenziali di accesso dell'account Microsoft per un ambiente Single Sign-On. In caso contrario, gli utenti che accedono tramite un account Microsoft dovranno specificare le credenziali di accesso ogni volta che viene chiamato il metodo di accesso. Per ulteriori informazioni sulla registrazione del pacchetto dell'app di Windows Store, vedere [Registrazione del pacchetto dell'app Windows Store per l'autenticazione Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Dopo la registrazione delle informazioni del pacchetto con Servizi mobili, per riutilizzare le credenziali è necessario chiamare il metodo [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") specificando il valore **true** per il parametro _useSingleSignOn_.
-
 ###Flusso client
 
 L'applicazione può inoltre contattare il provider di identità in modo indipendente e fornire il token restituito a Servizi mobili per l'autenticazione. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi.
+
+####Accesso singolo utilizzando un token da Facebook o Google
 
 Nella forma più semplice, è possibile utilizzare il flusso client come illustrato in questo frammento di codice per Facebook o Google.
 
@@ -511,13 +511,60 @@ Nella forma più semplice, è possibile utilizzare il flusso client come illustr
 		}
 	}
 
-Se si utilizza un account Microsoft, effettuare l'accesso come segue:
 
-	// Replace authentication_token_value with actual value of your Microsoft authentication token obtained through the Live SDK
-	user = await client
-		.LoginWithMicrosoftAccountAsync(authentication_token_value);
+####Accesso singolo utilizzando un account Microsoft con Live SDK
 
-Per un esempio di utilizzo di un account Microsoft per consentire l'uso di un unico accesso, vedere l'esercitazione "Autenticare un'app con Single Sign-On" ([Windows Store](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/develop/mobile/tutorials/single-sign-on-wp8/)).
+Per poter autenticare gli utenti, è necessario registrare l'app presso il centro per sviluppatori degli account Microsoft. È quindi necessario connettere questa registrazione al servizio mobile. Completare i passaggi nell'argomento [Registrare un’app per l’uso delle credenziali d’accesso di un account Microsoft](mobile-services-how-to-register-microsoft-authentication.md) per creare una registrazione di account Microsoft e connettersi al servizio mobile. Se si dispone di entrambe le versioni dell’applicazione Windows Store e Windows Phone, registrare prima la versione di Windows Store.
+
+Il codice seguente si autentica utilizzando Live SDK e utilizza il token restituito per effettuare l'accesso al servizio mobile.
+
+	private LiveConnectSession session;
+ 	//private static string clientId = "<microsoft-account-client-id>";
+    private async System.Threading.Tasks.Task AuthenticateAsync()
+    {
+
+        // Get the URL the mobile service.
+        var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
+
+        // Create the authentication client for Windows Store using the mobile service URL.
+        LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
+        //// Create the authentication client for Windows Phone using the client ID of the registration.
+        //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
+
+        while (session == null)
+        {
+            // Request the authentication token from the Live authentication service.
+			// The wl.basic scope is requested.
+            LiveLoginResult result = await liveIdClient.LoginAsync(new string[] { "wl.basic" });
+            if (result.Status == LiveConnectSessionStatus.Connected)
+            {
+                session = result.Session;
+
+                // Get information about the logged-in user.
+                LiveConnectClient client = new LiveConnectClient(session);
+                LiveOperationResult meResult = await client.GetAsync("me");
+
+                // Use the Microsoft account auth token to sign in to Mobile Services.
+                MobileServiceUser loginResult = await App.MobileService
+                    .LoginWithMicrosoftAccountAsync(result.Session.AuthenticationToken);
+
+                // Display a personalized sign-in greeting.
+                string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
+                var message = string.Format("You are now logged in - {0}", loginResult.UserId);
+                var dialog = new MessageDialog(message, title);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                session = null;
+                var dialog = new MessageDialog("You must log in.", "Login Required");
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+    }
+
 
 ###<a name="caching"></a>Memorizzazione nella cache del token di autenticazione
 In alcuni casi, è possibile evitare la chiamata al metodo di accesso dopo la prima autenticazione dell'utente. Con [PasswordVault], le app di Windows Store memorizzano nella cache l'identità dell'utente corrente al primo accesso e a ogni accesso successivo viene verificata la presenza dell'identità dell'utente nella cache. Se la cache è vuota, è comunque necessario richiedere all'utente di ripetere la procedura di accesso.
@@ -695,7 +742,7 @@ Questa proprietà converte tutte le proprietà in lettere minuscole durante la s
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizzata nei Servizi mobili di Azure - SDK client]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Chiamata di un'API personalizzata dal client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
+[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

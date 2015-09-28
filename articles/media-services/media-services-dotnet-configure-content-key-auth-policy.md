@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 
@@ -204,8 +204,8 @@ Se si usa **Media Services SDK per .NET**, è possibile usare la classe **TokenR
 	
 	    template.PrimaryVerificationKey = new SymmetricVerificationKey();
 	    template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-	    template.Audience = _sampleAudience;
-	    template.Issuer = _sampleIssuer;
+            template.Audience = _sampleAudience.ToString();
+            template.Issuer = _sampleIssuer.ToString();
 	
 	    template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
 	
@@ -336,8 +336,8 @@ Per configurare l'opzione di restrizione Token, è necessario usare un file XML 
 	
 	    template.PrimaryVerificationKey = new SymmetricVerificationKey();
 	    template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-	    template.Audience = _sampleAudience;
-	    template.Issuer = _sampleIssuer;
+            template.Audience = _sampleAudience.ToString();
+            template.Issuer = _sampleIssuer.ToString();
 	
 	
 	    template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
@@ -403,4 +403,4 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

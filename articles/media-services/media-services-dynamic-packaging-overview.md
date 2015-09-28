@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Panoramica della creazione dinamica dei pacchetti" 
-	description="Questo argomento fornisce una panoramica della creazione dinamica dei pacchetti." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="Panoramica della creazione dinamica dei pacchetti"
+	description="Questo argomento fornisce una panoramica della creazione dinamica dei pacchetti."
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
-#Creazione dinamica dei pacchetti 
+#Creazione dinamica dei pacchetti
 
 ##Panoramica
 
@@ -38,14 +38,14 @@ Il diagramma seguente mostra il flusso di lavoro di creazione dinamica dei pacch
 
 ##Scenario comune
 
-1. Caricare un file di input (detto file in formato intermedio). Ad esempio, H.264, MP4 o WMV (per l'elenco dei formati supportati, vedere Formati supportati dal codificatore di Servizi multimediali).
- 
+1. Caricare un file di input (detto file in formato intermedio). Ad esempio, H.264, MP4 o WMV (per l'elenco dei formati supportati, vedere [Formati supportati dal codificatore di Servizi multimediali](media-services-azure-media-encoder-formats)).
+
 1. Codificare il file in formato intermedio in set MP4 a velocità in bit adattiva H.264.
- 
+
 1. Pubblicare l'asset contenente il set MP4 a velocità in bit adattiva creando il localizzatore su richiesta.
- 
+
 1. Creare gli URL di streaming per accedere e al contenuto e trasmetterlo in streaming.
- 
+
 >[AZURE.NOTE]Non tutti i formati di file MP4 sono supportati per la creazione dinamica dei pacchetti. Per altre informazioni, vedere [Formati non supportati per la creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Preparazione di asset per lo streaming dinamico
@@ -65,7 +65,7 @@ Caricare i file usando il **portale di gestione di Azure**, **.NET** o **API RES
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 Codificare con **Azure Media Encoder** tramite il **portale di gestione di Azure**, **.NET** o **API REST**.
- 
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 
@@ -105,6 +105,4 @@ I formati di file di origine seguenti non sono supportati dalla creazione dinami
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

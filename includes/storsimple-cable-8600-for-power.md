@@ -1,3 +1,6 @@
+<!--author=alkohli last changed: 9/16/15-->
+
+
 #### Cablare il dispositivo per l'alimentazione
 
 >[AZURE.NOTE]Entrambi gli enclosure nel dispositivo StorSimple includono PCM ridondanti. Per ogni enclosure entrambi i PCM devono essere installati e collegati a una fonte di alimentazione diversa per assicurare la disponibilità elevata.
@@ -40,4 +43,4 @@
     |8|Chassis EBOD|
     |9|PDU|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

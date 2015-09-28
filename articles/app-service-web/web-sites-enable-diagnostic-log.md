@@ -5,15 +5,15 @@
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
@@ -22,7 +22,9 @@
 
 Azure offre diagnostica integrata per facilitare il debug di un'[app Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione, oltre a come accedere alle informazioni registrate da Azure.
 
-> [AZURE.NOTE]L'articolo illustra inoltre l'uso del [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+L'articolo illustra inoltre l'uso del [portale di anteprima di Azure](http://go.microsoft.com/fwlink/?LinkId=529715), di Azure PowerShell e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Diagnostica del server Web e diagnostica dell'applicazione
 
@@ -57,9 +59,9 @@ Quando si abilita**Diagnostica applicazioni** è anche possibile scegliere il **
 
 > [AZURE.NOTE]Diversamente da quanto accade nella modifica del file web.config, l'abilitazione della diagnostica applicazioni o la modifica dei livelli dei log di diagnostica non comportano il riciclaggio del dominio dell'applicazione in cui viene eseguita la stessa.
 
-Nel [portale di Azure](https://manage.windowsazure.com), scheda **Configura** dell'app Web, è possibile selezionare **Archiviazione** o **File system** per **Registrazione server Web**. La selezione di **storage** consente di selezionare un account di archiviazione e quindi un contenitore BLOB in cui verranno scritti i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
+Nella scheda **Configura** dell'app Web nel [Portale di Azure](https://manage.windowsazure.com), è possibile selezionare **Archiviazione** o **File system** per **Registrazione server Web**. La selezione di **storage** consente di selezionare un account di archiviazione e quindi un contenitore BLOB in cui verranno scritti i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
 
-Nel [portale di Azure ](https://manage.windowsazure.com) la scheda **Configura** dell'app Web include anche altre impostazioni per la Diagnostica applicazioni:
+La scheda **Configura** dell'app Web del [Portale di Azure](https://manage.windowsazure.com) include anche altre impostazioni per la Diagnostica applicazioni:
 
 * **File system**: consente di archiviare le informazioni di diagnostica applicazioni sul file system dell'app Web. È possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
 * **Archivio tabelle**: consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel nome tabella specificati.
@@ -82,7 +84,7 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 
 * **Application logs** - /LogFiles/Application/. In questa cartella sono presenti uno o più file di testo contenenti le informazioni generate dalla registrazione dell'applicazione.
 
-* **Failed Request Traces** - /LogFiles/W3SVC\#\#\#\#\#\#\#\#\#/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
+* **Failed Request Traces** - /LogFiles/W3SVC#########/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
 
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. Questa cartella contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati.
 
@@ -92,7 +94,7 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 
 ### FTP
 
-Per accedere alle informazioni diagnostiche tramite FTP, passare alla scheda **Dashboard** dell'app Web nel [portale di Azure](https://manage.windowsazure.com). Nella sezione **quick glance** usare il collegamento **FTP Diagnostic Logs** per accedere ai file di log mediante FTP. In **Deployment/FTP User** è indicato il nome utente da utilizzare per accedere al sito FTP.
+Per accedere alle informazioni sulle diagnostiche tramite FTP, visitare il **Dashboard** dell'app Web nel [portale di Azure](https://manage.windowsazure.com). Nella sezione **quick glance** usare il collegamento **FTP Diagnostic Logs** per accedere ai file di log mediante FTP. In **Deployment/FTP User** è indicato il nome utente da utilizzare per accedere al sito FTP.
 
 > [AZURE.NOTE]Se la voce **Utente FTP/distribuzione** non è impostata oppure se è stata dimenticata la password per questo utente, è possibile creare un nuovo utente con relativa password mediante il collegamento **Reimpostare le credenziali** di distribuzione nella sezione **Riepilogo rapido** del **Dashboard**.
 
@@ -236,7 +238,7 @@ L'aspetto dei dati memorizzati in un BLOB sarà simile al seguente:
 
 ### Tracce delle richieste non riuscite
 
-Le tracce delle richieste non riuscite vengono memorizzate nei file XML denominati __fr\#\#\#\#\#\#.xml__. Per semplificare la visualizzazione delle informazioni registrate, è disponibile un foglio di stile XSL denominato __freb.xsl__ nella stessa directory dei file XML. L'apertura di uno dei file XML in Internet Explorer comporterà l'uso del foglio di stile XSL allo scopo di produrre una visualizzazione formattata delle informazioni di traccia. Il risultato sarà simile al seguente:
+Le tracce delle richieste non riuscite vengono memorizzate nei file XML denominati __fr######.xml__. Per semplificare la visualizzazione delle informazioni registrate, è disponibile un foglio di stile XSL denominato __freb.xsl__ nella stessa directory dei file XML. L'apertura di uno dei file XML in Internet Explorer comporterà l'uso del foglio di stile XSL allo scopo di produrre una visualizzazione formattata delle informazioni di traccia. Il risultato sarà simile al seguente:
 
 ![richiesta non riuscita visualizzata nel browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -252,7 +254,7 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 
 ##<a name="nextsteps"></a> Passaggi successivi
 
-- [Come monitorare le app Web](/it-it/manage/services/web-sites/how-to-monitor-websites/)
+- [Come monitorare le app Web](/it-IT/manage/services/web-sites/how-to-monitor-websites/)
 - [Risoluzione dei problemi delle app Web di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analisi dei log delle app Web in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -263,4 +265,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

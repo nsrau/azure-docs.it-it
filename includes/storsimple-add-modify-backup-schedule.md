@@ -1,4 +1,6 @@
 
+<!--author=SharS last changed: 9/15/15-->
+
 #### Per aggiungere o modificare una pianificazione di backup StorSimple
 
 1. Nella pagina **Guida introduttiva** del dispositivo, fare clic sulla scheda **Criteri di backup**. Verrà visualizzata la pagina **Criteri di backup**.
@@ -28,4 +30,4 @@
 La pagina **Criteri di backup** verrà aggiornata per salvare le modifiche apportate al criterio.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

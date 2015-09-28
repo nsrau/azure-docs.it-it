@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Esplorazione e gestione delle risorse di archiviazione con Esplora server"
-	description="Esplorazione e gestione delle risorse di archiviazione con Esplora server"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Esplorazione e gestione delle risorse di archiviazione con Esplora server"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Esplorazione e gestione delle risorse di archiviazione con Esplora server
 
@@ -42,19 +42,21 @@ Per visualizzare le risorse in un account di archiviazione, espandere il nodo de
 
 Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione selezionato. I contenitori BLOB contengono file BLOB che possono essere organizzati in cartelle e sottocartelle. Per altre informazioni, vedere [Come utilizzare l'archiviazione BLOB da .NET](..storage/storage-dotnet-how-to-use-blobs/).
 
-###Per creare un contenitore BLOB
+### Per creare un contenitore BLOB
 
 1. Aprire il menu di scelta rapida per il nodo **BLOB** e quindi scegliere **Crea contenitore BLOB**.
 
-1. Immettere il nome del nuovo contenitore nella finestra di dialogo **Crea contenitore BLOB** e quindi scegliere **OK**. ![Aggiunta di un nuovo contenitore BLOB](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
+1. Immettere il nome del nuovo contenitore nella finestra di dialogo **Crea contenitore BLOB** e quindi scegliere **OK**.
+
+    ![Aggiunta di un nuovo contenitore BLOB](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
     >[AZURE.NOTE]Il nome del contenitore BLOB deve iniziare con un numero (0-9) o una lettera minuscola (a-z).
 
-###Per eliminare un contenitore BLOB
+### Per eliminare un contenitore BLOB
 
 - Aprire il menu di scelta rapida per il contenitore BLOB da rimuovere e quindi scegliere **Elimina**.
 
-###Per visualizzare un elenco degli elementi contenuti in un contenitore BLOB
+### Per visualizzare un elenco degli elementi contenuti in un contenitore BLOB
 
 - Aprire il menu di scelta rapida per un nome di contenitore BLOB nell'elenco e quindi scegliere **Visualizza contenitore BLOB**.
 
@@ -64,7 +66,6 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
 
     È possibile eseguire le operazioni seguenti sui BLOB usando i pulsanti nell'angolo superiore destro della visualizzazione del contenitore BLOB:
 
-
     - Immettere un valore di filtro e applicarlo
 
     - Aggiornare l'elenco di BLOB nel contenitore
@@ -73,15 +74,13 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
 
     - Eliminare un BLOB
 
-
-        >[AZURE.NOTE]L'eliminazione di un file da un contenitore BLOB non comporta l'eliminazione del file sottostante che viene solo rimosso dal contenitore BLOB.
-
+      >[AZURE.NOTE]L'eliminazione di un file da un contenitore BLOB non comporta l'eliminazione del file sottostante che viene solo rimosso dal contenitore BLOB.
 
     - Aprire un BLOB
 
     - Salvare un BLOB nel computer locale
 
-###Per creare una cartella o una sottocartella in un contenitore BLOB 
+### Per creare una cartella o una sottocartella in un contenitore BLOB
 
 1. Scegliere il contenitore BLOB in Esplora Server. Nella finestra del contenitore scegliere il pulsante **Carica BLOB**.
 
@@ -95,9 +94,9 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
 
 1. Fare doppio clic sulla cartella o premere INVIO per visualizzare il contenuto della cartella. Dalla cartella del contenitore è possibile tornare alla radice del contenitore scegliendo il pulsante **Apri directory padre** (freccia su).
 
-###Per eliminare un cartella del contenitore
+### Per eliminare un cartella del contenitore
 
- - Eliminare tutti i file nella cartella. 
+ - Eliminare tutti i file nella cartella.
 
     >[AZURE.NOTE]Poiché le cartelle nei contenitori BLOB sono cartelle virtuali, non è possibile creare una cartella vuota né eliminare una cartella per eliminare i file al suo interno. È necessario eliminare l'intero contenuto di una cartella per eliminare la cartella.
 
@@ -114,7 +113,7 @@ Ad esempio, se si immette il prefisso `hello` nella casella di testo del filtro 
 
 ### Per scaricare i dati BLOB
 
-- In Esplora server aprire il menu di scelta rapida per uno o più BLOB e quindi scegliere **Apri** oppure scegliere il nome del BLOB e quindi scegliere il pulsante **Apri** oppure fare doppio clic sul nome del BLOB.
+- In **Esplora server** aprire il menu di scelta rapida per uno o più BLOB e quindi scegliere **Apri** oppure scegliere il nome del BLOB e quindi scegliere il pulsante **Apri** oppure fare doppio clic sul nome del BLOB.
 
     Lo stato di avanzamento di un download di BLOB viene visualizzato nella finestra **Log attività di Azure**.
 
@@ -124,7 +123,7 @@ Ad esempio, se si immette il prefisso `hello` nella casella di testo del filtro 
 
 ### Per caricare i BLOB
 
-- Scegliere il pulsante **Carica BLOB** quando il contenitore BLOB viene aperto nella relativa visualizzazione.
+- Scegliere il pulsante **Carica BLOB** quando il contenitore viene aperto per la visualizzazione nella relativa visualizzazione BLOB.
 
     È possibile scegliere di caricare uno o più file ed è possibile caricare file di qualsiasi tipo. Il **Log attività di Azure** mostra lo stato di avanzamento del caricamento. Per altre informazioni su come usare i dati BLOB, vedere [Come usare il servizio di archiviazione BLOB di Azure in .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
@@ -184,11 +183,9 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 
 1. Aprire il menu di scelta rapida per una tabella e quindi scegliere **Visualizza tabella**.
 
-    
     ![Tabella di Azure in Esplora soluzioni](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
 La tabella è organizzata in entità (mostrate nelle righe) e proprietà (mostrate nelle colonne). Ad esempio, la figura seguente mostra le entità elencate in **Progettazione tabelle**:
-
 
 ### Per modificare i dati della tabella
 
@@ -196,16 +193,13 @@ La tabella è organizzata in entità (mostrate nelle righe) e proprietà (mostra
 
     ![Aggiunta o modifica di un'entità di tabella](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    Le entità di una tabella non devono avere lo stesso set di proprietà (colonne). Tenere presenti le limitazioni seguenti relative alla visualizzazione e alla modifica dei dati della tabella.
-
-
-    - I dati binari (tipo byte) non possono essere visualizzati o modificati, ma possono essere archiviati in una tabella.
+    Le entità di una tabella non devono avere lo stesso set di proprietà (colonne). Tenere presente le restrizioni seguenti sulla visualizzazione e la modifica dei dati della tabella. - Non è possibile visualizzare o modificare i dati binari (tipo byte), ma è possibile archiviarli in una tabella.
 
     - Non è possibile modificare i valori **PartitionKey** o **RowKey**, perché l'archiviazione tabelle in Azure non supporta tale operazione.
 
     - Una proprietà chiamata Timestamp non può essere creata perché una proprietà con quel nome è usata dai servizi di archiviazione di Azure.
 
-    - Se si immette un valore DateTime, è necessario applicare un formato appropriato alle impostazioni di area geografica e lingua del computer (ad esempio, MM/GG/AAAA HH:MM:SS [AM|PM] per l'inglese degli Stati Uniti).
+    - Se si immette un valore DateTime, è necessario applicare un formato appropriato alle impostazioni di area geografica e lingua del computer (ad esempio, MM/GG/AAAA HH:MM:SS [AM|PM] per l'inglese, Stati Uniti).
 
 ### Per aggiungere le entità
 
@@ -253,7 +247,7 @@ Quando Esplora server si connette o riceve dati da un account di archiviazione, 
 
 ### Per aggiornare i dati della tabella
 
-- Selezionare il nodo **Tabelle** sotto **Archiviazione** e scegliere il pulsante **Aggiorna**. 
+- Selezionare il nodo **Tabelle** sotto **Archiviazione** e scegliere il pulsante **Aggiorna**.
 
 - Per aggiornare l'elenco di entità visualizzato in **Progettazione tabelle**, scegliere il pulsante **Esegui** in **Progettazione tabelle**.
 
@@ -303,7 +297,7 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
     - Protocollo da usare per connettersi all'account di archiviazione, ad esempio HTTP, HTTPS o un endpoint personalizzato. Per altre informazioni sugli endpoint personalizzati, vedere [Come configurare le stringhe di connessione](https://msdn.microsoft.com/library/azure/ee758697.aspx).
 
-### Per visualizzare gli endpoint secondari 
+### Per visualizzare gli endpoint secondari
 
 - Se è stato creato un account di archiviazione con l'opzione di replica **Archiviazione con ridondanza geografica e accesso in lettura**, è possibile visualizzare gli endpoint secondari. Aprire il menu di scelta rapida per il nome account e quindi scegliere **Proprietà**.
 
@@ -313,10 +307,10 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 - In Esplora server aprire il menu di scelta rapida per il nome account e quindi scegliere **Elimina**. Se si elimina un account di archiviazione, anche le informazioni sulla chiave salvate per tale account verranno rimosse.
 
->[AZURE.NOTE]Se si elimina un account di archiviazione da Esplora server, tale operazione non influisce sull'account di archiviazione né sui dati che contiene, ma rimuove semplicemente il riferimento da Esplora server. Per eliminare definitivamente un account di archiviazione, usare il portale di gestione di Azure.
+    >[AZURE.NOTE]Se si elimina un account di archiviazione da Esplora server, tale operazione non influisce sull'account di archiviazione né sui dati che contiene, ma rimuove semplicemente il riferimento da Esplora server. Per eliminare definitivamente un account di archiviazione, usare il portale di gestione di Azure.
 
-## Vedere anche
+## Passaggi successivi
 
-[Accesso ai servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
+Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

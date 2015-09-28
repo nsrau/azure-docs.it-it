@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Come aggiornare i progetti alla versione attuale degli strumenti di Azure"
-	description="Informazioni su come aggiornare un progetto Azure in Visual Studio alla versione attuale degli strumenti di Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Informazioni su come aggiornare un progetto Azure in Visual Studio alla versione attuale degli strumenti di Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Come aggiornare i progetti alla versione attuale degli strumenti di Microsoft Azure per Visual Studio
 
-##Panoramica
+## Panoramica
 
 Dopo avere installato la versione corrente degli strumenti di Azure (o successiva alla versione 1.6), eventuali progetti creati mediante una versione precedente alla 1.6 (novembre 2011) verranno automaticamente aggiornati all'apertura. Se sono stati creati progetti con la versione 1.6 (novembre 2011) di questi strumenti e la versione è ancora installata, è possibile aprire i progetti nella versione precedente e decidere in seguito se aggiornarli.
 
@@ -55,4 +55,4 @@ Se un progetto viene aggiornato automaticamente o si specifica di volerlo aggior
 
 [Cronologia delle versioni degli strumenti di Azure](http://go.microsoft.com/fwlink/p/?LinkId=623548)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

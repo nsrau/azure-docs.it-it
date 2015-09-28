@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/11/2015" 
 	ms.author="ricksal"/>
 
 
@@ -649,6 +649,12 @@ Si noti che il secondo parametro del costruttore ToDoItemAdapter è un riferimen
 
 Se si desidera visualizzare i risultati di tale operazione, è inoltre necessario chiamare l'adattatore ogni volta che si modifica la tabella *ToDoItem*. Dal momento che le modifiche vengono fatte record per record, le operazioni riguardano una singola riga anziché una raccolta. Quando si inserisce un elemento, si chiama il metodo *add* sull'adattatore, mentre quando lo si elimina, si chiama il metodo *remove*.
 
+##<a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
+
+Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON. Per un esempio di come creare un'API personalizzata nel servizio mobile, vedere [Procedura: definire un endpoint API personalizzato](mobile-services-dotnet-backend-define-custom-api.md).
+
+[AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>Procedura: Autenticare gli utenti
 
@@ -927,4 +933,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione a Servizi mobili]: mobile-services-android-get-started.md
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

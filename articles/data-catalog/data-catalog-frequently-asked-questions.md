@@ -1,36 +1,36 @@
 <properties
    pageTitle="Domande frequenti sul Catalogo dati di Azure"
-	description="Domande frequenti relative all'anteprima del Catalogo dati di Azure, incluse le funzionalità per la gestione, l'annotazione e l'individuazione dell'origine dati."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Domande frequenti relative all'anteprima del Catalogo dati di Azure, incluse le funzionalità per la gestione, l'annotazione e l'individuazione dell'origine dati."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/25/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/11/2015"
+   ms.author="maroche"/>
 
 # Domande frequenti sul Catalogo dati di Azure
 
-In questo articolo vengono fornite le risposte alle domande frequenti relative al servizio Catalogo dati di Microsoft Azure.
+In questo articolo vengono fornite le risposte alle domande frequenti relative al servizio **Catalogo dati di Microsoft Azure**.
 
-## D: cos’è il Catalogo dati di Azure?
+## D: cos’è il **Catalogo dati di Azure**?
 
-R: il Catalogo dati di Microsoft Azure è un servizio completamente gestito ospitato nel cloud di Microsoft Azure che funge da sistema di registrazione e individuazione per le origini dati aziendali. Il Catalogo dati di Azure offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati.
+R: il **Catalogo dati di Microsoft Azure** è un servizio completamente gestito ospitato nel cloud di Microsoft Azure che funge da sistema di registrazione e individuazione per le origini dati aziendali. Il **Catalogo dati di Azure** offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati.
 
 ## D: quali richieste dei clienti risolve il Catalogo dati di Azure?
 
-Il Catalogo dati di Azure risolve la richiesta di individuazione dell’origine dati e dei "dati scuri" consentendo agli utenti di identificare e comprendere le origini dati aziendali.
+Il **Catalogo dati di Azure** risolve la richiesta di individuazione dell’origine dati e dei "dati scuri" consentendo agli utenti di identificare e comprendere le origini dati aziendali.
 
 ## D: chi sono i destinatari del Catalogo dati di Azure?
 
-Il Catalogo dati di Azure offre funzionalità per gli utenti tecnici, tra cui:
+Il **Catalogo dati di Azure** offre funzionalità per gli utenti tecnici, tra cui:
 
 - Sviluppatori di dati e professionisti di analisi e business intelligence: responsabili della produzione di dati e contenuti di analisi ad uso di altri utenti
 -	Amministratori dei dati: dispongono di informazioni relative ai dati, al significato dei dati, al metodo d'uso e allo scopo
@@ -39,7 +39,7 @@ Il Catalogo dati di Azure offre funzionalità per gli utenti tecnici, tra cui:
 
 ## D: qual è la disponibilità delle aree geografiche per il Catalogo dati di Azure?
 
-Durante l'anteprima, i servizi del Catalogo dati di Azure sono disponibili solo nei data center seguenti:
+Durante l'anteprima, i servizi del **Catalogo dati di Azure** sono disponibili solo nei data center seguenti:
 
 - Stati Uniti occidentali
 - Stati Uniti orientali
@@ -48,15 +48,15 @@ Durante l'anteprima, i servizi del Catalogo dati di Azure sono disponibili solo 
 
 ## D: quali sono i limiti sul numero di asset di dati nel Catalogo dati di Azure?
 
-L'edizione Free del Catalogo dati di Azure è limitata a 5000 asset di dati registrati.
+L'edizione Free del **Catalogo dati di Azure** è limitata a 5000 asset di dati registrati.
 
-L'edizione Standard del Catalogo dati di Azure supporta fino a 100.000 asset di dati registrati.
+L'edizione Standard del **Catalogo dati di Azure** supporta fino a 100.000 asset di dati registrati.
 
 ## D: quali sono i tipi di origine dati e di asset supportati?
 
-Durante l'anteprima, il Catalogo dati di Azure supporta attualmente database relazionali di SQL Server (tra cui il database di SQL Azure) e database di SQL Server Analysis Services (multidimensionali e tabulari), nonché SQL Server Reporting Services (solo in modalità nativa) e Database Oracle.
+Durante l'anteprima, il **Catalogo dati di Azure** supporta attualmente database relazionali di SQL Server (tra cui il database di SQL Azure) e database di SQL Server Analysis Services (multidimensionali e tabulari), nonché SQL Server Reporting Services (solo in modalità nativa) e Database Oracle.
 
-Durante l'anteprima, il Catalogo dati di Azure supporta i seguenti tipi di asset:
+Durante l'anteprima, il **Catalogo dati Azure** supporta la registrazione e l'individuazione dei tipi di risorse seguenti:
 
 - Tabella di SQL Server
 - Visualizzazione SQL Server
@@ -72,21 +72,28 @@ Durante l'anteprima, il Catalogo dati di Azure supporta i seguenti tipi di asset
 - File HDFS
 - Directory HDSF
 
+Oltre alle attività sopra indicate, il **Catalogo dati di Azure** supporta l'individuazione dei contenitori di asset dei dati seguenti:
+
+- Database di SQL Server
+- Oracle Database
+- Cluster HDFS
+
+
 ## D: come si richiede il supporto per un'altra origine dati?
 
 Le richieste di funzionalità e altri commenti possono essere inviati nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## D: come si inizia a usare il Catalogo dati di Azure?
 
-Il modo migliore per iniziare consiste nel seguire le istruzioni dell’introduzione al catalogo dati. In questo articolo è riportata una presentazione end-to-end delle funzionalità in anteprima pubblica.
+Il modo migliore per iniziare consiste nel seguire le istruzioni dell’[introduzione al catalogo dati](../data-catalog-get-started/). In questo articolo è riportata una presentazione end-to-end delle funzionalità in anteprima pubblica.
 
 ## D: come si registrano i dati?
 
-Per registrare i dati nel Catalogo dati di Azure, avviare lo strumento di registrazione del Catalogo dati di Azure nell'area "Pubblica" del portale del Catalogo dati di Azure. Nell'applicazione di pubblicazione del Catalogo dati di Azure, accedere usando le stesse credenziali usate per accedere al portale del Catalogo dati di Azure, quindi selezionare l'origine dati e gli asset specifici da registrare.
+Per registrare i dati nel **Catalogo dati di Azure**, avviare lo strumento di registrazione del **Catalogo dati di Azure** nell'area "Pubblica" del **portale del Catalogo dati** di Azure. Nell'applicazione di pubblicazione del **Catalogo dati di Azure**, accedere usando le stesse credenziali usate per accedere al portale del **Catalogo dati di Azure**, quindi selezionare l'origine dati e gli asset specifici da registrare.
 
 ## D: quali proprietà vengono estratte per gli asset di dati registrati?
 
-Le proprietà specifiche variano in base all'origine dati, ma in genere il servizio di pubblicazione del Catalogo dati di Azure estrae le informazioni seguenti:
+Le proprietà specifiche variano in base all'origine dati, ma in genere il servizio di pubblicazione del **Catalogo dati di Azure** estrae le informazioni seguenti:
 
 - Nome dell’asset
 - Tipo di risorsa
@@ -95,7 +102,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 - Tipi di dati di colonna/attributo
 - Descrizione di colonna/attributo
 
-> [AZURE.IMPORTANT]Il Catalogo dati di Azure non sposta né copia i dati nel cloud di Azure. Registrando gli asset da un'origine dati si copiano i metadati degli asset in Azure, ma i dati rimangono nel percorso esistente dell’origine dati. L'unica eccezione a questa regola si rileva quando un utente sceglie di caricare i record di anteprima durante la registrazione degli asset. In questo caso, vengono copiati fino a 20 record da ogni asset e vengono archiviati come snapshot nel **Catalogo dati di Azure**.
+> [AZURE.IMPORTANT]La registrazione delle risorse di dati con **Catalogo dati di Azure** non sposta o copia i dati nel cloud. Registrando gli asset da un'origine dati si copiano i metadati degli asset in Azure, ma i dati rimangono nel percorso esistente dell’origine dati. L'unica eccezione a questa regola si rileva quando un utente sceglie di caricare i record di anteprima o un profilo dei dati durante la registrazione degli asset. Quando è prevista un’anteprima, vengono copiati fino a 20 record da ogni asset e vengono archiviati come snapshot nel **Catalogo dati di Azure**. Quando si include un profilo dei dati, le informazioni di aggregazione (ad esempio le dimensioni di tabelle, i valori null in percentuale per ogni colonna e i valori minimi, massimi e medi per le colonne) verranno calcolate e incluse nei metadati archiviati nel catalogo.
 
 <br/>
 
@@ -132,7 +139,7 @@ Stiamo lavorando attivamente per aggiungere più origini dati nel **Catalogo dat
 
 ## D: qual è la correlazione tra il Catalogo dati di Azure e il catalogo dati di Power BI per Office 365?
 
-È possibile pensare al **Catalogo dati di Azure** come un'evoluzione del catalogo dati. Il **Catalogo dati di Azure** offre funzionalità simili per l'individuazione e la pubblicazione delle origini dati, ma supporta scenari più ampi e non dipende da Office 365. Non appena il Catalogo dati di Azure diventa genericamente disponibile, i due cataloghi vengono uniti in un unico servizio.
+È possibile pensare al **Catalogo dati di Azure** come un'evoluzione del catalogo dati. Il **Catalogo dati di Azure** offre funzionalità simili per l'individuazione e la pubblicazione delle origini dati, ma supporta scenari più ampi e non dipende da Office 365. Non appena il **Catalogo dati di Azure** diventa genericamente disponibile, i due cataloghi vengono uniti in un unico servizio.
 
 ## D: di quali autorizzazioni deve disporre un utente per registrare gli asset nel Catalogo dati di Azure?
 
@@ -148,7 +155,7 @@ Stiamo lavorando attivamente per ampliare le funzionalità del **Catalogo dati d
 
 ## D: come si limita la visibilità degli asset di dati registrati, in modo che solo determinati utenti possano individuarli?
 
-R: selezionare gli asset di dati nel Catalogo dati di Azure e fare clic sul pulsante "Assumi proprietà". I proprietari degli asset di dati nel Catalogo dati di Azure possono modificare le impostazioni di visibilità per consentire a tutti gli utenti del catalogo di individuare gli asset di proprietà o per limitare la visibilità a utenti specifici.
+R: selezionare gli asset di dati nel **Catalogo dati di Azure**, e fare clic sul pulsante "Assumi proprietà". I proprietari degli asset di dati nel **Catalogo dati di Azure** possono modificare le impostazioni di visibilità per consentire a tutti gli utenti del catalogo di individuare gli asset di proprietà o per limitare la visibilità a utenti specifici.
 
 ## Q: come si aggiorna la registrazione di un asset di dati in modo che le modifiche apportate nell'origine dati vengano riflesse nel catalogo?
 
@@ -156,10 +163,10 @@ R: per aggiornare i metadati degli asset di dati già registrati nel catalogo, �
 
 ## D: come si pongono domande o si richiede assistenza quando si usa il Catalogo dati di Azure?
 
-Se si verificano dei problemi o per richiedere assistenza per l'anteprima del Catalogo dati di Azure, è possibile scrivere nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Se si verificano dei problemi o per richiedere assistenza per l'anteprima del **Catalogo dati di Azure**, è possibile scrivere nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## D: la domanda non ha ricevuto risposta: cosa occorre fare?
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

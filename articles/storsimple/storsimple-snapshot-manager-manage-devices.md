@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
@@ -260,6 +260,7 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 
 ## Passaggi successivi
 
-[Utilizzare Gestione Snapshot StorSimple per visualizzare e gestire i volumi](storsimple-snapshot-manager-manage-volumes.md).
+- Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come [utilizzare Gestione Snapshot StorSimple per visualizzare e gestire volumi](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

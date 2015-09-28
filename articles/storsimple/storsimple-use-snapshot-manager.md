@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Interfaccia utente di Gestione snapshot StorSimple
@@ -538,6 +538,7 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
  
 ## Passaggi successivi
 
-Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
+- Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Leggere le informazioni su come [utilizzare Gestione snapshot StorSimple per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

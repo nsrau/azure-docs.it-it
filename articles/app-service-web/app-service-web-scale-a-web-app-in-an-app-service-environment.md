@@ -5,20 +5,22 @@
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ccompy"/>
 
 # Ridimensionamento di app Web in ambiente del servizio app #
 
 In generale, gli ambienti del servizio app sono essenzialmente distribuzioni personali del servizio app di Azure nella rete virtuale e sono gestibili solo dalla propria sottoscrizione. Questi ambienti offrono nuove funzionalità di rete dal momento che sono incluse nella rete virtuale e possono essere ridimensionate oltre quanto normalmente disponibile in ambienti del servizio app di Azure. Per altre informazioni sull'ambiente del servizio app, vedere [Informazioni sull'ambiente del servizio app][WhatisASE]. Per informazioni dettagliate sulla creazione di un ambiente del servizio app o sulla creazione di un'app Web in un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowtoCreateASE] ed [Come creare un'app Web in ambiente del servizio app][CreateWebappinASE].
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 In poche parole, quando si modifica un attributo di ridimensionamento per un'app Web, la modifica viene effettuata a livello di piano di servizio app. Per informazioni dettagliate sul ridimensionamento di piani di servizio app o sui piani di servizio app all'esterno di ambienti del servizio app, vedere [Ridimensionare un'app Web nel servizio app di Azure][ScaleWebapp] e [Panoramica approfondita dei piani di servizio app di Azure][Appserviceplans].
 
@@ -84,4 +86,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

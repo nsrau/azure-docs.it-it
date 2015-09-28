@@ -13,80 +13,81 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/12/2015"
+   ms.date="09/11/2015"
    ms.author="shkurhek"/>
 
 # Livelli di servizio
 
-Il [database SQL](sql-database-technical-overview.md) è disponibile in anteprima per i livelli di servizio Basic, Standard e Premium. Tutti i tre livelli di servizio garantiscono un tempo di attività previsto dal [contratto di servizio](http://azure.microsoft.com/support/legal/sla/) del 99,99% e offrono prestazioni prevedibili, opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. Con più livelli di prestazioni all'interno di ogni livello di servizio, è possibile scegliere il livello che meglio soddisfa le esigenze del carico di lavoro specifico. Se è necessario applicare la scalabilità verso l'alto o verso il basso, è possibile modificare facilmente i livelli del database nel portale di Azure senza tempi di inattività per l'applicazione. Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](https://msdn.microsoft.com/library/azure/dn369872.aspx).
+## Panoramica
+[Il database SQL di Azure](sql-database-technical-overview.md) fornisce più livelli di servizio per gestire diversi tipi di carichi di lavoro. È possibile scegliere di creare un database singolo con caratteristiche e prezzi definiti. Oppure è possibile elencare tutti i database in un pool di database elastici. In entrambi i casi, tra le opzioni incluse vi sono le edizioni **Basic**, **Standard** e **Premium**. Tuttavia, le caratteristiche di tali livelli variano in base alla creazione di un singolo database o un database all'interno di un pool database elastici. Questo articolo fornisce una panoramica dei livelli di servizio in entrambi i contesti.
 
-> [AZURE.IMPORTANT]Le edizioni Web e Business verranno ritirate dal commercio. Informazioni su come [aggiornare le edizioni Web e Business](sql-database-upgrade-new-service-tiers.md). Leggere la [Domande frequenti sull'interruzione](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se si prevede di continuare a utilizzare le edizioni Web e Business.
+## Livelli di servizio
+I livelli di servizio Basic, Standard e Premium garantiscono un tempo di attività previsto dal contratto di servizio del 99,99% e offrono prestazioni prevedibili, opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. Nella tabella seguente sono riportati esempi dei livelli ottimali adatti ai carichi di lavoro di diverse applicazioni.
 
-## Basic
+| Livello di servizio | Carichi di lavoro di destinazione |
+|---|---|
+| **Basic** | Più adatto a un database di piccole dimensioni, che supportano in genere un'unica operazione attiva in un determinato momento. Ad esempio, database utilizzati per lo sviluppo o a scopo di test o le applicazioni su scala ridotta utilizzate raramente. |
+| **Standard** | Opzione più adatta per la maggior parte delle applicazioni cloud, che supporta più query contemporaneamente. Ad esempio, applicazioni web o per gruppi di lavoro. |
+| **Premium** | Progettato per elevato volume di transazioni, che supporta un numero elevato di utenti simultanei e richiede il massimo livello di funzionalità di continuità aziendale. Ad esempio, database che supportano applicazioni mission-critical. |
 
-Il livello Basic è progettato per le applicazioni con un carico di lavoro transazionale ridotto. Un caso di utilizzo tipico è costituito da un'applicazione semplificata, che richiede un database di piccole dimensioni con una singola operazione in un determinato momento.
+>[AZURE.NOTE]Le edizioni Web e Business verranno ritirate dal commercio. Informazioni su come [aggiornare le edizioni Web e Business](sql-database-upgrade-new-service-tiers.md). Leggere la [Domande frequenti sull'interruzione](http://azure.microsoft.com/pricing/details/sql-database/web-business/) se si prevede di continuare a utilizzare le edizioni Web e Business.
 
-**Prestazioni dimensioni e funzionalità**
+### Livelli di servizio per database singoli
+Con più livelli di prestazioni all'interno di ciascun livello di servizio per i database singoli, è possibile scegliere il livello che meglio soddisfa le esigenze del carico di lavoro specifico. Se è necessario applicare la scalabilità verso l'alto o verso il basso, è possibile modificare facilmente i livelli del database nel portale di Azure senza tempi di inattività per l'applicazione. Per informazioni dettagliate, vedere [Modifica dei livelli di servizio e dei livelli di prestazioni di un database](sql-database-scale-up.md).
 
+Le caratteristiche delle prestazioni riportate di seguito si applicano a database creati con [SQL Database V12](sql-database-v12-whats-new.md).
 
-| Livello di servizio | Basic |
-| :-- | :-- |
-| Unità di velocità effettiva del database (DTU, Database Throughput Unit) | 5 |
-| Dimensioni massime del database | 2 GB |
-| Ripristino temporizzato (PITR, Point-in-time Restore) | Fino a un millisecondo entro gli ultimi 7 giorni |
-| Ripristino di emergenza | Ripristini geografico in qualsiasi area di Azure |
-| Obiettivi di prestazioni | Frequenza delle transazioni su base oraria |
+[AZURE.INCLUDE [Tabella dei livelli di servizio del database SQL](../../includes/sql-database-service-tiers-table.md)]
 
+### Livelli di servizio per i pool di database elastici
+Oltre a creare e ridimensionamento di un singolo database, è inoltre possibile gestire più database all'interno di un [pool database elastici](sql-database-elastic-pool.md). Tutti i database in un pool di database elastici condividono un insieme comune di risorse. Le caratteristiche delle prestazioni sono misurate da *unità di transazione del database elastico* (eDTU). Come con i database singoli, sono disponibili pool di database elastici in tre livelli di prestazioni: **Basic**, **Standard** e **Premium**. Per i database elastici questi tre livelli ancora definiscono i limiti delle prestazioni complessive e diverse funzionalità.
 
-## Standard
+I pool di database elastici consentono a tali database di condividere e utilizzare risorse di DTU senza la necessità di assegnare un livello di prestazioni specifico ai database nel pool. Ad esempio, un singolo database in un pool Standard può passare dall’uso di 0 eDTU al valore eDTU massimo per il database (o 100 eDTU definito dal livello di servizio o un numero personalizzato configurato dall’utente). In questo modo sono disponibili più database con diversi carichi di lavoro per un utilizzo efficiente delle risorse eDTU disponibili per l'intero pool.
 
-Il livello Standard rappresenta l'opzione più adatta per iniziare a utilizzare i carichi di lavoro transazionali. Offre prestazioni migliori e migliori funzionalità di continuità aziendale incorporate rispetto al livello Basic. Un caso di utilizzo tipico è rappresentato da un'applicazione con più transazioni simultanee.
+La tabella seguente descrive le caratteristiche dei livelli di servizio dei pool di database elastici.
 
-**Prestazioni e dimensioni**
+[AZURE.INCLUDE [Tabella livelli di servizio di database SQL per database elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
+>[AZURE.NOTE]Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche di database singolo per il livello in questione. Ad esempio, il pool Basic ha un limite per numero massimo di sessioni per pool di 2400 – 28800, ma un singolo database all'interno di tale pool ha un limite di 300 sessioni (limite per un singolo database Basic come specificato nella sezione precedente).
 
-| Livello di servizio | Standard S0 | Standard S1 | Standard S2 | Standard S3 |
-| :-- | :-- | :-- | :-- | :-- |
-| Unità di velocità effettiva del database (DTU, Database Throughput Unit) | 10 | 20 | 50 | 100 |
-| Dimensioni massime del database | 250 GB | 250 GB | 250 GB | 250 GB |
+## Informazioni sulle DTU
 
+[AZURE.INCLUDE [Descrizione di DTU del database SQL](../../includes/sql-database-understanding-dtus.md)]
 
-**Funzionalità**
+## Monitoraggio delle prestazioni
+Il monitoraggio delle prestazioni di un database SQL inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Questi dati rilevanti sono esposti nei modi seguenti:
 
+1.	Portale di gestione di Microsoft Azure
 
-| Livello di servizio | Standard (S0, S1, S2, S3) |
-| :-- | :-- |
-| Ripristino temporizzato (PITR, Point-in-time Restore) | Fino a un millisecondo entro gli ultimi 14 giorni |
-| Ripristino di emergenza | Replica geografica standard, 1 database secondario offline |
-| Obiettivi di prestazioni | Frequenza delle transazioni al minuto |
+2.	Viste della gestione dinamica nel database utente e nel database master del server che contiene il database utente.
 
+Nel [portale di anteprima Azure](https://portal.azure.com/), è possibile monitorare l'utilizzo di un database singolo selezionandolo e facendo clic sul grafico di **monitoraggio**. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
 
-## Premium
+- Percentuale di CPU
+- Percentuale di DTU
+- Percentuale IO dati
+- Percentuale di archiviazione
 
-Il livello Premium è progettato per applicazioni di importanza strategica. Offre il miglior livello di prestazioni e di accesso alle funzionalità di continuità aziendale avanzate tra cui la replica geografica attiva presso un massimo di 4 aree di Azure di propria scelta. Un caso di utilizzo tipico è rappresentato da un'applicazione di importanza strategica con un elevato volume di transazioni e diversi utenti simultanei.
+Dopo aver aggiunto queste metriche, è possibile continuare a visualizzarle nel grafico di **monitoraggio** con ulteriori dettagli sulla finestra della **metrica**. Tutte le quattro metriche mostrano la percentuale media di utilizzo relativa alla **DTU** del database.
 
-**Prestazioni e dimensioni**
+![monitoraggio del livello di servizio](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
 
+È inoltre possibile configurare gli avvisi sulle metriche delle prestazioni. Scegliere il pulsante **Aggiungi avviso** nella finestra **Metrica**. Seguire la procedura guidata per configurare l'avviso. È possibile scegliere di ricevere un avviso se la metrica supera una determinata soglia o scende al di sotto di una determinata soglia.
 
-| Livello di servizio | Premium P1 | Premium P2 | Premium P4 | Premium P6 (precedentemente denominato P3) |
-| :-- | :-- | :-- | :-- | :-- |
-| Unità di velocità effettiva del database (DTU, Database Throughput Unit) | 125 | 250 | 500 | 1000 |
-| Dimensioni massime del database | 500 GB | 500 GB | 500 GB | 500 GB |
+Ad esempio, se si prevede un aumento del carico di lavoro sul database, è possibile scegliere di configurare un avviso di posta elettronica ogni volta che il database raggiunge l'80% per una qualsiasi delle metriche delle prestazioni. È possibile utilizzarlo come un preavviso per capire quando potrebbe essere necessario passare a livello di prestazioni superiore.
 
+Le metriche delle prestazioni consentono inoltre di determinare se è possibile effettuare il downgrade a un livello di prestazioni inferiore. Presupporre di utilizzare un database Standard S2 e tutte le metriche delle prestazioni mostrano che il database in media non utilizza più del 10% in un dato momento. È probabile che il database funzioni bene in Standard S1. Tuttavia, prestare attenzione ai picchi o alle fluttuazioni dei carichi di lavoro prima di decidere di passare a un livello di prestazioni inferiore.
 
-**Funzionalità**
+Le stesse metriche esposte nel portale sono disponibili anche tramite le viste di sistema: [sys. resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) nel database master logico del server, e [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) nel database utente (**sys.dm\_db\_resource\_stats** creato in ciascun database utente Basic, Standard e Premium. I database edizione Web e Business restituiscono un set di risultati vuoto). Utilizzare **sys. resource\_stats** se è necessario monitorare meno dati granulari in un periodo di tempo più lungo. Utilizzare **sys.dm\_db\_resource\_stats** se è necessario monitorare più dati granulari in un periodo di tempo più breve. Per ulteriori informazioni, vedere la [Guida alle prestazioni del database SQL di Azure](https://msdn.microsoft.com/library/azure/dn369873.aspx).
 
+Per i pool di database elastici, è possibile monitorare i singoli database nel pool con le tecniche descritte in questa sezione. Tuttavia, è anche possibile monitorare il pool nel complesso. Per informazioni, vedere [Monitorare e gestire un pool di database elastici](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
 
-| Livello di servizio | Premium (P1, P2, P4, P6) |
-| :-- | :-- |
-| Ripristino temporizzato (PITR, Point-in-time Restore) | Fino a un millisecondo entro gli ultimi 35 giorni |
-| Ripristino di emergenza | Replica geografica attiva, fino a 4 database secondari online leggibili |
-| Obiettivi di prestazioni | Frequenza delle transazioni al secondo |
-
-
+## Passaggi successivi
 Ulteriori informazioni sui prezzi di tali livelli sono disponibili in [Database SQL - Prezzi](http://azure.microsoft.com/pricing/details/sql-database/).
+
+Se si è interessati alla gestione di più database come gruppo, considerare i [pool di database elastici](sql-database-elastic-pool-guidance.md) insieme alle [considerazioni di prezzo e prestazioni per i pool database elastici](sql-database-elastic-pool-guidance.md).
 
 Dopo aver acquisito familiarità con i livelli di database SQL, provare la [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) per scoprire [come creare il primo database SQL](sql-database-get-started.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

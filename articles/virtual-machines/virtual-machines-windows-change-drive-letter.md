@@ -3,7 +3,8 @@
 	description="Viene descritto come modificare un mapping del disco temporaneo in una macchina virtuale basata su Windows in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn
+"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Come modificare la lettera di unità del disco temporaneo di Windows
 
@@ -65,4 +66,4 @@ Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di 
 
 [Storage]: ../storage-whatis-account.md
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

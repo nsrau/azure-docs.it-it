@@ -1,24 +1,25 @@
 <properties 
-	pageTitle="Ambienti di test farm SharePoint 2013 | Microsoft Azure"
-	description="Informazioni su come creare una farm Intranet di SharePoint Server 2013 a due livelli in un ambiente cloud ibrido per lo sviluppo o il test IT professionale."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Ambienti di test farm SharePoint 2013 | Microsoft Azure" 
+	description="Informazioni su come creare una farm Intranet di SharePoint Server 2013 a due livelli in un ambiente cloud ibrido per lo sviluppo o il test IT professionale." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
-
 # Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 I passaggi in questo argomento illustrano la creazione di un ambiente cloud ibrido per il testing di una farm Intranet di SharePoint ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
@@ -71,15 +72,15 @@ Successivamente, creare una macchina virtuale di Azure per SQL1 con questi coman
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SQL1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
-	Set-AzureStorageAccount –StorageAccountName $storageacct
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SQL1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
+	Set-AzureStorageAccount -StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Successivamente, connettersi alla nuova macchina virtuale SQL1 *utilizzando l'account amministratore locale*.
 
@@ -88,13 +89,13 @@ Successivamente, connettersi alla nuova macchina virtuale SQL1 *utilizzando l'ac
 3.	Quando viene richiesto di aprire SQL1.rdp, fare clic su **Apri**.
 4.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto, fare clic su **Connetti**.
 5.	Quando vengono richieste le credenziali, usare le seguenti:
-	- Nome: **SQL1** [Local administrator account name]
+	- Nome: **SQL1** [Nome dell'account amministratore locale]
 	- Password: [Nome dell'account amministratore locale]
 6.	Quando viene visualizzata una finestra di messaggio di Connessione Desktop remoto che si riferisce ai certificati, fare clic su **Sì**.
 
 Configurare le regole di Windows Firewall per consentire il traffico per il test di connettività di base e SQL Server. Da un prompt dei comandi di Windows PowerShell a livello di amministratore in SQL1 eseguire questi comandi.
 
-	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
+	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
@@ -150,13 +151,13 @@ Questa è la configurazione corrente.
 Innanzitutto, creare una macchina virtuale di Azure per SP1 con questi comandi al prompt dei comandi Azure PowerShell nel computer locale.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SP1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for SP1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Successivamente, connettersi alla macchina virtuale SP1 con le credenziali CORP\\User1.
 
@@ -174,7 +175,7 @@ Configurare quindi SP1 per una nuova farm di SharePoint e un sito del team prede
 3.	Nella finestra di dialogo che informa che potrebbe essere necessario riavviare alcuni servizi durante la configurazione, fare clic su **Sì**.
 4.	Nella pagina Connetti a una server farm, fare clic su **Creare una nuova server farm**, quindi fare clic su **Avanti**.
 5.	Nella pagina Specifica le impostazioni del database di configurazione, digitare **sql1.corp.contoso.com** in **Server del database**, digitare **CORP\\SPFarmAdmin** in **Nome utente**, digitare la password dell'account SPFarmAdmin in **Password**, quindi fare clic su **Avanti**.
-6.	Nella pagina specifica impostazioni sicurezza Farm digitare **P@ssphrase** sia in **Passphrase** e **Conferma passphrase**, quindi fare clic su **Avanti**.
+6.	Nella pagina Specifica impostazioni sicurezza Farm digitare **P@ssphrase** sia in **Passphrase** che **Conferma passphrase**, quindi fare clic su **Avanti**.
 7.	Nella pagina Configurazione applicazione Web Amministrazione centrale SharePoint, fare clic su **Avanti**.
 8.	Nella pagina Completamento della configurazione guidata ai prodotti SharePoint fare clic su **Avanti**. La configurazione guidata dei prodotti SharePoint potrebbe richiedere alcuni minuti.
 9.	Nella pagina Configurazione completata, fare clic su **Fine**. Dopo il completamento, viene avviato Internet Explorer con una scheda denominata Initial Farm Configuration Wizard.
@@ -182,10 +183,10 @@ Configurare quindi SP1 per una nuova farm di SharePoint e un sito del team prede
 11.	Per **Modalità con cui si desidera configurare la farm di SharePoint**, fare clic su **Avvia la procedura guidata**.
 12.	Nella pagina Configura SharePoint farm in **Account del servizio**, fare clic su **Usa account gestito esistente**.
 13.	In **Servizi**, deselezionare le caselle di controllo eccetto la casella accanto a **Stato servizio**, quindi fare clic su **Avanti**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento.
-14.	Nella pagina Crea raccolta siti in **Titolo e descrizione**, digita**Contoso Corporation** in **Titolo**, specificare l'URL **http://sp1**/, quindi fare clic su **OK**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento. Questo passaggio crea un sito del team all'URL http://sp1.
+14.	Nella pagina Crea raccolta siti in **Titolo e descrizione**, digita **Contoso Corporation** in **Titolo**, specificare l'URL **http://sp1**/, quindi fare clic su **OK**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento. Questo passaggio crea un sito del team all'URL http://sp1.
 15.	Nella pagina Completamento della configurazione guidata della farm, fare clic su **Termina**. Nella scheda di Internet Explorer viene visualizzato il sito SharePoint 2013 Central Administration.
 16.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
-17.	Nella barra degli indirizzi digitare **http://sp1/**, quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti.  
+17.	Nella barra degli Indirizzi digitare **http://sp1/** e quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti.
 
 Questa è la configurazione corrente.
 
@@ -212,4 +213,4 @@ La farm Intranet di SharePoint in un ambiente cloud ibrido è ora pronta per il 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

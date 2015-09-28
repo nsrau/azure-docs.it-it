@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aggiungere l'autenticazione all'app di Servizi mobili di Azure esistente (iOS) | Microsoft Azure"
+	pageTitle="Aggiungere l'autenticazione all'app di Servizi mobili di Azure esistente (iOS) | Backend JavaScript | Microsoft Azure"
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per iOS tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -84,4 +84,4 @@ Quindi, leggere le informazioni su [come utilizzare il valore dell'ID utente per
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

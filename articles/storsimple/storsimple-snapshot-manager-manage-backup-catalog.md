@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Uso di Gestione snapshot StorSimple per gestire il catalogo di backup
@@ -205,6 +205,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
 
 ## Passaggi successivi
 
-[Ulteriori informazioni sulle attività e sui flussi di lavoro di Gestione snapshot StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
+- Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Ulteriori informazioni sulle[ attività e sui flussi di lavoro di Gestione snapshot StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

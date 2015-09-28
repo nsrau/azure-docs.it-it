@@ -121,6 +121,13 @@ Ora distribuire l'applicazione a ISS o ad Azure e osservare l'accumulo dei dati.
 
 Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'app, i dati si accumulano più lentamente.
 
+#### Nessun dato dopo la pubblicazione nel server?
+
+Aprire le seguenti porte per il traffico in uscita nel firewall del server:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### Problemi del server di compilazione
 
@@ -130,13 +137,13 @@ Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot
 
 L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
 
-Questo passaggio consente inoltre il [report dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters) come il CPU,la memoria, l’occupazione della rete.
-
 #### Se l'app è in esecuzione nel server IIS
 
 Accedere al server con diritti di amministratore, quindi installare [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-È anche possibile usare Status Monitor per [strumentare un'app già in esecuzione](app-insights-monitor-performance-live-website-now.md), anche se non è stata compilata con l'SDK.
+Potrebbe essere necessario [aprire porte in uscita aggiuntive nel firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
+
+Questo passaggio consente inoltre il [report dei contatori delle prestazioni](app-insights-web-monitor-performance.md#system-performance-counters) come il CPU,la memoria, l’occupazione della rete.
 
 #### Se l'app è un'app Web di Azure
 
@@ -248,4 +255,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 
-## <a name="update-app"></a>Chiamare un'API personalizzata da un'app per iOS
+### Chiamare un'API personalizzata da un'app per iOS
 
 Per chiamare un'API personalizzata da un client iOS, usare il metodo `MSClient invokeAPI`. Sono disponibili due versioni di questo metodo: una per le richieste in formato JSON e una per qualsiasi tipo di dati.
 
@@ -34,4 +34,4 @@ Ad esempio, per inviare una richiesta JSON a un'API personalizzata denominata "s
 	     completion:completion ];
 		
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

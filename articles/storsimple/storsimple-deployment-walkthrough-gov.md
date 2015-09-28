@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Distribuire un dispositivo StorSimple nel portale per enti pubblici | Microsoft Azure"
-	description="Descrive i passaggi e le procedure consigliate per la distribuzione nel portale di Azure per enti pubblici del servizio e del dispositivo di StorSimple Aggiornamento 1."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Descrive i passaggi e le procedure consigliate per la distribuzione nel portale di Azure per enti pubblici del servizio e del dispositivo di StorSimple Aggiornamento 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/17/2015"
+   ms.author="v-sharos" />
 
 # Distribuire un dispositivo StorSimple locale nel portale di Azure Government
 
@@ -277,4 +277,4 @@ Configurare un [dispositivo virtuale](storsimple-virtual-device.md).
 Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
  
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

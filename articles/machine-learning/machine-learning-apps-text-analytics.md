@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/11/2015"
 	ms.author="luisca"/>
 
 
@@ -135,7 +135,9 @@ Nella risposta di seguito viene ottenuto l'elenco dei punteggi associati agli ID
 		 {"Score":0.7767222,"Id":"2"},
 		 {"Score":0.8988889,"Id":"3"}
 		],  
-		"Errors":[] 
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 
@@ -191,7 +193,9 @@ Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate a
 		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
 		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
 		],
-		"Errors":[ ]
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 ---
@@ -201,4 +205,4 @@ Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate a
 Gli ID immessi nel sistema corrispondono agli ID restituiti dal sistema. Il servizio Web non verifica che gli ID siano univoci. È responsabilità del chiamante verificarne l'univocità.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

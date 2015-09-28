@@ -1,4 +1,6 @@
 
+<!--author=alkohli last changed: 9/11/15-->
+
 #### Per aggiungere un criterio di backup per StorSimple
 
 1. Nella pagina **Guida introduttiva** del dispositivo, fare clic sulla scheda **Criteri di backup**. Verrà visualizzata la pagina **Criteri di backup**.
@@ -14,4 +16,4 @@
 Il criterio appena aggiunto verrà visualizzato nella visualizzazione tabulare nella pagina **Criteri di backup**.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

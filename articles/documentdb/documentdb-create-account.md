@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Creare un account di database - versione di valutazione gratuita | Microsoft Azure" 
 	description="Informazioni su come creare account di database tramite il portale del servizio in linea per Azure DocumentDB, un database di documenti NoSQL gestito per JSON. Ottenere una versione di valutazione."
+	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -45,4 +46,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

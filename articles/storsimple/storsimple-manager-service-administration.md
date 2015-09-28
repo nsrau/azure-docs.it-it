@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Amministrazione del servizio StorSimple Manager | Microsoft Azure"
-	description="Informazioni su come gestire il dispositivo StorSimple mediante il servizio StorSimple Manager nel portale di gestione di Azure."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Informazioni su come gestire il dispositivo StorSimple mediante il servizio StorSimple Manager nel portale di gestione di Azure."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/11/2015"
+   ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
 
@@ -89,7 +89,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |Modificare le impostazioni del dispositivo</br>Modificare le impostazioni di tempo</br>Modificare le impostazioni DNS.md</br>Configurare le interfacce di rete|Servizio StorSimple Manager → Dispositivi → Configura|[Modificare la configurazione per il dispositivo StorSimple](storsimple-modify-device-config.md)|
 |Visualizzare le impostazioni proxy Web|Servizio StorSimple Manager → Dispositivi → Configura|[Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md)|
 |Modificare la password amministratore del dispositivo</br>Modificare la password di Gestione snapshot StorSimple|Servizio StorSimple Manager → Dispositivi → Configura|[Modificare le password di StorSimple](storsimple-change-passwords.md)|
-|Configurare la gestione remota|Servizio StorSimple Manager → Dispositivi → Configura|[Connettersi in remoto al dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
+|Configurare la gestione remota|Servizio StorSimple Manager → Dispositivi → Configura|[Connettersi in remoto al dispositivo StorSimple](storsimple-remote-connect.md)|
 |Configurare le impostazioni degli avvisi|Servizio StorSimple Manager → Dispositivi → Configura|[Visualizzare e gestire gli avvisi di StorSimple](storsimple-manage-alerts.md)|
 |Configurare CHAP per il dispositivo StorSimple|Servizio StorSimple Manager → Dispositivi → Configura|[Configurare CHAP per il dispositivo StorSimple](storsimple-configure-chap.md)|
 |Aggiungere un criterio di backup</br>Aggiungere o modificare una pianificazione</br>Eliminare un criterio di backup</br>Eseguire un backup manuale</br>Creare un criterio di backup personalizzato con più volumi e pianificazioni|Servizio StorSimple Manager → Dispositivi → Criteri di backup|[Gestire i criteri di backup](storsimple-manage-backup-policies.md)|
@@ -97,6 +97,10 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |Informazioni sui componenti hardware di StorSimple</br>Monitorare lo stato dell'hardware</br>I valori precedenti sono solo per il dispositivo locale|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Monitorare i componenti hardware](storsimple-monitor-hardware-status.md)|
 |Creare un pacchetto di supporto|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Creare e gestire un pacchetto di supporto](storsimple-create-manage-support-package.md)|
 |Installare gli aggiornamenti del software|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Aggiornare il dispositivo](storsimple-update-device.md)|
+
+![Video disponibile](./media/storsimple-manager-service-administration/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra l'interfaccia utente del servizio StorSimple Manager, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Passaggi successivi
 Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSimple o con uno qualsiasi dei relativi componenti hardware, vedere:
@@ -108,4 +112,4 @@ Se non è possibile risolvere i problemi ed è necessario creare una richiesta d
 
 -  [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

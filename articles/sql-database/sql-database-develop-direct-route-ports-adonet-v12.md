@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -72,7 +72,9 @@ La sequenza è la seguente:
 Assicurarsi che l'intervallo di porte 11000-11999 e 14000-14999 sul computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il database SQL V12.
 
 - In particolare, le porte nell'intervallo devono essere libere da eventuali altri blocchi in uscita.
-- Windows Firewall nella VM di Azure consente di controllare le impostazioni della porta.
+
+- Nella macchina virtuale di Azure, il **Windows Firewall con sicurezza avanzata** controlla le impostazioni della porta.
+ - È possibile utilizzare l’[interfaccia utente del firewall](http://msdn.microsoft.com/library/cc646023.aspx) per aggiungere una regola per cui si specifica il protocollo**TCP** con un intervallo di porte con la sintassi **11000-11999**.
 
 
 ## Chiarimenti sulla versione
@@ -100,11 +102,11 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 ## Collegamenti correlati
 
 
-- ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. [Qui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx) è disponibile un annuncio di blog del team .NET.
+- ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. È disponibile un annuncio di blog del team .NET [qui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
 
-- ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. [Qui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx) è disponibile un annuncio di blog del team .NET.
- - [Qui](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx) è disponibile un post di blog su ADO.NET 4.5.1.
+- ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. È disponibile un annuncio di blog del team .NET [qui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+ - È disponibile un post di blog su ADO.NET 4.5.1 [qui](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 
 - [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
@@ -112,4 +114,4 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 
 - [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

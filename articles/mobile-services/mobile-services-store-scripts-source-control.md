@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Archiviare il codice di progetto nel controllo del codice sorgente | Microsoft Azure"
+	pageTitle="Archiviare il codice del progetto di back-end JavaScript nel controllo del codice sorgente | Servizi mobili di Azure"
 	description="Informazioni su come archiviare i moduli e i file di script del server in un repository Git locale nel computer."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/15/2015" 
 	ms.author="ggailey777"/>
 
-# Archiviare il codice del progetto nel controllo del codice sorgente
+# Archiviare il codice del progetto nel controllo del codice sorgente dei Servizi mobili
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 Questo argomento descrive come usare il controllo del codice sorgente offerto da Servizi mobili di Azure per archiviare gli script del server. Gli script e altri file di codice JavaScript possono essere innalzati di livello dal repository Git al servizio mobile di produzione. Descrive inoltre come definire codice condiviso che può essere richiesto da più script e come usare il file package.json per aggiungere moduli Node.js al servizio mobile.
 
@@ -32,7 +32,7 @@ Per completare l'esercitazione, è necessario avere già creato un servizio mobi
 
 ##<a name="clone-repo"></a>Installare Git e creare il repository locale
 
-1. Installare Git nel computer locale. 
+1. Installare Git nel computer locale.
 
 	I passaggi necessari per installare Git variano a seconda del sistema operativo. Vedere la sezione [Installazione di Git] per indicazioni specifiche del sistema operativo relative a distribuzioni e installazione.
 
@@ -76,13 +76,13 @@ Ora che il repository locale è stato creato, è possibile apportare modifiche a
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-	
+
 	Questo codice consente di scrivere l'elemento inserito nel log. Se il file contiene già codice, aggiungervi semplicemente un codice JavaScript valido, ad esempio una chiamata a `console.log()` e quindi salvare le modifiche.
 
 3. Al prompt dei comandi di Git, digitare il comando seguente per iniziare a monitorare il nuovo file di script:
 
 		$ git add .
-	
+
 
 4. Digitare il comando seguente per eseguire il commit delle modifiche:
 
@@ -91,12 +91,11 @@ Ora che il repository locale è stato creato, è possibile apportare modifiche a
 5. Digitare il comando seguente per caricare le modifiche nel repository remoto:
 
 		$ git push origin master
-	
+
 	Dovrebbe essere visualizzata una serie di comandi che indica che il commit è stato distribuito nel servizio mobile.
 
-6. Nel portale di gestione, fare clic sulla scheda **Data**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**.
-7. 
-	Si noti che lo script dell'operazione insert visualizzato è lo stesso del codice JavaScript appena caricato nell'archivio.
+6. Nel portale di gestione, fare clic sulla scheda **Data**, quindi sulla tabella **TodoItem**, selezionare **Script** e infine selezionare l'operazione **Inserisci**. 
+7. Si noti che lo script dell'operazione insert visualizzato è lo stesso del codice JavaScript appena caricato nell'archivio.
 
 ##<a name="use-npm"></a>Usare codice condiviso e moduli Node.js negli script del server
 
@@ -162,4 +161,4 @@ In questa esercitazione si è appreso ad archiviare gli script nel controllo del
 [moduli]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

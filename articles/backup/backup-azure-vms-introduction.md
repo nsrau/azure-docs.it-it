@@ -3,7 +3,7 @@
 	description="Introduzione al backup delle macchine virtuali di Azure usando il servizio Backup di Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -122,4 +122,4 @@ Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni 
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per montare, avviare e formattare un volume
 
@@ -27,7 +28,11 @@
   3. Specificare una dimensione unità di allocazione pari a 64 KB. Queste dimensioni unità di allocazione funzionano correttamente con gli algoritmi di deduplicazione utilizzati nella soluzione StorSimple.
   4. Eseguire una formattazione veloce.
 
+![Video disponibile](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come montare, inizializzare, e formattare un volume StorSimple, fare clic [qui](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

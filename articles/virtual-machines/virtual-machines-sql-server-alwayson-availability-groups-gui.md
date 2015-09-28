@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Configurare i gruppi di disponibilità AlwaysOn in Azure (GUI)"
+	pageTitle="Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)"
 	description="Creare un gruppo di disponibilità AlwaysOn Availability nelle macchine virtuali di Azure. In questa esercitazione vengono utilizzati principalmente l'interfaccia utente e gli strumenti invece dello scripting."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/12/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# Configurare i gruppi di disponibilità AlwaysOn in Azure (GUI)
+# Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)
 
 Questa esercitazione end-to-end illustra come implementare i gruppo di disponibilità tramite SQL Server AlwaysOn in esecuzione in una macchina virtuale di Azure.
 
@@ -534,4 +534,4 @@ SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di
 
 Per altre informazioni sull’uso di SQL Server in Azure, vedere [SQL Server nelle macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

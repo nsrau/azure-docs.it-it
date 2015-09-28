@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Compilazione da riga di comando per Azure"
-	description="Compilazione da riga di comando per Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Compilazione da riga di comando per Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Compilazione da riga di comando per Azure
 
-##Panoramica
+## Panoramica
 
 È possibile creare un pacchetto per la distribuzione a Azure tramite l'esecuzione di MSBuild al prompt dei comandi. È possibile configurare e definire compilazioni per il debug, la gestione temporanea e la produzione, oltre ad automatizzare parte del processo di compilazione.
 
@@ -62,4 +62,4 @@ Se si vuole usare una directory alternativa per i file di configurazione e del p
 
 Dopo la compilazione, sarà possibile distribuire il pacchetto in Azure. Per una dimostrazione di questo processo, vedere l'esercitazione nel sito Web di Azure. Per informazioni su come automatizzare questo processo, vedere [Recapito continuo per Servizi cloud in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

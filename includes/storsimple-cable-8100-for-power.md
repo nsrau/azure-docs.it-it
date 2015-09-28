@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/16/15-->
+
 #### Per cablare il dispositivo per l'alimentazione
 
 1. Assicurarsi che gli interruttori di alimentazione di ciascuno dei moduli PCM siano in posizione OFF.
@@ -22,4 +24,4 @@
 
 4. Accendere il sistema girando l'interruttore di alimentazione di ciascun modulo PCM su ON.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

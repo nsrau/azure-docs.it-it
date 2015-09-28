@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurazione di PHP nelle app Web di Servizio app di Azure"
-	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.&quot;"
+	description="Informazioni su come configurare l'installazione predefinita di PHP o aggiungere un'installazione personalizzata di PHP in Servizio app di Azure.";"
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/16/2015"
 	ms.author="tomfitz"/>
 
 #Configurazione di PHP nelle app Web di Servizio app di Azure
@@ -21,6 +21,8 @@
 ## Introduzione
 
 In questa guida verrà descritto come configurare il runtime PHP incorporato in App Web per [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714), fornire un PHP personalizzato runtime e abilitare le estensioni. Per usare Servizio app di Azure, effettuare l'iscrizione per ricevere la versione di [valutazione gratuita]. Per ottenere il massimo da questa guida, è necessario innanzitutto creare un'app Web PHP in Servizio app.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Procedura: modificare la versione PHP incorporata
 Per impostazione predefinita, PHP 5.4 è installato e immediatamente disponibile per l'uso quando si crea un'app Web di Azure. Il modo migliore per visualizzare la revisione della versione disponibile, la sua configurazione predefinita e le estensioni abilitate consiste nel distribuire uno script che chiama la funzione [phpinfo ()].
@@ -176,4 +178,4 @@ Invece del runtime PHP predefinito, App Web di Servizio Web può utilizzare un r
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

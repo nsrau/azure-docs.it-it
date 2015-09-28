@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Modello di risorse e concetti relativi a DocumentDB | Microsoft Azure" 
-	description="Microsoft Azure DocumentDB è un database di documenti NoSQL completamente gestito che usa un modello gerarchico degli account di database, dei database, delle raccolte, delle stored procedure, dei trigger, delle funzioni definite dall'utente, dei documenti, degli allegati, degli elementi multimediali, degli utenti e delle autorizzazioni per la gestione delle risorse."  
+	pageTitle="Modello di risorse gerarchico e concetti relativi a DocumentDB | Microsoft Azure" 
+	description="Informazioni sul modello gerarchico di DocumentDB di database, raccolte, funzione definita dall'utente (UDF), documenti, autorizzazioni per gestire le risorse e altro ancora."
+	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,25 +17,25 @@
 	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
-#Modello di risorse e concetti relativi a DocumentDB
+# Modello di risorse gerarchico e concetti relativi a DocumentDB
 
 Le entità del database gestite da DocumentDB vengono chiamate **risorse**. Ogni risorsa viene identificata in modo univoco da un URI logico. È possibile interagire con le risorse usando verbi HTTP, intestazioni di richiesta/risposta e codici di stato standard.
 
 Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti:
 
 - Quali sono le risorse di DocumentDB?
-- Qual è la gerarchia delle risorse di DocumentDB?
+- Cos’è il modello gerarchico delle risorse di DocumentDB?
 - Quali sono risorse definite dal sistema e quali risorse definite dall'utente?
 - Come si indirizza una risorsa?
 - Come si usano le raccolte?
 - Come si usano le stored procedure, i trigger e le funzioni definite dall'utente
 
 ##Modello di risorse gerarchico
-Come illustrato nel diagramma seguente, il **modello di risorse** di DocumentDB è costituito da set di risorse associati a un account di database, ciascuno indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo.
+Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di DocumentDB è costituito da set di risorse associati a un account di database, ciascuno indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo.
 
 >[AZURE.NOTE] DocumentDB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[SDK del client .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![][1] **Modello di risorse gerarchico in un account di database**
+![Modello di risorse gerarchico di DocumentDB][1] **Modello di risorse gerarchico in un account di database**
 
 Per iniziare a lavorare con le risorse, è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati (funzionalità di anteprima). Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
 
@@ -70,7 +71,7 @@ id|Impostabile dall'utente|Nome univoco della risorsa definito dall’utente.
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
  
 ###Indirizzamento di una risorsa
-Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **_self** di una risorsa rappresenta l'URI relativo della risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{_rid}: 
+Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\_self** di una risorsa rappresenta l'URI relativo di tale risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{\_rid}:
 
 |Valore di \_self |Descrizione
 |-------------------|-----------
@@ -109,8 +110,7 @@ Notare che oltre al provisioning, alla configurazione e alla gestione dell'accou
 ##Database
 Un database di DocumentDB è un contenitore logico di uno o più utenti e raccolte, come mostrato nel diagramma seguente. È possibile creare un numero qualsiasi di database in un account di database DocumentDB, a condizione di rispettare i limiti di offerta.
 
-![][2]
-
+![Modello gerarchico di account di database e raccolte][2] 
 **Un database è un contenitore logico di utenti e raccolte**
 
 Un database può includere una quantità praticamente illimitata di archiviazione documenti, partizionata in base a raccolte, che costituiscono i domini di transazione per i documenti inclusi nelle raccolte stesse.
@@ -223,9 +223,8 @@ Poiché il database comprende in modo nativo JSON e JavaScript, non si verifican
 
 Le stored procedure e i trigger interagiscono con una raccolta e con i documenti in una raccolta tramite un modello a oggetti ben definito, che espone il contesto corrente della raccolta.
 
-Le raccolte in DocumentDB possono essere create, eliminate, lette o enumerate facilmente usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa.   
-
-##Stored procedure, trigger e funzioni definite dall'utente
+Le raccolte in DocumentDB possono essere create, eliminate, lette o enumerate facilmente usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di raccolta. Se si elimina una raccolta, non sarà automaticamente più possibile accedere a documenti, allegati, stored procedure, trigger e funzioni UDF inclusi nella raccolta stessa.
+##Stored procedure, trigger e funzioni definite dall'utente (UDF)
 Come illustrato nella sezione precedente, è possibile scrivere logica dell'applicazione per l'esecuzione direttamente in una transazione nel motore del database. La logica dell'applicazione può essere scritta interamente in JavaScript e può essere modellata come stored procedure, trigger o funzione definita dall'utente (UDF, User-Defined Function). Il codice JavaScript in una stored procedure o un trigger può inserire, sostituire, eliminare, leggere o sottoporre a query documenti all'interno di una raccolta. D'altro canto, il codice JavaScript in una funzione definita dall'utente può eseguire calcolo privo di effetti collaterali solo tramite l'enumerazione dei documenti del set di risultati della query e produrre un altro set di risultati. Per il multi-tenancy, DocumentDB applica una rigida governance delle risorse basata sulle prenotazioni. Ogni stored procedure, trigger o funzione UDF ottiene una quantità fissa di risorse del sistema operativo per l'esecuzione delle operazioni. Le stored procedure, i trigger o le funzioni UDF, inoltre, non possono collegarsi a librerie JavaScript esterne e saranno disattivati in caso di superamento dei rispettivi budget di risorse allocati. È possibile eseguire o annullare la registrazione di stored procedure, trigger o funzioni definite dall'utente con una raccolta usando le API REST. Durante la registrazione, una stored procedure, un trigger o una funzione UDF saranno precompilati e archiviati come codice byte, che sarà eseguito in seguito. La sezione seguente mostra come usare JavaScript SDK di DocumentDB per la registrazione, l'esecuzione e l'annullamento della registrazione di una stored procedure, un trigger e una funzione definita dall'utente. JavaScript SDK è un semplice wrapper per le [API REST di DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ###Registrazione di una stored procedure
@@ -364,7 +363,7 @@ Essendo un servizio database effettivamente aperto, DocumentDB non propone tipo 
 Analogamente a tutte le altre risorse, i documenti possono essere creati, sostituiti, eliminati, letti, enumerati e sottoposti a query con facilità tramite le API REST o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se si elimina un documento, la quota corrispondente a tutti gli allegati annidati sarà resa immediatamente disponibile. Il livello di coerenza di lettura dei documenti segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query nei documenti, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account.
 
 ##Allegati e file multimediali
->[AZURE.NOTE] Allegati e risorse multimediali sono funzionalità di anteprima.
+>[AZURE.NOTE]Allegati e risorse multimediali sono funzionalità di anteprima.
  
 DocumentDB permette di archiviare BLOB/file multimediali binari tramite DocumentDB o in un archivio remoto specifico per i file multimediali. Permette anche di rappresentare i metadati dei file multimediali sotto forma di un documento speciale definito allegato. Un allegato in DocumentDB è un documento speciale (JSON) che fa riferimento a file multimediali/BLOB archiviati altrove. Un allegato è semplicemente un documento speciale che acquisisce i metadati, come percorso, autore e così via, di un file multimediale archiviato in una risorsa di archiviazione multimediale remota.
 
@@ -379,8 +378,6 @@ Si noti che gli esempi usano ID descrittivi per indicare la gerarchia delle riso
 Nel caso dei file multimediali gestiti da DocumentDB, la proprietà _media dell'allegato farà riferimento al file multimediale tramite il rispettivo URI. DocumentDB assicura la Garbage Collection del file multimediale dopo il rilascio di tutti i riferimenti in sospeso. DocumentDB genera automaticamente gli allegati quando si caricano nuovi file multimediali e popola la proprietà _media in modo da fare riferimento ai file multimediali appena aggiunti. Se si sceglie di archiviare i file multimediali in un archivio BLOB remoto gestito personalmente, ad esempio OneDrive, Archiviazione di Azure, DropBox e così via, sarà comunque possibile usare gli allegati per fare riferimento ai file multimediali. In questo caso sarà necessario creare personalmente l'allegato e popolarne la proprietà _media. 
 
 Analogamente a tutte le altre risorse, gli allegati possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. Come per i documenti, il livello di coerenza di lettura degli allegati segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query relative agli allegati, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account.
-
-
 ##Utenti
 Un utente di DocumentDB rappresenta uno spazio dei nomi logico per il raggruppamento di autorizzazioni. Un utente di DocumentDB può corrispondere a un utente in un sistema di gestione delle identità o a un ruolo applicazione predefinito. In DocumentDB un utente rappresenta semplicemente un'astrazione per raggruppare un insieme di autorizzazioni in un database.
 
@@ -395,8 +392,7 @@ Poiché la scalabilità delle applicazione deve essere adeguata all'incremento d
 
 Indipendentemente dalla strategia scelta per partizionare i dati, è possibile modellare gli utenti effettivi come utenti nel database di DocumentDB e associare autorizzazioni dettagliate a ogni utente.
 
-![][3]
-
+![Raccolte degli utenti][3] 
 **Strategie di partizionamento orizzontale e modellazione degli utenti**
 
 Analogamente a tutte le altre risorse, gli utenti in DocumentDB possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa utente. È utile segnalare che se si elimina un utente, non sarà automaticamente più possibile accedere alle autorizzazioni incluse nell'utente stesso. Anche se DocumentDB recupera in background la quota di autorizzazioni come parte dell'utente eliminato, le autorizzazioni eliminate saranno disponibili immediatamente per un nuovo uso.
@@ -417,4 +413,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

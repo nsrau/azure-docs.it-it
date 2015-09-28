@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Riferimento al token di Modello app v2 | Microsoft Azure"
 	description="Ripi di token e attestazioni generati dall'endpoint 2.0."
 	services="active-directory"
 	documentationCenter=""
@@ -70,7 +70,7 @@ V-DIguXSzLVKnnflfSLyvhinsjLKCnu9L3oXHxw
 | Nonce | `nonce` | `12345` | L'attestazione Nonce è una strategia per ridurre gli attacchi di riproduzione del token. L'app può specificare un'attestazione Nonce in una richiesta di autorizzazione usando il parametro di query `nonce`. Il valore specificato nella richiesta verrà generato nell'attestazione `nonce` del token ID senza modifica. In questo modo l'app può verificare il valore rispetto al valore specificato nella richiesta che associa la sessione dell'app a un determinato token ID. L'app deve eseguire la convalida durante il processo di convalida del token ID. |
 | Name | `name` | `Leonardo DaVinci` | L'attestazione Name fornisce un valore leggibile che identifica l'oggetto del token. Questo valore potrebbe non essere univoco, è mutevole e può essere usato solo per scopi di visualizzazione. |
 | Preferred Username | `preferred_username` | `leo@outlook.com` | Nome utente primario usato per rappresentare l'utente nell'endpoint 2.0. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può cambiare nel tempo per un determinato utente. |
-| Subject | `sub` | `AAAAAAAAAAAAAAAAAAAAAOUtxUJsxQtHuMcFCIA1NC0` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato, pertanto è possibile usarlo per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Poiché il soggetto è sempre presente nei token emessi da Azure AD, è consigliabile l'uso di questo valore in un sistema di autorizzazione generale. |
+| Oggetto | `sub` | `AAAAAAAAAAAAAAAAAAAAAOUtxUJsxQtHuMcFCIA1NC0` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato, pertanto è possibile usarlo per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Poiché il soggetto è sempre presente nei token emessi da Azure AD, è consigliabile l'uso di questo valore in un sistema di autorizzazione generale. |
 | ObjectId | `oid` | `27cb5cec-7c0c-40b4-a69a-22500b6ea853` | ID oggetto dell'account aziendale o dell'istituto di istruzione nel sistema di Azure AD. Questa attestazione non verrà generata per account personali Microsoft. |
 
 <!---
@@ -163,4 +163,4 @@ Di seguito vengono fornite informazioni sulla durata dei token utili per gli ute
 | Codici di autorizzazione (account aziendali o dell'istituto di istruzione) | 10 minuti | I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso e di aggiornamento quando vengono ricevuti. |
 | Codici di autorizzazione (account personali) | 5 minuti | I codici di autorizzazione sono intenzionalmente di breve durata e devono essere immediatamente riscattati per i token di accesso e di aggiornamento quando vengono ricevuti. I codici di autorizzazione emessi per conto degli account personali sono anche adatti a un uso occasionale. |
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

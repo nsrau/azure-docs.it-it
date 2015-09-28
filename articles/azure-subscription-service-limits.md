@@ -44,9 +44,11 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
 - [Batch](#batch-limits)
+- [Servizi BizTalk](#biztalk-services-limits)
 - [RETE CDN](#cdn-limits)
 - [Servizi cloud](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [Insieme di credenziali di chiave](#key-vault-limits)
 - [Servizi multimediali](#media-services-limits)
@@ -66,6 +68,7 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Sistema StorSimple](#storsimple-system-limits)
 - [Analisi dei flussi](#stream-analytics-limits)
 - [Sottoscrizione](#subscription-limits)
+- [Gestione traffico](#traffic-manager-limits)
 - [Macchine virtuali](#virtual-machines-limits)
 
 
@@ -145,6 +148,11 @@ I seguenti limiti del servizio App includono limiti per le App Web, App mobili, 
 ### Limiti relativi ai batch
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+###Limiti dei servizi BizTalk
+La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
+
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 
 ### Limiti relativi a DocumentDB
@@ -248,4 +256,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

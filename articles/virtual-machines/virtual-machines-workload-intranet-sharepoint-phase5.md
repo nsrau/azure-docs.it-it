@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Carico di lavoro di farm intranet di SharePoint Fase 5: Creare il gruppo di disponibilità e aggiungere i database SharePoint.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 In questa fase finale della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità AlwaysOn di SQL Server nei servizi di infrastruttura di Azure, si crea un nuovo gruppo di disponibilità AlwaysOn e si aggiungono i database della farm di SharePoint.
 
@@ -126,4 +128,4 @@ Per ulteriori informazioni su SharePoint con gruppi di disponibilità di SQL Ser
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

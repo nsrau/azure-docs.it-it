@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Che cos'è un gruppo di sicurezza di rete"
-	description="Informazioni sui gruppi di sicurezza di rete"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Informazioni sui gruppi di sicurezza di rete"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/13/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/13/2015"
+   ms.author="telmos" />
 
 # Che cos'è un gruppo di sicurezza di rete
 
-È possibile usare un gruppo di sicurezza di rete per controllare il traffico verso una o più istanze di macchina virtuale (VM) in una rete virtuale. Un gruppo di sicurezza di rete è un oggetto di primo livello associato alla propria sottoscrizione. Contiene regole di controllo di accesso che consentono o negano il traffico verso le istanze di macchina virtuale. Le regole di un gruppo di sicurezza di rete possono essere modificate in qualsiasi momento e le modifiche vengono applicate a tutte le istanze associate. Per usare un gruppo di sicurezza di rete, è necessario disporre di una rete virtuale (VNet) associata a un'area (località).
+È possibile usare un gruppo di sicurezza di rete per controllare il traffico verso una o più istanze di macchina virtuale (VM) in una rete virtuale. Un NSG contiene le regole di controllo di accesso che consentono o negano il traffico in base alla direzione del traffico, al protocollo, all’indirizzo e alla porta di origine e all’indirizzo e alla porta di destinazione. Le regole di un gruppo di sicurezza di rete possono essere modificate in qualsiasi momento e le modifiche vengono applicate a tutte le istanze associate. Per utilizzare un NSG, è necessario disporre di una rete virtuale regionale.
 
 >[AZURE.WARNING]I gruppi di sicurezza di rete non sono compatibili con reti virtuali associate a un gruppo di affinità. Se non si dispone di una rete virtuale di area e si vuole controllare il traffico verso gli endpoint, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)](./virtual-networks-acl.md). È inoltre possibile [eseguire la migrazione della rete virtuale a una rete virtuale di area](./virtual-networks-migrate-to-regional-vnet.md).
 
@@ -249,4 +249,4 @@ Al momento i gruppi di sicurezza di rete possono essere configurati e modificati
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Gestire i dati relativi ai server e all'utilizzo
@@ -59,4 +59,4 @@ Nel dashboard **Usage** sono visualizzate le informazioni seguenti:
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

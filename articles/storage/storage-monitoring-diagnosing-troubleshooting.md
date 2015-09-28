@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione | Microsoft Azure" 
-	description="Informazioni su come usare funzionalità quali l'analisi dell'archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati al servizio di archiviazione di Azure." 
-	services="storage" 
-	documentationCenter="" 
-	authors="dominicbetts" 
-	manager="adinah" 
+<properties
+	pageTitle="Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione | Microsoft Azure"
+	description="Informazioni su come usare funzionalità quali l'analisi dell'archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati al servizio di archiviazione di Azure."
+	services="storage"
+	documentationCenter=""
+	authors="dominicbetts"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="v-dobett"/>
 
-# Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione Microsoft Azure 
+# Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione Microsoft Azure
 
 La diagnosi e la risoluzione dei problemi in un'applicazione distribuita in hosting in un ambiente cloud possono essere più complesse rispetto agli ambienti tradizionali. Le applicazioni possono essere distribuite in un'infrastruttura PaaS o IaaS, in locale, su un dispositivo mobile o in una combinazione di questi componenti. In genere, il traffico in rete dell'applicazione può passare su reti pubbliche e private e l'applicazione può utilizzare più tecnologie di archiviazione, ad esempio tabelle di Microsoft Azure, oggetti BLOB, code o file oltre ad altri archivi di dati come i database relazionali e di documenti.
 
@@ -109,8 +109,8 @@ La figura 2 mostra la pagina Monitor del portale in cui sono visualizzate metric
 È necessario monitorare continuamente le applicazioni Azure per assicurarsi che siano integre e funzionino come previsto.
 
 - Stabilire alcune metriche per applicazione di base che consentano di confrontare i dati correnti e identificare eventuali modifiche significative del comportamento dell'archiviazione Azure e dell'applicazione. I valori delle metriche di base in molti casi saranno specifici per ogni singola applicazione e dovranno essere definiti quando si testano le prestazioni dell'applicazione.
-- Registrare metriche al minuto e utilizzarle per monitorare attivamente eventuali anomalie ed errori imprevisti, ad esempio picchi dei conteggi degli errori o della frequenza delle richieste. 
-- Registrare metriche orarie e utilizzarle per monitorare valori medi come la media dei conteggi degli errori e della frequenza delle richieste. 
+- Registrare metriche al minuto e utilizzarle per monitorare attivamente eventuali anomalie ed errori imprevisti, ad esempio picchi dei conteggi degli errori o della frequenza delle richieste.
+- Registrare metriche orarie e utilizzarle per monitorare valori medi come la media dei conteggi degli errori e della frequenza delle richieste.
 - Esaminare i potenziali problemi utilizzando gli strumenti di diagnostica descritti più avanti nella sezione "[Diagnosi dei problemi di archiviazione]."
 
 I grafici della figura 3 illustrano in che modo il calcolo della media delle metriche orarie può nascondere dei picchi di attività. Le metriche orarie sembrano indicare una frequenza costante delle richieste, mentre le metriche al minuto rivelano le fluttuazioni che si verificano in realtà.
@@ -151,7 +151,7 @@ Per monitorare le prestazioni dei servizi di archiviazione è possibile usare le
 
 - I valori in **AverageE2ELatency** e **AverageServerLatency** indicano il tempo medio impiegato dal servizio di archiviazione o dal tipo di operazione API per elaborare le richieste. **AverageE2ELatency** è una misura della latenza end-to-end che include il tempo impiegato a leggere la richiesta e inviare la risposta sommato al tempo impiegato per elaborare la richiesta (di conseguenza include la latenza di rete quando la richiesta raggiunge il servizio di archiviazione); **AverageServerLatency** è una misura del tempo di elaborazione ed esclude quindi qualsiasi latenza di rete relativa alla comunicazione con il client. Vedere la sezione "[Le metriche indicano un valore AverageE2ELatency alto e un valore AverageServerLatency basso]" più avanti in questa guida per sapere perché esiste una differenza significativa tra i due valori.
 - I valori nelle colonne **TotalIngress** e **TotalEgress** indicano il volume totale dei dati, in byte, in entrata nel e in uscita dal servizio di archiviazione o gestiti da un tipo specifico di operazione API.
-- I valori presenti nella colonna **TotalRequests** indicano il numero totale di richieste ricevute dal servizio di archiviazione o dall'operazione API. **TotalRequests** è il numero totale di richieste ricevute dal servizio di archiviazione. 
+- I valori presenti nella colonna **TotalRequests** indicano il numero totale di richieste ricevute dal servizio di archiviazione o dall'operazione API. **TotalRequests** è il numero totale di richieste ricevute dal servizio di archiviazione.
 
 In genere, questi valori vengono monitorati per verificare la presenza di eventuali cambiamenti che possono indicare l'esistenza di problemi da sottoporre ad analisi.
 
@@ -165,14 +165,14 @@ La sezione "[Guida alla risoluzione dei problemi]" di questa guida descrive alcu
 Esistono alcuni sintomi che indicano la presenza di un problema dell'applicazione, tra cui:
 
 - un errore grave che causa l'arresto anomalo o interrompe l'esecuzione dell'applicazione
-- cambiamenti significativi dei valori di base delle metriche monitorate come descritto nella sezione precedente, "[Monitoraggio del servizio di archiviazione]" 
+- cambiamenti significativi dei valori di base delle metriche monitorate come descritto nella sezione precedente, "[Monitoraggio del servizio di archiviazione]"
 - segnalazione da parte degli utenti del fatto che una determinata operazione non viene completata come previsto o che non è possibile utilizzare una funzione
 - errori generati all'interno dell'applicazione che appaiono nei file di log o vengono segnalati con altri metodi.
 
 Normalmente i problemi correlati ai servizio di archiviazione Azure rientrano in una delle seguenti quattro grandi categorie:
 
 - L'applicazione presenta un problema di prestazioni, segnalato dagli utenti o rivelato da modifiche nelle metriche delle prestazioni.
-- Si è verificato un problema con l'infrastruttura di archiviazione Azure in una o più aree. 
+- Si è verificato un problema con l'infrastruttura di archiviazione Azure in una o più aree.
 - L'applicazione ha riscontrato un errore, segnalato dagli utenti o rivelato dall'aumento delle metriche di conteggio degli errori monitorate.
 - Durante lo sviluppo e i test può essere utilizzato l'emulatore di archiviazione locale: è possibile che si verifichino alcuni problemi connessi specificamente all'uso dell'emulatore.
 
@@ -231,7 +231,7 @@ In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione 
 ## <a name="end-to-end-tracing">Traccia end-to-end</a>
 
 La funzionalità di traccia end-to-end basata sull'utilizzo di una varietà di file di log è una tecnica utile per l'analisi dei potenziali problemi. È possibile usare le informazioni su data e ora estratte dai dati delle metriche come indicazione del punto da cui deve partire la ricerca nei file di log dei dettagli necessari per la risoluzione del problema.
-	
+
 ### <a name="correlating-log-data"></a>Correlazione dei dati di log
 
 Quando si visualizzano i file di log delle applicazioni client, le tracce di rete e la registrazione dell'archiviazione lato server, è essenziale poter creare una correlazione delle richieste in tutti i file di log. I file di log includono diversi campi che possono essere utili come identificatori di correlazioni. Il campo dell'ID richiesta client è il più utile ai fini della correlazione delle voci nei diversi file di log. Tuttavia, in alcuni casi può essere utile utilizzare l'ID richiesta server o i timestamp. Le sezioni che seguono forniscono ulteriori dettagli su queste opzioni.
@@ -264,7 +264,7 @@ L'esempio di codice che segue mostra come impostare un valore **ClientRequestId*
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid. 
+    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
     OperationContext oc = new OperationContext();
     oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
@@ -281,11 +281,11 @@ L'esempio di codice che segue mostra come impostare un valore **ClientRequestId*
     }
     catch (StorageException storageException)
     {
-        Console.WriteLine("Storage exception {0} occurred", storageException.Message); 
+        Console.WriteLine("Storage exception {0} occurred", storageException.Message);
         // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
         foreach (var result in oc.RequestResults)
         {
-                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID); 
+                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
         }
     }
 
@@ -403,7 +403,7 @@ Se si riscontra un valore **AverageServerLatency** elevato per le richieste di d
 
 I valori elevati di **AverageServerLatency** possono essere anche sintomo della presenza di tabelle o query progettate in modo non corretto, che causano operazioni di scansione o seguono l'antipattern append/prepend. Per ulteriori informazioni, vedere "[Le metriche indicano un aumento di PercentThrottlingError]".
 
-> [AZURE.NOTE]È possibile trovare un elenco di controllo completo, inclusi altri problemi da tenere presente qui: "Progettazione scalabile ed elenco di controllo di archiviazione ad alte prestazioni basato su applicazioni".
+> [AZURE.NOTE]È possibile trovare un elenco di controllo completo, inclusi altri problemi da tenere presente qui: "[Progettazione scalabile ed elenco di controllo di archiviazione ad alte prestazioni basato su applicazioni](storage-performance-checklist.md)."
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Si stanno verificando ritardi imprevisti nel recapito dei messaggi di una coda
 
@@ -448,7 +448,7 @@ Anche una progettazione insufficiente delle query può causare il raggiungimento
 Le metriche indicano un aumento di **PercentTimeoutError** per uno dei servizi di archiviazione. Allo stesso tempo, il client riceve una grande quantità di messaggi di stato HTTP "500 Operation Timeout" dalle operazioni di archiviazione.
 
 > [AZURE.NOTE]È possibile che vengano temporaneamente visualizzati errori di timeout perché il servizio di archiviazione bilancia il carico delle richieste spostando una partizione su un nuovo server.
- 
+
 La metrica **PercentTimeoutError** è una combinazione delle metriche seguenti: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** e **SASServerTimeoutError**.
 
 I timeout del server sono causati da un errore del server. I timeout del client si verificano perché un'operazione eseguita sul server ha superato il timeout specificato dal client. Ad esempio, un client che utilizza Storage Client Library può impostare un timeout per un'operazione utilizzando la proprietà **ServerTimeout** della classe **QueueRequestOptions**.
@@ -473,7 +473,7 @@ Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|In attesa di risposta
 Microsoft.WindowsAzure.Storage|Avviso|2|85d077ab-…|Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (403) Accesso negato..
 Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|Risposta ricevuta. Codice stato = 403, ID richiesta = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = .
 Microsoft.WindowsAzure.Storage|Avviso|2|85d077ab-…|Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (403) Accesso negato..
-Microsoft.WindowsAzure.Storage|Informazioni|3 |85d077ab-…|Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: (403) Accesso negato.. 
+Microsoft.WindowsAzure.Storage|Informazioni|3 |85d077ab-…|Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: (403) Accesso negato..
 Microsoft.WindowsAzure.Storage|Informazioni|3|85d077ab-…|La posizione successiva è stata impostata come primaria, in base alla modalità di posizionamento.
 Microsoft.WindowsAzure.Storage|Errore|1|85d077ab-…|Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (403) Accesso negato..
 
@@ -481,7 +481,7 @@ In questo scenario, è necessario verificare perché il token SAS scade prima ch
 
 - Di solito non è consigliabile impostare un orario di inizio quando si crea una SAS che un client deve utilizzare immediatamente. Se esistono piccoli sfasamenti di orario tra l'host che genera la SAS utilizzando l'ora attuale e il servizio di archiviazione, è possibile che il servizio di archiviazione riceva una SAS non ancora valida.
 - Non impostare tempi troppo brevi per la scadenza di una SAS. Come già detto, eventuali piccole differenze di orario tra l'host che genera la SAS e il servizio di archiviazione possono causa un'apparente scadenza della SAS prima del tempo.
-- Il parametro della versione nella chiave SAS (ad esempio **sv=2012-02-12**) deve corrispondere alla versione di Storage Client Library in uso. Usare sempre la versione più recente di Storage Client Library. Per altre informazioni sul controllo della versione del token della firma di accesso condiviso e delle dipendenze nella versione della libreria dei client, vedere <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank"></a>. 
+- Il parametro della versione nella chiave SAS (ad esempio **sv=2012-02-12**) deve corrispondere alla versione di Storage Client Library in uso. Usare sempre la versione più recente di Storage Client Library. Per altre informazioni sul controllo della versione del token della firma di accesso condiviso e delle dipendenze nella versione della libreria dei client, vedere <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Novità di Archiviazione di Microsoft Azure</a>.
 - Se si rigenerano le chiavi di accesso all'archiviazione (fare clic su **Gestisci chiavi di accesso** in qualsiasi pagina dell'account di archiviazione sul portale di Azure), i token SAS già esistenti possono essere invalidati. Questo può essere un problema se si generano token SAS con tempo di scadenza lungo per le applicazioni client da memorizzare nella cache.
 
 Se si usa Storage Client Library per generare i token SAS, sarà semplice creare un token valido. Tuttavia, se si usa l'API REST di archiviazione e si creano i token della firma di accesso condiviso manualmente, si consiglia di leggere con attenzione l'argomento <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delega dell'accesso con una firma di accesso condiviso</a> su MSDN.
@@ -542,7 +542,7 @@ e2d06d78-... | Avvio richiesta asincrona a https://domemaildist.blob.core.window
 e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 e2d06d78-... | In attesa di risposta.
 de8b1c3c-... | Scrittura dei dati della richiesta.
-de8b1c3c-... | In attesa di risposta. 
+de8b1c3c-... | In attesa di risposta.
 e2d06d78-... | Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (409) Conflitto..
 e2d06d78-... | Risposta ricevuta. Codice stato = 409, ID richiesta = c27da20e-..., Content-MD5 = , ETag =.
 e2d06d78-... | Download del corpo della risposta con errore.
@@ -631,7 +631,7 @@ L'esempio di codice che segue indica come configurare il servizio BLOB per conse
     sp.Cors.CorsRules.Add(cr);
     client.SetServiceProperties(sp);
 
-#### <a name="network-failure"></a>Errore della rete 
+#### <a name="network-failure"></a>Errore della rete
 
 In alcune circostanze, la perdita di pacchetti di rete può causare la restituzione da parte del servizio di archiviazione di messaggi HTTP 404 per il client. Ad esempio, quando l'applicazione client elimina un'entità dal servizio tabelle, il client genera un'eccezione di archiviazione segnalando un messaggio di stato "HTTP 404 (Non trovato)" ricevuto dal servizio tabelle. Quando si esamina la tabella nel servizio di archiviazione tabelle, si può notare che il servizio ha eliminato l'entità come richiesto.
 
@@ -671,9 +671,9 @@ Per l'elenco dei codici di errore API REST che i servizi di archiviazione restit
 
 Se si riscontrano cambiamenti improvvisi e imprevisti dell'utilizzo della capacità nel proprio account di archiviazione, per scoprire quali sono le cause per prima cosa analizzare le metriche di disponibilità. Ad esempio, un aumento del numero di richieste di eliminazione non riuscite può determinare un aumento dell'archiviazione BLOB in uso perché le operazioni di pulizia specifiche dell'applicazione, che avrebbero dovuto liberare spazio, non funzionano come previsto (ad esempio perché i token SAS usare per liberare spazio sono scaduti).
 
-### <a name="you-are-experiencing-unexpected-reboots"></a>Si stanno verificando riavvii imprevisti delle macchine virtuali con un numero elevato di VHD allegati
+### <a name="you-are-experiencing-unexpected-reboots"></a>Si stanno verificando riavvii imprevisti delle macchine virtuali di Azure con un numero elevato di VHD allegati
 
-Se una macchina virtuale contiene numerosi dischi rigidi virtuali (VHD, Virtual Hard Disk) allegati nello stesso account di archiviazione, è possibile che vengano superati gli obiettivi di scalabilità dell'account di archiviazione determinando un errore della macchina virtuale. Controllare le metriche al minuto per l'account di archiviazione (**TotalRequests**/**TotalIngress**/**TotalEgress**) per verificare se esistono picchi che superino gli obiettivi di scalabilità previsti per un account di archiviazione. Vedere la sezione "[Le metriche indicano un aumento di PercentThrottlingError]" per sapere come si stabilisce se si è verificata una limitazione nell'account di archiviazione.
+Se una macchina virtuale di Azure contiene numerosi dischi rigidi virtuali (VHD, Virtual Hard Disk) allegati nello stesso account di archiviazione, è possibile che vengano superati gli obiettivi di scalabilità dell'account di archiviazione determinando un errore della macchina virtuale. Controllare le metriche al minuto per l'account di archiviazione (**TotalRequests**/**TotalIngress**/**TotalEgress**) per verificare se esistono picchi che superino gli obiettivi di scalabilità previsti per un account di archiviazione. Vedere la sezione "[Le metriche indicano un aumento di PercentThrottlingError]" per sapere come si stabilisce se si è verificata una limitazione nell'account di archiviazione.
 
 In generale, ogni singola operazione di input o output eseguita su un VHD da una macchina virtuale viene trasformata in operazione **Get Page** o **Put Page** nel BLOB di pagine sottostante. Di conseguenza, è possibile utilizzare le IOPS previste per l'ambiente per stabilire quanti VHD si possono avere in un singolo account di archiviazione in base al comportamento specifico dell'applicazione. Non è consigliabile usare più di 40 dischi virtuali in un unico account di archiviazione. Vedere <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Obiettivi di scalabilità e prestazioni di Azure</a> per i dettagli relativi agli attuali obiettivi di scalabilità per gli account di archiviazione, in particolare la velocità totale delle richieste e la larghezza di banda totale per il tipo di account di archiviazione in uso. Se si superano gli obiettivi di scalabilità per il proprio account di archiviazione, sarà necessario inserire i VHD in più account diversi per ridurre l'attività in ogni singolo account.
 
@@ -765,7 +765,7 @@ La procedura che segue indica come acquisire informazioni dettagliate sui pacche
 1.	Avviare Wireshark sul computer locale.
 2.	Nella sezione **Start**, selezionare l'interfaccia (o le interfacce) di rete locale connessa a Internet.
 3.	Fare clic su **Capture Options**.
-4.	Aggiungere un filtro nella casella di testo **Capture Filter**. Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark in modo che acquisisca solo i pacchetti inviati a o dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Per un elenco completo dei filtri di acquisizione, vedere <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>. 
+4.	Aggiungere un filtro nella casella di testo **Capture Filter**. Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark in modo che acquisisca solo i pacchetti inviati a o dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Per un elenco completo dei filtri di acquisizione, vedere <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
 
     ![][6]
 
@@ -792,7 +792,7 @@ Microsoft Message Analyzer può essere usato per l'acquisizione del traffico HTT
 Per configurare una sessione di traccia Web per il traffico HTTP e HTTPS utilizzando Microsoft Message Analyzer, eseguire l'applicazione Microsoft Message Analyzer e quindi, nel menu **File**, fare clic su **Capture/Trace**. Nell'elenco degli scenari di traccia disponibili, selezionare **Web Proxy**. Quindi, nel riquadro **Trace Scenario Configuration**, nella casella di testo **HostnameFilter**, aggiungere i nomi degli endpoint di archiviazione (cercare i nomi nel portale di Azure). Ad esempio, se il nome dell'account di archiviazione Azure è **contosodata**, aggiungere quanto segue alla casella di testo **HostnameFilter**:
 
     contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-    
+
 > [AZURE.NOTE]I nomi host sono separati da uno spazio.
 
 Quando si è pronti a iniziare a raccogliere i dati di traccia, fare clic sul pulsante **Start With**.
@@ -831,7 +831,7 @@ Nel passaggio 1 dell'**Importazione guidata testo**, selezionare **Punto e virgo
 
 È possibile usare la funzionalità Application Insights per Visual Studio Online come parte del monitoraggio delle prestazioni e della disponibilità. Questo strumento consente di:
 
-- Assicurarsi che il servizio Web sia disponibile e reattivo. Sia che l'applicazione sia un sito Web o un'app per dispositivo che utilizza un servizio Web, è in grado di testare l'URL a intervalli di pochi minuti da postazioni situate in tutto il mondo e indicare se è presente un problema. 
+- Assicurarsi che il servizio Web sia disponibile e reattivo. Sia che l'applicazione sia un sito Web o un'app per dispositivo che utilizza un servizio Web, è in grado di testare l'URL a intervalli di pochi minuti da postazioni situate in tutto il mondo e indicare se è presente un problema.
 - Diagnosticare rapidamente eventuali problemi di prestazioni o eccezioni del servizio Web. Sapere se la CPU o altre risorse vengono estese, ricavare analisi dello stack dalle eccezioni ed eseguire facilmente la ricerca delle tracce nei log. Se le prestazioni dell'app scendono al di sotto di limiti accettabili, verrà inviato un messaggio di posta elettronica. L'utente può monitorare i servizi Web sia .NET che Java.
 
 Al momento della redazione di questo documento Application Insights è disponibile in anteprima. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights per Visual Studio Online</a> su MSDN.
@@ -909,6 +909,5 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
- 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

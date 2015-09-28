@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="09/15/2015"
 	ms.author="cephalin"/>
 
 
@@ -22,6 +22,8 @@
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell.
 
 Quando si effettua il provisioning e si distribuiscono applicazioni su vasta scala costituite la microservizi altamente disaccoppiati, ripetibilità e prevedibilità sono fondamentali. Con il [servizio app di Azure](/services/app-service/) è possibile creare microservizi che includono app Web, per dispositivi mobili, per le API e per la logica. [Gestione risorse di Azure](../resource-group-overview.md) consente di gestire tutti i microservizi come unità, insieme alle dipendenze delle risorse, ad esempio le impostazioni di controllo del codice sorgente e del database. A questo punto è possibile distribuire l'applicazione usando modelli JSON e semplici script di PowerShell.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Contenuto dell'esercitazione ##
 
@@ -303,4 +305,4 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

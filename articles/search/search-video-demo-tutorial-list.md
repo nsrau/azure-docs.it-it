@@ -6,15 +6,15 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/19/2015"
+	ms.date="09/16/2015"
 	ms.author="heidist"/>
 
 #Ricerca di Azure: esercitazioni, demo video ed esempi
@@ -64,6 +64,15 @@ Procedura dettagliata|Descrizione
 
 ##Esempi di codice
 
+[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) è un archivio GitHub contenente esempi di codice creati da Liam Cavanagh. Gli esempi seguenti sono disponibili in questo archivio:
+
+- [AdventureWorksWP8]() è un'applicazione di Windows phone.
+- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
+- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) è un file index.html che fornisce i dati in un'esercitazione.
+- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) è un'applicazione ASP.NET MVC per Ricerca di Azure.
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) fornisce il codice sorgente per il sito demo live dei processi NYC.
+- [Indicazioni](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) utilizza Active Data Factory, Database SQL, archiviazione BLOB e HDInsight per implementare i consigli sui prodotti in base alla frequenza con cui i prodotti vengano acquistati insieme.
+
 [****https://github.com/AzureSearch**](https://github.com/AzureSearch) è un repository GitHub di Ricerca di Azure contenente esempi di codice creati dal team di sviluppo di Ricerca di Azure. È possibile esplorare il repository per visualizzare il contenuto o fare clic sui collegamenti seguenti per passare direttamente a esempi specifici.
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
@@ -81,4 +90,4 @@ In CodePlex, è possibile trovare diversi esempi pubblicati durante l'anteprima 
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) è un'applicazione della console di Windows che carica un set di righe di SQL Server da un database locale integrato.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) è un'applicazione della console di Windows che definisce, esegue e aggiorna un profilo di assegnazione dei punteggi per ottimizzare i risultati della ricerca.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

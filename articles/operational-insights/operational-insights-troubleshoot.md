@@ -12,56 +12,114 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
-#Risolvere i problemi con Operational Insights
+# Risolvere i problemi con Operational Insights
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
 Per semplificare la risoluzione dei problemi, è possibile usare le informazioni disponibili nelle sezioni seguenti. Se il problema specifico non è incluso in questo articolo, vedere il [blog del team di Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/05/29/advisor-error-3000-unable-to-register-to-the-advisor-service-amp-onboarding-troubleshooting-steps.aspx).
 
-## Diagnosticare problemi di connessione per Operational Insights
+## Risoluzione dei problemi relativi alle autorizzazioni con SQL Assessment
+Operations Management Suite (OMS) utilizza i gruppi di gestione di Microsoft Monitoring Agent e Operations Manager per raccogliere e inviare dati al servizio OMS. Alcuni carichi di lavoro, come SQL Server, richiedono privilegi specifici del carico di lavoro per eseguire la raccolta dei dati in un contesto di sicurezza diverso, ad esempio un account di dominio. Microsoft Monitoring Agent viene connesso tramite System Center Operations Manager e se si verificano problemi relativi alle autorizzazioni durante la raccolta dei dati, è necessario fornire informazioni sulle credenziali tramite la configurazione di un account RunAs.
 
-Poiché Microsoft Azure Operational Insights si basa sui dati spostati verso il cloud e dal cloud, i problemi di connessione possono causare un blocco del servizio. Usare le seguenti informazioni per comprendere e risolvere i problemi di connessione.
+Se si usa già il Management Pack di SQL Server, è consigliabile usare l'account Windows per l’account RunAs corrispondente.
+
+### Per configurare l'account RunAs di SQL in Operations Console
+
+1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
+
+2. In **Run As Configuration** fare clic su **Profiles** e aprire **Microsoft System Center Advisor Run As Profile**.
+
+3. Nella pagina **Run As Account** fare clic su **Add**.
+
+4. Selezionare un account RunAs Windows che contiene le credenziali necessarie per SQL Server oppure fare clic su **New** per crearne uno.
+
+    >[AZURE.NOTE]Il tipo dell'account RunAs deve essere Windows. L'account RunAs deve appartenere anche al gruppo Local Administrators in tutti i server Windows che ospitano istanze di SQL Server.
+
+5. Fare clic su **Save**.
+
+6. Modificare ed eseguire il seguente esempio T-SQL in ciascuna istanza di SQL Server per concedere le autorizzazioni minime richieste dall'account RunAs per eseguire la valutazione SQL. Tuttavia, non è necessario farlo se l'account RunAs fa già parte del ruolo server sysadmin nelle istanze di SQL Server.
+
+```
+---
+    -- Replace <UserName> with the actual user name being used as Run As Account.
+    USE master
+
+    -- Create login for the user, comment this line if login is already created.
+    CREATE LOGIN [<UserName>] FROM WINDOWS
+
+    -- Grant permissions to user.
+    GRANT VIEW SERVER STATE TO [<UserName>]
+    GRANT VIEW ANY DEFINITION TO [<UserName>]
+    GRANT VIEW ANY DATABASE TO [<UserName>]
+
+    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
+
+```
+
+### To configure the SQL Run As account using Windows PowerShell
+Alternatively, you can use the following PowerShell script to set the SQL Run As account. Open a PowerShell window and run the following script after you’ve updated it with your information:
+
+```
+
+    import-module OperationsManager
+    New-SCOMManagementGroupConnection "<your management group name>"
+     
+    $profile = Get-SCOMRunAsProfile -DisplayName "Operational Insights SQL Assessment Run As Profile"
+    $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
+    Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
+```
+After the PowerShell Script finishes executing, perform the T-SQL commands provided above.
+
+## Diagnose connection issues for Operational Insights
+
+Because Microsoft Azure Operational Insights relies on data that is moved to and from the cloud, connection issues can be crippling. Use the following information to understand and solve your connection issues.
 
 
-**Messaggio di errore:** la connettività Internet è stata verificata, ma non è possibile stabilire la connessione al servizio Operational Insights. Riprovare più tardi.
+**Error message:** The Internet connectivity was verified, but connection to Operational Insights service could not be established. Please try again later.
 
-**Cause possibili:** il servizio Operational Insights è in fase di manutenzione. Attendere finché non viene eseguita la manutenzione di Operational Insights. - La rete ha bloccato Operational Insights. Contattare l'amministratore di rete e richiedere l'accesso a Operational Insights oppure usare un altro server come gateway.
+**Possible causes:**
+- The Operational Insights service is under maintenance. Wait until the Operational Insights maintenance is done.
+- Your network has blocked Operational Insights. Contact your network administrator and request access to Operational Insights, or use another server as your gateway.
 
-**Messaggio di errore:** non è possibile stabilire una connessione Internet. Controllare le impostazioni del proxy.
+**Error message:** Internet connection could not be established. Please check your proxy settings.
 
-**Cause possibili:** il server non è connesso a Internet. Controllare lo stato della connettività Internet e connettere il server a Internet. - L’impostazione proxy non è corretta. Per informazioni su come configurare o modificare le impostazioni del proxy, vedere [Configurare le impostazioni di proxy e firewall](operational-insights-proxy-firewall.md). - Il server proxy richiede l’autenticazione. Per informazioni su come configurare Operations Manager per l'uso di un server proxy, vedere [Configurare le impostazioni di proxy e firewall](operational-insights-proxy-firewall.md).
+**Possible causes:**
+- This server is not connected to the Internet. Check the Internet connectivity status, and connect the server to the Internet.
+- The proxy setting is not correct. See [Configure proxy and firewall settings](operational-insights-proxy-firewall.md) for information about how to set or change your proxy settings.
+- The proxy server requires authentication. See [Configure proxy and firewall settings](operational-insights-proxy-firewall.md) to learn about how to configure Operations Manager to use a proxy server.
 
 
-## Risolvere i problemi di individuazione di SQL Server
+## Troubleshoot SQL Server discovery
 
-Se si esegue Microsoft SQL Server 2008 R2 e, nonostante sia stato distribuito l'agente Operations Manager, non vengono visualizzati gli avvisi relativi a questo server, potrebbe essersi verificato un problema di individuazione.
+If you are running Microsoft SQL Server 2008 R2, and despite deploying the Operations Manager agent, you do not see alerts for this server, you might have a discovery issue.
 
-Per verificare se questa è l'origine del problema, controllare se sono presenti i seguenti problemi:
+To confirm if this is the source of your trouble, check for the following two issues:
 
-- Nel log eventi di Operations Manager viene visualizzato l'ID evento 4001. Questo evento indica la presenza di una classe non valida.
+- In the Operations Manager event log, you see Event ID 4001. This event indicates that there is an invalid class.
 
-- Quando in Gestione configurazione SQL Server si visualizzano i servizi SQL Server, appare il messaggio di errore "La chiamata di procedura remota non è riuscita. [0x0800706be]"
+- In SQL Server Configuration Manager, when you view SQL Server Services, you see the error message, “The remote procedure call failed. [0x0800706be]”
 
-Se sono presenti entrambi i problemi, sarà necessario installare SQL Server 2008 R2 Service Pack 2. Per scaricare questo Service Pack, vedere [SQL Server 2008 R2 Service Pack 2](http://go.microsoft.com/fwlink/?LinkId=271310) nell'Area download Microsoft.
+If both issues are true, you need to install SQL Server 2008 R2 Service Pack 2. To download this service pack, see [SQL Server 2008 R2 Service Pack 2](http://go.microsoft.com/fwlink/?LinkId=271310) in the Microsoft Download Center.
 
-Dopo l'installazione del Service Pack, i dati di Operational Insights per il server dovrebbero essere visualizzati entro 24 ore.
+After you install the service pack, you should see Operational Insights data for the server within 24 hours.
 
-## Risolvere i problemi degli agenti o del flusso di dati di Operations Manager verso Operational Insights
+## Troubleshoot agents or Operations Manager data flow to Operational Insights
 
-Le procedure seguenti possono essere usate come guida per semplificare la risoluzione dei problemi degli agenti connessi direttamente o delle distribuzioni di Operations Manager configurate per la segnalazione di dati ad Azure Operational Insights.
+The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.
 
-### Procedura 1: Verificare il download dei Management Pack nell'ambiente di Operations Manager
->[AZURE.NOTE]Se si usa solo l'agente diretto, è possibile passare alla procedura successiva.
+### Procedure 1: Validate if the right Management Packs get downloaded to your Operations Manager Environment
+>[AZURE.NOTE] If you only use Direct Agent, you can skip to the next procedure.
 
-Il numero dei Management Pack visualizzati dipende dalle soluzioni (denominate in precedenza Intelligence Pack) abilitati dal portale di Operational Insights. Cercare la parola chiave "Advisor" o "Intelligence" nel nome. È possibile verificare i Management Pack usando PowerShell di Operations Manager:
+Depending on which solutions (previously called intelligence packs) you have enabled from the OpInsights Portal will you see more or less of these MPs. Search for keyword ‘Advisor’ or ‘Intelligence’ in their name.
+You can check for these MPs using OpsMgr PowerShell:
 
 ```Powershell
-Get-SCOMManagementPack | where {$_.DisplayName -match 'Advisor'} | Select Name,Sealed,Version
-Get-SCOMManagementPack | where {$_.Name -match 'IntelligencePacks'} | Select Name,Sealed,Version
-```
+Get-SCOMManagementPack | dove {$\_.DisplayName -match 'Advisor'} | Select Name,Sealed,Version Get-SCOMManagementPack | dove {$\_.Name -match 'IntelligencePacks'} | Select Name,Sealed,Version ```
 
 >[AZURE.NOTE]Se è necessario risolvere i problemi della soluzione Capacity, verificare il *numero* dei Management Pack disponibili il cui nome contiene il termine capacity. Sono presenti due Management Pack con lo stesso nome visualizzato (ma ID interno diverso) inclusi nello stesso bundle di Managament Pack. Se uno dei due non viene importato (spesso a causa di una dipendenza da VMM mancante), non verrà importato nemmeno l'altro Management Pack e non verranno eseguiti altri tentativi di importazione.
 
@@ -145,4 +203,4 @@ Il drill-down passa alla ricerca log e mostra il timestamp dei dati indicizzati 
 
 Questa pagina include anche informazioni sulle misurazioni (queste informazioni non usano l'indice di ricerca log ma il sistema di fatturazione e vengono aggiornate ogni due ore circa) relative alle quantità di dati inviati al servizio suddivise in base alle diverse soluzioni.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

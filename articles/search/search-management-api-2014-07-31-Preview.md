@@ -4,7 +4,7 @@
 
 # API di gestione: versione 2014-07-31-Preview
 
-In questo documento viene descritta la versione **2014-07-31-Preview** dell’API REST di gestione di Ricerca di Azure. È stata sostituita dalla versione disponibile a livello generale [API REST di gestione di Ricerca di Azure 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) in MSDN.
+In questo documento viene descritta la versione **2014-07-31-Preview** dell’API REST di gestione di Ricerca di Azure. E’ stata quindi sostituita dalle versioni più recenti. Per la versione più recente, vedere [API REST di gestione di ricerca di Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) su MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## Operazioni di gestione del servizio
 
@@ -26,7 +26,7 @@ Si noti che tutte le chiamate API di gestione devono includere l'ID sottoscrizio
 
 ### Versioni
 
-La versione corrente dell’API REST di gestione di Ricerca di Azure è `api-version=2014-07-31-Preview`. Si tratta dell'unica versione di questa API.
+`api-version=2014-07-31-Preview` è stata introdotta durante l'anteprima pubblica di ricerca di Azure. Per ulteriori informazioni sulle modifiche da una versione a quella successiva, vedere [Novità di Ricerca di Azure](search-latest-updates.md).
 
 ### Autenticazione e controllo di accesso
 
@@ -815,4 +815,4 @@ Nessuno.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

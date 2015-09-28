@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,13 +19,15 @@
 
 # Carico di lavoro di farm intranet di SharePoint Fase 2: Configurare controller di dominio
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
+
 In questa fase della distribuzione di una farm di SharePoint 2013 solo intranet con i gruppi di disponibilità SQL Server AlwaysOn in servizi di infrastruttura di Azure, vengono configurati due controller di dominio nella rete virtuale di Azure in Gestione dei servizi. Le richieste Web dei client per le risorse della farm di SharePoint possono quindi essere autenticate nella rete virtuale di Azure, anziché inviare tale traffico di autenticazione attraverso la connessione VPN o Azure ExpressRoute alla rete locale.
 
 È necessario completare questa fase prima di passare alla [Fase 3](virtual-machines-workload-intranet-sharepoint-phase3.md). Per conoscere tutte le fasi, vedere [Distribuzione di SharePoint con gruppi di disponibilità di SQL Server AlwaysOn in Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
 
 ## Creare macchine virtuali controller di dominio in Azure
 
-È innanzitutto necessario compilare la colonna **Nome macchina virtuale** della Tabella M e modificare le dimensioni delle macchine virtuali secondo necessità nella colonna **Dimensione minima**.
+È innanzitutto necessario compilare la colonna **Nome macchina virtuale** della tabella M e modificare le dimensioni delle macchine virtuali secondo necessità nella colonna **Dimensione minima**.
 
 Elemento | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
 --- | --- | --- | ---
@@ -127,9 +129,9 @@ Successivamente, è necessario aggiungere il disco dati aggiuntivi al primo cont
 3.	Fare clic su **Attività**, quindi su **Nuovo volume**.
 4.	Nella pagina **Operazioni preliminari** della creazione guidata nuovo volume fare clic su **Avanti**.
 5.	Nella pagina **Selezionare il server e il disco** fare clic su **Disco 2**, quindi fare clic su **Avanti**. Quando richiesto, fare clic su **OK**.
-6.	Nella pagina **Specifica le dimensioni del volume** fare clic su **Avanti**.
+6.	Nella pagina **Specifica dimensioni del volume** fare clic su **Avanti**.
 7.	Nella pagina **Assegnare a una lettera di unità o cartella** fare clic su **Avanti**.
-8.	Nella pagina **Selezionare le impostazioni del file system** fare clic su **Next**.
+8.	Nella pagina **Selezionare le impostazioni del file system** fare clic su **Avanti**.
 9.	Nella pagina **Conferma selezioni**, fare clic su **Crea**.
 10.	Una volta completata l'inizializzazione, fare clic su **Chiudi**.
 
@@ -246,4 +248,4 @@ Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

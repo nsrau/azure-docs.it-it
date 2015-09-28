@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Che cos’è Gestione snapshot StorSimple?
@@ -144,8 +144,8 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 ## Passaggi successivi
 
-[Ulteriori informazioni sulle attività e sui flussi di lavoro di Gestione snapshot StorSimple](storsimple-snapshot-manager-admin.md)
+- Ulteriori informazioni sull’[utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 
-[Scaricare Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
+- Scaricare [Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

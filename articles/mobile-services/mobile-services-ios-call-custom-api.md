@@ -1,9 +1,10 @@
 <properties
-	pageTitle="Come chiamare un'API personalizzata da un client iOS"
+	pageTitle="Come chiamare un'API personalizzata da un client iOS (back-end JavaScript)"
 	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app per iOS che usa Servizi mobili di Azure."
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
+	writer="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -55,4 +56,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Get started with push notifications]: ../mobile-services-ios-get-started-push.md
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
    description="Eseguire il provisioning di SQL Data Warehouse attenendosi ai passaggi e alle linee guida seguenti."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -25,7 +25,7 @@ Questo articolo è una guida al provisioning di SQL Data Warehouse in Azure. Att
 3. Impostare una regola del firewall di Azure per abilitare l'accesso client dall'esterno
 
 ## Versione di valutazione gratuita di Azure ##
-Per completare le attività elencate di seguito, è necessario avere una sottoscrizione di Azure. Se non si ha già accesso a una sottoscrizione di Azure, risolvere prima di tutto questo passaggio.
+È necessario disporre di una sottoscrizione Azure e l'approvazione per l'anteprima di SQL Data Warehouse per completare le attività seguenti. Se non si ha già accesso a una sottoscrizione di Azure, risolvere prima di tutto questo passaggio.
 
 È possibile ottenere una [versione di valutazione gratuita][] che consente di provare i servizi di Azure, incluso SQL Data Warehouse.
 
@@ -40,7 +40,7 @@ In questa prima serie di passaggi si attiverà rapidamente un nuovo server logic
 
 La prima cosa da fare è individuare il servizio SQL Data Warehouse nel portale di Azure.
 
-Nell'angolo in basso a sinistra del portale di Azure è disponibile il pulsante Nuovo. Questo pulsante è il punto di partenza per la creazione di qualsiasi nuovo servizio all'interno di Azure.
+Nell'angolo in alto a sinistra del portale di Azure è disponibile il pulsante Nuovo. Questo pulsante è il punto di partenza per la creazione di qualsiasi nuovo servizio all'interno di Azure.
 
 - Fare clic sul pulsante Nuovo.
 
@@ -54,7 +54,12 @@ Quando si fa clic sul pulsante Nuovo vengono aperte tutte le categorie di serviz
 
 Come si può vedere, Azure offre molti motori di dati e archiviazione. Tuttavia, questa Guida introduttiva è per Data Warehouse di SQL.
 
-- Procedere e selezionare **SQL Data Warehouse**.
+- Procedere e selezionare **SQL Data Warehouse**. 
+
+##Ammissione all'anteprima
+Prima di iniziare il processo di installazione è necessaria l’ammissione al programma di anteprima. Fare clic su iscrizione per l’anteprima e inviare. Una volta che il materiale è stato approvato, si riceverà una notifica tramite posta elettronica.
+
+Dopo aver ricevuto l'approvazione, è possibile procedere ai passaggi successivi. Nota: L'elaborazione dell’approvazione potrebbe richiedere diversi giorni.
 
 ## Configurare SQL Data Warehouse
 
@@ -117,7 +122,7 @@ Per creare il data warehouse personalizzato, è sufficiente fare clic sul pulsan
 
 Congratulazioni. La creazione del primo database di SQL Data Warehouse è così completata.
 
-Dovrebbe essere visualizzato di nuovo il [Portale Azure][]. Notare che il nuovo database di SQL Data Warehouse è stato aggiunto alla pagina.
+Dovrebbe essere visualizzato di nuovo il [Portale di Azure][]. Notare che il nuovo database di SQL Data Warehouse è stato aggiunto alla pagina.
 
 
 A questo punto nessuno può accedere al database di SQL Data Warehouse. Per garantire la sicurezza, per impostazione predefinita il database non è ancora configurato per l'accesso da parte dei client.
@@ -128,7 +133,7 @@ L'ultimo passaggio del processo di provisioning consiste quindi nel configurare 
 
 Per configurare il firewall di Azure per la prima volta:
 
-1. Fare clic su **Sfoglia** nel Pannello di navigazione a sinistra.
+1. Fare clic su **Sfoglia** nel pannello di navigazione a sinistra.
 
 2. Scegliere **SQL Server**.
 
@@ -153,19 +158,18 @@ Dopo aver configurato il firewall, si potranno stabilire connessioni dal desktop
 
 Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibile procedere per imparare a usarlo. Passaggi successivi:
 
-1. [Collegarsi al data warehouse ed eseguire query][].
+1. [Connettersi ed eseguire query][] nel data warehouse.
 2. Caricare [dati di esempio].
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Collegarsi al data warehouse ed eseguire query]: sql-data-warehouse-get-started-connect-query.md
+[Connettersi ed eseguire query]: sql-data-warehouse-get-started-connect-query.md
 [dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [versione di valutazione gratuita]: https://azure.microsoft.com/it-IT/pricing/free-trial/
-[Portale Azure]: https://portal.azure.com/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

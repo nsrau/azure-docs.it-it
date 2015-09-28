@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/06/2015"
+   ms.date="09/10/2015"
    ms.author="lauracr"/>
 
 # Connettersi a Operational Insights da System Center Operations Manager
@@ -46,4 +46,4 @@ Se si usa Operations Manager per monitorare uno dei carichi di lavoro seguenti, 
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

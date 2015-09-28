@@ -1,25 +1,28 @@
 <properties
    pageTitle="Configurare connessioni di ExpressRoute e VPN da sito a sito coesistenti | Microsoft Azure"
-	description="Questa esercitazione illustra come configurare ExpressRoute e una connessione VPN da sito a sito ai fini della coesistenza."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Questo articolo illustra come configurare connessioni ExpressRoute e VPN da sito a sito ai fini della coesistenza."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/16/2015"
+   ms.author="cherylmc"/>
 
 # Configurare connessioni di Azure ExpressRoute e VPN da sito a sito coesistenti
 
-Ora si possono connettere ExpressRoute e VPN da sito a sito alla stessa rete virtuale. È possibile scegliere due scenari diversi e due procedure di configurazione diverse.
+Ora si possono connettere ExpressRoute e VPN da sito a sito alla stessa rete virtuale. Esistono due diversi scenari in cui è possibile utilizzare connessioni coesistenti. Lo Scenario 1 utilizza ExpressRoute come collegamento attivo e la connessione da sito a sito come connessione di backup. Nello Scenario 2, entrambe le connessioni sono attive.
 
-## Scenari
+I passaggi descritti in questo articolo si applicano alle reti virtuali che utilizzando il modello di distribuzione classica. Questo tipo di connessione coesistente non è ancora disponibile per le reti virtuali che utilizzano il modello di distribuzione di gestione delle risorse.
+
+
 
 ### Scenario 1
 
@@ -36,22 +39,22 @@ In questo scenario, si dispone di due reti locali. È possibile connettere una r
 ![Coesistenza](media/expressroute-coexist/scenario2.jpg)
 
 
-## Creazione e configurazione
+## Scelta di una procedura di configurazione
 
 Esistono due diverse serie di procedure disponibili per configurare le connessioni per coesistere. La procedura di configurazione scelta dipende dalla disponibilità o meno di una rete virtuale esistente a cui stabilire la connessione oppure dall'esigenza di creare una nuova rete virtuale.
 
 - **Creare una nuova rete virtuale con connessioni coesistenti:**
 
-	Se non si ha già una rete virtuale, questa procedura consentirà la creazione di una nuova rete virtuale e di nuove connessioni ExpressRoute e VPN da sito a sito. Per configurare, eseguire i passaggi per[creare una nuova rete virtuale e connessioni](#create-a-new-virtual-network-and-connections-that-coexist).
+	Se non si ha già una rete virtuale, questa procedura consentirà la creazione di una nuova rete virtuale e di nuove connessioni ExpressRoute e VPN da sito a sito. Per configurare, eseguire i passaggi per[Creare una nuova rete virtuale con connessioni coesistenti](#create-a-new-vnet-with-coexisting-connections).
 
 - **Configurare la rete virtuale esistente per le connessioni coesistenti:**
 
-	E’ possibile che esista già una rete virtuale con una connessione VPN da sito a sito o una connessione ExpressRoute. La procedura [Configurare connessioni coesistenti per la rete virtuale già esistente](#configure-connections-that-coexist-for-your-existing-virtual-network) illustra come eliminare il gateway e quindi come creare nuove connessioni ExpressRoute e VPN da sito a sito. Durante la creazione di nuove connessioni, è necessario completare i passaggi in un ordine molto specifico. Non usare le istruzioni in altri articoli per creare gateway e connessioni.
+	E’ possibile che esista già una rete virtuale con una connessione VPN da sito a sito o una connessione ExpressRoute. La procedura [Configurare connessioni coesistenti per la rete virtuale già esistente](#configure-coexisting-connections-for-an-existing-vnet) illustra come eliminare il gateway e quindi come creare nuove connessioni ExpressRoute e VPN da sito a sito. Durante la creazione di nuove connessioni, è necessario completare i passaggi in un ordine molto specifico. Non usare le istruzioni in altri articoli per creare gateway e connessioni.
 
 	In questa procedura, la creazione di connessioni che possono coesistere richiederà l’eliminazione del gateway e la configurazione di nuovi gateway. Mentre si elimina e si ricrea il gateway e le connessioni, si avrà un tempo di inattività per le connessioni cross-premise, ma non sarà necessario eseguire la migrazione delle macchine virtuali o dei servizi a una nuova rete virtuale. Le macchine virtuali e i servizi saranno comunque in grado di comunicare tramite il servizio di bilanciamento del carico mentre si configura il gateway, se sono configurati in questo senso.
 
 
-## Note e limitazioni
+### Note e limitazioni
 
 - Tramite Azure non sarà possibile attivare il routing tra la rete locale connessa tramite la VPN da sito a sito e la rete locale connessa tramite ExpressRoute.
 - Non è possibile abilitare connessioni VPN da punto a sito dalla stessa rete virtuale connessa a ExpressRoute. Le connessioni VPN da punto a sito ed ExpressRoute non possono coesistere per la stessa rete virtuale.
@@ -69,11 +72,11 @@ Esistono due diverse serie di procedure disponibili per configurare le connessio
 Questa procedura illustra come creare una rete virtuale e creare connessioni Site-to-Site ed ExpressRoute coesistenti.
 
 1. Verificare che sia disponibile l'ultima versione dei cmdlet PowerShell. È possibile installare i cmdlet PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download](http://azure.microsoft.com/downloads/).
-2. Creare uno schema per la rete virtuale. Per maggiori informazioni sull'utilizzo del file di configurazione di rete, vedere [Configurare una rete virtuale usando un file di configurazione di rete](../virtual-network/virtual-networks-using-network-configuration-file.md). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Creare uno schema per la rete virtuale. Per maggiori informazioni sull'utilizzo del file di configurazione di rete, vedere [Configurare una rete virtuale usando un file di configurazione di rete](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 	Quando si crea lo schema, assicurarsi di usare i valori seguenti:
 
-	- La subnet del gateway per la rete virtuale deve essere /27 (o un prefisso più breve).
+	- La lunghezza del prefisso di rete della subnet del gateway per la rete virtuale deve essere 27 o inferiore (/ 26, /25, ecc.).
 	- Il tipo di connessione del gateway è "Dedicato".
 
 		      <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
@@ -173,7 +176,7 @@ Questa procedura illustra come creare una rete virtuale e creare connessioni Sit
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
 
 
-## Configurare connessioni coesistenti per la rete virtuale esistente
+## Configurare connessioni coesistenti per una rete virtuale esistente
 
 Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRoute o VPN da sito a sito, per abilitare entrambe le connessioni in modo da connettersi alla rete virtuale esistente, è necessario eliminare prima di tutto il gateway esistente. Ciò significa che le sedi locali perderanno la connessione alla rete virtuale tramite il gateway mentre si lavora a questa configurazione.
 
@@ -189,7 +192,7 @@ Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRo
 2. Esportare lo schema della rete virtuale. Usare il cmdlet PowerShell seguente, sostituendo i valori con quelli personalizzati.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Modificare lo schema del file di configurazione rete in modo che la subnet del gateway sia /27 (o un prefisso più breve). Vedere l'esempio seguente. Per maggiori informazioni sull'utilizzo del file di configurazione di rete, vedere [Configurare una rete virtuale usando un file di configurazione di rete](../virtual-network/virtual-networks-using-network-configuration-file.md). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Modificare lo schema del file di configurazione rete in modo che la subnet del gateway sia /27 (o un prefisso più breve). Vedere l'esempio seguente. Per maggiori informazioni sull'utilizzo del file di configurazione di rete, vedere [Configurare una rete virtuale usando un file di configurazione di rete](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
@@ -204,7 +207,7 @@ Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRo
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. A questo punto, si avrà una rete virtuale senza gateway. È possibile procedere con il **Passaggio 3** nell'articolo, [Creare una nuova rete virtuale con connessioni ](#create-a-new-virtual-network-and-connections-that-coexist) per creare nuovi gateway e completare le connessioni.
+5. A questo punto, si avrà una rete virtuale senza gateway. È possibile procedere con il **Passaggio 3** nell'articolo, [Creare una nuova rete virtuale con connessioni coesistenti](#create-a-new-vnet-with-coexisting-connections) per creare nuovi gateway e completare le connessioni.
 
 
 
@@ -214,4 +217,4 @@ Altre informazioni su ExpressRoute. Vedere l'articolo [Panoramica tecnica relati
 
 Altre informazioni sui gateway VPN. Vedere [Informazioni sui gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

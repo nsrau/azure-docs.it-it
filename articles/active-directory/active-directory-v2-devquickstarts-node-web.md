@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Applicazione Web di Node.js di modello app v2.0 | Microsoft Azure"
 	description="Come creare un'app Web NodeJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app Web NodeJS
@@ -67,7 +67,7 @@ Dalla riga di comando passare alla directory della cartella radice, se non è gi
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart. 
+- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart.
 
 - `npm install passport-azure-ad`
 
@@ -224,7 +224,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -237,7 +237,7 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
@@ -383,13 +383,13 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 	<body>
 		<% if (!user) { %>
 			<p>
-			<a href="/">Home</a> | 
+			<a href="/">Home</a> |
 			<a href="/login">Log In</a>
 			</p>
 		<% } else { %>
 			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
+			<a href="/">Home</a> |
+			<a href="/account">Account</a> |
 			<a href="/logout">Log Out</a>
 			</p>
 		<% } %>
@@ -417,4 +417,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

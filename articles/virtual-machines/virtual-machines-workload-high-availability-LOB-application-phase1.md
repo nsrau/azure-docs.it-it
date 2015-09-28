@@ -1,23 +1,26 @@
 <properties 
-	pageTitle="Applicazione line-of-business fase 1 | Microsoft Azure"
-	description="Creare la rete virtuale e altri elementi dell'infrastruttura di Azure nella fase 1 dell'applicazione line-of-business di Azure."
+	pageTitle="Applicazione line-of-business fase 1 | Microsoft Azure" 
+	description="Creare la rete virtuale e altri elementi dell'infrastruttura di Azure nella fase 1 dell'applicazione line-of-business di Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 1: Configurare Azure
-
+ 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
+ 
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure viene creata l'infrastruttura di rete e di archiviazione di Azure. È necessario completare questa fase prima di passare alla [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Per informazioni su tutte le fasi, vedere [Distribuire un'applicazione line-of-business a disponibilità elevata in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md).
 
 È necessario eseguire il provisioning di Azure con questi componenti di rete di base:
@@ -94,7 +97,7 @@ Selezionare innanzitutto la sottoscrizione di Azure corretta con questi comandi.
 	$subscr="<Subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 
-È possibile ottenere il nome della sottoscrizione dalla proprietà **SubscriptionName** dell'output del comando **Get-AzureSubscription**.
+È possibile ottenere il nome della sottoscrizione dalla proprietà **SubscriptionName** dell’output del comando **Get-AzureSubscription**.
 
 A questo punto, usare questo comando per passare ad Azure PowerShell in modalità Gestione risorse.
 
@@ -234,7 +237,7 @@ Questa è la configurazione risultante dal corretto completamento di questa fase
 
 ## Passaggio successivo
 
-Per continuare con la configurazione di questo carico di lavoro, passare a [Fase 2: Configurare di controller di dominio](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 2: Configurare di controller di dominio](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 
 ## Risorse aggiuntive
 
@@ -248,4 +251,4 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

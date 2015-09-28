@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -41,8 +41,8 @@ Uno degli obiettivi principali della versione 12 del database SQL è stato il mi
 
 
 - [Assembly Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
-- [Funzioni finestra](https://msdn.microsoft.com/library/bb934097.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
-- [Indici XML](https://msdn.microsoft.com/library/bb934097.aspx) e [indici XML selettivi](http://msdn.microsoft.com/library/jj670104.aspx)
+- [Funzioni finestra](http://msdn.microsoft.com/library/bb934097.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Indici XML](http://msdn.microsoft.com/library/bb934097.aspx) e [indici XML selettivi](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Rilevamento modifiche](http://msdn.microsoft.com/library/bb933875.aspx)
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 - [Ricerca full-text](http://msdn.microsoft.com/library/ms142571.aspx)
@@ -59,7 +59,19 @@ Nella versione 12, le unità di prestazioni di database espresse in DTU (Databas
 
 - Supporto per gli [indici columnstore](http://msdn.microsoft.com/library/gg492153.aspx) in memoria.
 - [Partizionamento delle tabelle per riga](http://msdn.microsoft.com/library/ms187802.aspx) con miglioramenti correlati a [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- Disponibilità di viste a gestione dinamica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) e di Eventi estesi[(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) per facilitare il monitoraggio e l'ottimizzazione delle prestazioni.
+- La disponibilità di viste a gestione dinamica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) consentono di monitorare e ottimizzare le prestazioni.
+
+
+### Prestazioni affidabili
+
+
+Se il programma client si connette a SQL Database V12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire i seguenti intervalli di porta nella macchina virtuale:
+
+- 11000-11999
+- 14000-14999
+
+
+Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per ulteriori informazioni sulle porte per il Database SQL V12. Le porte sono necessarie per il miglioramento delle prestazioni in SQL Database V12.
 
 
 ## Migliore supporto per i fornitori di soluzioni cloud SaaS
@@ -83,6 +95,8 @@ La sicurezza è della massima importanza per chiunque gestisca la propria attivi
 - [Database indipendenti](http://msdn.microsoft.com/library/azure/ff394108.aspx)
 - [Ruoli applicazione](http://msdn.microsoft.com/library/ms190998.aspx) gestiti con GRANT, DENY, REVOKE
 - [Crittografia dati trasparente](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)
+- [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
+ - Il Database SQL supporta ora l'autenticazione di Azure Active Directory, un meccanismo di connessione al Database SQL utilizzando le identità in Azure Active Directory (Azure AD). Con l'autenticazione di Azure Active Directory è possibile gestire centralmente le identità degli utenti del database e altri servizi Microsoft in una posizione centrale.
 
 
 ## Aumento della continuità aziendale quando è necessario il ripristino
@@ -98,7 +112,7 @@ La versione 12 offre obiettivi del punto di ripristino (RPO) e tempi di recupero
 | Replica geografica attiva | • RPO < 5 minuti.<br/>• ERT < 1 ora. | • RPO < 5 secondi.<br/>• ERT < 30 secondi. |
 
 
-Per altre informazioni, vedere [Continuità aziendale del database SQL](https://msdn.microsoft.com/library/azure/hh852669.aspx).
+Per altre informazioni, vedere [Continuità aziendale del database SQL](http://msdn.microsoft.com/library/azure/hh852669.aspx).
 
 
 ## Altri motivi per eseguire subito l'aggiornamento
@@ -147,4 +161,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

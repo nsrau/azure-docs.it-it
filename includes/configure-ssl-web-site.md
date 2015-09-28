@@ -1,15 +1,14 @@
-#Abilitare HTTPS per un'app Web nel servizio app di Azure
-
-> [AZURE.NOTE]
-> Acquista velocità: usa il NUOVO [percorso guidato](http://support.microsoft.com/kb/2990804) di Azure È facilissimo associare un nome di dominio personalizzato E proteggere le comunicazioni (SSL) con i servizi cloud o il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) di Azure.
 
 È possibile proteggere la comunicazione tra l'app Web e il browser con HTTPS, che usa la crittografia SSL (Secure Socket Layer). Si tratta del metodo più usato per la protezione dei dati inviati in Internet e assicura ai visitatori che le transazioni con l'app sono sicure. Questo articolo illustra come configurare HTTPS per un'app Web nel servizio app di Azure. Questo articolo non comprende l'autenticazione del certificato client. Per informazioni, vedere [Come configurare l’autenticazione reciproca TLS per le applicazioni Web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio \*.azurewebsites.net
+> [AZURE.NOTE]
+> Acquista velocità: utilizza il NUOVO [percorso guidato](http://support.microsoft.com/kb/2990804)di Azure È facilissimo associare un nome di dominio personalizzato E proteggere le comunicazioni (SSL) con i servizi cloud o il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) di Azure.
 
-Se non si prevede di usare un nome di dominio personalizzato, ma si prevede di usare il dominio \*.azurewebsites.net assegnato all'app Web da Azure (ad esempio, contoso.azurewebsites.net), HTTPS è già abilitato nel sito con un certificato fornito da Microsoft. È possibile usare **https://mywebsite.azurewebsites.net** per accedere all'app, tuttavia \*.azurewebsites.net è un dominio con caratteri jolly. Come [tutti i domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), non è sicuro quanto un dominio personalizzato con il proprio certificato. 
+##<a name="bkmk_azurewebsites"></a>HTTPS per il dominio *.azurewebsites.net
 
-Questo documento fornisce anche informazioni dettagliate sull'abilitazione di HTTPS per domini personalizzati, ad esempio **contoso.com**, **www.contoso.com** o **\*.contoso.com**.
+Se non si prevede di usare un nome di dominio personalizzato, ma si prevede di usare il dominio *.azurewebsites.net assegnato all'app Web da Azure (ad esempio, contoso.azurewebsites.net), HTTPS è già abilitato nel sito con un certificato fornito da Microsoft. È possibile usare ****https://mywebsite.azurewebsites.net** per accedere all'app, tuttavia *.azurewebsites.net è un dominio con caratteri jolly. Come tutti i [domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), non è sicuro quanto un dominio personalizzato con il proprio certificato.
+
+Questo documento fornisce anche informazioni dettagliate sull'abilitazione di HTTPS per domini personalizzati, ad esempio **contoso.com**, **www.contoso.com** o ***.contoso.com**.
 
 ##<a name="bkmk_domainname"></a>Abilitare SSL per il dominio personalizzato
 
@@ -543,4 +542,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

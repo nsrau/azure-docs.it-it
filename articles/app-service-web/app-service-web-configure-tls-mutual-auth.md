@@ -5,21 +5,23 @@
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="naziml"/>
 
 # Come configurare l'autenticazione reciproca TLS per un'app Web
 
 ## Panoramica ##
 È possibile limitare l'accesso all'app web di Azure abilitandone diversi tipi di autenticazione. A questo scopo è possibile eseguire l'autenticazione usando un certificato client quando la richiesta è per TLS/SSL. Questo meccanismo è detto l'autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare un'app Web per l'uso dell'autenticazione del certificato client.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Configurare l'app Web per l'autenticazione del certificato client ##
 Per configurare l'app Web per richiedere certificati client, è necessario aggiungere l'impostazione del sito clientCertEnabled per l'app Web e impostarla su true. Questa impostazione non è attualmente disponibile tramite l'esperienza di gestione nel portale e si dovrà usare l'API REST a questo scopo.
@@ -177,4 +179,4 @@ Il certificato client inviato all'applicazione non viene sottoposto ad alcuna co
         }
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

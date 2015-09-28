@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -42,15 +42,11 @@ Prima di eseguire la procedura, assicurarsi che il servizio token di sicurezza a
 1. Aprire la console di **gestione di AD FS**.
 2. Passare a **Attendibilità componente**, fare clic con il pulsante destro del mouse sull'app da pubblicare con il proxy di applicazione e scegliere **Proprietà**.
 
-![Schermata: clic con il pulsante destro del mouse sul nome dell'app in Attendibilità componente][1]
+![Schermata: clic con il pulsante destro del mouse sul nome dell'app in Attendibilità componente](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)
 
 3. Nella scheda **Endpoint** in **Tipo di endpoint** selezionare **WS-Federation**.
 4. In **URL attendibile** specificare l'URL immesso in **URL esterno** nel proxy di applicazione e quindi fare clic su **OK**.
 
-![Schermata: aggiunta di un endpoint e impostazione del valore per URL attendibile][2]
+![Schermata: aggiunta di un endpoint e impostazione del valore per URL attendibile](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!--image references-->
-[1]: ./media/active-directory-application-proxy-claims-aware-apps/AppDropdown.jpg
-[2]: ./media/active-directory-application-proxy-claims-aware-apps/AddEndpoint.jpg
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

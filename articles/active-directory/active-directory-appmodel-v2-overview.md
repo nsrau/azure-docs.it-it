@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Panoramica del Modello app 2.0 | Microsoft Azure"
 	description="Introduzione alla compilazione di app con l'accesso sia per account Microsoft che per Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Accesso per account Microsoft e utenti di Azure AD nella stessa app
@@ -57,4 +57,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -13,12 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/04/2015"
+   ms.date="09/11/2015"
    ms.author="maroche"/>
 
 # Novità del Catalogo dati di Azure
 
 Gli aggiornamenti sul **Catalogo dati di Azure** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune versioni sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio **Catalogo dati di Azure**.
+
+
+## Novità della versione della settimana del 11 settembre 2015
+
+Nella settimana del 11 settembre 2015, sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
+
+- Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS utilizzando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server, e possono utilizzare l'autenticazione Basic e le connessioni anonime oltre all'autenticazione di Windows. Per ulteriori informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+- Supporto per le origini di dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dei dati HDInsight. Per ulteriori informazioni su Hive in HDInsight, vedere il [Centro di documentazione HDInsight](../hdinsight-use-hive/).
+- Supporto per la registrazione e l'individuazione dei database Oracle e dei cluster HDFS come contenitori. Quando si registrano le tabelle Oracle e le visualizzazioni o HDFS, **Catalogo dati di Azure** crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato utilizzando il portale **Catalogo dati di Azure**. Gli utenti possono inoltre cercare e filtrare il contenuto di un database o cluster, oltre a cercare e filtrare il contenuto del catalogo.
+
+
+> [AZURE.NOTE]Le tabelle di Oracle e le visualizzazioni e i file HDFS che sono stati registrati prima della versione dell’11 settembre devono essere registrate di nuovo utilizzando lo strumento di registrazione di origine dati prima di aggiungere la voce del database o cluster nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana del 4 settembre 2015
 
@@ -27,8 +39,7 @@ Nella settimana del 4 settembre 2015, sono state aggiunte al **Catalogo dati di 
 - Supporto per la registrazione manuale di tipi di origini dati sconosciute. Gli utenti possono immettere manualmente le informazioni sull’origine dati utilizzando il portale **Catalogo dati di Azure** in modo che le origini dati non esplicitamente supportate dallo strumento di registrazione origine dati possono essere annotate ed individuate.
 - Supporto per la registrazione e l'individuazione dei database di SQL Server come contenitori. Quando si registrano le tabelle di SQL Server e le viste, **Catalogo dati di Azure** crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato utilizzando il portale **Catalogo dati di Azure**. Gli utenti possono inoltre cercare e filtrare il contenuto di un database oltre a cercare e filtrare il contenuto del catalogo.
 
-
-> [AZURE.NOTE]Le tabelle di SQL Server e le viste che sono state registrate prima della versione del 04-09-2015 devono essere registrate utilizzando lo strumento di registrazione di origine dati prima di aggiungere la voce del database nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale **Catalogo dati di Azure**.
+> [AZURE.NOTE]Le tabelle di SQL Server e le viste che sono state registrate prima della versione del 4 settembre devono essere registrate utilizzando lo strumento di registrazione di origine dati prima di aggiungere la voce del database nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale **Catalogo dati di Azure**.
 
 ## Novità della versione della settimana del 28 agosto 2015
 
@@ -47,4 +58,4 @@ Nella settimana del 21 agosto 2015, sono state aggiunte al **Catalogo dati di Az
 - Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta gli account utente e i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

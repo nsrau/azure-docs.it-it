@@ -146,7 +146,9 @@ In Service Fabric Tools per Visual Studio è supportato il debug nel computer lo
 
 ## Passaggi successivi
 
-[Introduzione a Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md) [Documentazione di riferimento delle API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Codice di esempio](https://github.com/Azure/servicefabric-samples)
+- [Introduzione a Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Documentazione di riferimento attori API](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+- [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +158,4 @@ In Service Fabric Tools per Visual Studio è supportato il debug nel computer lo
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

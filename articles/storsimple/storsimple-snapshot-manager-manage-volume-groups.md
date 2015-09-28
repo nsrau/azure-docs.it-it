@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Utilizzo di Gestione snapshot StorSimple per creare e gestire gruppi di volumi
@@ -140,6 +140,7 @@ Utilizzare la procedura seguente per eliminare un gruppo di volumi.
 
 ## Passaggi successivi
 
-[Utilizzare Gestione Snapshot StorSimple per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md)
+- Informazioni su come [Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
+- Informazioni su come[Utilizzare Gestione Snapshot StorSimple per creare e gestire criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Xamarin iOS"
-	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="mattchenderson"
-	manager="dwrede"
+	pageTitle="Introduzione all'autenticazione per app per dispositivi mobili in Xamarin iOS" 
+	description="Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Xamarin iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft." 
+	services="app-service\mobile" 
+	documentationCenter="xamarin" 
+	authors="mattchenderson" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.service="app-service" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/27/2015" 
 	ms.author="mahender"/>
 
 # Aggiungere l'autenticazione all'app per Xamarin.iOS
@@ -23,6 +23,8 @@
 Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato dal servizio app. In seguito all'autenticazione e all'autorizzazione da parte dell'app mobile, viene visualizzato il valore dell'ID utente.
 
 Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anche necessario completare prima l'esercitazione [Creare un'app per Xamarin iOS]. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
 ##<a name="create-gateway"></a>Creare un gateway del servizio app
 
@@ -116,4 +118,4 @@ In questa sezione si procederà alla modifica dell'app in modo da visualizzare u
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

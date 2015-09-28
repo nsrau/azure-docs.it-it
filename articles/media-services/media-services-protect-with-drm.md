@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Uso della crittografia dinamica DRM PlayReady e del servizio di distribuzione delle licenze
@@ -482,8 +482,8 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
 		
 		            template.PrimaryVerificationKey = new SymmetricVerificationKey();
 		            template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-		            template.Audience = _sampleAudience;
-		            template.Issuer = _sampleIssuer;
+		            template.Audience = _sampleAudience.ToString();
+		            template.Issuer = _sampleIssuer.ToString();
 		            template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
 		
 		            return TokenRestrictionTemplateSerializer.Serialize(template);
@@ -587,4 +587,4 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

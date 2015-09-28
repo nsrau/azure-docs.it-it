@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Applicazione nativa di .NET di modello app v2.0 | Microsoft Azure"
 	description="Come creare un'app .NET nativa che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app desktop di Windows
@@ -50,7 +50,7 @@ Creare una nuova app [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o 
 ## 2. Installare e configurare ADAL
 Ora che è stata registrata un'applicazione con Microsoft, è possibile installare ADAL e scrivere il codice correlato alla propria identità.  Al fine di consentire ad ADAL di comunicare con l'endpoint v 2.0 endpoint, è necessario fornire alcune informazioni sull'app.
 
--	Iniziare aggiungendo ADAL al progetto TodoListClient utilizzando la Console di Gestione pacchetti.
+- Iniziare aggiungendo ADAL al progetto TodoListClient utilizzando la Console di Gestione pacchetti.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
@@ -248,4 +248,4 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

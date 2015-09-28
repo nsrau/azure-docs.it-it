@@ -3,7 +3,7 @@
 	description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure (VM) che esegue Windows Server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,13 +15,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Come acquisire una macchina virtuale Windows da usare come immagine.#
 
 Questo articolo illustra come acquisire una macchina virtuale Linux che esegue Windows in modo da usarla come immagine per creare altre macchine virtuali. Tale immagine include il disco del sistema operativo ed eventuali dischi dati collegati alla macchina virtuale. Poiché le configurazioni di rete non sono incluse, sarà necessario configurare tali dischi quando vengono create le altre macchine virtuali che utilizzano il modello.
 
-Azure archivia l'immagine in**Immagini personali**, che è anche la posizione in cui vengono archiviate le immagini caricate. Per ulteriori informazioni sulle immagini, vedere[Informazioni sulle immagini di macchina virtuale in Azure][].
+Azure archivia l'immagine in**Immagini personali**, che è anche la posizione in cui vengono archiviate le immagini caricate. Per ulteriori informazioni sulle immagini, vedere[Informazioni sulle immagini per le macchine virtuali](virtual-machines-images.md).
 
 ##Prima di iniziare##
 
@@ -71,8 +71,6 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 ##Passaggi successivi##
 L'immagine è pronta per essere utilizzata per creare macchine virtuali. Per eseguire questa operazione, sarà necessario creare una macchina virtuale personalizzata utilizzando la voce di menu **Da raccolta** e selezionando l'immagine appena creata. Per istruzioni, vedere [Come creare una macchina virtuale personalizzata che esegue Windows][].
 
-
-[Informazioni sulle immagini di macchina virtuale in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Come creare una macchina virtuale personalizzata che esegue Windows]: virtual-machines-windows-create-custom.md
 [Creare una macchina virtuale personalizzata che esegue Windows]: virtual-machines-windows-create-custom.md
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
@@ -86,4 +84,4 @@ L'immagine è pronta per essere utilizzata per creare macchine virtuali. Per ese
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

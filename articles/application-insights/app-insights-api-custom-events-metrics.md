@@ -74,15 +74,14 @@ Costruire un'istanza di TelemetryClient (tranne che in JavaScript nelle pagine W
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-Si consiglia di usare un'istanza di `TelemetryClient` per ogni richiesta in un'app Web o per ogni sessione in altre app. È possibile impostare proprietà quali `TelemetryClient.Context.User.Id` per tenere traccia degli utenti e delle sessioni. Queste informazioni sono associate a tutti gli eventi inviati dall'istanza.
-
 TelemetryClient è thread-safe.
 
+Si consiglia di utilizzare un'istanza di `TelemetryClient` per ciascun modulo dell'applicazione. Ad esempio, ci potrebbe essere un `TelemetryClient` nel servizio web per segnalare le richieste http in ingresso e un altro in una classe middleware per segnalare gli eventi di logica di business. È possibile impostare proprietà quali `TelemetryClient.Context.User.Id` per tenere traccia degli utenti e delle sessioni o `TelemetryClient.Context.Device.Id` per identificare il computer. Queste informazioni sono associate a tutti gli eventi inviati dall'istanza.
 
 
 ## Tenere traccia di un evento
 
-In Application Insights un *evento personalizzato* è un punto dati che è possibile visualizzare sia in [Explorer metriche][metrics] come conteggio aggregato sia come singole occorrenze in [ricerca diagnostica][diagnostic]. (Non è correlata a MVC o ad altri "eventi" framework.)
+In Application Insights un *evento personalizzato* è un punto dati che è possibile visualizzare sia in [Esplora metriche][metrics] come conteggio aggregato sia come singole occorrenze in [Ricerca diagnostica][diagnostic]. (Non è correlata a MVC o ad altri "eventi" framework.)
 
 Inserire chiamate Trackevents nel codice per contare la frequenza d'uso di una particolare funzionalità, la frequenza di raggiungimento di obiettivi specifici o di particolari tipi di errore.
 
@@ -440,7 +439,7 @@ Utilizzare questa chiamata per rilevare i tempi di risposta e percentuali di suc
             }
 ```
 
-Tenere presente che il server SDK include un [modulo dipendenza](app-insights-dependencies.md) che consente di individuare e tracciare alcune chiamate della dipendenza automaticamente- - ad esempio a database e API REST. È necessario installare un agente nel server per l'utilizzo del modulo. Utilizzare questa chiamata se si desidera tenere traccia di chiamate che non vengono intercettate dal rilevamento automatico o se non si desidera installare l'agente.
+Tenere presente che il server SDK include un [modulo dipendenza](app-insights-dependencies.md) che consente di individuare e tracciare alcune chiamate della dipendenza automaticamente - ad esempio a database e API REST. È necessario installare un agente nel server per l'utilizzo del modulo. Utilizzare questa chiamata se si desidera tenere traccia di chiamate che non vengono intercettate dal rilevamento automatico o se non si desidera installare l'agente.
 
 Per disattivare il modulo standard per il rilevamento delle dipendenze, modificare il file [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) ed eliminare il riferimento a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -471,7 +470,7 @@ Se l'app raggruppa gli utenti in account, è inoltre possibile passare un identi
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **utenti autenticati ** e **account**.
+In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **Utenti autenticati ** e **Account**.
 
 
 ## <a name="defaults"></a>Impostare i valori predefiniti per i dati di telemetria personalizzati selezionati
@@ -901,4 +900,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,38 +1,40 @@
 <properties 
-	pageTitle="Come configurare un ambiente del servizio app"
-	description="Configurazione, gestione e monitoraggio degli ambienti del servizio app"
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="stefsch"
+	pageTitle="Come configurare un ambiente del servizio app" 
+	description="Configurazione, gestione e monitoraggio degli ambienti del servizio app" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # Configurazione di un ambiente del servizio app #
 
 ## Panoramica ##
 
-Ambienti del servizio app è una nuova funzionalità del piano tariffario Premium offerta in anteprima. Offre nuove funzionalità di scalabilità e accesso alla rete. La nuova funzionalità di scalabilità consente di posizionare un'istanza del servizio app di Azure nella propria rete virtuale. Se non si ha familiarità con la funzionalità Ambiente del servizio app, leggere il documento disponible qui [Informazioni sull'ambiente del servizio app](app-service-app-service-environment-intro.md). Per informazioni su come creare un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
+Ambienti del servizio app è una nuova funzionalità del piano tariffario Premium offerta in anteprima. Offre nuove funzionalità di scalabilità e accesso alla rete. La nuova funzionalità di scalabilità consente di posizionare un'istanza del servizio app di Azure nella propria rete virtuale. Se non si ha familiarità con la funzionalità Ambiente del servizio app, leggere il documento disponible qui [Informazioni sull'ambiente del servizio app]/app-service-app-service-environment-intro.md). Per informazioni su come creare un ambiente del servizio app, leggere il documento [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
 In generale, un ambiente del servizio app è costituito da vari componenti principali:
 
 - Risorse di calcolo in esecuzione nel servizio ospitato Ambiente del servizio app
 - Archiviazione
 - Database
-- Rete virtuale con almeno una subnet
+- Una rete virtuale classica “v1” con almeno una subnet
 - Subnet con il servizio ospitato Ambiente del servizio app in esecuzione al suo interno
 
 Per gestire e monitorare gli ambienti del servizio app, è possibile accedere all'interfaccia utente dedicata nel portale di anteprima di Azure selezionando Sfoglia -> Ambienti del servizio app. La versione iniziale offre tutte le opzioni necessarie per gestire il sistema e continuerà a migliorare tramite l'aggiunta di ulteriori funzionalità nelle prossime settimane.
 
 ![][1]
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Monitoraggio ##
 
@@ -90,8 +92,8 @@ Rispetto alla modifica delle dimensioni della risorsa di calcolo mentre sono in 
 
 La [rete virtuale][virtualnetwork] e la subnet sono controllate dall'utente. Gli ambienti del servizio app prevedono alcuni requisiti di rete, ma tutto il resto può essere controllato dall'utente. I requisiti degli ambienti del servizio app sono:
 
-- una rete virtuale con almeno 512 indirizzi
-- una subnet con almeno 256 indirizzi 
+- una rete virtuale classica “v1” con almeno 512 indirizzi
+- una subnet con almeno 8 indirizzi 
 - la rete virtuale deve essere una rete virtuale regionale  
  
 È possibile amministrare la rete virtuale tramite la normale interfaccia utente di Rete virtuale.
@@ -131,4 +133,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

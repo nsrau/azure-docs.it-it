@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Ambiti, autorizzazioni e consenso di Modello app v2.0 | Microsoft Azure"
 	description="Descrizione del modello di autorizzazione in Modello app 2.0 di Azure AD, inclusi gli ambiti, le autorizzazioni e il consenso."
 	services="active-directory"
 	documentationCenter=""
@@ -116,4 +116,4 @@ Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggior
 
 Per altre informazioni su come ottenere e usare i token di aggiornamento, consultare il [riferimento al protocollo di Modello app 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

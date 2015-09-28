@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/22/2015"
+	ms.date="09/11/2015"
 	ms.author="cabailey"/>
 #Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -105,15 +105,16 @@ Accedere all'Area download Microsoft e [scaricare il set di strumenti BYOK per l
 |Europa|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
 |Asia|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |America Latina|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
+|Giappone|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 
-Per convalidare l'integrità del set di strumenti BYOK, nella sessione di Azure PowerShell usare il cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
+Per convalidare l'integrità del set di strumenti BYOK scaricato, nella sessione di Azure PowerShell usare il cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
 	Get-FileHash KeyVault-BYOK-Tools-*.zip
 
 Il set di strumenti include gli elementi seguenti:
 
-- Pacchetto di chiavi per lo scambio di chiavi con un nome che inizia con **BYOK-KEK-pkg-.**
-- Pacchetto relativo all'ambiente di sicurezza con un nome che inizia con **BYOK-SecurityWorld-pkg-.**
+- Un pacchetto di chiavi per lo scambio di chiavi (KEK) con un nome che inizia con **BYOK-KEK-pkg-.**
+- Un pacchetto relativo all'ambiente di sicurezza con un nome che inizia con **BYOK-SecurityWorld-pkg-.**
 - Script python denominato v**erifykeypackage.py**.
 - File eseguibile dalla riga di comando denominato **KeyTransferRemote.exe** e DLL associate.
 - Componente Visual C++ Redistributable Package denominato **vcredist\_x64.exe.**
@@ -129,7 +130,7 @@ Per questo secondo passaggio eseguire le procedure seguenti nella workstation no
 
 Installare il software di supporto nCipher (Thales) in un computer Windows, quindi collegare un modulo di protezione hardware Thales a tale computer.
 
-Verificare che gli strumenti Thales si trovino nel percorso locale (**%nfast\_home%\\bin** e **%nfast\_home%\\python\\bin**). Digitare ad esempio:
+Verificare che gli strumenti Thales si trovino nel percorso (**%nfast\_home%\\bin** e **%nfast\_home%\\python\\bin**). Digitare ad esempio:
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -206,7 +207,7 @@ Eseguire il comando seguente per generare la chiave:
 
 Quando si esegue il comando, usare le istruzioni seguenti:
 
-- Sostituire il valore di *contosokey* per gli elementi **ident** e **plainname** con qualsiasi valore di stringa. Per ridurre il sovraccarico amministrativo e il rischio di errori, è consigliabile usare lo stesso valore per entrambi gli elementi. Il valore **ident** deve contenere solo numeri, trattini e lettere minuscole
+- Sostituire il valore di *contosokey* per gli elementi **ident** e **plainname** con qualsiasi valore di stringa. Per ridurre il sovraccarico amministrativo e il rischio di errori, è consigliabile usare lo stesso valore per entrambi gli elementi. Il valore **ident** deve contenere solo numeri, trattini e lettere minuscole.
 
 - L'elemento pubexp viene lasciato vuoto in questo esempio (impostazione predefinita), ma è possibile indicare valori specifici. Per altre informazioni, vedere la documentazione di Thales.
 
@@ -304,6 +305,6 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet�
 
 ##Passaggi successivi
 
-È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
+È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM) ** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

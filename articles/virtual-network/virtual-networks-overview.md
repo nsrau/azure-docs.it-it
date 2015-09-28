@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # Panoramica di Rete virtuale
@@ -85,7 +85,7 @@ I dispositivi virtuali dipendono da [route e inoltro IP definiti dall'utente](..
 
 ## Passaggi successivi
 
-- [Creare una rete virtuale](../virtual-networks-create-a-vnet.md) e subnet.
+- [Creare una rete virtuale](../virtual-networks-create-vnet-arm-pportal.md) e subnet.
 - [Creare una macchina virtuale in una rete virtuale](../virtual-machines-windows-tutorial.md).
 - Informazioni sui [gruppi di sicurezza di rete](../virtual-networks-nsg.md).
 - Informazioni sui [servizi di bilanciamento del carico](../load-balancer-overview.md).
@@ -93,4 +93,4 @@ I dispositivi virtuali dipendono da [route e inoltro IP definiti dall'utente](..
 - [Riservare un indirizzo IP pubblico](../virtual-networks-reserved-public-ip.md).
 - Informazioni su [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

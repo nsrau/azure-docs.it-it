@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestire il catalogo di backup di StorSimple | Microsoft Azure"
-	description="Viene illustrato come utilizzare la pagina del catalogo di backup del servizio StorSimple Manager per elencare, selezionare ed eliminare dei set di backup per un volume."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Viene illustrato come utilizzare la pagina del catalogo di backup del servizio StorSimple Manager per elencare, selezionare ed eliminare dei set di backup per un volume."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Per gestire il catalogo di backup, è possibile usare il servizio StorSimple Manager.
 
@@ -113,6 +113,8 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
 ## Passaggi successivi
 
-Informazioni su come usare la pagina Catalogo di backup per [ripristinare il dispositivo da un set di backup](storsimple-restore-from-backup-set.md).
+- Informazioni su come [usare la pagina Catalogo di backup per ripristinare il dispositivo da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=September15_HO1-->
+- Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

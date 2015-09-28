@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Formati e codec Media Encoder Standard
@@ -36,7 +36,20 @@ MP4 (MP4, M4A,. m4v) / ISMV (ISMA, con estensione .ismv)|Sì
 [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sì 
 Matroska/WebM (.mkv) |Sì 
 WAVE/WAV (.wav) |Sì 
+QuickTime (.mov) |Sì
  
+###Formati audio nei contenitori di input 
+
+Il Codificatore multimedia standard supporta i seguenti formati audio nei contenitori di input:
+
+- file MXF, GXF e QuickTime che dispongono di tracce audio con esempi di stereo interleaved o 5.1
+
+oppure
+
+- File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
+
+Si noti che il supporto per il mapping del canale esplicito/fornito dall'utente verrà fornito in futuro.
+
 
 ##Codec video di input
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX |No
 MPEG-4 parte 2 |Sì 
 [Theora](https://en.wikipedia.org/wiki/Theora) |Sì 
 YUV420 non compressi o mezzanine |Sì
+Apple ProRes 422 |Sì
+Apple ProRes 422 LT |Sì
+Apple ProRes 422 HQ |Sì
+Apple ProRes Proxy|Sì
+Apple ProRes 4444 |Sì
+Apple ProRes 4444 XQ |Sì
+
 
 
 ##Codec audio di input
@@ -98,4 +118,4 @@ MPEG2-TS |H.264 (High, Main e Baseline Profile)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -303,9 +303,6 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux](virtual-machines-linux-script-lamp.md)
 
-- [Informazioni sulle impostazioni di configurazione delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
- 
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

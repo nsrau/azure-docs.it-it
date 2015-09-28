@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Dispositivo virtuale StorSimple Aggiornamento 1 | Microsoft Azure"
-	description="Informazioni su come creare, distribuire e gestire un dispositivo virtuale StorSimple in una rete virtuale di Microsoft Azure. (Si applica a StorSimple Aggiornamento 1)."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Informazioni su come creare, distribuire e gestire un dispositivo virtuale StorSimple in una rete virtuale di Microsoft Azure. (Si applica a StorSimple Aggiornamento 1)."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 
@@ -122,27 +122,28 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 2. Visitare la pagina **Dispositivi**. Fare clic su **Crea dispositivo virtuale** nella parte inferiore della pagina **Dispositivi**.
 
-3. Nella finestra di dialogo **Crea dispositivo virtuale**, indicare:
+3. Nella **finestra di dialogo Crea dispositivo virtuale**, indicare quanto segue.
+
+     ![StorSimple crea dispositivo virtuale](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
 	1. **Nome**: un nome univoco per il dispositivo virtuale.
 
-
 	2. **Versione**: scegliere la versione del dispositivo virtuale. Questa opzione non è presente se con il servizio sono registrati solo dispositivi fisici con versione Update 1. Il campo viene visualizzato solo se con il servizio è registrata una combinazione di dispositivi fisici con versione Update 1 o precedente. Se si considera che la versione del dispositivo virtuale determina il dispositivo fisico da cui è possibile eseguire il failover o la clonazione, è importante creare una versione appropriata del dispositivo virtuale. Selezionare:
 
-	   - Update 0.3 se si prevede di eseguire il failover o il ripristino di emergenza da un dispositivo fisico con versione GA oppure Update 0.1, 0.2 o 0.3. 
+	   - Update 0.3 se si prevede di eseguire il failover o il ripristino di emergenza da un dispositivo fisico con versione GA oppure Update 0.1 o 0.3. 
 	   - Update 1 se si prevede di eseguire il failover o la clonazione da un dispositivo fisico con versione Update 1 (o successiva). 
-
  
 	3. **Rete virtuale**: il nome della rete virtuale che si desidera utilizzare con il dispositivo virtuale.
 
 	4. **Subnet**: la subnet nella rete virtuale da utilizzare con il dispositivo virtuale.
 
 	5. **Account di archiviazione per creare un dispositivo virtuale**: l'account di archiviazione che verrà utilizzato per conservare l'immagine del dispositivo virtuale durante il provisioning. Questo account di archiviazione deve trovarsi nella stessa area del dispositivo virtuale e della rete virtuale. Inoltre, non deve essere utilizzato dal dispositivo fisico o dal dispositivo virtuale per archiviare i dati. Per effettuare questa operazione, verrà creato un nuovo account di archiviazione (impostazione predefinita). Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco.
-	
 
     >[AZURE.NOTE]Il dispositivo virtuale può essere usato solo con gli account di archiviazione di Azure. Altri provider di servizi cloud come Amazon, HP e OpenStack (che sono supportati per il dispositivo fisico) non sono supportati per il dispositivo virtuale StorSimple.
 	
-4. Fare clic sul segno di spunta per indicare di aver compreso che i dati archiviati nel dispositivo virtuale verranno ospitati in un data center Microsoft. Quando si utilizza soltanto un dispositivo fisico, la chiave di crittografia viene conservata nel dispositivo; di conseguenza, Microsoft non può decrittografarli. Quando si utilizza un dispositivo virtuale, sia la chiave di crittografia che la chiave di decrittografia vengono archiviate in Microsoft Azure. Per ulteriori informazioni, vedere [Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale](#security-considerations-for-using-a-virtual-device).
+4. Fare clic sul segno di spunta per indicare di aver compreso che i dati archiviati nel dispositivo virtuale verranno ospitati in un datacenter Microsoft. Quando si utilizza soltanto un dispositivo fisico, la chiave di crittografia viene conservata nel dispositivo; di conseguenza, Microsoft non può decrittografarla. ![Dispositivo virtuale StorSimple fase di creazione](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
+
+    Quando si utilizza un dispositivo virtuale, sia la chiave di crittografia che la chiave di decrittografia vengono archiviate in Microsoft Azure. Per ulteriori informazioni, vedere [Considerazioni relative alla sicurezza di utilizzo di un dispositivo virtuale](#security-considerations-for-using-a-virtual-device).
 
 ### Configurare e registrare il dispositivo virtuale
 
@@ -150,16 +151,24 @@ Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave 
 
 Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
 
-
 1. Selezionare il**dispositivo virtuale StorSimple**appena creato nella pagina Dispositivi. 
 
 2. Fare clic sull'opzione per **completare la configurazione del dispositivo**. Verrà avviata la configurazione guidata del dispositivo.
+
+    ![Installazione completa del dispositivo StorSimple nella pagina dei dispositivi](./media/storsimple-virtual-device-u1/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 3. Immettere la **chiave DEK del servizio** nell'apposito spazio.
 
 4. Immettere la password di Snapshot Manager e quella dell’amministratore del dispositivo che rispettino lunghezza e impostazioni specificate.
 
 5. Fare clic sul segno di spunta per completare la configurazione e la registrazione iniziali del dispositivo virtuale.
+
+    ![Impostazioni del dispositivo virtuale StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceSettings1.png)
+
+Dopo aver completato la configurazione e la registrazione, il dispositivo viene portato online. (Potrebbero occorrere alcuni minuti per questa operazione.)
+
+![Fase online dispositivo virtuale StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceOnline1M.png)
+
 
 ### Modificare le impostazioni di configurazione del dispositivo
 
@@ -277,7 +286,7 @@ Dopo averlo impostato nella pagina di configurazione dispositivo di StorSimple, 
 
 >[AZURE.WARNING]**Per una maggiore sicurezza, si consiglia di utilizzare HTTPS quando ci si connette agli endpoint e di eliminare gli endpoint dopo aver completato la sessione remota in PowerShell.**
 
-Per impostare la connessione in remoto al dispositivo virtuale, è necessario eseguire le procedure descritte in [Connessione in remoto al dispositivo StorSimple](storsimple-remote-connect.md).
+E’ necessario eseguire le procedure descritte in [Eseguire la connessione in remoto al dispositivo StorSimple](storsimple-remote-connect.md) per impostare la connessione in remoto al dispositivo virtuale.
 
 Tuttavia, se si desidera connettersi direttamente al dispositivo virtuale da un altro computer non compreso nella rete virtuale oppure nell'ambiente di Microsoft Azure, è necessario creare endpoint aggiuntivi, come descritto nella procedura seguente.
 
@@ -383,4 +392,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

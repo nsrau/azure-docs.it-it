@@ -1,22 +1,4 @@
-<properties 
-   pageTitle="Configurare e registrare il dispositivo"
-   description="Viene illustrato come utilizzare Windows PowerShell per StorSimple per configurare e registrare un dispositivo StorSimple su cui è in esecuzione l’aggiornamento 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### Per configurare e registrare il dispositivo
 
@@ -54,7 +36,7 @@
 
       4. Facoltativamente, configurare il server proxy Web.
 
-      >[AZURE.IMPORTANT]Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+      >[AZURE.IMPORTANT]Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md).
 
 6. Premere Ctrl + C per uscire dalla configurazione guidata.
  
@@ -155,4 +137,4 @@
      
         
 
-<!---------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL"
+	pageTitle="Pianificare l'aggiornamento a SQL Database V12 | Microsoft Azure"
 	description="In questo argomento vengono descritte le operazioni di preparazione e le limitazioni relative all'aggiornamento del database SQL di Azure alla versione 12."
 	services="sql-database"
 	documentationCenter=""
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/16/2015"
 	ms.author="genemi"/>
 
 
 # Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL
 
 
-In questo argomento vengono descritti la pianificazione e i preparativi da effettuare per eseguire l'aggiornamento dei database SQL di Azure dalla versione V11 alla versione V12 ([in versione di anteprima in alcune aree geografiche](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+Questo argomento descrive la pianificazione e i preparativi da effettuare per eseguire l'aggiornamento dei database SQL di Azure dalla versione 11 alla versione 12.
 
 
 È disponibile un nuovo [portale di anteprima di Azure](http://portal.azure.com/) per supportare l'aggiornamento alla versione 12.
@@ -107,6 +107,18 @@ Non è possibile eseguire l'aggiornamento alla versione 12 se nel database è at
 Al termine dell'aggiornamento sarà possibile configurare il database in modo che usi di nuovo la replica geografica.
 
 
+### Client in una macchina virtuale di Azure
+
+
+Se il programma client si connette a SQL Database V12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire i seguenti intervalli di porta nella macchina virtuale:
+
+- 11000-11999
+- 14000-14999
+
+
+Fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md) per ulteriori informazioni sulle porte per il Database SQL V12. Le porte sono necessarie per il miglioramento delle prestazioni in SQL Database V12.
+
+
 ##<a id="limitations"></a>Limitazioni durante e dopo l'aggiornamento alla versione 12
 
 
@@ -138,7 +150,7 @@ Si consiglia di connettersi ai database SQL di Azure con Visual Studio 2013 (VS2
 - Per sviluppare un database, sia online che offline.
 
 
-È invece possibile connettersi con [Visual Studio Community 2013,](https://www.visualstudio.com/it-it/news/vs2013-community-vs.aspx/) una versione gratuita e completa di VS2013.
+È invece possibile connettersi con [Visual Studio Community 2013,](https://www.visualstudio.com/it-IT/news/vs2013-community-vs.aspx/) una versione gratuita e completa di VS2013.
 
 
 Nella pagina del database del portale di Azure precedente, per avviare VS2013 nel computer e connettersi al database SQL di Azure è possibile fare clic su **Apri in Visual Studio**.
@@ -166,7 +178,7 @@ Il database V11 rimane disponibile per l'accesso ai dati durante l'aggiornamento
 | :--- | :--- |
 | Non è possibile ripristinare la versione 11 | Dopo un aggiornamento sul posto, il risultato non può essere annullato. |
 | Livello Web o Business | Dopo l'avvio dell'aggiornamento, il server per il nuovo database versione 12 non è più in grado di riconoscere o accettare il livello di servizio Web o Business. |
-| Sconto del 50% non riportato nelle schede di livello dei prezzi nel portale Azure | Durante il periodo di anteprima è disponibile uno sconto* di anteprima del 50% sui database registrati nell'ultimo aggiornamento di anteprima del database SQL di Azure (versione 12). Anche se non è visualizzato nel portale di anteprima nel pannello relativo ai piani tariffari per i servizi, lo sconto è in vigore.<br/><br/> Lo sconto del 50% rimane attivo in tutte le aree geografiche fino al **31 marzo 2015**, data in cui scadrà per tutte le aree. Lo sconto è valido anche nelle aree per cui è stato annunciato lo stato di disponibilità generale (GA).<br/><br/> * L'uso delle funzionalità dell'aggiornamento del database SQL di Azure più recente (versione 12) è soggetto ai termini di anteprima nel contratto di licenza (ad esempio, il contratto Enterprise Agreement, il Contratto di Microsoft Azure o il Contratto di Sottoscrizione Microsoft Online), nonché alle [Condizioni Supplementari per l’Utilizzo delle Anteprime di Microsoft Azure applicabili](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). Per la durata dell'anteprima, Microsoft (o il rivenditore locale, a seconda delle situazioni) addebiterà all'utente per tutti i database registrati in questa versione di anteprima la metà della tariffa prevista per la disponibilità generale (GA) in modo da applicare uno sconto del 50% per l'anteprima. Microsoft invierà un avviso via e-mail 30 giorni prima della scadenza del periodo di anteprima e la tariffa di anteprima scontata. |
+
 
 
 ### Esportazione e importazione *dopo* l'aggiornamento alla versione 12
@@ -244,4 +256,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

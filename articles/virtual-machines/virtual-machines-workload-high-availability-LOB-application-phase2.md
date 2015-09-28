@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Applicazione line-of-business fase 2 | Microsoft Azure"
-	description="Creare e configurare i due controller di dominio di replica di Active Directory nella fase 2 dell'applicazione line-of-business di Azure."
+	pageTitle="Applicazione line-of-business fase 2 | Microsoft Azure" 
+	description="Creare e configurare i due controller di dominio di replica di Active Directory nella fase 2 dell'applicazione line-of-business di Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 2: Configurare i controller di dominio
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
 
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono configurati due controller di dominio di replica nella rete virtuale di Azure in modo che le richieste Web dei client relative alle risorse Web possano essere autenticate nella rete virtuale di Azure invece di usare la connessione VPN o ExpressRoute per inviare il traffico di autenticazione alla rete locale.
 
@@ -25,7 +27,7 @@ In questa fase della distribuzione di un'applicazione line-of-business a disponi
 
 ## Creare macchine virtuali controller di dominio in Azure
 
-È innanzitutto necessario compilare la colonna **Nome macchina virtuale** della Tabella M e modificare le dimensioni delle macchine virtuali secondo necessità nella colonna **Dimensione minima**.
+È innanzitutto necessario compilare la colonna **Nome macchina virtuale** della tabella M e modificare le dimensioni delle macchine virtuali secondo necessità nella colonna **Dimensione minima**.
 
 Elemento | Nome macchina virtuale | Immagine della raccolta | Dimensione minima 
 --- | --- | --- | --- 
@@ -39,7 +41,7 @@ Elemento | Nome macchina virtuale | Immagine della raccolta | Dimensione minima
 
 **Tabella M - Macchine virtuali per l'applicazione line-of-business a disponibilità elevata in Azure**
 
-Per l'elenco completo delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Per l’elenco completo delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 Usare il seguente blocco di comandi di Azure PowerShell per creare le macchine virtuali per i due controller di dominio. Specificare i valori per le variabili, rimuovendo i caratteri < and >. Si noti che in questo set di comandi di PowerShell vengono usati i valori delle tabelle seguenti:
 
@@ -109,6 +111,8 @@ Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante 
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di anteprima di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale. Utilizzare l'accessorio connessione Desktop remoto o un altro strumento di Desktop remoto per connettersi alla macchina virtuale utilizzando l’indirizzo IP privato o il nome DNS di intranet.
+
 ## Configurare il primo controller di dominio
 
 Usare il client desktop remoto preferito e creare una connessione Desktop remoto alla macchina virtuale del primo controller di dominio. Usare il nome computer o il nome DNS della Intranet e le credenziali dell'account amministratore locale.
@@ -133,7 +137,7 @@ A questo punto, verificare la connettività del primo controller di dominio ai p
 ### <a id="testconn"></a>Per testare la connettività
 
 1.	Dal desktop aprire un prompt di Windows PowerShell.
-2.	Usare il comando **ping** per eseguire il ping dei nomi e degli indirizzi IP delle risorse presenti nella rete dell'organizzazione.
+2.	Utilizzare il comando **ping** per eseguire il ping dei nomi e degli indirizzi IP delle risorse nella rete dell'organizzazione.
 
 Questa procedura garantisce il corretto funzionamento della risoluzione dei nomi DNS (ovvero, garantisce che la macchina virtuale sia configurata correttamente con i server DNS locali) e che i pacchetti possano essere inviati da e verso la rete virtuale cross-premise. Se questo test di base non viene superato, contattare il reparto IT per risolvere i problemi di recapito dei pacchetti e di risoluzione dei nomi DNS.
 
@@ -161,7 +165,7 @@ Verrà chiesto di fornire le credenziali di un account amministratore di dominio
 
 A questo punto, è necessario aggiornare i server DNS per la rete virtuale in modo che Azure assegni alle macchine virtuali gli indirizzi IP dei due nuovi controller di dominio da usare come server DNS. In questa procedura vengono usati i valori della Tabella V (per le impostazioni di rete virtuale) e della Tabella M (per le macchine virtuali).
 
-1.	Nel riquadro sinistro del [portale di anteprima Azure](https://portal.azure.com/) fare clic su **Sfoglia tutto > Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
+1.	Nel riquadro sinistro del [portale di anteprima di Azure](https://portal.azure.com/) fare clic su **Sfoglia tutto > Reti virtuali**, quindi fare clic sul nome della rete virtuale (Tabella V - Elemento 1 - Colonna Valore).
 2.	Nel riquadro della rete virtuale fare clic su **Tutte le impostazioni**.
 3.	Nel riquadro **Impostazioni** fare clic su **Server DNS**.
 4.	Nel riquadro **Server DNS** digitare quanto segue:
@@ -170,7 +174,7 @@ A questo punto, è necessario aggiornare i server DNS per la rete virtuale in mo
 5.	Nel riquadro sinistro del portale di anteprima di Azure fare clic su **Sfoglia tutto > Macchine virtuali**.
 6.	Nel riquadro **Macchine virtuali** fare clic sul nome del primo controller di dominio (Tabella M - Elemento 1 - Colonna Nome macchina virtuale).
 7.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**.
-8.	Dopo aver avviato il primo controller di dominio, fare clic sul nome del secondo controller di dominio nel dominio **Macchine virtuali** (Tabella M - Elemento 2 - Colonna Nome macchina virtuale).
+8.	Dopo aver avviato il primo controller di dominio, fare clic sul nome del secondo controller di dominio nel riquadro **Macchine virtuali** (Tabella M - Elemento 2 - Colonna Nome macchina virtuale).
 9.	Nel riquadro per la macchina virtuale fare clic su **Riavvia**. Attendere finché non viene avviato il secondo controller di dominio.
 
 Si noti che sono stati riavviati i due controller di dominio per cui essi non vengono configurati con i server DNS locali come server DNS. Dal momento che sono essi stessi server DNS, sono stati configurati automaticamente con i server DNS locali come server d'inoltro DNS quando sono stati alzati di livello e sono diventati controller di dominio.
@@ -192,7 +196,7 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 ## Passaggio successivo
 
-Per continuare con la configurazione di questo carico di lavoro, passare a [Fase 3: Configurare l'infrastruttura di SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+Per continuare con la configurazione di questo carico di lavoro, andare a [Fase 3: Configurare l'infrastruttura di SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
 ## Risorse aggiuntive
 
@@ -206,4 +210,4 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

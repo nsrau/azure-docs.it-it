@@ -8,17 +8,19 @@
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="09/15/2015"
 	ms.author="jaime-espinosa"/>
 
 # Informazioni di riferimento per l'esplorazione del portale di Azure
 
 Siti Web di Azure è ora denominato [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). È in corso l'aggiornamento di tutta la documentazione relativa per riflettere il cambio di denominazione e fornire istruzioni per il nuovo portale di Azure. Fino al completamento di tale processo, è possibile usare questo documento come guida per lavorare con le app Web nel nuovo portale di Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
  
 ## Il futuro del portale precedente
 
@@ -86,4 +88,4 @@ Oltre al nome del marchio, alcuni altri elementi nel portale sono stati rinomina
 * Per informazioni su cosa è cambiato nel passaggio dal portale precedente a quello nuovo, vedere: [Informazioni di riferimento per la navigazione nel nuovo portale](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

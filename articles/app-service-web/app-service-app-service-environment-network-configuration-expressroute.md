@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Dettagli di configurazione di rete per l'uso di Express Route"
-	description="Dettagli di configurazione di rete per eseguire ambienti del servizio app in reti virtuali connesse a un circuito ExpressRoute."
-	services="app-service\web"
-	documentationCenter=""
-	authors="stefsch"
-	manager="nirma"
+	pageTitle="Dettagli di configurazione di rete per l'uso di Express Route" 
+	description="Dettagli di configurazione di rete per eseguire ambienti del servizio app in reti virtuali connesse a un circuito ExpressRoute." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="nirma" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="stefsch"/>
 
 # Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute 
@@ -21,15 +21,20 @@
 ## Panoramica ##
 I clienti possono connettere un circuito [Azure ExpressRoute][ExpressRoute] all'infrastruttura di rete virtuale per estendere la rete locale ad Azure. Un ambiente del servizio app può essere creato in una subnet di questa infrastruttura di [rete virtuale][virtualnetwork]. Le app in esecuzione nell'ambiente del servizio app possono quindi stabilire connessioni sicure a risorse back-end accessibili solo tramite la connessione ExpressRoute.
 
+**Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2". Attualmente gli ambienti del servizio app sono supportati solo in reti virtuali classiche "v1".
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Requisiti della connettività di rete ##
 Esistono requisiti di connettività di rete per gli ambienti del servizio app che potrebbero non essere inizialmente soddisfatti in una rete virtuale connessa a ExpressRoute.
 
 I requisiti per il corretto funzionamento degli ambienti del servizio app sono i seguenti:
 
 
--  Connettività di rete in uscita alle risorse di archiviazione di Azure e del database SQL che si trovano nella stessa area dell'ambiente del servizio app. Questo percorso di rete non può attraversare i proxy aziendali interni perché è probabile che verrebbe modificato l'indirizzo NAT effettivo del traffico di rete in uscita. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app diretto agli endpoint di archiviazione di Azure e del database SQL causerà errori di connettività.
+-  Connettività di rete in uscita alle risorse di archiviazione di Azure a livello mondiale e alle risorse del database SQL che si trovano nella stessa area dell'ambiente del servizio app. Questo percorso di rete non può attraversare i proxy aziendali interni perché è probabile che verrebbe modificato l'indirizzo NAT effettivo del traffico di rete in uscita. La modifica dell'indirizzo NAT del traffico di rete in uscita di un ambiente del servizio app diretto agli endpoint di archiviazione di Azure e del database SQL causerà errori di connettività.
 -  La configurazione DNS per la rete virtuale deve essere in grado di risolvere gli endpoint all'interno dei seguenti domini controllati da Azure: **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*.
 -  La configurazione DNS per la rete virtuale deve rimanere stabile quando vengono creati ambienti del servizio app, come anche durante le riconfigurazioni e il ridimensionamento delle modifiche apportate agli ambienti del servizio app.   
+-  Se è presente un server DNS personalizzato nell’altra estremità di un gateway VPN, il server DNS deve essere raggiungibile e disponibile. 
 -  L'accesso di rete in ingresso alle porte necessarie per gli ambienti del servizio app deve essere consentito come spiegato in questo [articolo][requiredports].
 
 Per soddisfare i requisiti DNS, assicurare una configurazione DNS valida per la rete virtuale.
@@ -79,7 +84,7 @@ Sarà necessario aggiungere una o più route alla tabella di route per consentir
 
 Per un elenco completo e aggiornato di intervalli CIDR usati da Azure, è possibile scaricare un file XML contenente tutti gli intervalli dall'[Area download Microsoft][DownloadCenterAddressRanges].
 
-**Nota:** in futuro sarà disponibile una forma CIDR abbreviata 0.0.0.0/0 da usare nel parametro *AddressPrefix*. Questa forma abbreviata equivale a "tutti gli indirizzi Internet". Per ora gli sviluppatori devono invece usare un ampio set di intervalli CIDR sufficienti a coprire tutti i possibili intervalli di indirizzi di Azure usati nell'area in cui è stato distribuito l'ambiente del servizio app.
+**Nota:** in futuro sarà disponibile una forma CIDR abbreviata 0.0.0.0/0 da usare nel parametro *AddressPrefix*. Questa forma abbreviata equivale a "tutti gli indirizzi Internet". Per ora gli sviluppatori devono invece usare un ampio set di intervalli CIDR sufficienti a coprire tutti i possibili intervalli di indirizzi di Azure.
 
 **Passaggio 3: Associare la tabella di route alla subnet contenente l'ambiente del servizio app**
 
@@ -96,7 +101,7 @@ Una volta associata la tabella di route alla subnet, si consiglia di testare e v
 - Il traffico in uscita agli endpoint di Azure non scorra lungo il circuito ExpressRoute.
 - Le ricerche DNS degli endpoint di Azure vengano risolte correttamente. 
 
-Una volta verificati i passaggi precedenti, è possibile procedere con la creazione di un ambiente del servizio app.
+Una volta verificati i passaggi precedenti, è possibile eliminare la macchina virtuale e procedere con la creazione di un ambiente del servizio app.
 
 ## Introduzione
 
@@ -121,4 +126,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

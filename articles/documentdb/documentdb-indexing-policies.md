@@ -1,6 +1,7 @@
 <properties 
     pageTitle="Criteri di indicizzazione DocumentDB | Microsoft Azure" 
-    description="Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare e modificare i criteri di indicizzazione." 
+    description="Comprendere il funzionamento dell'indicizzazione in DocumentDB e imparare a configurare e modificare i criteri di indicizzazione. Configurare il criterio di indicizzazione in DocumentDB per l'indicizzazione automatica e prestazioni superiori." 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -19,7 +20,7 @@
 
 # Criteri di indicizzazione di DocumentDB
 
-Anche se molti clienti sono felici del fatto che DocumentDB gestisca automaticamente [tutti gli aspetti dell'indicizzazione](documentdb-indexing.md), DocumentDB supporta anche l'impostazione di**criteri d’indicizzazione**personalizzati per le raccolte durante la creazione. I criteri di indicizzazione in DocumentDB sono più flessibili e potenti rispetto agli indici secondari disponibili in altre piattaforme database, in quanto consentono di progettare e personalizzare la forma dell'indice senza sacrificare la flessibilità dello schema. Mediante la gestione dei criteri di indicizzazione, è possibile rendere accurati compromessi tra archiviazione dell'indice, scrittura e velocità effettiva di query e la coerenza delle query.
+Anche se molti clienti sono felici del fatto che DocumentDB gestisca automaticamente [tutti gli aspetti dell'indicizzazione](documentdb-indexing.md), DocumentDB supporta anche l'impostazione di**criteri d’indicizzazione**personalizzati per le raccolte durante la creazione. I criteri di indicizzazione in DocumentDB sono più flessibili e potenti rispetto agli indici secondari disponibili in altre piattaforme database di indicizzazione, in quanto consentono di progettare e personalizzare la forma dell'indice senza sacrificare la flessibilità dello schema. Per apprendere come eseguire l’indicizzazione in DocumentDB, è necessario comprendere che con la gestione dei criteri di indicizzazione è possibile rendere accurati compromessi tra archiviazione dell'indice, scrittura e velocità effettiva di query e la coerenza delle query.
 
 In questo articolo vengono presentati i criteri di indicizzazione di DocumentDB, il procedimento per personalizzare i criteri di indicizzazione e i compromessi associati.
 
@@ -62,7 +63,7 @@ Il frammento di codice .NET seguente mostra come impostare criteri di indicizzaz
 >
 >Per impostazione predefinita, DocumentDB indicizza tutte le proprietà delle stringhe nei documenti in maniera coerente con un indice Hash e le proprietà numeriche con un indice Range.
 
-### Modalità di indicizzazione
+### Modalità di indicizzazione del database
 
 DocumentDB supporta tre modalità di indicizzazione che possono essere configurate tramite criteri di indicizzazione in una raccolta di DocumentDB – Coerente, Differita e Nessuna.
 
@@ -600,7 +601,7 @@ DocumentDB consente di apportare modifiche ai criteri di indicizzazione di una r
 
 **Trasformazioni di indici online**
 
-![Trasformazioni di indici online](media/documentdb-indexing-policies/index-transformations.png)
+![Funzionamento dell’indicizzazione - trasformazioni di indici online di DocumentDB](media/documentdb-indexing-policies/index-transformations.png)
 
 Le trasformazioni di indice vengono effettuate online, vale a dire che i documenti indicizzati per i criteri precedenti vengono trasformati in modo efficiente per il nuovo criterio **senza modificare la disponibilità di scrittura o la velocità effettiva di provisioning** della raccolta. La coerenza delle operazioni di lettura e scrittura effettuate utilizzando l'API REST, SDK o le stored procedure e trigger non influisce nella trasformazione di indice. Ciò significa che non vi è alcun calo delle prestazioni o tempi di inattività delle applicazioni quando si modifica un criterio di indicizzazione.
 
@@ -766,4 +767,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

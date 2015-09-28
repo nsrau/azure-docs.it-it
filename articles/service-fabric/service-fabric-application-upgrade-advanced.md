@@ -51,4 +51,4 @@ L'uso di un pacchetto Diff è consigliato nei casi seguenti:
 [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

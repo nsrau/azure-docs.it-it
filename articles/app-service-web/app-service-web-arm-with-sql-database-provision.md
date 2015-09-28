@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Eseguire il provisioning di un'app Web con un database SQL
@@ -25,6 +25,8 @@ Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli
 Per altre informazioni sulla distribuzione di app, vedere [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
 
 Per il modello completo, vedere [Modello di app Web con database SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Elementi distribuiti
 
@@ -450,4 +452,4 @@ Crea un nuovo database e server SQL. Il nome del server viene specificato nel pa
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

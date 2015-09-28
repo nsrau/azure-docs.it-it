@@ -1,20 +1,20 @@
 <properties
    pageTitle="Migrazione di database nel database SQL di Azure"
-	description="Database SQL di Microsoft Azure, distribuzione del database, migrazione del database, importazione del database, esportazione del database, migrazione guidata"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Database SQL di Microsoft Azure, distribuzione del database, migrazione del database, importazione del database, esportazione del database, migrazione guidata"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="09/02/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="09/02/2015"
+   ms.author="carlrab"/>
 
 # Migrazione di database nel database SQL di Azure
 
@@ -49,7 +49,7 @@ Se il database di SQL Server locale non è compatibile o per determinare se è c
 ## Strumenti di migrazione
 Tra strumenti disponibili per la migrazione sono inclusi SQL Server Management Studio (SSMS), gli strumenti di SQL Server in Visual Studio (VS, SSDT), e il portale di Azure.
 
-> Assicurarsi di installare le versioni più recenti degli strumenti client poiché le versioni precedenti non sono compatibili con la versione 12 del database SQL.
+> [AZURE.IMPORTANT]Assicurarsi di installare le versioni più recenti degli strumenti client poiché le versioni precedenti non sono compatibili con la versione 12 del database SQL.
 
 ### SQL Server Management Studio (SSMS)
 SSMS può essere usato per distribuire un database compatibile direttamente al database SQL di Azure o per esportare un backup logico del database come file BACPAC, che può quindi essere importato, sempre con SSMS, per creare un nuovo database SQL di Azure.
@@ -72,4 +72,4 @@ Utilizzare il[più recente SQL Server Data Tools per Visual Studio](https://msdn
 | Non è prevista la modifica dell'output in caso di errori; lo schema di origine deve essere compatibile. | Funzionalità complete di SSDT di Visual Studio disponibili. Lo schema viene modificato offline. | La convalida dell'applicazione viene eseguita in Azure. Dovrebbe essere minima, dato che lo schema viene migrato senza modifiche. | La convalida dell'applicazione può essere eseguita in SQL Server prima che il database venga distribuito in Azure. |
 | Viene eseguito un semplice processo di configurazione, in uno o due passaggi. | Viene eseguito un processo complesso, in più passaggi (più semplice se viene distribuito solo lo schema). |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

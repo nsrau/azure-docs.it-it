@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Come creare un'immagine modello personalizzata per Azure RemoteApp"
+	pageTitle="Come creare un'immagine modello personalizzata per Azure RemoteApp | Microsoft Azure"
 	description="Informazioni su come creare un'immagine modello personalizzata per Azure RemoteApp. È possibile usare questo modello con una raccolta ibrida o cloud."
 	services="remoteapp"
 	documentationCenter=""
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015" 
+	ms.date="09/12/2015" 
 	ms.author="elizapo"/>
 
 # Come creare un'immagine modello personalizzata per Azure RemoteApp
-Azure RemoteApp usa un'immagine modello di Windows Server 2012 R2 per ospitare tutti i programmi da condividere con gli utenti. Per creare un'immagine modello di RemoteApp personalizzata, è possibile iniziare con un'immagine esistente o crearne una nuova. I requisiti per l'immagine che possono essere caricati e usati con l'app Azure RemoteApp sono i seguenti:
+Azure RemoteApp usa un'immagine modello di Windows Server 2012 R2 per ospitare tutti i programmi da condividere con gli utenti. Per creare un'immagine modello di RemoteApp personalizzata, è possibile iniziare con un'immagine esistente o crearne una nuova.
+
+
+> [AZURE.TIP]E’ possibile creare un'immagine da una macchina virtuale di Azure. In questo modo viene ridotto il tempo necessario per importare l'immagine. Consultare i passaggi [qui](remoteapp-image-on-azurevm.md)
+
+I requisiti per l'immagine che possono essere caricati e usati con l'app Azure RemoteApp sono i seguenti:
 
 
 - La dimensione dell'immagine dev'essere un multiplo di MB. Se si prova a caricare un'immagine che non è un multiplo esatto, l'operazione non andrà a buon fine.
@@ -33,7 +38,6 @@ Azure RemoteApp usa un'immagine modello di Windows Server 2012 R2 per ospitare t
 - L'immagine deve essere preparata con SYSPREP usando i parametri **/oobe /generalize /shutdown** (NON usare il parametro **/mode:vm**).
 - Il caricamento del disco VHD da una catena di snapshot non è supportato.
 
-> [AZURE.TIP]Ora è possibile creare un'immagine da una macchina virtuale di Azure. In questo modo viene ridotto il tempo necessario per importare l'immagine. Consultare i passaggi [qui](remoteapp-image-on-azurevm.md)
 
 **Prima di iniziare**
 
@@ -56,7 +60,7 @@ Questi sono i passaggi di alto livello per creare una nuova immagine modello da 
 4.	Installare Windows Server 2012 R2.
 5.	Installare il ruolo Host sessione Desktop remoto e la funzionalità Esperienza desktop.
 6.	Installare funzionalità aggiuntive richieste dalle applicazioni.
-7.	Installare e configurare le applicazioni.
+7.	Installare e configurare le applicazioni. Per semplificare la condivisione delle applicazioni, aggiungere eventuali applicazioni o programmi che si desidera condividere nel menu **Start** dell'immagine, in particolare in **%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programmi.
 8.	Eseguire eventuali configurazioni aggiuntive di Windows richieste dalle applicazioni.
 9.	Disabilitare EFS (Encrypting File System).
 10.	**OBBLIGATORIO:** accedere a Windows Update e installare tutti gli aggiornamenti importanti.
@@ -106,11 +110,12 @@ I passaggi dettagliati per creare una nuova immagine sono:
 1.	Installare funzionalità aggiuntive richieste dalle applicazioni, ad esempio .NET Framework 3.5. Per installare le funzionalità, eseguire l'Aggiunta guidata ruoli e funzionalità.
 7.	Installare e configurare i programmi e le applicazioni da pubblicare tramite RemoteApp.
 
- 	**Importante:**
+>[AZURE.IMPORTANT]
+>
+>Installare il ruolo Host sessione Desktop remoto prima di installare le applicazioni in modo da garantire l'individuazione di problemi di compatibilità prima del caricamento dell'immagine in RemoteApp.
+>
+>Assicurarsi che un collegamento all'applicazione (file **lnk** ) venga visualizzato nel menu **Start** per tutti gli utenti (%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programmi). Assicurarsi inoltre che l'icona visualizzata nel menu **Start** sia quella che si vuole far visualizzare agli utenti. In caso contrario, modificarla (non è *obbligatorio* aggiungere l'applicazione al menu Start, ma questo semplificherà notevolmente la pubblicazione dell'applicazione in RemoteApp. In caso contrario, sarà necessario fornire il percorso di installazione dell'applicazione al momento della pubblicazione.
 
-
-	- Installare il ruolo Host sessione Desktop remoto prima di installare le applicazioni in modo da garantire l'individuazione di problemi di compatibilità prima del caricamento dell'immagine in RemoteApp.
-	- Assicurarsi che l'applicazione sia visualizzata nel menu **Start**. Assicurarsi inoltre che l'icona visualizzata nel menu **Start** sia quella che si vuole visualizzare agli utenti. In caso contrario, modificarla (non è *obbligatorio* aggiungere l'applicazione al menu Start, ma questo semplificherà notevolmente la pubblicazione dell'applicazione in RemoteApp. In caso contrario, sarà necessario fornire il percorso di installazione dell'applicazione al momento della pubblicazione.
 
 8.	Eseguire eventuali configurazioni aggiuntive di Windows richieste dalle applicazioni.
 9.	Disabilitare EFS (Encrypting File System). Eseguire il comando seguente a un prompt dei comandi con privilegi elevati:
@@ -137,4 +142,4 @@ Ora che si dispone di un'immagine modello personalizzata, è necessario caricarl
 - [Come creare una raccolta RemoteApp nel cloud](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

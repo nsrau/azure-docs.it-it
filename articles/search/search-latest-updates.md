@@ -94,10 +94,20 @@ Questa versione è stata la versione di anteprima pubblica per Ricerca di Azure 
 
 - Provisioning nella versione di anteprima del [portale di gestione di Azure](https://portal.azure.com). Ricerca di Azure era uno dei pochi servizi disponibili solo nel nuovo portale.
 
+##Versione api di gestione 2015-08-19
+**Data di rilascio: 11 settembre 2015**
+
+[API REST di gestione](https://msdn.microsoft.com/library/azure/dn832684.aspx) include i seguenti aggiornamenti.
+
+- checkNameAvailability controlla se un determinato nome di servizio è già in uso.
+- L’intervallo di replica in precedenza era 1-6 ed è ora 1-12.
+- La proprietà SKU è stata spostata dall'elenco delle proprietà al livello superiore del carico del servizio.
+- Il corpo della risposta dell'operazione di creazione del servizio di ricerca è stato aggiornato per supportare il trasferimento dell'impostazione SKU.
+
 ##Versione api di gestione 28/02/2015
 **Data di rilascio: 5 marzo 2015**
 
-[API REST di gestione](https://msdn.microsoft.com/library/azure/dn832684.aspx) contrassegna la prima versione dell'API di gestione appartenente alla versione disponibile a livello generale di Ricerca di Azure. Non esistono differenze di funzionalità tra l'anteprima precedente e questa.
+[API REST di gestione](search-management-api-2014-02-28.md) contrassegna la prima versione dell'API di gestione appartenente alla versione disponibile a livello generale di Ricerca di Azure. Non esistono differenze di funzionalità tra l'anteprima precedente e questa.
 
 ##Versione api di gestione 31/07/2014-Anteprima
 **Data di rilascio: ottobre 2014**
@@ -107,4 +117,4 @@ La versione di anteprima dell'[API REST di gestione](search-management-api-2014-
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

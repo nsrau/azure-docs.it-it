@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Interazioni RESTful con risorse di DocumentDB | Microsoft Azure" 
-	description="Informazioni su come eseguire le interazioni RESTful con risorse di Microsoft Azure DocumentDB usando verbi HTTP." 
+	description="Esaminare i metodi HTTP in questa esercitazione sui servizi web RESTful. Informazioni su come eseguire le interazioni RESTful con risorse di Microsoft Azure DocumentDB usando verbi HTTP."
+	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -16,11 +17,11 @@
 	ms.date="08/03/2015" 
 	ms.author="h0n"/>
 
-# Interazioni RESTful con risorse di DocumentDB 
+# Esercitazione su servizi Web RESTful: interazioni RESTful con le risorse di DocumentDB 
 
 DocumentDB supporta l'uso di metodi HTTP per creare, leggere, sostituire, ottenere ed eliminare risorse di DocumentDB.
 
-Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti:
+Dopo aver letto questa esercitazione sui servizi web RESTful, si potrà rispondere alle domande seguenti:
 
 - Come funzionano i metodi HTTP standard con le risorse di DocumentDB?
 - Come si crea una nuova risorsa con POST?
@@ -39,13 +40,13 @@ Le risorse di DocumentDB supportano i seguenti verbi HTTP con la relativa interp
 
 >[AZURE.NOTE]In futuro è prevista l'aggiunta del supporto per gli aggiornamenti selettivi tramite PATCH.
 
-Come illustrato nel diagramma seguente, POST può essere rilasciato solo per una risorsa feed. PUT e DELETE possono essere rilasciati solo per una risorsa elemento. GET e HEAD possono essere rilasciati per risorse feed o per risorse elemento.
+Come illustrato nel seguente diagramma verbi HTTP, POST può essere rilasciato solo per una risorsa feed. PUT e DELETE possono essere rilasciati solo per una risorsa elemento. GET e HEAD possono essere rilasciati per risorse feed o per risorse elemento.
 
-![][1]
+![Panoramica sui verbi HTTP in questa esercitazione sui servizi RESTful][1]
 
 **Modello di interazione che usa i metodi HTTP standard**
 
-## Creare una nuova risorsa con POST 
+## Creare una nuova risorsa con il metodo HTTP POST 
 Per acquisire maggiore familiarità con il modello di interazione, si consideri l'eventualità di creare una nuova risorsa (INSERT). Per creare una nuova risorsa è necessario inviare una richiesta HTTP POST con il corpo della richiesta contenente la rappresentazione della risorsa rispetto all'URI del feed contenitore a cui questa appartiene. L'unica proprietà obbligatoria per la richiesta è l'ID della risorsa.
 
 Ad esempio, per creare un nuovo database, si registra una risorsa del database (impostando la proprietà id con un nome univoco) su /dbs. Analogamente, per creare una nuova raccolta, è necessario registrare una risorsa della raccolta su */dbs/\_rid/colls/* e così via. La risposta contiene la risorsa completamente impegnata insieme alle proprietà generate dal sistema, compreso il collegamento *\_self* della risorsa, che può essere usato per passare ad altre risorse. Come esempio di modello di interazione semplice basato su HTTP, un client può inviare una richiesta HTTP per creare un nuovo database all'interno di un account.
@@ -74,7 +75,7 @@ The DocumentDB service responds with a successful response and a status code ind
 	}
 ```
   
-## Registrare una stored procedure con POST
+## Registrare una stored procedure con il metodo HTTP POST
 Per un altro esempio di creazione ed esecuzione di una risorsa, valutare la seguente stored procedure scritta interamente in JavaScript.
 
 ```
@@ -125,7 +126,7 @@ Il servizio DocumentDB risponde con un esito positivo e un codice di stato che i
 	}
 ```
 
-## Eseguire una stored procedure con POST
+## Eseguire una stored procedure con il metodo HTTP POST
 Infine, per eseguire la stored procedure nell'esempio precedente, è necessario emettere un POST in base all'URI della risorsa stored procedure (dbs/UoEi5w = = / colls/UoEi5w + upwA = / stored procedure/UoEi5w + upwABAAAAAAAAgA = = /) come illustrato di seguito.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA== HTTP/1.1
@@ -136,7 +137,7 @@ Il servizio DocumentDB risponde nel modo seguente.
 	
 	"Hello World"
 
-Si noti che il verbo POST può essere usato per creare una nuova risorsa, per eseguire una stored procedure e per inviare una query SQL. Per illustrare l'esecuzione della query SQL, considerare quanto segue.
+Si noti che il verbo HTTP POST può essere usato per creare una nuova risorsa, per eseguire una stored procedure e per inviare una query SQL. Per illustrare l'esecuzione della query SQL, considerare quanto segue.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/docs HTTP/1.1
 	...
@@ -162,7 +163,7 @@ Il servizio risponde con i risultati della query SQL.
 ```
 
 
-## Uso di PUT, GET e DELETE
+## Uso dei verbi HTTP PUT, GET e DELETE
 La sostituzione o la lettura di una risorsa si eseguono inviando rispettivamente verbi PUT (con un corpo di richiesta valido) e GET al collegamento *\_self* della risorsa. Analogamente, l'eliminazione di una risorsa si ottiene inviando un verbo DELETE al collegamento *\_self* della risorsa. Vale la pena di evidenziare che l'organizzazione gerarchica delle risorse nel modello di risorse di DocumentDB necessita del supporto per le eliminazioni propagate, grazie a cui l'eliminazione della risorsa proprietaria causa l'eliminazione delle risorse dipendenti. Le risorse dipendenti possono essere distribuite su nodi diversi da quelli delle risorse proprietarie e pertanto l'eliminazione potrebbe avvenire in modo differito. A prescindere dal meccanismo di garbage collection, nel momento in cui una risorsa viene eliminata, la quota viene istantaneamente liberata e resa disponibile per l'uso. Si noti che l'integrità referenziale viene conservata da parte del sistema. Ad esempio, non è possibile inserire una raccolta in un database che è stato eliminato o sostituito né eseguire query su un documento di una raccolta che non esiste più.
  
 L'invio di un verbo GET a un feed di risorse o la query su una raccolta potrebbe potenzialmente restituire milioni di elementi, rendendone ingestibile la materializzazione da parte del server e l'uso da parte dei client, nell'ambito di un singolo scambio di richiesta e risposta/round trip. Per risolvere il problema, DocumentDB consente ai client di impaginare i grandi feed una pagina per volta. I client possono usare l'intestazione di risposta [x-ms-continuation] come cursore per passare alla pagina successiva.
@@ -204,4 +205,4 @@ Vedere Informazioni di [riferimento sulle API REST di Azure DocumentDB](https://
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

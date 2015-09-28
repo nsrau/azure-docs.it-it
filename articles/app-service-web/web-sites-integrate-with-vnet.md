@@ -5,23 +5,26 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Integrazione di un'app Web in una rete virtuale di Azure #
+
 Questo documento descrive la funzionalità di anteprima dell'integrazione con una rete virtuale, specificando come configurarla con App Web in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Le Reti Virtuali di Azure consentono di compilare soluzioni ibride con le proprie risorse su Azure e in sede.
 
 Tale integrazione consente all'app Web di accedere alle risorse presenti nella propria rete virtuale. Al contrario, l'accesso all'app Web dalla rete virtuale non viene concesso. Uno scenario standard è rappresentato dall'esigenza di accedere dalla propria app Web a un database o a servizi Web in esecuzione su macchine virtuali in una rete virtuale o in un data center. La funzionalità non consente di montare un'unità e, attualmente, non supporta l'attivazione dell'integrazione con i sistemi di autenticazione della propria rete virtuale. La funzionalità è in stato di anteprima e continuerà a essere migliorata fino a raggiungere lo stato di GA.
 
 Per ulteriori informazioni sulle Reti Virtuali di Azure, consultare le Informazioni generali sulla rete virtuale, in cui vengono illustrati alcuni casi di utilizzo e i vantaggi di una Rete Virtuale di Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Introduzione ##
 Prima di procedere con la connessione della propria app Web a una rete virtuale, è opportuno prendere in considerazione i seguenti aspetti.
@@ -106,4 +109,4 @@ Inoltre, sono attualmente presenti differenze a livello di prezzo tra le due fun
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

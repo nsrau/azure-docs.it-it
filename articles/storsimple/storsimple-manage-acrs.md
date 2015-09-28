@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Gestire i record di controllo di accesso in StorSimple | Microsoft Azure"
-	description="In questo articolo vengono descritti i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="In questo articolo vengono descritti i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nel dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
 
@@ -90,8 +90,8 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 
 ## Passaggi successivi
 
-Ulteriori informazioni su [la gestione di volumi StorSimple](storsimple-manage-volumes.md).
-
+- Ulteriori informazioni sulla [gestione di volumi StorSimple](storsimple-manage-volumes.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

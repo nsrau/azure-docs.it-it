@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Configurare le impostazioni proxy e firewall per Operational Insights
@@ -174,4 +174,4 @@ Usare le procedure seguenti per registrare il gruppo di gestione di Operations M
 3. Aggiungere tutti i contatori che iniziano con **HTTP**. ![Aggiungi contatori](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se la configurazione di Operations Manager è valida, verrà visualizzata l'attività dei contatori di gestione Servizio integrità per gli eventi e altri elementi di dati in base ai Management Pack aggiunti a Operational Insights e ai criteri di raccolta del log configurati. ![Attività di Monitoraggio prestazioni](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

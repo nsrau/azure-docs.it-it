@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Applicazione line-of-business in Azure | Microsoft Azure"
-	description="Informazioni sul valore di un'applicazione line-of-business in Azure, configurare un ambiente di test e distribuire una configurazione a disponibilità elevata."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Applicazione line-of-business in Azure | Microsoft Azure" 
+	description="Informazioni sul valore di un'applicazione line-of-business in Azure, configurare un ambiente di test e distribuire una configurazione a disponibilità elevata." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
 
 Impostando la prima o la successiva applicazione line-of-business solo Intranet basata sul Web in Microsoft Azure, è possibile usufruire della facilità di configurazione e della possibilità di espandere rapidamente l'applicazione per includere nuova capacità.
  
@@ -103,4 +105,4 @@ Dopo aver completato la configurazione, è possibile espandere facilmente questa
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

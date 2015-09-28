@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Risoluzione dei problemi e domande su Application Insights"
-	description="Questo articolo contiene le risposte ai dubbi più comuni su Application Insights di Visual Studio ai dubbi più comuni."
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="Risoluzione dei problemi e domande su Application Insights" 
+	description="Questo articolo contiene le risposte ai dubbi più comuni su Application Insights di Visual Studio ai dubbi più comuni." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Risoluzione dei problemi e domande - Application Insights per ASP.NET
@@ -136,6 +136,9 @@ Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropri
 + Fare clic sul pulsante Aggiorna. Il pannello viene automaticamente aggiornato periodicamente, ma è anche possibile farlo manualmente. L'intervallo di aggiornamento è più lungo per intervalli di tempo maggiori.
 + Nella schermata iniziale di Microsoft Azure osservare la mappa dello stato dei servizi. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
 + Controllare anche il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
+
+#### Nessun dato dopo la pubblicazione dell'applicazione al server
+
 + Nel firewall, potrebbe essere necessario aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
 + Se è necessario usare un proxy per inviare all'esterno della rete aziendale, impostare [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 + Windows Server 2008: assicurarsi che siano stati installati i seguenti aggiornamenti: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -148,7 +151,7 @@ Vedere le [note sulla versione](app-insights-release-notes.md) dell'SDK appropri
 
 #### <a name="q08"></a>Si può usare Application Insights per monitorare un server Web Intranet?
 
-Sì, è possibile monitorare l'integrità e l'utilizzo se il server è in grado di inviare dati alla rete Internet pubblica.
+Sì, è possibile monitorare l'integrità e l'utilizzo se il server è in grado di inviare dati alla rete Internet pubblica. Nel firewall, aprire le porte TCP 80 e 443 per il traffico in uscita verso dc.services.visualstudio.com e f5.services.visualstudio.com.
 
 Se però si vuole eseguire test Web per il servizio, è necessario che sia accessibile dalla rete Internet pubblica sulla porta 80.
 
@@ -161,7 +164,9 @@ Se però si vuole eseguire test Web per il servizio, è necessario che sia acces
 * Controllare il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).
 * È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
 
+## Status Monitor non funziona
 
+Vedere [Risoluzione dei problemi relativi a Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). Le porte del firewall sono il problema più comune.
 
 ## Il portale
 
@@ -228,6 +233,10 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
 È possibile [scrivere uno script di PowerShell](app-insights-powershell-script-create-resource.md) per creare una risorsa di Application Insights.
 
+## Altre risposte
+
+* [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
+
 
 <!--Link references-->
 
@@ -239,4 +248,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

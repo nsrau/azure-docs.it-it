@@ -21,18 +21,18 @@ In questa sezione vengono fornite le risposte ad alcune delle domande più frequ
 
 >[AZURE.NOTE]Il modello di prezzi per Hub eventi è illustrato nell'argomento [Domande frequenti sulla disponibilità e il supporto di Hub eventi](event-hubs-availability-and-support-faq.md). Per informazioni dettagliate, vedere [Prezzi di Hub eventi](http://azure.microsoft.com/pricing/details/event-hubs/).
 
-- [Quali sono le modalità di addebito per il bus di servizio?](#How-do-you-charge-for-Service-Bus?)
-- [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati e quale non lo è](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [Che cos'è esattamente un "inoltro" del bus di servizio?](#What-exactly-is-a-Service-Bus-"relay"?)
-- [Come vengono calcolate le unità di ore di inoltro?](#How-is-the-Relay-Hours-meter-calculated?)
-- [Che cosa succede se più di un listener è connesso a un inoltro specifico?](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [Come vengono calcolate le unità di messaggi per gli inoltri?](#How-is-the-Messages-meter-calculated-for-relays?)
-- [Per il bus di servizio viene addebitato lo spazio di archiviazione?](#Does-Service-Bus-charge-for-storage?)
-- [Sono previste quote di utilizzo per il bus di servizio?](#Does-Service-Bus-have-any-usage-quotas?)
+- [Quali sono le modalità di addebito per il bus di servizio?](#how-do-you-charge-for-service-bus)
+- [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [Che cos'è esattamente un "inoltro" del bus di servizio?](#what-exactly-is-a-service-bus-quotrelayquot)
+- [Come vengono calcolate le unità di ore di inoltro?](#how-is-the-relay-hours-meter-calculated)
+- [Che cosa succede se più di un listener è connesso a un inoltro specifico?](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [Come vengono calcolate le unità di messaggi per gli inoltri?](#how-is-the-messages-meter-calculated-for-relays)
+- [Per il bus di servizio viene addebitato lo spazio di archiviazione?](#does-service-bus-charge-for-storage)
+- [Sono previste quote di utilizzo per il bus di servizio?](#does-service-bus-have-any-usage-quotas)
 
 ## Quali sono le modalità di addebito per il bus di servizio?
 
-Per informazioni complete sui prezzi del bus di servizio, vedere le pagine relative a [prezzi e fatturazione del bus di servizio](https://msdn.microsoft.com/library/dn831889.aspx) e [dettagli sui prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/). Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione. Per informazioni più dettagliate, vedere la sezione [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati e quale non lo è?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?) più avanti in questo documento.
+Per informazioni complete sui prezzi del bus di servizio, vedere le pagine relative a [prezzi e fatturazione del bus di servizio](https://msdn.microsoft.com/library/dn831889.aspx) e [dettagli sui prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/). Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione. Per informazioni più dettagliate, vedere la sezione [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) più avanti in questo documento.
 
 ## Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati e quale non lo è?
 
@@ -114,4 +114,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Panoramica dell'architettura del bus di servizio di Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

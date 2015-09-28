@@ -1,20 +1,20 @@
 <properties
     pageTitle="Da Onboard a Operational Insights in minuti | Microsoft Azure"
-	description="Scopri come è possibile impostare Azure Operational Insights in pochi minuti"
-	services="operational-insights"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    description="Scopri come è possibile impostare Azure Operational Insights in pochi minuti"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
     ms.service="operational-insights"
-	ms.workload="operational-insights"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/27/2015"
-	ms.author="banders"/>
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/10/2015"
+    ms.author="banders"/>
 
 # Da Onboard ad Azure Operational Insights in pochi minuti
 
@@ -101,4 +101,4 @@ Con Operations Management Suite è possibile eseguire ricerche rapide in log di 
 - Acquisire familiarità con la [ricerca](operational-insights-search.md).
 - Usare i [dashboard](operational-insights-use-dashboards.md) per salvare e visualizzare le ricerche personalizzate.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

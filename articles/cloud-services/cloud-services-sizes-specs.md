@@ -1,20 +1,20 @@
-<properties 
+<properties
  pageTitle="Dimensioni dei servizi cloud"
-	description="Elenca le varie dimensioni dei ruoli Web e di lavoro del servizio cloud di Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="Elenca le varie dimensioni dei ruoli Web e di lavoro del servizio cloud di Azure."
+ services="cloud-services"
+ documentationCenter=""
+ authors="Thraka"
+ manager="timlt"
+ editor=""/>
+<tags
  ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="09/01/2015"
-	ms.author="adegeo"/>
- 
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="tbd"
+ ms.date="09/14/2015"
+ ms.author="adegeo"/>
+
 # Dimensioni dei servizi cloud
 
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud (ruoli Web e di lavoro). Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
@@ -41,26 +41,26 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 
 |Dimensione|Core<br>CPU|Memoria|Dimensione disco|
 |---|---|---|---|
-|Molto piccola|1|768 MB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 19 GB<br/>App = circa 1,5 GB|
-|Piccola|1|1,75 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 224 GB<br/>App = circa 1,5 GB|
-|Media|2|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 489 GB<br/>App = circa 1,5 GB|
-|Grande|4|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 999 GB<br/>App = circa 1,5 GB|
-|Molto grande|8|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 2.039 GB<br/>App = circa 1,5 GB|
-|A5|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 489 GB<br/>App = circa 1,5 GB|
-|A6|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 999 GB<br/>App = circa 1,5 GB|
-|A7|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 2.039 GB<br/>App = circa 1,5 GB
-|A8|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|A9|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|A10|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|A11|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1,77 TB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
-|Standard\_D1|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 50 GB<br/>App = circa 1,5 GB|
-|Standard\_D2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
-|Standard\_D3|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
-|Standard\_D4|8|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
-|Standard\_D11|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 100 GB<br/>App = circa 1,5 GB|
-|Standard\_D12|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 200 GB<br/>App = circa 1,5 GB|
-|Standard\_D13|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 400 GB<br/>App = circa 1,5 GB|
-|Standard\_D14|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 800 GB<br/>App = circa 1,5 GB|
+|Molto piccola|1|768 MB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 15384 MB<br/>App = circa 1,5 GB|
+|Piccola|1|1,75 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 225304 MB<br/>App = circa 1,5 GB|
+|Media|2|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 496664 MB<br/>App = circa 1,5 GB|
+|Grande|4|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1018904 MB<br/>App = circa 1,5 GB|
+|Molto grande|8|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 2083864 MB<br/>App = circa 1,5 GB|
+|A5|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 496664 MB<br/>App = circa 1,5 GB|
+|A6|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1018904 MB<br/>App = circa 1,5 GB|
+|A7|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 2083864 MB<br/>App = circa 1,5 GB
+|A8|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A9|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A10|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|A11|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 1856172 MB<br/>App = circa 1,5 GB<blockquote>Nota: per informazioni e considerazioni sull’uso di questa dimensione, vedere <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo</a>.</blockquote>|
+|Standard\_D1|1|3,5 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 46104 MB<br/>App = circa 1,5 GB|
+|Standard\_D2|2|7 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 97304 MB<br/>App = circa 1,5 GB|
+|Standard\_D3|4|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 199704 MB<br/>App = circa 1,5 GB|
+|Standard\_D4|8|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 404504 MB<br/>App = circa 1,5 GB|
+|Standard\_D11|2|14 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 97304 MB<br/>App = circa 1,5 GB|
+|Standard\_D12|4|28 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 199704 MB<br/>App = circa 1,5 GB|
+|Standard\_D13|8|56 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 404504 MB<br/>App = circa 1,5 GB|
+|Standard\_D14|16|112 GB|Sistema operativo = dimensioni sistema operativo guest<br/>Risorsa locale = 814104 MB<br/>App = circa 1,5 GB|
 
 ## Configurare le dimensioni per i servizi Cloud
 
@@ -72,8 +72,10 @@ Di seguito è riportato un esempio per impostare la dimensione ridotta del ruolo
     <WebRole name="WebRole1" vmsize="Small">
     …
     </WebRole>
+
+Assicurarsi che la dimensione della risorsa locale specificata sia minore o uguale alla dimensione massima delle risorse locali nella tabella precedente.
 ## Passaggi successivi
 
 [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -50,9 +50,10 @@ Come per l'infrastruttura di messaggistica inoltrata, la funzionalità di messag
 Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
 
 - [Sottoscrizioni, argomenti e code del Bus di servizio](service-bus-queues-topics-subscriptions.md)
-- [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
+- [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
+- [Architettura del bus di servizio](service-bus-architecture.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
 - [Come usare gli argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

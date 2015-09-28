@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione"
-	description="Un argomento di partenza che raggruppa collegamenti e indicazioni per i programmi client che si connettono al database SQL di Azure da tecnologie quali ADO.NET e PHP."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	pageTitle="Connettersi al Database SQL: procedure consigliate | Microsoft Azure" 
+	description="Un argomento di partenza che raggruppa collegamenti e indicazioni per i programmi client che si connettono al database SQL di Azure da tecnologie quali ADO.NET e PHP." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
-# Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione
+# Connessione al database SQL: procedure consigliate e linee guida per la progettazione
 
 
 Questo argomento è un ottimo strumento per iniziare a utilizzare la connettività dei client al database SQL di Azure. Vengono forniti collegamenti agli esempi di codice per le varie tecnologie che è possibile utilizzare per connettersi e interagire con il database SQL. Rientrano in queste tecnologie Enterprise Library, JDBC e PHP e molte altre. Le informazioni contenute in questa sezione si applicano indipendentemente dalla tecnologia specifica utilizzata per connettersi al database SQL.
@@ -75,6 +75,9 @@ In [Database indipendenti](http://msdn.microsoft.com/library/ff929071.aspx) sono
 
 - Assicurarsi che il [firewall del database SQL di Azure](sql-database-firewall-configure.md) consenta la comunicazione TCP in uscita sulla porta 1433.
  - È possibile configurare le impostazioni del firewall su un server del database SQL o per un singolo database.
+
+
+- Se il programma client si connette a SQL Database V12 mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire gli intervalli di porta 11000-11999 e 14000-14999 nella macchina virtuale: Per informazioni dettagliate, fare clic [qui](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 - Per gestire gli *errori temporanei*, aggiungere la [logica di *ripetizione dei tentativi*](#TransientFaultsAndRetryLogicGm) ai programmi client che interagiscono con il database SQL di Azure.
@@ -136,7 +139,7 @@ Quando si verifica un errore del database SQL, viene generata un'eccezione [SqlE
 
 - [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md#bkmk_connection_errors)
  - Nella sezione **Errori temporanei, errori di perdita della connessione** è riportato un elenco degli errori temporanei per i quali si garantisce una ripetizione automatica.
- - Riprovare ad esempio se si verifica il numero di errore 40613, con un testo simile a<br/>*Il database 'databasepersonale' nel server 'ilserver' non è attualmente disponibile.*
+ - Riprovare ad esempio se si verifica il numero di errore 40613, con un testo simile a<br/>*Il database 'mydatabase' nel server 'theserver' non è attualmente disponibile.*
 
 
 Per altre informazioni, vedere:- [Sviluppo nel database SQL di Azure: Procedure](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Risoluzione dei problemi di connessione al Database SQL Azure](http://support.microsoft.com/kb/2980233/)
@@ -164,4 +167,4 @@ Vengono forniti vari esempi di codice per i client che eseguono Windows, Linux e
 
 - [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

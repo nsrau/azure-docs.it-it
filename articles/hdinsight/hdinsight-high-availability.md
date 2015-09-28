@@ -44,7 +44,7 @@ Le implementazioni standard dei cluster Hadoop hanno in genere un singolo nodo h
 
 Sono stati aggiunti i nodi [ZooKeeper](http://zookeeper.apache.org/) (ZK), usati per l'elezione del leader dei nodi head e per garantire che i nodi di lavoro e i gateway (GW) sappiano quando eseguire il failover sul nodo head secondario (Head Node1) nel momento in cui il nodo head attivo (Node0) diventa inattivo.
 
-![Diagramma dei nodi head ad alta affidabilità nell'implementazione di HDInsight Hadoop.](http://i.imgur.com/jrUmrH4.png)
+![Diagramma dei nodi head ad alta affidabilità nell'implementazione di HDInsight Hadoop.](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
 
 
 
@@ -98,4 +98,4 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 - [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

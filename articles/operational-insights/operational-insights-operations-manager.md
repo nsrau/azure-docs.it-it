@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Considerazioni su Operations Manager con Operational Insights
@@ -83,8 +83,8 @@ Ad esempio, presupponendo dimensioni di caricamento giornaliere di 100 KB per og
 
 Numero di agenti|Spazio stimato necessario per il gruppo di gestione
 ---|---
-5|\~2,5 MB (5 agenti x 100 KB di dati/giorno x 5 giorni = 2.500 KB)
-50|\~25 MB (50 agenti x 100 KB di dati/giorno x 5 giorni = 25.000 KB)
+5|~2,5 MB (5 agenti x 100 KB di dati/giorno x 5 giorni = 2.500 KB)
+50|~25 MB (50 agenti x 100 KB di dati/giorno x 5 giorni = 25.000 KB)
 
 ## Account RunAs di Operations Manager per Operational Insights
 
@@ -215,4 +215,4 @@ Effettuare i passaggi seguenti per impostare l'account quando si connette Operat
 
 Per analizzare i dati di server in diverse posizioni geografiche, considerare la configurazione di un gruppo di gestione per posizione. Questo approccio può migliorare le prestazioni per il trasferimento dei dati dall'agente al gruppo di gestione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

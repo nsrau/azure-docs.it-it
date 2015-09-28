@@ -1,19 +1,19 @@
 <properties
    pageTitle="Dispositivo virtuale StorSimple in Azure | Microsoft Azure"
-	description="Informazioni su come creare, distribuire e gestire un dispositivo virtuale StorSimple in una rete virtuale di Microsoft Azure. (Si applica alla versione 3 di StorSimple e alle versioni precedenti.)"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Informazioni su come creare, distribuire e gestire un dispositivo virtuale StorSimple in una rete virtuale di Microsoft Azure. (Si applica alla versione 3 di StorSimple e alle versioni precedenti.)"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 
@@ -114,8 +114,6 @@ Dopo aver completato queste procedure, è possibile [utilizzare il dispositivo v
 Dopo aver creato una rete virtuale, configurato un servizio StorSimple Manager e registrato il dispositivo StorSimple fisico con il servizio, è possibile effettuare la procedura seguente e creare un dispositivo virtuale StorSimple.
 
 Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito:
-
-
 
 1.  Nel portale di Azure, accedere al servizio **StorSimple Manager**.
 
@@ -219,7 +217,6 @@ Per impostazione predefinita, non è abilitato l'accesso remoto al dispositivo v
 
 Per configurare la gestione remota del dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
 
-
 1. Nel dispositivo virtuale, andare a **Dispositivi > Configura**.
 
 2. Scorrere verso il basso fino alla sezione **Gestione remota**.
@@ -232,6 +229,9 @@ Per configurare la gestione remota del dispositivo virtuale StorSimple, eseguire
 
 6. Fare clic su **Save** nella parte inferiore della pagina.
 
+![Video disponibile](./media/storsimple-virtual-device/Video_icon.png) **Video disponibile**
+
+Per guardare un video che descrive come creare un dispositivo StorSimple virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Utilizzare il dispositivo virtuale StorSimple
 
@@ -279,7 +279,7 @@ Dopo averlo impostato nella pagina di configurazione dispositivo di StorSimple, 
 
 >[AZURE.WARNING]Per una maggiore sicurezza, si consiglia di utilizzare HTTPS quando ci si connette agli endpoint e di eliminare gli endpoint dopo aver completato la sessione remota in PowerShell.
 
-Per impostare la connessione in remoto al dispositivo virtuale, è necessario eseguire le procedure descritte in [Connessione in remoto al dispositivo StorSimple](storsimple-remote-connect.md).
+E’ necessario eseguire le procedure descritte in [Connessione in remoto al dispositivo StorSimple](storsimple-remote-connect.md) per impostare la connessione in remoto al dispositivo virtuale.
 
 Tuttavia, se si desidera connettersi direttamente al dispositivo virtuale da un altro computer non compreso nella rete virtuale oppure nell'ambiente di Microsoft Azure, è necessario creare endpoint aggiuntivi, come descritto nella procedura seguente.
 
@@ -345,7 +345,7 @@ Il ripristino di emergenza (DR, Disaster Recovery) rappresenta una delle situazi
 
 - Ripetere il passaggio precedente per tutti i contenitori di volumi di cui si desidera eseguire il failover al dispositivo virtuale.
 
-- Nella pagina **Dispositivo**, selezionare il dispositivo di cui eseguire il failover, quindi fare clic su **Failover** per aprire la procedura guidata **Failover del dispositivo**.
+- Nella pagina **Dispositivo**, selezionare il dispositivo di cui eseguire il failover, quindi fare clic su **Failover** per aprire la procedura guidata Failover del dispositivo.
 
 - In **Scegli contenitore del volume di cui eseguire il failover**, selezionare i contenitori di volumi per i quali si desidera eseguire il failover. Affinché sia visualizzato in questo elenco, il contenitore del volume deve contenere una snapshot cloud e deve essere offline. Se per errore non viene visualizzato un contenitore del volume, annullare la procedura guidata e verificare che sia offline.
 
@@ -353,9 +353,13 @@ Il ripristino di emergenza (DR, Disaster Recovery) rappresenta una delle situazi
 
 - Controllare tutte le impostazioni di failover nella pagina **Conferma failover**. Se sono corrette, fare clic sull'icona del segno di spunta.
 
-A questo punto, viene avviato il processo di failover. Al termine del processo di failover, accedere alla pagina Dispositivi e selezionare il dispositivo virtuale che è stato utilizzato come destinazione del processo di failover. Andare alla pagina Contenitori di volumi. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
+A questo punto, viene avviato il processo di failover. Al termine del processo di failover, accedere alla pagina **Dispositivi** e selezionare il dispositivo virtuale che è stato utilizzato come destinazione del processo di failover. Andare alla pagina Contenitori di volumi. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
 
 >[AZURE.NOTE]La quantità di risorse di archiviazione supportate nel dispositivo virtuale StorSimple è pari a 30 TB.
+
+![Video disponibile](./media/storsimple-virtual-device/Video_icon.png) **Video disponibile**
+
+Per guardare un video che descrive come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Arrestare o eliminare il dispositivo virtuale
 
@@ -384,4 +388,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Per amministrare il dispositivo virtuale, fare riferimento a un elenco dettagliato dei flussi di lavoro in [Amministrare il dispositivo StorSimple utilizzando il servizio di gestione di StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

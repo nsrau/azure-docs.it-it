@@ -1,6 +1,7 @@
 <properties
-    pageTitle="Creare un'app Web con Python e Flask usando DocumentDB | Microsoft Azure"
-    description="Informazioni sull'uso di DocumentDB per archiviare e accedere ai dati da un'applicazione Web Python e Flask (MVC) ospitata in Azure."
+    pageTitle="Sviluppo di applicazioni web Python Flask con DocumentDB | Microsoft Azure"
+    description="Esaminare un'esercitazione del database sull'utilizzo di DocumentDB per archiviare e accedere ai dati da un'applicazione web Python Flask ospitata in Azure. Trovare soluzioni di sviluppo dell'applicazione." 
+	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
@@ -16,13 +17,13 @@
     ms.date="09/03/2015"
     ms.author="ryancraw"/>
 
-# Creare un'applicazione Web con Python e Flask (MVC) usando DocumentDB
+# Sviluppo di applicazioni web Python Flask con DocumentDB
 
-Per evidenziare il modo in cui i clienti possono sfruttare efficientemente Azure DocumentDB per archiviare ed eseguire query su documenti JSON, questo argomento fornisce un'esercitazione end-to-end che mostra come creare un'applicazione Web di voto usando Azure Document DB.
+Per evidenziare il modo in cui i clienti possono sfruttare efficientemente Azure DocumentDB per archiviare ed eseguire query su documenti JSON, questo argomento fornisce un'esercitazione di un’applicazione web Python end-to-end che mostra come creare un'applicazione Web di voto usando Azure DocumentDB.
 
 Questa esercitazione mostra come usare il servizio DocumentDB fornito da Azure per archiviare e accedere ai dati forniti da un'applicazione Web Python ospitata in Azure e presuppone che si siano già usati Python e Siti Web di Azure.
 
-Contenuto dell'esercitazione:
+In questa esercitazione del database vengono trattati i seguenti argomenti:
 
 1. Creare ed eseguire il provisioning di un account DocumentDB.
 2. Creare un'applicazione MVC Python.
@@ -31,10 +32,10 @@ Contenuto dell'esercitazione:
 
 Seguendo questa esercitazione, si creerà una semplice applicazione di voto che consente di votare per un sondaggio.
 
-![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione](./media/documentdb-python-application/image1.png)
+![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-python-application/image1.png)
 
 
-## Prerequisiti
+## Prerequisiti per l'esercitazione del database
 
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili i seguenti elementi:
 
@@ -58,18 +59,18 @@ Il primo passaggio consiste nella creazione di un account DocumentDB. Se si disp
 
 1. Aprire Visual Studio, quindi fare clic su **File** -> **Nuovo progetto** -> **Python** ->, **Flask Web Project**, e creare un nuovo progetto con il nome **esercitazione**.
 
-	Se è la prima volta che si usa Flask, si tratta di un framework Web che consente di creare applicazioni Web in Python più velocemente. [Fare clic qui per accedere alle esercitazioni per Flask][].
+	Se è la prima volta che si usa Python Flask, si tratta di un framework di sviluppo di applicazioni web che consente di creare applicazioni Web in Python più velocemente. [Fare clic qui per accedere alle esercitazioni per Flask][].
 
 	![Schermata della finestra Nuovo progetto in Visual Studio con Python selezionato a sinistra, progetto web Flask selezionato nella parte centrale ed esercitazioni sul nome nella casella nome](./media/documentdb-python-application/image9.png)
 
 2. Verrà chiesto se si vogliono installare pacchetti esterni. Selezionare **Installa in un ambiente virtuale**. Assicurarsi di usare Python 2.7 come ambiente di base, poiché PyDocumentDB attualmente non supporta Python 3.x. Questo configurerà l'ambiente virtuale Python per il progetto.
 
-	![Schermata dell'esercitazione - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10.png)
+	![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10.png)
 
 
 ## Passaggio 3: Modificare l'applicazione Web Python Flask
 
-### Aggiungere i pacchetti Flask al progetto
+### Aggiungere pacchetti Python Flask al progetto
 
 Dopo la configurazione del progetto sarà necessario aggiungere alcuni pacchetti Flask necessari per il progetto, compreso pydocumentdb, il pacchetto python per DocumentDB.
 
@@ -100,7 +101,7 @@ Dopo la configurazione del progetto sarà necessario aggiungere alcuni pacchetti
 
 - Avviare il sito Web premendo **F5**; verrà avviato il server di sviluppo Flask e il browser Web. Dovrebbe essere visualizzata la pagina seguente:
 
-	![Progetto flask vuoto visualizzato in un browser](./media/documentdb-python-application/image12.png)
+	![Il progetto di sviluppo web Python Flask vuoto visualizzato in un browser](./media/documentdb-python-application/image12.png)
 
 ### Creare definizioni di database, raccolta e documento
 
@@ -301,7 +302,7 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
 	![Schermata della finestra Esplora soluzioni di Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Passaggio 4: Esecuzione dell'applicazione in locale
+## Passaggio 4: Esecuzione dell'applicazione web in locale
 
 1. Premere F5 o il pulsante **Esegui** in Visual Studio. Sullo schermo verrà visualizzato quanto segue.
 
@@ -309,7 +310,7 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
 
 2. Fare clic su **Creare o deselezionare il Database di voto** per generare il database.
 
-	![Schermata della pagina di creazione dell'applicazione web](./media/documentdb-python-application/image17.png)
+	![Schermata della pagina di creazione dell'applicazione web - informazioni dettagliate sullo sviluppo](./media/documentdb-python-application/image17.png)
 
 3. Fare quindi clic su **Voto** e selezionare un'opzione.
 
@@ -320,7 +321,7 @@ Aggiungere i seguenti file HTML nella cartella templates: create.html, results.h
 	![Schermata dei risultati della pagina voto visualizzata](./media/documentdb-python-application/image19.png)
 
 
-## Passaggio 5: Distribuire l'applicazione nei siti web di Azure
+## Passaggio 5: Distribuire l'applicazione web in Siti Web di Azure
 
 Ora che l'applicazione completa funziona correttamente con DocumentDB, sarà possibile distribuirla in Siti Web di Azure.
 
@@ -336,11 +337,11 @@ Ora che l'applicazione completa funziona correttamente con DocumentDB, sarà pos
 
 ## Passaggi successivi
 
-Congratulazioni. Si è creata la prima applicazione Python usando Azure DocumentDB e la si è pubblicata in Siti Web di Azure.
+Congratulazioni. Si è creata la prima applicazione web Python usando Azure DocumentDB e la si è pubblicata in Siti Web di Azure.
 
 Aggiorniamo e miglioriamo spesso questo argomento in base al feedback degli utenti. Dopo aver completato l'esercitazione, utilizzare i pulsanti per la votazione nella parte superiore e inferiore della pagina e assicurarsi di includere il feedback sui miglioramenti che si desidera vedere. Se si desidera contattarci, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
 
-Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nell'[SDK per Python di DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
+Per aggiungere altre funzionalità all'applicazione web, esaminare le API disponibili nell'[SDK per Python di DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
   [Fare clic qui per accedere alle esercitazioni per Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -351,4 +352,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

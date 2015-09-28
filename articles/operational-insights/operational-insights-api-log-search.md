@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 
@@ -31,8 +31,7 @@ L'API di ricerca log di Operational Insights è RESTful e accessibile tramite l'
 
 ### Usare il client ARM
 
-1. Installare [Chocolatey](https://chocolatey.org/), ovvero un Machine Package Manager open source per Windows.
-2. Aprire una finestra di PowerShell come amministratore ed eseguire il comando seguente:
+1. Installare [Chocolatey](https://chocolatey.org/), ovvero un Machine Package Manager open source per Windows. Aprire una finestra di prompt di comandi come amministratore ed eseguire il comando seguente:
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -346,4 +345,4 @@ Questi marcatori indicano l'inizio e la fine del testo evidenziato che corrispon
 
 Si noti che il risultato precedente contiene un messaggio di errore con prefisso e suffisso.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

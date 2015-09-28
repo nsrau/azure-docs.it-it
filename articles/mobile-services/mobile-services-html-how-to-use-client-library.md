@@ -16,7 +16,6 @@
 	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
-
 # Come usare un client HTML/JavaScript per Servizi mobili di Azure
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
@@ -367,7 +366,7 @@ In un'app di Windows Store, i risultati di una query possono essere utilizzati p
 
 ##<a name="#custom-api"></a>Procedura: Chiamare un'API personalizzata
 
-Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON. Per un esempio completo, incluse informazioni per creare un'API personalizzata nel servizio mobile, vedere [Chiamata di un'API personalizzata dal client].
+Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON. Per un esempio di come creare un'API personalizzata nel servizio mobile, vedere [Procedura: definire un endpoint API personalizzato](mobile-services-dotnet-backend-define-custom-api.md).
 
 È possibile chiamare un'API personalizzata dal client chiamando il metodo [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) su **MobileServiceClient**. Ad esempio, la riga di codice seguente invia una richiesta POST all'API **completeAll** sul Servizio mobile:
 
@@ -605,7 +604,7 @@ Per controllare quali siti Web possono interagire con il servizio mobile e invia
 [Autenticare un'app con Single-Sign-On]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [riferimento alle opzioni di query del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Chiamata di un'API personalizzata dal client]: mobile-services-html-call-custom-api.md
+[Call a custom API from the client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

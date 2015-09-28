@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/10/2015"
 	ms.author="mmercuri"/>
 
 # Condivisione dello stato in modelli di Gestione risorse di Azure
@@ -32,52 +32,54 @@ Con gli oggetti complessi, è possibile creare variabili che contengono insiemi 
 
 Il seguente esempio mostra come definire variabili contenenti oggetti complessi per rappresentare raccolte di dati. Le raccolte definiscono i valori usati per le dimensioni della macchina virtuale, le impostazioni di rete, le impostazioni del sistema operativo e le impostazioni di disponibilità.
 
-    "tshirtSizeLarge": {
-      "vmSize": "Standard_A4",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-      "vmCount": 3,
-      "slaveCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1,1],
-        "jumpbox": 0
-      }
-    },
-    "osSettings": {
-      "scripts": [
-        "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
-        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
-      ],
-      "imageReference": {
-				"publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "14.04.2-LTS",
-        "version": "latest"
-      }
-    },
-    "networkSettings": {
-      "vnetName": "[parameters('virtualNetworkName')]",
-      "addressPrefix": "10.0.0.0/16",
-      "subnets": {
-        "dmz": {
-          "name": "dmz",
-          "prefix": "10.0.0.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        },
-        "data": {
-          "name": "data",
-          "prefix": "10.0.1.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
+    "variables": {
+      "tshirtSizeLarge": {
+        "vmSize": "Standard_A4",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
+        "vmCount": 3,
+        "slaveCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 2,
+          "pool": "db",
+          "map": [0,1,1],
+          "jumpbox": 0
         }
+      },
+      "osSettings": {
+        "scripts": [
+          "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
+          "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
+        ],
+        "imageReference": {
+	  "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.2-LTS",
+          "version": "latest"
+        }
+      },
+      "networkSettings": {
+        "vnetName": "[parameters('virtualNetworkName')]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnets": {
+          "dmz": {
+            "name": "dmz",
+            "prefix": "10.0.0.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          },
+          "data": {
+            "name": "data",
+            "prefix": "10.0.1.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          }
+        }
+      },
+      "availabilitySetSettings": {
+        "name": "pgsqlAvailabilitySet",
+        "fdCount": 3,
+        "udCount": 5
       }
-    },
-    "availabilitySetSettings": {
-      "name": "pgsqlAvailabilitySet",
-      "fdCount": 3,
-      "udCount": 5
     }
 
 È possibile fare riferimento a queste variabili in un secondo momento nel modello. La possibilità di fare riferimento a variabili denominate e alle relative proprietà semplifica la sintassi del modello e semplifica la comprensione del contesto. Il seguente esempio definisce una risorsa da distribuire usando gli oggetti indicati sopra per impostare i valori. Ad esempio, si noti che le dimensioni della VM vengono impostate recuperando il valore di `variables('tshirtSize').vmSize`, mentre il valore delle dimensioni del disco viene recuperato da `variables('tshirtSize').diskSize`. Inoltre, l'URI di un modello collegato viene impostato con il valore di `variables('tshirtSize').vmTemplate`.
@@ -387,4 +389,4 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
 - [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

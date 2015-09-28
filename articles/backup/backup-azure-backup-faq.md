@@ -1,13 +1,13 @@
 <properties
    pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
-	description="Domande frequenti sul servizio Backup di Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Domande frequenti sul servizio Backup di Azure"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Backup di Azure - Domande frequenti
 Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per altre domande su Backup di Azure, visitare il [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e inviare una domanda. Un membro dalla community fornirà supporto agli utenti per individuare le risposte. Se una domanda viene posta più volte, verrà aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -40,7 +40,7 @@ Di seguito è riportato un elenco di domande frequenti su Backup di Azure. Per a
 
 **D6. È necessario considerare l'insieme di credenziali come un'entità di fatturazione?** <br/> R6. Sebbene sia possibile ottenere una fattura dettagliata per ogni insieme di credenziali, è consigliabile considerare una sottoscrizione di Azure come un'entità di fatturazione. È infatti coerente in tutti i servizi ed è più facile da gestire.
 
-**D7. Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali?** <br/> R7. Sì, è possibile registrare fino a 50 computer per ogni insieme di credenziali. Se è necessario registrare più computer, creare un nuovo insieme di credenziali.
+**D7. Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali?** <br/> R7. Sì, è possibile registrare fino a 50 computer per ogni insieme di credenziali. Per le macchine virtuali IaaS di Azure, il limite è di 100 macchine virtuali per ogni insieme di credenziali. Se è necessario registrare più computer, creare un nuovo insieme di credenziali.
 
 **D8. Esistono limiti alla quantità di dati di cui è possibile eseguire il backup da un server/client Windows o da un server SCDPM?** <br/> R8. No.
 
@@ -114,7 +114,7 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 |Microsoft Exchange|Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup|
 |Stato del sistema/ripristino bare metal|Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup|
 
-**D2. Esistono limiti al numero di backup giornalieri che è possibile pianificare?**<br/> R2. Sì, Backup di Azure consente di eseguire 3 copie di backup al giorno tramite un server o client Windows e 2 copie di backup al giorno tramite SCDPM.
+**D2. Esistono limiti al numero di backup giornalieri che è possibile pianificare?**<br/> R2. Sì, Backup di Azure consente di eseguire 3 copie di backup al giorno tramite un server o client Windows, 2 copie di backup al giorno tramite SCDPM e un backup al giorno per le macchine virtuali IaaS.
 
 **D3. Esistono differenze tra i criteri di pianificazione del backup di DPM e di Backup di Azure (ad esempio, in Windows Server senza DPM)?** <br/> R3. Sì. Tramite DPM è possibile specificare la pianificazione giornaliera, settimanale, mensile e annuale, mentre da Windows Server (senza DPM) è possibile specificare solo pianificazioni giornaliere e settimanali.
 
@@ -132,13 +132,9 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 **D9. Se ogni punto di ripristino si comporta come un punto completo, questo influisce sul totale dell'archiviazione di backup fatturabile?**<br/> R9. I punti di conservazione tipici a lungo termine archiviano i dati di backup come punti completi. Queste soluzioni sono inefficienti dal punto di vista dell'archiviazione ma consentono un ripristino più facile e veloce. Le copie incrementali sono efficienti dal punto di vista dell'archiviazione ma richiedono il ripristino una catena di dati che influisce sui tempi di ripristino. L'architettura di archiviazione di Backup di Azure offre il meglio dei due mondi, garantendo un'archiviazione dei dati ottimale per ripristini veloci e costi di archiviazione ridotti. Questo approccio assicura che la larghezza di banda (in entrata e in uscita) venga usata in modo efficiente e che l'archiviazione e il tempo di ripristino siano ridotti al minimo.
 
-**D10. Esiste un limite al numero di punti di ripristino che è possibile creare?**<br/> R10. A partire da aprile 2015, è possibile creare fino a 366 punti di ripristino. È possibile usare qualsiasi permutazione per arrivare a un numero inferiore a 366. Ad esempio, il totale dei punti di conservazione nell'immagine seguente è 354. <br/>
+**D10. Esiste un limite al numero di punti di ripristino che è possibile creare?**<br/> R10. No. Sono stati eliminati i limiti nei punti di ripristino. È possibile creare tutti i punti di ripristino che si desidera.
 
-![Schermata di conservazione](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**D11. Quando Microsoft aumenterà il limite massimo di 366 punti di conservazione, sarà necessario aggiornare l'agente o eseguire il reseeding del backup iniziale?** <br/> R11. No. Dopo che sarà stata eseguita la modifica nel servizio, si riceverà una notifica mediante i canali di social media come i blog, gli annunci di Azure, il portale e così via. In base alle esigenze, sarà necessario solo modificare i criteri di conservazione.
-
-**D12. Perché la quantità di dati trasferiti nel backup non equivale alla quantità di dati sottoposti a backup?**<br/> R12. Tutti i dati sottoposti a backup vengono compressi e crittografati prima di essere trasferiti. In base al tipo di dati sottoposti a backup, l'ottimizzazione di compressione sarà presumibilmente del 30-40%.
+**D11. Perché la quantità di dati trasferiti nel backup non equivale alla quantità di dati sottoposti a backup?**<br/> R11. Tutti i dati sottoposti a backup vengono compressi e crittografati prima di essere trasferiti. In base al tipo di dati sottoposti a backup, l'ottimizzazione di compressione sarà presumibilmente del 30-40%.
 
 ## Ripristino
 **D1. Quanti ripristini è possibile eseguire sui dati sottoposti a backup in Azure?**<br/> R1. Non esistono limiti al numero di ripristini da Backup di Azure.
@@ -169,8 +165,8 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 	| Percorso del Registro | Chiave del Registro | Valore |
 	| ------ | ------- | ------ |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nuova posizione della cartella della cache</i> |
 
 
 + Avviare OBEngine eseguendo il seguente comando in un prompt dei comandi con privilegi elevati:
@@ -179,4 +175,4 @@ La modalità di misurazione delle dimensioni dell'origine dati è indicata di se
 
 Una volta che i backup funzionano correttamente con il nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

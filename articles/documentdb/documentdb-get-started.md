@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Introduzione a DocumentDB .NET SDK | Microsoft Azure"
-	description="Informazioni su come creare e configurare un account DocumentDB, creare database, creare raccolte e archiviare documenti JSON nell'account del database di documenti NoSQL."
+	pageTitle="Database NoSQL - iniziare a utilizzare il SDK di .NET DocumentDB | Microsoft Azure"
+	description="Informazioni su come creare un database e configurare un account Azure DocumentDB. Creare database, raccolte e archiviare documenti JSON all'interno dell'account di database NoSQL."
+	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -480,4 +481,4 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio 2013, fare
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

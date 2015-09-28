@@ -1,19 +1,19 @@
 <properties
    pageTitle="Percorsi di ExpressRoute | Microsoft Azure"
-	description="Questo articolo fornisce una panoramica dettagliata delle località in cui vengono offerti i servizi e informazioni su come connettersi alle aree di Azure."
-	services="expressroute"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Questo articolo fornisce una panoramica dettagliata delle località in cui vengono offerti i servizi e informazioni su come connettersi alle aree di Azure."
+   services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="tysonn" />
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="cherylmc" />
 
 # Partner e località di peering per Azure ExpressRoute
 Le tabelle in questo articolo includono informazioni su provider di connettività ExpressRoute (di Exchange e di servizi di rete), copertura geografica di ExpressRoute, servizi cloud Microsoft supportati tramite ExpressRoute e integratori di sistemi ExpressRoute.
@@ -77,7 +77,7 @@ Per i passaggi di configurazione della connessione, vedere [Configurare una conn
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Non supportato | Singapore |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Imminente | Amsterdam, Chennai+, Hong Kong, Londra, Mumbai+, Singapore |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Non supportato | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supportato | Non supportato | Londra, Hong Kong, Silicon Valley, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supportato | Imminente | Londra, Hong Kong, Silicon Valley, Washington DC |
 
  **+** indica disponibile a breve
 
@@ -115,4 +115,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per informazioni sulla configurazione di una connessione ExpressRoute, vedere [Configurare una connessione ExpressRoute mediante un provider di Exchange](expressroute-configuring-exps.md) o [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md).
 - Per configurare sia una connessione da sito a sito VPN sia una connessione ExpressRoute sulla stessa rete virtuale, vedere [Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti](expressroute-coexist.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

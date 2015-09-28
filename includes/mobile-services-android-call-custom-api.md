@@ -1,5 +1,5 @@
 
-##<a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
+###<a name="update-app"></a>Aggiornare l'app per chiamare l'API personalizzata
 
 1. Verrà aggiunto un pulsante denominato "Complete All" accanto al pulsante esistente ed entrambi i pulsanti verranno spostati di una riga verso il basso. In Android Studio aprire il file *res\\layout\\activity\_to\_do.xml* nel progetto di guida introduttiva e individuare l'elemento **LinearLayout** che contiene l'elemento **Button** denominato `buttonAddToDo`. Copiare l'elemento **LinearLayout** e incollarlo immediatamente dopo l'originale. Eliminare l'elemento **Button** dal primo elemento **LinearLayout**.
 
@@ -95,7 +95,7 @@
 	
 	Questo metodo gestisce l'evento **Click** per il nuovo pulsante. Nel client viene chiamato il metodo **invokeApi**, che invia una richiesta POST alla nuova API personalizzata. Il risultato restituito dall'API personalizzata viene visualizzato in una finestra di dialogo con messaggio, insieme a eventuali errori.
 
-## Testare l'app
+### Testare l'app
 
 1. Nel menu **Run** scegliere **Run app** per avviare il progetto nell'emulatore di Android o in un dispositivo Android connesso.
 
@@ -112,4 +112,4 @@
 
 	Verrà visualizzata una finestra di dialogo con messaggio indicante il numero di elementi contrassegnati come completati, quindi la query filtrata verrà eseguita di nuovo cancellando tutti gli elementi dall'elenco.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

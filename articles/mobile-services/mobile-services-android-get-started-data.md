@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere Servizi mobili a un'app esistente (back-end JavaScript)
@@ -156,4 +156,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

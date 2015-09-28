@@ -1,24 +1,27 @@
 <properties
 	pageTitle="Configurazione avanzata ed estensioni dell'app Web di Servizio app di Azure"
-	description="Utilizzare le dichiarazioni XMDT (XML Document Transformation) per trasformare il file ApplicationHost.config nell'app Web di Servizio Web di Azure e per aggiungere estensioni provate per abilitare azioni di amministrazione personalizzate.&quot;"
+	description="Utilizzare le dichiarazioni XMDT (XML Document Transformation) per trasformare il file ApplicationHost.config nell'app Web di Servizio Web di Azure e per aggiungere estensioni provate per abilitare azioni di amministrazione personalizzate.";"
 	authors="cephalin"
+	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Configurazione avanzata ed estensioni dell'app Web di Servizio app di Azure
 
 Le dichiarazioni XDT [(XML Document Transformation)](http://msdn.microsoft.com/library/dd465326.aspx) consentono di trasformare il file [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) in app Web in Servizio app di Azure. È inoltre possibile usare le dichiarazioni XDT per aggiungere estensioni private in modo da consentire azioni di amministrazione personalizzate nell'app Web. In questo articolo è disponibile un'estensione dell'app PHP Manager di esempio, che consente la gestione di impostazioni PHP mediante un'interfaccia Web.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="transform"></a>Configurazione avanzata tramite ApplicationHost.config
 La piattaforma Servizio app offre flessibilità e controllo per la configurazione dell'app Web. Benché il file di configurazione standard ApplicationHost.config di IIS non sia disponibile per la modifica diretta in Servizio app, la piattaforma supporta un modello di trasformazione dichiarativo di ApplicationHost.config basato su dichiarazioni XDT (XML Document Transformation).
@@ -179,4 +182,4 @@ Si noti che l'aspetto dell'URL è uguale a quello dell'URL dell'app Web, ad ecce
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

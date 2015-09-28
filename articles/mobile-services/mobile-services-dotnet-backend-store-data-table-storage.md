@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare un servizio che usa l'archiviazione tabelle invece di un database SQL | Microsoft Azure" 
+	pageTitle="Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle | Servizi mobili di Azure" 
 	description="Informazioni su come usare l'archiviazione tabelle di Azure con il servizio mobile back-end .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle invece di un database SQL
+# Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle
 
 Questo argomento illustra come usare un archivio dati non relazionale per il servizio mobile back-end .NET. In questa esercitazione verrà modificato il progetto introduttivo dei Servizi mobili di Azure, in modo da usare l'archiviazione tabelle di Azure invece dell'archivio dati predefinito del database SQL di Azure.
 
@@ -158,4 +158,4 @@ Vista la semplicità dell'uso dell'archiviazione tabelle con il back-end .NET, �
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/15/2015"
 	ms.author="klam"/>
 
 # Uso dei modelli di app per la logica
 
 I modelli di app per la logica sono un insieme di app per la logica predefinite e accuratamente progettate che consentono agli utenti di sviluppare rapidamente la propria applicazione di integrazione.
 
-Questi modelli mostrano come usare alcuni dei numerosi connettori disponibili sul mercato. Costituiscono inoltre un ottimo modo per individuare diversi modelli che è possibile realizzare usando app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico. Per iniziare a usare i modelli di app per la logica, aprire Marketplace e selezionare Logic Apps. Scegliere uno dei modelli disponibili.
+Questi modelli mostrano come usare alcuni dei numerosi connettori disponibili sul mercato. Costituiscono inoltre un ottimo modo per individuare diversi modelli che è possibile realizzare usando app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico. Per iniziare a utilizzare un modello di applicazione per la logica passare al Marketplace, cercare "Modello di applicazione per la logica" e scegliere uno dei modelli dall'elenco curata o selezionare “Trigger e azioni” quando viene creata una nuova applicazione per la logica e scegliere tra il set di modelli nella finestra di progettazione.
 
 ### Modelli SaaS e cloud
 Si tratta di esempi di modalità di integrazione tra diversi connettori SaaS. Sono disponibili vari esempi di integrazione di Salesforce, Box, SharePoint e altri servizi.
@@ -40,4 +40,4 @@ Vengono forniti semplici modelli che si integrano con le applicazioni di social 
 Dopo aver selezionato uno dei modelli, completare la distribuzione. La procedura è analoga a quella per la distribuzione di una app per la logica creata dall'utente. Vedere [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

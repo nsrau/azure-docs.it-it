@@ -8,12 +8,12 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # Eseguire attività in background con processi Web
@@ -25,6 +25,8 @@
 Nell'articolo viene descritto come distribuire Processi Web utilizzando il [Portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Per informazioni sulla distribuzione mediante Visual Studio o un processo di distribuzione continua, vedere [Come distribuire Processi Web di Azure nelle App Web](websites-dotnet-deploy-webjobs.md).
 
 Azure WebJobs SDK semplifica molte attività di programmazione dei processi Web. Per ulteriori informazioni, vedere [Definizione dell'SDK di Processi Web](websites-dotnet-webjobs-sdk.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Tipi di file consentiti per script e programmi
 
@@ -209,4 +211,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

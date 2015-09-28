@@ -3,7 +3,7 @@
 	description="Informazioni su come configurare gli endpoint nel portale per consentire la comunicazione con una macchina virtuale in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Come configurare gli endpoint a una macchina virtuale
 
@@ -96,4 +96,4 @@ Per usare un cmdlet di Azure PowerShell per impostare questa funzionalità, vede
 
 [Bilanciamento del carico per i servizi di infrastruttura di Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

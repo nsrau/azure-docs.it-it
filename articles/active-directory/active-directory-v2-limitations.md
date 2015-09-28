@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modello app 2.0 | Microsoft Azure"
+	pageTitle="Limitazioni e restrizioni di Modello app v2.0 | Microsoft Azure"
 	description="Elenco di limitazioni e restrizioni in Modello app 2.0 di Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Modello app 2.0: Limitazioni e restrizioni
@@ -85,4 +85,4 @@ Modello app 2.0 supporta i protocolli Open ID Connect e OAuth 2.0. Tuttavia, non
 
 Per comprendere meglio l'ambito della funzionalità del protocollo supportata in Modello app 2.0, leggere il [riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

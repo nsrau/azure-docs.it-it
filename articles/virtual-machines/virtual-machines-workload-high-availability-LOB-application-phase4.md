@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Applicazione line-of-business fase 4 | Microsoft Azure"
-	description="Creare i server Web e caricare l'applicazione line-of-business nella fase 4 dell'applicazione line-of-business di Azure."
+	pageTitle="Applicazione line-of-business fase 4 | Microsoft Azure" 
+	description="Creare i server Web e caricare l'applicazione line-of-business nella fase 4 dell'applicazione line-of-business di Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 4: Configurare i server Web
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
 
 In questa fase della distribuzione di un'applicazione line-of-business a disponibilità elevata in servizi di infrastruttura di Azure vengono creati i server Web in cui caricare l'applicazione line-of-business.
 
@@ -34,7 +36,7 @@ Innanzitutto, è necessario configurare il bilanciamento del carico interno in m
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-Se il campo **IsAvailable** nella visualizzazione del comando Test-AzureStaticVNetIP è **True**, è possibile usare l'indirizzo IP.
+Se il campo **IsAvailable** nella visualizzazione del comando Test-AzureStaticVNetIP è **True**, è possibile utilizzare l'indirizzo IP.
 
 Per tornare alla modalità Gestione risorse di PowerShell, usare questo comando.
 
@@ -116,6 +118,8 @@ Dopo aver specificato tutti i valori appropriati, eseguire il blocco risultante 
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]Poiché queste macchine virtuali sono per un'applicazione intranet, non sono assegnate a un indirizzo IP pubblico o a un'etichetta di nome di dominio DNS ed esposti in Internet. Tuttavia, questo significa anche che non è possibile connettersi a esse dal portale di anteprima di Azure. Il pulsante **Connetti** non è disponibile quando si visualizzano le proprietà della macchina virtuale.
+
 Usare il client desktop remoto preferito e creare una connessione Desktop remoto a ogni macchina virtuale del server Web. Usare il nome computer o il nome DNS della Intranet e le credenziali dell'account amministratore locale.
 
 A questo punto, aggiungere ogni macchina virtuale del server Web al dominio di Active Directory appropriato usando i comandi seguenti al prompt di Windows PowerShell.
@@ -131,7 +135,7 @@ Dopo il riavvio per riconnettersi alle macchine virtuali usare un account con pr
 A questo punto, installare e configurare IIS per ogni server Web.
 
 1. Eseguire Server Manager, quindi fare clic su **Aggiungi ruoli e funzionalità**.
-2. Nella pagina Prima di iniziare fare clic su **Avanti**.
+2. Nella pagina Prima di iniziare, fare clic su **Avanti**.
 3. Nella pagina Selezione tipo di installazione fare clic su **Avanti**.
 4. Nella pagina Selezione server di destinazione fare clic su **Avanti**.
 5. Nella pagina Ruoli server fare clic su **Server Web (IIS)** nell'elenco **Ruoli**.
@@ -168,4 +172,4 @@ Per continuare con la configurazione di questo carico di lavoro, passare a [Fase
 
 [Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

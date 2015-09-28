@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Ambiente di prova di Office 365 DirSync | Microsoft Azure"
-	description="Informazioni su come configurare un server di sincronizzazione delle directory di Office 365 (DirSync) in un cloud ibrido per IT pro o test di sviluppo."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Ambiente di prova di Office 365 DirSync | Microsoft Azure" 
+	description="Informazioni su come configurare un server di sincronizzazione delle directory di Office 365 (DirSync) in un cloud ibrido per IT pro o test di sviluppo." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # Configurazione della sincronizzazione della directory (DirSync) di Office 365 in un cloud ibrido per l'esecuzione di test
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 I passaggi in questo argomento illustrano la creazione di un ambiente di cloud ibrido per il test della sincronizzazione delle directory di Office 365 (DirSync) con sincronizzazione della password ospitata in Microsoft Azure. Di seguito è riportata la configurazione risultante.
 
@@ -65,7 +67,7 @@ Quindi, iscriversi per ottenere una nuova versione di valutazione di Office 365 
 1.	Accedere a CLIENT1 con le credenziali dell'account CORP\\User1.
 2.	Aprire Internet Explorer e passare a ****http://fasttrack.office.com**.
 3.	Fare clic su **Introduzione a Fast Track**.
-4.	Nella pagina introduttiva di FastTrack, sotto **Innanzitutto, iscriviti per ottenere una versione di prova di Office 365**, fare clic su **Per le aziende, cliccare qui per l’iscrizione**.
+4.	Nella pagina introduttiva di FastTrack, sotto **Innanzitutto, iscriviti per ottenere una versione di prova di Office 365**, fare clic su **Per le aziende, fare clic qui per l’iscrizione**.
 5.	Nella pagina Passaggio 1, compilare i campi specificando il nuovo account Microsoft in **Indirizzo e-mail aziendale**, quindi fare clic su **Avanti**.
 6.	Nella pagina Step 2, digitare il nome di un account Office 365 iniziale nel primo campo, il nome della società fittizia, quindi una password. Annotare l'indirizzo di posta elettronica risultante (ad esempio user123@contoso123.onmicrosoft.com) e la password in un luogo sicuro. Queste informazioni saranno necessarie per completare la configurazione guidata dello strumento di sincronizzazione di Active Directory nella fase 3. Fare clic su **Avanti**.
 7.	Nella pagina Passaggio 3, digitare il numero di telefono di un cellulare o di uno smartphone in grado di ricevere SMS e quindi fare clic su **Invia messaggio al mio numero**.
@@ -82,13 +84,13 @@ Questa è la configurazione corrente.
 Innanzitutto, creare una macchina virtuale di Azure per DS1 con questi comandi al prompt dei comandi di Azure PowerShell nel computer locale. Per usare questi comandi, inserire i valori delle variabili e rimuovere i caratteri < and >.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for DS1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential â€“Message "Type the name and password of the local administrator account for DS1."
+	$cred2=Get-Credential â€“UserName "CORP\User1" â€“Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Successivamente, connettersi alla macchina virtuale DS1.
 
@@ -124,8 +126,8 @@ Successivamente, installare Directory Sync in DS1.
 
 Successivamente, abilitare la sincronizzazione delle directory per la versione di valutazione di Office 365 FastTrack.
 
-1.	In CLIENT1 sulla pagina **Centro di amministrazione di Office 365** nel riquadro sinistro fare clic su **Utenti**, quindi fare clic su **Utenti attivi**.
-2.	Per **Sincronizzazione di Active Directory**, fare clic su **Configura**.
+1.	In CLIENT1 nella pagina **Centro di amministrazione di Office 365** nel riquadro sinistro fare clic su **Utenti**, quindi fare clic su **Utenti attivi**.
+2.	Per la **Sincronizzazione di Active Directory**, fare clic su **Configura**.
 3.	Nella pagina Impostazione e gestione della sincronizzazione di Active Directory, al passaggio 3, fare clic su **Attiva**.
 4.	Quando viene visualizzato il messaggio **Attivare la sincronizzazione di Active Directory?**, fare clic su **Attiva**. Al termine, viene visualizzato il messaggio **Sincronizzazione di Active Directory attivata** al passaggio 3.
 5.	Lasciare la pagina **Impostazione e gestione della sincronizzazione di Active Directory** aperta in CLIENT1.
@@ -197,4 +199,4 @@ Questo ambiente è ora pronto per eseguire il test delle applicazioni di Office 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

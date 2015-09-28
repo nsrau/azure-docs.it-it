@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Failover e ripristino di emergenza per StorSimple | Microsoft Azure"
-	description="Informazioni su come eseguire il failover del dispositivo StorSimple su se stesso, su un altro dispositivo fisico o su un dispositivo virtuale."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="Informazioni su come eseguire il failover del dispositivo StorSimple su se stesso, su un altro dispositivo fisico o su un dispositivo virtuale."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
 
@@ -129,11 +129,16 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 	
 	b. Andare alla pagina **Contenitori di volumi**. Dovrebbero essere elencati tutti i contenitori di volumi, insieme ai volumi del dispositivo precedente.
 
+![Video disponibile](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+
 ## Ripristino di emergenza di continuità aziendale (BCDR)
 
 Uno scenario di ripristino di emergenza di continuità aziendale (BCDR) si verifica quando l'intero data center di Azure smette di funzionare. Può influire sul servizio StorSimple Manager e sui dispositivi StorSimple associati.
 
 Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un problema grave, per questi dispositivi StorSimple potrebbe essere necessario eseguire una reimpostazione di fabbrica. Dopo l'emergenza, il dispositivo StorSimple verrà visualizzato come offline. Il dispositivo StorSimple deve essere eliminato dal portale e deve essere eseguita una reimpostazione di fabbrica, seguita da una registrazione aggiornata.
+
 
 ## Passaggi successivi
 
@@ -142,7 +147,7 @@ Dopo aver eseguito il failover, potrebbe essere necessario:
 - [Disattivare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Eliminare il dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Per informazioni su come gestire il dispositivo tramite il servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

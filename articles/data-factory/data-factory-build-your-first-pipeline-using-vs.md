@@ -84,7 +84,7 @@ Si creerà ora un servizio collegato per il cluster HDInsight su richiesta che s
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "AzureStorageLinkedService1"
 		    }
 		  }
@@ -237,4 +237,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md) richiede solo alcuni minuti.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

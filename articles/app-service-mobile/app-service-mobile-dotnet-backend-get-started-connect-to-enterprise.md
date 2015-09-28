@@ -26,6 +26,8 @@ Per completare questa esercitazione, è necessario disporre di:
 * Disporre di una sottoscrizione attiva a [SharePoint Online]
 * Aver completato l'esercitazione [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]. Usare il tenant fornito dalla sottoscrizione a SharePoint.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## <a name="configure-permissions"></a>Configurare l'applicazione per l'accesso delegato a SharePoint
 Per impostazione predefinita, il token ricevuto da AAD dispone di autorizzazioni limitate. Per poter accedere a una risorsa di terze parti o a un'applicazione SaaS come SharePoint Online, è necessario consentirlo in modo esplicito.
 
@@ -51,7 +53,7 @@ Per poter effettuare una chiamata a SharePoint, è necessario specificare gli en
 
 * Impostare SP\_ClientSecret specificando il valore del segreto client ottenuto in precedenza.
 
-* Impostare SP\_SharePointURL specificando l'URL del sito di SharePoint ed è espresso nel formato `https://contoso-my.sharepoint.com`
+* Impostare SP\_SharePointURL specificando l'URL del sito di SharePoint che deve essere espresso nel formato `https://contoso-my.sharepoint.com`
 
 A questo punto sarà possibile ottenere di nuovo i valori nel codice usando ApiServices.Settings.
 
@@ -186,4 +188,4 @@ Per creare un documento di Word, verrà usato il pacchetto NuGet OpenXML. Per in
 [Autenticare l'app tramite il Single Sign-On di Active Directory Authentication Library]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [estensione del servizio app back-end .NET per app per dispositivi mobili]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

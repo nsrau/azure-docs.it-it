@@ -1,11 +1,12 @@
 <properties
    pageTitle="Creare una rete virtuale con una connessione VPN da sito a sito nel portale di Azure | Microsoft Azure"
-   description="Creare una rete virtuale con una connessione VPN Site-to-Site per configurazioni cross-premise e ibride."
+   description="Creare una rete virtuale con una connessione VPN Site-to-Site per configurazioni cross-premise e ibride tramite il modello di distribuzione classico."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
    manager="carolz"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,27 +14,29 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
+   ms.date="09/10/2015"
    ms.author="cherylmc"/>
 
 # Creare una rete virtuale con una connessione VPN da sito a sito nel portale di Azure
 
 > [AZURE.SELECTOR]
 - [Azure portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Azure Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-In questo argomento verrà illustrata la creazione di una rete virtuale classica e una connessione VPN da sito a sito alla rete locale.
+In questo argomento verrà illustrata la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale. Questo articolo si applica al modello di distribuzione classica.
 
-Azure dispone attualmente di due modelli di distribuzione: il modello di distribuzione classico e il modello di distribuzione di gestione risorse di Azure. I passaggi di configurazione sono diversi, a seconda del modello utilizzato per distribuire la rete virtuale.
+>[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione Azure](../azure-classic-rm.md).
 
-Queste istruzioni si applicano al modello di distribuzione classica. Se invece si desidera creare una connessione gateway VPN da sito a sito utilizzando il modello di gestione risorse di Azure, vedere[creare una connessione VPN da sito a sito utilizzando Gestione risorse di Azure e PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+È possibile selezionare l'articolo per il modello di distribuzione e lo strumento di distribuzione utilizzando le schede sopra riportate. Per esempio, se si desidera creare una connessione gateway VPN da sito a sito utilizzando il modello di gestione risorse di Azure invece del modello classico, fare clic sulla scheda **Gestione risorse di PowerShell** (sopra) per vedere [Creare una connessione VPN da sito a sito utilizzando Gestione risorse di Azure e PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-
+ 
 ## Prima di iniziare
 
-- Verificare che il dispositivo VPN che si desidera usare soddisfi i requisiti necessari per la creazione di una connessione di rete virtuale cross-premise. Per altre informazioni, vedere [Informazioni sui dispositivi VNP per le connessioni di rete virtuale](vpn-gateway-about-vpn-devices.md).
+Prima di iniziare la configurazione, verificare che ci siano le condizioni seguenti:
 
-- Ottenere un IP IPv4 accessibile pubblicamente per il dispositivo VPN. Tale indirizzo IP è necessario per una configurazione Site-to-Site e viene usato per il dispositivo VPN, che non può trovarsi dietro un dispositivo NAT.
+- Un dispositivo VPN compatibile e un utente che sia in grado di configurarlo. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md).
+- Un indirizzo IP pubblico esterno per il dispositivo VPN. L’indirizzo IP non può trovarsi dietro un NAT.
+- Una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 >[AZURE.IMPORTANT]Se non si ha familiarità con la configurazione del dispositivo VPN o non si conoscono gli intervalli di indirizzi IP che si trovano nella configurazione della rete locale, è necessario rivolgersi a un esperto in grado di fornire le informazioni necessarie.
 
@@ -80,7 +83,7 @@ Immettere le informazioni seguenti e quindi fare clic sul segno di spunta in bas
 - **Aggiungi subnet**: includono indirizzo IP iniziale e conteggio indirizzi. Non sono necessarie altre subnet, ma è possibile creare una subnet separata per le macchine virtuali che avranno DIP statici. In alternativa, è possibile collocare le macchine virtuali in una subnet separata dalle istanze del ruolo.
 - **Aggiungi subnet gateway**: fare clic per aggiungere la subnet del gateway. La subnet del gateway viene usata solo per il gateway di rete virtuale ed è obbligatoria per la configurazione.
 
-Fare clic sul segno di spunta nella parte inferiore della pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, in **Status** verrà visualizzato **Creato** nella pagina relativa alle **Reti** del portale di Azure. Dopo aver creato la rete virtuale, è quindi possibile configurare il gateway di rete virtuale.
+Fare clic sul segno di spunta nella parte inferiore della pagina per iniziare a creare la rete virtuale. Al termine della creazione della rete virtuale, verrà visualizzato **Creato**in **Stato** nella pagina relativa alle **Reti** del portale di Azure. Dopo aver creato la rete virtuale, è quindi possibile configurare il gateway di rete virtuale.
 
 ## Configurare il gateway di rete virtuale
 
@@ -90,12 +93,10 @@ Configurare quindi il gateway di rete virtuale per creare una connessione da sit
 
 Per altre informazioni sulla connettività cross-premise di rete virtuale, vedere l'articolo [Informazioni sulla connettività cross-premise protetta della rete virtuale](vpn-gateway-cross-premises-options.md).
 
-Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo relativo alla [configurazione di una connessione VPN Point-to-Site](vpn-gateway-point-to-site-create.md).
+Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo relativo alla [Configurazione di una connessione VPN Point-to-Site](vpn-gateway-point-to-site-create.md).
 
 È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
 
-Se si vuole configurare una connessione di rete virtuale con RRAS, vedere [Configurare una VPN da sito a sito mediante RRAS (Routing and Remote Access Service, servizio Routing e accesso remoto) di Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
+Se si desidera configurare una connessione tra la rete virtuale classica e una rete virtuale creata utilizzando la modalità di gestione risorse di Azure, vedere [Connessione di reti virtuali classiche a reti virtuali di Gestione risorse di Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-Se si desidera configurare una connessione tra la rete virtuale classica e una rete virtuale creata utilizzando la modalità di gestione risorse di Azure, vedere [connessione di reti virtuali classiche a reti virtuali di Gestione risorse di Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

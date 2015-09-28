@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Configurazione dei servizi necessari per pubblicare un servizio cloud da Visual Studio"
-	description="Informazioni sulle procedure per la configurazione di servizi cloud e dell'account di archiviazione e per la configurazione dell'applicazione Azure."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Informazioni sulle procedure per la configurazione di servizi cloud e dell'account di archiviazione e per la configurazione dell'applicazione Azure."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/08/2015"
+   ms.author="kempb" />
 
 # Configurazione dei servizi necessari per pubblicare un servizio cloud da Visual Studio
 
-##Panoramica
+## Panoramica
 
 Per potere pubblicare un progetto di servizio cloud, è prima di tutto necessario configurare i servizi seguenti:
 
@@ -80,7 +80,7 @@ Un account di archiviazione fornisce l'accesso ai servizi BLOB, code e tabelle. 
     - Area o set di affinità (ad esempio Stati Uniti occidentali o Asia orientale).
     - Tipo di replica da usare per l'account di archiviazione, ad esempio Con ridondanza geografica.
 
-1. Al termine dell'operazione, scegliere **Crea**. Il nuovo account di archiviazione viene visualizzato nell'elenco **Archiviazione** di Esplora server.
+1. Al termine dell'operazione scegliere **Crea**. Il nuovo account di archiviazione viene visualizzato nell'elenco **Archiviazione** in Esplora soluzioni.
 
 ### Per creare un account di archiviazione usando il portale di gestione di Azure
 
@@ -143,7 +143,7 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
     1. È necessario selezionare una delle opzioni seguenti per determinare le modalità di accesso del servizio all'account di archiviazione:
         - **Usa HTTP**. Si tratta dell'opzione standard. Ad esempio: `http://<account name>.blob.core.windows.net`.
         - Scegliere **Usa HTTPS** per una connessione sicura. Ad esempio: `https://<accountname>.blob.core.windows.net`.
-        - Scegliere **Specifica endpoint personalizzati** per ciascuno dei tre servizi. È quindi possibile digitare questi endpoint nel campo per il servizio specifico. 
+        - Scegliere **Specifica endpoint personalizzati** per ciascuno dei tre servizi. È quindi possibile digitare questi endpoint nel campo per il servizio specifico.
 
         >[AZURE.NOTE]Se si creano endpoint personalizzati, sarà possibile creare una stringa di connessione più complessa. Quando si usa questo formato stringa, è possibile specificare endpoint del servizio di archiviazione che includono un nome di dominio personalizzato registrato per l'account di archiviazione con il servizio BLOB. È anche possibile concedere l'accesso solo alle risorse BLOB in un singolo contenitore, tramite una firma di accesso condiviso. Per altre informazioni sulla creazione di endpoint personalizzati, vedere [Configurare le stringhe di connessione di archiviazione di Azure](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/).
 
@@ -153,4 +153,4 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
 
 [Pubblicazione in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

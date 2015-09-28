@@ -3,7 +3,7 @@
 	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Come collegare un disco dati a una macchina virtuale Windows
 
@@ -59,4 +59,4 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,3 @@
 Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud. È possibile controllare le impostazioni della rete di Azure network e definire blocchi di indirizzi DHCP, impostazioni DNS, criteri di sicurezza e routing. È anche possibile segmentare ulteriormente la propria rete virtuale in subnet e distribuire istanze del ruolo PaaS e delle macchine virtuali IaaS di Azure, nello stesso modo è possibile distribuire macchine fisiche e virtuali al data center locale. In pratica è possibile espandere la rete ad Azure, portando i propri blocchi di indirizzi IP. Leggere i [Cenni preliminari sulle reti virtuali](virtual-networks-overview.md) in caso di necessità.
 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di creare reti virtuali. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo.
-
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

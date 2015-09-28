@@ -11,17 +11,17 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="index-page"
+	ms.date="09/16/2015"
 	ms.author="josephd"/>
 
 # Ambienti di test basati su cloud ibrido
 
-Per sviluppo o a scopo di test, gli ambienti di test basati su cloud ibrida utilizzano la connessione a Internet locale e uno degli indirizzi IP pubblici e consentono un’impostazione semplice e dettagliata per l'impostazione di una funzione, rete virtuale di Azure di più sedi locali (VNet) cross-premise. Al termine, è possibile sviluppare ed effettuare il test di applicazioni, sperimentare con carichi di lavoro IT semplificati e misurare le prestazioni di una connessione di rete privata virtuale (VPN, Virtual Private Network) site-to-site relativa alla propria posizione su Internet.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
-> [AZURE.NOTE]Questi articoli attualmente creano macchine virtuali, reti virtuali e altre risorse nella gestione del servizio.
+Per sviluppo o a scopo di test, gli ambienti di test basati su cloud ibrida utilizzano la connessione a Internet locale e uno degli indirizzi IP pubblici e consentono un’impostazione semplice e dettagliata per l'impostazione di una funzione, rete virtuale di Azure di più sedi locali (VNet) cross-premise. Al termine, è possibile sviluppare ed effettuare il test di applicazioni, sperimentare con carichi di lavoro IT semplificati e misurare le prestazioni di una connessione di rete privata virtuale (VPN, Virtual Private Network) site-to-site relativa alla propria posizione su Internet.
 
 ## Configurazione di base del cloud ibrido
 
@@ -52,10 +52,10 @@ Per le organizzazioni e individui per cui una connessione diretta a Internet e l
 
 [Farm di SharePoint ospitate nei servizi di infrastruttura di Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Progetto di architettura applicativa line-of-business 3D in formato PDF](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
+[Carico di lavoro dei servizi di infrastruttura di Azure: applicazione line-of-business a disponibilità elevata](virtual-machines-workload-high-availability-LOB-application.md)
 
 [Distribuire la sincronizzazione delle directory di Office 365 (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
 [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

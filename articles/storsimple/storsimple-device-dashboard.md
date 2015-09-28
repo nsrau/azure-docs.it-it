@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Utilizzare il dashboard del dispositivo StorSimple Manager | Microsoft Azure"
-	description="Descrive il dashboard del dispositivo del servizio StorSimple Manager e come utilizzarlo per visualizzare le metriche di archiviazione, gli iniziatori connessi e individuare il numero di serie del dispositivo e l’IQN."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Descrive il dashboard del dispositivo del servizio StorSimple Manager e come utilizzarlo per visualizzare le metriche di archiviazione, gli iniziatori connessi e individuare il numero di serie del dispositivo e l’IQN."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Utilizzare il dashboard del dispositivo StorSimple Manager
 
@@ -97,6 +97,7 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 
 ## Passaggi successivi
 
-[Ulteriori informazioni sul dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
+- Ulteriori informazioni sul [dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

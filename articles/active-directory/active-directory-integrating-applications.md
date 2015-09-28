@@ -1,26 +1,29 @@
 <properties
    pageTitle="Integrazione di applicazioni con Azure Active Directory | Microsoft Azure"
-	description="Informazioni dettagliate su come aggiungere, aggiornare o rimuovere un'applicazione in Azure Active Directory (Azure AD)."
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Informazioni dettagliate su come aggiungere, aggiornare o rimuovere un'applicazione in Azure Active Directory (Azure AD)."
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin" />
 
 # Integrazione di applicazioni con Azure Active Directory
+
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 Gli sviluppatori aziendali e i provider SaaS possono sviluppare servizi cloud commerciali o applicazioni line-of-business che possono essere integrate con Azure Active Directory (Azure AD) per garantire la sicurezza dell'accesso e delle autorizzazioni per i servizi. Per integrare un'applicazione o un servizio con Azure AD, uno sviluppatore deve prima di tutto registrare i dettagli dell'applicazione con Azure AD mediante il portale di gestione di Azure.
 
 Questo articolo mostra come aggiungere, aggiornare o rimuovere un'applicazione in Azure AD. Vengono indicati i diversi tipi di applicazioni che possono essere integrate con Azure AD e vengono fornite le informazioni su come configurare le applicazioni per accedere ad altre risorse, come le API Web e altro ancora.
 
-Per altre informazioni sulle proprietà delle app, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md). Per conoscere le linee guida sulla personalizzazione da usare quando si sviluppano applicazioni con Azure Active Directory, vedere [Linee guida sulla personalizzazione per le app integrate](active-directory-branding-guidelines.md).
+Per altre informazioni sulle proprietà delle app, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md). Per conoscere le linee guida sulla personalizzazione da usare quando si sviluppano applicazioni con Azure Active Directory, vedere [Linee guida sulla personalizzazione per le app integrate](active-directory-branding-guidelines.md); i manifesti delle applicazioni vengono illustrate in [Informazioni sul manifesto dell’applicazione di Azure Active Directory](active-directory-application-manifest.md).
 
 ## Aggiunta di un'applicazione
 
@@ -106,7 +109,7 @@ Tramite il framework di consenso descritto nella sezione precedente, è possibil
 
 ### Esposizione di API Web ad altre applicazioni
 
-È possibile sviluppare un'API Web e renderla disponibile ad altre organizzazioni esponendo gli ambiti di autorizzazione ad altri sviluppatori di applicazioni. Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365. L'API Web viene resa disponibile configurando un manifesto dell'applicazione, ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione. Per esporre gli ambiti di autorizzazione, è possibile passare all'applicazione nel portale di gestione di Azure e fare clic sul pulsante Manifesto applicazione sulla barra dei comandi.
+È possibile sviluppare un'API Web e renderla disponibile ad altre organizzazioni esponendo gli ambiti di autorizzazione ad altri sviluppatori di applicazioni. Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365. L'API Web viene resa disponibile configurando un [manifesto dell'applicazione](active-directory-application-manifest.md), ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione. Per esporre gli ambiti di autorizzazione, è possibile passare all'applicazione nel portale di gestione di Azure e fare clic sul pulsante Manifesto applicazione sulla barra dei comandi. Per ulteriori informazioni, vedere [Informazioni sul manifesto dell'applicazione in Azure Active Directory](active-directory-application-manifest.md).
 
 #### Per esporre un'API Web ad altre applicazioni
 
@@ -215,13 +218,13 @@ In alternativa, l'applicazione Web può offrire anche un'esperienza che permette
 
 #### Abilitazione della concessione implicita OAuth 2.0 per le applicazioni a singola pagina
 
-Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione impostando il valore `oauth2AllowImplicitFlow`"' nel relativo manifesto dell'applicazione, ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione.
+Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione impostando il valore `oauth2AllowImplicitFlow`" nel relativo [manifesto dell'applicazione](active-directory-application-manifest.md), ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione.
 
 ##### Per abilitare la concessione implicita OAuth 2.0
 
 1. Accedere al portale di gestione di Azure.
-1. Fare clic sull'icona **Active Directory** nel menu a sinistra, quindi fare clic sulla directory desiderata.
-1. Scegliere **Applicazioni** dal menu in alto e quindi fare clic sull'applicazione che si desidera configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione.
+1. Scegliere l'icona **Active Directory** dal menu a sinistra, quindi fare clic sulla directory desiderata.
+1. Scegliere **Applicazioni** dal menu in alto e quindi fare clic sull'applicazione che si vuole configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione.
 1. Fare clic sul pulsante **Gestisci manifesto** sulla barra dei comandi e selezionare **Scarica manifesto**. Aprire il file manifesto JSON dell'applicazione e impostare il valore "oauth2AllowImplicitFlow" su "true". Per impostazione predefinita il valore è "false".
 
        "oauth2AllowImplicitFlow": true,
@@ -344,6 +347,8 @@ Un amministratore della società che vuole rimuovere l'accesso di un'app alla di
 
 - Informazioni su [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md)
 
+- Informazioni sul [manifesto dell'applicazione in Azure Active Directory](active-directory-application-manifest.md)
+
 - Vedere la [Guida per gli sviluppatori di Active Directory](active-directory-developer's guide.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

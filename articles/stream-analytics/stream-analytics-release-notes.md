@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di Analisi di flusso Microsoft
@@ -24,7 +24,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 Titolo|Descrizione
 ---|---
-Supporto per i gruppi PowerBI|Per abilitare la condivisione dei dati con altri utenti di Power BI, i processi di analisi Stream ora possono scrivere ai gruppi all'interno di account di Power BI.
+Supporto per i gruppi PowerBI|Per abilitare la condivisione dei dati con altri utenti di Power BI, i processi di analisi di flusso ora possono scrivere ai [gruppi PowerBI](stream-analytics-define-outputs.md#power-bi)all'interno dell’account Power BI.
 
 ## Note per la versione 20/08/2015 di Analisi di flusso ##
 
@@ -33,7 +33,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 Titolo|Descrizione
 ---|---
 Aggiunta funzione LAST |La funzione [LAST](http://msdn.microsoft.com/library/mt421186.aspx) è ora disponibile nei processi di analisi dei flussi. Consente di recuperare l'evento più recente in un flusso di eventi all'interno di un intervallo di tempo specificato.
-Nuove funzioni di matrice|Le funzioni di matrici [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx), [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) sono ora disponibili.
+Nuove funzioni di matrice|Le funzioni di matrice [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx), [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) sono ora disponibili.
 Nuove funzioni di record|Le funzioni di record [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) sono ora disponibili.
 
 ## Note per la versione del 30/07/2015 di Analisi di flusso ##
@@ -43,7 +43,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 Titolo|Descrizione
 ---|---
 ID organizzazione di Power BI separato dall'ID di Azure|Questa funzionalità abilita l'[output di Power BI](stream-analytics-power-bi-dashboard.md) per i processi ASA in qualsiasi tipo di account di Azure (Live ID o ID organizzazione). Inoltre, è possibile disporre di un ID organizzazione per l'account Azure e utilizzarne uno diverso per l'autorizzazione dell'output di Power BI.
-Supporto per l'output di code del bus di servizio|Gli output di [code del bus di servizio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sono ora disponibili nei processi di analisi di flusso.
+Supporto per l'output di code del bus di servizio|Gli output di [Code del bus di servizio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sono ora disponibili nei processi di analisi di flusso.
 Supporto per l'output di argomenti del bus di servizio|Gli output di [argomenti del bus di servizio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) sono ora disponibili nei processi di analisi di flusso.
 
 ## Note per la versione 09/07/2015 di Analisi di flusso ##
@@ -92,4 +92,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

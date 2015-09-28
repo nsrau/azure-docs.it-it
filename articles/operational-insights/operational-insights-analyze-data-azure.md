@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # Analizzare i dati dai server in Microsoft Azure
 
@@ -269,4 +269,4 @@ Entro un'ora circa i dati dell'account di archiviazione inizieranno a essere dis
 
 [Configurare le impostazioni di proxy e firewall (facoltativo)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

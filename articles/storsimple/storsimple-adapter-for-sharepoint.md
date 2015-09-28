@@ -274,19 +274,19 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 1. Utilizzare un account con privilegi di amministratore per l'accesso al server front-end Web (WFE).
 2. Fare doppio clic sull'adattatore StorSimple per il programma di istallazione di SharePoint. Verrà avviata l'installazione guidata.
 
-![Installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![Installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
 3. Fare clic su **Avanti**. Verrà visualizzata la pagina seguente.
 
-![Pagina di rimozione dell’istallazione guidata](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![Pagina di rimozione dell’istallazione guidata](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
 4. Fare clic su **Rimuovi** per selezionare il processo di rimozione. Verrà visualizzata la pagina seguente.
 
-![Pagina di conferma dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![Pagina di conferma dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
 5. Fare clic su **Rimuovi** per confermare la rimozione. Verrà visualizzata la seguente pagina di avanzamento.
 
-![Pagina di stato di avanzamento dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![Pagina di stato di avanzamento dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
 6. Una volta completata la rimozione, viene visualizzata la pagina di fine. Fare clic su**Fine**per chiudere l'installazione guidata.
 
@@ -308,4 +308,4 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/it-IT/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

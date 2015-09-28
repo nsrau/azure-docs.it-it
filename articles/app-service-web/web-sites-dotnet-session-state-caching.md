@@ -3,17 +3,17 @@
 	description="Informazioni su come usare Servizio cache di Azure per supportare la memorizzazione nella cache dello stato della sessione ASP.NET." 
 	services="app-service\web" 
 	documentationCenter=".net" 
- 	authors="Rick-Anderson" 
+	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="09/16/2015" 
 	ms.author="riande"/>
 
 
@@ -24,7 +24,9 @@ questo argomento illustra come usare il servizio Cache Redis di Azure per lo sta
 
 Se l'app Web ASP.NET usa lo stato della sessione, sarà necessario usare un provider di stato della sessione esterno (il provider del servizio Cache Redis o un provider di stato della sessione SQL Server). Se si usa lo stato della sessione, e non un provider esterno, verrà applicato il limite di una sola istanza dell'app Web. Il servizio Cache Redis può essere abilitato con la massima rapidità e semplicità.
 
-##<a id="createcache"></a>Creare la cache
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+##<a id="createcache"></a>Creare la Cache
 Per creare la cache, attenersi a [queste istruzioni](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache).
 
 ##<a id="configureproject"></a>Aggiungere il pacchetto NuGet RedisSessionStateProvider all'app Web
@@ -107,4 +109,4 @@ Il codice seguente recupera questo valore dallo stato sessione.
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Connettere un'app Web in Azure App Service a Cache Redis mediante il protocollo Memcache | Microsoft Azure"
+	pageTitle="Connettere un'app Web in Azure App Service a Cache Redis mediante il protocollo Memcache | Microsoft Azure"
 	description="Connettere un'app Web nel servizio app di Azure a Cache Redis mediante il protocollo Memcache"
 	services="app-service\web"
 	documentationCenter="php"
@@ -8,12 +8,12 @@
 	editor="riande"/>
 
 <tags
-   ms.service="app-service-web"
+	ms.service="app-service"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="web"
-	ms.date="06/30/2015"
+	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
 # Connettere un'app Web nel servizio app di Azure a Cache Redis mediante il protocollo Memcache
@@ -21,6 +21,8 @@
 Questo articolo illustrerà come connettere un'app Web di WordPress in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a [Cache Redis di Azure][12] mediante il protocollo [Memcache][13]. Se si dispone di un'app Web esistente che usa un server Memcached per l'inserimento nella cache in memoria, è possibile sottoporla a migrazione in Servizio app di Azure e usare la soluzione di memorizzazione nella cache del produttore in Microsoft Azure apportando modifiche minime o addirittura nessuna modifica al codice dell'applicazione. È anche possibile usare la familiarità già acquisita con Memcache per creare app distribuite e con scalabilità elevata in Azure App Service con Cache Redis di Azure per l'inserimento nella cache in memoria, usando framework di applicazioni comuni, ad esempio .NET, PHP, Node.js, Java e Python.
 
 App Web del servizio app di Azure rende possibile questo scenario di applicazione con lo shim Memcache per app Web, ovvero un server locale Memcached che funziona come proxy Memcache per memorizzare nella cache le chiamate a Cache Redis di Azure. In questo modo qualsiasi app può comunicare usando il protocollo Memcache per memorizzare i dati nella cache con Cache Redis. Questo shim Memcache funziona a livello di protocollo, in modo da poter essere usato da qualsiasi applicazione o framework di applicazioni, purché comunichi usando il protocollo Memcache.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Prerequisiti
 
@@ -100,7 +102,7 @@ Nella pagina dei plug-in di WordPress fare clic su **Aggiungi nuovo**.
 
 ![Pagina del plug-in WordPress](./media/web-sites-connect-to-redis-using-memcache-protocol/10-wordpress-plugin.png)
 
-Nella casella di ricerca digitare **memcached** e premere **INVIO**.
+Nella casella di ricerca digitare **memcached** e premere **Invio**.
 
 ![Aggiungere il nuovo plug-in WordPress](./media/web-sites-connect-to-redis-using-memcache-protocol/11-wordpress-add-new-plugin.png)
 
@@ -112,7 +114,7 @@ Trovare **Memcached Object Cache** nell'elenco e quindi fare clic su **Installa 
 
 >[AZURE.NOTE]Seguire le istruzioni in questo blog su come [abilitare un'estensione del sito nelle app Web][8] per installare Visual Studio Online.
 
-In `wp-config.php` aggiungere il seguente frammento di codice al di sopra del commento di arresto della modifica verso la fine del file.
+Nel file `wp-config.php` aggiungere il seguente frammento di codice al di sopra del commento di arresto della modifica verso la fine del file.
 
 ```php
 $memcached_servers = array(
@@ -177,8 +179,8 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 >[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Servizio app di Azure e i servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [0]: http://bit.ly/1F0m3tw
@@ -196,4 +198,4 @@ Congratulazioni. L'app di WordPress dispone ora di una cache in memoria centrali
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

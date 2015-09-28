@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Sostituire un controller di dispositivo StorSimple | Microsoft Azure"
-	description="Viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller nel dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller nel dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/10/2015"
+   ms.author="alkohli" />
 
 # Sostituire un modulo controller nel dispositivo StorSimple
 
@@ -32,14 +32,14 @@ Nella tabella seguente vengono illustrati gli scenari di sostituzione del contro
 
 |Caso|Scenario di sostituzione|Procedura applicabile|
 |:---|:-------------------|:-------------------|
-|1|Un controller è in stato di errore, l’altro controller è integro e attivo.|[Sostituzione di un singolo controller](#replace-a-single-controller)|
-|2|Entrambi i controller hanno avuto esito negativo e richiedono la sostituzione. Lo chassis, i dischi, e l’enclosure del disco sono integri.|[Sostituzione doppia del controller](#replace-both-controllers)|
+|1|Un controller è in stato di errore, l’altro controller è integro e attivo.|[Sostituzione di un singolo controller](#replace-a-single-controller), che descrive la [logica alla base della sostituzione di un singolo controller](#single-controller-replacement-logic), nonché la [procedura per la sostituzione](#single-controller-replacement-steps).|
+|2|Entrambi i controller hanno avuto esito negativo e richiedono la sostituzione. Lo chassis, i dischi, e l’enclosure del disco sono integri.|[Sostituzione doppia del controller](#replace-both-controllers), che descrive la [logica alla base della sostituzione doppia del controller](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps). |
 |3|I controller dallo stesso dispositivo o da diversi dispositivi vengono invertiti. Lo chassis, i dischi e l’enclosure del disco sono integri.|Verrà visualizzato un messaggio di avviso di mancata corrispondenza dello slot.|
-|4|Un controller non è presente e l'altro controller ha avuto esito negativo.|[Sostituzione doppia del controller](#replace-both-controllers)|
-|5|Uno o entrambi i controller hanno avuto esito negativo.. Non è possibile accedere al dispositivo tramite la console seriale o Windows PowerShell in remoto.|[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)per una procedura di sostituzione manuale.|
+|4|Un controller non è presente e l'altro controller ha avuto esito negativo.|[Sostituzione doppia del controller](#replace-both-controllers), che descrive la [logica alla base della sostituzione doppia del controller](#dual-controller-replacement-logic), nonché la [procedura per la sostituzione](#dual-controller-replacement-steps).|
+|5|Uno o entrambi i controller hanno avuto esito negativo.. Non è possibile accedere al dispositivo tramite la console seriale o Windows PowerShell in remoto.|[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)per una procedura di sostituzione manuale del controller.|
 |6|I controller dispongono di una versione di build diverse, e questo potrebbe essere dovuto a:<ul><li>i controller dispongono di una versione del software diversa.</li><li>I controller dispongono di una versione del firmware diversa.</li></ul>|Se le versioni del software del controller sono diverse, la logica di sostituzione rileva e aggiorna la versione del software sul controller di sostituzione.<br><br>Se le versioni del firmware del controller sono diverse e la precedente versione del firmware è**non**automaticamente aggiornabile, verrà visualizzato un messaggio di avviso nel portale di gestione. È necessario analizzare gli aggiornamenti e installare gli aggiornamenti firmware.</br></br>Se le precedenti versioni del firmware sono diverse e la versione precedente del firmware del controller è aggiornabile automaticamente, la logica di sostituzione del controller lo rileverà e dopo che il controller viene avviato, il firmware viene aggiornato automaticamente.|
 
-È necessario rimuovere un modulo controller se non funziona. Uno o entrambi i moduli controller possono avere esito negativo, ciò potrebbe comportare una sostituzione di un singolo controller o una sostituzione di entrambi i controller. Per le procedure di sostituzione, vedere gli argomenti seguenti:
+È necessario rimuovere un modulo controller se non funziona. Uno o entrambi i moduli controller possono avere esito negativo, ciò potrebbe comportare una sostituzione di un singolo controller o una sostituzione di entrambi i controller. Per le procedure di sostituzione e la logica su cui si basano, vedere gli argomenti seguenti:
 
 - [Sostituire un singolo controller](#replace-a-single-controller)
 - [Sostituire entrambi i controller](#replace-both-controllers)
@@ -69,7 +69,7 @@ In una sostituzione di un controller singolo, è necessario rimuovere prima il c
 
 ### Procedura per la sostituzione di un singolo controller
 
-Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft Azure StorSimple ha esito negativo. (L’altro controller deve essere attivo e in esecuzione. Se entrambi i controller hanno esito negativo o non funzionano, andare alla[procedura per la sostituzione doppia del controller](#dual-controller-replacement-steps).)
+Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft Azure StorSimple ha esito negativo. (L’altro controller deve essere attivo e in esecuzione. Se entrambi i controller hanno esito negativo o non funzionano, andare alla[Procedura per la sostituzione doppia del controller](#dual-controller-replacement-steps).)
 
 >[AZURE.NOTE]Il riavvio e il ripristino completo del controller dalla procedura di sostituzione può richiedere 30 - 45 minuti. Il tempo totale richiesto per l'intera procedura, incluso il collegamento dei cavi, è di circa 2 ore.
 
@@ -102,7 +102,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 
 7. Mentre la logica di sostituzione del singolo controller viene eseguita in background, riconnettere i cavi. Prestare attenzione a collegare tutti i cavi esattamente allo stesso modo i cui erano connessi prima della sostituzione.
 
-8. Dopo aver riavviato il controller, controllare**lo stato del Controller**e lo**stato del Cluster**nel portale di gestione per verificare che il controller sia in uno stato integro e in modalità standby.
+8. Dopo aver riavviato il controller, controllare lo**Stato del controller**e lo**Stato del cluster**nel portale di gestione per verificare che il controller sia in uno stato integro e in modalità standby.
 
 >[AZURE.NOTE]Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si saprà che la sostituzione è completata. Se il menu non viene visualizzato entro due ore dall’inizio della sostituzione del controller,[contattare il supporto Microsoft](storsimple-contact-microsoft-support.md).
 
@@ -194,7 +194,7 @@ Utilizzare la procedura seguente per rimuovere un modulo controller danneggiato 
 
 Utilizzare la procedura seguente per installare un modulo controller factory fornito dopo la rimozione di un modulo difettoso dal dispositivo StorSimple.
 
-### Per installare un modulo controller
+#### Per installare un modulo controller
 
 1. Verificare che non ci siano eventuali danni ai connettori di interfaccia. Non installare il modulo se uno qualsiasi dei perni del connettore è danneggiato oppure si piega.
 
@@ -266,4 +266,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

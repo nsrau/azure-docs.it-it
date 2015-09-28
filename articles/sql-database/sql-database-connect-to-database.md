@@ -1,9 +1,13 @@
 <properties
+	urlDisplayName="How to connect to an Azure SQL database using SQL Server Management Studio (SSMS)"
 	pageTitle="Informazioni su come connettersi a un database SQL di Azure tramite SSMS | Microsoft Azure"
+	metaKeywords=""
 	description="Informazioni su come connettersi a un database SQL di Azure tramite SQL Server Management Studio."
+	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	title="How to connect to an Azure SQL database using SSMS"
+	authors="sidneyh" solutions=""
 	manager="jhubbard" editor="" />
 
 <tags
@@ -12,47 +16,59 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2015"
+	ms.date="09/14/2015"
 	ms.author="sidneyh" />
 
-# Connettersi con SQL Server Management Studio
+# Connettersi con SQL Server Management Studio (SSMS)
 
-Utilizzare i seguenti passaggi per installare SQL Server Management Studio (SSMS) e utilizzare SQL Server Management Studio per connettersi e interrogare il Database SQL.
+Utilizzare i seguenti passaggi per installare e interrogare il database SQL tramite Server Management Studio (SSMS) di SQL.
 
 ## Prerequisiti
-* Un database di esempio AdventureWorks di database SQL come descritto in[Guida introduttiva al Database SQL di Microsoft Azure](sql-database-get-started.md).
 
-## Installare e avviare SQL Server Management Studio (SSMS)
-1. Andare alla pagina di download per[SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299)fare clic su**Download**quindi scegliere la versione a 32 bit (x86) o la versione a 64 bit (x64) del download MgmtStudio.
+* SQL Server Management Studio (SSMS) - per scaricare la versione più recente di SSMS, vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+* Un database di esempio AdventureWorks come descritto in[Guida introduttiva al Database SQL di Microsoft Azure](sql-database-get-started.md).
 
-	![MgtmtStudio32BIT o MgmtStudio64BIT][1]
-2.	Seguire le istruzioni visualizzate durante l'installazione di SQL Server Management Studio utilizzando le impostazioni predefinite.
-3.	Una volta scaricati, eseguire la ricerca di SQL Server 2014 Management Studio sul computer e avviare SQL Server Management Studio.
+
+## Ottenere il nome completo del server SQL di Azure
+
+Per connettersi al database è necessario il nome completo del server (**** servername**.database.windows.net*) che contiene il database a cui si desidera connettersi.
+
+1. Passare al [portale di anteprima di Azure](https://portal.azure.com).
+2. Passare al database a cui si desidera connettersi.
+3. Individuare il nome completo del server:
+
+    ![nome del server completo][6]
+
+    Utilizzare il nome completo del server nel passaggio 3 seguente.
+
 
 
 ## Connettersi al database SQL
+
 1. Aprire SQL Server Management Studio.
+2. Fare clic su **Connetti** > **Motore di Database...**
+
+    ![Connetti > Motore di database][7]
+
 2. Nella finestra **Connetti al server**, nella casella **Nome server**, digitare il nome del server nel formato *&lt;servername>*.**database.windows.net**
 3. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
-4. Immettere il **nome di accesso** e la **password**specificati quando è stato creato il server di Database SQL.
+4. Immettere il **Nome di accesso** e la **Password**specificati quando è stato creato il server di Database SQL e fare clic su **Connetti**.
 
 	![Finestra di dialogo Connetti al server][2]
-5. Fare clic sul pulsante **Opzioni**.
-6. Nella casella **Connetti al database** immettere **AdventureWorks** e fare clic su **Connetti**.
 
-	![Connetti al database][3]
+
 
 ### Se la connessione ha esito negativo
-Assicurarsi che il firewall del server logico che è stato creato consenta le connessioni dal computer locale. Per ulteriori informazioni, vedere [Procedura: configurare le impostazioni del firewall (Database SQL di Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
+Assicurarsi che il firewall del server logico che è stato creato consenta le connessioni dal computer locale. Per altre informazioni, vedere [Procedura: configurare le impostazioni del firewall nel database SQL di Azure](sql-database-configure-firewall-settings.md).
 
 ## Eseguire query di esempio
 
-1. In **Esplora** passare al database **AdventureWorks**.
+1. In **Esplora oggetti** passare al database **AdventureWorks**.
 2. Fare clic con il pulsante destro del mouse sul database e selezionare **Nuova Query**.
 
 	![Nuova query][4]
 
-3. Nella finestra della query appena aperta, copiare e incollare il codice seguente:
+3. Nella finestra della query, copiare e incollare il codice seguente:
 
 		SELECT
 		CustomerId
@@ -66,8 +82,11 @@ Assicurarsi che il firewall del server logico che è stato creato consenta le co
 
 	![Operazione riuscita][5]
 
+
+
+
 ## Passaggi successivi
-Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Per ulteriori informazioni, vedere [CREATE DATABASE (Database di SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) e [Gestione di database SQL di Azure tramite SQL Server Management Studio](sql-database-manage-azure-ssms.md). È anche possibile registrare eventi nell'archiviazione di Azure. Vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
+Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Per ulteriori informazioni, vedere [CREARE DATABASE (Database di SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) e [Gestione di database SQL di Azure tramite SQL Server Management Studio](sql-database-manage-azure-ssms.md). È anche possibile registrare eventi nell'archiviazione di Azure. Vedere [Introduzione al controllo del database SQL](sql-database-auditing-get-started.md) per ulteriori informazioni.
 
 <!--Image references-->
 
@@ -76,5 +95,7 @@ Per creare o gestire i database è possibile usare istruzioni Transact-SQL. Per 
 [3]: ./media/sql-database-connect-to-database/3-connect-to-database.png
 [4]: ./media/sql-database-connect-to-database/4-run-query.png
 [5]: ./media/sql-database-connect-to-database/5-success.png
+[6]: ./media/sql-database-connect-to-database/server-name.png
+[7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

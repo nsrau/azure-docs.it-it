@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire le risorse del database SQL di Azure con PowerShell" 
+	pageTitle="Gestire il database SQL di Azure con PowerShell" 
 	description="Gestione del database SQL di Azure con PowerShell" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# Gestire le risorse del database SQL di Azure con PowerShell
+# Gestire il database SQL di Azure con PowerShell
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 In questo argomento sono disponibili comandi PowerShell per eseguire molte attività del database SQL di Azure utilizzando i cmdlet di Gestione risorse di Azure.
 
@@ -28,7 +33,7 @@ Per eseguire i cmdlet di PowerShell, è necessario disporre di Azure PowerShell 
 
 Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-I cmdlet per la creazione e la gestione dei database SQL di Azure si trovano nel modulo di Gestione risorse di Azure. Quando si avvia Azure PowerShell, i cmdlet nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo AzureResourceManager, usare il cmdlet **Switch-AzureMode**.
+I cmdlet per la creazione e la gestione dei database SQL di Azure si trovano nel modulo di Gestione risorse di Azure. Quando si avvia Azure PowerShell, i cmdlet nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo Gestione risorse di Azure, usare il cmdlet **Switch-AzureMode**.
 
 	Switch-AzureMode -Name AzureResourceManager
 
@@ -137,4 +142,4 @@ Combinare i comandi e automatizzare. Ad esempio, sostituire tutto ciò che si tr
 - [Cmdlet di Gestione servizi del database SQL di Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

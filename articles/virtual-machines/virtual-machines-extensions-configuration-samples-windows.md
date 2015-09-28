@@ -162,9 +162,12 @@ Prima di distribuire l'estensione, controllare la versione più recente dell'est
               "type": "MicrosoftMonitoringAgent",
               "typeHandlerVersion": "1.0",
               "settings": {
-                "workspace_name" : "Workspace Name : The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal",
+                "workspace_name" : "Workspace Name : The Workspace ID is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
+              }
+              "protectedSettings": {
                 "workspace_key"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
               }
+          }
             }
 
 ### McAfee EndpointSecurity
@@ -299,4 +302,4 @@ Di seguito è riportato un esempio di un modello di macchina virtuale completo c
 
 [Estensione di script personalizzato in una macchina virtuale Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

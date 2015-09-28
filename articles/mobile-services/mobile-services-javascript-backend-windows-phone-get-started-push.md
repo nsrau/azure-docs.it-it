@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Aggiungere notifiche push all'app di Servizi mobili (Windows Store) | Microsoft Azure" 
-	description="Informazioni su come usare Hub di notifica e Servizi mobili di Azure per inviare notifiche push all'app di Windows Store." 
+	pageTitle="Aggiungere notifiche push all'app di Servizi mobili (Windows Phone) | Microsoft Azure" 
+	description="Informazioni su come usare Hub di notifica e Servizi mobili di Azure per inviare notifiche push all'app di Windows Phone." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 
@@ -180,4 +180,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

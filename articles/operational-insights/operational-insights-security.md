@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Sicurezza di Operational Insights
@@ -107,4 +107,4 @@ Il servizio OMS elabora i dati non elaborati. I dati elaborati aggregati vengono
 
 Per accedere a OMS è possibile usare l'account creato in precedenza. Tutto il traffico tra OMS e il servizio OMS viene inviato tramite un canale HTTPS sicuro.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

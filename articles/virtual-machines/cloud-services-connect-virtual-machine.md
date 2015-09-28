@@ -3,7 +3,7 @@
 	description="Informazioni sulla connessione di una macchina virtuale a un servizio cloud di Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,11 +15,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/13/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 # Come connettere le macchine virtuali con una rete virtuale o un servizio cloud
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

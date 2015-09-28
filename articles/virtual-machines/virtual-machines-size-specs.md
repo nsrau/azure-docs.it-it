@@ -1,21 +1,21 @@
 <properties
  pageTitle="Dimensioni delle macchine virtuali"
-	description="Elenca le diverse dimensioni per le macchine virtuali e le relative capacità."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KBDAzure"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+ description="Elenca le diverse dimensioni per le macchine virtuali e le relative capacità."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="cynthn"
+ manager="timlt"
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="kathydav"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="09/02/2015"
+ ms.author="cynthn"/>
 
 # Dimensioni delle macchine virtuali
 
@@ -146,4 +146,4 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 
 [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/09/2015"
+   ms.date="09/11/2015"
    ms.author="sethm" />
 
 # Analogie e differenze tra le code di Azure e le code del bus di servizio
@@ -272,7 +272,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 |Criteri di confronto|Code di Azure|Code del bus di servizio|
 |---|---|---|
-|Costo della transazione della coda|**$ 0,0005**<br/><br/>(per 10.000 transazioni)|**Livello Basic**: **$ 0,05**<br/><br/>(per milioni di operazioni)|
+|Costo della transazione della coda|**$0.0036**<br/><br/>(per 100.000 transazioni)|**Livello Basic**: **$ 0,05**<br/><br/>(per milioni di operazioni)|
 |Operazioni fatturabili|**Tutte**|**Solo invio/ricezione**<br/><br/>(nessun addebito per altre operazioni)|
 |Transazioni inattive|**Fatturabile**<br/><br/>(l'esecuzione di query su una coda vuota viene contata come transazione fatturabile)|**Fatturabile**<br/><br/>(una ricezione in una coda vuota è considerata un messaggio fatturabile)|
 |Costo di archiviazione|**$ 0,07**<br/><br/>(per GB/mese)|**$ 0,00**|
@@ -288,7 +288,7 @@ Questa sezione confronta le code di Azure e quelle del bus di servizio relativam
 
 - In base al supporto per polling prolungato, l'uso di code del bus di servizio può essere economicamente conveniente in situazioni in cui è richiesto il recapito a bassa latenza.
 
->[AZURE.NOTE]Tutti i costi sono soggetti a modifiche. Questa tabella presenta il prezzo corrente al momento della stesura di questo articolo e non include i costi di eventuali offerte promozionali che possono essere attualmente disponibili. Per informazioni aggiornate sui prezzi di Azure, vedere la pagina relativa ai [prezzi di Azure](http://azure.microsoft.com/pricing/). Per altre informazioni sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE]Tutti i costi sono soggetti a modifiche. Questa tabella presenta il prezzo corrente al momento della stesura di questo articolo e non include i costi di eventuali offerte promozionali che possono essere attualmente disponibili. Per informazioni aggiornate sui prezzi di Azure, vedere la pagina relativa ai [prezzi di Azure](http://azure.microsoft.com/pricing/). Per altre informazioni sui prezzi del bus di servizio, vedere [Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusioni
 
@@ -311,4 +311,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 - [Informazioni sulla fatturazione di Archiviazione di Azure – Larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

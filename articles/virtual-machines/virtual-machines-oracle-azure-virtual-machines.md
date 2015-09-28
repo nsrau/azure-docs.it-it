@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Software Oracle ospitato su macchine virtuali di Azure"
-	description="Consultare gli argomenti chiave che descrivono come configurare il software Oracle sulle macchine virtuali di Azure basate su Windows o Linux."
+	pageTitle="Oracle su macchine virtuali di Azure | Microsoft Azure"
+	description="Consultare gli articoli che descrivono come configurare il software Oracle sulle macchine virtuali di Azure basate su Windows o Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="index-page"
 	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Software Oracle ospitato su macchine virtuali di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Configurare il primo o il successivo database Oracle di sviluppo/test o produzione in esecuzione su una macchina virtuale in servizi infrastruttura di Azure. Sfruttare la semplicità di configurazione e la possibilità di espandere rapidamente il carico di lavoro del database Oracle per includere la nuova capacità.
 
@@ -61,4 +63,4 @@ In [Configurazione di Oracle Data Guard per Azure](virtual-machines-configuring-
 
 In [Configurazione di Oracle GoldenGate per Azure](virtual-machines-configuring-oracle-goldengate.md) viene illustrata la procedura per la configurazione del database e della replica.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

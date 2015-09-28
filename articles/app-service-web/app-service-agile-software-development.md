@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Agile Software Development con il servizio app di Azure"
 	description="Informazioni su come creare applicazioni complesse con scalabilità elevata con il servizio app di Azure in modo da supportare Agile Software Development."
-	services="app-service\web"
+	services="app-service\web,app-service\api,app-service\mobile"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -32,6 +32,8 @@ La seguente tabella contiene un breve elenco di requisiti associati allo svilupp
 | - Esecuzione di test in un clone dell'ambiente di produzione | I modelli di Gestione risorse di Azure possono essere usati per creare cloni dell'ambiente di produzione di Azure (inclusi le impostazioni delle app, i modelli di stringa di connessione, la scalabilità e così via) per eseguire test in modo rapido e prevedibile.|
 | - Facile visualizzazione del risultato dell'ultima compilazione | La distribuzione continua in Azure da un repository consente di testare il nuovo codice in un'applicazione live immediatamente dopo il commit delle modifiche. |
 | - Commit giornaliero al ramo principale<br>- Automatizzazione della distribuzione | L'integrazione continua di un'applicazione di produzione con il ramo principale di un repository distribuisce automaticamente nell'ambiente di produzione ogni commit/unione nel ramo principale. |
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Contenuto dell'esercitazione ##
 
@@ -279,4 +281,4 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 -	[Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->
