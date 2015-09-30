@@ -133,7 +133,8 @@ Una delle proprietà del documento di configurazione è `jwks_uri`, il cui valor
 
 Per determinare quale criterio è stato utilizzato per la firma di un id\_token (e la posizione dove recuperare i metadati), sono disponibili due opzioni. In primo luogo, il nome del criterio è incluso nell’attestazione `acr` dell’id\_token. Per informazioni su come analizzare le attestazioni da un id\_token, consultare il [riferimento al token Azure AD B2C](active-directory-b2c-reference-tokens.md). L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quali criteri sono stati utilizzati. Entrambi i metodi sono perfettamente validi.
 
-Dopo aver acquistato il documento dei metadati dall'endpoint di metadati OpenID Connect, è possibile utilizzare le chiavi pubbliche RSA256 che si trovano in questo endpoint per convalidare la firma dell’id\_token. Possono essere presenti più chiavi elencate in questo endpoint , ognuna identificata da `kid`. L'intestazione dell’id\_token contiene inoltre un'attestazione `kid`, che indica quali di queste chiavi sono state utilizzate per firmare l’id\_token. Per ulteriori informazioni, relative alla [convalida del token](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-b2c-reference-tokens.md#validating-tokens), consultare il [riferimento al token di Azure AD B2C](active-directory-b2c-reference-tokens.md).<!--TODO: Improve the information on this-->
+Dopo aver acquistato il documento dei metadati dall'endpoint di metadati OpenID Connect, è possibile utilizzare le chiavi pubbliche RSA256 che si trovano in questo endpoint per convalidare la firma dell’id\_token. Possono essere presenti più chiavi elencate in questo endpoint , ognuna identificata da `kid`. L'intestazione dell’id\_token contiene inoltre un'attestazione `kid`, che indica quali di queste chiavi sono state utilizzate per firmare l’id\_token. Per ulteriori informazioni, relative alla [convalida del token](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-b2c-reference-tokens.md#validating-tokens), consultare il [riferimento al token di Azure AD B2C](active-directory-b2c-reference-tokens.md).
+<!--TODO: Improve the information on this-->
 
 Dopo aver convalidato la firma del token ID, è necessario verificare alcune attestazioni:
 
@@ -344,4 +345,4 @@ image goes here
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
