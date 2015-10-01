@@ -20,9 +20,11 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+> [AZURE.NOTE]
+	Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione.
+Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
 
-> [AZURE.NOTE]Questo esempio è stato scritto per [Applicazione di esempio iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Eseguire prima la procedura dettagliata e in seguito seguire l’esempio.
+> [AZURE.NOTE]	Questo esempio è stato scritto per [Applicazione di esempio iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Eseguire prima la procedura dettagliata e in seguito seguire l’esempio.
 
 **Passport** è il middleware di autenticazione per Node.js. Passport, estremamente flessibile e modulare, può essere rilasciato in modo non invadente in qualsiasi applicazione Web basata su Express o Resitify. Una gamma completa di strategie supporta l'autenticazione mediante nome utente e password, Facebook, Twitter e altro ancora. È stata sviluppata una strategia per Microsoft Azure Active Directory. Dopo l'installazione di questo modulo, verrà aggiunto il plug-in `passport-azure-ad` di Microsoft Azure Active Directory.
 
@@ -109,7 +111,21 @@ When using npm on some operating systems, you may receive an error of Error: EPE
 You may see something like this when installing Restify:
 
 ```Shell
-clang: error: no such file or directory: 'HD/azuread/node\_modules/restify/node\_modules/dtrace-provider/libusdt' make: *** [Release/DTraceProviderBindings.node] Error 1 gyp ERR! build error gyp ERR! stack Error: `make` failed with exit code: 2 gyp ERR! stack at ChildProcess.onExit (/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/lib/build.js:267:23) gyp ERR! stack at ChildProcess.EventEmitter.emit (events.js:98:17) gyp ERR! stack at Process.ChildProcess.\_handle.onexit (child\_process.js:789:12) gyp ERR! System Darwin 13.1.0 gyp ERR! command "node" "/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/bin/node-gyp.js" "rebuild" gyp ERR! cwd /Volumes/Development HD/azuread/node\_modules/restify/node\_modules/dtrace-provider gyp ERR! node -v v0.10.11 gyp ERR! node-gyp -v v0.10.0 gyp ERR! not ok npm WARN optional dep failed, continuing dtrace-provider@0.2.8 ```
+clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
+make: *** [Release/DTraceProviderBindings.node] Error 1
+gyp ERR! build error
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:267:23)
+gyp ERR! stack     at ChildProcess.EventEmitter.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:789:12)
+gyp ERR! System Darwin 13.1.0
+gyp ERR! command "node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Volumes/Development HD/azuread/node_modules/restify/node_modules/dtrace-provider
+gyp ERR! node -v v0.10.11
+gyp ERR! node-gyp -v v0.10.0
+gyp ERR! not ok
+npm WARN optional dep failed, continuing dtrace-provider@0.2.8
+```
 
 
 Restify offre un meccanismo efficace per tenere traccia delle chiamate REST usando DTrace. Tuttavia, per molti sistemi operativi DTrace non è disponibile. È possibile ignorare questi errori.
@@ -871,4 +887,4 @@ Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Connettersi a un'API Web tramite iOS con B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

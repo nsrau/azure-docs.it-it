@@ -33,7 +33,7 @@ Esistono diversi metodi per eseguire la migrazione di un database di SQL Server 
 - Per i database di grandi dimensioni, si otterranno migliori prestazioni migrando lo schema e i dati separatamente. È possibile estrarre lo schema in un progetto di database utilizzando SQL Server Management Studio o Visual Studio e quindi distribuire lo schema per creare il database di SQL Azure. Successivamente, è possibile estrarre i dati tramite BCP e quindi utilizzare BCP per importare i dati utilizzando flussi paralleli nel database SQL Azure. La migrazione di un database complesso e di grandi dimensioni richiede molte ore indipendentemente dal metodo scelto.
 
 ### Opzione 1
-******Migrazione di un database compatibile tramite SQL Server Management Studio (SSMS) ***
+***Migrazione di un database compatibile tramite SQL Server Management Studio (SSMS) ***
 
 SQL Server Management Studio fornisce due metodi per la migrazione di un database di SQL Server locale compatibile a un database SQL Azure. È possibile utilizzare la procedura guidata Distribuisci database a un database SQL di Microsoft Azure o esportare il database in un file BACPAC, che può quindi essere importato per creare un nuovo database SQL Azure. La procedura guidata verifica la compatibilità con la versione 12 del Database di SQL Azure, consente di estrarre lo schema e i dati in un file BACPAC e quindi importarli nell'istanza del database SQL Azure specificata. Per utilizzare questa opzione, vedere [utilizzare SSMS](sql-database-migrate-ssms.md).
 
@@ -72,4 +72,4 @@ Utilizzare il[più recente SQL Server Data Tools per Visual Studio](https://msdn
 | Non è prevista la modifica dell'output in caso di errori; lo schema di origine deve essere compatibile. | Funzionalità complete di SSDT di Visual Studio disponibili. Lo schema viene modificato offline. | La convalida dell'applicazione viene eseguita in Azure. Dovrebbe essere minima, dato che lo schema viene migrato senza modifiche. | La convalida dell'applicazione può essere eseguita in SQL Server prima che il database venga distribuito in Azure. |
 | Viene eseguito un semplice processo di configurazione, in uno o due passaggi. | Viene eseguito un processo complesso, in più passaggi (più semplice se viene distribuito solo lo schema). |
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

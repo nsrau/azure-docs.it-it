@@ -44,10 +44,10 @@ Questo record CNAME viene usato per verificare che si è proprietari del dominio
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-> [AZURE.NOTE] Se l'opzione **Gestisci domini** non è abilitata, il livello dell'app Web che si sta usando è **Gratuito**. Non è possibile usare nomi di dominio personalizzati con un'app Web in modalità **Gratuito** ed è necessario eseguire l'aggiornamento del piano di servizio app alla modalità **Condiviso**, **Base** o **Standard**. Per altre informazioni sulle modalità dei piani di servizio app e su come passare da una modalità all'altra, vedere [Come ridimensionare un'app Web](../articles/web-sites-scale.md).
+	> [AZURE.NOTE] Se l'opzione **Gestisci domini** non è abilitata, il livello dell'app Web che si sta usando è **Gratuito**. Non è possibile usare nomi di dominio personalizzati con un'app Web in modalità **Gratuito** ed è necessario eseguire l'aggiornamento del piano di servizio app alla modalità **Condiviso**, **Base** o **Standard**. Per altre informazioni sulle modalità dei piani di servizio app e su come passare da una modalità all'altra, vedere [Come ridimensionare un'app Web](../articles/web-sites-scale.md).
 
 6. Nella finestra di dialogo **MANAGE CUSTOM DOMAINS** sarà possibile visualizzare le informazioni su **awverify**, il nome di dominio **.azurewebsites.net** attualmente assegnato e l'indirizzo IP virtuale. Salvare queste informazioni perché verranno usate durante la creazione dei record DNS.
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

@@ -88,7 +88,8 @@ to send OAuth 2.0 authentication messages, execute policies, and get tokens for 
 Begin by adding ADAL to the TaskClient project using the Visual Studio Package Manager Console.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskClient -IncludePrerelease ```
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskClient -IncludePrerelease
+```
 
 #### Immettere le informazioni B2C
 Aprire il file `Globals.cs` e sostituire i valori di proprietà con i propri. Questa classe viene utilizzata in tutto il `TaskClient` per fare riferimento ai valori utilizzati comunemente.
@@ -337,4 +338,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
