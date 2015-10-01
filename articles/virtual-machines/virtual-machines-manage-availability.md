@@ -63,10 +63,10 @@ Se il bilanciamento del carico non è configurato in modo da bilanciare il traff
 Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non hanno diritto a una garanzia dei contratti di servizio e subiranno tempi di inattività durante gli eventi di manutenzione pianificata di Azure. L’istanza di macchina virtuale singola all’interno di un set di disponibilità, riceverà inoltre una notifica di posta elettronica avanzata nella notifica della manutenzione pianificata delle macchine virtuali a più istanze.
 
 <!-- Link references -->
-[Configurare più macchine virtuali in un set di disponibilità per la ridondanza]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configurare ogni livello dell'applicazione in set di disponibilità separati]: #configure-each-application-tier-into-separate-availability-sets
-[Combinare il servizio bilanciamento del carico con set di disponibilità]: #combine-the-load-balancer-with-availability-sets
-[Evitare singole istanze di macchine virtuali nei set di disponibilità]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Configurare più macchine virtuali in un set di disponibilità per la ridondanza]: #configurare-più-macchine-virtuali-in-un-set-di-disponibilità-per-la-ridondanza
+[Configurare ogni livello dell'applicazione in set di disponibilità separati]: #configurare-ogni-livello-dell'applicazione-in-set-di-disponibilità-separati
+[Combinare il servizio bilanciamento del carico con set di disponibilità]: #combinare-il-servizio-bilanciamento-del-carico-con-set-di-disponibilità
+[Evitare singole istanze di macchine virtuali nei set di disponibilità]: #evitare-singole-istanze-di-macchine-virtuali-nei-set-di-disponibilità
 [Come configurare un set di disponibilità per le macchine virtuali]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
