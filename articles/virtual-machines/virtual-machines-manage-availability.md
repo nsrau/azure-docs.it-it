@@ -33,7 +33,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 * [Combinare il servizio bilanciamento del carico con set di disponibilità]
 * [Evitare singole istanze di macchine virtuali nei set di disponibilità]
 
-### Configurare più macchine virtuali in un set di disponibilità per la ridondanza
+<h3><a id="configurare-più-macchine-virtuali-in-un-set-di-disponibilità-per-la-ridondanza" name="configurare-più-macchine-virtuali-in-un-set-di-disponibilità-per-la-ridondanza" href="#configurare-più-macchine-virtuali-in-un-set-di-disponibilità-per-la-ridondanza"></a>Configurare più macchine virtuali in un set di disponibilità per la ridondanza</h3>
 Per garantire ridondanza a un'applicazione è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del contratto di servizio di Azure. Per altre informazioni sui contratti di servizio, vedere la sezione "Servizi cloud, macchine virtuali e rete virtuale" in [Contratti di servizio](../../../support/legal/sla/).
 
 A ogni macchina virtuale nel set di disponibilità viene assegnato un dominio di aggiornamento e un dominio di errore dalla piattaforma Azure sottostante. Per ogni set di disponibilità, inoltre, vengono assegnati cinque domini di aggiornamento non configurabili dall'utente che indicano i gruppi di macchine virtuali, con il relativo hardware fisico sottostante, che è possibile aggiornare contemporaneamente. Se in un set di disponibilità vengono configurate più di cinque macchine virtuali, la sesta macchina viene inserita nello stesso dominio di aggiornamento della prima, la settima nel dominio di aggiornamento della seconda e così via. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante gli eventi di manutenzione pianificata, ma viene sempre riavviato un dominio di aggiornamento per volta.
@@ -45,7 +45,7 @@ I domini di errore definiscono il gruppo di macchine virtuali che condividono un
 
 >[AZURE.NOTE]Per istruzioni, vedere [Come configurare un set di disponibilità per le macchine virtuali][].
 
-### Configurare ogni livello dell'applicazione in set di disponibilità separati
+<h3><a id="configurare-ogni-livello-dell'applicazione-in-set-di-disponibilità-separati" name="configurare-ogni-livello-dell'applicazione-in-set-di-disponibilità-separati" href="#configurare-ogni-livello-dell'applicazione-in-set-di-disponibilità-separati"></a>Configurare ogni livello dell'applicazione in set di disponibilità separati</h3>
 Se le macchine virtuali di un set di disponibilità sono pressoché identiche e svolgono tutte la stessa funzione per l'applicazione, è consigliabile configurare un set di disponibilità per ciascun livello dell'applicazione. Se in un set di disponibilità si definiscono due livelli diversi, è possibile riavviare contemporaneamente tutte le macchine virtuali dello stesso livello di applicazione. Configurando almeno due macchine virtuali per ogni livello di un set di disponibilità, si garantisce che in ogni livello sia sempre disponibile almeno una macchina virtuale.
 
 Ad esempio, è possibile inserire in un unico set di disponibilità tutte le macchine virtuali che si trovano nel front-end dell'applicazione che esegue IIS, Apache, Nginx e così via. Accertarsi che in uno stesso set di disponibilità siano inserite esclusivamente le macchine virtuali del front-end e, analogamente, che in uno specifico set di disponibilità siano inserite solo le macchine virtuali a livello di dati, come le macchine virtuali SQL Server replicate o MySQL.
@@ -54,12 +54,12 @@ Ad esempio, è possibile inserire in un unico set di disponibilità tutte le mac
    ![Livelli di applicazione](./media/virtual-machines-manage-availability/application-tiers.png)
 
 
-### Combinare il bilanciamento del carico con set di disponibilità
+<h3><a id="combinare-il-servizio-bilanciamento-del-carico-con-set-di-disponibilità" name="combinare-il-servizio-bilanciamento-del-carico-con-set-di-disponibilità" href="#combinare-il-servizio-bilanciamento-del-carico-con-set-di-disponibilità"></a>Combinare il servizio bilanciamento del carico con set di disponibilità</h3>
 Per ottenere un'elevata resilienza dell'applicazione è possibile combinare il servizio di bilanciamento del carico di Azure con un set di disponibilità. Il servizio di bilanciamento del carico distribuisce il traffico tra più macchine virtuali ed è incluso nelle macchine virtuali di livello Standard. Non tutti i livelli delle macchine virtuali includono il servizio di bilanciamento del carico di Azure. Per altre informazioni sul bilanciamento del carico delle macchine virtuali, leggere [Bilanciamento del carico delle macchine virtuali](../load-balance-virtual-machines.md).
 
 Se il bilanciamento del carico non è configurato in modo da bilanciare il traffico tra più macchine virtuali, qualsiasi evento di manutenzione pianificata influirà sull'unica macchina virtuale di gestione del traffico, determinando un'interruzione del livello di applicazione. Associando più macchine virtuali dello stesso livello a un unico servizio di bilanciamento del carico e a uno stesso set di disponibilità si garantisce che il traffico sia sempre gestito da almeno un'istanza.
 
-### Evitare singole istanze di macchine virtuali nei set di disponibilità
+<h3><a id="evitare-singole-istanze-di-macchine-virtuali-nei-set-di-disponibilità" name="evitare-singole-istanze-di-macchine-virtuali-nei-set-di-disponibilità" href="#evitare-singole-istanze-di-macchine-virtuali-nei-set-di-disponibilità"></a>Evitare singole istanze di macchine virtuali nei set di disponibilità</h3>
 Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non hanno diritto a una garanzia dei contratti di servizio e subiranno tempi di inattività durante gli eventi di manutenzione pianificata di Azure. L’istanza di macchina virtuale singola all’interno di un set di disponibilità, riceverà inoltre una notifica di posta elettronica avanzata nella notifica della manutenzione pianificata delle macchine virtuali a più istanze.
 
 <!-- Link references -->
@@ -69,4 +69,4 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 [Evitare singole istanze di macchine virtuali nei set di disponibilità]: #evitare-singole-istanze-di-macchine-virtuali-nei-set-di-disponibilità
 [Come configurare un set di disponibilità per le macchine virtuali]: virtual-machines-how-to-configure-availability.md
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->
