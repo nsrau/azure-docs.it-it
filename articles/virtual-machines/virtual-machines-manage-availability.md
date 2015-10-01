@@ -29,7 +29,7 @@ Esistono due tipi di eventi della piattaforma Microsoft Azure che possono incide
 Per ridurre le conseguenze dei tempi di inattività causati da uno o più di questi eventi, è possibile attuare le seguenti procedure consigliate per aumentare la disponibilità delle macchine virtuali:
 
 * [Configurare più macchine virtuali in un set di disponibilità per la ridondanza](#configurare-più-macchine-virtuali-in-un-set-di-disponibilità-per-la-ridondanza)
-* [Configurare ogni livello dell'applicazione in set di disponibilità separati](#configurare-ogni-livello-dell'applicazione-in-set-di-disponibilità-separati)
+* [Configurare ogni livello dell'applicazione in set di disponibilità separati](#configurare-ogni-livello-dell-applicazione-in-set-di-disponibilità-separati)
 * [Combinare il servizio bilanciamento del carico con set di disponibilità](#combinare-il-servizio-bilanciamento-del-carico-con-set-di-disponibilità)
 * [Evitare singole istanze di macchine virtuali nei set di disponibilità](#evitare-singole-istanze-di-macchine-virtuali-nei-set-di-disponibilità)
 
@@ -45,7 +45,7 @@ I domini di errore definiscono il gruppo di macchine virtuali che condividono un
 
 >[AZURE.NOTE]Per istruzioni, vedere [Come configurare un set di disponibilità per le macchine virtuali][].
 
-<h3><a id="configurare-ogni-livello-dell'applicazione-in-set-di-disponibilità-separati"></a>Configurare ogni livello dell'applicazione in set di disponibilità separati</h3>
+<h3><a id="configurare-ogni-livello-dell-applicazione-in-set-di-disponibilità-separati"></a>Configurare ogni livello dell'applicazione in set di disponibilità separati</h3>
 Se le macchine virtuali di un set di disponibilità sono pressoché identiche e svolgono tutte la stessa funzione per l'applicazione, è consigliabile configurare un set di disponibilità per ciascun livello dell'applicazione. Se in un set di disponibilità si definiscono due livelli diversi, è possibile riavviare contemporaneamente tutte le macchine virtuali dello stesso livello di applicazione. Configurando almeno due macchine virtuali per ogni livello di un set di disponibilità, si garantisce che in ogni livello sia sempre disponibile almeno una macchina virtuale.
 
 Ad esempio, è possibile inserire in un unico set di disponibilità tutte le macchine virtuali che si trovano nel front-end dell'applicazione che esegue IIS, Apache, Nginx e così via. Accertarsi che in uno stesso set di disponibilità siano inserite esclusivamente le macchine virtuali del front-end e, analogamente, che in uno specifico set di disponibilità siano inserite solo le macchine virtuali a livello di dati, come le macchine virtuali SQL Server replicate o MySQL.
@@ -65,4 +65,4 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 <!-- Link references -->
 [Come configurare un set di disponibilità per le macchine virtuali]: virtual-machines-how-to-configure-availability.md
 
-<!-----HONumber=August15_HO8--->
+<!-----HONumber=August15_HO8---->
