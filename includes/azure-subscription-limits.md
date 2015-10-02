@@ -16,4 +16,4 @@ Regole di avviso per ogni sottoscrizione|250|250
 
 <sup>1</sup>Le istanze di dimensioni estremamente ridotte vengono conteggiate come un core ai fini del limite dei core anche se viene usato un core parziale.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->

@@ -43,4 +43,4 @@ Gateway di applicazione | 10
 
 Nel caso in cui è necessario aumentare il valore limite, contattare il supporto.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->
