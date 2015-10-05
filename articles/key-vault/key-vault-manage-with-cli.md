@@ -3,7 +3,7 @@
 	description="Usare questa esercitazione per automatizzare le attività comuni nell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando"
 	services="key-vault"
 	documentationCenter=""
-	authors="msmbaldwin"
+	authors="BrucePerlerMS"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="09/22/2015"
 	ms.author="bruceper"/>
 
 # Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando #
@@ -186,7 +186,7 @@ Per autorizzare l'accesso da parte dell'applicazione alla chiave o al segreto ne
 Ad esempio, se il nome dell'insieme di credenziali è ContosoKeyVault e l'applicazione che si desidera autorizzare ha un ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed e si vuole autorizzare l'applicazione a decrittografare e firmare con le chiavi dell'insieme di credenziali, eseguire quanto segue:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
-    
+
 Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segreti nell'insieme di credenziali, eseguire le seguenti operazioni:
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
@@ -213,7 +213,7 @@ Il comando successivo importa un pacchetto "bring your own key" (BYOK). Ciò con
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali chiave di Azure](key-vault-hsm-protected-keys.md).
 
 
 ## Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati
@@ -254,6 +254,6 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 ## Passaggi successivi
 
-Per i riferimenti alla programmazione, vedere [Informazioni di riferimento sull'API REST dell'insieme di credenziali chiave di Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Informazioni di riferimento sull'API client C# dell'insieme di credenziali chiave](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

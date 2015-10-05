@@ -1,33 +1,44 @@
 <properties
    pageTitle="Creare, avviare o eliminare un gateway applicazione | Microsoft Azure"
-	description="Questa pagina fornisce istruzioni per la creazione, la configurazione, l'avvio e l'eliminazione di un gateway applicazione di Azure."
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Questa pagina fornisce istruzioni per la creazione, la configurazione, l'avvio e l'eliminazione di un gateway applicazione di Azure."
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/29/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/21/2015"
+   ms.author="joaoma"/>
 
 # Creare, avviare o eliminare un gateway applicazione
 
-In questa versione è possibile creare un gateway applicazione usando PowerShell o le chiamate API REST. Il supporto per il portale di Azure e per l'interfaccia della riga di comando sarà disponibile in una versione futura. Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
+Il gateway applicazione è un servizio di bilanciamento del carico di livello 7. Fornisce servizi di failover e richieste HTTP di routing delle prestazioni tra server diversi, sia che si trovino sul cloud che in locale. Il gateway applicazione offre le funzionalità di distribuzione delle applicazioni seguenti: bilanciamento del carico HTTP, affinità delle sessioni basata sui cookie, offload SSL.
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-create-gateway.md)
-- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+
+
+<BR>
+
+Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
+
+
+>[AZURE.IMPORTANT]Prima di lavorare con le risorse di Azure, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite la distribuzione di Azure Classic. Per utilizzare la versione di Gestione risorse, passare a [Creare una distribuzione del gateway applicazione mediante Gestione risorse](application-gateway-create-gateway-arm.md).
+
+
 
 
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
 2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. È necessario che i server che si configureranno per l'uso del gateway applicazione esistano oppure che i loro endpoint siano stati creati nella rete virtuale o che sia stato loro assegnato un indirizzo VIP/IP pubblico.
 
@@ -39,10 +50,10 @@ Quando si usa il comando **New-AzureApplicationGateway** per creare il gateway a
 
 I valori possibili sono:
 
-- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
-- **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+- **Pool di server back-end:** l’elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
+- **Impostazioni del pool di server back-end**: ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-- **Listener:** il listener ha una porta front-end, un protocollo (HTTP o HTTPS che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+- **Listener:** il listener ha una porta front-end, un protocollo (Http o Https che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
 - **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
 
 
@@ -93,7 +104,7 @@ L'esempio seguente illustra la creazione di un nuovo gateway applicazione con un
 >[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 
 
- *Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
+ *Indirizzo Vip* e *DnsName* vengono visualizzati vuoti, perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
 
 ## Configurare il gateway applicazione
 
@@ -367,7 +378,7 @@ Per eliminare un gateway applicazione:
 2. Usare il cmdlet `Remove-AzureApplicationGateway` per rimuovere il gateway.
 3. Assicurarsi che il gateway sia stato rimosso usando il cmdlet `Get-AzureApplicationGateway`.
 
-L'esempio seguente mostra il cmdlet `Stop-AzureApplicationGateway` nella prima riga, seguito dall'output.
+L'esempio seguente mostra il cmdlet `Stop-AzureApplicationGateway` sulla prima riga seguito dall'output.
 
 	PS C:\> Stop-AzureApplicationGateway AppGwTest
 
@@ -402,11 +413,11 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

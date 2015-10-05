@@ -17,13 +17,21 @@
 
 # Creazione di un'app Web Java nel servizio app di Azure
 
-In questa esercitazione verrà illustrato come creare un'app Web in Microsoft Azure con Java, utilizzando Azure Marketplace o l'interfaccia di configurazione della [funzionalità App Web in Azure App Service][].
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
+In questa esercitazione verrà illustrato come creare un'app Web in Microsoft Azure con Java, utilizzando Azure Marketplace o l'interfaccia di configurazione della [funzionalità App Web in Servizio app di Azure][].
 
 Se non si vuole usare nessuna di queste tecniche, ad esempio perché si preferisce personalizzare il proprio contenitore di applicazioni, vedere [Caricare un'app Web Java personalizzata in Azure](web-sites-java-custom-upload.md).
 
 > [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN][] oppure [iscriversi per ottenere una versione di valutazione gratuita][].
 
-Per iniziare a usare Azure App Service prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app][]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app][]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creazione di un'app Web Java usando l'Azure Marketplace
 
@@ -47,7 +55,7 @@ Di seguito viene illustrato l'aspetto di un'app Web creata utilizzando Jetty da 
 5. Fare clic su **Create**.
 6. Specificare il nome di URL.
 6. Scegliere un'area, Ad esempio, selezionare **Stati Uniti occidentali**.
-7. Fare clic su **Create**.
+7. Fare clic su **Crea**.
 
 L'app Web verrà creata dopo alcuni istanti. Per visualizzare l'app Web, all'interno del portale di Azure, nel pannello **App Web** fare clic sull'app Web, quindi selezionare il relativo URL.
 
@@ -66,7 +74,7 @@ Queste informazioni mostrano come utilizzare l'interfaccia utente di configurazi
 7. Fare clic su **Create**.
 8. Specificare il nome di URL.
 9. Scegliere un'area, Ad esempio, selezionare **Stati Uniti occidentali**.
-10. Fare clic su **Create**.
+10. Fare clic su **Crea**.
 11. Quando l'app Web è stata creata, fare clic su **Tutte le impostazioni**.
 12. Fare clic su **Impostazioni applicazione**.
 13. Fare clic sulla versione di Java desiderata.
@@ -81,17 +89,19 @@ Ora che è stata creata un'app Web con un contenitore per le app, vedere la sezi
 
 A questo punto si disporrà di un server applicazioni Java in esecuzione come app Web Java in Azure. Per aggiungere la propria applicazione o pagina Web, vedere [Aggiunta di un'applicazione o di una pagina Web a un'app Web Java](web-sites-java-add-app.md).
 
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
+
 ## Modifiche apportate
 
-* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Azure App Service e servizi di Azure esistenti][].
+* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Servizio app di Azure e i servizi di Azure esistenti][].
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure][].
 
 <!-- External Links -->
 [attivare i benefici della sottoscrizione MSDN]: http://go.microsoft.com/fwlink/?LinkId=623901
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[funzionalità App Web in Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[funzionalità App Web in Servizio app di Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Azure App Service e servizi di Azure esistenti]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Servizio app di Azure e i servizi di Azure esistenti]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Informazioni di riferimento per l'esplorazione del portale di Azure]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

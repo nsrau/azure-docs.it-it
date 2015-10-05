@@ -16,12 +16,14 @@
 	ms.date="08/17/2015"
 	ms.author="saah;kenhoff"/>
 
-# Accessi da dispositivi potenzialmente infetti
-<p>Questo report tenta di identificare i dispositivi degli utenti che sono stati infettati e fanno ora parte di una botnet (nota anche come un esercito di zombie). Gli indirizzi IP di accesso degli utenti vengono messi in correlazione con gli indirizzi IP in contatto con i server della botnet.</p>
-<p>Raccomandazione: questo report contrassegna gli indirizzi IP, non i dispositivi dell'utente. Per verificarlo, si consiglia di contattare l'utente e di eseguire la scansione di tutti i dispositivi dell'utente. È inoltre possibile che un dispositivo personale dell'utente sia stato infettato o che un altro utente, che stava usando lo stesso indirizzo IP, abbia un dispositivo infetto. </p>
-<p>Per altre informazioni su come risolvere problemi correlati alle infezioni malware, vedere [Malware Protection Center] (http://go.microsoft.com/fwlink/?linkid=335773). </p>
 
+# Accessi da dispositivi potenzialmente infetti
+Questo report tenta di identificare i dispositivi degli utenti che sono stati infettati e fanno ora parte di una botnet (nota anche come un esercito di zombie). Gli indirizzi IP di accesso degli utenti vengono messi in correlazione con gli indirizzi IP in contatto con i server della botnet.
+
+Raccomandazione: questo report contrassegna gli indirizzi IP, non i dispositivi dell'utente. Per verificarlo, si consiglia di contattare l'utente e di eseguire la scansione di tutti i dispositivi dell'utente. È inoltre possibile che un dispositivo personale dell'utente sia stato infettato o che un altro utente, che stava usando lo stesso indirizzo IP, abbia un dispositivo infetto.
+
+Per altre informazioni su come risolvere problemi correlati alle infezioni malware, vedere [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773).
 
 ![Accessi da dispositivi potenzialmente infetti](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

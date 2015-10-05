@@ -320,7 +320,7 @@ La semplice ricezione di un token ID non è sufficiente per autenticare l'utente
 
 Modello app 2.0 dispone di un endpoint di metadati OpenID Connect, che consente a un'app di recuperare informazioni su Modello app 2.0 in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. L'endpoint di metadati contiene un documento JSON disponibile sul sito Web all'indirizzo:
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/configuration`
+`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
 
 Una delle proprietà del documento di configurazione è `jwks_uri`, il cui valore per Modello app 2.0 è:
 
@@ -475,4 +475,4 @@ Il flusso On-Behalf-Of o la concessione delle credenziali di connessione JWT è 
 
 Questo flusso non è attualmente supportato dall'anteprima di Modello app 2.0. Per vedere come funziona nel servizio Azure AD disponibile a livello generale, vedere [questo esempio di codice di Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

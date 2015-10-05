@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Risorse di documentazione di Processi Web di Azure
@@ -142,4 +142,4 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

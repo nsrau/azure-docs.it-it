@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
@@ -59,13 +59,13 @@ Attività iniziali
 
 L'esportazione continua invia sempre i dati a un account di Archiviazione di Azure, pertanto è prima necessario creare l'archivio.
 
-1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure][portal].
+1. Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure][portal].
 
-    ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione Selezionare Classica, scegliere Crea. Specificare un nome di archiviazione.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. Creare un contenitore
 
-    ![Nel nuovo archivio selezionare Contenitori e quindi Aggiungi](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![Nel nuovo archivio selezionare Contenitori, fare clic sul riquadro Contenitori e quindi su Aggiungi](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. Copiare la chiave di accesso alle risorse di archiviazione.
 
@@ -314,4 +314,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

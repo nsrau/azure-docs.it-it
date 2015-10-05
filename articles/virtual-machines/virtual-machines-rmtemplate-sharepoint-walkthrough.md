@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Il modello di gestione risorse di farm di SharePoint a tre server"
+	pageTitle="modello ARM della farm di SharePoint server 3 | Microsoft Azure"
 	description="Esaminare la struttura del modello di gestione risorse di Azure per la farm di SharePoint a tre server."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,13 +10,15 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.workload="infrastructure-services"                                                                             ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Il modello di gestione risorse di farm di SharePoint a tre server
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. Non è possibile creare questa risorsa con il modello di distribuzione classico.
 
 In questo argomento viene descritta la struttura del file di modello azuredeploy.json per la farm di SharePoint a tree server. È possibile visualizzare il contenuto di questo modello nel browser da [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
@@ -32,7 +34,7 @@ Aprire il modello azuredeploy.json in un editor di testo o in uno strumento a sc
 
 ## sezione "parametri"
 
-La sezione **"parametri"**" specifica i parametri utilizzati per inserire dati in questo modello. Quando il modello viene eseguito, è necessario specificare i dati. È possibile definire un massimo di 50 parametri. Di seguito è riportato un esempio di un parametro per l'indirizzo di Azure:
+La sezione **"parametri"** specifica i parametri utilizzati per inserire dati in questo modello. Quando il modello viene eseguito, è necessario specificare i dati. È possibile definire un massimo di 50 parametri. Di seguito è riportato un esempio di un parametro per l'indirizzo di Azure:
 
 	"deploymentLocation": {
 		"type": "string",
@@ -374,4 +376,4 @@ Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di
 
 [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

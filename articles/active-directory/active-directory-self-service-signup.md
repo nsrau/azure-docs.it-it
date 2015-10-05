@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Informazioni sull'iscrizione self-service per Azure"
+	pageTitle="Informazioni sull'iscrizione self-service per Azure | Microsoft Azure"
 	description="Una panoramica dell'iscrizione self-service per Azure, come gestire il processo di iscrizione e come."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="08/14/2015" 
+	ms.date="09/21/2015"
 	ms.author="stevenpo"/>
 
 
@@ -30,43 +30,41 @@ In questo argomento viene illustrato il processo di iscrizione self-service (tal
 
 ## Termini e definizioni
 
-+ **Iscrizione self-service**: si tratta del metodo per cui un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure Active Directory basata sul loro dominio di posta elettronica.
++ **Iscrizione self-service**: si tratta del metodo per cui un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure Active Directory (AD) basata sul loro dominio di posta elettronica.
 + **Tenant di Azure non gestito**: si tratta della directory in cui viene creata tale identità. Un tenant non gestito è una directory priva di un amministratore globale.
 + **Utente verificato per la posta elettronica**: si tratta di un tipo di account utente in Azure AD. Un utente che dispone di un'identità creata automaticamente a seguito dell'iscrizione per un'offerta self-service è noto come utente di posta elettronica verificato. Un utente di posta elettronica verificato è un membro regolare di una directory contrassegnata con creationmethod=EmailVerified.
 
-## Analisi utilizzo
-
-### Esperienza utente
+## Esperienza utente
 
 Si supponga, ad esempio, un utente il cui indirizzo di posta elettronica Dan@BellowsCollege.com riceve file riservati tramite posta elettronica. I file sono stati protetti da Azure Rights Management (Azure RMS). Tuttavia l'organizzazione di Dan, Bellows College, non è iscritta ad Azure RMS né ha distribuito Active Directory RMS. In questo caso, Dan può iscriversi con un abbonamento gratuito a RMS per utenti singoli per leggere i file protetti.
 
 Se Dan è il primo utente con un indirizzo di posta elettronica di BellowsCollege.com a iscriversi a questo offerta self-service, viene creato un tenant non gestito per BellowsCollege.com in Azure AD. Se altri utenti del dominio BellowsCollege.com si iscrivono a questa offerta o a un'offerta self-service simile, disporranno anche di account utente di posta elettronica verificati creati nello stesso tenant non gestito in Azure.
 
-### Esperienza amministratore
+## Esperienza amministratore
 
 Un amministratore a cui appartiene il nome di dominio DNS di un tenant di Azure non gestito può assumere o unire il tenant dopo aver dimostrato di essere il proprietario. Nelle sezioni successive viene illustrata l'esperienza di amministratore in modo più dettagliato; in ogni caso qui di seguito è riportato un riepilogo:
 
 - Quando si usa un tenant di Azure non gestito, si diventa semplicemente l'amministratore globale del tenant non gestito. In alcuni casi si tratta di un'acquisizione interna.
 - Quando si esegue l'unione di un tenant di Azure non gestito, è possibile aggiungere il nome di dominio DNS del tenant non gestito a quello Azure gestito e viene creato un mapping di utenti a risorse in modo che gli utenti possano continuare ad accedere ai servizi senza interruzioni. In alcuni casi si tratta di un'acquisizione esterna.
 
-### Cosa viene creato nella directory Microsoft Azure?
+## Cosa viene creato in Azure Active Directory?
 
 #### Tenant
 
-- Viene creato un tenant di Azure per il dominio, un singolo tenant per dominio.
-- La directory del tenant di Azure non dispone di alcun amministratore globale.
+- Viene creato un tenant di Azure Active Directory per il dominio, un singolo tenant per dominio.
+- La directory del tenant di Azure AD non dispone di alcun amministratore globale.
 
 #### Utenti
 
-- Per ogni utente che effettua l'iscrizione viene creato un oggetto utente nel tenant di Azure.
+- Per ogni utente che effettua l'iscrizione viene creato un oggetto utente nel tenant di Azure AD.
 - Ogni oggetto utente viene contrassegnato come virale.
 - Ogni utente è autorizzato ad accedere al servizio al quale si è iscritto.
 
-### Come è possibile richiedere un tenant di Azure self-service per un dominio di cui si è proprietari?
+### Come è possibile richiedere un tenant di Azure AD self-service per un dominio di cui si è proprietari?
 
-È possibile richiedere un tenant di Azure self-service eseguendo la convalida del dominio. La convalida del dominio dimostra che si è proprietari del dominio mediante la creazione di record DNS.
+È possibile richiedere un tenant di Azure AD self-service eseguendo la convalida del dominio. La convalida del dominio dimostra che si è proprietari del dominio mediante la creazione di record DNS.
 
-Esistono due modi per eseguire acquisizioni DNS di un tenant di Azure:
+Esistono due modi per eseguire acquisizioni DNS di un tenant di Azure AD:
 
 - acquisizione interna (l'amministratore individua un tenant di Azure non gestito e intende trasformarlo in un tenant gestito)
 - acquisizione esterna (l'amministratore tenta di aggiungere un nuovo dominio al tenant di Azure gestito)
@@ -234,4 +232,4 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

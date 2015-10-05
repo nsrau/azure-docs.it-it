@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/04/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
+
 
 # Carico di lavoro del data warehouse
 Per carico di lavoro del data warehouse si intendono tutte le operazioni che passano attraverso un data warehouse. Tale carico di lavoro include pertanto l'intero processo di caricamento dei dati nel data warehouse, l'esecuzione dell'analisi e la creazione dei report a esso relativi, la gestione dei dati in esso contenuti e l'esportazione dei dati da esso. La profondità e l'estensione di questi componenti sono spesso proporzionali al livello di maturità del data warehouse.
@@ -72,4 +73,4 @@ Per iniziare a sviluppare il data warehouse, vedere la [panoramica sullo svilupp
 
 <!--Other web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

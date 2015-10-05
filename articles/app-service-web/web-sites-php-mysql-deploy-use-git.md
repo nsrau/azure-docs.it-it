@@ -8,7 +8,6 @@
 	editor="mollybos"
 	tags="mysql"/>
 
-
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
@@ -18,8 +17,15 @@
 	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
-
 #Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
+
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 In questa esercitazione viene illustrato come creare un'app Web PHP-MySQL e come distribuirla in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) tramite Git. Si useranno [PHP][install-php], lo strumento da riga di comando MySQL (che fa parte di [MySQL][install-mysql]), un server Web e [Git][install-git] installato nel computer. Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo, tra cui Windows, Mac e Linux. Dopo aver completato questa guida, si disporrà dell'app Web PHP/MySQL in esecuzione in Azure.
 
@@ -42,7 +48,7 @@ In questa esercitazione si presuppone che siano presenti [PHP][install-php], lo 
 
 Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 
-1. Eseguire l'accesso al [portale Azure][management-portal].
+1. Eseguire l'accesso al [portale di Azure][management-portal].
 2. Fare clic sull'icona **Nuovo**.
 
 3. Fare clic su **Web + Mobile**, quindi **Azure Marketplace**.
@@ -141,12 +147,9 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 		<h1>Register here!</h1>
 		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/>
-</br>
-		      Email <input type="text" name="email" id="email"/>
-</br>
+		      Name  <input type="text" name="name" id="name"/></br>
+		      Email <input type="text" name="email" id="email"/></br>
 		      <input type="submit" name="submit" value="Submit" />
-
 		</form>
 		<?php
 			// DB connection info
@@ -293,4 +296,4 @@ Per pubblicare le modifiche appportate all'app, attenersi alla procedura seguent
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

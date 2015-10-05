@@ -7,20 +7,21 @@
    manager="timlt"
    editor="tysonn"/>
 
-
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/25/2015"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
-
 
 # Come usare Docker Machine in Azure
 
 In questo argomento viene descritto come utilizzare [Docker](https://www.docker.com/) con [machine](https://github.com/docker/machine) e l’[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli) per creare una macchina virtuale di Azure per gestire rapidamente e facilmente i contenitori Linux da una computer che esegue Ubuntu. A scopo dimostrativo, nell'esercitazione viene illustrato come distribuire sia l'[immagine busybox dell’hub Docker](https://registry.hub.docker.com/_/busybox/) sia l'[immagine nginx dell’hub Docker](https://registry.hub.docker.com/_/nginx/) e configurare il contenitore per instradare le richieste Web al contenitore nginx. Nella documentazione di Docker **machine** viene descritto come modificare queste istruzioni per altre piattaforme.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
 
 Per completare questa esercitazione sono necessari alcuni prerequisiti. È necessario installare quanto segue:
 
@@ -39,7 +40,6 @@ Il modo più rapido per procedere con **Docker Machine** consiste nello scaricar
 > [AZURE.NOTE]Sarà inoltre possibile creare un [collegamento simbolico ](http://en.wikipedia.org/wiki/Symbolic_link) alla versione della piattaforma in uso, anche se in questa esercitazione verrà usato direttamente il nome binario per illustrare il funzionamento in modo chiaro. Di conseguenza, anziché comandi come `docker-machine env` riportati nella documentazione di **Docker Machine**, in questa esercitazione verrà usato il comando `docker-machine_linux-amd64 env`. La creazione di un collegamento simbolico o l'uso del nome binario direttamente è vantaggioso per l'utente, ma se si modifica il nome utilizzato è necessario modificare il nome anche nelle istruzioni seguenti.
 
 <br />
-
 
 >  Indipendentemente dal metodo scelto, è necessario chiamare il nome binario direttamente sulla riga di comando o inserirlo nel percorso, ad esempio **/usr/local/bin**. Verificare che sia contrassegnato come eseguibile digitando `chmod +x` &lt;*`binaryName`*&gt; dove &lt;*`binaryName`*&gt; è il nome di Docker Machine eseguibile. In questa esercitazione viene usato **docker-machine\_linux-amd64**.
 
@@ -213,4 +213,4 @@ Consultare il [manuale dell'utente di Docker](https://docs.docker.com/userguide/
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Creare un set di record e i record per una zona DNS | Microsoft Azure"
-	description="Come creare i record host per DNS di Azure. Configurare i set di record e i record usando PowerShell o CLI"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Creare un set di record e i record per una zona DNS utilizzando CLI | Microsoft Azure"
+   description="Come creare i record host per DNS di Azure. Configurare i set di record e i record usando CLI"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
-# Creare record DNS
+# Creare record DNS utilizzando CLI
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
@@ -52,14 +52,14 @@ La durata Time-to-Live o TTL specifica per quanto tempo ogni record viene memori
 
 
 
-## Creare set di record e record tramite l'interfaccia della riga di comando
+## Creare set di record e record 
 
 Nell'esempio seguente verrà illustrato come creare un set di record e i record. Verrà usato il tipo di record "A" DNS; per altri tipi di record, vedere [Come gestire i record DNS](dns-operations-recordsets-cli.md)
 
 
 ### Passaggio 1
 
-Creare set di record con l'interfaccia della riga di comando:
+Creare set di record:
 
 	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
@@ -122,4 +122,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

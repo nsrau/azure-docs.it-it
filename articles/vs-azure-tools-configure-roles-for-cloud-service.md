@@ -183,7 +183,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 ## Gestire le risorse di archiviazione locali per ogni istanza del ruolo
 
-È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati. Per altre informazioni sulle risorse di archiviazione locali, vedere [Configurare le risorse di archiviazione locale](https://msdn.microsoft.com/library/azure/ee758708).
+È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati. Per altre informazioni sulle risorse di archiviazione locali, vedere [Configurare le risorse di archiviazione locale](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte le configurazioni del servizio. È possibile aggiungere, rimuovere o modificare le risorse di archiviazione locali solo per tutte le configurazioni del servizio.
 
@@ -376,4 +376,4 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 ## Passaggi successivi
 Per altre informazioni sui progetti di Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

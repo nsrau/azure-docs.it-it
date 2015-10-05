@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Opzione 2: Utilizzare il portale di gestione di Azure per applicare l'aggiornamento 1.2"
-   description="Viene illustrato come utilizzare il portale di gestione per installare l'aggiornamento 1.2 della serie 8000 di StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per installare l'aggiornamento 1.2 dal portale di gestione di Azure
 
@@ -27,4 +12,4 @@
 
 7. A questo punto è possibile [utilizzare il portale di gestione per installare l'aggiornamento 1.2](#use-the-management-portal-to-install-update-1). Seguire le istruzioni a partire dal passaggio 3 di questa procedura. Dopo aver installato tutti gli aggiornamenti, è possibile riabilitare l'interfaccia di rete che è stata disabilitata.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

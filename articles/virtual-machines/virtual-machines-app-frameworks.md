@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Framework di applicazioni"
+   pageTitle="Framework di applicazione | Microsoft Azure"
    description="Viene descritto come creare framework di applicazione comuni e importanti utilizzando modelli con Gestione risorse di Azure, tra cui stack LAMP, SharePoint e SQL Server."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Creare framework di applicazione utilizzando modelli
 
 Utilizzare questo materiale per creare rapidamente applicazioni eccezionali.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
 
 | Modello | Descrizione | Visualizzare il modello | Distribuirlo subito |
 |:---|:---|:---:|:---:|
@@ -49,4 +52,4 @@ Individuare tutti i modelli a disposizione in [GitHub](https://github.com/Azure/
 
 Per ulteriori informazioni, vedere [Gestione risorse di Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,8 @@
 <properties
+    title="Azure SQL Database elastic database query overview"
     pageTitle="Argomenti degli strumenti di database elastici di database SQL di Azure"
     description="Annuncia la funzionalità di query elastica"
+    metaKeywords="azure sql database elastic database queries"
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -265,4 +267,4 @@ Per iniziare a esplorare le query di Database elastico, provare la nostra eserci
 
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

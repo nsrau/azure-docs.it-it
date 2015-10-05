@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introduzione all'uso dei cmdlet in SQL Data Warehouse"
-	description="Sospendere e riavviare SQL Data Warehouse usando i cmdlet di PowerShell"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sidneyh"
-	manager="jhubbard"
-	editor=""/>
+   description="Sospendere e riavviare SQL Data Warehouse usando i cmdlet di PowerShell"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/28/2015"
-	ms.author="twounder;sidneyh;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="twounder;sidneyh;barbkess"/>
 
 # Introduzione all'uso dei cmdlet e delle API REST per Azure Data Warehouse
 
@@ -111,4 +111,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

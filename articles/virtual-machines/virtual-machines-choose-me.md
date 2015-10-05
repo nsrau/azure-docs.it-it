@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Le macchine virtuali di Azure rappresentano l'opzione di calcolo desiderata?"
-	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud e Macchine virtuali"
+	pageTitle="Perché scegliere le macchine virtuali di Azure | Microsoft Azure"
+	description="Informazioni sulle macchine virtuali di Azure e sulle modalità di confronto con i diversi modelli di applicazione inclusi in Azure."
 	headerExpose=""
 	footerExpose=""
 	services="virtual-machines"
@@ -10,7 +10,7 @@
 	tags=azure-resource-manager, azure-service-management/>
 
 <tags
-	ms.service="multiple"
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -19,6 +19,8 @@
 	ms.author="cynthn"/>
 
 # Vantaggi delle macchine virtuali di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire. Una macchina virtuale di Azure è la scelta più appropriata?
 
@@ -31,4 +33,4 @@ Informazioni su [Macchine virtuali](https://msdn.microsoft.com/library/azure/jj1
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

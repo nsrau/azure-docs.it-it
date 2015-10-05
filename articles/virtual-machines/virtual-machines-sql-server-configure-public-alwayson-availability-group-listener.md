@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure"
+	pageTitle="Configurare un listener esterno per i gruppi di disponibilità AlwaysOn | Microsoft Azure"
 	description="Questa esercitazione illustra in modo dettagliato la procedura per la creazione di un listener del gruppo di disponibilità AlwaysOn in Azure accessibile esternamente mediante l'indirizzo IP virtuale pubblico del servizio cloud associato."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -22,6 +23,8 @@
 - [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 Questo argomento illustra come configurare un listener per un gruppo di disponibilità AlwaysOn accessibile esternamente su Internet. Ciò è possibile tramite l'associazione dell'indirizzo **IP virtuale pubblico** del servizio cloud con il listener.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-sql-server-alwayson-availability-groups-gui.md) ma che non sia stato configurato un listener.
 
@@ -122,4 +125,4 @@ Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificar
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,25 +1,25 @@
 
 <properties
-		pageTitle="Uso dell'estensione di diagnostica Linux per monitorare le prestazioni e i dati di diagnostica delle macchine virtuali Linux | Microsoft Azure"
-	description="Informazioni su come utilizzare l'estensione di diagnostica Linux per monitorare le prestazioni delle macchine virtuali Linux e i dati di diagnostica"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor=""
-	tags=""/>
+		pageTitle="Monitoraggio di una macchina virtuale Linux con un'estensione VM | Microsoft Azure"
+		description="Informazioni su come utilizzare l'estensione di diagnostica Linux per monitorare le prestazioni e i dati di diagnostica di una macchina virtuale Linux in Azure."
+		services="virtual-machines"
+		documentationCenter=""
+  		authors="NingKuang"
+		manager="timlt"
+		editor=""
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="Ning"/>
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="07/20/2015"
+		ms.author="Ning"/>
 
 
-# Uso dell'estensione di diagnostica Linux per monitorare le prestazioni delle macchine virtuali Linux e i dati di diagnostica
+# Uso dell'estensione di diagnostica Linux per monitorare le prestazioni e i dati di diagnostica di una macchina virtuale Linux
 
 ## Introduzione
 
@@ -34,6 +34,8 @@ Per la versione 2.0, i dati includono:
 - Tutte le registrazioni Rsyslog Linux, inclusi i log di sistema, sicurezza e applicazioni.
 - Tutti i dati di sistema specificati in questo [documento](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - I file di log specificati dall'utente.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa con il modello di distribuzione classica.
 
 ## Come abilitare l'estensione
 L'estensione può essere abilitata tramite il [portale di Azure](https://ms.portal.azure.com/#), Azure PowerShell o gli script dell'interfaccia della riga di comando di Azure.
@@ -141,4 +143,4 @@ Se è stato abilitato fileCfg o perfCfg, specificati negli scenari 2 e 3, sarà 
 - Per la versione 2.0, le informazioni Rsyslog e il file di log specificato dal cliente sono accessibili solo tramite scripting.
 - Per la versione 2.0, se l'estensione di diagnostica Linux è stata abilitata prima tramite script, non sarà possibile visualizzare i dati dal portale di Azure. Se invece si abilita l'estensione prima dal portale, gli script funzioneranno comunque.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

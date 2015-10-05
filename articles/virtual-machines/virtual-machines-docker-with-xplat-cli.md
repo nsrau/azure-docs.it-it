@@ -13,10 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/22/2015"
+	ms.date="09/22/2015"
 	ms.author="rasquill"/>
 
 # Uso dell’estensione della VM Docker dall’interfaccia della riga di comando di Azure (Azure CLI)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Questo argomento descrive come creare una macchina virtuale con l'estensione della VM Docker dalla modalità di gestione servizi (asm) nell’interfaccia della riga di comando di Azure su qualsiasi piattaforma. [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della macchina virtuale Docker per l'[Agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni su Azure. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -25,7 +27,7 @@ Questo argomento descrive come creare una macchina virtuale con l'estensione del
 + [Contenitore e risorse di gestione del contenitore per Azure]
 + [Passaggi successivi]
 
-## <a id='How to use the Docker VM Extension with Azure'>Come usare l’estensione della VM Docker con Azure</a>
+##Come usare l'estensione della VM Docker con Azure
 Per usare l'estensione della VM Docker con Azure è necessario installare una versione dell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat) successiva alla versione 0.8.6 (al momento della stesura di questo articolo, la versione corrente è la 0.8.10). È possibile installare l’interfaccia della riga di comando di Azure su Mac, Linux e Windows.
 
 
@@ -63,10 +65,10 @@ Da una sessione Bash o Terminal, usare il seguente comando dell’interfaccia de
 
 `azure vm image list | grep Ubuntu-14_04`
 
-e selezionare uno dei nomi di immagine, ad esempio `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-it-it-30GB`, quindi usare il comando seguente per creare una nuova macchina virtuale usando tale immagine.
+e selezionare uno dei nomi di immagine, ad esempio `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-IT-IT-30GB`, quindi usare il comando seguente per creare una nuova macchina virtuale usando tale immagine.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-it-it-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-IT-IT-30GB" <username> <password>
 ```
 
 dove:
@@ -139,4 +141,4 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

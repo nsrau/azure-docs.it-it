@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introduzione: effettuare il provisioning di SQL Data Warehouse #
@@ -161,6 +161,8 @@ Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibi
 1. [Connettersi ed eseguire query][] nel data warehouse.
 2. Caricare [dati di esempio].
 
+	> [AZURE.NOTE]Si desidera migliorare questo articolo. Se si sceglie di rispondere "no" alla domanda "È stato utile questo articolo?", includere un suggerimento breve su cosa manca o su come migliorare l'articolo. Grazie in anticipo!!
+
 <!--Image references-->
 
 
@@ -169,7 +171,7 @@ Dopo aver completato il provisioning del servizio SQL Data Warehouse, è possibi
 [dati di esempio]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
-[versione di valutazione gratuita]: https://azure.microsoft.com/it-IT/pricing/free-trial/
+[versione di valutazione gratuita]: https://azure.microsoft.com/IT-IT/pricing/free-trial/
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

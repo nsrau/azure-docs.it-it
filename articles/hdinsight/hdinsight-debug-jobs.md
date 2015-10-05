@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Eseguire il debug di Hadoop in HDInsight: interpretare i messaggi di errore | Microsoft Azure"
+	pageTitle="Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore | Microsoft Azure"
 	description="Informazioni sui messaggi di errore che vengono visualizzati durante l'amministrazione di HDInsight con PowerShell e sulle operazioni da eseguire per risolvere i problemi."
 	services="hdinsight"
 	tags="azure-portal"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
-# Eseguire il debug di Hadoop in HDInsight: interpretare i messaggi di errore
+# Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore
 
 I messaggi di errore indicati in questo argomento sono forniti allo scopo di aiutare gli utenti di Hadoop in Azure HDInsight a comprendere le possibili condizioni di errore che possono verificarsi quando il servizio viene amministrato mediante Azure PowerShell e di indicare le procedure di ripristino appropriate.
 
@@ -25,12 +25,40 @@ Alcuni di questi messaggi di errore possono essere visualizzati anche nel portal
 
 ![Messaggio di errore del portale di anteprima di HDInsight][image-hdi-debugging-error-messages-portal]
 
-Gli errori che possono verificarsi in Azure PowerShell o nel portale di anteprima di Azure sono elencati per nome in ordine alfabetico nella sezione [Errori di HDInsight](#hdinsight-error-messages), in cui è riportato un collegamento a una voce della sezione [Descrizione e correzione egli errori](#discription-mitigation-errors) in cui sono fornite le informazioni seguenti sull'errore:
+In situazioni in cui l'errore è specifico di Azure HDInsight, è consigliabile capire la causa dell'errore. Per informazioni sui diversi codici di errore e su come correggere gli errori, vedere la sezione [Codici di errore di HDInsight](#hdi-error-codes). In alcuni casi è possibile accedere direttamente ai log di Hadoop. A tale scopo, è possibile usare il portale di anteprima di Azure.
+
+## Visualizzare i log di integrità e dei processi del cluster
+
+* **Accedere all'interfaccia utente di Hadoop**. Dal portale di anteprima di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
+
+	![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
+  
+	Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente Hadoop**.
+
+	![Avviare l'interfaccia utente di Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+
+* **Accedere all'interfaccia utente Yarn**. Dal portale di anteprima di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente YARN**.
+
+	È possibile usare l'interfaccia utente YARN per eseguire queste operazioni:
+
+	* **Ottenere lo stato del cluster**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Informazioni**. Verranno visualizzate informazioni sullo stato del cluster, ad esempio la memoria totale allocata, i core usati, lo stato della gestione delle risorse del cluster, la versione del cluster e così via.
+
+		![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+	* **Ottenere lo stato del nodo**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Nodi**. Verranno elencati tutti i nodi del cluster, l'indirizzo HTTP di ogni nodo, le risorse allocate per ogni nodo e così via.
+
+	* **Monitorare lo stato dei processi**. Nel riquadro sinistro espandere **Cluster** e quindi fare clic su **Applicazioni** per elencare tutti i processi del cluster. Se si desidera esaminare i processi con uno stato specifico (ad esempio processi nuovi, inviati, in esecuzione e così via), fare clic sul collegamento appropriato in **Applicazioni**. È possibile fare clic sul nome del processo per ottenere altre informazioni, ad esempio l'output, i log e così via.
+
+* **Accedere all'interfaccia utente HBase**. Dal portale di anteprima di Azure fare clic sul nome di un cluster HDInsight HBase per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente HBase**.
+
+## <a id="hdi-error-codes"></a>Codici di errore di HDInsight
+
+Di seguito sono elencati in ordine alfabetico per nome gli errori che possono verificarsi in Azure PowerShell o nel portale di anteprima di Azure. Gli errori sono collegati a una voce nella sezione [Diagnostica e risoluzione degli errori](#discription-mitigation-errors) che fornisce le informazioni seguenti per ogni errore:
 
 - **Descrizione**: il messaggio di errore visualizzato dagli utenti.
 - **Soluzione**: procedura che è possibile effettuare per il ripristino in caso di errore.
 
-###Codici di errore di HDInsight
+
 
 - [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
 - [AzureRegionNotSupported](#AzureRegionNotSupported)
@@ -242,11 +270,11 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di anteprim
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descrizione**: impossibile risolvere il DNS *UrlDns*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.  
-- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, deve iniziare con **http://* e finire con *.com*.
+- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con **http://* e finire con *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descrizione**: non è possibile verificare il percorso della risorsa *UrlDns*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.  
-- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, deve iniziare con **http://* e finire con *.com*.
+- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con **http://* e finire con *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descrizione**: la funzionalità relativa alla versione non è disponibile per la versione *VersioneSpecificata* e l'ID sottoscrizione *IDSottoscrizione*.  
@@ -272,4 +300,4 @@ Gli errori che possono verificarsi in Azure PowerShell o nel portale di anteprim
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

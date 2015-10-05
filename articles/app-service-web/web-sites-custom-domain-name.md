@@ -130,7 +130,7 @@ I visitatori che accedono all'app Web dell'utente non vedono il sottodominio awv
 
 ## Passaggi successivi
 
-Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstarted-create-dnszone) e [Delegare un dominio a DNS di Azure](../dns/dns-domain-delegation)
+Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstarted-create-dnszone.md) e [Delegare un dominio a DNS di Azure](../dns/dns-domain-delegation.md)
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -147,4 +147,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

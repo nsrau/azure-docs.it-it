@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/17/2015" 
 	ms.author="awills"/>
  
 # Diagnosticare i problemi delle dipendenze in Application Insights
@@ -48,7 +48,7 @@ Installare l'agente appropriato per il server host.
 Piattaforma | Installa
 ---|---
 Server IIS | [Monitoraggio stato](app-insights-monitor-performance-live-website-now.md)
-App Web di Azure | [Informazioni sull'estensione dell'applicazione](../insights-perf-analytics.md)
+App Web di Azure | [Informazioni sull'estensione dell'applicazione](../azure-portal/insights-perf-analytics.md)
 Server web Java | [Applicazioni web Java](app-insights-java-agent.md)
 
 Il monitoraggio dello stato per i server IIS non necessita che si ricompili il progetto di origine con il SDK di Application Insights.
@@ -129,4 +129,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Estensione Agente IaaS di SQL Server"
-	description="Descrive l'estensione agente di SQL Server, che consente alle macchine virtuali che eseguono SQL Server nel cloud di Azure di usare funzionalità di automazione e illustra come installare l'agente se non è già stato installato in modo automatico."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="jeffgoll"
+	pageTitle="Estensione Agente IaaS di SQL Server | Microsoft Azure" 
+	description="Questo argomento utilizza le risorse create con il modello di distribuzione classica, nonché l'estensione di agente SQL Server, che consente a una macchina virtuale che esegue SQL Server in Azure di utilizzare le funzionalità di automazione." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="jeffgoll" 
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
 # Estensione Agente IaaS di SQL Server
 
 Questa estensione consente a SQL Server in una macchina virtuale di Azure di usare determinati servizi, elencati in questo articolo, che altrimenti non potrebbero essere usati. Questa estensione viene installata automaticamente per le immagini della raccolta di SQL Server nel portale di anteprima di Azure. Può essere installata in qualsiasi macchina virtuale SQL Server di Azure con l'agente guest per macchine virtuale di Azure installato.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l'uso di una risorsa con il modello di distribuzione classica.
  
 ## Prerequisiti
 Requisiti per l'uso dei cmdlet di Powershell:
@@ -74,4 +77,4 @@ Se si desidera rimuovere l'estensione da una macchina virtuale, è possibile usa
 ### Sintassi
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

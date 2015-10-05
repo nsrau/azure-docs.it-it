@@ -60,17 +60,17 @@ Quando i dati provengono da un'origine di Hub eventi, è possibile accedere ai p
 
 | Proprietà | Descrizione |
 |------------------------------|--------------------------------------------------------------------|
-| System.EventProcessedUtcTime | Data e ora di elaborazione dell'evento in Analisi di flusso |
-| System.EventEnqueuedUtcTime | Data e ora di ricezione dell'evento da parte di Hub eventi |
-| System.PartitionId | ID di partizione in base zero per l'adattatore di input |
+| EventProcessedUtcTime | Data e ora di elaborazione dell'evento in Analisi di flusso |
+| EventEnqueuedUtcTime | Data e ora di ricezione dell'evento da parte di Hub eventi |
+| PartitionId | ID di partizione in base zero per l'adattatore di input |
 
 Ad esempio, è possibile scrivere una query come la seguente:
 
 
     SELECT
-    	System. EventProcessedUtcTime,
-    	System. EventEnqueuedUtcTime,
-    	System.PartitionId
+    	EventProcessedUtcTime,
+    	EventEnqueuedUtcTime,
+    	PartitionId
     FROM Input
 
 ## Creazione di un input del flusso di dati dell'archivio BLOB
@@ -136,23 +136,23 @@ Quando i dati provengono da un'origine di archivio BLOB, è possibile accedere a
 
 | Proprietà | Descrizione |
 |--------------------------------|--------------------------------------------------------------------|
-| System.BlobName | Nome del BLOB di input da cui proviene l'evento. |
-| System.EventProcessedUtcTime | Data e ora di elaborazione dell'evento in Analisi di flusso |
-| System.BlobLastModifiedUtcTime | Data e ora dell'ultima modifica del BLOB |
-| System.PartitionId | ID di partizione in base zero per l'adattatore di input |
+| BlobName | Nome del BLOB di input da cui proviene l'evento. |
+| EventProcessedUtcTime | Data e ora di elaborazione dell'evento in Analisi di flusso |
+| BlobLastModifiedUtcTime | Data e ora dell'ultima modifica del BLOB |
+| PartitionId | ID di partizione in base zero per l'adattatore di input |
 
 Ad esempio, è possibile scrivere una query come la seguente:
 
 
     SELECT
-    	System.BlobName,
-    	System.EventProcessedUtcTime,
-    	System.BlobLastModifiedUtcTime
+    	BlobName,
+    	EventProcessedUtcTime,
+    	BlobLastModifiedUtcTime
     FROM Input
 
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/IT-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:
@@ -170,4 +170,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

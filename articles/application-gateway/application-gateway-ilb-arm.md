@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/07/2015"
+   ms.date="09/21/2015"
    ms.author="joaoma"/>
 
 
@@ -97,16 +97,22 @@ Nell'esempio seguente viene illustrato come creare una rete virtuale utilizzando
 
 ### Passaggio 1	
 	
-	$subnet = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnetconfig = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 Assegnare l’intervallo di indirizzo 10.0.0.0/24 al subnet variabile da utilizzare per creare una rete virtuale
 
 ### Passaggio 2
 	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
 Crea una rete virtuale denominata "appgwvnet" nel gruppo di risorsa "appw-rg" per l'area Stati Uniti occidentali utilizzando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24
 	
+### Passaggio 3
+
+	$subnet=$vnet.subnets[0]
+
+L'oggetto subnet viene assegnato alla variabile $subnet per i passaggi successivi.
+ 
 
 ## Creare un oggetto di configurazione di Gateway applicazione
 
@@ -168,7 +174,6 @@ Crea un Gateway applicazione con tutti gli elementi di configurazione da passagg
 
 
 
-
 ## Avviare il gateway
 
 Dopo la configurazione del gateway, usare il cmdlet `Start-AzureApplicationGateway` per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
@@ -201,11 +206,11 @@ Utilizzare `Start-AzureApplicationGateway`per avviare il Gateway Applicazione:
 
 ## Verificare lo stato del Gateway Applicazione
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se *Start-AzureApplicationGateway* ha avuto esito positivo nel passaggio precedente, lo stato dovrebbe essere *In esecuzione* e i valori di Vip e DnsName dovrebbero essere validi.
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'azione *Start-AzureApplicationGateway* è riuscita, lo stato dovrebbe essere *In esecuzione* e le voci per l'indirizzo VIP e DnsName dovrebbero essere valide.
 
 Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico destinato a `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -234,7 +239,7 @@ Questo esempio illustra il cmdlet `Stop-AzureApplicationGateway` nella prima rig
 
 Ottenere l'oggetto Gateway Applicazione e associare a una variabile "$getgw":
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Passaggio 2
 	 
@@ -251,7 +256,7 @@ Utilizzare `Stop-AzureApplicationGateway`per arrestare il Gateway Applicazione:
 Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet `Remove-AzureApplicationGateway` per rimuovere il servizio.
 
 
-	PS C:\> Remove-AzureApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Force
+	PS C:\> Remove-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -265,7 +270,7 @@ Quando lo stato del gateway applicazione è Arrestato, usare il cmdlet `Remove-A
 Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `Get-AzureApplicationGateway`. Questo passaggio non è obbligatorio.
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName app-rg
+	PS C:\>Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -276,11 +281,11 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

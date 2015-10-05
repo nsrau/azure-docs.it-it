@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Assegnazione dei ruoli di amministratore in Azure AD"
-	description="Argomento che illustra i ruoli di amministratore disponibili con Azure AD e come assegnarli."
+	description="Illustra i ruoli di amministratore disponibili con Azure AD e come assegnarli."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand" 
+	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Assegnazione dei ruoli di amministratore in Azure AD
@@ -85,4 +85,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 - [Gestire le password](active-directory-manage-passwords.md)
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

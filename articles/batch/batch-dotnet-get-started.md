@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="07/21/2015"
+	ms.date="09/23/2015"
 	ms.author="yidingz"/>
 
 # Introduzione alla libreria di Azure Batch per .NET  
@@ -205,14 +205,14 @@ Un pool di nodi di calcolo è il primo set di risorse che è necessario creare p
 
 2. Aggiungere questo codice a Main per impostare le credenziali per le chiamate al servizio Azure Batch:
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Sostituire questi valori:
+	Sostituire i valori tra parentesi quadre con quelli associati all'account di Batch, ognuno dei quali è disponibile nel [portale di anteprima di Azure](https://portal.azure.com). Per individuare questi valori, accedere al [portale di anteprima di Azure](https://portal.azure.com) e:
 
-	- **[account-name]** con il nome dell'account Batch creato in precedenza.
-	- **[region]** con l'area in cui si trova l'account. Vedere [Aree di Azure](http://azure.microsoft.com/regions/) per individuare le aree disponibili.
-	- **[account key]** con la chiave primaria dell'account Batch.
+	- **[nome-account]** - Fare clic su **Account Batch**, selezionare l'account Batch creato in precedenza
+	- **[chiave-account]** - Nel pannello dell’account Batch, fare clic su **Proprietà** > **URL**
+	- **[chiave-account]** - nel pannello dell’account Batch, fare clic su **Proprietà** > **Chiavi** > **Chiave di accesso primaria**
 
 3.	Aggiungere questo metodo alla classe Program che crea il pool:
 
@@ -339,7 +339,7 @@ Dopo aver creato il processo, è possibile aggiungervi attività. Ogni attività
 		}
 
 
-	**[account-name]** deve essere sostituito con il nome dell'account di archiviazione creato in precedenza. Nell'esempio precedente, aggiornare tutte le quattro istanze di **[nome-account]**.
+	**[nome-account]** deve essere sostituito con il nome dell'account di archiviazione creato in precedenza. Nell'esempio precedente, aggiornare tutte le quattro istanze di **[nome-account]**.
 
 
 2. Aggiungere questo codice a Main per chiamare il metodo appena aggiunto:
@@ -495,4 +495,4 @@ Poiché sono previsti addebiti per le risorse in Azure, è sempre consigliabile 
 
 2. Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

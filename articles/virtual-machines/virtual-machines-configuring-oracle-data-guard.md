@@ -1,6 +1,23 @@
-<properties title="Configuring Oracle Data Guard for Azure" pageTitle="Configurazione di Oracle Data Guard per Azure" description="Esercitazione che illustra come configurare e implementare Oracle Data Guard in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Configurazione di protezione di dati Oracle in macchine virtuali | Microsoft Azure"
+	description="Esercitazione che illustra come configurare e implementare Oracle Data Guard in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #Configurazione di Oracle Data Guard per Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa creata con il modello di distribuzione classica.
+
 In questa esercitazione viene illustrato come configurare e implementare Oracle Data Guard in un ambiente con macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza. L'esercitazione è incentrata sulla replica unidirezionale per i database Oracle non RAC.
 
 Oracle Data Guard supporta la protezione dei dati e il ripristino di emergenza per Oracle Database. Si tratta di una soluzione pronta, semplice e ad alte prestazioni per il ripristino di emergenza, la protezione dei dati e la disponibilità elevata per l'intero database Oracle.
@@ -77,17 +94,17 @@ Per le versioni successive di Oracle Database e Oracle Data Guard potrebbero ess
 - Connettersi al database come utente SYS con ruolo SYSDBA nel prompt dei comandi di SQL*Plus ed eseguire l'istruzione seguente per visualizzare il nome del database:
 
 		SQL> select name from v$database;
-		
+
 		The result will display like the following:
-		
+
 		NAME
 		---------
 		TEST
 - Eseguire quindi una query per recuperare i nomi dei file di database dalla vista di sistema dba\_data\_files:
 
-		SQL> select file_name from dba_data_files; 
-		FILE_NAME 
-		------------------------------------------------------------------------------- 
+		SQL> select file_name from dba_data_files;
+		FILE_NAME
+		-------------------------------------------------------------------------------
 		C:\ <YourLocalFolder>\TEST\USERS01.DBF
 		C:\ <YourLocalFolder>\TEST\UNDOTBS01.DBF
 		C:\ <YourLocalFolder>\TEST\SYSAUX01.DBF
@@ -142,8 +159,8 @@ Eseguire l'istruzione seguente nel prompt dei comandi di SQL*PLUS in Machine1. v
 	3         ONLINE  C:<YourLocalFolder>\TEST\REDO03.LOG               NO
 	2         ONLINE  C:<YourLocalFolder>\TEST\REDO02.LOG               NO
 	1         ONLINE  C:<YourLocalFolder>\TEST\REDO01.LOG               NO
-	Next, query the v$log system view, displays log file information from the control file. 
-	SQL> select bytes from v$log; 
+	Next, query the v$log system view, displays log file information from the control file.
+	SQL> select bytes from v$log;
 	BYTES
 	----------
 	52428800
@@ -182,7 +199,7 @@ Abilitare quindi l'archiviazione eseguendo le istruzioni seguenti per attivare l
 In primo luogo, accedere come sysdba. Al prompt dei comandi di Windows eseguire:
 
 	sqlplus /nolog
-	
+
 	connect / as sysdba
 
 Arrestare quindi il database dal prompt dei comandi di SQL*Plus:
@@ -205,13 +222,13 @@ Eseguire quindi il comando startup mount per montare il database. Ciò garantisc
 
 Eseguire quindi:
 
-	SQL> alter database archivelog; 
+	SQL> alter database archivelog;
 	Database altered.
 
 Eseguire quindi l'istruzione alter database con la clausola open per rendere disponibile il database per il normale utilizzo:
 
 	SQL> alter database open;
-	
+
 	Database altered.
 
 #### Impostare i parametri di inizializzazione del database primario
@@ -224,16 +241,16 @@ Per configurare Data Guard, è prima di tutto necessario creare e configurare i 
 	File created.
 
 È poi necessario modificare il pfile per aggiungere i parametri di standby. A tale scopo, aprire il file INITTEST.ORA nel percorso %ORACLE\_HOME%\\database. Aggiungere quindi le istruzioni seguenti al file INITTEST.ORA. Si noti che la convenzione di denominazione per il file INITTEST.ORA è INIT<NomeDatabase>.ORA.
-	
-	db_name='TEST' 
-	db_unique_name='TEST' 
+
+	db_name='TEST'
+	db_unique_name='TEST'
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1= 'LOCATION=C:\OracleDatabase\archive   VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=TEST'
 	LOG_ARCHIVE_DEST_2= 'SERVICE=TEST_STBY LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) DB_UNIQUE_NAME=TEST_STBY'
 	LOG_ARCHIVE_DEST_STATE_1=ENABLE
-	LOG_ARCHIVE_DEST_STATE_2=ENABLE 
-	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE 
-	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc 
+	LOG_ARCHIVE_DEST_STATE_2=ENABLE
+	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE
+	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc
 	LOG_ARCHIVE_MAX_PROCESSES=30
 	# Standby role parameters --------------------------------------------------------------------
 	fal_server=TEST_STBY
@@ -251,11 +268,11 @@ Quando il nuovo file dei parametri è pronto, è necessario creare il spfile da 
 Prima di tutto, arrestare il database:
 
 	SQL> shutdown immediate;
-	
+
 	Database closed.
-	
+
 	Database dismounted.
-	
+
 	ORACLE instance shut down.
 
 Successivamente, eseguire il comando startup nomount come indicato di seguito:
@@ -277,7 +294,7 @@ Creare ora un spfile:
 Arrestare quindi il database:
 
 	SQL> shutdown immediate;
-	
+
 	ORA-01507: database not mounted
 
 Usare poi il comando startup per avviare un'istanza:
@@ -322,18 +339,18 @@ Attenersi quindi alla procedura seguente:
 ### 1\. Preparare un file di parametri di inizializzazione per il database di standby
 
 Questa seziona illustra come preparare un file di parametri di inizializzazione per il database di standby. A tale scopo, copiare innanzitutto il file INITTEST.ORA da Machine1 a Machine2 manualmente. Il file INITTEST.ORA dovrebbe essere ora visibile nella cartella %ORACLE\_HOME%\\database in entrambe le macchine. Modificare quindi il file INITTEST.ORA in Machine2 per configurarlo per il ruolo di standby come specificato di seguito:
-	
+
 	db_name='TEST'
 	db_unique_name='TEST_STBY'
 	db_create_file_dest='c:\OracleDatabase\oradata\test_stby’
 	db_file_name_convert=’TEST’,’TEST_STBY’
 	log_file_name_convert='TEST','TEST_STBY'
-	
-	
+
+
 	job_queue_processes=10
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1='LOCATION=c:\OracleDatabase\TEST_STBY\archives VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=’TEST'
-	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) 
+	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE)
 	LOG_ARCHIVE_DEST_STATE_1='ENABLE'
 	LOG_ARCHIVE_DEST_STATE_2='ENABLE'
 	LOG_ARCHIVE_FORMAT='%t_%s_%r.arc'
@@ -359,9 +376,9 @@ Prima di creare un database di standby, è necessario assicurarsi che i database
 Connettersi con desktop remoto a Machine1 e modificare il file listener.ora come specificato di seguito. Quando si modifica il file listener.ora, assicurarsi sempre che le parentesi di apertura e chiusura siano allineate nella stessa colonna. È possibile trovare il file listener.ora nella seguente cartella: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.
 
 	# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -371,7 +388,7 @@ Connettersi con desktop remoto a Machine1 e modificare il file listener.ora come
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -381,9 +398,9 @@ Connettersi con desktop remoto a Machine1 e modificare il file listener.ora come
 	  )
 
 Connettersi quindi con desktop remoto a Machine2 e modificare il file listener.ora file come indicato di seguito: # listener.ora Network Configuration File: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -393,7 +410,7 @@ Connettersi quindi con desktop remoto a Machine2 e modificare il file listener.o
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -416,7 +433,7 @@ Connettersi con desktop remoto a Machine1 e modificare il file tnsnames.ora come
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -428,7 +445,7 @@ Connettersi con desktop remoto a Machine1 e modificare il file tnsnames.ora come
 	  )
 
 Connettersi con desktop remoto a Machine2 e modificare il file tnsnames.ora come indicato di seguito:
-	
+
 	TEST =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -438,7 +455,7 @@ Connettersi con desktop remoto a Machine2 e modificare il file tnsnames.ora come
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -455,7 +472,7 @@ Connettersi con desktop remoto a Machine2 e modificare il file tnsnames.ora come
 Aprire un nuovo prompt dei comandi di Windows sia nella macchina virtuale primaria che in quella di standby ed eseguire le istruzioni seguenti:
 
 	C:\Users\DBAdmin>tnsping test
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:08
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -464,10 +481,10 @@ Aprire un nuovo prompt dei comandi di Windows sia nella macchina virtuale primar
 	Attempting to contact (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = MACHINE1)(PORT = 1521))) (CONNECT_DATA = (SER
 	VICE_NAME = test)))
 	OK (0 msec)
-	
+
 
 	C:\Users\DBAdmin>tnsping test_stby
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:16
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -493,10 +510,10 @@ Avviare poi il database di standby in stato nomount e quindi generare un spfile.
 Avviare il database:
 
 	SQL>shutdown immediate;
-	
+
 	SQL>startup nomount
 	ORACLE instance started.
-	
+
 	Total System Global Area  747417600 bytes
 	Fixed Size                  2179496 bytes
 	Variable Size             473960024 bytes
@@ -512,7 +529,7 @@ Connettersi con desktop remoto alla macchina virtuale (Machine2) ed eseguire l'u
 >[AZURE.IMPORTANT]Non usare l'autenticazione del sistema operativo perché nella macchina del server di standy non è ancora presente alcun database.
 
 	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
-	
+
 	RMAN>DUPLICATE TARGET DATABASE
 	  FOR STANDBY
 	  FROM ACTIVE DATABASE
@@ -545,15 +562,15 @@ In questa sezione viene illustrato come verificare la configurazione della dispo
 Aprire la finestra del prompt dei comandi di SQL*Plus e controllare il log di ripristino archiviato nella macchina virtuale di standby (Machine2):
 
 	SQL> show parameters db_unique_name;
-	
+
 	NAME                                TYPE       VALUE
 	------------------------------------ ----------- ------------------------------
 	db_unique_name                      string     TEST_STBY
-	
+
 	SQL> SELECT NAME FROM V$DATABASE
-	
+
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
@@ -565,9 +582,9 @@ Aprire la finestra del prompt dei comandi di SQL*Plus e controllare il log di ri
 
 Aprire la finestra prompt dei comandi di SQL*Plus ed effettuare il cambio dei file di log nella macchina primaria (Machine1):
 
-	SQL> alter system switch logfile; 
+	SQL> alter system switch logfile;
 	System altered.
-	
+
 	SQL> archive log list
 	Database log mode              Archive Mode
 	Automatic archival             Enabled
@@ -579,14 +596,14 @@ Aprire la finestra prompt dei comandi di SQL*Plus ed effettuare il cambio dei fi
 Controllare il log di ripristino archiviato nella macchina virtuale di standby (Machine2):
 
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
 	46                    23-FEB-14   23-FEB-14   YES
 	47                    23-FEB-14   23-FEB-14   YES
 	48                    23-FEB-14   23-FEB-14   YES
-	
+
 	49                    23-FEB-14   23-FEB-14   YES
 	50                    23-FEB-14   23-FEB-14   IN-MEMORY
 
@@ -607,4 +624,4 @@ Se non è stato abilitato il flashback nel database primario originale, è consi
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

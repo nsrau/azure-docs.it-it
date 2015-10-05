@@ -34,7 +34,7 @@ Con l'obiettivo di eliminare la mancata corrispondenza tra il database e i model
 
 L'indicizzazione di DocumentDB sfrutta il fatto che la grammatica JSON consente la **rappresentazione dei documenti come strutture ad albero**. Per rappresentare un documento JSON come struttura ad albero, è necessario creare un nodo principale fittizio come elemento padre per il resto dei nodi sottostanti nel documento. Ogni etichetta che include gli indici di matrice in un documento JSON diventa un nodo dell'albero. La figura seguente illustra un documento JSON di esempio e la rappresentazione ad albero corrispondente.
 
->[AZURE.NOTE]Poiché JSON è autodescrittivo ovvero ogni documento include schema (metadati) e dati, ad esempio `{"locationId", 5, "city": "Moscow"}` rivela che sono disponibili due proprietà `locationId` e `city` e che esse hanno valori numerici e di proprietà di stringa. DocumentDB è in grado di dedurre lo schema dei documenti e indicizzarli quando vengono inseriti o sostituiti, senza dover definire indici secondari o schemi di indice.
+>[AZURE.NOTE]Poiché JSON è autodescrittivo ovvero ogni documento include schema (metadati) e dati, ad esempio `{"locationId": 5, "city": "Moscow"}` rivela che sono disponibili due proprietà `locationId` e `city` che esse hanno valori numerici e di proprietà di stringa. DocumentDB è in grado di dedurre lo schema dei documenti e indicizzarli quando vengono inseriti o sostituiti, senza dover definire indici secondari o schemi di indice.
 
 
 **Documenti JSON come strutture ad albero:**
@@ -67,4 +67,4 @@ L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e
 - Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

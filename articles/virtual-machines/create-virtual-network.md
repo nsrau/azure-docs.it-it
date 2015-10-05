@@ -1,22 +1,27 @@
 <properties 
-	pageTitle="Esercitazione: Creare una rete virtuale solo cloud"
-	description="Informazioni su come creare una rete virtuale di Azure di esempio solo cloud in questa esercitazione."
-	services="virtual-machines, virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
-	editor=""/>
+	pageTitle="Creare una rete virtuale solo cloud in Azure | Microsoft Azure" 
+	description="Informazioni su come creare una rete virtuale di Azure di esempio solo cloud in questa esercitazione." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 # Esercitazione: Creare una rete virtuale solo cloud in Azure
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
+
 
 Questa esercitazione illustra in modo dettagliato le procedure da eseguire nel portale di gestione di Azure per creare una rete virtuale solo cloud di Azure di esempio contenente due subnet. La rete virtuale ottenuta avrà un aspetto analogo al seguente:
 
@@ -118,4 +123,4 @@ Per altre procedure e impostazioni di configurazione di Rete virtuale, vedere [A
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

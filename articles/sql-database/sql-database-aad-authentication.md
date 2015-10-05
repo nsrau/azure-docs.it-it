@@ -204,7 +204,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 È necessario installare il software seguente in tutti i computer client da cui le applicazioni o gli utenti si connettono al database SQL di Azure con le identità di Azure AD:
 
 - .NET Framework 4.6 o versione successiva dalla pagina [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory Authentication Library per SQL Server (**ADALSQL.DLL**) è disponibile in più lingue (sia per x89 che per amd64) dall'Area donwload in [Microsoft Active Directory Authentication Library per Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory Authentication Library per SQL Server (**ADALSQL.DLL**) è disponibile in più lingue (sia per x86 che per amd64) dall'Area donwload in [Microsoft Active Directory Authentication Library per Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 ### Strumenti
 
@@ -252,7 +252,7 @@ Per creare un utente di database indipendente basato su Azure AD, diverso dall'a
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name* può essere il nome dell'entità utente di un utente di Azure AD o il nome visualizzato di un gruppo o un'applicazione di Azure AD.
+*Azure\_AD\_principal\_name* può essere il nome dell'entità utente di un utente di Azure AD o il nome visualizzato di un gruppo di Azure AD.
 
 **Esempi:** per creare un utente di database indipendente che rappresenta un utente di dominio gestito o federato di Azure AD:
 
@@ -268,7 +268,7 @@ Per altre informazioni sulla creazione di utenti di database indipendente basati
 
 Quando si crea un database utente, questo riceve l'autorizzazione **CONNECT** e può connettersi al database come membro del ruolo **PUBLIC**. Inizialmente le sole autorizzazioni disponibili per l'utente sono quelle concesse al ruolo **PUBLIC** o quelle concesse a qualsiasi gruppo di Windows di cui è membro. Dopo avere effettuato il provisioning di un utente di database indipendente basato su Azure AD, è possibile concedere all'utente altre autorizzazioni, esattamente come si concede un'autorizzazione a qualsiasi altro tipo di utente. In genere si concedono autorizzazioni ai ruoli del database e si aggiungono gli utenti ai ruoli. Per altre informazioni, vedere l'articolo wiki relativo alle [nozioni di base delle autorizzazioni per il motore di database](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Per altre informazioni sui ruoli speciali del database SQL, vedere [Gestione di database e account di accesso nel database SQL di Azure](sql-database-manage-logins.md). Un utente di dominio federato importato in un dominio gestito deve usare l'identità del dominio gestito.
 
-> [AZURE.NOTE]Gli utenti di Azure AD sono contrassegnati nei metadati del database con il tipo E (EXTERNAL\_USER). I gruppi o le applicazioni sono contrassegnate con il tipo X (EXTERNAL\_GROUPS). Per altre informazioni, vedere [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE]Gli utenti di Azure AD sono contrassegnati nei metadati del database con il tipo E (EXTERNAL\_USER). I gruppi sono contrassegnati con il tipo X (EXTERNAL\_GROUPS). Per altre informazioni, vedere [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7\. Connettersi al database usando le identità di Azure Active Directory
@@ -310,6 +310,7 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 <!--Image references-->
+
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
 [3]: ./media/sql-database-aad-authentication/3admin-structure.png
@@ -320,6 +321,5 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-<!--anchors-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

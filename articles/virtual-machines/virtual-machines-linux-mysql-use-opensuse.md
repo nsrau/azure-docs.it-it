@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure"
+	pageTitle="Installazione di MySQL in una macchina virtuale OpenSUSE di Linux in Microsoft Azure"
 	description="Informazioni sull'installazione di MySQL in una macchina virtuale di Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -38,4 +38,4 @@ Per informazioni su MySQL, vedere la [Documentazione di MySQL][MySQLDocs].
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

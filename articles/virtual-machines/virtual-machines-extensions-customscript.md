@@ -1,27 +1,30 @@
 <properties
-   pageTitle="Estensione Script personalizzato per Windows | Microsoft Azure"
-	description="Automazione delle attività di configurazione delle macchine virtuali di Azure utilizzando l'estensione Script personalizzato per Windows"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Estensione Script personalizzato per una macchina virtuale di Windows | Microsoft Azure"
+   description="Automatizzare le attività di configurazione della macchina virtuale di Azure utilizzando l'estensione dello Script personalizzato per eseguire gli script di PowerShell in una macchina virtuale di Windows remota"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="kundanap"/>
 
-# Estensione Script personalizzato per Windows
+# Estensione Script personalizzato per le macchine virtuali di Windows
 
-In questo articolo viene fornita una panoramica dell'utilizzo dell'estensione Script personalizzato per Windows tramite i cmdlet Azure Powershell.
+In questo articolo viene fornita una panoramica dell'utilizzo dell'estensione Script personalizzato per le macchine virtuali di Windows tramite i cmdlet Azure Powershell.
 
+Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere [estensioni VM di Azure e funzionalità](virtual-machines-extensions-features.md).
 
-Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere <a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank">estensioni VM di Azure e funzionalità</a>.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. È inoltre possibile creare una risorsa con il [modello di distribuzione di Gestione risorse](virtual-machines-extensions-customscript%20-with%20template.md).
+
 
 ## Panoramica dell'estensione Script personalizzato
 
@@ -88,4 +91,4 @@ Per informazioni sull'uso dell'estensione Script personalizzato con i modelli, f
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

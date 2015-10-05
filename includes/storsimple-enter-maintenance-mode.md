@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per attivare la modalità di manutenzione
 
@@ -13,4 +14,4 @@
 
     Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

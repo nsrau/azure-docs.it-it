@@ -25,7 +25,7 @@ In questo articolo vengono fornite procedure dettagliate sulla risoluzione dei p
 
 ## Contattare il supporto tecnico di Azure
 
-Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di Overflow dello Stack](http://azure.microsoft.com/support/forums/).
+Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/).
 
 In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -53,8 +53,8 @@ Nelle sezioni seguenti si passerà dall’isolamento e dalla definizione delle v
 Eseguire questi passaggi prima di procedere alla risoluzione dei problemi dettagliata.
 
 - Verificare lo stato della macchina virtuale nel portale di Azure o nel portale di anteprima di Azure
-- [Riavviare la macchina virtuale](https://msdn.microsoft.com/library/azure/dn763934.aspx)
-- [Ridimensionare la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx)
+- Riavviare la macchina virtuale
+- [Ridimensionare la macchina virtuale](virtual-machines-size-specs.md)
 
 Dopo questi passaggi, tentare nuovamente la connessione Desktop remoto.
 
@@ -205,4 +205,4 @@ Verificare che anche l'endpoint Desktop remoto per la macchina virtuale di Azure
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

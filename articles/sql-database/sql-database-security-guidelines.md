@@ -1,21 +1,21 @@
 <properties
    pageTitle="Linee guida sulla sicurezza e limitazioni del Database SQL di Azure | Microsoft Azure"
-	description="Linee guida per il Database SQL di Microsoft Azure e le limitazioni relative alla sicurezza."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Linee guida per il Database SQL di Microsoft Azure e le limitazioni relative alla sicurezza."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/20/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/20/2015"
+   ms.author="rickbyh"/>
 
 # Linee guida e limitazioni per la sicurezza per il database SQL di Azure
 
@@ -45,7 +45,7 @@ Per informazioni tecniche supplementari, vedere l’articolo [Sicurezza della co
 
 ## Autenticazione
 
-Il database SQL supporta solo l'autenticazione di SQL Server. L'autenticazione di Windows (sicurezza integrata) non è supportata. Gli utenti devono specificare le credenziali (account di accesso e password) ogni volta che si connettono al database SQL. Per ulteriori informazioni sull'autenticazione di SQL Server, vedere [Scelta di una modalità di autenticazione](https://msdn.microsoft.com/library/ms144284.aspx) nella documentazione Online di SQL Server.
+L’autenticazione di Active Directory (sicurezza integrata) è disponibile come anteprima nel database V12 SQL. Per su come configurare l’autenticazione di Active Directory, vedere [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md). Quando non si utilizza l’anteprima, gli utenti devono specificare le credenziali (account di accesso e password) ogni volta che si connettono al database SQL. Per ulteriori informazioni sull'autenticazione di SQL Server, vedere [Scelta di una modalità di autenticazione](https://msdn.microsoft.com/library/ms144284.aspx) nella documentazione Online di SQL Server.
 
 [SQL Database versione 12](sql-database-v12-whats-new.md) consente agli utenti di autenticarsi nel database utilizzando utenti del database indipendente. Per ulteriori informazioni, vedere [Utenti del database indipendente - rendere un database portabile](https://msdn.microsoft.com/library/ff929188.aspx), [CREA UTENTE (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), e [Database indipendenti](https://technet.microsoft.com/library/ff929071.aspx).
 
@@ -111,4 +111,4 @@ Considerare i seguenti punti per rendere le applicazioni del Database SQL di Azu
 
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

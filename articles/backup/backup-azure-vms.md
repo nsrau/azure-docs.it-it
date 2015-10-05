@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/24/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Eseguire il backup di macchine virtuali di Azure
@@ -194,7 +194,7 @@ In questo modo è possibile stimare la quantità di tempo necessaria per il back
 Nonostante gran parte del tempo venga impiegata per la lettura e la copia dei dati, ci sono altre operazioni che influiscono sul tempo totale necessario per il backup di una macchina virtuale:
 
 1. Tempo impiegato per l'[installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md#offline-vms)
-2. Tempo di attesa nella coda: poiché il servizio elabora i backup di più clienti, l'operazione di backup potrebbe non essere avviata immediatamente. Il tempo di attesa medio per una macchina virtuale è di 15-30 minuti.
+2. Tempo di attesa nella coda: poiché il servizio di backup elabora i backup di più clienti, l'operazione di backup potrebbe non essere avviata immediatamente. Nei periodi di massimo carico, sia possono estendere al massimo di 8 ore i tempi di attesa a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 
 ## Risoluzione dei problemi
 Per un elenco completo delle soluzioni alternative per risolvere gli errori riscontrati durante il backup delle macchine virtuali, vedere:
@@ -207,4 +207,4 @@ Per altre informazioni sulle operazioni iniziali Backup di Azure, vedere:
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire le macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

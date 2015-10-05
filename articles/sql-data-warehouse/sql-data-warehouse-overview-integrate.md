@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm"/>
 
 #Utilizzare altri servizi con SQL Data Warehouse
@@ -71,4 +71,4 @@ Vedere [Integrazione con l’analisi dei flussi di Azure](../sql-data-warehouse-
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

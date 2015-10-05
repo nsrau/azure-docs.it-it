@@ -1,23 +1,28 @@
 <properties 
-	pageTitle="Macchine virtuali e contenitori in Azure"
-	description="Descrive le Macchine virtuali, i contenitori Docker e Linux e il relativo utilizzo in gruppi di ciascuno di essi in Azure, includendo i vantaggi di ciascuno e gli scenari in cui ciascun approccio funziona in maniera ottimale."
-	services="virtual-machines"
-	documentationCenter="virtual-machines"
-	authors="squillace"
-	manager="timlt"/>
+	pageTitle="Macchine virtuali e contenitori | Microsoft Azure" 
+	description="Descrive le Macchine virtuali, i contenitori Docker e Linux e il relativo utilizzo in gruppi di ciascuno di essi in Azure, includendo i vantaggi di ciascuno e gli scenari in cui ciascun approccio funziona in maniera ottimale." 
+	services="virtual-machines" 
+	documentationCenter="virtual-machines" 
+	authors="squillace" 
+	manager="timlt"
+	tags="azure-resource-manager,azure-service-management" 
+/>
 	
 
 <tags 
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="infrastructure"
-	ms.workload="infrastructure"
-	ms.date="07/02/2015"
-	ms.author="rasquill"/>
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="infrastructure" 
+	ms.workload="infrastructure" 
+	ms.date="07/02/2015" 
+	ms.author="rasquill" 
+/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Macchine virtuali e contenitori in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Azure offre soluzioni cloud eccezionali montate su macchine virtuali&mdash; basate sull'emulazione di componenti hardware del computer fisico&mdash;per abilitare lo spostamento agile di distribuzioni software e migliorare notevolmente il consolidamento delle risorse piuttosto che l’hardware fisico. Negli ultimi anni, in gran parte grazie all’approccio [Docker](https://www.docker.com) ai contenitori e all'ecosistema Docker, la tecnologia dei contenitori Linux ha notevolmente ampliato i modi in cui è possibile sviluppare e gestire i software distribuiti. Il codice dell'applicazione in un contenitore è isolato dalla VM di Azure ospitata, come anche altri contenitori nella stessa VM, il che offre maggiore flessibilità di sviluppo e distribuzione al livello dell’applicazione&mdash;oltre alla flessibilità che le VM di Azure già offrono.
 
@@ -117,15 +122,15 @@ A questo punto, qualsiasi architetto, sviluppatore o specialista in operazioni I
 
 È vero e può essere qualsiasi numero di sistemi, molti dei quali sia già disponibile, in grado di gestire i gruppi di macchine virtuali di Azure e inserire codice personalizzato utilizzando gli script, spesso con la [CustomScriptingExtension per Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension per Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). È possibile automatizzare&mdash; e probabilmente è stato già fatto&mdash;le distribuzioni di Azure utilizzando gli script di PowerShell o dell’interfaccia della riga di comando di Azure [come segue](virtual-machines-create-multi-vm-deployment-xplat-cli.md).
 
-Queste capacità poi sono spesso migrate a strumenti come [Puppet](https://puppetlabs.com/) e [Chef](https://www.chef.io/) per automatizzare la creazione di VM su larga scala e la loro configurazione. (Sono disponibili [qui](#tools-for-working-with-containers)dei link su come utilizzare questi strumenti con Azure.)
+Queste capacità poi sono spesso migrate a strumenti come [Puppet](https://puppetlabs.com/) e [Chef](https://www.chef.io/) per automatizzare la creazione di VM su larga scala e la loro configurazione (sono disponibili [qui](#tools-for-working-with-containers)dei link su come utilizzare questi strumenti con Azure).
 
 ### Modelli di gruppo di risorse di Azure
 
 Più di recente, Azure ha rilasciato l’API REST [Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md) e aggiornato gli strumenti di PowerShell e dell’interfaccia della riga di comando di Azure per utilizzarla con facilità. È possibile distribuire, modificare o ridistribuire intere topologie di applicazioni usando i [modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) con l'API di Gestione risorse di Azure usando:
 
 - il [Portale di anteprima di Azure utilizzando i modelli](https://github.com/Azure/azure-quickstart-templates)&mdash;si consiglia di utilizzare il pulsante "Distribuisci su Azure"
-- L’[Interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
-- I [ moduli di Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- l’[Interfaccia della riga di comando di Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- i [ moduli di Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 
 ### Distribuzione e gestione di interi gruppi di VM di Azure e contenitori
@@ -187,7 +192,7 @@ Docker su Microsoft Azure:
 - [Come usare Docker Swarm in Azure](virtual-machines-docker-swarm.md)
 - [Introduzione a Docker e Compose in Azure](virtual-machines-docker-compose-quickstart.md)
 - [Utilizzo di un modello di gruppo di risorse di Azure per creare rapidamente un host Docker in Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
-- [Il supporto incorporato per `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) per le applicazioni indipendenti
+- [Il supporto incorporato per `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) le applicazioni indipendenti
 - [Implementare un registro di Docker privato in Azure](virtual-machines-docker-registry-on-azure-blob-storage.md)
 
 Distribuzioni Linux ed esempi di Azure:
@@ -234,4 +239,4 @@ Vedere [Docker](https://www.docker.com) e [Windows Server Containers](https://ms
 [microservizio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

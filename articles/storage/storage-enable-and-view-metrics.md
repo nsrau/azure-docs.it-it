@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Analisi archiviazione" 
-	description="Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file" 
+	pageTitle="Abilitazione delle metriche di archiviazione nel portale di Azure | Microsoft Azure" 
+	description="Come abilitare le metriche di archiviazione per i servizi BLOB, di accodamento, di tabelle e file" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica
@@ -192,4 +192,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 [Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

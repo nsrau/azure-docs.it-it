@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Come creare una macchina virtuale di Azure con l’interfaccia della riga di comando di Azure | Microsoft Azure"
+   pageTitle="Come creare una VM di Azure con l’interfaccia della riga di comando di Azure | Microsoft Azure"
    description="In questo argomento viene descritto come installare l'interfaccia della riga di comando di Azure su qualsiasi piattaforma, come utilizzarla per connettersi all'account Azure e come creare una macchina virtuale dall'interfaccia della riga di comando di Azure."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,9 @@
    ms.author="danlep"/>
 
 # Creazione di una macchina virtuale utilizzando l’interfaccia della riga di comando di Azure (Azure CLI)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. È inoltre possibile creare una risorsa con il [modello di distribuzione di Gestione risorse](virtual-machines-deploy-rmtemplates-azure-cli.md).
+
 L'interfaccia della riga di comando di Azure è un ottimo modo di gestire l'infrastruttura di Azure da qualsiasi piattaforma.
 
 Solo l'installazione dell’interfaccia della riga di comando di Azure e la disponibilità di una sottoscrizione di Azure sono i requisiti necessari per la creazione immediata di una macchina virtuale, pertanto è opportuno esaminare questi passaggi. Se non si dispone di un account Azure [richiederne uno gratuitamente](http://azure.microsoft.com/pricing/free-trial/).
@@ -33,7 +37,7 @@ Seguire le istruzioni per l’[installazione dell’interfaccia della riga di co
 
 La creazione di una macchina virtuale inizia con la scelta (o il caricamento) di un'immagine e l'utilizzo del comando `azure vm create`.
 
-1. Per scegliere un'immagine dalla riga di comando, è possibile elencare le immagini della macchina virtuale disponibili utilizzando il comando `azure vm image list`. Poiché sono disponibili molte immagini, è opportuno eseguire il paging dei risultati utilizzando `more` o applicando un filtro tramite `grep` (Linux) o `findstr` (Windows). Ad esempio, se si stanno cercando immagini Ubuntu su Linux utilizzare un comando simile al seguente:
+1. Per scegliere un'immagine dalla riga di comando, è possibile elencare le immagini della VM disponibili utilizzando il comando `azure vm image list`. Poiché sono disponibili molte immagini, è opportuno eseguire il paging dei risultati utilizzando `more` o applicando un filtro tramite `grep` (Linux) o `findstr` (Windows). Ad esempio, se si stanno cercando immagini Ubuntu su Linux utilizzare un comando simile al seguente:
 
         azure vm image list | grep Ubuntu
 
@@ -43,7 +47,7 @@ La creazione di una macchina virtuale inizia con la scelta (o il caricamento) di
 
     A questo punto è possibile scegliere un'immagine e utilizzare il comando `show` per visualizzarne le proprietà in modo più dettagliato:
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-it-it-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-IT-IT-30GB
 
 2. Dopo aver scelto un'immagine di macchina virtuale, utilizzare il comando `vm create` per creare l'immagine. Questo comando dispone di molte opzioni, che è possibile elencare utilizzando il comando `help`:
 
@@ -59,7 +63,7 @@ La creazione di una macchina virtuale inizia con la scelta (o il caricamento) di
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-it-it-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-IT-IT-30GB "myadminuser" "myAdm1n@passwd"
 
 ## Passaggi successivi
 
@@ -74,4 +78,4 @@ Poiché nell'esempio precedente è stata aperta la porta SSH predefinita, la con
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

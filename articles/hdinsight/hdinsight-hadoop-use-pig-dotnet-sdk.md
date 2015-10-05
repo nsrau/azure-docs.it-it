@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
@@ -43,7 +43,7 @@ Per autenticare l'applicazione in Azure HDInsight, è necessario creare un certi
 
 Per istruzioni su come eseguire questa operazione, vedere [Creare un certificato autofirmato](http://go.microsoft.com/fwlink/?LinkId=511138).
 
-> [AZURE.NOTE]Quando si crea il certificato, assicurarsi di prendere nota del nome descrittivo usato, in quanto sarà utile in un secondo momento.
+> [AZURE.NOTE] Quando si crea il certificato, assicurarsi di prendere nota del nome descrittivo usato, in quanto sarà utile in un secondo momento.
 
 ##<a id="subscriptionid"></a>Trovare l'ID sottoscrizione
 
@@ -235,4 +235,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 [portale di anteprima]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

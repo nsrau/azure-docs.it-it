@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Cos'è l'insieme di credenziali chiave di Azure? | Microsoft Azure" 
-	description="L'insieme di credenziali chiave di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure i clienti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM)." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="Cos'è l'insieme di credenziali chiave di Azure? | Microsoft Azure"
+	description="L'insieme di credenziali chiave di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure i clienti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM)."
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 
 
-# Cos'è l'insieme di credenziali chiave di Azure? 
+# Cos'è l'insieme di credenziali chiave di Azure?
 
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](../../../../pricing/details/key-vault/).
 
@@ -43,7 +43,7 @@ La seguente tabella permette di capire meglio come l'insieme di credenziali chia
 
 Chiunque abbia una sottoscrizione di Azure può creare e usare insiemi di credenziali chiave. Anche se l'insieme di credenziali chiave è un vantaggio per sviluppatori e amministratori della sicurezza, può essere implementato e gestito dall'amministratore di un'organizzazione che gestisce altri servizi di Azure per un'organizzazione. Ad esempio, questo amministratore potrebbe accedere con una sottoscrizione di Azure, creare un insieme di credenziali per l'organizzazione, in cui archiviare le chiavi, e quindi essere responsabile di attività operative, ad esempio:
 
-+ Creare o importare una chiave o un segreto 
++ Creare o importare una chiave o un segreto
 + Revocare o eliminare una chiave o un segreto
 + Autorizzare utenti o applicazioni a gestire o usare chiavi e segreti
 + Configurare l'utilizzo delle chiavi (ad esempio, la firma o la crittografia)
@@ -53,7 +53,7 @@ L'amministratore quindi fornirebbe agli sviluppatori gli URI da chiamare dalle a
 
    ![Panoramica dell'insieme di credenziali chiave di Azure][1]
 
-Gli sviluppatori possono gestire le chiavi anche direttamente, usando le API. Per altre informazioni, vedere [Insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903625.aspx) nella libreria della documentazione di Microsoft Azure su MSDN.
+Gli sviluppatori possono gestire le chiavi anche direttamente, usando le API. Per altre informazioni, vedere la [guida per gli sviluppatori di credenziali delle chiavi](key-vault-developers-guide.md).
 
 ## Passaggi successivi
 
@@ -65,7 +65,4 @@ Per altre informazioni sull'uso di chiavi e segreti con l'insieme di credenziali
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

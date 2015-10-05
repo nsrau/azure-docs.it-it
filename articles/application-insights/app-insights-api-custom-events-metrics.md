@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -696,7 +696,10 @@ In genere SDK invia i dati in momenti scelti per ridurre al minimo l'impatto sul
 
     telemetry.Flush();
 
-Si noti che la funzione è sincrona.
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+Si noti che la funzione è asincrona.
 
 
 
@@ -900,4 +903,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

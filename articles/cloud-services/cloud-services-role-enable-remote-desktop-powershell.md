@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure"
-	description="Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con PowerShell" 
+description="Come configurare l'applicazione del servizio cloud di Azure utilizzando PowerShell per consentire le connessioni Desktop remoto" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="09/17/2015" 
+ms.author="saurabh"/>
 
 # Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con PowerShell
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

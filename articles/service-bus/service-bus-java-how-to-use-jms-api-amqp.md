@@ -1,9 +1,10 @@
 <properties 
 	pageTitle="Come usare AMQP 1.0 con l'API del bus di servizio Java | Microsoft Azure" 
-	description="Informazioni su come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0." 
+	description="Come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
+	writer="sethm" 
 	manager="timlt" 
 	editor=""/>
 
@@ -35,7 +36,7 @@ In questa guida si presuppone che si disponga già di uno spazio dei nomi del bu
 
 ## Download della libreria client JMS basata su AMQP 1.0
 
-Per informazioni sul download dell'ultima versione della libreria client JMS basata su AMQP 1.0 di Apache Qpid, visitare il sito Web all'indirizzo [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Per informazioni sul download dell'ultima versione della libreria client JMS basata su AMQP 1.0 di Apache Qpid, visitare il sito Web all'indirizzo [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 È necessario aggiungere i seguenti quattro file JAR dall'archivio di distribuzione AMQP 1.0 di Apache Qpid al CLASSPATH Java durante la compilazione e l'esecuzione di applicazioni JMS con il bus di servizio:
 
@@ -335,7 +336,10 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [Come usare AMQP 1.0 con l'API .NET del bus di servizio](service-bus-dotnet-advanced-message-queuing.md)
 * [AMQP 1.0 per il bus di servizio: Guida per gli sviluppatori](http://msdn.microsoft.com/library/jj841071.aspx)
 * [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
+* [Centro per sviluppatori Java](/develop/java/).
+
+
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

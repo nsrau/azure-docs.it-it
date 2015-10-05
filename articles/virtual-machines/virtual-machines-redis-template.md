@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="timwieman"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="twieman"/>
 
 # Cluster Redis con un modello di Gestione risorse
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di un cluster Redis con il modello di distribuzione di gestione delle risorse.
 
 Redis è una cache e un archivio chiave-valore open-source in cui le chiavi possono contenere strutture di dati quali stringhe, hash, elenchi, insiemi e insiemi ordinati. Redis supporta una serie di operazioni atomiche su questi tipi di dati. Con il rilascio di Redis versione 3.0, Redis Cluster è ora disponibile nella versione stabile più recente di Redis. Redis Cluster è un'implementazione distribuita di Redis in cui i dati sono partizionati automaticamente tra più nodi Redis, con la possibilità di continuare le operazioni quando si verificano errori in un subset di nodi.
 
@@ -344,7 +347,7 @@ Durante la distribuzione, verrà visualizzata una schermata simile alla seguente
 
 Durante e dopo la distribuzione, è possibile controllare tutte le richieste effettuate durante il provisioning, compresi gli errori che si sono verificati.
 
-A tale scopo, visitare il [Portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
+A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effettuare le seguenti operazioni:
 
 - Nella barra di spostamento a sinistra, fare clic su **Sfoglia**, scorrere verso il basso e fare clic su **Gruppi di risorse**.
 - Selezionare il gruppo di risorse appena creato, per visualizzare il pannello "Gruppo di risorse".
@@ -527,7 +530,7 @@ In particolare, i seguenti modelli collegati verranno usati per la distribuzione
 - **jumpbox-resources.json**: consente di distribuire la macchina virtuale “jumpbox” e tutte le risorse correlate, come interfaccia di rete, indirizzo IP pubblico e l’endpoint di input utilizzato per la connessione SSH all’ambiente.
 - **node-resources.json**: consente di distribuire tutte le VM dei nodi Redis Cluster e le risorse collegate (ad esempio, schede di rete, IP privati e così via). Questo modello consente inoltre di distribuire le estensioni della VM (gli script personalizzati per Linux) e di richiamare uno script bash per installare fisicamente e configurare Redis in ciascun nodo. Lo script per la richiamata viene passato a questo modello nel `machineSettings` parametro della `commandToExecute` proprietà. È possibile distribuire e creare script in parallelo di tutti i nodi del Redis Cluster tranne uno. Un nodo deve essere conservato fino alla fine poiché la configurazione di Redis Cluster può essere eseguita su un solo nodo, e deve essere eseguita dopo che in tutti i nodi è in esecuzione il server Redis. Questo è il motivo per cui lo script da eseguire viene passato a questo modello. L'ultimo nodo deve eseguire uno script leggermente diverso che non solo consentirà di installare il server Redis, ma anche di configurare il cluster Redis.
 
-Esaminiamo *come* viene utilizzato quest’ultimo modello, node-resources.json, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **ciclo delle risorse o resource looping**.
+Esaminiamo *come* viene utilizzato quest’ultimo modello, node-resources.json, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Resource Looping (ciclo delle risorse)**.
 
 Quando si richiama node-resources.json dall’interno del file azuredeploy.json principale, la richiamata viene eseguita dall’interno di una risorsa che utilizza l’elemento `copy` per creare un ciclo di ordinamenti. Una risorsa che utilizza l’elemento `copy` verrà copiata automaticamente per il numero di volte specificato nel parametro `count` dell’elemento `copy`. Per tutte le impostazioni di cui è necessario specificare valori univoci tra istanze diverse della risorsa distribuita, è possibile utilizzare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione del ciclo di risorse specifico. Nel frammento seguente di azuredeploy.json è possibile osservare questo concetto applicato alla creazione di più VM per i nodi Redis Cluster:
 
@@ -666,4 +669,4 @@ In pratica, questo approccio suggerisce di:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

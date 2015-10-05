@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare dati da e verso il BLOB di Azure | Data factory di Azure"
-	description="Informazioni su come spostare i dati da e verso il BLOB di Azure mediante Data factory di Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Spostare dati da e verso il BLOB di Azure | Data factory di Azure" 
+	description="Informazioni su come spostare i dati da e verso il BLOB di Azure mediante Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso il BLOB di Azure mediante Data factory di Azure
@@ -471,7 +471,8 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- | 
 | treatEmptyAsNull | Specifica se considerare una stringa vuota o null come valore null. | TRUE<br/>FALSE | No |
-| skipHeaderLineCount | Indicare quante righe devono essere ignorate. È applicabile solo quando il set di dati di input usa **TextFormat**. | Numero intero compreso tra 0 e Max. | No | 
+| skipHeaderLineCount | Indica quante righe devono essere ignorate. È applicabile solo quando il set di dati di input usa **TextFormat**. | Numero intero compreso tra 0 e Max. | No | 
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. | True (valore predefinito), False | No | 
 
 
 **BlobSink** supporta le proprietà della sezione **typeProperties** seguenti:
@@ -479,6 +480,8 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Specifica se aggiungere l'intestazione delle definizioni di colonna. | TRUE<br/>FALSE (impostazione predefinita) | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | <p>Esistono tre possibili valori per la proprietà copyBehavior. </p><ul><li>**PreserveHierarchy:** mantiene la gerarchia del file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine alla cartella di origine è identica al percorso relativo del file di destinazione alla cartella di destinazione.</li><li>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente. </li><li>**MergeFiles:** unisce tutti i file dalla cartella di origine a un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</li></ul> | No |
+
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -492,4 +495,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md) richiede solo alcuni minuti.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

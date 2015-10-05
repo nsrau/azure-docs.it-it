@@ -1,113 +1,127 @@
 <properties 
-	pageTitle="Introduzione a ExpressRoute | Microsoft Azure"
-	description="Questa pagina fornisce una panoramica del servizio ExpressRoute, inclusi funzionamento di una connessione ExpressRoute, utilizzo di provider di Exchange e provider di servizi di rete, oltre a ExpressRoute pubbliche, private e peering Microsoft."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Introduzione a ExpressRoute | Microsoft Azure"
+   description="Questa pagina fornisce una panoramica del servizio ExpressRoute, incluso il funzionamento di una connessione ExpressRoute."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 <tags 
-	ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.service="expressroute"
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="cherylmc"/>
 
 # Panoramica tecnica relativa a ExpressRoute
 
-Microsoft Azure ExpressRoute consente di creare connessioni private tra i data center Microsoft e l'infrastruttura locale o in un ambiente con percorso condiviso. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure e Office 365, in una struttura di partner ExpressRoute con percorso condiviso. In alternativa, è possibile connettersi direttamente da una rete WAN esistente usando ad esempio una VPN MPLS, fornita da un provider di servizi di rete.
- 
-Le connessioni ExpressRoute offrono un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali. In alcuni casi, l'uso di connessioni ExpressRoute per trasferire i dati tra la rete locale e Azure può offrire vantaggi significativi in termini di costi. Se già stata creata una connessione cross-premise dalla rete locale ad Azure, è possibile eseguire la migrazione a una connessione ExpressRoute, mantenendo intatta la rete virtuale.
-
-Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
-
-## Funzionamento di una connessione ExpressRoute
-
-Per connettere la rete WAN ai servizi cloud Microsoft, è necessario ordinare un circuito dedicato e abilitarlo tramite un provider di connettività. È possibile scegliere tra due provider di connettività: Direct Layer 3 tramite un provider di Exchange oppure Layer 3 tramite un provider di servizi di rete. È possibile scegliere se abilitare uno o entrambi i tipi di connettività tra la rete WAN e il cloud Microsoft.
-
-## Provider di Exchange e provider di servizi di rete
-I provider per ExpressRoute vengono classificati come provider di servizi di rete (NSP, Network Service Provider) e provider di Exchange (EXP, Exchange Provider).
-
-![](./media/expressroute-introduction/expressroute-nsp-exp.png)
-
-
-| |**Provider di Exchange**|**Provider di servizi di rete**|
-|---|---|---|
-|**Modello di connettività tipico**| Collegamenti Ethernet punto a punto o connettività a un'infrastruttura Cloud Exchange | Connettività any-to-any tramite una VPN di telecomunicazioni |
-|**Larghezze di banda supportate**|200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps|10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps|
-|**Provider di connettività**|[Provider di Exchange](expressroute-locations.md)|[Provider di servizi di rete](expressroute-locations.md)|
-|**Routing**|Sessioni BGP dirette con i router perimetrali dei clienti| Sessioni BGP con telecomunicazioni|
-|**Prezzi**|[Prezzi per i provider di Exchange](http://azure.microsoft.com/pricing/details/expressroute/)|[Prezzi per i provider di servizi di rete](http://azure.microsoft.com/pricing/details/expressroute/)|
-
-### Provider di Exchange (EXP)
-Collaboriamo con provider di servizi Cloud Exchange, come il gruppo Equinix e TeleCity, nonché con provider di servizi di connettività da punto a punto come Cole e Level 3, per fornire la connettività tra Azure e la sede del cliente. Offriamo larghezze di banda circuito da 200 Mbps a 10 Gbps (200 Mbps, 500 Mbps, 1 Gbps e 10 Gbps).
-
-Se l'obiettivo è una connessione Direct Layer 3 tramite un provider di Exchange, è possibile ottenerla in uno di tre modi seguenti:
-
-- L'utente può condividere la località in cui sono offerti i servizi con Equinix Cloud Exchange o TeleCity Cloud IX. In questi casi la connettività ridondante verrà ordinata nell'infrastruttura Cloud Exchange. 
-- È possibile usare provider come Level 3 per configurare circuiti Ethernet tra i data center e Microsoft. 
-- È possibile usare il provider di connettività locale per acquisire connettività ridondante per la struttura di provider di Exchange più vicina e connettersi a Cloud Exchange.
-
-Per soddisfare i requisiti del Contratto di servizio, è necessario che sia disponibile connettività ridondante. La connettività diretta al perimetro Microsoft non è supportata. I circuiti dedicati verranno sempre abilitati tramite un provider Ethernet o l'infrastruttura Cloud Exchange locale. Anche se ciò consente di configurare la connettività Layer 2 tra Microsoft e la rete dell'utente, l'estensione del dominio Layer 2 non sarà supportata. È necessario configurare sessioni di routing ridondanti tra i router perimetrali dell'utente e i router perimetrali Microsoft in modo da ottenere connettività Layer 3.
-
-Per altre informazioni sulla configurazione e per esempi concreti, è possibile seguire le indicazioni della guida dettagliata [Configurare una connessione ExpressRoute mediante un provider di Exchange](expressroute-configuring-exps.md).
-
-
-### Provider di servizi di rete
-
-Microsoft collabora con società di telecomunicazioni come AT&T e British Telecom al fine di offrire la connettività tra Azure e la rete WAN dell'utente. Microsoft offre larghezze di banda circuito da 10 Mbps a 1 Gbps (10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps).
-
-Se si usano i servizi VPN da qualsiasi provider di servizi di rete che collabora con Microsoft, sarà possibile estendere le reti in Azure senza dover distribuire nuovo hardware o apportare importanti modifiche di configurazione alle reti esistenti.
-
-Per altre informazioni sulla configurazione e per esempi concreti, è possibile seguire le indicazioni della guida dettagliata [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md).
-
-## Peering ExpressRoute
-La figura riportata di seguito fornisce una rappresentazione logica della connettività fra la rete WAN e Microsoft. È necessario ordinare un *circuito dedicato* per connettere la rete WAN a Microsoft tramite un provider di connettività (NSP/EXP). Un circuito dedicato rappresenta una connessione logica tra la rete WAN e Microsoft tramite il provider di connettività. È possibile ordinare più circuiti dedicati, ognuno dei quali può trovarsi nella stessa area geografica o in un'area diversa e può essere connesso alla rete WAN tramite provider di servizi diversi.
+Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata dedicata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e CRM Online. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 
 ![](./media/expressroute-introduction/expressroute-basic.png)
 
-A un circuito dedicato saranno associati più domini di routing, ovvero pubblico, privato e Microsoft. Ogni dominio di routing è configurato in modo identico in una coppia di router (in una configurazione di tipo attivo-attivo o di condivisione del carico) per offrire una disponibilità elevata.
+**I vantaggi principali includono:**
 
-![](./media/expressroute-introduction/expressroute-peerings.png)
+- Connettività di livello 3 tra la rete locale e il cloud Microsoft tramite un provider di connettività. La connettività può essere stabilita da una rete (IPVPN) any-to-any, da una connessione Ethernet punto a punto o con una Cross Connection virtuale tramite scambio Ethernet.
+- Connettività ai servizi cloud Microsoft in tutte le aree all'interno dell'area geopolitica.
+- Connettività globale ai servizi Microsoft di tutte le aree con il componente aggiuntivo ExpressRoute Premium.
+- Routing dinamico tra la rete e Microsoft con protocolli standard del settore (BGP).
+- Ridondanza incorporata in ogni località di peering per una maggiore affidabilità.
+- [Contratto di servizio](http://azure.microsoft.com/support/legal/sla/) per i tempi di attività delle connessioni.
+- Qualità del servizio e supporto di più classi di servizio per applicazioni speciali, ad esempio Skype for Business.
 
+Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-### Peering privato
-I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cloud (PaaS) distribuiti all'interno di una rete virtuale, possono essere connessi tramite il dominio di peering privato. Il dominio di peering privato viene considerato un'estensione attendibile della rete di base in Microsoft Azure. È possibile configurare la connettività bidirezionale tra la rete di base e le reti virtuali (VNet) di Azure. Ciò permetterà la connessione diretta a macchine virtuali e servizi cloud nei rispettivi indirizzi IP privati.
+## Come connettere una rete a Microsoft tramite ExpressRoute
 
-È possibile connettere più di una rete virtuale al dominio di peering privato. Per informazioni su limiti e limitazioni, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md).
-  
+Per creare una connessione tra una rete locale e il cloud Microsoft è possibile procedere in tre modi diversi.
 
-### Peering pubblico
-I servizi quali Archiviazione, database SQL e Siti Web di Azure vengono offerti su indirizzi IP pubblici. È possibile connettersi privatamente ai servizi ospitati su indirizzi IP pubblici, inclusi gli indirizzi VIP dei servizi cloud, tramite il dominio di routing di peering pubblico. È possibile connettere il dominio di peering pubblico alla rete Extranet e connettersi a tutti i servizi di Azure sui rispettivi indirizzi IP pubblici dalla rete WAN senza doversi connettere a Internet. La connettività viene sempre attivata dalla rete WAN verso i servizi di Microsoft Azure. I servizi di Microsoft Azure non potranno attivare connessioni alla rete dell'utente tramite questo dominio di routing. Dopo l'abilitazione del peering pubblico, sarà possibile connettersi a tutti i servizi di Azure. Non è consentito scegliere in modo selettivo i servizi per cui vengono annunciate route. Per verificare l'elenco dei prefissi pubblicati tramite questo peering, vedere la pagina relativa agli [intervalli IP per i data center di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653). È possibile definire filtri di route personalizzati nella propria rete per usare solo le route necessarie.
+1. **Percorso condiviso in uno scambio cloud.** Nel caso di percorso condiviso in una struttura con scambio cloud, è possibile ordinare Cross Connection virtuali con il cloud Microsoft tramite lo scambio Ethernet del provider di condivisione del percorso. I provider di condivisione del percorso possono fornire Cross Connection di livello 2 oppure gestite di livello 3 tra l'infrastruttura nella struttura di condivisione percorso e il cloud Microsoft.
+2.	**Connessioni Ethernet punto a punto.** È possibile connettere i data center o gli uffici locali al cloud Microsoft tramite collegamenti Ethernet punto a punto. I provider Ethernet punto a punto forniscono connessioni di livello 2 o connessioni gestite di livello 3 tra la sede dell'utente e il cloud Microsoft.
+3.	**Reti (IPVPN) any-to-any.** È possibile integrare una rete WAN con il cloud Microsoft. I provider IPVPN (in genere VPN MPLS) forniscono connettività any-to-any tra le succursali e i data center. Il cloud Microsoft può essere interconnesso a una rete WAN in modo che abbia l'aspetto di qualsiasi altra succursale. I provider WAN offrono in genere connettività gestita di livello 3.
 
-Per altre informazioni sui servizi supportati tramite il dominio di peering pubblico, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md).
+![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
+
+Le caratteristiche e le funzionalità di ExpressRoute sono identiche in tutti i modelli di connettività sopra descritti. I provider di connettività possono fornire uno o più modelli di connettività dell'elenco precedente. È possibile interagire con il provider di connettività per scegliere il modello più appropriato.
+
+## Funzionalità di ExpressRoute
+
+ExpressRoute supporta le funzionalità e le caratteristiche riportate di seguito.
+
+### Connettività di livello 3
+
+Microsoft usa il protocollo di routing dinamico di standard del settore (BGP) per lo scambio di route tra la rete locale, le istanze in Azure e gli indirizzi pubblici Microsoft. Vengono stabilite più sessioni BGP con la rete per profili di traffico diversi. Per altre informazioni, vedere l'articolo relativo [al circuito e ai domini di routing ExpressRoute](expressroute-circuit-peerings.md).
+
+### Ridondanza
+
+Ogni circuito ExpressRoute è costituito da due connessioni a due router perimetrali Microsoft Enterprise (MSEE) dal provider di connettività o dal perimetro della rete. Microsoft richiederà una connessione BGP doppia dal provider di connettività/lato dell'utente, ognuna per ciascun MSEE. È possibile scegliere di non distribuire dispositivi ridondanti/circuiti Ethernet sul lato dell'utente. I provider di connettività tuttavia usano dispositivi ridondanti per garantire che le connessioni vengono passate a Microsoft in modo ridondante. Una connettività di livello 3 ridondante è un requisito per la validità del [contratto di servizio](http://azure.microsoft.com/support/legal/sla/).
+
+### Connettività ai servizi cloud Microsoft
+
+Le connessioni ExpressRoute abilitano l'accesso ai servizi seguenti.
+
+- Servizi di Microsoft Azure
+- Servizi di Microsoft Office 365
+- Servizi di Microsoft CRM Online (presto disponibili) 
  
-### Peering Microsoft
-La connettività verso tutti gli altri servizi online Microsoft (ad esempio i servizi di Office 365) verrà attivata tramite peering Microsoft. La connettività bidirezionale tra la rete WAN e i servizi cloud Microsoft verrà abilitata tramite il dominio di routing di peering Microsoft. È necessario connettersi ai servizi cloud Microsoft solo tramite indirizzi IP pubblici di cui si è proprietari o di proprietà del proprio provider di connettività ed è necessario rispettare tutte le regole definite. Per altre informazioni, vedere la pagina relativa ai [prerequisiti per ExpressRoute](expressroute-prerequisites.md).
+Per un elenco dettagliato dei servizi supportati per ExpressRoute, visitare la pagina [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-Per altre informazioni sui servizi supportati, sui costi e sui dettagli per la configurazione, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md). Per informazioni sull'elenco di provider di connettività che offrono supporto per il peering Microsoft, vedere la pagina relativa alle [località per ExpressRoute](expressroute-locations.md).
+### Connettività a tutte le aree all'interno di un'area geopolitica
 
+È possibile connettersi a Microsoft in una delle [località di peering](expressroute-locations.md) e accedere a tutte le aree all'interno dell'area geopolitica.
 
-La tabella seguente confronta i tre domini di routing.
+Se ad esempio si esegue la connessione a Microsoft da Amsterdam tramite ExpressRoute, sarà possibile accedere a tutti i servizi cloud Microsoft ospitati nell'Europa settentrionale e occidentale. Per una panoramica delle aree geopolitiche, delle aree cloud Microsoft associate e delle località di peering ExpressRoute corrispondenti, vedere l'articolo [Partner e località di peering per Azure ExpressRoute](expressroute-locations.md).
 
-||**Peering privato**|**Peering pubblico**|**Peering Microsoft**|
-|---|---|---|---|
-|**N. massimo di prefissi supportati per peering**|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|200|
-|**Intervalli di indirizzi IP supportati**|Qualsiasi indirizzo IPv4 valido entro la rete WAN|Indirizzi IPv4 pubblici di proprietà del provider di connettività|Indirizzi IPv4 pubblici di proprietà del provider di connettività|
-|**Requisiti per i numeri AS**|Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico. | Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico.| Solo numeri AS pubblici. Il numero AS deve essere convalidato rispetto ai registri di routing per convalidare la proprietà.|
-|**Indirizzi IP per l'interfaccia di routing**|RFC1918 e indirizzi IP pubblici|Indirizzi IP pubblici registrati per i clienti NSP in registri di routing.| Indirizzi IP pubblici registrati per i clienti/NSP in registri di routing.|
-|**Supporto per hash MD5**| Sì|Sì|Sì|
+### Connettività globale con il componente aggiuntivo ExpressRoute Premium
 
-È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito dedicato. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN (nel caso NSP) se si vuole inserirli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma precedente. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft alla Extranet.
- 
-Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tre coppie di sessioni BGP (una coppia per ogni tipo di peering). Le coppie di sessioni BGP forniscono un collegamento a disponibilità elevata. Se si stabilisce la connessione tramite provider di Exchange, l'utente sarà responsabile della configurazione e della gestione del routing (a meno che il provider di Exchange offra la gestione automatica del routing). Se si sceglie la connessione tramite i provider di servizi di rete, sarà possibile affidare la gestione automatica del routing a tali provider. È possibile ottenere più informazioni esaminando i flussi di lavoro per la configurazione di ExpressRoute
+È possibile abilitare la funzionalità componente aggiuntivo ExpressRoute Premium per estendere la connettività tra confini geopolitici. Se ad esempio si esegue la connessione a Microsoft da Amsterdam tramite ExpressRoute, sarà possibile accedere a tutti i servizi cloud Microsoft ospitati in tutte le aree del mondo (cloud nazionali esclusi). È possibile accedere ai servizi distribuiti nell'America del Sud o in Australia nello stesso modo in cui si accede alle aree dell'Europa settentrionale e occidentale.
 
+### Ecosistema di partner di connettività avanzata
+
+ExpressRoute presenta un ecosistema di partner di connettività e SI in continua crescita. Per le informazioni più aggiornate, vedere l'articolo [Partner e località di peering per Azure ExpressRoute](expressroute-locations.md).
+
+### Connettività a cloud nazionali
+
+Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segmenti di clienti. Per un elenco dei cloud nazionali e dei provider, vedere l'articolo [Partner e località di peering per Azure ExpressRoute](expressroute-locations.md).
+
+### Opzioni di larghezze di banda supportate
+
+È possibile acquistare circuiti ExpressRoute per un'ampia gamma di larghezze di banda. Viene riportato di seguito l'elenco delle larghezze di banda supportate. Controllare presso il provider di connettività l'elenco delle larghezze di banda supportate fornite.
+
+- 50 Mbps
+- 100 Mbps
+- 200 Mbps
+- 500 Mbps
+- 1 Gbps
+- 2 Gbps
+- 5 Gbps
+- 10 Gbps
+
+### Scalabilità dinamica della larghezza di banda
+
+È possibile aumentare la larghezza di banda del circuito ExpressRoute (in base ad approssimazioni ottimali) senza dover chiudere le connessioni.
+
+### Modelli di fatturazione flessibili
+
+È possibile selezionare il modello di fatturazione più adatto per le proprie esigenze. Scegliere tra i modelli di fatturazione elencati di seguito. Per altri dettagli, vedere la pagina [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+
+- **Dati illimitati**. Il circuito ExpressRoute viene addebitato in base a una tariffa mensile che include il trasferimento di tutti i dati in entrata e in uscita. 
+- **Dati a consumo**. Il circuito ExpressRoute viene addebitato in base a una tariffa mensile. Nella tariffa è incluso il trasferimento di tutti i dati in entrata. Il trasferimento dei dati in uscita invece viene addebitato per GB di dati trasferiti. Le tariffe per il trasferimento dei dati variano in base all'area.
+- **Componente aggiuntivo ExpressRoute Premium**. ExpressRoute Premium è un componente aggiuntivo per il circuito ExpressRoute. Offre le funzionalità seguenti: 
+	- Estensione dei limiti di route per i peering pubblico e privato di Azure da 4.000 a 10.000 route.
+	- Connettività globale per i servizi. Un circuito ExpressRoute creato in un'area qualsiasi (esclusi i cloud nazionali) potrà accedere alle risorse di tutte le altre aree del mondo. Ad esempio, una rete virtuale creata nell'Europa occidentale è accessibile attraverso un circuito ExpressRoute fornito nella Silicon Valley.
+	- Aumento del numero di collegamenti di reti virtuali consentiti per circuito ExpressRoute da 10 a un numero superiore, a seconda della larghezza di banda del circuito.
 
 ## Passaggi successivi
 
-- Trovare un provider di servizi. Vedere [Provider e sedi dei servizi ExpressRoute](expressroute-locations.md).
-- Configurare la connessione ExpressRoute. Per istruzioni, vedere [Configurare una connessione ExpressRoute tramite un provider di servizi di rete](expressroute-configuring-nsps.md) o [Configurare una connessione ExpressRoute mediante un provider di Exchange](expressroute-configuring-exps.md). 
+- Informazioni sulle connessioni e i domini di routing ExpressRoute. Vedere [Circuiti e domini di routing ExpressRoute](expressroute-circuit-peerings.md).
+- Trovare un provider di servizi. Vedere [Partner e località di peering per Azure ExpressRoute](expressroute-locations.md).
+- Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
+- Fare riferimento ai requisiti per [routing](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).
+- Configurare la connessione ExpressRoute.
+	- [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
+	- [Configurare il routing](expressroute-howto-routing-classic.md)
+	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

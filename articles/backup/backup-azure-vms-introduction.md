@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Backup di una macchina virtuale di Azure
 
@@ -111,7 +111,7 @@ Per altre informazioni, leggere gli articoli relativi all'[agente VM](https://go
 - Il backup di macchine virtuali mediante il servizio Backup di Azure è supportato soltanto per versioni specifiche dei sistemi operativi seguenti:
   - **Linux**: l'elenco delle distribuzioni approvate da Azure è disponibile [qui](../virtual-machines-linux-endorsed-distributions.md). È possibile usare altre distribuzioni personali di Linux a condizione che l'agente VM sia disponibile nella macchina virtuale.
   - **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
-- Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Ulteriori informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#multiple-dcs)
+- Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Ulteriori informazioni sul [ripristino di un controller di dominio con più controller di dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 
 Se si desidera includere funzionalità aggiuntive, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
@@ -122,4 +122,4 @@ Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni 
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

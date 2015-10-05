@@ -72,7 +72,7 @@ L'organizzazione può usare Azure AD per migliorare la produttività dei dipende
  - [Versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/) - è possibile ottenere subito gratuitamente una versione di valutazione di 30 giorni e distribuire la prima soluzione cloud in meno di 5 minuti, usando il collegamento seguente
  - Per suggerimenti relativi a come attivare ed eseguire rapidamente un tenant di Azure AD, vedere "Introduzione ad Azure AD".
 -	Sviluppatori:
- - Vedere la [Guida per gli sviluppatori](https://msdn.microsoft.com/library/azure/ff800682.aspx) per Azure Active Directory <need link>
+ - Vedere la [Guida per gli sviluppatori](active-directory-developers-guide.md) per Azure Active Directory 
  - [Iniziare a usare una versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/) – è possibile ottenere subito gratuitamente una versione di valutazione di 30 giorni e iniziare a integrare la propria app con Azure AD.
 
 
@@ -104,4 +104,4 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 
 - [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -60,7 +60,7 @@ I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp`. La dire
 * __2.2.4.9-1__: questa directory è denominata in base alla versione di Hortonworks Data Platform usata da HDInsight, di conseguenza il numero visualizzato nel cluster potrebbe essere diverso da quello mostrato qui.
 * __corrente__: questa directory contiene collegamenti alle directory all'interno della directory __2.2.4.9-1__ e consente di non dover digitare il numero della versione (che può cambiare) ogni volta che si vuole accedere a un file.
 
-Dati di esempio e i file JAR sono disponibili nel file system Hadoop Distributed File System (HDFS) o nell'archivio BLOB di Azure in '/example' o 'wasb:///example'.
+Dati di esempio e i file con estensione jar sono disponibili nel file system Hadoop Distributed File System (HDFS) o nell'archivio BLOB di Azure in '/example' o 'wasb:///example'.
 
 ## Procedure consigliate relative al file system HDFS, all'archivio BLOB di Azure e all'archiviazione
 
@@ -200,11 +200,12 @@ Per informazioni specifiche sul ridimensionamento del cluster HDInsight, vedere:
 
 ## Come si installa Hue (o un altro componente Hadoop)?
 
-HDInsight è un servizio gestito e quindi, se viene rilevato un problema, Azure può automaticamente eliminare i nodi nel cluster ed eseguirne di nuovo il provisioning. Per questo motivo, non è consigliabile installare manualmente componenti nei nodi del cluster.
+HDInsight è un servizio gestito e quindi, se viene rilevato un problema, Azure può automaticamente eliminare i nodi nel cluster ed eseguirne di nuovo il provisioning. Per questo motivo, non è consigliabile eseguire manualmente l'installazione direttamente nei nodi del cluster. Usare piuttosto [azioni script di HDInsight](hdinsight-hadoop-customize-cluster.md) quando è necessario eseguire le installazioni seguenti:
 
-Provare invece a usare le [azioni script di HDInsight](hdinsight-hadoop-customize-cluster.md).
+* Un servizio o un sito Web, ad esempio Spark o Hue.
+* Un componente che richiede modifiche di configurazione in più nodi del cluster, ad esempio una variabile di ambiente necessaria, la creazione di una directory di registrazione o la creazione di un file di configurazione.
 
-Le azioni script sono script Bash che vengono eseguiti durante il provisioning del cluster e che possono essere usati per installare componenti aggiuntivi nel cluster. Sono disponibili script di esempio per installare i componenti seguenti:
+Le azioni script sono script Bash che vengono eseguiti durante il provisioning del cluster e che possono essere usati per installare e configurare componenti aggiuntivi nel cluster. Sono disponibili script di esempio per installare i componenti seguenti:
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph,](hdinsight-hadoop-giraph-install-linux.md)
@@ -214,10 +215,28 @@ Le azioni script sono script Bash che vengono eseguiti durante il provisioning d
 
 Per informazioni su come sviluppare azioni script personalizzate, vedere [Sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
+###File con estensione jar
+
+Alcune tecnologie Hadoop vengono fornite in file con estensione jar indipendenti contenenti funzioni usate come parte di un processo MapReduce o dall'interno di Pig o Hive. Sebbene sia possibile installarli usando azioni script, spesso non richiedono alcuna installazione e possono essere caricati nel cluster dopo il provisioning ed essere usati direttamente. Se si desidera assicurarsi che il componente venga mantenuto dopo la nuova creazione dell'immagine del cluster, è possibile archiviare il file con estensione jar in WASB.
+
+Se ad esempio si desidera usare l'ultima versione di [DataFu](http://datafu.incubator.apache.org/), è possibile scaricare un file con estensione jar contenente il progetto e caricarlo nel cluster HDInsight. Seguire quindi la documentazione di DataFu per informazioni sull'uso da Pig o Hive.
+
+> [AZURE.IMPORTANT]Alcuni componenti che sono file con estensione jar autonomi vengono forniti con HDInsight, ma non sono presenti nel percorso. Se si desidera un componente specifico, è possibile usare il comando seguente per cercarlo nel cluster:
+>
+> ```find / -name *componentname*.jar 2>/dev/null```
+>
+> Verrà restituito il percorso dei file con estensione jar corrispondenti.
+
+Se il cluster fornisce già una versione di un componente come file con estensione jar autonomo, ma si desidera usare una versione diversa, è possibile caricare una nuova versione del componente nel cluster e provare a usarla nei processi.
+
+> [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il supporto tecnico Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
+>
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
+
 ## Passaggi successivi
 
 * [Usare Hive con HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

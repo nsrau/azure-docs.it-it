@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="04/21/2015"
+	ms.date="09/17/2015"
 	ms.author="himad"/>
 
 
@@ -38,7 +38,7 @@ Ciò consente agli utenti Azure Machine Learning di creare servizi Web che posso
 - Fare clic sul pulsante **Add Endpoint** nella parte inferiore. Inserire un nome e una descrizione, assicurarsi che non siano presenti altri endpoint con lo stesso nome nel servizio Web. Lasciare il livello di limitazione con il valore predefinito, a meno di avere esigenze particolari. Per altre informazioni sulle limitazioni, vedere [Ridimensionamento degli endpoint dell'API](machine-learning-scaling-endpoints.md). ![Creare un endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 
-Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, le API batch e i fogli di lavoro di Excel. Per altre informazioni su come usare i servizi Web di Machine Learning, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
+Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, le API batch e i fogli di lavoro di Excel. Oltre ad aggiungere gli endpoint tramite questa interfaccia, è possibile utilizzare anche le API di gestione Endpoint a livello di codice aggiungere gli endpoint. Per altre informazioni su come usare i servizi Web di Machine Learning, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

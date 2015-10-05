@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Distribuire un'applicazione Linux utilizzando l'estensione CustomScript di Azure"
-	description="Informazioni su come utilizzare l'estensione CustomScript di Azure per distribuire le applicazioni in macchine virtuali Linux."
+	pageTitle="Utilizzare l'estensione CustomScript in una macchina virtuale Linux | Microsoft Azure"
+	description="Informazioni su come utilizzare l'estensione CustomScript per distribuire le applicazioni in macchine virtuali Linux in Azure create utilizzando il modello di distribuzione classica."
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
 	services="virtual-machines"
-	authors="gbowerman"/>
+	authors="gbowerman"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,15 +19,17 @@
 
 #Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la risoluzione dei problemi per l’accesso all’applicazione in una macchina virtuale creata con il modello di distribuzione classica.
+
 L'estensione CustomScript di Microsoft Azure per Linux fornisce un modo per personalizzare le macchine virtuali (VM) tramite l'esecuzione di codice arbitrario scritto in un linguaggio supportato dalla macchina virtuale (ad esempio, Python e Bash). In tal modo è possibile automatizzare la distribuzione di applicazioni a più computer in un modo molto flessibile.
 
 È possibile distribuire l'estensione CustomScript tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure (CLI di Azure).
 
-In questo articolo verrà distribuita una semplice applicazione LAMP su Ubuntu utilizzando l'interfaccia della riga di comando di Azure.
+In questo articolo utilizzeremo la CLI di Azure per distribuire una semplice applicazione LAMP a una macchina virtuale di Ubuntu creata utilizzando il modello di distribuzione classica.
 
 ## Prerequisiti
 
-Per l'esempio successivo, creare innanzitutto due macchine virtuali di Azure che eseguano Ubuntu 14.04. Le macchine virtuali vengono chiamate *script-vm* e *lamp-vm*. Quando si creano macchine virtuali, utilizzare sempre nomi univoci. Uno viene utilizzato per eseguire i comandi dell’interfaccia della riga di comando e uno viene utilizzato per distribuire l'applicazione LAMP.
+Per questo esempio, creare innanzitutto due macchine virtuali di Azure che eseguano Ubuntu 14.04 o la versione successiva. Le macchine virtuali vengono chiamate *script-vm* e *lamp-vm*. Quando si creano macchine virtuali, utilizzare sempre nomi univoci. Uno viene utilizzato per eseguire i comandi dell’interfaccia della riga di comando e uno viene utilizzato per distribuire l'applicazione LAMP.
 
 Sono inoltre necessari un account di archiviazione di Azure e una chiave di accesso (che è possibile ottenere nel portale di Azure).
 
@@ -38,11 +41,11 @@ La macchina virtuale script-vm richiede l'interfaccia della riga di comando di A
 
 ## Caricamento di uno script
 
-In questo esempio l'estensione CustomScript esegue uno script in una macchina virtuale remota per installare lo stack LAMP e creare una pagina PHP. Per accedere ovunque ci si trovi, lo script viene caricato come blob di Azure.
+Si utilizzerà l'estensione CustomScript per eseguire uno script in una macchina virtuale remota per installare lo stack LAMP e creare una pagina PHP. Per accedere ovunque ci si trovi, lo script viene caricato come blob di Azure.
 
 ### Panoramica di script
 
-Il seguente script consente di installare uno stack LAMP in Ubuntu (inclusa l'impostazione di un'installazione invisibile all'utente di MySQL), di scrivere un semplice file PHP e di avviare Apache:
+Lo script consente di installare uno stack LAMP in Ubuntu (inclusa l'impostazione di un'installazione invisibile all'utente di MySQL), di scrivere un semplice file PHP e di avviare Apache:
 
 	#!/bin/bash
 	# set up a silent install of MySQL
@@ -106,4 +109,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

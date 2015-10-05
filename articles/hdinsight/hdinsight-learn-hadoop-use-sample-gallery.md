@@ -17,7 +17,7 @@
    ms.date="07/09/2015"
    ms.author="jgao"/>
 
-# Informazioni su Hadoop tramite la raccolta di introduzione HDInsight
+# Informazioni su Hadoop tramite la raccolta di introduzione HDInsight di Azure.
 
 La raccolta di introduzione HDInsight fornisce un modo semplice e rapido per imparare a usare Hadoop eseguendo applicazioni di esempio in HDInsight. Alcuni degli esempi sono forniti con dati di esempio. Per i rimanenti esempi è possibile fornire i propri dati. Attualmente sono disponibili i sei esempi seguenti (altri verranno pubblicati a breve):
 
@@ -36,7 +36,7 @@ La raccolta di introduzione HDInsight fornisce un modo semplice e rapido per imp
 
 ![Soluzioni della raccolta di introduzione HDInsight Hadoop, Storm e HBase con dati di esempio.][hdinsight.sample.gallery]
 
-Il seguente video clip mostra come eseguire l'esempio relativo all'analisi delle tendenze Twitter:
+Il seguente video mostra come eseguire l'esempio relativo all'analisi delle tendenze Twitter:
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
@@ -47,9 +47,9 @@ E’ possibile accedere al dashboard dall’indirizzo http://<YourHDInsightClust
 1. Accedere al [portale di anteprima di Azure][azure.portal].
 2. Fare clic su **Esplora tutto** dal menu a sinistra, fare clic su **Cluster HDInsight**, e poi sul nome del cluster.
 3. Fare clic su **Dashboard** nel menu principale.
-4. Immettere il nome utente e la password dell’utente HTTP (detto anche utente del cluster).
-6.	Fare clic su **Getting Started Gallery** nella parte superiore della pagina.
-7.	Fare clic su uno degli esempi. Ogni esempio fornisce passaggi dettagliati per l'esecuzione. La seguente immagine illustra l'esempio relativo all'analisi delle tendenze Twitter:
+4. Immettere il nome utente e password per l'utente HTTP (denominato anche utente del cluster).
+6. Fare clic su **Getting Started Gallery** nella parte superiore della pagina.
+7. Fare clic su uno degli esempi. Ogni esempio fornisce passaggi dettagliati per l'esecuzione. La seguente immagine illustra l'esempio relativo all'analisi delle tendenze Twitter:
 
 	![Esempio di analisi delle tendenze Twitter in HDInsight][hdinsight.twitter.sample]
 
@@ -68,4 +68,4 @@ Di seguito sono indicati altri modi e strumenti per imparare a usare HDInsight:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

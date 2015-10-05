@@ -1,17 +1,18 @@
 <properties
-	pageTitle="Spark sul modello di Gestione risorse Ubuntu"
-	description="Informazioni su come distribuire con facilità un nuovo cluster Spark nelle macchine virtuali Ubuntu usando Azure PowerShell o l'interfaccia della riga di comando di Azure e un modello di Gestione risorse"
+	pageTitle="Spark sul modello di Gestione risorse Ubuntu | Microsoft Azure"
+	description="Come distribuire con facilità un nuovo cluster Spark nelle macchine virtuali Ubuntu usando Azure PowerShell o l'interfaccia della riga di comando di Azure e un modello di Gestione risorse"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="paolosalvatori"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="multiple"
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
@@ -19,6 +20,9 @@
 # Spark su Ubuntu con un modello di Gestione risorse
 
 Apache Spark è un motore ad alta velocità per l'elaborazione dati su larga scala. Spark dispone di un motore di esecuzione DAG avanzato che supporta il flusso dati ciclico e l'elaborazione in memoria e può accedere a diverse fonti di dati, tra cui HDFS, Spark, HBase e S3.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la distribuzione di una risorsa con il modello di distribuzione Gestione risorse. Non è possibile distribuire questa risorsa con il modello di distribuzione classico.
+
 
 Oltre a essere eseguito sugli strumenti di gestione del cluster Mesos e YARN, Spark fornisce una semplice modalità di distribuzione autonoma. In questa esercitazione verrà illustrato come utilizzare un modello di Gestione risorse di Azure di esempio per distribuire un cluster Spark su macchine virtuali Ubuntu tramite [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](../xplat-cli.md).
 
@@ -381,7 +385,7 @@ A tale scopo, visitare il [portale di Azure](https://portal.azure.com) ed effett
 
 - Fare clic su **Sfoglia** nella barra di spostamento a sinistra, quindi scorrere verso il basso e fare clic su **Gruppi di risorse**.
 - Fare clic sul gruppo di risorse appena creato, per visualizzare il pannello "Gruppo di risorse".
-- Facendo clic sul grafico a barre **Eventi** nella parte **Monitoraggio** del pannello "Gruppo di risorse", è possibile visualizzare gli eventi per la distribuzione.
+- Facendo clic sul grafico a barre **Eventi** nella parte relativa al **Monitoraggio** del pannello "Gruppo di risorse", sarà possibile visualizzare gli eventi per la distribuzione:
 - Facendo clic su singoli eventi, è possibile esaminare i dettagli di ogni singola operazione eseguita per conto del modello.
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
@@ -542,7 +546,7 @@ In particolare, i seguenti modelli collegati verranno usati per la distribuzione
 
 Dopo aver richiamato questi due modelli, azuredeploy.json esegue il provisioning di tutte le macchine virtuali dei nodi del cluster Spark e delle risorse collegate (schede di rete, IP privati e così via). Questo modello consentirà inoltre di distribuire estensioni delle macchine virtuali (gli script personalizzati per Linux) e di richiamare uno script bash (spark-cluster-install.sh) per installare fisicamente e configurare Spark in ciascun nodo.
 
-Si passerà ora a esaminare *come* quest'ultimo modello, azuredeploy.json, viene utilizzato, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Ciclo delle risorse o Resource Looping**.
+Si passerà ora a esaminare *come* quest'ultimo modello, azuredeploy.json, viene utilizzato, in quanto è uno dei più interessanti dal punto di vista dello sviluppo dei modelli. Un concetto importante da evidenziare è come un unico file di modello possa consentire la distribuzione di più copie di un singolo tipo di risorsa, e per ogni istanza di impostare valori univoci per le impostazioni necessarie. Questo concetto è noto come **Resource Looping (ciclo delle risorse)**.
 
 Una risorsa che utilizza l'elemento **copy** verrà copiata automaticamente per il numero di volte specificato nel parametro **count** dell'elemento **copy**. Per tutte le impostazioni di cui è necessario specificare valori univoci tra istanze diverse della risorsa distribuita, è possibile utilizzare la funzione **copyindex()** per ottenere un valore numerico che indica l'indice corrente nella creazione del ciclo di risorse specifico. Nel frammento seguente di azuredeploy.json, è possibile osservare questo concetto applicato a più schede di rete, macchine virtuali ed estensioni di macchine virtuali create per il cluster Spark:
 
@@ -843,4 +847,4 @@ Scoprire altri [framework di applicazioni](virtual-machines-app-frameworks.md).
 
 [Risoluzione dei problemi relativi alle distribuzioni dei modelli](resource-group-deploy-debug.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

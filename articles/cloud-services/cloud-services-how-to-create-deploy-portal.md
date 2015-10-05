@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come creare e distribuire un servizio Cloud | Microsoft Azure"
-	description="Informazioni su come creare e distribuire un servizio cloud usando il metodo Creazione rapida in Azure."
+	pageTitle="Come creare e distribuire un servizio Cloud (portale di anteprima) | Microsoft Azure"
+	description="Informazioni su come creare e distribuire un servizio cloud usando il metodo Creazione rapida in Azure. Questi esempi utilizzano il portale di anteprima di Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -107,4 +107,11 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+## Passaggi successivi
+
+* [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
+* Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
+* [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
+* Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

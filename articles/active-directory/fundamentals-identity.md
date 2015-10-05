@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Identità di Azure"
+	pageTitle="Identità di Azure | Microsoft Azure"
 	description="Informazioni sull'uso di Active Directory in Azure."
 	services="active-directory"
 	documentationCenter=".net"
-	authors="TerryLanfear"
-	manager="terrylan"
+	authors="curtand"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="terrylan"/>
+	ms.date="09/22/2015"
+	ms.author="curtand"/>
 
 
 # Nozioni fondamentali sulla gestione delle identità di Azure
@@ -24,6 +24,5 @@
 
 
 [AZURE.INCLUDE [identità](../../includes/identity.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

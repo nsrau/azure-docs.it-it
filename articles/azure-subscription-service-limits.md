@@ -101,6 +101,9 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 
 
 ### Limiti relativi alle reti
+
+[AZURE.INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
 #### Limiti relativi alle reti
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
@@ -256,4 +259,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

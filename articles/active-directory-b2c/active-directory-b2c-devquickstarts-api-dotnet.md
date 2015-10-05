@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 	
 # Anteprima di Azure AD B2C: Creare un'API Web .NET
@@ -36,20 +36,22 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Per l'app Web, usare l'**URI di reindirizzamento** `https://localhost:44316/`: si tratta della posizione predefinita del client di app Web per questo codice di esempio.
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
+     >[AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa esercitazione
+
 ## 3\. Creare i criteri
 
-In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Il client in questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. Sarà necessario creare i criteri per ogni tipo, come descritto nell'articolo di [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Il client in questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. Sarà necessario creare i criteri per ciascun tipo, come descritto nell'articolo [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
 - Scegliere **Iscrizione tramite ID utente** o **Iscrizione tramite indirizzo di posta elettronica** nel pannello dei provider di identità.
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere le attestazioni **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altri criteri.
-- Copiare il **Nome** dei criteri dopo averli creati. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
 ## 4\. Scaricare il codice
 
-Il codice per questa esercitazione è disponibile [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip) o clonare lo scheletro:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
@@ -209,7 +211,7 @@ public IEnumerable<Models.Task> Get()
 
 ## 7\. Eseguire l'app di esempio
 
-Infine, compilare ed eseguire `TaskWebApp` e `TaskService`. Eseguire l'iscrizione per l'app usando un indirizzo di posta elettronica o un nome utente. Creare alcune attività nell'elenco attività dell'utente e osservarne la persistenza nell'API anche dopo l'arresto e il riavvio del client.
+Infine, compilare ed eseguire sia `TaskWebApp` che `TaskService`. Eseguire l'iscrizione per l'app usando un indirizzo di posta elettronica o un nome utente. Creare alcune attività nell'elenco attività dell'utente e osservarne la persistenza nell'API anche dopo l'arresto e il riavvio del client.
 
 ## 8\. Modificare i criteri
 
@@ -230,4 +232,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

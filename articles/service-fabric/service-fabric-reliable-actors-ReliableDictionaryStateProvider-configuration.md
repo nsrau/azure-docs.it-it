@@ -1,20 +1,20 @@
 <properties
    pageTitle="Panoramica della configurazione di ReliableDictionaryActorStateProvider per Reliable Actors di Service Fabric"
-	description="Informazioni sulla configurazione di attori con stato di tipo ReliableDictionaryActorStateProvider in Service Fabric"
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="Informazioni sulla configurazione di attori con stato di tipo ReliableDictionaryActorStateProvider in Service Fabric"
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Configurazione di Reliable Actors - ReliableDictionaryActorStateProvider
 È possibile modificare la configurazione predefinita di ReliableDictionaryActorStateProvider cambiando il file "settings.xml" generato nella directory radice del pacchetto di Visual Studio all'interno della cartella "Config" per l'attore specificato.
@@ -27,8 +27,6 @@ Il runtime di Service Fabric cerca i nomi di sezione predefiniti nel file "setti
 Le configurazioni della sicurezza del replicatore consentono di proteggere il canale di comunicazione usato durante la replica. Questo significa che i servizi non saranno in grado di vedere l'uno il traffico di replica dell'altro, garantendo la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
 ### Nome della sezione
 &lt;NomeAttore&gt;ServiceReplicatorSecurityConfig
-### Nomi delle configurazioni
-Fare riferimento all'articolo sulla [sicurezza della replica](../service-fabric/service-fabric-replication-security.md).
 
 ## Configurazione del replicatore
 Le configurazioni del replicatore vengono usate per configurare il servizio di replica responsabile di garantire l'elevata affidabilità dello stato del provider di stato degli attori replicando e rendendo permanente tale stato in locale. La configurazione predefinita viene generata dal modello di Visual Studio e dovrebbe essere sufficiente. Questa sezione descrive le configurazioni aggiuntive che sono disponibili per ottimizzare il replicatore.
@@ -86,6 +84,5 @@ L'impostazione OptimizeForLocalSSD consente di disabilitare la scrittura delle i
 L'impostazione MaxRecordSizeInKB definisce la dimensione massima di un record che il replicatore può scrivere nel file di log. Nella maggior parte dei casi la dimensione predefinita del record, 1024 KB, è ottimale. Tuttavia, se il servizio richiede che nelle informazioni sullo stato vengano inclusi elementi dati di maggiori dimensioni, è possibile che sia necessario aumentare questo valore. Ridurre la dimensione di MaxRecordSizeInKB a meno di 1024 KB offre un piccolo vantaggio: in questo modo, infatti, i record di dimensioni minori usano soltanto lo spazio necessario. Si prevede che l'impostazione dovrà essere modificata solo in casi rari.
 
 Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file, in modo da ridurre le situazioni di contesa della testina. Si prevede che l'impostazione dovrà essere modificata solo in casi rari.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

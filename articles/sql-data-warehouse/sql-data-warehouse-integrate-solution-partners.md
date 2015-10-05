@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/07/2015"
+   ms.date="09/22/2015"
    ms.author="joliang"/>
 
-# Partner di soluzioni per SQL Data Warehouse #
+# Partner di soluzioni per SQL Data Warehouse
 
 Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo elenca le società partner che offrono soluzioni per SQL Data Warehouse.
 
@@ -46,6 +46,7 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 | ![Albacora][21] |**Yellowfin**<br>Yellowfin è un importante fornitore di business intelligence sul cloud per la creazione ad-hoc di report e dashboard, in base al sondaggio BARC su business intelligence. È possibile connettersi ad Azure SQL Data Warehouse, quindi creare e condividere report e dashboard straordinari con funzionalità collaborative avanzate di business intelligence e location intelligence. | [Altro][yellowfin_more] |
 
 ## Passaggi successivi
+
 Per altre informazioni sull'integrazione con SQL Data Warehouse, vedere [Creare soluzioni integrate con SQL Data Warehouse][].
 
 
@@ -100,4 +101,4 @@ Per altre informazioni sull'integrazione con SQL Data Warehouse, vedere [Creare 
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

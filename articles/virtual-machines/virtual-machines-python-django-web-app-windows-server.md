@@ -1,11 +1,12 @@
 <properties
 	pageTitle="App Web Python con Django | Microsoft Azure"
-	description="Questa esercitazione illustra come ospitare un sito Web basato su Django in Azure usando una macchina virtuale Windows Server 2012 R2 Datacenter."
+	description="Questa esercitazione illustra come ospitare un sito Web basato su Django in Azure usando una macchina virtuale Windows Server 2012 R2 Datacenter utilizzando un modello di distribuzione classica."
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 
 <tags 
@@ -18,11 +19,15 @@
 	ms.author="huvalo"/>
 
 
+# Applicazione Web Hello World Django in una macchina virtuale di Windows Server.
 
+> [AZURE.SELECTOR]
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
-# Applicazione Web Hello World Django
+<br>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Questa esercitazione illustra come ospitare un sito Web basato su Django in Microsoft Azure usando una macchina virtuale Windows Server. In questa esercitazione si presuppone che l'utente non abbia mai usato Azure. Dopo aver completato questa esercitazione, si disporrà di un'applicazione basata su Django in esecuzione nel cloud.
 
@@ -178,4 +183,4 @@ Al termine dell'esercitazione, arrestare e/o rimuovere la macchina virtuale di A
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

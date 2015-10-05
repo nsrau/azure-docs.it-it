@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
 #Gestire la directory per la sottoscrizione di Office 365 in Azure
@@ -70,4 +70,4 @@ Ora si supponga che John Doe debba eseguire l'accesso al portale di gestione di 
 ##Passaggi successivi
 Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [Come vengono associate le sottoscrizioni Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

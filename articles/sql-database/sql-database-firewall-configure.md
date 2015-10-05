@@ -1,21 +1,21 @@
 <properties
    pageTitle="Firewall del database SQL di Azure | Microsoft Azure"
-	description="Come configurare il firewall del database SQL di Microsoft Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Come configurare il firewall del database SQL di Microsoft Azure."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/04/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/04/2015"
+   ms.author="rickbyh"/>
 
 # Firewall del database SQL di Azure
 
@@ -114,7 +114,7 @@ Oltre al portale di gestione di Azure, le regole del firewall possono essere ges
 
 Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta come previsto, considerare quanto segue:
 
-- **Configurazione del firewall locale:** prima che il computer possa accedere al database SQL di Azure, è necessario creare un'eccezione del firewall sul computer per la porta TCP 1433. 
+- **Configurazione del firewall locale:** prima che il computer possa accedere al database SQL di Azure, è necessario creare un'eccezione del firewall sul computer per la porta TCP 1433. È necessario aprire delle porte aggiuntive se si apportano le connessioni all'interno del cloud di Azure. Per ulteriori informazioni, vedere la sezione **V12 del database SQL: all'esterno rispetto all'interno** di [porte 1433 per 4.5 ADO.NET e SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 - **Rete NAT (Network address translation):** a causa di NAT, l'indirizzo IP utilizzato dal computer per connettersi al database SQL di Azure potrebbe essere diverso da quello indicato nelle impostazioni di configurazione IP del computer. Per visualizzare l'indirizzo IP utilizzato dal computer connettersi ad Azure, accedere al portale di gestione e spostarsi nella scheda **Configura** sul server che ospita il database. Nella sezione **Indirizzi IP consentiti**, viene visualizzato **lndirizzo IP client corrente**. Fare clic su **Aggiungi** negli **Indirizzi IP consentiti ** per consentire al computer di accedere al server.
 
@@ -135,4 +135,4 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Creazione di una Directory di Azure AD o una directory Azure AD B2C - problemi e risoluzioni
@@ -34,4 +34,4 @@ Ci sono alcuni problemi noti che potrebbero verificarsi durante la [creazione di
 	- Eliminare la directory appena creata e riprovare.
 - Se nessuna delle soluzioni elencate sopra risolve il problema, contattare il Supporto. Leggere [questo articolo](active-directory-b2c-support.md) su come presentare richieste di supporto per Azure AD B2C.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

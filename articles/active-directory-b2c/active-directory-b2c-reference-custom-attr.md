@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 #  Anteprima di Azure Active Directory B2C: utilizzare attributi personalizzati per raccogliere informazioni sugli utenti
@@ -46,4 +46,4 @@ L'attributo personalizzato è ora disponibile nell'elenco di **Attributi utente*
 
 È possibile utilizzare la funzionalità "Esegui ora" nei criteri per verificare l'esperienza utente. Ora si dovrebbe vedere "ShoeSize" nell'elenco di attributi che vengono raccolti durante l'iscrizione dell’utente e visualizzarlo nel token inviato all'applicazione.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

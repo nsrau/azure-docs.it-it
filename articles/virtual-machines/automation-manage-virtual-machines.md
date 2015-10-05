@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestire le Macchine virtuali di Azure usando Automazione di Azure"
+	pageTitle="Gestire le macchine virtuali utilizzando Automazione di Azure | Microsoft Azure"
 	description="Informazioni su come è possibile usare il servizio Automazione di Azure per gestire le macchine virtuali di Azure su vasta scala."
 	services="virtual-machines, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="08/11/2015"
 	ms.author="jolevy"/>
 
 
@@ -21,6 +21,8 @@
 #Gestione delle Macchine virtuali di Azure mediante Automazione di Azure
 
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione delle macchine virtuali di Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Informazioni su Automazione di Azure
 
@@ -42,4 +44,4 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e d
 
 [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

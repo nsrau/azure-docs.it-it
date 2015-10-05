@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Accedere a una macchina virtuale che esegue Windows Server"
-	description="Informazioni su come usare il portale di anteprima di Azure per accedere a una macchina virtuale che esegue Windows Server."
+	pageTitle="Accedere a una macchina virtuale di Windows Server | Microsoft Azure"
+	description="Informazioni su come accedere a una macchina virtuale Windows Server tramite il portale di anteprima di Azure e il modello di distribuzione di gestione delle risorse."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,9 +17,11 @@
 	ms.date="09/15/2015"
 	ms.author="cynthn"/>
 
-# Come accedere a una macchina virtuale che esegue Windows Server#
+# Come accedere a una macchina virtuale che esegue Windows Server 
 
-Si userà il pulsante **Connetti** nel portale di anteprima di Azure per avviare una sessione di Desktop remoto. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrato l'accesso a una macchina virtuale Windows utilizzando il modello di distribuzione di gestione delle risorse. È anche possibile creare una risorsa con il [modello di distribuzione classica](virtual-machines-log-on-windows-server.md).
+
+Si userà il pulsante **Connetti** nel portale di anteprima di Azure per avviare una sessione di Desktop Remoto. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
 
 ## Connettersi alla macchina virtuale
 
@@ -45,4 +47,4 @@ Si userà il pulsante **Connetti** nel portale di anteprima di Azure per avviare
 
 Se le istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

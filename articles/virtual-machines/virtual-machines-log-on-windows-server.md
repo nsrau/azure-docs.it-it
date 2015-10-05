@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Accedere a una macchina virtuale che esegue Windows Server"
-	description="Informazioni su come usare il portale di Azure per accedere a una macchina virtuale che esegue Windows Server."
+	pageTitle="Come accedere a una VM | Microsoft Azure"
+	description="Utilizzare il portale per accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,7 +18,9 @@
 	ms.author="cynthn"/>
 
 
-# Come accedere a una macchina virtuale che esegue Windows Server#
+# Accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione delle risorse con il modello di distribuzione classica.
 
 Si userà il pulsante **Connetti** nel portale di anteprima di Azure per avviare una sessione di Desktop Remoto. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
 
@@ -51,4 +53,4 @@ Ecco alcuni aspetti da provare rapidamente nel portale:
 
 Se le precedenti istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

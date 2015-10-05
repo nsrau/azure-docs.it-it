@@ -1,13 +1,14 @@
-<properties 
-	pageTitle="Backup e ripristino per SQL Server in Macchine virtuali di Azure"
+<properties
+	pageTitle="Backup e ripristino per SQL Server | Microsoft Azure"
 	description="Vengono descritte considerazioni sul backup e sul ripristino per i database di SQL Server in esecuzione in macchine virtuali di Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"
+	tags="azure-service-management" />
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -17,6 +18,8 @@
 	ms.author="jroth" />
 
 # Backup e ripristino per SQL Server in Macchine virtuali di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 ## Panoramica
 
@@ -89,4 +92,4 @@ Sebbene il backup e il ripristino possano essere utilizzati per la migrazione de
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

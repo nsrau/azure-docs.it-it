@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Limiti dei servizi Azure Key Vault " 
-   description="Scopri i limiti di servizio per Azure Key Vault" 
+<properties
+   pageTitle="Limiti dei servizi Azure Key Vault | Microsoft Azure"
+   description="Scopri i limiti di servizio per Azure Key Vault"
    documentationCenter="dev-center-name"
    services="key-vault"  
    authors="msmbaldwin" 
-   manager="mbaldwin" 
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="07/06/2015"
+   ms.workload="identity"
+   ms.date="09/22/2015"
    ms.author="mbaldwin"/>
 
 # Limiti dei servizi Azure Key Vault
 
 Questi sono i limiti di servizio per Azure Key Vault.
 
-[AZURE.INCLUDE [limiti dell'insieme di credenziali di chiave](../../includes/key-vault-limits.md)]
+[AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

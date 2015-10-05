@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come collegare un disco dati nel portale di anteprima di Azure"
-	description="Come collegare dischi dati nuovi ed esistenti nel portale di anteprima di Azure | Microsoft Azure"
+	pageTitle="Collegare un disco dati | Microsoft Azure"
+	description="Come collegare un disco dati nuovo o esistente a una macchina virtuale nel portale di anteprima di Azure tramite il modello di distribuzione di gestione delle risorse."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
 # Come collegare un disco dati nel portale di anteprima di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. È anche possibile creare una risorsa con il [modello di distribuzione classica](storage-windows-attach-disk.md).
 
 In questo articolo viene illustrato come collegare dischi sia nuovi che esistenti a una macchina virtuale tramite il portale di anteprima di Azure. Prima di procedere, rivedere i suggerimenti seguenti:
 
@@ -33,7 +35,7 @@ In questo articolo viene illustrato come collegare dischi sia nuovi che esistent
 
 2. Nel menu Hub fare clic su **Sfoglia**.
 
-3. Nel pannello di ricerca, scorrere verso il basso e fare clic su **macchine virtuali**.
+3. Nel pannello di ricerca, scorrere verso il basso e fare clic su **Macchine virtuali**.
 
 	![Cercare macchine virtuali](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
 
@@ -88,4 +90,4 @@ Dopo aver aggiunto il disco, è necessario prepararlo per l'utilizzo nel sistema
 
 [Informazioni sugli account di archiviazione di Azure]: ../storage-whatis-account/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

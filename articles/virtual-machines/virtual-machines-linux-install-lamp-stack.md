@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Installare lo stack LAMP in una macchina virtuale Linux"
-	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure. È possibile eseguire l'installazione in Ubuntu o CentOS."
+	pageTitle="Installare lo stack LAMP in una macchina virtuale Linux | Microsoft Azure"
+	description="Informazioni su come installare lo stack LAMP in una macchina virtuale Linux in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 
 
 #Installare lo stack LAMP in una macchina virtuale Linux in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
 
 Uno stack LAMP è costituito dai diversi elementi seguenti:
 
@@ -125,4 +128,4 @@ Sono disponibili molte risorse relative alla configurazione di uno stack LAMP su
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

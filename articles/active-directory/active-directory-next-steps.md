@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Passaggi successivi per l'uso di Azure AD"
-	description="Descrive le attività avanzate per l'uso di Azure AD."
+	pageTitle="Passaggi successivi per l'uso di Azure Active Directory"
+	description="Operazioni avanzate quali la gestione delle password, la gestione degli utenti, la gestione dei gruppi e l'accesso condizionale mediante Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Passaggi successivi per l'uso di Azure AD
 
 
-###Altri articoli su questo argomento
+### Altri articoli su questo argomento
 [Che cos'è Azure AD?](active-directory-whatis.md)<br> [Come funziona?](active-directory-works.md)<br> [Introduzione](active-directory-get-started.md)<br> [Passaggi successivi](active-directory-next-steps.md)<br> [Altre informazioni](active-directory-learn-map.md)
 
 ## Gestire gli utenti in Azure AD
@@ -41,4 +41,4 @@ Registrazione dispositivo di Azure AD consente di eseguire il provisioning dei d
 * [Identità di Azure](fundamentals-identity.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -18,6 +18,14 @@
 
 # Creare un'app Web ASP.NET nel servizio app di Azure
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 ## Panoramica
 
 Questa esercitazione illustra come creare un'applicazione Web ASP.NET e distribuirla in un'[app Web del servizio app di Azure](app-service-web-overview.md) usando Studio 2015 o Visual Studio 2013. Nell'esercitazione si presuppone che l'utente non abbia mai usato Azure o ASP.NET. Al termine dell'esercitazione, si avrà un'applicazione Web semplice in esecuzione nel cloud.
@@ -40,7 +48,7 @@ Per completare l'esercitazione, è necessario un account Azure. È possibile:
 * [Aprire un account Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.
 * [Attivare i benefici dell'abbonamento MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
-> [AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di effettuare l'iscrizione e creare un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751). In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 In questo video Scott Hanselman illustra la procedura di iscrizione per ottenere la versione di valutazione gratuita di Microsoft Azure. (Durata: 1:58)
 
@@ -48,7 +56,7 @@ In questo video Scott Hanselman illustra la procedura di iscrizione per ottenere
 
 [AZURE.INCLUDE [installare-sdk-2015 2013](../../includes/install-sdk-2015-2013.md)]
 
-## Creazione di un'applicazione Web ASP.NET
+## Creare un progetto e un'app Web
 
 Il primo passaggio consiste nel creare un progetto web in Visual Studio e un'app web nel servizio di App di Azure. Una volta effettuata questa operazione, il progetto verrà distribuito in app web per renderlo disponibile su Internet.
 
@@ -124,7 +132,7 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 5. Lasciare inalterati i campi relativi al database.
 
-	Per questa esercitazione non verrà usato un database. Nella sezione [Passaggi successivi](#next-steps) sono inclusi collegamenti a un'esercitazione che illustra come usare un database.
+	Per questa esercitazione non verrà usato un database. La sezione [Passaggi successivi](#next-steps) include il collegamento a un'esercitazione che illustra come usare un database.
 
 6. Fare clic su **OK**.
 
@@ -144,7 +152,11 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 	![Applicazione Web creata](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Distribuire l'applicazione in Azure
+## Distribuire il progetto nell'app Web
+
+In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato nel passaggio 2 del diagramma.
+
+![Creazione e distribuzione](./media/web-sites-dotnet-get-started/Create_App.png)
 
 7. Nella finestra **Attività di pubblicazione sito Web** fare clic su **Pubblica MyExample in questa app Web ora**.
 
@@ -289,14 +301,14 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come scegliere tra Servizio app, Servizi cloud di Azure e Macchine virtuali di Azure per le applicazioni Web
 
-	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
+	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e VM di Azure](/manage/services/web-sites/choose-web-app-service/).
 
 * [Come scegliere o creare un piano di servizio App](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 * [Come scegliere o creare un gruppo di risorse](../azure-preview-portal-using-resource-groups.md)
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Per una guida relativa al passaggio da Siti Web ad App Service, vedere [Servizio app di Azure e i servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

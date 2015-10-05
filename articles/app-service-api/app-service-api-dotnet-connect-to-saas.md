@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
-
 <tags 
 	ms.service="app-service-api" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
-
 
 # Connettersi a una piattaforma SaaS da un'app per le API ASP.NET nel servizio app di Azure
 
@@ -451,4 +449,4 @@ Se si rimuove %3d%3d dalla fine del valore querystring `error`, si ottiene una s
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

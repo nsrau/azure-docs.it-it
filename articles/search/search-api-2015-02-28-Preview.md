@@ -1,39 +1,32 @@
 <properties
    pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure"
-	description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come gli analizzatori del linguaggio naturale e le ricerche moreLikeThis."
-	services="search"
-	documentationCenter="na"
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""/>
+   description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come gli analizzatori del linguaggio naturale e le ricerche moreLikeThis."
+   services="search"
+   documentationCenter="na"
+   authors="HeidiSteen"
+   manager="mblythe"
+   editor=""/>
 
 <tags
    ms.service="search"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="search"
-	ms.date="08/25/2015"
-	ms.author="heidist"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="search"
+   ms.date="09/22/2015"
+   ms.author="heidist"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 
 Questo articolo è la documentazione di riferimento per `api-version=2015-02-28-Preview`. Questa versione di anteprima estende l'attuale versione disponibile per il pubblico, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), con le seguenti funzionalità sperimentali:
 
-- I [processori per il linguaggio naturale](#LanguageSupport) di Microsoft (gli stessi usati da Office e Bing) offrono una maggiore precisione nei risultati delle query e per più lingue.
 - `moreLikeThis` è un parametro di query usato nelle [operazioni di ricerca](#SearchDocs) che trova documenti rilevanti rispetto a un altro documento specifico.
-- Alternativa POST alla sintassi GET per entrambe le API di [Ricerca](#SearchDocs) e [Suggestions](#Suggestions), utile quando la lunghezza complessiva dell'URL supererebbe altrimenti 8 KB.
-
-Alcune funzionalità aggiuntive di `2015-02-28-Preview` sono documentate separatamente, incluse le seguenti:
-
-- [Profili di punteggio](search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indicizzatori](search-api-indexers-2015-02-28-preview.md)
 
 Ricerca di Azure è disponibile in più versioni. Per informazioni dettagliate, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 ##API in questo documento
 
-L'API di Ricerca di Azure supporta due tipi di sintassi per la ricerca di entità: sintassi [semplice](https://msdn.microsoft.com/library/dn798920.aspx) e sintassi alternativa di OData. Per informazioni dettagliate, vedere [Supporto per OData (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798932.aspx). L'elenco seguente mostra la sintassi semplice.
+L'API di Ricerca di Azure supporta due tipi di sintassi per la ricerca di entità: sintassi [semplice](https://msdn.microsoft.com/library/dn798920.aspx) e sintassi alternativa di OData. Per informazioni dettagliate, vedere [Supporto per OData (Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798932.aspx). L'elenco seguente mostra la sintassi semplice.
 
 [Creare un indice](#CreateIndex)
 
@@ -136,7 +129,7 @@ In alternativa, è possibile usare PUT e specificare il nome dell'indice nell'UR
 
 La creazione di un indice determina la struttura dei documenti archiviati e usati nelle operazioni di ricerca. Il popolamento dell'indice è un'operazione separata. Per questo passaggio, è possibile usare un [indicizzatore](https://msdn.microsoft.com/library/azure/mt183328.aspx) (disponibile per le origini dati supportate) o un'operazione di [aggiunta, aggiornamento o eliminazione di documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx). L'indice invertito viene generato quando i documenti vengono pubblicati.
 
-**Nota**: il numero massimo di indici consentiti varia in base al livello di prezzo. Nel servizio gratuito sono consentiti fino a 3 indici. Nel servizio standard sono consentiti 50 indici per servizio di ricerca. Per dettagli, vedere [Limitazioni e vincoli](http://msdn.microsoft.com/library/azure/dn798934.aspx).
+**Nota**: il numero massimo di indici consentiti varia in base al piano tariffario. Nel servizio gratuito sono consentiti fino a 3 indici. Nel servizio standard sono consentiti 50 indici per servizio di ricerca. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio](search-limits-quota-capacity.md).
 
 **Richiesta**
 
@@ -154,7 +147,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per
 - per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione dell'indice** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 <a name="RequestData"></a> **Sintassi del corpo della richiesta**
 
@@ -262,7 +255,7 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
   - **Nota**: se per un campo nessuno degli attributi elencati è impostato su `true` (`searchable`, `filterable`, `sortable` o `facetable`), il campo viene effettivamente escluso dall'indice invertito. Questa opzione è utile per i campi che non vengono usati nelle query, ma che sono necessari nei risultati della ricerca. L'esclusione di tali campi dall'indice consente di ottenere migliori prestazioni.
 
-`suggestions`: nelle versioni precedenti dell'API è inclusa una proprietà `suggestions`. Questa proprietà booleana è obsoleta e non è più disponibile in `2015-02-28` o `2015-02-28-Preview`. In alternativa, usare l'[API per i suggerimenti](#Suggesters). Nella versione `2014-07-31`, per specificare se un campo può essere usato per il completamento automatico durante la digitazione, viene usata la proprietà `suggestions` per i campi di tipo `Edm.String` o `Collection(Edm.String)`. La proprietà `suggestions` è `false` per impostazione predefinita perché richiede spazio aggiuntivo nell'indice, ma se si è scelto di abilitarla, vedere [Transizione dalla versione API di anteprima 2014* alla versione API 2015*](search-transition-from-preview.md) per istruzioni sul passaggio alla nuova API.
+`suggestions`: nelle versioni precedenti dell'API è inclusa una proprietà `suggestions`. Questa proprietà booleana è obsoleta e non è più disponibile in `2015-02-28` o `2015-02-28-Preview`. In alternativa, usare l'[API per i suggerimenti](#Suggesters). Nella versione `2014-07-31`, per specificare se un campo può essere usato per il completamento automatico durante la digitazione, viene usata la proprietà `suggestions` per i campi di tipo `Edm.String` o `Collection(Edm.String)`. La proprietà `suggestions` è `false` per impostazione predefinita perché richiede spazio aggiuntivo nell'indice, ma se si è scelto di abilitarla, vedere l'argomento relativo alla [transizione dalla versione di anteprima alla versione di disponibilità generale in Ricerca di Azure](search-transition-from-preview.md) per istruzioni sul passaggio alla nuova API.
 
 `key`: contrassegna il campo come contenente identificatori univoci per i documenti all'interno dell'indice. È necessario scegliere un singolo campo come `key` e questo deve essere di tipo `Edm.String`. I campi chiave possono essere usati per la ricerca diretta di documenti tramite l'[API di ricerca](#LookupAPI).
 
@@ -290,13 +283,13 @@ Alcuni sviluppatori potrebbero preferire la soluzione open source di Lucene, pi�
 
 L'analizzatore Lucene per la lingua inglese estende l'analizzatore standard. Rimuove il genitivo sassone (la 's finale) dalle parole, applica lo stemming in base all'[algoritmo Porter Stemming](http://tartarus.org/~martin/PorterStemmer/) e rimuove le [parole non significative](http://en.wikipedia.org/wiki/Stop_words) per la lingua inglese.
 
-In confronto, l'analizzatore Microsoft esegue la lemmatizzazione anziché lo stemming. Significa che è possibile gestire le forme lessicali flesse e irregolari molto meglio, producendo risultati delle ricerche più rilevanti (esaminare il modulo 7 della [presentazione di Ricerca di Azure MVA](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) per ulteriori dettagli).
+In confronto, l'analizzatore Microsoft esegue la lemmatizzazione anziché lo stemming. Significa che è possibile gestire le forme lessicali flesse e irregolari molto meglio, producendo risultati delle ricerche più rilevanti. Guardare il modulo 7 della [presentazione di Ricerca di Azure MVA](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) per ulteriori dettagli.
 
 L'indicizzazione con gli analizzatori Microsoft è in media da due a tre volte più lenta rispetto agli analizzatori Lucene corrispondenti, a seconda della lingua. Le prestazioni della ricerca non devono essere influenzate in modo significativo per le query di dimensioni medie.
 
 ***Configurazione***
 
-Per ogni campo nella definizione dell'indice, è possibile impostare la proprietà `analyzer` su un nome di analizzatore che specifica la lingua e il fornitore. Lo stesso analizzatore verrà applicato per l'indicizzazione e la ricerca di tale campo. Ad esempio, nello stesso indice possono essere presenti campi separati per le descrizioni di hotel in lingua inglese, francese e spagnola. Utilizzare il [parametro di query 'searchFields'](#SearchQueryParameters) per specificare il campo specifico della lingua da ricercare nelle query. È possibile esaminare gli esempi di query che includono la proprietà `analyzer` nella sezione [Eseguire ricerche nei documenti](#SearchDocs).
+Per ogni campo nella definizione dell'indice, è possibile impostare la proprietà `analyzer` su un nome di analizzatore che specifica la lingua e il fornitore. Lo stesso analizzatore verrà applicato per l'indicizzazione e la ricerca di tale campo. Ad esempio, nello stesso indice possono essere presenti campi separati per le descrizioni di hotel in lingua inglese, francese e spagnola. Usare il [parametro di query 'searchFields'](#SearchQueryParameters) per indicare il campo specifico della lingua da ricercare nelle query. È possibile esaminare gli esempi di query che includono la proprietà `analyzer` nella sezione [Eseguire ricerche nei documenti](#SearchDocs).
 
 ***Elenco di analizzatori***
 
@@ -633,7 +626,7 @@ JavaScript sul lato client non può chiamare API per impostazione predefinita pe
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -893,7 +886,7 @@ Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richi
 
 Il valore [index name] nell'URI della richiesta specifica l'indice da restituire dalla raccolta di indici.
 
-`api-version=[string]` (obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **Intestazioni della richiesta**
 
@@ -927,7 +920,7 @@ Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richi
 
 Il valore [index name] nell'URI della richiesta specifica l'indice da eliminare dalla raccolta di indici.
 
-`api-version=[string]` (obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **Intestazioni della richiesta**
 
@@ -959,7 +952,7 @@ Per tutte le richieste del servizio, è necessario usare il protocollo HTTPS. La
 
 Il valore [index name] nell'URI della richiesta indica al servizio di restituire le statistiche per l'indice specificato.
 
-`api-version=[string]` (obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 
 **Intestazioni della richiesta**
@@ -1146,11 +1139,11 @@ Quando si usa HTTP GET per chiamare l'API di **Ricerca**, è necessario tenere p
 
 **Richiesta**
 
-Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richiesta **Search** può essere creata con il metodo GET.
+Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richiesta **Search** può essere creata con il metodo GET o POST.
 
 L'URI della richiesta specifica l'indice in cui eseguire la query per tutti i documenti corrispondenti ai parametri. I parametri vengono specificati nella stringa di query per le richieste GET e nel corpo della richiesta nel caso di richieste POST.
 
-Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri della query specifici quando si chiama direttamente l'API REST. Per le operazioni **Search** sono inclusi i parametri seguenti:
+Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri di query specifici quando si chiama direttamente l'API REST. Per le operazioni **Search** sono inclusi i parametri seguenti:
 
 - `$filter`
 - `facet`
@@ -1183,7 +1176,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `$top=#` (facoltativo): specifica il numero di risultati della ricerca da recuperare. Può essere usato insieme a `$skip` per implementare il paging sul lato client dei risultati della ricerca.
 
-> [AZURE.NOTE]Ricerca di Azure usa il ***paging sul lato server*** per evitare che le query recuperino molti documenti contemporaneamente. Le dimensioni predefinite della pagina sono pari a 50, mentre le dimensioni massime della pagina sono pari a 1000. Ciò significa che per impostazione predefinita **Search** restituisce al massimo 50 risultati se non si specifica `$top`. Se sono presenti più di 50 risultati, la risposta include informazioni per recuperare la pagina successiva con almeno 50 risultati (vedere `@odata.nextLink` e `@search.nextPageParameters` nell'[esempio sottostante](#SearchResponse)). In modo analogo, se si specifica un valore maggiore di 1000 per `$top` e sono presenti più di 1000 risultati, verranno restituiti solo i primi 1000 insieme a informazioni per recuperare la pagina successiva con al massimo 1000 risultati.
+> [AZURE.NOTE]Ricerca di Azure usa il ***paging sul lato server*** per evitare che le query recuperino troppi documenti contemporaneamente. Le dimensioni predefinite della pagina sono pari a 50, mentre le dimensioni massime della pagina sono pari a 1000. Ciò significa che per impostazione predefinita **Search** restituisce al massimo 50 risultati se non si specifica `$top`. Se sono presenti più di 50 risultati, la risposta include informazioni per recuperare la pagina successiva con al massimo 50 risultati (vedere `@odata.nextLink` e `@search.nextPageParameters` nell'[esempio sottostante](#SearchResponse)). In modo analogo, se si specifica un valore maggiore di 1000 per `$top` e sono presenti più di 1000 risultati, verranno restituiti solo i primi 1000 insieme a informazioni per recuperare la pagina successiva con al massimo 1000 risultati.
 
 > [AZURE.NOTE]Quando si chiama **Search** con POST, questo parametro è denominato `top` invece di `$top`.
 
@@ -1241,7 +1234,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 > [AZURE.NOTE]L'impostazione di questo parametro su un valore inferiore a 100 può essere utile per garantire la disponibilità di ricerca anche per i servizi che dispongono di una sola replica. Tuttavia, non si assicura che tutti i documenti corrispondenti siano presenti nei risultati di ricerca. Se la funzionalità di richiamo della ricerca è più importante rispetto a quella di disponibilità, mantenere il valore predefinito di 100 per `minimumCoverage`.
 
-`api-version=[string]` (obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 Nota: per questa operazione il valore `api-version` viene specificato come parametro di query nell'URL, indipendentemente dal fatto che si chiami **Search** con GET o con POST.
 
@@ -1508,7 +1501,7 @@ L'URI della richiesta include i valori [index name] e [key], che specificano il 
 
 `$select=[string]` (facoltativo): specifica un elenco di campi delimitati da virgole da recuperare. Se non è specificato o se è impostato su `*`, nella proiezione vengono inclusi tutti i campi contrassegnati come recuperabili nello schema.
 
-`api-version=[string]` (obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 Nota: per questa operazione, l'elemento `api-version` è specificato come parametro di query.
 
@@ -1557,7 +1550,7 @@ Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richi
 
 Il valore [index name] nell'URI della richiesta indica al servizio di restituire un conteggio di tutti gli elementi disponibili nella raccolta di documenti dell'indice specificato.
 
-`api-version=[string]` (obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **Intestazioni della richiesta**
 
@@ -1585,7 +1578,7 @@ L'operazione di recupero dei **suggerimenti** ottiene i suggerimenti in base a u
 
 Le richieste di suggerimenti hanno lo scopo di suggerire documenti di destinazione, pertanto il testo suggerito può essere ripetuto se più documenti corrispondono allo stesso input di ricerca. È possibile usare `$select` per recuperare altri campi di documento (inclusa la chiave) in modo da poter determinare quale documento è l'origine di ogni suggerimento.
 
-Un'operazione **Suggestions** viene generata come richiesta GET.
+Un'operazione **Suggestions** viene generata come richiesta GET o POST.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
     api-key: [admin or query key]
@@ -1604,7 +1597,7 @@ Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richi
 
 L'URI della richiesta specifica il nome dell'indice su cui eseguire la query. I parametri, come il termine di ricerca immesso parzialmente, vengono specificati nella stringa di query per le richieste GET e nel corpo della richiesta nel caso di richieste POST.
 
-Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri della query specifici quando si chiama direttamente l'API REST. Per le operazioni **Suggestions** sono inclusi i parametri seguenti:
+Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri di query specifici quando si chiama direttamente l'API REST. Per le operazioni **Suggestions** sono inclusi i parametri seguenti:
 
 - `$filter`
 - `highlightPreTag`
@@ -1655,7 +1648,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 > [AZURE.NOTE]L'impostazione di questo parametro su un valore inferiore a 100 può essere utile per garantire la disponibilità di ricerca anche per i servizi che dispongono di una sola replica. Tuttavia, non si assicura che tutti i suggerimenti corrispondenti siano presenti nei risultati. Se la funzionalità di richiamo della ricerca è più importante rispetto a quella di disponibilità, non impostare un valore predefinito inferiore a 80 per `minimumCoverage`.
 
-`api-version=[string]` (obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (elemento obbligatorio). La versione di anteprima è `api-version=2015-02-28-Preview`. Per informazioni dettagliate sulle altre versioni, vedere [Controllo delle versioni di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 Nota: per questa operazione il valore `api-version` viene specificato come parametro di query nell'URL, indipendentemente dal fatto che si chiami **Suggestions** con GET o con POST.
 
@@ -1729,4 +1722,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

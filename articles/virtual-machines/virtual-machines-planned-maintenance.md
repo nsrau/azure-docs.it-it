@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Manutenzione pianificata per le macchine virtuali di Azure"
+	pageTitle="Manutenzione pianificata per le macchine virtuali di Azure | Microsoft Azure"
 	description="Informazioni sulla manutenzione pianificata di Azure e sul relativo impatto sulle macchine virtuali in esecuzione in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,13 +21,15 @@
 # Manutenzione pianificata per le macchine virtuali di Azure
 
 ## Perché Azure esegue la manutenzione pianificata
-<p> Microsoft Azure esegue periodicamente aggiornamenti a livello globale per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host sottostante alle macchine virtuali. Molti di questi aggiornamenti vengono eseguiti senza alcun impatto sulle macchine virtuali o sui servizi cloud, inclusi gli aggiornamenti con mantenimento della memoria.
+
+Microsoft Azure esegue periodicamente aggiornamenti a livello globale per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host sottostante alle macchine virtuali. Molti di questi aggiornamenti vengono eseguiti senza alcun impatto sulle macchine virtuali o sui servizi cloud, inclusi gli aggiornamenti con mantenimento della memoria.
 
 Tuttavia, alcuni aggiornamenti richiedono un riavvio delle macchine virtuali per applicare gli aggiornamenti necessari all'infrastruttura. Le macchine virtuali vengono arrestate durante l'applicazione delle patch all'infrastruttura e quindi riavviate.
 
 Esistono due tipi di manutenzione che possono influire sulla disponibilità delle macchine virtuali: pianificata e non pianificata. Questa pagina descrive come Microsoft Azure esegue la manutenzione pianificata. Per altre informazioni sulla manutenzione non pianificata, vedere la pagina relativa al [confronto tra manutenzione pianificata e non pianificata](virtual-machines-manage-availability.md).
 
 ## Aggiornamenti con mantenimento della memoria
+
 Per una classe di aggiornamenti in Microsoft Azure, i clienti non visualizzeranno alcun impatto sulle macchine virtuali in esecuzione. Molti di questi aggiornamenti sono componenti o servizi che possono essere aggiornati senza interferire con l'istanza in esecuzione. Alcuni di questi aggiornamenti sono aggiornamenti dell’infrastruttura della piattaforma nel sistema operativo host che possono essere applicati senza richiedere un riavvio completo delle macchine virtuali.
 
 Questi aggiornamenti vengono eseguiti con la tecnologia che consente la migrazione in tempo reale (un aggiornamento con "mantenimento della memoria"). Durante l'aggiornamento, la macchina virtuale viene inserita in uno stato "sospeso", mantenendo la memoria in RAM, mentre il sistema operativo host sottostante riceve gli aggiornamenti e le patch necessari. La macchina virtuale viene ripresa dopo un periodo di pausa massimo di 30 secondi. Dopo la ripresa, l’orologio della macchina virtuale viene sincronizzato automaticamente.
@@ -36,6 +39,7 @@ Non tutti gli aggiornamenti possono essere distribuiti utilizzando questo meccan
 Gli aggiornamenti a istanza multipla (per le macchine virtuali in un set di disponibilità) vengono applicati su un dominio di aggiornamento alla volta.
 
 ## Configurazioni delle macchine virtuali
+
 Esistono due tipi di configurazioni delle macchine virtuali: a istanza multipla e a istanza singola. In una configurazione a istanza multipla, le macchine virtuali simili vengono inserite in un set di disponibilità.
 
 La configurazione a istanza multipla fornisce la ridondanza ed è consigliata per garantire la disponibilità dell'applicazione. Tutte le macchine virtuali nel set di disponibilità devono essere quasi identiche e avere la stessa funzione nell'applicazione.
@@ -48,6 +52,7 @@ Per ulteriori informazioni sul contratto di servizio, vedere la sezione "Servizi
 
 
 ## Aggiornamenti delle configurazioni a istanza multipla
+
 Durante la manutenzione pianificata, la piattaforma Azure aggiorna innanzitutto il set di macchine virtuali ospitate in una configurazione a istanza multipla. Ciò causa un riavvio di queste macchine virtuali.
 
 In un aggiornamento della configurazione a istanza multipla, le macchine virtuali vengono aggiornate in modo tale da preservare la disponibilità per tutto il processo, supponendo che ciascuna macchina virtuale abbia una funzione simile a quella delle altre del set.
@@ -66,6 +71,7 @@ Di seguito viene riportato un esempio di ciò che Visualizzatore eventi di Windo
 ![][image2]
 
 ## Aggiornamenti della configurazione a istanza singola
+
 Una volta completati gli aggiornamenti della configurazione a istanza multipla, Azure eseguirà gli aggiornamenti della configurazione a istanza singola. Anche questo aggiornamento comporta un riavvio delle macchine virtuali che non sono in esecuzione nei set di disponibilità.
 
 Anche se si dispone di una sola istanza in esecuzione in un set di disponibilità, la piattaforma Azure considera l’aggiornamento come aggiornamento della configurazione a istanza multipla.
@@ -75,12 +81,14 @@ In una configurazione a istanza singola le macchine virtuali vengono aggiornate 
 Questo evento di manutenzione pianificata influirà sulla disponibilità dell'applicazione per questo tipo di configurazione di macchina virtuale. Azure offre un servizio di notifica avanzato di una settimana per la manutenzione pianificata delle macchine virtuali nella configurazione a istanza singola.
 
 ### Notifica tramite posta elettronica
+
 Solo per le configurazioni delle macchine virtuali a istanza singola e a istanza multipla, Azure invia una comunicazione tramite posta elettronica in anticipo, per avvisare della manutenzione pianificata imminente (con un anticipo di 1 settimana per istanze singole e di 48 ore per istanze multiple). Questo messaggio di posta elettronica verrà inviato agli account di posta elettronica dell’amministratore e del co-amministratore dell’account forniti nella sottoscrizione. Di seguito viene riportato un esempio di questo tipo di messaggio di posta elettronica:
 
 <!--Image reference-->
 ![][image1]
 
 ## Coppie di aree
+
 Azure consente di organizzare un set di coppie di aree. Azure non implementerà contemporaneamente un aggiornamento su coppie di aree durante una manutenzione pianificata delle macchine virtuali con configurazioni a istanza singola.
 
 Consultare la tabella seguente per informazioni relative alle coppie di aree correnti:
@@ -110,4 +118,4 @@ Ad esempio, durante una manutenzione pianificata, Azure non implementerà un agg
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

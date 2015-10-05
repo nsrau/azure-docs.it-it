@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Scollegare un disco dati da una macchina virtuale di Windows | Microsoft Azure"
-	description="Informazioni su come scollegare un disco da una macchina virtuale in Azure."
-	services="virtual-machines, storage"
+	description="Informazioni su come scollegare un disco da una macchina virtuale in Azure utilizzando il modello di distribuzione classico."
+	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -21,6 +21,9 @@
 
 # Come scollegare un disco dati da una macchina virtuale di Windows
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene descritto come scollegare un disco utilizzando il modello di distribuzione classica.
+
+
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
 ## Risorse aggiuntive
@@ -29,4 +32,4 @@
 
 [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

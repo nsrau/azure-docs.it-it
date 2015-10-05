@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Eseguire la migrazione del codice SQL in SQL Data Warehouse
@@ -113,4 +113,4 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

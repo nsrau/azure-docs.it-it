@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 # Uso di MapReduce con Hadoop in HDInsight con Desktop remoto
@@ -64,7 +64,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
 
 	In questo modo, vengono visualizzati due file: **\_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
 
-	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-\#\#\#\#\#**. In questo caso, usare il suffisso \#\#\#\#\# per indicare l'ordine dei file.
+	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
 
 4. Per visualizzare l'output, usare il seguente comando:
 
@@ -96,4 +96,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

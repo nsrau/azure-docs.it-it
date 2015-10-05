@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/21/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,12 +29,11 @@ Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto 
 >[AZURE.IMPORTANT]Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
 
 
-Un processo di indicizzazione genera quattro output per ogni file di indicizzazione:
+Un processo di indicizzazione genera i seguenti output:
 
-- File CC (Closed Caption) in formato SAMI.
-- File CC (Closed Caption) in formato TTML (Timed Text Markup Language).
+- Chiusura di file di sottotitoli nei formati seguenti: **SAMI**, **TTML**, e **WebVTT**.
 
-	I file SAMI e TTML includono un tag denominato Recognizability, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di Recognizability per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.
+	I file di sottotitoli codificati includono un tag denominato Recognizability, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di Recognizability per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.
 - File di parole chiave (XML).
 - File BLOB di indicizzazione audio (AIB, Audio Indexing Blob) da usare con SQL Server.
 	
@@ -51,7 +50,7 @@ Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [bl
 
 È anche possibile elaborare più file multimediali contemporaneamente usando un file manifesto.
 
-Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Per altre informazioni, vedere [Set di impostazioni per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ##Indicizzare un asset
 
@@ -164,11 +163,11 @@ Per scaricare il componente aggiuntivo, fare clic su <a href="http://aka.ms/inde
 <br/><br/>
 È anche possibile usare altri motori di ricerca come Apache Lucene/Solr per indicizzare semplicemente il video basato sui file di sottotitoli codificati e sui file XML di parole chiave, ma questo produrrà risultati della ricerca meno precisi.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
-<td>File CC (Closed Caption) in formato SAMI e TTML.
+<td>File di sottotitoli chiusi (CC) nei formati SAMI TTML e WebVTT.
 <br/><br/>
 Possono essere utili per rendere i file audio e video accessibili alle persone con problemi uditivi.
 <br/><br/>
-I file SAMI e TTML includono un tag denominato <b>Recognizability</b>, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.</td></tr>
+I file di sottotitoli codificati includono un tag denominato <b>Recognizability</b>, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine. È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>File di parole chiave.
 <br/><br/>
@@ -183,7 +182,7 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
-Viene creato un file manifesto con estensione lst, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Viene creato un file manifesto con estensione lst, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni per Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -261,7 +260,7 @@ Viene creato un file manifesto con estensione lst, che viene caricato nell'asset
 
 ###File di output
 
-Quando sono presenti più file multimediali di input, WAMI genera un file manifesto per gli output del processo, denominato ‘JobResult.txt’. Per ogni file multimediale di input, i file AIB, SAMI, TTML e di parole chiave risultanti verranno numerati in sequenza, come elencato di seguito.
+Quando sono presenti più file multimediali di input, WAMI genera un file manifesto per gli output del processo, denominato ‘JobResult.txt’. Per ogni file multimediale di input, i file AIB, SAMI, TTML, WebTT, e di parole chiave risultanti verranno numerati in sequenza, come elencato di seguito.
 
 Per le descrizioni dei file di output, vedere [File di output](#output_files).
 
@@ -292,7 +291,7 @@ Error: indica se il file multimediale viene indicizzato correttamente. 0 in caso
 <tr><td>Media_1.aib </td>
 <td>File #0: file BLOB di indicizzazione audio.</td></tr>
 <tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>File #0: file CC (Closed Caption) in formato SAMI e TTML.</td></tr>
+<td>File #0 - File di sottotitoli chiusi (CC) nei formati SAMI TTML e WebVTT.</td></tr>
 <tr><td>Media_1.kw.xml</td>
 <td>File #0: file di parole chiave.</td></tr>
 <tr><td>Media_2.aib </td>
@@ -306,7 +305,7 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
 
 
-Vengono generati gli stessi output dei processi completati. È possibile fare riferimento al file manifesto di output per scoprire quali file di input hanno avuto esito negativo in base ai valori presenti nella colonna Error. Per i file di input con esito negativo, NON verranno generati i file AIB, SAMI, TTML e delle parole chiave risultanti.
+Vengono generati gli stessi output dei processi completati. È possibile fare riferimento al file manifesto di output per scoprire quali file di input hanno avuto esito negativo in base ai valori presenti nella colonna Error. Per i file di input con esito negativo, NON verranno generati i file AIB, SAMI, TTML, Web TT e delle parole chiave risultanti.
 
 
 ### <a id="error_codes"></a>Codici di errore
@@ -355,4 +354,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

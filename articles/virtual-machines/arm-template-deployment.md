@@ -1,4 +1,12 @@
-<properties pageTitle="Distribuzione di risorse di Azure utilizzando un modello" description="Viene illustrato come utilizzare alcuni dei client disponibili nella libreria di gestione delle risorse di Azure per distribuire una macchina virtuale, una rete virtuale e un account di archiviazione" services="macchine virtuali, reti virtuali, archiviazione" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="Gestione risorse di Azure/>
+<properties
+	pageTitle="Distribuire le risorse di Azure mediante un modello | Microsoft Azure"
+	description="Informazioni su come usare alcuni dei client disponibili nella libreria di Gestione risorse di Azure per distribuire una macchina virtuale, una rete virtuale e un account di archiviazione."
+	services="virtual-machines,virtual-networks,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -11,6 +19,8 @@
 
 # Distribuire le risorse di Azure usando le librerie .NET e un modello
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
+
 L'uso di gruppi di risorse e modelli permette di gestire insieme tutte le risorse che supportano l'applicazione. Questa esercitazione illustra come usare alcuni dei client disponibili nella libreria di Gestione risorse di Azure e come creare un modello per distribuire una macchina virtuale, una rete virtuale e un account di archiviazione.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -19,7 +29,7 @@ Per completare questa esercitazione sono inoltre necessari:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Account di archiviazione di Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/it-IT/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/it-IT/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/IT-IT/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/IT-IT/download/details.aspx?id=40855)
 - [Azure PowerShell](../powershell-install-configure.md)
 
 L'esecuzione di questi passaggi richiede circa 30 minuti.
@@ -294,7 +304,7 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
           }
         }
 
-    >[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Immagini mediante macchine virtuali](https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-images/), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Sostituire {subscription-id} con l'identificatore della sottoscrizione.
+    >[AZURE.NOTE]I nomi dei file VHD dell'immagine cambiano regolarmente nella raccolta immagini. È quindi necessario ottenere un nome di immagine corrente per distribuire la macchina virtuale. Per eseguire questa operazione, vedere [Immagini mediante macchine virtuali](https://azure.microsoft.com/IT-IT/documentation/articles/virtual-machines-images/), quindi sostituire {source-image-name} con il nome del file VHD da usare. Ad esempio, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Sostituire {subscription-id} con l'identificatore della sottoscrizione.
 
 
 4.	Salvare il file dei parametri creato.
@@ -443,4 +453,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

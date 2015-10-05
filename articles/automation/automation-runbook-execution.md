@@ -1,26 +1,32 @@
 <properties
    pageTitle="Esecuzione di runbook in Automazione di Azure"
-	description="Descrive i dettagli dell'elaborazione di un runbook in Automazione di Azure."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Descrive i dettagli dell'elaborazione di un runbook in Automazione di Azure."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/17/2015"
+   ms.author="bwren" />
 
 # Esecuzione di runbook in Automazione di Azure
 
 
 Quando si avvia un runbook in Automazione di Azure, viene creato un processo. Un processo è una singola istanza di esecuzione di un runbook. Per eseguire ogni processo, viene assegnato un computer di lavoro di Automazione di Azure. I computer di lavoro sono condivisi da più account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non si dispone inoltre di alcun controllo sul computer di lavoro che gestirà la richiesta per il processo. In un singolo runbook possono venire eseguiti più processi contemporaneamente. Quando si visualizza l'elenco dei runbook nel portale di Azure, è visibile lo stato dell'ultimo processo avviato per ogni runbook. È possibile visualizzare l'elenco dei processi per il singolo runbook per tenere traccia dello stato di ognuno. Per una descrizione dei diversi stati dei processi, vedere [Stati dei processi](#job-statuses).
 
-![Stati dei processi](./media/automation-runbook-execution/job-statuses.png)
+Nel diagramma seguente viene illustrato il ciclo di vita di un processo runbook per [Runbook grafici](automation-runbook-types.md#graphical-runbooks) e [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
+
+![Stati del processo - Flusso di lavoro PowerShell](./media/automation-runbook-execution/job-statuses.png)
+
+Nel diagramma seguente viene illustrato il ciclo di vita di un processo runbook per [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks).
+
+![Stati del processo - Script PowerShell](./media/automation-runbook-execution/job-statuses-script.png)
 
 
 I processi accederanno alle risorse di Azure effettuando una connessione alla sottoscrizione di Azure. Potranno accedere solo alle risorse del data center dell'utente se tali risorse sono accessibili dal cloud pubblico.
@@ -32,7 +38,7 @@ La tabella seguente descrive i diversi stati possibili per un processo.
 | Stato| Descrizione|
 |:---|:---|
 |Completed|Il processo è stato completato.|
-|Failed|Il processo è terminato con un errore.|
+|Failed| Per [Runbook grafico e runbook flusso di lavoro PowerShell](automation-runbook-types.md), la compilazione di runbook non è riuscita. Per [Runbook di Script di PowerShell](automation-runbook-types.md), non è stato possibile avviare il runbook o il processo ha rilevato un'eccezione. |
 |Failed, waiting for resources|Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fairshare) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook.|
 |Queued|Il processo è in attesa che diventino disponibili risorse in un computer di lavoro di Automazione per poter essere avviato.|
 |Starting|Il processo è stato assegnato a un computer di lavoro e il sistema lo sta avviando.|
@@ -41,8 +47,8 @@ La tabella seguente descrive i diversi stati possibili per un processo.
 |Running, waiting for resources|Il processo è stato scaricato perché ha raggiunto il limite di [condivisione equa](#fairshare). Riprenderà a breve dall'ultimo checkpoint.|
 |Stopped|Il processo è stato arrestato dall'utente prima del completamento.|
 |Stopping|Il sistema sta arrestando il processo.|
-|Suspended|Il processo è stato sospeso dall'utente, dal sistema o da un comando del runbook. Un processo sospeso può essere riavviato e verrà ripreso dall'ultimo checkpoint o dall'inizio del runbook se non sono presenti checkpoint. Il runbook verrà sospeso dal sistema solo in caso di eccezione. Per impostazione predefinita, il valore di ErrorActionPreference è impostato su **Continue**, a indicare che il processo continuerà a essere eseguito in caso di errore. Se questa variabile di preferenza è impostata su **Stop**, il processo verrà sospeso in caso di errore.|
-|Suspending|Il sistema sta tentando di sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, il processo verrà completato prima di poter essere sospeso.|
+|Suspended|Il processo è stato sospeso dall'utente, dal sistema o da un comando del runbook. Un processo sospeso può essere riavviato e verrà ripreso dall'ultimo checkpoint o dall'inizio del runbook se non sono presenti checkpoint. Il runbook verrà sospeso dal sistema solo in caso di eccezione. Per impostazione predefinita, il valore di ErrorActionPreference è impostato su **Continue**, a indicare che il processo continuerà a essere eseguito in caso di errore. Se questa variabile di preferenza è impostata su **Stop**, il processo verrà sospeso in caso di errore. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md).|
+|Suspending|Il sistema sta tentando di sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, il processo verrà completato prima di poter essere sospeso. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md).|
 
 ## Visualizzazione dello stato del processo mediante il portale di gestione di Azure
 
@@ -103,4 +109,4 @@ Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario 
 
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

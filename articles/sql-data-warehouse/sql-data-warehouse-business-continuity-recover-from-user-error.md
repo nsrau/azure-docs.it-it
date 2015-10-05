@@ -1,20 +1,20 @@
 <properties
    pageTitle="Ripristinare un database dall’errore dell’utente in SQL Data Warehouse | Microsoft Azure"
-	description="Procedura per ripristinare un database dall’errore dell’utente in SQL Data Warehouse."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Procedura per ripristinare un database dall’errore dell’utente in SQL Data Warehouse."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/26/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/23/2015"
+   ms.author="sahajs"/>
 
 # Ripristinare un database dall’errore dell’utente in SQL Data Warehouse
 
@@ -30,16 +30,23 @@ Se l’errore dell'utente causa la modifica dei dati non intenzionale, è possib
 
 ### PowerShell
 
-Utilizzare PowerShell per eseguire un ripristino del database a livello di codice. Per ripristinare un database, utilizzare il cmdlet [Start-AzureSqlDatabaseRestore][].
+Utilizzare PowerShell di Azure per eseguire un ripristino del database a livello di codice. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Selezionare la sottoscrizione con l'account che contiene il database da ripristinare.
-2. Elencare i punti di ripristino per il database (richiede la modalità Gestione risorse di Azure)
-3. Selezionare il punto di ripristino desiderato utilizzando RestorePointCreationDate.
-3. Ripristinare il database al punto di ripristino desiderato.
-4. Monitorare lo stato del ripristino.
+Per ripristinare un database, utilizzare il cmdlet [Start-AzureSqlDatabaseRestore][].
+
+1. Aprire Microsoft Azure PowerShell
+2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
+3. Selezionare la sottoscrizione che contiene il database da ripristinare.
+4. Elencare i punti di ripristino per il database (richiede la modalità Gestione risorse di Azure)
+5. Selezionare il punto di ripristino desiderato utilizzando RestorePointCreationDate.
+6. Ripristinare il database al punto di ripristino desiderato.
+7. Monitorare lo stato del ripristino.
 
 ```
-Select-AzureSubscription -SubscriptionId <Subscription_GUID>
+
+Add-AzureAccount
+Get-AzureSubscription
+Select-AzureSubscription -SubscriptionName "<Subscription_name>"
 
 # List database restore points
 Switch-AzureMode AzureResourceManager
@@ -59,7 +66,7 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-Se il server è foo.database.windows.net, utilizzare "foo" come NomeServer nei cmdlet di powershell.
+Se il server è foo.database.windows.net, utilizzare "foo" come NomeServer nei cmdlet sopraindicati di powershell.
 
 ### API REST
 Utilizzare REST per eseguire il ripristino del database a livello di codice.
@@ -74,15 +81,20 @@ Dopo aver completato il ripristino, sarà possibile configurare il database ripr
 Se si elimina un database, è possibile ripristinare il database eliminato al momento dell'eliminazione. SQL Data Warehouse di Azure esegue uno snapshot del database prima dell’eliminazione e la mantiene per 7 giorni.
 
 ### PowerShell
-Utilizzare PowerShell per eseguire un ripristino del database eliminato a livello di programmazione. Per ripristinare un database eliminato, utilizzare il cmdlet [Start-AzureSqlDatabaseRestore][].
+Utilizzare Azure PowerShell per eseguire un ripristino del database eliminato a livello di programmazione. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Cercare il database eliminato e la relativa data di eliminazione nell'elenco dei database eliminati.
+Per ripristinare un database eliminato, utilizzare il cmdlet [Start-AzureSqlDatabaseRestore][].
+
+1. Aprire Microsoft Azure PowerShell
+2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
+3. Selezionare la sottoscrizione che contiene il database eliminato da ripristinare.
+4. Cercare il database e la relativa data di eliminazione nell'elenco dei database eliminati.
 
 ```
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
-2. Selezionare il database eliminato e avviare il ripristino.
+5. Selezionare il database eliminato e avviare il ripristino.
 
 ```
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
@@ -91,6 +103,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+Se il server è foo.database.windows.net, utilizzare "foo" come NomeServer nei cmdlet sopraindicati di powershell.
 
 ### API REST
 Utilizzare REST per eseguire il ripristino del database a livello di codice.
@@ -118,8 +132,8 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 [Database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/it-it/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/IT-IT/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

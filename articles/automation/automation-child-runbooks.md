@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 # Runbook figlio in Automazione di Azure
@@ -30,18 +30,34 @@ Quando viene pubblicato un runbook, tutti i runbook figlio chiamati devono già 
 
 I parametri di un runbook figlio chiamato inline possono essere costituiti da qualsiasi tipo di dati, inclusi gli oggetti complessi e non esiste alcuna [serializzazione JSON](automation-starting-a-runbook.md#runbook-parameters) come quando si avvia il runbook utilizzando il portale di gestione di Azure o con il cmdlet Start-AzureAutomationRunbook.
 
-Nell'esempio seguente viene richiamato un runbook figlio di test che accetta tre parametri, un oggetto complesso, un numero intero e un valore booleano. L'output del runbook figlio viene assegnato a una variabile.
+### Tipi di runbook
+
+Non è possibile utilizzare un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) o un [runbook grafico](automation-runbook-types.md#graphical-runbooks) come elemento figlio in un [runbook PowerShell](automation-runbook-types.md#powershell-runbooks) tramite l’esecuzione inline. Analogamente, non è possibile utilizzare un runbook di PowerShell come elemento figlio con l'esecuzione inline in un runbook del flusso di lavoro PowerShell o in un icalrunbook Graph. I runbook PowerShell possono utilizzare solo un altro PowerShell come figlio. I runbook grafici e del flusso di lavoro PowerShell si possono utilizzare tra loro come runbook figlio.
+
+Quando si richiama un runbook figlio grafico o del flusso di lavoro PowerShell tramite l’esecuzione inline, è sufficiente utilizzare il nome del runbook. Quando si richiama un runbook figlio PowerShell, è necessario che il suo nome sia preceduto da *.\* per specificare che lo script si trova nella directory locale.
+
+### Esempio
+
+Nell'esempio seguente viene richiamato un runbook figlio di test che accetta tre parametri, un oggetto complesso, un numero intero e un valore booleano. L'output del runbook figlio viene assegnato a una variabile. In questo caso, il runbook figlio è un runbook del flusso di lavoro PowerShell
 
 	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
 	$output = Test-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+
+Di seguito si trova lo stesso esempio con un runbook di PowerShell come elemento figlio.
+
+	$vm = Get-AzureVM –ServiceName "MyVM" –Name "MyVM"
+	$output = .\Test-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+
 
 ##  Avvio di un runbook figlio utilizzando cmdlet
 
 È possibile usare [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) per avviare un Runbook come descritto in [Avviare un runbook con Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Quando si avvia un runbook figlio da un cmdlet, il runbook padre si sposterà alla riga successiva non appena viene creato un processo per il runbook figlio. Se è necessario recuperare l'output dal runbook, sarà necessario accedere al processo utilizzando [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx).
 
-Verrà eseguito il processo da un runbook figlio avviato con un cmdlet in un processo separato dal runbook padre. Questo comporta più processi che richiamano l’inline dello script e li rende più difficili da rilevare. L'elemento padre può avviare più runbook figlio senza attendere che ognuno di essi sia completato. Per questo stesso tipo di esecuzione parallela che chiama l’inline del runbook figlio, il runbook padre dovrà usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
+Verrà eseguito il processo da un runbook figlio avviato con un cmdlet in un processo separato dal runbook padre. Questo comporta più processi che richiamano l’inline dello script e li rende più difficili da rilevare. L'elemento padre può avviare più runbook figlio senza attendere che ognuno di essi sia completato. Per questa stessa tipologia di esecuzione parallela che chiama l’inline del runbook figlio, il runbook padre dovrà usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
 
 I parametri per un runbook figlio avviato con un cmdlet vengono forniti come una tabella hash, come descritto in [Parametri di Runbook](automation-starting-a-runbook.md#runbook-parameters). Possono essere utilizzati solo tipi di dati semplici. Se il runbook dispone di un parametro con un tipo di dati complessi, deve essere chiamato inline.
+
+### Esempio
 
 Nell'esempio seguente viene avviato un runbook figlio con parametri e si attende il suo completamento. Una volta completato, il relativo output viene raccolto dal processo dal runbook padre.
 
@@ -78,4 +94,4 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

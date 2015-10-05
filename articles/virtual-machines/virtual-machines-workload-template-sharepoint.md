@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Distribuzione delle farm di SharePoint con i modelli di Gestione risorse di Azure | Microsoft Azure"
-	description="Distribuire facilmente una farm di SharePoint a tre o nove server con i modelli di Gestione risorse e il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure."
+	pageTitle="Distribuzione delle farm di SharePoint con i modelli ARM|Microsoft Azure"
+	description="Distribuire facilmente una farm di SharePoint a tre o nove server con i modelli di Gestione risorse e il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -19,6 +19,8 @@
 
 # Distribuzione delle farm di SharePoint con i modelli di Gestione risorse di Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione risorse. Non è possibile creare questa risorsa con il modello di distribuzione classica.
+
 Utilizzare le istruzioni riportate in questo articolo per distribuire una nuova farm di SharePoint Server 2013 a tre o nove server utilizzando i modelli di gestione risorse.
 
 ## Distribuire una farm di SharePoint a tre server
@@ -31,12 +33,12 @@ Per una farm di SharePoint Server 2013 base, un modello di gestione risorse crea
 
 ### Portale di anteprima di Azure
 
-Per distribuire il carico di lavoro usando un modello di gestione delle risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Per distribuire il carico di lavoro usando un modello di gestione risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Per il riquadro**Modello**, fare clic su **Salva**.
-2.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
+1.	Per il riquadro **Modello**, fare clic su **Salva**.
+2.	Fare clic su **Parametri**. Nel riquadro **Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 3.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
 4.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 5.	Se necessario, fare clic su **Percorso del gruppo di risorse** e selezionare il percorso corretto di Azure.
@@ -102,12 +104,12 @@ Per una farm di SharePoint Server 2013 ad alta disponibilità, un modello di ges
 
 ### Portale di anteprima di Azure
 
-Per distribuire il carico di lavoro usando un modello di gestione delle risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Per distribuire il carico di lavoro usando un modello di gestione risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
 1.	Per il riquadro **Modello**, fare clic su **Salva**.
-2.	Fare clic su **Parametri**. Nel riquadro **Parametri**, immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti, quindi fare clic su **OK**.
+2.	Fare clic su **Parametri**. Nel riquadro **Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 3.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
 4.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 5.	Se necessario, fare clic su **Percorso del gruppo di risorse** e selezionare il percorso corretto di Azure.
@@ -161,7 +163,7 @@ Di seguito è fornito un esempio.
 	azure group create sphaserverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json sphaserverfarm spdevtest
 
-Quando si esegue il comando di **creazione del gruppo di distribuzione di Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
+Quando si esegue il comando **Crea gruppo di distribuzione Azure**, verrà richiesto di fornire i valori per una serie di parametri. Dopo aver specificato i valori dei parametri, Azure crea e configura le macchine virtuali.
 
 Al termine, si disporrà di una nuova farm di SharePoint Server 2013 a nove server nel gruppo di risorse nuove.
 
@@ -180,4 +182,4 @@ Al termine, si disporrà di una nuova farm di SharePoint Server 2013 a nove serv
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

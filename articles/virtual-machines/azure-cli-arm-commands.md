@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure | Microsoft Azure"
-	description="Informazioni sull'uso dell'interfaccia della riga di comando per Mac, Linux e Windows per gestire le risorse di Azure mediante la modalità arm dell'interfaccia della riga di comando di Azure."
+	pageTitle="Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse | Microsoft Azure"
+	description="Informazioni sull'uso dell'interfaccia della riga di comando per Mac, Linux e Windows per gestire le risorse di Azure mediante la modalità di distribuzione della gestione risorse."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
-
+	editor="tysonn"
+	tags="azure-resource-mangaer"/>
 
 <tags
 	ms.service="multiple"
@@ -17,8 +17,10 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
-
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. È anche possibile creare una risorsa con il [modello di distribuzione classica](virtual-machines-command-line-tools.md).
+
 
 Questo argomento illustra come usare l'interfaccia della riga di comando di Azure in modalità **arm** per creare, gestire ed eliminare servizi nella riga di comando di computer Mac, Linux e Windows. È possibile eseguire le stesse attività usando le diverse librerie di Azure SDK con PowerShell e tramite il portale di Azure.
 
@@ -1737,6 +1739,5 @@ Opzioni dei parametri:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

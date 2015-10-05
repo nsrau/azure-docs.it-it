@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Indicazioni sui livelli di prezzo del database SQL di Azure" 
-   description="Quando si modificano i livelli di prezzo nel portale di Azure, vengono forniti suggerimenti in merito ai livelli di prezzo che consentono di individuare il livello più adatto all'esecuzione di un carico di lavoro di un database SQL Azure esistente." 
+   description="Quando si modificano i livelli di prezzo nel portale di Azure, vengono forniti suggerimenti in merito ai livelli di prezzo che consentono di individuare il livello più adatto all'esecuzione di un carico di lavoro di un database SQL Azure esistente. Il livello dei prezzi descrive il livello di servizio e il livello di prestazioni di un database SQL" 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,19 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
 
 # Indicazioni sui livelli di prezzo del database SQL
 
- Quando si modificano i livelli di prezzo nel portale di Azure, vengono forniti suggerimenti in merito ai livelli di prezzo che consentono di individuare il livello più adatto all'esecuzione di un carico di lavoro di un database SQL Azure esistente.
+ Vengono forniti suggerimenti in merito ai livelli di prezzo che consentono di individuare il livello di servizio e di prestazione più adatto all'esecuzione di un carico di lavoro di un database SQL Azure esistente.
 
-> [AZURE.NOTE]Suggerimenti sui livelli dei prezzi sono disponibili solo per i database Web e Business e solo nel [portale Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Suggerimenti sui livelli dei prezzi sono disponibili solo per i database Web e Business, e per i pool di database elastici - e solo nel [portale di anteprima di Azure](https://portal.azure.com/).
+
+
+Ottenere consigli sul livello dei prezzi durante le operazioni seguenti:
+
+- [Modificare il livello di servizio e il livello di prestazioni (livello di prezzo) di un database SQL](sql-database-scale-up.md)
+- [Aggiornare il server SQL Azure a V12](sql-database-v12-upgrade.md)
+- [Creare un pool di database elastici](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
 ## Panoramica
 
-Azure consente di analizzare le prestazioni e i requisiti di funzionalità correnti valutando l'utilizzo delle risorse cronologiche per un database SQL. Inoltre, il livello di servizio accettabile minimo viene determinato in base alle dimensioni del database e vengono abilitate le funzionalità di [continuità aziendale](https://msdn.microsoft.com/library/azure/hh852669.aspx) funzionalità.
+Il servizio Database SQL consente di analizzare le prestazioni e i requisiti di funzionalità correnti valutando l'utilizzo delle risorse cronologiche per un database SQL. Inoltre, il livello di servizio accettabile minimo viene determinato in base alle dimensioni del database e vengono abilitate le funzionalità di [continuità aziendale](https://msdn.microsoft.com/library/azure/hh852669.aspx) funzionalità.
 
 Le informazioni vengono analizzate e viene suggerito il livello di prestazioni e il livello di servizio più adatti per l'esecuzione del carico di lavoro tipico del database e la gestione del set di funzionalità correnti.
 
@@ -45,9 +52,9 @@ In base all'utilizzo del database, esistono 2 categorie di indicazioni che posso
 
 ## Ottenere indicazioni sui livelli di prezzo
 
-È possibile ottenere le indicazioni sui livelli di prezzo selezionando un database Web o Business esistente e facendo clic sul riquadro **Livello di prezzo**.
+È possibile ottenere le indicazioni sui livelli di prezzo selezionando un database Web o Business esistente e facendo clic sul riquadro **Livello di prezzo**. (I consigli sul livello dei prezzi sono disponibili anche quando si [Esegue l'aggiornamento del server SQL Azure a V12](sql-database-v12-upgrade.md).)
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
 2. Fare clic su **SFOGLIA** nel menu a sinistra.
 3. Fare clic su **Database SQL** nel pannello **Sfoglia**.
 4. Nel pannello relativo ai **database SQL**, fare clic sul database che si desidera venga analizzato dal servizio.
@@ -90,4 +97,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

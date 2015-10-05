@@ -1,23 +1,25 @@
-<properties 
-	pageTitle="Creazione e caricamento di un VHD SUSE Linux in Azure" 
-	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo SUSE Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Creazione e caricamento di un VHD SUSE Linux in Azure"
+	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo SUSE Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
-
 # Preparare una macchina virtuale SLES od openSUSE per Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Preparare una macchina virtuale SLES 11 SP3 per Azure](#sles11)
 - [Preparare una macchina virtuale openSUSE 13.1+ per Azure](#osuse)
@@ -115,7 +117,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 	Se il comando restituisce un messaggio simile a "Nessun archivio definito..." usare i comandi seguenti per aggiungere gli archivi:
 
-		# sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1 
+		# sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
@@ -177,7 +179,4 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 13. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

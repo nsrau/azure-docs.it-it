@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Collegare un disco a una macchina virtuale | Microsoft Azure"
-	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso."
+	description="Collegare un disco dati da una macchina virtuale creata con il modello di distribuzione classico e inizializzarla."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-# Come collegare un disco dati a una macchina virtuale Windows
+# Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica. È inoltre possibile creare delle risorse con il [modello di distribuzione di Gestione risorse](virtual-machines-attach-disk-preview.md).
 
 È possibile collegare dischi vuoti e i dischi dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
 
@@ -59,4 +61,4 @@ Di seguito è riportata una procedura dettagliata dei passaggi in questa esercit
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

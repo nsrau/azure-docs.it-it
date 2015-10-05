@@ -1,20 +1,20 @@
 <properties
    pageTitle="Creare un set di record e i record per una zona DNS | Microsoft Azure"
-	description="Come creare i record host per DNS di Azure. Configurare i set di record e i record usando PowerShell"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   description="Come creare i record host per DNS di Azure. Configurare i set di record e i record usando PowerShell"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
 # Creare record DNS
@@ -124,4 +124,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

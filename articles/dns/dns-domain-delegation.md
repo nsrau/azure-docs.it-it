@@ -1,20 +1,20 @@
 <properties
    pageTitle="Delegare il dominio a DNS di Azure | Microsoft Azure"
-	description="Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   description="Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
 # Delegare un dominio a DNS di Azure
@@ -69,7 +69,7 @@ Si supponga, ad esempio, che si acquisti il dominio "contoso.com" e si crei una 
 
 Per configurare la delega, è necessario conoscere i nomi dei server dei nomi per la zona. DNS di Azure alloca i server dei nomi da un pool ogni volta che viene creata una zona e li archivia nei record NS autorevoli che vengono creati automaticamente all'interno della zona. Dunque, per visualizzare i nomi dei server dei nomi, è sufficiente recuperare questi record.
 
-È possibile recuperare i record NS autorevoli usando Azure PowerShell, come segue (il nome del record "#" viene usato per fare riferimento ai record al vertice della zona):
+È possibile recuperare i record NS autorevoli usando Azure PowerShell, come segue (il nome del record "#" viene usato per fare riferimento ai record al vertice della zona).
 
 	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -125,11 +125,11 @@ Successivamente, si recupereranno i record NS autorevoli dalla zona figlio, come
 
 	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-Infine, si crea un set di record NS corrispondente nella zona padre per completare la delega (si noti che il nome del set di record nella zona padre corrisponde al nome della zona figlio, in questo caso "partner"):
+Infine, si crea un set di record NS corrispondente nella zona padre per completare la delega (si noti che il nome del set di record nella zona padre corrisponde al nome della zona figlio, in questo caso "partner").
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 Come nel caso della delega con un registrar, è possibile verificare che tutto sia configurato correttamente eseguendo la ricerca di record SOA della zona figlio.
 
@@ -159,4 +159,4 @@ Come nel caso della delega con un registrar, è possibile verificare che tutto s
 
 [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

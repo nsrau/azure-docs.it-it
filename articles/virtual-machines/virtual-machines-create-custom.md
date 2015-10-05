@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare una macchina virtuale personalizzata in Azure"
-	description="Informazioni su come creare una macchina virtuale personalizzata in Azure."
+	pageTitle="Creare una macchina virtuale personalizzata | Microsoft Azure"
+	description="Come creare una macchina virtuale personalizzata dal portale di Azure usando il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,13 +11,17 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="cynthn"/>
 
 #Come creare una macchina virtuale personalizzata
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
 
 Una macchina virtuale *personalizzata* indica semplicemente una macchina virtuale creata usando l’opzione **Da raccolta**, che offre più possibilità di configurazione rispetto a **Creazione rapida**. Tali opzioni includono:
 
@@ -31,4 +35,4 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

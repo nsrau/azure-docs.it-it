@@ -18,7 +18,8 @@
 	ms.author="danlep"/>
 
 # Articoli sulle Macchine virtuali nella gestione dei servizi
-Questo è un elenco di articoli sull'utilizzo di macchine virtuali nella gestione dei servizi di Azure. Per le nuove distribuzioni, consigliamo l'utilizzo di macchine virtuali basate sulla Gestione risorse di Azure e altre risorse. Per una spiegazione dei vantaggi di Gestione risorse, vedere [Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione delle risorse con il modello di distribuzione classica.
 
 ## Introduzione
 
@@ -150,4 +151,4 @@ Questo è un elenco di articoli sull'utilizzo di macchine virtuali nella gestion
 
 [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

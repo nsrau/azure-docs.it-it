@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Cosa sono un modello del servizio cloud e un pacchetto in Azure" 
-    description="Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure" 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
+<properties
+    pageTitle="Cosa sono un modello del servizio cloud e un pacchetto in Azure"
+    description="Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure"
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
     editor=""/>
-<tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/06/2015" 
+<tags
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2015"
     ms.author="adegeo"/>
 
 # Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
@@ -24,7 +24,7 @@ Una volta che il servizio cloud è in esecuzione in Azure, è possibile riconfig
 
 * Si vuole sapere di più sui file [ServiceDefinition.csdef](#csdef) e [ServiceConfig.cscfg](#cscfg).
 * Si hanno già informazioni in proposito, ma sono necessari [alcuni esempi](#next-steps) sugli elementi configurabili.
-* Si vuole crea [ServicePackage.cspkg](#cspkg). 
+* Si vuole crea [ServicePackage.cspkg](#cspkg).
 * Si sta usando Visual Studio e si vuole...
     * [Crea un nuovo servizio cloud][vs_create]
     * [Riconfigurare un servizio cloud esistente][vs_reconfigure]
@@ -253,7 +253,7 @@ Si sta creando un pacchetto del servizio cloud e si vuole...
 
 <!--
 * [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://msdn.microsoft.com/library/azure/ee758708.aspx)
+* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
 -->
 
 * [Configurare il desktop remoto per un'istanza del servizio cloud][remotedesktop]
@@ -269,9 +269,9 @@ Si sta usando Visual Studio e si vuole...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/it-it/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/it-it/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/IT-IT/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/IT-IT/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/it-it/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/IT-IT/library/ee405487.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

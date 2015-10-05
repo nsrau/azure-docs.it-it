@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mapping di archiviazione di Site Recovery"
+	pageTitle="Mapping di archiviazione di Site Recovery | Microsoft Azure"
 	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali e dei server fisici ubicati nei server locali in Azure o in un sito locale secondario."
 	services="site-recovery"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="raynew"/>
 
 
-# Mapping di archiviazione di Site Recovery
+# Mapping di archiviazione di Site Recovery di Azure
 
 
 Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. Per informazioni sui possibili scenari di distribuzione consultare [Panoramica di Site Recovery](site-recovery-overview.md).
@@ -52,7 +52,7 @@ Il modo in cui è viene configurato il mapping di archiviazione dipende dallo sc
 Eseguire il mapping tra le classificazioni di archiviazione nei server VMM di origine e di destinazione o in un singolo server VMM se due siti sono gestiti dallo stesso server VMM. Quando il mapping è configurato correttamente e la replica è abilitata, il disco rigido virtuale di una macchina virtuale nella posizione primaria verrà replicato nella risorsa di archiviazione nella posizione di destinazione mappata. Si noti che:
 
 - Le classificazioni di archiviazione devono essere disponibili per i gruppi host situati nei cloud di origine e di destinazione.
-- - Le classificazioni non devono necessariamente avere lo stesso tipo di archiviazione. È possibile ad esempio mappare una classificazione di origine contenente condivisioni SMB a una classificazione di destinazione contenente CSV
+- Le classificazioni non devono necessariamente avere lo stesso tipo di archiviazione. È possibile ad esempio mappare una classificazione di origine contenente condivisioni SMB a una classificazione di destinazione contenente CSV
 - Per ulteriori informazioni, vedere [Come creare classificazioni di archiviazione in VMM](https://technet.microsoft.com/library/gg610685.aspx).
 
 ## Esempio
@@ -74,7 +74,7 @@ Chicago | VMM\_Target | | GOLD\_TARGET | Non mappato |
 
 In questo esempio: quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione GOLD (SourceShare1), tale macchina verrà replicata in una risorsa di archiviazione GOLD\_TARGET (TargetShare1). Quando una macchina virtuale di replica viene creata per una macchina virtuale presente nella risorsa di archiviazione SILVER (SourceShare2), tale macchina verrà replicata in una risorsa di archiviazione SILVER\_TARGET (TargetShare2) e così via.
 
-Le condivisioni di file effettive e le classificazioni assegnate in VMM sono simili a quanto illustrato di seguito.
+Le condivisioni di file effettive e le classificazioni assegnate in VMM vengono visualizzate nella schermata successiva.
 
 ![Classificazioni di archiviazione in VMM](./media/site-recovery-storage-mapping/StorageMapping2.png)
 
@@ -95,7 +95,7 @@ In questa tabella viene riepilogato il comportamento quando si abilita la protez
 
 **Macchina virtuale** | **Risorsa di archiviazione di origine** | **Classificazione di origine** | **Risorsa di archiviazione di destinazione mappata**
 ---|---|---|---
-VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Both GOLD\_TARGET</p>
+VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\FileServer\\SourceShare1</p><p>Both GOLD\_TARGET</p>
 VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Both GOLD\_TARGET</p>
 VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
 VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Both SILVER\_TARGET</p>
@@ -104,6 +104,5 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nessun mapping, per cui viene ut
 ## Passaggi successivi
 
 Ora che si dispone di maggiori informazioni sul mapping di archiviazione, iniziare a leggere le [procedure consigliate](site-recovery-best-practices.md) di preparazione alla distribuzione.
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

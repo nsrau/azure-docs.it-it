@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/23/2015"
 	ms.author="genemi"/>
 
 
@@ -150,7 +150,7 @@ Si consiglia di connettersi ai database SQL di Azure con Visual Studio 2013 (VS2
 - Per sviluppare un database, sia online che offline.
 
 
-È invece possibile connettersi con [Visual Studio Community 2013,](https://www.visualstudio.com/it-IT/news/vs2013-community-vs.aspx/) una versione gratuita e completa di VS2013.
+È invece possibile connettersi con [Visual Studio Community 2013,](https://www.visualstudio.com/IT-IT/news/vs2013-community-vs.aspx/) una versione gratuita e completa di VS2013.
 
 
 Nella pagina del database del portale di Azure precedente, per avviare VS2013 nel computer e connettersi al database SQL di Azure è possibile fare clic su **Apri in Visual Studio**.
@@ -169,6 +169,7 @@ Il database V11 rimane disponibile per l'accesso ai dati durante l'aggiornamento
 | :--- | :--- |
 | Durata dell'aggiornamento | La durata dell'aggiornamento dipende dalla dimensione, dall'edizione e dal numero di database presenti nel server. Il processo di aggiornamento può durare da ore a giorni per i server, soprattutto per server che dispongono di database con le seguenti caratteristiche:<br/><br/>* Con una dimensione superiore a 50 GB oppure<br/>* A un livello di servizio non Premium<br/><br/>Anche la creazione di nuovi database nel server durante l'aggiornamento può aumentare la durata dell'aggiornamento. |
 | Replica geografica non supportata | La replica geografica non è supportata in un server 12 sottoposto a un aggiornamento dalla versione 11. |
+| Il database è temporaneamente non disponibile nella fase finale dell'aggiornamento a V12 | I database che appartengono al server V11 restano disponibili durante il processo di aggiornamento. Tuttavia, la connessione al server e ai database è temporaneamente non disponibile nella fase finale, quando inizia la transizione da V11 al V12 pronto.<br/><br/>La durata del passaggio può variare da 40 secondi a 5 minuti. Per la maggior parte dei server, il passaggio avviene in 90 secondi. La durata del passaggio aumenta per i server che dispongono di un numero elevato di database, o quando i database hanno carichi di lavoro di scrittura pesanti. |
 
 
 ### Limitazione *dopo* l'aggiornamento alla versione 12
@@ -243,9 +244,6 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane attivo e disponibile come di consueto.
 
 
-> [AZURE.NOTE]Il database antecedente alla versione 12 per l'accesso ai dati *rimane disponibile* durante l'aggiornamento alla versione 12.
-
-
 ## Collegamenti correlati
 
 
@@ -256,4 +254,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

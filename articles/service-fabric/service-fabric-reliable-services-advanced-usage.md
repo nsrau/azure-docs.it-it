@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso avanzato del modello di programmazione Reliable Services"
-	description="Informazioni sull'uso avanzato del modello di programmazione Reliable Services di Service Fabric per una maggiore flessibilità nei servizi."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor="masnider"/>
+   description="Informazioni sull'uso avanzato del modello di programmazione Reliable Services di Service Fabric per una maggiore flessibilità nei servizi."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor="masnider"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # Uso avanzato del modello di programmazione Reliable Services
 Service Fabric semplifica la scrittura e la gestione di servizi affidabili con e senza stato. In questa guida verrà illustrato l'uso avanzato del modello di programmazione Reliable Services per ottenere più controllo e flessibilità sui servizi. Prima di leggere questa guida, acquisire familiarità con il [modello di programmazione Reliable Services](service-fabric-reliable-services-introduction.md).
@@ -59,7 +59,4 @@ Per argomenti più avanzati relativi a Service Fabric, vedere gli articoli segue
 
 - [Panoramica dei vincoli di posizionamento](service-fabric-placement-constraint.md)
 
-- [Proteggere il traffico di replica dei servizi con stato in Azure Service Fabric](service-fabric-replication-security.md)
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

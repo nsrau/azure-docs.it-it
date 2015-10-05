@@ -97,6 +97,8 @@ Questa pagina verrà modificata successivamente mediante l'aggiunta di una sezio
 	* Usare l'applicazione AAD già creata, invece di crearne una nuova.
  
 	* Usare lo stesso **URI ID app** già disponibile per l'applicazione AAD. Non modificarlo applicando il formato specificato nel file Leggimi.
+	
+	* Modificare le impostazioni dell'applicazione di AAD come indicato; in particolare, impostare gli URL di accesso e risposta sull'URL di base per l'applicazione di esempio.
 
 L'uso dello stesso URI ID app creato per l'app per le API consente di usare lo stesso token di accesso di AAD per l'app Web e l'app per le API. Se si applicasse all'URI ID app il formato indicato nel file Leggimi, sarebbe possibile accedere all'app Web ma non all'app per le API. Non sarebbe possibile passare il token di AAD al gateway di app per le API per ottenere un token Zumo, perché il gateway prevede un token per un URI ID app costituito dall'URL del gateway URL e "/login/aad".
 
@@ -110,13 +112,11 @@ In questa sezione si aggiunge codice generato automaticamente per un'interfaccia
 
 	Al termine della generazione di codice, in **Esplora soluzioni** verrà visualizzata una nuova cartella con il nome dell'app per le API. Questa cartella contiene il codice che implementa le classi client e i modelli di dati.
 
-	![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
-
 10. Risolvere i riferimenti ambigui causati dal codice generato in *ContactsList/ContactsExtensions.cs*: modificare le due istanze di `Task.Factory.StartNew` in `System.Threading.Tasks.Task.Factory.StartNew`.
  
 ## Aggiungere codice per scambiare il token di AAD con un token Zumo
 
-1.	In HomeController.cs aggiungere istruzioni `using` per App Service SDK e il serializzatore JSON.
+1.	In HomeController.cs aggiungere istruzioni `using` per l’SDK del servizio app e il serializzatore JSON.
 
 		using Microsoft.Azure.AppService;
 		using Newtonsoft.Json.Linq;
@@ -227,4 +227,4 @@ Si ringrazia Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav))
 [portale di Azure]: https://manage.windowsazure.com/
 [portale di anteprima di Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Caricare i dati in SQL Data Warehouse
 SQL Data Warehouse presenta numerose opzioni per il caricamento dei dati tra cui:
 
+- PolyBase
 - Data factory di Azure
 - Utilità della riga di comando BCP
-- PolyBase
 - SQL Server Integration Services (SSIS)
 - Strumenti di caricamento dati di terze parti
 
-Sebbene con SQL Data Warehouse possano essere utilizzati tutti i metodi riportati sopra. Molti dei nostri utenti stanno prendendo in esame caricamenti iniziali nell’ordine dalle centinaia di gigabyte alle decine di terabyte. Nelle sezioni riportate di seguito vengono fornite alcune linee guida per il caricamento iniziale dei dati.
+Mentre tutti i metodi precedenti possono essere utilizzati con SQL Data Warehouse, la capacità di PolyBase di parallelizzare in modo trasparente i carichi dall'archiviazione BLOB di Azure lo renderà lo strumento più veloce per il caricamento dei dati. Ulteriori informazioni su come [caricare con PolyBase][]. Inoltre, dato che molti dei nostri utenti guardano il caricamento iniziale in 100s di GB per il numero 10 di terabyte dalle origini locali, nelle sezioni di seguito vengono indicate alcune indicazioni sul caricamento dei dati iniziale.
 
 ## Caricamento iniziale in SQL Data Warehouse da SQL Server 
 Durante il caricamento in SQL Data Warehouse da un'istanza di SQL Server locale, si consiglia quanto segue:
@@ -170,7 +170,7 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Caricare con PolyBase]: sql-data-warehouse-load-with-polybase.md
+[caricare con PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
 [Migrazione dello schema]: sql-data-warehouse-migrate-schema.md
@@ -183,10 +183,10 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[Istruzioni di installazione di AZCopy]: https://azure.microsoft.com/it-it/documentation/articles/storage-use-azcopy/
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/it-it/download/details.aspx?id=36433
-[Importazione/Esportazione]: https://azure.microsoft.com/it-it/documentation/articles/storage-import-export-service/
-[Documentazione di archiviazione di Azure]: https://azure.microsoft.com/it-it/documentation/articles/storage-create-storage-account/
+[Istruzioni di installazione di AZCopy]: https://azure.microsoft.com/IT-IT/documentation/articles/storage-use-azcopy/
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/IT-IT/download/details.aspx?id=36433
+[Importazione/Esportazione]: https://azure.microsoft.com/IT-IT/documentation/articles/storage-import-export-service/
+[Documentazione di archiviazione di Azure]: https://azure.microsoft.com/IT-IT/documentation/articles/storage-create-storage-account/
 [documentazione di ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

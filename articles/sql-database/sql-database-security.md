@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="07/14/2015"
+   ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -34,19 +34,28 @@ Tutte le connessioni al database SQL di Azure richiedono la crittografia SSL/TLS
 
 ## Autenticazione
 
-Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il database SQL supporta attualmente l'autenticazione SQL con un nome utente e una password.
+Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:
 
-Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Utilizzando queste credenziali, è possibile essere autenticati in qualsiasi database di tale server in qualità di proprietario del database o "dbo".
+ - **SQL Authentication**, che utilizza nome utente e password
+ - **Azure Active Directory Authentication**, che utilizza identità gestite da Azure Active Directory ed è supportata da domini gestiti e integrati.
 
-Tuttavia, si consiglia che per l'applicazione si utilizzi un account diverso per l'autenticazione; SSL/TLSin questo modo è possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. L'approccio consigliato consiste nel creare un [utente del database indipendente](https://msdn.microsoft.com/library/ff929188), che consenta all'applicazione di essere autenticata direttamente con un singolo database con un nome utente e una password. È possibile creare un utente del database indipendente tramite l'esecuzione dell'istruzione T-SQL seguente durante la connessione al database utente con l'account di accesso di amministrazione del server:
+Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Utilizzando queste credenziali, è possibile essere autenticati in qualsiasi database di tale server in qualità di proprietario del database o "dbo". Se si desidera utilizzare l'autenticazione di Azure Active Directory, è necessario creare un altro amministratore del server denominato "admin Azure AD," che è autorizzato ad amministrare utenti e gruppi di Azure AD. Questo amministratore può inoltre eseguire tutte le operazioni che un amministratore del server regolare può fare. Vedere [Connessione al Database SQL utilizzando l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) per una procedura dettagliata di come creare un amministratore di Azure AD per abilitare l'autenticazione di Azure Active Directory.
+
+Si consiglia che per l'applicazione si utilizzi un account diverso per l'autenticazione; SSL/TLSin questo modo è possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. L'approccio consigliato consiste nel creare un [utente del database indipendente](https://msdn.microsoft.com/library/ff929188), che consenta all'applicazione di essere autenticata direttamente con un singolo database. È possibile creare un utente del database che utilizza l’autenticazione SQL tramite l'esecuzione dell'istruzione T-SQL seguente durante la connessione al database utente con l'account di accesso di amministrazione del server:
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
 ```
 
-Nella stringa di connessione dell'applicazione devono essere specificati questi nome utente e password, piuttosto che l'accesso di amministratore del server, per connettersi al database.
+Se è stato creato un amministratore di Azure AD, è possibile creare un utente del database che utilizza l’autenticazione Azure Active Directory tramite l'esecuzione dell'istruzione T-SQL seguente durante la connessione al database utente con l'account di amministrazione di Azure AD:
 
-Per ulteriori informazioni su come avviene l'autenticazione con database SQL, vedere [Gestione di database e account di accesso in database SQL di Azure](https://msdn.microsoft.com/library/ee336235).
+```
+CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNAL PROVIDER; -- Azure Active Directory Authentication
+```
+
+In ogni caso, nella stringa di connessione dell'applicazione devono essere specificate queste credenziali, piuttosto che l'accesso di amministratore del server, per connettersi al database.
+
+Per ulteriori informazioni su come avviene l'autenticazione con database SQL, vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md).
 
 
 ## Authorization
@@ -98,4 +107,4 @@ Il controllo e il monitoraggio di eventi del database consentono di mantenere la
 Oltre alle caratteristiche e alle funzionalità che consentono all'applicazione di soddisfare i diversi requisiti di conformità di sicurezza, il database SQL di Azure prende parte inoltre a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [Certificazioni di conformità del database SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

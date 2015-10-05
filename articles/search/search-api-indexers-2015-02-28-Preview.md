@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/08/2015" 
+ms.date="09/21/2015" 
 ms.author="heidist" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)
@@ -40,7 +40,7 @@ Sono attualmente supportate le origini dati seguenti:
 
 La possibilità di aggiungere il supporto per altre origini dati è in fase di valutazione. Per contribuire a questa decisione, è possibile fornire commenti e suggerimenti nell'apposito [forum di Ricerca di Azure](http://feedback.azure.com/forums/263029-azure-search).
 
-Per informazioni sui limiti massimi relativi alle risorse di origine dati e dell'indicizzatore, vedere [Limiti e vincoli](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Vedere [Limiti del servizio](search-limits-quotas-capacity.md) per i limiti massimi relativi alle risorse di origine dati e dell'indicizzatore.
 
 ## Flusso di utilizzo tipico
 
@@ -775,4 +775,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,13 +1,13 @@
-<properties 
-	pageTitle="Come usare l'archiviazione tabelle da Node.js | Microsoft Azure"
-	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti usando l'API Node.js."
+<properties
+	pageTitle="Come usare l'archiviazione tabelle di Azure da Node.js | Microsoft Azure"
+	description="Informazioni su come usare l'archiviazione tabelle di Azure. Gli esempi di codice sono scritti usando l'API Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
 	manager="wpickett"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
@@ -17,20 +17,20 @@
 	ms.author="mwasson"/>
 
 
-# Come usare l'archiviazione tabelle da Node.js
+# Come usare l'archiviazione tabelle di Azure da Node.js
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 
 ## Panoramica
 
-In questo argomento viene illustrato come eseguire scenari comuni utilizzando il servizio tabelle di Azure in un'applicazione Node.js.
+Questo argomento illustra come eseguire scenari comuni usando il servizio tabelle di Azure in un'applicazione Node.js.
 
-Negli esempi di codice illustrati in questo argomento si suppone che sia già stata ottenuta un'applicazione Node.js. Per istruzioni su come creare un'applicazione Node.js in Azure, vedere uno degli argomenti seguenti:
+Negli esempi di codice illustrati in questo argomento si suppone che sia già stata ottenuta un'applicazione Node.js. Per informazioni su come creare un'applicazione Node.js in Azure, vedere uno qualsiasi degli argomenti seguenti:
 
-- [Creazione e distribuzione di un sito Web Node.js in Azure][Create and deploy a Node.js application to an Azure Web Site]
-- [Creare e distribuire un sito Web Node.js in Azure con WebMatrix][Web Site with WebMatrix].
-- [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure][Node.js Cloud Service] (usando Windows PowerShell)
+- [Creare e distribuire un sito Web Node.js in Azure](Creare e distribuire un'applicazione Node.js in un sito Web di Azure)
+- [Creare e distribuire un sito Web Node.js in Azure con WebMatrix](Creare e distribuire un'applicazione Node.js con WebMatrix)
+- [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](Servizio cloud Node.js) (usando Windows PowerShell)
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -40,7 +40,7 @@ Negli esempi di codice illustrati in questo argomento si suppone che sia già st
 
 ## Configurare l'applicazione per l'accesso all'archiviazione di Azure
 
-Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK per Node.js, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
+Per usare Archiviazione di Azure, è necessario disporre di Azure Storage SDK per Node.js, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
 
 ### Usare Node Package Manager (NPM) per installare il pacchetto
 
@@ -71,7 +71,7 @@ Aggiungere il codice seguente all'inizio del file **server.js** nell'applicazion
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel portale di gestione per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione]
+Per un esempio di impostazione delle variabili di ambiente nel portale di Azure per un sito Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure].
 
 ## Creare una tabella
 
@@ -87,19 +87,19 @@ La chiamata a **createTableIfNotExists** crea una nuova tabella con il nome spec
 		}
 	});
 
-`result` sarà `true` se viene creata una nuova tabella e `false` se la tabella è già presente. `response` conterrà le informazioni sulla richiesta.
+`result` sarà `true` se viene creata una nuova tabella e sarà `false` se la tabella è già presente. `response` conterrà le informazioni sulla richiesta.
 
 ### Filtri
 
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite utilizzando **TableService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automaticamente e così via. I filtri sono oggetti che implementano un metodo con la firma:
+Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite utilizzando **TableService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
 		function handle (requestOptions, next)
 
-Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare "next" passando un callback con la seguente firma:
+Dopo aver eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare "next" passando un callback con la firma seguente:
 
 		function (returnObject, finalCallback, next)
 
-In questo callback, e dopo l'elaborazione del returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
+In questo callback, e dopo l'elaborazione di returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
 
 Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi con Azure SDK per Node.js: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **TableService** che utilizza **ExponentialRetryPolicyFilter**:
 
@@ -110,7 +110,7 @@ Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi 
 
 Per aggiungere un'entità, creare prima un oggetto che definisca le proprietà dell'entità. Tutte le entità devono contenere **PartitionKey** e **RowKey** che sono gli identificatori univoci dell'entità.
 
-* **PartitionKey**: determina la partizione in cui viene archiviata l'entità.
+* **PartitionKey**: determina la partizione in cui è archiviata l'entità.
 
 * **RowKey**: identifica in modo univoco l'entità all'interno della partizione.
 
@@ -118,7 +118,7 @@ Sia **PartitionKey** che **RowKey** devono essere valori stringa. Per altre info
 
 Nell'esempio seguente viene definita un'entità. **dueDate** è definito come tipo di **Edm.DateTime**. La specifica del tipo è facoltativa e si presuppone che i tipi non siano specificati.
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'take out the trash'},
@@ -159,13 +159,13 @@ Esempio di risposta:
 
 Esistono vari metodi per aggiornare un'entità esistente:
 
-* **updateEntity** - Consente di aggiornare un'entità esistente sostituendola.
+* **updateEntity**: aggiorna un'entità esistente sostituendola.
 
-* **mergeEntity** - Consente di aggiornare un'entità esistente unendovi i nuovi valori di proprietà.
+* **mergeEntity**: aggiorna un'entità esistente unendovi i nuovi valori delle proprietà.
 
-* **insertOrReplaceEntity** - Consente di aggiornare un'entità esistente sostituendola. Se non esiste alcuna entità, ne verrà inserita una nuova.
+* **insertOrReplaceEntity**: aggiorna un'entità esistente sostituendola. Se non esiste alcuna entità, ne verrà inserita una nuova.
 
-* **insertOrMergeEntity** - Consente di aggiornare un'entità esistente unendovi i nuovi valori di proprietà. Se non esiste alcuna entità, ne verrà inserita una nuova.
+* **insertOrMergeEntity**: aggiorna un'entità esistente unendovi i nuovi valori delle proprietà. Se non esiste alcuna entità, ne verrà inserita una nuova.
 
 Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'utilizzo di **updateEntity**:
 
@@ -176,15 +176,15 @@ Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'
     });
 
 > [AZURE.NOTE]Per impostazione predefinita, l'aggiornamento di un'entità non comporta la verifica dei dati per controllare se siano stati modificati da altri processi. Per supportare gli aggiornamenti simultanei:
-> 
+>
 > 1. Recuperare il valore ETag dell'oggetto da aggiornare. Questo valore viene restituito insieme a `response` per qualsiasi operazione associata all'entità e può essere recuperato tramite `response['.metadata'].etag`.
-> 
+>
 > 2. Quando si esegue un'operazione di aggiornamento su un'entità, aggiungere le informazioni ETag precedentemente recuperate alla nuova entità. Ad esempio:
-> 
+>
 >     `entity2['.metadata'].etag = currentEtag;`
 >    
 > 3. Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore di ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` che indica che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
-    
+
 Con **updateEntity** e **mergeEntity**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, utilizzare **insertOrReplaceEntity** oppure **insertOrMergeEntity**.
 
 In `result` per le operazioni di aggiornamento riuscite correttamente sarà incluso l'**Etag** dell'entità aggiornata.
@@ -195,13 +195,13 @@ In `result` per le operazioni di aggiornamento riuscite correttamente sarà incl
 
  Nell'esempio seguente viene dimostrato l'invio di due entità in un batch:
 
-    var task1 = { 
+    var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
 	  dueDate: {'_':new Date(2015, 6, 20)}
 	};
-	var task2 = { 
+	var task2 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '2'},
 	  description: {'_':'Wash the dishes'},
@@ -209,7 +209,7 @@ In `result` per le operazioni di aggiornamento riuscite correttamente sarà incl
 	};
 
 	var batch = new azure.TableBatch();
-	
+
 	batch.insertEntity(task1, {echoContent: true});
 	batch.insertEntity(task2, {echoContent: true});
 
@@ -223,9 +223,9 @@ Per le operazioni in batch riuscite, `result` conterrà le informazioni relative
 
 ### Uso delle operazioni in batch
 
-Le operazioni aggiunte a un batch possono essere esaminate visualizzando la proprietà `operations`. Per usare le operazioni sono disponibili anche i seguenti metodi.
+Le operazioni aggiunte a un batch possono essere esaminate visualizzando la proprietà `operations`. Per usare le operazioni sono disponibili anche i metodi seguenti:
 
-* **clear**: deseleziona tutte le operazioni di un batch.
+* **clear**: cancella tutte le operazioni da un batch.
 
 * **getOperations**: recupera un'operazione dal batch.
 
@@ -255,14 +255,14 @@ Per eseguire una query su una tabella, usare l'oggetto **TableQuery** per creare
 
 * **where**: la clausola where.
 
-	* **and**: condizione where `and`.
+	* **and**: una condizione where `and`.
 
-	* **or**: condizione where `or`.
+	* **or**: una condizione where `or`.
 
 * **top**: il numero di elementi da recuperare.
 
 
-Nell'esempio seguente viene creata una query che restituisce i primi cinque elementi con PartitionKey 'hometasks'.
+L'esempio seguente crea una query che restituisce i primi cinque elementi con PartitionKey 'hometasks'.
 
 	var query = new azure.TableQuery()
 	  .top(5)
@@ -278,7 +278,7 @@ Poiché **select** non viene usato, vengono restituiti tutti i campi. Per esegui
 
 Se la query ha esito positivo, `result.entries` conterrà una matrice delle entità che corrispondono alla query. Se la query non è in grado di restituire tutte le entità, `result.continuationToken` sarà un valore diverso da -*null* e potrà essere usato come terzo parametro di **queryEntities** per recuperare più risultati. Per la query iniziale, utilizzare *null* per il terzo parametro.
 
-### Eseguire una query su un subset di proprietà di entità
+### Eseguire query su un subset di proprietà di entità
 
 Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa tecnica permette di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola **select** e passare i nomi dei campi da restituire. Ad esempio, la query seguente restituisce solo i campi **description** e **dueDate**.
 
@@ -291,7 +291,7 @@ Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa
 
 È possibile eliminare un'entità usando le relative chiavi di riga e di partizione. In questo esempio, l'oggetto **task1** contiene i valori **RowKey** e **PartitionKey** dell'entità da eliminare. L'oggetto viene quindi passato al metodo **deleteEntity**.
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'}
 	};
@@ -320,7 +320,7 @@ Se non si è certi dell'esistenza della tabella, usare **deleteTableIfExists**.
 
 Quando si esegue una query di tabelle di grandi quantità di risultati, ricercare i token di continuazione. Potrebbero essere disponibili grandi quantità di dati per la query di cui si potrebbe non essere consapevoli se non si compila il riconoscimento della presenza di un token di continuazione.
 
-I risultati dell'oggetto restituito quando si esegue una query su entità imposta una proprietà `continuationToken` quando è presente un token di questo tipo. È possibile quindi utilizzarlo quando si esegue una query per continuare a spostarsi tra le entità della partizione e della tabella.
+L'oggetto results restituito quando si esegue una query sulle entità imposta una proprietà `continuationToken` se è presente un token di questo tipo. È possibile quindi utilizzarlo quando si esegue una query per continuare a spostarsi tra le entità della partizione e della tabella.
 
 Quando si esegue una query, è possibile specificare un parametro continuationToken tra l'istanza dell'oggetto della query e la funzione di richiamata:
 
@@ -341,15 +341,15 @@ dc.table.queryEntities(tableName,
     });
 ```
 
-Se si osserva l’oggetto `continuationToken`, sono visualizzate proprietà come `nextPartitionKey`, `nextRowKey` e `targetLocation` che possono essere utilizzate per scorrere tutti i risultati.
+Se si osserva l'oggetto `continuationToken`, si troveranno proprietà come `nextPartitionKey`, `nextRowKey` e `targetLocation` che possono essere usate per eseguire l'iterazione di tutti i risultati.
 
-È inoltre disponibile un esempio di continuazione all’interno dell'archivio Node.js di Archiviazione di Azure su GitHub, cercare `examples/samples/continuationsample.js`.
+È inoltre disponibile un esempio di continuazione all'interno del repository Node.js di Archiviazione di Azure su GitHub. Cercare `examples/samples/continuationsample.js`.
 
 ## Usare le firme di accesso condiviso di Azure
 
 Le firme di accesso condiviso rappresentano un modo sicuro per fornire accesso granulare alle tabelle senza specificare il nome o le chiavi dell'account di archiviazione. Le firme di accesso condiviso vengono spesso usate per fornire accesso limitato ai dati, ad esempio per consentire a un'app per dispositivi mobili di eseguire query sui record.
 
-Un'applicazione attendibile, ad esempio un servizio basato sul cloud, genera una firma di accesso condiviso tramite il metodo **generateSharedAccessSignature** dell'oggetto **TableService** e la fornisce a un'applicazione non attendibile o parzialmente attendibile. Si prenda ad esempio un'app per dispositivi mobili. La firma di accesso condiviso viene generata tramite un criterio che indica le date di inizio e di fine del periodo di validità della firma, nonché il livello di accesso concesso al titolare della firma di accesso condiviso.
+Un'applicazione attendibile, ad esempio un servizio basato sul cloud, genera una firma di accesso condiviso tramite il metodo **generateSharedAccessSignature** dell'oggetto **TableService** e la fornisce a un'applicazione non attendibile o parzialmente attendibile, ad esempio a un'app per dispositivi mobili. La firma di accesso condiviso viene generata tramite un criterio che indica le date di inizio e di fine del periodo di validità della firma, nonché il livello di accesso concesso al titolare della firma di accesso condiviso.
 
 Nell'esempio seguente viene generato un nuovo criterio di accesso condiviso che consentirà al titolare della firma di accesso condiviso di eseguire una query ('r') per la tabella e che scadrà 100 minuti dopo la data di creazione.
 
@@ -357,7 +357,7 @@ Nell'esempio seguente viene generato un nuovo criterio di accesso condiviso che 
 	var expiryDate = new Date(startDate);
 	expiryDate.setMinutes(startDate.getMinutes() + 100);
 	startDate.setMinutes(startDate.getMinutes() - 100);
-		
+
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
 	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -376,7 +376,7 @@ L'applicazione client usa quindi la firma di accesso condiviso con il metodo **T
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery()
 	  .where('PartitionKey eq ?', 'hometasks');
-		
+
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
 		// result contains the entities
@@ -389,7 +389,7 @@ Poiché la firma di accesso condiviso è stata generata con accesso solo query, 
 
 Per impostare i criteri di accesso per una firma di accesso condiviso è anche possibile usare un elenco di controllo di accesso. Questa soluzione è utile quando si vuole consentire a più client di accedere alla tabella, impostando tuttavia criteri di accesso diversi per ogni client.
 
-Un elenco di controllo di accesso viene implementato usando una matrice di criteri di accesso, con un ID associato a ogni criterio. Nell'esempio seguente vengono definiti due criteri, uno per 'user1' e uno per 'user2':
+Un elenco di controllo di accesso viene implementato usando una matrice di criteri di accesso, con un ID associato a ogni criterio. L'esempio seguente definisce due criteri, uno per 'user1' e uno per 'user2':
 
 	var sharedAccessPolicy = [
 	  {
@@ -410,7 +410,7 @@ Un elenco di controllo di accesso viene implementato usando una matrice di crite
 	  }
 	];
 
-Nell'esempio seguente viene recuperato l'elenco di controllo di accesso corrente per la tabella **hometasks** e vengono aggiunti i nuovi criteri tramite **setTableAcl**. Risultato:
+L'esempio seguente recupera l'elenco di controllo di accesso corrente per la tabella **hometasks** e quindi aggiunge i nuovi criteri tramite **setTableAcl**. Risultato:
 
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
       if(!error){
@@ -430,24 +430,24 @@ Dopo avere impostato l'elenco di controllo di accesso, è possibile creare una f
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
+Per altre informazioni, vedere le risorse seguenti:
 
--   Vedere la documentazione MSDN: [Archiviazione e accesso ai dati in Azure][]
+-   Documentazione MSDN: [Archiviazione e accesso ai dati in Azure][]
 -   [Blog del team di Archiviazione di Azure][]
--   Archivio [Azure SDK for Node][] su GitHub.
+-   Repository [Azure Storage SDK per Node][] su GitHub
+-   [Centro per sviluppatori di Node. js](/develop/nodejs/)
 
-  [Azure SDK for Node]: https://github.com/Azure/azure-storage-node
+  [Azure Storage SDK per Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [Azure portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Applicazione Web Node.js con archiviazione]: ../storage-nodejs-use-table-storage-web-site.md
-  [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
- 
+  [App Web Node.js con il servizio tabelle di Azure]: ../storage-nodejs-use-table-storage-web-site.md
+  [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

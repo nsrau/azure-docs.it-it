@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Creare applicazioni che utilizzano le code del Bus di servizio | Microsoft Azure"
+   pageTitle="Scrivere applicazioni che utilizzano le code del Bus di servizio | Microsoft Azure"
    description="Come scrivere una semplice applicazione basata sulle code che utilizza il Bus di servizio."
    services="service-bus"
    documentationCenter="na"
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Ora che sono state apprese le nozioni di base delle code, vedere [Creare applicazioni che utilizzano argomenti del Bus di servizio e sottoscrizioni](service-bus-create-topics-subscriptions.md) per continuare questa discussione mediante le funzionalità di pubblicazione/sottoscrizione del Bus di servizio di messaggistica negoziata.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

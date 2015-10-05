@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mapping della rete di Site Recovery"
-	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali e dei server fisici ubicati nei server locali in Azure o in unsito locale secondario."
+	pageTitle="Mapping della rete di Site Recovery di Azure | Microsoft Azure"
+	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali e dei server fisici ubicati nei server locali in Azure o in un sito locale secondario."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -17,7 +17,7 @@
 	ms.author="raynew"/>
 
 
-# Mapping della rete di Site Recovery
+# Mapping della rete di Site Recovery di Azure
 
 
 Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. Per informazioni sui possibili scenari di distribuzione consultare [Panoramica di Site Recovery](site-recovery-overview.md).
@@ -40,16 +40,16 @@ Il modo in cui è possibile impostare il mapping di rete dipende dal proprio sce
 
 	- **Connettere le macchine virtuali dopo il failover**: assicura che macchine virtuali saranno connesse alle reti appropriate dopo il failover. La macchina virtuale di replica verrà connessa alla rete di destinazione di cui viene eseguito il mapping alla rete di origine.
 	- **Posizionare le macchine virtuali di replica in server host**: posizionare in modo ottimale le macchine virtuali di replica nei server host Hyper-V. Le macchine virtuali di replica saranno posizionate negli host che possono accedere alle reti di macchine virtuali mappate.
-	- **Nessun mapping di rete**: se non si configura il mapping di rete, le macchine virtuali replicate non saranno connesse ad alcuna rete di macchina virtuale dopo il failover.
+	- **Nessun mapping di rete**--se non si configura il mapping di rete, le macchine virtuali replicate non saranno connesse ad alcuna rete di macchina virtuale dopo il failover.
 
 - **Da server VMM locale ad Azure**: mapping di rete tra reti di macchina virtuale nel server VMM di origine e reti Azure di destinazione ai seguenti scopi:
 	- **Connettere le macchine virtuali dopo il failover**: tutte le macchine virtuali della stessa rete possono connettersi l’una all’altra, a prescindere dal piano di ripristino di appartenenza.
-	- **Gateway di rete**: se nella rete di Azure di destinazione è configurato un gateway di rete, le macchine virtuali possono connettersi ad altre macchine virtuali locali.
-	- **Nessun mapping di rete**: se non si configura il mapping di rete, solo le macchine virtuali di cui viene eseguito il failover appartenenti allo stesso piano di ripristino possono connettersi tra loro dopo il failover in Azure.
+	- **Gateway di rete**-se nella rete di Azure di destinazione è configurato un gateway di rete, le macchine virtuali possono connettersi ad altre macchine virtuali locali.
+	- **Nessun mapping di rete**-se non si configura il mapping di rete, solo le macchine virtuali di cui viene eseguito il failover appartenenti allo stesso piano di ripristino possono connettersi tra loro dopo il failover in Azure.
 
 ## Reti VM
 
-La rete logica VMM fornisce una visualizzazione astratta dell'infrastruttura di rete fisica. Le reti VM forniscono un'interfaccia di rete in modo che le macchine virtuali possano connettersi alle reti logiche. Una rete logica richiede almeno una rete VM. Quando si inserisce una macchina virtuale in un cloud per la protezione, tale macchina deve essere connessa a una rete VM che si collega a una rete logica associata al cloud. Per altre informazioni, consultare:
+Una rete logica VMM fornisce una visualizzazione astratta dell'infrastruttura di rete fisica. Le reti VM forniscono un'interfaccia di rete in modo che le macchine virtuali possano connettersi alle reti logiche. Una rete logica richiede almeno una rete VM. Quando si inserisce una macchina virtuale in un cloud per la protezione, tale macchina deve essere connessa a una rete VM che si collega a una rete logica associata al cloud. Per altre informazioni, consultare:
 
 - [Reti logiche (parte 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
 - [Reti virtuali in VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
@@ -108,7 +108,7 @@ VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Non disponibile
 
 ## Più subnet
 
-Se la rete di destinazione dispone di più subnet e una di esse ha lo stesso nome di una subnet in cui si trova la macchina virtuale di origine, la macchina virtuale di replica sarà connessa a tale subnet di destinazione dopo il failover. Se non è presente una subnet di destinazione con un nome corrispondente, la macchina virtuale sarà connessa alla prima subnet della rete.
+Se la rete di destinazione dispone di più subnet e una di esse ha lo stesso nome della subnet in cui si trova la macchina virtuale di origine, la macchina virtuale di replica sarà connessa a tale subnet di destinazione dopo il failover. Se non è presente una subnet di destinazione con un nome corrispondente, la macchina virtuale sarà connessa alla prima subnet della rete.
 
 
 ### Failback
@@ -134,6 +134,5 @@ Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa
 ## Passaggi successivi
 
 Ora che si dispone di una comprensione migliore del mapping di rete, iniziare a leggere le [procedure consigliate](site-recovery-best-practices.md) di preparazione alla distribuzione.
- 
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

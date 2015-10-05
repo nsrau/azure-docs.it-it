@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare una macchina virtuale Windows con un modello di Gestione risorse"
+	pageTitle="Creare una macchina virtuale con il modello ARM | Microsoft Azure"
 	description="Utilizzare un modello di Gestione risorse per creare una nuova macchina virtuale Windows con PowerShell o l’interfaccia della riga di comando di Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Creare una macchina virtuale Windows con un modello di Gestione risorse
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. Non è possibile creare questa risorsa con il modello di distribuzione classico.
 
 È possibile creare facilmente una nuova macchina virtuale di Azure basata su Windows usando un modello di Gestione risorse con Azure PowerShell o l'interfaccia della riga di comando di Azure. Questo modello consente di creare una singola macchina virtuale su cui è in esecuzione Windows in una nuova rete virtuale con una singola subnet in un nuovo gruppo di risorse.
 
@@ -333,4 +335,4 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente:
 
 [Come installare e configurare Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

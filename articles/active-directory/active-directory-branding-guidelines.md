@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Linee guida sulla personalizzazione per le applicazioni"
-	description="Guida completa alle risorse rivolte agli sviluppatori per Azure Active Directory"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Linee guida sulla personalizzazione delle applicazioni | Microsoft Azure"
+   description="Guida completa alle risorse rivolte agli sviluppatori per Azure Active Directory"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/17/2015"
+   ms.author="mbaldwin"/>
 
 
 # Linee guida sulla personalizzazione per le applicazioni
@@ -94,4 +94,4 @@ Nell'app dovrà essere visualizzato un pulsante di accesso che indirizza gli ute
 
 Se l'app supporta entrambi gli account Azure AD e Microsoft, è necessario includere nell'app due pulsanti di accesso separati. Microsoft è attivamente impegnata nella realizzazione di un aggiornamento che consentirà di eseguire l'integrazione una sola volta e di supportare gli account Microsoft personale e aziendale. Quando l'aggiornamento sarà disponibile, si potrà mostrare nell'app un singolo pulsante di "accesso a Microsoft".
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

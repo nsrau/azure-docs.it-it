@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2015" ms.author="trinadhk";"aashishr" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
@@ -140,7 +140,7 @@ Per ripristinare i dati di backup, è necessario identificare l'elemento sottopo
 Per ottenere l'oggetto PowerShell che individua l'elemento di backup corretto, è necessario iniziare dal contenitore nell'insieme di credenziali, quindi procedere verso il basso nella gerarchia degli oggetti. Per selezionare il contenitore che rappresenta la macchina virtuale, usare il cmdlet **Get-AzureRMBackupContainer** e passarlo al cmdlet **Get-AzureRMBackupItem**.
 
 ```
-PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
+PS C:\> $backupitem = Get-AzureRMBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
 ```
 
 ### Scegliere un punto di ripristino
@@ -231,4 +231,4 @@ Per altre informazioni su come creare una macchina virtuale dai dischi ripristin
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

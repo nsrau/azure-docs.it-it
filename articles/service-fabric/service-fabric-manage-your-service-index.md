@@ -21,7 +21,6 @@ Questa pagina contiene i collegamenti per accedere ad articoli di panoramica e c
 
 - [Ciclo di vita di un'applicazione](service-fabric-application-lifecycle.md)
 - [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-- [Proteggere il traffico di replica dei servizi con stato](service-fabric-replication-security.md)
 
 ## Creare il pacchetto, distribuire e rimuovere un'applicazione
 I seguenti argomenti illustrano il modello di applicazione di Service Fabric e come creare il pacchetto e distribuire le applicazioni.
@@ -41,13 +40,12 @@ Per informazioni su come aggiornare un'applicazione, leggere gli articoli seguen
 - [Argomenti avanzati](service-fabric-application-upgrade-advanced.md)
 - [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
 - [Esercitazione/procedura dettagliata per l'aggiornamento di un'applicazione](service-fabric-application-upgrade-tutorial.md)
-- [Aggiornamento di un'applicazione di Service Fabric - Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md) 
+- [Aggiornamento di un'applicazione di Service Fabric - Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md)
 
 ## Scalare e partizionare i servizi dell'applicazione
 Gli articoli seguenti illustrano la scalabilità e il partizionamento:
 
 - [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
 - [Scalabilità delle applicazioni di Service Fabric](service-fabric-concepts-scalability.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

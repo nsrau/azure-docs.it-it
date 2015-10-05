@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Creare una macchina virtuale che esegue Linux in Azure"
-	description="Informazioni su come creare una macchina virtuale di Azure che esegue Linux usando un'immagine da Azure."
+	pageTitle="Creare una macchina virtuale che esegue Linux | Microsoft Azure"
+	description="Informazioni su come creare una macchina virtuale di Azure che esegue Linux usando un'immagine da Azure e l’interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management" />
+	tags="azure-resource-manager" />
 
 <tags
 	ms.service="virtual-machines"
@@ -39,7 +39,7 @@ Il primo passaggio consiste nell’[installare l’interfaccia della riga di com
 
 Ottimo. Assicurarsi di essere in modalità di gestione risorse digitando `azure config mode arm`.
 
-Ancora meglio. Ora accedere con l'id di lavoro o scuola digitando `azure login` e seguendo le istruzioni.
+Ancora meglio. Ora [accedere con l'id di lavoro o scuola](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguendo le istruzioni.
 
 > [AZURE.NOTE]Se si riceve un errore di accesso, potrebbe essere necessario [creare un id di lavoro o scuola dall’account Microsoft personale](resource-group-create-work-id-from-personal.md).
 
@@ -305,4 +305,4 @@ Per altre informazioni su Linux in Azure, vedere:
 
 - [Estensione della macchina virtuale Docker per Linux in Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 | Identificatore limite | Limite | Commenti |
 |----------------- | ------|--------- |
@@ -21,6 +22,6 @@
 | Massima velocità effettiva in lettura/scrittura del client (quando servita dal livello HDD)* | 120/250 MB/s |
 | Massima velocità effettiva in lettura/scrittura del client (quando servita dal livello Cloud)* | 11/41 MB/s | La velocità effettiva di lettura dipende dai client che generano e gestiscono una profondità della coda I/O sufficiente. |
 
-&\#42; La velocità effettiva massima per ciascun tipo di I/O è stata misurata con scenari di scrittura al 100% e scenari di lettura al 100%. La velocità effettiva potrebbe essere inferiore a seconda delle condizioni della rete e della combinazione I/O.
+&#42; La velocità effettiva massima per ciascun tipo di I/O è stata misurata con scenari di scrittura al 100% e scenari di lettura al 100%. La velocità effettiva potrebbe essere inferiore a seconda delle condizioni della rete e della combinazione I/O.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Framework di criteri estendibile
@@ -71,7 +71,7 @@ Per abilitare l'iscrizione nell'applicazione, sarà necessario creare i criteri 
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di iscrizione usati dall'applicazione. Ad esempio, immettere "SiUp".
 5. Fare clic su **Provider di identità** e selezionare "Indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
-6. Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Ad esempio, selezionare "Città", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
+6. Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token al termine di una corretta esperienza di iscrizione. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale", "L'utente è nuovo" e l'"ID oggetto dell'utente".
 8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiUp**" (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di iscrizione**.
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiUp**".
@@ -104,7 +104,7 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di modifica del profilo usati dall'applicazione. Ad esempio, immettere "SiPe".
 5. Fare clic su **Provider di identità** e selezionare "Indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
-6. Fare clic su **Attributi profilo**. Qui è possibile scegliere gli attributi che l'utente potrà visualizzare e modificare. Ad esempio, selezionare "Città", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
+6. Fare clic su **Attributi profilo**. Qui è possibile scegliere gli attributi che l'utente potrà visualizzare e modificare. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token al termine di una corretta esperienza di modifica del profilo. Ad esempio, selezionare "Nome visualizzato" e "Codice postale".
 8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiPe**" (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di modifica del profilo**.
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiPe**".
@@ -112,4 +112,4 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 
     > [AZURE.NOTE]La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

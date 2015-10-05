@@ -1,0 +1,114 @@
+<properties 
+	pageTitle="Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio | Microsoft Azure" 
+	description="Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 con code e argomenti partizionati del bus di servizio." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="hillaryc" 
+	manager="hillaryc" 
+	editor="hillaryc"/>
+
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="07/21/2015" 
+	ms.author="hillaryc"/>
+
+
+
+# Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio 
+
+Il bus di servizio di Azure ora supporta il protocollo **AMQP** (Advanced Message Queuing Protocol) 1.0 per **code e argomenti partizionati**.
+
+**AMQP** è un protocollo di accodamento messaggi a standard aperto che consente di sviluppare applicazioni multipiattaforma usando diversi linguaggi di programmazione. Per altre informazioni sul supporto generale di AMQP offerto dal bus di servizio, vedere [Supporto per il protocollo AMQP 1.0 nel bus di servizio](service-bus-amqp-overview.md).
+
+Con **code e argomenti partizionati**, noti anche come entità partizionate, è possibile ottenere una disponibilità, un'affidabilità e una velocità effettiva superiori rispetto alle code e agli argomenti non partizionati convenzionali. Per altre informazioni sulle entità partizionate, vedere [Partizionamento delle entità di messaggistica](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+
+L'aggiunta di AMQP 1.0 come protocollo per la comunicazione con code e argomenti partizionati consente ai clienti di creare applicazioni interoperative in grado di sfruttare la maggiore disponibilità, affidabilità e velocità effettiva garantita dalle entità partizionate del bus di servizio.
+
+### Uso di AMQP con code partizionate
+
+Le code sono utili per gli scenari che richiedono il disaccoppiamento temporale, il livellamento del carico, il bilanciamento del carico e l'accoppiamento di tipo loose. In una coda i server di pubblicazione inviano messaggi alla coda e i consumer li ricevono dalla coda in cui un messaggio può essere ricevuto solo una volta. Un esempio tipico di questo comportamento è rappresentato da un sistema di magazzino in cui i terminali del punto vendita pubblicano i dati in una coda invece che direttamente nel sistema di gestione magazzino. Quest'ultimo usa quindi i dati in qualsiasi momento per gestire il rifornimento delle scorte. Tale soluzione presenta diversi vantaggi, tra cui il fatto che il sistema di gestione magazzino non debba essere sempre online. Per altre informazioni sulle code del bus di servizio, vedere [Creazione di applicazioni che usano code di Service Bus](https://msdn.microsoft.com/library/azure/hh689723.aspx).
+
+Le code partizionate aumentano ulteriormente la disponibilità, l'affidabilità e la velocità effettiva delle applicazioni perché vengono partizionate tra più broker dei messaggi e archivi di messaggistica diversi.
+
+#### Creazione di code partizionate
+
+È possibile creare una coda partizionata tramite il portale di Azure e Service Bus SDK. A tale scopo, la proprietà EnablePartitioning deve essere impostata su true nell'istanza di Queue.Description. Il frammento di codice seguente illustra come creare una coda di questo tipo usando Service Bus SDK.
+ 
+	// Create partitioned queue
+	var nm = NamespaceManager.CreateFromConnectionString(myConnectionString);
+	var queueDescription = new QueueDescription("myQueue");
+	queueDescription.EnablePartitioning = true;
+	nm.CreateQueue(queueDescription);
+
+#### Invio e ricezione di messaggi con AMQP
+
+L'invio di messaggi a una coda partizionata e la ricezione di messaggi da una coda di questo tipo con il protocollo AMQP vengono eseguiti impostando TransportType su TransportType.Amqp come mostrato nel frammento di codice seguente.
+
+	// Sending and receiving messages to and from a Queue
+	var myConnectionStringBuilder = new ServiceBusConnectionStringBuilder(myConnectionString);
+	myConnectionStringBuilder.TransportType = TransportType.Amqp;
+	string amqpConnectionString = myConnectionStringBuilder.ToString();
+	var queueClient = QueueClient.CreateFromConnectionString(amqpConnectionString, "myQueue");
+
+	BrokeredMessage message = new BrokeredMessage("Hello AMQP");
+	Console.WriteLine("Sending message {0}...", message.MessageId);
+	queueClient.Send(message);
+
+	var receivedMessage = queueClient.Receive();
+	Console.WriteLine("Received message: {0}", receivedMessage.GetBody<string>());
+	receivedMessage.Complete();
+
+
+### Uso di AMQP con argomenti partizionati
+
+In modo analogo alle code, gli argomenti sono utili per gli scenari che richiedono il disaccoppiamento temporale, il livellamento del carico, il bilanciamento del carico e l'accoppiamento di tipo loose. A differenza delle code, gli argomenti possono però instradare una copia dello stesso messaggio a più sottoscrittori. I server di pubblicazione pertanto inviano i messaggi all'argomento e i consumer li ricevono dalle sottoscrizioni. Nel caso di un sistema di magazzino, i terminali del punto vendita pubblicano i dati nell'argomento. Il sistema di gestione magazzino riceve quindi i messaggi da una sottoscrizione. Un sistema di monitoraggio inoltre può ricevere lo stesso messaggio da un'altra sottoscrizione. Per altre informazioni sugli argomenti del bus di servizio, vedere [Creazione di applicazioni che usano argomenti e sottoscrizioni di Service Bus](https://msdn.microsoft.com/library/azure/hh699844.aspx).
+
+Gli argomenti partizionati aumentano ulteriormente la disponibilità, l'affidabilità e la velocità effettiva delle applicazioni perché vengono partizionati con le relative sottoscrizioni tra più broker dei messaggi e archivi di messaggistica diversi.
+
+#### Creazione di argomenti partizionati
+
+È possibile creare un argomento partizionato tramite il portale di Azure e Service Bus SDK. A tale scopo, la proprietà EnablePartitioning deve essere impostata su true nell'istanza di TopicDescription. Il frammento di codice seguente illustra come creare una coda di questo tipo usando Service Bus SDK.
+	
+	// Create partitioned topic
+	var nm = NamespaceManager.CreateFromConnectionString(myConnectionString);
+	var topicDescription = new TopicDescription("myTopic");
+	topicDescription.EnablePartitioning = true;
+	nm.CreateTopic(topicDescription);
+
+	var subscriptionDescription = new SubscriptionDescription("myTopic", "mySubscription");
+	nm.CreateSubscription(subscriptionDescription);
+
+#### Invio e ricezione di messaggi con AMQP
+
+L'invio di messaggi a un argomento partizionato e la ricezione di messaggi dalla sottoscrizione di un argomento di questo tipo con il protocollo AMQP vengono eseguiti impostando TransportType su TransportType.Amqp come mostrato nel frammento di codice seguente.
+
+	// Sending and receiving messages to a topic and from a subscription
+	var myConnectionStringBuilder = new ServiceBusConnectionStringBuilder(myConnectionString);
+	myConnectionStringBuilder.TransportType = TransportType.Amqp;
+	string amqpConnectionString = myConnectionStringBuilder.ToString();
+	
+	var topicClient = TopicClient.CreateFromConnectionString(amqpConnectionString, "myTopic");
+	BrokeredMessage message = new BrokeredMessage("Hello AMQP");
+	Console.WriteLine("Sending message {0}...", message.MessageId);
+	topicClient.Send(message);
+	
+	var subcriptionClient = SubscriptionClient.CreateFromConnectionString(amqpConnectionString, "myTopic", "mySubscription");
+	var receivedMessage = subcriptionClient.Receive();
+	Console.WriteLine("Received message: {0}", receivedMessage.GetBody<string>());
+	receivedMessage.Complete();
+
+
+## Riferimenti
+
+*    [Partizionamento delle entità di messaggistica](https://msdn.microsoft.com/library/azure/dn520246.aspx)
+*    [OASIS Advanced Message Queuing Protocol (AMQP) versione 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+*    [Supporto per il protocollo AMQP 1.0 nel bus di servizio](service-bus-amqp-overview.md)
+*    [Guida per sviluppatori di AMQP per il bus di servizio]("https://msdn.microsoft.com/library/azure/jj841071.aspx")
+*    [Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
+*    [Come usare AMQP 1.0 con l'API .NET del bus di servizio](service-bus-dotnet-advanced-message-queuing.md)
+
+<!---HONumber=Sept15_HO4-->

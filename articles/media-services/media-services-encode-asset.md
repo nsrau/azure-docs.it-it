@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/23/2015"  
 	ms.author="juliako"/>
 
 #Panoramica e confronto dei codificatori multimediali su richiesta di Azure
@@ -70,13 +70,13 @@ Media Encoder Standard viene configurato mediante un set di impostazioni descrit
 
 ###Metadati di input e output
 
-I metadati di input dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx) (come per Azure Media Encoder).
+I metadati di input dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx) (come per Azure Media Encoder).
+I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 ###Immagine di anteprima
 
-Attualmente non supportata.
+Per informazioni su come generare anteprime, vedere [Come generare anteprime utilizzando Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Sovrapposizioni audio e video
 
@@ -112,11 +112,11 @@ I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft
 
 ###Immagine di anteprima
 
-[Creazione di un'immagine di anteprima](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[Creazione di un'immagine di anteprima](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###Sovrapposizioni audio e video
 
-[Creazione di sovrapposizioni](media-services-azure-media-customize-ame-presets.md#creating-overlays).
+[Creazione di sovrimpressioni](media-services-azure-media-customize-ame-presets.md#creating-overlays).
 
 ###Convenzione di denominazione
 
@@ -127,14 +127,16 @@ I metadati di output dei codificatori sono descritti [qui](http://msdn.microsoft
 [Codifica di file multimediali con Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
 
 ##Flusso di lavoro Premium del codificatore multimediale
-	
+
+###Panoramica
+
+[Introduzione alla codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###Utilizzo
+
 Il flusso di lavoro Premium del codificatore multimediale viene configurato usando flussi di lavoro complessi. Per creare e aggiornare i file di un flusso di lavoro, è possibile usare lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
 
-Per altre informazioni, vedere:
-
-- [Introduzione alla codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [Come usare la codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[Come usare la codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>Confronto tra i codificatori
 
@@ -254,4 +256,4 @@ Windows Media Audio|No|Sì|Sì
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

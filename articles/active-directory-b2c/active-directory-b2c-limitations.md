@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Limitazioni e restrizioni
@@ -26,13 +26,9 @@ Nel periodo di anteprima di Azure Active Directory (AD) B2C molte funzionalità 
 
 Sono stati rilevati alcuni problemi che possono verificarsi durante la [creazione di una directory di Azure AD B2C](active-directory-b2c-get-started). Per istruzioni, consultare questo [articolo](active-directory-b2c-support-create-directory.md).
 
-## Problema di personalizzazione della pagina di accesso dell'account locale
+## Problemi di personalizzazione nei messaggi di posta elettronica e nelle pagine di reimpostazione della password self-service
 
-Il modello predefinito nella pagina di accesso dell'account locale contiene elementi di personalizzazione di "Microsoft Azure". Microsoft sta lavorando attivamente per risolvere il problema. È possibile modificare gli elementi di personalizzazione in questa pagina usando la [funzionalità per l'aggiunta di informazioni distintive dell'azienda](./active-directory/active-directory-add-company-branding.md).
-
-## Problemi di disconnessione dell'account locale
-
-Attualmente la funzionalità di disconnessione dell'account locale non è operativa. Microsoft sta lavorando attivamente per risolvere il problema. Per ovviare al problema, chiudere il browser o cancellare i cookie.
+I messaggi di posta elettronica di verifica e le pagine di reimpostazione della password self-service predefiniti contengono elementi di personalizzazione "Microsoft" e "Azure". Questi in futuro verranno rimossi. È possibile modificare la personalizzazione in queste pagine utilizzando la [funzionalità di personalizzazione della società](./active-directory/active-directory-add-company-branding.md), su cui tali elementi di personalizzazione non verranno visualizzati.
 
 ## Supporto per le applicazioni di produzione
 
@@ -56,7 +52,7 @@ Nell'anteprima di Azure AD B2C è possibile [creare un'API Web protetta mediante
 
 ## Restrizioni relative alle librerie e agli SDK
 
-Non tutti i linguaggi e le piattaforme dispongono di librerie che supportano l'anteprima di Azure AD B2C. Il set di librerie di autenticazione è attualmente limitato a .NET, iOS, Android e NodeJS. Esercitazioni rapide per ogni libreria sono disponibili nella sezione [introduttiva](active-directory-b2c-overview.md#getting-started).
+Non tutti i linguaggi e le piattaforme dispongono di librerie che supportano l'anteprima di Azure AD B2C. Il set di librerie di autenticazione è attualmente limitato a .NET, iOS, Android e NodeJS. Esercitazioni rapide per ogni libreria sono disponibili nella sezione [Introduzione](active-directory-b2c-overview.md#getting-started).
 
 Se si desidera integrare un'applicazione con l'anteprima di Azure AD B2C usando un linguaggio o una piattaforma differente, vedere il [riferimento ai protocolli OAuth 2.0 e OpenID Connect](active-directory-b2c-protocols.md) che contiene informazioni sulla creazione dei messaggi HTTP necessari per comunicare con il servizio Azure AD B2C.
 
@@ -72,7 +68,7 @@ Molti dei token generati dall'anteprima di Azure AD B2C vengono implementati com
 
 Le funzionalità B2C sono accessibili nel portale di anteprima di Azure, ma è possibile usare il portale di Azure per accedere ad altre funzionalità di directory, compresa la gestione degli utenti. Attualmente sono stati rilevati due problemi relativi alla gestione degli utenti (scheda **Utenti**) nel portale di anteprima di Azure.
 
-- Per un utente di account locale (ad esempio, un utente iscritto con indirizzo di posta elettronica e password o con nome utente e password), il campo **Nome utente** non corrisponde all'identificatore di accesso (indirizzo di posta elettronica o nome utente) usato durante l'iscrizione. Questo avviene perché il campo visualizzato nel portale di Azure è il nome dell'entità utente (UPN), che non viene usato in scenari B2C. Per visualizzare l'identificatore di accesso dell'account locale, individuare l'oggetto utente in [Esplora grafico](https://graphexplorer.cloudapp.net/). Si noterà lo stesso problema con un account utente di social networking (ad esempio, un utente iscritto con Facebook, Google+ e così via), ma in tal caso non esiste un effettivo identificatore di accesso.
+- Per un utente di account locale (ad esempio, un utente iscritto con indirizzo di posta elettronica e password o con nome utente e password), il campo **Nome utente** non corrisponde all'identificatore di accesso (indirizzo di posta elettronica o nome utente) usato durante l'iscrizione. Questo avviene perché il campo visualizzato nel portale di Azure è il nome dell'entità utente (UPN), che non viene usato in scenari B2C. Per visualizzare l'identificatore di accesso dell'account locale, individuare l'oggetto utente in [Esplora Graph](https://graphexplorer.cloudapp.net/). Si noterà lo stesso problema con un account utente di social networking (ad esempio, un utente iscritto con Facebook, Google+ e così via), ma in tal caso non esiste un effettivo identificatore di accesso.
 
     ![Account locale - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
@@ -82,4 +78,4 @@ Le funzionalità B2C sono accessibili nel portale di anteprima di Azure, ma è p
 
 Non è possibile eliminare una directory di Azure AD B2C nel portale di Azure.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

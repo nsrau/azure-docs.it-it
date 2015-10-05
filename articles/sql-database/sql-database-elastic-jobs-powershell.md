@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Panoramica dei processi di database elastici" 
-	description="Viene illustrato il servizio processo di database elastico" 
-	services="sql-database" 
-	documentationCenter=""  
+	pageTitle="Creare e gestire processi di database elastici tramite PowerShell " 
+	description="PowerShell viene utilizzato per gestire i pool del database SQL di Azure" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="ddove"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/17/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Creare e gestire processi di database elastici del database SQL tramite PowerShell (anteprima)
@@ -674,4 +673,4 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

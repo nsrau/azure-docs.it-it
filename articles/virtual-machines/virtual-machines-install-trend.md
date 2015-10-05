@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Azure | Microsoft Azure"
-	description="In questo articolo viene descritto come installare e configurare la sicurezza Trend Micro su una macchina virtuale in Azure."
+	pageTitle="Installare Trend Micro Deep Security in una macchina virtuale | Microsoft Azure"
+	description="In questo articolo viene descritto come installare e configurare la sicurezza Trend Micro su una macchina virtuale creata con il modello di distribuzione classica in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -20,7 +20,9 @@
 
 # Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Azure
 
-Questo articolo illustra come installare e configurare Trend Micro Deep Security as a Service in una macchina virtuale (VM) nuova o esistente che esegue Windows Server. Deep Security as a Service offre protezione antimalware, un firewall, un sistema di prevenzione delle intrusioni e il monitoraggio dell'integrità. Tenere presente che questo articolo fa riferimento alle macchine virtuali create tramite il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata l'installazione di applicazioni in una macchina virtuale creata con il modello di distribuzione classica.
+
+Questo articolo illustra come installare e configurare Trend Micro Deep Security as a Service in una macchina virtuale (VM) nuova o esistente che esegue Windows Server. Deep Security as a Service offre protezione antimalware, un firewall, un sistema di prevenzione delle intrusioni e il monitoraggio dell'integrità.
 
 Il client viene installato come estensione di sicurezza usando l'agente di macchine virtuali. In una nuova macchina virtuale l'agente di macchine virtuali viene installato insieme a Deep Security Agent. In una macchina virtuale esistente in cui non è presente l'agente di macchine virtuali, sarà necessario prima scaricarlo e installarlo. In questo articolo vengono descritte entrambe le situazioni.
 
@@ -84,4 +86,4 @@ Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In se
 [Come accedere a una macchina virtuale che esegue Windows Server]: virtual-machines-log-on-windows-server.md
 [Estensioni VM e funzionalità di Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

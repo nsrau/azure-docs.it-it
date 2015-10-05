@@ -1,25 +1,28 @@
 <properties
-   pageTitle="Provider di calcolo,rete e archiviazione in Gestione risorse di Microsoft Azure"
-   description="Panoramica concettuale sui provider di calcolo, rete e risorse di archiviazione (CRP NRP e SRP)"
+   pageTitle="Provider di calcolo, rete e archiviazione | Microsoft Azure"
+   description="Panoramica concettuale sui provider di calcolo, rete e risorse di archiviazione (CRP NRP e SRP) in gestione risorse di Azure"
    services="virtual-machines"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="mahthi"
    manager="timlt"
    editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure
+# Provider di calcolo, rete e archiviazione nella Gestione risorse di Azure
 
 L'inclusione delle funzionalità di calcolo, rete e archiviazione con Gestione risorse di Microsoft Azure sostanzialmente consentirà di semplificare la distribuzione e la gestione di complesse applicazioni in esecuzione in IaaS. Molte applicazioni richiedono una combinazione di risorse, tra cui una rete virtuale, un account di archiviazione, una macchina virtuale e un'interfaccia di rete. Gestione risorse di Microsoft Azure offre la possibilità di creare un modello JSON per distribuire e gestire tutte queste risorse insieme come una singola applicazione.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
+
 
 ## Vantaggi dell’integrazione del calcolo, della rete e delle risorse di archiviazione in Gestione risorse di Microsoft Azure
 
@@ -113,4 +116,4 @@ La funzionalità non è supportata al momento. Non è possibile connettere le re
 
 E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

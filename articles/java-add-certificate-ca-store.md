@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aggiungere un certificato all'archivio CA Java | Microsoft Azure"
-	description="Informazioni su come aggiungere un certificato dell'autorità di certificazione (CA) all'archivio certificati CA Java (cacerts) per il servizio Twilio o Bus di servizio di Azure."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Aggiungere un certificato all'archivio CA Java | Microsoft Azure" 
+	description="Informazioni su come aggiungere un certificato dell'autorità di certificazione (CA) all'archivio certificati CA Java (cacerts) per il servizio Twilio o Bus di servizio di Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Aggiunta di un certificato all'archivio certificati CA Java
@@ -50,6 +50,10 @@ Le applicazioni che utilizzano i servizi di Azure, ad esempio il bus di servizio
 
 Se è necessario aggiungere Baltimore CyberTrust Root, in numero di serie è 02:00:00:b9 e l'impronta digitale SHA1 è d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Può essere scaricato da <https://cacert.omniroot.com/bc2025.crt>, salvato in un file locale con estensione **cer** e quindi importato con **keytool** come illustrato in precedenza.
 
+## Passaggi successivi
+
 Per altre informazioni sui certificati radice usati da Azure, vedere l'articolo relativo alla [migrazione dei certificati radice di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=September15_HO1-->
+Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](/develop/java/).
+
+<!---HONumber=Sept15_HO4-->

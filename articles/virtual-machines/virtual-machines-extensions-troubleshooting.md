@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Risoluzione degli errori delle estensioni della macchina virtuale di Azure"
+   pageTitle="Risoluzione degli errori delle estensioni della macchina virtuale di Azure | Microsoft Azure"
    description="Informazioni sulla risoluzione degli errori delle estensioni della macchina virtuale di Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,9 +19,12 @@
 
 # Risoluzione degli errori delle estensioni della macchina virtuale di Azure.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
+
 ## Panoramica dei modelli di Gestione risorse di Azure
 
 I modelli di Gestione risorse di Azure consentono di specificare in modo dichiarativo l'infrastruttura IaaS di Azure in linguaggio JSON definendo le dipendenze tra risorse.
+
 
 Fare clic sull'articolo [Creazione di modelli di estensione](virtual-machines-extensions-authoring-templates.md) per ulteriori informazioni sulla creazione di modelli per l'utilizzo delle estensioni.
 
@@ -80,4 +84,4 @@ Dove "publsher-name" corrisponde al tipo di estensione dall'output di "azure vm 
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

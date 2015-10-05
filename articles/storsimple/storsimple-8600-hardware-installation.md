@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
@@ -204,7 +204,7 @@ Il dispositivo è costituito da un'enclosure principale e un'enclosure EBOD. Que
 
 Quando si configura il dispositivo per la prima volta, eseguire prima i passaggi per il cablaggio SAS e poi completare i passaggi per il cablaggio di alimentazione.
 
-[AZURE.INCLUDE [storsimple cavo-8600-per-alimentazione](../../includes/storsimple-sas-cable-8600.md)]
+[AZURE.INCLUDE [storsimple cavo-8600-per-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [AZURE.INCLUDE [storsimple cavo-8600-per-alimentazione](../../includes/storsimple-cable-8600-for-power.md)]
 
@@ -289,4 +289,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

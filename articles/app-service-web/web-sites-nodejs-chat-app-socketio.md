@@ -33,7 +33,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 1.  Scaricare una [versione archiviata ZIP o GZ][release] del progetto Socket.IO (per questo documento è stata usata la versione 1.3.5)
 
 
-3.  Estrarre l'archivio e copiare la directory **examples\\\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
+3.  Estrarre l'archivio e copiare la directory **examples\\\chat** in una nuova posizione. Ad esempio, **\\node\\chat**.
 
 ## Modificare app.js e installare i moduli
 
@@ -57,7 +57,7 @@ Per questo progetto, verrà utilizzato l'esempio di chat dell'[archivio GitHub S
 		  "socket.io": "1.3.5"
 		}
 
-4. Dalla riga di comando passare alla directory **\\\\node\\\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
+4. Dalla riga di comando passare alla directory **\\\node\\\chat** e utilizzare npm per installare i moduli necessari per questa applicazione:
 
         npm install
 
@@ -268,6 +268,8 @@ Se i browser client continuano a eseguire il fallback al polling prolungato inve
 
 In questa esercitazione è stato illustrato come creare un'applicazione di chat ospitata in un'app Web di Azure. È inoltre possibile ospitare l'applicazione come un servizio cloud di Azure. Per le procedure che illustrano come eseguire questa operazione, vedere [Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure][cloudservice].
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js](/develop/nodejs/).
+
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -283,4 +285,4 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

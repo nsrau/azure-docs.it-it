@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure"
-	description="In questa esercitazione viene illustrato come aggiungere una pagina o applicazione per l'istanza di Azure applicazione servizio Web App è già configurato per l'utilizzo di Java."
-	services="app-service\web"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure" 
+	description="In questa esercitazione viene illustrato come aggiungere una pagina o applicazione per l'istanza di Azure applicazione servizio Web App è già configurato per l'utilizzo di Java." 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure
@@ -29,6 +29,10 @@ Si noti che è possibile usare il controllo del codice sorgente per caricare l'a
 
 Dopo avere caricato il file WAR nella cartella **webapps**, il server applicazioni Tomcat ne rileverà l'aggiunta e lo caricherà automaticamente. Si noti che se vengono copiati file (eccetto i file WAR) nella directory ROOT, è necessario riavviare il server applicazioni per usarli. La funzionalità di caricamento automatico per i siti Web Java Tomcat in esecuzione in Azure si basa su un nuovo file WAR aggiunto o su nuovi file o nuove directory create nella cartella **webapps**.
 
+## Passaggi successivi
+
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
+
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
@@ -36,4 +40,4 @@ Dopo avere caricato il file WAR nella cartella **webapps**, il server applicazio
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

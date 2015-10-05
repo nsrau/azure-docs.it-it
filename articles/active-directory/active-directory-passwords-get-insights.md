@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come ottenere informazioni dettagliate con i report di gestione delle password di Azure AD | Microsoft Azure" 
-	description="Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell'organizzazione." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Come ottenere informazioni dettagliate con i report di gestione delle password di Azure AD | Microsoft Azure"
+	description="Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell'organizzazione."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Come ottenere informazioni dettagliate con i report di gestione delle password
@@ -106,14 +106,14 @@ Dettagli|Vedere la tabella seguente
 ### Valori consentiti per la colonna dettagli
 Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il report relativo alle attività per la reimpostazione delle password:
 
-Dettagli | Tipo di risultato 
+Dettagli | Tipo di risultato
 ----|----
 L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite posta elettronica. | Operazione abbandonata
-L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite SMS al numero di cellulare.|Operazione abbandonata 
-L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero di cellulare. | Operazione abbandonata 
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite SMS al numero di cellulare.|Operazione abbandonata
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero di cellulare. | Operazione abbandonata
 L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite chiamata vocale al numero dell'ufficio. | Operazione abbandonata
-L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite risposta alle domande di sicurezza.|Operazione abbandonata 
-L'utente ha abbandonato dopo avere immesso il proprio ID utente.| Operazione abbandonata 
+L'utente ha abbandonato dopo avere completato l'opzione di verifica tramite risposta alle domande di sicurezza.|Operazione abbandonata
+L'utente ha abbandonato dopo avere immesso il proprio ID utente.| Operazione abbandonata
 L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite posta elettronica.|Operazione abbandonata
 L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite SMS al numero di cellulare.|Operazione abbandonata
 L'utente ha abbandonato dopo avere avviato l'opzione di verifica tramite chiamata vocale al numero di cellulare.|Operazione abbandonata
@@ -141,7 +141,7 @@ La password dell'utente è gestita in locale. Per risolvere il problema, è poss
 Non è stato possibile raggiungere il servizio di reimpostazione della password locale. Verificare il log eventi del computer di sincronizzazione.|Operazione non riuscita
 Si è verificato un problema durante la reimpostazione della password locale dell'utente. Verificare il log eventi del computer di sincronizzazione. | Operazione non riuscita
 Questo utente non è un membro del gruppo di utenti autorizzati alla reimpostazione della password. Per risolvere il problema, aggiungere l'utente al gruppo.|Operazione non riuscita
-La reimpostazione della password è stata completamente disabilitata per questo tenant. Vedere[qui](http://aka.ms/ssprtroubleshoot)per risolvere il problema. | Failed 
+La reimpostazione della password è stata completamente disabilitata per questo tenant. Vedere[qui](http://aka.ms/ssprtroubleshoot)per risolvere il problema. | Failed
 La reimpostazione della password dell'utente è riuscita.|Succeeded
 
 **Risorse aggiuntive**
@@ -162,6 +162,5 @@ La reimpostazione della password dell'utente è riuscita.|Succeeded
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

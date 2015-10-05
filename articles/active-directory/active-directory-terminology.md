@@ -4,16 +4,16 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Terminologia di Azure AD
@@ -43,4 +43,4 @@ Account aziendale o dell'istituto di istruzione | Un account utente assegnato da
 - [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restrizioni e limiti del servizio Azure AD](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

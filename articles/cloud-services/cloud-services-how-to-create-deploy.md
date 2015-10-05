@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -146,5 +146,11 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## Passaggi successivi
 
-<!---HONumber=August15_HO7-->
+* [Configurazione generale del servizio cloud](cloud-services-how-to-configure.md).
+* Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name.md).
+* [Gestire il servizio cloud](cloud-services-how-to-manage.md).
+* Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

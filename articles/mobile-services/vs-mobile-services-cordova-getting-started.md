@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="" 
-	description="Vengono descritti i passaggi i primi passaggi che consentono di iniziare a utilizzare i Servizi mobili di Azure in un progetto Cordova" 
+	pageTitle="Introduzione al progetto dei servizi di Cordova (Servizi relativi a Visual Studio)" 
+	description="Descrive i primi passaggi da eseguire dopo la connessione del progetto Cordova ai servizi mobili di Azure utilizzando i servizi relativi a Visual Studio." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
 # Introduzione a Servizi mobili (progetti Cordova)
@@ -94,4 +94,4 @@ Eliminare una riga da una tabella dati usando il metodo **del**. Chiamare il met
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

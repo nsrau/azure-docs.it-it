@@ -26,7 +26,7 @@ Il servizio Site Recovery fornisce un'efficace soluzione di ripristino di emerge
 - **Metadati**: i dati delle applicazioni non vengono inviati ad Azure. Site Recovery richiede solo metadati, ad esempio nomi di macchina virtuale e VMM, per orchestrare replica e failover. 
 - **Connessione ad Azure**: i server di gestione comunicano con Azure in base allo scenario di distribuzione. Ad esempio, se si esegue la replica delle macchine virtuali ubicate in un cloud VMM locale, il server VMM comunica con Site Recovery tramite una connessione HTTPS in uscita crittografata. Non è necessaria alcuna connessione dalle macchine virtuali o dagli host Hyper-V.
 - **Replica Hyper-V**: Azure Site Recovery utilizza Replica Hyper-V per il processo di replica e può inoltre utilizzare la replica SAN se si esegue la replica tra due siti VMM locali. Site Recovery esegue una replica iniziale intelligente utilizzando solo i blocchi di dati, non l’intero disco rigido virtuale. Per la replica continua, vengono replicate solo le modifiche differenziali. Site Recovery supporta il trasferimento di dati offline e funziona con utilità di ottimizzazione WAN.
-- **Prezzi**: è possibile ottenere [maggiori informazioni](pricing/details/site-recovery) sui prezzi di Site Recovery.
+- **Prezzi**: è possibile ottenere [maggiori informazioni](http://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery.
 
 
 ## Scenari di distribuzione
@@ -46,23 +46,7 @@ Centro dati secondario | Singolo server VMM | Replicare le macchine virtuali nei
 
 ## Indicazioni relative al carico di lavoro
 
-Le tecnologie di replica ASR sono compatibili con qualsiasi applicazione in esecuzione in una macchina virtuale. Sono stati eseguiti ulteriori test in collaborazione con i team di prodotto dell’applicazione per ulteriore supporto per ogni applicazione.
-
-**Carico di lavoro** | <p>**Replicare macchine virtuali Hyper-V**</p> <p>**(al sito secondario)**</p>|<p>**Replicare macchine virtuali Hyper-V**</p><p>**(ad Azure)**</p> | <p>**Replicare macchine virtuali VMware**</p><p>**(al sito secondario)**</p>|<p>**Replicare macchine virtuali VMware**</p><p>**(ad Azure)**</p>
----|---|---|---|---
-Active Directory, DNS | Y | Y | Y | Y
-app Web (IIS, SQL) | Y | Y | Y | Y 
-SCOM | Y | Y | Y | Y 
-Sharepoint | Y | Y | Y | Y 
-<p>SAP </p><p>Replicare sito SAP in Azure per il cluster non</p>| Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | (testato da Microsoft) 
-Exchange (non DAG) | Y | Presto in arrivo | Y | Y 
-Desktop remoto un'infrastruttura VDI | Y | Y | Y | N/A 
-<p>Linux</p><p>(sistema operativo e applicazioni) </p>| Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) 
-Dynamics AX | Y | Y | Y | Y  
-Dynamics CRM | Y | presto in arrivo | Y | presto in arrivo  
-Oracle presto in arrivo | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | Y (testato da Microsoft) | 
-File server di Windows | Y | Y | Y | Y
-
+Fare riferimento a [questo documento](site-recovery-workload.md) per istruzioni sull'utilizzo di Azure Site Recovery per diversi carichi di lavoro.
 
 ## Funzionalità e requisiti 
 
@@ -90,4 +74,4 @@ Mapping dell'archiviazione|Non applicabile|Esegue il mapping delle classificazio
 Una volta completata questa panoramica [leggere le procedure consigliate](site-recovery-best-practices.md) che consentono di iniziare la pianificazione della distribuzione.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

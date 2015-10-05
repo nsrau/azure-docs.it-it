@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Distribuzione di un cluster Deis a 3 nodi su Azure"
+   pageTitle="Distribuzione di un cluster Deis a 3 nodi | Microsoft Azure"
    description="In questo articolo viene descritto come creare un cluster Deis a 3 nodi utilizzando un modello di Gestione risorse di Azure."
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
-
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,10 +17,11 @@
    ms.date="06/24/2015"
    ms.author="hbai"/>
 
-
 # Distribuzione di un cluster Deis a 3 nodi
 
 In questo articolo viene illustrato il provisioning di un cluster [Deis](http://deis.io/) su Azure. Vengono descritti tutti i passaggi dalla creazione dei certificati necessari per la distribuzione e la scalabilità di un’applicazione **Go** di esempio sul cluster di cui è stato appena eseguito il provisioning.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse.
 
 Nel diagramma seguente viene mostrata l'architettura del sistema distribuito. Un amministratore di sistema gestisce il cluster utilizzando strumenti Deis come **deis** e **deisctl**. Le connessioni vengono stabilite tramite un servizio di bilanciamento del carico di Azure, che inoltra le connessioni a uno dei nodi membri sul cluster. Anche i client effettuano l’accesso alle applicazioni distribuite tramite il servizio di bilanciamento del carico. In questo caso, il servizio di bilanciamento del carico inoltra il traffico a un router mesh Deis, che indirizza ulteriormente il traffico ai contenitori Docker corrispondenti ospitati sul cluster.
 
@@ -59,8 +60,7 @@ In questa sezione, verrà utilizzato un modello [Gestione risorse di Azure](../r
 5. Andare a [https://discovery.etcd.io/new](https://discovery.etcd.io/new) per generare un nuovo token del cluster, simile a:
 
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-<br />
- Ciascun cluster CoreOS deve disporre di un token univoco da questo servizio gratuito. Vedere [Documentazione CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) per ulteriori dettagli.
+<br /> Ciascun cluster CoreOS deve disporre di un token univoco da questo servizio gratuito. Vedere [Documentazione CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) per ulteriori dettagli.
 
 6. Modificare il file **cloud-config.yaml** per sostituire il token **discovery** esistente con il nuovo token:
 
@@ -171,7 +171,6 @@ Nei passaggi seguenti viene illustrato come distribuire un’applicazione Go "He
 
     ![Record A GoDaddy](media/virtual-machines-deis-cluster/go-daddy.png)
 <p />
-
 2. Per installare deis:
 
         mkdir deis
@@ -186,17 +185,14 @@ Nei passaggi seguenti viene illustrato come distribuire un’applicazione Go "He
 
 4. Aggiungere id\_rsa.pub o la chiave pubblica di propria scelta su GitHub. È possibile eseguire questa operazione utilizzando il pulsante Aggiungi chiave SSH nella schermata di configurazione delle chiavi SSH:
 
-  ![Chiave GitHub](media/virtual-machines-deis-cluster/github-key.png) <p />
- 5. Per registrare un nuovo utente:
+  ![Chiave GitHub](media/virtual-machines-deis-cluster/github-key.png) <p /> 5. Per registrare un nuovo utente:
 
         deis register http://deis.[your domain]
 <p />
-
 6. Per aggiungere la chiave SSH:
 
         deis keys:add [path to your SSH public key]
   <p />
-
 7. Creare un'applicazione.
 
         git clone https://github.com/deis/helloworld.git
@@ -204,7 +200,6 @@ Nei passaggi seguenti viene illustrato come distribuire un’applicazione Go "He
         deis create
         git push deis master
 <p />
-
 8. Il git push attiverà le immagini Docker per essere compilato e distribuito, operazione che potrebbe richiedere alcuni minuti. In base alla mia esperienza, in alcuni casi l’esecuzione del passaggio 10 (push dell’immagine sul repository privato) potrebbe bloccarsi. Se ciò accade, è possibile interrompere il processo, rimuovere l'applicazione utilizzando `deis apps:destroy –a <application name>` e riprovare. È possibile utilizzare `deis apps:list` per individuare il nome dell'applicazione. Se tutto funziona, si otterrà un risultato simile al seguente alla fine dell'output del comando:
 
         -----> Launching...
@@ -214,7 +209,6 @@ Nei passaggi seguenti viene illustrato come distribuire un’applicazione Go "He
         To ssh://git@deis.artitrack.com:2222/lambda-underdog.git
          * [new branch]      master -> master
 <p />
-
 9. Verificare se l'applicazione funziona:
 
         curl -S http://[your application name].[your domain]
@@ -224,12 +218,10 @@ Nei passaggi seguenti viene illustrato come distribuire un’applicazione Go "He
         See the documentation at http://docs.deis.io/ for more information.
         (you can use geis apps:list to get the name of your application).
 <p />
-
 10. Scalabilità dell'applicazione a 3 istanze:
 
         deis scale cmd=3
 <p />
-
 11. Facoltativamente, è possibile utilizzare deis info per esaminare i dettagli dell'applicazione. Gli output seguenti provengono dalla distribuzione della mia applicazione:
 
         deis info
@@ -265,4 +257,4 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

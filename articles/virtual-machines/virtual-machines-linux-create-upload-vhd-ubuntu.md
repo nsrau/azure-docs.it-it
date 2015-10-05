@@ -1,23 +1,25 @@
-<properties 
-	pageTitle="Creazione e caricamento di un VHD Ubuntu Linux in Azure" 
-	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Ubuntu Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Creazione e caricamento di un VHD Ubuntu Linux in Azure"
+	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Ubuntu Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
-
 # Preparare una macchina virtuale Ubuntu per Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ##Prerequisiti##
 
@@ -80,7 +82,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 		(recommended) sudo apt-get dist-upgrade
 
 		# sudo reboot
-	
+
 	Ubuntu 14.04+:
 
 		# sudo apt-get update
@@ -122,7 +124,4 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 11. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

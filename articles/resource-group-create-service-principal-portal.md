@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Creare una nuova entità servizio di Azure usando il portale di Azure
@@ -34,58 +34,58 @@ Questo argomento mostra come creare una nuova entità servizio usando il portale
 
 2. Selezionare **Active Directory** dal riquadro di sinistra.
 
-   ![selezionare Active Directory][1]
+     ![selezionare Active Directory][1]
 
 3. Selezionare la directory da usare per la creazione della nuova applicazione.
 
-   ![scegliere la directory][2]
+     ![scegliere la directory][2]
 
 3. Per visualizzare le applicazioni nella directory, fare clic su **Applicazioni**.
 
-   ![visualizzare le applicazioni][11]
+     ![visualizzare le applicazioni][11]
 
 4. Se non è stata creata un'applicazione in questa directory, dovrebbe essere visualizzata un'immagine simile a questa riportata di seguito. Fare clic su **AGGIUNGI APPLICAZIONE**
 
-   ![aggiungere un'applicazione][6]
+     ![aggiungere un'applicazione][6]
 
-   In alternativa, fare clic su **Aggiungi** nel riquadro inferiore.
+     In alternativa, fare clic su **Aggiungi** nel riquadro inferiore.
 
-   ![aggiungere][12]
+     ![aggiungere][12]
 
 5. Selezionare il tipo di applicazione da creare. Per questa esercitazione non verrà usata un'applicazione della raccolta.
 
-   ![nuova applicazione][10]
+     ![nuova applicazione][10]
 
 6. Immettere il nome dell'applicazione e selezionare il tipo di applicazione da usare. Poiché si intende usare l'entità servizio dell'applicazione per l'autenticazione con Gestione risorse di Azure, creare un'**APPLICAZIONE WEB E/O API WEB** e fare clic sul pulsante Avanti.
 
-   ![assegnare un nome all'applicazione][9]
+     ![assegnare un nome all'applicazione][9]
 
 7. Compilare le proprietà per l'app. Per **URL ACCESSO** specificare l'URI a un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione. L'univocità o l'esistenza dell'endpoint non viene convalidata. Fare clic su **Completa** per creare l'applicazione AAD.
 
-   ![proprietà dell'applicazione][4]
+     ![proprietà dell'applicazione][4]
 
 ## Creare la password dell'entità servizio
 A questo punto, nel portale dovrebbe essere selezionata l'applicazione specificata.
 
 1. Fare clic sulla scheda **Configura** per configurare la password dell'applicazione.
 
-   ![configura applicazione][3]
+     ![configura applicazione][3]
 
 2. Scorrere fino alla sezione **Chiavi** e selezionare la durata della validità della password.
 
-   ![chiavi][7]
+     ![chiavi][7]
 
 3. Selezionare **Salva** per creare la chiave.
 
-   ![salvare][13]
+     ![salvare][13]
 
-   Viene visualizzata la chiave salvata, che è possibile copiare.
+     Viene visualizzata la chiave salvata, che è possibile copiare.
 
-   ![chiave salvata][8]
+     ![chiave salvata][8]
 
 4. Ora è possibile usare la chiave per l'autenticazione come entità servizio. Per l'accesso è necessario l'**ID CLIENT** oltre alla **CHIAVE**. Andare sull'**ID CLIENT** e copiarlo.
   
-   ![id client][5]
+     ![id client][5]
 
 
 A questo punto, l'applicazione è pronta e l'entità servizio è stata creata nel tenant. Quando si accede come entità servizio, assicurarsi di usare:
@@ -97,7 +97,7 @@ A questo punto, l'applicazione è pronta e l'entità servizio è stata creata ne
 
 - Per informazioni su come specificare i criteri di sicurezza, vedere [Gestione e controllo di accesso alle risorse](azure-portal/resource-group-rbac.md)  
 - Per la procedura su come consentire a un'entità servizio di accedere alle risorse, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](./resource-group-authenticate-service-principal.md)  
-- Per una panoramica del controllo degli accessi in base al ruolo, vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md).
+- Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](role-based-access-control-configure.md)
 - Per indicazioni su come implementare la sicurezza con Gestione risorse di Azure, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 
 
@@ -116,4 +116,4 @@ A questo punto, l'applicazione è pronta e l'entità servizio è stata creata ne
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

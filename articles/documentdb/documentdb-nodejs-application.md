@@ -34,7 +34,7 @@ In questa esercitazione del database verrà compilata una semplice applicazione 
 
 ![Schermata dell'applicazione My Todo List creata in questa esercitazione Node.js](./media/documentdb-nodejs-application/image1.png)
 
-Se non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicemente la soluzione completa da GitHub, è possibile ottenerla [qui](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Non si ha tempo di completare l'esercitazione e si preferisce ottenere semplicemente la soluzione completa. Non è un problema, è possibile ottenere la soluzione di esempio completo da [GitHub][].
 
 ## <a name="_Toc395783176"></a>Prerequisiti
 
@@ -554,10 +554,13 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 Congratulazioni. Si è creata la prima applicazione Web Express Node.js usando Azure DocumentDB e la si è pubblicata in Siti Web di Azure.
 
-Il codice sorgente per l'applicazione di riferimento completa è disponibile per il download [qui](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Il codice sorgente per l'applicazione di riferimento completa è disponibile per il download da [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js](/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

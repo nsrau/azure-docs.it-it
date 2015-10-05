@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 #### Per installare gli aggiornamenti in modalità di manutenzione tramite Windows PowerShell per StorSimple
 
 1. Se non è già stato fatto, accedere alla console seriale del dispositivo e selezionare l'opzione 1, **Accedi con accesso completo**. 
@@ -24,4 +26,4 @@
 
 8. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Per istruzioni, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](storsimple-update-device.md#step4).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

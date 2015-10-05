@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Azure"
-	description="Descrive come installare e configurare l'estensione di sicurezza Symantec Endpoint Protection in una macchina virtuale nuova o esistente in Azure."
+	pageTitle="Installare Symantec Endpoint Protection in una macchina virtuale | Microsoft Azure"
+	description="Informazioni su come installare e configurare l'estensione di sicurezza Symantec Endpoint Protection in una macchina virtuale di Azure nuova o esistente creata con il modello di distribuzione classica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,9 @@
 
 # Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Azure
 
-Questo articolo illustra come installare e configurare il client di Symantec Endpoint Protection in una macchina virtuale (VM) nuova o esistente in cui si esegue Windows Server. Si tratta del client completo, che include servizi come protezione da virus e spyware, firewall e prevenzione delle intrusioni. Questo articolo fa riferimento alle macchine virtuali create tramite il modello di distribuzione classico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata l'installazione di applicazioni in una macchina virtuale creata con il modello di distribuzione classica.
+
+Questo articolo illustra come installare e configurare il client di Symantec Endpoint Protection in una macchina virtuale (VM) nuova o esistente in cui si esegue Windows Server. Si tratta del client completo, che include servizi come protezione da virus e spyware, firewall e prevenzione delle intrusioni.
 
 Il client viene installato come estensione di sicurezza usando l'agente di macchine virtuali. In una nuova macchina virtuale si procede all'installazione dell'agente insieme al client dell'endpoint. In una macchina virtuale esistente senza l'agente, sarà necessario prima scaricare e installare l'agente stesso. In questo articolo vengono descritte entrambe le situazioni.
 
@@ -95,4 +97,4 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

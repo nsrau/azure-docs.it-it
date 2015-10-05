@@ -1,18 +1,19 @@
 <properties
-   pageTitle="Automazione della distribuzione delle macchine virtuali di Azure con Chef"
-	description="Informazioni sull'automazione delle macchine virtuali di Azure con Chef"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="diegoviso"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Distribuzione delle macchine virtuali di Azure con Chef | Microsoft Azure"
+   description="Imparare a utilizzare Chef per effettuare la distribuzione automatizzata della macchina virtuale e la configurazione in Microsoft Azure"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="diegoviso"
+   manager="timlt"
+   tags="azure-service-management,azure-resource-manager"
+   editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="diviso"/>
+ms.tgt_pltfrm="vm-multiple"
+ms.devlang="na"
+ms.topic="article"
+ms.date="05/19/2015"
+ms.author="diviso"/>
 
 # Automazione della distribuzione delle macchine virtuali di Azure con Chef
 
@@ -236,4 +237,4 @@ Si spera che questa guida sia stata utile. Ora è possibile avviare l'infrastrut
 
 <!--Link references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

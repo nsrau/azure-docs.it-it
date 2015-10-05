@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Il primo runbook grafico in Automazione di Azure | Microsoft Azure"
+	pageTitle="Il primo runbook del flusso di lavoro di PowerShell in Automazione di Azure | Microsoft Azure"
 	description="Esercitazione in cui viene illustrata la creazione, il test e la pubblicazione di un semplice runbook testuale con flusso di lavoro PowerShell. Vengono trattati numerosi concetti, ad esempio l'autenticazione per le risorse di Azure, i parametri di input."
 	services="automation"
 	documentationCenter=""
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/18/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 
-# Il primo runbook testuale
+# Il primo runbook del flusso di lavoro PowerShell
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
-- [Textual](automation-first-runbook-textual.md)
+- [PowerShell Workflow](automation-first-runbook-textual.md)
 
-Questa esercitazione illustra la creazione di un [runbook testuale](automation-powershell-workflow.md) in Automazione di Azure. Si inizierà con un runbook semplice che sarà testato e pubblicato, quindi verrà illustrato come tenere traccia dello stato del processo del runbook. Si modificherà quindi il runbook per gestire effettivamente le risorse di Azure, avviando in questo caso una macchina virtuale di Azure. Si renderà quindi il runbook più affidabile aggiungendo i relativi parametri.
+Questa esercitazione illustra la creazione di un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powerShell-workflow-runbooks) in Automazione di Azure. Si inizierà con un runbook semplice che sarà testato e pubblicato, quindi verrà illustrato come tenere traccia dello stato del processo del runbook. Si modificherà quindi il runbook per gestire effettivamente le risorse di Azure, avviando in questo caso una macchina virtuale di Azure. Si renderà quindi il runbook più affidabile aggiungendo i relativi parametri.
 
 ## Prerequisiti
 
@@ -41,8 +41,8 @@ Si inizierà creando un runbook semplice che restituisce il testo *Hello World*.
 1. Nel portale di anteprima di Azure aprire l'account di automazione. La pagina dell'account di automazione offre una visualizzazione rapida delle risorse di questo account. Dovrebbero essere già disponibili alcuni asset. Per la maggior parte sono i moduli inclusi automaticamente in un nuovo account di automazione. Dovrebbe essere disponibile anche l'asset credenziali citato nei [prerequisiti](#prerequisites).
 2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.<br> ![Controllo Runbook](media/automation-first-runbook-textual/runbooks-control.png)
 2. Creare un nuovo runbook facendo clic sul pulsante **Aggiungi Runbook** e quindi su **Crea un nuovo runbook**.
-3. Denominare il runbook *MyFirstRunbook-Textual*.
-4. In questo caso, è necessario creare un[runbook testuale](automation-powershell-workflow.md)basato sul flusso di lavoro PowerShell pertanto selezionare **flusso di lavoro Powershell** per **tipo di Runbook**.<br> ![Nuovo runbook](media/automation-first-runbook-textual/new-runbook.png)
+3. Denominare il runbook *MyFirstRunbook-Workflow*.
+4. In questo caso, è necessario creare un[runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powerShell-workflow-runbooks)basato sul flusso di lavoro PowerShell pertanto selezionare **flusso di lavoro Powershell** per **tipo di Runbook**.<br> ![Nuovo runbook](media/automation-first-runbook-textual/new-runbook.png)
 5. Fare clic su **Crea** per creare il runbook e aprire l'editor di testo.
 
 ## Passaggio 2: - aggiungere un codice al runbook
@@ -69,13 +69,13 @@ Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo
 
 1. Fare clic su**Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto.<br> ![Publish](media/automation-first-runbook-textual/runbook-edit-toolbar-publish.png)
 2. Se ora si scorre verso sinistra per visualizzare il runbook nel pannello **Runbook**, come **Stato di creazione** viene visualizzato**Pubblicato**.
-3. Scorrere verso destra per visualizzare il pannello **MyFirstRunbook-Textual**. Le opzioni nella parte superiore consentono di avviare il runbook, pianificarlo per avviarlo in qualsiasi momento in futuro o creare un [webhook](automation-webhooks.md) per poterlo avviare con una chiamata HTTP. 
+3. Scorrere verso destra per visualizzare il pannello **MyFirstRunbook-Workflow**. Le opzioni nella parte superiore consentono di avviare il runbook, pianificarlo per avviarlo in qualsiasi momento in futuro o creare un [webhook](automation-webhooks.md) per poterlo avviare con una chiamata HTTP. 
 4. Per avviare semplicemente il runbook, fare clic su **Avvia** e quindi su **Sì** quando richiesto.<br> ![Avvia runbook](media/automation-first-runbook-textual/runbook-toolbar-start.png)
 5. Viene aperto un riquadro del processo per il processo del runbook appena creato. È possibile chiudere questo riquadro, ma in questo caso lo si lascerà aperto per poter controllare l'avanzamento del processo.
 6.  Lo stato del processo è visualizzato in **Riepilogo processi** e corrisponde agli stati osservati quando è stato testato il runbook.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-summary.png)
-7.  Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello **Output** dove si può vedere il testo *Hello World*.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-output.png)  
+7.  Quando lo stato del runbook risulta *Completato* fare clic su **Output**. Viene aperto il pannello Output dove si può vedere il testo *Hello World*.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-output.png)  
 8.  Chiudere il riquadro Output.
-9.  Fare clic su **Flussi** per aprire il pannello dei flussi per il processo del runbook. Nel flusso di output dovrebbe essere visibile solo *Hello World*, ma potrebbero essere visualizzati altri flussi per un processo del runbook, ad esempio Verbose ed Error se il runbook scrive in questi flussi.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-streams.png) 
+9.  Fare clic su **Flussi** per aprire il riquadro dei flussi per il processo del runbook. Nel flusso di output dovrebbe essere visibile solo *Hello World*, ma potrebbero essere visualizzati altri flussi per un processo del runbook, ad esempio Verbose ed Error se il runbook scrive in questi flussi.<br> ![Riepilogo dei processi](media/automation-first-runbook-textual/job-pane-streams.png) 
 9. Chiudere il riquadro dei flussi e il riquadro dei processi per tornare al riquadro MyFirstRunbook.
 9.  Fare clic su**Processi** per aprire il pannello dei processi per questo runbook. Sono elencati tutti i processi creati da questo runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.<br> ![Processi](media/automation-first-runbook-textual/runbook-control-jobs.png) 
 9. È possibile fare clic su questo processo per aprire lo stesso riquadro del processo visualizzato quando è stato avviato il runbook. In questo modo è possibile tornare indietro nel tempo e visualizzare i dettagli di tutti i processi creati per un runbook particolare.
@@ -84,7 +84,7 @@ Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo
 
 Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Sarà tuttavia in grado di eseguire questa operazione solo dopo aver fatto in modo che esegua l'autenticazione con le credenziali indicate nei [prerequisiti](#prerequisites). A questo scopo si userà il cmdlet **Add-AzureAccount**.
 
-1.  Aprire l'editor di testo facendo clic su **Modifica** nel pannello MyFirstRunbook-Textual.<br> ![Modificare il runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
+1.  Aprire l'editor di testo facendo clic su **Modifica** nel pannello MyFirstRunbook-Workflow<br>. ![Modificare il runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  Non è più necessaria la riga **Write-Output**, quindi andare avanti ed eliminarla.
 3.  Posizionare il cursore su una riga vuota tra parentesi graffe.
 3.  Nel controllo libreria, espandere**Assets**e quindi**Credentials**.
@@ -122,4 +122,4 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 
 - [Il primo runbook grafico](automation-first-runbook-graphical.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="09/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -144,4 +144,4 @@ L’esecuzione di questo comando richiede una password. Immettere la password de
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

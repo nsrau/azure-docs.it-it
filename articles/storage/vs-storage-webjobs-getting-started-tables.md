@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 
@@ -165,4 +165,4 @@ Per informazioni su come gestire l'elaborazione di tabelle attivata da un messag
 
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

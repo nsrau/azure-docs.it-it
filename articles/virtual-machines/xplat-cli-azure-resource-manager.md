@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso dell'interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Azure | Microsoft Azure"
+	pageTitle="Interfaccia della riga di comando per Mac, Linux e Windows | Microsoft Azure"
 	description="Uso dell'interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Azure."
 	editor="tysonn"
 	manager="timlt"
@@ -13,8 +13,10 @@
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la gestione delle risorse con il modello di distribuzione Gestione risorse.
 
 In questo articolo viene descritto come creare, gestire ed eliminare le risorse di Azure e le macchine virtuali tramite la CLI di Azure per Mac, Linux e Windows utilizzando la modalità di gestione risorse di Azure.
 
@@ -71,7 +73,7 @@ Assicurarsi di creare almeno un gruppo di risorse prima di procedere in uno di q
 
 ### Uso di singoli comandi dell'interfaccia della riga di comando di Azure
 
-Questo è l'approccio di base per configurare e creare una macchina virtuale in base alle proprie esigenze. Nella modalità di gestione risorse di Azure, è necessario configurare alcune risorse obbligatorie come la rete prima di poter utilizzare il comando**vm create**.
+Questo è l'approccio di base per configurare e creare una macchina virtuale in base alle proprie esigenze. Nella modalità di gestione risorse di Azure, è necessario configurare alcune risorse obbligatorie come la rete prima di poter utilizzare il comando **vm create**.
 
 >[AZURE.NOTE]Se è la prima volta che si creano risorse tramite la riga di comando per la propria sottoscrizione, è possibile che venga chiesto di registrarsi per determinati provider di risorse. In tal caso, è facile registrarsi al provider e riprovare il comando non riuscito, come illustrato nell'esempio seguente.
 >
@@ -94,11 +96,11 @@ La scheda di interfaccia di rete (NIC) richiede che vengano prima create una sub
 
 	azure network vnet create "testrg" "testvnet" "westus"
 
-È quindi possibile creare una subnet nella rete virtuale utilizzando il comando**network vnet subnet create**.
+È quindi possibile creare una subnet nella rete virtuale utilizzando il comando **network vnet subnet create**.
 
 	azure network vnet subnet create "testrg" "testvnet" "testsubnet"
 
-È possibile creare una scheda di interfaccia di rete che utilizzi tali risorse con il comando**network nic create**.
+È possibile creare una scheda di interfaccia di rete che utilizzi tali risorse con il comando **network nic create**.
 
 	azure network nic create "testrg" "testnic" "westus" -k "testsubnet" -m "testvnet" -p "testip"
 
@@ -131,7 +133,7 @@ Salvare il nome URN dell'immagine da caricare nella macchina virtuale. Verrà ut
 
 #### Creazione di una macchina virtuale
 
-A questo punto si è pronti a creare una macchina virtuale eseguendo il comando**vm create**e fornendo le informazioni necessarie. È facoltativo passare l'indirizzo IP pubblico in questa fase, in quanto la scheda di interfaccia di rete (NIC) già dispone di tali informazioni. Il comando può avere un aspetto simile all'esempio seguente, dove_testvm_è il nome della macchina virtuale creata nel gruppo di risorse_testrg_.
+A questo punto si è pronti a creare una macchina virtuale eseguendo il comando **vm create** e fornendo le informazioni necessarie. È facoltativo passare l'indirizzo IP pubblico in questa fase, in quanto la scheda di interfaccia di rete (NIC) già dispone di tali informazioni. Il comando può avere un aspetto simile all'esempio seguente, dove _testvm_ è il nome della macchina virtuale creata nel gruppo di risorse _testrg_.
 
 	azure-cli@0.8.0:/# azure vm create "testrg" "testvm" "westus" "Linux" -Q "CoreOS:CoreOS:Alpha:660.0.0" -u "azureuser" -p "Pass1234!" -N "testnic"
 	info:    Executing command vm create
@@ -154,7 +156,7 @@ Connettersi a essa usando il comando **ssh username@ipaddress**. Per cercare rap
 
 	azure network public-ip show "testrg" "testip"
 
-La gestione di questa macchina virtuale è semplice con i comandi **vm**. Per altre informazioni, visitare [Usare la CLI di Azure con gestione delle risorse di Azure](azure-cli-arm-commands.md).
+La gestione di questa macchina virtuale è semplice con i comandi **vm**. Per altre informazioni, visitare [Uso dell’interfaccia della riga di comando di Azure con gestione risorse di Azure](azure-cli-arm-commands.md).
 
 ### Comando semplificato vm quick-create
 
@@ -331,7 +333,7 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 
 * Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure, vedere l'articolo relativo all'[Installazione e configurazione dell'interfaccia della riga di comando di Azure][clisetup].
 * Per informazioni sull'uso di Gestione risorse con Azure PowerShell, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-* Per informazioni sull'uso di Gestione risorse di Azure dal portale di Azure, vedere [Uso di gruppi di risorse per la gestione delle risorse di Azure][psrm].
+* Per informazioni sull'uso di Gestione risorse di Azure dal portale di Azure, vedere [Uso di gruppi di risorse per la gestione risorse di Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
@@ -339,4 +341,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

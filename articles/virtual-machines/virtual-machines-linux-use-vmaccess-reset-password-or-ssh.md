@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come usare VMAccess per le macchine virtuali Linux"
-	description="Come usare il portale di anteprima di Azure o l'estensione VMAccess per Linux per reimpostare le password e le chiavi SSH, per reimpostare le configurazioni SSH ed eliminare gli utenti Linux"
+	pageTitle="Reimpostazione della password VM Linux da CLI di Azure"
+	description="Come utilizzare l'estensione VMAccess dal portale di o dall’interfaccia della riga di comando di Azure per reimpostare le password VM di Linux e le chiavi SSH, le configurazioni SSH ed eliminare gli account utente."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -263,4 +263,4 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Estensioni VM e funzionalità di Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 	>[AZURE.WARNING]Il cmdlet Switch-AzureMode verrà presto dichiarato obsoleto. Di conseguenza, tutti i cmdlet di Gestione risorse verranno rinominati.
 
-3. Se necessario, eseguire il cmdlet **New-AzureResourceGroup** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md/#resource-groups).
+3. Se necessario, eseguire il cmdlet **New-AzureResourceGroup** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
@@ -101,4 +101,4 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

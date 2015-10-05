@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Come eseguire l'integrazione con Azure Active Directory"
+   pageTitle="Come eseguire l'integrazione con Azure Active Directory | Microsoft Azure"
    description="Guida ai vantaggi e alle risorse per l'integrazione con Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Integrazione con Azure Active Directory
@@ -90,4 +90,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

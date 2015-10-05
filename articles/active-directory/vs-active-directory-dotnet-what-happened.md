@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
 
@@ -171,4 +171,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 [Altre informazioni su Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creare e gestire un pool di database elastici di database SQL tramite PowerShell"
-	description="Creare e gestire un pool di database elastici di database SQL di Azure tramite PowerShell"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Creare e gestire un pool di database elastici di database SQL tramite PowerShell" 
+   description="Creare e gestire un pool di database elastici di database SQL di Azure tramite PowerShell" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="adamkr; sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/23/2015"
+   ms.author="adamkr; sstein"/>
 
 # Creare e gestire un pool di database elastici di database SQL tramite PowerShell
 
@@ -240,4 +240,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database e
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

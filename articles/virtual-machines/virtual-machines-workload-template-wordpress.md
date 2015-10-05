@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Distribuzione di un server WordPress in Ubuntu con un modello di Gestione risorse di Azure"
+	pageTitle="WordPress su Ubuntu con il modello ARM | Microsoft Azure"
 	description="Distribuire facilmente un singolo server WordPress in Ubuntu utilizzando un modello di gestione delle risorse e il portale di anteprima di Azure, Azure PowerShell o Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="davidmu"/>
 
 # Distribuzione di un server WordPress in Ubuntu con un modello di Gestione risorse di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione risorse. Non è possibile creare questa risorsa con il modello di distribuzione classica.
 
 Utilizzare le istruzioni riportate in questo articolo per distribuire un dominio WordPress in Ubuntu utilizzando un modello di gestione delle risorse. Questo modello consente di creare una singola macchina virtuale in una nuova rete virtuale.
 
@@ -27,12 +29,12 @@ Utilizzare le istruzioni riportate in questo articolo per distribuire un dominio
 
 ## Portale di anteprima di Azure
 
-Per distribuire il carico di lavoro utilizzando un modello di gestione delle risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Per distribuire il carico di lavoro usando un modello di gestione risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
-1.	Per il riquadro**Modello**, fare clic su **Salva**.
-2.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
+1.	Per il riquadro **Modello**, fare clic su **Salva**.
+2.	Fare clic su **Parametri**. Nel riquadro **Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 3.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
 4.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 5.	Se necessario, fare clic su **Percorso del gruppo di risorse** e selezionare il percorso corretto di Azure.
@@ -104,4 +106,4 @@ Al termine, si disporrà di un nuovo server WordPress in Ubuntu nel gruppo di ri
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,12 +1,13 @@
-<properties 
-   pageTitle="Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure"
+<properties
+   pageTitle="Applicazione automatica di patch in macchine virtuali di SQL Server | Microsoft Azure"
    description="Viene illustrata la funzionalità di applicazione automatizzata di patch per le macchine virtuali di SQL Server in esecuzione in Azure."
    services="virtual-machines"
    documentationCenter="na"
    authors="rothja"
    manager="jeffreyg"
-   editor="monicar" />
-<tags 
+   editor="monicar"
+   tags="azure-resource-manager" />
+<tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
@@ -16,6 +17,8 @@
    ms.author="jroth" />
 
 # Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa con il modello di distribuzione classica.
 
 L’applicazione automatizzata di patch stabilisce un periodo di manutenzione per una macchina virtuale di Azure in cui è in esecuzione SQL Server 2012 o 2014. Gli aggiornamenti automatici possono essere installati solo durante questo periodo di manutenzione. Per SQL Server, gli aggiornamenti di sistema e i riavvii associati vengono eseguiti nel momento migliore per il database. Dipende dall’agente IaaS di SQL Server.
 
@@ -40,7 +43,7 @@ Per le macchine virtuali esistenti di SQL Server 2012 o 2014, selezionare le imp
 Nell'esempio seguente, PowerShell viene utilizzato per configurare l'applicazione automatizzata di patch in una macchina virtuale di SQL Server esistente. Il comando **New-AzureVMSqlServerAutoPatchingConfig** configura un nuovo periodo di manutenzione per gli aggiornamenti automatici.
 
     $aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-    
+
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoPatchingSettings $aps | Update-AzureVM
 
 In base a questo esempio, nella tabella seguente vengono descritti gli effetti pratici sulla macchina virtuale di Azure di destinazione:
@@ -88,4 +91,4 @@ Una funzionalità correlata per Macchine virtuali di SQL Server in Azure è [Bac
 
 Esaminare altre [risorse per l'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

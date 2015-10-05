@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess"/>
 
 # Elementi del linguaggio
@@ -49,8 +49,8 @@
 ## Operatori
 - [\+ (Addizione)](https://msdn.microsoft.com/library/ms178565.aspx)
 - [\+ (Concatenazione di stringhe)](https://msdn.microsoft.com/library/ms177561.aspx)
-- [\- (Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
-- [\- (Sottrazione)](https://msdn.microsoft.com/library/ms189518.aspx)
+- [- (Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
+- [- (Sottrazione)](https://msdn.microsoft.com/library/ms189518.aspx)
 - [* (Moltiplicazione)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (Divisione)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
@@ -78,7 +78,7 @@
 - [& (AND bit per bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 - [| (OR bit per bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 - [^ (OR esclusivo bit per bit)](https://msdn.microsoft.com/library/ms190277.aspx)
-- [\~ (NOT bit per bit)](https://msdn.microsoft.com/library/ms173468.aspx)
+- [~ (NOT bit per bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (OR EQUALS esclusivo bit per bit)](https://msdn.microsoft.com/library/cc627413.aspx)
 - |= (OR EQUALS bit per bit)
 - ? (AND EQUALS bit per bit)
@@ -290,4 +290,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

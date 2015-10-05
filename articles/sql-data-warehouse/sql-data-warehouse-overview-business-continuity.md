@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/15/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs"/>
 
 
@@ -51,7 +51,7 @@ Poiché SQL Data Warehouse separa il calcolo dall'archiviazione, tutti i dati ve
 
 ### Ripristino del database
 
-La funzionalità di ripristino del database è stata progettata per ripristinare il database da un punto precedente nel tempo. Il servizio Azure SQL Data Warehouse protegge tutti i database eseguendo snapshot di archiviazione automatica ogni 8 ore e li conserva per 7 giorni in modo da fornire un set discreto di punti di ripristino. Questi backup vengono archiviati in Archiviazione di Azure RA-GRS e pertanto offrono ridondanza geografica per impostazione predefinita. Le funzionalità di backup e ripristino automatici sono disponibili senza spese aggiuntive e consentono di proteggere i database da un danneggiamento o un'eliminazione accidentale a costo zero. Per altre informazioni sul ripristino di database, vedere l'articolo relativo al [ripristino da un errore dell'utente][].
+La funzionalità di ripristino del database è stata progettata per ripristinare il database da un punto precedente nel tempo. Il servizio Azure SQL Data Warehouse protegge tutti i database eseguendo snapshot di archiviazione automatica almeno ogni 4 ore e li conserva per 7 giorni in modo da fornire un set discreto di punti di ripristino. Questi backup vengono archiviati in Archiviazione di Azure RA-GRS e pertanto offrono ridondanza geografica per impostazione predefinita. Le funzionalità di backup e ripristino automatici sono disponibili senza spese aggiuntive e consentono di proteggere i database da un danneggiamento o un'eliminazione accidentale a costo zero. Per altre informazioni sul ripristino di database, vedere l'articolo relativo al [ripristino da un errore dell'utente][].
 
 ### Ripristino geografico
 
@@ -78,4 +78,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale di altre edi
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

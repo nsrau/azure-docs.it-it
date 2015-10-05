@@ -1,20 +1,20 @@
 <properties
    pageTitle="Panoramica della configurazione di KVSActorStateProvider per Reliable Actors di Service Fabric"
-	description="Informazioni sulla configurazione di attori con stato di tipo KVSActorStateProvider in Service Fabric"
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="Informazioni sulla configurazione di attori con stato di tipo KVSActorStateProvider in Service Fabric"
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Configurazione di KVSActorStateProvider di Reliable Actors
 È possibile modificare la configurazione predefinita di KVSActorStateProvider cambiando il file "settings.xml" generato nella directory radice del pacchetto di Visual Studio all'interno della cartella "Config" per l'attore specificato.
@@ -27,8 +27,6 @@ Il runtime di Service Fabric cerca i nomi di sezione predefiniti nel file "setti
 Le configurazioni della sicurezza del replicatore consentono di proteggere il canale di comunicazione usato durante la replica. Questo significa che i servizi non saranno in grado di vedere l'uno il traffico di replica dell'altro, garantendo la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
 ### Nome della sezione
 &lt;NomeAttore&gt;ServiceReplicatorSecurityConfig
-### Nomi delle configurazioni
-Fare riferimento all'articolo sulla [sicurezza della replica](../service-fabric/service-fabric-replication-security.md).
 
 ## Configurazione del replicatore
 Le configurazioni del replicatore vengono usate per configurare il servizio di replica responsabile di garantire l'elevata affidabilità dello stato del provider di stato degli attori. La configurazione predefinita viene generata dal modello di Visual Studio e dovrebbe essere sufficiente. Questa sezione descrive le configurazioni aggiuntive che sono disponibili per ottimizzare il replicatore.
@@ -82,6 +80,5 @@ Le configurazioni dell'archivio vengono usate per configurare l'archivio locale 
 ## Osservazioni
 
 BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement. Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

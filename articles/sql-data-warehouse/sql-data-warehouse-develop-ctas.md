@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Create Table As Select (CTAS) in SQL Data Warehouse
@@ -359,8 +359,8 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[CTAS]: https://msdnstage.redmond.corp.microsoft.com/it-it/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/IT-IT/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

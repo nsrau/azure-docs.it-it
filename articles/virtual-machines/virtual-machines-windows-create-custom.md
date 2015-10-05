@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare una macchina virtuale che esegue Windows in Azure"
+	pageTitle="Creare una macchina virtuale che esegue Windows | Microsoft Azure"
 	description="Come creare una macchina virtuale personalizzata su cui è in esecuzione Linux in Azure"
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,6 +20,8 @@
 
 #Creare una macchina virtuale che esegue Windows in Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
 Una macchina virtuale *personalizzata* indica semplicemente una macchina virtuale creata usando l’opzione **Da raccolta**, che offre più possibilità di configurazione rispetto a **Creazione rapida**. Tali opzioni includono:
 
 - Collegare una macchina virtuale a Rete virtuale.
@@ -34,4 +36,4 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

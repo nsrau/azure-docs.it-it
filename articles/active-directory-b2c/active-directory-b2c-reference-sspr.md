@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: configurazione della Reimpostazione password self-service per gli utenti
@@ -36,4 +36,4 @@ Per eseguire il test, utilizzare la funzionalità "Run now" in ogni criterio di 
 
 > [AZURE.NOTE]Le pagine di reimpostazione della password self-service sono personalizzabili tramite la [funzionalità marchio della società](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

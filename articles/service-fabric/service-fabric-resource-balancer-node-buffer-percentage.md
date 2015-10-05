@@ -3,7 +3,7 @@
    description="Panoramica del ruolo della percentuale buffer dei nodi in Resource Balancer"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Panoramica della percentuale buffer dei nodi
 
@@ -47,4 +47,4 @@ Se il valore non √® specificato in questa sezione, come valore predefinito verr√
 Per altre informazioni: [Architettura di Resource Balancer](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

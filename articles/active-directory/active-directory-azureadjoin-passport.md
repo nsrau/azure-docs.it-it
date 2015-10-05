@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Configurare un nuovo dispositivo con Azure AD usando la procedura di configurazione iniziale guidata | Microsoft Azure" 
+	pageTitle="Panoramica di Microsoft Passport e informazioni dettagliate su questa nuova autenticazione basata su certificazione. | Microsoft Azure" 
 	description="Argomento che spiega come configurare Aggiunta di Azure AD durante la procedura di configurazione iniziale guidata." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Autenticazione delle identità senza password con Microsoft Passport
@@ -66,7 +66,7 @@ A livello dell'utente
 
 ## Informazioni aggiuntive
 
-* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

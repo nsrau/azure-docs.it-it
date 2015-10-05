@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="kundanap"/>
 
 # Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
 
 ## Panoramica dei modelli di Gestione risorse di Azure
 
@@ -85,4 +88,4 @@ Fare riferimento agli articoli seguenti per ottenere un modello completo con est
 
 Dopo la creazione del modello, è possibile distribuirlo tramite l'interfaccia della riga di comando di Azure oppure Azure PowerShell.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

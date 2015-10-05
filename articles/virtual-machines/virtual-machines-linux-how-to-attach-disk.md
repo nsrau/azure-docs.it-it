@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Collegare un disco a una macchina virtuale che esegue Linux in Azure"
-	description="Informazioni su come collegare un disco dati a una macchina virtuale di Azure e inizializzarlo in modo che sia pronto per l'uso."
+	pageTitle="Collegare un disco a una macchina virtuale Linux | Microsoft Azure"
+	description="Informazioni su come collegare un disco dati a una macchina virtuale Linux e inizializzarlo in modo che sia pronto per l'uso."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Come collegare un disco dati a una macchina virtuale Linux
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra il collegamento di un disco con il modello di distribuzione classica.
 
 È possibile collegare sia dischi vuoti sia dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso. Questo articolo fa riferimento alle macchine virtuali create tramite il metodo di distribuzione classico.
 
@@ -69,7 +71,7 @@
 			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
 			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
 
-	L'ultimo numero della tupla in ogni riga è il _LUN_. Per altre informazioni, vedere `man lsscsi`.
+	L'ultimo numero della tupla in ogni riga è il _lun_. Per altre informazioni, vedere `man lsscsi`.
 
 3. Nella finestra di SSH digitare il comando seguente per creare un nuovo dispositivo, quindi immettere la password per l'account:
 
@@ -171,4 +173,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

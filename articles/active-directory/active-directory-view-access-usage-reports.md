@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Visualizzare i report di accesso e utilizzo"
-	description="Un argomento che illustra come visualizzare i report di accesso e utilizzo per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione."
+	pageTitle="Visualizzare i report di accesso e utilizzo | Microsoft Azure"
+	description="Illustra come visualizzare i report di accesso e utilizzo per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="09/21/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
 
 # Visualizzare i report di accesso e utilizzo
 
@@ -90,12 +90,6 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 |	Utenti RMS più attivi | | |	Solo RMS |
 |	Utilizzo dispositivi RMS | | |	Solo RMS |
 |	Utilizzo applicazioni abilitate per RMS | | |	Solo RMS |
-
-
-
-
-
-
 
 
 
@@ -274,6 +268,6 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 ## Passaggi successivi
 
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
-- [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
+- [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

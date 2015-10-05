@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Determinare i temi di tendenza Twitter con Apache Storm in HDInsight
@@ -140,4 +140,4 @@ Per altri esempi su Storm per HDinsight:
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

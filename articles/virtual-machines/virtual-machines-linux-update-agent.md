@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Come aggiornare l'agente Linux di Azure alla versione più recente da Github"
-	description="Informazioni su come aggiornare l'agente Linux di Azure da Github per VM Linux in Azure."
+	pageTitle="Aggiornare l'agente Linux di Azure da Github | Microsoft Azure"
+	description="Informazioni su come aggiornare l'agente Linux di Azure per VM Linux in Azure all’ultima versione da Github."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,19 +18,21 @@
 	ms.author="mingzhan"/>
 
 
-# Come aggiornare l'agente Linux di Azure per la versione più recente da Github
+# Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da Github
 
-Per aggiornare il [agente Linux di Azure](https://github.com/Azure/WALinuxAgent), è necessario avere già:
+Per aggiornare il [agente Linux di Azure](https://github.com/Azure/WALinuxAgent), su una macchina virtuale di Linux in Azure è necessario avere già:
 
 1. una macchina virtuale Linux in esecuzione in Azure
 2. Si è connessi a VM Linux tramite SSH
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
 
 > [AZURE.NOTE]Se questa attività verrà effettuata da un computer Windows, è possibile utilizzare Putty per SSH al computer Linux. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-linux-how-to-log-on.md).
 
 Distribuzioni Linux da Azure inserite nei loro repository il pacchetto agente Linux di Azure, pertanto verificare e installare la versione più recente da quel repository Distro innanzitutto se possibile.
 
 Per Ubuntu, digitare:
-     
+
     #sudo apt-get install walinuxagent
 
 e su CentOS, digitare:
@@ -63,8 +66,8 @@ Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/A
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
 ###Per la versione 2.1.x o successiva, digitare:
-  
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
     #unzip WALinuxAgent-[version].zip
     #cd WALinuxAgent-[version]
 
@@ -83,15 +86,15 @@ Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/A
     #chmod +x waagent
 
  Copiare il nuovo eseguibile in /usr /sbin/Service
-   
+
   Per la maggior parte delle distribuzioni Linux, usare:
-         
+
       #sudo cp waagent /usr/sbin
 
   Per CoreOS, utilizzare:
 
     #sudo cp waagent /usr/share/oem/bin/
- 
+
 ###Per la versione 2.1.x, usare:
 
 Può essere necessario installare prima il pacchetto `setuptools`. Vedere [qui](https://pypi.python.org/pypi/setuptools). Quindi eseguire le operazioni indicate di seguito:
@@ -110,10 +113,10 @@ Per Ubuntu, utilizzare:
 
 Per CoreOS, utilizzare:
 
-    #sudo systemctl restart waagent 
+    #sudo systemctl restart waagent
 
 ## Verificare la versione dell'agente Linux di Azure
-   
+
     #waagent -version
 
 Per CoreOS, di sopra di comando potrebbe non funzionare.
@@ -122,8 +125,4 @@ Verrà visualizzata che la versione dell'agente Linux è stata aggiornata alla n
 
 Per ulteriori informazioni relative all'agente Linux di Azure, visitare [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
 
-
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

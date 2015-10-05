@@ -114,6 +114,8 @@ Se non si è utilizzato prima PowerShell con la sottoscrizione di Azure:
 
 Inviare un messaggio di posta elettronica se la risposta del server alle richieste HTTP, calcolate su una media di 5 minuti, è più lenta di 1 secondo. La risorsa di Application Insights è denominata IceCreamWebApp ed è nel gruppo di risorse Fabrikam. Sono il proprietario della sottoscrizione Azure.
 
+Il GUID è l'ID di sottoscrizione (non la chiave di strumentazione dell'applicazione).
+
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
@@ -169,7 +171,14 @@ Nome delle metriche | Nome della schermata | Descrizione
 `view.count`|Visualizzazioni pagina|Numero di richieste dell’utente client per una pagina web. Il traffico sintetico è filtrato.
 {nome metrico personalizzato}|{nome metrico}|Il valore della metrica segnalato da [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) o il [parametro delle misurazioni di una chiamata di rilevamento](app-insights-api-custom-events-metrics.md#properties).
 
-   
+Le metriche vengono inviate da moduli di telemetria diversi:
+
+Gruppo di metrica | Modulo dell'agente di raccolta
+---|---
+basicExceptionBrowser,<br/>clientPerformance,<br/>view | [JavaScript browser](app-insights-javascript.md)
+performanceCounter | [Prestazioni](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+remoteDependencyFailed| [Dipendenza](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
+richiesta,<br/>requestFailed|[Richiesta server](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->
@@ -182,4 +191,4 @@ Nome delle metriche | Nome della schermata | Descrizione
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

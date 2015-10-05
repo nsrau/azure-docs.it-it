@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare una macchina virtuale personalizzata che esegue Linux in Azure"
-	description="Informazioni su come reare una macchina virtuale personalizzata che esegue Linux in Azure."
+	pageTitle="Creare una macchina virtuale Linux | Microsoft Azure"
+	description="Come creare una macchina virtuale personalizzata con il modello di distribuzione classico che esegue il sistema operativo Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,6 +19,8 @@
 
 # Come creare una macchina virtuale personalizzata su cui è in esecuzione Linux in Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica. È inoltre possibile creare una risorsa con il [modello di distribuzione di Gestione risorse](virtual-machines-linux-tutorial.md).
+
 Questo argomento descrive come creare una macchina virtuale *personalizzata* con l’interfaccia della riga di comando di Azure usando il modello di distribuzione classico. Verrà utilizzata un'immagine Linux dalle **IMMAGINI** disponibili in Azure. I comandi dell’interfaccia della riga di comando di Azure offrono le opzioni di configurazione seguenti:
 
 - Connessione della macchina virtuale a una rete virtuale
@@ -29,7 +31,7 @@ Questo argomento descrive come creare una macchina virtuale *personalizzata* con
 > [AZURE.IMPORTANT]se si vuole usare una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 <p/>
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+
 
 - [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-tutorial.md)
 
@@ -38,4 +40,4 @@ Questo argomento descrive come creare una macchina virtuale *personalizzata* con
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

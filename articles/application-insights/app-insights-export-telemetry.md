@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -22,6 +22,19 @@ Si vogliono effettuare alcune analisi personalizzate sui dati di telemetria? Opp
 La funzionalità di esportazione continua è disponibile nel periodo di valutazione gratuito e nei [piani tariffari Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Se si vuole eseguire semplicemente un'[esportazione occasionale](app-insights-metrics-explorer.md#export-to-excel) dei dati visualizzati in un pannello delle metriche o di ricerca, fare clic sul pulsante di esportazione nella parte superiore del pannello.
+
+## Creare un account di archiviazione
+
+Se non si dispone già di un account di archiviazione "classico", crearne uno ora.
+
+
+1. Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
+
+    ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-export-telemetry/030.png)
+
+2. Creare un contenitore
+
+    ![Nel nuovo archivio selezionare Contenitori, fare clic sul riquadro Contenitori e quindi su Aggiungi](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> Configurare l'esportazione continua
 
@@ -204,4 +217,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

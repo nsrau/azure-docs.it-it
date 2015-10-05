@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Architettura di Gestione risorse di Azure"
-	description="Informazioni sull'architettura di Gestione risorse e sulle relazioni tra i provider di risorse di calcolo, rete e archiviazione."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Architettura di Gestione risorse di Azure | Microsoft Azure"
+   description="Informazioni sull'architettura di Gestione risorse e sulle relazioni tra i provider di risorse di calcolo, rete e archiviazione."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="davidmu1"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Architettura di Gestione risorse di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 In questo articolo viene fornita una panoramica delle architetture di Gestione servizi e Gestione risorse per la creazione di applicazioni e carichi di lavoro basati su infrastruttura.
 
@@ -77,6 +79,6 @@ Tutte le risorse dell'applicazione vengono gestite tramite il singolo gruppo di 
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Microsoft Azure](resource-group-overview.md)
+[Panoramica di Gestione risorse di Azure](resource-group-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,10 +1,10 @@
 <properties
    pageTitle="Report AD Azure: Guida introduttiva"
-   description="Report AD Azure: Guida introduttiva"
+   description="Elenca i vari report disponibili nei report di Azure Active Directory"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2015"
+   ms.date="09/21/2015"
    ms.author="curtand;kenhoff"/>
 
 # Introduzione ad Azure AD Report
@@ -156,4 +156,4 @@ Indirizzo di posta elettronica [aadreportinghelp@microsoft.com](mailto:aadreport
 
 > [AZURE.TIP]Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

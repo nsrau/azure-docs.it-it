@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Guida dell'utente dell'agente Linux per Azure" 
+	pageTitle="Guida dell'utente dell'agente Linux | Microsoft Azure" 
 	description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -317,4 +318,4 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

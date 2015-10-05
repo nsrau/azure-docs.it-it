@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Riferimento al pool database elastico di SQL Azure"
-	description="In questo riferimento vengono forniti collegamenti e dettagli relativi agli articoli sui pool di database elastici e informazioni di programmabilità."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	pageTitle="Riferimento al pool database elastico di SQL Azure" 
+	description="In questo riferimento vengono forniti collegamenti e dettagli relativi agli articoli sui pool di database elastici e informazioni di programmabilità." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/25/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
+	ms.date="09/23/2015" 
+	ms.author="sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -156,7 +156,7 @@ Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per l
 | [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [Creare un pool di database elastici](https://msdn.microsoft.com/library/mt163596.aspx) |
 | [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [Modificare le impostazioni delle prestazioni di un pool di database elastici](https://msdn.microsoft.com/library/mt163641.aspx) |
 | [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [Eliminare un pool di database elastici](https://msdn.microsoft.com/library/mt163672.aspx) |
-| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [Ottiene i pool di database elastici e i relativi valori di proprietà](https://msdn.microsoft.com/it-it/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [Ottiene i pool di database elastici e i relativi valori di proprietà](https://msdn.microsoft.com/IT-IT/library/mt163646.aspx) |
 | [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [Ottenere lo stato delle operazioni del pool di database elastici](https://msdn.microsoft.com/library/mt163669.aspx) |
 | [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [Ottenere i database in un pool di database elastici](https://msdn.microsoft.com/library/mt163646.aspx) |
 | [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [Ottiene lo stato di spostamento dei database da e verso un pool](https://msdn.microsoft.com/library/mt163669.aspx) |
@@ -177,12 +177,12 @@ Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per l
 I pool di database elastici vengono fatturati in base alle caratteristiche seguenti:
 
 - Un pool elastico viene fatturato al momento della creazione, persino quando nel pool non sono presenti database. 
-- Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo dei livelli di prestazioni dei database autonomi. 
+- Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo dei livelli di prestazioni dei database singoli. 
 - Se un pool elastico viene ridimensionato per una nuova quantità di eDTU, non viene fatturato in base alla nuova quantità di eDTU fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database autonomi. 
 
 
-- Il prezzo di un pool elastico è basato sul numero di eDTU del pool e sul numero di database del pool. Il prezzo di un pool elastico è indipendente dall'utilizzo dei database elastici in esso contenuti.
-- Il prezzo viene calcolato nel modo seguente: (numero di eDTU del pool)x(prezzo unitario per eDTU) + (numero di database)x(prezzo unitario per database)
+- Il prezzo di un pool elastico è basato sul numero di eDTU del pool. Il prezzo di un pool elastico è indipendente dall'utilizzo dei database elastici in esso contenuti.
+- Il prezzo di base viene calcolato da (numero di pool eDTUs) x (prezzo unitario per eDTU).
 
 Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitario delle eDTU per un database autonomo nello stesso livello di servizio. Per ulteriori informazioni, vedere [Database SQL Prezzi](http://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -211,4 +211,4 @@ Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitar
 | 40891 | EX_USER | Il numero minimo di DTU per database (%d) non può superare il numero massimo DTU per database (%d). | Numero minimo DTU per database; numero massimo DTU per database | Tentativo di impostare il numero minimo di DTU per database su un valore superiore al numero massimo di DTU per database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
 | Da definire | EX_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare le dimensioni massime consentite dal pool elastico del livello di servizio '%.*ls'. | livello di servizio del pool elastico | Le dimensioni massime per il database superano le dimensioni massime consentite per il livello di servizio del pool elastico. | Impostare le dimensioni massime del database entro i limiti delle dimensioni massime consentite dal livello di servizio del pool elastico. |
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

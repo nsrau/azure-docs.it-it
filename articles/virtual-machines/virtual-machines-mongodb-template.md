@@ -1,22 +1,25 @@
 <properties
-  pageTitle="Creare un cluster MongoDB in Ubuntu utilizzando un modello di Gestione risorse di Azure"
-	description="Creare un cluster MongoDB in Ubuntu utilizzando un modello di Gestione risorse di Azure tramite Azure PowerShell o l’interfaccia della riga di comando di Azure"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="karthmut"
-	manager="timlt"
-	editor="tysonn"/>
+  pageTitle="Creare un cluster di MongoDB su Ubuntu | Microsoft Azure"
+  description="Creare un cluster MongoDB in Ubuntu utilizzando un modello di Gestione risorse di Azure tramite Azure PowerShell o l’interfaccia della riga di comando di Azure"
+  services="virtual-machines"
+  documentationCenter=""
+  authors="scoriani"
+  manager="timlt"
+  editor="tysonn"
+  tags="azure-resource-manager"/>
 
 <tags
   ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+  ms.workload="multiple"
+  ms.tgt_pltfrm="vm-windows"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="04/29/2015"
+  ms.author="scoriani"/>
 
 # Creare un cluster MongoDB in Ubuntu utilizzando un modello di Gestione risorse di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse.
 
 MongoDB è un database di documenti open-source che fornisce alte prestazioni, elevata disponibilità e proporzioni automatiche. MongoDB può essere installato come database autonomo o in un cluster, sfruttando le funzionalità di replica incorporate. In alcuni casi, è possibile utilizzare la replica per aumentare la capacità di lettura. I client hanno la capacità di inviare operazioni di lettura e scrittura a server diversi. È inoltre possibile mantenere copie in data center diversi per aumentare la presenza e la disponibilità dei dati per le applicazioni distribuite. Con MongoDB, la replica, inoltre, fornisce ridondanza e aumenta la disponibilità dei dati. Con più copie dei dati nei diversi server di database, la replica consente di proteggere un database dalla perdita di un singolo server. La replica consente, inoltre, il ripristino da interruzioni di servizio ed errori hardware. Grazie alla disponibilità di copie aggiuntive dei dati, è possibile dedicarne una al ripristino di emergenza, alla creazione di report o al backup.
 
@@ -582,7 +585,7 @@ Dall’esempio precedente è chiaro come il file azuredeploy.json in questo scen
 
 In particolare, i seguenti modelli collegati verranno usati per la distribuzione:
 
--	**Shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi di account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali.
+-	**shared-resource.json**: contiene la definizione di tutte le risorse che verranno condivise durante la distribuzione. Esempi di account di archiviazione utilizzati per archiviare i dischi del sistema operativo della macchina virtuale e le reti virtuali.
 -	**Jumpbox-resources.json**: quando abilitato, è responsabile della distribuzione di tutte le risorse correlate alla macchina virtuale Jumpbox, quella con un indirizzo IP pubblico che può essere utilizzato per accedere al cluster MongoDB dalla rete pubblica.
 -	**Arbiter-resources.json**: quando abilitato, questo modello distribuisce un membro Arbiter nel cluster MongoDB. Un membro Arbiter non contiene dati, ma viene utilizzato quando un set di repliche contiene un numero pari di nodi per gestire le elezioni primarie.
 -	**Member-resources-Dx.json**: specifica i modelli di risorse che distribuiscono in modo efficace i nodi MongoDB. Verrà utilizzato un file specifico in base alla taglia selezionata, in cui ogni file differirà unicamente per il numero di dischi collegati per ciascun nodo.
@@ -690,4 +693,4 @@ In pratica, questo approccio suggerisce che:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

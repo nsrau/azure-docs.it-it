@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Tomcat in una macchina virtuale | Microsoft Azure"
-	description="Informazioni su come creare una macchina virtuale Windows e configurarla per eseguire un server applicazioni Apache Tomcat."
+	description="Questa esercitazione utilizza le risorse create con il modello di distribuzione classica, e illustra come creare una macchina virtuale di Windows e come configurarla per eseguire il server di applicazione Apache Tomcat."
 	services="virtual-machines"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+    tags="azure-service-management" />
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,9 @@
 	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
-# Come eseguire un server applicazioni Java su una macchina virtuale
+# Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Con Azure è possibile utilizzare una macchina virtuale per fornire funzionalità di server. Si può ad esempio configurare una macchina virtuale in esecuzione in Azure per ospitare un server applicazioni Java, come Apache Tomcat. Dopo aver completato la lettura di questa guida, si disporrà di tutte le informazioni necessarie per creare una macchina virtuale in esecuzione su Azure e configurarla per eseguire un server applicazioni Java.
 
@@ -39,7 +42,7 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 1. Accedere al [portale di Azure](https://manage.windowsazure.com).
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
 3. Nella finestra di dialogo **Seleziona immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**. Se si dispone di applicazioni legacy non ancora predisposte per l'esecuzione in JDK 7, è disponibile anche **JDK 6 Windows Server 2012**.
-4. Fare clic su **Next**.
+4. Fare clic su **Avanti**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale**:
     1. Specificare un nome per la macchina virtuale.
     2. Specificare la dimensione da utilizzare per la macchina virtuale.
@@ -59,7 +62,7 @@ Ai fini di questa esercitazione, verrà installato un server applicazioni Apache
 
 ## Per accedere in remoto alla macchina virtuale
 
-1. Accedere al [Portale di gestione](https://manage.windowsazure.com).
+1. Accedere al [portale di gestione](https://manage.windowsazure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
 4. Dopo aver avviato la macchina virtuale, è possibile eseguire le connessioni tramite un menu a comparsa nella parte inferiore della pagina.
@@ -142,4 +145,4 @@ Scoprire di più su altri servizi, come Archiviazione, Bus di servizio e Databas
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

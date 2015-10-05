@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Gestione dei proprietari di un gruppo
@@ -40,9 +40,7 @@
 Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su Azure Active Directory
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
-
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
-
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

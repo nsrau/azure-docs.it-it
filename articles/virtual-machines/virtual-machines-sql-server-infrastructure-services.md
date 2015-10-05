@@ -1,27 +1,30 @@
 <properties 
-	pageTitle="Panoramica di SQL Server in Macchine virtuali di Azure"
-	description="In questo articolo viene fornita una panoramica di SQL Server ospitato in macchine virtuali IaaS di Azure. Sono inclusi i collegamenti al contenuto di profondità."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="rothja"
+	pageTitle="Panoramica di SQL Server in macchine virtuali | Microsoft Azure"
+	description="In questo articolo viene fornita una panoramica di SQL Server ospitato in macchine virtuali di Azure. Sono inclusi i collegamenti al contenuto di profondità." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="rothja" 
 	manager="jeffreyg"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Panoramica di SQL Server in Macchine virtuali di Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
 ## Introduzione
 È possibile ospitare [SQL Server in macchine virtuali Azure](http://azure.microsoft.com/services/virtual-machines/sql-server/) in una vasta gamma di configurazioni, da un singolo server di database a una configurazione con più computer utilizzando i gruppi di disponibilità AlwaysOn e una rete virtuale di Azure.
 
->[AZURE.NOTE]In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'archiviazione dei dati relazionali in Azure. È inoltre possibile usare il servizio Database SQL Azure. Per altre informazioni, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
+>[AZURE.NOTE]In esecuzione SQL Server in una macchina virtuale di Azure è un'opzione per l'archiviazione dei dati relazionali in Azure. È inoltre possibile usare il servizio Database SQL Azure. Per ulteriori informazioni, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 Per creare una macchina virtuale di SQL Server in Azure, è necessario prima ottenere una sottoscrizione della piattaforma Azure. È possibile acquistare una sottoscrizione di Azure in [Opzioni di acquisto](http://azure.microsoft.com/pricing/purchase-options/). Per una prova gratuita, visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -53,7 +56,7 @@ Durante queste fasi iniziali del provisioning e della configurazione, le attivit
 
 ### Migrare i dati
 
-Quando la macchina virtuale SQL Server è attiva e in esecuzione, è possibile eseguire la migrazione di database esistenti alla macchina. Esistono diverse tecniche, ma la procedura guidata per la distribuzione in SQL Server Management Studio è adatta alla maggior parte degli scenari. Per una descrizione degli scenari e un'esercitazione per la procedura guidata, vedere [Migrazione di un database a SQL Server su una macchina virtuale di Azure](virtual-machines-migrate-onpremises-database.md).
+Quando la macchina virtuale SQL Server è attiva e in esecuzione, è possibile eseguire la migrazione di database esistenti alla macchina. Esistono diverse tecniche, ma la procedura guidata per la distribuzione in SQL Server Management Studio è adatta alla maggior parte degli scenari. Per una descrizione degli scenari e un'esercitazione per la procedura guidata, vedere [Migrazione di un database a SQL Server su una VM di Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Disponibilità elevata
 
@@ -144,4 +147,4 @@ Se si crea una macchina virtuale usando un'immagine di SQL Server fornita dalla 
 - [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Macchine virtuali di Azure](virtual-machines-about.md) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

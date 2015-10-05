@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/20/2015"  
 	ms.author="juliako"/>
 
 #Procedura: Configurare i criteri di distribuzione degli asset
@@ -101,6 +101,33 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
             assetDeliveryPolicy.AssetDeliveryPolicyType);
     }
 
+Servizi multimediali di Azure consente inoltre di aggiungere la crittografia Widevine. Nell'esempio seguente viene illustrato sia PlayReady che Widevine da aggiungere al criterio di recapito di asset.
+
+	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+	{
+	    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+	
+	    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	    {
+	        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+	        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl,"http://testurl"},
+	        
+	    };
+	
+	    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+	            "AssetDeliveryPolicy",
+	        AssetDeliveryPolicyType.DynamicCommonEncryption,
+	        AssetDeliveryProtocol.Dash,
+	        assetDeliveryPolicyConfiguration);
+	
+	   
+	    // Add AssetDelivery Policy to the asset
+	    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+	
+	}
+
+>[AZURE.NOTE]Durante la crittografia con Widevine, si sarebbe in grado di recapitare utilizzando DASH. Assicurarsi di specificare il protocollo di recapito asset DASH (2).
 
 
 ##Criteri di distribuzione degli asset DynamicEnvelopeEncryption 
@@ -287,8 +314,12 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
         /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
-    } 
 
+        /// <summary>
+        /// Widevine DRM acquisition url
+        /// </summary>
+        WidevineLicenseAcquisitionUrl
+    }
 
 ##Percorsi di apprendimento di Media Services
 
@@ -297,4 +328,4 @@ Per informazioni sui valori che è possibile specificare quando si crea un ogget
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

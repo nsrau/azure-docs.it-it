@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Operazioni sulle zone DNS | Microsoft Azure"
-	description="È possibile gestire le zone DNS usando i cmdlet PowerShell di Azure o CLI. Come aggiornare, eliminare e creare le zone DNS in DNS di Azure"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Operazioni sulle zone DNS | Microsoft Azure" 
+   description="È possibile gestire le zone DNS usando PowerShell di Azure. Come aggiornare, eliminare e creare le zone DNS in DNS di Azure" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# Come gestire le zone DNS
+# Come gestire le zone DNS utilizzando PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
@@ -108,4 +108,4 @@ L'oggetto di zona può essere anche reindirizzato invece che passato come parame
 
 [Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

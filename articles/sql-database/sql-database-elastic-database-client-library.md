@@ -44,6 +44,8 @@ Per installare la libreria, andare su [Libreria client di database elastici](htt
 
 Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panoramica sullo strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md).
 
+[La libreria client dei database elastici è ora open source!](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -51,4 +53,4 @@ Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panorami
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -18,6 +18,12 @@
 
 # Compilare e distribuire un'app per le API Java nel servizio app di Azure
 
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
+
 Questa esercitazione illustra come creare un'applicazione Java e come distribuirla nelle app per le API del servizio app di Azure tramite [Git](http://git-scm.com). Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Java. Questa esercitazione usa anche [Gradle](https://gradle.org) per abilitare l'automazione della compilazione e la risoluzione delle dipendenze dei pacchetti per l'applicazione Java. Viene infine usato [RESTEasy](http://resteasy.jboss.org/) per creare il servizio RESTful, implementando completamente la specifica [JaxRS](https://jax-rs-spec.java.net/).
 
 Di seguito è riportata una schermata dell'applicazione completata:
@@ -270,4 +276,4 @@ Per provare questa app per le API di esempio, usare il servizio di [prova del se
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

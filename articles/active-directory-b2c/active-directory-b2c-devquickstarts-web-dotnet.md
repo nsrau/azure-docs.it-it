@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Creare un'app Web .NET
@@ -36,14 +36,16 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Specificare `https://localhost:44316/` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
+    > [AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa esercitazione
+
 ## 3\. Creare i criteri
 
-In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. Sarà necessario creare i criteri per ogni tipo, come descritto nell'articolo di [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questo esempio di codice contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. Sarà necessario creare i criteri per ciascun tipo, come descritto nell'articolo [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
 - Scegliere **Iscrizione tramite ID utente** o **Iscrizione tramite indirizzo di posta elettronica** nel pannello dei provider di identità.
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere l'attestazione **Nome visualizzato** come attestazione dell'applicazione in tutti i criteri. È consentito scegliere anche altri criteri.
-- Copiare il **Nome** dei criteri dopo averli creati. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
@@ -89,7 +91,7 @@ Aprire quindi il file `web.config` nella radice del progetto e immettere i valor
 ...
 ```
 
-Aggiungere al progetto una "classe di avvio OWIN" denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> cercare "OWIN". Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app. In questo metodo effettuare una chiamata a ConfigureAuth(...), dove verrà configurata l'autenticazione per l'app.
+Aggiungere al progetto una "classe di avvio OWIN" denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> Cercare "OWIN". Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app. In questo metodo effettuare una chiamata a ConfigureAuth(...), dove verrà configurata l'autenticazione per l'app.
 
 ```C#
 // Startup.cs
@@ -304,9 +306,9 @@ Infine compilare ed eseguire l'app. Eseguire l'iscrizione per l'app usando un in
 
 ## 8\. Aggiungere i provider di identità per i social network
 
-Attualmente, l'app supporta l'iscrizione e l'accesso con gli account denominati **account locali**, ovvero account archiviati nella directory B2C con un nome utente e una password. Con Azure AD B2C, è possibile aggiungere il supporto per altri **provider di identità**, senza modificare il codice.
+Attualmente, l'app supporta solo l'iscrizione e l'accesso con gli account denominati **account locali**, ovvero account archiviati nella directory B2C con un nome utente e una password. Con Azure AD B2C, è possibile aggiungere il supporto per altri **provider di identità**, o IDP, senza modificare il codice.
 
-Per aggiungere provider di identità per i socia network all'applicazione, seguire le istruzioni dettagliate fornite in uno di questi due articoli. Per ogni provider di identità che si vuole supportare, sarà necessario registrare un'applicazione nel sistema del provider e ottenere un ID client.
+Per aggiungere provider di identità per i social network all'applicazione, seguire le istruzioni dettagliate fornite in uno di questi due articoli. Per ogni provider di identità che si vuole supportare, sarà necessario registrare un'applicazione nel sistema del provider e ottenere un ID client.
 
 - [Configurare Facebook come provider di identità](active-directory-b2c-setup-fb-app.md)
 - [Configurare Google come provider di identità](active-directory-b2c-setup-goog-app.md)
@@ -335,4 +337,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

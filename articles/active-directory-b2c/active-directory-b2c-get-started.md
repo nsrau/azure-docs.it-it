@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: come creare una Directory AD B2C Azure
@@ -37,7 +37,7 @@ Utilizzare la procedura seguente per creare una nuova directory AD B2C di Azure.
 
     ![Creare la directory](./media/active-directory-b2c-get-started/new-directory.png)
 
-3. Scegliere il **nome**, il **nome di dominio** e il **paese/area geografica** per la directory.
+3. Scegliere il **nome**, **nome di dominio** e **paese o regione** per la directory.
 4. Selezionare l'opzione che indica che "**è una directory B2C**".
 5. Fare clic sul segno di spunta per completare l’operazione.
 
@@ -67,4 +67,4 @@ Utilizzare la procedura seguente per creare una nuova directory AD B2C di Azure.
 
 Passare alla [registrazione di un'applicazione con AD B2C di Azure e creazione di un'applicazione di avvio rapido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

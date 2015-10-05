@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Come gestire un servizio cloud | Microsoft Azure" 
-	description="Informazioni su come gestire i servizi cloud nel portale di anteprima di Azure." 
+	pageTitle="Come gestire un servizio cloud (portale di anteprima) | Microsoft Azure" 
+	description="Informazioni su come gestire i servizi cloud nel portale di anteprima di Azure. Questi esempi utilizzano il portale di anteprima di Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -106,4 +106,11 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 [portale di anteprima di Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+## Passaggi successivi
+
+* [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
+* Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
+* Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
+* Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

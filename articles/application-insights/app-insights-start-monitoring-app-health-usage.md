@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -133,6 +133,21 @@ Aprire le seguenti porte per il traffico in uscita nel firewall del server:
 
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+
+## Rilevare la versione dell’applicazione
+
+Assicurarsi che `buildinfo.config` sia generato dal processo di compilazione. Nel file con estensione csproj, aggiungere:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quando dispone delle informazioni di compilazione, il modulo Web Application Insights aggiunge automaticamente la **versione dell'applicazione** come una proprietà per ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
+
+
 ## 5\. Aggiungere i contatori delle prestazioni e del rilevamento delle dipendenze
 
 L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
@@ -156,6 +171,8 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 #### è un progetto di Servizi cloud di Azure
 
 [Aggiungere gli script ai ruoli web e di lavoro](app-insights-cloudservices.md)
+
+
 
 ## 6\. Aggiungere il monitoraggio sul lato client
 
@@ -207,7 +224,7 @@ Se il progetto contiene pagine Web, aggiunge anche [SDK JavaScript][client] alla
 
 #### o se è un progetto esistente
 
-Fare clic con il pulsante destro del mouse su Esplora soluzioni e scegliere **Aggiungi Application Insights**.
+Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere **Aggiungi Application Insights**.
 
 ![Scegliere Aggiungi Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -255,4 +272,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

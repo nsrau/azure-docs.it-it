@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/14/2015" 
+	ms.date="09/23/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -72,4 +72,4 @@ L’esportazione di un database dall’interno di un pool è supportata. Attualm
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

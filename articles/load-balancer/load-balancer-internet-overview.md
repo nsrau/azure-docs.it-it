@@ -36,7 +36,7 @@ La figura seguente mostra un endpoint con carico bilanciato per il traffico Web 
 
 
 
-Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud e alla porta TCP 443, il servizio di bilanciamento del carico di Azure esegue un bilanciamento casuale di queste richieste tra le tre macchine virtuali del set con carico bilanciato.
+Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud e alla porta TCP 443, il servizio di bilanciamento del carico di Azure esegue un bilanciamento del carico basato su hash di queste richieste tra le tre macchine virtuali del set con carico bilanciato. È possibile ottenere ulteriori informazioni sull'algoritmo di bilanciamento di carico in [pagina panoramica del bilanciamento di carico](load-balancer-overview#load-balancer-features).
 
 
 ## Passaggi successivi
@@ -52,4 +52,4 @@ Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubbli
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

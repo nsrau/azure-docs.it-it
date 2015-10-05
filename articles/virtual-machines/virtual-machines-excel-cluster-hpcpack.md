@@ -1,19 +1,19 @@
 <properties
  pageTitle="Introduzione all’uso di un cluster HPC Pack per l’esecuzione di carichi di lavoro di Excel e SOA | Microsoft Azure"
-	description="."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+ description="."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""/>
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="08/18/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-windows"
+ ms.workload="big-compute"
+ ms.date="08/18/2015"
+ ms.author="danlep"/>
 
 # Introduzione all’uso di un cluster HPC Pack in Azure per l’esecuzione di carichi di lavoro di Excel e SOA
 
@@ -135,14 +135,14 @@ Lo script di distribuzione di HPC Pack IaaS offre un altro modo versatile per di
     <ServiceName>HPCExcelCN01</ServiceName>
     <VMSize>Medium</VMSize>
     <NodeCount>18</NodeCount>
-    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4864.0-WS2012R2-ENU</ImageName>
+    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4868.0-WS2012R2-ENU</ImageName>
   </ComputeNodes>
 </IaaSClusterConfig>
 ```
 
 **Note sul file di configurazione**
 
-* Il **VMName**del nodo head deve essere esattamente identico al **ServiceName**.
+* Il **VMName**del nodo head deve essere esattamente identico al **ServiceName**, o sarebbe impossibile eseguire il processo SOA.
 
 * Assicurarsi di specificare **EnableWebPortal** per consentire la generazione e l’esportazione del certificato del nodo head.
 
@@ -158,7 +158,7 @@ Lo script di distribuzione di HPC Pack IaaS offre un altro modo versatile per di
     # remove the compute node role for head node to make sure the Excel workbook won’t run on head node
         Get-HpcNode -GroupName HeadNodes | Set-HpcNodeState -State offline | Set-HpcNode -Role BrokerNode
 
-    # total number of nodes in the deployment including the head node and compute nodes
+    # total number of nodes in the deployment including the head node and compute nodes, which should match the number specified in the XML configuration file
         $TotalNumOfNodes = 19
 
         $ErrorActionPreference = 'SilentlyContinue'
@@ -210,19 +210,27 @@ Per eseguire l’offload di una cartella di lavoro di Excel da eseguire nel clus
 
 2. Nel computer client, importare il certificato del cluster in Cert: \\CurrentUser\\Root.
 
-3. Verificare che Excel sia installato. Creare un file Excel.exe.config con i seguenti contenuti nella stessa cartella di Excel.exe del computer client. In questo modo il componente aggiuntivo di HPC Pack 2012 R2 Excel COM verrà caricato correttamente.
+3. Verificare che Excel sia installato. Creare un file Excel.exe.config con i seguenti contenuti nella stessa cartella di Excel.exe del computer client. Ciò garantisce che il componente aggiuntivo COM di Excel di HPC Pack 2012 R2 e la libreria di archiviazione di Azure vengano caricati correttamente. Si noti che l’'href' seguente deve fare riferimento a "%CCP\_HOME%Bin\\Microsoft.WindowsAzure.Storage.dll" sul computer client.
 
     ```
 <?xml version="1.0"?>
 <configuration>
-  <startup useLegacyV2RuntimeActivationPolicy="true">
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
-  </startup>
+    <startup useLegacyV2RuntimeActivationPolicy="true">
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
+    </startup>
+    <runtime>
+        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.WindowsAzure.Storage"  culture="neutral" publicKeyToken="31bf3856ad364e35"/>
+                <codeBase version="4.3.0.0" href="C:\Program Files\Microsoft HPC Pack 2012\Bin\Microsoft.WindowsAzure.Storage.dll"/>
+            </dependentAssembly>
+        </assemblyBinding>
+    </runtime>
 </configuration>
 ```
 4.	Scaricare la versione completa di [installazione di HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755)e installare il client di HPC Pack oppure scaricare e installare le [utilità client di HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754)e il file ridistribuibile Visual C++ 2010 appropriato per il computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632)[x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	In questo esempio, viene utilizzata una cartella di lavoro di esempio di Excel denominata ConvertiblePricing\_Complete.xlsb, disponibile per il download [qui](https://www.microsoft.com/it-IT/download/details.aspx?id=2939).
+5.	In questo esempio, viene utilizzata una cartella di lavoro di esempio di Excel denominata ConvertiblePricing\_Complete.xlsb, disponibile per il download [qui](https://www.microsoft.com/IT-IT/download/details.aspx?id=2939).
 
 6.	Copiare la cartella di lavoro di Excel in una cartella di lavoro, ad esempio D:\\Excel\\Run.
 
@@ -259,15 +267,15 @@ Per eseguire l’offload di una cartella di lavoro di Excel da eseguire nel clus
 
 Per eseguire funzioni definite dall'utente di Excel, seguire i passaggi da 1 a 3 della precedente configurazione del computer client. Per le funzioni definite dall'utente di Excel, non è necessario che l’applicazione Excel sia installata sui nodi di calcolo, pertanto nel passaggio 1 è possibile scegliere un'immagine normale del nodo di calcolo anziché l'immagine del nodo di calcolo con Excel.
 
->[AZURE.NOTE]Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, lo spazio disponibile nella finestra di dialogo non sarà sufficiente. La soluzione alternativa consiste nell'applicare Update 2 QFE KB3085833 (scaricabile [qui](http://www.microsoft.com/it-IT/download/details.aspx?id=48725)) per l'API di sessione SOA sul computer client, quindi impostare una variabile per tutti i computer, ad esempio *CCP\_IAASHN* con il valore del nome di cluster lungo e l'input *%CCP\_IAASHN%* nella finestra di dialogo come nome del nodo head del cluster.
+>[AZURE.NOTE]Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, lo spazio disponibile nella finestra di dialogo non sarà sufficiente. La soluzione alternativa consiste nell'applicare Update 2 QFE KB3085833 (scaricabile [qui](http://www.microsoft.com/IT-IT/download/details.aspx?id=48725)) per l'API di sessione SOA sul computer client, quindi impostare una variabile per tutti i computer, ad esempio *CCP\_IAASHN* con il valore del nome di cluster lungo e l'input *%CCP\_IAASHN%* nella finestra di dialogo come nome del nodo head del cluster.
 
 Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall’utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, vedere queste [risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
 
-1.	Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Componenti aggiuntivi**. Quindi, nella finestra di dialogo fare clic su **Sfoglia**, accedere alla cartella %CCP\_HOME%Bin\\XLL32 e selezionare il ClusterUDF32.xll di esempio.
+1.	Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Componenti aggiuntivi**. Quindi, nella finestra di dialogo fare clic su **Sfoglia**, accedere alla cartella %CCP\_HOME%Bin\\XLL32 e selezionare il ClusterUDF32.xll di esempio. Se il ClusterUDF32 non esiste nel computer client, è possibile copiarlo dalla cartella %CCP\_HOME%Bin\\XLL32 nel nodo head.
 
     ![Selezionare la UDF][udf]
 
-2.	Fare clic su **File** > **Opzioni** > **Avanzate**. In **Formule** selezionare **Consenti l'esecuzione di funzioni XLL definite dall'utente in un cluster di elaborazione**. Fare clic su **Opzioni** e immettere il nome completo del cluster in **Nome del nodo head del cluster**. (Come indicato in precedenza la casella di immissione è limitata a 34 caratteri, pertanto un nome di cluster lungo potrebbe non essere adatto. È possibile configurare un nome completo più breve quando si distribuisce un cluster tramite lo script di distribuzione IaaS).
+2.	Fare clic su **File** > **Opzioni** > **Avanzate**. In **Formule** selezionare **Consenti l'esecuzione di funzioni XLL definite dall'utente in un cluster di elaborazione**. Fare clic su **Opzioni** e immettere il nome completo del cluster in **Nome del nodo head del cluster**. (Come indicato in precedenza la casella di immissione è limitata a 34 caratteri, pertanto un nome di cluster lungo potrebbe non essere adatto. È possibile applicare l’aggiornamento KB3085833 QFE 2 nel client e quindi impostare una macchina di larghezza variabile qui per il nome lungo del cluster.)
 
     ![Configurare la UDF][options]
 
@@ -376,4 +384,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

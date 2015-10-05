@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: come inviare richieste di supporto per Azure Active Directory B2C
@@ -50,4 +50,4 @@ Se non è stato svolto il passaggio 2 precedente e si tenta di creare una richie
 
 ![Supporto - Nessuna sottoscrizione](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

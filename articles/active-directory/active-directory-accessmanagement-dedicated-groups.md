@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gruppi dedicati in Azure Active Directory | Microsoft Azure" 
-	description="Argomento che illustra come gestire i gruppi in Azure AD." 
+	description="Panoramica dei gruppi dedicati in Azure AD e come vengono creati." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -28,9 +28,7 @@ Il gruppo dedicato Tutti gli utenti può essere utile se si desidera assegnare l
 Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su Azure Active Directory
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
-
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
-
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

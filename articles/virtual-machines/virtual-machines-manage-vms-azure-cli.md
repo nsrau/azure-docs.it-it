@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Gestione delle macchine virtuali di Azure utilizzando l’interfaccia della riga di comando per Mac, Linux e Windows | Microsoft Azure"
-   description="Viene descritto come creare, gestire ed eliminare le macchine virtuali di Azure tramite la CLI di Azure per Mac, Linux e Windows."
+   pageTitle="Gestione delle macchine virtuali di Azure utilizzando l’interfaccia della riga di comando | Microsoft Azure"
+   description="Descrive come gestire le macchine virtuali di Azure tramite la CLI di Azure per Mac, Linux e Windows."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="danlep"/>
 
 # Gestire le macchine virtuali tramite la CLI di Azure per Mac, Linux e Windows
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa creata con il modello di distribuzione classica. È inoltre possibile gestire una risorsa creata con il [modello di distribuzione di Gestione risorse](virtual-machines-how-to-automate-azure-resource-manager.md).
 
 Molte attività che è possibile eseguire ogni giorno per gestire le macchine virtuali possono essere automatizzate da tramite la CLI di Azure. In questo articolo offre esempi di comandi per le attività più semplici e collegamenti ad articoli in cui visualizzare i comandi per attività più complesse.
 
@@ -79,6 +82,5 @@ Naturalmente, se si dispone già di tali valori è possibile trovare le opzioni 
 ## Passaggi successivi
 
 Per ulteriori esempi di utilizzo dell'interfaccia della riga di comando di Azure in modalità **arm**, vedere il documento relativo all'[utilizzo dell'interfaccia della riga di comando di Microsoft Azure per Mac, Linux e Windows con Gestione risorse di Microsoft Azure.](../xplat-cli-resource-manager.md). Per ulteriori informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

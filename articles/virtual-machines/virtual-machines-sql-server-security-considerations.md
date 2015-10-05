@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure"
-	description="Indicazioni generali per la protezione di SQL Server in esecuzione in una macchina virtuale di Azure."
+	pageTitle="Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure | Microsoft Azure"
+	description="Questo argomento fa riferimento alle risorse create con il modello di distribuzione classica e fornisce una guida generale per la protezione di SQL Server in esecuzione nelle macchine virtuali di Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +14,13 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
 
 Questo argomento include le linee guida di sicurezza generali che consentono di stabilire l'accesso sicuro alle istanze di SQL Server in una macchina virtuale di Azure. Per garantire tuttavia la migliore protezione alle istanze del database SQL Server in Azure, è consigliabile implementare le tradizionali procedure di sicurezza locali oltre alle procedure consigliate per la sicurezza in Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l'uso di una risorsa con il modello di distribuzione classica.
 
 Per altre informazioni sulle procedure di sicurezza di SQL Server, vedere: [Documento relativo alle procedure consigliate sulle attività operative e amministrative per la sicurezza di SQL Server 2008 R2](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
@@ -54,8 +57,8 @@ Di seguito è riportato un elenco di consigli relativi alla sicurezza da conside
 
 ## Passaggi successivi
 
-Se si è interessati alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md).
+Se si è interessati anche alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server nella panoramica delle Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

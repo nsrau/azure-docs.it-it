@@ -1,13 +1,13 @@
 <properties 
-	pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux in Azure" 
+	pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux | Microsoft Azure" 
 	description="Informazioni su come usare mdadm per configurare RAID in Linux in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
 	manager="timlt" 
-	editor=""/>
-
+	editor=""
+	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -20,10 +20,10 @@
 
 
 
-
 # Configurare RAID software in Linux
 I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per presentare più dischi dati collegati come se si trattasse di un singolo dispositivo RAID. In genere questa configurazione consente di migliorare le prestazioni e la velocità effettiva rispetto all'utilizzo di un unico disco.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Collegamento di dischi dati
 Per configurare un dispositivo RAID sono in genere necessari due dischi dati. In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](storage-windows-attach-disk.md#attachempty).
@@ -181,4 +181,4 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

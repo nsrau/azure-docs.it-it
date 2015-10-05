@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -316,13 +316,13 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP origine dati esterna (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146367.aspx
-[eliminare FILE di formato esterno (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt146379.aspx
-[DROP TABLE esterno (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/mt130698.aspx
+[DROP origine dati esterna (Transact-SQL)]: https://msdn.microsoft.com/IT-IT/library/mt146367.aspx
+[eliminare FILE di formato esterno (Transact-SQL)]: https://msdn.microsoft.com/IT-IT/library/mt146379.aspx
+[DROP TABLE esterno (Transact-SQL)]: https://msdn.microsoft.com/IT-IT/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/it-IT/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/IT-IT/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/IT-IT/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/IT-IT/library/ms189450.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"    
+	ms.date="09/20/2015"    
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,6 @@
 I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace.
 
 In questo argomento verrà illustrato come utilizzare .NET per codificare gli asset con Media Encoder Standard. Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
-
->[AZURE.NOTE]La versione corrente del processore multimediale richiede di passare un'intera stringa JSON o XML come set di impostazioni di codifica. Il supporto per il passaggio in una stringa denominata, come "H264 velocità in bit multipla 720p", sarà disponibile a breve tramite un aggiornamento del servizio.
 
 È consigliabile codificare sempre i file in formato intermedio con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md). Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere prima almeno un'unità di streaming on demand per l'endpoint di streaming da cui si intende distribuire il contenuto. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-manage-origins.md#scale_streaming_endpoints).
 
@@ -35,7 +33,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
-- Caricare il set di impostazioni XML da uno dei set di impostazioni illustrati [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+- Specificare l'utilizzo del set di impostazioni "H264 più velocità in bit 720p". È possibile visualizzare tutti i set di impostazioni [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). È inoltre possibile esaminare lo schema al quale questi set predefiniti devono essere conformi [qui](https://msdn.microsoft.com/library/mt269962.aspx).
 - Aggiungere una singola attività di codifica al processo. 
 - Specificare l’asset di input da codificare.
 - Creare un asset di output che conterrà l'asset codificato.
@@ -50,13 +48,12 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 		    // processor to use for the specific task.
 		    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		    // Load the XML (or JSON) from the local file
-		    string configuration = File.ReadAllText(pathToLocalPresetFile);
-		
-		    // Create a task
-		    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+
+		    // Create a task with the encoding details, using a string preset.
+		    // In this case "H264 Multiple Bitrate 720p" preset is used.
+		    ITask task = job.Tasks.AddNew("My encoding task",
 		        processor,
-		        configuration,
+		        "H264 Multiple Bitrate 720p",
 		        TaskOptions.None);
 		
 		    // Specify the input asset to be encoded.
@@ -126,6 +123,6 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 ##Vedere anche 
 
-[Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
+[Come generare l'anteprima mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Panoramica della codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

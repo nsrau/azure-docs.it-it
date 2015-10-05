@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/20/2015" 
 	ms.author="juliako"/>
 
 #Procedura: Configurare i criteri di distribuzione degli asset
@@ -265,6 +265,15 @@ Richiesta:
 	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
+Se si desidera proteggere il contenuto utilizzando DRM Widevine, aggiornare i valori AssetDeliveryConfiguration per utilizzare WidevineLicenseAcquisitionUrl (che ha il valore 7) e specificare l'URL di un servizio di recapito di licenza. È possibile utilizzare i seguenti partner AMS per consentire la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+
+Ad esempio:
+ 
+	
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":7,"Value":"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+
+>[AZURE.NOTE]Durante la crittografia con Widevine, si sarebbe in grado di recapitare utilizzando DASH. Assicurarsi di specificare il protocollo di recapito asset DASH (2).
+  
 ###Collegare un asset ai criteri di distribuzione
 
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
@@ -373,6 +382,7 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
     /// </summary>
+
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>
@@ -409,8 +419,12 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
         /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
-    }
 
+        /// <summary>
+        /// Widevine DRM acquisition url
+        /// </summary>
+        WidevineLicenseAcquisitionUrl
+    }
 
 
 ##Percorsi di apprendimento di Media Services
@@ -422,4 +436,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

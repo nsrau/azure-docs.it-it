@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Configurazione del progetto Azure tramite più configurazioni del servizio"
-	description="Configurazione del progetto Azure tramite più configurazioni del servizio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Configurazione del progetto Azure tramite più configurazioni del servizio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Configurazione di un progetto Azure
 
@@ -85,7 +85,7 @@ Un ruolo di lavoro può disporre di qualsiasi numero di endpoint HTTP, HTTPS o T
 
 ## Pagina Archiviazione locale
 
-È possibile usare la pagina delle proprietà **Archiviazione locale** per riservare una o più risorse di archiviazione locali per un ruolo. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale di Azure in cui è eseguita un'istanza di un ruolo. Per altre informazioni sull'utilizzo delle risorse di archiviazione locali, vedere [Configurare le risorse di archiviazione locale](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+È possibile usare la pagina delle proprietà **Archiviazione locale** per riservare una o più risorse di archiviazione locali per un ruolo. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale di Azure in cui è eseguita un'istanza di un ruolo. Per altre informazioni sull'utilizzo delle risorse di archiviazione locali, vedere [Configurare le risorse di archiviazione locale](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Pagina Certificati
 
@@ -114,4 +114,4 @@ Per configurare le impostazioni di un intero progetto di servizio cloud di Azure
 
 [Strumenti di Azure per Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

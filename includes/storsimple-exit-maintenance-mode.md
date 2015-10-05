@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per uscire dalla modalità di manutenzione
 
@@ -9,4 +10,4 @@
 
     Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità normale.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

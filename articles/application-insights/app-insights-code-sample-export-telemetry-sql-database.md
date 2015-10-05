@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Esempio di codice: esportare in SQL da Application Insights usando un ruolo di lavoro"
-	description="Codificare la propria analisi dei dati di telemetria in Application Insights usando la funzione di esportazione continua."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Esempio di codice: esportare in SQL da Application Insights usando un ruolo di lavoro" 
+	description="Codificare la propria analisi dei dati di telemetria in Application Insights usando la funzione di esportazione continua." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Esempio di codice: esportare in SQL da Application Insights usando un ruolo di lavoro
@@ -51,20 +51,20 @@ Attività iniziali
 
 ## Creare l'archiviazione in Azure
 
-1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure][portal].
+1. Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure][portal].
 
     ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Creare un contenitore
 
-    ![Nel nuovo archivio selezionare Contenitori, quindi Aggiungi](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![Nel nuovo archivio selezionare Contenitori, fare clic sul riquadro Contenitori e quindi su Aggiungi](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Avviare l'esportazione continua nell'archiviazione di Azure
 
 1. Nel portale di Azure passare alla risorsa di Application Insights creata per la propria applicazione.
 
-    ![Scegliere Sfoglia, Application Insights, quindi l'applicazione](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
+    ![Scegliere Sfoglia, Application Insights e quindi l'applicazione](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
 
 2. Creare un'esportazione continua.
 
@@ -539,4 +539,4 @@ Per vedere questo esempio in azione, [scaricare](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

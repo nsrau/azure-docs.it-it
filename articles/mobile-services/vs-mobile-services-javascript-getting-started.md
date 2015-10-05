@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="Introduzione a un'app mobile Javascript dopo l'aggiunta di servizi mobili utilizzando i servizi relativi a Visual Studio | Microsoft Azure" 
 	description="Come iniziare a utilizzare Servizi mobili in un progetto JavaScript in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
-# Introduzione a Servizi mobili
+# Introduzione a un'app mobile Javascript dopo l'aggiunta di servizi mobili di Azure utilizzando i servizi relativi a Visual Studio
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -24,9 +24,9 @@
 
 Il primo passaggio da eseguire per attenersi al codice riportato in questi esempi dipende dal tipo di servizio mobile a cui si è connessi.
 
-Per un servizio mobile back-end JavaScript, creare una tabella denominata TodoItem. Per creare una tabella, individuare il servizio mobile nel nodo Azure di Esplora server, fare clic con il pulsante destro del mouse sul nodo per aprire il menu di scelta rapida, quindi scegliere **Crea tabella**. Immettere "TodoItem" come nome della tabella.
+ - Per un servizio mobile back-end JavaScript, creare una tabella denominata TodoItem. Per creare una tabella, individuare il servizio mobile nel nodo Azure di Esplora server, fare clic con il pulsante destro del mouse sul nodo per aprire il menu di scelta rapida, quindi scegliere **Crea tabella**. Immettere "TodoItem" come nome della tabella.
 
-Se invece si è connessi a un servizio mobile back-end .NET, nel modello di progetto predefinito creato da Visual Studio è già presente una tabella TodoItem, che deve però essere pubblicata in Azure. Per eseguire la pubblicazione, aprire il menu di scelta rapida per il progetto del servizio mobile in Esplora soluzioni e scegliere **Pubblica sito Web**. Accettare le impostazioni predefinite, quindi scegliere **Pubblica**.
+ - Se invece si è connessi a un servizio mobile back-end .NET, nel modello di progetto predefinito creato da Visual Studio è già presente una tabella TodoItem, che deve però essere pubblicata in Azure. Per eseguire la pubblicazione, aprire il menu di scelta rapida per il progetto del servizio mobile in Esplora soluzioni e scegliere **Pubblica sito Web**. Accettare le impostazioni predefinite, quindi scegliere **Pubblica**.
 
 ##Ottenere un riferimento a una tabella
 
@@ -92,4 +92,4 @@ Eliminare una riga in una tabella dati. Chiamare il metodo [done]() sull'oggetto
 
 [Altre informazioni sui servizi mobili](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -28,8 +28,8 @@ Contenuto dell'argomento:
 ## <a name="cloudservice"></a>Abilitazione del debug remoto per i servizi cloud
 
 1. Nell'agente di compilazione configurare l'ambiente iniziale per Azure come descritto in [Compilazione da riga di comando per Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Poiché il pacchetto richiede l'installazione del runtime di debug remoto (msvsmon.exe), installare [Remote Tools per Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) o [Remote Tools per Visual Studio 2013 Update 5 RC](https://www.microsoft.com/it-it/download/details.aspx?id=46870) se è installato Visual Studio 2013. In alternativa, copiare i binari di debug remoto da un sistema in cui è installato Visual Studio.
-3. Creare un certificato come descritto in [Creare un certificato di servizio per Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Mantenere il file con estensione pfx e l'identificazione personale del certificato RDP e caricare il certificato nel servizio cloud di destinazione.
+2. Poiché il pacchetto richiede l'installazione del runtime di debug remoto (msvsmon.exe), installare [Remote Tools per Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) o [Remote Tools per Visual Studio 2013 Update 5 RC](https://www.microsoft.com/IT-IT/download/details.aspx?id=46870) se è installato Visual Studio 2013. In alternativa, copiare i binari di debug remoto da un sistema in cui è installato Visual Studio.
+3. Creare un certificato come descritto in [Creare un certificato di servizio per Azure](cloud-services-certs-create.md). Mantenere il file con estensione pfx e l'identificazione personale del certificato RDP e caricare il certificato nel servizio cloud di destinazione.
 4. Nella riga di comando MSBuild usare le opzioni seguenti per eseguire la compilazione e creare un pacchetto con il debug remoto abilitato. Sostituire i percorsi effettivi ai file di progetto e di sistema per gli elementi racchiusi tra parentesi angolari.
 
 		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.6" "<path to your VS solution file>"
@@ -43,7 +43,7 @@ Contenuto dell'argomento:
 
 1. Creare una macchina virtuale di Azure. Per informazioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines-windows-tutorial.md) o [Creazione di macchine virtuali di Azure in Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. Nella [pagina del portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851) visualizzare il dashboard della macchina virtuale per individuare l'identificazione personale certificato RDP della macchina virtuale. L'identificazione digitale viene usata per il valore `ServerThumbprint` nella configurazione dell'estensione.
-3. Creare un certificato client come descritto in [Creare un certificato di servizio per Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (conservare il file PFX e l'identificazione personale RDP).
+3. Creare un certificato client come descritto in [Creare un certificato di servizio per Azure](cloud-services-certs-create.md) (conservare il file PFX e l'identificazione personale RDP).
 4. Installare [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (versione 0.7.4 o successiva) dall'Area download Microsoft.
 5. Eseguire lo script seguente per abilitare l'estensione RemoteDebug. Sostituire i percorsi e i dati personali con i dati personali dell'utente, ad esempio nome della sottoscrizione, nome del servizio e identificazione personale. NOTA: questo script è configurato per Visual Studio 2015 RC. Se si usa Visual Studio 2013, usare "RemoteDebugVS2013" per ReferenceName e ExtensionName.
 
@@ -93,6 +93,5 @@ Contenuto dell'argomento:
 	</pre>
 
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Tipi di applicazioni
@@ -128,4 +128,4 @@ Molte architetture includono un'API Web che deve chiamare un'altra API Web downs
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Azure AD B2C.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Bilanciamento del carico per i servizi di infrastruttura di Azure"
+	pageTitle="Bilanciamento del carico per i servizi di infrastruttura | Microsoft Azure"
 	description="Vengono descritti i due tipi diversi di bilanciamento del carico supportati da Azure: Bilanciamento del carico per servizi cloud e Gestione traffico di Azure per il traffico client."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -18,6 +18,7 @@
 
 
 # Bilanciamento del carico per i servizi di infrastruttura di Azure#
+
 
 Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanciamento del carico:
 
@@ -83,4 +84,4 @@ Per altre informazioni sul bilanciamento del carico, vedere [Bilanciamento del c
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Distribuire SQL Server AlwaysOn con un modello di Gestione risorse di Azure | Microsoft Azure"
+	pageTitle="SQL Server AlwaysOn con modello di Gestione risorse di Azure | Microsoft Azure"
 	description="Distribuire facilmente cinque server che supportano SQL Server AlwaysOn con un modello di Gestione risorse e il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 
 # Distribuire SQL Server AlwaysOn con un modello di Gestione risorse di Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione risorse. Non è possibile creare questa risorsa con il modello di distribuzione classica.
+
 Usare le istruzioni riportate in questo articolo per distribuire SQL Server AlwaysOn usando un modello di Gestione risorse di Azure. Questo modello consente di creare cinque macchine virtuali in una nuova rete virtuale in due diverse subnet.
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
@@ -31,8 +33,8 @@ Per distribuire il carico di lavoro mediante un modello di Gestione risorse di A
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
-1.	Per il riquadro**Modello**, fare clic su **Salva**.
-2.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
+1.	Per il riquadro **Modello**, fare clic su **Salva**.
+2.	Fare clic su **Parametri**. Nel riquadro **Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 3.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
 4.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 5.	Se necessario, fare clic su **Percorso del gruppo di risorse** e selezionare il percorso corretto di Azure.
@@ -105,4 +107,4 @@ Una volta completata l'esecuzione del modello, si dispone di una nuova configura
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

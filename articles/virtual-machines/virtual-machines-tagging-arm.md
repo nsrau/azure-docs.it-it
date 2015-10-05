@@ -1,13 +1,12 @@
 <properties
-   pageTitle="Come contrassegnare una macchina virtuale in Azure."
-   description="Ulteriori informazioni sui tag di una macchina virtuale in Azure"
+   pageTitle="Come assegnare i tag a una VM | Microsoft Azure"
+   description="Ulteriori informazioni sull’assegnazione di tag a una macchina virtuale di Azure creata con il modello di distribuzione di Gestione risorse."
    services="virtual-machines"
    documentationCenter=""
    authors="mmccrory"
    manager="timlt"
    editor="tysonn"
    tags="azure-resource-manager"/>
-
 
 <tags
    ms.service="virtual-machines"
@@ -18,8 +17,9 @@
    ms.date="07/23/2015"
    ms.author="dkshir;memccror"/>
 
-
 # Come contrassegnare una macchina virtuale in Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo è dedicato all’assegnazione di tag a una macchina virtuale creata con il modello di distribuzione di Gestione risorse.
 
 In questo articolo vengono descritti diversi modi per contrassegnare una macchina virtuale in Azure tramite il gestore di risorse di Azure. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Attualmente, Azure supporta fino a 15 tag per ogni risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite la gestione risorse di Azure.
 
@@ -85,9 +85,9 @@ Se la macchina virtuale contiene già dei tag, verranno visualizzati tutti i tag
                 "Environment": "Production"
                }
 
-Se si desidera aggiungere i tag tramite PowerShell, è possibile utilizzare il comando`Set-AzureResource`. Nota: Quando si aggiornano i tag tramite PowerShell, i tag vengono aggiornati nel loro complesso. Se si aggiunge un tag a una risorsa che già dispone di tag, sarà pertanto necessario includere tutti i tag che si desidera inserire nella risorsa. Di seguito è riportato un esempio di come aggiungere ulteriori tag a una risorsa tramite Cmdlets di PowerShell.
+Se si desidera aggiungere i tag tramite PowerShell, è possibile utilizzare il comando `Set-AzureResource`. Nota: Quando si aggiornano i tag tramite PowerShell, i tag vengono aggiornati nel loro complesso. Se si aggiunge un tag a una risorsa che già dispone di tag, sarà pertanto necessario includere tutti i tag che si desidera inserire nella risorsa. Di seguito è riportato un esempio di come aggiungere ulteriori tag a una risorsa tramite Cmdlets di PowerShell.
 
-Questo primo cmdlet imposta tutti i tag inseriti in*MyWindowsVM*per la variabile*tag*, utilizzando la funzione`Get-AzureResource`e`Tags`.
+Questo primo cmdlet imposta tutti i tag inseriti in *MyWindowsVM* per la variabile *tag*, utilizzando la funzione `Get-AzureResource` e `Tags`.
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -106,15 +106,15 @@ Il secondo comando consente di visualizzare i tag per la variabile specificata.
         Value		Production
         Name		Environment
 
-Il terzo comando aggiunge un altro tag per la variabile*tag*. Si noti l'utilizzo del**+ =**per aggiungere la nuova coppia chiave/valore per l’elenco*tag*.
+Il terzo comando aggiunge un altro tag per la variabile *tag*. Si noti l'utilizzo del **+ =** per aggiungere la nuova coppia chiave/valore per l’elenco *tag*.
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
-Il quarto comando imposta tutti i tag definiti nella variabile*tag* per la risorsa specificata. In questo caso, è MyWindowsVM.
+Il quarto comando imposta tutti i tag definiti nella variabile *tag* per la risorsa specificata. In questo caso, è MyWindowsVM.
 
         PS C:\> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
 
-Il quinto comando visualizza tutti i tag sulla risorsa. Come si può vedere,*Indirizzo*è ora definito come un tag con*Ilmiopercorso*come valore.
+Il quinto comando visualizza tutti i tag sulla risorsa. Come si può vedere, *Percorso* è ora definito come un tag con *Ilmiopercorso* come valore.
 
         PS C:\> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -131,7 +131,7 @@ Il quinto comando visualizza tutti i tag sulla risorsa. Come si può vedere,*Ind
         Value		MyLocation
         Name		Location
 
-Per ulteriori informazioni sui tag tramite PowerShell, consultare le[cmdlet di Azure Resource][].
+Per ulteriori informazioni sui tag tramite PowerShell, consultare le [cmdlet di Azure Resource][].
 
 
 ## Assegnazione di tag con Azure CLI
@@ -140,11 +140,11 @@ L’assegnazione di tag è supportata per le risorse che sono già state create 
 
         azure vm show -g MyResourceGroup -n MyVM
 
-A differenza di PowerShell, se si sta aggiungendo tag a una risorsa che già contiene tag, non occorre specificare tutti i tag (vecchi e nuovi) prima di utilizzare il comando `azure vm set`. Questo comando consente invece di aggiungere un tag per la risorsa. Per aggiungere un nuovo tag della macchina virtuale tramite la CLI di Azure, è possibile utilizzare il comando`azure vm set` insieme al parametro tag**-t**:
+A differenza di PowerShell, se si sta aggiungendo tag a una risorsa che già contiene tag, non occorre specificare tutti i tag (vecchi e nuovi) prima di utilizzare il comando `azure vm set`. Questo comando consente invece di aggiungere un tag per la risorsa. Per aggiungere un nuovo tag della VM tramite la CLI di Azure, è possibile utilizzare il comando `azure vm set` insieme al parametro tag **-t**:
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
-Per rimuovere tutti i tag, è possibile utilizzare il parametro**– T**nel comando `azure vm set`.
+Per rimuovere tutti i tag, è possibile utilizzare il parametro **– T** nel comando `azure vm set`.
 
         azure vm set – g MyResourceGroup –n MyVM -T
 
@@ -156,7 +156,7 @@ Ora che sono stati applicati tag alle risorse tramite PowerShell, la CLI di Azur
 
 I tag applicati a risorse di calcolo, rete e archiviazione tramite il gestore di risorse di Azure verranno compilati nei dettagli di utilizzo nel portale di fatturazione.
 
-Fare clic su**Scarica dettagli sull'utilizzo**per visualizzare i dettagli di utilizzo nella sottoscrizione.
+Fare clic su **Scarica dettagli sull'utilizzo** per visualizzare i dettagli di utilizzo nella sottoscrizione.
 
 ![Dettagli di utilizzo nel portale di Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
@@ -182,11 +182,11 @@ Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acqu
 
 
 [ambiente PowerShell con Gestione risorse di Azure]: ../powershell-azure-resource-manager.md
-[cmdlet di Azure Resource]: https://msdn.microsoft.com/it-it/library/azure/dn757692.aspx
+[cmdlet di Azure Resource]: https://msdn.microsoft.com/IT-IT/library/azure/dn757692.aspx
 [ambiente CLI di Azure]: ./xplat-cli-azure-resource-manager.md
 [Panoramica di Gestione risorse di Microsoft Azure]: ../resource-group-overview.md
 [Utilizzo di tag per organizzare le risorse di Azure]: ../resource-group-using-tags.md
 [Informazioni sulla fatturazione di Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

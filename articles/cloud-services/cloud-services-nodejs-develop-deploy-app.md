@@ -10,7 +10,7 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
 	ms.date="08/31/2015"
@@ -41,7 +41,7 @@ L'applicazione è una semplice applicazione "hello world":
 > [AZURE.NOTE]Questa esercitazione usa Azure PowerShell, che richiede Windows.
 
 - Installare e configurare [Azure PowerShell](../install-configure-powershell.md).
-- Scaricare e installare [Azure SDK per .NET 2.7](http://www.microsoft.com/it-IT/download/details.aspx?id=48178). Nel programma di installazione, selezionare:
+- Scaricare e installare [Azure SDK per .NET 2.7](http://www.microsoft.com/IT-IT/download/details.aspx?id=48178). Nel programma di installazione, selezionare:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -177,6 +177,9 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 
 	> [AZURE.NOTE]L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Per ulteriori informazioni sull'eliminazione di un account di archiviazione, vedere [Come eliminare un account di archiviazione da una sottoscrizione Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
+## Passaggi successivi
+
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js](/develop/nodejs/).
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
@@ -194,4 +197,4 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

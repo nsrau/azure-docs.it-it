@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux"
+	pageTitle="Risoluzione dei problemi di connessione SSH a una VM Linux | Microsoft Azure"
 	description="Se non è possibile connettere la macchina virtuale di Azure basata su Linux, è possibile utilizzare questi passaggi per isolare l'origine del problema."
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,11 +20,13 @@
 
 # Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo è dedicato alla risoluzione dei problemi delle connessioni SSH su una macchina virtuale creata con il modello di distribuzione di gestione risorse o il modello di distribuzione classica.
+
 Se non è possibile connettersi alle macchine virtuali di Azure basate su Linux, in questo articolo viene descritto un approccio metodico per isolare e risolvere il problema.
 
 ## Passaggio 1: Reimpostare la configurazione, la chiave o la password SSH
 
-Seguire le istruzioni in[Come reimpostare una password o SSH per le macchine virtuali basate su Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)nella macchina virtuale. Seguendo queste istruzioni è possibile:
+Seguire le istruzioni in[Come reimpostare una password o SSH per le macchine virtuali basate su Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) nella macchina virtuale. Seguendo queste istruzioni è possibile:
 
 - Reimpostare la password o la chiave SSH.
 - Creare un nuovo account utente sudo.
@@ -49,12 +51,12 @@ Nel portale di gestione di Azure:
 
 Nel portale di anteprima di Azure:
 
-1. Fare clic su **Sfoglia** > **Macchine virtuali** > *Nome macchina virtuale*. Per una macchina virtuale creata in Gestione risorse di Azure, fare clic su**Sfoglia** > **Macchine virtuali (v2)** > *Nome macchina virtuale*. Nel riquadro di stato relativo alla macchina virtuale deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
+1. Fare clic su **Sfoglia** > **Macchine virtuali** > *Nome macchina virtuale*. Per una macchina virtuale creata in Gestione risorse di Azure, fare clic su **Sfoglia** > **Macchine virtuali (v2)** > *Nome VM*. Nel riquadro di stato relativo alla macchina virtuale deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
 2. Fare clic su **Impostazioni** per esaminare gli endpoint, gli indirizzi IP e altre impostazioni.
 
 Per verificare la connettività di rete, analizzare gli endpoint configurati e determinare se è possibile raggiungere la macchina virtuale tramite un altro protocollo, ad esempio HTTP o un altro servizio noto.
 
-Se necessario, [riavviare la macchina virtuale](https://msdn.microsoft.com/library/azure/dn763934.aspx) o [ridimensionare la macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
+Se necessario, riavviare la macchina virtuale o [ridimensionare la macchina virtuale](virtual-machines-size-specs.md).
 
 Dopo questi passaggi, tentare nuovamente la connessione SSH.
 
@@ -85,10 +87,10 @@ In tutti questi casi, provare a disabilitare temporaneamente il software e tenta
 
 Se si usa l'autenticazione del certificato, verificare la presenza delle seguenti autorizzazioni nella cartella .ssh della home directory:
 
-- Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/*.pub
-- Chmod 600 \~/.ssh/id\_rsa (o qualsiasi altro file in cui siano archiviate le chiavi private)
-- Chmod 644 \~/.ssh/known\_hosts (contiene gli host con i quali è stabilita una connessione SSH)
+- Chmod 700 ~/.ssh
+- Chmod 644 ~/.ssh/*.pub
+- Chmod 600 ~/.ssh/id\_rsa (o qualsiasi altro file in cui siano archiviate le chiavi private)
+- Chmod 644 ~/.ssh/known\_hosts (contiene gli host con i quali è stabilita una connessione SSH)
 
 ### Origine 2: dispositivo periferico dell'organizzazione
 
@@ -133,7 +135,7 @@ L'ultima origine di possibili problemi corrisponde alla stessa macchina virtuale
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot5.png)
 
-Se non lo si è ancora fatto, seguire le istruzioni illustrate nell'articolo [Come reimpostare una password o SSH per le macchine virtuali Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) nella macchina virtuale.
+Se non è stato ancora fatto, seguire le istruzioni illustrate nell'articolo [Come reimpostare una password o SSH per le macchine virtuali Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) nella macchina virtuale.
 
 Provare nuovamente la connessione dal computer. Se non riesce, alcuni dei problemi possibili sono:
 
@@ -153,7 +155,7 @@ Se sono stati completati i passaggi da 1 a 4 in questo articolo e il problema è
 
 Se non è possibile ricreare la macchina virtuale, potrebbe essere il momento di archiviare un incidente del supporto tecnico di Azure.
 
-Per archiviare un imprevisto, passare al[Sito del supporto tecnico di Azure](http://azure.microsoft.com/support/options/)quindi fare clic su**Ottieni supporto**.
+Per archiviare un imprevisto, accedere al [sito del supporto tecnico di Azure](http://azure.microsoft.com/support/options/) quindi fare clic su **Ottieni supporto**.
 
 Per informazioni sull'uso del supporto tecnico di Azure, vedere [Domande frequenti sul supporto tecnico di Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
@@ -165,4 +167,4 @@ Per informazioni sull'uso del supporto tecnico di Azure, vedere [Domande frequen
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

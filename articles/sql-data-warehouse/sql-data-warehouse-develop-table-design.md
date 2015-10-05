@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Progettazione di tabelle in SQL Data Warehouse #
@@ -123,8 +123,8 @@ Supporto parziale:
 
 Per distribuire i dati in SQL Data Warehouse sono disponibili due opzioni:
 
-1. Distribuire i dati in base ai valori hash di una singola colonna
-2. Distribuire i dati in modo uniforme ma casuale  
+1. Distribuire i dati in modo uniforme ma casuale 
+2. Distribuire i dati in base ai valori hash di una singola colonna
 
 La distribuzione dei dati viene decisa a livello di tabella. Tutte le tabelle vengono distribuite. Si assegnerà distribuzione per ogni tabella nel database SQL Data Warehouse.
 
@@ -306,4 +306,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Viste di Power BI per i dati di Application Insights
@@ -42,13 +42,13 @@ Se ancora non lo si è provato, è il momento giusto per iniziare. Application I
 
 L'esportazione continua invia sempre i dati a un account di Archiviazione di Azure, pertanto è prima necessario creare l'archivio.
 
-1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
+1. Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
 
     ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-export-power-bi/030.png)
 
 2. Creare un contenitore
 
-    ![Nel nuovo archivio selezionare Contenitori e quindi Aggiungi](./media/app-insights-export-power-bi/040.png)
+    ![Nel nuovo archivio selezionare Contenitori, fare clic sul riquadro Contenitori e quindi su Aggiungi](./media/app-insights-export-power-bi/040.png)
 
 3. Copiare la chiave di accesso alle risorse di archiviazione.
 
@@ -239,4 +239,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

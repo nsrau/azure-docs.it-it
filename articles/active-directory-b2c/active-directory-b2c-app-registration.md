@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: come registrare l'applicazione
@@ -23,6 +23,9 @@
 ## Prerequisito.
 
 Per costruire un'applicazione che accetta l’iscrizione e l’accesso dell’utente, è innanzitutto necessario registrarla con una directory di Azure Active Directory B2C. Ottenere le directory utilizzando la procedura descritta [qui](active-directory-b2c-get-started.md). Dopo avere eseguito tutti i passaggi in questo articolo, è necessario disporre del pannello delle funzionalità B2C aggiunto alla schermata iniziale.
+
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
 
 ## Passare al pannello delle funzionalità B2C.
 
@@ -45,7 +48,7 @@ Accedere al [portale di Azure](https://manage.windowsazure.com/) come amministra
 1. Nel pannello delle funzionalità B2C nel portale di anteprima di Azure, fare clic su **Applicazioni**.
 2. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 3. Il **Nome** dell'applicazione deve essere una descrizione per gli utenti. Ad esempio, immettere "Contoso B2C app".
-4. Se si sta scrivendo un'applicazione basata su web, attivare o disattivare il **Include l'applicazione web o web API** passare a **Sì**. Gli **URL di risposta** sono endpoint in cui AD B2C di Azure restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44321/`. Se l'applicazione include un componente lato server (API) che deve essere protetto, è opportuno creare (e copiare) un **Applicazione segreta** anche facendo clic sul tasto **Genera chiave**.
+4. Se si sta scrivendo un'applicazione basata su web, commutare **Includi app Web o API Web** su **Sì**. Gli **URL di risposta** sono endpoint in cui AD B2C di Azure restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44321/`. Se l'applicazione include un componente lato server (API) che deve essere protetto, è opportuno creare (e copiare) un **Applicazione segreta** anche facendo clic sul tasto **Genera chiave**.
 
     > [AZURE.NOTE]**Applicazione Segreta**è una credenziale di sicurezza importante.
 
@@ -59,4 +62,4 @@ Dopo aver creato un'applicazione registrata con AD B2C di Azure, è possibile co
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

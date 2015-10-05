@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="09/22/2015"
    ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
 
 # Strumenti di gestione per SQL Data Warehouse
@@ -43,9 +43,9 @@ Per iniziare a usare questi strumenti, vedere l'argomento relativo alla [conness
 [connessione]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/it-it/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/IT-IT/library/mt204009.aspx
 
 <!--Other web references-->
 [portale di Azure]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

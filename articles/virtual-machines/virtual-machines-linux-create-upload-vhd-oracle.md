@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Creazione e caricamento di un VHD Oracle Linux in Azure" 
+	pageTitle="Creazione e caricamento di un VHD Oracle Linux | Microsoft Azure" 
 	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Oracle Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 # Preparare una macchina virtuale Oracle Linux per Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Preparare una macchina virtuale Oracle Linux 6.4+ per Azure](#oracle6)
 - [Preparare una macchina virtuale Oracle Linux 7.0+ per Azure](#oracle7)
@@ -227,4 +230,4 @@ La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simil
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

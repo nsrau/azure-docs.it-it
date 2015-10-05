@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/22/2015"
 	ms.author="larryfr"/>
 
 #Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Linux in HDInsight (anteprima)
@@ -30,6 +30,14 @@ Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout conti
 ##Prerequisiti
 
 * Un cluster Hadoop basato su Linux in HDInsight. Per informazioni su come crearne uno, vedere [Introduzione all'utilizzo di Hadoop basato su Linux in HDInsight][getstarted].
+
+##Controllo delle versioni di Mahout
+
+Per ulteriori informazioni sulla versione di Mahout inclusa con il cluster HDInsight, vedere [Versioni HDInsight e componenti Hadoop](hdinsight-component-versioning.md).
+
+> [AZURE.WARNING]Sebbene sia possibile caricare una versione diversa di Mahout nel cluster HDInsight, solo i componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
+>
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community come: [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/IT-IT/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ##<a name="recommendations"></a>Informazioni sulle raccomandazioni
 
@@ -256,4 +264,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare e gestire una macchina virtuale Windows con Azure PowerShell e la gestione dei servizi di Azure"
-	description="Utilizzare Azure PowerShell per creare rapidamente una nuova macchina virtuale basata su Windows in Gestione servizio e eseguire funzioni di gestione."
+	pageTitle="Creare e gestire una macchina virtuale di Windows tramite Azure PowerShell | Microsoft Azure"
+	description="Creare e gestire una macchina virtuale Windows con Azure PowerShell utilizzando il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,13 +17,13 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Creare e gestire una macchina virtuale basata su Windows nella gestione del servizio utilizzando Azure PowerShell
+# Creare e gestire una macchina virtuale Windows tramite Azure PowerShell
 
-Questo articolo descrive come creare e gestire una macchina virtuale di Azure basata su Windows mediante Azure PowerShell e la gestione dei servizi di Azure.
+Questo articolo descrive come creare e gestire una macchina virtuale di Windows mediante Azure PowerShell.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una macchina virtuale di Windows con il modello di distribuzione classica. È inoltre possibile creare una macchina virtuale di Windows con il [modello di distribuzione di Gestione risorse](virtual-machines-deploy-rmtemplates-powershell.md).
 
-- [Distribuire e gestire le macchine virtuali utilizzando modelli di Gestione risorse di Azure e PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## Configurare Azure PowerShell
 
@@ -180,7 +180,7 @@ Eseguire questo comando:
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Collegamento di un disco dati
-Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto la cmdlet**Aggiungi-DiscoDatiAzure**per aggiungere il disco per l'oggetto $vm. Quindi è possibile utilizzare il cmdlet Aggiorna-MacchinaVirtualeAzure per aggiornare la configurazione della macchina virtuale.
+Questa operazione richiede alcuni passaggi. Utilizzare innanzitutto il cmdlet**Aggiungi-DiscoDatiAzure**per aggiungere il disco per l'oggetto $vm. Quindi è possibile utilizzare il cmdlet Aggiorna-MacchinaVirtualeAzure per aggiornare la configurazione della macchina virtuale.
 
 È inoltre necessario decidere se collegare un nuovo disco o uno che contiene già dati. Per un nuovo disco, il comando permette di creare il file con estensione VHD e contemporaneamente di collegarlo.
 
@@ -209,4 +209,4 @@ Per collegare dischi dati da un file con estensione vhd esistente nell'archiviaz
 
 [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

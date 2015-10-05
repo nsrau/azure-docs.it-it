@@ -1,16 +1,17 @@
 <properties
-	pageTitle="Come eseguire un'attività a elevato utilizzo di calcolo in .NET su una macchina virtuale Azure"
+	pageTitle="Eseguire un'app .NET a elevato utilizzo di calcolo in una macchina virtuale | Microsoft Azure"
 	description="Informazioni su come distribuire ed eseguire un'app .NET a elevato utilizzo di calcolo in una macchina virtuale di Azure e usare le code del service bus di Azure per monitorare lo stato in remoto."
 	services="virtual-machines"
 	documentationCenter=".net"
 	authors="wadepickett"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor="mollybos"
+	tags=“azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
@@ -19,6 +20,8 @@
 # Come eseguire un'attività a elevato utilizzo di calcolo in .NET su una macchina virtuale Azure
 
 Con Azure è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver completato questa esercitazione, si potrà creare una macchina virtuale su cui si esegue un'applicazione .NET a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione .NET.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Per questa esercitazione si presuppone che l'utente sia in grado di creare applicazioni console .NET. Non è richiesta alcuna conoscenza di Azure.
 
@@ -94,7 +97,7 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 1.  Nel riquadro di navigazione sinistro fare clic su **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![Schermata relativa agli spazi dei nomi disponibili][available_namespaces]
 2.  Selezionare lo spazio dei nomi appena creato nell'elenco: ![Schermata relativa all'elenco degli spazi dei nomi][namespace_list]
-3. Fare clic su **Informazioni di connessione**.![Pulsante Access Key][access_key_button]
+3. Fare clic su **Informazioni di connessione**. ![Pulsante Access Key][access_key_button]
 4.  Nella finestra di dialogo, individuare la voce **Stringa di connessione**. Prendere nota di questo valore in quanto dovrà essere usato in seguito nell’esercitazione per eseguire operazioni con lo spazio dei nomi.
 
 ## Come creare un'applicazione .NET che esegua un'attività a elevato utilizzo di calcolo
@@ -546,4 +549,4 @@ Per creare o eliminare la coda, è possibile utilizzare il [portale di Azure](ht
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

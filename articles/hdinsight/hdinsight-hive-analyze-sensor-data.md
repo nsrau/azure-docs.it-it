@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015" 
+	ms.date="09/23/2015" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight
@@ -38,7 +38,7 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=it-it&rs=it-it&ad=US).
+	> [AZURE.NOTE]Microsoft Excel viene usato per la visualizzazione dei dati con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=IT-IT&rs=IT-IT&ad=US).
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

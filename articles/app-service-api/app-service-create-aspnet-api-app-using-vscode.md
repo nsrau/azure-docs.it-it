@@ -19,8 +19,10 @@
 # Creare un'app per le API ASP.NET 5 in Visual Studio Code
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 ## Panoramica
 
@@ -447,4 +449,4 @@ Nel portale di anteprima di Azure passare al pannello **HOST APP PER LE API** re
 In questa esercitazione si è appreso come creare un'app per le API in Visual Studio Code. Per altre informazioni su Visual Studio Code, vedere [Visual Studio Code](https://code.visualstudio.com/Docs/). Per informazioni sulle app per le API, vedere [Informazioni sulle app per le API](app-service-api-apps-why-best-platform.md).
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

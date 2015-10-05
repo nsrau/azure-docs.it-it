@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Per installare gli aggiornamenti regolari tramite il portale di gestione
 
@@ -11,4 +12,4 @@
 
     Una volta completata l'installazione dell'aggiornamento, l'utente riceve una notifica.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

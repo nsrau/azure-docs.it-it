@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/22/2015" 
 	ms.author="juliako"/>
 
 
@@ -28,25 +28,22 @@ Per raggiungere questo obiettivo:
 - Codificare il flusso video a più velocità in bit (velocità in bit adattiva), garantendo in questo modo la qualità e le condizioni di rete. 
 - Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi, garantendo in questo modo la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta operazioni di trasmissione nelle seguenti tecnologie di streaming a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (solo per i titolari di licenza Adobe PrimeTime/Access).
 
-Questo argomento offre una panoramica dei [concetti relativi alla distribuzione di contenuti](media-services-deliver-content-overview.md#concepts) e fornisce collegamenti ad altri argomenti che illustrano procedure per eseguire [attività](media-services-deliver-content-overview.md#tasks) di distribuzione di contenuti.
+In questo argomento viene fornita una panoramica dei concetti di consegna dei contenuti importanti.
 
-##<a id="concepts"></a>Concetti
 
-Il seguente elenco descrive termini e concetti utili per la distribuzione di contenuti multimediali.
+##Creazione dinamica dei pacchetti
 
-###Creazione dinamica dei pacchetti
-
-Si consiglia di usare la creazione dinamica dei pacchetti per distribuire i contenuti. Per altre informazioni, vedere [Creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
+Si consiglia di usare la creazione dinamica dei pacchetti per distribuire i contenuti. Per altre informazioni, vedere [pacchetti di creazione dinamici](media-services-dynamic-packaging-overview.md).
 
 Per avvalersi della creazione dinamica dei pacchetti, è necessario ottenere prima almeno un'unità di streaming on demand per l'endpoint di streaming da cui si intende distribuire il contenuto. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Filtri e manifesti dinamici
+##Filtri e manifesti dinamici
 
 Servizi multimediali consente di definire filtri per i propri asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici** creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
 Per altre informazioni, vedere [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md).
 
-###Localizzatori
+##Localizzatori
 
 Per poter fornire all'utente un URL da usare per scaricare o trasmettere in streaming i contenuti distribuiti, è prima necessario "pubblicare" la risorsa creando un localizzatore. I localizzatori forniscono un punto di ingresso per accedere ai file contenuti in un asset. Servizi multimediali supporta due tipi di localizzatori:
 
@@ -66,7 +63,7 @@ I localizzatori non sono progettati per gestire il controllo dell'accesso per ut
 Quando si crea un localizzatore, è possibile che si verifichi un ritardo di 30 secondi a causa dei processi di archiviazione e propagazione necessari in Archiviazione di Azure.
 
 
-###Streaming adattivo 
+##Streaming adattivo 
 
 Le tecnologie a velocità in bit adattiva consentono al lettore video di determinare le condizioni della rete e di effettuare una selezione tra più velocità in bit. Se le prestazioni della comunicazione di rete diminuiscono, il client può selezionare una velocità in bit inferiore consentendo al lettore di continuare la riproduzione del video con una qualità leggermente ridotta. Se invece le prestazioni migliorano, il client può passare a una velocità in bit maggiore e fornire quindi una migliore qualità video. Servizi multimediali di Azure supporta le seguenti tecnologie a velocità in bit adattiva: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS.
 
@@ -77,7 +74,7 @@ Per poter fornire agli utenti URL di streaming, è prima necessario creare un lo
 Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre, l'URL contiene "streaming.mediaservices.windows.net" (il nuovo formato). Gli URL di streaming contenenti "origin.mediaservices.windows.net" (il vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si desidera poter eseguire lo streaming tramite SSL, creare un nuovo endpoint di streaming. Usare gli URL creati con il nuovo endpoint di streaming per lo streaming dei contenuti tramite SSL.
 
 
-####Formati degli URL di streaming URL:
+##Formati degli URL di streaming URL:
 
 **Formato MPEG DASH**
 
@@ -123,7 +120,7 @@ Per impostazione predefinita, il manifesto Smooth Streaming contiene il tag di r
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 
-###Creazione dinamica dei pacchetti
+##Creazione dinamica dei pacchetti
 
 Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, che consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS), senza dover ricreare i pacchetti con questi formati di streaming.
 
@@ -136,7 +133,7 @@ Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in
 
 Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming on demand offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo, capacità in uscita e così via) vengono condivise con tutti gli altri utenti. Per migliorare la velocità effettiva dello streaming on demand, si consiglia di acquistare unità riservate di streaming on demand.
 
-###Download progressivo 
+##Download progressivo 
 
 Il download progressivo è una tecnologia che consente di avviare la riproduzione di file multimediali prima che il download dell'intero file sia stato completato. Non è possibile eseguire il download progressivo di file .ism* (ismv, isma, ismt, ismc).
 
@@ -149,7 +146,7 @@ Tenere presenti le seguenti considerazioni:
 - Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
 
 
-###Scaricare
+##Scaricare
 
 Per scaricare i contenuti in un dispositivo client, è necessario creare un localizzatore SAS, che offre l'accesso al contenitore di archiviazione di Azure in cui si trova il file. Per compilare l'URL di download, è necessario incorporare il nome di file tra l'host e la firma SAS.
 
@@ -164,43 +161,12 @@ Si applicano le considerazioni seguenti:
 
 
 
-###Endpoint di streaming
+##Endpoint di streaming
 
 Un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (Content Delivery Network, rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. È possibile inoltre controllare la capacità del servizio endpoint di streaming in modo da poter gestire esigenze di larghezza di banda crescenti modificando le unità riservate di streaming. È consigliabile allocare almeno un'unità riservata per le applicazioni in un ambiente di produzione. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints).
 
-##<a id="tasks"></a>Attività correlate alla distribuzione di asset
 
-
-###Configurazione degli endpoint di streaming
-
-Per informazioni generali sugli endpoint di streaming e su come gestirli, vedere [Come gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-manage-origins.md).
-
-###Caricamento di file multimediali 
-
-Caricare i file usando il **portale di gestione di Azure**, **.NET** o **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-###Codifica di asset
-
-Codificare con **Azure Media Encoder** tramite il **portale di gestione di Azure**, **.NET** o **API REST**.
- 
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-###Configurazione dei criteri di distribuzione degli asset
-
-Configurare i criteri di distribuzione degli asset usando **.NET** o **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-###Pubblicare asset
-
-Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di gestione di Azure** o **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-
-##Percorsi di formazione di Media Services
+##Percorsi di apprendimento di Media Services
 
 È possibile visualizzare i percorsi di apprendimento AMS qui:
 
@@ -213,4 +179,4 @@ Pubblicare asset, mediante la creazione di localizzatori, usando il **portale di
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

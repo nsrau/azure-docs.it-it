@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Tasti di scelta rapida per il portale di Azure"
+   pageTitle="Tasti di scelta rapida per il portale di Azure | Microsoft Azure"
    description="Questo articolo includerà sempre un elenco aggiornato dei tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida specializzati."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>
@@ -50,4 +50,4 @@
 
 Altre informazioni sul portale di Azure: http://azure.microsoft.com.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

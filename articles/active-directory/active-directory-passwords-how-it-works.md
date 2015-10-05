@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come funziona: gestione delle password di Azure AD | Microsoft Azure" 
-	description="Informazioni sui diversi componenti della gestione delle password in Azure AD, ad esempio dove gli utenti registrano, reimpostano e modificano le password e dove gli amministratori configurano, creano report e abilitano la gestione delle password di Active Directory locale." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Come funziona: gestione delle password di Azure AD | Microsoft Azure"
+	description="Informazioni sui diversi componenti della gestione delle password in Azure AD, ad esempio dove gli utenti registrano, reimpostano e modificano le password e dove gli amministratori configurano, creano report e abilitano la gestione delle password di Active Directory locale."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Funzionamento della gestione delle password
@@ -120,6 +120,5 @@ Per altre informazioni su Azure AD Connect, vedere [Introduzione ad Azure AD Con
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

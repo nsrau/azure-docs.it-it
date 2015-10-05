@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Gestire set di record e record DNS in DNS di Azure | Microsoft Azure"
-	description="Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di PowerShell per le operazioni sui set di record e i record."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Gestire set di record e record DNS in DNS di Azure | Microsoft Azure" 
+   description="Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di PowerShell per le operazioni sui set di record e i record." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="en"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="en"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# Come gestire i record DNS
+# Come gestire i record DNS utilizzando PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -271,4 +271,4 @@ L'oggetto del set di record può essere anche reindirizzato invece che passato c
 [Introduzione alla creazione di set di record e di record](../dns-getstarted-create-recordset)<BR> [Eseguire operazioni sulle zone DNS](../dns-operations-dnszones)<BR> [Automatizzare le operazioni usando .NET SDK](../dns-sdk)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

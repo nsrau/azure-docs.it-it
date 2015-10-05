@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Uso di Desktop remoto per connettersi a una macchina virtuale Linux di Microsoft Azure."
-	description="Informazioni sull'installazione e la configurazione di Desktop remoto in una macchina virtuale Linux di Microsoft Azure."
+	pageTitle="Desktop remoto per una macchina virtuale Linux | Microsoft Azure"
+	description="Informazioni sull'installazione e la configurazione di Desktop remoto per collegarsi a una macchina virtuale Linux di Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,16 +18,18 @@
 	ms.author="mingzhan"/>
 
 
-#Uso di Desktop remoto per connettersi a una macchina virtuale Linux di Microsoft Azure
+#Uso di Desktop remoto per connettersi a una macchina virtuale Linux di Microsoft Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa con il modello di distribuzione classica.
 
 ##Panoramica
 
-Il protocollo RDP (Remote Desktop Protocol) è un protocollo proprietario usato per Windows, come è possibile usare RDP per connettersi a macchine virtuali Linux in remoto?
+Il protocollo RDP (Remote Desktop Protocol) è un protocollo proprietario utilizzato per Windows. Come si può utilizzare RDP per connettersi a una VM (macchina virtuale) Linux in modalità remota?
 
 L'articolo seguente risponderà a questa domanda. Consentirà di installare e configurare xrdp su macchine virtuali Linux di Microsoft Azure e di connettersi con Desktop remoto da un computer Windows. Utilizzeremo una macchina virtuale Linux che esegue Ubuntu o OpenSUSE come nell'esempio riportato in questa guida.
 
 Xrdp è un server RDP open source, che consente di connettere il server Linux con Desktop remoto da un computer Windows. Funziona molto meglio di VNC (Virtual Network Computing). VNC ha fama di qualità "JPEG" e di lentezza di funzionamento, mentre RDP è veloce e nitido.
- 
+
 
 > [AZURE.NOTE]È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-tutorial.md) per creare e impostare una macchina virtuale Linux.
 
@@ -87,7 +90,7 @@ Installare `xfce`, usare:
     #sudo apt-get install xubuntu-desktop
 
 Quindi abilitare `xfce`, usare:
-    
+
     #echo xfce4-session >~/.xsession
 
 Modificare il file di configurazione `/etc/xrdp/startwm.sh`, usare:
@@ -112,10 +115,4 @@ Accedere con `user` e `password` per la macchina Linux e sarà possibile usare s
 ##Avanti
 Per altre informazioni sull'uso di xrdp, vedere [questa pagina](http://www.xrdp.org/).
 
-
-
-
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

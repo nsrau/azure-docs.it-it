@@ -5,7 +5,8 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="robmcm"/>
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Con Azure è possibile usare una macchina virtuale per gestire attività a elevato utilizzo di calcolo. Ad esempio, una macchina virtuale può gestire attività e fornire risultati a computer client o ad applicazioni mobili. Dopo aver letto questo articolo, si avranno a disposizione tutte le informazioni necessarie per creare una macchina virtuale nella quale è in esecuzione un'applicazione Java a elevato utilizzo di calcolo che può essere monitorata da un'altra applicazione Java.
 
@@ -47,20 +50,20 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com).
 2. Fare clic su **New**, quindi **Compute**, su **Virtual machine** e infine su **From Gallery**.
 3. Nella finestra di dialogo **Seleziona immagine macchina virtuale** selezionare **JDK 7 Windows Server 2012**. Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui siano presenti applicazioni non ancora predisposte per l'esecuzione in JDK 7.
-4. Fare clic su **Avanti**.
+4. Fare clic su **Next**.
 4. Nella finestra di dialogo **Configurazione macchina virtuale**:
     1. Specificare un nome per la macchina virtuale.
     2. Specificare la dimensione da utilizzare per la macchina virtuale.
     3. Immettere un nome per l'amministratore nel campo **User Name**. Prendere nota di questo nome e della password che verrà immessa successivamente perché verranno utilizzati per l'accesso in remoto alla macchina virtuale.
     4. Immettere una password nel campo **New password** e reimmetterlo nel campo **Confirm**. Si tratta della password dell'account dell'amministratore.
-    5. Fare clic su **Next**.
+    5. Fare clic su **Avanti**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale** successiva:
     1. Per **Cloud service** utilizzare l'impostazione predefinita di **Create a new cloud service**.
     2. Il valore di **Nome DNS del servizio cloud** deve essere univoco in cloudapp.net. Se necessario, modificarlo in modo che sia indicato come univoco in Azure.
     2. Specificare un'area, un gruppo di affinità o una rete virtuale. Ai fini di questa esercitazione, specificare come area **West US**.
     2. Nella casella **Storage Account** selezionare **Use an automatically generated storage account**.
     3. Nella casella **Availability Set** selezionare **(None)**.
-    4. Fare clic su **Next**.
+    4. Fare clic su **Avanti**.
 5. Nella finestra di dialogo **Configurazione macchina virtuale** finale:
     1. Accettare le voci di endpoint predefinite.
     2. Fare clic su **Complete**.
@@ -93,8 +96,8 @@ Per creare uno spazio dei nomi del servizio:
 
 Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.
 
-1.  Nel riquadro di spostamento sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili. ![Schermata relativa agli spazi dei nomi disponibili][avail_namespaces]
-2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato. ![Schermata relativa all'elenco degli spazi dei nomi][namespace_list]
+1.  Nel riquadro di navigazione sinistro fare clic sul nodo **Bus di servizio** per visualizzare l'elenco degli spazi dei nomi disponibili: ![Schermata relativa agli spazi dei nomi disponibili][avail_namespaces]
+2.  Selezionare lo spazio dei nomi appena creato nell'elenco visualizzato: ![Schermata relativa all'elenco degli spazi dei nomi][namespace_list]
 3.  Il riquadro **Proprietà** a destra elenca le proprietà relative al nuovo spazio dei nomi. ![Schermata pannello Proprietà][properties_pane]
 4.  Le credenziali di sicurezza in **Chiave predefinita** sono nascoste. Fare clic sul pulsante **Visualizza** per visualizzare le credenziali di sicurezza. ![Schermata Default Key][default_key]
 5.  Prendere nota dei valori indicati in **Default Issuer** e **Default Key**, in quanto dovranno essere utilizzati per eseguire operazioni con lo spazio dei nomi.
@@ -516,4 +519,4 @@ Per uscire dalle applicazioni risolutore e client e terminare prima del normale 
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

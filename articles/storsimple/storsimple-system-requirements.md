@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Requisiti di sistema StorSimple | Microsoft Azure"
-	description="Descrizione dei requisiti di sistema e delle procedure consigliate per il software, la disponibilità elevata e le funzionalità di rete in una soluzione StorSimple di Azure."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Requisiti di sistema StorSimple | Microsoft Azure" 
+   description="Descrizione dei requisiti di sistema e delle procedure consigliate per il software, la disponibilità elevata e le funzionalità di rete in una soluzione StorSimple di Azure." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="alkohli" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/21/2015"
+   ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
 
@@ -154,7 +154,8 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 | UDP 123 (NTP) | In uscita | WAN | In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet. |
 | TCP 9354 | In uscita | WAN | In alcuni casi; vedere le note. |La porta in uscita viene usata dal servizio StorSimple Manager per comunicare con il dispositivo. Questa porta è necessaria se la rete corrente non supporta l'uso di HTTP 1.1 per connettersi a Internet, ad esempio quando si usa un server proxy basato su HTTP 1.0.<br> Se ci si connette tramite un server proxy, fare riferimento ai [requisiti del bus di servizio](https://msdn.microsoft.com/library/azure/ee706729.aspx) per informazioni dettagliate. |
 | 3260 (iSCSI) | In ingresso | LAN | No | Questa porta viene usata per accedere ai dati tramite iSCSI.|
-| 5985 | In ingresso | LAN | No | La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP o HTTPS. |
+| 5985 | In ingresso | LAN | No | La porta in ingresso viene usata da Gestione snapshot StorSimple per comunicare con il dispositivo StorSimple.<br>La porta viene usata anche per connettersi in remoto a Windows PowerShell per StorSimple tramite HTTP. |
+| 5986 | In ingresso | LAN | No | Questa porta viene utilizzata quando ci si connette in modalità remota a Windows PowerShell per StorSimple tramite HTTPS. |
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 
@@ -194,4 +195,4 @@ Oltre ai requisiti di rete sopra illustrati, per ottenere prestazioni ottimali n
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

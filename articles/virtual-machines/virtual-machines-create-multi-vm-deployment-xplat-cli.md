@@ -1,22 +1,25 @@
 <properties
-   pageTitle="Creare una distribuzione di più macchine virtuali usando l'interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Informazioni su come creare una distribuzione di più macchine virtuali usando l'interfaccia della riga di comando di Azure"
+   pageTitle="Creare una distribuzione di più macchine virtuali con l'interfaccia della riga di comando di Azure | Microsoft Azure"
+   description="Informazioni su come creare una distribuzione di più macchine virtuali usando il modello di distribuzione classica e l'interfaccia della riga di comando di Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
    ms.devlang="nodejs"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
+   ms.tgt_pltfrm="Linux"
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
-   ms.author="alanst;kasing"/>
+   ms.author="alanst"/>
 
-# Creare una distribuzione di più macchine virtuali utilizzando l'interfaccia della riga di comando di Azure
+# Creare una distribuzione di più macchine virtuali con l'interfaccia della riga di comando di Azure
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Lo script seguente descrive come configurare una distribuzione di servizio di più cloud, con più macchine virtuali, in una rete virtuale, usando l'interfaccia della riga di comando di Azure (Azure CLI).
 
@@ -32,9 +35,9 @@ Il codice per impostare questa funzionalità è relativamente semplice:
 >[AZURE.NOTE]Sarà probabilmente necessario modificare i nomi dei servizi cloud servercs e workercs per fare in modo che siano univoci
 
     azure network vnet create samplevnet -l "West US"
-    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-it-it-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-it-it-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-it-it-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-IT-IT-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-IT-IT-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-IT-IT-30GB azureuser Password@1
     azure vm disk attach-new servervm 100
     azure vm disk attach-new servervm 500
     azure vm endpoint create servervm 443 443 -n https -o tcp
@@ -67,4 +70,4 @@ Nonostante sia possibile trovare altre informazioni usando l'opzione -help in qu
 * [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

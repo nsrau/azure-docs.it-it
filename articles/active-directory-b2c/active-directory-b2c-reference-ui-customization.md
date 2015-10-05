@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Come personalizzare l'interfaccia utente di Azure AD B2C
@@ -43,11 +43,11 @@ Usare lo strumento di supporto (presto disponibile) per provare la funzionalità
 
 ## Elementi principali dell'interfaccia utente in ogni tipo di pagina
 
-Questa sezione include i frammenti HTML5 (per ogni tipo di pagina) che Azure AD B2C unisce nell'elemento `<div id="api"></div>` che si trova nel contenuto. Per personalizzare gli elementi dell'interfaccia utente è possibile usare i fogli di stile. I fogli di stile possono sovrascrivere i fogli di stile predefiniti che vengono aggiunti in questi tipi di pagine nei frammenti `<head>`.
+Le sezioni di seguito includono esempi dei frammenti HTML5 (per ogni tipo di pagina) che Azure AD B2C unisce nell'elemento <div id="api"></div> che si trova nel contenuto. Per personalizzare gli elementi dell'interfaccia utente è possibile usare i propri fogli di stile. I fogli di stile dovranno sovrascrivere i fogli di stile predefiniti che vengono aggiunti in queste pagine nei frammenti <head>.
 
-> [AZURE.IMPORTANT]Durante il periodo di anteprima, è possibile che gli elementi dell'interfaccia utente vengano modificati in base ai commenti e suggerimenti degli utenti. Esaminare il codice sorgente delle pagine predefinite per osservare i dettagli per gli elementi seguenti.
+> [AZURE.IMPORTANT]Durante il periodo di anteprima, è possibile che gli elementi dell'interfaccia utente vengano modificati in base ai commenti e suggerimenti degli utenti. Controllare sempre gli aggiornamenti più recenti del codice sorgente delle pagine predefinite. La prima modifica da prendere in considerazione è la rimozione dei nostri fogli di stile predefiniti; ciò significa che sarà sempre necessario fornire i propri fogli di stile per gli elementi dell’interfaccia utente nel contenuto.
 
-### Pagina di selezione del provider di identità
+## Pagina di selezione del provider di identità
 
 Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di iscrizione o di accesso. Sono presenti sia i provider di identità basati su social network, ad esempio Facebook e Google+, sia gli account locali (basati su indirizzo di posta o nome utente).
 
@@ -75,7 +75,7 @@ Questa pagina contiene un elenco dei provider di identità che l'utente può sce
 
 ```
 
-### Pagina di iscrizione dell'account locale
+## Pagina di iscrizione dell'account locale
 
 Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per effettuare l'iscrizione usando un account locale basato su indirizzo di posta elettronica o nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, casella per l'immissione della password, pulsanti di opzione, elenchi a discesa a selezione singola e caselle di controllo con selezione multipla.
 
@@ -192,11 +192,11 @@ Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per e
 
 ```
 
-### Pagina di iscrizione dell'account basato su social network
+## Pagina di iscrizione dell'account basato su social network
 
 Questa pagina contiene un modulo di iscrizione che l'utente deve compilare per effettuare l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+. Questa pagina è simile alla pagina di iscrizione dell'account locale (mostrata nella sezione precedente), ad eccezione dei campi di immissione della password.
 
-### Pagina di autenticazione a più fattori
+## Pagina di autenticazione a più fattori
 
 Questa pagina consente agli utenti di verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso.
 
@@ -242,7 +242,7 @@ Questa pagina consente agli utenti di verificare il proprio numero di telefono (
 
 ```
 
-### Pagina di errore
+## Pagina di errore
 
 
 ```HTML
@@ -276,4 +276,4 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

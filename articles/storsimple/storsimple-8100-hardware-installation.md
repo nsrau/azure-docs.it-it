@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
@@ -233,7 +233,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
     3. La porta DATA 0 alla rete LAN principale (rete con accesso a Internet). Le altre porte dati possono essere collegate al segmento SAN/iSCSI LAN (VLAN) della rete, a seconda del ruolo previsto.
 
     Configurare almeno un'interfaccia di rete per l'accesso cloud e una per iSCSI. Per una disponibilità elevata e prestazioni ottimali, configurare due coppie di interfacce di rete su ciascun controller. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. Per una disponibilità elevata e prestazioni ottimali, la configurazione aggiuntiva richiesta è indicata da linee tratteggiate.
-
+	
     ![Cablare il dispositivo 2U per la rete](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Cablaggio di rete per il dispositivo**
@@ -275,4 +275,4 @@ Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello 
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

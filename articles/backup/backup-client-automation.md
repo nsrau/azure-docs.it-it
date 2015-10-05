@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/17/2015"
-	ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -35,15 +28,15 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 È possibile creare un nuovo archivio di backup utilizzando il cmdlet **New-AzureBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
 È possibile ottenere un elenco di tutti gli archivi di backup in una determinata sottoscrizione utilizzando il cmdlet **Get AzureBackupVault**.
 
 
 ### Installazione dell'agente di Backup di Azure
-Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall'[Area download Microsoft](http://aka.ms/azurebackup_agent). Salvare il programma di installazione in un percorso facilmente accessibile come *C:\Downloads*.
+Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall'[Area download Microsoft](http://aka.ms/azurebackup_agent).o dalla pagina Dashboard dell’archivio di backup. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\\Downloads*.
 
 Per installare l'agente, eseguire il comando seguente in una console di Azure PowerShell con privilegi elevati:
 
@@ -91,7 +84,7 @@ Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBa
 
 ```
 PS C:\> $credspath = "C:"
-PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
 PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
@@ -575,8 +568,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 È ora possibile gestire il computer in remoto, a partire dall'installazione dell'agente. Ad esempio, il seguente script copia l'agente nel computer remoto e lo installa.
 
 ```
-PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -590,4 +583,4 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 - [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 - [Backup di server Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

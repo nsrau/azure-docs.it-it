@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali"
+	pageTitle="Dischi e dischi rigidi virtuali | Microsoft Azure"
 	description="Leggere le informazioni di base sui dischi e sui dischi rigidi virtuali per le macchine virtuali in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="06/30/2015"
 	ms.author="cynthn"/>
 
-# Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali
+# Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo si illustra come si creano le risorse con il modello di distribuzione di gestione delle risorse e il modello di distribuzione classico.
 
 Tutte le macchine virtuali in Azure vengono configurate con almeno due dischi quando viene creata la macchina virtuale: uno è il disco del sistema operativo e l'altro è un disco locale temporaneo, talvolta definito disco di risorsa. Il disco del sistema operativo viene creato da un'immagine e sia il disco del sistema operativo sia l'immagine sono effettivamente dischi rigidi virtuali archiviati in un account di archiviazione di Azure. Anche le macchine virtuali possono disporre di dischi dati archiviati in dischi rigidi virtuali.
 
@@ -65,4 +67,4 @@ Macchine virtuali Windows:
 -  [Acquisire una macchina virtuale Windows](virtual-machines-capture-image-windows-server.md)
 -  [Scollegare un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

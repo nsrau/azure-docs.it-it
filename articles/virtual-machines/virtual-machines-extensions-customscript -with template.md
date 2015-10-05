@@ -1,26 +1,29 @@
 <properties
-   pageTitle="Utilizzo dei modelli di Gestione risorse di Azure dell’estensione di script personalizzato"
-	description="Automazione delle attività di configurazione delle macchine virtuali di Azure utilizzando lo script personalizzato per modelli di Gestione risorse di Azure"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Gli script personalizzati nelle macchine virtuali che utilizzano modelli | Microsoft Azure"
+   description="Automatizzare le attività di configurazione delle macchine virtuali di Windows e Linux Azure utilizzando l'estensione dello Script personalizzato con i modelli di gestione delle risorse"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-multiple"
+   ms.workload="infrastructure-services"
+   ms.date="07/01/2015"
+   ms.author="kundanap"/>
 
 # Utilizzo dell’estensione di script personalizzato con modelli di gestione risorse di Azure
 
 In questo articolo viene fornita una panoramica sulla scrittura di modelli di gestione risorse di Azure con l’estensione di script personalizzato per l'avvio di carichi di lavoro in una macchina virtuale Linux o Windows.
 
-Per una panoramica sull’estensione di script personalizzato, fare clic <a href="https://azure.microsoft.com/it-it/documentation/articles/virtual-machines-extensions-customscript/" target="_blank">qui</a>.
+Per una panoramica sull’estensione di script personalizzato, fare clic [qui](virtual-machines-extensions-customscript.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse. È anche possibile creare una risorsa con il [modello di distribuzione classica](virtual-machines-extensions-customscript.md).
 
 A partire dall’introduzione, l'estensione di script personalizzato è stata utilizzata ampiamente per configurare i carichi di lavoro su macchine virtuali Linux e Windows. Con l'introduzione dei modelli di Gestione risorse di Azure, gli utenti possono ora creare un singolo modello che non solo esegue il provisioning della macchina virtuale ma ne configura anche i carichi di lavoro.
 
@@ -28,7 +31,7 @@ A partire dall’introduzione, l'estensione di script personalizzato è stata ut
 
 I modelli di Gestione risorse di Azure consentono di specificare in modo dichiarativo l'infrastruttura IaaS di Azure in linguaggio Json definendo le dipendenze tra risorse. Per una panoramica dettagliata dei modelli di Gestione risorse di Azure, consultare gli articoli seguenti:
 
-<a href="https://azure.microsoft.com/it-it/documentation/articles/resource-group-overview/" target="_blank">Panoramica del gruppo di risorse</a>. <br/><a href="https://azure.microsoft.com/it-it/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Distribuire modelli con l'interfaccia della riga di comando di Azure</a>. <br/> <a href="https://azure.microsoft.com/it-it/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Distribuire modelli con Azure Powershell</a>.
+<a href="https://azure.microsoft.com/IT-IT/documentation/articles/resource-group-overview/" target="_blank">Panoramica del gruppo di risorse</a>. <br/> <a href="https://azure.microsoft.com/IT-IT/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Distribuire modelli con l'interfaccia della riga di comando di Azure</a>. <br/> <a href="https://azure.microsoft.com/IT-IT/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Distribuire modelli con Azure Powershell</a>.
 
 ### Prerequisiti per l'esecuzione dell'estensione Script personalizzato
 
@@ -97,4 +100,4 @@ Consultare gli esempi seguenti per configurare applicazioni in una macchina virt
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Windows</a>.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -17,6 +17,12 @@
 	ms.author="pakefali"/>
 
 # Compilare e distribuire un'app per le API Node.js in Servizio app di Azure
+
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 Questa esercitazione illustra come creare un'applicazione [Node.js](http://nodejs.org) e come distribuirla nelle app per le API del servizio app di Azure tramite [Git](http://git-scm.com). Le istruzioni di questa esercitazione possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Node.
 
@@ -243,4 +249,4 @@ Verrà mostrata la home page visualizzata in precedenza quando l'app di esempio 
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

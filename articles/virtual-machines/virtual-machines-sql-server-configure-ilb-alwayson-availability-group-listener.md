@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure"
-	description="Questa esercitazione illustra in modo dettagliato la procedura per creare un listener per gruppi di disponibilità AlwaysOn in Azure usando il servizio di bilanciamento del carico interno."
+	pageTitle="Configurare un listener ILB per gruppi di disponibilità AlwaysOn | Microsoft Azure"
+	description="Questa esercitazione utilizza le risorse create con il modello di distribuzione classica e crea un Listener del gruppo di disponibilità AlwaysOn in Azure utilizzando un servizio di bilanciamento del carico interno (ILB)."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -24,6 +25,8 @@
 ## Panoramica
 
 Questo argomento illustra come configurare un listener per un gruppo di disponibilità AlwaysOn usando il **servizio di bilanciamento del carico interno**.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-sql-server-alwayson-availability-groups-gui.md) ma che non sia stato configurato un listener.
 
@@ -133,4 +136,4 @@ Per ILB è necessario creare prima di tutto il servizio di bilanciamento del car
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

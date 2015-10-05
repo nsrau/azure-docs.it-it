@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell"
-	description="Informazioni su come usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows e Gestione risorse in Azure."
+	pageTitle="Creare e preconfigurare una macchina virtuale | Microsoft Azure"
+	description="Creare e preconfigurare una macchina virtuale Azure con il modello di distribuzione di gestione delle risorse e PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -19,15 +19,13 @@
 
 # Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell
 
-Questi passaggi mostrano come costruire un set di comandi nella modalità Gestione risorse di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Windows. È possibile usare questo processo modulare per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Windows ed espandere una distribuzione esistente. Può essere inoltre usato per creare più set di comandi che consentono di realizzare rapidamente un ambiente di sviluppo/test personalizzato o un ambiente IT professionale.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione di gestione delle risorse. È anche possibile gestire risorse con il [modello di distribuzione classica](virtual-machines-ps-create-preconfigure-windows-vms.md).
+
+Questi passaggi mostrano come costruire un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure nel modello di distribuzione della gestione delle risorse. È possibile usare questo processo modulare per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Windows ed espandere una distribuzione esistente. Può essere inoltre usato per creare più set di comandi che consentono di realizzare rapidamente un ambiente di sviluppo/test personalizzato o un ambiente IT professionale.
 
 Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-## Passaggio 1: Installare Azure PowerShell
+## Passaggio 1: installare Azure PowerShell
 
 È anche necessario disporre di Azure PowerShell 0.9.0 o versione successiva. Se Azure PowerShell non è stato installato e configurato, fare clic [qui](../powershell-install-configure.md) per le istruzioni.
 
@@ -121,7 +119,7 @@ Usare il comando seguente per elencare i set di disponibilità esistenti.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per altre informazioni, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Le macchine virtuali basate su Gestione Risorse possono essere configurate con le regole NAT in entrata per consentire il traffico in ingresso da Internet e possono trovarsi in un set con carico bilanciato. In entrambi i casi, è necessario specificare un'istanza del servizio di bilanciamento del carico e altre impostazioni. Per ulteriori informazioni, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Le macchine virtuali basate su Gestione risorse richiedono una rete virtuale basata su Gestione risorse. Se necessario, creare una nuova rete virtuale basata su Gestione risorse con almeno una subnet per la nuova macchina virtuale. Di seguito è riportato un esempio di una nuova rete virtuale con due subnet denominati frontendSubnet e backendSubnet.
 
@@ -205,7 +203,7 @@ Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servi
 - Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
 - Il numero di indice della regola NAT in entrata da assegnare alla scheda di interfaccia di rete.
 
-Per informazioni su come creare un'istanza di bilanciamento del carico con le regole NAT in entrata, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole NAT in entrata, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
 
@@ -225,7 +223,7 @@ Per creare una scheda di interfaccia di rete e aggiungerla a un'istanza di servi
 - Il nome di un'istanza del servizio di bilanciamento carico creato in precedenza che dispone di una regola per il traffico con carico bilanciato.
 - Il numero di indice del pool di indirizzi back-end dell'istanza del servizio di bilanciamento del carico da assegnare alla scheda di interfaccia di rete.
 
-Per informazioni su come creare un'istanza di bilanciamento del carico con le regole per il traffico con carico bilanciato, vedere l'argomento relativo alla [creazione di un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
+Per informazioni su come creare un'istanza del servizio di bilanciamento del carico con le regole per il traffico con carico bilanciato, vedere[Creare un bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copiare le righe seguenti nel set di comandi e specificare i nomi necessari e i numeri di indice.
 
@@ -379,9 +377,9 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 
 ## Risorse aggiuntive
 
-[Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Provider di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Azure](../resource-group-overview.md)
+[Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
 
 [Distribuire e gestire macchine virtuali di Azure usando modelli di Gestione risorse e PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
@@ -389,4 +387,4 @@ Di seguito è riportato il set di comandi di Azure PowerShell necessario per cre
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

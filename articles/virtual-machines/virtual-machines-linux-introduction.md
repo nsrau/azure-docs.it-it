@@ -5,7 +5,8 @@
 	documentationCenter="python"
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -15,7 +16,10 @@
 	ms.topic="article"
 	ms.date="06/11/2015"
 	ms.author="szark"/>
+
 #Introduzione a Linux in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell'uso di macchine virtuali Linux nel cloud di Azure. Se si usa un'immagine presente nella raccolta, la distribuzione di una macchina virtuale Linux è un processo estremamente semplice.
 
@@ -94,6 +98,5 @@ In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e vien
 In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In questo caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in dettaglio nell'esercitazione [Procedura: Come collegare un disco dati a una macchina virtuale](virtual-machines-linux-how-to-attach-disk.md).
 
  - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

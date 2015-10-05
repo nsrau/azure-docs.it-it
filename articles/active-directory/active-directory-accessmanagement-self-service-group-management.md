@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni| Microsoft Azure"
-	description="Argomento che illustra come gestire i gruppi in Azure AD."
+	description="panoramica della gestione self-service dei gruppi che consente agli utenti di creare e gestire i gruppi di sicurezza in Microsoft Azure Active Directory (AD), nonché di richiedere l'appartenenza a tali gruppi"
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni
@@ -49,4 +49,4 @@ Di seguito sono elencati alcuni argomenti contenenti informazioni aggiuntive su 
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

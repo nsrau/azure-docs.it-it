@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Applicazione Node.js con Socket.io | Microsoft Azure"
-	description="Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure."
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="Applicazione Node.js con Socket.io | Microsoft Azure" 
+	description="Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -32,7 +32,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Assicurarsi che i seguenti prodotti e versioni siano installati per completare correttamente l'esempio in questo articolo:
 
-* Installare [Visual Studio 2013](https://www.visualstudio.com/it-IT/downloads/download-visual-studio-vs.aspx)
+* Installare [Visual Studio 2013](https://www.visualstudio.com/IT-IT/downloads/download-visual-studio-vs.aspx)
 * Installare [Node.js](https://nodejs.org/download/)
 * Installare [Python versione 2.7.10](https://www.python.org/)
 
@@ -149,6 +149,8 @@ L'applicazione è ora in esecuzione in Azure ed è in grado di inoltrare i messa
 
 In questa esercitazione è stato illustrato come creare un'applicazione di chat di base ospitata in un servizio cloud di Azure. Per informazioni su come ospitare questa applicazione in un sito Web di Azure, vedere [Creazione di un'applicazione di chat Node.js con Socket.IO in un sito Web di Azure][chatwebsite].
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node. js](/develop/nodejs/).
+
   [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
   [Azure SLA]: http://www.windowsazure.com/support/sla/
@@ -172,4 +174,4 @@ In questa esercitazione è stato illustrato come creare un'applicazione di chat 
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

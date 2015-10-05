@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/23/15-->
 
 #### Per collegare i cavi SAS
 
@@ -24,11 +25,11 @@
 
 3. Usare i cavi SAS forniti per collegare l'enclosure EBOD all'enclosure principale come segue:
 
-    1. Identificare le quattro porte SAS sull'enclosure principale e sull'enclosure EBOD. Le porte SAS sono contrassegnate con la dicitura EBOD sull'enclosure principale e con la dicitura CTRL sull'enclosure EBOD, come illustrato nella seguente figura relativa al cablaggio SAS.
+    1. Identificare le quattro porte SAS sull'enclosure principale e sull'enclosure EBOD. Le porte SAS sono contrassegnate con la dicitura EBOD sull'enclosure principale e corrispondono all’enclosure EBOD, come illustrato nella seguente figura relativa al cablaggio SAS.
 
-    2. Usare i cavi SAS forniti per collegare le porte EBOD alle porte CTRL.
+    2. Usare i cavi SAS forniti per collegare la porta EBOD alla porta A.
 
-    3. La porta EBOD sul controller 0 deve essere collegata alla porta CTRL sul controller 0 EBOD. La porta EBOD sul controller 1 deve essere collegata alla porta CTRL sul controller 1 EBOD. Vedere la figura seguente.
+    3. La porta EBOD sul controller 0 deve essere collegata alla porta A sul controller 0 EBOD. La porta EBOD sul controller 1 deve essere collegata alla porta A sul controller 1 EBOD. Vedere la figura seguente.
 																	
      ![Cablaggio SAS per il dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
 
@@ -43,6 +44,6 @@
     |3|Controller 0 EBOD|
     |4|Controller 1 EBOD|
     |5, 6|Porte SAS sull'enclosure principale (contrassegnate con la dicitura EBOD)|
-    |7, 8|Porte SAS sull'enclosure EBOD (contrassegnate con la dicitura CTRL)|
+    |7, 8|Porte SAS sull'enclosure EBOD (Porta A)|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

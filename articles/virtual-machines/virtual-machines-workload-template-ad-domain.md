@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Distribuzione di un dominio di Servizi di dominio di Active Directory a disponibilità elevata con un modello di Gestione risorse di Azure"
+	pageTitle="di Servizi di dominio di Active Directory a disponibilità elevata con Modello ARM | Microsoft Azure"
 	description="Distribuire facilmente i due server che fungono da controller di dominio di Servizi di dominio di Active Directory con un modello di gestione delle risorse e il portale di anteprima di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,6 +20,8 @@
 
 # Distribuzione di un dominio di Servizi di dominio di Active Directory a disponibilità elevata con un modello di Gestione risorse di Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione risorse. Non è possibile creare questa risorsa con il modello di distribuzione classica.
+
 Utilizzare le istruzioni riportate in questo articolo per distribuire un dominio di Active Directory a disponibilità elevata utilizzando un modello di gestione delle risorse. Questo modello consente di creare due macchine virtuali in una nuova rete virtuale con una sola subnet.
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
@@ -28,12 +30,12 @@ Utilizzare le istruzioni riportate in questo articolo per distribuire un dominio
 
 ## Portale di anteprima di Azure
 
-Per distribuire il carico di lavoro utilizzando un modello di gestione delle risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+Per distribuire il carico di lavoro usando un modello di gestione risorse e il portale di anteprima di Azure, fare clic [qui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
-1.	Per il riquadro**Modello**, fare clic su **Salva**.
-2.	Fare clic su **Parametri**. Nel riquadro**Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
+1.	Per il riquadro **Modello**, fare clic su **Salva**.
+2.	Fare clic su **Parametri**. Nel riquadro **Parametri** immettere nuovi valori, selezionare dai valori consentiti o accettare i valori predefiniti e quindi fare clic su **OK**.
 3.	Se necessario, fare clic su **Sottoscrizione** e selezionare la sottoscrizione di Azure corretta.
 4.	Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente. In alternativa, fare clic su **O crea nuovi** per creare una nuova istanza per questo carico di lavoro.
 5.	Se necessario, fare clic su **Percorso del gruppo di risorse** e selezionare il percorso corretto di Azure.
@@ -106,4 +108,4 @@ Una volta completata l'esecuzione del modello, si dispone di un nuovo, dominio d
 
 [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

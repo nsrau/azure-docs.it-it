@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor=""/>
+	editor="" />
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -61,8 +61,8 @@ Gli errori temporanei sono detti anche guasti temporanei. Quando il programma ri
 |40501|20|Il servizio è attualmente occupato. Ripetere la richiesta dopo 10 secondi. ID evento imprevisto: %ls. Codice: %d.<br/><br/>*Nota:* per altre informazioni su questo errore e su come risolverlo, vedere:<br/>• [Limitazione del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|Il database '%.&#x2a;ls' nel server '%.&#x2a;ls' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. Se il problema persiste, contattare il supporto tecnico indicando l'ID di traccia della sessione di '%.&#x2a;ls'.|
 |49918|16|Impossibile elaborare una richiesta. Risorse insufficienti per elaborare la richiesta.<br/><br/>Il servizio è attualmente occupato. Si prega di ripetere la richiesta più tardi. |
-|49919|16|Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste di creazione o aggiornamento per la sottoscrizione o il server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) per operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
-|49920|16|Impossibile elaborare una richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste per la presente sottoscrizione. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) per le statistiche delle operazioni. Attendere che le richieste in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
+|49919|16|Il processo non può creare o aggiornare la richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste di creazione o aggiornamento per la sottoscrizione o il server. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per operazioni in sospeso. Attendere che le richieste di creazione o aggiornamento in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
+|49920|16|Impossibile elaborare una richiesta. Troppe operazioni di creazione o aggiornamento in corso per ”%Id” della sottoscrizione. <br/><br/>Il servizio è occupato nell’esecuzione di più richieste per la presente sottoscrizione. Le richieste al momento sono bloccate per l'ottimizzazione delle risorse. Eseguire la query [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) per lo stato delle operazioni. Attendere che le richieste in sospeso siano complete o cancellare una delle richieste in sospeso e ripetere la richiesta in un secondo momento. |
 
 **Nota:** gli errori della federazione 10053 e 10054 potrebbero anche determinare l’inclusione nella logica di ripetizione tentativi.
 
@@ -242,4 +242,4 @@ Nella tabella seguente sono elencati tutti gli errori generali che non rientrano
 - [Linee guida e limitazioni generali per il database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gestione delle risorse](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

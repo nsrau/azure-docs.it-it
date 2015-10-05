@@ -163,10 +163,11 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, usare i seguenti collegamenti per altre informazioni.
+Per altre informazioni, vedere le seguenti risorse:
 
--   Vedere [Code, argomenti e sottoscrizioni][].
+-   [Code, argomenti e sottoscrizioni][]
 -   Archivio [Azure SDK for Node][] su GitHub
+-   [Centro per sviluppatori di Node. js](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Passaggi successivi]: #next-steps
@@ -189,4 +190,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Applicazione Web Node.js con archiviazione]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

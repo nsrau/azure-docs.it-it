@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux"
-	description="Informazioni su come usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux in Azure."
+	pageTitle="Creare una macchina virtuale di Linux tramite Azure PowerShell | Microsoft Azure"
+	description="Informazioni su come creare e preconfigurare una macchina virtuale Linux tramite Azure PowerShell"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,19 +11,23 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux
+# Creare e preconfigurare una macchina virtuale Linux tramite Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-In questi passaggi viene mostrato come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Linux in Gestione servizi utilizzando un approccio con componenti principali. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Linux ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
+La procedura mostra come utilizzare un set di comandi di Azure PowerShell per creare e preconfigurare una macchina virtuale Linux utilizzando il modello classico di gestione. È possibile usare questo processo per creare rapidamente un set di comandi per una nuova macchina virtuale basata su Linux ed espandere una distribuzione esistente oppure creare più set di comandi in grado di generare rapidamente un ambiente personalizzato di sviluppo/test o per professionisti IT.
 
 Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di Azure PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di Azure PowerShell possono utilizzare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
@@ -42,7 +46,7 @@ Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo ques
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-È possibile ottenere il nome della sottoscrizione corretto dalla proprietà **SubscriptionName** del comando **Get-AzureSubscription**. È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà **Label** dell'output del comando **Get-AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**. È anche possibile archiviare questi comandi in un file di testo per un uso futuro.
+È possibile ottenere il nome della sottoscrizione corretto dalla proprietà **SubscriptionName** dell'output del comando **Get-AzureSubscription**. È possibile ottenere il nome dell'account di archiviazione corretto dalla proprietà **Label** dell'output del comando **Get-AzureStorageAccount** dopo aver eseguito il comando **Select-AzureSubscription**. È anche possibile archiviare questi comandi in un file di testo per un uso futuro.
 
 ## Passaggio 3: determinare il valore ImageFamily
 
@@ -158,7 +162,7 @@ Dopo aver creato la macchina virtuale, vedere [Come accedere a una macchina virt
 Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
 - Salvare questo set di comandi come file di script di PowerShell (*.ps1)
-- Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di gestione di Azure.
+- Salvare questo set di comandi come Runbook di automazione di Azure nella sezione **Automazione** del portale di Azure.
 
 ## <a id="examples"></a>Esempi:
 
@@ -258,6 +262,6 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Utilizzo di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

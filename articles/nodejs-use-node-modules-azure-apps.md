@@ -68,6 +68,8 @@ Quando l'applicazione è pronta per la produzione, è possibile bloccare i requi
 
 Una volta imparato a usare i moduli Node.js con Azure, per altre informazioni vedere gli articoli che illustrano come [specificare la versione di Node.js], [compilare e distribuire un sito Web Node.js] e [usare l'interfaccia della riga di comando di Azure per Mac e Linux].
 
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
+
 [specificare la versione di Node.js]: nodejs-specify-node-version-azure-apps.md
 [usare l'interfaccia della riga di comando di Azure per Mac e Linux]: xplat-cli.md
 [compilare e distribuire un sito Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
@@ -76,4 +78,4 @@ Una volta imparato a usare i moduli Node.js con Azure, per altre informazioni ve
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [script di distribuzione di un sito Web personalizzato con Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

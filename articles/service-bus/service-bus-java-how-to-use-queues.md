@@ -174,9 +174,12 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, vedere [Code, Argomenti e Sottoscrizioni][] per altre informazioni.
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/develop/java/).
+
+
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure SDK per Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/it-IT/library/azure/hh694271.aspx
+  [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/IT-IT/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -190,4 +193,4 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
   [Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

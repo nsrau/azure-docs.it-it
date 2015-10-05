@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare il servizio di archiviazione code di Azure con WebJobs SDK"
-	description="Informazioni su come usare il servizio di archiviazione code di Azure con WebJobs SDK. Creare ed eliminare code, inserire, visualizzare, ottenere ed eliminare messaggi dalla coda e altro ancora."
-	services="app-service\web, storage"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Come usare il servizio di archiviazione code di Azure con WebJobs SDK" 
+	description="Informazioni su come usare il servizio di archiviazione code di Azure con WebJobs SDK. Creare ed eliminare code, inserire, visualizzare, ottenere ed eliminare messaggi dalla coda e altro ancora." 
+	services="app-service\web, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Come usare il servizio di archiviazione code di Azure con WebJobs SDK
@@ -586,4 +586,4 @@ In una tabella di Azure, i log `Console.Out` e `Console.Error` hanno un aspetto 
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di code di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

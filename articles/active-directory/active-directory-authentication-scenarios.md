@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Scenari di autenticazione per Azure AD"
+   pageTitle="Scenari di autenticazione per Azure AD | Microsoft Azure"
    description="Panoramica dei cinque più comuni scenari di autenticazione per Azure Active Directory (AAD)"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Scenari di autenticazione per Azure AD
@@ -467,4 +467,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

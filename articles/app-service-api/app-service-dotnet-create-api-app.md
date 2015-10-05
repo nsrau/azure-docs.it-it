@@ -19,8 +19,10 @@
 # Creare un'app per le API ASP.NET nel servizio app di Azure
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 ## Panoramica
 
@@ -48,4 +50,4 @@ Quando le istruzioni richiedono l'immissione di un nome per il progetto, specifi
 
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

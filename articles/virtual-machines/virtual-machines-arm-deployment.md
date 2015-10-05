@@ -19,6 +19,8 @@
 
 # Distribuire le risorse di Azure utilizzando librerie di calcolo, rete e archiviazione .NET
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la gestione di una risorsa con il modello di distribuzione Gestione risorse.
+
 In questa esercitazione viene illustrato come utilizzare alcuni dei client disponibili nelle librerie di calcolo, archiviazione e rete .NET per creare ed eliminare le risorse in Microsoft Azure. Viene inoltre illustrato come autenticare le richieste di Gestione risorse di Azure con Azure Active Directory.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -27,7 +29,7 @@ Per completare questa esercitazione sono inoltre necessari:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Account di archiviazione di Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/it-it/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/it-it/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/IT-IT/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/IT-IT/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 L'esecuzione di questi passaggi richiede circa 30 minuti.
@@ -388,4 +390,4 @@ Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre cons
 
 	![Creare un'applicazione di Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -162,4 +162,4 @@ Come previsto da progettazione, le directory di Azure AD sono isolate. Non è su
 ## Passaggi successivi
 Per informazioni su come installare Azure AD Connect per questi scenari, vedere [Installazione personalizzata di Azure Ad Connect](active-directory-aadconnect-get-started-custom.md). Per altre informazioni sulla configurazione del servizio di sincronizzazione Azure AD Connect, vedere [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

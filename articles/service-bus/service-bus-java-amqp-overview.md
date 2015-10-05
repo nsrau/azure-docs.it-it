@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Panoramica di AMQP per il bus di servizio (Java) | Microsoft Azure" 
-	description="Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure." 
+	description="Informazioni sull'uso di Java con il protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
@@ -99,4 +99,4 @@ Per altre informazioni su come ottenere e usare queste librerie con il bus di se
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

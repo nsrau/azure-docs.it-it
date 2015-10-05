@@ -1,5 +1,5 @@
  <properties
-   pageTitle="Token e tipi di attestazioni supportati"
+   pageTitle="Token e i tipi di attestazione supportati | Microsoft Azure"
    description="Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/12/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Token e tipi di attestazioni supportati
@@ -201,7 +201,7 @@ In un token JWT l'ambito del token viene specificato in un'attestazione scp.
 
     "scp": "user_impersonation"
 
-### Subject
+### Oggetto
 
 L'oggetto del token è l'entità su cui il token asserisce informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato, pertanto è possibile usarlo per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Poiché il soggetto è sempre presente nei token emessi da Azure AD, è consigliabile l'uso di questo valore in un sistema di autorizzazione generale.
 
@@ -412,4 +412,4 @@ Questo è un esempio di un tipico token Web JSON (JWT) usato in un flusso Web di
 
 [Protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

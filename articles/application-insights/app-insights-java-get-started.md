@@ -271,7 +271,7 @@ Vengono raccolte automaticamente le eccezioni non gestite:
 
 Per raccogliere dati su altre eccezioni, sono disponibili due opzioni:
 
-* [Inserire chiamate a TrackException nel codice][apiexceptions]. 
+* [Inserire chiamate a trackException() nel codice][apiexceptions]. 
 * [Installare l'agente Java sul server](app-insights-java-agent.md). È possibile specificare i metodi da controllare.
 
 
@@ -381,7 +381,9 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 
 [Risoluzione dei problemi Java](app-insights-java-troubleshoot.md)
 
+## Passaggi successivi
 
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
 <!--Link references-->
 
@@ -394,4 +396,4 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

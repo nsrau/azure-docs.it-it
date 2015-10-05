@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure"
-	description="Informazioni su come creare e caricare un disco rigido virtuale in Azure che contiene il sistema operativo Windows Server."
+	pageTitle="Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure usando Powershell"
+	description="Viene illustrato come creare e caricare un disco rigido virtuale (VHD) basato su Server Windows utilizzando il modello di distribuzione classica e Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -198,4 +198,4 @@ Dopo aver creato una macchina virtuale, provare a creare una macchina virtuale d
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

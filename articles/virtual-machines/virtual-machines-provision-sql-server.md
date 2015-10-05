@@ -1,19 +1,21 @@
 <properties 
-	pageTitle="Provisioning di una macchina virtuale di SQL Server in Azure"
-	description="Esercitazione che illustra come creare e configurare una macchina virtuale SQL Server in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+	pageTitle="Provisioning di una macchina virtuale di SQL Server | Microsoft Azure" 
+	description="Esercitazione che illustra come creare e configurare una macchina virtuale SQL Server in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="monicar"
+	tags="azure-service-management"
+	/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows-sql-server" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="jroth"/>
 
 # Provisioning di una macchina virtuale di SQL Server in Azure
@@ -23,6 +25,8 @@
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## Panoramica
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
 
 Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini che contengono Microsoft SQL Server. È possibile selezionare una delle immagini di macchina virtuale dalla raccolta ed eseguire il provisioning della macchina virtuale nell'ambiente Azure con pochi clic.
 
@@ -37,7 +41,7 @@ In questa esercitazione si apprenderà come:
 
 1. Accedere al [portale di gestione di Azure](http://manage.windowsazure.com) con il proprio account. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-2. Nel portale di gestione di Azure, nella parte sinistra della pagina Web fare clic su **+NUOVO**, su **CALCOLA**, su **MACCHINA VIRTUALE** e infine su **DALLA RACCOLTA**.
+2. Nel portale di gestione di Azure, nella parte sinistra della pagina Web fare clic su **+NEW**, su **COMPUTE**, su **VIRTUAL MACHINE** e infine su **FROM GALLERY**.
 
 3. Nella pagina **Scegli un'immagine** fare clic su **SQL SERVER**, quindi selezionare un'immagine di SQL Server. Fare clic sulla freccia nella parte inferiore destra della pagina.
 
@@ -154,4 +158,4 @@ L'elenco seguente fornisce ulteriori risorse per SQL Server in macchine virtuali
 
 - [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

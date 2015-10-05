@@ -8,7 +8,6 @@
 	editor=""/>
 
 
-
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
@@ -17,7 +16,6 @@
 	ms.topic="article" 
 	ms.date="07/30/2015" 
 	ms.author="mebha"/>
-
 
 
 # Connettersi al database SQL tramite Node.js in Windows
@@ -222,5 +220,8 @@ Per il funzionamento di questo esempio di codice, è necessario innanzitutto ave
 	});
 
  
+## Passaggi successivi
 
-<!---HONumber=August15_HO6-->
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
+
+<!---HONumber=Sept15_HO4-->

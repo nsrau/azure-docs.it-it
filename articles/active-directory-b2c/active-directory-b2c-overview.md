@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni
@@ -62,4 +62,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 - [Domande frequenti Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Richieste di supporto del file su Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

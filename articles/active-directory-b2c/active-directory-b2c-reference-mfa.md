@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: abilitare l'autenticazione a più fattori nelle applicazioni dei consumatori
@@ -53,4 +53,4 @@ Un account utente viene creato nella directory prima che si verifichi il passagg
 
 Quando l’utente si iscrive (utilizzando un account locale o social), se un numero di telefono verificato è collegato all'account utente, viene richiesto di verificarlo. Se non è collegato alcun numero di telefono, all’utente viene richiesto di fornirne uno e di verificarlo. Una volta verificato, il numero di telefono è collegato all'account utente per un utilizzo successivo.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

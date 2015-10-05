@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come configurare un servizio cloud | Microsoft Azure"
-	description="Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="Come configurare un servizio cloud | Microsoft Azure" 
+	description="Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -78,8 +78,12 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
     4. Fare clic su **OK** (segno di spunta).
 
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-[Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](cloud-services-role-enable-remote-desktop.md)
+* Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy.md).
+* Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name.md).
+* [Gestire il servizio cloud](cloud-services-how-to-manage.md).
+* [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](cloud-services-role-enable-remote-desktop.md)
+* Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Cambiare la modalità del dispositivo StorSimple | Microsoft Azure"
-	description="Vengono descritte le modalità del dispositivo StorSimple e viene illustrato come utilizzare Windows PowerShell per StorSimple per modificare la modalità del dispositivo."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Vengono descritte le modalità del dispositivo StorSimple e viene illustrato come utilizzare Windows PowerShell per StorSimple per modificare la modalità del dispositivo."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/17/2015"
+   ms.author="alkohli" />
 
 # Cambiare le modalità del dispositivo sul dispositivo StorSimple
 
@@ -97,4 +97,4 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 Informazioni su come [applicare gli aggiornamenti in modalità normale e manutenzione](storsimple-update-device.md) al dispositivo StorSimple.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

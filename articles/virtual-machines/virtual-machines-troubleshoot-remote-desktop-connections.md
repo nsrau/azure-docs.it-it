@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Impossibile connettersi a una macchina virtuale di Azure tramite RDP | Microsoft Azure"
+	pageTitle="Risolvere i problemi di connessione a Desktop remoto a una VM Windows | Microsoft Azure"
 	description="Risolvere i problemi di connessioni Desktop remoto o RDP a una macchina virtuale di Azure che esegue Windows."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 
 # Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo è dedicato alla risoluzione dei problemi su una macchina virtuale creata con il modello di distribuzione di gestione risorse o il modello di distribuzione classica.
+
 Si possono verificare vari casi di connessioni Desktop remoto (RDP) non riuscite alla macchina virtuale di Azure che esegue Windows. Questo articolo consente di individuarne le cause e correggerle.
 
 > [AZURE.NOTE]Questo articolo si applica solo a macchine virtuali di Azure che eseguono Windows. Per la risoluzione dei problemi di connessioni a macchine virtuali di Azure che eseguono Linux, vedere [questo articolo](virtual-machines-troubleshoot-ssh-connections.md).
@@ -27,7 +29,7 @@ Si possono verificare vari casi di connessioni Desktop remoto (RDP) non riuscite
 
 Se è necessaria ulteriore assistenza in qualsiasi punto in questo articolo, è possibile contattare gli esperti di Azure su [MSDN Azure e i forum di overflow dello stack](http://azure.microsoft.com/support/forums/).
 
-In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](http://azure.microsoft.com/support/faq/).
+In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](http://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 
 ## Passaggi di base
@@ -50,7 +52,7 @@ Se si esegue la risoluzione dei problemi da un computer che esegue Windows 8, Wi
 1.	Fare clic sul **pacchetto di diagnostica Microsoft Azure IaaS (Windows)** nella [pagina di supporto della diagnostica](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). Fare clic su **Crea** per una nuova sessione di diagnostica. È possibile **condividere** questa sessione con un computer di destinazione diverso o **scaricarla** nel computer locale.
 2.	**Eseguire** la sessione, **accettare** il contratto di licenza Microsoft e **avviare** lo strumento di diagnostica.
 3.	Autenticare la sottoscrizione di Azure nella finestra popup e seguire le istruzioni.
-4.	Nella pagina **Quali dei seguenti problemi si verificano con la macchina virtuale di Azure in uso?** selezionare il problema **Connettività RDP a una macchina virtuale di Azure (riavvio richiesto)**.
+4.	Nella pagina **Quali dei seguenti problemi si verificano con la macchina virtuale di Azure in uso?**, selezionare il problema **Connettività RDP a una macchina virtuale di Azure (riavvio richiesto)**.
 
 Se non è stato possibile eseguire il pacchetto di diagnostica Azure IaaS o quest'ultimo non è stato utile, passare alla sezione successiva per risolvere il problema in base all'errore ottenuto dal client Desktop remoto.
 
@@ -82,7 +84,7 @@ In tal modo verrà disabilitata la licenza solo per quella connessione.
 
 Se in realtà non sono necessarie due connessioni Desktop remoto contemporanee alla macchina virtuale, è possibile usare Gestione server per rimuovere il ruolo Server Desktop remoto.
 
-Vedere anche il post di blog [Errore della macchina virtuale di Azure di tipo "Non sono disponibili server licenze Desktop remoto"](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
+Vedere anche il post di blog [Errore della macchina virtuale di Azure VM con "Non sono disponibili server licenze Desktop remoto"](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
 
 <a id="rdpname"></a>
 ### Errore di connessione Desktop remoto: Impossibile trovare il computer "nome".
@@ -140,7 +142,7 @@ Assicurarsi che l'account che si usa per la connessione disponga dei diritti di 
 
 ## Risoluzione dettagliata dei problemi
 
-Se nessuno di questi errori si è verificato ed è ancora impossibile connettersi alla macchina virtuale tramite Desktop remoto, leggere [questo articolo](virtual-machines-rdp-detailed-troubleshoot.md) per individuare altre cause.
+Se nessuno di questi errori si è verificato ed è ancora impossibile connettersi alla VM tramite Desktop remoto, leggere [questo articolo](virtual-machines-rdp-detailed-troubleshoot.md) per individuare altre cause.
 
 
 ## Risorse aggiuntive
@@ -155,4 +157,4 @@ Se nessuno di questi errori si è verificato ed è ancora impossibile connetters
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

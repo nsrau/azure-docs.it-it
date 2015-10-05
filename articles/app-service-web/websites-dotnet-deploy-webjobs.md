@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="06/29/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
-
 
 # Distribuzione di processi Web usando Visual Studio
 
@@ -202,4 +200,4 @@ Questo articolo ha descritto come distribuire processi Web tramite Visual Studio
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

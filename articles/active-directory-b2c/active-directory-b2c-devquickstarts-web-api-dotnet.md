@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'app Web .NET
@@ -39,13 +39,15 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
+    > [AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa esercitazione
+
 ## 3\. Creare i criteri
 
-In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questa app Web contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. Sarà necessario creare i criteri per ogni tipo, come descritto nell'articolo di [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questa app Web contiene tre esperienze di identità: iscrizione, accesso e modifica del profilo. Sarà necessario creare i criteri per ciascun tipo, come descritto nell'articolo [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
-- Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altri criteri.
-- Copiare il **Nome** dei criteri dopo averli creati. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
@@ -53,7 +55,7 @@ Si noti che questo articolo non illustra come usare i criteri appena creati. Per
 
 ## 4\. Scaricare il codice
 
-Il codice per questa esercitazione è disponibile [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) o clonare lo scheletro:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
@@ -63,7 +65,7 @@ L'app completata è anche [disponibile come file ZIP](https://github.com/AzureAD
 
 Dopo aver scaricato il codice di esempio, per iniziare aprire il file `.sln` in Visual Studio. Osservare che nella soluzione sono presenti due progetti: un progetto `TaskWebApp` e un progetto `TaskService`. `TaskWebApp` è il front-end dell'app Web WPF con cui l'utente interagisce. `TaskService` è l'API Web back-end dell'app che archivia le applicazioni "To-Do List" degli utenti.
 
-## 5\. Configurare il servizio dell'attività
+## 5\. Configurare il servizio dell’attività
 
 Quando `TaskService` riceve le richiesta da `TaskWebApp`, verifica la presenza di un token di accesso valido per autenticare la richiesta. Per convalidare il token di accesso, è necessario fornire a `TaskService` alcune informazioni sull'app. Nel progetto `TaskService` aprire il file `web.config` nella radice del progetto e sostituire i valori nella sezione `<appSettings>`:
 
@@ -362,7 +364,7 @@ public void SignOut()
 
 ## 9\. Eseguire l'app di esempio
 
-Infine, compilare ed eseguire `TaskClient` e `TaskService`. Effettuare l'iscrizione o l'accesso all'app e creare le attività per l'utente connesso. Disconnettersi ed eseguire di nuovo l'accesso con un account utente diverso e creare le attività per questo utente. Osservare che le attività sono archiviate per utente nell'API, perché l'API estrae l'identità dell'utente dai token di accesso che riceve.
+Infine, compilare ed eseguire sia `TaskClient` che `TaskService`. Effettuare l'iscrizione o l'accesso all'app e creare le attività per l'utente connesso. Disconnettersi ed eseguire di nuovo l'accesso con un account utente diverso e creare le attività per l’utente in questione. Osservare che le attività sono archiviate per utente nell'API, perché l'API estrae l'identità dell'utente dai token di accesso che riceve.
 
 Come riferimento, l'esempio completato [è disponibile in un file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
@@ -380,4 +382,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

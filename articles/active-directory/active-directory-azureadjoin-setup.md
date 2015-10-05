@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configurazione di Aggiunta ad Azure AD per gli utenti | Microsoft Azure" 
-	description="Questo argomento illustra come gli amministratori possono configurare la funzionalità Aggiunta ad Azure AD per gli utenti finali (dipendenti, studenti o altri utenti)." 
+	description="Illustra come gli amministratori possono configurare la funzionalità Aggiunta ad Azure AD per gli utenti finali (dipendenti, studenti o altri utenti) nella propria organizzazione." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Configurazione di Aggiunta ad Azure AD nell'organizzazione
@@ -47,8 +47,8 @@ Di seguito sono descritti i tre scenari per abilitare gli utenti a configurare A
 - Gli utenti aggiungono gli account aziendali a Windows in un dispositivo personale 
 
 ## Informazioni aggiuntive
-* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

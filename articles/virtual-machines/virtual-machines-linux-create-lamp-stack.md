@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Come creare uno stack LAMP con Microsoft Azure"
+	pageTitle="Creare uno stack LAMP con Azure | Microsoft Azure"
 	description="Informazioni su come creare uno stack LAMP con Microsoft Azure usando macchine virtuali (VM) di Azure che eseguono Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 Uno stack "LAMP" è un gruppo di software open source che viene in genere installato insieme per consentire a un server di ospitare siti Web dinamici e applicazioni Web. Il termine è in realtà un acronimo che rappresenta il sistema operativo Linux con il server web Apache. I dati del sito vengono archiviati in un database MySQL e il contenuto dinamico viene elaborato da PHP.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione di gestione delle risorse o il modello di distribuzione classico.
+
 In questa guida uno stack LAMP verrà installato in un'immagine Linux e distribuita in Microsoft Azure.
 
 Si acquisiranno le nozioni seguenti:
@@ -28,7 +31,7 @@ Si acquisiranno le nozioni seguenti:
 -	Come preparare la macchina virtuale per lo stack LAMP.
 -	Come installare il software necessario al server LAMP nella macchina virtuale.
 
-Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversamente, è possibile iscriversi per una versione di valutazione gratuita sul sito [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per leggere ulteriori informazioni su Azure, vedere [Cos'è Microsoft Azure?](http://azure.microsoft.com/overview/what-is-azure/)
+Si presuppone che l'utente disponga già di una sottoscrizione di Azure. Diversamente, è possibile iscriversi per una versione di valutazione gratuita sul sito [http://azure.microsoft.com](http://azure.microsoft.com). Se si ha un abbonamento MSDN, vedere [Offerte speciali di Microsoft Azure: vantaggi per i membri di MSDN, MPN e Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Per altre informazioni su Azure, vedere [Cos'è Microsoft Azure?](http://azure.microsoft.com/overview/what-is-azure/).
 
 Oltre a questo argomento, se si dispone già di una macchina virtuale e sono necessarie solo informazioni di base sull'installazione di uno stack LAMP in diverse distribuzioni Linux, vedere [Installare lo stack LAMP in una macchina virtuale Linux in Azure](virtual-machines-linux-install-lamp-stack.md).
 
@@ -42,12 +45,12 @@ SSH è uno strumento importante per gli amministratori di sistema. Tuttavia, far
 
 Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 
--	Scaricare e installare puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/\~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Scaricare e installare Puttygen dal percorso seguente: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	Eseguire puttygen.exe.
 -	Fare clic su **Generate** per generare le chiavi. Nel processo è possibile aumentare la casualità spostando il puntatore del mouse sull'area vuota della finestra. ![][1]
 -	Dopo il processo di generazione, Puttygen.exe visualizzerà la chiave generata. Ad esempio: ![][2]
--	Selezionare e copiare la chiave pubblica in **Chiave** e salvarla in un file denominato **publicKey.pem**. Non fare clic su **Save public key**, poiché il formato di file della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
--	Fare clic su **Salva chiave privata** e salvarla in un file denominato **privateKey.ppk**.
+-	Selezionare e copiare la chiave pubblica in **Key** e salvarla in un file denominato **publicKey.pem**. Non fare clic su **Save public key**, poiché il formato di file della chiave pubblica salvata è diverso dalla chiave pubblica richiesta.
+-	Fare clic su **Save private key** e salvarla in un file denominato **privateKey.ppk**.
 
 ###Passaggio 2: creare l'immagine nel portale di Azure.
 Nel [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo** nella barra delle applicazioni e creare un'immagine seguendo queste istruzioni, quindi scegliendo l'immagine Linux in base alle esigenze. In questo esempio viene usata l'immagine Ubuntu 14.04.
@@ -98,7 +101,7 @@ Fare clic su **OK** per aggiungere l'endpoint alla macchina virtuale.
 ###Passaggio 2: effettuare la connessione all'immagine creata
 È possibile scegliere qualsiasi strumento SSH per connettersi alla nuova macchina virtuale. In questo esempio, viene usato Putty.
 
-Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di Azure. Fare clic su **Sfoglia -> Macchine virtuali ->** nome della macchina virtuale **-> Proprietà**, quindi osservare il campo **Nome di dominio** del riquadro **Proprietà**.
+Innanzitutto, ottenere il nome DNS della macchina virtuale dal portale di Azure. **Fare clic su Sfoglia** -> Macchine virtuali -> nome della macchina virtuale** -> Proprietà** e osservare il campo **Nome di dominio** del riquadro **Proprietà**.
 
 Ottenere il numero di porta per le connessioni SSH dal campo **SSH**. Di seguito è fornito un esempio.
 
@@ -110,11 +113,11 @@ Dopo il download, fare clic sul file eseguibile PUTTY.EXE. Configurare le opzion
 
 ![][9]
 
-Nel riquadro sinistro, fare clic su **Connessione -> SSH -> Auth**, quindi fare clic su **Sfoglia** per specificare il percorso del file **privateKey.ppk**, che contiene la chiave privata generata da puttygen nella fase 1: creare un'immagine. Di seguito è fornito un esempio:
+Nel riquadro sinistro fare clic su **Connection** -> SSH -> Auth e quindi fare clic su **Browse** per specificare il percorso del file **privateKey.ppk** che contiene la chiave privata generata da puttygen nella fase 1: creare un’immagine. Di seguito è fornito un esempio:
 
 ![][10]
 
-Fare clic su **Apri**. Si potrebbe ricevere un avviso da una finestra di messaggio. Se il nome DNS e il numero di porta sono stati configurati correttamente, fare clic su **Sì**.
+Fare clic su **Apri**. Si potrebbe ricevere un avviso da una finestra di messaggio. Se il nome DNS e il numero di porta sono stati configurati correttamente, fare clic su **Yes**.
 
 ![][11]
 
@@ -141,6 +144,7 @@ Per installare Apache, aprire il terminale ed eseguire il comando seguente:
 Dopo l'installazione, avviare Apache con il comando seguente:
 
 	sudo service httpd start
+
 ####Testare Apache
 Per verificare se Apache è stato installato correttamente, sfogliare il nome DNS del server Apache (per l'URL di esempio di questo articolo, http://lampdemo.cloudapp.net/). Nella pagina dovrebbe venire visualizzato "It works!" ![][14]
 
@@ -450,6 +454,5 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

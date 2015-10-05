@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Provisioning Apache Spark cluster in HDInsight | Microsoft Azure"
-	description="Informazioni su come effettuare il provisioning di cluster Spark per Azure HDInsight tramite il portale di Azure, Azure PowerShell, una riga di comando o HDInsight .NET SDK"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+   pageTitle="Provisioning Apache Spark cluster in HDInsight | Microsoft Azure"
+   description="Informazioni su come effettuare il provisioning di cluster Spark per Azure HDInsight tramite il portale di Azure, Azure PowerShell, una riga di comando o HDInsight .NET SDK"
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
+   editor="cgronlun"
+   tags="azure-portal"/>
 <tags
-	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="09/22/2015"
+    ms.author="nitinme"/>
 
 # I cluster Apache Spark provisioning in HDInsight utilizzano le opzioni personalizzate
 
@@ -33,7 +33,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 Durante la configurazione, è necessario specificare un account di archiviazione BLOB di Azure e un contenitore predefinito, che viene usato come posizione di archiviazione predefinita dal cluster. È possibile specificare anche un account di archiviazione di Azure aggiuntivo da associare al cluster.
 
->[AZURE.NOTE] Non condividere un contenitore di archiviazione BLOB tra più cluster. Questa operazione non è supportata.
+>[AZURE.NOTE]Non condividere un contenitore di archiviazione BLOB tra più cluster. Questa operazione non è supportata.
 
 Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archiviazione BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md).
 
@@ -85,7 +85,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
     ![Creazione di un nuovo cluster nel portale di anteprima di Azure](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di anteprima di Azure")
 
-3. Immettere un **Nome cluster**, selezionare **Hadoop** per il **tipo di Cluster**, e dall’elenco a discesa **Sistema operativo Cluster**, selezionare **Windows Server 2012 R2 Datacenter**. Un segno di spunta verde verrà visualizzato accanto al nome del cluster, se disponibile.
+3. Immettere un **Nome cluster**, selezionare **Spark** per il **tipo di Cluster**, e dall’elenco a discesa **Sistema operativo Cluster**, selezionare **Windows Server 2012 R2 Datacenter**. Un segno di spunta verde verrà visualizzato accanto al nome del cluster, se disponibile.
 
 	![Immettere il nome del cluster e il tipo](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.2.png "Immettere il nome del cluster e il tipo")
 
@@ -437,4 +437,4 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

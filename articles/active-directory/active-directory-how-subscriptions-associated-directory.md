@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Come vengono associate le sottoscrizioni Azure ad Azure AD"
+	pageTitle="Come vengono associate le sottoscrizioni di Azure ad Azure AD | Microsoft Azure"
 	description="Questo articolo descrive la procedura di accesso a Microsoft Azure e i problemi correlati, ad esempio la relazione tra una sottoscrizione di Azure e Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Come vengono associate le sottoscrizioni Azure ad Azure AD
@@ -67,7 +67,7 @@ Il punto importante da tenere presente è che gli amministratori della sottoscri
 
 Una persona può rivestire entrambi i ruoli, ma non è obbligatorio. A un utente può essere assegnato il ruolo di amministratore globale della directory ma non quello di amministratore del servizio o di coamministratore di una sottoscrizione di Azure. Senza il ruolo di amministratore della sottoscrizione, l'utente non potrà accedere al portale di gestione e svolgere solo attività di amministrazione della directory usando altri strumenti, ad esempio Azure AD PowerShell o l'interfaccia di amministrazione di Office 365.
 
-### Perché non è possibile gestire la directory con l'account utente corrente?
+## Perché non è possibile gestire la directory con l'account utente corrente?
 
 È possibile che un utente tenti di accedere al portale di gestione con un account aziendale o dell'istituto di istruzione prima di aver creato la sottoscrizione di Azure. In questo caso, l'utente visualizzerà un messaggio che indica che non sono presenti sottoscrizioni per l'account. Nel messaggio sarà incluso un collegamento per creare una sottoscrizione di valutazione gratuita.
 
@@ -124,4 +124,4 @@ Per gestire entrambe le directory nel portale di gestione, procedere come indica
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

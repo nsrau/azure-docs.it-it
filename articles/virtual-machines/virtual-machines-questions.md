@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Domande frequenti sulle macchine virtuali di Azure"
-	description="Fornisce le risposte ad alcune delle domande più comuni sulle macchine virtuali di Azure"
+	pageTitle="Domande frequenti sulle macchine virtuali | Microsoft Azure"
+	description="Fornisce le risposte ad alcune delle domande comuni sulle macchine virtuali di Azure create con un modello di distribuzione classica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,9 +17,11 @@
 	ms.date="07/17/2015"
 	ms.author="cynthn"/>
 
-# Domande frequenti sulle macchine virtuali di Azure
+# Domande frequenti sulle macchine virtuali di Azure create con il modello di distribuzione classica
 
-Questo articolo si impegna a rispondere ad alcune domande frequenti che gli utenti pongono riguardo alle macchine virtuali di Azure, in base a input provenienti dal team di supporto per le VM di Azure, nonché dai forum, newsgroup e commenti in altri articoli. Per ottenere informazioni di base, iniziare con [Informazioni sulle Macchine virtuali](virtual-machines-about.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo si risponde alla questione riguardante le risorse create con il modello di distribuzione classica.
+
+Questo articolo si impegna a rispondere ad alcune domande frequenti che gli utenti pongono riguardo alle macchine virtuali di Azure create con il modello di distribuzione classica, in base a input provenienti dal team di supporto per le VM di Azure, nonché dai forum, newsgroup e commenti in altri articoli. Per ottenere informazioni di base, iniziare con [Informazioni sulle Macchine virtuali](virtual-machines-about.md).
 
 ## Cosa è possibile eseguire in una VM di Azure?
 
@@ -54,7 +56,7 @@ Per ulteriori informazioni sul caricamento di un disco dati, vedere l'articolo s
 In molti aspetti sono simili alla "generazione 1" di VM di Hyper-V, ma non sono esattamente la stessa cosa. Entrambi i tipi forniscono un hardware virtualizzato e i dischi rigidi virtuali in formato VHD sono compatibili. Ciò significa che è possibile spostarli tra Hyper-V e Azure. Tre differenze principali che talvolta sorprendono gli utenti di Hyper-V sono:
 
 - Azure non fornisce l'accesso tramite console a una macchina virtuale.
-- Le macchine virtuali di Azure nella maggior parte delle [dimensioni](virtual-machines-size-specs.md) dispongono di una sola scheda di rete virtuale, pertanto possono avere un solo indirizzo IP esterno. (Le dimensioni A8 e A9 utilizzano una seconda scheda di rete per la comunicazione delle applicazioni tra istanze in scenari limitati.)
+- Le macchine virtuali di Azure nella maggior parte delle [dimensioni](virtual-machines-size-specs.md) dispongono di 1 sola scheda di rete virtuale, pertanto possono avere 1 solo indirizzo IP esterno. (Le dimensioni A8 e A9 utilizzano una seconda scheda di rete per la comunicazione delle applicazioni tra istanze in scenari limitati.)
 - Le macchine virtuali di Azure non supportano le funzionalità della macchina virtuale Hyper-V di seconda generazione. Per informazioni dettagliate su queste funzionalità, vedere [Specifiche delle macchine virtuali per Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
 
 ## Queste macchine virtuali possono utilizzare l’infrastruttura di rete locale esistente?
@@ -67,8 +69,8 @@ Per le macchine virtuali create in Gestione dei servizi, è possibile utilizzare
 
 È necessario stabilire una connessione remota per accedere alla macchina virtuale, utilizzando la Connessione Desktop Remoto per una VM di Windows o una Secure Shell (SSH) per una VM di Linux. Per le istruzioni, vedere
 
-- [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md). Sono supportate al massimo 2 connessioni simultanee, a meno che il server non sia configurato come host sessione Servizi Desktop remoto.  
-- [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md). Per impostazione predefinita, la SSH consente un massimo di 10 connessioni simultanee. È possibile aumentare questo numero modificando il file di configurazione.
+- [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-log-on-windows-server.md) Sono supportate al massimo 2 connessioni simultanee, a meno che il server non sia configurato come host sessione Servizi Desktop remoto.  
+- [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-how-to-log-on.md) Per impostazione predefinita, la SSH consente un massimo di 10 connessioni simultanee. È possibile aumentare questo numero modificando il file di configurazione.
 
 Se si verificano problemi relativi a Desktop remoto o SSH, installare e utilizzare l'estensione [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) per risolvere il problema. Per le macchine virtuali Windows, opzioni aggiuntive includono:
 
@@ -132,7 +134,7 @@ Per informazioni dettagliate, vedere [Prezzi delle macchine virtuali](http://azu
 
 ## Azure riavvia la VM per manutenzione?
 
-In genere, è possibile avviare, arrestare o riavviare la VM ogni volta che è necessario. (Per informazioni dettagliate, vedere [Avvio, arresto e riavvio di una macchina virtuale di Azure](https://msdn.microsoft.com/library/azure/dn763934.aspx).) Azure talvolta riavvia la VM come parte dei regolari aggiornamenti pianificati di manutenzione nei datacenter di Azure. Gli eventi di manutenzione non pianificati possono verificarsi quando Azure rileva un problema hardware grave che interessa la VM. Per gli eventi non pianificati, Azure effettua automaticamente la migrazione della VM a un host integro e riavvia la VM.
+In genere, è possibile avviare, arrestare o riavviare la VM ogni volta che è necessario. Azure talvolta riavvia la VM come parte dei regolari aggiornamenti pianificati di manutenzione nei datacenter di Azure. Gli eventi di manutenzione non pianificati possono verificarsi quando Azure rileva un problema hardware grave che interessa la VM. Per gli eventi non pianificati, Azure effettua automaticamente la migrazione della VM a un host integro e riavvia la VM.
 
 Per qualsiasi VM autonoma (vale a dire quando la VM non fa parte di un set di disponibilità), Azure notifica l'amministratore del servizio di sottoscrizione tramite posta elettronica almeno una settimana prima della manutenzione pianificata, perché le VM potrebbero essere riavviate durante l'aggiornamento. Le applicazioni in esecuzione nelle macchine virtuali potrebbero subire un tempo di inattività.
 
@@ -148,4 +150,4 @@ Per garantire la ridondanza, inserire due o più VM configurate in modo analogo 
 
 [Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

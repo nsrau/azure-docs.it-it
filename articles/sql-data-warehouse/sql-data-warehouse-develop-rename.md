@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Rinominare in SQL Data Warehouse
@@ -75,9 +75,9 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[KILL]: https://msdn.microsoft.com/it-it/library/ms173730.aspx
+[KILL]: https://msdn.microsoft.com/IT-IT/library/ms173730.aspx
 
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

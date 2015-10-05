@@ -6,14 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
-   ms.author="jimpark"; "aashishr"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="09/22/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
 I clienti di Azure Backup e System Center Data Protection Manager possono: - backup dei dati nelle pianificazioni che sia più adatto alle loro organizzazione - conservare i dati di backup per periodi più lunghi - è necessario rendere Azure necessita di una parte del loro memorizzazione a lungo termine (anziché a nastro).
@@ -54,6 +47,8 @@ Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripr
 
 Il numero totale dei punti di ripristino è 56.
 
+> [AZURE.NOTE]Il backup di Azure non dispone di una restrizione sul numero di punti di ripristino.
+
 ## Configurazione avanzata
 Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di un'ulteriore flessibilità nella definizione delle pianificazioni di conservazione.
 
@@ -65,4 +60,4 @@ Per ulteriori informazioni sul Backup di Azure vedere
 - [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 - [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins)
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

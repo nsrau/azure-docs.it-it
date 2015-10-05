@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Introduzione al servizio Gateway applicazione | Microsoft Azure"
-	description="Questa pagina offre una panoramica del servizio Gateway applicazione per il bilanciamento del carico di livello 7, incluse dimensioni del gateway, bilanciamento del carico HTTP, affinità di sessione basata su cookie e offload SSL."
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Questa pagina offre una panoramica del servizio Gateway applicazione per il bilanciamento del carico di livello 7, incluse dimensioni del gateway, bilanciamento del carico HTTP, affinità di sessione basata su cookie e offload SSL."
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # Informazioni sul servizio Gateway applicazione
 
@@ -36,7 +36,10 @@ Azure fornisce il servizio di bilanciamento del carico di livello 4 che funziona
 
 Il gateway applicazione instraderà il traffico HTTP in base alla relativa configurazione, sia che si tratti di una macchina virtuale, di servizio cloud, di un'app Web o di un indirizzo IP esterno.
 
-Il diagramma seguente illustra il flusso di traffico per il servizio Gateway applicazione: ![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
+Il diagramma seguente illustra il flusso di traffico per il servizio Gateway applicazione:
+
+ 
+![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 Il bilanciamento del carico di livello 7 HTTP è utile per:
 
@@ -61,4 +64,4 @@ Creare un gateway applicazione. Vedere [Creare un gateway applicazione](applicat
 
 Configurare l'offload SSL. Vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
-<properties 
+<properties
 	pageTitle="Creazione e caricamento di un file VHD Linux in Azure"
 	description="Informazioni su come creare e caricare un disco rigido virtuale Azure (VHD) contenente un sistema operativo Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
-
 # <a id="nonendorsed"> </a>Informazioni per distribuzioni non supportate #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 **Importante**: il contratto di servizio della piattaforma di Azure si applica alle macchine virtuali che utilizzano il sistema operativo Linux solo quando viene utilizzata una delle [distribuzioni supportate](virtual-machines-../linux-endorsed-distributions.md) di PowerShell. Tutte le distribuzioni di Linux disponibili nella raccolta immagini di Azure sono distribuzioni approvate con la configurazione richiesta.
 
@@ -189,4 +191,4 @@ L'[agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Arrestare la macchina virtuale e caricare il VHD in Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

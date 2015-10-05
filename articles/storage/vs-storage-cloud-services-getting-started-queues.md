@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Introduzione all’archiviazione di accodamento di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
 
@@ -202,4 +202,4 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Eli
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

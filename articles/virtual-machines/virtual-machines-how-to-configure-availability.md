@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come configurare un set di disponibilità per le macchine virtuali"
-	description="Vengono descritti i passaggi per configurare un set di disponibilità per una macchina virtuale nuova o esistente in Azure usando il portale di Azure e i comandi di Azure PowerShell"
+	pageTitle="Configurare un set di disponibilità per le macchine virtuali | Microsoft Azure"
+	description="Configurare un set di disponibilità per una macchina virtuale nuova o esistente nel modello di distribuzione classico usando il portale di Azure e Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="08/10/2015"
 	ms.author="cynthn"/>
 
-# Come configurare un set di disponibilità per le macchine virtuali
+# Come configurare un set di disponibilità per le macchine virtuali nel modello di distribuzione classica
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali durante il tempo di inattività, ad esempio durante la manutenzione. L'inserimento di due o più macchine virtuali con configurazione simile in un set di disponibilità crea la ridondanza necessaria a mantenere la disponibilità delle applicazioni o dei servizi eseguiti sulla macchina virtuale. Per i dettagli sul funzionamento, vedere [Gestione della disponibilità delle macchine virtuali][].
 
@@ -109,4 +111,4 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 [Panoramica di Rete virtuale]: virtual-networks-overview.md
 [Articoli sulle Macchine virtuali nella gestione dei servizi]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

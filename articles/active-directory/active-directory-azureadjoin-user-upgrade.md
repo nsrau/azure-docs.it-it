@@ -7,16 +7,14 @@
 	manager="stevenpo" 
 	editor=""/>
 
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
-
 
 # Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni
 Se si sta già utilizzando Windows 7 o 8 e il computer viene aggiornato a Windows 10, è possibile effettuare l’aggiunta ad Azure AD ad tramite il menu Impostazioni.
@@ -38,8 +36,8 @@ Per aggiungere Azure AD nel menu impostazioni
 
 
 ## Informazioni aggiuntive
-* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Informazioni sugli scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

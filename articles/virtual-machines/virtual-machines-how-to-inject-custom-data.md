@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Inserimento di dati personalizzati in macchine virtuali di Azure"
+	pageTitle="Inserimento di dati personalizzati in macchine virtuali | Microsoft Azure"
 	description="In questo argomento viene descritto come inserire dati personalizzati in una macchina virtuale di Azure durante la creazione dell'istanza e come individuare i dati personalizzati in Windows o Linux."
 	services="virtual-machines"
 	documentationCenter=""
@@ -7,7 +7,6 @@
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management" />
-
 
 <tags
 	ms.service="virtual-machines"
@@ -19,10 +18,13 @@
 	ms.author="rasquill"/>
 
 
-
 #Inserimento di dati personalizzati in una macchina virtuale di Azure
 
-L'inserimento di uno script o di altri dati in una macchina virtuale di Azure durante il provisioning è uno scenario molto comune e indipendente dal sistema operativo usato per la distribuzione, Microsoft Windows o Linux. In questo argomento viene spiegato come:
+L'inserimento di uno script o di altri dati in una macchina virtuale di Azure durante il provisioning è uno scenario molto comune e indipendente dal sistema operativo usato per la distribuzione, Microsoft Windows o Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
+In questo argomento viene spiegato come:
 
 - Inserire i dati in una macchina virtuale di Azure durante il provisioning
 
@@ -80,4 +82,4 @@ Per altre informazioni, vedere la [documentazione su cloud-init per Ubuntu](http
 
 [Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

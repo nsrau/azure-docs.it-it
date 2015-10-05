@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 # Informazioni su Automazione di Azure
@@ -33,7 +33,7 @@ Ad esempio, potrebbe essere un processo manuale esistente per il provisioning di
 
 ## Cosa consentono di automatizzare i Runbook?
 
-I Runbook di Automazione di Azure si basano sul flusso di lavoro PowerShell, pertanto consentono di effettuare tutto ciò che è possibile effettuare in PowerShell. Se un'applicazione o un servizio dispongono di un'API, un Runbook permette di utilizzarli. Se si dispone del relativo modulo di PowerShell, sarà possibile caricarlo in Automazione di Azure e includere i cmdlet nel Runbook. I Runbook di automazione Azure vengono eseguiti nel cloud di Azure in modo che possano accedere a tutte le risorse interne al cloud o esterne a cui è possibile accedere dal cloud. Mediante [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) i Runbook possono essere eseguiti nel data center locale per la gestione delle risorse locali.
+I Runbook di Automazione di Azure si basano sul flusso di lavoro PowerShell di Windows o su PowerShell di Windows, pertanto consentono di effettuare tutto ciò che è possibile effettuare in PowerShell. Se un'applicazione o un servizio dispongono di un'API, un Runbook permette di utilizzarli. Se si dispone del relativo modulo di PowerShell, sarà possibile caricarlo in Automazione di Azure e includere i cmdlet nel Runbook. I Runbook di automazione Azure vengono eseguiti nel cloud di Azure in modo che possano accedere a tutte le risorse interne al cloud o esterne a cui è possibile accedere dal cloud. Mediante [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) i Runbook possono essere eseguiti nel data center locale per la gestione delle risorse locali.
 
 
 ## Dove ottenere i Runbook
@@ -43,12 +43,12 @@ La [Raccolta di Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) 
 
 ## Come si creano Runbook personalizzati
 
-È possibile [creare Runbook personalizzati](http://msdn.microsoft.com/library/azure/dn643637.aspx) completamente nuovi o modificare i Runbook contenuti nella relativa [Raccolta](http://msdn.microsoft.com/library/azure/dn781422.aspx) in base alle proprie esigenze. Se si preferisce utilizzare direttamente il codice di PowerShell, è possibile[ modificare il Runbook mediante l'editor di testo](http://msdn.microsoft.com/library/azure/dn879137.aspx) presente nel portale di Azure o modificarlo in modalità offline. Se si preferisce modificare un Runbook evitando l'interazione con il codice sottostante, è possibile utilizzare l'[editor grafico](automation-graphical-authoring-intro.md) nel portale di anteprima di Azure.
+È possibile [creare Runbook personalizzati](http://msdn.microsoft.com/library/azure/dn643637.aspx) completamente nuovi o modificare i Runbook contenuti nella relativa [Raccolta](http://msdn.microsoft.com/library/azure/dn781422.aspx) in base alle proprie esigenze. Sono disponibili tre diversi [tipi runbook](automation-runbook-types.md) tra cui è possibile scegliere in base alle esigenze e all’utilizzo fatto di PowerShell. Se si preferisce lavorare direttamente con il codice di PowerShell, allora si può utilizzare un [Runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) o [Runbook del flusso di lavoro di PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) che si modifica in modalità non in linea o [utilizzando l'editor di testo](http://msdn.microsoft.com/library/azure/dn879137.aspx) nel portale di Azure. Se si preferisce modificare un Runbook evitando l'interazione con il codice sottostante, allora si può creare un[Runbook di interfaccia grafica](automation-runbook-types.md#graphical-runbooks) utilizzando l’[editor grafico](automation-graphical-authoring-intro.md) nel portale di anteprima di Azure.
 
 
 ## In che modo Automazione di Azure è correlato ad altri strumenti di automazione?
 
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) è stato progettato per automatizzare le attività di gestione nel cloud privato. Viene installato in locale nel data center come un componente di [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx). SMA e Automazione di Azure utilizzano lo stesso formato di Runbook basato sul flusso di lavoro di Windows PowerShell, ma SMA non supporta i [Runbook grafici](automation-graphical-authoring-intro.md).
+[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) è stato progettato per automatizzare le attività di gestione nel cloud privato. Viene installato in locale nel data center come un componente di [Windows Azure Pack](http://www.microsoft.com/server-cloud/products/windows-azure-pack/default.aspx). SMA e Automazione di Azure utilizzano lo stesso formato di Runbook basato sul flusso di lavoro di Windows PowerShell e su Windows PowerShell, ma SMA non supporta i [runbook grafici](automation-graphical-authoring-intro.md).
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) è stato progettato per consentire l'automazione delle risorse locali. Utilizza un formato diverso di Runbook rispetto ad Automazione di Azure e a Service Management Automation e presenta un'interfaccia grafica per creare Runbook senza che sia necessario creare degli script. I Runbook dello strumento sono composti da attività di Integration Pack scritti specificatamente per Orchestrator.
 
@@ -65,4 +65,4 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 **Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

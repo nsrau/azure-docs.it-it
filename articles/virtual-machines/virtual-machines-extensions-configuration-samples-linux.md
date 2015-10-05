@@ -1,24 +1,27 @@
 <properties
-   pageTitle="Esempio di configurazione per le estensioni di macchina virtuale di Azure | Microsoft Azure"
-   description="Configurazione di esempio per la creazione di modelli con le estensioni"
+   pageTitle="Esempio di configurazione per le estensioni di macchina virtuale di Linux | Microsoft Azure"
+   description="Configurazione di esempio per la creazione di modelli con le estensioni per le macchine virtuali di Linux."
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Esempi di configurazione dell’estensione delle macchine virtuali di Linux Azure.
+# Esempi di configurazione dell’estensione delle macchine virtuali di Linux.
 
-Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali IaaS di Linux Azure.
+Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali di Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Per ulteriori informazioni su queste estensioni fare clic: [Panoramica delle Estensioni di macchina virtuale di Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
@@ -186,4 +189,4 @@ Di seguito è riportato un modello di macchina virtuale completo per la creazion
 
 [Estensione di script personalizzato in una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

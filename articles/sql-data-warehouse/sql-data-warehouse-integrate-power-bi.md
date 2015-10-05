@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Usare Power BI con SQL Data Warehouse
@@ -42,11 +42,12 @@ Il modo più semplice per spostarsi tra SQL Data Warehouse e Power BI consiste n
 ## Connessione tramite il portale di Power BI
 Oltre a usare il pulsante Apri in Power BI, gli utenti possono connettersi a SQL Data Warehouse anche tramite il portale di Power BI.
 
-1.   Fare clic su Recupera dati nella parte inferiore del pannello di navigazione.
-2.  Selezionare Big Data e altro.
-3.  Nella pagina Big Data e altro selezionare SQL Data Warehouse.
-4.  Immettere le informazioni di connessione necessarie. La sezione relativa all'individuazione dei parametri seguente spiega dove sono disponibili i dati necessari.  
-5.	Eseguendo il drill-down nel set di dati, è possibile esplorare tutte le tabelle e le colonne nel database. Se si seleziona una colonna, una query verrà restituita all'origine, creando dinamicamente l'oggetto visivo. Gli oggetti visivi possono essere salvati in un nuovo report e aggiunti nuovamente al dashboard.
+1.  Fare clic su ’Recupera dati’ nella parte inferiore del pannello di navigazione.
+2.  Selezionare 'Database'.
+3.  Una volta nella pagina database selezionare 'SQL Azure Data Warehouse' e poi fare clic su ’Connetti’.
+4.  Immettere le informazioni di connessione necessarie. La sezione relativa all'individuazione dei parametri seguente spiega dove sono disponibili i dati necessari. 
+5.  Si verrà indirizzati di nuovo alla pagina principale di Power BI e dopo che la connessione viene stabilita, verrà visualizzata una nuova voce in 'set di dati con il nome dell'istanza.  
+6.	 È possibile fare clic sul nuovo set di dati per esplorare tutte le tabelle e le visualizzazioni nel database. Se si seleziona una colonna, una query verrà restituita all'origine, creando dinamicamente l'oggetto visivo. Gli oggetti visivi possono essere salvati in un nuovo report e aggiunti nuovamente al dashboard.
 
 ## Individuazione dei valori dei parametri
 Il nome completo del server e il nome del database sono disponibili nel portale di Azure. Si noti che SQL Data Warehouse è attualmente disponibile solo nel portale di anteprima di Azure.
@@ -62,4 +63,4 @@ Il nome completo del server e il nome del database sono disponibili nel portale 
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

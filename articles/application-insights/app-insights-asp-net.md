@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 
@@ -156,10 +156,23 @@ Aprire le seguenti porte per il traffico in uscita nel firewall del server:
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
-### Mantenere risorse separate per sviluppo, test e rilascio
 
-Per un'applicazione importante è consigliabile inviare dati di telemetria da debug, test e produzione a [risorse separate](app-insights-separate-resources.md).
+## Sviluppo, test e rilascio
 
+Per un'applicazione importante è consigliabile inviare dati di telemetria da timestamp diversi (debug, test e produzione) a [risorse separate](app-insights-separate-resources.md).
+
+## Rilevare la versione dell’applicazione
+
+Assicurarsi che `buildinfo.config` sia generato dal processo di compilazione. Nel file con estensione csproj, aggiungere:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quando dispone delle informazioni di compilazione, il modulo Web Application Insights aggiunge automaticamente la **versione dell'applicazione** come una proprietà per ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
 
 
 
@@ -235,4 +248,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

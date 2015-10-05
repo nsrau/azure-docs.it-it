@@ -1,6 +1,22 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Configurazione di Oracle GoldenGate per Azure" description="Esercitazione che illustra come configurare e implementare Oracle GoldenGate in macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Configurazione Oracle GoldenGate in macchine virtuali | Microsoft Azure"
+	description="Esercitazione che illustra come configurare e implementare Oracle GoldenGate in macchine virtuali del server Windows di Azure a fini della disponibilità elevata e del ripristino di emergenza."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
 #Configurazione di Oracle GoldenGate per Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la gestione di una risorsa creata con il modello di distribuzione classica.
+
 In questa esercitazione viene illustrato come configurare Oracle GoldenGate in un ambiente con macchine virtuali di Azure a fini della disponibilità elevata e del ripristino di emergenza. L'esercitazione è incentrata sulla [replica bidirezionale](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) per i database di Oracle non RAC e richiede che entrambi i siti siano attivi.
 
 Oracle GoldenGate supporta la distribuzione e l'integrazione dei dati. Consente di configurare una soluzione di distribuzione e sincronizzazione dei dati tramite la configurazione della replica Oracle-Oracle e fornisce una soluzione a disponibilità elevata flessibile. Oracle GoldenGate completa Oracle Data Guard con funzionalità di replica per consentire la distribuzione di informazioni estesa all'intera organizzazione e la possibilità di eseguire aggiornamenti e migrazioni senza tempi di inattività. Per informazioni dettagliate, vedere [Uso di Oracle GoldenGate con Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17157/unplanned.htm).
@@ -28,7 +44,7 @@ In questa esercitazione si apprenderà come:
 1. Installare il database nei siti A e B  
 
 	1. Eseguire il caricamento iniziale dei dati
-	
+
 2. Preparare i siti A e B sito per la replica del database
 
 3. Creare tutti gli oggetti necessari per supportare la replica DDL
@@ -102,7 +118,7 @@ Aprire la finestra dei comandi di SQL*Plus nel sito A e B sito con privilegi di 
 
 Quindi eseguire:
 
-	SQL> create tablespace ggs_data   datafile 'c:\OracleDatabase\oradata<DBNAME><DBNAME>ggs_data01.dbf' size 200m; 
+	SQL> create tablespace ggs_data   datafile 'c:\OracleDatabase\oradata<DBNAME><DBNAME>ggs_data01.dbf' size 200m;
 	SQL> create user ggate identified by ggate default tablespace ggs_data  temporary tablespace temp;
 	      grant connect, resource to ggate;
 	      grant select any dictionary, select any table to ggate;
@@ -130,7 +146,7 @@ Per un elenco completo di tutti i comandi GGSCI Oracle GoldenGate, vedere le [in
 Per una dimostrazione del processo di replica di Oracle GoldenGate, in questa esercitazione viene illustrato come creare una tabella sia nel sito A che nel sito B usando i comandi seguenti.
 
 Innanzitutto, aprire la finestra dei comandi di SQL*Plus ed eseguire il comando seguente per creare una tabella di inventario per i database dei siti A e B:
-	
+
 	create table scott.inventory
 	(prod_id number,
 	prod_category varchar2(20),
@@ -158,17 +174,17 @@ Successivamente, creare e abilitare un trigger di database, INVENTORY\_CDR\_TRG,
 	:NEW.LAST_DML := SYSTIMESTAMP;
 	END IF;
 	END;
-	/ 
+	/
 
 
 ##2\. Preparare i siti A e B sito per la replica del database
 In questa sezione viene illustrato come preparare i siti A e B per la replica del database. È necessario eseguire tutti i passaggi di questa sezione in entrambi i siti: sito A e sito B.
 
 Innanzitutto, connettersi con desktop remoto ai siti A e B tramite il portale di Azure. Attivare la modalità archivelog per il database tramite la finestra dei comandi di SQL*Plus:
-	
-	sql>shutdown immediate 
-	sql>startup mount 
-	sql>alter database archivelog; 
+
+	sql>shutdown immediate
+	sql>startup mount
+	sql>alter database archivelog;
 	sql>alter database open;
 
 
@@ -182,7 +198,7 @@ Preparare poi il database per il supporto della replica DDL (Data Definition Lan
 
 Infine, arrestare e riavviare il database:
 
-	sql>shutdown immediate 
+	sql>shutdown immediate
 	sql>startup
 
 
@@ -192,12 +208,12 @@ In questa sezione sono elencati gli script da usare per creare tutti gli oggetti
 Aprire un prompt dei comandi di Windows e passare alla cartella di Oracle GoldenGate, ad esempio C:\\OracleGG. Aprire il prompt dei comandi di SQL*Plus con privilegi di amministratore di database, ad esempio con l'account **SYSDBA**, nei siti A e B.
 
 Eseguire quindi gli script seguenti:
-	
+
 	SQL> @marker_setup.sql  
 	Enter GoldenGate schema name: ggate
 	SQL> @ddl_setup.sql  
 	Enter GoldenGate schema name: ggate
-	SQL> @role_setup.sql 
+	SQL> @role_setup.sql
 	Enter GoldenGate schema name: ggate
 	SQL> grant ggs_ggsuser_role to ggate;
 	 Grant succeeded.
@@ -298,7 +314,7 @@ Aprire il file dei parametri con il comando EDIT PARAMS e quindi aggiungere le s
 	Successfully logged into database.
 
 Aggiungere quindi la tabella di checkpoint al database, dove ggate è il proprietario:
-	
+
 	GGSCI (MachineGG2) 2> ADD CHECKPOINTTABLE ggate.checkpointtable
 	Successfully created checkpoint table ggate.checkpointtable.
 
@@ -316,7 +332,7 @@ Come passaggio finale, salvare e chiudere il file dei parametri GLOBALS.
 
 ###Aggiungere un processo Replicat nel sito B
 In questa sezione viene descritto come aggiungere un processo REPLICAT "REP2" nel sito B.
- 
+
 Usare il comando ADD REPLICAT per creare un gruppo Replicat nel sito B:
 
 	GGSCI (MachineGG2) 37> add replicat rep2 exttrail C:\OracleGG\dirdatab, checkpointtable ggate.checkpointtable
@@ -417,7 +433,7 @@ Connettersi con desktop remoto a MachineGG1, aprire l'interprete dei comandi di 
 	GGSCI (MachineGG1) 13> info trandata scott.inventory
 	Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
 	Columns supplementally logged for table SCOTT.INVENTORY: PROD_ID, PROD_CATEGORY, QTY_IN_STOCK, LAST_DML.
-		
+
 Connettersi con desktop remoto a MachineGG2, aprire l'interprete dei comandi di Oracle GoldenGate ed eseguire:
 
 	GGSCI (MachineGG2) 18> dblogin userid ggate password ggate
@@ -474,7 +490,7 @@ Visualizzare lo stato e il ritardo (se pertinente) per tutti i processi Manager,
 
 	GGSCI (MachineGG1) 16> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
-	
+
 	MANAGER     RUNNING
 	EXTRACT     RUNNING     DPUMP1      00:00:00      00:46:33
 	EXTRACT     RUNNING     EXT1        00:00:00      00:00:04
@@ -497,7 +513,7 @@ Visualizzare lo stato e il ritardo (se pertinente) per tutti i processi Manager,
 
 	GGSCI (ActiveGG2orcldb) 6> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
-	
+
 	MANAGER     RUNNING
 	EXTRACT     RUNNING     DPUMP2      00:00:00      136:13:33
 	EXTRACT     RUNNING     EXT2        00:00:00      00:00:04
@@ -535,29 +551,29 @@ Visualizzare lo stato di un gruppo Replicat:
 ##6\. Verificare il processo di replica bidirezionale
 
 Per verificare la configurazione di Oracle GoldenGate, inserire una riga nel database nel sito A. Connettersi con desktop remoto al sito A. Aprire la finestra dei comandi di SQL*Plus ed eseguire: SQL> select name from v$database;
-	
+
 	NAME
 	———
 	TESTGG
-	
+
 	SQL> insert into inventory values  (100,’TV’,100,sysdate);
-	
+
 	1 row created.
-	
+
 	SQL> commit;
-	
+
 	Commit complete.
 
 Controllare quindi se tale riga viene replicata nel sito B. A tale scopo, connettersi con desktop remoto al sito B. Aprire la finestra di SQL*Plus ed eseguire:
 
 	SQL> select name from v$database;
-	
+
 	NAME
 	———
 	TESTGG
-	
+
 	SQL> select * from inventory;
-	
+
 	PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
 	———- ——————– ———— ———
 	100 TV 100 22-MAR-13
@@ -566,15 +582,15 @@ Inserire un nuovo record nel sito B:
 
 	SQL> insert into inventory  values  (101,’DVD’,10,sysdate);
 	1 row created.
-	
+
 	SQL> commit;
-	
+
 	Commit complete.
 
 Connettersi con desktop remoto al sito A e controllare se la replica ha avuto luogo:
 
 	SQL> select * from inventory;
-	
+
 	PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
 	———- ——————– ———— ———
 	100 TV 100 22-MAR-13
@@ -583,4 +599,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

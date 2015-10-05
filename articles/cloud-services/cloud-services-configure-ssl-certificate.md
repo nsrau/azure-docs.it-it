@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -44,7 +44,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 
 -   Il certificato deve includere una chiave privata.
 -   Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
--   Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Se ad esempio il nome di dominio personalizzato è **contoso.com**, si richiede un certificato dalla CA per **\*.contoso.com** o **www.contoso.com**.
+-   Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Se ad esempio il nome di dominio personalizzato è **contoso.com**, si richiede un certificato dalla CA per ****.contoso.com** o **www.contoso.com**.
 -   Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
 Per eseguire delle prove, è possibile [creare](cloud-services-certs-create.md) e usare un certificato auto firmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**.
@@ -145,6 +145,14 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 
 Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Distribuire il servizio cloud per l'ambiente di gestione temporanea senza includere un certificato né alcuna delle relative informazioni. Una volta distribuito il servizio, è possibile determinare l'URL basato su GUID, che viene visualizzato nel campo **Site URL** del portale di gestione. Creare un certificato con il nome comune uguale all'URL basato su GUID (ad esempio **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), utilizzare il portale di gestione per aggiungere il certificato al servizio cloud preconfigurato, aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione, quindi aggiornare la distribuzione di gestione temporanea per utilizzare il nuovo pacchetto e il nuovo file CSCFG.
 
+## Passaggi successivi
+
+* [Configurazione generale del servizio cloud](cloud-services-how-to-configure.md).
+* Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy.md).
+* Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name.md).
+* [Gestire il servizio cloud](cloud-services-how-to-manage.md).
+
+
   [portale di gestione di Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
@@ -152,4 +160,4 @@ Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anzic
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

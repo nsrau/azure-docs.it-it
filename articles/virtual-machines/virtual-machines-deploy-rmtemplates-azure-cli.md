@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Distribuire e gestire le macchine virtuali di Azure usando i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per Mac, Linux e Windows | Microsoft Azure"
-	description="Distribuire con facilità il set di configurazioni più comune per le macchine virtuali di Azure e gestirle usando i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure."
+	pageTitle="Distribuire e gestire macchine Virtuali con i modelli | Microsoft Azure"
+	description="Distribuire e gestire le configurazioni più comuni per le macchine virtuali di Azure utilizzando i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,9 @@
 # Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo vengono illustrate la distribuzione e la gestione di una macchina virtuale utilizzando i modelli nel modello di distribuzione del gestore di risorse. Non è possibile utilizzare i modelli nel modello di distribuzione classica.
+
 
 - [Creazione rapida di una macchina virtuale in Azure](#quick-create-a-vm-in-azure)
 - [Distribuire una macchina virtuale in Azure da un modello](#deploy-a-vm-in-azure-from-a-template)
@@ -1265,7 +1269,7 @@ Selezionare quindi myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
 
-In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere [Come usare SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md).
+In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere la pagina relativa all'[Uso di SSH con Linux in Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Attività: Arrestare una macchina virtuale
 
@@ -1302,4 +1306,4 @@ Per altri esempi che mostrano come usare l'interfaccia della riga di comando di 
 
 Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](http://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

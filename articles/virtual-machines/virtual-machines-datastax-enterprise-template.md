@@ -3,8 +3,9 @@
 	description="Ulteriori informazioni su come distribuire con facilità un nuovo cluster DataStax Enterprise in macchine virtuali Ubuntu utilizzando Azure PowerShell o l’interfaccia della riga di comando di Azure e un modello di Gestione risorse"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
-	manager="timlt"/>
+	authors="scoriani"
+	manager="timlt"
+	editor="tysonn"/>
 <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="scoriani"/>
 
 # DataStax Enterprise su Ubuntu con un modello di Gestione risorse
 
@@ -499,4 +500,4 @@ Questo approccio suggerisce che è:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure"
-	description="Questo articolo illustra una serie di modelli di applicazione correlati a SQL Server in esecuzione su macchine virtuali di Azure. Offre agli architetti e agli sviluppatori di soluzioni una base solida per l'architettura e il design efficace delle applicazioni."
+<properties
+	pageTitle="Modelli di applicazione di SQL Server in macchine virtuali | Microsoft Azure"
+	description="Questo articolo descrive i modelli di applicazione per SQL Server in macchine virtuali di Azure. Offre agli architetti e agli sviluppatori di soluzioni una base solida per l'architettura e il design efficace delle applicazioni."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="Selcin"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management,azure-resource-manager" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -17,7 +18,7 @@
 
 # Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure
 
-## Riepilogo: 
+## Riepilogo:
 Determinare quale modello o quali modelli dell'applicazione usare per le applicazioni basate su SQL Server in ambiente Azure è un'importante decisione di progettazione e richiede una conoscenza approfondita del funzionamento congiunto di SQL Server con ciascun componente dell'infrastruttura. Con i servizi di infrastruttura di Azure è possibile eseguire facilmente la migrazione, la manutenzione e il monitoraggio delle applicazioni SQL Server esistenti compilate nella piattaforma Windows Server in Macchine virtuali di Azure.
 
 Lo scopo di questo articolo è di fornire agli architetti e agli sviluppatori soluzioni una base solida per l'architettura e il design efficace delle applicazioni, che potranno seguire nella migrazione di applicazioni esistenti in Azure oltre che nello sviluppo di nuove applicazioni in Azure.
@@ -105,7 +106,7 @@ In questo modello di applicazione è presente una sola macchina virtuale in ogni
 
 Nel diagramma i protocolli Internet possono essere TCP, UDP, HTTP o HTTPS.
 
->[AZURE.NOTE] La configurazione di una rete virtuale in Azure è gratuita. Verrà tuttavia addebitata una tariffa per il gateway VPN a cui si connette localmente. Questo addebito dipende dalla lunghezza del periodo di tempo in cui viene fornita e resa disponibile la connessione.
+>[AZURE.NOTE]La configurazione di una rete virtuale in Azure è gratuita. Verrà tuttavia addebitata una tariffa per il gateway VPN a cui si connette localmente. Questo addebito dipende dalla lunghezza del periodo di tempo in cui viene fornita e resa disponibile la connessione.
 
 ## 2 e 3 livelli con scalabilità orizzontale del livello presentazione
 
@@ -276,13 +277,13 @@ Nel modello di applicazione ibrido a più livelli è possibile implementare il s
 1. Pianificare le risorse e la configurazione necessarie nella piattaforma Azure, ad esempio gli account di archiviazione e le macchine virtuali.
 
 1. Configurare la connettività tra la rete aziendale locale e la [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per configurare la connessione tra la rete aziendale locale e una macchina virtuale in Azure, usare uno dei due metodi seguenti:
-									
+
 	1. Stabilire una connessione tra la rete locale e Azure tramite endpoint pubblici su una macchina virtuale in Azure. Questo metodo consente di configurare facilmente e usare l'autenticazione di SQL Server sulla macchina virtuale. Configurare inoltre l'elenco di controllo di accesso di rete sulle porte pubbliche per autorizzare l'accesso di determinati indirizzi IP. Per altre informazioni, vedere l'argomento relativo alla [gestione dell'elenco di controllo di accesso su un endpoint](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint).
-	
+
 	1. Stabilire una connessione tra la rete locale e Azure tramite il tunnel VPN di Azure. Questo metodo consente di estendere i criteri di dominio a una macchina virtuale in Azure, nonché di configurare le regole del firewall e usare l'autenticazione di Windows nella macchina virtuale. Attualmente, Azure supporta le connessioni sicure VPN da sito a sito e VPN da punto a sito:
-	
+
 		- Con la connessione da sito a sito sicura è possibile stabilire la connettività di rete tra la rete locale e la rete virtuale in Azure. Questo tipo di connessione è consigliato per connettere l'ambiente del data center locale ad Azure.
-		
+
 		- Con la connessione da punto a sito sicura è possibile stabilire la connettività di rete tra la rete virtuale in Azure e i singoli computer in esecuzione ovunque. Questo tipo di connessione è consigliato principalmente a scopo di sviluppo e test.
 
 	Per informazioni sulle modalità di connessione a SQL Server in Azure, vedere l'argomento relativo alla [connessione a una macchina virtuale di SQL Server in Azure](virtual-machines-sql-server-connectivity.md).
@@ -292,9 +293,9 @@ Nel modello di applicazione ibrido a più livelli è possibile implementare il s
 1. A seconda delle esigenze applicative è possibile implementare uno tra i tre scenari comuni seguenti:
 
 	1. È possibile mantenere il server Web, il server applicazioni e i dati non sensibili in un server di database in Azure, mentre è possibile mantenere i dati sensibili in locale.
-	
+
 	1. È possibile mantenere il server Web e il server applicazioni in locale, mentre è possibile mantenere il server di database su una macchina virtuale in Azure.
-	
+
 	1. È possibile mantenere il server di database, il server Web e il server applicazioni in locale, mentre è possibile mantenere le repliche di database su macchine virtuali in Azure. Questa impostazione consente ai server Web o alle applicazioni di accedere alle repliche del database in Azure. Di conseguenza, è possibile ridurre il carico di lavoro in un database locale. Si consiglia di implementare questo scenario per i carichi di lavoro a elevato utilizzo di lettura e a scopo di sviluppo. Per informazioni sulla creazione di repliche di database in Azure, vedere i Gruppi di disponibilità AlwaysOn nell'argomento relativo alla [disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Confronto delle strategie di sviluppo Web in Azure
@@ -322,4 +323,4 @@ Per altre informazioni sulla scelta tra i metodi di programmazione disponibili, 
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

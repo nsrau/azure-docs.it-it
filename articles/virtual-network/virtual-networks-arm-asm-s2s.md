@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="09/18/2015"
    ms.author="telmos" />
 
 # Connessione di reti virtuali classiche a nuove reti virtuali
@@ -363,4 +363,4 @@ Ora che le due reti virtuali sono connesse, è opportuno testarne la connettivit
 - Altre informazioni sul [Provider di risorse di rete per Gestione risorse di Azure](../resource-groups-networking.md).
 - Visualizzare le linee guida generali su come [creare una connessione VPN S2S tra una rete virtuale classica e una rete virtuale di Gestione risorse di Azure](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

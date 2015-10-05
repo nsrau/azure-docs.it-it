@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/20/2015"
 	ms.author="juliako"/>
 
 
@@ -27,14 +27,17 @@ In Servizi multimediali è possibile caricare i file digitali in un asset. L'ent
 
 >[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
-Il flusso di lavoro di base per l'inserimento degli asset si divide nelle seguenti sezioni:
+Il flusso di lavoro di base per il caricamento degli asset si divide nelle sezioni seguenti:
 
 - Creare un asset
 - Crittografare un asset (facoltativo)
 - Caricare un file nell'archiviazione BLOB
 
+AMS consente anche di caricare gli asset in blocco. Per altre informazioni, vedere [questa](media-services-rest-upload-files.md#upload_in_bulk) sezione.
 
-##Creare un asset
+##Caricare gli asset
+
+###Creare un asset
 
 >[AZURE.NOTE]Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
@@ -106,7 +109,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-##Creare un'entità AssetFile
+###Creare un'entità AssetFile
 
 L'entità [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) rappresenta un file video o audio archiviato in un contenitore BLOB. Un file di asset è sempre associato a un asset e un asset può contenere uno o più file. Se un oggetto di file di asset non è associato a un file digitale in un contenitore BLOB, l'attività del codificatore di Servizi multimediali restituisce un errore.
 
@@ -171,7 +174,7 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 	}
 
 
-## Creazione dell'entità AccessPolicy con autorizzazioni di scrittura 
+### Creazione dell'entità AccessPolicy con autorizzazioni di scrittura 
 
 Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà un messaggio di errore interno del server 500 in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
@@ -218,7 +221,7 @@ Il seguente esempio mostra come creare un'entità AccessPolicy:
 	   "Permissions":2
 	}
 
-##Ottenere l'URL di caricamento
+###Ottenere l'URL di caricamento
 
 Per ricevere l'URL di caricamento effettivo, creare un localizzatore di firma di accesso condiviso. I localizzatori definiscono l'ora di inizio e il tipo di endpoint della connessione per i client che richiedono l'accesso ai file in un asset. È possibile creare più entità Locator per una specifica coppia AccessPolicy e Asset in modo da gestire le diverse richieste ed esigenze dei client. Ogni localizzatore usa i valori StartTime e DurationInMinutes di AccessPolicy per determinare la durata d'uso di un URL. Per altre informazioni, vedere [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
@@ -286,7 +289,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	   "Name":null
 	}
 
-## Caricare un file in un contenitore di archiviazione BLOB
+### Caricare un file in un contenitore di archiviazione BLOB
 	
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. Il caricamento può essere eseguito in BLOB di pagine o in BLOB in blocchi.
 
@@ -295,7 +298,7 @@ Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-## Aggiornare l'entità AssetFile 
+### Aggiornare l'entità AssetFile 
 
 Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. ad esempio:
 	
@@ -322,7 +325,7 @@ Una volta caricato il file, è possibile aggiornare la dimensione dell'entità F
 
 Se l'esito è positivo, viene restituita la seguente risposta: HTTP/1.1 204 - Nessun contenuto
 
-## Eliminare le entità Locator e AccessPolicy 
+### Eliminare le entità Locator e AccessPolicy 
 
 **Richiesta HTTP**
 
@@ -362,6 +365,146 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 	HTTP/1.1 204 No Content 
 	...
 
+##<a id="upload_in_bulk"></a>Caricare gli asset in blocco
+
+###Creare l'entità IngestManifest
+
+IngestManifest è un contenitore per un set di asset, file di asset e informazioni statistiche che possono essere usate per determinare lo stato di avanzamento dell'inserimento in blocco del set.
+
+
+**Richiesta HTTP**
+
+	POST https:// media.windows.net/API/IngestManifests HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 36
+	Expect: 100-continue
+	
+	{ "Name" : "ExampleManifestREST" }
+
+###Creare gli asset
+
+Prima di creare l'entità IngestManifestAsset, è necessario creare l'asset che verrà completato mediante l'inserimento in blocco. Un asset è un contenitore di più tipi o set di oggetti in Servizi multimediali, inclusi elementi video e audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, per creare un asset, è necessario inviare una richiesta HTTP POST a Servizi multimediali di Microsoft Azure e inserire le informazioni relative alle proprietà dell'asset nel corpo della richiesta. In questo esempio l'asset viene creato usando l'opzione StorageEncrption(1) inclusa nel corpo della richiesta.
+
+**Risposta HTTP**
+
+	POST https://media.windows.net/API/Assets HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 55
+	Expect: 100-continue
+	
+	{ "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
+
+###Creare le entità IngestManifestAsset
+
+Le entità IngestManifestAsset rappresentano gli asset all'interno dell'entità IngestManifest usati durante l'inserimento in blocco. Esse in pratica collegano l'asset al manifesto. Servizi multimediali di Azure controlla internamente il caricamento dei file in base alla raccolta IngestManifestFiles associata all'entità IngestManifestAsset.. Dopo il caricamento dei file, l'asset è completato. È possibile creare una nuova entità IngestManifestAsset mediante una richiesta HTTP POST. Nel corpo della richiesta è necessario includere l'ID dell'entità IngestManifest e l'ID dell'asset da collegare insieme tramite IngestManifestAsset per l'inserimento in blocco.
+
+**Risposta HTTP**
+
+	POST https://media.windows.net/API/IngestManifestAssets HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 152
+	Expect: 100-continue
+	{ "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "Asset" : { "Id" : "nb:cid:UUID:b757929a-5a57-430b-b33e-c05c6cbef02e"}}
+
+###(Facoltativo) Creare le entità ContentKey usate per la crittografia
+
+Se per l'asset verrà usata la crittografia, è necessario creare l'entità ContentKey da usare a tale scopo prima di creare la raccolta IngestManifestFiles per l'asset. In questo caso, nel corpo della richiesta vengono incluse le proprietà seguenti.
+ 
+Proprietà corpo richiesta | ID descrizione | ID ContentKey generato nel formato seguente: "nb:kid:UUID:<NEW GUID>". ContentKeyType | Tipo come numero intero per la chiave simmetrica. Per la crittografia di archiviazione viene passato il valore 1. EncryptedContentKey | Viene creato un nuovo valore di chiave simmetrica che corrisponde a un valore a 256 bit (32 byte). La chiave viene crittografata mediante il certificato X.509 di crittografia di archiviazione recuperato da Servizi multimediali di Microsoft Azure eseguendo una richiesta HTTP GET per i metodi GetProtectionKeyId e GetProtectionKey. ProtectionKeyId | ID chiave di protezione per il certificato X.509 di crittografia di archiviazione usato per crittografare la chiave simmetrica. ProtectionKeyType | Tipo di crittografia per la chiave di protezione usata per crittografare la chiave simmetrica. Per l'esempio questo valore è StorageEncryption(1). Checksum | Checksum calcolato MD5 per la chiave simmetrica. Viene ricavato crittografando l'ID contenuto con la chiave simmetrica. Il codice di esempio mostra come calcolare il checksum.
+
+
+**Risposta HTTP**
+	
+	POST https://media.windows.net/api/ContentKeys HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 572
+	Expect: 100-continue
+	
+	{"Id" : "nb:kid:UUID:316d14d4-b603-4d90-b8db-0fede8aa48f8", "ContentKeyType" : 1, "EncryptedContentKey" : "Y4NPej7heOFa2vsd8ZEOcjjpu/qOq3RJ6GRfxa8CCwtAM83d6J2mKOeQFUmMyVXUSsBCCOdufmieTKi+hOUtNAbyNM4lY4AXI537b9GaY8oSeje0NGU8+QCOuf7jGdRac5B9uIk7WwD76RAJnqyep6U/OdvQV4RLvvZ9w7nO4bY8RHaUaLxC2u4aIRRaZtLu5rm8GKBPy87OzQVXNgnLM01I8s3Z4wJ3i7jXqkknDy4VkIyLBSQvIvUzxYHeNdMVWDmS+jPN9ScVmolUwGzH1A23td8UWFHOjTjXHLjNm5Yq+7MIOoaxeMlKPYXRFKofRY8Qh5o5tqvycSAJ9KUqfg==", "ProtectionKeyId" : "7D9BB04D9D0A4A24800CADBFEF232689E048F69C", "ProtectionKeyType" : 1, "Checksum" : "TfXtjCIlq1Y=" }
+
+### Collegare l'entità ContentKey all'asset
+
+L'entità ContentKey viene associata a uno o più asset mediante l'invio di una richiesta HTTP POST. La richiesta seguente fornisce un esempio di come collegare l'entità ContentKey di esempio all'asset di esempio in base all'ID.
+
+**Risposta HTTP**
+	
+	POST https://media.windows.net/API/Assets('nb:cid:UUID:b3023475-09b4-4647-9d6d-6fc242822e68')/$links/ContentKeys HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 113
+	Expect: 100-continue
+	
+	{ "uri": "https://media.windows.net/api/ContentKeys('nb%3Akid%3AUUID%3A32e6efaf-5fba-4538-b115-9d1cefe43510')"}
+
+###Creare le entità IngestManifestFile per ogni asset
+
+Un'entità IngestManifestFile rappresenta un oggetto BLOB audio o video che verrà caricato nel corso del caricamento in blocco di un asset. Le proprietà relative alla crittografia sono necessarie solo se per l'asset viene usata un'opzione di crittografia. L'esempio riportato in questa sezione mostra come creare un'entità IngestManifestFile che usa l'entità StorageEncryption per l'asset creato in precedenza.
+
+
+**Risposta HTTP**
+
+	POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 367
+	Expect: 100-continue
+	
+	{ "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
+	
+###Caricare i file in Archiviazione BLOB
+
+È possibile usare qualsiasi applicazione client ad alta velocità in grado di caricare i file di asset nell'URI del contenitore di archiviazione BLOB fornito dalla proprietà BlobStorageUriForUpload di IngestManifest. Un servizio di caricamento ad alta velocità consigliato è l'applicazione [Aspera On Demand for Azure](http://go.microsoft.com/fwlink/?LinkId=272001).
+
+###Monitorare lo stato di avanzamento dell'inserimento in blocco
+
+È possibile monitorare lo stato di avanzamento delle operazioni di inserimento in blocco per un'entità IngestManifest eseguendo il polling della proprietà Statistics di IngestManifest. Tale proprietà è un tipo complesso, [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx). Per eseguire il polling della proprietà Statistics, inviare una richiesta HTTP GET passando l'ID IngestManifest.
+ 
+
+**Risposta HTTP**
+
+	GET https://media.windows.net/API/IngestManifests('nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048') HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+
 
 ##Percorsi di apprendimento di Media Services
 
@@ -375,4 +518,4 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

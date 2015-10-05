@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso dei tag per organizzare le risorse di Azure" 
-	description="Mostra come applicare i tag per organizzare le risorse per la fatturazione e la gestione." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
+<properties
+	pageTitle="Uso dei tag per organizzare le risorse di Azure"
+	description="Mostra come applicare i tag per organizzare le risorse per la fatturazione e la gestione."
+	services="azure-resource-manager"
+	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett" 
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="AzurePortal" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="AzurePortal"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/04/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Quando si visualizzano le risorse con un tag specifico, vengono visualizzate le 
 
 Ogni tag aggiunto a una risorsa o a un gruppo di risorse viene aggiunto automaticamente alla tassonomia a livello di sottoscrizione. È anche possibile precompilare tale tassonomia con nomi e valori di tag che si vogliono usare in futuro come risorse provviste di tag.
 
-> [AZURE.NOTE]È possibile applicare dei tag solo alle risorse che supportano le operazioni di gestione delle risorse. Se è stato creata una macchina virtuale, una rete virtuale o una risorsa di archiviazione con il modello di distribuzione classico (ad esempio con il portale di Azure o l'[API di gestione del servizio](https://msdn.microsoft.com/library/azure/dn948465.aspx)), non è possibile applicare un tag a tale risorsa. È necessario distribuire nuovamente tali risorse tramite Gestione risorse per supportare l'assegnazione di tag. Tutte le altre risorse supportano l'assegnazione di tag.
+> [AZURE.NOTE]È possibile applicare dei tag solo alle risorse che supportano le operazioni di gestione delle risorse. Se è stato creata una macchina virtuale, una rete virtuale o una risorsa di archiviazione con il modello di distribuzione classico (ad esempio con il portale di Azure o l'[API di gestione del servizio](../services/api-management/)), non è possibile applicare un tag a tale risorsa. È necessario distribuire nuovamente tali risorse tramite Gestione risorse per supportare l'assegnazione di tag. Tutte le altre risorse supportano l'assegnazione di tag.
 
 
 ## I tag nel portale di anteprima
@@ -154,8 +154,5 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 - Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](./powershell-azure-resource-manager.md).
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
 - Per un’introduzione all'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
-  
 
-  
-
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

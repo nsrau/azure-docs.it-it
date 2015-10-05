@@ -3,7 +3,7 @@
 	description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure che esegue Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="madhana"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/20/2015"
-	ms.author="karthmut"/>
+	ms.author="madhana"/>
 
 
 
@@ -162,4 +162,4 @@ Per ulteriori informazioni e comandi aggiuntivi, visitare la [pagina della docum
 [Come collegare un disco dati a una macchina virtuale]: storage-windows-attach-disk.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

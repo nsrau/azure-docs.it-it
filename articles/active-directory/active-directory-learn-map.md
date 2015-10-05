@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Altre informazioni su Azure AD
 
-###Altri articoli su questo argomento
+### Altri articoli su questo argomento
 [Che cos'è Azure AD?](active-directory-whatis.md)<br> [Come funziona?](active-directory-works.md)<br> [Introduzione](active-directory-get-started.md)<br> [Passaggi successivi](active-directory-next-steps.md)<br> [Altre informazioni](active-directory-learn-map.md)
 
 Si è già in possesso di una sottoscrizione di Azure. In che modo Azure AD è correlato? [Come vengono associate le sottoscrizioni a una directory](active-directory-how-subscriptions-associated-directory.md)
@@ -36,6 +36,5 @@ Per comprendere le limitazioni di utilizzo e altri limiti di servizio per il ser
 
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Identità di Azure](fundamentals-identity.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

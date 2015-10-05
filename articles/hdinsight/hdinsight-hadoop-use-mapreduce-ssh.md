@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 # Usare MapReduce con Hadoop in HDInsight con SSH
@@ -49,7 +49,7 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere [Usare SSH con Hado
 
 ###PuTTY (client di Windows)
 
-Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**, disponibile per il download all'indirizzo [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -76,7 +76,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
 	In questo modo, vengono visualizzati due file: **\_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
 
-	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-\#\#\#\#\#**. In questo caso, usare il suffisso \#\#\#\#\# per indicare l'ordine dei file.
+	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
 
 4. Per visualizzare l'output, usare il seguente comando:
 
@@ -108,4 +108,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

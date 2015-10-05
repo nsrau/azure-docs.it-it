@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="09/22/2015"
    ms.author="mbaldwin" />
 
 # Guida per gli sviluppatori dell’insieme di credenziali chiave Azure
@@ -55,11 +55,11 @@ Gli insiemi di credenziali chiave e le informazioni riservate possono inoltre es
 
 - [Creare e gestire insiemi di credenziali chiave con PowerShell](key-vault-get-started.md)
 - [Creare e gestire insiemi di credenziali chiave con l’interfaccia della riga di comando](key-vault-manage-with-cli.md)
-- [Come generare e trasferire chiavi protette HSM per l’insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [Come generare e trasferire chiavi protette HSM per l’insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md)
 - [Informazioni su chiavi e informazioni riservate](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## Vedere anche
 
 - [Esempi di codice di insieme di credenziali chiave di Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

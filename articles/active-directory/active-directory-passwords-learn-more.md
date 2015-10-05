@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Altre informazioni: Gestione delle password di Azure AD | Microsoft Azure" 
-	description="Argomenti avanzati sulla gestione delle password di Azure Active Directory, ad esempio come funziona il writeback delle password, sicurezza del writeback delle password, come funziona il portale di reimpostazione delle password e quali dati vengono usati per la reimpostazione della password." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Altre informazioni: Gestione delle password di Azure AD | Microsoft Azure"
+	description="Argomenti avanzati sulla gestione delle password di Azure Active Directory, ad esempio come funziona il writeback delle password, sicurezza del writeback delle password, come funziona il portale di reimpostazione delle password e quali dati vengono usati per la reimpostazione della password."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Altre informazioni sulla gestione delle password
@@ -280,6 +280,5 @@ La seguente tabella indica il punto e la modalità d'uso dei dati durante la rei
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

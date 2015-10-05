@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="09/23/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -40,7 +40,7 @@ Pool di database flessibile in Database SQL Azure è consentire agli ISV di SaaS
 
 I pool di database elastici sono adatti per un numero elevato di database con i modelli di utilizzo specifici. Per un determinato database, questo modello è caratterizzato da un utilizzo medio ridotto con picchi di utilizzo relativamente poco frequenti.
 
-Più database è possibile aggiungere a un pool di maggiore che diventano i risparmi, ma a seconda del modello l'utilizzo dell'applicazione, è possibile vedere risparmi con minor 4 S3 database.
+Più database è possibile aggiungere a un pool di maggiore che diventano i risparmi, ma a seconda del modello l'utilizzo dell'applicazione, è possibile vedere risparmi con minor 2 S3 database.
 
 Le sezioni seguenti consentono di comprendere come valutare se la raccolta specifica di database trarrà vantaggio dall'utilizzo di un pool di database elastici. Gli esempi utilizzano pool di database elastici Standard, ma gli stessi principi si applicano anche ai pool Basic e Premium.
 
@@ -60,7 +60,7 @@ Compila l'esempio precedente, si supponga che vi sono altri database con i model
 
    ![venti database][3]
 
-Dalla riga di colore nera nella figura precedente viene illustrato l'utilizzo di DTU di aggregazione in tutti i database di 20. Viene illustrato che l'utilizzo di DTU aggregato non mai supera le 100 DTU, ciò indica che i 20 database possono condividere 100 eDTU nel corso di tale periodo di tempo. Ciò comporta una riduzione di Dtu di 20x e 6 una riduzione del prezzo rispetto all'inserimento di ogni database in livelli di prestazioni S3 per singoli database.
+Dalla riga di colore nera nella figura precedente viene illustrato l'utilizzo di DTU di aggregazione in tutti i database di 20. Viene illustrato che l'utilizzo di DTU aggregato non mai supera le 100 DTU, ciò indica che i 20 database possono condividere 100 eDTU nel corso di tale periodo di tempo. Ciò comporta una riduzione di DTU di 20x e 13x una riduzione del prezzo rispetto all'inserimento di ogni database in livelli di prestazioni S3 per singoli database.
 
 
 In questo esempio è ideale per i motivi seguenti:
@@ -70,38 +70,38 @@ In questo esempio è ideale per i motivi seguenti:
 - Le eDTU sono condivise da un numero elevato di database.
 
 
-Il prezzo per un pool di database elastici è una funzione delle eDTU del pool e del numero di database al suo interno. Mentre il prezzo unitario delle eDTU di un pool secondo i prezzi GA è 3 volte maggiore al prezzo unitario delle eDTU per un singolo database, le **eDTU del pool possono essere condivise da molti database e pertanto in molti casi è necessario un minor numero totale di eDTU**. Queste distinzioni nella determinazione dei prezzi e nella condivisione di eDTU costituiscono la base del potenziale risparmio sul prezzo che il pool è in grado di fornire.
+Il prezzo per un pool di database elastici è una funzione delle eDTU del pool. Mentre il prezzo unitario delle eDTU di un pool è 1,5 volte maggiore al prezzo unitario delle eDTU per un singolo database, le **eDTU del pool possono essere condivise da molti database e pertanto in molti casi è necessario un minor numero totale di eDTU**. Queste distinzioni nella determinazione dei prezzi e nella condivisione di eDTU costituiscono la base del potenziale risparmio sul prezzo che il pool è in grado di fornire.
 
 <br>
 
-Le seguenti regole relative al numero di database e l'utilizzo del database consentono di garantire che un pool di database elastici offra costi ridotti rispetto all'utilizzo di livelli di prestazioni per i singoli database. Le indicazioni si basano sui prezzi di disponibilità generale (GA). Si noti che i prezzi GA vengono scontati del 50% durante l'anteprima e pertanto queste regole deve essere considerati relativamente prudenti.
+Le seguenti regole relative al numero di database e l'utilizzo del database consentono di garantire che un pool di database elastici offra costi ridotti rispetto all'utilizzo di livelli di prestazioni per i singoli database.
 
 
 ### Numero minimo di database
 
-Con i prezzi GA, un pool di database elastici diventa più di una scelta relativa alle prestazioni redditizie se 1 eDTU può essere condivisa da più di 3 database. Ciò significa che la somma di DTU di livelli di prestazioni per singoli database è superiore di 3 volte alle eDTU del pool. Per le dimensioni disponibili vedere [Limiti di archiviazione e di eDTU per i pool di database elastici e i database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Se la somma di DTU di livelli di prestazioni per singoli database è superiore di 1,5x rispetto ai DTU necessari per il pool, allora un pool elastico è più conveniente. Per le dimensioni disponibili vedere [Limiti di archiviazione e di eDTU per i pool di database elastici e i database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
-***Esempio***<br> Sono necessari almeno 4 database S3 o almeno 36 database S0 per un pool di database elastici di 100 eDTU per una riduzione dei costi maggiore rispetto all'utilizzo di livelli di prestazioni per singoli database. (Si noti che con i prezzi di anteprima, il punto di pareggio sui prezzi in base al numero di database riduce a 2 database S3 o 17 S0 database).
+***Esempio***<br> Sono necessari almeno 2 database S3 o almeno 15 database S0 per un pool di database elastici di 100 eDTU per una riduzione dei costi maggiore rispetto all'utilizzo di livelli di prestazioni per singoli database.
 
 
 
 ### Numero massimo di picco contemporaneamente database
 
-Condividendo eDTU, non tutti i database in un pool possono utilizzare contemporaneamente eDTU fino al limite disponibile quando si utilizzano livelli di prestazioni per singoli database. Meno database raggiungono il picco contemporaneamente, minore è il numero da impostare per le eDTU del pool e quindi più redditizio esso diventa. In generale, non più di un 1/3 dei database nel pool deve raggiungere il picco contemporaneamente al limite delle relative eDTU.
+Condividendo eDTU, non tutti i database in un pool possono utilizzare contemporaneamente eDTU fino al limite disponibile quando si utilizzano livelli di prestazioni per singoli database. Meno database raggiungono il picco contemporaneamente, minore è il numero da impostare per le eDTU del pool e quindi più redditizio esso diventa. In generale, non più di un 2/3 (o 67%) dei database nel pool deve raggiungere il picco contemporaneamente al limite delle relative eDTU.
 
-***Esempio***<br> Per ridurre i costi per 4 database S3 in un pool di 200 eDTU, al massimo 2 di questi database possono raggiungere contemporaneamente il picco del loro utilizzo. In caso contrario, se più di 2 di questi 4 database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. E se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli dei livelli di prestazioni per singoli database.
+***Esempio***<br> Per ridurre i costi per 3 database S3 in un pool di 200 eDTU, al massimo 2 di questi database possono raggiungere contemporaneamente il picco del loro utilizzo. In caso contrario, se più di 2 di questi 4 database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. E se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli dei livelli di prestazioni per singoli database.
 
 
-Si noti in questo esempio non prende in considerazione l'utilizzo di altri database nel pool. Se tutti i database con alcune utilizzo in qualsiasi punto nel tempo, minore di 1/3 dei database possono picco contemporaneamente.
+Si noti in questo esempio non prende in considerazione l'utilizzo di altri database nel pool. Se tutti i database con alcune utilizzo in qualsiasi punto nel tempo, minore di 2/3 (o 67%) dei database possono picco contemporaneamente.
 
 
 ### Utilizzo di DTU per ogni database
 
-Una notevole differenza tra il picco e l'utilizzo medio di un database indica periodi prolungati di utilizzo ridotto e brevi periodi di utilizzo elevato. Questo modello di utilizzo è ideale per la condivisione delle risorse tra database. Un database deve essere considerato per un pool quando relativo picchi di utilizzo sono circa 3 volte maggiore relativo utilizzo medio.
+Una notevole differenza tra il picco e l'utilizzo medio di un database indica periodi prolungati di utilizzo ridotto e brevi periodi di utilizzo elevato. Questo modello di utilizzo è ideale per la condivisione delle risorse tra database. Un database deve essere considerato per un pool quando relativo picchi di utilizzo sono circa 1.5 volte maggiore relativo utilizzo medio.
 
     
-***Esempio***<br> Un database S3 che raggiunge un picco di 100 DTU e utilizza in media 30 DTU o meno è un buon candidato per la condivisione di eDTU in un pool di database elastici. In alternativa, un database S1 che raggiunge il picco di 20 DTU e utilizza in media 7 DTU o meno è un buon candidato per un pool di database elastici.
+***Esempio***<br> Un database S3 che raggiunge un picco di 100 DTU e utilizza in media 67 DTU o meno è un buon candidato per la condivisione di eDTU in un pool di database elastici. In alternativa, un database S1 che raggiunge il picco di 20 DTU e utilizza in media 13 DTU o meno è un buon candidato per un pool di database elastici.
     
 
 ## L’euristica per confrontare la differenza di prezzo tra un pool di database elastici e singoli database 
@@ -117,7 +117,7 @@ L'euristica indicata di seguito consente di stimare se un pool di database elast
 
 3. Calcolare il prezzo per il pool come segue:
 
-    prezzo pool = (*eDTU del pool* * *prezzo unitario eDTU del pool*) + (*numero totale di database* * *prezzo unitario DB del pool*)
+    prezzo pool = *pool eDTUs* * *prezzo unitario di pool eDTU*
 
     Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -133,22 +133,14 @@ La dimensione ottimale per un pool di database elastici dipende dalle eDTU di ag
 * Dtu massima utilizzata da tutti i database nel pool.
 * Byte di archiviazione massima utilizzati da tutti i database nel pool. 
 
-Si noti che per il livello di servizio Standard, 1 GB di spazio di archiviazione è consentita per ogni 1 eDTU configurato per il pool. Ad esempio, se viene configurato un pool con 200 Dtu, il limite di archiviazione è pari a 200 GB.
-
-Nella tabella seguente viene mostra la quantità di archiviazione per eDTU per ogni livello di prezzo:
-
-| Livello | eDTU | Archiviazione |
-| :--- | :--- | :--- |
-| Basic | 1 | 100 MB |
-| Standard | 1 | 1 GB |
-| Premium | 1 | .5 GB |
+Per le dimensioni disponibili vedere [Limiti di archiviazione e di eDTU per i pool di database elastici e i database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
 ### Utilizzare preparazione a livelli di servizio (STA) e viste a gestione dinamica (DMV) per il ridimensionamento delle indicazioni   
 
 Le STA e le DMV offrono opzioni di strumentazione diverse e funzionalità per il ridimensionamento di un pool di database elastici. Indipendentemente dall'opzione di strumentazione utilizzata, la stima delle dimensioni deve essere utilizzata solo per la creazione e la valutazione iniziale di pool di database elastici. Una volta creato un pool, l'utilizzo delle risorse deve essere monitorato in modo accurato e le impostazioni delle prestazioni del pool regolate su e giù in base alle esigenze.
 
-**STA**<br>STA è uno strumento incorporato nel [portale di anteprima](https://portal.azure.com) che valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di Database SQL esistente e consiglia una configurazione appropriata del pool di database elastici. Per ulteriori informazioni, vedere [Consigli sul prezzo di pool di database elastici](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>STA è uno strumento incorporato nel [portale di anteprima](https://portal.azure.com) che valuta automaticamente la cronologia d’utilizzo delle risorse dei database in un server di Database SQL esistente e consiglia una configurazione appropriata del pool di database elastici. Per ulteriori informazioni, vedere [Consigli sui livelli di prezzo dei pool di database elastici](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 **Strumento di dimensionamento DMV**<br>Lo strumento di dimensionamento DMV viene fornito come uno script di PowerShell e consente di personalizzare le stime di dimensionamento di un pool di database elastici per database esistenti in un server.
 
@@ -443,4 +435,4 @@ Non tutti i singoli database sono candidati ottimali per pool database elastica.
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -258,6 +258,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 - [API REST di Archiviazione di Azure][]
 - [Blog del team di Archiviazione di Azure][]
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/develop/java/).
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
@@ -266,4 +268,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 [API REST di Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

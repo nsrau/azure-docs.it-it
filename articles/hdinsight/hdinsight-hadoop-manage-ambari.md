@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight usando Ambari (anteprima)
@@ -57,9 +57,9 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 
 * **Logo di Ambari**: apre il dashboard, che può essere usato per monitorare il cluster.
 
-* **Numero di operazioni cluster**: visualizza il numero di operazioni in corso di Ambari. Se si seleziona il nome del cluster o **\# ops**, verrà visualizzato un elenco delle operazioni in background.
+* **Numero di operazioni cluster**: visualizza il numero di operazioni in corso di Ambari. Se si seleziona il nome del cluster o **# ops**, verrà visualizzato un elenco delle operazioni in background.
 
-* **\# alerts**: eventuali messaggi di avviso o critici per il cluster. Se si seleziona questa opzione, verrà visualizzato un elenco di avvisi.
+* **# alerts**: eventuali messaggi di avviso o critici per il cluster. Se si seleziona questa opzione, verrà visualizzato un elenco di avvisi.
 
 * **Dashboard**: visualizza il dashboard.
 
@@ -69,7 +69,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 
 * **Alerts**: log di informazioni, avvertenze e avvisi critici.
 
-* **Admin**: servizi e stack software che vengono installati o possono essere aggiunti al cluster, informazioni sull'account di servizio e sicurezza Kerberos.
+* **Admin**: servizi e stack software che vengono installati nel cluster, informazioni sull'account di servizio e sicurezza Kerberos.
 
 * **Pulsante admin**: gestione di Ambari, impostazioni utente e disconnessione.
 
@@ -87,7 +87,7 @@ Ambari fornisce numerosi avvisi, che potranno avere uno dei seguenti stati:
 
 * **UNKNOWN**
 
-Gli avvisi con stato diverso da **OK** determineranno la compilazione del campo **\# alerts** nella parte superiore della pagina con il numero di avvisi. Se si seleziona questa opzione, verranno visualizzati gli avvisi e il relativo stato.
+Gli avvisi con stato diverso da **OK** determineranno la compilazione del campo **# alerts** nella parte superiore della pagina con il numero di avvisi. Se si seleziona questa opzione, verranno visualizzati gli avvisi e il relativo stato.
 
 Gli avvisi sono organizzati in diversi gruppi predefiniti, che possono essere visualizzati dalla pagina **Alerts**.
 
@@ -191,27 +191,12 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
 
 ###<a id="service"></a>Services
 
-Nella pagina **Dashboard** o **Services** usare il pulsante **Actions** nella parte inferiore dell'elenco di servizi per aggiungere nuovi servizi o per arrestare e avviare tutti i servizi.
+Nella pagina **Dashboard** o **Services** usare il pulsante **Actions** nella parte inferiore dell'elenco di servizi per arrestare e avviare tutti i servizi.
 
 ![azioni dei servizi](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-Di seguito è riportata la procedura generale per aggiungere un servizio:
+> [AZURE.WARNING]Sebbene __Aggiungi servizio__ sia elencato in questo menu, non deve essere utilizzato per aggiungere servizi al cluster HDInsight. È necessario aggiungere nuovi servizi.utilizzando un'azione di Script durante il provisioning del cluster. Per altre informazioni su come utilizzare le azioni di script, vedere [Personalizzare cluster HDInsight mediante l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Nella pagina **Dashboard** o **Services** fare clic sul pulsante **Actions** e selezionare **Add Service**.
-
-2. In **Add Service Wizard** selezionare il servizio da aggiungere e quindi fare clic su **Next**.
-
-	![aggiungere un servizio](./media/hdinsight-hadoop-manage-ambari/add-service.png)
-
-3. Continuare la procedura guidata specificando le informazioni di configurazione per il servizio. Per altre informazioni sui requisiti di configurazione, consultare la documentazione relativa al servizio specifico che si desidera aggiungere.
-
-4. Nella pagina **Review** è possibile selezionare **Print** per stampare le informazioni di configurazione o **Deploy** per distribuire il servizio nel cluster.
-
-5. Una volta distribuito il servizio, la pagina **Install, Start and Test** visualizzerà le informazioni sullo stato man mano che il servizio viene installato e testato. Quando la barra nella colonna **Status** è verde, fare clic su **Next**.
-
-	![immagine della pagina Install, Start and Test](./media/hdinsight-hadoop-manage-ambari/install-start-test.png)
-
-6. La pagina **Summary** visualizza un riepilogo del processo di installazione, nonché le possibili azioni da eseguire, ad esempio il riavvio di altri servizi. Selezionare **Complete** per uscire dalla procedura guidata.
 
 Il pulsante **Actions** consente di riavviare tutti i servizi, ma spesso si desidera avviare, arrestare o riavviare un servizio specifico. Seguire questa procedura per effettuare azioni per un singolo servizio:
 
@@ -223,7 +208,7 @@ Il pulsante **Actions** consente di riavviare tutti i servizi, ma spesso si desi
 
 	> [AZURE.NOTE]Se si riavviano alcuni servizi mentre il cluster è in esecuzione, è possibile che vengano generati avvisi. Per evitare questo problema, è possibile abilitare la modalità di manutenzione facendo clic sul pulsante **Service Actions** e selezionando **Turn On Maintenance Mode** per il servizio prima di eseguire il riavvio.
 
-3. Dopo aver selezionato un'azione, il valore nel campo **\# op** nella parte superiore della pagina aumenterà per indicare che è in corso un'operazione in background. Se configurato, viene visualizzato l'elenco delle operazioni in background.
+3. Dopo aver selezionato un'azione, il valore nel campo **# op** nella parte superiore della pagina aumenterà per indicare che è in corso un'operazione in background. Se configurato, viene visualizzato l'elenco delle operazioni in background.
 
 	> [AZURE.NOTE]Se è stata abilitata la modalità di manutenzione selezionando **Turn On Maintenance Mode** per il servizio, ricordarsi di disabilitarla usando il pulsante **Service Actions** al termine dell'operazione.
 
@@ -247,8 +232,8 @@ Ambari Web si basa su un'API REST sottostante, che è possibile usare per creare
 
 * **Indirizzi IP**: gli indirizzi restituiti per gli host all'interno di un cluster non sono accessibili dall'esterno del cluster, a meno che il cluster non sia membro di una rete virtuale di Azure. Gli indirizzi IP saranno quindi accessibili per altri membri della rete virtuale, ma non dall'esterno della rete.
 
-* **Alcune funzionalità non sono abilitate**: alcune funzionalità di Ambari sono disabilitate, poiché vengono gestite dal servizio cloud HDInsight, ad esempio l'aggiunta o la rimozione di host dal cluster. Altre funzionalità potrebbero non essere implementate completamente con l'anteprima di HDInsight basato su Linux.
+* **Alcune funzionalità non sono abilitate**: alcune funzionalità di Ambari sono disabilitate, poiché vengono gestite dal servizio cloud HDInsight, ad esempio l'aggiunta o la rimozione di host dal cluster o l’aggiunta di nuovi servizi. Altre funzionalità potrebbero non essere implementate completamente con l'anteprima di HDInsight basato su Linux.
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

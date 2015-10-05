@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare l'archiviazione tabelle da Java | Microsoft Azure"
-	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti in Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Come usare l'archiviazione tabelle da Java | Microsoft Azure" 
+	description="Informazioni su come usare il servizio di archiviazione tabelle in Azure. Gli esempi di codice sono scritti in Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 
@@ -552,6 +552,9 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 - [API REST di Archiviazione di Azure][]
 - [Blog del team di Archiviazione di Azure][]
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/develop/java/).
+
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
@@ -562,4 +565,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 [post di blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

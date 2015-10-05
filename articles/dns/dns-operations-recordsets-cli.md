@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestire set di record e record DNS in DNS di Azure | Microsoft Azure" 
-   description="Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di PowerShell per le operazioni sui set di record e i record." 
+   pageTitle="Gestire set di record e record DNS in DNS di Azure utilizzando CLI | Microsoft Azure" 
+   description="Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di CLI per le operazioni sui set di record e i record." 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/07/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Come gestire i record DNS
+# Come gestire i record DNS utilizzando CLI
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
@@ -239,4 +239,4 @@ L'opzione ‘-q’ facoltativa può essere usata per eliminare la richiesta di c
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset-cli.md)<BR> [Eseguire operazioni sulle zone DNS](dns-operations-dnszones-cli.md)<BR> [Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

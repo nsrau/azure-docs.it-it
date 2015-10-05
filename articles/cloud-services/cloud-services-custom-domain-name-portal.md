@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurare un nome di dominio personalizzato nei servizi cloud"
-	description="Informazioni su come esporre i dati o l'applicazione Azure in un dominio personalizzato configurando le impostazioni DNS."
+	pageTitle="Configurare un nome di dominio personalizzato nei servizi cloud (portale di anteprima) | Microsoft Azure"
+	description="Informazioni su come esporre i dati su internet o l'applicazione Azure in un dominio personalizzato configurando le impostazioni DNS. Questi esempi utilizzano il portale di anteprima di Azure."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
@@ -22,7 +22,7 @@
 - [Azure Portal](cloud-services-custom-domain-name.md)
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
-Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Ad esempio, se il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://*contoso*.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
+Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Ad esempio, se il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
 
 È tuttavia possibile esporre l'applicazione in un nome di dominio personalizzato, ad esempio **contoso.com**. In questo articolo viene illustrato come riservare o configurare un nome di dominio personalizzato per i ruoli Web del servizio cloud.
 
@@ -141,8 +141,11 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 
 ## Passaggi successivi
 
--   [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
--   [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
+* [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](cdn-map-content-to-custom-domain.md)
+* [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
+* Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
+* Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -154,4 +157,4 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!--------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

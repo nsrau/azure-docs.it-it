@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/20/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
@@ -232,6 +232,8 @@ Le risorse vengono definite con la struttura seguente:
 
 Se il nome della risorsa non è univoco, è possibile usare la funzione di supporto **resourceId** (descritta di seguito) per ottenere l'identificatore univoco per qualsiasi risorsa.
 
+I valori per l’elemento **proprietà** corrispondono esattamente ai valori forniti nel corpo della richiesta per l'operazione di API REST (metodo PUT) per creare la risorsa. Vedere il [riferimento ad Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) per le operazioni API REST per la risorsa da distribuire.
+
 L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa **Extensions** nidificata:
 
     "resources": [
@@ -316,7 +318,7 @@ Questo argomento offre un'analisi iniziale del modello. Tuttavia, il proprio sce
 
 Potrebbe essere necessario unire due modelli o usare un modello figlio all'interno di un modello padre. Per altre informazioni, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md).
 
-Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
+Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 
 Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](../resource-group-template-functions#resourceid).
 
@@ -408,4 +410,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

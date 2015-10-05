@@ -26,7 +26,7 @@ Per illustrare come sfruttare in modo efficiente Azure DocumentDB per archiviare
 
 La procedura guidata mostra come usare il servizio DocumentDB fornito da Azure per archiviare i dati e accedervi da un'applicazione Web MCV ASP.NET ospitata in Azure.
 
-> [AZURE.TIP]Questa esercitazione presuppone già una certa esperienza nell'uso di MCV ASP.NET e di Siti Web di Azure. Se non si ha alcuna esperienza riguardo ad ASP.NET o agli [strumenti richiesti come prerequisiti](#_Toc395637760), è consigliabile scaricare il progetto completo dell'esercitazione [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) da [GitHub](https://github.com/Azure/azure-documentdb-net) e creare la soluzione usando le [istruzioni alla fine di questo articolo](#GetProject). Una volta creata la soluzione, è possibile leggere l'articolo per approfondire il codice nel contesto del progetto.
+> [AZURE.TIP]Questa esercitazione presuppone già una certa esperienza nell'uso di MCV ASP.NET e di Siti Web di Azure. Se non si ha alcuna esperienza riguardo ad ASP.NET o agli [strumenti richiesti come prerequisiti](#_Toc395637760), è consigliabile scaricare il progetto completo dell'esercitazione da [GitHub][] e seguire istruzioni alla fine di questo esempio. Una volta creata la soluzione, è possibile leggere questo articolo per approfondire il codice nel contesto del progetto.
 
 ## <a name="_Toc395637760"></a>Prerequisiti per questa esercitazione del database
 
@@ -400,7 +400,7 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. A questo punto, aggiornare i valori per*endpoint*e*authKey*utilizzando il blade di chiavi del portale Azure Preview. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
+4. A questo punto, aggiornare i valori per*endpoint*e*authKey*utilizzando il pannello di chiavi del portale Azure Preview. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
 
 
     Che consente di collegare i repository DocumentDB, ora possibile aggiunta la logica dell'applicazione.
@@ -581,7 +581,7 @@ Per testare l'applicazione nel computer locale, eseguire le operazioni seguenti:
 
 	![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-dotnet-application/image24.png)
 
-	In caso di errori a questo punto è possibile confrontare il codice con quello dell'esercitazione todo in [GitHub][].
+	In caso di errori a questo punto è possibile confrontare il codice con quello del progetto di esempio in [GitHub][].
 
 2. Fare clic sul collegamento **Crea nuovo** e specificare i valori dei campi **Nome** e **Descrizione**. Lasciare deselezionata la casella di controllo **Completed**. In caso contrario, il nuovo oggetto **Item** verrà aggiunto con uno stato completato e non sarà visualizzato nell'elenco iniziale.
 
@@ -619,44 +619,12 @@ Congratulazioni. È stata creata la prima applicazione MVC ASP.NET con Azure Doc
 
 Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [.NET per DocumentDB](http://msdn.microsoft.com/library/azure/dn783362.aspx), in cui è anche possibile aggiungere il proprio contributo su [GitHub][].
 
-##<a id="GetProject"></a>Ottenere la soluzione da GitHub
-
-Per risparmiare tempo, è anche possibile limitarsi a compilare la soluzione completa todo, senza aggiungere personalmente il codice. La soluzione completa è disponibile su GitHub e può essere compilata e distribuita in pochi minuti in base alle istruzioni seguenti.
-
-1. Assicurarsi che il [software richiesto come prerequisito](#_Toc395637760) sia installato, compresi Visual Studio e Azure SDK per .NET versione 2.3 o successive.
-
-2. Clonare il repository azure-documentdb-net usando Git per Windows [(http://www.git-scm.com/](http://www.git-scm.com/)) oppure scaricare il file ZIP da [GitHub](https://github.com/Azure/azure-documentdb-net/).
-
-2. Da Visual Studio aprire il file todo.sln dalla directory azure-documentdb-net/tutorials/todo.
-
-3. Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio 2013, fare clic con il pulsante destro del mouse sulla soluzione todo in **Esplora soluzioni** e quindi fare clic sul comando per **abilitare il ripristino del pacchetto NuGet**.
-
-4. Recuperare i valori**URI**e la **chiave primaria**o**chiave SECONDARIA**dal blade **chiavi** dell'account di DocumentDB nel[portale di anteprima di Azure](https://portal.azure.com/).
-
-	
-	Se non si dispone di un account, vedere [Creare un account di database](documentdb-create-account.md) per configurarne uno.
-
-	![Schermata del portale di anteprima di Azure, che mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante Chiavi evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi](media/documentdb-dotnet-application/keys.png)
-
-5. Nel file Web.config aggiornare i valori predefiniti per le chiavi **endpoint** e **authKey**.
-
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
-
-	- Copiare il valore di **URI** dal pannello Chiavi e incollarlo nel valore della proprietà **endpoint**. 
-	- Copiare il valore di **CHIAVE PRIMARIA** o **CHIAVE SECONDARIA** dal pannello **Chiavi** e incollarlo nel valore della proprietà **authKey**.
-	
-
-
-7. È ora possibile [eseguire l'applicazione localmente](#_Toc395637773) e quindi [distribuirla in Siti Web di Azure](#_Toc395637774).
-
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Installazione guidata piattaforma Web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [impedendo Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
- 
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

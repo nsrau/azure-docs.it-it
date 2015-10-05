@@ -1,21 +1,24 @@
 <properties 
-   pageTitle="Connettersi a una macchina virtuale di SQL Server in Azure"
-	description="Questo argomento descrive la modalità di connessione a SQL Server in esecuzione in una macchina virtuale in Azure. Gli scenari variano a seconda della configurazione di rete e della posizione del client."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Collegamento a una macchina virtuale di SQL Server | Microsoft Azure"
+   description="Questo argomento utilizza le risorse create con il modello di distribuzione classica e descrive come connettersi a SQL Server in esecuzione in una macchina virtuale in Azure. Gli scenari variano a seconda della configurazione di rete e della posizione del client."
+   services="virtual-machines"
+   documentationCenter="na"
+   authors="rothja"
+   manager="jeffreyg"
+   editor="monicar"    
+   tags="azure-service-management"/>
 <tags 
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/18/2015"
-	ms.author="jroth"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows-sql-server"
+   ms.workload="infrastructure-services"
+   ms.date="08/18/2015"
+   ms.author="jroth" />
 
 # Connettersi a una macchina virtuale di SQL Server in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra l'uso di una risorsa con il modello di distribuzione classica.
  
 ## Panoramica
 
@@ -51,7 +54,7 @@ Seguire innanzitutto la [procedura descritta in questo articolo per configurare 
 
 	"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Sebbene in questo modo venga abilitata la connettività per i client tramite Internet, ciò non significa che chiunque può connettersi all'istanza di SQL Server. I client esterni dovranno disporre del nome utente e della password corretti. Per una maggiore sicurezza, non usare la nota porta 1433 per l'endpoint pubblico della macchina virtuale. Se possibile, è consigliabile aggiungere un ACL all'endpoint per limitare il traffico ai soli client autorizzati. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint).
+Sebbene in questo modo venga abilitata la connettività per i client tramite Internet, ciò non significa che chiunque può connettersi all'istanza di SQL Server. I client esterni dovranno disporre del nome utente e della password corretti. Per una maggiore sicurezza, non usare la nota porta 1433 per l'endpoint pubblico della macchina virtuale. Se possibile, è consigliabile aggiungere un ACL all'endpoint per limitare il traffico ai soli client autorizzati. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)
 
 >[AZURE.NOTE]È importante tenere presente che quando si usa questa tecnica per comunicare con SQL Server, tutti i dati restituiti vengono considerati come traffico in uscita dal data center. Questa tecnica è soggetta ai normali [prezzi dei trasferimenti di dati in uscita](http://azure.microsoft.com/pricing/details/data-transfers). Ciò vale anche se si usa questa tecnica da un altro computer o da un servizio cloud nello stesso data center di Azure, poiché il traffico passa comunque attraverso il servizio pubblico di bilanciamento del carico di Azure.
 
@@ -83,4 +86,4 @@ Se si intende anche usare gruppi di disponibilità AlwaysOn per la disponibilit�
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

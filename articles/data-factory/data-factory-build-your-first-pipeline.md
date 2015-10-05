@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/10/2015"
+	ms.date="09/22/2015"
 	ms.author="spelluru"/>
 
 # Creare la prima pipeline con Data factory di Azure
@@ -148,13 +148,15 @@ Prima di iniziare l'esercitazione, bisogna preparare l'archiviazione di Azure co
 	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Vedere l’articolo [Come usare AzCopy](../storage/storage-use-azcopy.md)per istruzioni sull'utilizzo dell'utilità.
 	2. Dopo avere installato AzCopy, è possibile aggiungerlo al percorso del sistema eseguendo il comando seguente al prompt dei comandi. 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-	
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
 	3. Passare alla cartella c:\\adfgettingstarted ed eseguire il comando seguente per caricare il file Hive .HQL nell'account di archiviazione. Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
-	4. Dopo avere completato il caricamento del file, verrà visualizzato il seguente output da AzCopy.
+
+		> [AZURE.NOTE]Il comando precedente crea un contenitore denominato **script** nell'archiviazione BLOB di Azure e delle copie del file **partitionweblogs.hql** nel contenitore.
+	>
+	5. Dopo avere completato il caricamento del file, verrà visualizzato il seguente output da AzCopy.
 	
 			Finished 1 of total 1 file(s).
 			[2015/06/15 15:47:13] Transfer summary:
@@ -172,6 +174,6 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio. 
 
 ## Invia commenti e suggerimenti
-I commenti e i suggerimenti su questo articolo possono essere molto utili. L’invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md) richiede solo alcuni minuti.
+I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md) richiede solo alcuni minuti.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

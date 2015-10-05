@@ -12,28 +12,41 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/07/2015"
+   ms.date="09/21/2015"
    ms.author="joaoma"/>
 
 
 # Creare, avviare o eliminare un Gateway applicazione utilizzando Gestione risorse di Azure
 
-> [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-create-gateway.md)
-- [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+Il gateway applicazione è un servizio di bilanciamento del carico di livello 7. Fornisce servizi di failover e richieste HTTP di routing delle prestazioni tra server diversi, sia che si trovino sul cloud che in locale. Il gateway applicazione offre le funzionalità di distribuzione delle applicazioni seguenti: bilanciamento del carico HTTP, affinità delle sessioni basata sui cookie, offload SSL.
 
-In questa versione è possibile creare un gateway applicazione usando PowerShell o le chiamate API REST. Il supporto per il portale e per CLI sarà disponibile in una versione futura. Questo articolo illustra in modo dettagliato i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
+
+> [AZURE.SELECTOR]
+- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+
+
+<BR>
+
+
+Questo articolo illustra in modo dettagliato i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
+
+
+>[AZURE.IMPORTANT]Prima di lavorare con le risorse di Azure, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. È importante comprendere i [modelli e strumenti di distribuzione](azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustrerà la creazione di un gateway applicazione tramite Gestione risorse di Azure. Per usare la versione classica, passare all'articolo relativo alla [creazione di una distribuzione classica del gateway applicazione tramite PowerShell](application-gateway-create-gateway.md).
+
+
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](http://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell mediante l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina di download](http://azure.microsoft.com/downloads/).
 2. Si creerà una rete virtuale e una subnet per il Gateway Applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. È necessario che i server che si configureranno per l'uso del gateway applicazione esistano oppure che i loro endpoint siano stati creati nella rete virtuale o che sia stato loro assegnato un indirizzo VIP/IP pubblico.
 
 ## Che cosa è necessario per creare un gateway applicazione?
  
 
-- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
+- **Pool di server back-end:** l’elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici. 
 - **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** questa porta è la porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 - **Listener:** il listener ha una porta front-end, un protocollo (Http o Https, con applicazione della distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). 
@@ -58,7 +71,7 @@ Di seguito i passaggi necessari per creare un Gateway applicazione:
 
 ## Creare un gruppo di risorse per Gestione risorse
 
-Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).
+Verificare di passare alla modalità di PowerShell per usare i cmdlet ARM. Altre informazioni sono disponibili in Uso di [Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).
 
 ### Passaggio 1
 
@@ -200,7 +213,7 @@ Utilizzare `Start-AzureApplicationGateway`per avviare il Gateway Applicazione:
 
 ## Verificare lo stato del Gateway Applicazione
 
-Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se *Start-AzureApplicationGateway* ha avuto esito positivo nel passaggio precedente, lo stato dovrebbe essere *In esecuzione* e i valori di Vip e DnsName dovrebbero essere validi.
+Usare il cmdlet `Get-AzureApplicationGateway` per verificare lo stato del gateway. Se nel passaggio precedente l'azione *Start-AzureApplicationGateway* è riuscita, lo stato dovrebbe essere *In esecuzione* e le voci per l'indirizzo VIP e DnsName dovrebbero essere valide.
 
 Questo esempio illustra un gateway applicazione attivo, in esecuzione e pronto per accettare il traffico destinato a `http://<generated-dns-name>.cloudapp.net`.
 
@@ -367,7 +380,7 @@ Ottenere l'oggetto Gateway Applicazione e associare a una variabile "$getgw":
 
 ### Passaggio 2
 	 
-Usare `Stop-AzureApplicationGateway` per arrestare il Gateway Applicazione:
+Utilizzare `Stop-AzureApplicationGateway`per arrestare il Gateway Applicazione:
 
 	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
@@ -394,11 +407,11 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione per l'uso con ILB, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

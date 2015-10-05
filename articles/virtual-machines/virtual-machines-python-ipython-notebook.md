@@ -1,11 +1,12 @@
 <properties
-	pageTitle="IPython Notebook | Microsoft Azure"
-	description="Esercitazione che mostra come distribuire IPython Notebook in Azure usando macchine virtuali (VM, Virtual Machine) Linux o Windows."
-	services="virtual-machines"
+	pageTitle="Creare un IPython Notebook | Microsoft Azure"
+	description="Informazioni su come distribuire IPython Notebook in una macchina virtuale Linux o Windows creata con il modello di distribuzione classica in Azure."
+	services="virtua-lmachines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-
 # IPython Notebook in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la distribuzione di un notebook in una macchina virtuale creata con il modello di distribuzione classica.
 
 Il [progetto IPython](http://ipython.org) rende disponibile una raccolta di strumenti per il calcolo scientifico che includono potenti shell interattive, librerie parallele a elevate prestazioni e facili da utilizzare e un ambiente basato su Web denominato IPython Notebook. Si tratta di un ambiente di lavoro per l'elaborazione interattiva che combina l'esecuzione di codice con la creazione di un documento di calcolo in tempo reale. I file dei blocchi appunti possono contenere testo arbitrario, formule matematiche, codice di input, risultati, grafica, video e altri tipi di contenuti multimediali visualizzabili sui moderni Web browser.
 
@@ -270,4 +272,4 @@ Le funzionalità di base di IPython sono anche disponibili all'interno di Visual
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

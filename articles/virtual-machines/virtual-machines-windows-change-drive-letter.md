@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Come modificare la lettera di unità del disco temporaneo di Windows"
-	description="Viene descritto come modificare un mapping del disco temporaneo in una macchina virtuale basata su Windows in Azure."
+	pageTitle="Modificare la lettera di unità del disco temporaneo | Microsoft Azure"
+	description="Modificare la lettera di unità del disco temporaneo su una macchina virtuale creata con un modello di distribuzione classica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn
@@ -18,7 +18,9 @@
 	ms.date="05/27/2015"
 	ms.author="cynthn"/>
 
-#Come modificare la lettera di unità del disco temporaneo di Windows
+#Modificare la lettera di unità del disco temporaneo di Windows su una macchina virtuale creata con un modello di distribuzione classica
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Se si desidera usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare un'unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.
 
@@ -26,7 +28,9 @@ Prima di iniziare è necessario disporre di un disco dati collegato alla macchin
 
 Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di aver caricato anche il disco rigido virtuale nell'account di archiviazione. Per istruzioni, vedere i passaggi 3 e 4 in [Creazione e caricamento di un disco rigido virtuale di Windows Server in Azure][VHD].
 
-> [AZURE.WARNING]Se si ridimensiona una macchina virtuale e questa viene di conseguenza spostata in un host diverso, l'unità D diventa nuovamente il disco temporaneo.
+> [AZURE.WARNING]Se si ridimensiona o si "arresta (dealloca)" una macchina virtuale, potrebbe essere attivata una un posizionamento della macchina virtuale su un nuovo hypervisor. Tale posizionamento può attivare un evento di manutenzione pianificato o non pianificato. In questo scenario il disco temporaneo sarà riassegnato alla prima lettera di unità disponibile. Se si dispone di un'applicazione che richiede specificamente l'unità "D", verificare che dopo lo spostamento del file di paging, si assegna un nuovo disco permanente, attribuendogli la lettera D. Azure non prenderà nuovamente la lettera D.
+
+> [AZURE.WARNING]Se si ridimensiona una macchina virtuale dopo lo spostamento esplicito del file di paging, notare che è possibile riscontrare un errore all'avvio se il disco temporaneo della nuova macchina virtuale non è sufficientemente grande da contenere il file di paging delle dimensioni originali della VM. Questo errore può verificarsi anche se l'unità temporanea non è stata impostata alla successiva lettera di unità disponibile, forzando Windows a fare riferimento a una lettera di unità non valida nella configurazione del file di paging mentre Azure crea l’unità temporanea con la lettera di unità disponibile successiva.
 
 ##Modificare la lettera di unità
 
@@ -45,6 +49,10 @@ Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di 
 7.	Verificare che l'unità E sia stata mappata al disco temporaneo.
 
 8.	Spostare pagefile.sys dall'altra unità all'unità E.
+
+9.	Riavviare la macchina virtuale.
+
+
 
 ## Risorse aggiuntive
 [Come accedere a una macchina virtuale che esegue Windows Server][Logon]
@@ -66,4 +74,4 @@ Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

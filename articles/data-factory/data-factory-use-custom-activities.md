@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usare attività personalizzate in una pipeline di Data factory di Azure"
-	description="Informazioni su come creare attività personalizzate e usarle in una pipeline di Data factory di Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Usare attività personalizzate in una pipeline di Data factory di Azure" 
+	description="Informazioni su come creare attività personalizzate e usarle in una pipeline di Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Usare attività personalizzate in una pipeline di Data factory di Azure
@@ -53,7 +53,7 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 
 4. Importare il pacchetto NuGet di archiviazione di Azure nel progetto.
 
-		Install-Package Azure.Storage
+		Install-Package Azure.Storage -Version 4.3.0 
 
 5. Aggiungere le seguenti istruzioni **using** al file di origine nel progetto.
 
@@ -244,7 +244,18 @@ Se l'esercitazione in [Introduzione a Data factory di Azure][adfgetstarted] è s
 	4. Per la proprietà **version**, specificare la versione di HDInsight da utilizzare. Se si esclude questa proprietà, verrà usata la versione più recente.  
 	5. Per **linkedServiceName**, specificare l'oggetto **StorageLinkedService** creato nell'esercitazione introduttiva. 
 
-		{ "name": "HDInsightOnDemandLinkedService", "properties": { "type": "HDInsightOnDemand", "typeProperties": { "clusterSize": "1", "timeToLive": "00:05:00", "version": "3.1", "linkedServiceName": "StorageLinkedService" } } }
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
 2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
    
@@ -405,6 +416,7 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -412,11 +424,10 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 		  }
 		}
 
-	> [AZURE.NOTE]Aggiungere "**.<region name**" al nome dell'account di batch per la proprietà **accountName**. Esempio: "mybatchaccount.eastus". Un'altra opzione consiste nel fornire l’endpoint batchUri come illustrato di seguito.
+	> [AZURE.IMPORTANT]L’**URL** dal **pannello dell’account Azure Batch** è nel formato seguente: accountname.region.batch.azure.com. Per la proprietà **batchUri** in JSON, sarà necessario **rimuovere "accountname."** dall'URL e utilizzare l’**accountname** per la proprietà JSON **accountName**.
+	  
+	Per la proprietà **poolName**, è inoltre possibile specificare l'ID del pool anziché il nome del pool.
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	Per le descrizioni di queste proprietà, vedere l'[argomento MSDN sul servizio collegato di Azure Batch](https://msdn.microsoft.com/library/mt163609.aspx).
 
 2.  Nell'Editor di Data factory, aprire la definizione JSON per la pipeline creata nella procedura dettagliata e sostituire **HDInsightLinkedService** con **AzureBatchLinkedService**.
@@ -467,4 +478,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

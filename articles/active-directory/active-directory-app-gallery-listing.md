@@ -1,6 +1,6 @@
 <properties
    pageTitle="Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory"
-   description="Guida completa alle risorse rivolte agli sviluppatori per Azure Active Directory"
+   description="Come elencare un'applicazione che supporta l'accesso single sign-on nella raccolta di Azure Active Directory | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,6 +56,5 @@ Al termine del test, l'applicazione può essere inserita nella raccolta di appli
 > Allegare l'icona grande dell'applicazione (file PNG, 215x215 pixel, colore di sfondo a tinta unita):
 >
 > Allegare il logo dell'applicazione (file PNG, 150x122 pixel, colore di sfondo a tinta unita):
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

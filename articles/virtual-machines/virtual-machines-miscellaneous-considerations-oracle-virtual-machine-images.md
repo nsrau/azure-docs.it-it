@@ -1,22 +1,24 @@
-<properties 
-pageTitle="Considerazioni varie sulle immagini di macchine virtuali Oracle"
-	description="Leggere le informazioni sulle considerazioni aggiuntive prima di distribuire una macchina virtuale Oracle in Microsoft Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	manager=""
-	authors="bbenz"
-	tags=""/>
+<properties
+pageTitle="Considerazioni sull'utilizzo di immagini della macchina virtuale Oracle | Microsoft Azure"
+description="Informazioni sulle configurazioni supportate e sulle limitazioni per una macchina virtuale di Oracle su Windows Server in Azure prima di distribuire."
+services="virtual-machines"
+documentationCenter=""
+manager=""
+authors="bbenz"
+tags="azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz"/>
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-windows"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
+ms.author="bbenz" />
 
 #Considerazioni varie sulle immagini di macchine virtuali Oracle
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione di una risorsa con il modello di distribuzione classica.
+
 In questo articolo vengono illustrate delle considerazioni sulle macchine virtuali Oracle su Azure, che sono basate su immagini software Oracle fornite da Microsoft con Windows Server come sistema operativo.
 
 -  Immagini di macchine virtuali Oracle Database
@@ -103,4 +105,4 @@ Per informazioni correlate, vedere l'articolo KB **860340.1** all’indirizzo <h
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="tdykstra"/>
 
 # Creare un processo Web .NET nel servizio app di Azure
 
 
 
-Questa esercitazione mostra come creare un'applicazione ASP.NET MVC multilivello che usa WebJobs SDK per lavorare con le [code di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e i [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in un'app Web nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). L'applicazione usa anche [Database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336279).
+Questa esercitazione mostra come creare un'applicazione ASP.NET MVC multi-livello che usa WebJobs SDK per lavorare con le [code di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e i [BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) in un'app Web nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). L'applicazione usa anche [Database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336279).
 
 Questa applicazione di esempio è un BBS pubblicitario. Gli utenti creano un'inserzione tramite l'immissione di testo e il caricamento di un'immagine. Possono visualizzare un elenco di inserzioni con immagini di anteprima e possono visualizzare l'immagine con le dimensioni originali quando selezionano un'inserzione per vederne i dettagli. Di seguito è riportata una schermata:
 
@@ -44,7 +44,7 @@ Se non sono disponibili, Visual Studio 2013 Express per il Web sarà installato 
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## <a id="learn"></a>Contenuto dell'esercitazione
 
@@ -175,7 +175,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
     &lt;/startup&gt;
 &lt;/configuration&gt;</pre>
 
-	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile [archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
+	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto [`JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
 7. Sostituire entrambe le stringhe di connessione di archiviazione con la stringa di connessione copiata in precedenza.
 
@@ -487,9 +487,9 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 	- *Web.config*
 	- *Global.asax.cs*  
 	- Nel *controller* cartella: *AdController.cs* 
-	- Nel *Views\Shared* cartella: <em>cshtml</em> file. 
-	- Nel *Views\Home* cartella: *index. cshtml*. 
-	- Nella cartella *Views\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*.<br/><br/>
+	- Nella cartella *Views\Shared*: il file *_Layout.cshtml*
+	- Nella cartella *Views\Home*: *Index.cshtml*.
+	- Nella cartella *Views\Ad* (creare prima di tutto la cartella): cinque file *.cshtml*<br/><br/>
 
 3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.
 
@@ -827,4 +827,4 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

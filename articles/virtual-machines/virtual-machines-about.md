@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Informazioni sulle macchine virtuali di Azure"
+	pageTitle="Informazioni sulle macchine virtuali di Azure | Microsoft Azure"
 	description="Informazioni di base sulle macchine virtuali in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#Informazioni sulle macchine virtuali di Azure
+#Informazioni sulle macchine virtuali di Azure create con entrambi i modelli di distribuzione
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo vengono illustrate le risorse create sia con il modello di distribuzione di gestione delle risorse che con il modello di distribuzione classico.
 
 Le macchine virtuali di Azure sono uno dei vari tipi di risorse di calcolo scalabili e su richiesta offerte da Azure. In genere, la scelta ricadrà su una macchina virtuale anziché un'altra opzione se è necessario maggiore controllo dell'ambiente di elaborazione rispetto a quanto offerto dalle altre scelte.
 
@@ -45,8 +47,8 @@ Se le macchine virtuali di Azure sono un argomento ancora relativamente nuovo, l
 
 
 <!--links-->
-[Servizio app]: app-service-choose-me.md
-[Macchine virtuali]: #tellmevm
-[Servizi cloud]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

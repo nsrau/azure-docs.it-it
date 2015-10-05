@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh"/>
 
 # Elasticità di partizionamento 
 
-L'**elasticità di partizionamento** consente agli sviluppatori di applicazioni di aumentare e ridurre dinamicamente le risorse di database secondo le esigenze, permettendo l'ottimizzazione delle prestazioni delle applicazioni e la riduzione dei costi. La combinazione degli **strumenti dei database elastici** per il database SQL di Azure con i [livelli di servizio Basic, Standard e Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) offre scenari di elasticità veramente interessanti. Gli strumenti dei database elastici consentono il ridimensionamento orizzontale, un modello di progettazione in cui i database ([noto anche come "partizioni"](sql-database-elastic-scale-glossary.md)) vengono aggiunti o rimossi da un set di partizioni per aumentare o ridurre la capacità. In modo analogo, i livelli di servizio del database SQL offrono funzionalità di **ridimensionamento verticale**, in modo che le risorse di un singolo database possano essere aumentate o ridotte in base alla domanda. Insieme, il ridimensionamento verticale di una singola partizione e il ridimensionamento orizzontale di molte partizioni offrono agli sviluppatori di applicazioni un ambiente molto flessibile che può essere ridimensionato per soddisfare le esigenze di prestazioni, capacità e ottimizzazione dei costi.
+L'**elasticità di partizionamento** consente agli sviluppatori di applicazioni di aumentare e ridurre dinamicamente le risorse di database secondo le esigenze, permettendo l'ottimizzazione delle prestazioni delle applicazioni e la riduzione dei costi. La combinazione degli **strumenti dei database elastici** per il database SQL di Azure con i [livelli di servizio Basic, Standard e Premium](sql-database-service-tiers) offre scenari di elasticità veramente interessanti. Gli strumenti dei database elastici consentono il ridimensionamento orizzontale, un modello di progettazione in cui i database ([noto anche come "partizioni"](sql-database-elastic-scale-glossary.md)) vengono aggiunti o rimossi da un set di partizioni per aumentare o ridurre la capacità. In modo analogo, i livelli di servizio del database SQL offrono funzionalità di **ridimensionamento verticale**, in modo che le risorse di un singolo database possano essere aumentate o ridotte in base alla domanda. Insieme, il ridimensionamento verticale di una singola partizione e il ridimensionamento orizzontale di molte partizioni offrono agli sviluppatori di applicazioni un ambiente molto flessibile che può essere ridimensionato per soddisfare le esigenze di prestazioni, capacità e ottimizzazione dei costi.
 
 Con la funzionalità dei **pool di database elastici** appena introdotta, la scalabilità verticale è ancora più semplice ottenere. I pool consentono all'utilizzo delle risorse di un singolo database di aumentare o diminuire *automaticamente* all'interno di un budget condiviso tra l'intero pool. Per le applicazioni che scelgono di non sfruttare i vantaggi dei pool di database elastici, in questo articolo vengono descritte altre tecniche per l'implementazione di meccanismi basati su criteri per la gestione della scalabilità verticale, nonché alcuni scenari comuni per l'automatizzazione delle operazioni di scalabilità orizzontale.
 
@@ -147,7 +147,7 @@ Per facilitare l'effettiva implementazione di scenari di ridimensionamento orizz
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
 
 <!--anchors-->
 [Telemetry]: #telemetry
@@ -155,4 +155,4 @@ Per facilitare l'effettiva implementazione di scenari di ridimensionamento orizz
 [Action]: #action
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

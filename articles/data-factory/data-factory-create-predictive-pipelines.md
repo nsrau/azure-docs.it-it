@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Data factory - Creare pipeline predittive tramite Data factory e Machine Learning | Microsoft Azure"
-	description="Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Data factory - Creare pipeline predittive tramite Data factory e Machine Learning | Microsoft Azure" 
+	description="Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning 
 ## Panoramica
+
+> [AZURE.NOTE]Vedere l’articolo [creare pipeline predittive utilizzando attività di esecuzione del Batch Azure Machine Learning](data-factory-azure-ml-batch-execution-activity.md) per scoprire la nuova attività di esecuzione del Batch di Machine Learning che fornisce maggiore flessibilità rispetto all'attività del punteggio Batch che rientra in questo articolo.
 
 Data factory di Azure consente di creare facilmente pipeline che si avvalgono del servizio Web [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. In questo modo è possibile usare Data factory di Azure per gestire l'elaborazione e lo spostamento di dati e quindi assegnare il punteggio batch mediante Azure Machine Learning. A tale scopo, è necessario eseguire le operazioni seguenti:
 
@@ -83,7 +85,7 @@ Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di ou
 		  }
 		}
 	
-	Il file con estensione csv di punteggio di batch deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file con estensione csv nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Ad esempio:
+	Il file con estensione csv di punteggio di batch deve avere una riga di intestazione di colonna. Se si usa l'**attività di copia** per creare/spostare il file CSV nell'archivio BLOB, è consigliabile impostare la proprietà **blobWriterAddHeader** del sink su **true**. Ad esempio:
 	
 	     sink: 
 	     {
@@ -91,7 +93,7 @@ Questo esempio usa Archiviazione di Azure per archiviare i dati di input e di ou
 	         "blobWriterAddHeader": true 
 	     }
 	 
-	Se il file con estensione csv non ha la riga di intestazione, potrebbe essere visualizzato un messaggio di errore analogo al seguente: **Errore nell'attività: Errore di lettura della stringa. Token imprevisto: StartObject. Percorso '', riga 1, posizione 1**.
+	Se il file CSV non ha la riga di intestazione, potrebbe essere visualizzato un messaggio di errore analogo al seguente: **Errore nell'attività: Errore di lettura della stringa. Token imprevisto: StartObject. Percorso '', riga 1, posizione 1**.
 3. Creare la **tabella** di **output** di Data factory di Azure. In questo esempio il file di output usa il partizionamento per creare un percorso di output univoco per l'esecuzione di ciascuna sezione. Senza questa opzione, l'attività sovrascriverebbe il file.
 
 		{
@@ -198,7 +200,7 @@ Aggiungere una sezione **typeProperties** alla sezione **AzureMLBatchScoringActi
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -300,7 +302,7 @@ Nell'esempio JSON precedente:
 - I parametri per il writer (con suffisso "1") non vengono completati automaticamente dal servizio Data factory. È quindi necessario specificare i valori per questi parametri nella sezione **webServiceParameters** del file JSON dell'attività.  
 - I valori **Customer ID**, **Scored Labels** e **Scored Probabilities** vengono salvati come colonne separate da virgola. 
 - Il valore **Data table name** di questo esempio corrisponde a una tabella nel database di output.
-- Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2014-10-14T16:32:41Z. L'ora di **fine** è facoltativa. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+- Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41Z. L'ora di **fine** è facoltativa. Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
@@ -313,4 +315,4 @@ Nell'esempio JSON precedente:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

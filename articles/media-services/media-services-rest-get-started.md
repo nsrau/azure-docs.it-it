@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/18/2015" 
 	ms.author="juliako"/>
 
 #Introduzione a Distribuzione di Video on Demand (VoD) tramite API REST 
@@ -83,7 +83,7 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
 2. Connessione all'URI di Servizi multimediali. 
 	
 	>[AZURE.NOTE]
-	Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
+	> Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 	> 
 	> È anche possibile ricevere una risposta HTTP/1.1 200 contenente la descrizione dei metadati dell'API ODATA.
 3. Invio delle successive chiamate API al nuovo URL. 
@@ -906,7 +906,7 @@ Il seguente esempio mostra come chiamare la funzione CancelJob.
 
 Se l'esito è positivo, viene restituito un codice di risposta 204 senza il corpo di un messaggio.
 
->[AZURE.NOTE]È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
+>[AZURE.NOTE] È necessario codificare in URL l'ID del processo (in genere nb:jid:UUID: valore) quando viene passato come parametro a CancelJob.
 
 
 ### Ottenere l'asset di output 
@@ -1212,4 +1212,4 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

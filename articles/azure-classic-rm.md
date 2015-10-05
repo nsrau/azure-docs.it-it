@@ -1,21 +1,21 @@
 <properties
    pageTitle="Modelli di distribuzione Gestione risorse e Gestione servizi (Classico) | Azure"
-	description="Comprendere le differenze tra i modelli di distribuzione Gestione risorse e Classico."
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   description="Comprendere le differenze tra i modelli di distribuzione Gestione risorse e Classico."
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
 
 # Modelli di distribuzione di Azure
 
@@ -65,7 +65,7 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 ## Passaggi successivi
 
 - Per altre informazioni, vedere [Gestione risorse](/resource-group-overview.md).
-- Informazioni su come [progettare i modelli](/best-practices-resource-manager-design-templates/md).
-- Usare le [procedure consigliate](best-practices-resource-manager-examples.md)
+- Informazioni su come [progettare i modelli](/best-practices-resource-manager-design-templates.md).
+- Usare le [procedure consigliate](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

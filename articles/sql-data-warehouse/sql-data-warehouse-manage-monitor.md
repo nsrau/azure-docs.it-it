@@ -1,38 +1,24 @@
 <properties
    pageTitle="Monitoraggio del carico di lavoro mediante DMV | Microsoft Azure"
-	description="Informazioni sul monitoraggio del carico di lavoro mediante DMV."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Informazioni sul monitoraggio del carico di lavoro mediante DMV."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/06/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
 
 In questo articolo viene descritto come utilizzare le viste a gestione dinamica (DMV) per monitorare il carico di lavoro ed esaminare l'esecuzione delle query SQL Data Warehouse di Azure.
-
-
-
-
-## Autorizzazioni
-
-In SQL Data Warehouse, l'esecuzione di query in una vista a gestione dinamica richiede autorizzazioni **VIEW DATABASE STATE**. Le autorizzazioni **VIEW DATABASE STATE** restituiscono informazioni su tutti gli oggetti all'interno del database corrente. Per concedere le autorizzazioni **VIEW DATABASE STATE** a un utente di database specifico, eseguire la query seguente:
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
 
 
 
@@ -217,4 +203,4 @@ Per ulteriori suggerimenti sulla gestione di SQL Data Warehouse, vedere [panoram
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

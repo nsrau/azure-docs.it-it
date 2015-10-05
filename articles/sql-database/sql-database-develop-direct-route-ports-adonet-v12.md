@@ -114,4 +114,10 @@ In questo argomento vengono evidenziate le differenze di connessione del client 
 
 - [Connessione al database SQL: collegamenti, procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO3-->
+
+- [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
+
+
+- [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
+
+<!---HONumber=Sept15_HO4-->

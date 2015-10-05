@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Procedure ottimali: Gestione delle password di Azure AD | Microsoft Azure" 
-	description="Procedure ottimali per la distribuzione e l’uso, documentazione di esempio per l'utente finale e guide di formazione per Gestione delle password in Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Procedure ottimali: Gestione delle password di Azure AD | Microsoft Azure"
+	description="Procedure ottimali per la distribuzione e l’uso, documentazione di esempio per l'utente finale e guide di formazione per Gestione delle password in Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Distribuzione di Gestione delle password e formazione degli utenti per l’uso
@@ -98,12 +98,12 @@ Per informazioni sulle proprietà che è possibile impostare tramite AAD Connect
 1.	Passare alla propria directory nell’**estensione di Active Directory** nel [portale di gestione di Azure](https://manage.windowsazure.com).
 2.	Fare clic sulla scheda **Utenti**.
 3.	Selezionare dall’elenco l'utente a cui si è interessati.
-4.	Nella prima scheda la proprietà **Indirizzo di posta elettronica alternativo** può essere usata per abilitare la reimpostazione delle password. 
+4.	Nella prima scheda la proprietà **Indirizzo di posta elettronica alternativo** può essere usata per abilitare la reimpostazione delle password.
 
     ![][005]
 
 5.	Fare clic sulla scheda **Informazioni sul lavoro**.
-6.	In questa pagina sono disponibili le proprietà **Telefono ufficio**, **Telefono cellulare**, **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l’autenticazione**. Anche queste proprietà possono essere impostate per consentire a un utente di reimpostare la propria password. 
+6.	In questa pagina sono disponibili le proprietà **Telefono ufficio**, **Telefono cellulare**, **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l’autenticazione**. Anche queste proprietà possono essere impostate per consentire a un utente di reimpostare la propria password.
 
     ![][006]
 
@@ -136,6 +136,5 @@ Microsoft sta attualmente lavorando al materiale di formazione di esempio che è
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

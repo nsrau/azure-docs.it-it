@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
+
 
 # Che cos'è SQL Data Warehouse di Azure?
 
@@ -78,4 +79,4 @@ Scoprire cosa si intende per [carico di lavoro del data warehouse]. Eseguire il[
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

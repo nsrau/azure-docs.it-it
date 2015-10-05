@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="Eseguire l'aggiornamento alla libreria client di database elastico" 
-	description="Istruzioni di aggiornamento tramite PowerShell e C#" 
+<properties
+	
+	pageTitle="Upgrade to the latest elastic database client library" 
+	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -12,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh" />
 
 # Eseguire l'aggiornamento alla libreria client di database elastico
 
 Le nuove versioni della libreria client di database elastico sono disponibili tramite [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e l'interfaccia NuGetPackage Manager in Visual Studio. Gli aggiornamenti contengono correzioni di bug e supporto delle nuove funzionalità della libreria client.
 
+Compilazione dell'applicazione con la nuova libreria, nonché la modifica dei metadati Shard Map Manager esistenti archiviati nei database SQL di Azure in modo che supportino le nuove funzionalità.
+
+Seguendo l'ordine di questi passaggi è possibile essere sicuri che le versioni precedenti della libreria client non siano più presenti nell'ambiente quando gli oggetti dei metadati vengono aggiornati, e che pertanto dopo l'aggiornamento non saranno creati oggetti di metadati di versioni precedenti.
+
 ## Passaggi dell'aggiornamento
-
-L'aggiornamento richiede la compilazione dell'applicazione con la nuova libreria, nonché la modifica dei metadati Shard Map Manager esistenti archiviati nei database SQL di Azure in modo che supportino le nuove funzionalità.
-
-Attenersi alla sequenza di seguito per aggiornare le applicazioni, il database di Shard Map Manager e i metadati Shard Map Manager locali in ciascuna partizione. Seguendo l'ordine dei passaggi di aggiornamento è possibile essere sicuri che le versioni precedenti della libreria client non siano più presenti nell'ambiente quando gli oggetti dei metadati vengono aggiornati, e che pertanto dopo l'aggiornamento non saranno creati oggetti di metadati di versioni precedenti.
 
 **1. Aggiornare le applicazioni.** In Visual Studio, scaricare e fare riferimento alla versione più recente della libreria client in tutti i progetti di sviluppo che usano tale libreria; quindi ricompilare e distribuire.
 
  * Nella soluzione Visual Studio in uso, selezionare **Strumenti** --> **Gestione pacchetti NuGet** --> **Gestisci pacchetti NuGet per la soluzione**. 
- * Nel riquadro sinistro, selezionare **Aggiornamenti**, quindi selezionare il pulsante **Aggiorna** del pacchetto **Libreria client di scalabilità elastica del database SQL di Azure** che viene visualizzato nella finestra. ![Aggiornamento dei pacchetti Nuget][1]
+ * (Visual Studio 2013) Nel riquadro sinistro, selezionare **Aggiornamenti**, quindi selezionare il pulsante **Aggiorna** del pacchetto **Libreria client di scalabilità elastica del database SQL di Azure** che viene visualizzato nella finestra.
+ * (2015 di Visual Studio) Impostare la casella del filtro su **aggiornamento disponibile**. Selezionare il pacchetto da aggiornare, e fare clic sul pulsante **Aggiorna**.
+	
  
  * Compilare e distribuire.
 
@@ -94,4 +97,4 @@ Versione iniziale di anteprima
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -4,9 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
-
 
 <tags
    ms.service="active-directory"
@@ -14,11 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
-
-#Gestione delle unità amministrative in Azure AD - Anteprima pubblica
+# Gestione delle unità amministrative in Azure AD - Anteprima pubblica
 
 Questo articolo descrive le unità amministrative: un nuovo contenitore di risorse di Azure Active Directory che può essere usato per la delega di autorizzazioni amministrative su subset di utenti e per l'applicazione di criteri a un subset di utenti. In Azure Active Directory, le unità amministrative consentono agli amministratori centrali di delegare le autorizzazioni agli amministratori regionali o di impostare criteri a livello dettagliato.
 
@@ -28,14 +26,14 @@ Ciò risulta utile nelle organizzazioni con divisioni indipendenti, ad esempio, 
 
 Dal punto di vista dell'amministratore centrale, un'unità amministrativa è un oggetto directory che può essere creato e popolato con le risorse. **In questa versione, queste risorse possono essere solo gli utenti.** Dopo averla creata e popolata, l'unità amministrativa può essere utilizzata come ambito per limitare le autorizzazioni concesse solo alle risorse contenute nell’unità amministrativa.
 
-##Gestione delle unità amministrative
+## Gestione delle unità amministrative
 
 In questa versione di anteprima, è possibile creare e gestire le unità amministrative utilizzando i cmdlet del modulo di Microsoft Azure Active Directory per Windows PowerShell.
 
 Per ulteriori informazioni sui requisiti software e l'installazione del modulo di Azure AD e per informazioni sui cmdlet di modulo di Azure AD per la gestione di unità amministrative, tra cui sintassi, descrizioni dei parametri ed esempi, vedere [Gestione di Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 
-##Passaggi successivi
+## Passaggi successivi
 [Edizioni di Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

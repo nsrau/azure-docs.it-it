@@ -4,16 +4,16 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevepo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="identity" 
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Creare o modificare utenti in Azure AD
@@ -111,4 +111,4 @@ La possibilità per gli ospiti di visualizzare dettagli limitati di un utente o 
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/03/2015"
+	ms.date="09/21/2015"
 	ms.author="jgao"/>
 
 # Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio per eseguire una query Hive
@@ -35,7 +35,6 @@ Per completare questa esercitazione e usare Hadoop Tools in Visual Studio, sarà
 
 	- Windows 8.1, Windows 8 o Windows 7
 	- Visual Studio (una delle versioni seguenti):
-		- Visual Studio 2012 Professional/Premium/Ultimate con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate con [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
@@ -44,12 +43,14 @@ Per completare questa esercitazione e usare Hadoop Tools in Visual Studio, sarà
 
 ## Installare HDInsight Tools per Visual Studio
 
-HDInsight Tools per Visual Studio è incluso nel pacchetto di Microsoft Azure SDK per .NET versione 2.5.1 o successiva. Può essere installato usando l'[Installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/?LinkId=255386). È necessario scegliere quello che corrisponde alla versione di Visual Studio in uso. Il pacchetto Hadoop Tools installa anche Microsoft Hive ODBC Driver (a 32 bit e a 64 bit).
+HDInsight Tools per Visual Studio e ODBC Driver di Microsoft Hive sono inclusi nel pacchetto di Microsoft Azure SDK per .NET versione 2.5.1 o successiva. È possibile installarlo utilizzando il [Programma di installazione della piattaforma Web](http://go.microsoft.com/fwlink/?LinkId=255386). È necessario scegliere quello che corrisponde alla versione di Visual Studio in uso. Se non si dispone di Visual Studio installato, è possibile installare la versione più recente di Visual Studio Community di Azure SDK utilizzando il [Programma di installazione della piattaforma Web](http://go.microsoft.com/fwlink/?LinkId=255386) o i seguenti collegamenti:
+
+- [Visual Studio Community 2015 con Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
+- [Visual Studio Community 2013 con Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
+- [Microsoft Azure SDK per .NET (VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
+- [Microsoft Azure SDK per .NET (VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
 
 ![Hadoop Tools: Installazione guidata piattaforma Web di HDInsight Tools per Visual Studio.][1]
-
-
->[AZURE.NOTE]Se si dispone di Visual Studio 2015 o 2012 e di Azure SDK 2.5, è necessario rimuovere manualmente la versione precedente prima di installare quella più recente. Visual Studio 2013 supporta un aggiornamento diretto.
 
 ## Connettersi alle sottoscrizioni di Azure
 HDInsight Tools per Visual Studio consente di connettersi a cluster HDInsight, eseguire alcune operazioni di gestione di base ed eseguire query Hive.
@@ -236,4 +237,4 @@ In questo articolo è stato mostrato come connettersi a cluster HDInsight da Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

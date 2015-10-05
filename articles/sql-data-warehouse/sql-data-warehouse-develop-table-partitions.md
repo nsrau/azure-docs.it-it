@@ -1,20 +1,20 @@
 <properties
    pageTitle="Partizioni della tabella in SQL Data Warehouse | Microsoft Azure"
-	description="Suggerimenti per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="jrowlandjones"
-	manager="barbkess"
-	editor=""/>
+   description="Suggerimenti per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/22/2015"
-	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Partizioni della tabella in SQL Data Warehouse
 
@@ -326,4 +326,4 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, è possibile 
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

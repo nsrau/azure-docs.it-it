@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Acquisire un'immagine di una macchina virtuale che esegue Windows Server"
-	description="Informazioni su come acquisire un'immagine di una macchina virtuale di Azure (VM) che esegue Windows Server."
+	pageTitle="Acquisire un'immagine di una macchina virtuale Windows | Microsoft Azure"
+	description="Acquisire un’immagine di una macchina virtuale di Windows creata con il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-#Come acquisire una macchina virtuale Windows da usare come immagine.#
+#Acquisire un’immagine di una macchina virtuale di Windows creata con il modello di distribuzione classico.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Questo articolo illustra come acquisire una macchina virtuale Linux che esegue Windows in modo da usarla come immagine per creare altre macchine virtuali. Tale immagine include il disco del sistema operativo ed eventuali dischi dati collegati alla macchina virtuale. Poiché le configurazioni di rete non sono incluse, sarà necessario configurare tali dischi quando vengono create le altre macchine virtuali che utilizzano il modello.
 
@@ -84,4 +86,4 @@ L'immagine è pronta per essere utilizzata per creare macchine virtuali. Per ese
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

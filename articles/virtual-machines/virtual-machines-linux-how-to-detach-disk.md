@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scollegamento di un disco da una macchina virtuale di Linux in Azure"
+	pageTitle="Scollegare un disco dati da una macchina virtuale di Linux | Microsoft Azure"
 	description="Informazioni su come scollegare un disco dati da una macchina virtuale di Azure creata utilizzando il modello di distribuzione classico."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,7 @@
 
 # Informazioni su come scollegare un disco da una macchina virtuale Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la rimozione di un disco con il modello di distribuzione classica.
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -28,4 +29,4 @@
 
 [Uso dell’interfaccia della riga di comando di Azure con l’API di gestione del servizio](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

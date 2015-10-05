@@ -34,7 +34,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio Express 2013 per Windows
 
-+ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-it%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
++ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2FIT-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ## Creare un hub eventi
 
@@ -95,6 +95,7 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 - Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi].
 - Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/develop/java/).
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png
@@ -118,4 +119,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

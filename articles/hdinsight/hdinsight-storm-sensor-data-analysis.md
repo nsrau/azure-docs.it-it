@@ -1,20 +1,20 @@
 <properties
    pageTitle="Analisi dei dati del sensore con Apache Storm e HBase | Microsoft Azure"
-	description="Informazioni su come connettersi ad Apache Storm con una rete virtuale. Usare Storm con HBase per elaborare i dati del sensore da un hub eventi e visualizzarli con D3.js."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Informazioni su come connettersi ad Apache Storm con una rete virtuale. Usare Storm con HBase per elaborare i dati del sensore da un hub eventi e visualizzarli con D3.js."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/06/2015"
-	ms.author="larryfr"/>
+   ms.devlang="java"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/23/2015"
+   ms.author="larryfr"/>
 
 # Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight (Hadoop)
 
@@ -420,4 +420,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

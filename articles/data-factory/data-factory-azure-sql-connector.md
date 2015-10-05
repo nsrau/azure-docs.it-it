@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare dati da e verso il database SQL di Azure | Data factory di Azure"
-	description="Informazioni su come spostare i dati da e verso il database SQL di Azure mediante Data factory di Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Spostare dati da e verso il database SQL di Azure | Data factory di Azure" 
+	description="Informazioni su come spostare i dati da e verso il database SQL di Azure mediante Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso il database SQL di Azure mediante Data factory di Azure
@@ -474,4 +474,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
 	 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

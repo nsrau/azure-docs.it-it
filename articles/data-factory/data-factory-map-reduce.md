@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Richiamare il programma MapReduce da Data factory di Azure"
-	description="Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Richiamare il programma MapReduce da Data factory di Azure" 
+	description="Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Richiamare i programmi MapReduce da Data factory
@@ -32,7 +32,7 @@ Nella definizione JSON per l'attività HDInsight:
 3. Specificare il nome della classe per la proprietà **className**.
 4. Specificare il percorso del file JAR, incluso il nome di file per la proprietà **jarFilePath**.
 5. Specificare il servizio collegato che fa riferimento all'archivio BLOB di Azure contenente il file JAR per la proprietà **jarLinkedService**.   
-6. Specificare gli eventuali argomenti per il programma MapReduce nella sezione **arguments**. 
+6. Specificare gli eventuali argomenti per il programma MapReduce nella sezione **arguments**. In fase di esecuzione, verranno visualizzati alcuni argomenti aggiuntivi (ad esempio: mapreduce.job.tags) dal framework di MapReduce. Per differenziare gli argomenti con gli argomenti di MapReduce, è consigliabile utilizzare sia l’opzione che il valore come argomenti, come illustrato nell'esempio seguente (- s, --input - output e così via sono opzioni immediatamente seguite dai valori).
 
  
 
@@ -102,4 +102,4 @@ Nella definizione JSON per l'attività HDInsight:
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Uso di set con bilanciamento del carico per creare un cluster MySQL su Linux"
-	description="Articolo che illustra i modelli per configurare un cluster Linux a disponibilità elevata e con bilanciamento del carico in Azure usando come esempio MySQL."
+	pageTitle="Creare un cluster MySQL con set con carico bilanciato | Microsoft Azure"
+	description="Installazione di un cluster MySQL con un bilanciamento del carico, disponibilità elevata Linux creato con il modello di distribuzione classica in Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,16 +19,7 @@
 
 # Uso di set con bilanciamento del carico per creare un cluster MySQL su Linux
 
-* [Preparazione](#getting-ready)
-* [Configurazione del cluster](#setting-up-the-cluster)
-* [Configurazione di MySQL](#setting-up-mysql)
-* [Configurazione di Corosync](#setting-up-corosync)
-* [Configurazione di Pacemaker](#setting-up-pacemaker)
-* [Test](#testing)
-* [STONITH](#stonith)
-* [Limitazioni](#limitations)
-
-## Introduzione
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo viene illustrata la creazione delle risorse con il modello di distribuzione classica.
 
 Lo scopo di questo articolo è esplorare e illustrare i diversi approcci disponibili per distribuire servizi basati su Linux con disponibilità elevata su Microsoft Azure, esaminando principalmente l'elevata disponibilità del server MySQL. Su [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL) è disponibile un video che illustra questo approccio.
 
@@ -346,6 +338,5 @@ Si applicano le limitazioni seguenti:
 - Il servizio di bilanciamento del carico richiede almeno 5 secondi per rispondere, quindi le applicazioni devono supportare i cluster ed essere più tolleranti del timeout. Anche altre architetture possono risultare utili, ad esempio le code in-app, middleware di query e così via
 - È necessaria l'ottimizzazione di MySQL per assicurare che la scrittura venga effettuata con la velocità corretta e che le cache siano scaricate nel disco il più frequentemente possibile per ridurre al minimo le perdite di memoria
 - Le prestazioni delle operazioni di scrittura dipenderanno dall'interconnessione delle macchine virtuali nel commutatore virtuale, in quanto questo è il meccanismo usato da DRBD per replicare il dispositivo
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

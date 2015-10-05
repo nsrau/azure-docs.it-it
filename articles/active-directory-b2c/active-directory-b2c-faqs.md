@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Domande frequenti
@@ -105,4 +105,4 @@ Non è attualmente possibile fornire una stima riguardo alla data di disponibili
 
 È possibile anche leggere l'[articolo sulle limitazioni, le restrizioni e i vincoli correnti della versione di anteprima](active-directory-b2c-limitations.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,12 +1,12 @@
 <properties 
-	pageTitle="Selezione dei nomi utente per Linux su Azure" 
+	pageTitle="Selezione dei nomi utente per Linux | Microsoft Azure" 
 	description="Informazioni su come selezionare i nomi utente per una macchina virtuale Linux in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
-
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -16,7 +16,6 @@
 	ms.topic="article" 
 	ms.date="07/29/2015" 
 	ms.author="szark"/>
-
 
 
 
@@ -250,4 +249,4 @@ Di seguito sono riportati i nomi utente da non usare quando si esegue il provisi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Panoramica della piattaforma DSC di Automazione di Azure" 
+   pageTitle="Panoramica di Automazione di Azure DSC | Microsoft Azure" 
    description="Panoramica della piattaforma DSC (Desired State Configuration) di Automazione di Azure, dei termini a essa relativi e dei problemi noti" 
    services="automation" 
    documentationCenter="dev-center-name" 
@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/04/2015"
+   ms.date="09/16/2015"
    ms.author="coreyp"/>
 
 # Panoramica della piattaforma DSC di Automazione di Azure #
-
->[AZURE.IMPORTANT]**La piattaforma DSC di Automazione di Azure attualmente è in anteprima limitata** e non è supportata per carichi di lavoro di produzione. Per ora è soprattutto basata su cmdlet per ora e ha un'interfaccia utente grafica minima. Eseguendo l'iscrizione per l'anteprima di tale piattaforma, si conferma di comprendere che la funzionalità è in anteprima e soggetta a condizioni di servizio ridotte o diverse, come indicato nel [contratto di assistenza](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409), e di accettare le [condizioni aggiuntive relative all'anteprima](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409). Anche se il servizio è temporaneamente gratuito, in futuro diventerà a pagamento.
 
 ## Che cos'è la piattaforma DSC di PowerShell? ##
 DSC (Desired State Configuration) è una nuova piattaforma di gestione, disponibile in Windows PowerShell, che consente di gestire la configurazione degli host fisici e delle macchine virtuali mediante una sintassi dichiarativa di PowerShell.
@@ -49,6 +47,8 @@ La piattaforma DSC di Automazione di Azure si basa sugli elementi principali int
 
 La piattaforma DSC di Automazione di Azure consente di [creare e gestire configurazioni dello stato desiderato di PowerShell](https://technet.microsoft.com/library/dn249918.aspx), importare [risorse DSC](https://technet.microsoft.com/library/dn282125.aspx) e generare configurazioni di nodi DSC (documenti MOF), interamente nel cloud. Questi elementi DSC verranno inseriti nel [server di pull DSC](https://technet.microsoft.com/library/dn249913.aspx) di Automazione di Azure in modo che i nodi di destinazione (ad esempio, computer fisici e macchine virtuali) nel cloud o in locale possano selezionarli, conformarsi allo stato desiderato specificato e segnalare ad Automazione di Azure la propria conformità allo stato desiderato.
 
+Si preferisce guardare che leggere? Esaminare il video di seguito del maggio 2015, quando Automazione di Azure DSC è stato annunciato per la prima volta. **Nota:** mentre i concetti e il ciclo di vita descritti in questo video sono corretti, Automazione di Azure DSC ha fatto molti progressi dalla registrazione del video. È ora in anteprima pubblica, dispone di un'interfaccia utente più estesa nel portale di Azure e supporta funzionalità aggiuntive.
+
 > [AZURE.VIDEO microsoft-ignite-2015-heterogeneous-configuration-management-using-microsoft-azure-automation]
 
 ## Termini relativi alla piattaforma DSC di Automazione di Azure ##
@@ -71,20 +71,14 @@ Eseguendo (compilando) una configurazione DSC, verranno prodotte una o più conf
 
 La piattaforma DSC di Automazione di Azure consente di importare, creare e compilare configurazioni DSC in Automazione di Azure in modo analogo all'importazione, creazione e avvio dei Runbook in Automazione di Azure.
 
-La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdlet seguenti nel [modulo AzureResourceManager di PowerShell](https://msdn.microsoft.com/library/mt244122.aspx) per la gestione delle configurazioni DSC:
-
-- `Get-AzureAutomationDscConfiguration`
-- `Import-AzureAutomationDscConfiguration`
-
 >[AZURE.IMPORTANT]Una configurazione dovrebbe includere un solo blocco di configurazione, con lo stesso nome della configurazione, nella piattaforma DSC di Automazione di Azure.
+
 
 ###Configurazione nodo###
 
-Quando una configurazione DSC viene compilata, vengono prodotte una o più configurazioni nodo a seconda dei blocchi Node presenti nella configurazione. Una configurazione nodo corrisponde a un "documento MOF" (o "documento di configurazione" se si ha familiarità con la terminologia relativa alla piattaforma DSC di PowerShell) e rappresenta un "ruolo" (ad esempio, server Web o computer di lavoro) che uno o più nodi dovrebbero assumersi.
+Quando una configurazione DSC viene compilata, vengono prodotte una o più configurazioni nodo a seconda dei blocchi Node presenti nella configurazione. Una configurazione nodo corrisponde a un "documento MOF" (o "documento di configurazione" se si ha familiarità con la terminologia relativa alla piattaforma DSC di PowerShell) e rappresenta un "ruolo" (ad esempio, server Web o computer di lavoro) che uno o più nodi dovrebbero assumersi. I nomi delle configurazioni di nodi in Automazione di Azure DSC assumono la forma di "<Configuration-name>.<Node configuration-block-name>".
 
 I nodi DSC di PowerShell riconoscono le configurazioni nodo da eseguire mediante metodi push o pull DSC. La piattaforma DSC di Automazione di Azure si basa sul metodo pull DSC, in cui i nodi richiedono al server di pull della piattaforma le configurazioni nodo da applicare. Poiché i nodi effettuano la richiesta alla piattaforma DSC di Automazione di Azure, possono essere protetti da firewall, avere tutte le porte in ingresso chiuse e così via. Necessitano solo dell'accesso in uscita a Internet.
-
-La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdlet seguenti nel [modulo AzureResourceManager di PowerShell](https://msdn.microsoft.com/library/mt244122.aspx) per la gestione delle configurazioni nodo DSC: `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###Nodo###
@@ -93,75 +87,6 @@ Un nodo DSC è qualsiasi computer in cui la configurazione è gestita da DSC e p
 
 La piattaforma DSC di Automazione di Azure facilita il caricamento dei nodi per la gestione e consente di cambiare la configurazione assegnata a ciascun nodo sul lato server. In questo modo, la volta successiva che un nodo cercherà istruzioni nel server, assumerà un ruolo diverso e adatterà di conseguenza la propria configurazione. I nodi inoltre segnalano alla piattaforma il proprio stato e la conformità alla configurazione.
 
-La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdlet seguenti nel [modulo AzureResourceManager di PowerShell](https://msdn.microsoft.com/library/mt244122.aspx) per la gestione dei nodi DSC:
-
--	`Get-AzureAutomationDscNode`  
--	`Register-AzureAutomationDscNode` (usato per caricare macchine virtuali di Azure v2 come nodi)
--	`Get-AzureAutomationDscOnboardingMetaconfig` (usato per caricare nodi)
--	`Set-AzureAutomationDscNode` (usato per impostare o aggiornare mapping di configurazione da nodo a nodo)
--	`Unregister-AzureAutomationDscNode`
--	`Get-AzureAutomationDscNodeReport`
--	`Export-AzureAutomationDscNodeReportContent`
-
-Il cmdlet `Get-AzureAutomationRegistrationInfo` può essere usato per ottenere la chiave e l'URL di registrazione necessari per caricare macchine virtuali di Azure classico in un account di Automazione di Azure tramite l'estensione VM della piattaforma DSC di Automazione di Azure nel portale di Azure o tramite PowerShell.
-
-
-Estensione VM della piattaforma DSC di Automazione di Azure:
-
-![testo alternativo](./media/automation-dsc-overview/AADSC_4.png)
-
-
-PowerShell:
-
-    # fill in correct values for your VM / Automation Account here
-    $VMName = ""
-    $ServiceName = ""
-    $AutomationAccountName = ""
-    $AutomationAccountResourceGroup = ""
-
-
-    # get Azure Automation DSC registration info
-    Switch-AzureMode AzureResourceManager
-
-    $Account = Get-AzureAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-
-    $RegistrationInfo = $Account | Get-AzureAutomationRegistrationInfo
-
-
-    # use the DSC extension to onboard the VM for management with Azure Automation DSC
-    Switch-AzureMode AzureServiceManagement
-
-    $VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
-
-    $PublicConfiguration = ConvertTo-Json -Depth 8 @{
-        SasToken = ""
-        ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfig.zip"
-        ConfigurationFunction = "RegistrationMetaConfig.ps1\RegistrationMetaConfig"
-
-        # update these DSC agent configurations if these defaults are not what you want. 
-        # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
-        Properties = @{
-            RegistrationKey = $RegistrationInfo.PrimaryKey
-            RegistrationUrl = $RegistrationInfo.Endpoint
-            NodeConfigurationName = "configname.webserver"
-            ConfigurationMode = "ApplyAndMonitor"
-            ConfigurationModeFrequencyMins = 15
-            RefreshFrequencyMins = 30
-           RebootNodeIfNeeded = $False
-           ActionAfterReboot = "ContinueConfiguration"
-           AllowModuleOverwrite = $False
-        }
-    } 
-
-    $VM = Set-AzureVMExtension `
-        -VM $vm `
-        -Publisher Microsoft.Powershell `
-        -ExtensionName DSC `
-        -Version 1.9 `
-        -PublicConfiguration $PublicConfiguration
-
-    $VM | Update-AzureVM
- 
 
 ###Risorsa###
 Le risorse DSC sono blocchi predefiniti utilizzabili per specificare una configurazione della piattaforma DSC (Desidered State Configuration) di Windows PowerShell. La piattaforma DSC viene fornita con un set di funzionalità predefinite per la configurazione di risorse come file e cartelle, funzionalità e ruoli del server, impostazioni del Registro di sistema, variabili di ambiente, servizi e processi. Per l'elenco completo delle risorse DSC predefinite e per informazioni su come usarle, vedere l'articolo relativo alle [risorse predefinite della piattaforma DSC di Windows PowerShell](https://technet.microsoft.com/library/dn249921.aspx).
@@ -170,12 +95,6 @@ Le risorse DSC sono blocchi predefiniti utilizzabili per specificare una configu
 
 La piattaforma DSC di Automazione di Azure viene fornita con le stesse risorse predefinite della piattaforma DSC di PowerShell. È possibile aggiungere altre risorse ad Automazione di Azure importando moduli di PowerShell contenenti le risorse desiderate.
 
-La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdlet seguenti nel [modulo Gestione risorse di Azure di PowerShell](https://msdn.microsoft.com/library/mt244122.aspx) per la gestione dei moduli di PowerShell:
-
-- `New-AzureAutomationModule`
-- `Remove-AzureAutomationModule`
-- `Set-AzureAutomationModule`
-- `Get-AzureAutomationModule`
 
 ###Processo di compilazione###
 Nella piattaforma DSC di Automazione di Azure un processo di compilazione è un'istanza di compilazione di una configurazione per creare una o più configurazioni nodo. Tali processi sono simili ai processi di Runbook di Automazione di Azure, con la differenza che non eseguono effettivamente alcuna attività tranne la creazione di configurazioni nodo. Qualsiasi configurazione nodo creata da un processo di compilazione viene inserita automaticamente nel server di pull della piattaforma DSC di Automazione di Azure e sovrascrive le rispettive versioni precedenti, se esistenti. Il nome di una configurazione nodo prodotta da un processo di compilazione è nel formato "<Configuration-name>.<Node configuration-block-name>". Ad esempio, compilando la configurazione seguente, verrà prodotta una sola configurazione nodo denominata "MyConfiguration.webserver":
@@ -184,8 +103,7 @@ Nella piattaforma DSC di Automazione di Azure un processo di compilazione è un'
 ![testo alternativo](./media/automation-dsc-overview/AADSC_5.png)
 
 
->[AZURE.NOTE]Le configurazioni possono essere pubblicate come i Runbook, ma in questo caso non vengono inseriti elementi DSC nel server di pull della piattaforma DSC di Automazione di Azure. Sono i processi di compilazione a eseguire tale operazione. Per altre informazioni sulla "pubblicazione" in Automazione di Azure, vedere [Pubblicazione di un Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
-
+>[AZURE.NOTE]Le configurazioni possono essere pubblicate come i Runbook, ma in questo caso non vengono inseriti elementi DSC nel server di pull della piattaforma DSC di Automazione di Azure. Sono i processi di compilazione a eseguire tale operazione. Per altre informazioni sulla "pubblicazione" in Automazione di Azure, vedere [Pubblicazione di un runbook](https://msdn.microsoft.com/library/dn903765.aspx).
 
 La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdlet seguenti nel [modulo AzureResourceManager di PowerShell](https://msdn.microsoft.com/library/mt244122.aspx) per la gestione dei processi di compilazione:
 
@@ -193,20 +111,13 @@ La piattaforma DSC di Automazione di Azure attualmente rende disponibili i cmdle
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
-
 ##Ciclo di vita della piattaforma DSC di Automazione di Azure##
 Passando da un account di automazione vuoto a un set gestito di nodi configurati correttamente si generano una serie di processi per la definizione delle configurazioni, l'attivazione di tali configurazioni in configurazioni di nodo e nodi di caricamento per DSC di automazione di Azure e le configurazioni di nodi. Nel diagramma seguente viene illustrato il ciclo di vita DSC di automazione di Azure:
 
 ![testo alternativo](./media/automation-dsc-overview/DSCLifecycle.png)
 
+
 ##Problemi noti:##
-
-- Poiché la piattaforma DSC di Automazione di Azure è in anteprima, la prima volta che si usa tale funzionalità sarà necessario iscriversi mediante cmdlet di Azure PowerShell o il portale di anteprima di Azure. Per iscriversi è possibile chiamare i due cmdlet seguenti:
-
- - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
- - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
- 
->[AZURE.NOTE]Può trascorrere fino a un'ora prima che la registrazione nella piattaforma DSC di Automazione di Azure venga completata e che la funzionalità sia disponibile per l'uso.
 
 - In questo momento la piattaforma DSC di Automazione di Azure non supporta configurazioni DSC parziali o composite.
 
@@ -218,18 +129,19 @@ Passando da un account di automazione vuoto a un set gestito di nodi configurati
 
 - I moduli di PowerShell che specificano risorse DSC side-by-side all'interno del modulo usando il formato "versione per cartella" al momento non funzioneranno in Automazione di Azure.
 
-- Quando si importa un modulo di PowerShell in Automazione di Azure mediante il cmdlet `New-AzureAutomationModule` o `Set-AzureAutomationModule`, l'importazione è asincrona. Anche se il cmdlet viene completato correttamente, l'importazione del modulo potrebbe aver avuto esito negativo. Per verificare se l'importazione è riuscita, usare `Get-AzureAutomationModule –Name <ModuleName>` (assicurandosi di ottenere solo tale modulo, non tutti) e controllare che nel campo **ProvisioningState** del modulo sia presente succeeded.
-
 - I moduli di PowerShell importati in Automazione di Azure non possono includere file con estensione doc o docx. Alcuni moduli di PowerShell contenenti risorse DSC includono file di questo tipo per rendere disponibile la Guida. È consigliabile rimuovere tali file dai moduli prima di eseguire l'importazione in Automazione di Azure.
 
-- Le configurazioni in Automazione di Azure attualmente supportano soltanto stringhe come valori dei parametri. Se si intende passare un valore diverso da una stringa come valore di un parametro, passare il valore del parametro come stringa JSON e all'interno della configurazione usare ConvertFrom-Json per riconvertire la stringa JSON in un valore diverso da una stringa.
-
-- Quando un nodo viene inizialmente registrato in un account di Automazione di Azure o viene modificato in modo da essere mappato a una configurazione nodo diversa sul lato server, il relativo stato risulterà conforme anche se non è effettivamente conforme alla nuova configurazione nodo a cui è stato mappato. Dopo che il nodo invia il primo report dopo la registrazione o la modifica del mapping a una configurazione nodo, il relativo stato può essere considerato attendibile.
+- Quando un nodo viene inizialmente registrato in un account di Automazione di Azure o viene modificato in modo da essere mappato a una configurazione nodo diversa sul lato server, il relativo stato risulterà 'conforme' anche se non è effettivamente conforme alla nuova configurazione nodo a cui è stato mappato. Dopo che il nodo esegue il primo pull e invia il primo report, dopo la registrazione o la modifica del mapping a una configurazione nodo, il relativo stato può essere considerato attendibile.
 
 - Quando si carica una macchina virtuale di Azure per la gestione nella piattaforma DSC di Automazione di Azure tramite `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o l'estensione VM di tale piattaforma nel portale di anteprima di Azure, se la registrazione non riesce e viene visualizzato un messaggio che indica che il nome computer non è stato specificato e la directory di configurazione non dispone di file di configurazione, tenere presente che si tratta di un falso allarme e che la registrazione della macchina virtuale ha effettivamente avuto esito positivo. È possibile verificare se la registrazione è riuscita eseguendo il cmdlet `Get-AzureAutomationDscNode`.
 
-- Quando si carica una macchina virtuale di Azure per la gestione con Automazione di Azure DSC tramite `Register-AzureAutomationDscNode``Set-AzureVMExtension` o l'estensione della macchina virtuale di Automazione di Azure DSC nel portale di anteprima di Azure, potrebbe essere necessaria fino a un'ora prima che la macchina virtuale venga visualizzata come nodo DSC di automazione di Azure. Questo comportamento è causato dall'installazione di Windows Management Framework 5.0 nella macchina virtuale da parte dell'estensione DSC della VM di Azure, necessario per caricare la VM nella piattaforma DSC di Automazione di Azure.
+- Quando si carica una VM di Azure per la gestione con Automazione di Azure DSC tramite `Register-AzureAutomationDscNode``Set-AzureVMExtension` o l'estensione della VM di Automazione di Azure DSC nel portale di anteprima di Azure, potrebbe essere necessaria fino a un'ora prima che la VM venga visualizzata come nodo DSC di automazione di Azure. Questo comportamento è causato dall'installazione di Windows Management Framework 5.0 nella macchina virtuale da parte dell'estensione DSC della VM di Azure, necessario per caricare la VM nella piattaforma DSC di Automazione di Azure.
 
-- I nodi DSC caricati in Automazione di Azure DSC mostrano inizialmente lo stato "Conforme", anche se non sono effettivamente conformi con la configurazione del nodo DSC al quale viene eseguito il mapping. Dopo che il nodo ha eseguito il primo pull nodo e inviato il primo report DSC ad Automazione di Azure DSC, è necessario correggere lo stato del nodo.
+- La registrazione dei nodi comporta la negoziazione automatica di un certificato da utilizzare per l'autenticazione del nodo specifico in Automazione di Azure DSC dopo la registrazione. Questo certificato ha una scadenza di un anno dalla creazione e il protocollo di pull DSC PS attualmente non dispone di alcun metodo per il rilascio di un nuovo certificato quando tale certificato è prossimo alla scadenza. Per questo motivo, i nodi dovranno essere registrati con Automazione di Azure DSC dopo un periodo di un anno, fino a quando questo protocollo viene implementato in una versione futura di WMF (si spera meno di un anno).
 
-<!---HONumber=Sept15_HO2-->
+##Articoli correlati##
+
+- [Cmdlet di Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
+- [Prezzi di Azure Automation DSC](http://azure.microsoft.com/pricing/details/automation/)
+
+<!---HONumber=Sept15_HO4-->

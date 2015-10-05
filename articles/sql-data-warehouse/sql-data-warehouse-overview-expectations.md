@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/05/2015"
+   ms.date="09/22/2015"
    ms.author="lvargas;twounder;barbkess"/>
 
 # Aspettative di anteprima di SQL Data Warehouse
@@ -49,7 +49,7 @@ SQL Data Warehouse archivia tutti i dati in Archiviazione di Azure tramite BLOB 
 
 ### Backups
 
-SQL Data Warehouse esegue il backup di tutti i dati ogni 4 ore usando snapshot di Archiviazione di Azure. Tali snapshot vengono conservati per 7 giorni. È quindi possibile ripristinare i dati tornando indietro di un massimo di 42 momenti specifici degli ultimi sette giorni e arrivando fino all'ora in cui è stato acquisito l'ultimo snapshot. Da GA, ci impegniamo a specificare il periodo di conservazione. È possibile ripristinare dati da uno snapshot utilizzando PowerShell o le API REST.
+SQL Data Warehouse esegue il backup di tutti i dati almeno ogni 8 ore usando snapshot di Archiviazione di Azure. Tali snapshot vengono conservati per 7 giorni. È quindi possibile ripristinare i dati tornando indietro di almeno 21 momenti specifici degli ultimi 7 giorni e arrivando fino all'ora in cui è stato acquisito l'ultimo snapshot. È possibile ripristinare dati da uno snapshot utilizzando PowerShell o le API REST.
 
 Gli snapshot vengono copiati in modo asincrono in un'area di Azure remota per assicurare una maggiore recuperabilità in caso di errori a livello dell'area stessa (ripristino di emergenza).
 
@@ -78,4 +78,4 @@ SQL Data Warehouse di Azure può essere soggetto a un massimo di 4 eventi di man
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

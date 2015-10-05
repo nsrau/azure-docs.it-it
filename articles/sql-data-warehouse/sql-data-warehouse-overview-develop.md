@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Sviluppare soluzioni per SQL Data Warehouse | Microsoft Azure"
-   description="Tecniche di sviluppo e procedure consigliate per la creazione di soluzioni con Azure SQL Data Warehouse."
+   pageTitle="Decisioni di progettazione e tecniche di codifica per lo sviluppo di SQL Data Warehouse | Microsoft Azure"
+   description="Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Sviluppare soluzioni per SQL Data Warehouse
+# Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
 
-Esaminare gli articoli sullo sviluppo per capire meglio i principi relativi allo sviluppo, le procedure consigliate e le tecniche di codifica per SQL Data Warehouse.
+Esaminare questi articoli sullo sviluppo per capire meglio le decisioni chiave nella progettazione, i suggerimenti e le tecniche di codifica per SQL Data Warehouse.
 
-## Concetti chiave
+## Decisioni chiave nella progettazione
 Gli articoli seguenti illustrano alcuni dei concetti chiave e alcune delle decisioni di progettazione che sarà necessario conoscere per lo sviluppo del data warehouse distribuito tramite SQL Data Warehouse:
 
 - [Connessioni][]
@@ -33,8 +33,8 @@ Gli articoli seguenti illustrano alcuni dei concetti chiave e alcune delle decis
 - [CTAS][]
 - [Statistiche][]
 
-## Tecniche di sviluppo
-Questi articoli illustrano le tecniche di codifica, i suggerimenti e le procedure consigliate specifici per lo sviluppo di soluzioni con SQL Data Warehouse:
+## Sviluppo dei suggerimenti e delle tecniche di codifica
+Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti consigliate specifici per lo sviluppo dell’SQL Data Warehouse:
 
 - [Stored procedure][]
 - [Etichette][]
@@ -79,4 +79,4 @@ Dopo aver letto gli articoli sullo sviluppo, esaminare la pagina relativa agli [
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

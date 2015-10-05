@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
@@ -138,20 +138,50 @@ Di seguito è un elenco di istruzioni e le operazioni che **sono** disciplinato 
 
 - INSERT SELECT
 - AGGIORNAMENTO
-- ELIMINA
-- Selezionare (quando non esclusivamente l'esecuzione di query di viste a gestione dinamica)
+- DELETE
+- SELEZIONARE (quando si esegue una query sulle tabelle utente)
 - ALTER INDEX REBUILD
 - ALTER INDEX REORGANIZE
 - MODIFICA TABELLA RICOMPILAZIONE
-- CREARE INDICI CLUSTER
+- CREATE INDEX
 - CREARE L'INDICE COLUMNSTORE CLUSTER
 - CREATE TABLE AS SELECT 
 - Caricamento dei dati 
+- Operazioni di spostamento dati condotte dal Servizio di spostamento dati (DMS)
+
+Le istruzioni seguenti **non** rispettano le classi di risorse:
+
+- CREATE TABLE
+- ALTER TABLE... SWITCH PARTITION 
+- ALTER TABLE... SPLIT PARTITION 
+- ALTER TABLE... MERGE PARTITION 
+- DROP TABLE
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE STATISTICS
+- UPDATE STATISTICS
+- DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE USER
+- ALTER USER
+- DROP USER
+- CREATE PROCEDURE
+- ALTER PROCEDURE
+- DROP PROCEDURE
+- CREATE VIEW
+- DROP VIEW
+- INSERT VALUES
+- SELECT (da sistemi di visualizzazione e viste a gestione dinamica)
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
-- CREATE EXTERNAL TABLE AS SELECT 
+- CREATE EXTERNAL TABLE AS SELECT
+- REDISTRIBUTE 
 -->
 > [AZURE.NOTE]È degna di nota che `SELECT` le query per eseguire esclusivamente le viste del catalogo e viste a gestione dinamica sono **non** disciplinato dalle classi di risorse.
 
@@ -418,8 +448,8 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gestione di database e gli account di accesso nel Database di SQL Azure]: https://msdn.microsoft.com/it-it/library/azure/ee336235.aspx
+[Gestione di database e gli account di accesso nel Database di SQL Azure]: https://msdn.microsoft.com/IT-IT/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

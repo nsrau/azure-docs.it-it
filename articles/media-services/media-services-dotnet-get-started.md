@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/07/2015"
+	ms.date="09/18/2015"
 	ms.author="juliako"/>
 
 
@@ -434,4 +434,4 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Informazioni: Gestione delle password di Azure AD | Microsoft Azure"
-	description="Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+	description="Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Gestire le password da qualsiasi posizione
@@ -40,7 +40,7 @@ Di seguito sono elencate alcune operazioni che è possibile eseguire con le funz
 - La **modifica delle password self-service** consente agli utenti finali o agli amministratori di cambiare le password scadute o non scadute senza dover chiamare un amministratore o rivolgersi al Supporto tecnico.
 - La **reimpostazione delle password self-service** consente agli utenti finali o agli amministratori di reimpostare automaticamente le password senza dover chiamare un amministratore o rivolgersi al Supporto tecnico. La reimpostazione delle password self-service è disponibile solo in Azure AD Premium o Basic. Per altre informazioni, vedere Edizioni di Azure Active Directory.
 - La **reimpostazione delle password avviata dall'amministratore** consente a un amministratore di reimpostare la password di un utente finale o di un altro amministratore dal [portale di gestione di Azure](https://manage.windowsazure.com).
-- I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione. 
+- I **report sulle attività di gestione delle password** forniscono agli amministratori informazioni dettagliate sulle attività di reimpostazione delle password e di registrazione che si verificano all'interno dell'organizzazione.
 - Il **writeback delle password** permette di gestire le password locali dal cloud, in modo che tutti gli scenari descritti in precedenza possano essere eseguiti da o per conto di utenti federati o con sincronizzazione tramite password. Per il writeback delle password è necessaria una licenza di Azure AD Premium. Per altre informazioni, vedere Introduzione a Azure AD Premium.
 
 ## Uso di Gestione delle password di Azure AD
@@ -77,6 +77,6 @@ Di seguito sono elencati alcuni motivi per cui è consigliabile usare le funzion
 * [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
-* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Gestione delle password su MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

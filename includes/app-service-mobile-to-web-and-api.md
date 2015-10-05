@@ -1,3 +1,3 @@
-> [AZURE.NOTE]Sebbene in questo articolo si faccia riferimento alle applicazioni per dispositivi mobili, è applicabile anche ad applicazioni web, app per le API e applicazioni per la logica.
+> [AZURE.NOTE]Sebbene in questo articolo si faccia riferimento alle app per dispositivi mobili, è applicabile anche alle app Web e alle app per le API.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->
