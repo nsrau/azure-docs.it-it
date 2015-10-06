@@ -33,13 +33,15 @@ Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [
 
 Nel Database SQL, l'esecuzione di query in una visualizzazione a gestione dinamica richiede autorizzazioni **VIEW DATABASE STATE**. Le autorizzazioni **VIEW DATABASE STATE** restituiscono informazioni su tutti gli oggetti all'interno del database corrente. Per concedere le autorizzazioni **VIEW DATABASE STATE** a un utente di database specifico, eseguire la query seguente:
 
-```GRANT VIEW DATABASE STATE TO database_user; ```
+```
+GRANT VIEW DATABASE STATE TO database_user;
+```
 
-In an instance of on-premises SQL Server, dynamic management views return server state information. In SQL Database, they return information regarding your current logical database only.
+In un'istanza di SQL Server locale, le viste a gestione dinamica restituiscono informazioni sullo stato del server. Nel database SQL, restituiscono informazioni relative esclusivamente al database logico corrente.
 
-## Calculating database size
+## Calcolo della dimensione del database
 
-The following query returns the size of your database (in megabytes):
+La seguente query restituisce la dimensione del database in megabyte:
 
 ```
 -- Calcola le dimensioni del database. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
