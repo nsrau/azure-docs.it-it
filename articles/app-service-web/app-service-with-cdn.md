@@ -67,7 +67,7 @@ In questa sezione verrà distribuito il modello di applicazione MVC di ASP.NET p
 
 	![](media/app-service-with-cdn/5-create-website.png)
 
-9. Dopo aver creato l'applicazione ASP.NET, pubblicarla in Azure nel riquadro Attività di pubblicazione Web facendo clic su **Pubblica `<app name>`￼ su questo sito adesso**. Fare clic su **Pubblica** per completare il processo.
+9. Dopo aver creato l'applicazione ASP.NET, pubblicarla in Azure nel riquadro Attività di pubblicazione Web facendo clic su **Pubblica `<app name>` su questo sito adesso**. Fare clic su **Pubblica** per completare il processo.
 
 	![](media/app-service-with-cdn/6-publish-website.png)
 

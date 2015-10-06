@@ -44,14 +44,14 @@ La tabella seguente descrive una matrice di immagini di SQL Server disponibili n
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Versione di valutazione|
 
->[AZURE.NOTE]Le immagini della raccolta di macchine virtuali per data warehouse e carichi di lavoro transazionali (non illustrati di seguito) sono deprecate e presto verranno rimosse dalla raccolta. Utilizzare le immagini standard nella tabella precedente e ottimizzare le prestazioni per il carico di lavoro specifico seguendo le indicazioni contenute in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-performance-best-practices.md).
+>[AZURE.NOTE]Le immagini della raccolta di macchine virtuali per data warehouse e carichi di lavoro transazionali (non illustrati di seguito) sono deprecate e presto verranno rimosse dalla raccolta. Utilizzare le immagini standard nella tabella precedente e ottimizzare le prestazioni per il carico di lavoro specifico seguendo le indicazioni contenute in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md).
 
 Oltre a queste immagini preconfigurate, è anche possibile [creare una macchina virtuale di Azure](virtual-machines-windows-tutorial.md) senza SQL Server preinstallato. È possibile installare qualsiasi istanza di SQL Server per cui si dispone di una licenza. Si esegue la migrazione della licenza in Azure per l'esecuzione di SQL Server in una macchina virtuale di Azure usando la [mobilità delle licenze tramite Software Assurance in Azure](http://azure.microsoft.com/pricing/license-mobility/). In questo scenario si pagano solo i [costi](http://azure.microsoft.com/pricing/details/virtual-machines) di archiviazione e calcolo di Azure associati alla macchina virtuale.
 
 Durante queste fasi iniziali del provisioning e della configurazione, le attività più comuni includono:
 
-- [Esaminare le procedure consigliate relative alle prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-performance-best-practices.md)
-- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-security-considerations.md)
+- [Esaminare le procedure consigliate relative alle prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md)
+- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-security-considerations.md)
 - [Configurare la connettività](virtual-machines-sql-server-connectivity.md)
 
 ### Migrare i dati

@@ -109,7 +109,7 @@ Sul lato Tomcat è necessario apportare alcune modifiche alla configurazione. È
 -	Porta connettore HTTP = ${port.http}
 -	Indirizzo connettore HTTP = "127.0.0.1"
 -	Impostare come commento i connettori HTTPS e AJP
--	L'impostazione IPv4 può essere configurata anche nel file catalina.properties in cui è possibile aggiungere ￼￼￼`java.net.preferIPv4Stack=true`
+-	L'impostazione IPv4 può essere configurata anche nel file catalina.properties in cui è possibile aggiungere `java.net.preferIPv4Stack=true`
     
 Chiamate Direct3d non sono supportate in applicazione servizio Web App. Per disabilitarle, aggiungere l'opzione Java seguente nel caso in cui l'applicazione esegua chiamate di tale tipo: `-Dsun.java2d.d3d=false`
 

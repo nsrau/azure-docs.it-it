@@ -141,7 +141,7 @@ L'elenco seguente fornisce ulteriori risorse per SQL Server in macchine virtuali
 
 - [Connettersi a una macchina virtuale di SQL Server in Azure](virtual-machines-sql-server-connectivity.md)
 
-- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-performance-best-practices.md)
+- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md)
 
 - [Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-security-considerations.md)
 
