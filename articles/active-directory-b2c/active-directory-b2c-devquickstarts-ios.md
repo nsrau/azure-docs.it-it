@@ -657,4 +657,4 @@ Come riferimento, l'esempio completato [è disponibile qui in un file con estens
 
 [Personalizzazione dell’UX del’App B2C>>]()
 
-<!----HONumber=Sept15_HO4-->
+<!-----HONumber=Sept15_HO4-->
