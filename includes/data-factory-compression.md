@@ -40,4 +40,4 @@ Quando si specifica una proprietà di compressione in un set di dati di input JS
 - Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. In questo caso, definire il set di dati di output del BLOB di Azure con la proprietà compression di JSON.  
 - Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. In questo caso, il set di dati di input del BLOB di Azure viene definito con il tipo di compressione impostato su GZIP e il set di dati di output viene definito con il tipo di compressione impostato BZIP2.   
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->

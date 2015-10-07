@@ -44,7 +44,10 @@ In un'istanza di SQL Server locale, le viste a gestione dinamica restituiscono i
 La seguente query restituisce la dimensione del database in megabyte:
 
 ```
--- Calcola le dimensioni del database. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+-- Calcola le dimensioni del database. 
+SELECT SUM(reserved\_page\_count)*8.0/1024
+FROM sys.dm\_db\_partition\_stats; 
+GO
 ```
 
 La query seguente restituisce le dimensioni dei singoli oggetti (in megabyte) nel database:
@@ -134,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introduzione al Database SQL](sql-database-technical-overview.md)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->
