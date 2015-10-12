@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/12/2015"
 	ms.author="larryfr"/>
 
 # Analizzare i dati di Twitter con Hive in HDInsight
 
-In questo documento viene illustrato come ricevere tweet usando un'API di streaming di Twitter e quindi come usare Apache Hive in un cluster HDInsight basato su Linux (anteprima) per elaborare i dati in formato JSON. Il risultato sarà un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
+In questo documento viene illustrato come ricevere tweet usando un'API di streaming di Twitter e quindi come usare Apache Hive in un cluster HDInsight basato su Linux per elaborare i dati in formato JSON. Il risultato sarà un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
 > [AZURE.NOTE]Anche se alcune parti di questo articolo possono essere usate con i cluster HDInsight basati su Windows (Python e Hive, ad esempio), molti passaggi in questo documento sono specifici dei cluster HDInsight basati su Linux. Per passaggi specifici di un cluster basato su Windows, vedere [Analizzare i dati di Twitter con Hive in HDInsight](hdinsight-analyze-twitter-data.md).
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - __Python__ e [pip](https://pypi.python.org/pypi/pip).
 
-- L'__interfaccia della riga di comando di Azure__. Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+- L'__interfaccia della riga di comando di Azure__. Per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ##Ricevere un feed Twitter
 
@@ -57,7 +57,7 @@ Twitter consente di recuperare i [dati relativi ad ogni tweet](https://dev.twitt
 	
 4. Fare clic su **Yes, I agree**, quindi scegliere **Create your Twitter application**.
 5. Fare clic sulla scheda **Permissions**. L'autorizzazione predefinita è **Read only**. Questo livello di autorizzazione è sufficiente per l'esercitazione.
-6. Fare clic sulla scheda **Keys and Access Tokens**.
+6. Fare clic sulla scheda **Chiavi e token di accesso**.
 7. Fare clic su **Create my access token**.
 8. Fare clic su **Test OAuth** nell'angolo superiore destro della pagina.
 9. Compilare i campi **consumer key**, **Consumer secret**, **Access token** e **Access token secret**. Sarà necessario usare questi valori più avanti.
@@ -319,4 +319,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

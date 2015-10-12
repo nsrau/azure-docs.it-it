@@ -1,19 +1,19 @@
 <properties
     pageTitle="Utilizzo di Azure CLI con archiviazione di Azure | Microsoft Azure"
-	description="Informazioni su come usare l'interfaccia della riga di comando di Azure (Azure CLI) con l'archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="jdial"/>
+    description="Informazioni su come usare l'interfaccia della riga di comando di Azure (Azure CLI) con l'archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
+    manager="jdial"/>
 
 <tags
     ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="09/28/2015"
+    ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
@@ -21,7 +21,7 @@
 
 L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel portale di gestione di Azure, nonché funzionalità di accesso ai dati complessi.
 
-In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli.md) per eseguire una serie di attività di sviluppo e amministrazione con archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
+In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-install.md) per eseguire una serie di attività di sviluppo e amministrazione con archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
 
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare PowerShell con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
@@ -94,7 +94,7 @@ Dopo l'esecuzione dello script è necessario disporre di una cartella di destina
 
 ### Connettersi alla sottoscrizione di Azure
 
-Sebbene la maggior parte dei comandi di archiviazione funzionerà senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione di Azure CLI. Per configurare la CLI di Azure per l'utilizzo con la sottoscrizione, seguire i passaggi in [come connettersi alla sottoscrizione di Azure](../xplat-cli.md#how-to-connect-to-your-azure-subscription).
+Sebbene la maggior parte dei comandi di archiviazione funzionerà senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione di Azure CLI. Per configurare la CLI di Azure per l'utilizzo con la sottoscrizione, seguire i passaggi in [come connettersi alla sottoscrizione di Azure](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
 
 ### Creare un nuovo account di archiviazione
 
@@ -169,13 +169,11 @@ Per eliminare un blob, utilizzare il comando seguente:
 
 ## Creare e gestire condivisioni di file
 
-L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB 2.1 standard. Macchine virtuali di Microsoft Azure e servizi cloud possono condividere i dati di file tra componenti dell'applicazione tramite condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per ulteriori informazioni sull'archiviazione di File di Azure, vedere [come utilizzare l'archiviazione di File di Azure con PowerShell e .NET](storage-dotnet-how-to-use-files).
-
-> [AZURE.NOTE]L'archiviazione file di Azure è attualmente in anteprima. Per richiedere l'accesso all'anteprima, andare alla [pagina di anteprima di Microsoft Azure](/services/preview/) e richiedere l'accesso ai **file di Azure**. Dopo l'approvazione della richiesta viene inviato un avviso che indica che è possibile accedere all'anteprima dell'archiviazione file. È quindi possibile creare un account di archiviazione per l'accesso all'archiviazione file.
+L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per ulteriori informazioni sull'archiviazione di file di Azure, vedere [Come utilizzare l'archiviazione di file di Azure con Windows](storage-dotnet-how-to-use-files) o [Come utilizzare l'archiviazione di file di Azure con Linux](storage-how-to-use-files-linux.md).
 
 ### Creare una condivisione file
 
-Una condivisione di archiviazione file è una condivisione file SMB 2.1 di Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione. Nell'esempio seguente viene creata una condivisione file denominata **myshare**.
+Una condivisione di archiviazione file è una condivisione file SMB di Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione. Nell'esempio seguente viene creata una condivisione file denominata **myshare**.
 
         azure storage share create myshare
 
@@ -224,4 +222,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

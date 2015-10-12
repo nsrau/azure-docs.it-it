@@ -4,8 +4,8 @@
 	services="app-service\web"
 	documentationCenter="python"
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="hero-article"
+	ms.topic="hero-article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -488,6 +488,9 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 - [Django e MySQL in Azure con Python Tools per Visual Studio]
 - [Django e database SQL in Azure con Python Tools per Visual Studio]
 
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
+
+
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -511,4 +514,4 @@ Per informazioni sull'utilizzo di Database SQL e MySQL:
 [documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
 [Documentazione di Django]: https://www.djangoproject.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

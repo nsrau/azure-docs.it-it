@@ -128,7 +128,7 @@ La sottoscrizione predefinita diventerà in questo modo Azure-sub-2.
 
 Se si desidera usare una sottoscrizione non predefinita con l'interfaccia della riga di comando di Azure, ma senza cambiare quella attualmente predefinita, è possibile usare l'opzione `--subscription` e specificare il nome della sottoscrizione da usare per l'operazione.
 
-Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere la pagina [Come usare l'interfaccia della riga di comando di Azure](xplat-cli.md).
+Una volta che si è connessi alla sottoscrizione di Azure, iniziare a utilizzare i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere la pagina [Come usare l'interfaccia della riga di comando di Azure](xplat-cli-install.md).
 
 ## Archiviazione delle impostazioni dell'interfaccia della riga di comando
 
@@ -159,4 +159,4 @@ Quando si accede con un account aziendale o dell'istituto di istruzione o si imp
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

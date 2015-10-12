@@ -6,7 +6,7 @@
    authors="rashimg"
    manager="mwinkle"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -22,7 +22,9 @@
 
 Per impostazione predefinita, i cluster Hadoop non sono ottimizzati per le prestazioni. In questo articolo vengono descritti alcuni dei metodi di ottimizzazione delle prestazioni Hive più comuni che è possibile applicare alle query.
 
+
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
 
 * [Ottimizzare le query Hive per Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
 
@@ -59,7 +61,7 @@ Per ulteriori informazioni su questi concetti, fare clic su [qui](http://hortonw
 
 	set hive.execution.engine=tez;
 
-Tez deve essere abilitato in fase di provisioning. Di seguito è riportato uno script PowerShell di Azure di esempio per il provisioning di un cluster Hadoop con Tez abilitato:
+Per i cluster HDInsight basati su Windows, è necessario abilitare Tez in fase di provisioning. Di seguito è riportato uno script PowerShell di Azure di esempio per il provisioning di un cluster Hadoop con Tez abilitato:
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -83,6 +85,10 @@ Tez deve essere abilitato in fase di provisioning. Di seguito è riportato uno s
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE]I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
+    
 
 ## Partizionamento Hive
 
@@ -220,4 +226,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

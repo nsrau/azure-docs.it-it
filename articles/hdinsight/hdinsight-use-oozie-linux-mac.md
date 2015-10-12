@@ -34,7 +34,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Interfaccia della riga di comando di Azure**: vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md).
+- **Interfaccia della riga di comando di Azure**: vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md).
 
 - **Un cluster di HDInsight**: vedere [Introduzione all'uso di HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -48,9 +48,9 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni in questo docume
 
 1. Un'azione di Hive esegue uno script HiveQL per estrarre i record da **hivesampletable** inclusa in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al seguente:
 
-		8       18:54:20        it-it   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        it-it   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        it-it   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        it-IT   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        it-IT   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        it-IT   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Lo script Hive usato in questo documento conta le visite totali per ogni piattaforma (ad esempio Android o iPhone) e archivia i conteggi in una nuova tabella Hive.
 
@@ -201,7 +201,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 La procedura seguente crea il database SQL di Azure in cui saranno esportati i dati.
 
-> [AZURE.IMPORTANT]Prima di eseguire questa procedura, è necessario [installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md). È possibile installare l'interfaccia della riga di comando e seguire la procedura per creare un database dal cluster HDInsight o dalla workstation locale.
+> [AZURE.IMPORTANT]Prima di eseguire questa procedura, è necessario [installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). È possibile installare l'interfaccia della riga di comando e seguire la procedura per creare un database dal cluster HDInsight o dalla workstation locale.
 
 1. Usare il comando seguente per creare un nuovo server di database SQL di Azure:
 
@@ -477,13 +477,9 @@ L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web de
 
 Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura seguente:
 
-1. Creare un tunnel SSH per il cluster HDInsight. Per informazioni su come eseguire questa operazione, vedere uno degli articoli seguenti:
+1. Creare un tunnel SSH per il cluster HDInsight. Per altre informazioni su come eseguire questa operazione, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-	* [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-
-	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
-
-2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI per il sito Ambari è **https://CLUSTERNAME.azurehdinsight.net**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
+2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI per il sito Ambari è ****https://CLUSTERNAME.azurehdinsight.net**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
 
 3. Nel lato sinistro della pagina selezionare **Oozie**, quindi **Quick Links** e infine **Oozie Web UI**.
 
@@ -715,7 +711,7 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/it-it/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/it-IT/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -725,4 +721,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

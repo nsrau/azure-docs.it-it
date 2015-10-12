@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Esempio di codice: esportare in SQL da Application Insights usando un ruolo di lavoro" 
+	pageTitle="Esempio di codice: analizzare i dati esportati da Application Insights" 
 	description="Codificare la propria analisi dei dati di telemetria in Application Insights usando la funzione di esportazione continua." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
-# Esempio di codice: esportare in SQL da Application Insights usando un ruolo di lavoro
+# Esempio di codice: analizzare i dati esportati da Application Insights
 
-Questo articolo illustra come spostare i dati di telemetria da [Application Insights di Visual Studio][start] in un database SQL di Azure usando [Esportazione continua][export] e poche righe di codice.
+In questo articolo viene illustrato come elaborare i dati JSON esportati da Application Insights. Come esempio, si scriverà un codice per spostare i dati di telemetria da [Application Insights di Visual Studio][start] in un database SQL di Azure usando [Esportazione continua][export].e (È anche possibile ottenere questo [tramite l’analisi Stream](app-insights-code-sample-export-sql-stream-analytics.md), ma qui il nostro obiettivo consiste nel mostrare del codice.)
 
 L'esportazione continua sposta i dati di telemetria nell'archiviazione di Azure nel formato JSON, quindi verrà scritto del codice per analizzare gli oggetti JSON e creare righe in una tabella di database.
 
-Più in generale, Esportazione continua è il modo per eseguire la propria analisi dei dati di telemetria che le app inviano ad Application Insights. È possibile adattare questo esempio di codice per eseguire altre operazioni con i dati di telemetria esportati.
+Più in generale, l'esportazione continua consente di eseguire la propria analisi dei dati di telemetria che le app inviano ad Application Insights. È possibile adattare questo esempio di codice per eseguire altre operazioni con i dati di telemetria esportati.
 
 Si inizierà dal presupposto che si abbia già l'app che si vuole monitorare.
 
@@ -50,6 +50,8 @@ Attività iniziali
 
 
 ## Creare l'archiviazione in Azure
+
+I dati da Application Insights vengono sempre esportati in un account di archiviazione di Azure in formato JSON. È da questa archiviazione che il codice leggerà i dati.
 
 1. Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure][portal].
 
@@ -93,6 +95,8 @@ Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contene
 
 ## Creare un database SQL di Azure
 
+Per questo esempio, verrà scritto il codice per inserire i dati in un database.
+
 Dalla sottoscrizione nel [portale di Azure][portal] creare il database (e un nuovo server, a meno che non sia già disponibile) in cui verranno scritti i dati.
 
 ![Nuovo, Dati, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
@@ -106,7 +110,7 @@ Assicurarsi che il server di database consenta di accedere ai servizi di Azure:
 
 ## Creare un ruolo di lavoro 
 
-Ora è possibile scrivere del [codice](https://sesitai.codeplex.com/) per analizzare il documento JSON nei BLOB esportati e creare record nei database. Dal momento che sia l'archivio di esportazione sia il database si trovano in Azure, il codice verrà eseguito in un ruolo di lavoro di Azure.
+Ora è infine possibile scrivere del [codice](https://sesitai.codeplex.com/) per analizzare il documento JSON nei BLOB esportati e creare record nei database. Dal momento che sia l'archivio di esportazione sia il database si trovano in Azure, il codice verrà eseguito in un ruolo di lavoro di Azure.
 
 Questo codice estrae automaticamente tutte le proprietà presenti nel documento JSON. Per le descrizioni delle proprietà, vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
 
@@ -539,4 +543,4 @@ Per vedere questo esempio in azione, [scaricare](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

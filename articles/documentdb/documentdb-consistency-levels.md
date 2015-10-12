@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB
@@ -56,15 +56,13 @@ La coerenza finale rappresenta il livello più debole, ma offre la latenza più 
 
 ### Modifica del livello di coerenza del database
 
-1.  Nel[portale Azure Preview](https://portal.azure.com/)fare clic su**Sfoglia tutte le**.
+1.  Nel [portale di anteprima di Azure](https://portal.azure.com/), nell’indice fare clic su **Account DocumentDB**.
 
-2.  Nel pannello **Sfoglia** fare clic su **Account DocumentDB**.
+2. Nel pannello **DocumentDB account**, selezionare il database di account da modificare.
 
-3. Nel blade**DocumentDB account**, selezionare il database di account da modificare.
+3. Nel pannello dell’account, nella sezione **configurazione**, fare clic sui**Uniformità predefinita**riquadro.
 
-4. Nel blade account, nell’ottica**configurazione**, fare clic sui**Uniformità predefinita**riquadro.
-
-5. Selezionare il nuovo livello di coerenza e fare clic su**salvare**.
+4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
 
 	![Cattura di schermata evidenziando il riquadro uniformità predefinita, le impostazioni di coerenza ed il pulsante Salva](./media/documentdb-consistency-levels/database-consistency-level.png)
 
@@ -85,9 +83,9 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 
 -	Doug Terry. Coerenza dei dati replicati illustrati attraverso il baseball.[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Garanzie di sessione per i dati replicati con tipizzazione debole e coerente.[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Svantaggi della coerenza di moderne distribuite Progettazione sistemi di Database: CAP è solo una parte del brano ". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
+-	Daniel Abadi. Svantaggi della coerenza di moderne distribuite Progettazione sistemi di Database: CAP è solo una parte del brano". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistica delimitata obsolescenza (PBS) per pratiche quorum parziale.[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Eventuale coerente, in particolare.[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

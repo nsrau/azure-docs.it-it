@@ -100,11 +100,11 @@ Nel database SQL, per generare automaticamente i valori di [chiave primaria](htt
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
 
 
-\-Avvio di una transazione
+-Avvio di una transazione
 
-\-Inserimento di una riga di dati
+-Inserimento di una riga di dati
 
-\-Rollback della transazione per annullare l'inserimento
+-Rollback della transazione per annullare l'inserimento
 
 
 	import pymssql
@@ -114,6 +114,8 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
- 
+## Passaggi successivi
 
-<!---HONumber=August15_HO6-->
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
+
+<!---HONumber=Oct15_HO1-->

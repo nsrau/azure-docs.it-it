@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="JennieHubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="spelluru"/>
+	ms.date="09/24/2015"
+	ms.author="jhubbard"/>
 
 
 #Introduzione all'anteprima di sincronizzazione dati di SQL Azure
@@ -40,7 +40,7 @@ Per questa esercitazione è necessario conoscere già in generale SQL Server e i
 
 
 ## Passaggio 2: aggiungere un agente client
-Questo passaggio è necessario solo se il gruppo di sincronizzazione includerà un database di SQL Server locale. È possibile andare al passaggio 4: creare un gruppo di sincronizzazione, se il gruppo ha solo istanze del database SQL.
+Questo passaggio è necessario solo se il gruppo di sincronizzazione includerà un database di SQL Server locale. Andare al Passaggio 4 se il gruppo ha solo istanze del database SQL.
 
 <a id="InstallRequiredSoftware"></a>
 ### Passaggio 2a: installare il software necessario
@@ -202,4 +202,4 @@ Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

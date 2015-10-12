@@ -35,7 +35,7 @@
 </div>
 
 
-<p>Questa esercitazione illustra più dettagliatamente in che modo Servizi mobili di Azure può archiviare e recuperare dati da un'app per Android. Vengono pertanto riproposte molte delle procedure già completate nell'esercitazione basata sulla guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione <a href="/IT-IT/develop/mobile/tutorials/get-started-android">Introduzione a Servizi mobili</a>.</p>
+<p>Questa esercitazione illustra più dettagliatamente in che modo Servizi mobili di Azure può archiviare e recuperare dati da un'app per Android. Vengono pertanto riproposte molte delle procedure già completate nell'esercitazione basata sulla guida introduttiva a Servizi mobili. Se si tratta della prima esperienza con Servizi mobili, è consigliabile iniziare dall'esercitazione <a href="/it-IT/develop/mobile/tutorials/get-started-android">Introduzione a Servizi mobili</a>.</p>
 
 ## Prerequisiti
 
@@ -151,4 +151,4 @@ Una volta completata la serie relativa ai dati, provare a eseguire le esercitazi
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

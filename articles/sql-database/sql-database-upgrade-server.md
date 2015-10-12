@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Aggiornare un server SQL di Azure alla versione 12 con PowerShell" 
-	description="Aggiornare il server SQL di Azure alla versione 12 con PowerShell." 
+	pageTitle="Aggiornare un server SQL di Azure alla versione V12 con PowerShell" 
+	description="Aggiornare il server SQL di Azure alla versione 12 con PowerShell" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,14 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/05/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sstein"/>
 
-# Aggiornare il server SQL di Azure alla versione 12 con PowerShell
- 
+# Eseguire l'aggiornamento a SQL Database V12 tramite PowerShell
 
-In questo articolo viene illustrato come aggiornare un server di Database SQL alla versione 12 utilizzando indicazioni sul livello di prezzo e relative al pool elastico.
 
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-v12-upgrade.md)
+- [PowerShell](sql-database-upgrade-server.md)
+
+
+Questo articolo illustra come effettuare l’aggiornamento a SQL Database V12 tramite PowerShell.
+
+Durante il processo di aggiornamento a SQL Database V12, è inoltre necessario aggiornare i database Web e Business a un nuovo livello di servizio. Le indicazioni riportate di seguito includono l'utilizzo delle raccomandazioni sui piani tariffari e i pool elastici per assistere con [l'aggiornamento dei database Web e Business](sql-database-upgrade-new-service-tiers.md) sul server.
 
 
 ## Prerequisiti 
@@ -29,7 +35,7 @@ Per eseguire aggiornamento di un server alla versione 12 con PowerShell, è nece
 
 Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-I cmdlet per la creazione e la gestione dei database SQL di Azure si trovano nel modulo di Gestione risorse di Azure. Quando si avvia Azure PowerShell, i cmdlet nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo AzureResourceManager, usare il cmdlet **Switch-AzureMode**.
+I cmdlet per la creazione e la gestione dei database SQL di Azure si trovano nel modulo di Gestione risorse di Azure. Quando si avvia Azure PowerShell, i cmdlet nel modulo di Azure vengono importati per impostazione predefinita. Per passare al modulo Gestione risorse di Azure, usare il cmdlet **Switch-AzureMode**.
 
 	Switch-AzureMode -Name AzureResourceManager
 
@@ -39,16 +45,13 @@ Per informazioni dettagliate, vedere [Utilizzo di Windows PowerShell con Gestion
 
 
 
-## Configurazione delle credenziali
+## Configurare le credenziali e selezionare la sottoscrizione
 
 Per eseguire i cmdlet PowerShell nella sottoscrizione di Azure, è necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
 
 	Add-AzureAccount
 
 Dopo aver effettuato l’accesso, sullo schermo dovrebbero essere visualizzate informazioni tra cui l’ID utilizzato per l’accesso con le sottoscrizioni Azure per le quali si dispone dell’accesso
-
-
-## Selezionare la sottoscrizione ad Azure
 
 Per selezionare la sottoscrizione con cui lavorare, è necessario l’ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). che può essere copiato dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati.
 
@@ -78,7 +81,7 @@ Per avviare l'aggiornamento del server di eseguire il cmdlet seguente:
 Quando si esegue questo comando, inizia il processo di aggiornamento. È possibile personalizzare l'output dell’indicazione e fornire le indicazioni modificate a questo cmdlet.
 
 
-## Aggiornamento di un server SQL di Azure
+## Aggiornare un server
 
 
     # Adding the account
@@ -112,33 +115,45 @@ Quando si esegue questo comando, inizia il processo di aggiornamento. È possibi
 
 Se le indicazioni non sono appropriate per il server e il caso aziendale, è possibile scegliere la modalità di aggiornamento dei database e è possibile eseguirne il mapping a database singoli o elastici.
 
-Aggiornamento di database in un pool di database elastici:
-
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
-    $elasticPool.DatabaseDtuMax = 100  
-    $elasticPool.DatabaseDtuMin = 0  
-    $elasticPool.Dtu = 800
-    $elasticPool.Edition = "Standard"  
-    $elasticPool.DatabaseCollection = ("DB1")  
-    $elasticPool.Name = "elasticpool_1"  
-
-
-Aggiornare i database in singoli database:
-
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
-    $databaseMap.Name = "DB2"
-    $databaseMap.TargetEdition = "Standard"
-    $databaseMap.TargetServiceLevelObjective = "S0"
-    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
+I parametri ElasticPoolCollection e DatabaseCollection sono facoltativi:
+    
+    # Creating elastic pool mapping
+    #
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties 
+    $elasticPool.DatabaseDtuMax = 100 
+    $elasticPool.DatabaseDtuMin = 0 
+    $elasticPool.Dtu = 800 
+    $elasticPool.Edition = "Standard" 
+    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”) 
+    $elasticPool.Name = "elasticpool_1" 
+    $elasticPool.StorageMb = 800 
+     
+    # Creating single database mapping
+    #
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
+    $databaseMap.Name = "DBMain" 
+    $databaseMap.TargetEdition = "Standard" 
+    $databaseMap.TargetServiceLevelObjective = "S0" 
+     
+    # Starting the upgrade
+    #
+    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool) 
     
 
+
+
+
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
 
 
 
 ## Informazioni correlate
 
 - [Cmdlet di Gestione risorse del database SQL di Azure](https://msdn.microsoft.com/library/mt163521.aspx)
-- [Cmdlet di Gestione servizi del database SQL di Azure](https://msdn.microsoft.com/library/dn546726.aspx)
- 
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

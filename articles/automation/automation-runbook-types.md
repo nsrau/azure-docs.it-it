@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="bwren" />
 
 # Tipi di runbook di Automazione di Azure
@@ -35,15 +35,18 @@ I [runbook grafici](automation-runbook-types.md#graphical-runbooks) vengono crea
 - Creazione di runbook con una conoscenza minima del [flusso di lavoro PowerShell](automation-powershell-workflow.md).
 - Rappresentazione grafica dei processi di gestione.
 - Uso dei [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
-- Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
-- Possibilità di includere altri runbook grafici o del flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
+- Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più attività in parallelo.
+- Può includere altri runbook grafici e runbook di flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
+
 
 ### Limitazioni
 
 - Impossibilità di modificare il runbook all'esterno del portale di Azure.
 - Possibile necessità di un [controllo script del flusso di lavoro](automation-powershell-workflow.md#activities) contenente codice del flusso di lavoro PowerShell per l'esecuzione di logica complessa.
+- Impossibile visualizzare o modificare direttamente il codice del flusso di lavoro PowerShell creato dal flusso di lavoro con interfaccia grafica. Si noti che è possibile visualizzare il codice in qualsiasi attività di Script del flusso di lavoro.
 - Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
-- Possibilità di includere i runbook di PowerShell solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
+- Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
+
 
 ## Runbook del flusso di lavoro PowerShell
 
@@ -54,14 +57,16 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 - Implementazione di tutta la logica complessa con codice del flusso di lavoro PowerShell.
 - Uso dei [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
 - Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
-- Possibilità di includere altri runbook del flusso di lavoro PowerShell o grafici come runbook figli per la creazione di flussi di lavoro generali.
+- Può includere altri runbook grafici e runbook di flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
+
 
 ### Limitazioni
 
 - Necessità che l'autore abbia familiarità con il flusso di lavoro PowerShell.
 - Gestione nel runbook della complessità aggiuntiva del flusso di lavoro PowerShell, ad esempio gli [oggetti deserializzati](automation-powershell-workflow.md#code-changes).
 - Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
-- Possibilità di includere i runbook di PowerShell solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
+- Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
+
 
 ## Runbook di PowerShell
 
@@ -78,7 +83,7 @@ I runbook di PowerShell sono basati su Windows PowerShell. È possibile modifica
 - Impossibilità di usare l'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
 - Impossibilità di usare i [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
 - Impossibilità di avviare i runbook nel [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md).
-- Possibilità di includere i runbook del flusso di lavoro PowerShell e grafici solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
+- Possibilità di includere i runbook del flusso di lavoro PowerShell e grafici come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
 
 ### Problemi noti
 Di seguito sono descritti i problemi noti correnti relativi ai runbook di PowerShell.
@@ -104,4 +109,4 @@ Di seguito sono descritti i problemi noti correnti relativi ai runbook di PowerS
 - [Informazioni sul flusso di lavoro di Windows PowerShell](automation-powershell-workflow.md)
 - [Creazione o importazione di un runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

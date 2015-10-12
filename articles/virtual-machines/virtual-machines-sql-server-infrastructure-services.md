@@ -32,6 +32,8 @@ Per creare una macchina virtuale di SQL Server in Azure, è necessario prima ott
 
 Dopo l'iscrizione a una sottoscrizione, il modo più semplice per distribuire una macchina virtuale di SQL Server in Azure consiste nell'[eseguire il provisioning di un'immagine della raccolta di macchine virtuali di SQL Server nel portale di gestione di Azure](virtual-machines-provision-sql-server.md). Tali immagini includono licenze di SQL Server in cui i prezzi per la macchina virtuale.
 
+>[AZURE.NOTE]Utilizzare il [nuovo portale](https://manage.windowsazure.com) per eseguire il provisioning e gestire macchine virtuali di SQL Server. Utilizza l'archiviazione Premium per impostazione predefinita e offre l'applicazione automatizzata di patch, il backup automatizzato e configurazioni AlwaysOn.
+
 La tabella seguente descrive una matrice di immagini di SQL Server disponibili nella raccolta di macchine virtuali.
 
 |Versione di SQL Server|Sistema operativo|Edizione di SQL Server|
@@ -44,14 +46,15 @@ La tabella seguente descrive una matrice di immagini di SQL Server disponibili n
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Versione di valutazione|
 
->[AZURE.NOTE]Le immagini della raccolta di macchine virtuali per data warehouse e carichi di lavoro transazionali (non illustrati di seguito) sono deprecate e presto verranno rimosse dalla raccolta. Utilizzare le immagini standard nella tabella precedente e ottimizzare le prestazioni per il carico di lavoro specifico seguendo le indicazioni contenute in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md).
+>[AZURE.NOTE]Le immagini della raccolta di macchine virtuali per data warehouse e carichi di lavoro transazionali (non illustrati di seguito) sono deprecate e presto verranno rimosse dalla raccolta. Utilizzare le immagini standard nella tabella precedente e ottimizzare le prestazioni per il carico di lavoro specifico.
 
 Oltre a queste immagini preconfigurate, è anche possibile [creare una macchina virtuale di Azure](virtual-machines-windows-tutorial.md) senza SQL Server preinstallato. È possibile installare qualsiasi istanza di SQL Server per cui si dispone di una licenza. Si esegue la migrazione della licenza in Azure per l'esecuzione di SQL Server in una macchina virtuale di Azure usando la [mobilità delle licenze tramite Software Assurance in Azure](http://azure.microsoft.com/pricing/license-mobility/). In questo scenario si pagano solo i [costi](http://azure.microsoft.com/pricing/details/virtual-machines) di archiviazione e calcolo di Azure associati alla macchina virtuale.
 
-Durante queste fasi iniziali del provisioning e della configurazione, le attività più comuni includono:
+Per determinare le impostazioni di configurazione migliori della macchina virtuale per l'immagine di SQL Server, esaminare [Procedure ottimali per le prestazioni per SQL Server in macchine virtuali Azure](virtual-machines-sql-server-performance-best-practices.md). Per i carichi di lavoro di produzione, **DS3** è la dimensione minima consigliata della macchina virtuale per SQL Server Enterprise edition e **DS2** è la dimensione minima consigliata della macchina virtuale per l'edizione Standard.
 
-- [Esaminare le procedure consigliate relative alle prestazioni per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-performance-best-practices.md)
-- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure.](virtual-machines-sql-server-security-considerations.md)
+Oltre all'analisi delle procedure ottimali per le prestazioni, altre attività iniziali includono:
+
+- [Esaminare le procedure consigliate relative alla sicurezza per SQL Server in Macchine virtuali di Azure￼￼￼￼￼￼￼.￼](virtual-machines-sql-server-security-considerations.md)
 - [Configurare la connettività](virtual-machines-sql-server-connectivity.md)
 
 ### Migrare i dati
@@ -147,4 +150,4 @@ Se si crea una macchina virtuale usando un'immagine di SQL Server fornita dalla 
 - [Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Macchine virtuali di Azure](virtual-machines-about.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

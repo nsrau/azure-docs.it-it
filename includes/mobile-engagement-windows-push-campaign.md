@@ -6,7 +6,7 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 
 	![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
 
-3. Impostare il primo campo della campagna effettuando i passaggi seguenti:
+3. Impostare il primo campo della campagna seguendo questa procedura:
 
 	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
@@ -30,4 +30,4 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

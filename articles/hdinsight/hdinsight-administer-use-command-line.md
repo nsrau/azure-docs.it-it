@@ -34,11 +34,11 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Interfaccia della riga di comando di Azure**: per informazioni sull’installazione e la configurazione vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli.md).
+- **Interfaccia della riga di comando di Azure**: per informazioni sull’installazione e la configurazione vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ##Installare
 
-Se non lo si è già fatto, usare il documento [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli.md) per installare e configurare l’interfaccia della riga di comando di Azure.
+Se non lo si è già fatto, usare il documento [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md) per installare e configurare l’interfaccia della riga di comando di Azure.
 
 ##Effettuare il provisioning di un cluster HDInsight
 
@@ -128,12 +128,15 @@ Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
 
 
 ##Eliminazione di un cluster
-Utilizzare il comando seguente per eliminare un cluster:
+Usare il comando seguente per eliminare un cluster:
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>Scalare un cluster
 
+Per modificare le dimensioni del cluster Hadoop mediante Azure PowerShell, eseguire il comando seguente da un computer client:
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##Passaggi successivi
 In questo articolo si è appreso come eseguire diverse attività amministrative relative ai cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
@@ -144,7 +147,7 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 * [Come utilizzare l’interfaccia della riga di comando di Azure][azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -160,4 +163,4 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Elenco e visualizzazione di cluster"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

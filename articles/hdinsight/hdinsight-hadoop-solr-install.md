@@ -82,11 +82,13 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 	L'utilità post.jar indicizza Solr con due documenti di esempio, **solr.xml** e **monitor.xml**. L'utilità post.jar e i documenti di esempio sono disponibili con l'installazione di Solr.
 
 3. **Usare il dashboard di Solr per eseguire ricerche nei documenti indicizzati**. Nella sessione RDP per il cluster HDInsight, aprire Internet Explorer, quindi avviare il dashboard di Solr all'indirizzo ****http://headnodehost:8983/solr/#/**. Nel riquadro a sinistra selezionare **collection1** dal menu a discesa **Core Selector** e quindi fare clic su **Query**. Ad esempio, per selezionare e restituire tutti i documenti in Solr, specificare i valori seguenti:
-	1. Nella casella di testo **q** immettere ***:***. Verranno restituiti tutti i documenti indicizzati in Solr. Per cercare una stringa specifica nei documenti, è possibile immettere qui la stringa.
-	2. Selezionare il formato di output nella casella di testo **wt**. Il valore predefinito è **json**. Fare clic su **Esegui query**.
 
-		![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Eseguire una query sul dashboard Solr")
+	* Nella casella di testo **q** immettere ***:***. Verranno restituiti tutti i documenti indicizzati in Solr. Per cercare una stringa specifica nei documenti, è possibile immettere qui la stringa.
+	
+	* Selezionare il formato di output nella casella di testo **wt**. Il valore predefinito è **json**. Fare clic su **Esegui query**.
 
+	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Eseguire una query sul dashboard Solr")
+	
 	L'output restituisce i due documenti usati per l'indicizzazione di Solr. L'output sarà simile al seguente:
 
 			"response": {
@@ -168,11 +170,11 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 		Questo comando copia lo snapshot in /example/data/ nel contenitore disponibile nell'account di archiviazione predefinito associato al cluster.
 
 
-## Vedere anche##
+## Vedere anche
+
 - [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]. Usare la personalizzazione dei cluster per installare Spark nei cluster Hadoop di HDInsight. Spark è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data.
 - [Installare R nei cluster HDInsight][hdinsight-install-r]. Usare la personalizzazione dei cluster per installare R nei cluster Hadoop di HDInsight. R è un linguaggio open source e un ambiente per l'elaborazione statistica. Fornisce centinaia di funzioni statistiche predefinite e un proprio linguaggio che combina aspetti di programmazione funzionale con aspetti di programmazione orientata agli oggetti. Offre inoltre funzionalità complete di grafica.
 - [Installare Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install.md). Usare la personalizzazione cluster per installare Giraph in cluster Hadoop di HDInsight. Giraph permette di elaborare grafici con Hadoop e può essere usato con Azure HDInsight.
-
 
 
 [powershell-install-configure]: ../install-configure-powershell.md
@@ -181,4 +183,4 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

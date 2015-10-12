@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usare l'azione script per installare Spark in cluster Hadoop| Microsoft Azure"
-	description="Informazioni su come personalizzare un cluster HDInsight con Spark. Verrà usata un'opzione di configurazione Azione script per installare Spark tramite uno script."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	pageTitle="Usare l'azione script per installare Spark in cluster Hadoop| Microsoft Azure" 
+	description="Informazioni su come personalizzare un cluster HDInsight con Spark. Verrà usata un'opzione di configurazione Azione script per installare Spark tramite uno script." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/01/2015" 
 	ms.author="larryfr"/>
 
 # Installare e usare Spark in cluster Hadoop di HDInsight
@@ -33,26 +33,26 @@ Questo argomento fornisce istruzioni su come personalizzare un cluster HDInsight
 
 ## <a name="whatis"></a>Quale versione di Spark è possibile installare?
 
-In questo argomento, viene usato uno script personalizzato di azione script per installare Spark in un cluster HDInsight. Questo script consente di installare Spark 1.3.1.
+In questo argomento, viene usato uno script personalizzato di azione script per installare Spark in un cluster HDInsight. Questo script consente di installare Spark 1.5.0.
 
 È possibile modificare questo script o crearne uno personalizzato per installare altre versioni di Spark.
 
-## Caratteristiche dello script
+## Funzionalità dello script
 
-Questo script consente di installare Spark 1.3.1 in `/usr/hdp/current/spark`.
+Questo script consente di installare Spark 1.5.0 in `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Installare Spark mediante azioni di script
 
-Uno script di esempio per l'installazione di Spark in un cluster HDInsight è disponibile in un BLOB di archiviazione di sola lettura di Azure all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh). Questa sezione fornisce istruzioni su come usare lo script di esempio quando si effettua il provisioning del cluster usando il portale di Azure.
+Uno script di esempio per l'installazione di Spark in un cluster HDInsight è disponibile in un BLOB di archiviazione di sola lettura di Azure all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Questa sezione fornisce istruzioni su come usare lo script di esempio quando si effettua il provisioning del cluster usando il portale di Azure.
 
-> [AZURE.NOTE]È anche possibile usare Azure PowerShell o .NET SDK per HDInsight per creare un cluster mediante lo script. Per altre informazioni sull'uso di questi metodi, vedere la pagina relativa alla [personalizzazione di cluster HDInsight mediante azioni di script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE]È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere la pagina relativa alla [personalizzazione di cluster HDInsight mediante azioni di script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare il provisioning di un cluster seguendo i passaggi descritti nella pagina relativa al [provisioning di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal) senza tuttavia completarlo.
 
 2. Nel pannello **Configurazione facoltativa** selezionare **Azioni di script** e specificare le informazioni seguenti:
 
 	* __NOME__: immettere un nome descrittivo per l'azione di script
-	* __URI SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
+	* __URI SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__: selezionare questa opzione
 	* __RUOLO DI LAVORO__: selezionare questa opzione
 	* __ZOOKEEPER__: selezionare questa opzione per l'installazione nel nodo Zookeeper
@@ -235,4 +235,4 @@ In questa sezione verrà creata un'applicazione Scala che conta il numero di rig
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

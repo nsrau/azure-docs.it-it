@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Come scalare Cache Redis di Azure
 
->[AZURE.NOTE]Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima.
+>[AZURE.NOTE]Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima. Durante il periodo di anteprima, non è possibile ridimensionare, da o in una cache di livello premium.
 
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare le dimensioni della cache utilizzando il pannello **Modifica livello di prezzo** nel [portale di anteprima di Azure](https://portal.azure.com).
 
@@ -48,6 +48,7 @@ Selezionare il livello di prezzo desiderato dal pannello **Livello di prezzo** e
 
 >[AZURE.NOTE]È possibile passare a un livello di prezzo diverso con le restrizioni seguenti.
 >
+>-	Non è possibile scalare da o verso una cache **Premium**.
 >-	Non è possibile effettuare il ridimensionamento da una cache**Standard** a una cache **Basic**.
 >-	È possibile passare da una cache **Basic** a una cache **Standard** ma non è possibile modificare contemporaneamente le dimensioni. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
 >-	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
@@ -86,6 +87,10 @@ Per ulteriori informazioni, vedere l’esempio relativo alla [gestione di Cache 
 
 Nell’elenco seguente sono fornite le risposte alle domande poste comunemente sul ridimensionamento di Cache Redis di Azure.
 
+## È possibile ridimensionare verso, da o in una cache Premium
+
+Durante il periodo di anteprima, la scalabilità non è disponibile per cache **Premium**.
+
 ## Dopo il ridimensionamento, è necessario modificare il nome della cache o le chiavi di accesso?
 
 No, il nome della cache e le chiavi restano invariate durante un'operazione di ridimensionamento.
@@ -115,6 +120,8 @@ Le cache **Standard** restano disponibili durante l'operazione di ridimensioname
 Le cache**Basic** sono offline durante le operazioni di ridimensionamento, ma rimangono disponibili anche quando si ridimensiona da una cache **Basic** a una **Standard**.
 
 ## Operazioni non supportate
+
+Non è possibile ridimensionare verso, da o in una cache **Premium**.
 
 Non è possibile passare da una cache**Standard** a una cache **Basic**.
 
@@ -148,4 +155,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

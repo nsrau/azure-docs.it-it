@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Avvio e arresto delle macchine virtuali - Runbook grafici | Microsoft Azure"
-   description="Versione dei flussi di lavoro PowerShell della soluzione di Automazione di Azure che include runbook per l'avvio e l'arresto delle macchine virtuali classiche."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Avvio e arresto delle macchine virtuali - Runbook grafici | Microsoft Azure"
+	description="Versione dei flussi di lavoro PowerShell della soluzione di Automazione di Azure che include runbook per l'avvio e l'arresto delle macchine virtuali classiche."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Soluzione di Automazione di Azure - Avvio e arresto delle macchine virtuali
 
@@ -54,7 +54,7 @@ I runbook includono un'attività denominata **Read Me** che include una descrizi
 I runbook richiedono gli asset seguenti, che devono essere creati e popolati con i valori appropriati. I nomi sono predefiniti. È possibile usare asset con nomi diversi se tali nomi vengono specificati nei [parametri di input](#using-the-solution) all'avvio del runbook.
 
 | Tipo di risorsa | Nome predefinito | Descrizione |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | [Credenziali](automation-credentials.md) | AzureCredential | Contiene le credenziali per un account che dispone delle autorizzazioni per avviare e arrestare le macchine virtuali nella sottoscrizione di Azure. |
 | [Variabile](automation-variables.md) | AzureSubscriptionId | Contiene l'ID sottoscrizione della sottoscrizione di Azure. |
 
@@ -65,7 +65,7 @@ I runbook richiedono gli asset seguenti, che devono essere creati e popolati con
 Ogni runbook è associato ai [parametri di input](automation-starting-a-runbook#runbook-parameters) seguenti. È necessario fornire valori per tutti i parametri obbligatori ed è possibile facoltativamente specificare i valori per gli altri parametri a seconda delle esigenze.
 
 | Parametro | Tipo | Obbligatorio | Descrizione |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | stringa | No | Se viene specificato un valore, verranno avviate o arrestate tutte le macchine virtuali con lo stesso nome di servizio. Se invece non viene specificato alcun valore, verranno avviate o arrestate tutte le macchine virtuali classiche della sottoscrizione di Azure. |
 | AzureSubscriptionIdAssetName | stringa | No | Contiene il nome dell'[asset di tipo variabile](#installing-the-solution) che include l'ID sottoscrizione della sottoscrizione di Azure. Se non si specifica un valore, verrà usato *AzureSubscriptionId*. |
 | AzureCredentialAssetName | stringa | No | Contiene il nome dell'[asset di tipo credenziali](#installing-the-solution) che include le credenziali per il runbook da usare. Se non si specifica un valore, verrà usato *AzureCredential*. |
@@ -153,4 +153,4 @@ Il passaggio finale del runbook consiste nell'inviare l'output a seconda che la 
 - [Runbook figlio in Automazione di Azure](automation-child-runbooks.md) 
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

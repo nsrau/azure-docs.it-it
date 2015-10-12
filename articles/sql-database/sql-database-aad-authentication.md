@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/14/2015"
+   ms.date="09/28/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connessione al database SQL con l'autenticazione di Azure Active Directory 
@@ -65,7 +65,7 @@ Per creare un utente di database indipendente nel database SQL di Azure, è nece
 
 ## Funzionalità e limitazioni di Azure AD 
 
-È possibile eseguire il provisioning dei membri di Azure Active Directory seguenti in Azure SQL Server: - Membri nativi: membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md). - Membri del dominio federato: membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere [Windows Azure ora supporta la federazione con Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - Membri importati da altre istanze di Azure Active Directory che corrispondono a membri nativi o di dominio federato. - Gruppi di Active Directory creati come gruppi di sicurezza.
+È possibile eseguire il provisioning dei membri di Azure Active Directory seguenti in Azure SQL Server: - Membri nativi: membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md). - Membri del dominio federato: membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere [Microsoft Azure ora supporta la federazione con Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - Membri importati da altre istanze di Azure Active Directory che corrispondono a membri nativi o di dominio federato. - Gruppi di Active Directory creati come gruppi di sicurezza.
 
 Gli account Microsoft, ad esempio outlook.com, hotmail.com, live.com, oppure altri account guest, ad esempio gmail.com, yahoo.com, non sono supportati. Se è possibile accedere a [https://login.live.com](https://login.live.com) con l'account e la password, si sta usando un account Microsoft che non è supportato per l'autenticazione di Azure AD per il database SQL di Azure.
 
@@ -87,7 +87,7 @@ Creare un'istanza di Azure Active Directory e popolarla con utenti e gruppi. Ope
 - Creare il dominio gestito di Azure AD iniziale.
 - Attuare la federazione di un'istanza di Servizi di dominio Active Directory locale con Azure Active Directory.
 
-Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md), [Windows Azure ora supporta la federazione con Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](active-directory-add-domain.md), [Microsoft Azure ora supporta la federazione con Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD tramite Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Assicurarsi che il database sia un database SQL di Azure versione 12
  
@@ -142,7 +142,7 @@ Ogni server di Azure SQL viene avviato con un singolo account amministratore del
 3. Nel pannello **Impostazioni** fare clic su **Amministratore di Active Directory (anteprima)** e accettare la clausola relativa all'anteprima.
 4. Nel pannello **Amministratore di Active Directory (anteprima)** fare clic per visualizzare i dettagli e quindi fare clic su **OK** per accettare le condizioni per l'anteprima.
 5. Nel pannello **Amministratore di Active Directory (anteprima)** fare clic su **Amministratore di Active Directory** e quindi fare clic su **Imposta amministratore** in alto.
-6. Nel pannello **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi fare clic su **Seleziona**. Nel pannello Amministratore di Active Directory saranno visualizzati tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Vedere l'elenco degli amministratori supportati nella sezione precedente **Funzionalità e limitazioni di Azure AD**.
+6. Nel pannello **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi fare clic su **Seleziona**. Nel pannello Amministratore di Active Directory saranno visualizzati tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Vedere l'elenco degli amministratori supportati nella sezione precedente **Funzionalità e limitazioni di Azure AD**. Il controllo di accesso basata sui ruoli (RBAC) si applica solo al portale e non viene propagato a SQL Server.
 7. Nel pannello **Amministratore di Active Directory** in alto fare clic su **SALVA**. ![scegliere l'amministratore][10]
 
 	Il processo di modifica dell'amministratore può richiedere alcuni minuti. Il nuovo amministratore sarà quindi visualizzato nella casella **Amministratore di Active Directory**.
@@ -209,7 +209,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 ### Strumenti
 
 - L'installazione di [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) o [SQL Server Data Tools per Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) soddisfa i requisiti di .NET Framework 4.6. 
-- SSMS installa la versione x86 di **ADALSQL.DLL**. 
+- SSMS installa la versione x86 di **ADALSQL.DLL**. (A questo punto, SSMS non è in grado di richiedere un riavvio necessario dopo l'installazione. Questo dovrebbe essere risolto in una futura versione di CTP).
 - SSDT installa la versione amd64 di **ADALSQL.DLL**. L'autenticazione di Azure AD è solo parzialmente supportata da SSDT.
 - L'ultima versione di Visual Studio disponibile nella pagina [Download di Visual Studio ](https://www.visualstudio.com/downloads/download-visual-studio-vs) soddisfa i requisiti di .NET Framework 4.6, ma non installa la versione amd64 di **ADALSQL.DLL** richiesta.
 
@@ -217,7 +217,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 
 ### Informazioni sugli utenti di database indipendente
 
-L'autenticazione di Azure Active Directory richiede la creazione di utenti del database come utenti di database indipendente. Un utente di database indipendente basato su un'identità di Azure AD è un utente di database che non può accedere al database master e del quale viene eseguito il mapping a un'identità nella directory di Azure AD associata al database. L'identità di Azure AD può essere un singolo account utente o un gruppo. Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
+L'autenticazione di Azure Active Directory richiede la creazione di utenti del database come utenti di database indipendente. Un utente di database indipendente basato su un'identità di Azure AD è un utente di database che non può accedere al database master e del quale viene eseguito il mapping a un'identità nella directory di Azure AD associata al database. L'identità di Azure AD può essere un singolo account utente o un gruppo. Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx). Gli utenti del database (con l'aspettativa di admins) non possono essere creati mediante il portale e i ruoli RBAC non vengono propagati a SQL Server.
 
 ### Connettersi al database utente tramite SQL Server Management Studio
  
@@ -322,4 +322,4 @@ Per esempi di codice specifici relativi all'autenticazione di Azure AD, vedere i
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

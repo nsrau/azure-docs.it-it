@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 #Uso di Hub di notifica di Azure per inviare notifiche agli utenti
@@ -373,4 +373,4 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

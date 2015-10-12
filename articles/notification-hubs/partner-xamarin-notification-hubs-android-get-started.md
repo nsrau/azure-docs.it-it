@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2015"
-	ms.author="yuaxu;wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica
 
@@ -496,4 +496,4 @@ In questo semplice esempio le notifiche sono state trasmesse a tutti i dispositi
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Componente di messaggistica di Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

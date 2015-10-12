@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="Accesso alle risorse locali usando connessioni ibride nel servizio app di Azure" 
 	description="Creare una connessione tra un'app Web nel servizio app di Azure e una risorsa locale che usa una porta TCP statica" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -207,4 +207,4 @@ Dopo aver completato l'infrastruttura della connessione ibrida, sarà possibile 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

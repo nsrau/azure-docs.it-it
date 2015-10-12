@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Avvio di un Runbook in Automazione di Azure
 
@@ -49,7 +49,6 @@ La tabella seguente consente di determinare la modalità di avvio di un Runbook 
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">API di Automazione di Azure</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@ La tabella seguente consente di determinare la modalità di avvio di un Runbook 
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@ La tabella seguente consente di determinare la modalità di avvio di un Runbook 
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Risposta all'avviso di Azure</a></td>
+  <td>
+   <ul>
+    <li>Avviare un runbook in risposta all'avviso di Azure.</li>
+    <li>Configurare webhook per runbook e collegare all'avviso.</li>
+    <li>Autenticazione con token di sicurezza nell'URL.</li>
+    <li>Attualmente supporta solo per avvisi sulle metriche.</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Pianificazione</a></td>
   <td>
@@ -232,4 +240,4 @@ Presupponendo che il nome utente nelle credenziali sia *jsmith*, si ottiene l'ou
 
 - [Avvio di un Runbook da un altro Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

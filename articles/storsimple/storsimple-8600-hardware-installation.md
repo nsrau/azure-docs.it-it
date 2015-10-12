@@ -289,4 +289,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

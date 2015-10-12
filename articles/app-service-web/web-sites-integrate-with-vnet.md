@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Integrazione di un'app Web in una rete virtuale di Azure" 
 	description="In questo articolo viene illustrato come connettere un'app Web di Azure nel servizio app di Azure a una rete virtuale di Azure nuova o esistente" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -109,4 +109,4 @@ Inoltre, sono attualmente presenti differenze a livello di prezzo tra le due fun
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

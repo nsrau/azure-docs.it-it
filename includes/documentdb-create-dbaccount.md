@@ -9,19 +9,20 @@
 
 
 	- Nella casella **ID** immettere un nome per identificare l'account DocumentDB. Quando l’**ID** viene convalidato, appare un segno di spunta verde nella casella **ID**. Il valore **ID** diventa il nome host nell'URI. L'**ID** può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 50 caratteri. Tenere presente che al nome di endpoint scelto viene aggiunto *documents.azure.com* e il risultato finale sarà l'endpoint dell'account DocumentDB.
+	
 
 	- La sezione **Livello account** è bloccata perché DocumentDB supporta un solo livello account standard. Per altre informazioni, vedere [DocumentDB - Prezzi](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
-
-	- In **Gruppo di risorse** selezionare o creare un gruppo di risorse per l'account DocumentDB. Per impostazione predefinita, verrà creato un nuovo gruppo di risorse. È tuttavia possibile selezionare un gruppo di risorse esistente al quale aggiungere l'account DocumentDB. Per altre informazioni, vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](resource-group-portal.md).
-
+	
 	- Per **Sottoscrizione** selezionare la sottoscrizione di Azure da usare per l'account DocumentDB. Se l'account dispone solo una sottoscrizione, tale account viene selezionato per impostazione predefinita.
+
+	- In **Gruppo di risorse** selezionare o creare un gruppo di risorse per l'account DocumentDB. Per impostazione predefinita, verrà creato un nuovo gruppo di risorse. È tuttavia possibile selezionare un gruppo di risorse esistente al quale aggiungere l'account DocumentDB. Per ulteriori informazioni, vedere [Utilizzare il portale di anteprima di Azure per gestire le risorse di Azure](resource-group-portal.md).
  
 	- Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.
 
-4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. La creazione dell'account DocumentDB può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale  
-	![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea][4]  
+4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. Può richiedere alcuni minuti per creare l'account DocumentDB. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale
+	![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](media/documentdb-create-dbaccount/ca4.png)
   
-	o dall'Hub di notifica.  
+	o dall'Hub di notifica.
 
 	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](media/documentdb-create-dbaccount/ca5.png)
 
@@ -35,4 +36,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

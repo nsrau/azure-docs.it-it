@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="09/27/2015"
 	ms.author="selcint"/>
 
 # Uso di Azure PowerShell con Archiviazione di Azure
@@ -595,9 +595,9 @@ Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiama
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## Come gestire condivisioni file e file di Azure
-L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB 2.1 standard. Le macchine virtuali e i servizi cloud di Microsoft Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API dell'archiviazione file o Azure PowerShell.
+L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Microsoft Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API dell'archiviazione file o Azure PowerShell.
 
-Per informazioni dettagliate sull'archiviazione file di Azure, vedere [Come usare l'archiviazione file di Azure](storage-dotnet-how-to-use-files.md) e [API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Per informazioni dettagliate sull'archiviazione file di Azure, vedere [Come usare l'archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files.md) e [API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Come impostare ed eseguire query di Analisi archiviazione
 È possibile utilizzare [Analisi archiviazione di Azure](storage-analytics.md) per raccogliere le metriche per gli account di archiviazione di Azure e per registrare i dati sulle richieste inviate all'account di archiviazione. È possibile usare le metriche di archiviazione per monitorare l'integrità di un account di archiviazione e Registrazione archiviazione per diagnosticare e risolvere i problemi relativi al proprio account di archiviazione. Per impostazione predefinita, le Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio usando il portale di gestione di Azure o Windows PowerShell. In alternativa, è possibile abilitarlo a livello di codice tramite un'API di archiviazione. La Registrazione archiviazione viene eseguita sul lato server e consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle proprie tabelle, code e BLOB, nonché i motivi per cui le richieste non sono riuscite.
@@ -736,4 +736,4 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [Next Steps]: #next
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

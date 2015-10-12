@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Gestione di database e account di accesso in database SQL di Azure
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]Quando si crea un account di accesso, è necessario utilizzare una password complessa. Per ulteriori informazioni, vedere [Password complesse](https://msdn.microsoft.com/library/ms161962.aspx).
 
-L'esempio seguente illustra come creare un utente del database denominato **login1User** nel database **database1** che corrisponde all'account di accesso **login1**:
+L'esempio seguente illustra come creare un utente del database denominato **login1User** nel database **database1** che corrisponde all'account di accesso **login1**. Per eseguire l'esempio seguente, è necessario prima impostare una nuova connessione al database1, utilizzando un account di accesso con l’autorizzazione **ALTER ANY USER** in tale database. Qualsiasi utente che si connette come membro del ruolo **db\_owner** disporrà di tale autorizzazione, ad esempio l'account di accesso che ha creato il database.
 
 ```
 -- Establish a new connection to the database1 database
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Linee guida sulla sicurezza e limiti del Database SQL di Azure](sql-database-security-guidelines.md) [Connessione al Database SQL tramite l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

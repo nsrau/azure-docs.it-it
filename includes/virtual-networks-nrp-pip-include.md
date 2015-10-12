@@ -4,7 +4,7 @@ Una risorsa di indirizzo IP pubblico fornisce un indirizzo IP pubblico riservato
 |Proprietà|Descrizione|Valori di esempio|
 |---|---|---|
 |**publicIPAllocationMethod**|Definisce se l'indirizzo IP è *statico* o *dinamico*.|statico, dinamico|
-|**idleTimeoutInMinutes**|Definisce il timeout di inattività.|qualsiasi valore compreso tra 4 e 30.|
+|**idleTimeoutInMinutes**|Definisce il timeout di inattività, con un valore predefinito pari a 4 minuti. Se non vengono ricevuti ulteriori pacchetti per una determinata sessione entro questo intervallo di tempo, la sessione è terminata.|qualsiasi valore compreso tra 4 e 30.|
 |**ipAddress**|Indirizzo IP assegnato all'oggetto. La proprietà è di sola lettura.|104\.42.233.77|
 
 ### Impostazioni DNS
@@ -13,6 +13,7 @@ Gli indirizzi IP pubblici dispongono di un oggetto figlio denominato **dnsSettin
 |Proprietà|Descrizione|Valori di esempio|
 |---|---|---|
 |**domainNameLabel**|Host denominato utilizzato per la risoluzione dei nomi.|www, ftp, vm1|
+|**fqdn**|Nome completo per l'indirizzo IP pubblico.|www.westus.cloudapp.azure.com|
 |**reverseFqdn**|Nome di dominio completo che viene risolto nell'indirizzo IP e viene registrato in DNS come un record PTR.|www.contoso.com|
 
 Indirizzo IP pubblico di esempio in formato JSON:
@@ -27,9 +28,16 @@ Indirizzo IP pubblico di esempio in formato JSON:
 		  "ipAddress": "104.42.233.77",
 	      "dnsSettings": {
 	         "domainNameLabel": "mylabel",
+			 "fqdn": "mylabel.westus.cloudapp.azure.com",
 	         "reverseFqdn": "contoso.com."
 	      }
 	   }
 	} 
 
-<!---HONumber=Sept15_HO4-->
+### Risorse aggiuntive
+
+- Ottenere ulteriori informazioni sugli [indirizzi IP pubblici](virtual-networks-reserved-public-ip.md).
+- Informazioni sugli [indirizzi IP pubblici a livello di istanza](virtual-networks-instance-level-public-ip.md).
+- Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) per indirizzi IP pubblici.
+
+<!---HONumber=Oct15_HO1-->

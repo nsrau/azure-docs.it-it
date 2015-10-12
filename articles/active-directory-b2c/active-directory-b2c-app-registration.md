@@ -24,8 +24,7 @@
 
 Per costruire un'applicazione che accetta l’iscrizione e l’accesso dell’utente, è innanzitutto necessario registrarla con una directory di Azure Active Directory B2C. Ottenere le directory utilizzando la procedura descritta [qui](active-directory-b2c-get-started.md). Dopo avere eseguito tutti i passaggi in questo articolo, è necessario disporre del pannello delle funzionalità B2C aggiunto alla schermata iniziale.
 
-    > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Passare al pannello delle funzionalità B2C.
 
@@ -62,4 +61,4 @@ Dopo aver creato un'applicazione registrata con AD B2C di Azure, è possibile co
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

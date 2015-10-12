@@ -39,7 +39,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
-    > [AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa esercitazione
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Creare i criteri
 
@@ -47,7 +47,9 @@ In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-direc
 
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
-- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve.
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
@@ -55,13 +57,13 @@ Si noti che questo articolo non illustra come usare i criteri appena creati. Per
 
 ## 4\. Scaricare il codice
 
-Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questa esercitazione è disponibile [in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare un progetto scheletro come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip) o clonare lo scheletro:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, per iniziare aprire il file `.sln` in Visual Studio. Osservare che nella soluzione sono presenti due progetti: un progetto `TaskWebApp` e un progetto `TaskService`. `TaskWebApp` è il front-end dell'app Web WPF con cui l'utente interagisce. `TaskService` è l'API Web back-end dell'app che archivia le applicazioni "To-Do List" degli utenti.
 
@@ -80,15 +82,16 @@ Quando `TaskService` riceve le richiesta da `TaskWebApp`, verifica la presenza d
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
-  ```
+```
+  
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-In questo articolo non verranno illustrati i dettagli della protezione di `TaskService`. Se si desidera sapere come un'API Web autentica in modo sicuro le richieste utilizzando AD B2C di Azure, consultare l’
-[articolo sull’introduzione all’API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configurare l'app Web TaskWebApp
+In questo articolo non verranno illustrati i dettagli della protezione di `TaskService`. Se si desidera sapere come un'API Web autentica in modo sicuro le richieste utilizzando AD B2C di Azure, consultare l’[articolo sull’introduzione all’API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-Affinché `TaskWebApp` comunichi con Azure AD B2C, è necessario fornire alcuni parametri comuni. Nel progetto `TaskWebApp` aprire il
-file `web.config` nella radice del progetto e sostituire i valori nella sezione `<appSettings>`: Questi valori verranno usati nell'app Web.
+## 6\. Configurare l'app Web TaskWebApp
+
+Affinché `TaskWebApp` comunichi con Azure AD B2C, è necessario fornire alcuni parametri comuni. Nel progetto `TaskWebApp` aprire il file `web.config` nella radice del progetto e sostituire i valori nella sezione `<appSettings>`: Questi valori verranno usati nell'app Web.
 
 ```
 <appSettings>
@@ -107,6 +110,8 @@ file `web.config` nella radice del progetto e sostituire i valori nella sezione 
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```     
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Sono anche presenti due elementi `[PolicyAuthorize]` decorator in cui è necessario specificare il nome dei criteri di accesso. L'attributo `[PolicyAuthorize]` è usato per richiamare criteri specifici quando l'utente tenta di accedere a una pagina dell'app che richiede l'autenticazione.
 
@@ -366,7 +371,7 @@ public void SignOut()
 
 Infine, compilare ed eseguire sia `TaskClient` che `TaskService`. Effettuare l'iscrizione o l'accesso all'app e creare le attività per l'utente connesso. Disconnettersi ed eseguire di nuovo l'accesso con un account utente diverso e creare le attività per l’utente in questione. Osservare che le attività sono archiviate per utente nell'API, perché l'API estrae l'identità dell'utente dai token di accesso che riceve.
 
-Come riferimento, l'esempio completato [è disponibile in un file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Come riferimento, l'esempio completato [è disponibile qui in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
 
@@ -382,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

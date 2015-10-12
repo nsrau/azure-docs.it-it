@@ -74,4 +74,4 @@ Se si desidera utilizzare un disco dati esistente nell'unità D, assicurarsi di 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

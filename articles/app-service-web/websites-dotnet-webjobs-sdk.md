@@ -104,4 +104,4 @@ WebJobs SDK offre diversi vantaggi, anche se non è necessario usare direttament
 Per altre informazioni su WebJobs SDK, vedere le [risorse consigliate per i Processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

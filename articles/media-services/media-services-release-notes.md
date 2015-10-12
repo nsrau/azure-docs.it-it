@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"   
+	ms.date="09/27/2015"   
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,13 @@ Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali
 
 - È ora possibile utilizzare il Codificatore multimediale standard per eseguire l'estrazione di archivio secondario di ritaglio e live. Per altre informazioni, vedere [questo blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
+- Sono stati apportati i seguenti aggiornamenti per il filtro.
+
+	- È ora possibile utilizzare il formato Apple HTTP Live Streaming (HLS) con il filtro solo audio. Questo aggiornamento consente di rimuovere solo la traccia audio specificando (solo audio = false) nell'URL.
+	- Quando si definiscono i filtri per gli asset, ora è possibile combinare più filtri (fino a 3) in un singolo URL.
+
+- AMS supporta ora gli I-Frames in HLS v4. Il supporto I-Frame consente di ottimizzare le operazioni di avanzamento veloce e riavvolgimento. Per impostazione predefinita, tutti gli output v4 HLS includono le playlist I-Frame (EXT-X-I-FRAME-STREAM-INF).
+ 
 ##<a id="august_changes_15"></a>Versione di agosto 2015
 
 - La release Azure Media Services SDK per Java V0.8.0 e nuovi esempi sono ora disponibili. Per altre informazioni, vedere:
@@ -591,4 +598,4 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

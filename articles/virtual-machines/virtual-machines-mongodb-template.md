@@ -23,7 +23,7 @@
 
 MongoDB è un database di documenti open-source che fornisce alte prestazioni, elevata disponibilità e proporzioni automatiche. MongoDB può essere installato come database autonomo o in un cluster, sfruttando le funzionalità di replica incorporate. In alcuni casi, è possibile utilizzare la replica per aumentare la capacità di lettura. I client hanno la capacità di inviare operazioni di lettura e scrittura a server diversi. È inoltre possibile mantenere copie in data center diversi per aumentare la presenza e la disponibilità dei dati per le applicazioni distribuite. Con MongoDB, la replica, inoltre, fornisce ridondanza e aumenta la disponibilità dei dati. Con più copie dei dati nei diversi server di database, la replica consente di proteggere un database dalla perdita di un singolo server. La replica consente, inoltre, il ripristino da interruzioni di servizio ed errori hardware. Grazie alla disponibilità di copie aggiuntive dei dati, è possibile dedicarne una al ripristino di emergenza, alla creazione di report o al backup.
 
-Oltre alle funzionalità già disponibili in Azure Marketplace, ora è possibile distribuire facilmente un nuovo cluster MongoDB nelle macchine virtuali Ubuntu utilizzando un modello di Gestione risorse di Azure distribuito tramite [Azure PowerShell](../powershell-install-configure.md) o l’[interfaccia della riga di comando di Azure](../xplat-cli.md).
+Oltre alle funzionalità già disponibili in Azure Marketplace, ora è possibile distribuire facilmente un nuovo cluster MongoDB nelle macchine virtuali Ubuntu utilizzando un modello di Gestione risorse di Azure distribuito tramite [Azure PowerShell](../powershell-install-configure.md) o l’[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 La topologia dei cluster appena distribuiti basati su questo modello è descritta nel diagramma seguente, sebbene sia possibile ottenere facilmente altre topologie personalizzando il modello presentato in questo articolo:
 
@@ -693,4 +693,4 @@ In pratica, questo approccio suggerisce che:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

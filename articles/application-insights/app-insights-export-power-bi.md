@@ -239,4 +239,4 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

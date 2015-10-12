@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso del connettore Box nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore Box e usarlo in un'app per la logica in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   description="Come creare e configurare l'app per le API o il connettore Box e usarlo in un'app per la logica in Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajeshramabathiran"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="andalmia"/>
 
 # Uso del connettore Box e aggiunta all'app per la logica 
 Connettersi a Box per ottenere, caricare, eliminare e svolgere altre operazioni sui file. È possibile usare i connettori nelle app per la logica come parte di un "flusso di lavoro".
@@ -94,6 +94,8 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Box come azi
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
@@ -105,4 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

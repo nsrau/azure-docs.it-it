@@ -20,7 +20,7 @@
 
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
-Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows, routing definito dall'utente, inoltro IP e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare i vari scenari.
+Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows, routing definito dall'utente, inoltro IP e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
 
 ![Rete perimetrale bidirezionale con dispositivo virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente][1]
 
@@ -31,12 +31,12 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
 - Una rete virtuale, "CorpNetwork", con tre subnet, "SecNet", "FrontEnd" e "BackEnd".
 - Un dispositivo virtuale di rete, in questo esempio un firewall, connesso alla subnet SecNet.
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01").
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02").
-- Un server Windows che rappresenta un server DNS ("DNS01").
+- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
+- Un server Windows che rappresenta un server DNS ("DNS01")
 
 Nella sezione Riferimenti alla fine dell'articolo è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto sopra. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento.
 
-Per creare l'ambiente:
+Per creare l'ambiente, eseguire queste operazioni:
 
   1.	Salvare il file XML di configurazione di rete incluso nella sezione Riferimenti, aggiornandolo con i nomi, il percorso e gli indirizzi IP corrispondenti allo scenario specifico.
   2.	Aggiornare le variabili utente incluse nello script in modo che corrispondano all'ambiente in cui lo script verrà eseguito, ad esempio sottoscrizioni, nomi dei servizi e così via.
@@ -544,9 +544,9 @@ In base alle variabili definite dall'utente, lo script consente di:
   2.	Aggiunta di una regola.
   3.	Associazione del gruppo di sicurezza di rete alle subnet appropriate.
 
-Questo script di PowerShell deve essere eseguito localmente su un server o un PC connesso a Internet.
+Questo script di PowerShell deve essere eseguito localmente in un server o un PC connesso a Internet.
 
->[AZURE.IMPORTANT]Quando si esegue lo script, in PowerShell potrebbero essere visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
+>[AZURE.IMPORTANT]Quando si esegue lo script, in PowerShell potrebbero venire visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
 
 	<# 
 	 .SYNOPSIS
@@ -941,4 +941,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

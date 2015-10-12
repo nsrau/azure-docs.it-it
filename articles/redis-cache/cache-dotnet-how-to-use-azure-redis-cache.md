@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/25/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Come usare Cache Redis di Azure
@@ -25,10 +25,11 @@ In questa guida viene illustrato come usare **Cache Redis di Azure**. Negli esem
 
 Cache Redis di Microsoft Azure si basa sulla popolare cache Redis open source e consente di accedere a una cache Redis sicura e dedicata gestita da Microsoft. Una cache creata usando Cache Redis di Azure sarà accessibile da qualsiasi applicazione all'interno di Microsoft Azure.
 
-Cache Redis di Microsoft Azure è disponibile in due livelli:
+Cache Redis di Microsoft Azure è disponibile nei seguenti livelli:
 
 -	**Basic**: singolo nodo, Più dimensioni fino a 53 GB.
 -	**Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
+-	**Premium** – Attualmente in anteprima. Due nodi primario/Replica che ha fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità di livello Standard e altre, comprese [Cluster di Redis](cache-how-to-premium-clustering.md), [Persistenza Redis](cache-how-to-premium-persistence.md), e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Nessun contratto di servizio durante il periodo di anteprima.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache][].
 
@@ -57,7 +58,7 @@ Nel pannello **Nuova cache Redis** specificare la configurazione desiderata per 
 
 In **Nome DNS** immettere il nome di un sottodominio da usare per l'endpoint della cache. L'endpoint deve essere una stringa con un numero di caratteri compreso tra sei e 20, deve contenere solo numeri e lettere minuscole e deve iniziare con una lettera.
 
-Usare **Livello di prezzo** per selezionare le dimensioni e le funzionalità desiderate per la cache. Le cache **Basic** dispongono di un singolo nodo con più dimensioni fino a 53 GB. Le cache **Standard** dispongono di una configurazione di replica o primaria a due nodi con un contratto di servizio pari al 99,9% e più dimensioni fino a 53 GB.
+Usare **Livello di prezzo** per selezionare le dimensioni e le funzionalità desiderate per la cache.
 
 In **Gruppo di risorse** selezionare o creare un gruppo di risorse per la cache.
 
@@ -368,4 +369,4 @@ A questo punto, dopo aver appreso le nozioni di base di Cache Redis di Azure, us
 
 [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

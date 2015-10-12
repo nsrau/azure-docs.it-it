@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,8 @@ Esempio
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
+
+
 **Formato Apple HTTP Live Streaming (HLS) V4**
 
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl)
@@ -96,6 +98,11 @@ Esempio
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**Formato Apple HTTP Live Streaming (HLS) con il filtro solo audio**
+
+Per impostazione predefinita le tracce di solo audio sono incluse nel contenuto HLS del manifesto. È necessario per la certificazione di Apple store per reti cellulari. In questo caso, se un client non dispone di larghezza di banda sufficiente o connessa tramite una connessione 2G si passa alla sola riproduzione di audio. Ciò consente di mantenere costante il flusso senza memorizzazione nel buffer, ma comunque con l’inconveniente di non visualizzare alcun video. Tuttavia, in alcuni scenari, si potrebbe preferire il buffer del lettore di Windows solamente per l’audio. Se si desidera rimuovere la traccia solo audio è possibile aggiungere (solo audio = false) per l'URL e la si rimuove.
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 **Formato Smooth Streaming**
 
@@ -179,4 +186,4 @@ Un **endpoint di streaming** rappresenta un servizio di streaming in grado di di
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

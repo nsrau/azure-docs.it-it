@@ -133,12 +133,12 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 | 4\.21 | WA-GUEST-OS-4.21\_201506-01 | 9 luglio 2015 | 9 ottobre 2015 | Da definire |
 | 4\.20 | WA-GUEST-OS-4.20\_201505-02 | 12 giugno 2015 | 7 settembre 2015 | Da definire |
 | 4\.19 | WA-GUEST-OS-4.19\_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
-| 4\.18 | WA-GUEST-OS-4.18\_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
-| 4\.17 | WA-GUEST-OS-4.17\_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
-| 4\.16 | WA-GUEST-OS-4.16\_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
-| 4\.15 | WA-GUEST-OS-4.15\_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
-| 4\.14 | WA-GUEST-OS-4.14\_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
-| 4\.13 | WA-GUEST-OS-4.13\_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
+| 4\.18 | WA-GUEST-OS-4.18\_201503-01 | 2 aprile 2015 | 12 luglio 2015 | 14 ottobre 2015 |
+| 4\.17 | WA-GUEST-OS-4.17\_201502-01 | 9 marzo 2015 | 17 maggio 2015 | 14 ottobre 2015 |
+| 4\.16 | WA-GUEST-OS-4.16\_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | 14 ottobre 2015 |
+| 4\.15 | WA-GUEST-OS-4.15\_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | 14 ottobre 2015 |
+| 4\.14 | WA-GUEST-OS-4.14\_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | 14 ottobre 2015 |
+| 4\.13 | WA-GUEST-OS-4.13\_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | 14 ottobre 2015 |
 | 4\.12 (Nota 1) | WA-GUEST-OS-4.12\_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
 | 4\.11 (Nota 1) | WA-GUEST-OS-4.11\_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
 | 4\.10 | WA-GUEST-OS-4.10\_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
@@ -159,12 +159,12 @@ Supporta .NET 4.0, 4.5
 | 3\.28 | WA-GUEST-OS-3.28\_201506-01 | 9 luglio 2015 | 9 ottobre 2015 | Da definire |
 | 3\.27 | WA-GUEST-OS-3.27\_201505-02 | 12 giugno 2015 | 7 settembre 2015 | Da definire |
 | 3\.26 | WA-GUEST-OS-3.26\_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
-| 3\.25 | WA-GUEST-OS-3.25\_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
-| 3\.24 | WA-GUEST-OS-3.24\_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
-| 3\.23 | WA-GUEST-OS-3.23\_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
-| 3\.22 | WA-GUEST-OS-3.22\_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
-| 3\.21 | WA-GUEST-OS-3.21\_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
-| 3\.20 | WA-GUEST-OS-3.20\_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
+| 3\.25 | WA-GUEST-OS-3.25\_201503-01 | 2 aprile 2015 | 12 luglio 2015 | 14 ottobre 2015 |
+| 3\.24 | WA-GUEST-OS-3.24\_201502-01 | 9 marzo 2015 | 17 maggio 2015 | 14 ottobre 2015 |
+| 3\.23 | WA-GUEST-OS-3.23\_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | 14 ottobre 2015 |
+| 3\.22 | WA-GUEST-OS-3.22\_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | 14 ottobre 2015 |
+| 3\.21 | WA-GUEST-OS-3.21\_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | 14 ottobre 2015 |
+| 3\.20 | WA-GUEST-OS-3.20\_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | 14 ottobre 2015 |
 | 3\.19 (Nota 1) | WA-GUEST-OS-3.19\_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
 | 3\.18 (Nota 1) | WA-GUEST-OS-3.18\_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
 | 3\.17 | WA-GUEST-OS-3.17\_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
@@ -186,12 +186,12 @@ Supporta .NET 3.5, 4.0
 | 2\.40 | WA-GUEST-OS-2.40\_201506-01 | 9 luglio 2015 | 9 ottobre 2015 | Da definire |
 | 2\.39 | WA-GUEST-OS-2.39\_201505-02 | 12 giugno 2015 | 7 settembre 2015 | Da definire |
 | 2\.38 | WA-GUEST-OS-2.38\_201504-01 | 17 aprile 2015 | 9 agosto 2015 | Da definire |
-| 2\.37 | WA-GUEST-OS-2.37\_201503-01 | 2 aprile 2015 | 12 luglio 2015 | Da definire |
-| 2\.36 | WA-GUEST-OS-2.36\_201502-01 | 9 marzo 2015 | 17 maggio 2015 | Da definire |
-| 2\.35 | WA-GUEST-OS-2.35\_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | Da definire |
-| 2\.34 | WA-GUEST-OS-2.34\_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | Da definire |
-| 2\.33 | WA-GUEST-OS-2.33\_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | Da definire |
-| 2\.32 | WA-GUEST-OS-2.32\_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | Da definire |
+| 2\.37 | WA-GUEST-OS-2.37\_201503-01 | 2 aprile 2015 | 12 luglio 2015 | 14 ottobre 2015 |
+| 2\.36 | WA-GUEST-OS-2.36\_201502-01 | 9 marzo 2015 | 17 maggio 2015 | 14 ottobre 2015 |
+| 2\.35 | WA-GUEST-OS-2.35\_201501-01 | 29 gennaio 2015 | 2 maggio 2015 | 14 ottobre 2015 |
+| 2\.34 | WA-GUEST-OS-2.34\_201412-01 | 14 gennaio 2015 | 9 aprile 2015 | 14 ottobre 2015 |
+| 2\.33 | WA-GUEST-OS-2.33\_201411-01 | 11 novembre 2014 | 28 febbraio 2015 | 14 ottobre 2015 |
+| 2\.32 | WA-GUEST-OS-2.32\_201410-01 | 3 novembre 2014 | 14 febbraio 2015 | 14 ottobre 2015 |
 | 2\.31 (Nota 1) | WA-GUEST-OS-2.31\_201409-02 | 6 ottobre 2014 | 12 ottobre 2014 | 23 marzo 2015 |
 | 2\.30 (Nota 1) | WA-GUEST-OS-2.30\_201408-02 | 25 agosto 2014 | 11 settembre 2014 | 23 marzo 2015 |
 | 2\.29 | WA-GUEST-OS-2.29\_201407-01 | 18 luglio 2014 | 1 dicembre 2014 | 23 marzo 2015 |
@@ -344,4 +344,4 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

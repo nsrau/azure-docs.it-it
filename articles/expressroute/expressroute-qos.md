@@ -49,4 +49,4 @@ La tabella seguente fornisce un elenco di contrassegni DSCP utilizzati da Skype 
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

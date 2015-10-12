@@ -96,7 +96,7 @@ Lo script di distribuzione di HPC Pack IaaS offre un altro modo versatile per di
 
 **Creazione del file di configurazione**
 
- Lo script di distribuzione di HPC Pack IaaS utilizza come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster costituito da un nodo head e 18 nodi di calcolo creati dall'immagine del nodo di calcolo che include Microsoft Excel, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per ulteriori informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script o la [documentazione dello script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+ Lo script di distribuzione di HPC Pack IaaS utilizza come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster costituito da un nodo head e 18 nodi di calcolo creati dall'immagine del nodo di calcolo che include Microsoft Excel, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per ulteriori informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script e [Creare un cluster HPC con lo script di distribuzione di HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -230,7 +230,7 @@ Per eseguire l’offload di una cartella di lavoro di Excel da eseguire nel clus
 ```
 4.	Scaricare la versione completa di [installazione di HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755)e installare il client di HPC Pack oppure scaricare e installare le [utilità client di HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754)e il file ridistribuibile Visual C++ 2010 appropriato per il computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632)[x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	In questo esempio, viene utilizzata una cartella di lavoro di esempio di Excel denominata ConvertiblePricing\_Complete.xlsb, disponibile per il download [qui](https://www.microsoft.com/IT-IT/download/details.aspx?id=2939).
+5.	In questo esempio, viene utilizzata una cartella di lavoro di esempio di Excel denominata ConvertiblePricing\_Complete.xlsb, disponibile per il download [qui](https://www.microsoft.com/it-IT/download/details.aspx?id=2939).
 
 6.	Copiare la cartella di lavoro di Excel in una cartella di lavoro, ad esempio D:\\Excel\\Run.
 
@@ -267,7 +267,7 @@ Per eseguire l’offload di una cartella di lavoro di Excel da eseguire nel clus
 
 Per eseguire funzioni definite dall'utente di Excel, seguire i passaggi da 1 a 3 della precedente configurazione del computer client. Per le funzioni definite dall'utente di Excel, non è necessario che l’applicazione Excel sia installata sui nodi di calcolo, pertanto nel passaggio 1 è possibile scegliere un'immagine normale del nodo di calcolo anziché l'immagine del nodo di calcolo con Excel.
 
->[AZURE.NOTE]Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, lo spazio disponibile nella finestra di dialogo non sarà sufficiente. La soluzione alternativa consiste nell'applicare Update 2 QFE KB3085833 (scaricabile [qui](http://www.microsoft.com/IT-IT/download/details.aspx?id=48725)) per l'API di sessione SOA sul computer client, quindi impostare una variabile per tutti i computer, ad esempio *CCP\_IAASHN* con il valore del nome di cluster lungo e l'input *%CCP\_IAASHN%* nella finestra di dialogo come nome del nodo head del cluster.
+>[AZURE.NOTE]Esiste un limite di 34 caratteri nella finestra di dialogo del connettore del cluster di Excel 2010 e 2013. Se il nome completo del cluster è più lungo, ad esempio hpcexcelhn01.southeastasia.cloudapp.azure.com, lo spazio disponibile nella finestra di dialogo non sarà sufficiente. La soluzione alternativa consiste nell'applicare Update 2 QFE KB3085833 (scaricabile [qui](http://www.microsoft.com/it-IT/download/details.aspx?id=48725)) per l'API di sessione SOA sul computer client, quindi impostare una variabile per tutti i computer, ad esempio *CCP\_IAASHN* con il valore del nome di cluster lungo e l'input *%CCP\_IAASHN%* nella finestra di dialogo come nome del nodo head del cluster.
 
 Dopo aver correttamente distribuito il cluster, continuare con la procedura seguente per eseguire una funzione definita dall’utente di Excel integrata di esempio. Per funzioni definite dall'utente di Excel personalizzate, vedere queste [risorse](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) per compilare librerie XLL e distribuirle sul cluster IaaS.
 
@@ -384,4 +384,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

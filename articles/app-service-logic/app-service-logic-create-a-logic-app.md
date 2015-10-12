@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="integration"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -184,4 +184,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Usare le funzionalità delle app per la logica]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

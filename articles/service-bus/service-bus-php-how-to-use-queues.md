@@ -200,6 +200,8 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere l'argomento [Code, argomenti e sottoscrizioni][] per ulteriori informazioni.
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
@@ -213,4 +215,4 @@ A questo punto, dopo aver appreso le nozioni di base sulle code del bus di servi
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

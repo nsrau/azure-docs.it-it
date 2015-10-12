@@ -105,4 +105,4 @@ Per informazioni correlate, vedere l'articolo KB **860340.1** all’indirizzo <h
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

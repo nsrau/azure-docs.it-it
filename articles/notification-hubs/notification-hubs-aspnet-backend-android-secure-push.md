@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015" 
 	ms.author="wesmc"/>
 
 #Push sicuro degli hub di notifica di Azure
@@ -131,4 +131,4 @@ Per eseguire l'applicazione, eseguire le operazioni seguenti:
 
 4. Nell'interfaccia utente dell'app per Android fare clic su **Log in**. Fare clic su **Send push**.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

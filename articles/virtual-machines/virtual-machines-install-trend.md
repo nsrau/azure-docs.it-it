@@ -86,4 +86,4 @@ Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In se
 [Come accedere a una macchina virtuale che esegue Windows Server]: virtual-machines-log-on-windows-server.md
 [Estensioni VM e funzionalità di Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

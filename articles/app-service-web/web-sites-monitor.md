@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Monitorare le app Web nel servizio app di Azure"
 	description="Informazioni su come monitorare App Web nel servizio app di Azure usando il portale di gestione."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -279,4 +279,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

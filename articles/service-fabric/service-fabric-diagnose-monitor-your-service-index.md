@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # Eseguire la diagnosi e il monitoraggio di un servizio di Service Fabric
@@ -22,7 +22,6 @@ Il monitoraggio, il rilevamento, la diagnosi e la risoluzione dei problemi conse
 - [Come eseguire il monitoraggio e la diagnosi dei servizi localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [Configurazione di Application Insights per l'applicazione di Service Fabric](service-fabric-diagnostics-application-insights-setup.md)
 - [Risoluzione dei problemi relativi all'aggiornamento di un'applicazione](service-fabric-application-upgrade-troubleshooting.md)
-- [Risoluzione dei problemi relativi a un aggiornamento monitorato dell'applicazione non riuscito](../service-fabric-application-monitored-upgrade-troubleshooting.md)
 - [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 - [Diagnostica e monitoraggio delle prestazioni per Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
@@ -38,6 +37,5 @@ Service Fabric introduce un modello di integrità che offre una funzionalità di
 - [Come visualizzare i report sull'integrità di Service Fabric](service-fabric-view-entities-aggregated-health.md)
 - [Uso dei report sull'integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Aggiunta di report sull'integrità di Service Fabric personalizzati](service-fabric-report-health.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

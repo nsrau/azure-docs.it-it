@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configurare un nome di dominio personalizzato nel servizio app di Azure"
 	description="Ulteriori informazioni su come usare un nome di dominio personalizzato per un'app Web nel servizio app di Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="MikeWasson"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -147,4 +147,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

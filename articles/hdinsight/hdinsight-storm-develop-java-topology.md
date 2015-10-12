@@ -467,4 +467,4 @@ A questo punto, dopo aver appreso come creare una topologia Storm con Java, è p
 
 Per altri esempi di topologie Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

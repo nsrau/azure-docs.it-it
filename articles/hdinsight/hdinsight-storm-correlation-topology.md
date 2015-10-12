@@ -1,27 +1,29 @@
 <properties
  pageTitle="Correlare gli eventi nel tempo con Storm e HBase in HDInsight"
-	description="Informazioni su come correlare gli eventi che giungono in momenti diversi tramite Storm e HBase in HDInsight."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+ description="Informazioni su come correlare gli eventi che giungono in momenti diversi tramite Storm e HBase in HDInsight."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="09/02/2015"
+ ms.author="larryfr"/>
 
 # Correlare gli eventi nel tempo con Storm e HBase in HDInsight
 
 Utilizzando un archivio dati permanente con Apache Storm, è possibile correlare le voci di dati che arrivano in momenti diversi. Ad esempio, il collegamento degli eventi di accesso e disconnessione di una sessione utente per calcolare il tempo di esecuzione della sessione.
 
 In questo documento si apprenderà come creare una topologia di Storm C# di base che tenga traccia degli eventi di accesso e disconnessione per le sessioni utente e che calcoli la durata della sessione. La topologia utilizza HBase come archivio dati permanente. HBase consente di eseguire query in batch su dati cronologici per ottenere informazioni aggiuntive, ad esempio il numero di sessioni utente avviate o terminate durante un periodo di tempo specifico.
+
+[AZURE.INCLUDE [solo Windows](../../includes/hdinsight-windows-only.md)]
 
 ## Prerequisiti
 
@@ -198,4 +200,4 @@ Quando si è pronti per arrestare la topologia, tornare al progetto **Correlatio
 Per altri esempi di Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

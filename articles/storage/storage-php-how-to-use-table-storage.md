@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 
@@ -469,6 +469,8 @@ A questo punto, dopo avere appreso le nozioni di base del servizio tabelle di Az
 - Vedere la documentazione MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visitare il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
@@ -478,4 +480,4 @@ A questo punto, dopo avere appreso le nozioni di base del servizio tabelle di Az
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

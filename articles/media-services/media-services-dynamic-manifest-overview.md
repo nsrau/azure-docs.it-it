@@ -111,7 +111,7 @@ Come accennato in precedenza, quando si distribuiscono contenuti ai clienti (eve
 - Riproduzione di una sola sezione di un video (anziché del video intero).
 - Regolazione della finestra di presentazione DVR
 
-###Filtro di rendering 
+##Filtro di rendering 
 
 È possibile scegliere di codificare un asset con più profili di codifica (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) e più velocità in bit di qualità. Non tutti i dispositivi, tuttavia, supportano tutti i profili e le velocità in bit dell'asset. Solo i dispositivi Android di precedente generazione, ad esempio, supportano il profilo H.264 Baseline+AACL. La trasmissione di contenuti a un dispositivo con una velocità in bit superiore di cui non può trarre vantaggio, inoltre, comporta uno spreco di larghezza di banda e di capacità di elaborazione. Per poter visualizzare i contenuti trasmessi, infatti, il dispositivo deve decodificare e ridimensionare tutte le informazioni trasmesse.
 
@@ -124,20 +124,20 @@ Nell'esempio seguente si usa Azure Media Encoder per codificare un asset in form
 
 ![Filtro di rendering][renditions1]
 
-###Rimozione delle tracce di lingua
+##Rimozione delle tracce di lingua
 
 Gli asset possono includere più lingue audio, ad esempio inglese, spagnolo, francese e così via. In genere, è l'SDK del lettore a gestire la selezione della traccia audio predefinita e delle tracce audio disponibili per ciascuna selezione utente. Sviluppare questo tipo di SDK, tuttavia, è particolarmente difficile poiché richiede diverse implementazioni nel Player Framework specifico di ogni dispositivo. In alcune piattaforme, inoltre, le API del lettore offrono funzionalità limitate (ad esempio non includono funzioni di selezione audio) e non consentono quindi agli utenti di selezionare o modificare la traccia audio predefinita. Con i filtri di asset, è possibile controllare il comportamento mediante la creazione di filtri che includono solo le lingue audio desiderate.
 
 ![Filtro delle tracce di lingua][language_filter]
 
 
-###Trimming della parte iniziale di un asset 
+##Trimming della parte iniziale di un asset 
 
 Nella maggior parte degli eventi in live streaming, gli operatori eseguono alcuni test prima dell'evento effettivo. Prima dell'inizio dell'evento, ad esempio, possono includere uno slate di questo tipo: "Il programma sta per iniziare". Se il programma prevede l'archiviazione, vengono archiviati e inclusi nella presentazione anche i dati del test e dello slate. Queste informazioni, tuttavia, non risultano visibili ai client. Con il manifesto dinamico, è possibile creare un filtro di ora di inizio e rimuovere dal manifesto tutti i dati non desiderati.
 
 ![Trimming della parte iniziale][trim_filter]
 
-###Creazione di sottoclip (visualizzazioni) da un archivio live
+##Creazione di sottoclip (visualizzazioni) da un archivio live
 
 Molti eventi live hanno una durata molto lunga ed è possibile quindi che un archivio live includa più eventi. Al termine dell'evento live, ad esempio, gli emittenti possono decidere di suddividere l'archivio live in sequenze logiche di avvio e arresto del programma. Possono quindi pubblicare separatamente questi programmi virtuali, senza dover post-elaborare l'archivio live e creare asset distinti (che non trarrebbero vantaggio dei frammenti presenti nella cache in caso di reti CDN). Esempi di programmi virtuali (sottoclip) possono essere, ad esempio, i tempi di una partita di calcio o di basket, gli inning del baseball o eventi individuali di un pomeriggio di programma olimpico.
 
@@ -149,24 +149,22 @@ Asset filtrato:
 
 ![Sci][skiing]
 
-###Regolazione della finestra di presentazione (DVR)
+##Regolazione della finestra di presentazione (DVR)
 
 Attualmente, Servizi multimediali di Azure offre un archivio circolare la cui durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Sono molti i casi in cui per un emittente può essere utile creare una finestra DVR limitata, in grado di spostarsi con il margine live, e al tempo stesso mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. La maggior parte dei dispositivi mobili, inoltre, non è in grado di gestire finestre DVR di grandi dimensioni (è possibile usufruire di una finestra DVR di due minuti per i dispositivi mobile e di un'ora per i client desktop).
 
 ![Finestra DVR][dvr_filter]
 
-###Regolazione LiveBackoff (posizione live)
+##Regolazione LiveBackoff (posizione live)
 
 È possibile usare i filtri del file manifesto anche per rimuovere alcuni secondi dal margine live di un programma live. In questo modo, gli emittenti possono guardare la presentazione nel punto di pubblicazione di anteprima e creare punti di inserimento di annunci prima che i destinatari ricevano il flusso (in genere ritardato di 30 secondi). Gli emittenti possono quindi inserire questi annunci nel proprio Framework Client in tempo per poter ricevere ed elaborare le informazioni prima dell'opportunità di annuncio.
 
 Oltre a fornire il supporto per gli annunci pubblicitari, LiveBackoff consente anche di regolare la posizione di download live del client in modo che, nel momento in cui i client deviano e raggiungono il margine live, possono comunque ottenere dal server i frammenti desiderati, anziché gli errori HTTP 404 o 412.
 
-
-
 ![livebackoff\_filter][livebackoff_filter]
 
 
-###Combinazione di più regole in un unico filtro
+##Combinazione di più regole in un unico filtro
 
 È possibile combinare più regole di filtro in un unico filtro. Ad esempio, è possibile definire una regola di intervallo per rimuovere lo slate da un archivio live e applicare un filtro alle velocità in bit disponibili. In caso di più regole di filtro, il risultato finale è la composizione (solo intersezione) di queste regole.
 
@@ -177,6 +175,22 @@ Oltre a fornire il supporto per gli annunci pubblicitari, LiveBackoff consente a
 L'argomento seguente descrive le entità di Servizi multimediali correlati ai filtri. Illustra inoltre la procedura per creare filtri a livello di codice.
 
 [Creare filtri con le API REST](media-services-rest-dynamic-manifest.md).
+
+## Combinazione di più filtri (filtro composizione)
+
+È inoltre possibile combinare più filtri in un singolo URL.
+
+Lo scenario seguente illustra il motivo per cui è possibile combinare filtri:
+
+1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro globale adatto per i profili del dispositivo. Come indicato in precedenza, i filtri globali possono essere utilizzati per tutte le attività con lo stesso account di servizi multimediali senza altre associazioni. 
+2. Inoltre si desidera tagliare l'ora di inizio e fine di un asset. A tale scopo, è necessario creare un filtro locale, impostare l'ora di inizio e fine. 
+3. Si desidera combinare entrambi questi filtri (senza combinazione sarebbe necessario aggiungere il filtro qualità al filtro di taglio, il che rende difficile l'utilizzo del filtro).
+
+Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifesto/playlist URL delimitati dal punto e virgola. Si supponga di disporre di un filtro denominato *MyMobileDevice* che filtra le qualità e si dispone di un altro denominato *MyStartTime* per impostare una determinata ora di inizio. È possibile combinarli nel seguente modo:
+
+	http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
+
+È possibile combinare fino a 3 filtri.
 
 ##Problemi noti e limitazioni
 
@@ -192,7 +206,9 @@ L'argomento seguente descrive le entità di Servizi multimediali correlati ai fi
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Vedere anche
 
+[Informazioni generali sulla distribuzione di contenuti ai clienti](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png
@@ -214,4 +230,4 @@ L'argomento seguente descrive le entità di Servizi multimediali correlati ai fi
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

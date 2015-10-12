@@ -40,13 +40,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Workstation**: un computer con un client SSH.
 
-- **Interfaccia della riga di comando di Azure**: per ulteriori informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md)
+- **Interfaccia della riga di comando di Azure**: per ulteriori informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
 - **Cluster HDInsight basato su Linux**: per istruzioni sul provisioning dei cluster, vedere [Introduzione a HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision].
 
 - **Database SQL di Azure**: in questo documento vengono fornite istruzioni per la creazione di un database SQL di esempio. Per ulteriori informazioni sui database SQL, vedere [Introduzione all'uso del database SQL di Azure][sqldatabase-get-started].
 
-* **SQL Server**: i passaggi descritti in questo documento consente inoltre, con alcune modifiche, con SQL Server. Per ulteriori informazioni sui requisiti specifici per l'utilizzo di questo articolo con SQL Server, vedere la sezione [Utilizzo di SQL Server](#using-sql-server).
+* **SQL Server**: i passaggi descritti in questo documento possono essere utilizzati inoltre, con alcune modifiche, con SQL Server; tuttavia, sia il cluster HDInsight che SQL Server devono essere nella stessa rete virtuale di Azure. Per ulteriori informazioni sui requisiti specifici per l'utilizzo di questo articolo con SQL Server, vedere la sezione [Utilizzo di SQL Server](#using-sql-server).
 
 ##Informazioni sullo scenario
 
@@ -263,4 +263,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per ulteriori informazio
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

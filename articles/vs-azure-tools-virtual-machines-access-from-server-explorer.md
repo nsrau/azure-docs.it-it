@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Accesso alle macchine virtuali di Azure da Esplora server
@@ -51,6 +51,6 @@ Se ci sono macchine virtuali ospitate da Azure, è possibile accedervi in Esplor
 
 ## Passaggi successivi
 
-Per ulteriori informazioni sull'utilizzo dei ruoli di Azure in Visual Studio, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](http://go.microsoft.com/fwlink/p/?LinkID=623091).
+Per ulteriori informazioni sull'utilizzo dei ruoli di Azure in Visual Studio, vedere [Utilizzo di Desktop remoto con i ruoli di Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

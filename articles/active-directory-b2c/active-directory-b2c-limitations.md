@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Limitazioni e restrizioni
@@ -24,7 +24,7 @@ Nel periodo di anteprima di Azure Active Directory (AD) B2C molte funzionalità 
 
 ## Problemi durante la creazione di directory di Azure AD B2C
 
-Sono stati rilevati alcuni problemi che possono verificarsi durante la [creazione di una directory di Azure AD B2C](active-directory-b2c-get-started). Per istruzioni, consultare questo [articolo](active-directory-b2c-support-create-directory.md).
+Sono stati rilevati alcuni problemi che possono verificarsi durante la [creazione di un tenant di Azure AD B2C](active-directory-b2c-get-started). Per istruzioni, consultare questo [articolo](active-directory-b2c-support-create-directory.md).
 
 ## Problemi di personalizzazione nei messaggi di posta elettronica e nelle pagine di reimpostazione della password self-service
 
@@ -50,6 +50,12 @@ Anche le applicazioni che contengono processi a esecuzione prolungata o che funz
 
 Nell'anteprima di Azure AD B2C è possibile [creare un'API Web protetta mediante token OAuth 2.0](active-directory-b2c-apps.md#web-apis). Tuttavia, tale API Web sarà in grado di ricevere token solo da un client che condivide lo stesso ID applicazione. La creazione di un'API Web accessibile da diversi client non è supportata.
 
+### Catene di API Web (On-Behalf-Of)
+
+Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che dispongono di un back-end dell'API Web, che a sua volta chiama un servizio Microsoft Online come l'API Graph di Azure AD.
+
+Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Azure AD B2C.
+
 ## Restrizioni relative alle librerie e agli SDK
 
 Non tutti i linguaggi e le piattaforme dispongono di librerie che supportano l'anteprima di Azure AD B2C. Il set di librerie di autenticazione è attualmente limitato a .NET, iOS, Android e NodeJS. Esercitazioni rapide per ogni libreria sono disponibili nella sezione [Introduzione](active-directory-b2c-overview.md#getting-started).
@@ -66,7 +72,7 @@ Molti dei token generati dall'anteprima di Azure AD B2C vengono implementati com
 
 ## Problemi relativi alla gestione degli utenti nel portale di Azure
 
-Le funzionalità B2C sono accessibili nel portale di anteprima di Azure, ma è possibile usare il portale di Azure per accedere ad altre funzionalità di directory, compresa la gestione degli utenti. Attualmente sono stati rilevati due problemi relativi alla gestione degli utenti (scheda **Utenti**) nel portale di anteprima di Azure.
+Le funzionalità B2C sono accessibili nel portale di anteprima di Azure, ma è possibile usare il portale di Azure per accedere ad altre funzionalità di tenant, compresa la gestione degli utenti. Attualmente sono stati rilevati due problemi relativi alla gestione degli utenti (scheda **Utenti**) nel portale di Azure.
 
 - Per un utente di account locale (ad esempio, un utente iscritto con indirizzo di posta elettronica e password o con nome utente e password), il campo **Nome utente** non corrisponde all'identificatore di accesso (indirizzo di posta elettronica o nome utente) usato durante l'iscrizione. Questo avviene perché il campo visualizzato nel portale di Azure è il nome dell'entità utente (UPN), che non viene usato in scenari B2C. Per visualizzare l'identificatore di accesso dell'account locale, individuare l'oggetto utente in [Esplora Graph](https://graphexplorer.cloudapp.net/). Si noterà lo stesso problema con un account utente di social networking (ad esempio, un utente iscritto con Facebook, Google+ e così via), ma in tal caso non esiste un effettivo identificatore di accesso.
 
@@ -74,8 +80,12 @@ Le funzionalità B2C sono accessibili nel portale di anteprima di Azure, ma è p
 
 - Per un account utente locale, non è possibile modificare i campi e salvare le modifiche nella scheda **Profilo**. Questo problema verrà corretto presto.
 
+## Problemi con la reimpostazione della Password avviata dall'amministratore nel portale di Azure
+
+Se si reimposta la password per un consumer basato sull'account locale nel portale di Azure (il comando **Reimposta Password** nella scheda **Utenti**), il consumer non sarà in grado di modificare la propria password nell’accesso successivo e sarà bloccato nelle applicazioni. Stiamo lavorando su correzione del problema. In alternativa, utilizzare l’[API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) per reimpostare la password del consumer.
+
 ## Restrizioni relative all'eliminazione di directory di Azure AD B2C
 
-Non è possibile eliminare una directory di Azure AD B2C nel portale di Azure.
+Non è possibile eliminare un tenant di Azure AD B2C nel portale di Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

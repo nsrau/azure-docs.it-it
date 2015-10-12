@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/25/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # Inviare notifiche multipiattaforma a un utente specifico
@@ -110,6 +110,6 @@ Pubblicare di nuovo il progetto di back-end mobile ed eseguire una qualsiasi del
 <!-- URLs. -->
 [Introduzione all'autenticazione]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [Introduzione alle notifiche push]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
-[modelli]: https://msdn.microsoft.com/it-it/library/dn530748.aspx
+[modelli]: https://msdn.microsoft.com/it-IT/library/dn530748.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

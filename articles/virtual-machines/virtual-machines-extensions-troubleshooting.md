@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="top-support-issue,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -84,4 +84,4 @@ Dove "publsher-name" corrisponde al tipo di estensione dall'output di "azure vm 
 
 Una volta rimossa l'estensione, il modello può essere eseguito nuovamente per eseguire gli script nella macchina virtuale.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

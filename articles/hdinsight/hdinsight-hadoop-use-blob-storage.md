@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Eseguire query sui dati dall'archiviazione BLOB compatibile con HDFS | Microsoft Azure"
 	description="HDInsight usa l'archiviazione BLOB come archivio Big Data per HDFS. Informazioni su come eseguire query sui dati dall'archiviazione BLOB e archiviare i risultati dell'analisi."
+	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -100,7 +101,7 @@ Durante il provisioning di un cluster HDInsight dal portale di anteprima, sono d
 
 ###Utilizzare l'interfaccia della riga di comando di Azure
 
-Se è stata [installata e configurata l’interfaccia della riga di comando di Azure](../xplat-cli.md), il comando seguente può essere usato per un account di archiviazione e un contenitore.
+Se è stata [installata e configurata l’interfaccia della riga di comando di Azure](../xplat-cli-install.md), il comando seguente può essere usato per un account di archiviazione e un contenitore.
 
 	azure storage account create <storageaccountname> --type LRS
 
@@ -315,4 +316,4 @@ Per altre informazioni, vedere:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

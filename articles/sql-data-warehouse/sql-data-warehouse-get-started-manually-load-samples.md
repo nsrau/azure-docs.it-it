@@ -71,16 +71,16 @@ Dopo esserci esercitati con i dati di esempio, esaminiamo come [sviluppare][], [
 <!--Image references-->
 
 <!--Article references-->
-[migrare]: https://azure.microsoft.com/IT-IT/documentation/articles/sql-data-warehouse-overview-migrate/
-[sviluppare]: https://azure.microsoft.com/IT-IT/documentation/articles/sql-data-warehouse-overview-develop/
-[caricare]: https://azure.microsoft.com/IT-IT/documentation/articles/sql-data-warehouse-overview-load/
-[connessione ed esecuzione di query]: https://azure.microsoft.com/IT-IT/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[alla migrazione del codice]: https://azure.microsoft.com/IT-IT/documentation/articles/sql-data-warehouse-migrate-code/
+[migrare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-migrate/
+[sviluppare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-develop/
+[caricare]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-load/
+[connessione ed esecuzione di query]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[alla migrazione del codice]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-migrate-code/
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/IT-IT/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/it-IT/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [script di dati di esempio]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

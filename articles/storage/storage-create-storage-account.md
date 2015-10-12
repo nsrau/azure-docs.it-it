@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/16/2015"
+	ms.date="09/23/2015"
 	ms.author="tamram"/>
 
 
@@ -25,7 +25,7 @@ Un account di archiviazione di Azure consente di accedere ai servizi BLOB, di ac
 
 Sono disponibili due tipi di account di archiviazione:
 
-- Un account di archiviazione standard include l'archiviazione BLOB, tabelle e di accodamento. L'archiviazione file è disponibile su richiesta tramite la [pagina Anteprima di Azure](http://azure.microsoft.com/services/preview/).
+- Un account di archiviazione standard include l'archiviazione BLOB, tabelle, di accodamento e file. 
 - Un account di archiviazione Premium attualmente supporta solo dischi di macchine virtuali di Azure. Vedere [Archiviazione Premium: archiviazione dalle prestazioni elevate per carichi di lavoro di macchine virtuali di Azure](storage-premium-storage-preview-portal.md) per una panoramica approfondita del servizio di archiviazione Premium.
 
 ## Fatturazione dell'account di archiviazione
@@ -61,7 +61,12 @@ Per informazioni sugli obiettivi di capacità e prestazioni dell'account di arch
 
 4. In **Località/gruppo di affinità** selezionare una località per l'account di archiviazione vicina all'utente o ai clienti. Se ai dati accederanno anche altri servizi di Azure, ad esempio una macchina virtuale o un servizio cloud di Azure, potrebbe essere opportuno selezionare un gruppo di affinità nell'elenco per raggruppare l'account di archiviazione nello stesso data center con gli altri servizi di Azure usati per migliorare le prestazioni e ridurre i costi.
 
-	Si noti che è necessario selezionare un gruppo di affinità al momento della creazione dell'account di archiviazione. Non è possibile spostare un account esistente in un gruppo di affinità. Per altre informazioni sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un gruppo di affinità](#service-co-location-with-an-affinity-group) più avanti.
+	Si noti che è necessario selezionare un gruppo di affinità al momento della creazione dell'account di archiviazione. Non è possibile spostare un account esistente in un gruppo di affinità. Per altre informazioni sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un set di affinità](#service-co-location-with-an-affinity-group) più avanti.
+
+	>[AZURE.IMPORTANT]Per determinare i percorsi disponibili per la sottoscrizione, è possibile richiamare l’operazione [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx). Per elencare i provider da PowerShell, richiamare [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). Da .NET, utilizzare il metodo [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) della classe ProviderOperationsExtensions.
+	>
+	>Vedere inoltre [Aree di Azure](https://azure.microsoft.com/it-IT/regions/#services) per ulteriori informazioni su quali servizi sono disponibili in quale area.
+
 
 5. Se si dispone di più sottoscrizioni Azure, viene visualizzato il campo **Subscription**. In **Subscription** immettere la sottoscrizione di Azure con cui si desidera utilizzare l'account di archiviazione.
 
@@ -96,9 +101,9 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 ### Condivisione del percorso del servizio con un gruppo di affinità
 
-Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM di Azure con l'account di archiviazione di Azure, che consente di migliorare le prestazioni del servizio individuando i carichi di lavoro del computer nello stesso data center o in prossimità dei destinatari. Non sono inoltre addebitate spese per l'uscita in caso di accesso ai dati di un account di archiviazione da parte di un altro servizio appartenente allo stesso gruppo di affinità.
+Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM di Azure con l'account di archiviazione di Azure. che consente di migliorare le prestazioni del servizio individuando i carichi di lavoro del computer nello stesso data center o in prossimità dei destinatari. Non sono inoltre addebitate spese per l'uscita in caso di accesso ai dati di un account di archiviazione da parte di un altro servizio appartenente allo stesso gruppo di affinità.
 
-> [AZURE.NOTE]Per creare un gruppo di affinità, aprire l'area <b>Impostazioni</b> del portale di Azure, fare clic su <b>Gruppi di affinità</b> e quindi sul pulsante <b>Aggiungi un gruppo di affinità</b> o <b>Aggiungi</b>. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operazioni sui gruppi di affinità</a>.
+> [AZURE.NOTE]Per creare un set di affinità, aprire l'area <b>Impostazioni</b> del portale di Azure, fare clic su <b>Gruppi di affinità</b> e quindi sul pulsante <b>Aggiungi set di affinità</b> o <b>Aggiungi</b>. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operazioni sui gruppi di affinità</a>.
 
 ## Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione
 
@@ -166,4 +171,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

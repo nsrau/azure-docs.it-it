@@ -224,4 +224,4 @@ Per il funzionamento di questo esempio di codice, è necessario innanzitutto ave
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

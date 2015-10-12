@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/03/2015"
+    ms.date="09/22/2015"
     ms.author="robmcm" />
 
 # Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
@@ -287,7 +287,7 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [sito Web del progetto]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[visualizzazione del codice SAML restituito dal Servizio di controllo di accesso di Azure]: /it-it/develop/java/how-to-guides/view-saml-returned-by-acs/
+[visualizzazione del codice SAML restituito dal Servizio di controllo di accesso di Azure]: /it-IT/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Servizio di controllo di accesso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -309,4 +309,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

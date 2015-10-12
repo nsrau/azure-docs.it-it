@@ -228,6 +228,7 @@ Procedere creando i documenti all'interno del metodo asincrono **GetStartedDemo*
 	        IsRegistered = true
 	    };
 	
+	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
@@ -266,6 +267,7 @@ Procedere creando i documenti all'interno del metodo asincrono **GetStartedDemo*
             IsRegistered = false
         };
 
+        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
         await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
 	}
 
@@ -278,7 +280,7 @@ A questo punto sono stati creati il database, la raccolta e i documenti seguenti
 DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSON archiviati in ogni raccolta. Il codice di esempio seguente mostra diverse query che usano la sintassi SQL di DocumentDB e LINQ e che è possibile eseguire sui documenti inseriti nel passaggio precedente. Aggiungere queste query al metodo asincrono **GetStartedDemo**.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
-    var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+    var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
         "WHERE f.id = "AndersenFamily"");
@@ -290,7 +292,7 @@ DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSO
 
     // Query the documents using LINQ for the Andersen family.
     families =
-        from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
+        from f in client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         where f.Id == "AndersenFamily"
         select f;
 
@@ -300,7 +302,7 @@ DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSO
     }
 
     // Query the documents using LINQ lambdas for the Andersen family.
-    families = client.CreateDocumentQuery(documentCollection.DocumentsLink)
+    families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         .Where(f => f.Id == "AndersenFamily")
         .Select(f => f);
 
@@ -472,4 +474,4 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

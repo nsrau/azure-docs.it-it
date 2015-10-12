@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Inviare notifiche push agli utenti autenticati
@@ -71,7 +71,6 @@ function insert(item, user, request) {
 [Introduzione alle notifiche push]: mobile-services-javascript-backend-ios-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[portale di gestione di Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

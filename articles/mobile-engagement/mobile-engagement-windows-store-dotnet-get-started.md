@@ -33,7 +33,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + Visual Studio 2013
 + Pacchetto Nuget [MicrosoftAzure.MobileEngagement]
 
-> [AZURE.IMPORTANT]Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Mobile Engagement relative ad app di Windows universali. Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2FIT-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.IMPORTANT]Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Mobile Engagement relative ad app di Windows universali. Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ##<a id="setup-azme"></a>Configurare Mobile Engagement per l'app di Windows universale
 
@@ -159,6 +159,8 @@ Ora la configurazione per l’invio di popup è pronta. Ora è necessario verifi
 
 1. Sarà necessario associare l'app a un'app di Windows Store per ottenere **Identificatore di sicurezza del pacchetto (SID)** e ** Chiave privata** (segreto client). È possibile creare un'app da [Windows Store Dev Center] e quindi assicurarsi di **associare l'app a Store** da Visual Studio.
 
+	![][7]
+
 2. Passare a **Impostazioni** del portale Mobile Engagement e fare clic sulla sezione **Push nativo** a sinistra
 
 3. Fare clic sul pulsante **Modifica** per immettere l'**Identificatore di sicurezza pacchetto (SID)** e la **Chiave segreta**, come illustrato di seguito:
@@ -178,10 +180,11 @@ Dovrebbe essere possibile visualizzare una notifica popup inviata dalla campagna
 [App di Windows universali - Integrazione di sovrimpressioni]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

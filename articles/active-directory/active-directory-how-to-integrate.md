@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # Integrazione con Azure Active Directory
@@ -76,7 +76,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 ### Sviluppo semplificato
 
-**Protocolli standard del settore.** Microsoft si impegna a supportare gli standard del settore. Azure AD supporta i protocolli di autenticazione SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2. L'API Graph è conforme a OData 4.0. Se l'applicazione supporta già i protocolli SAML 2.0 o OpenID Connect 1.0 per l'accesso federato, l'aggiunta del supporto per Azure AD è un'operazione semplice. Altre informazioni sui [protocolli di autenticazione supportati da Azure AD](../authentication-protocols.md).
+**Protocolli standard del settore.** Microsoft si impegna a supportare gli standard del settore. Azure AD supporta i protocolli di autenticazione SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2. L'API Graph è conforme a OData 4.0. Se l'applicazione supporta già i protocolli SAML 2.0 o OpenID Connect 1.0 per l'accesso federato, l'aggiunta del supporto per Azure AD è un'operazione semplice. Altre informazioni sui [protocolli di autenticazione supportati da Azure AD](active-directory-authentication-protocols.md).
 
 **Librerie open source.** Per accelerare lo sviluppo, Microsoft fornisce librerie open source completamente supportate per le piattaforme e i linguaggi più diffusi. Il codice sorgente è concesso in licenza secondo i termini della licenza Apache, versione 2.0 con la libertà di personalizzarlo e di contribuire ai progetti. Ulteriori informazioni sulle [librerie di autenticazione Azure AD](active-directory-authentication-libraries.md).
 
@@ -90,4 +90,4 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

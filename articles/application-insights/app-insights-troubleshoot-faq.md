@@ -54,7 +54,7 @@ Ciò può verificarsi se:
 
 Soluzione:
 
-+ Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. In alcune versioni precedenti degli strumenti, le credenziali di Microsoft Azure, visualizzate nella finestra di dialogo Nuovo progetto, possono essere diverse da quelle di Visual Studio Online visualizzate nella parte superiore destra di Visual Studio.
++ Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. In alcune versioni precedenti degli strumenti, le credenziali di Microsoft Azure, visualizzate nella finestra di dialogo Nuovo progetto, possono essere diverse da quelle visualizzate nella parte superiore destra di Visual Studio.
 + Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
 + [Aggiungere Application Insights a un nuovo progetto][start]\: in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere "Aggiungi Application Insights".
 + Se il problema continua a verificarsi, seguire la [procedura manuale](app-insights-start-monitoring-app-health-usage.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
@@ -189,11 +189,6 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 No. Mostra lo stato del servizio di Azure. Per vedere i risultati del test Web, scegliere Sfoglia > Application Insights > (applicazione) e quindi osservare i risultati del test Web.
 
 
-#### <a name="q07"></a>Quando si aggiunge Application Insights all'applicazione e si apre il portale Application Insights, è tutto completamente diverso rispetto alle catture di schermata.
-
-Potrebbe essere in uso la [versione precedente di Application Insights SDK](http://msdn.microsoft.com/library/dn793604.aspx), che si connette alla versione Visual Studio Online.
-
-Queste pagine della guida si riferiscono ad [Application Insights per Anteprima di Microsoft Azure][start], in dotazione con Visual Studio 2013 Update 3 e versioni successive.
 
 #### <a name="data"></a>Per quanto tempo vengono conservati i dati nel portale? Tale conservazione è sicura?
 
@@ -248,4 +243,4 @@ Se il servizio Web è in esecuzione in una VM di Azure, è anche possibile [otte
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

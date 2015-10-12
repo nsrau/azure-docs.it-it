@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitorare le app per la logica" 
+	pageTitle="Monitorare le app per la logica | Microsoft Azure" 
 	description="Come verificare il funzionamento delle app per la logica." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="stepsic"/>
 
 #Monitorare le app per la logica
@@ -56,4 +56,4 @@ Si noti che per i trigger *Push* *non* sarà possibile vedere quante volte sono 
 È disponibile una funzionalità aggiuntiva, non ancora utilizzabile nell'interfaccia utente ma disponibile tramite l'[API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Ciò avviene perché se un'esecuzione è già in corso farà riferimento alla versione dell'app per la logica che esisteva all'avvio dell'esecuzione. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

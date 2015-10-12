@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio"
-	description="Informazioni su come aggiornare i database Web o Business del database SQL di Azure ai nuovi livelli di prestazioni e di servizio Basic, Standard e Premium del database SQL di Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	pageTitle="Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio" 
+	description="Informazioni su come aggiornare i database Web o Business del database SQL di Azure ai nuovi livelli di prestazioni e di servizio Basic, Standard e Premium del database SQL di Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
+	ms.date="06/18/2015" 
+	ms.author="sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -29,7 +29,7 @@ Scaricare la [guida di riferimento dettagliata per la migrazione dei database We
 
 <p> I database SQL Web e Business di Azure vengono eseguiti in un ambiente multi-tenant condiviso senza capacità riservate di risorse per il database. L'attività di altri database all'interno di questo cluster di risorse condivise può influire sulle prestazioni dell'utente. La disponibilità di risorse in qualsiasi momento dipende molto da altri carichi di lavoro simultanei in esecuzione nel sistema. Ciò può comportare prestazioni dell'applicazione di database estremamente variabili e imprevedibili. I suggerimenti dei clienti indicano che queste prestazioni imprevedibili sono difficili da gestire e che sono preferibili prestazioni più prevedibili.
 
-Per risolvere questa situazione, il servizio database SQL di Azure ha introdotto nuovi livelli di servizio [(Basic, Standard e Premium)](http://msdn.microsoft.com/library/dn741340.aspx), che offrono prestazioni prevedibili e un'ampia gamma di nuove funzionalità per la sicurezza e la continuità aziendale. Questi nuovi livelli di servizio sono progettati per fornire un grado di risorse specificato per un carico di lavoro di database, indipendentemente da altri carichi di lavoro del cliente in esecuzione in tale ambiente. Il risultato è un comportamento delle prestazioni estremamente prevedibile.
+Per risolvere questa situazione, il servizio database SQL di Azure ha introdotto nuovi livelli di servizio [(Basic, Standard e Premium)](sql-database-service-tiers.md), che offrono prestazioni prevedibili e un'ampia gamma di nuove funzionalità per la sicurezza e la continuità aziendale. Questi nuovi livelli di servizio sono progettati per fornire un grado di risorse specificato per un carico di lavoro di database, indipendentemente da altri carichi di lavoro del cliente in esecuzione in tale ambiente. Il risultato è un comportamento delle prestazioni estremamente prevedibile.
 
 Queste modifiche fanno nascere domande su come valutare e decidere quale sia il nuovo livello di servizio più adatto ai database Web e Business correnti e sull'effettivo processo di aggiornamento.
 
@@ -57,7 +57,7 @@ L'aggiornamento di un database Web o Business a un nuovo livello di servizio pre
 
 
 
-## 1. Determinare il livello di servizio in base alla funzionalità
+## 1\. Determinare il livello di servizio in base alla funzionalità
 
 I livelli di servizio Basic, Standard e Premium offrono set di funzionalità diversi. Pertanto, per scegliere un livello appropriato, è innanzitutto necessario determinare il livello di servizio in grado di garantire il livello minimo di funzionalità necessario per l'applicazione e la propria azienda.
 
@@ -73,10 +73,10 @@ I livelli di prestazioni e le funzionalità del nuovo livello di servizio vengon
 
 | Articolo | Descrizione |
 |:--|:--|
-|[Livelli di servizio (edizioni) del database SQL di Azure](http://msdn.microsoft.com/library/azure/dn741340.aspx)| Informazioni generali sui livelli di servizio Basic, Standard e Premium.|
-|[Livelli di servizio e livelli di prestazioni del database SQL di Azure](http://msdn.microsoft.com/library/dn741336.aspx)| Metriche e funzionalità di ogni livello di servizio (e istruzioni su come monitorare l'uso dei database nel portale di gestione o mediante viste a gestione dinamica). |
-|[Differenze dei livelli di servizio](http://msdn.microsoft.com/library/dn369873.aspx#Different)| Informazioni aggiuntive sui diversi livelli di servizio, inclusi alcuni motivi per cui preferire un determinato livello rispetto a un altro. |
-|[Continuità aziendale del database SQL di Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)|Dettagli delle funzionalità di continuità aziendale e ripristino di emergenza (ripristino a un momento specifico, ripristino geografico, replica geografica) disponibili per i diversi livelli di servizio.|
+|[Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)
+| Panoramica, metriche e funzionalità di ogni livello di servizio (e istruzioni su come monitorare l'uso dei database nel portale di gestione o mediante viste a gestione dinamica). |
+|[Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
+|Dettagli delle funzionalità di continuità aziendale e ripristino di emergenza (ripristino a un momento specifico, ripristino geografico, replica geografica) disponibili per i diversi livelli di servizio.|
 |[Database SQL - Prezzi](http://azure.microsoft.com/pricing/details/sql-database/)|Informazioni dettagliate sui prezzi per i diversi livelli di servizio e di prestazioni.|
 
 <br>
@@ -156,7 +156,7 @@ I dati restituiti da [sys.resource_stats](https://msdn.microsoft.com/library/dn2
 
 Le informazioni sul consumo di DTU in termini di livello di database S2 consentono di normalizzare il consumo corrente dei database Web e Business in termini di database con nuovi livelli e di verificare dove funzionano meglio. Se, ad esempio, il consumo percentuale di DTU medio mostra un valore pari all'80%, significa che il database sta usando DTU a un tasso dell'80% del limite di un database al livello di prestazioni S2. Se nella vista **sys.resource_stats** appaiono valori superiori al 100%, significa che è necessario un livello di prestazioni superiore a S2. Prendiamo l'esempio di un picco con un valore percentuale di DTU pari al 300%. Significa che si stanno usando tre volte più risorse di quelle disponibili in un livello S2. Per determinare una dimensione iniziale ragionevole, confrontare le DTU disponibili in un livello S2 (50 DTU) con le dimensioni più elevate successive (S3/P1 = 100 DTU o 200% di S2, P2 = 200 DTU o 400% di S2). Poiché si è al 300% di S2, è preferibile iniziare con un livello P2 e ripetere il test.
 
-In base alla percentuale d'uso di DTU e all'edizione massima necessaria per il carico di lavoro, è possibile determinare il livello di servizio e il livello di prestazioni più adatti al carico di lavoro del database (come indicato dalla percentuale di DTU e dalle potenze di DTU relative di diversi [livelli di prestazioni)](http://msdn.microsoft.com/library/azure/dn741336.aspx). Ecco una tabella che illustra il mapping della percentuale di consumo di risorse Web/Business ai gradi di prestazioni dei nuovi livelli equivalenti:
+In base alla percentuale d'uso di DTU e all'edizione massima necessaria per il carico di lavoro, è possibile determinare il livello di servizio e il livello di prestazioni più adatti al carico di lavoro del database (come indicato dalla percentuale di DTU e dalle potenze di DTU relative di diversi [livelli di prestazioni)](sql-database-service-tiers.md). Ecco una tabella che illustra il mapping della percentuale di consumo di risorse Web/Business ai gradi di prestazioni dei nuovi livelli equivalenti:
 
 ![Utilizzo di risorse][4]
 
@@ -301,11 +301,10 @@ Il servizio Database SQL di Azure fornisce i dati di telemetria e gli strumenti 
 
 
 <!--Image references-->
-[1]: ./media/sql-database-upgrade-new-service-tiers/service-tier-features.png
 [2]: ./media/sql-database-upgrade-new-service-tiers/portal-dtus.JPG
 [3]: ./media/sql-database-upgrade-new-service-tiers/web-business-noisy-neighbor.png
 [4]: ./media/sql-database-upgrade-new-service-tiers/resource_consumption.png
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Esercitazione di HBase: Introduzione a HBase in Hadoop | Microsoft Azure"
 	description="Seguire questa esercitazione di HBase per iniziare a usare Apache HBase con Hadoop in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive."
+	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -26,9 +27,11 @@ Informazioni su come eseguire il provisioning di un cluster HBase in HDInsight, 
 
 * [Esercitazione di HBase: Introduzione all'uso di Apache HBase con Hadoop in HDInsight.](hdinsight-hbase-tutorial-get-started-v1.md)
 
-> [AZURE.NOTE]HBase (versione 0.98.0) è disponibile solo per l'uso con cluster HDInsight 3.1 in HDInsight (basato su Apache Hadoop e YARN 2.4.0). Per informazioni sulla versione, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions]
+> [AZURE.NOTE]Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sull'utilizzo di cluster basati su Linux, vedere [hdinsight-hbase-tutorial-get-started-linux.md).
+>
+> HBase (versione 0.98.0) in HDInsight basato su Windows è disponibile solo per l'uso con cluster HDInsight 3.1 (basati su Apache Hadoop e YARN 2.4.0). Per informazioni sulla versione, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions]
 
-**Prerequisiti**
+##Prerequisiti
 
 Prima di iniziare questa esercitazione di HBase, è necessario disporre di quanto segue:
 
@@ -329,4 +332,4 @@ Per altre informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

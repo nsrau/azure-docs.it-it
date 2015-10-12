@@ -20,6 +20,8 @@
 
 Informazioni su come usare Apache Storm in HDInsight per elaborare i dati del sensore dall'hub eventi di Azure e visualizzarli con D3.j. Questo documento descrive inoltre come usare una rete virtuale di Azure per connettere Storm in HDInsight con HBase in HDInsight e archiviare in HBase i dati provenienti dalla topologia.
 
+> [AZURE.NOTE]Le informazioni contenute in questo documento si basano sull'utilizzo di uno Storm basato su Windows nel cluster HDInsight. Per informazioni sull'utilizzo di hub eventi di Azure dallo Storm basato su Linux in HDInsight, vedere [Elaborare gli eventi da hub eventi di Azure con Storm in HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+
 ## Prerequisiti
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -420,4 +422,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -172,11 +172,11 @@ Quando sono disponibili risposte per le domande precedenti, la sezione [Avvio ve
 #### Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-- Due servizi cloud, "FrontEnd001" e "BackEnd001".
-- Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd".
-- Un gruppo di sicurezza di rete applicato a entrambe le subnet.
-- Un server Windows che rappresenta un server Web applicazioni ("IIS01").
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02").
+- Due servizi cloud, "FrontEnd001" e "BackEnd001"
+- Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd"
+- Un gruppo di sicurezza di rete applicato a entrambe le subnet
+- Un server Windows che rappresenta un server Web applicazioni ("IIS01")
+- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
 - Un server Windows che rappresenta un server DNS ("DNS01").
 
 Per creare questo esempio, che fornisce script e un modello ARM, sono necessari altri dettagli, disponibili nella pagina di [istruzioni di creazione dettagliate][Example1].
@@ -186,16 +186,16 @@ In questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono po
 
 >[AZURE.TIP]In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una regola specifica, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
 
-A livello dichiarativo, le righe seguenti vengono create per il traffico in ingresso:
+A livello dichiarativo, per il traffico in ingresso vengono create le righe seguenti:
 
 1.	Il traffico DNS interno (porta 53) è consentito.
-2.	Il traffico RDP (porta 3389) da Internet a qualsiasi VM è consentito.
+2.	Il traffico RDP (porta 3389) da Internet a qualsiasi macchina virtuale è consentito.
 3.	Il traffico HTTP (porta 80) da Internet al server Web (IIS01) è consentito.
 4.	Tutto il traffico (tutte le porte) da IIS01 ad AppVM1 è consentito.
-5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene negato.
-6.	Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene negato.
+5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene bloccato.
+6.	Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene bloccato.
 
-Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Internet verso il server Web, le regole 3 (consenti) e 5 (nega) saranno applicabili, ma poiché la regola 3 ha una priorità maggiore, verrà applicata solo tale regola e la regola 5 non verrà presa in considerazione. La richiesta HTTP verrà quindi consentita sul server Web. Se lo stesso traffico prova a raggiungere il server DNS01, la regola 5 (nega) sarà la prima applicabile e il traffico non sarà autorizzato a passare al server. La regola 6 (nega) impedisce alla subnet front-end di comunicare con la subnet back-end (ad eccezione del traffico consentito nelle regole 1 e 4), proteggendo la rete back-end nel caso in cui un utente malintenzionato comprometta l'applicazione Web sul front-end. L'utente malintenzionato avrà infatti accesso limitato alla rete "protetta" back-end, ovvero solo alle risorse esposte nel server AppVM01.
+Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Internet ed è diretta verso il server Web, le regole 3 (consenti) e 5 (nega) saranno applicabili, ma poiché la regola 3 ha una priorità maggiore, verrà applicata solo tale regola e la regola 5 non verrà presa in considerazione. La richiesta HTTP verrà quindi consentita sul server Web. Se lo stesso traffico prova a raggiungere il server DNS01, la regola 5 (nega) sarà la prima applicabile e il traffico non sarà autorizzato a passare al server. La regola 6 (nega) impedisce alla subnet front-end di comunicare con la subnet back-end (ad eccezione del traffico consentito nelle regole 1 e 4), proteggendo la rete back-end nel caso in cui un utente malintenzionato comprometta l'applicazione Web sul front-end. L'utente malintenzionato avrà infatti accesso limitato alla rete "protetta" back-end, ovvero solo alle risorse esposte nel server AppVM01.
 
 Esiste una regola in uscita predefinita che consente il traffico in uscita verso Internet. Per questo esempio si consente il traffico in uscita e non si modificano le regole in uscita. Per bloccare il traffico in entrambe le direzioni, è necessario il routing definito dall'utente, illustrato nella sezione "Esempio 3" più avanti.
 
@@ -217,12 +217,12 @@ sono disponibili nella pagina di [istruzioni di compilazione dettagliate][Exampl
 #### Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-- Due servizi cloud, "FrontEnd001" e "BackEnd001".
+- Due servizi cloud, "FrontEnd001" e "BackEnd001"
 - Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd".
 - Un singolo gruppo di sicurezza di rete applicato a entrambe le subnet.
 - Un dispositivo virtuale di rete, in questo esempio un firewall, connesso alla subnet front-end.
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01").
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02").
+- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
 - Un server Windows che rappresenta un server DNS ("DNS01").
 
 Per creare questo esempio, che fornisce script e un modello ARM, sono necessari altri dettagli, disponibili nella pagina di [istruzioni di creazione dettagliate][Example2].
@@ -238,7 +238,7 @@ A livello dichiarativo, le righe seguenti vengono create per il traffico in ingr
 2.	Il traffico RDP (porta 3389) da Internet a qualsiasi VM è consentito.
 3.	Tutto il traffico Internet (tutte le porte) verso il dispositivo virtuale di rete (firewall) è consentito.
 4.	Tutto il traffico (tutte le porte) da IIS01 ad AppVM1 è consentito.
-5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene negato.
+5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene bloccato.
 6.	Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene negato.
 
 Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Internet verso il firewall, le regole 3 (consenti) e 5 (nega) saranno applicabili, ma poiché la regola 3 ha una priorità maggiore, verrà applicata solo tale regola e la regola 5 non verrà presa in considerazione. La richiesta HTTP verrà quindi consentita sul firewall. Se lo stesso traffico prova a raggiungere il server IIS01, anche se si trova sulla subnet front-end, la regola 5 (nega) verrà applicata e il traffico non sarà autorizzato a passare al server. La regola 6 (nega) impedisce alla subnet front-end di comunicare con la subnet back-end (ad eccezione del traffico consentito nelle regole 1 e 4), proteggendo la rete back-end nel caso in cui un utente malintenzionato comprometta l'applicazione Web sul front-end. L'utente malintenzionato avrà infatti accesso limitato alla rete "protetta" back-end, ovvero solo alle risorse esposte nel server AppVM01.
@@ -272,7 +272,7 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
 - Una rete virtuale, "CorpNetwork", con tre subnet, "SecNet", "FrontEnd" e "BackEnd".
 - Un dispositivo virtuale di rete, in questo esempio un firewall, connesso alla subnet SecNet.
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01").
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02").
+- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
 - Un server Windows che rappresenta un server DNS ("DNS01").
 
 Per creare questo esempio, che fornisce script e un modello ARM, sono necessari altri dettagli, disponibili nella pagina di [istruzioni di creazione dettagliate][Example3].
@@ -499,4 +499,4 @@ saranno presto disponibili, con collegamenti in questa pagina.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

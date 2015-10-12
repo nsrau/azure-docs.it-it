@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Usare i set di dati di esempio in Machine Learning Studio | Microsoft Azure"
 	description="Descrizione dei set di dati usati nei modelli di esempio inclusi in ML Studio. È possibile usare questi set di dati di esempio per gli esperimenti."
-	services="machine-learning" 
+	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
 	manager="paulettm"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="09/28/2015"
 	ms.author="garye"/>
 
 
@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati esempio vengono usati dai modelli di esempio nella [raccolta di modelli di Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/models/), altri sono inclusi come esempi dei diversi tipi di dati usati in Machine Learning.
+Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati esempio vengono usati dai modelli di esempio nella [raccolta di modelli di Azure Cortana Analytics](http://gallery.azureml.net/), altri sono inclusi come esempi dei diversi tipi di dati usati in Machine Learning.
 
 Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. Per questi set di dati la tabella seguente fornisce il link diretto. È possibile utilizzare questi set di dati in esperimenti usando il[modulo][reader]di lettura.
 
@@ -316,4 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # Query di tipo elenco efficienti in Azure Batch
@@ -37,6 +37,8 @@ Il monitoraggio è un caso d'uso comune. La determinazione della capacità e del
 - In presenza di grandi quantità di elementi o di elementi di dimensioni più elevate, l'applicazione che chiama il servizio Batch userà una maggiore quantità di memoria.
 - Grandi quantità di elementi o elementi di dimensioni più elevate determinano un aumento del traffico di rete. Questo allunga i tempi di trasferimento e, a seconda dell'architettura dell'applicazione, può determinare un aumento dei costi di rete per i dati trasferiti all'esterno dell'area dell'account Batch.
 
+> [AZURE.IMPORTANT]Per garantire la massima efficienza e le prestazioni dell'applicazione, per le chiamate API di tipo elenco è *consigliabile* usare *sempre* clausole FILTER e SELECT. Queste clausole e il relativo utilizzo sono descritti di seguito.
+
 Per tutte le API di Azure Batch vale quanto segue:
 
 - Ogni nome di proprietà è una stringa che esegue il mapping alla proprietà dell'oggetto
@@ -50,7 +52,7 @@ Per tutte le API di Azure Batch vale quanto segue:
 
 ## Esecuzione efficiente di query in Batch .NET
 
-L'API Batch .NET consente di ridurre sia il numero di elementi restituiti in un elenco sia la quantità di informazioni restituite per ogni elemento specificando l'oggetto [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) di una query. DetailLevel è una classe base astratta che richiede che venga effettivamente creato un oggetto [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) che viene passato come parametro ai metodi appropriati.
+L'API Batch .NET consente di ridurre sia il numero di elementi restituiti in un elenco sia la quantità di informazioni restituite per ogni elemento specificando l'oggetto [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) di una query. DetailLevel è una classe base astratta che richiede che venga effettivamente creato un oggetto [ODATADetailLevel][odata] che viene passato come parametro ai metodi appropriati.
 
 L'oggetto ODataDetailLevel presenta tre proprietà di stringa pubblica che possono essere specificate nel costruttore o impostate direttamente:
 
@@ -124,7 +126,23 @@ Di seguito è riportato un frammento di codice che usa l'API Batch .NET per eseg
 	// detail level we configured above
 	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
 
-> [AZURE.TIP]Per garantire la massima efficienza e le migliori prestazioni dell'applicazione, per le chiamate API di tipo elenco è consigliabile usare *sempre* clausole FILTER e SELECT.
+## Progetto di esempio
+
+Estrarre il progetto di esempio [EfficientListQueries][efficient_query_sample] su GitHub per vedere come un’esecuzione di query efficiente dell’elenco può influire sulle prestazioni in un'applicazione. Questa applicazione console C# crea e aggiunge un numero elevato di attività a un processo, quindi esegue una query nel servizio Batch utilizzando diverse specifiche [ODATADetailLevel][odata], visualizzando un output simile al seguente:
+
+		Adding 5000 tasks to job jobEffQuery...
+		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+
+		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+
+		Sample complete, hit ENTER to continue...
+
+Come illustrato nelle informazioni del tempo trascorso, limitare le proprietà e il numero di elementi restituiti può ridurre notevolmente i tempi di risposta alla query. È possibile trovare questo e altri progetti di esempio nell’archivio [esempi di batch azure][github_samples] su GitHub.
 
 ## Passaggi successivi
 
@@ -133,4 +151,8 @@ Di seguito è riportato un frammento di codice che usa l'API Batch .NET per eseg
     - [Batch .NET](https://msdn.microsoft.com/library/azure/dn865466.aspx)
 2. Scaricare gli [esempi per Azure Batch](https://github.com/Azure/azure-batch-samples) da GitHub ed esaminare il codice
 
-<!---HONumber=September15_HO1-->
+[efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
+
+<!---HONumber=Oct15_HO1-->

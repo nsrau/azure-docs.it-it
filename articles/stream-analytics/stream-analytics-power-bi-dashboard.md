@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Dashboard di Power BI su Analisi di flusso| Microsoft Azure"
-	description="Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso."
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettm"
+	pageTitle="Dashboard di Power BI su Analisi di flusso| Microsoft Azure" 
+	description="Utilizzare un dashboard di Power BI streaming in tempo reale per raccogliere intelligence aziendali e analizzare i dati di volumi elevati di un processo di Analisi di flusso." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="jeffstokes72" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="08/27/2015"
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 	
 # Analisi di flusso di Azure e Power BI: dashboard dinamico per analisi in tempo reale del flusso di dati
@@ -24,7 +25,7 @@ Utilizzare [Microsoft Power BI](https://powerbi.com/) per creare rapidamente un 
 
 In questo articolo viene descritto come creare strumenti di business intelligence personalizzati utilizzando Power BI come output per i processi di Analisi di flusso di Azure.
 
-> [AZURE.NOTE]L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure.
+> [AZURE.NOTE]L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure. A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
 
 ## Prerequisiti ##
 
@@ -221,4 +222,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

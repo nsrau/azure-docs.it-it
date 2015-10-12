@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare il servizio di posta elettronica SendGrid (PHP) | Microsoft Azure"
-	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in PHP."
-	documentationCenter="php"
-	services=""
-	manager="sendgrid"
-	editor="mollybos"
+	pageTitle="Come usare il servizio di posta elettronica SendGrid (PHP) | Microsoft Azure" 
+	description="Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid disponibile in Azure. Gli esempi di codice sono scritti in PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # Come usare il servizio di posta elettronica SendGrid da PHP
 
@@ -390,6 +390,9 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
 -   Libreria PHP di SendGrid: <https://github.com/sendgrid/sendgrid-php>
 -   Offerta speciale SendGrid per i clienti di Azure: <https://sendgrid.com/windowsazure.html>
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -401,4 +404,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
   [libreria sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

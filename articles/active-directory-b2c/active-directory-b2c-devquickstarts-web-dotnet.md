@@ -36,7 +36,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Specificare `https://localhost:44316/` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
-    > [AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa esercitazione
+[AZURE.INCLUDE [Active-Directory-B2C-devquickstarts-v2-Apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Creare i criteri
 
@@ -45,13 +45,15 @@ In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-direc
 - Scegliere **Iscrizione tramite ID utente** o **Iscrizione tramite indirizzo di posta elettronica** nel pannello dei provider di identità.
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere l'attestazione **Nome visualizzato** come attestazione dell'applicazione in tutti i criteri. È consentito scegliere anche altri criteri.
-- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** dei criteri dopo averli creati. Sarà necessario usare i nomi dei criteri a breve. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
 ## 4\. Scaricare il codice e configurare l'autenticazione
 
-Il codice per questo esempio è disponibile [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questo esempio è disponibile [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare un progetto scheletro come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) o clonare lo scheletro:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -90,6 +92,8 @@ Aprire quindi il file `web.config` nella radice del progetto e immettere i valor
   </appSettings>
 ...
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Aggiungere al progetto una "classe di avvio OWIN" denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> Cercare "OWIN". Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app. In questo metodo effettuare una chiamata a ConfigureAuth(...), dove verrà configurata l'autenticazione per l'app.
 
@@ -337,4 +341,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

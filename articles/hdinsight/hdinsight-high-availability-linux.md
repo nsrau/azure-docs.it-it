@@ -128,11 +128,7 @@ Ogni nodo head può avere voci di registro univoche, perciò è consigliabile co
 
 ###Ambari
 
-> [AZURE.NOTE]L’accesso ai file di registro tramite Ambari richiede un tunnel SSH, poichè i siti web per i singoli servizi non sono esposti pubblicamente in Internet. Per informazioni sull'uso di un tunnel SSL, vedere uno dei seguenti argomenti:
->
-> * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE]L’accesso ai file di registro tramite Ambari richiede un tunnel SSH, poichè i siti web per i singoli servizi non sono esposti pubblicamente in Internet. Per informazioni sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Dall'interfaccia utente Web Ambari, selezionare il servizio per il quale si desidera visualizzare i registri (ad esempio, YARN) e quindi utilizzare **Collegamenti rapidi** per selezionare il nodo head per il quale si vuole visualizzare i registri.
 
@@ -140,11 +136,11 @@ Dall'interfaccia utente Web Ambari, selezionare il servizio per il quale si desi
 
 ## Come configurare le dimensioni del nodo head ##
 
-È possibile selezionare le dimensioni del nodo head solo durante la creazione del cluster. La dimensione predefinita per i nodi head è **A3**, che fornisce 4 core, 7GB di memoria e 285GB di spazio di archiviazione locale. È possibile trovare un elenco delle varie dimensioni di macchina virtuale disponibili per HDInsight, inclusi core, memoria e archiviazione locale per ognuna, sulla [pagina dei prezzi di HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+È possibile selezionare le dimensioni del nodo head solo durante la creazione del cluster. La dimensione predefinita per i nodi head è **A3**, che fornisce 4 core, 7GB di memoria e 285GB di spazio di archiviazione locale. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight, inclusi core, memoria e archiviazione locale per ognuna, sulla [pagina dei prezzi di HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
 Quando si crea un nuovo cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene spiegato come specificare le dimensioni utilizzando il [portale di anteprima di Azure][preview-portal], [Azure PowerShell][azure-powershell], e [l’interfaccia della riga di comando di Azure][azure-cli]\:
 
-* **Portale di anteprima di Azure**: quando si crea un nuovo cluster, è possibile impostare le dimensioni (livello di prezzo) dei nodi head e data (ruolo di lavoro) del cluster:
+* **Portale di anteprima di Azure**: quando si crea un nuovo cluster, è possibile impostare le dimensioni (piano tariffario) dei nodi head e data (ruolo di lavoro) del cluster:
 
 	![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -158,7 +154,7 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 
 - [Riferimento REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md)
+- [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
 - [Installare e configurare Azure PowerShell](../powershell-install-configure.md)
 
@@ -168,6 +164,6 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

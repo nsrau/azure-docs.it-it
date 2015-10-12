@@ -24,7 +24,7 @@ Il modo più rapido per iniziare a utilizzare [Docker] consiste nell’andare in
 
 È possibile connettersi immediatamente alla VM usando SSH e iniziare a lavorare con Docker direttamente, senza che sia necessario intraprendere altre azioni.
 
-> [AZURE.NOTE]La VM creata dal modello di Azure Marketplace non ospita l'API remota del Docker per la gestione da parte di un client Docker remoto. Per abilitare il controllo dell'host Docker in questa macchina virtuale in remoto, vedere [Esecuzione di Docker con HTTPS](https://docs.docker.com/articles/https/) o seguire i passaggi descritti in [Using the Docker VM Extension from the Azure Portal](virtual-machines-docker-with-portal.md) o [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli.md). Gli utenti più avanzati possono compilare il [client Windows Docker](https://github.com/ahmetalpbalkan/Docker.DotNet) da Github e provare anche quello (oppure ottenerlo da [nuget](https://www.nuget.org/packages/Docker.DotNet/)).
+> [AZURE.NOTE]La VM creata dal modello di Azure Marketplace non ospita l'API remota del Docker per la gestione da parte di un client Docker remoto. Per abilitare il controllo dell'host Docker in questa macchina virtuale in remoto, vedere [Esecuzione di Docker con HTTPS](https://docs.docker.com/articles/https/) o seguire i passaggi descritti in [Using the Docker VM Extension from the Azure Portal](virtual-machines-docker-with-portal.md) o [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli-install.md). Gli utenti più avanzati possono compilare il [client Windows Docker](https://github.com/ahmetalpbalkan/Docker.DotNet) da Github e provare anche quello (oppure ottenerlo da [nuget](https://www.nuget.org/packages/Docker.DotNet/)).
 
 ## Accedere al portale
 
@@ -77,4 +77,4 @@ Ora è possibile iniziare a usare [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

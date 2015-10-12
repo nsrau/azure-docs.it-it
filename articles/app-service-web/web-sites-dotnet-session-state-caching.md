@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Stato della sessione con Cache Redis di Azure in Servizio app di Azure" 
 	description="Informazioni su come usare Servizio cache di Azure per supportare la memorizzazione nella cache dello stato della sessione ASP.NET." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -109,4 +109,4 @@ Il codice seguente recupera questo valore dallo stato sessione.
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

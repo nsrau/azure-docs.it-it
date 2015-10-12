@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Eseguire attività in background con processi Web" 
 	description="Informazioni su come eseguire attività in background nelle app Web di Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

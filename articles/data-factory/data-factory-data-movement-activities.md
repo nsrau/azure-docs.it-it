@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Attività di spostamento dei dati
@@ -24,19 +24,20 @@ Un'attività di copia consente di copiare i dati da un archivio dati **di origin
 
 | **Origine** | **Sink** |
 | ------ | ---- |
-| [BLOB di Azure](data-factory-azure-blob-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB, File System locale |
-| [Tabella di Azure](data-factory-azure-table-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
-| [Database SQL di Azure](data-factory-azure-sql-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure |
-| [SQL Server in IaaS](data-factory-sqlserver-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-| [File System locale](data-factory-onprem-file-system-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS, File System locale |
-| [Server SQL locale](data-factory-sqlserver-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-| [Database Oracle in locale](data-factory-onprem-oracle-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-| [Database MySQL in locale](data-factory-onprem-mysql-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-| [Database DB2 in locale](data-factory-onprem-db2-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-| [Database Teradata in locale](data-factory-onprem-teradata-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-| [Database Sybase in locale](data-factory-onprem-sybase-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
-| [Database PostgreSQL in locale](data-factory-onprem-postgresql-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Server SQL locale, SQL Server in IaaS |
+| [BLOB di Azure](data-factory-azure-blob-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Azure SQL Database, Server SQL locale, SQL Server in IaaS, Azure DocumentDB, File System locale, File System locale |
+| [Tabella di Azure](data-factory-azure-table-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
+| [Database SQL di Azure](data-factory-azure-sql-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
+| [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS, Azure DocumentDB |
+| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse |
+| [SQL Server in IaaS](data-factory-sqlserver-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
+| [File System locale](data-factory-onprem-file-system-connector.md) | BLOB di Azure, Tabella di Azure, Database SQL di Azure, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS, File System locale, File System locale |
+| [Server SQL locale](data-factory-sqlserver-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
+| [Database Oracle in locale](data-factory-onprem-oracle-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
+| [Database MySQL in locale](data-factory-onprem-mysql-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
+| [Database DB2 in locale](data-factory-onprem-db2-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
+| [Database Teradata in locale](data-factory-onprem-teradata-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
+| [Database Sybase in locale](data-factory-onprem-sybase-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
+| [Database PostgreSQL in locale](data-factory-onprem-postgresql-connector.md) | BLOB di Azure, Tabella di Azure, Azure SQL Database, Azure SQL Data Warehouse, Server SQL locale, SQL Server in IaaS |
 
 ## <a name="copyactivity"></a>Attività di copia
 L'attività di copia acquisisce un set di dati di input (**origine**) e copia i dati per ciascuna configurazione di attività in un set di dati di output (**sink**). La copia dei dati viene eseguita in modalità batch in base alla pianificazione specificata per l'attività.
@@ -97,4 +98,4 @@ Quando viene eseguita un'attività di copia, nella sezione **typeProperties** ve
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md) richiede solo alcuni minuti.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties
  pageTitle="Usare macchine virtuali di calcolo Linux in un cluster HPC Pack | Microsoft Azure"
-	description="Informazioni su come creare uno script di distribuzione di un cluster HPC Pack in Azure contenente un nodo head che esegue Windows Server con nodi di calcolo Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="Informazioni su come creare uno script di distribuzione di un cluster HPC Pack in Azure contenente un nodo head che esegue Windows Server con nodi di calcolo Linux."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="big-compute"
-	ms.date="09/01/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/01/2015"
+ ms.author="danlep"/>
 
 # Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure
 
@@ -43,7 +43,7 @@ Per una panoramica delle opzioni di distribuzione del cluster HPC Pack, vedere l
 * **Quota di core**: potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi del cluster con dimensioni delle macchine virtuali multicore. Ad esempio in questo articolo, sono necessari almeno 24 core. Per aumentare una quota, [aprire una richiesta di assistenza clienti online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ### Creazione del file di configurazione
-Lo script di distribuzione di HPC Pack IaaS utilizza come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster di dimensioni ridotte costituito da un nodo head e 2 nodi di calcolo Linux, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per ulteriori informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script o la [documentazione dello script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+Lo script di distribuzione di HPC Pack IaaS utilizza come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster di dimensioni ridotte costituito da un nodo head e 2 nodi di calcolo Linux, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per ulteriori informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script e [Creare un cluster HPC con lo script di distribuzione di HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,4 +310,4 @@ Lo strumento **clusrun** di HPC Pack può essere utilizzato per eseguire comandi
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

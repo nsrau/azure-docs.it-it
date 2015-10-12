@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Scalare un'app Web in Servizio app di Azure" 
 	description="Come aumentare e scalare orizzontalmente un'app Web nel servizio app di Azure e applicare la scalabilità automatica." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -201,4 +201,4 @@ A seconda della modalità dell'app Web, sono disponibili le seguenti funzionalit
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

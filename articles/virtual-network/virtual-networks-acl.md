@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="09/22/2015"
    ms.author="telmos" />
 
-# Che cos'è un elenco di controllo di accesso di rete (ACL)
+# Che cos'è un elenco di controllo di accesso (ACL) di endpoint?
 
-Un elenco di controllo di accesso (ACL) di rete è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta.
+Un elenco di controllo di accesso (ACL) di endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta.
 
 > [AZURE.IMPORTANT]È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](../virtual-networks-nsg).
 
@@ -99,4 +99,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -14,6 +14,8 @@ Dimensione massima di un messaggio in una coda|64 KB
 Dimensione massima di una condivisione file|5 TB
 Dimensione massima di un file in una condivisione file|1 TB
 Numero massimo di file in una condivisione file|L'unico limite è quello relativo alla capacità totale della condivisione file (5 TB)
+Max 8 KB IOPS per ogni condivisione|1000
+Numero massimo di file in una condivisione file|L'unico limite è quello relativo alla capacità totale della condivisione file (5 TB)
 Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione|L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB)
 Numero massimo di criteri di accesso archiviati per ogni contenitore, condivisione di file, tabella o coda|5
 Max 8 KB IOPS per disco permanente (macchina virtuale di livello base)|300<sup>2</sup>
@@ -22,7 +24,7 @@ Frequenza di richiesta totale (presupponendo oggetti con dimensione di 1 KB) per
 Velocità effettiva da raggiungere per BLOB singolo|Fino a 60 MB al secondo o fino 500 richieste al secondo
 Velocità effettiva da raggiungere per coda singola (messaggi di 1 KB)|Fino a 2000 messaggi al secondo
 Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KB)|Fino a 2000 entità al secondo
-Velocità effettiva da raggiungere per singolo file|Fino a 60 MB al secondo
+Velocità effettiva da raggiungere per singola condivisione di file|Fino a 60 MB al secondo
 Numero massimo in entrata<sup>3</sup> per account di archiviazione (aree USA)|10 Gbps se GRS/ZRS<sup>4</sup> è abilitato, 20 Gbps per LRS
 Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree USA)|20 Gbps se RA-GRS/GRS/ZRS<sup>4</sup> è abilitato, 30 Gbps per LRS
 Numero massimo in entrata<sup>3</sup> per account di archiviazione (aree europee e asiatiche)|5 Gbps se GRS/ZRS<sup>4</sup> è abilitato, 10 Gbps per LRS
@@ -34,7 +36,7 @@ Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree europee 
 
 È possibile calcolare approssimativamente il numero di dischi a elevato utilizzati supportato da un singolo account di archiviazione del limite della transazione. Per una VM di livello base, il numero massimo di dischi a elevato utilizzati è su 66 (20.000/300 di IOPS per disco) e per una macchina virtuale di livello Standard, ad esempio, è circa 40 (IOPS 20.000/500 per disco). Si noti tuttavia che l'account di archiviazione può supportare un numero maggiore di dischi, se non sono tutti molto utilizzato nello stesso momento.
 
-<sup>3</sup>Si intendono in *entrata* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
+<sup>3</sup>Si intendono in *ingresso* tutti i dati (richieste) inviati a un account di archiviazione. Si intendono in *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
 
 <sup>4</sup>le opzioni di replica di archiviazione di Azure includono:
 
@@ -43,4 +45,4 @@ Numero massimo in uscita<sup>3</sup> per account di archiviazione (aree europee 
 - **ZRS**: archiviazione con ridondanza della zona. Disponibile solo per i BLOB in blocchi. 
 - **LRS**: archiviazione con ridondanza locale. 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

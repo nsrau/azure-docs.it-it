@@ -41,7 +41,7 @@
 
 [Creazione di una macchina virtuale utilizzando l’interfaccia della riga di comando di Azure (Azure CLI)](virtual-machines-xplat-getting-started.md)
 
-[Creare una distribuzione di più VM utilizzando l'interfaccia della riga di comando di Azure](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[Creare una distribuzione di più VM utilizzando l'interfaccia della riga di comando di Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Pianificazione
 
@@ -95,7 +95,7 @@
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
@@ -151,4 +151,4 @@
 
 [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

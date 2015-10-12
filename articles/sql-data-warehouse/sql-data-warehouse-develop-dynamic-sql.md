@@ -41,8 +41,8 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp\_executesql]: https://msdn.microsoft.com/IT-IT/library/ms188001.aspx
+[sp\_executesql]: https://msdn.microsoft.com/it-IT/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

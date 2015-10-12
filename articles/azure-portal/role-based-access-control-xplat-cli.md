@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli.md)
+- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
 
 Il controllo di accesso basato sui ruoli nel portale di Azure e nell'API Gestione risorse di Azure consente di gestire l'accesso alle proprie sottoscrizioni e risorse a un livello estremamente dettagliato. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
@@ -32,7 +32,7 @@ In questa esercitazione verrà illustrato come usare l'interfaccia della riga di
 
 Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre dei programmi seguenti:
 
-- Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+- Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 - Si consiglia di leggere anche le seguenti esercitazioni per acquisire familiarità con la configurazione e l'uso di Gestione risorse di Azure nell'interfaccia della riga di comando di Azure: [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](../xplat-cli-azure-resource-manager.md)
 
 ## Contenuto dell'esercitazione: ##
@@ -64,7 +64,7 @@ Se si dispone di più sottoscrizioni e si desidera passare a un'altra, digitare:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Per maggiori informazioni, consultare [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+Per maggiori informazioni, consultare [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ## <a id="check"></a>Controllare le assegnazioni di ruoli esistenti ##
 
@@ -144,11 +144,11 @@ Quando si tenta di eseguire altri cmdlet come `azure group create`, si riceverà
 Per altre informazioni sulla gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure e per gli argomenti correlati:
 
 - [Controllo di accesso basato sui ruoli in Microsoft Azure](../role-based-access-control-configure.md)
-- [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md)
+- [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 - [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](../xplat-cli-azure-resource-manager.md)
 - [Uso dei gruppi di risorse per la gestione delle risorse di Azure](../azure-preview-portal-using-resource-groups.md): informazioni su come creare e gestire gruppi di risorse nel portale di gestione di Azure.
 - [Blog di Azure](http://blogs.msdn.com/windowsazure): informazioni sulle nuove funzionalità di Azure.
 - [Configurazione del controllo di accesso basato sui ruoli con Windows PowerShell](role-based-access-control-powershell.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

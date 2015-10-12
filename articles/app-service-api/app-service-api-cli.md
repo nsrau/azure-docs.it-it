@@ -22,7 +22,7 @@ Questo articolo illustra come creare, gestire ed eliminare le app per le API nel
 
 ## Prerequisiti
 
-Questo articolo presuppone che sia stata installata l'interfaccia della riga di comando di Azure e che si sia in grado di eseguire le attività di base. Per un'introduzione all'interfaccia della riga di comando, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+Questo articolo presuppone che sia stata installata l'interfaccia della riga di comando di Azure e che si sia in grado di eseguire le attività di base. Per un'introduzione all'interfaccia della riga di comando, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 > [AZURE.NOTE]Le istruzioni per la [connessione a una sottoscrizione di Azure](../xplat-cli-connect.md) offrono due alternative, ovvero l'accesso tramite un account aziendale o dell'istituto di istruzione e il download di un file con estensione *publishsettings*. Il metodo di autenticazione tramite il file con estensione *publishsettings* non funzionerà per le app per le API. È infatti necessario usare la modalità Gestione risorse (illustrata nella sezione successiva) per le app per le API e il metodo di autenticazione tramite il file con estensione *publishsettings* non funziona con Gestione risorse.
 
@@ -288,4 +288,4 @@ Per altre informazioni su come usare le utilità della riga di comando di Azure 
 * [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

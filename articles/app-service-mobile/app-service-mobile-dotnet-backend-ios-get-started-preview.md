@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-mobile"
-	ms.workload="mobile"
+	ms.workload="na"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
@@ -77,4 +77,4 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

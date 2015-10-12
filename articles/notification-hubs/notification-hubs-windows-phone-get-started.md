@@ -68,8 +68,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 A questo punto si dispone delle stringhe di connessione necessarie per registrare l'app di Windows Phone 8 e inviare le notifiche.
 
-> [AZURE.NOTE]In questa esercitazione verrà usato il Servizio notifica Push Microsoft in modalità senza autenticazione. Tale modalità prevede restrizioni in relazione alle notifiche che è possibile inviare a ciascun canale. In Hub di notifica è supportata la [modalità con autenticazione del Servizio di notifica Push di Microsoft](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx).
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]In questa esercitazione verrà usato il Servizio notifica Push Microsoft in modalità senza autenticazione. Tale modalità prevede restrizioni in relazione alle notifiche che è possibile inviare a ciascun canale. Le Hub di notifica supportano [la modalità autenticata MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) consentendo di caricare il certificato.
 
 ##Connettere l'app all'hub di notifica
 
@@ -81,7 +80,7 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
 
 	![][11]
 
-2. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione, quindi scegliere **Gestisci pacchetti NuGet**.
+2. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet**.
 
 	Verrà visualizzata la finestra di dialogo **Gestisci pacchetti NuGet**.
 
@@ -128,9 +127,9 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
 
 ##Inviare notifiche dal back-end
 
-È possibile inviare notifiche usando Hub di notifica da qualsiasi back-end tramite l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaccia REST</a>. In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure con Hub di notifica, vedere Introduzione alle notifiche push in Servizi mobili ([Back-end .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [Back-end JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Per un esempio di invio di notifiche con le API REST, vedere Come usare Hub di notifica da Java/PHP ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+È possibile inviare notifiche usando Hub di notifica da qualsiasi back-end tramite l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaccia REST</a>. In questa esercitazione vengono inviate notifiche con un'applicazione console .NET. Per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere "Introduzione alle notifiche push in Servizi mobili" ([Back-end .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [Back-end JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Per un esempio di invio di notifiche con le API REST, vedere "Come usare Hub di notifica da Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine fare clic su **OK**.
+1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto** e quindi in **Visual C#** fare clic su **Windows** e **Applicazione console** e infine su **OK**.
 
    	![][6]
 
@@ -165,7 +164,7 @@ A questo punto si dispone delle stringhe di connessione necessarie per registrar
             await hub.SendMpnsNativeNotificationAsync(toast);
         }
 
-	Assicurarsi di sostituire il segnaposto relativo al nome dell'hub con il nome dell'hub di notifica visualizzato nella scheda **Hub di notifica** del portale. Sostituire inoltre il segnaposto relativo alla stringa di connessione con la stringa di connessione denominata **DefaultFullSharedAccessSignature** ottenuta nella sezione Configurazione dell'hub di notifica.
+	Assicurarsi di sostituire il segnaposto relativo al nome dell'hub con il nome dell'hub di notifica visualizzato nella scheda **Hub di notifica** del portale. Sostituire inoltre il segnaposto relativo alla stringa di connessione con la stringa di connessione denominata **DefaultFullSharedAccessSignature** ottenuta nella sezione "Configurazione dell'hub di notifica".
 
 	>[AZURE.NOTE]Assicurarsi di usare la stringa di connessione con accesso **Full**, non con accesso **Listen**. La stringa con accesso di tipo Attesa non dispone infatti delle autorizzazioni per l'invio di notifiche.
 
@@ -209,11 +208,11 @@ In questo semplice esempio le notifiche verranno trasmesse a tutti i dispositivi
 [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [portale di Azure]: https://manage.windowsazure.com/
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[modalità con autenticazione del Servizio di notifica Push di Microsoft]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Usare Hub di notifica per inviare notifiche push agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-phone-send-breaking-news.md
 [catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

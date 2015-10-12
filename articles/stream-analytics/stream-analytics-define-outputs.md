@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/17/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Informazioni sugli output di analisi di flusso
@@ -31,7 +31,6 @@ Un [database SQL di Azure](http://azure.microsoft.com/services/sql-database/) pu
 | Nome proprietà | Descrizione |
 |---------------|-------------|
 | Alias di output | È un nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
-| Sottoscrizione | È possibile scegliere un database dalla propria sottoscrizione o fornire le informazioni di connessione a un database in un'altra sottoscrizione |
 | Database | Nome del database a cui si sta inviando l'output |
 | Server Name | Nome server del database SQL di Azure |
 | Nome utente | Nome utente che ha accesso in scrittura al database |
@@ -53,10 +52,6 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 <tr>
 <td>Alias di output</td>
 <td>È un nome descrittivo usato nelle query per indirizzare l'output delle query a questa archiviazione BLOB.</td>
-</tr>
-<tr>
-<td>Sottoscrizione</td>
-<td>È possibile scegliere un account di archiviazione BLOB dalla propria sottoscrizione o fornire le informazioni di connessione a un database in un'altra sottoscrizione</td>
 </tr>
 <tr>
 <td>Account di archiviazione</td>
@@ -92,7 +87,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 </tr>
 <tr>
 <td>Delimitatore</td>
-<td>Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale.</td>
+<td>Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale.</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -110,7 +105,6 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 | Nome proprietà | Descrizione |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias di output | È un nome descrittivo usato nelle query per indirizzare l'output delle query a questo hub eventi. |
-| Sottoscrizione | È possibile scegliere un hub eventi dalla propria sottoscrizione o fornire le informazioni di connessione a un database in un'altra sottoscrizione |
 | Spazio dei nomi del bus di servizio | Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene anche creato uno spazio dei nomi del bus di servizio |
 | Hub eventi | Nome dell'output dell'hub eventi |
 | Nome criterio hub eventi | Criteri di accesso condiviso che possono essere creati nella scheda Configura dell'hub eventi. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e tasti di scelta |
@@ -118,15 +112,17 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 | Colonna chiave di partizione [facoltativo] | Questa colonna contiene la chiave di partizione per l'output dell'Hub eventi. |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica | Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON |
-| Delimitatore | Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+| Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Format | Applicabile solo per il tipo JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON. |
 ## Power BI
 
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di analisi di flusso per offrire agli utenti dell'analisi di flusso un'esperienza di visualizzazione avanzata. Questa funzionalità può essere utilizzata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
 
+> [AZURE.NOTE]A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
+
 ### Autorizzare un account Power BI
 
-1.	Quando Power BI è selezionato come output, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.  
+1.	Quando Power BI è selezionato come output nel portale di gestione di Azure, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.  
 
     ![Autorizzare l'utente di Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -168,7 +164,6 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Nome proprietà | Descrizione |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias di output | È un nome descrittivo usato nelle query per indirizzare l'output delle query a questa archiviazione tabelle. |
-| Sottoscrizione | È possibile scegliere un account di archiviazione tabelle dalla propria sottoscrizione o fornire le informazioni di connessione se l'account di archiviazione appartiene a un'altra sottoscrizione |
 | Account di archiviazione | Nome dell'account di archiviazione a cui si sta inviando l'output. |
 | Chiave dell'account di archiviazione | Chiave di accesso associata all'account di archiviazione. |
 | Nome tabella | Nome della tabella. Se non esiste, la tabella verrà creata. |
@@ -185,14 +180,13 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Nome proprietà | Descrizione |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias di output | È un nome descrittivo usato nelle query per indirizzare l'output delle query a questa coda del bus di servizio. |
-| Sottoscrizione | È possibile scegliere uno spazio dei nomi del bus di servizio dalla propria sottoscrizione o fornire le informazioni di connessione se lo spazio dei nomi appartiene a un'altra sottoscrizione |
 | Spazio dei nomi del bus di servizio | Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. |
 | Nome coda | Nome della coda del bus di servizio. |
 | Nome criteri coda | Durante la creazione di una coda, nella scheda Configura coda è anche possibile creare criteri di accesso condiviso. Ogni criterio di accesso condiviso dispone di un nome, delle autorizzazioni impostate, e di tasti di scelta. |
 | Chiave criteri coda | Chiave di accesso condivisa usata per autenticare l'accesso allo spazio dei nomi del bus di servizio |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica | Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON |
-| Delimitatore | Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+| Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Format | Applicabile solo per il tipo JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON. |
 
 ## Argomenti del bus di servizio
@@ -204,14 +198,53 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Nome proprietà | Descrizione |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias di output | È un nome descrittivo usato nelle query per indirizzare l'output delle query a questo argomento del bus di servizio. |
-| Sottoscrizione | È possibile scegliere uno spazio dei nomi del bus di servizio dalla propria sottoscrizione o fornire le informazioni sulla stringa di connessione se lo spazio dei nomi appartiene a un'altra sottoscrizione |
 | Spazio dei nomi del bus di servizio | Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene anche creato uno spazio dei nomi del bus di servizio |
 | Nome argomento | Gli argomenti sono entità di messaggistica, simili agli Hub eventi e alle code. Sono progettati per raccogliere i flussi di eventi da diversi dispositivi e servizi. Quando un argomento viene creato, gli viene assegnato un nome specifico. Dal momento che i messaggi inviati a un argomento non saranno disponibili se non viene creata una sottoscrizione, assicurarsi che esistano una o più sottoscrizioni per l'argomento |
 | Nome criteri argomento | Durante la creazione di un argomento, nella scheda Configura argomento è anche possibile creare criteri di accesso condiviso. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e tasti di scelta |
 | Chiave criteri argomento | Chiave di accesso condivisa usata per autenticare l'accesso allo spazio dei nomi del bus di servizio |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica | Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato |
-| Delimitatore | Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+| Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+
+## DocumentDB
+
+[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) è un servizio di database di documenti NoSQL completamente gestito che offre query e transazioni su dati senza schema, prestazioni prevedibili e affidabili e sviluppo rapido.
+
+La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output DocumentDB.
+
+<table>
+<tbody>
+<tr>
+<td>NOME PROPRIETÀ</td>
+<td>DESCRIZIONE</td>
+</tr>
+<tr>
+<td>Nome account</td>
+<td>Nome dell'account DocumentDB. Può essere anche l'endpoint per l'account.</td>
+</tr>
+<tr>
+<td>Chiave account</td>
+<td>La chiave di accesso condiviso per l'account DocumentDB.</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>Il nome del database DocumentDB.</td>
+</tr>
+<tr>
+<td>Modello del nome di raccolta</td>
+<td>Il modello del nome di raccolta per le raccolte da utilizzare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0.<BR>Ad esempio, Di seguito sono gli input validi:<BR>MyCollection{partition}<BR>MyCollection<BR>Si noti che le raccolte devono esistere prima che il processo di analisi di flusso sia avviato e non verranno create automaticamente.</td>
+</tr>
+<tr>
+<td>Chiave di partizione</td>
+<td>Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte.</td>
+</tr>
+<tr>
+<td>Document ID</td>
+<td>Il nome del campo negli eventi di output utilizzato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
@@ -232,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

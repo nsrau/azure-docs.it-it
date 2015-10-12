@@ -20,18 +20,18 @@
 
 Questo articolo illustra i passaggi per creare un circuito ExpressRoute tramite i cmdlet di PowerShell e il modello di distribuzione classica. I passaggi che seguono descrivono anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
+>[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md)
 
 ## Prerequisiti di configurazione
 
-- È necessaria l'ultima versione dei moduli Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina dei download di Azure](http://azure.microsoft.com/downloads). Per istruzioni dettagliate su come configurare il computer per l'uso dei moduli Azure PowerShell, seguire le istruzioni contenute nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
+- Sarà necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare il modulo PowerShell più recente dalla sezione relativa a PowerShell della [pagina dei download di Azure](http://azure.microsoft.com/downloads). Per istruzioni dettagliate su come configurare il computer per l'uso dei moduli Azure PowerShell, seguire le istruzioni contenute nella pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). 
 - Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md) e ai [flussi di lavoro](expressroute-workflows.md).
 
 ## Creare un circuito ExpressRoute ed eseguirne il provisioning
 
 1. **Importare il modulo PowerShell per ExpressRoute.**
 
- 	Per iniziare a usare i cmdlet di ExpressRoute, è necessario importare i moduli Azure ed ExpressRoute nella sessione di PowerShell. Eseguire questi comandi per importare i moduli Azure ed ExpressRoute nella sessione di PowerShell.
+ 	Per iniziare a usare i cmdlet per ExpressRoute, è necessario importare i moduli di Azure ed ExpressRoute nella sessione di PowerShell. Eseguire questi comandi per importare i moduli Azure ed ExpressRoute nella sessione di PowerShell.
 
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -324,4 +324,4 @@ Se il provider di servizi ha eseguito il deprovisioning del circuito (stato di p
 - [Configurare il routing di ExpressRoute (gestione dei peering del circuito)](expressroute-howto-routing-classic.md)
 - [Collegare le reti virtuali a un circuito ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

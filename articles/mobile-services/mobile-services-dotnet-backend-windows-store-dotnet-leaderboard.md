@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creazione di un'app Leaderboard per Windows Store con un back-end .NET | Microsoft Azure" 
+	pageTitle="Creazione di un'app Leaderboard per Windows Store con un back-end .NET | Servizi mobili di Azure" 
 	description="Informazioni su come compilare un'app Leaderboard per Windows Store mediante Servizi mobili di Azure con un back-end .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/24/2015" 
 	ms.author="glenga"/>
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
@@ -762,4 +762,4 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

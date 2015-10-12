@@ -30,7 +30,7 @@ I comandi di esempio infrastruttura CLI di Azure riportati di seguito prevedono 
 ## Come specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale.
 Per creare una nuova VM denominata *DNS01* in un nuovo servizio cloud denominato *TestService* in base allo scenario precedente, attenersi alla seguente procedura:
 
-1. Se non è mai stata utilizzata l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 1. Eseguire il **azure service create** per creare il servizio cloud.
 
 		azure service create TestService --location uscentral
@@ -115,4 +115,4 @@ Output previsto:
 - Informazioni sugli indirizzi [IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

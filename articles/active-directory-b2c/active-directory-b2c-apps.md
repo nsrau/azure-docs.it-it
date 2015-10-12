@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Tipi di applicazioni
@@ -124,8 +124,8 @@ Anche le app che contengono processi a esecuzione prolungata o che funzionano se
 Questo flusso non è attualmente supportato da Azure AD B2C, ossia le app possono ottenere i token solo dopo che si è verificato un flusso utente interattivo. Il flusso delle credenziali client verrà aggiunto in futuro.
 
 ### Catene di API Web (On-Behalf-Of)
-Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD. Questo scenario è comune nei client nativi che dispongono di un back-end dell'API Web, che a sua volta chiama un servizio Microsoft Online come l'API Graph di Azure AD.
+Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che dispongono di un back-end dell'API Web, che a sua volta chiama un servizio Microsoft Online come l'API Graph di Azure AD.
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Azure AD B2C.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="09/28/2015" 
 	ms.author="tamram;selcint"/>
 
 # Introduzione a Azure Storage in cinque minuti 
@@ -107,4 +107,4 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

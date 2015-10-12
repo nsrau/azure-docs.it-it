@@ -338,7 +338,7 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[clisetup]: ../xplat-cli.md
+[clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

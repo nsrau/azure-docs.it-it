@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-api"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
@@ -50,4 +50,4 @@ Quando le istruzioni richiedono l'immissione di un nome per il progetto, specifi
 
 L'app per le API è ora pronta per essere distribuita e a questo scopo è possibile seguire l'esercitazione [Distribuire un'app per le API](app-service-dotnet-deploy-api-app.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

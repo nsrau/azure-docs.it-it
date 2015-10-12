@@ -64,10 +64,6 @@ In questa sezione, si userà un'applicazione client Web di esempio implementata 
 
     ![Vista dell'app per dispositivi mobili Xamarin](./media/app-service-mobile-dotnet-backend-web-and-mobile/xamarin-ios-quickstart-device.png)
 
-## Passaggi successivi
-
-In questo esempio è stato illustrato come usare lo stesso database di base per un'app con un client mobile e un client del sito Web. In questo caso, non vi era alcuna logica di business nel back-end che si voleva riutilizzare tra i due client. Pertanto, è stato sufficiente condividere semplicemente lo stesso database. Nella prossima esercitazione, si apprenderà come aggiungere logica di business all'API Web e come riutilizzare tale logica nel codice back-end dell'app mobile.
-
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -77,4 +73,4 @@ In questo esempio è stato illustrato come usare lo stesso database di base per 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Creare un'app per dispositivi mobili]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

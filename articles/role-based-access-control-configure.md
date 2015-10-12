@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Controllo degli accessi in base al ruolo nel portale di Microsoft Azure"
 	description="Descrive le modalità di configurazione e utilizzo del controllo di accesso basato sui ruoli"
-	services=""
+	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
@@ -1275,7 +1275,7 @@ Nome del ruolo | Descrizione
 Di seguito sono riportate altre risorse utili per l'uso del controllo degli accessi in base al ruolo:
 
 + [Gestione del controllo di accesso basato sui ruoli con Windows PowerShell](role-based-access-control-powershell.md)
-+ [Gestione del controllo di accesso basato sui ruoli con XPLAT CLI](role-based-access-control-xplat-cli.md)
++ [Gestione del controllo di accesso basato sui ruoli con XPLAT CLI](role-based-access-control-xplat-cli-install.md)
 + [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory Premium e Basic](active-directory-editions.md)
 + [Come vengono associate le sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md)
@@ -1293,4 +1293,4 @@ Di seguito sono riportate altre risorse utili per l'uso del controllo degli acce
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare dati da e verso le tabelle di Azure | Data factory di Azure"
-	description="Informazioni su come spostare i dati da e verso l'archiviazione tabelle di Azure mediante Data factory di Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Spostare dati da e verso le tabelle di Azure | Data factory di Azure" 
+	description="Informazioni su come spostare i dati da e verso l'archiviazione tabelle di Azure mediante Data factory di Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
@@ -370,8 +370,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Usare la query personalizzata per leggere i dati. | Stringa di query della tabella di Azure. Esempio: **ColumnA eq ValueA** | No
-azureTableSourceIgnoreTableNotFound | Indica se ignorare l'eccezione di tabella inesistente. | TRUE<br/>FALSE | No |
+azureTableSourceQuery | Usare la query personalizzata per leggere i dati. | <p>Stringa di query di tabella di Azure.</p>**Esempi:****<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | No azureTableSourceIgnoreTableNotFound | Indicare se l’assorbimento dell’eccezione della tabella non esiste. | TRUE<br/>FALSE | No |
 
 **AzureTableSink** supporta le seguenti proprietà della sezione typeProperties:
 
@@ -389,7 +388,7 @@ writeBatchTimeout | Inserisce i dati nella tabella di Azure quando viene raggiun
 
 ### Mapping dei tipi per tabelle di Azure
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi.
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -485,4 +484,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

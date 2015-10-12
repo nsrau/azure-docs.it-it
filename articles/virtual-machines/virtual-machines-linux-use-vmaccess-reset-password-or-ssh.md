@@ -37,7 +37,7 @@ Per reimpostare il nome e la password dell'account utente con privilegi sudo o l
 È necessario quanto segue:
 
 - Agente Linux di Microsoft Azure versione 2.0.5 o successive. La maggior parte delle immagini Linux nella raccolta di macchine virtuali include la versione 2.0.5. Per verificare la versione installata, eseguire **waagent -version**. Per aggiornare l'agente, attenersi alle istruzioni presenti nella [Guida dell'utente dell'agente Linux di Azure].
-- Interfaccia della riga di comando di Azure (CLI) Per ulteriori informazioni sull'impostazione dell’interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+- Interfaccia della riga di comando di Azure (CLI) Per ulteriori informazioni sull'impostazione dell’interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 - Azure PowerShell. I comandi disponibili nel cmdlet Set-AzureVMExtension verranno usati per caricare e configurare automaticamente l'estensione VMAccessForLinux. Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell].
 - Una nuova password o un set di chiavi SSH da reimpostare. Queste non saranno necessarie se si vuole reimpostare la configurazione di SSH.
 
@@ -263,4 +263,4 @@ Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 [Estensioni VM e funzionalità di Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connettersi a una macchina virtuale di Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

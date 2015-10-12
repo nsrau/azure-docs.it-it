@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Eseguire il backup di un'app Web nel servizio app di Azure" 
 	description="Informazioni sulla creazione dei backup delle app Web nel servizio app di Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -142,7 +142,7 @@ I passaggi seguenti illustrano come escludere tali file dal backup.
 
 2. Creare un file denominato `_backup.filter` e inserire l'elenco precedente nel file, ma rimuovere `D:\home`. Elencare una directory o un file per ogni riga. Il contenuto del file dovrebbe essere analogo al seguente:
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. Caricare questo file nella directory `D:\home\site\wwwroot` del sito usando [ftp](web-sites-deploy.md#ftp) o qualsiasi altro metodo. Se si vuole, è possibile creare il file direttamente in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e inserire i contenuti nel file.
 
@@ -222,4 +222,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

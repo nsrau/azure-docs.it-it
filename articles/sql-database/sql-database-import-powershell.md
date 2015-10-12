@@ -150,4 +150,4 @@ L’esecuzione di questo comando richiede una password. Immettere l’account di
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

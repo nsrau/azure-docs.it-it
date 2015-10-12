@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Distribuire un'app Web nel servizio app di Azure"
 	description="Informazioni sui metodi disponibili per la distribuzione di contenuti nelle app Web."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,60 +20,37 @@
 
 ## Panoramica
 
-Sono disponibili numerose opzioni per distribuire i contenuti in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). In questo argomento vengono forniti una breve panoramica di ogni opzione e i collegamenti per visualizzare ulteriori informazioni.
-
-
-###<a name="cloud"></a>Distribuire da un sistema di controllo del codice sorgente ospitato nel cloud
+Questo argomento fornisce una breve panoramica delle opzioni per la distribuzione di contenuti per [il servizio di app Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Il miglior modo per distribuire un'app Web consiste nell'impostare un [flusso di lavoro di recapito continuo](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrato nel proprio [sistema di controllo del codice sorgente](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). L'automazione rende non solo più efficiente il processo di sviluppo, ma anche più gestibili e affidabili i processi di backup e ripristino.
 
-Qualora non sia ancora stato impostato il controllo del codice sorgente, il modo più semplice per iniziare consiste nell'utilizzare un sistema di controllo del codice sorgente ospitato sul cloud.
+Per informazioni sulla distribuzione dai sistemi di controllo del codice sorgente ospitato nel cloud, vedere le sezioni seguenti più avanti in questo articolo.
 
 * [Visual Studio Online](#vso)
 * [Siti Web di repository con Git](#git)
 * [Siti Web di repository con Mercurial](#mercurial)
 * [Dropbox](#dropbox)
 
-###<a name="ide"></a>Distribuzione da un IDE
-
-[Visual Studio](http://www.visualstudio.com/) e [WebMatrix](http://www.microsoft.com/web/webmatrix/) sono ambienti di sviluppo integrato IDE (Integrated Development Environment) di Microsoft che è possibile utilizzare per lo sviluppo Web. Entrambi offrono funzionalità incorporate che facilitano la distribuzione nelle app Web. Entrambi sono in grado di utilizzare [Distribuzione Web](http://www.iis.net/downloads/microsoft/web-deploy) per automatizzare ulteriori attività di distribuzione correlate, ad esempio la distribuzione di database e le modifiche alla stringa di connessione. Entrambi possono inoltre eseguire la distribuzione mediante [FTP o FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
-
-WebMatrix è rapido da installare e facile da usare, ma Visual Studio offre molte più funzionalità per gestire le app Web. Dall'IDE di Visual Studio è possibile creare, arrestare, avviare ed eliminare le app Web, visualizzare i log creati in tempo reale, eseguire il debug in remoto e molto altro. Visual Studio si integra inoltre con i sistemi di controllo del codice sorgente come [Visual Studio Online](#vso), [Team Foundation Server](#tfs) e [Repository Git](#git).
-
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
-
-###<a name="ftp"></a>Distribuire mediante un'utilità FTP
-
-Indipendentemente dall'IDE in uso, è possibile distribuire il contenuto nell'app utilizzando un'utilità [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per copiare i file. È facile creare credenziali FTP per un'app Web e usarle in qualsiasi applicazione che funzioni con il protocollo FTP, inclusi i browser come Internet Explorer e le utilità complete e gratuite come [FileZilla](https://filezilla-project.org/). App Web supporta anche il protocollo FTPS, più sicuro.
-
-Sebbene sia semplice copiare i file dell'app Web in Azure mediante le utilità FTP, queste non gestiscono né coordinano automaticamente le attività di distribuzione correlate, quali la distribuzione di un database o la modifica delle stringhe di connessione. Inoltre, molti strumenti FTP non confrontano i file di origine e di destinazione in modo da saltare la copia dei file che non hanno subito modifiche. Per le app di grandi dimensioni, l'operazione di copia di tutti i file può causare tempi di distribuzione prolungati anche per gli aggiornamenti di entità minore, dal momento che vengono copiati tutti i file.
-
-###<a name="onpremises"></a>Distribuzione da un sistema di controllo del codice sorgente locale
-
-Se si utilizza TFS, Git o Mercurial in un repository locale (non ospitato sul cloud), è possibile eseguire la distribuzione direttamente dal repository nell'app Web.
+Per informazioni sulla distribuzione dai sistemi di controllo del codice sorgente locale, vedere le sezioni seguenti più avanti in questo articolo.
 
 * [Team Foundation Server (TFS)](#tfs)
 * [Repository Git o Mercurial locali](#onpremises)
 
-###<a name="commandline"></a>Distribuire utilizzando gli strumenti della riga di comando e l'API REST per la gestione di Azure
+È inoltre possibile automatizzare la distribuzione utilizzando gli strumenti da riga di comando. Per informazioni sulla distribuzione tramite strumenti della linea di comando, vedere le sezioni seguenti più avanti in questo articolo.
 
-È sempre buona norma automatizzare il flusso di lavoro di sviluppo, ma qualora non fosse possibile farlo direttamente nel proprio sistema di controllo del codice sorgente è possibile configurarlo manualmente mediante gli strumenti da riga di comando. Ciò implica in genere l'utilizzo di più strumenti o framework, in quanto la distribuzione spesso richiede l'esecuzione di funzioni di gestione del sito oltre alla copia dei contenuti.
-
-Azure semplifica le attività di gestione del sito che è necessario portare a termine per la distribuzione fornendo un'API REST per la gestione e diversi framework che semplificano l'elaborazione con l'API.
-
-* [FTP](#ftp)
 * [MSBuild](#msbuild)
-* [Script FTP](#ftp2)
+* [Strumenti FTP e script](#ftp)
 * [Windows PowerShell](#powershell)
 * [API di gestione .NET](#api)
 * [Interfaccia della riga di comando di Azure](#cli)
 * [Riga di comando di Distribuzione Web](#webdeploy)
  
-###<a name="octopus"></a>Octopus Deploy
+In alcuni casi è preferibile distribuire dall'ambiente di sviluppo integrato (IDE). Per informazioni sulla distribuzione da un IDE, vedere le sezioni seguenti più avanti in questo articolo.
 
-Con App Web del servizio app di Azure è possibile usare [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Per altre informazioni, vedere l'articolo relativo alla [distribuzione di applicazioni ASP.NET in Siti Web di Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+* [Visual Studio](#vs)
+* [WebMatrix](#webmatrix)
 
+Un'altra opzione di distribuzione consiste nell'utilizzare un servizio basato su cloud, ad esempio [Distribuzione Octopus](http://en.wikipedia.org/wiki/Octopus_Deploy). Per altre informazioni, vedere l'articolo relativo alla [distribuzione di applicazioni ASP.NET in Siti Web di Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -154,7 +131,6 @@ Per ulteriori informazioni, vedere le risorse seguenti:
 * [Forum di Azure per Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 * Post sulla [distribuzione di DUE siti Web in Azure da un solo repository Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx) nel blog di Scott Hanselman.
 
-
 ##<a name="msbuild"></a>MSBuild
 
 Se si utilizza l'[IDE di Visual Studio](#vs) per lo sviluppo è possibile servirsi di [MSBuild](http://msbuildbook.com/) per automatizzare qualsiasi operazione nell'IDE. È possibile configurare MSBuild in modo da utilizzare [Distribuzione Web](#webdeploy) oppure [FTP/FTPS](#ftp) per copiare i file. Distribuzione Web consente inoltre di automatizzare molte altre attività relative alla distribuzione, ad esempio la distribuzione dei database.
@@ -164,9 +140,11 @@ Per ulteriori informazioni sulla distribuzione da riga di comando, vedere le ris
 * [Distribuzione Web ASP.NET con Visual Studio: distribuzione da riga di comando](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). Decima di una serie di esercitazioni sulla distribuzione in Azure con Visual Studio. Contiene informazioni su come utilizzare la riga di comando per eseguire la distribuzione dopo aver configurato i profili di pubblicazione in Visual Studio.
 * [Inside the Microsoft Build Engine: Using MSBuild and Team Foundation Build](http://msbuildbook.com/). Libro paperback che contiene alcuni capitoli su come utilizzare MSBuild per la distribuzione.
 
-##<a name="ftp2"></a>Script FTP
+##<a name="ftp"></a>Strumenti FTP e script
 
-È facile creare credenziali [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per un'app Web e usarle con gli script batch FTP.
+È possibile distribuire il contenuto per l'applicazione utilizzando [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per copiare i file. È facile creare credenziali FTP per un'app Web e usarle negli script o nelle applicazioni che funzionino con il protocollo FTP, inclusi i browser come Internet Explorer e le utilità complete e gratuite come [FileZilla](https://filezilla-project.org/). App Web supporta anche il protocollo FTPS, più sicuro.
+
+Sebbene sia semplice copiare i file dell'app Web in Azure mediante le utilità FTP, queste non gestiscono né coordinano automaticamente le attività di distribuzione correlate, quali la distribuzione di un database o la modifica delle stringhe di connessione. Inoltre, molti strumenti FTP non confrontano i file di origine e di destinazione in modo da saltare la copia dei file che non hanno subito modifiche. Per le app di grandi dimensioni, l'operazione di copia di tutti i file può causare tempi di distribuzione prolungati anche per gli aggiornamenti di entità minore, dal momento che vengono copiati tutti i file.
 
 Per altre informazioni, vedere la risorsa seguente:
 
@@ -227,4 +205,4 @@ Per informazioni su altri argomenti relativi alla distribuzione, vedere la relat
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/24/2015"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: come inviare richieste di supporto per Azure Active Directory B2C
@@ -23,7 +23,7 @@
 È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di anteprima di Azure attenendosi alla procedura seguente:
 
 1. Passare al pannello delle funzionalità B2C nel [portale di anteprima di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Passare dalla directory B2C in un'altra directory a cui è associata una sottoscrizione di Azure. In genere, questa è la directory di dipendente o la directory predefinita creata automaticamente quando è stata effettuata l'iscrizione per una sottoscrizione di Azure. Leggere [questo articolo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) per ulteriori informazioni sulla relazione tra le sottoscrizioni di Azure e le directory di Azure AD.
+2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata effettuata l'iscrizione per una sottoscrizione di Azure. Leggere [questo articolo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) per ulteriori informazioni sulla relazione tra le sottoscrizioni di Azure e le directory di Azure AD.
 
     > [AZURE.IMPORTANT]Questo passaggio è obbligatorio. Il processo avrà esito negativo se non si esegue questo passaggio.
 
@@ -38,16 +38,16 @@
     - Il **Tipo di richiesta** è **Tecnica**.
 	- La **Risorsa** è **Active Directory**.
 	- Nel pannello **Categoria del problema**, selezionare **Anteprima B2C** come **Tipo di problema** e la **Categoria** appropriata.
-	- Nel pannello **Descrizione**, descrivere il problema con i dettagli. Nella casella di testo **Risorse** immettere il nome della directory B2C, ad esempio contosob2c.onmicrosoft.com.
+	- Nel pannello **Descrizione**, descrivere il problema con i dettagli. Nella casella di testo **Risorse** immettere il nome del tenant B2C, ad esempio contosob2c.onmicrosoft.com.
 
 5. Dopo aver inviato la richiesta di supporto, è possibile monitorarla facendo clic su **Guida + supporto** nella schermata iniziale, quindi su **Gestisci le richieste di supporto**.
 
-## Problema noto: invio di una richiesta di supporto nel contesto di una Directory B2C
+## Problema noto: invio di una richiesta di supporto nel contesto di un Tenant B2C
 
-Se non è stato svolto il passaggio 2 precedente e si tenta di creare una richiesta di supporto nel contesto della directory B2C, verrà visualizzato il seguente errore.
+Se non è stato svolto il passaggio 2 precedente e si tenta di creare una richiesta di supporto nel contesto del tenant B2C, verrà visualizzato il seguente errore.
 
-> [AZURE.IMPORTANT]Non tentare di effettuare l'iscrizione per una nuova sottoscrizione di Azure nella directory B2C.
+> [AZURE.IMPORTANT]Non tentare di effettuare l'iscrizione per una nuova sottoscrizione di Azure nel tenant B2C.
 
 ![Supporto - Nessuna sottoscrizione](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

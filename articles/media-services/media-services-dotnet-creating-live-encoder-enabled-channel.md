@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/29/2015"
 	ms.author="juliako"/>
 
 
-#Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit (anteprima)
+#Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -37,32 +37,27 @@ Questa esercitazione illustra i passaggi per creare un **canale** che riceve un 
 I seguenti passaggi descrivono le attività relative alla creazione di applicazioni comuni di streaming live.
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a velocità in bit singola in uno dei protocolli seguenti: RTMP, Smooth Streaming o RTP (MPEG-TS). Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	Questa operazione può essere eseguita anche dopo la creazione del canale.
+
+Questa operazione può essere eseguita anche dopo la creazione del canale.
 
 1. Creare e avviare un canale.
 
 1. Recuperare l'URL di inserimento del canale.
 
-	L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-1. Recuperare l'URL di anteprima del canale. 
+L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale. 1. Recuperare l'URL di anteprima del canale.
 
-	Usare questo URL per verificare che il canale riceva correttamente il flusso live.
+Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 
 2. Creare un asset.
-3. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura: 	
-	
-	1. 	Creare una chiave simmetrica. 
-	1. 	Configurare i criteri di autorizzazione della chiave simmetrica.
+3. Se si desidera che l'asset sia crittografato in modo dinamico durante la riproduzione, seguire questa procedura:
+
+1. 	Creare una chiave simmetrica.
+1. 	Configurare i criteri di autorizzazione della chiave simmetrica.
 1. Configurare i criteri di distribuzione degli asset (usati per la creazione dinamica dei pacchetti e la crittografia dinamica).
 3. Creare un programma e specificare di usare l'asset creato.
-1. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.  
+1. Pubblicare l'asset associato al programma creando un localizzatore OnDemand.
 
-	Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
-1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
-2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
-1. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
-1. Eliminare il programma e, facoltativamente, eliminare l'asset.   
+Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming. 1. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione. 2. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output. 1. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento. 1. Eliminare il programma e, facoltativamente, eliminare l'asset.
 
 ##Contenuto dell'argomento
 
@@ -72,15 +67,15 @@ Questo argomento illustra come eseguire le operazioni seguenti:
 
 1. Creare e avviare un canale. Vengono usate API con esecuzione prolungata.
 1. Ottenere l'endpoint di inserimento (input) del canale. L'endpoint deve essere fornito al codificatore che invia un flusso live a velocità in bit singola.
-1. Ottenere l'endpoint di anteprima. Questo endpoint viene usato per visualizzare il flusso in anteprima. 
+1. Ottenere l'endpoint di anteprima. Questo endpoint viene usato per visualizzare il flusso in anteprima.
 1. Creare un asset che verrà usato per archiviare il contenuto. È necessario configurare anche i criteri di distribuzione degli asset, come illustrato in questo esempio.
 1. Creare un programma e specificare l'uso dell'asset creato in precedenza. Avviare il programma. Vengono usate API con esecuzione prolungata.
 1. Creare un localizzatore per l'asset in modo che il contenuto venga pubblicato e possa essere trasmesso in streaming ai client.
 1. Mostrare e nascondere slate. Avviare e arrestare annunci. Vengono usate API con esecuzione prolungata.
 1. Pulire il canale e tutte le risorse associate.
 
->[AZURE.NOTE]Quando questa funzionalità è in anteprima, la durata massima consigliata di un evento live è 8 ore.
->
+>[AZURE.NOTE]La durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft punto com.
+
 ##Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
@@ -90,7 +85,7 @@ Per completare l'esercitazione è necessario quanto segue.
 - Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
 
 ##Configurare lo sviluppo con Media Services SDK per .NET
- 
+
 1. Creare un'applicazione console con Visual Studio.
 1. Aggiungere Media Services SDK per .NET all'applicazione console usando il pacchetto NuGet Media Services.
 
@@ -98,17 +93,11 @@ Per completare l'esercitazione è necessario quanto segue.
 Come procedura consigliata, usare un file app.config per archiviare il nome e la chiave dell'account di Servizi multimediali.
 
 >[AZURE.NOTE]Per trovare i valori relativi a nome e chiave, passare al portale di Azure, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
- 
+
 Aggiungere una sezione appSettings al file app.config e impostare i valori per il nome e la chiave dell'account di Servizi multimediali.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 
@@ -508,4 +497,4 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -50,6 +50,10 @@ Si ottiene un messaggio di posta elettronica quando un avviso modifica lo stato 
 
 Lo stato corrente di ogni avviso viene visualizzato nel pannello delle regole di avviso.
 
+Esiste un riepilogo delle attività recente negli avvisi dell’elenco a discesa:
+
+![](./media/app-insights-alerts/010-alert-drop.png)
+
 La cronologia delle modifiche di stato è nel registro eventi di operazioni:
 
 ![Nella parte inferiore del pannello Panoramica fare clic su 'Eventi nell'ultima settimana'](./media/app-insights-alerts/09-alerts.png)
@@ -57,6 +61,27 @@ La cronologia delle modifiche di stato è nel registro eventi di operazioni:
 *Questi "eventi" sono correlati a eventi di telemetria o a eventi personalizzati?*
 
 * No. Questi eventi operativi sono semplicemente un log delle operazioni che si sono verificate in questa risorsa dell'applicazione. 
+
+
+## Il funzionamento degli avvisi
+
+* Un avviso dispone di due stati: "avviso" e "integro". 
+
+* Quando un avviso modifica lo stato, viene inviato un messaggio di posta elettronica.
+
+* Un avviso viene valutato ogni volta che arriva una metrica, ma non in caso contrario.
+
+* La valutazione aggrega la metrica per il periodo precedente e quindi viene confrontata con la soglia per determinare il nuovo stato.
+
+* Il periodo che si sceglie specifica l'intervallo in cui vengono aggregate le metriche. Non influisce sulla frequenza con cui viene valutato l'avviso: ciò dipende dalla frequenza di arrivo delle metriche.
+
+* Se nessun dato arriva per una determinata metrica per un periodo di tempo, il divario dispone di diversi effetti sulla valutazione dell'avviso e sui grafici nelle soluzioni di metrica. In Esplora metrica, se non viene visualizzato alcun dato per più di un intervallo di campionamento del grafico, il grafico mostrerà un valore pari a 0. Ma un avviso basato sulla metrica stessa non verrà valutato nuovamente e lo stato dell'avviso rimarrà invariato.
+
+    Quando alla fine arrivano i dati, il grafico verrà riportato su un valore diverso da zero. L'avviso verrà valutato in base ai dati disponibili per il periodo specificato. Se il nuovo punto dati è l'unico disponibile nel periodo, la funzione di aggregazione si baserà solo su di esso.
+
+* Un avviso può spesso subire uno sfarfallio tra gli stati di avviso e quelli integri, anche se si imposta un lungo periodo. Questa situazione può verificarsi se il valore della metrica si aggira intorno alla soglia. Non esiste alcun isteresi nella soglia: la transizione all’avviso si verifica con lo stesso valore della transizione allo stato integro.
+
+
 
 ## Avvisi di disponibilità
 
@@ -69,8 +94,9 @@ Dipende dall'applicazione. Per cominciare, è consigliabile non impostare un num
 Tra gli avvisi più diffusi sono compresi:
 
 * I [test Web][availability] che sono importanti se l'applicazione è un sito Web o un servizio Web visibile sulla rete Internet pubblica. Indicano se il sito è inattivo o se risponde lentamente, anche se è un problema del gestore telefonico anziché dell'app. Sono tuttavia test sintetici, per cui non misurano l'esperienza effettiva degli utenti.
-* Le [metriche del browser][client], soprattutto i tempi di caricamento delle pagine del browser, che sono ideali per le applicazioni Web. Se la pagina presenta molti script, è opportuno fare attenzione alle eccezioni del browser. Per ottenere queste metriche e avvisi, è necessario configurare il [monitoraggio delle pagine Web][client].
-* Il tempo di risposta del server e le richieste non riuscite per il lato server delle applicazioni Web. Oltre a impostare gli avvisi, prestare attenzione a queste metriche per vedere se variano in modo sproporzionato con frequenza delle richieste elevata: questa situazione potrebbe indicare che l'app sta esaurendo le risorse.
+* Le [metriche del browser][client], soprattutto i **tempi di caricamento delle pagine** del browser, che sono ideali per le applicazioni Web. Se la pagina presenta molti script, è opportuno fare attenzione alle **eccezioni browser**. Per ottenere queste metriche e avvisi, è necessario configurare il [monitoraggio delle pagine Web][client].
+* Il **tempo di risposta del server** e le **richieste non riuscite** per il lato server delle applicazioni Web. Oltre a impostare gli avvisi, prestare attenzione a queste metriche per vedere se variano in modo sproporzionato con frequenza delle richieste elevata: questa situazione potrebbe indicare che l'app sta esaurendo le risorse.
+* **Eccezioni server** - per visualizzarle, è necessario effettuare alcune [impostazioni aggiuntive](app-insights-asp-net-exceptions.md).
 
 ## Impostare avvisi tramite PowerShell
 
@@ -191,4 +217,4 @@ richiesta,<br/>requestFailed|[Richiesta server](app-insights-configuration-with-
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

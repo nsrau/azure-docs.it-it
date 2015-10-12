@@ -61,7 +61,7 @@ Per scalabilità verticale si intende l’aumento o la riduzione del livello del
 
 La maggior parte delle applicazioni di database su scala cloud utilizzano una combinazione di questi due strategie. Un'applicazione di software come servizio può, ad esempio, utilizzare la scalabilità orizzontale per eseguire il provisioning di nuovi clienti finali e la scalabilità verticale per consentire l’espansione o la riduzione delle risorse del database di ogni cliente finale in base alle esigenze del carico di lavoro.
 
-* La scalabilità orizzontale è gestita tramite la [Libreria client di database elastici](sql-database-elastic-client-overview.md).
+* La scalabilità orizzontale è gestita tramite la [Libreria client di database elastici](sql-database-elastic-database-client-library.md).
 
 * La scalabilità verticale viene eseguita utilizzando i cmdlet di Azure PowerShell per modificare il livello di servizio, o posizionando i database in un pool di database elastici.
 
@@ -85,13 +85,13 @@ Alcune applicazioni usano l'approccio più semplice di creare un database separa
 Altri scenari prevedono di riunire più tenant all'interno dei database, anziché isolarli in database separati. Si tratta di un **modello di partizionamento orizzontale multi-tenant** tipico e la scelta di un modello di questo tipo può essere dovuta al fatto che un'applicazione gestisce un numero elevato di tenant di dimensioni molto limitate. Nel partizionamento orizzontale multi-tenant, tutte le righe delle tabelle di database sono progettate per contenere una chiave che identifica l'ID tenant o una chiave di partizionamento orizzontale. Anche in questo caso, il livello applicazione è responsabile dell'instradamento delle richieste del tenant al database appropriato e questo può essere supportato dalla libreria client dei database elastici. Inoltre, la sicurezza a livello di riga può essere utilizzata per filtrare le righe a cui ogni tenant può accedere: per informazioni dettagliate, vedere [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md). Con lo schema di partizionamento orizzontale multi-tenant potrebbe essere necessaria la ridistribuzione dei dati tra database e questa operazione è facilitata dallo strumento di suddivisione-unione dei database elastici.
 
 ### Spostare i dati da database a più tenancy a database a singolo tenancy
-Quando si crea un'applicazione SaaS, in genere ai clienti potenziali viene offerta una versione di valutazione del software. In questo caso, è conveniente utilizzare un database multi-tenant per i dati. Tuttavia, quando un potenziale cliente diventa un cliente reale, è consigliabile utilizzare un database single-tenant, poiché garantisce prestazioni migliori. Se il cliente ha creato dati durante il periodo di valutazione, utilizzare lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge) per spostare i dati dal database multi-tenant al nuovo database single-tenant.
+Quando si crea un'applicazione SaaS, in genere ai clienti potenziali viene offerta una versione di valutazione del software. In questo caso, è conveniente utilizzare un database multi-tenant per i dati. Tuttavia, quando un potenziale cliente diventa un cliente reale, è consigliabile utilizzare un database single-tenant, poiché garantisce prestazioni migliori. Se il cliente ha creato dati durante il periodo di valutazione, utilizzare lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md) per spostare i dati dal database multi-tenant al nuovo database single-tenant.
 
 ## Passaggi successivi
 
 Per un'applicazione di esempio che illustra la libreria client, vedere [Introduzione agli strumenti del database elastico](sql-database-elastic-scale-get-started.md).
 
-Per usare il servizio di suddivisione-unione, è necessario [configurare la sicurezza](sql-database-elastic-scale-split-merge-security-configuration,md).
+Per usare il servizio di suddivisione-unione, è necessario [configurare la sicurezza](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Per visualizzare le specifiche del pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) o creare un nuovo pool con l’[esercitazione](sql-database-elastic-pool-portal.md).
 
@@ -108,4 +108,4 @@ Cosa si può fare meglio? Questo argomento spiega chiaramente la funzionalità? 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/28/2015"
 	ms.author="jgao"/>
 
 
@@ -62,7 +62,7 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 
 L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare dati nell'archivio BLOB di Azure, seguire questa procedura:
 
-1. [Installare e configurare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md).
+1. [Installare e configurare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md).
 
 2. Aprire un prompt dei comandi, una sessione Bash o un'altra shell e usare quanto riportato di seguito per eseguire l'autenticazione alla sottoscrizione di Azure.
 
@@ -96,9 +96,9 @@ L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma c
 
 > [AZURE.NOTE]Se si userà sempre lo stesso account di archiviazione, anziché specificare l'account e la chiave per ogni comando è possibile impostare le variabili di ambiente seguenti:
 >
-> * **AZURE_STORAGE_ACCOUNT**: nome dell'account di archiviazione
+> * **AZURE\_STORAGE\_ACCOUNT**: nome dell'account di archiviazione
 >
-> * **AZURE_STORAGE_ACCESS_KEY**: chiave dell'account di archiviazione
+> * **AZURE\_STORAGE\_ACCESS\_KEY**: chiave dell'account di archiviazione
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -178,7 +178,7 @@ Esistono diverse applicazioni che forniscono un'interfaccia grafica per usare Ar
 
 | Client | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) | | | ✔ |
+| [Azure Storage Explorer](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
@@ -187,29 +187,27 @@ Esistono diverse applicazioni che forniscono un'interfaccia grafica per usare Ar
 
 ###<a id="storageexplorer"></a>Azure Storage Explorer
 
-*Azure Storage Explorer* è uno strumento utile per l'esame e la modifica dei dati nell'archivio di Azure. Si tratta di uno strumento gratuito che è possibile scaricare da CodePlex: [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+*Azure Storage Explorer* è uno strumento utile per l'esame e la modifica dei dati nei BLOB. Si tratta di uno strumento gratuito open-source che è possibile scaricare da [http://storageexplorer.com/](http://storageexplorer.com/). Anche il codice sorgente è disponibile da questo collegamento.
 
 Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'account di archiviazione di Azure. Per istruzioni sull'acquisizione di queste informazioni, vedere la sezione "Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" dell'articolo [Informazioni sugli account di archiviazione di Azure][azure-create-storage-account].
 
-1. Eseguire Azure Storage Explorer.
+1. Eseguire Azure Storage Explorer. Se questa è la prima volta che si esegue Esplora risorse, verrà richiesto il ___\_Nome account di archiviazione__ e la __Chiave account di archiviazione__. Se è stato eseguiti in precedenza, utilizzare il pulsante __Aggiungi__ per aggiungere un nuovo nome e chiave dell’account di archiviazione.
+
+    Immettere il nome e la chiave dell'account di archiviazione utilizzato dal cluster HDinsight e quindi selezionare __Salva e apri__.
 
 	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
-2. Fare clic su **Add Account**. Dopo l'aggiunta di un account ad Azure Storage Explorer, non è necessario ripetere questo passaggio.
+5. Nell'elenco dei contenitori a sinistra dell'interfaccia, fare clic sul nome del contenitore associato al cluster HDInsight. Per impostazione predefinita, questo è il nome del cluster HDInsight, ma potrebbe essere diverso se è stato immesso un nome specifico durante la creazione del cluster.
 
-	![HDI.ASEAddAccount][image-ase-addaccount]
+6. Sulla barra degli strumenti, selezionare l'icona di caricamento.
 
-3. Immettere il nome e la chiave dell'account di archiviazione rispettivamente nei campi **Storage account name** e **Storage account key** e quindi fare clic su **Add Storage Account**. È possibile aggiungere più account di archiviazione, ciascuno dei quali verrà visualizzato in una scheda.
+    ![Barra degli strumenti con icona di caricamento evidenziata](./media/hdinsight-upload-data/toolbar.png)
 
-4. In **Storage Type** fare clic su **Blobs**.
+7. Specificare un file da caricare e quindi fare clic su **Open**. Quando richiesto, selezionare __Carica__ per caricare il file nella directory principale del contenitore di archiviazione. Se si desidera caricare il file in un percorso specifico, immettere il percorso nel campo __Destinazione__, quindi selezionare __Carica__.
 
-	![HDI.ASEBlob][image-ase-blob]
-
-5. In **Container** fare clic sul nome del contenitore associato al cluster HDInsight. Quando si crea un cluster HDInsight è necessario specificare un contenitore. In caso contrario, il contenitore verrà creato automaticamente dal processo di creazione del cluster.
-
-6. In **Blob** fare clic su **Upload**.
-
-7. Specificare un file da caricare e quindi fare clic su **Open**.
+    ![Finestra di dialogo di caricamento file](./media/hdinsight-upload-data/fileupload.png)
+    
+    Dopo che il file ha terminato il caricamento, è possibile utilizzarlo dai processi nel cluster HDInsight.
 
 ##Montare l'archiviazione BLOB di Azure come unità locale
 
@@ -280,11 +278,11 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 
-[azurecli]: ../xplat-cli.md
+[azurecli]: ../xplat-cli-install.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

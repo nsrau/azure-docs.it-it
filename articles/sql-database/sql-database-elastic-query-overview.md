@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Argomenti degli strumenti di database elastici di database SQL di Azure"
-    description="Annuncia la funzionalità di query elastica"
-    metaKeywords="azure sql database elastic database queries"
+    description="Annuncia la funzionalità di query elastica"    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Panoramica di query (anteprima) di Database flessibile per il Database SQL Azure
 
@@ -81,7 +79,7 @@ Per descrivere le tabelle remote che è possibile accedere da un endpoint di que
 La funzionalità di query di Database elastica si basa su queste quattro istruzioni DDL. In genere, queste istruzioni DDL vengono utilizzate una sola volta o quando lo schema dell'applicazione vengono modificati raramente.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CREARE LE CREDENZIALI](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [CREARE UNA CREDENZIALE CON AMBITO DI DATABASE](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [CREARE/ELIMINARE ORIGINE DATI ESTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [ELIMINARE LA TABELLA ESTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -100,7 +98,7 @@ Informazioni sulle credenziali sono visibili nella vista del catalogo sys.databa
 
 Per eliminare la chiave master e le credenziali, è possibile utilizzare la sintassi seguente:
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### DROP EXTERNAL DATA SOURCE
@@ -267,4 +265,4 @@ Per iniziare a esplorare le query di Database elastico, provare la nostra eserci
 
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

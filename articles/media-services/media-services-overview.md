@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
 #Panoramica e scenari comuni di Servizi multimediali di Azure
@@ -22,12 +22,9 @@ Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile 
 
 È possibile creare flussi di lavoro end-to-end usando unicamente Servizi multimediali. È anche possibile usare componenti di terze parti per alcune parti del flusso di lavoro, ad esempio, la codifica con un codificatore di terze parti. Inoltre, sono possibili operazioni di caricamento, protezione, creazione di pacchetti e invio tramite Servizi multimediali.
 
-
-Il seguente poster illustra i flussi di lavoro di Servizi multimediali di Azure, dalla creazione dei contenuti multimediali fino alla loro fruizione. È possibile scaricare il poster da qui: [Azure Media Services poster](http://www.microsoft.com/download/details.aspx?id=38195).
-
-![Panoramica][overview]
-
 È possibile scegliere di riprodurre in streaming i propri contenuti live o distribuire contenuti su richiesta. In questo argomento vengono illustrati scenari comuni per la distribuzione del contenuto [live](media-services-overview.md#live_scenarios) o [su richiesta](media-services-overview.md#vod_scenarios). L'argomento contiene inoltre collegamenti ad altri argomenti rilevanti.
+
+## SDK e strumenti 
 
 Per creare soluzioni di Servizi multimediali, è possibile usare:
 
@@ -43,6 +40,10 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 - [Flusso di lavoro AMS Live Streaming](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flusso di lavoro AMS Streaming su richiesta](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Poster
+
+
+[Qui](http://azure.microsoft.com/documentation/infographics/media-services/) è possibile visualizzare il poster di servizi multimediali di Azure che raffigura i flussi di lavoro AMS, dalla creazione del supporto tramite il consumo.
 
 ##Prerequisiti
 
@@ -154,12 +155,12 @@ Quando si distribuiscono contenuti ai clienti, l'obiettivo è riuscire a trasmet
 
 In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live streaming è affidata a entità **Channel**, **Program** e **StreamingEndpoint**, compresi inserimento, formattazione, DVR, sicurezza, scalabilità e ridondanza.
 
-Un **Canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Attualmente, un canale può ricevere flussi di input live nel modo seguente:
+Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Attualmente, un canale può ricevere flussi di input live nel modo seguente:
 
 
 - Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
-	La codifica di un flusso live con Servizi multimediali è in **Anteprima**.
+	La codifica di un flusso live con Servizi multimediali è in **anteprima**.
 - Un codificatore live locale invia al canale un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster. I flussi inseriti passano attraverso il **canale** senza altre elaborazioni. Il codificatore live può inoltre inviare un flusso a velocità in bit singola a un canale non abilitato per la codifica live, ma questa operazione è sconsigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 
@@ -226,4 +227,4 @@ Il [supporto tecnico di Azure](http://azure.microsoft.com/support/options/) forn
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

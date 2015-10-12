@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Eseguire il provisioning di un'app Web che usa un database SQL" 
 	description="Usare un modello di Gestione risorse di Azure per distribuire un'app Web che include un database SQL." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -41,7 +41,7 @@ In questo modello, verrà distribuito quanto segue:
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parametri da specificare
 
@@ -452,4 +452,4 @@ Crea un nuovo database e server SQL. Il nome del server viene specificato nel pa
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

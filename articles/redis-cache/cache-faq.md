@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Domande frequenti sulla Cache Redis di Azure"
-	description="Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure."
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Domande frequenti sulla Cache Redis di Azure" 
+	description="Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure." 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -22,31 +22,43 @@ Risposte alle domande più comuni, modelli e procedure consigliate per la Cache 
 
 <a name="cache-size"></a>
 ## Quali offerte e dimensioni della Cache Redis è consigliabile usare?
-
 Ogni offerta della Cache Redis di Azure fornisce livelli diversi per le opzioni relative a **dimensioni**, **larghezza di banda**, **disponibilità elevata** e **Contratto di servizio**.
 
--	SKU Basic: nodo singolo, nessuna replica, nessun Contratto di servizio, dimensioni di cache da 250 MB a 53 GB.
--	SKU Standard: nodi primari/secondari con replica automatica, Contratto di servizio con disponibilità del 99,9%, dimensioni di cache da 250 MB a 53 GB.
+Di seguito alcune considerazioni per la scelta di un'offerta cache.
 
-Per ottenere la disponibilità elevata, scegliere l'offerta Standard per la cache, che include un Contratto di servizio con disponibilità del 99,9%. Per lo sviluppo e la creazione di prototipi o per scenari in cui il Contratto di servizio non è necessario, l'offerta Basic potrebbe essere appropriata.
+-	**Memoria**: i livelli Basic e Standard offrono 250 MB – 53 GB. Il livello Premium offre fino a 530 GB con ulteriore disponibilità [su richiesta](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/).
+-	**Prestazioni della rete**: in presenza di un carico di lavoro che richiede una velocità effettiva elevata, il livello Premium offre maggiore larghezza di banda rispetto a Standard o Basic. Anche all'interno di ogni livello, a dimensioni più grandi della cache corrisponde maggiore larghezza di banda, a causa della macchina virtuale sottostante che ospita la cache. Per altre informazioni, vedere la tabella seguente.
+-	**Velocità effettiva**: il livello Premium offre la massima velocità effettiva disponibile. Se il server o il client della cache raggiunge i limiti della larghezza di banda, si riceveranno timeout sul lato client. Per altre informazioni, vedere la tabella seguente.
+-	**Disponibilità elevata/contratto di servizio**: Cache Redis di Azure garantisce che una cache Standard/Premium (nessun contratto di servizio per il livello Premium fino al termine del periodo di anteprima) sarà disponibile per almeno il 99,9% del tempo. Per altre informazioni sul contratto di servizio, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/). Il contratto di servizio copre solo la connettività agli endpoint della cache. Il contratto di servizio non offre copertura per la protezione dalla perdita di dati. È consigliabile usare la funzionalità di persistenza dei dati Redis nel livello Premium per aumentare la resilienza contro la perdita di dati.
+-	**Persistenza dei dati Redis**: il livello Premium consente la persistenza dei dati della cache in un account di archiviazione di Azure. In una cache Basic/Standard tutti i dati vengono archiviati solo in memoria. In caso di problemi per l'infrastruttura sottostante esiste il rischio di una potenziale perdita di dati. È consigliabile usare la funzionalità di persistenza dei dati Redis nel livello Premium per aumentare la resilienza contro la perdita di dati. Cache Redis di Azure offre le opzioni RDB e AOF (presto disponibile) per la persistenza di Redis. Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
+-	**Cluster Redis**: se si desidera creare cache di dimensioni superiori a 53 GB o si desidera partizionare i dati tra più nodi Redis, è possibile usare la funzionalità di clustering Redis, disponibile nel livello Premium. Ogni nodo è costituito da una coppia di cache primaria/di replica per la disponibilità elevata. Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+-	**Protezione avanzata e isolamento della rete**: la distribuzione di Rete virtuale di Azure (VNET) offre maggiori sicurezza e isolamento per Cache Redis di Azure, nonché subnet, criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso. Per altre informazioni, vedere [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
+-	**Configurare Redis**: nei livelli Standard e Premium, è possibile configurare Redis per le notifiche di Keyspace.
+-	**Numero massimo di connessioni client**: il livello Premium offre il numero massimo di client che possono connettersi a Redis, con un numero maggiore di connessioni per cache di dimensioni più grandi. [Per altri dettagli, vedere la pagina relativa a prezzi](TODO).
+-	**Core dedicato per il server Redis**: nel livello Premium per tutte le dimensioni della cache è disponibile un core dedicato per Redis. Nei livelli Basic/Standard, per le dimensioni C1 e superiori è disponibile un core dedicato per il server Redis.
+-	Poiché **Redis è a thread singolo**, la disponibilità di più di due core non offre vantaggi ulteriori rispetto alla disponibilità di soli due core, ma in genere dimensioni di macchina virtuale maggiori hanno una larghezza di banda più elevata rispetto alle dimensioni minori. Se il server o il client della cache raggiunge i limiti della larghezza di banda, si riceveranno timeout sul lato client.
+-	**Miglioramenti delle prestazioni**: le cache nel livello Premium sono distribuite su hardware con processori più veloci e che offre migliori prestazioni rispetto al livello Basic o Standard. Le cache di livello Premium offrono una velocità effettiva più elevata e minori latenze.
 
-Le dimensioni della cache e la larghezza di banda sono mappate all'incirca alle dimensioni e alla larghezza di banda delle macchine virtuali che ospitano la cache. Le dimensioni pari a 250 MB per le offerte Basic e Standard sono ospitate in macchine virtuali di dimensioni molto piccole (A0), ospitate mediante core condivisi, mentre le altre dimensioni vengono ospitate mediante core dedicati. Le dimensioni di cache pari a 1 GB sono ospitate in macchine virtuali di dimensioni piccole (A1), a cui è associato un core virtuale dedicato, usato per gestire sia il sistema operativo che la Cache Redis. Le dimensioni di cache superiori vengono ospitate in istanze più grandi delle macchine virtuali, con più core virtuali dedicati.
+La tabella seguente mostra i valori massimi per la larghezza di banda osservati durante il test di diverse dimensioni di cache Standard e Premium usando `redis-benchmark.exe` da una macchina virtuale IaaS nell'endpoint della Cache Redis di Azure. Si noti che questi valori non sono garantiti e che non è disponibile alcun contratto di servizio per questi numeri, che dovrebbero essere tuttavia tipici. È consigliabile testare l'applicazione per determinare le dimensioni di cache ottimali per l'applicazione specifica.
 
-Se la cache ha una velocità effettiva elevata, scegliere dimensioni pari a 1 GB o superiori, in modo che la cache venga eseguita mediante core dedicati. Le dimensioni di cache pari a 1 GB sono ospitate in una macchina virtuale con un core, usato per gestire sia il sistema operativo che la cache. Le cache con dimensioni superiori a 1 GB vengono eseguite in macchine virtuali con più core e la Cache Redis usa un core dedicato non condiviso con il sistema operativo.
+Da questa tabella è possibile trarre le seguenti conclusioni. - La velocità effettiva per una cache delle stesse dimensioni è maggiore nel livello Premium rispetto al livello Standard. Ad esempio, per una cache di 6 GB, la velocità effettiva di P1 è 140 KB RPS rispetto a 49 KB per C3. - Con il clustering di Redis, la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà pari a 250 KB * 10 = 2,5 milioni RPS - La velocità effettiva per dimensioni della chiave maggiori è più elevata nel livello Premium rispetto al livello Standard.
 
-Poiché **Redis è a thread singolo**, la disponibilità di più di due core non offre vantaggi ulteriori rispetto alla disponibilità di soli due core, ma in genere **dimensioni di macchina virtuale maggiori hanno una larghezza di banda più elevata rispetto alle dimensioni minori**. Se il server o il client della cache raggiunge i limiti della larghezza di banda, si riceveranno timeout sul lato client.
+| Piano tariffario | Dimensione | Larghezza di banda disponibile (Mbps) | Dimensioni della chiave 1 KB |
+|----------------------|--------|----------------------------|--------------------------------|
+| **Dimensioni della cache livello Standard** | &nbsp; | &nbsp; | **Richieste al secondo (RPS)** |
+| C0 | 250 MB | 5 | 600 |
+| C1 | 1 GB | 100 | 12200 |
+| C2 | 2,5 GB | 200 | 24000 |
+| C3 | 6 GB | 400 | 49000 |
+| C4 | 13 GB | 500 | 61000 |
+| C5 | 26 GB | 1000 | 115000 |
+| C6 | 53 GB | 2000 | 150000 |
+| **Dimensioni della cache livello Premium** | &nbsp; | &nbsp; | **Richieste al secondo (RPS) per partizione** |
+| P1 | 6 GB | 1000 | 140000 |
+| P2 | 13 GB | 2000 | 220000 |
+| P3 | 26 GB | 2000 | 220000 |
+| P4 | 53 GB | 4000 | 250000 |
 
-La tabella seguente mostra i valori massimi per la larghezza di banda osservati durante il test di diverse dimensioni della Cache Redis di Azure usando `redis-benchmark.exe` da una VM IaaS nell'endpoint della Cache Redis di Azure. Si noti che questi valori non sono garantiti e che non è disponibile alcun Contratto di servizio per questi numeri, che dovrebbero essere tuttavia tipici. È consigliabile testare l'applicazione per determinare le dimensioni di cache ottimali per l'applicazione specifica.
-
-Nome cache|Dimensioni cache|Get/sec (semplici chiamate GET con valori di 1 KB)|Larghezza di banda (MBit/sec)
----|---|---|---
-C0|250 MB|610|5
-C1|1 GB|12\.200|100
-C2|2,5 GB|24\.300|200
-C3|6 GB|48\.875|400
-C4|13 GB|61\.350|500
-C5|26 GB|112\.275|1000
-C6|53 GB|153\.219|1000+
 
 Per istruzioni sul download degli strumenti Redis quali `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
 
@@ -58,7 +70,7 @@ Per ottenere le prestazioni migliori e la latenza più bassa, posizionare la Cac
 <a name="cache-billing"></a>
 ## Quali sono i costi addebitati per Cache Redis di Azure?
 
-I prezzi di Cache Redis di Azure sono indicati [in questa pagina](http://azure.microsoft.com/pricing/details/cache/). come tariffa oraria. Le cache vengono fatturate a minuto dal momento in cui la cache viene creata fino a quando viene eliminata. Non è disponibile alcuna opzione per interrompere o sospendere la fatturazione di una cache.
+I prezzi di Cache Redis di Azure sono indicati [in questa pagina](http://azure.microsoft.com/pricing/details/cache/) come tariffa oraria. Le cache vengono fatturate a minuto dal momento in cui la cache viene creata fino a quando viene eliminata. Non è disponibile alcuna opzione per interrompere o sospendere la fatturazione di una cache.
 
 <a name="cache-timeouts"></a>
 ## Perché vengono visualizzati timeout?
@@ -153,7 +165,7 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 
 È possibile usare i comandi elencati nella pagina sui [comandi di Redis](http://redis.io/commands#) ad eccezione dei comandi elencati nella pagina sui [comandi di Redis non supportati nella Cache Redis di Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Per eseguire i comandi di Redis sono disponibili diverse opzioni.
 
--	Se si ha una cache Standard, è possibile eseguire i comandi di Redis usando la [Console Redis](cache-configure.md#redis-console). Ciò consente di eseguire in modo sicuro i comandi di Redis nel portale di anteprima.
+-	Se si ha una cache Standard o Premium, è possibile eseguire i comandi di Redis usando la [Console Redis](cache-configure.md#redis-console). Ciò consente di eseguire in modo sicuro i comandi di Redis nel portale di anteprima.
 -	È anche possibile usare gli strumenti da riga di comando di Redis. A questo scopo, eseguire la procedura seguente.
 	-	Scaricare gli [strumenti da riga di comando Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Connettersi alla cache usando `redis-cli.exe`. Passare l'endpoint della cache mediante l'opzione -h e la chiave mediante -a, come illustrato nell'esempio seguente.
@@ -175,4 +187,4 @@ La Cache Redis di Microsoft Azure è basata sulla popolare cache Redis open sour
 
 Poiché ogni client è diverso, non è disponibile alcun riferimento di classe centralizzato su MSDN. Ogni client offre invece documentazione di riferimento specifica. Oltre alla documentazione di riferimento, nella pagina relativa alla [documentazione sulla Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/) sono disponibili alcune esercitazioni su Azure.com, che illustrano come iniziare a usare la Cache Redis di Azure Redis con linguaggi e client di cache diversi.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

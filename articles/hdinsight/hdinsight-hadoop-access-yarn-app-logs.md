@@ -24,6 +24,7 @@ Questo argomento spiega come enumerare a livello di codice le applicazioni YARN 
   1. Nei cluster HDInsight è abilitato il server generico della cronologia delle applicazioni. Si tratta di un componente all'interno del server di sequenza temporale YARN che gestisce l'archiviazione e il recupero di informazioni generiche sulle applicazioni completate.
   2. In Azure HDInsight .NET SDK sono disponibili API che consentono di enumerare a livello di codice le applicazioni eseguite nei cluster e di scaricare i log rilevanti specifici dell'applicazione o del contenitore (in formato di testo normale) per facilitare il debug di eventuali problemi relativi alle applicazioni.
 
+> [AZURE.NOTE]Le informazioni contenute in questo documento si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sull'accesso ai log YARN in cluster HDInsight basati su Linux, vedere [Accedere ai log delle applicazioni YARN su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Prerequisiti
 
@@ -173,4 +174,4 @@ Se necessario, è possibile anche scaricare i log per tutti i contenitori, o per
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

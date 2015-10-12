@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Cosa sono i componenti di StorSimple? | Microsoft Azure"
-	description="Descrive il dispositivo StorSimple, il dispositivo virtuale, i servizi e le tecnologie di gestione e definisce i termini chiave utilizzati nella soluzione."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="AdinaH"
-	editor=""/>
+   pageTitle="Cosa sono i componenti di StorSimple? | Microsoft Azure" 
+   description="Descrive il dispositivo StorSimple, il dispositivo virtuale, i servizi e le tecnologie di gestione e definisce i termini chiave utilizzati nella soluzione." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="AdinaH" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="08/26/2015"
+   ms.author="v-sharos"/>
 
 
 # Quali sono i componenti di StorSimple e come funzionano? 
@@ -53,7 +53,7 @@ Il dispositivo virtuale StorSimple (anche noto come appliance virtuale StorSimpl
 - Il dispositivo virtuale ha una sola interfaccia di rete, mentre il dispositivo fisico ne ha sei. 
 - Il dispositivo virtuale può essere registrato durante la configurazione del dispositivo e non con un'attività separata.
 - Non è possibile rigenerare la chiave DEK del servizio da un dispositivo virtuale. Durante il rollover della chiave, l'utente rigenera la chiave nel dispositivo fisico, quindi aggiorna il dispositivo virtuale con la nuova chiave.
-- Se è necessario applicare aggiornamenti al dispositivo virtuale, potrebbero esserci dei tempi di inattività. Questo inconveniente non si verifica con un dispositivo StorSimple fisico.
+- Attualmente, l'applicazione degli aggiornamenti al dispositivo virtuale è disabilitata. Se è necessario un dispositivo virtuale con la versione più recente, è possibile crearne uno nuovo ed eseguire il failover dei contenitori del volume nel nuovo dispositivo virtuale.
 
 È consigliabile utilizzare il dispositivo virtuale StorSimple per gli scenari di ripristino di emergenza in cui non è disponibile un dispositivo fisico, come lo sviluppo cloud e gli scenari di test.
 
@@ -226,4 +226,4 @@ Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

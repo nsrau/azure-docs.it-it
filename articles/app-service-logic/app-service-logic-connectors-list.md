@@ -22,6 +22,7 @@ Informazioni su tutti i connettori disponibili e le app per le API create da Mic
 
 Per informazioni sui prezzi e un elenco di ciò che è incluso in ogni livello di servizio, vedere le [Informazioni sui prezzi di Azure App Service](http://azure.microsoft.com/pricing/details/app-service/).
 
+> [AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Connettori Standard
 Nella tabella seguente sono elencati tutti i connettori disponibili e le app per le API create da Microsoft, disponibili in Connettori Standard:
@@ -93,4 +94,4 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 
 [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di gestione connessione ibrida in Azure App Service](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

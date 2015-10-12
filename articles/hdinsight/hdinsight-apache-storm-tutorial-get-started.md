@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
 
@@ -23,7 +23,13 @@
 
 Apache Storm è un sistema di calcolo in tempo reale scalabile, a tolleranza di errore e distribuito per l'elaborazione di flussi di dati. Con Storm in Microsoft Azure HDInsight è possibile creare un cluster Storm basato sul cloud che esegue analisi di Big Data in tempo reale.
 
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
+[AZURE.INCLUDE [portale di anteprima](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Esercitazione di Apache Storm: Introduzione all'analisi di Big Data mediante esempi di Storm Starter su HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
+
+   
+
+> [AZURE.NOTE]I passaggi descritti in questo articolo si basano sull'uso di un cluster HDInsight basato su Windows. Per i passaggi per creare uno Storm basato su Linux nel cluster HDInsight, vedere [Esercitazione Apache Storm: Iniziare a utilizzare l'esempio Storm Starter mediante l’analisi di dati in HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
 ## Prerequisiti
 
@@ -59,13 +65,13 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	![Pannello di origine dati](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
-	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Per comprendere le voci del pannello __Origine dati__, usare le informazioni seguenti.
+	Attualmente è possibile selezionare un account di archiviazione di Azure come origine dati per un cluster HDInsight. Utilizzare quanto segue per comprendere le voci nel pannello __Origine dati__.
 
-	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione da tutte le sottoscrizioni. Impostare questa proprietà su __Tasto di scelta__ se si desidera immettere il __Nome di archiviazione__ e il __Tasto di scelta__ di un account di archiviazione esistente.
+	- __Metodo di selezione__: impostare questa proprietà su __Da tutte le sottoscrizioni__ per consentire l'esplorazione di account di archiviazione nelle sottoscrizioni. Impostare su __Tasto di scelta__ se si desidera immettere il __Nome di archiviazione__ e il __Tasto di scelta__ di un account di archiviazione esistente.
 
 	- __Crea nuovo__: per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, viene visualizzato un segno di spunta verde.
 
-	- __Scegliere il contenitore predefinito__: usare questa opzione per specificare il nome del contenitore predefinito da usare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+	- __Scegli contenitore predefinito__: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
 
 	- __Percorso__: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
 
@@ -73,7 +79,7 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 
 	- __Seleziona__: per salvare la configurazione dell’origine dati.
 
-7. Selezionare __Livelli di prezzi nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, il numero di nodi di lavoro è impostato su __4__. Impostare questa proprietà su __1__, in quanto è sufficiente per questa esercitazione e riduce il costo del cluster. Il costo stimato del cluster verrà visualizzato nella parte inferiore del pannello.
+7. Selezionare __Livelli di prezzi nodo__ per visualizzare informazioni sui nodi che verranno creati per questo cluster. Per impostazione predefinita, il numero di nodi del ruolo di lavoro è impostato su __4__. Impostare questa proprietà su __1__, in quanto è sufficiente per questa esercitazione e riduce il costo del cluster. Il costo stimato del cluster verrà visualizzato nella parte inferiore del pannello.
 
 	![Pannello livelli dei prezzi di nodo](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
 
@@ -89,7 +95,7 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
 	| ------------------ | --------------------- |
 	| ![Indicatore del provisioning nella Schermata iniziale](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]La creazione del cluster richiede tempo, in genere circa 15 minuti. Usare il riquadro della Schermata iniziale o la voce __Notifiche__ a sinistra della pagina per controllare il processo di provisioning.
+	> [AZURE.NOTE]La creazione del cluster richiede tempo, in genere circa 15 minuti. Utilizzare il riquadro sulla schermata iniziale, o la voce __Notifiche__ a sinistra della pagina per controllare il processo di provisioning.
 
 ## Eseguire un esempio Storm Starter in HDInsight
 
@@ -239,4 +245,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

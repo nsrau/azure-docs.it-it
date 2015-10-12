@@ -13,18 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Personalizzazione dell'indicizzatore di Ricerca di Azure#
+#Personalizzazione dell'indicizzatore di Ricerca di Azure
 
-In questo articolo si apprenderà come usare gli indicizzatori di Ricerca di Azure per implementare questi scenari:
-
-- Rinominare i campi tra un'origine dati e un indice di destinazione 
-- Trasformare le stringhe di una tabella di database in raccolte di stringhe
-- Cambiare i criteri di rilevamento delle modifiche in un'origine dati 
-- Applicare la codifica URL alle chiavi dei documenti contenenti caratteri non sicuri per l'URL 
-- Tollerare gli errori di indicizzazione di alcuni documenti 
+La configurazione di un indicizzatore in Ricerca di Azure consente di rinominare i campi tra un'origine dati e un indice di destinazione, trasformare stringhe da una tabella di database in insiemi di stringhe, passare i criteri di rilevamento di modifiche in un'origine dati, codificare in URL le chiavi del documento che contengono caratteri URL non sicuri e tollerare errori di indicizzazione di alcuni documenti.
 
 Se non si ha familiarità con gli indicizzatori di Ricerca di Azure, può essere utile leggere prima gli articoli seguenti:
 
@@ -123,4 +117,4 @@ Anche se si sceglie di tollerare alcuni errori, le informazioni sui documenti pe
 A completamento di questo articolo, si consiglia di inviare commenti o suggerimenti per nuove idee di contenuto tramite tweet, usando l'hashtag #AzureSearch, o dalla [pagina del forum UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

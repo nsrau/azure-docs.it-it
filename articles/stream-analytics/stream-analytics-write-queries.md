@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Scrivere query
@@ -22,9 +22,13 @@ La logica di elaborazione del flusso in analisi di flusso di Azure viene impleme
 
 ## Per creare una query di analisi di flusso: ##
 
-1. Nel processo di analisi di flusso, fare clic su **Query**.
+1. Nel processo dell’analisi di flusso nel portale di gestione di Azure, fare clic su **Query**.
 
     ![Query di selezione](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
+
+    Nel portale di anteprima di Azure fare clic su **Query**.
+
+    ![Selezionare l'anteprima della query](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	I nuovi processi dispongono di un modello di query per rendere più semplice l’inizio. Il modello di query esegue una query "pass-through" che proietta tutti i campi dagli eventi di input nell'output.
 
@@ -36,6 +40,8 @@ La logica di elaborazione del flusso in analisi di flusso di Azure viene impleme
 ## Per testare una query: ##
 
 È possibile verificare che la query funzioni come previsto eseguendola nel browser su uno o più file JSON locali contenenti i dati di test. Il test non avvia il processo e non ha implicazioni relative alla fatturazione.
+
+> [AZURE.NOTE]Attualmente il test delle query nel browser non è supportato nel portale di anteprima di Azure.
 
 1.	Assicurarsi che non siano presenti errori nella query (in caso contrario il pulsante Test verrà disabilitato) e quindi fare clic sul pulsante Test.  
 
@@ -62,6 +68,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 - [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

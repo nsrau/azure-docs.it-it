@@ -20,26 +20,26 @@
 
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
-Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare i vari scenari.
+Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
 
 ![Rete perimetrale in ingresso con dispositivo virtuale di rete e gruppo di sicurezza di rete][1]
 
 ## Descrizione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
 
-- Due servizi cloud, "FrontEnd001" e "BackEnd001".
+- Due servizi cloud, "FrontEnd001" e "BackEnd001"
 - Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd".
 - Un singolo gruppo di sicurezza di rete applicato a entrambe le subnet.
 - Un dispositivo virtuale di rete, in questo esempio Barracuda NG Firewall, connesso alla subnet front-end.
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01").
-- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02").
+- Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
 - Un server Windows che rappresenta un server DNS ("DNS01").
 
 >[AZURE.NOTE]Anche se in questo esempio si usa Barracuda NG Firewall, possono essere usati molti altri dispositivi virtuali di rete.
 
 Nella sezione Riferimenti alla fine dell'articolo è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto sopra. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento.
  
-Per creare l'ambiente:
+Per creare l'ambiente, eseguire queste operazioni:
 
   1.	Salvare il file XML di configurazione di rete incluso nella sezione Riferimenti, aggiornandolo con i nomi, il percorso e gli indirizzi IP corrispondenti allo scenario specifico.
   2.	Aggiornare le variabili utente incluse nello script in modo che corrispondano all'ambiente in cui lo script verrà eseguito, ad esempio sottoscrizioni, nomi dei servizi e così via.
@@ -57,16 +57,16 @@ La sezione successiva descrive la maggior parte delle istruzioni dello script re
 ## Gruppi di sicurezza di rete
 Per questo esempio viene creato un gruppo di sicurezza di rete, in cui vengono poi caricate sei regole.
 
->[AZURE.TIP]In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una regola specifica, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
+>[AZURE.TIP]In genere, è consigliabile creare prima di tutto le regole specifiche di tipo "Consenti" e infine le regole di tipo "Nega" più generiche. La priorità assegnata determina quali regole vengono valutate per prime. Quando si rileva che al traffico è applicabile una determinata regola, non vengono valutate altre regole. Le regole del gruppo di sicurezza di rete possono essere applicate nella direzione in ingresso o in uscita, dal punto di vista della subnet.
 
-A livello dichiarativo, le righe seguenti vengono create per il traffico in ingresso:
+A livello dichiarativo, per il traffico in ingresso vengono create le righe seguenti:
 
 1.	Il traffico DNS interno (porta 53) è consentito.
 2.	Il traffico RDP (porta 3389) da Internet a qualsiasi VM è consentito.
 3.	Il traffico HTTP (porta 80) da Internet al dispositivo virtuale di rete (firewall) è consentito.
 4.	Tutto il traffico (tutte le porte) da IIS01 ad AppVM1 è consentito.
-5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene negato.
-6.	Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene negato.
+5.	Tutto il traffico (tutte le porte) da Internet all'intera rete virtuale (entrambe le subnet) viene bloccato.
+6.	Tutto il traffico (tutte le porte) dalla subnet front-end alla subnet back-end viene bloccato.
 
 Con queste regole associate a ogni subnet, se una richiesta HTTP proviene da Internet verso il server Web, le regole 3 (consenti) e 5 (nega) saranno applicabili, ma poiché la regola 3 ha una priorità maggiore, verrà applicata solo tale regola e la regola 5 non verrà presa in considerazione. La richiesta HTTP verrà quindi consentita sul firewall. Se lo stesso traffico prova a raggiungere il server DNS01, la regola 5 (nega) sarà la prima applicabile e il traffico non sarà autorizzato a passare al server. La regola 6 (nega) impedisce alla subnet front-end di comunicare con la subnet back-end (ad eccezione del traffico consentito nelle regole 1 e 4), proteggendo la rete back-end nel caso in cui un utente malintenzionato comprometta l'applicazione Web sul front-end. L'utente malintenzionato avrà infatti accesso limitato alla rete "protetta" back-end, ovvero solo alle risorse esposte nel server AppVM01.
 
@@ -122,13 +122,13 @@ Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente 
 4.	Il traffico raggiunge l'indirizzo IP interno del firewall (10.0.1.4).
 5.	La regola di inoltro al firewall riconosce il traffico per la porta 80 e lo reindirizza al server Web IIS01.
 6.	IIS01 è in ascolto del traffico Web, riceve la richiesta e ne avvia l'elaborazione.
-7.	IIS01 chiede informazioni a SQL Server su AppVM01.
+7.	IIS01 chiede informazioni a SQL Server in AppVM01.
 8.	Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 9.	La subnet back-end inizia l'elaborazione delle regole in ingresso:
   1.	Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
   2.	Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
   3.	Regola gruppo di sicurezza di rete 3 (da Internet a firewall), non applicabile, passa alla regola successiva.
-  4.	Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione della regola si arresta.
+  4.	Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 10.	AppVM01 riceve la query SQL e risponde.
 11.	Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita.
 12.	La subnet front-end inizia l'elaborazione delle regole in ingresso:
@@ -144,17 +144,17 @@ Con l'attivazione del set di regole del firewall, la compilazione dell'ambiente 
 2.	Poiché il firewall è in ascolto solo dell'indirizzo FrontEnd001.CloudApp.Net, non è interessato da questo flusso di traffico.
 3.	La subnet back-end inizia l'elaborazione delle regole in ingresso:
   1.	Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
-  2.	Regola gruppo di sicurezza di rete 2 (RDP) applicabile, il traffico è consentito, l'elaborazione della regola si arresta.
-4.	Senza regole in uscita sono applicabili le regole predefinite e il traffico restituito è consentito.
+  2.	Regola gruppo di sicurezza di rete 2 (RDP) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
+4.	Senza regole in uscita, sono applicabili le regole predefinite e il traffico restituito è consentito.
 5.	La sessione RDP è abilitata.
 6.	AppVM01 richiede il nome utente e la password.
 
 #### (Consentito) Ricerca DNS del server Web sul server DNS
 1.	Il server Web, IIS01, richiede un feed di dati all'indirizzo www.data.gov, ma deve risolvere l'indirizzo.
-2.	La configurazione di rete per la rete virtuale elenca DNS01 (10.0.2.4 sulla subnet back-end) come server DNS primario, IIS01 invia la richiesta DNS a DNS01.
+2.	La configurazione di rete per la rete virtuale elenca DNS01 (10.0.2.4 nella subnet back-end) come server DNS primario, IIS01 invia la richiesta DNS a DNS01.
 3.	Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 4.	La subnet back-end inizia l'elaborazione delle regole in ingresso:
-  1.	 Regola gruppo di sicurezza di rete 1 (DNS) applicabile, il traffico è consentito, l'elaborazione della regola si arresta.
+  1.	 Regola gruppo di sicurezza di rete 1 (DNS) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 5.	Il server DNS riceve la richiesta.
 6.	Il server DNS non ha l'indirizzo memorizzato nella cache e invia la richiesta a un server DNS radice su Internet.
 7.	Non sono impostate regole in uscita sulla subnet back-end, il traffico è consentito.
@@ -191,12 +191,12 @@ Poiché il server Web, IIS01, e il firewall si trovano nello stesso servizio clo
 
 #### (Negato) Ricerca DNS Web sul server DNS
 1.	L'utente Internet prova a cercare un record DNS interno su DNS01 tramite il servizio BackEnd001.CloudApp.Net.
-2.	Non essendoci endpoint aperti per il DNS, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
+2.	Non essendoci endpoint aperti per DNS, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
 3.	In caso di apertura degli endpoint per qualunque motivo, la regola del gruppo di sicurezza di rete 5 (da Internet a rete virtuale) bloccherà questo traffico. Si noti che la regola 1 (DNS) non è applicabile per due motivi, prima di tutto l'indirizzo di origine è Internet e questa regola si applica solo quando l'origine è la rete virtuale locale, poi questa è una regola di tipo Consenti e quindi non bloccherà mai il traffico.
 
 #### (Negato) Accesso dal Web a SQL tramite il firewall
 1.	L'utente Internet richiede dati SQL a FrontEnd001.CloudApp.Net (servizio cloud per Internet).
-2.	Non essendoci endpoint aperti per SQL, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
+2.	Non essendoci endpoint aperti per SQL, il traffico non passa attraverso il servizio cloud e non raggiunge il firewall.
 3.	Se gli endpoint sono aperti per qualunque motivo, la subnet front-end inizia l'elaborazione delle regole in ingresso:
   1.	Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
   2.	Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
@@ -217,17 +217,17 @@ Salvare lo script completo in un file di script PowerShell. Salvare la configura
 In base alle variabili definite dall'utente, lo script consente di:
 
 1.	Connettersi a una sottoscrizione di Azure.
-2.	Creare un nuovo account di archiviazione.
+2.	Creare un nuovo account di archiviazione
 3.	Creare una nuova rete virtuale e due subnet, come definito nel file di configurazione di rete.
-4.	Compilare 4 VM Windows Server.
-5.	Configurare il gruppo di sicurezza di rete, incluse le operazioni seguenti:
-  -	Creazione di un gruppo di sicurezza di rete.
+4.	Creare 4 macchine virtuali di Windows Server.
+5.	Configurare il gruppo di sicurezza di rete eseguendo queste operazioni:
+  -	Creazione di un gruppo di sicurezza di rete
   -	Inserimento delle regole.
-  -	Associazione del gruppo di sicurezza di rete alle subnet appropriate.
+  -	Associazione del gruppo di sicurezza di rete alle subnet appropriate
 
-Questo script di PowerShell deve essere eseguito localmente su un server o un PC connesso a Internet.
+Questo script di PowerShell deve essere eseguito localmente in un server o un PC connesso a Internet.
 
->[AZURE.IMPORTANT]Quando si esegue lo script, in PowerShell potrebbero essere visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
+>[AZURE.IMPORTANT]Quando si esegue lo script, in PowerShell potrebbero venire visualizzati avvisi o altri messaggi informativi. Solo i messaggi di errore formattati in rosso possono indicare un problema.
 
 
 	<# 
@@ -566,4 +566,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

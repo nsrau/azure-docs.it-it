@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Log delle operazioni
 
 Tutti i servizi di Azure forniscono messaggi di registrazione operativi agli utenti per registrare i dettagli relativi alle operazioni di gestione. Nell’analisi di flusso di Azure, queste informazioni possono essere utilizzate per operazioni relative al debug, quali la visualizzazione dello stato del processo, dell’avanzamento del processo, e dei messaggi di errore per rilevare l’avanzamento di un processo nel tempo, dall’avvio, all’eleborazione, fino all’output.
 
-## Ricerca dei log delle operazioni
+## Trovare i log delle operazioni nel portale di gestione di Azure
 
 E’ possibile accedere ai log delle operazioni in due modi:
 
@@ -34,28 +34,50 @@ Un collegamento per i log di un processo di analisi di flusso corrispondenti vie
 
   ![Selezionare servizi di gestione](./media/stream-analytics-operation-logs/01-stream-analytics-operation-logs.png)
 
-## Servizi di gestione nel portale di Azure
+## Servizi di gestione
 
 Per passare manualmente ai log delle operazioni per l’analisi di flusso e altri servizi nel portale di Azure:
 
 1.	Fare clic su **Servizi di gestione** nel [Portale di Azure](https://manage.windowsazure.com).
 2.	Selezionare **Analisi di flusso** per **Tipo** e il nome del processo per **Nome servizio**.  
 
-    ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
+  ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
-## Utilizzare i log delle operazioni
+## Trovare i log di controllo nel portale di anteprima di Azure ##
+
+Per trovare i log operativi del processo di analisi di flusso nel portale di anteprima di Azure, fare clic su **Sfoglia** e quindi selezionare **Log di controllo**.
+
+  ![Selezione analisi di flusso del portale di anteprima di Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
+
+Verrà aperto un pannello che mostra gli eventi degli ultimi 7 giorni per tutte le risorse nella sottoscrizione. È possibile filtrare per visualizzare gli eventi di un tipo o di un intervallo di tempo specificato selezionando il comando **Filtra**.
+
+  ![Selezione analisi di flusso del portale di anteprima di Azure](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)
+
+## Ottenere i dettagli dei log
 
 È possibile filtrare per stato e intervallo di tempo per visualizzare i log per il processo.
 
-Fare clic su **Dettagli** nella parte inferiore della finestra per visualizzare ulteriori dettagli sull'evento selezionato.
+Nel portale di gestione di Azure fare clic sul pulsante **Dettagli** nella parte inferiore della finestra per visualizzare ulteriori dettagli sull'evento selezionato.
 
   ![Selezionare i dettagli](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)
 
-## Eseguire il debug di un processo non riuscito
+Nel portale di anteprima di Azure fare clic su una voce di log per visualizzare gli eventi dettagliati al suo interno.
 
-Fare clic sull'icona di Ricerca e digitare "non riuscito". In questo modo si visualizzeranno tutti i log dei processi non riusciti.
+  ![Selezione dettagli del portale di anteprima di Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)
+
+A questo punto è possibile aprire il pannello **Dettagli** facendo clic sull'evento.
+
+  ![Selezione dettagli del portale di anteprima di Azure](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)
+
+## Debug di un processo non riuscito
+
+Nel portale di gestione di Azure, fare clic sull’icona Cerca e digitare "non riuscito". In questo modo si visualizzeranno tutti i log dei processi non riusciti.
 
   ![Eseguire il debug di un processo non riuscito](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
+
+Nel portale di anteprima di Azure è possibile filtrare per livello di messaggio per visualizzare gli eventi **Critici**.
+
+  ![Debug del portale di anteprima di Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
 
 È possibile selezionare uno qualsiasi dei processi non riusciti e fare clic su **Dettagli** per ulteriori informazioni sull'errore. Alcuni messaggi di errore forniscono inoltre informazioni su come attenuare il problema.
 
@@ -74,4 +96,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

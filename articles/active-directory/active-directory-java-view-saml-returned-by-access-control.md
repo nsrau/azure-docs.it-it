@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/03/2015"
+    ms.date="09/22/2015"
     ms.author="robmcm" />
 
 # Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure
@@ -195,4 +195,4 @@ Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari pi
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

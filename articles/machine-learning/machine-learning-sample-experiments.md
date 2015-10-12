@@ -12,16 +12,16 @@
     ms.workload="data-services"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article" 
-    ms.date="06/29/2015"
+    ms.topic="get-started-article"
+    ms.date="09/28/2015"
     ms.author="chhavib;olgali"/>
 
 # Usare gli esperimenti di esempio per creare nuovi esperimenti
-Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti di esempio del team di Machine Learning e gli esperimenti condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti presenti nella [Raccolta](http://gallery.azureml.net/)
+Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti di esempio del team di Machine Learning e gli esperimenti condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti presenti nella [raccolta di Cortana Analytics](http://gallery.azureml.net/)
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Esplorare la Raccolta
+## Esplorazione della raccolta di Cortana Analytics
 1. Accedere alla [Raccolta](http://gallery.azureml.net/)
 2. Esplorare la Raccolta andando alla sezione **Trending Experiments** o **Microsoft samples**.
 3. Usare la ricerca e i filtri per restringere i risultati: ![](./media/machine-learning-sample-experiments/image1.png) 
@@ -38,6 +38,5 @@ Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti 
 - [Esaminare gli esperimenti di esempio R](machine-learning-r-csharp-web-service-examples.md)
 - [Creare un'API del servizio Web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Esplorare applicazioni pronte per l'uso](https://datamarket.azure.com/browse?query=machine+learning)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

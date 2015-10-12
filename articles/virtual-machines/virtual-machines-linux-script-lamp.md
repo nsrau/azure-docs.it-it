@@ -37,7 +37,7 @@ Per informazioni sulla creazione delle macchine virtuali Linux in Azure, fare ri
 
 I comandi di installazione presuppongono Ubuntu, ma è possibile adattare l'installazione per qualsiasi distro Linux supportata.
 
-La macchina virtuale script-vm richiede l'interfaccia della riga di comando di Azure installata e una connessione ad Azure attiva. Per informazioni, fare riferimento a [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli.md).
+La macchina virtuale script-vm richiede l'interfaccia della riga di comando di Azure installata e una connessione ad Azure attiva. Per informazioni, fare riferimento a [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
 
 ## Caricamento di uno script
 
@@ -109,4 +109,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

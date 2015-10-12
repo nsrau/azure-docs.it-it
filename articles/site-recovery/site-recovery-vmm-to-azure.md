@@ -125,16 +125,11 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 
 1.  Il percorso di installazione è impostato su **<SystemDrive>\\Programmi\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Fare clic sul pulsante di installazione per iniziare a installare il provider. ![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
-	![Internet Settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png)
-	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy.
-	- Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta.
-	- Gli URL seguenti dovrebbero essere accessibili dal Server VMM e dagli host Hyper-V:
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Consentire l’uso degli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e del protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
+
+
+1. Dopo l'installazione del provider, fare clic sul pulsante di registrazione per registrare il server nell'insieme di credenziali. ![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
+
+5. Nella pagina **Connessione Internet** specificare la modalità di connessione Internet del provider in esecuzione sul server VMM. Selezionare *Usa impostazioni proxy del sistema predefinite* per usare le impostazioni di connessione a Internet predefinite configurate nel server.
 
 	![Internet Settings](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy. Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta. Gli URL seguenti dovrebbero essere accessibili dal Server VMM e dagli host Hyper-V - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Consentire l’uso degli indirizzi IP descritti in [Intervalli IP dei data center di Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e del protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
@@ -356,4 +351,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 <LI>In caso di domande, visitare il <a href="http://go.microsoft.com/fwlink/?LinkId=313628">forum relativo ai Servizi di ripristino di Azure</a>.</LI> </UL>
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

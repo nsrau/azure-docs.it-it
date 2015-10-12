@@ -20,7 +20,7 @@
 
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
 
-Questo esempio spiega come creare una semplice rete perimetrale con quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita dei singoli passaggi. È inoltre disponibile una sezione sullo scenario di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
+Questo esempio spiega come creare una semplice rete perimetrale con quattro server Windows e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita dei singoli passaggi. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari.
 
 ![Rete perimetrale in ingresso con gruppo di sicurezza di rete][1]
 
@@ -160,7 +160,7 @@ Di seguito le singole regole vengono descritte più dettagliatamente. Si noti ch
 10.	Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita.
 11.	La subnet front-end inizia l'elaborazione delle regole in ingresso:
   1.	Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
-  2.	La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe il traffico, che quindi è consentito.
+  2.	La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 12.	Il server IIS riceve la risposta SQL , completa la risposta HTTP e la invia al richiedente.
 13.	Non essendoci regole in uscita sulla subnet front-end, la risposta è consentita e l'utente Internet riceve la pagina Web richiesta.
 
@@ -187,7 +187,7 @@ Di seguito le singole regole vengono descritte più dettagliatamente. Si noti ch
 10.	Non sono impostate regole in uscita sulla subnet back-end, il traffico è consentito.
 11.	La subnet front-end inizia l'elaborazione delle regole in ingresso:
   1.	Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
-  2.	La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe il traffico, che quindi è consentito.
+  2.	La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 12.	IIS01 riceve la risposta da DNS01.
 
 #### (*Consentito*) Il server Web richiede l'accesso a un file in AppVM01
@@ -202,7 +202,7 @@ Di seguito le singole regole vengono descritte più dettagliatamente. Si noti ch
 5.	Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita.
 6.	La subnet front-end inizia l'elaborazione delle regole in ingresso:
   1.	Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
-  2.	La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe il traffico, che quindi è consentito.
+  2.	La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 7.	Il server IIS riceve il file.
 
 #### (*Negato*) Traffico Web al server back-end
@@ -243,7 +243,7 @@ In base alle variabili definite dall'utente, lo script consente di:
 4.	Creare 4 macchine virtuali di Windows Server.
 5.	Configurare il gruppo di sicurezza di rete eseguendo queste operazioni:
   -	Creazione di un gruppo di sicurezza di rete
-  -	Inserimento delle regole nel gruppo di sicurezza di rete
+  -	Inserimento delle regole.
   -	Associazione del gruppo di sicurezza di rete alle subnet appropriate
 
 Questo script di PowerShell deve essere eseguito localmente in un server o un PC connesso a Internet.
@@ -550,4 +550,4 @@ Se si desidera installare un'applicazione di esempio per questo e altri esempi d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

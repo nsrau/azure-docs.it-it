@@ -36,7 +36,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Per l'app Web, usare l'**URI di reindirizzamento** `https://localhost:44316/`: si tratta della posizione predefinita del client di app Web per questo codice di esempio.
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
-     >[AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa esercitazione
+ [AZURE.INCLUDE [Active-Directory-B2C-devquickstarts-v2-Apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Creare i criteri
 
@@ -45,19 +45,21 @@ In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-direc
 - Scegliere **Iscrizione tramite ID utente** o **Iscrizione tramite indirizzo di posta elettronica** nel pannello dei provider di identità.
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere le attestazioni **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altri criteri.
-- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Sarà necessario usare i nomi dei criteri a breve. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
 ## 4\. Scaricare il codice
 
-Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questa esercitazione è disponibile [in GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare un progetto scheletro come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip) o clonare lo scheletro:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, per iniziare aprire il file `.sln` in Visual Studio. Osservare che nella soluzione sono presenti due progetti: un progetto `TaskWebApp` e un progetto `TaskService`. `TaskWebApp` è un'applicazione Web MVC con cui interagisce l'utente. `TaskService` è l'API Web back-end dell'app che archivia le applicazioni "To-Do List" degli utenti.
 
@@ -82,6 +84,8 @@ Quando l'utente interagisce con l'app `TaskWebApp`, il client invia le richieste
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Sono anche presenti due elementi `[PolicyAuthorize]` decorator in cui è necessario specificare il nome dei criteri di accesso. L'attributo `[PolicyAuthorize]` è usato per richiamare criteri specifici quando l'utente tenta di accedere a una pagina dell'app che richiede l'autenticazione.
 
@@ -151,7 +155,7 @@ public partial class Startup
 ```
 
 #### Configurare l'autenticazione OAuth 2.0
-Aprire il file `App_Start\Startup.Auth.cs` e implementare il metodo `ConfigureAuth(...)`:
+Aprire il file `App_Start\Startup.Auth.cs` e implementare il metodo `ConfigureAuth(...)`.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -232,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

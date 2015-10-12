@@ -3,7 +3,7 @@
 	description="Informazioni su come usare Servizi mobili per autenticare gli utenti dell'app per Windows Store tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="mattchenderson" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="09/24/2015" 
 	ms.author="ricksal"/>
 
 # Aggiungere l'autenticazione all'app Android per Servizi mobili
@@ -86,4 +86,4 @@ Nella prossima esercitazione, [Autorizzazione sul lato servizio degli utenti di 
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

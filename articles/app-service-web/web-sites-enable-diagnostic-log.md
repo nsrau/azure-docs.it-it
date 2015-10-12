@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure"
 	description="Informazioni su come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione e su come accedere alle informazioni registrate da Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -116,7 +116,7 @@ Per scaricare i file di log mediante l'interfaccia della riga di comando di Azur
 
 In tal modo, i log dell'app Web denominata "nomeappWeb" verranno salvati in un file denominato **diagnostics.zip** nella directory corrente.
 
-> [AZURE.NOTE]Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+> [AZURE.NOTE]Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ## Procedura: Visualizzare i log in Application Insights
 
@@ -175,7 +175,7 @@ Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+> [AZURE.NOTE]Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Procedura: Comprendere i log di diagnostica
 
@@ -265,4 +265,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure"
-	description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
-	services="active-directory-b2c"
-	documentationCenter="ios"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+<properties pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure" descrizione="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti." servizi ="active-directory-b2c" documentationCenter=”ios” autori="brandwe" manager="msmbaldwin" editor =""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -41,17 +34,17 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
-    > [AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa operazione.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Creare i criteri
-
-> [AZURE.NOTE]Per l'anteprima B2C usare gli stessi criteri nelle configurazioni client e server. Se è stata già eseguita una procedura dettagliata e sono stati creati i criteri, non è necessario ripetere l'operazione. È possibile riusare i criteri precedentemente creati nel portale se soddisfano i requisiti dell'applicazione.
 
 In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questa app contiene tre esperienze di identità: iscrizione, accesso e accesso con Facebook. Sarà necessario creare i criteri per ciascun tipo, come descritto nell'articolo [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
 - Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
@@ -113,6 +106,8 @@ Affinché l'applicazione attività iOS comunichi con Azure AD B2C, è necessario
 </dict>
 </plist>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ## 6\. Ottenere i token di accesso e chiamare le API dell'attività
 
@@ -302,7 +297,7 @@ Di seguito verrà scritto il metodo `getClaimsWithPolicyClearingCache` esteso. T
 
 #### Creare la chiamata in ADAL per iOS
 
-Se è stato scaricato lo scheletro da GitHub, si noterà che ne esistono diversi in grado di agevolare l'applicazione di esempio. Gli scheletri seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. Con l’utilizzo delle convenzioni Objetive C, esso appare molto simile all’inglese. Ad esempio "ottenere un Token con i parametri aggiuntivi forniti e cancellare la cache", che è `getTokenWithExtraParamsClearingCache()`. Piuttosto semplice.
+Se è stato scaricato lo scheletro da GitHub, si noterà che ne esistono diversi in grado di agevolare l'applicazione di esempio. Gli scheletri seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. Con l’utilizzo delle convenzioni Objetive C, esso appare molto simile all’inglese. Ad esempio "ottenere un Token con i parametri aggiuntivi forniti e cancellare la cache", Che è `getTokenWithExtraParamsClearingCache()`. Piuttosto semplice.
 
 Si scriverà "ottenere Attestazioni e un token con i criteri forniti e non cancellare la cache" o `getClaimsWithPolicyClearingCache`. ADAL restituisce sempre un token, pertanto non è necessario specificare "Attestazioni e token" nel metodo. Poiché a volte è necessario soltanto il token senza il sovraccarico dell'analisi delle attestazioni, viene fornito un metodo senza attestazioni denominato `getTokenWithPolicyClearingCache` nello scheletro.
 
@@ -657,4 +652,4 @@ Come riferimento, l'esempio completato [è disponibile qui in un file con estens
 
 [Personalizzazione dell’UX del’App B2C>>]()
 
-<!-----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

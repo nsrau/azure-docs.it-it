@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-Questo documento illustra l'uso di Apache Maven per creare un'applicazione di MapReduce, quindi per distribuirla ed eseguirla in un Hadoop basato su Linux nel cluster HDInsight.
+Questo documento illustra l'uso di Apache Maven per creare un'applicazione di MapReduce, quindi per distribuirla ed eseguirla in un Hadoop basato su Linux nel cluster HDInsight. Per informazioni sull'utilizzo di un Hadoop basato su Windows nel cluster HDInsight, vedere [Sviluppare programmi MapReduce Java per Hadoop in HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
 
 ##<a name="prerequisites"></a>Prerequisiti
 
@@ -31,9 +31,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - [Apache Maven](http://maven.apache.org/)
 
-- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di prova gratuita di Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Interfaccia della riga di comando di Azure**: per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md)
+- **Interfaccia della riga di comando di Azure**: per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 
 ##Configurare le variabili di ambiente
 
@@ -88,7 +88,7 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
 		  <scope>provided</scope>
 		</dependency>
 
-	Questo codice indica a Maven che il progetto richiede le librerie (elencate in <artifactId>) con una versione specifica (elencata in <version>). In fase di compilazione, quest'ultimo verrà scaricato dal repository Maven predefinito. È possibile usare la [ricerca nel repository Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) per visualizzare più informazioni.
+	Questo codice indica a Maven che il progetto richiede le librerie (elencate in &lt;artifactId>) con una versione specifica (elencata in &lt;version>). In fase di compilazione, quest'ultimo verrà scaricato dal repository Maven predefinito. È possibile usare la [ricerca nel repository Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) per visualizzare più informazioni.
 
 	`<scope>provided</scope>` indica a Maven che queste dipendenze non devono essere fornite con l'applicazione, perché saranno fornite dal cluster HDInsight in fase di esecuzione.
 
@@ -300,4 +300,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

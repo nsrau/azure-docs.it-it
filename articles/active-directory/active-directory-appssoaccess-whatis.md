@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/28/2015"
 	ms.author="asmalser-msft"/>
 
 #Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
@@ -80,7 +80,7 @@ Single Sign-On basato su password si basa su un'estensione del browser per recup
 
 Per l'accesso Single Sign-On basato su password il browser dell'utente finale può essere uno dei seguenti:
 
-- Internet Explorer 8, 9 e 10 in Windows 7 o versione successiva
+- Internet Explorer 8, 9 e 10 -- su Windows 7 o versione successiva (vedere anche [Guida alla distribuzione dell’estensione di Internet Explorer](active-directory-saas-ie-group-policy.md))
 - Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
@@ -220,4 +220,4 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

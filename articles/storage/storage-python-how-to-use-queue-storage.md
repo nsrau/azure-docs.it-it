@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Come usare l'archiviazione di accodamento da Python | Microsoft Azure"
-	description="Informazioni su come usare il servizio di accodamento di Azure da Python per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi."
-	services="storage"
-	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	pageTitle="Come usare l'archiviazione di accodamento da Python | Microsoft Azure" 
+	description="Informazioni su come usare il servizio di accodamento di Azure da Python per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="emgerner-msft" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="emgerner"/>
 
 # Come usare l'archiviazione di accodamento da Python
@@ -107,10 +107,12 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 -   Vedere la documentazione MSDN: [Archiviazione e accesso ai dati in Azure][]
 -   [Blog del team di Archiviazione di Azure][]
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](/develop/python/).
+
 [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [pacchetto di archiviazione Python di Azure]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
-#Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure (anteprima)
+#Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
 
 ##Panoramica
 
@@ -25,15 +25,11 @@ In Servizi multimediali di Azure un **canale** rappresenta una pipeline per l'el
 - Un codificatore live locale invia al canale un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster. I flussi inseriti passano attraverso il **canale** senza altre elaborazioni. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 - Un flusso a velocità in bit singola (in uno dei seguenti formati: **RTP** (MPEG-TS)), **RTMP** o **Smooth Streaming** (MP4 frammentato)) viene inviato al **canale** abilitato per l'esecuzione della codifica live con Servizi multimediali. Il **canale** esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti. 
 
-	La codifica di un flusso live con Servizi multimediali è attualmente in **anteprima**.
-
 A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale è possibile specificare in che modo il canale riceverà il flusso di input e se eseguirà o meno la codifica live del flusso. Sono disponibili due opzioni:
 
 - **Nessuno**: specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a più velocità in bit. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Per informazioni più dettagliate dell'uso dei canali di questo tipo, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
 
-- **Standard** (anteprima): scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a velocità in bit singola in un flusso a più velocità in bit.
-
-	La codifica di un flusso live con Servizi multimediali è attualmente in anteprima.
+- **Standard** - scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a velocità in bit singola in un flusso a più velocità in bit.
 
 >[AZURE.NOTE]Questo argomento illustra gli attributi dei canali abilitati per l'esecuzione della codifica live (tipo di codifica **Standard**). Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
 
@@ -383,7 +379,7 @@ Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
 
 
->[AZURE.NOTE]L'avvio del canale, attualmente in anteprima, può richiedere più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
+>[AZURE.NOTE]Attualmente, l'avvio del canale può richiedere più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
 
 
 ##<a id="Considerations"></a>Considerazioni
@@ -430,4 +426,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/27/2015" 
 	ms.author="tamram"/>
 
 
@@ -269,4 +269,4 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

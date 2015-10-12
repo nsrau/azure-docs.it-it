@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso del listener e del connettore HTTP nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore del listener e dell'azione HTTP e usarlo in un'app per la logica in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Come creare e configurare l'app per le API o il connettore del listener e dell'azione HTTP e usarlo in un'app per la logica in Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="prkumar"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="prkumar"/>
 
 
 # Uso del listener e dell'azione HTTP e aggiunta all'app per la logica
@@ -72,6 +72,8 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
+> [AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
 [2]: ./media/app-service-logic-connector-http/2.png
@@ -84,4 +86,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

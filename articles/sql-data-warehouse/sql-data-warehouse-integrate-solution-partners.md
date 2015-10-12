@@ -101,4 +101,4 @@ Per altre informazioni sull'integrazione con SQL Data Warehouse, vedere [Creare 
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

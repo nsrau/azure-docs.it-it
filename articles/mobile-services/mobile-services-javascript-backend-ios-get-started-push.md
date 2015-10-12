@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="krisragh"/>
 
 # Aggiungere notifiche push all'app per iOS e al back-end JavaScript
@@ -118,4 +118,4 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

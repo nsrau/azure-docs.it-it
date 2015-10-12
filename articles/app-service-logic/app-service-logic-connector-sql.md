@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso del connettore SQL nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore SQL e usarlo in un'app per la logica in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Come creare e configurare l'app per le API o il connettore SQL e usarlo in un'app per la logica in Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Uso del connettore Microsoft SQL e aggiunta all'app per la logica
@@ -121,7 +121,7 @@ Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o del
 
 Query SQL | Supportato | Non supportato
 --- | --- | ---
-Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con ‘(‘ and ‘)’</li>Valori letterali stringa<li>, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))**</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul> 
+Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con '(' e ')'</li><li>Valori letterali stringa, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))**</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul>
 Campi (nella query Select) | <ul><li>Nomi di colonna validi, separati da virgole. Non sono consentiti prefissi di nomi di tabella (il connettore funziona su una sola tabella alla volta).</li><li>I nomi possono essere preceduti dai caratteri di escape '[' e ']'</li></ul> | <ul><li>Parole chiave come TOP, DISTINCT e così via</li><li>Aliasing, ad esempio Via + Città + CAP COME indirizzo</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +</li></ul>
 
 #### Suggerimenti
@@ -135,6 +135,8 @@ Campi (nella query Select) | <ul><li>Nomi di colonna validi, separati da virgole
 > [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa SQL Server installato in locale e protetto da firewall.
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa un'istanza di SQL Server locale, è richiesta la Gestione connessione ibrida.
+
+> [AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md).
 
@@ -158,4 +160,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configurare ambienti di gestione temporanea per le app Web nel servizio app di Azure"
 	description="Informazioni su come usare la pubblicazione per fasi per le app Web nel servizio app di Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # Configurare ambienti di gestione temporanea per le app Web nel servizio app di Azure
@@ -127,6 +127,11 @@ La configurazione dello scambio automatico per uno slot è semplice. Attenersi a
 
 3. Eseguire un push del codice in tale slot di distribuzione. Lo scambio automatico verrà eseguito poco dopo e l'aggiornamento verrà riflesso nell'URL dello slot di destinazione.
 
+<a name="Multi-Phase"></a>
+## Utilizzare spazio di swap in più fasi per l'app web ##
+
+Lo swap multifase è disponibile per semplificare la convalida nel contesto di elementi di configurazione progettati per mantenere uno slot come le stringhe di connessione. In questi casi può essere utile applicare tali elementi di configurazione dalla destinazione di swap all’origine di swap e convalidare prima lo swap effettivamente ha effetto. Una volta che gli elementi di configurazione della destinazione di swap vengono applicati all'origine di swap le azioni disponibili sono lo swap di completamento o il ripristino della configurazione originale per l'origine di swap che ha anche l'effetto di annullare lo swap. Degli esempi per i cmdlet PowerShell di Azure disponibili per lo swap multifase sono inclusi nei cmdlet PowerShell di Azure per la sezione relativa agli slot di distribuzione.
+
 <a name="Rollback"></a>
 ## Per eseguire il rollback di un'app di produzione dopo lo scambio ##
 Se vengono identificati errori nel sito di produzione dopo lo scambio di uno slot, ripristinare i due slot allo stato precedente scambiandoli immediatamente.
@@ -147,49 +152,43 @@ Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Wi
 
 - Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Windows Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](../install-configure-powershell.md).  
 
-- Per un elenco dei cmdlet disponibili per il servizio app di Azure in PowerShell, chiamare `help AzureWebsite`.
+- Per utilizzare la nuova modalità di gestione risorse di Azure per i cmdlet PowerShell iniziare con il seguente: `Switch-AzureMode -Name AzureResourceManager`.
 
 ----------
 
-### Get-AzureWebsite
-Il cmdlet **Get-AzureWebsite** presenta informazioni sulle app Web di Azure per la sottoscrizione corrente, come nell'esempio seguente.
+### Crea app Web
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-È possibile creare uno slot di distribuzione mediante il cmdlet **New-AzureWebsite**, specificando i nomi dell'app Web e dello slot. Indicare, inoltre, la stessa area dell'app Web per la creazione dello slot di distribuzione, come nell'esempio seguente.
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-È possibile utilizzare il cmdlet **Publish-AzureWebsiteProject** per la distribuzione dei contenuti, come nell'esempio seguente.
+### Creare uno slot di distribuzione per un'app web
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-Dopo aver applicato gli aggiornamenti dei contenuti e della configurazione al nuovo slot, è possibile convalidarli passando allo slot che utilizza il cmdlet **Show-AzureWebsite**, come nell'esempio seguente.
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-Il cmdlet **Switch-AzureWebsiteSlot** può eseguire un'operazione di scambio per applicare lo slot di distribuzione aggiornato al sito di produzione, come nell'esempio seguente. L'app di produzione non sarà caratterizzata da tempi di inattività, né subirà un avvio a freddo.
+### Avviare uno swap multifase e applicare la configurazione dello slot di destinazione allo slot di origine
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-Se uno slot di distribuzione non è più necessario, è possibile eliminarlo utilizzando il cmdlet **Remove-AzureWebsite**, come nell'esempio seguente.
+### Ripristinare la prima fase di swap multifase e ripristinare la configurazione di slot di origine
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### Swap degli slot di distribuzione
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### Eliminare slot di distribuzione
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 
@@ -200,7 +199,7 @@ Se uno slot di distribuzione non è più necessario, è possibile eliminarlo uti
 
 L'interfaccia della riga di comando di Azure fornisce comandi multipiattaforma che è possibile usare con Azure, incluso il supporto per la gestione degli slot di distribuzione delle app Web.
 
-- Per istruzioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli.md).
+- Per istruzioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 -  Per l'elenco dei comandi disponibili per il servizio app di Azure, chiamare `azure site -h`.
 
@@ -261,4 +260,4 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

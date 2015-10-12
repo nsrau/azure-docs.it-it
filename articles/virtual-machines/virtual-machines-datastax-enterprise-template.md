@@ -5,9 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
-<tags
+	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
@@ -22,7 +20,7 @@ DataStax è leader del settore nello sviluppo e nella fornitura di soluzioni bas
 
 >[AZURE.NOTE]A differenza della versione Community, per distribuire DataStax Enterprise è necessario disporre di un account DataStax (nome utente e password) valido da passare come parametri durante la distribuzione del modello. Visitare il sito Web di [Datastax](http://www.datastax.com) per configurare l'account, se non è già stato configurato.
 
-Oltre alle funzionalità già disponibili in Azure Marketplace, ora è possibile distribuire facilmente un nuovo cluster DataStax Enterprise nelle macchine virtuali Ubuntu utilizzando un modello di Gestione risorse distribuito tramite [Azure PowerShell](../powershell-install-configure.md) o l’[interfaccia della riga di comando di Azure](../xplat-cli.md).
+Oltre alle funzionalità già disponibili in Azure Marketplace, ora è possibile distribuire facilmente un nuovo cluster DataStax Enterprise nelle macchine virtuali Ubuntu utilizzando un modello di Gestione risorse distribuito tramite [Azure PowerShell](../powershell-install-configure.md) o l’[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 La topologia dei cluster appena distribuiti basati su questo modello è descritta nel diagramma seguente, sebbene sia possibile ottenere facilmente altre topologie personalizzando il modello presentato in questo articolo:
 
@@ -500,4 +498,4 @@ Questo approccio suggerisce che è:
 
 Per altre informazioni, vedere il [linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -33,7 +33,7 @@ Le operazioni sugli insiemi di credenziali chiave vengono autenticate e autorizz
 
 ## Programmazione dell'insieme di credenziali chiave
 
-Il sistema di gestione delle credenziali chiave per i programmatori è costituito da diverse interfacce, che hanno come base REST.
+Il sistema di gestione delle credenziali chiave per i programmatori è costituito da diverse interfacce, che hanno come base REST. In questo articolo il riferimento REST fornisce concetti di base, [sulle chiavi e i segreti](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ### REST
 
@@ -47,19 +47,24 @@ L'API .NET è un set di wrapper che consente l'implementazione tramite il modell
 
 ### Node.js
 
-L'API Node.js è un set di wrapper che consente l'implementazione tramite il modello di programmazione JavaScript senza la necessità di interagire direttamente con l'endpoint REST. Qui è possibile trovare [SDK di Microsoft Azure per la gestione dell’insieme di credenziali chiave Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+L'API Node.js è un set di wrapper che consente l'implementazione tramite il modello di programmazione node.js senza la necessità di interagire direttamente con l'endpoint REST. Qui è possibile trovare [SDK di Microsoft Azure per la gestione dell’insieme di credenziali chiave Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
 
-## Gestione dell’insieme di credenziali chiave con PowerShell e l’interfaccia della riga di comando
+## Gestione delle chiavi degli archivi
 
-Gli insiemi di credenziali chiave e le informazioni riservate possono inoltre essere gestiti tramite PowerShell e l’interfaccia della riga di comando, come descritto nei seguenti articoli:
+I contenitori dell’insieme di credenziali delle chiavi di Azure (insiemi di credenziali) possono essere gestiti tramite PowerShell o l’interfaccia della riga di comando, come descritto nei seguenti articoli:
 
 - [Creare e gestire insiemi di credenziali chiave con PowerShell](key-vault-get-started.md)
 - [Creare e gestire insiemi di credenziali chiave con l’interfaccia della riga di comando](key-vault-manage-with-cli.md)
+
+
+## Procedure
+
+Gli articoli seguenti forniscono indicazioni specifiche dell’attività:
+
 - [Come generare e trasferire chiavi protette HSM per l’insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md)
-- [Informazioni su chiavi e informazioni riservate](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
-## Vedere anche
+## esempi
 
-- [Esempi di codice di insieme di credenziali chiave di Azure](http://www.microsoft.com/download/details.aspx?id=45343)
+- Questo download contiene sia l'applicazione di esempio HelloKeyVault che un esempio di servizio Web di Azure. [Esempi di codice di insieme di credenziali chiave di Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

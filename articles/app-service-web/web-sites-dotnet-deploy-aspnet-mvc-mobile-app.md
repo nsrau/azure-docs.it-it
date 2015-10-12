@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure" 
 	description="Un'esercitazione che illustra come distribuire un'app Web in App Service di Azure usando le funzionalità dei dispositivi mobili nell'applicazione Web ASP.NET MVC 5." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -619,4 +619,4 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

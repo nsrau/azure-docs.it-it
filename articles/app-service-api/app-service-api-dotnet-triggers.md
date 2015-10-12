@@ -1,20 +1,20 @@
 <properties 
 	pageTitle="Trigger delle app per le API del servizio app di Azure" 
 	description="Questo articolo illustra come implementare i trigger in un'app per le API" 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="guayan;tarcher"/>
+	ms.date="09/29/2015" 
+	ms.author="guayan"/>
 
 # Trigger delle app per le API del servizio app di Azure
 
@@ -341,4 +341,4 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

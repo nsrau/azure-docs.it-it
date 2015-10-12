@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Monitoraggio delle prestazioni dell'applicazione web di Azure
@@ -21,7 +21,7 @@ Nel[portale Azure](http://portal.azure.com)è possibile impostare il monitoraggi
 
 Azure supporta il Monitoraggio prestazioni applicazione (o *APM*, Application Performance Monitoring) sfruttando le *estensioni*. Le estensioni vengono installate nell'applicazione e raccolgono i dati e li riferiscono ai servizi di monitoraggio.
 
-Application Insights e New Relic sono due delle estensioni disponibili di monitoraggio delle prestazioni. Per utilizzare New Relic, è necessario installare un agente in fase di esecuzione. Per utilizzare Application Insights, è necessario ricompilare il codice con un SDK; ed è inoltre possibile installare un'estensione che consente l'accesso ai dati aggiuntivi. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato.
+Application Insights e New Relic sono due delle estensioni disponibili di monitoraggio delle prestazioni. Per utilizzarli, è necessario installare un agente in fase di esecuzione. Con Application Insights, è inoltre disponibile l'opzione di compilare il codice con un SDK. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato.
 
 ## Abilitare un'estensione
 
@@ -37,9 +37,9 @@ Oppure, se si usa una macchina virtuale:
 
 ![Fare clic sul riquadro di analisi](./media/insights-perf-analytics/10-vm1.png)
 
-### Per Application Insights: ricompilare con l'SDK
+### Facoltativo per Application Insights: ricompilare con l'SDK
 
-Application Insights funziona installando un SDK nell'applicazione.
+Application Insights può fornire ulteriori dati di telemetria installando un SDK nell'applicazione.
 
 In Visual Studio, aggiungere Application Insights SDK al progetto.
 
@@ -83,4 +83,4 @@ Dopo aver visualizzato il pannello, per Application Insights, ad esempio, è pos
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

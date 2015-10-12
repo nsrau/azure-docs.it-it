@@ -26,4 +26,4 @@
 	- Impostare **Abilita bitcode** su **No** in Destinazioni > Impostazioni di compilazione. Assicurarsi di selezionare TUTTO nella barra superiore. 
 	- Abilitare **Notifiche push** in Destinazioni > Nome della destinazione > Funzionalità.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

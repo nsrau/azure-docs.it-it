@@ -599,4 +599,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Configurare Active Directory per Azure RemoteApp" 
+    pageTitle="Azure AD + requisiti di Active Directory per Azure RemoteApp | Microsoft Azure" 
     description="Informazioni su come configurare Active Directory per lavorare con Azure RemoteApp." 
     services="remoteapp" 
 	documentationCenter="" 
@@ -13,99 +13,36 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/03/2015" 
+    ms.date="09/28/2015" 
     ms.author="elizapo" />
 
 
 
-# Configurare Active Directory per Azure RemoteApp
+# Azure AD + requisiti di Active Directory per Azure RemoteApp
 
 
-Per una raccolta ibrida di Azure RemoteApp, è necessario configurare un'infrastruttura di dominio di Active Directory locale e un tenant di Azure Active Directory con l'integrazione della directory (e, facoltativamente, Single Sign-On). Inoltre, è necessario creare alcuni oggetti Active Directory nella directory locale. Usare le informazioni seguenti per configurare Active Directory locale e Azure AD, quindi integrare i due.
 
-## Configurare Active Directory locale
-Iniziare configurando Active Directory locale. È necessario identificare il suffisso del dominio UPN da usare e quindi creare oggetti Active Directory per RemoteApp.
+Per la raccolta ibrida di RemoteApp di Azure o per un insieme di cloud che si desidera attuare utilizzando una connessione di Active Directory, è necessario eseguire le operazioni seguenti.
 
-Se non si è ancora aggiunto Servizi di dominio di Active Directory al proprio ambiente Windows Server 2012 R2, consultare [queste istruzioni](https://technet.microsoft.com/library/cc731053.aspx) per informazioni su come eseguire tale operazione.
-### Esaminare e configurare il suffisso di dominio UPN
-Se la foresta non è configurata con un suffisso UPN che corrisponde al dominio di Azure AD che verrà usato per RemoteApp, sarà necessario aggiungerne uno. Determinare se il suffisso necessario è configurato:
+### Connettersi AD Azure e ad Active Directory
 
+Se si desidera connettere il tenant di Azure AD e gli ambienti di Active Directory in locale, utilizzare la connessione di Active Directory. Verranno visualizzati solo [4 clic](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx) per connettere le due directory.
 
-1. Avviare Utenti e computer di Active Directory.
-2.	Espandere il nome di dominio, quindi fare clic su **Utenti**.
-3.	Fare clic con il pulsante destro del mouse su **Amministratore**, quindi fare clic su **Proprietà**.
-4.	Nella scheda **Account** esaminare i nomi UPN configurati per il dominio nel campo **Nome accesso utente**.
-5.	Se non viene visualizzato un suffisso che corrisponde al nome di dominio da usare per la raccolta RemoteApp, eseguire le operazioni seguenti:
-	1.	Avviare Domini e trust di Active Directory.
-	2.	Fare clic con il pulsante destro del mouse su **Domini e trust di Active Directory**, quindi fare clic su **Proprietà**.
-	3.	Esaminare l'elenco di suffissi.
-	4.	Digitare il nome di dominio completo nella casella e fare clic su **Aggiungi**, quindi su **OK**. Esempio: contoso.com. 
+Nota - la sincronizzazione delle Directory è necessaria per le raccolte ibride.
 
-		NON includere il carattere "@" nel suffisso in questo caso.
+### Assicurarsi che il "@domain.com" corrisponda
+Prima di iniziare, assicurarsi che il nome UPN per la foresta locale corrisponda al suffisso del dominio di Windows Azure.
 
-Da questo momento, quando si creano nuovi utenti, è possibile selezionare il nuovo suffisso dal nome di accesso utente. Inoltre, è possibile modificare il suffisso per gli utenti esistenti nella scheda Account delle proprietà degli utenti.
+Dopo aver impostato il suffisso del dominio UPN in Azure AD, tutti gli utenti che accedono in Azure RemoteApp accederanno come "utente @<the suffix you set up>". Assicurarsi che gli utenti possano inoltre accedere con lo stesso user@suffix nel dominio locale. In alcuni casi è possibile impostare un nome di dominio in Azure AD quando si specifica un suffisso di dominio diverso per l'utente locale. In questo caso, gli utenti non potranno connettersi a nessun computer appartenente a un dominio o a risorse tramite Azure RemoteApp.
 
-Per altre informazioni, vedere [Aggiungere suffissi del nome dell'entità utente](http://technet.microsoft.com/library/cc772007.aspx).
+Ad esempio, se si imposta il suffisso di dominio UPN in AAD come contoso.com, ma alcuni utenti in locale o Active Directory sono configurati per l'accesso con @contoso.uk, allora tali utenti non potranno accedere correttamente alla raccolta ARA. Gli utenti UPN in AAD e in Active Directory devono essere gli stessi affinché l'accesso sia possibile"
 
-### Creare gli oggetti per RemoteApp in Active Directory
-RemoteApp necessita di due oggetti in Active Directory locale:
-
+### Creare gli oggetti per RemoteApp di Azure
+Inoltre, è necessario creare i seguenti oggetti di Active Directory locali:
 
 - Un account del servizio per fornire l'accesso alle risorse di dominio ai programmi RemoteApp unendo gli endpoint di Host sessione Desktop remoto al dominio locale.
 - Un'unità organizzativa per contenere oggetti computer di RemoteApp. L'uso dell'unità organizzativa è consigliabile (ma non obbligatorio) per isolare gli account e i criteri che si useranno con RemoteApp.
 
-Usare le informazioni seguenti per creare ognuno di questi oggetti.
+Entrambi questi oggetti sono necessari quando si crea la raccolta di RemoteApp, sarà dunque necessario innanzitutto eseguire questi passaggi.
 
-#### Creare l'account del servizio:
-
-
-1. Avviare Utenti e computer di Active Directory.
-2.	Fare clic con il pulsante destro del mouse su **Utenti**, quindi fare clic su **Nuovo > Utente**.
-3.	Immettere un nome utente e una password per l'account del servizio RemoteApp.
-
-	**Nota:** le informazioni relative a questo account saranno necessarie quando si creerà la raccolta RemoteApp.
-
-#### Creare una nuova unità organizzativa
-
-
-1. In Utenti e computer di Active Directory, fare clic sul dominio. Fare clic su **Nuovo > Unità organizzativa**.
-2. Aggiungere l'account del servizio creato per RemoteApp a questa nuova unità organizzativa.
-
-	Per eseguire questa operazione, trovare l'account del servizio che si è creato. Fare clic sull'account con il pulsante destro del mouse, quindi fare clic su **Sposta**. Selezionare la nuova unità organizzativa, quindi fare clic su **OK**.
-
-
-1. Concedere all'account del servizio RemoteApp le autorizzazioni per aggiungere ed eliminare computer a questa unità organizzativa:
-	1. Dallo snap-in Utenti e computer di Active Directory fare clic su **Visualizza > Funzionalità avanzate**. Verrà aggiunta la scheda **Sicurezza** alle informazioni relative alle proprietà.
-	2. Fare clic con il pulsante destro del mouse sull'unità organizzativa del servizio RemoteApp, quindi fare clic su **Proprietà**.
-	3. Nella scheda **Sicurezza** fare clic su **Aggiungi**. Selezionare l'oggetto utente dell'account del servizio RemoteApp, quindi fare clic su **OK**.
-	4. Fare clic su **Advanced**.
-	5. Nella scheda **Autorizzazioni** selezionare l'account del servizio RemoteApp, quindi fare clic su **Modifica**.
-	6. Selezionare **Questo oggetto e tutti i discendenti** nel campo **Si applica a**.
-	7. Nel campo **Autorizzazioni** selezionare **Consenti** accanto a Crea oggetti computer ed Elimina oggetti computer, quindi fare clic su **OK**. 
-	8. Fare clic su **OK** nelle due finestre rimanenti.
-
-
-## Configurare Azure Active Directory
-Ora che Active Directory locale è stato configurato, passare ad Azure AD. È necessario creare un dominio personalizzato che corrisponda al suffisso di dominio UPN per il dominio locale e impostare l'integrazione di directory. La raccolta ibrida supporta solo gli account Azure Active Directory che sono stati sincronizzati (mediante uno strumento come DirSync) da una distribuzione di Windows Server Active Directory, e, più in particolare, sincronizzati con l'opzione di sincronizzazione password oppure con la federazione di Active Directory Federation Services (ADFS) configurata.
-
-Usare le informazioni seguenti per configurare Azure Active Directory
-
-
-- [Aggiungere il proprio dominio](http://technet.microsoft.com/library/hh969247.aspx): usare queste informazioni per aggiungere un dominio che corrisponda al suffisso di dominio UPN del dominio di Active Directory locale.
-- [Integrazione directory](http://technet.microsoft.com/library/jj573653.aspx): usare queste informazioni per scegliere un'opzione di integrazione directory: [DirSync con sincronizzazione password](http://technet.microsoft.com/library/dn441214.aspx) o [DirSync con federazione](http://technet.microsoft.com/library/dn441213.aspx).
-
-È anche possibile configurare l'[autenticazione a più fattori](http://technet.microsoft.com/library/dn249466.aspx) (MFA, Multi-Factor Authentication).
-
-## Problemi durante la configurazione della sincronizzazione della directory?
-
-Se si riscontrano problemi durante la configurazione della sincronizzazione della directory, verificare quanto segue:
-
-- La versione dello strumento Sincronizzazione directory di Azure è la più recente. 
--	Nel portale di gestione in **Active Directory -> Directory predefinita -> Domini** il dominio personalizzato è già stato aggiunto (ad esempio mydomain.com) ed è stato impostato come primario.
--	In **Active Directory -> Directory predefinita -> Utenti** si aggiunge un nuovo utente in tale dominio (ad esempio myAzureSyncUser@mydomain.com).
--	Nel dominio in Active Directory è stato aggiunto un nuovo utente di dominio ed è stato inserito nel gruppo Enterprise Admins (ad esempio myDomainSyncUser@mydomain.com).
-
-Avviare ora lo strumento Sincronizzazione directory di Azure e usare le credenziali ****myAzureSyncUser@mydomain.com** per la prima richiesta (Credenziali di amministratore di Microsoft Azure Active Directory), quindi usare ****myDomainSyncUser@mydomain.com** per la seconda richiesta.
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

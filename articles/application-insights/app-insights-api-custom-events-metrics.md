@@ -461,6 +461,17 @@ Se gli utenti accedono all'app, è possibile ottenere un conteggio più preciso 
     }
 ```
 
+In un'applicazione MVC, ad esempio ASP.NET web:
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
 Non è necessario usare il nome di accesso dell'utente corrente. È sufficiente usare un ID univoco per l'utente. Non deve includere spazi o i caratteri `,;=|`.
 
 L'ID utente viene inoltre impostato in un cookie di sessione e inviato al server. Se l'SDK del server è installato, l'ID dell'utente autenticato verrà inviato come parte delle proprietà di contesto della telemetria del client e del server, affinché sia possibile filtrarlo ed eseguire ricerche al suo interno.
@@ -470,7 +481,9 @@ Se l'app raggruppa gli utenti in account, è inoltre possibile passare un identi
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **Utenti autenticati ** e **Account**.
+In [Esplora metriche](app-insights-metrics-explorer.md), è possibile creare un grafico che conta gli **Utenti, autenticati** e **gli account utente**.
+
+È inoltre possibile [ricercare][diagnostic] i punti dati del client con account e nomi utente specifici.
 
 
 ## <a name="defaults"></a>Impostare i valori predefiniti per i dati di telemetria personalizzati selezionati
@@ -699,7 +712,7 @@ In genere SDK invia i dati in momenti scelti per ridurre al minimo l'impatto sul
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Si noti che la funzione è asincrona.
+Si noti che la funzione è asincrona per i canali in memoria, ma sincrona se si sceglie di utilizzare il [canale persistente](app-insights-windows-desktop.md#persistence-channel).
 
 
 
@@ -903,4 +916,4 @@ Esistono tuttavia alcuni limiti sul numero di metriche e eventi per applicazione
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

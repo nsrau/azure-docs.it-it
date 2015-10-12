@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/23/2015" 
     ms.author="tamram"/>
 
 # Come usare l'archiviazione delle code da C++  
@@ -238,4 +238,4 @@ A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodament
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

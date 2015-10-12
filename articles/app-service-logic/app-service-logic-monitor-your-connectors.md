@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestire e monitorare le app per le API e i connettori nel servizio app di Azure" 
+	pageTitle="Gestire e monitorare le app per le API e i connettori nel servizio app | Microsoft Azure" 
 	description="Visualizzare le prestazioni dei connettori e delle app per le API nel servizio app di Azure; architettura dei microservizi" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="mandia"/>
 
 # Gestire e monitorare le app per le API e i connettori predefiniti
 
 È stata creata un'app per le API predefinita. Come si procede a questo punto?
 
-In Azure ogni app per le API è un sito Web distinto ospitato in Azure. È quindi possibile vedere facilmente quante richieste vengono fatte e la quantità di dati usata dal connettore
-
-È anche possibile eseguire il backup dell'app per le API, creare avvisi, abilitare Tinfoil Security e aggiungere utenti e ruoli.
+In Azure ogni app per le API è un sito Web distinto ospitato in Azure. È quindi possibile vedere facilmente quante richieste vengono fatte e la quantità di dati usata dal connettore È anche possibile eseguire il backup dell'app per le API, creare avvisi, abilitare Tinfoil Security e aggiungere utenti e ruoli.
 
 Questo argomento descrive alcune delle diverse opzioni disponibili per gestire l'app per le API.
 
-Per vedere le funzionalità predefinite, aprire l'app per le API nel [portale di anteprima di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Se l'app per le API si trova nella schermata iniziale, selezionarla per aprire le proprietà. È anche possibile selezionare **Sfoglia**, **App per le API** e quindi l'app per le API.
+Per vedere le funzionalità predefinite, aprire l'app per le API nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Se l'app per le API si trova nella schermata iniziale, selezionarla per aprire le proprietà. È anche possibile selezionare **Sfoglia**, **App per le API** e quindi l'app per le API.
 
 ![][browse]
 
@@ -51,17 +49,15 @@ Dopo avere configurato o creato il connettore predefinito, è possibile modifica
 Di seguito è riportata la procedura:
 
 1. Aprire il connettore o l'app per le API. Si aprirà il pannello dell'app per le API.
-2. In Informazioni di base fare clic sul collegamento ipertestuale nella proprietà dell'host. Il nome del collegamento ipertestuale è simile a *slackconnector* o *microsoftsqlconnector123*:
+2. In **Informazioni di base**, fare clic sul collegamento ipertestuale nella proprietà dell'host. Il nome del collegamento ipertestuale è simile a *slackconnector* o *microsoftsqlconnector123*:
 
 	![][apiapphost]
 
-3. Nel pannello Host app API selezionare **Impostazioni**.
-4. Nel pannello Impostazioni selezionare **Impostazioni applicazione**.
-5. I valori di configurazione sono elencati in **Impostazioni app**: 
+3. Nel pannello Host app API selezionare **Impostazioni**. Nel pannello Impostazioni selezionare **Impostazioni applicazione**. I valori di configurazione sono elencati in **Impostazioni app**:
 	
 	![][hostsettings]
 
-6. Fare clic sull'impostazione che si vuole modificare, immettere il nuovo valore e scegliere **Salva** per salvare le modifiche.
+4. Fare clic sull'impostazione che si vuole modificare, immettere il nuovo valore e scegliere **Salva** per salvare le modifiche.
 
 
 ## Installare Gestione connessione ibrida - Facoltativo
@@ -75,7 +71,7 @@ Vedere [Uso di Gestione connessione ibrida nel servizio app di Azure](app-servic
 > [AZURE.NOTE]Gestione connessione ibrida è necessario solo se ci si connette a una risorsa locale protetta da un firewall. Se non ci si connette a un sistema locale, Gestione connessione ibrida potrebbe non essere presente nel pannello del connettore.
 
 ## Monitorare le prestazioni
-La metrica delle prestazioni è costituita da funzionalità predefinite e incluse in ogni app per le API creata. Questa metrica è specifica dell'app per le API ospitata in Azure:
+La metrica delle prestazioni è costituita da funzionalità predefinite e incluse in ogni app per le API creata. Questa metrica è specifica dell'app per le API ospitata in Azure: Metriche di esempio:
 
 ![][monitoring]
 
@@ -118,6 +114,9 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 > 
 > Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway. In [Gestire le app per le API](../app-service-api/app-service-api-manage-in-portal.md) sono disponibili altre informazioni sulle operazioni che è possibile eseguire in questi pannelli con l'app per le API personalizzata.
 
+
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 ## Altre informazioni
 
 [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/> [Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/> [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md)<br/> [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
@@ -133,4 +132,4 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

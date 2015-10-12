@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Come ridimensionare un'app Web in un ambiente del servizio app" 
 	description="Ridimensionamento di un'app Web in un ambiente del servizio app" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -86,4 +86,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

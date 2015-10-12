@@ -7,10 +7,10 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
-# Risoluzione dei problemi
+# Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente.
 
 ## Individuazione
@@ -89,7 +89,7 @@ Per VM di Windows:
 
 Per le macchine virtuali Linux:
 
-- Installare l’[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da github. 
+- Installare l’[agente Linux](https://github.com/Azure/WALinuxAgent) più recente da github.
 - [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato.
 
 
@@ -100,7 +100,7 @@ Per VM di Windows:
 
 Per le macchine virtuali Linux:
 
-- Seguire le istruzioni in [Aggiornamento agente delle macchine Virtuali Linux ](../virtual-machines-linux-update-agent.md). 
+- Seguire le istruzioni in [Aggiornamento agente delle macchine Virtuali Linux ](../virtual-machines-linux-update-agent.md).
 
 
 ### Convalida dell'installazione dell'agente di VM
@@ -123,4 +123,4 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
 1. Ottenere l'elenco di [IP dei data center di Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) da aggiungere all'elenco di IP consentiti.
 2. Sbloccare gli IP mediante il cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Eseguire questo cmdlet entro la VM di VM, in una finestra di PowerShell con privilegi elevati, eseguita come amministratore.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

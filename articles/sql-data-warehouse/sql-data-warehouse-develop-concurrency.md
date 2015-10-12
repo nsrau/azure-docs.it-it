@@ -448,8 +448,8 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 [Panoramica sullo sviluppo per SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gestione di database e gli account di accesso nel Database di SQL Azure]: https://msdn.microsoft.com/IT-IT/library/azure/ee336235.aspx
+[Gestione di database e gli account di accesso nel Database di SQL Azure]: https://msdn.microsoft.com/it-IT/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -70,4 +70,4 @@ Questa procedura illustra la configurazione di una rete virtuale e un gateway da
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

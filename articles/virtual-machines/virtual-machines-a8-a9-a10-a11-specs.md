@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/02/2015"
+ ms.date="09/29/2015"
  ms.author="danlep"/>
 
 # Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo
@@ -84,13 +84,13 @@ Le istanze A10 e A11 dispongono di una singola scheda di rete Ethernet a 10 Gbps
 
 HPC Pack non è necessario per l'utilizzo delle istanze A8, A9, A10 e A11 con Windows Server, ma è uno strumento consigliato per la creazione di cluster Windows HPC in Azure. Nel caso delle istanze A8 e A9, HPC Pack è lo strumento più efficiente per eseguire applicazioni Windows MPI che accedono alla rete RDMA in Azure. HPC Pack include un ambiente di runtime per l'implementazione Microsoft dell'interfaccia MPI (Message Passing Interface) per Windows.
 
-Per ulteriori informazioni ed elenchi di controllo sulla distribuzione e l'uso delle istanze a elevato utilizzo di calcolo in scenari IaaS e PaaS con HPC Pack in Windows Server, vedere [Istanze a elevato utilizzo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+Per ulteriori informazioni ed elenchi di controllo per utilizzare le istanze con utilizzo intensivo di calcolo con HPC Pack in Windows Server, vedere [Configurare un cluster di Windows RDMA con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
 ## Accesso alla rete RDMA
 
 ### Accedere da macchine virtuali Linux A8 e A9
 
-All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure per l’esecuzione di applicazioni MPI che utilizzano i driver RDMA Linux per la comunicazione tra le istanze. In questo momento Azure Linux RDMA è supportato solo con [Intel MPI Library 5](https://software.intel.com/IT-IT/intel-mpi-library/).
+All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure per l’esecuzione di applicazioni MPI che utilizzano i driver RDMA Linux per la comunicazione tra le istanze. In questo momento Azure Linux RDMA è supportato solo con [Intel MPI Library 5](https://software.intel.com/it-IT/intel-mpi-library/).
 
 >[AZURE.NOTE]Attualmente, i driver di Azure Linux RDMA non sono disponibili per l'installazione tramite estensioni del driver. Sono disponibili solo utilizzando l'immagine SLES 12 abilitata per RDMA da Azure Marketplace.
 
@@ -105,7 +105,7 @@ MPI | Intel MPI Library 5
 
 All'interno di un singolo servizio cloud o set di disponibilità, le istanze A8 e A9 possono accedere alla rete RDMA in Azure per l’esecuzione di applicazioni MPI che utilizzano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze. Le istanze A10 e A11 non includono l'accesso alla rete RDMA.
 
-Vedere la tabella seguente per i prerequisiti per applicazioni MPI per l'accesso alla rete RDMA in distribuzioni di servizi cloud (PaaS) o di macchine virtuali (IaaS) delle istanze A8 o A9. Per informazioni sugli scenari di distribuzione tipici, vedere [Istanze a elevato utilizzo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+Vedere la tabella seguente per i prerequisiti per applicazioni MPI per l'accesso alla rete RDMA in distribuzioni di servizi cloud (PaaS) o di macchine virtuali (IaaS) delle istanze A8 o A9. Per scenari di distribuzione comuni, [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
 
 Prerequisito | Macchine virtuali (IaaS) | Servizi cloud (PaaS)
@@ -131,6 +131,6 @@ MPI | MS-MPI 2012 R2 o versioni successive, autonomo o installato mediante HPC P
 
 * Per informazioni dettagliate sulla disponibilità e i prezzi delle istanze A8, A9, A10 e A11, vedere [Macchine virtuali - Prezzi](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Servizi cloud - Prezzi](http://azure.microsoft.com/pricing/details/cloud-services/).
 * Per distribuire e configurare un cluster Linux con istanze A8 e A9 per accedere alla rete RDMA di Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-cluster-rdma.md).
-* Per iniziare a distribuire e utilizzare istanze A8 e A9 con HPC Pack in Windows, vedere [Istanze a elevato utilizzo di calcolo A8 e A9: avvio rapido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) e [Eseguire applicazioni MPI nelle istanze A8 e A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
+* Per iniziare a distribuire e utilizzare istanze A8 e A9 con HPC Pack in Windows, vedere [Configurare un cluster di Windows RDMA con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

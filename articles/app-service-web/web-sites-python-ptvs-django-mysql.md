@@ -191,6 +191,8 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 - [Documentazione di Django]
 - [MySQL]
 
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
+
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -216,4 +218,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

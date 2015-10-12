@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Analisi della varianza dei clienti con Machine Learning | Microsoft Azure" 
-	description="Casi di studio sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jeannt" 
-	manager="paulettm" 
+<properties
+	pageTitle="Analisi della varianza dei clienti con Machine Learning | Microsoft Azure"
+	description="Casi di studio sullo sviluppo di un modello integrato per l'analisi e l'assegnazione dei punteggi di varianza del cliente"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jeannt"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/28/2015" 
 	ms.author="jeannt"/>
 
 # Analisi della varianza del cliente tramite Azure Machine Learning
@@ -54,17 +54,17 @@ Un processo comune di risoluzione dei problemi legati alla varianza dei clienti 
 Si tratta di un approccio rivolto al futuro è il modo migliore per trattare la varianza, ma risulta essere molto complesso: è necessario sviluppare un archetipo multi modello e tracciare le dipendenze tra i modelli. L'interazione tra modelli può essere incapsulata come illustrato nel diagramma seguente:
 
 ![][2]
- 
+
 *Figura 4: Archetipo multi modello unificato*
 
 L'interazione tra modelli è fondamentale per lo sviluppo di un approccio olistico alla fidelizzazione del cliente. Ogni modello subisce inevitabilmente un degrado con il passare degli anni, pertanto, l'architettura è un ciclo implicito (simile all'archetipo impostato dallo standard di data mining CRISP-DM [***3***]).
- 
+
 Il ciclo generale di segmentazione/scomposizione di rischio-decisione-marketing è ancora una struttura generalizzata, applicabile a molti problemi di business. L'analisi della varianza è semplicemente un elemento altamente rappresentativo di questo gruppo di problemi, poiché presenta tutti i tratti di una complessa problematica di business che non consente una soluzione predittiva semplificata. Gli aspetti sociali dell'approccio moderno alla varianza non sono particolarmente evidenziati nell'approccio, ma gli aspetti sociali sono incapsulati nell'archetipo di modellazione, come lo sarebbero in qualsiasi modello.
 
 Un'aggiunta interessante in questo ambito è l'analisi dei Big Data. Negli attuali settori commerciali delle telecomunicazioni e della rivendita al dettaglio vengono raccolti dati esaurienti sui clienti e risulta immediatamente evidente come la necessità di connettività multi modello diverrà un trend comune, date le tendenze emergenti quali "Internet delle cose" e l'universalità dei dispositivi. Ciò che consentirà alle aziende di impiegare soluzioni intelligenti e organizzate su più livelli.
 
  
-##Implementazione del sistema di modellazione in Machine Learning Studio 
+##Implementazione del sistema di modellazione in Machine Learning Studio
 Dato il problema appena descritto, come è possibile implementare un modello integrato e un sistema di classificazione? In questa sezione viene illustrato tale processo tramite l'utilizzo di Azure Machine Learning Studio.
 
 L'approccio multi modello è indispensabile quando si progetta un archetipo globale per la varianza. Anche la parte (predittiva) dell'approccio correlata al punteggio deve essere multi modello.
@@ -72,7 +72,7 @@ L'approccio multi modello è indispensabile quando si progetta un archetipo glob
 Nel diagramma seguente viene mostrato il prototipo creato, che impiega quattro algoritmi di valore in Cloud ML Studio per prevedere la varianza. Il motivo per usare un approccio multi modello non è solo il poter creare un classificatore basato su insiemi per aumentare l'accuratezza, ma anche la protezione da inserimenti superflui e la possibilità di migliorare la selezione futura.
 
 ![][3]
- 
+
 *Figura 5: Prototipo di un approccio di modellazione della varianza*
 
 Nelle sezioni seguenti vengono forniti ulteriori dettagli sul modello di valori del prototipo implementato tramite Machine Learning Studio.
@@ -91,23 +91,23 @@ L'aspetto più importante è rappresentato dal fatto che l'intero processo, comp
 Nei diagrammi che seguono sono illustrati i dati usati.
 
 ![][4]
- 
+
 *Figura 6: Estratto dell'origine dati (offuscati)*
 
 ![][5]
 
- 
+
 *Figure 7: Funzionalità estratte dall'origine dati*
-> Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile usando dati disponibili pubblicamente, vedere questo esperimento di esempio nella [raccolta di modelli](http://gallery.azureml.net/): [varianza del cliente in ambito di telecomunicazioni](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
-> 
+> Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile usando dati disponibili pubblicamente, vedere questo esperimento di esempio nella [raccolta di Cortana Analytics](http://gallery.azureml.net/): [varianza del cliente in ambito di telecomunicazioni](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
+>
 
 ###Algoritmi usati nel prototipo
 
 Per la realizzazione del prototipo sono stati impiegati i seguenti quattro algoritmi di Machine Learning (senza personalizzazione):
 
 1.	Regressione logistica (LR)
-2.	Albero delle decisioni incrementato (BT) 
-3.	Percezione media (AP) 
+2.	Albero delle decisioni incrementato (BT)
+3.	Percezione media (AP)
 4.	Macchina a vettori di supporto (SVM)  
 
 
@@ -115,7 +115,7 @@ Nel diagramma seguente viene illustrata una porzione dell'area di progettazione 
 
 ![][6]
 
- 
+
 *Figura 8: Creazione di modelli in Machine Learning Studio*
 
 ###Metodi di assegnazione delle valutazioni
@@ -123,7 +123,7 @@ I quattro modelli sono stati classificati usando un set di dati di training etic
 
 Inoltre, il set di dati di valutazione è stato inviato a un modello analogo compilato utilizzando la versione desktop di SAS Enterprise Miner 12. È stata misurata l'accuratezza del modello SAS e di tutti i quattro modelli di Machine Learning Studio.
 
-##Risultati 
+##Risultati
 In questa sezione vengono presentati i risultati relativi all'accuratezza dei modelli in base al set di dati di punteggio.
 
 ###Accuratezza e precisione dei valori
@@ -133,7 +133,7 @@ La metrica più importante in ambito di varianza è tuttavia il tasso di errata 
 
 ![][7]
 
- 
+
 *Figure 9: Area sottesa dalla curva del prototipo Passau*
 
 ###Uso di AUC per il confronto dei risultati
@@ -154,7 +154,7 @@ Analogamente, l'accuratezza è più importante della precisione perché ciò che
 Il seguente diagramma disponibile su Wikipedia illustra la relazione in un grafico brillante e di facile comprensione:
 
 ![][8]
- 
+
 *Figura 10: Compromesso tra accuratezza e precisione*
 
 ###Risultati di accuratezza e precisione per il modello di albero decisionale incrementato  
@@ -165,7 +165,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 *Figure 11: modello di albero delle decisioni con boosting*
 
-##Confronto delle prestazioni 
+##Confronto delle prestazioni
 È stata confrontata la velocità di assegnazione del punteggio usando i modelli di Machine Learning Studio e un modello paragonabile creato usando l'edizione desktop di SAS Enterprise Miner 12.1.
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:
@@ -184,16 +184,16 @@ Nel settore delle telecomunicazioni sono state sviluppate numerose pratiche per 
 -	Derivare metriche per quattro categorie fondamentali:
 	-	**Entità (ad esempio, una sottoscrizione)**. Fornire informazioni di base sulle sottoscrizioni e/o sui clienti soggetti a varianza.
 	-	**Attività**. Ottenere tutte le informazioni di utilizzo possibili correlate all'entità, ad esempio, il numero di account di accesso.
-	-	**Supporto tecnico**. Raccogliere informazioni dai log del supporto tecnico per indicare se l'abbonato ha avuto problemi o interazioni con il supporto tecnico. 
+	-	**Supporto tecnico**. Raccogliere informazioni dai log del supporto tecnico per indicare se l'abbonato ha avuto problemi o interazioni con il supporto tecnico.
 	-	**Dati commerciali e competitivi**. Ottenere qualunque informazione possibile in merito al cliente (ad esempio, se non è disponibile o difficile da monitorare).
 -	Usare l'importanza per alimentare la selezione delle funzionalità. Ciò implica che il modello di albero decisionale incrementato è sempre un approccio promettente.  
 
 L'uso delle quattro categorie precedenti crea l'illusione che un semplice approccio *deterministico*, basato su indici formati su fattori ragionevoli per categoria, dovrebbe essere sufficiente per identificare i clienti a rischio di varianza. Sfortunatamente, per quanto questa nozione appaia plausibile, si tratta di un intendimento errato. Il motivo è dato dal fatto che la varianza è un effetto temporale e i fattori che contribuiscono ad essa si trovano in genere in uno stato temporaneo. Ciò che induce un cliente a valutare un cambio di gestore oggi, potrebbe essere diverso domani e sicuramente sarà ancora diverso tra sei mesi. Pertanto, un modello *probabilistico* è una necessità.
- 
+
 Questa importante osservazione è spesso sottovalutata dalle aziende, dove in genere si preferisce un approccio di tipo business intelligence, principalmente perché è una soluzione più semplice e ammette un'automazione semplificata.
 
 Tuttavia, la promessa dell'analisi self-service utilizzando Machine Learning Studio è data dal fatto che quattro categorie di informazioni, classificate per divisione o dipartimento, diventano un'origine preziosa per le attività di apprendimento automatico rivolte alla varianza.
- 
+
 Un'altra funzionalità interessante di apprendimento automatico presente in Azure Machine Learning è la possibilità di aggiungere un modulo personalizzato nel repository dei moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante elemento di differenziazione per Azure Machine Learning nel mercato.
 
 Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
@@ -204,7 +204,7 @@ In questo documento viene descritto un approccio intelligente alla gestione di u
 
 Il documento è stato di aiuto? Gradiremmo ricevere commenti e suggerimenti. Indicare, su una scala da 1 (scadente) a 5 (eccellente) come si classificherebbe questo articolo e indicare perché si è assegnato tale punteggio. Ad esempio:
 
--	Si sta assegnando un punteggio alto perché l'articolo contiene degli ottimi esempi, schermate eccellenti, il linguaggio è chiaro o per un altro motivo? 
+-	Si sta assegnando un punteggio alto perché l'articolo contiene degli ottimi esempi, schermate eccellenti, il linguaggio è chiaro o per un altro motivo?
 -	Si sta assegnando un punteggio basso perché gli esempi sono scarsi, le schermate poco chiare o il linguaggio è incomprensibile?  
 
 Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei white paper prodotti.
@@ -214,7 +214,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.
 
 [2] [Accuratezza e precisione](http://en.wikipedia.org/wiki/Accuracy_and_precision) su Wikipedia
- 
+
 [3] [CRISP-DM 1.0: Guida dettagliata sul data mining](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] Big Data Marketing
@@ -223,9 +223,9 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 ##Appendice
 
 ![][10]
- 
+
 *Figura 12: Snapshot di una presentazione sul prototipo di varianza*
-  
+
 
 [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
@@ -237,6 +237,5 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

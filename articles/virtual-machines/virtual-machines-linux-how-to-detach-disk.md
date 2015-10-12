@@ -29,4 +29,4 @@
 
 [Uso dell’interfaccia della riga di comando di Azure con l’API di gestione del servizio](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

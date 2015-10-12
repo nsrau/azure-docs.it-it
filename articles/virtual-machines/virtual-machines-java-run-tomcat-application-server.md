@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="09/22/2015"
 	ms.author="robmcm"/>
 
 # Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
@@ -145,4 +145,4 @@ Scoprire di più su altri servizi, come Archiviazione, Bus di servizio e Databas
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -51,7 +51,7 @@ Nome | Script
 **Installare Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Vedere [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Vedere [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md).
 
-##Usare un'azione script dal portale di anteprima di Azure
+## Usare un'azione script dal portale di anteprima di Azure
 
 1. Avviare il provisioning di un cluster come descritto in [Effettuare il provisioning di un cluster con opzioni personalizzate](hdinsight-provision-clusters.md#portal).
 
@@ -70,7 +70,7 @@ Nome | Script
 
 3. Fare clic su **Seleziona** per salvare la configurazione dell'azione script e continuare con il provisioning del cluster.
 
-##Usare un'azione script dai modelli di Gestione risorse di Azure
+## Usare un'azione script dai modelli di Gestione risorse di Azure
 
 In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per effettuare il provisioning di un cluster HDInsight, oltre a un'azione script per installare nel cluster i componenti personalizzati, in questo esempio R. Questa sezione include un modello ARM di esempio per effettuare il provisioning di un cluster con un'azione script.
 
@@ -165,7 +165,6 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per e
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -239,8 +238,6 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per e
 		    }
 		}
 
-
-
 2. Avviare Azure PowerShell e accedere al proprio account Azure. Una volta specificate le credenziali, il comando restituisce le informazioni relative all'account.
 
 		Add-AzureAccount
@@ -297,7 +294,7 @@ In questa sezione si useranno i modelli di Gestione risorse di Azure (ARM) per e
 
 		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
 
-##Usare un'azione script da Azure PowerShell
+## Usare un'azione script da Azure PowerShell
 
 In questa sezione si usa il cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** per richiamare gli script usando l'azione script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -346,15 +343,14 @@ Eseguire la procedura seguente:
 
 Quando richiesto, immettere le credenziali per il cluster. La creazione del cluster può richiedere alcuni minuti.
 
-##Usare un'azione script da HDInsight .NET SDK
+## Usare un'azione script da HDInsight .NET SDK
 
 HDInsight .NET SDK fornisce librerie client che semplificano l'utilizzo di HDInsight da un'applicazione .NET. I passaggi seguenti illustrano come usare uno script per personalizzare un cluster da HDInsight .NET SDK.
-
 
 > [AZURE.IMPORTANT]È necessario creare prima di tutto un certificato autofirmato, installarlo nella workstation e quindi caricarlo nella sottoscrizione di Azure. Per ottenere istruzioni, vedere [Creare un certificato autofirmato](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 
-###Creare un progetto di Visual Studio
+### Creare un progetto di Visual Studio
 
 1. Aprire Visual Studio 2013 o 2015.
 
@@ -441,7 +437,7 @@ HDInsight .NET SDK fornisce librerie client che semplificano l'utilizzo di HDIns
 
 11. Salvare le modifiche all'applicazione e compilare la soluzione.
 
-###Eseguire l'applicazione
+### Eseguire l'applicazione
 
 Aprire una console di Azure PowerShell, passare al percorso in cui è stato salvato il progetto, spostarsi nella directory \\bin\\debug all'interno del progetto, quindi eseguire il comando seguente:
 
@@ -461,7 +457,7 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
 > [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community come: [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/IT-IT/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community come: [il forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 Il servizio HDInsight permette di usare i componenti personalizzati in molti modi. Indipendentemente dal modo in cui un componente viene usato o installato nel cluster, verrà applicato lo stesso livello di supporto. L'elenco seguente illustra i modi più comuni per usare i componenti personalizzati nei cluster HDInsight:
 
@@ -471,7 +467,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 3. Esempi - Microsoft e altri utenti possono fornire esempi relativi all'uso dei componenti personalizzati più diffusi nei cluster HDInsight. Questi esempi vengono forniti senza supporto.
 
-##Risoluzione dei problemi
+## Risoluzione dei problemi
 
 È possibile usare l'interfaccia utente Web Ambari per visualizzare le informazioni registrate dagli script durante il provisioning del cluster.
 
@@ -503,4 +499,4 @@ Per informazioni ed esempi sulla creazione e l'uso di script per personalizzare 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante il provisioning di un cluster"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

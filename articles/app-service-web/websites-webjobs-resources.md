@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="Risorse di documentazione di Processi Web di Azure" 
 	description="Risorse consigliate per informazioni sull'uso di Processi Web di Azure e Azure WebJobs SDK." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -142,4 +142,4 @@ Vedere anche le sezioni seguenti in [distribuzione WebJobs](#deploy) e [di test 
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

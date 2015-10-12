@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso del connettore Azure Resource nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore Azure Resource e usarlo in un'app per la logica in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""/>
+   description="Come creare e configurare l'app per le API o il connettore Azure Resource e usarlo in un'app per la logica in Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="stepsic-microsoft-com"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="stepsic"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="stepsic"/>
 
 # Uso del connettore Azure Resource e aggiunta all'app per la logica 
 Usare il connettore Azure Resource per gestire in modo semplice le risorse di Azure nell'app per la logica.
@@ -87,6 +87,8 @@ Ottenere metriche | Ottenere una metrica in base a un ID risorsa.
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
@@ -96,4 +98,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

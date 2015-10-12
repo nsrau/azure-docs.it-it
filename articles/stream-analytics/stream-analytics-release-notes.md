@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/16/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di Analisi di flusso Microsoft
+
+## Note per la versione 29/09/2015 di Analisi di flusso ##
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+Titolo | Descrizione
+---|---
+Anteprima pubblica di Azure IoT Suite | L’analisi di flusso è inclusa nell’anteprima pubblica di Azure IoT Suite.
+Integrazione del portale di anteprima di Azure | Oltre alla presenza costante nel portale di gestione di Azure, l’analisi di flusso è ora integrata nel [portale di anteprima di Azure](http://azure.microsoft.com/overview/preview-portal/). Si noti che la funzionalità di analisi di flusso nel portale di anteprima è attualmente un sottoinsieme delle funzionalità offerte nel portale di gestione di Azure, senza il supporto per il test di query nel browser, la configurazione di output Power BI e l’esplorazione o la creazione di nuove risorse di input e output nelle sottoscrizioni a cui si ha accesso.
+Supporto per l'output di DocumentDB | I processi di analisi di flusso ora possono inviare output a [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Supporto per l'input dell’hub IoT | I processi di analisi di flusso sono ora in grado di acquisire dati dagli hub IoT.
+TIMESTAMP BY per eventi eterogenei | Quando un unico flusso di dati contiene più tipi di evento con timestamp in campi diversi, è ora possibile utilizzare [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con espressioni per specificare i campi di timestamp diversi per ogni caso.
 
 ## Note per la versione 10/09/2015 di Analisi di flusso ##
 
@@ -32,7 +44,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 Titolo|Descrizione
 ---|---
-Aggiunta funzione LAST |La funzione [LAST](http://msdn.microsoft.com/library/mt421186.aspx) è ora disponibile nei processi di analisi dei flussi. Consente di recuperare l'evento più recente in un flusso di eventi all'interno di un intervallo di tempo specificato.
+Aggiunta funzione LAST |La funzione [LAST](http://msdn.microsoft.com/library/mt421186.aspx) è ora disponibile nei processi dell’analisi di flusso. Consente di recuperare l'evento più recente in un flusso di eventi all'interno di un intervallo di tempo specificato.
 Nuove funzioni di matrice|Le funzioni di matrice [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx), [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) sono ora disponibili.
 Nuove funzioni di record|Le funzioni di record [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) sono ora disponibili.
 
@@ -92,4 +104,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

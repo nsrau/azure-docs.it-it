@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -153,4 +153,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 Per un confronto tra il Servizio di accodamento di Azure discusso in questo articolo e le code del bus di servizio di Azure discusse nell'articolo [Come utilizzare le code del bus di servizio](/develop/ruby/how-to-guides/service-bus-queues/) vedere [Code di Azure e Azure Service Bus: confronto e contrapposizioni](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

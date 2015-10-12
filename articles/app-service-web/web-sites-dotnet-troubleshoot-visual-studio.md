@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio" 
 	description="Informazioni su come risolvere problemi relativi a un'app Web di Azure usando gli strumenti di registrazione, traccia e debug remoto inclusi in Visual Studio 2013." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -762,4 +762,4 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'ap
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

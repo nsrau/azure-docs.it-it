@@ -56,7 +56,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Provider di servizi** |**Microsoft Azure** | **Office 365** | **Località** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Supportato | Non supportato | Silicon Valley, Singapore, Washington DC |
-| **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Amsterdam+, Londra+, Dallas, Silicon Valley, Washington DC |
+| **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Imminente | Amsterdam+, Londra+, Dallas, Silicon Valley, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Londra, Silicon Valley+, Washington DC |
 |**China Telecom Global** | Imminente | Non supportato | Hong Kong+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Non supportato | Amsterdam, Londra |
@@ -77,7 +77,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Supportato | Amsterdam, Chennai+, Hong Kong, Londra, Mumbai+, Singapore |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Londra |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Non supportato | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supportato | Supportato | Londra, Hong Kong, Silicon Valley, Washington DC |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supportato | Supportato | Londra, Hong Kong, Silicon Valley, Washington DC |
 | **[Zayo Group](http://www.zayo.com/)** | Supportato | Non supportato | Washington DC |
 
  **+** indica disponibile a breve
@@ -127,4 +127,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

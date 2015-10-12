@@ -366,4 +366,4 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

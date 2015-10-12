@@ -310,4 +310,4 @@ Per rimuovere la configurazione di peering, eseguire il cmdlet seguente.
 
 Per altre informazioni sul peering dei circuiti, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

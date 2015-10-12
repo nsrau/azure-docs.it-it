@@ -12,14 +12,14 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/21/2015" 
+ms.date="09/29/2015" 
 ms.author="heidist" />
 
-#Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)
+#Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente l'unica differenza tra la versione `2015-02-28` documentata in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta in questo articolo è che l'anteprima fornisce *fieldMappings*, come descritto in [Creare un indicizzatore](#CreateIndexer).
+> [AZURE.NOTE]Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](./search-api-2015-02-28-preview). Attualmente non esiste alcuna differenza tra la versione documentata `2015-02-28` in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta di seguito. Questo articolo fornisce il set completo della documentazione di `2015-02-28-Preview`, anche se l'API sembra invariata.
 
-## Panoramica
+## Panoramica ##
 
 Ricerca di Azure può integrarsi direttamente con alcune origini dati comuni, eliminando la necessità di scrivere codice per l'indicizzazione dei dati. Per impostare questo servizio, è possibile chiamare l'API di Ricerca di Azure in modo da creare e gestire **indicizzatori** e **origini dati**.
 
@@ -42,7 +42,7 @@ La possibilità di aggiungere il supporto per altre origini dati è in fase di v
 
 Vedere [Limiti del servizio](search-limits-quotas-capacity.md) per i limiti massimi relativi alle risorse di origine dati e dell'indicizzatore.
 
-## Flusso di utilizzo tipico
+## Flusso di utilizzo tipico ##
 
 È possibile creare e gestire le origini dati e gli indicizzatori tramite semplici richieste HTTP (POST, GET, PUT, DELETE) su una risorsa `data source` o `indexer` specifica.
 
@@ -63,9 +63,9 @@ Dopo aver creato un indicizzatore, è possibile ottenere il relativo stato di es
 <!-- MSDN has 2 art files plus a API topic link list -->
 
 
-## Creare un'origine dati
+## Creare un'origine dati ##
 
-È possibile creare una nuova origine dati in Ricerca di Azure mediante una richiesta HTTP POST.
+Nella ricerca di Azure, un'origine dati viene utilizzata con gli indicizzatori, fornendo le informazioni di connessione per l'aggiornamento dei dati ad hoc o pianificato di un indice di destinazione. È possibile creare una nuova origine dati in Ricerca di Azure mediante una richiesta HTTP POST.
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -75,7 +75,7 @@ In alternativa, è possibile usare una richiesta PUT e specificare il nome dell'
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**Nota**: il numero massimo di origini dati consentite varia in base al livello di prezzo. Nel servizio gratuito sono consentite fino a 3 origini dati. Nel servizio standard sono consentite 50 origini dati. Per informazioni dettagliate, vedere [Limiti e vincoli](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+**Nota**: il numero massimo di origini dati consentite varia in base al livello di prezzo. Nel servizio gratuito sono consentite fino a 3 origini dati. Nel servizio standard sono consentite 50 origini dati. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio](search-limits-quotas-capacity.md).
 
 **Richiesta**
 
@@ -125,7 +125,8 @@ La richiesta contiene le proprietà seguenti:
 		
 - `container`:
 	- La proprietà `name` obbligatoria specifica la tabella o la visualizzazione (per l'origine dati di SQL Azure) o la raccolta (per l'origine dati di DocumentDB) che sarà indicizzata. 
-	- Le origini dati di DocumentDB supportano anche una proprietà `query` facoltativa che consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.   
+	- Per le origini dati SQL, omettere i prefissi dello schema, come ad esempio dbo., in modo che il contenitore sia costituito solo dal nome della tabella o ella visualizzazione.
+	- Le origini dati di DocumentDB supportano una proprietà `query` facoltativa che consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.   
 - I criteri facoltativi `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` sono descritti di seguito.
 
 <a name="DataChangeDetectionPolicies"></a> **Criteri di rilevamento delle modifiche dei dati**
@@ -211,7 +212,7 @@ Se si intende usare solo l'origine dati per una copia occasionale dei dati, è p
 Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Creato.
 
 <a name="UpdateDataSource"></a>
-## Aggiornare un'origine dati
+## Aggiornare un'origine dati ##
 
 È possibile aggiornare un'origine dati esistente mediante una richiesta HTTP PUT. È necessario specificare il nome dell'origine dati da aggiornare nell'URI della richiesta:
 
@@ -230,7 +231,7 @@ L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave
 **NOTA:** alcune proprietà non possono essere aggiornate in un'origine dati esistente. Ad esempio, non è possibile modificare il tipo di un'origine dati esistente.
 
 <a name="ListDataSource"></a>
-## Elencare le origini dati
+## Elencare le origini dati ##
 
 L'operazione per **elencare le origini dati** restituisce un elenco delle origini dati disponibili in Ricerca di Azure.
 
@@ -269,7 +270,7 @@ In questo caso, la risposta dell'esempio precedente sarà simile alla seguente:
 Questa è una tecnica utile per risparmiare larghezza di banda, se nel servizio di ricerca sono presenti numerose origini dati.
 
 <a name="GetDataSource"></a>
-## Ottenere un'origine dati
+## Ottenere un'origine dati ##
 
 L'operazione per **ottenere un'origine dati** ottiene la definizione dell'origine dati da Ricerca di Azure.
 
@@ -304,7 +305,7 @@ La risposta è simile agli esempi nell'operazione di [creazione di un'origine da
 **NOTA:** non impostare l'intestazione della richiesta `Accept` su `application/json;odata.metadata=none` quando si chiama questa API, in quanto tale operazione comporterebbe l'omissione dell'attributo `@odata.type` dalla risposta e sarebbe impossibile distinguere tra i criteri di rilevamento dell'eliminazione dei dati e i criteri di rilevamento della modifica dei dati di tipi diversi.
 
 <a name="DeleteDataSource"></a>
-## Eliminare un'origine dati
+## Eliminare un'origine dati ##
 
 L'operazione di **eliminazione di un'origine dati** rimuove un'origine dati da Ricerca di Azure.
 
@@ -322,7 +323,7 @@ L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave
 Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun contenuto.
 
 <a name="CreateIndexer"></a>
-## Creare un indicizzatore
+## Creare un indicizzatore ##
 
 È possibile creare un nuovo indicizzatore in Ricerca di Azure mediante una richiesta HTTP POST.
 	
@@ -334,7 +335,7 @@ In alternativa, è possibile usare una richiesta PUT e specificare il nome dell'
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**Nota**: il numero massimo di indicizzatori consentiti varia in base al livello di prezzo. Nel servizio gratuito sono consentiti fino a 3 indicizzatori. Nel servizio standard sono consentiti 50 indicizzatori. Per informazioni dettagliate, vedere [Limiti e vincoli](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+**Nota**: il numero massimo di indicizzatori consentiti varia in base al livello di prezzo. Nel servizio gratuito sono consentiti fino a 3 indicizzatori. Nel servizio standard sono consentiti 50 indicizzatori. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio](search-limits-quotas-capacity.md).
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
@@ -355,14 +356,15 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
         "targetIndexName" : "Required. The name of an existing index",
         "schedule" : { Optional. See Indexing Schedule below. },
         "parameters" : { Optional. See Indexing Parameters below. },
-        "fieldMappings" : { Optional. See Field Mappings below. }
+        "fieldMappings" : { Optional. See Field Mappings below. },
+        "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.  
 	}
 
 **Pianificazione dell'indicizzatore**
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
+- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P[nD][T[nH][nM]]`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
 
 - `startTime`: elemento obbligatorio. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
 
@@ -401,7 +403,7 @@ Attualmente è supportata solo una di queste funzioni: `jsonArrayToStringCollect
 
 Ad esempio, se il campo di origine contiene la stringa `["red", "white", "blue"]`, il campo di destinazione di tipo `Collection(Edm.String)` verrà popolato con i tre valori `"red"`, `"white"` e `"blue"`.
 
-NOTA: la proprietà `targetFieldName` è facoltativa; se omessa, viene usato il valore `sourceFieldName`.
+Si noti che la proprietà `targetFieldName` è facoltativa. Se omessa, viene usato il valore `sourceFieldName`.
 
 <a name="CreateIndexerRequestExamples"></a> **Esempi del corpo della richiesta**
 
@@ -422,7 +424,7 @@ Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Cre
 
 
 <a name="UpdateIndexer"></a>
-## Aggiornare un indicizzatore
+## Aggiornare un indicizzatore ##
 
 È possibile aggiornare un indicizzatore esistente mediante una richiesta HTTP PUT. Nell'URI della richiesta viene specificato il nome dell'indicizzatore da aggiornare:
 
@@ -444,7 +446,7 @@ Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Cre
 
 
 <a name="ListIndexers"></a>
-## Elencare gli indicizzatori
+## Elencare gli indicizzatori ##
 
 L'operazione per **elencare gli indicizzatori** restituisce l'elenco di indicizzatori in Ricerca di Azure.
 
@@ -487,7 +489,7 @@ Questa è una tecnica utile per risparmiare larghezza di banda, se nel servizio 
 
 
 <a name="GetIndexer"></a>
-## Ottenere un indicizzatore
+## Ottenere un indicizzatore ##
 
 L'operazione per **ottenere un indicizzatore** recupera la definizione dell'indicizzatore da Ricerca di Azure.
 
@@ -515,7 +517,7 @@ La risposta è simile agli esempi nella richiesta di [creazione di un indicizzat
 
 
 <a name="DeleteIndexer"></a>
-## Eliminare un indicizzatore
+## Eliminare un indicizzatore ##
 
 L'operazione di **eliminazione di un indicizzatore** rimuove un indicizzatore da Ricerca di Azure.
 
@@ -533,7 +535,7 @@ L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave
 Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun contenuto.
 
 <a name="RunIndexer"></a>
-## Eseguire un indicizzatore
+## Eseguire un indicizzatore ##
 
 Oltre a essere eseguito periodicamente in base a una pianificazione, un indicizzatore può anche essere chiamato su richiesta tramite l'operazione di **esecuzione di un indicizzatore**:
 
@@ -549,7 +551,7 @@ L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave
 Se la risposta ha esito positivo, viene restituito il codice di stato 202 Accettato.
 
 <a name="GetIndexerStatus"></a>
-## Ottenere lo stato di un indicizzatore
+## Ottenere lo stato di un indicizzatore ##
 
 L'operazione per **ottenere lo stato di un indicizzatore** recupera la cronologia di esecuzione e lo stato corrente di un indicizzatore:
 
@@ -617,7 +619,7 @@ Il risultato dell'esecuzione dell'indicizzatore contiene le proprietà seguenti:
 
 - `endTime`: ora UTC di fine dell'esecuzione. Questo valore non viene impostato se l'esecuzione è ancora in corso.
 
-- `errors`: elenco di errori a livello di elemento, se presenti.
+- `errors`: elenco di errori a livello di elemento, se presenti. Ogni voce contiene una chiave di documento (proprietà `key`) e un messaggio di errore (proprietà `errorMessage`).
 
 - `itemsProcessed`: numero di elementi di origine dati (ad esempio, righe di tabella) che l'indicizzatore ha tentato di indicizzare durante questa esecuzione.
 
@@ -635,15 +637,14 @@ Lo stato di esecuzione dell'indicizzatore acquisisce lo stato di una singola ese
 
 - `inProgress` indica che l'esecuzione dell'indicizzatore è in corso.
 
-- `transientFailure` indica che l'esecuzione dell'indicizzatore ha avuto esito negativo. Per informazioni dettagliate, vedere la proprietà `errorMessage`. È possibile che la correzione dell'errore richieda l'intervento da parte dell'utente. Ad esempio, la correzione dell'incompatibilità di uno schema
-- tra l'origine dati e l'indice di destinazione richiede un intervento da parte dell'utente, mentre un tempo di inattività temporaneo dell'origine dati non richiede alcun intervento. Le chiamate all'indicizzatore continuano in base alla pianificazione, se presente. 
+- `transientFailure` indica che l'esecuzione dell'indicizzatore ha avuto esito negativo. Per informazioni dettagliate, vedere la proprietà `errorMessage`. L'errore può o potrebbe non richiedere l'intervento di correzione -, ad esempio, correggere l'incompatibilità dello schema tra l'origine dati e l'indice di destinazione richiede un intervento da parte dell'utente, mentre un tempo di inattività temporaneo dell'origine dati non richiede alcun intervento. Le chiamate all'indicizzatore continuano in base alla pianificazione, se presente.
 
 - `persistentFailure` indica che si è verificato un errore dell'indicizzatore che richiede un intervento da parte dell'utente. Le esecuzioni pianificate dell'indicizzatore vengono arrestate. Dopo aver risolto il problema, usare l'API di reimpostazione di un indicizzatore per riavviare le esecuzioni pianificate.
 
 - `reset` indica che l'indicizzatore è stato reimpostato tramite una chiamata all'API di reimpostazione di un indicizzatore (vedere la sezione seguente).
 
 <a name="ResetIndexer"></a>
-## Reimpostare un indicizzatore
+## Reimpostare un indicizzatore ##
 
 L'operazione di **reimpostazione di un indicizzatore** reimposta lo stato di rilevamento delle modifiche associato all'indicizzatore. Questo consente di attivare la reindicizzazione da zero, ad esempio se è cambiato lo schema dell'origine dati, oppure di modificare i criteri di rilevamento delle modifiche per un'origine dati associata all'indicizzatore.
 
@@ -658,7 +659,7 @@ L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave
 
 Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun contenuto.
 
-## Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure
+## Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure ##
 
 <table style="font-size:12">
 <tr>
@@ -725,7 +726,7 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-## Mapping tra tipi di dati JSON e tipi di dati di Ricerca di Azure
+## Mapping tra tipi di dati JSON e tipi di dati di Ricerca di Azure ##
 
 <table style="font-size:12">
 <tr>
@@ -775,4 +776,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

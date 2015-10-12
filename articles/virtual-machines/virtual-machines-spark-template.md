@@ -24,7 +24,7 @@ Apache Spark è un motore ad alta velocità per l'elaborazione dati su larga sca
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Questo articolo illustra la distribuzione di una risorsa con il modello di distribuzione Gestione risorse. Non è possibile distribuire questa risorsa con il modello di distribuzione classico.
 
 
-Oltre a essere eseguito sugli strumenti di gestione del cluster Mesos e YARN, Spark fornisce una semplice modalità di distribuzione autonoma. In questa esercitazione verrà illustrato come utilizzare un modello di Gestione risorse di Azure di esempio per distribuire un cluster Spark su macchine virtuali Ubuntu tramite [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](../xplat-cli.md).
+Oltre a essere eseguito sugli strumenti di gestione del cluster Mesos e YARN, Spark fornisce una semplice modalità di distribuzione autonoma. In questa esercitazione verrà illustrato come utilizzare un modello di Gestione risorse di Azure di esempio per distribuire un cluster Spark su macchine virtuali Ubuntu tramite [Azure PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 Questo modello consente di distribuire un cluster Spark in macchine virtuali Ubuntu. Fornisce inoltre l'account di archiviazione, la rete virtuale, il set di disponibilità, gli indirizzi IP pubblici e le interfacce di rete necessari per l'installazione. Il cluster Spark viene creato dietro una subnet, pertanto non è presente alcun IP pubblico di accesso al cluster. Nell'ambito del processo di distribuzione, è possibile distribuire anche un "jumpbox" opzionale. Si tratta di una macchina virtuale Ubuntu distribuita anch'essa nella subnet, ma che *espone* un indirizzo IP pubblico con una porta SSH aperta alla quale è possibile connettersi. Tramite il "jumpbox" è possibile stabilire una connessione SSH con tutte le macchine virtuali Spark nella subnet.
 
@@ -847,4 +847,4 @@ Scoprire altri [framework di applicazioni](virtual-machines-app-frameworks.md).
 
 [Risoluzione dei problemi relativi alle distribuzioni dei modelli](resource-group-deploy-debug.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

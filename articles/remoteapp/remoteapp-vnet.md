@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Per convalidare la rete virtuale di Azure, procedere come segue:
 1. Creare una macchina virtuale di Azure all'interno della subnet della rete virtuale di Azure da usare con Azure RemoteApp.
 
 2. Connettersi a tale macchina virtuale usando l’opzione **Connetti** nel portale di gestione.
-3. Aggiungere la macchina virtuale allo stesso dominio che si desidera usare con Azure RemoteApp.
+3. Aggiungere la macchina virtuale allo stesso dominio che si desidera usare con Azure RemoteApp. Se si sta creando una raccolta ibrida che si connette alla rete locale, aggiungere la macchina virtuale al dominio locale.
 
 Se l'operazione viene completata, la rete virtuale di Azure è pronta per l'utilizzo con RemoteApp.
 
@@ -38,4 +38,4 @@ Per ulteriori informazioni sul flusso di lavoro della raccolta ibrida end-to-end
 - [Distribuire la raccolta di Azure RemoteApp alla rete virtuale di Azure (con supporto per ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

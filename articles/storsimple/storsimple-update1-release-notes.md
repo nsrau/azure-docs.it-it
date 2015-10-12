@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Note sulla versione dell'aggiornamento 1.2 di StorSimple serie 8000 | Microsoft Azure"
-    description="Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 1.2 per StorSimple serie 8000."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+   pageTitle="Note sulla versione dell'aggiornamento 1.2 di StorSimple serie 8000 | Microsoft Azure"
+   description="Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 1.2 per StorSimple serie 8000."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/09/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="alkohli" />
 
 # Note sulla versione dell'aggiornamento 1.2 di StorSimple serie 8000  
 
@@ -124,4 +124,4 @@ Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà ne
 - [Installare l'aggiornamento 1.2 nel dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

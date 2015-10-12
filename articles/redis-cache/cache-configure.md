@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/22/2015"
+   ms.date="09/30/2015"
    ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
 
 In questo argomento viene descritto come esaminare e aggiornare la configurazione per le istanze di Cache Redis di Azure e viene illustrata la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
+
+>[AZURE.NOTE]Il livello di Azure Redis Cache Premium è attualmente in anteprima. Durante il periodo di anteprima, le funzionalità premium possono essere configurate solo durante il processo di creazione della cache. Per ulteriori informazioni sull'utilizzo delle funzionalità della cache premium, vedere [Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md),e [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md), e [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
 
 ## Configurare le impostazioni di Cache Redis di Azure
 
@@ -88,7 +90,7 @@ Per altre informazioni sui criteri maxmemory, vedere [Criteri di eliminazione](h
 
 L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. Può essere utilizzata anche in caso di elevato rapporto di frammentazione. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere impostato per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
->[AZURE.IMPORTANT]L'impostazione **maxmemory-reserved** è disponibile solo per le cache Standard.
+>[AZURE.IMPORTANT]L'impostazione **maxmemory-reserved** è disponibile solo per le cache Premium e Standard.
 
 ## Notifiche di Keyspace (impostazioni avanzate)
 
@@ -96,7 +98,7 @@ Per configurare le notifiche di Keyspace Redis, fare clic su **Impostazioni avan
 
 ![Impostazioni avanzate di Cache Redis](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT]Le notifiche di Keyspace e l'impostazione **notify-keyspace-events** sono disponibili solo per le cache Standard.
+>[AZURE.IMPORTANT]Le notifiche di Keyspace e l'impostazione **notify-keyspace-events** sono disponibili solo per le cache Premium e Standard.
 
 Per altre informazioni, vedere [Notifiche di Keyspace Redis](http://redis.io/topics/notifications). Per un esempio di codice, vedere il file [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) nell'esempio di [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
@@ -130,13 +132,19 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 
 Il valore di <sup>1</sup>`maxclients` è diverso per ogni livello di prezzo di Cache Redis di Azure.
 
--	Cache C0 (250 MB): fino a 256 connessioni
--	Cache C1 (1 GB): fino a 1000 connessioni
--	Cache C2 (2,5 GB): fino a 2000 connessioni
--	Cache C3 (6 GB): fino a 5000 connessioni
--	Cache C4 (13 GB): fino a 10.000 connessioni
--	Cache C5 (26 GB): fino a 15.000 connessioni
--	Cache C6 (53 GB): fino a 20.000 connessioni
+-	Cache di base e Standard
+	-	Cache C0 (250 MB): fino a 256 connessioni
+	-	Cache C1 (1 GB): fino a 1000 connessioni
+	-	Cache C2 (2,5 GB): fino a 2000 connessioni
+	-	Cache C3 (6 GB): fino a 5000 connessioni
+	-	Cache C4 (13 GB): fino a 10.000 connessioni
+	-	Cache C5 (26 GB): fino a 15.000 connessioni
+	-	Cache C6 (53 GB): fino a 20.000 connessioni
+-	Cache Premium
+	-	P1 (6 GB - 60 GB) - fino a 7.500 connessioni
+	-	P2 (13 GB - 130 GB) - fino a 15.000 connessioni
+	-	P3 (26 GB - 260 GB) - fino a 30.000 connessioni
+	-	P4 (53 GB - 530 GB) - fino a 40.000 connessioni
 
 ## Comandi di Redis non supportati in Cache Redis di Azure
 
@@ -155,11 +163,11 @@ Per altre informazioni sui comandi di Redis, vedere [http://redis.io/commands](h
 
 ## Console Redis
 
-È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **Console Redis** disponibile per le cache Standard. Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache Redis**.
+È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **Console Redis** disponibile per le cache Premium Standard. Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache Redis**.
 
 ![Console Redis](./media/cache-configure/redis-console-menu.png)
 
->[AZURE.IMPORTANT]La Console Redis è disponibile solo per le cache Standard.
+>[AZURE.IMPORTANT]La Console Redis è disponibile solo per le cache Premium e Standard.
 
 Per eseguire comandi con l'istanza di cache, digitare semplicemente il comando desiderato nella console.
 
@@ -170,4 +178,4 @@ Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -107,4 +107,4 @@ Il controllo e il monitoraggio di eventi del database consentono di mantenere la
 Oltre alle caratteristiche e alle funzionalità che consentono all'applicazione di soddisfare i diversi requisiti di conformità di sicurezza, il database SQL di Azure prende parte inoltre a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [Certificazioni di conformità del database SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

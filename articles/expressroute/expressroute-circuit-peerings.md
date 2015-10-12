@@ -70,7 +70,7 @@ Per altre informazioni sui servizi supportati, sui costi e sui dettagli per la c
 La tabella seguente confronta i tre domini di routing.
 
 ||**Peering privato**|**Peering pubblico**|**Peering Microsoft**|
-|---|---|---|---|
+|---|---|---|---| 
 |**N. massimo di prefissi supportati per peering**|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|200|200|
 |**Intervalli di indirizzi IP supportati**|Qualsiasi indirizzo IPv4 valido entro la rete WAN.|Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività.|Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività.|
 |**Requisiti per i numeri AS**|Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico. | Numeri AS privati e pubblici. I clienti devono essere proprietari di un numero AS pubblico.| Solo numeri AS pubblici. Il numero AS deve essere convalidato rispetto ai registri di routing per convalidare la proprietà.|
@@ -90,4 +90,4 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 	- [Configurare il routing (peering del circuito)](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

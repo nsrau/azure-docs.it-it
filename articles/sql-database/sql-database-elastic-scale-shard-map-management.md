@@ -106,6 +106,7 @@ Nel seguente codice un'applicazione tenta di aprire un oggetto **ShardMapManager
         // for privileges on both the GSM and the shards themselves.
     } 
  
+In alternativa, è possibile utilizzare Powershell per creare un nuovo gestore delle mappe di partizionamento. Un esempio è disponibile [qui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ### Credenziali di amministrazione delle mappe partizioni
 
@@ -199,7 +200,7 @@ Il codice è scritto in modo che sia possibile eseguire di nuovo l'intero metodo
             } 
         } 
  
-In alternativa, è possibile usare script di PowerShell per ottenere lo stesso risultato.
+In alternativa, è possibile usare script di PowerShell per ottenere lo stesso risultato. Alcuni degli esempi di PowerShell sono disponibili [qui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Dopo il popolamento delle mappe partizioni, sarà possibile creare o modificare le applicazioni di accesso ai dati in modo che usino le mappe. Sarà necessario popolare o modificare di nuovo le mappe solo se occorrerà modificare il **layout delle mappe**.
 
@@ -252,4 +253,4 @@ Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

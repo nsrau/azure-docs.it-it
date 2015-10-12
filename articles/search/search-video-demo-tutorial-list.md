@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/16/2015"
+	ms.date="09/29/2015"
 	ms.author="heidist"/>
 
 #Ricerca di Azure: esercitazioni, demo video ed esempi
@@ -31,6 +31,7 @@ Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazio
 
 Collegamento|Descrizione
 ----|-----------
+[AzureCon 2015 procedure consigliate per la ricerca di Azure](https://azure.microsoft.com/it-IT/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Consigli pratici su come ottenere scalabilità, prestazioni ottimali ed efficienza di codifica durante la creazione di app per scenari mobili o Web. 
 [Microsoft Virtual Academy: aggiungere Ricerca di Azure a siti Web e app](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Serie di 7 parti sull'aggiunta di Ricerca di Azure a un'applicazione, presentata da Liam Cavanagh, Janusz Lembicz e Bernardita Torres Garayar.
 [Build 2015: dati moderni](http://channel9.msdn.com/Events/Build/2015/2-663)|29 minuti di sessione per informazioni sulle modalità di integrazione di Ricerca di Azure nella rivoluzione dei dati moderni, presentata da Shawn Bice e Pablo Castro.
 [Build 2015: uso di Ricerca di Azure per compilare eccezionali esperienze di ricerca in dispositivi mobili e WebApp](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro presente al Microsoft Build 2015.
@@ -90,4 +91,4 @@ In CodePlex, è possibile trovare diversi esempi pubblicati durante l'anteprima 
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) è un'applicazione della console di Windows che carica un set di righe di SQL Server da un database locale integrato.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) è un'applicazione della console di Windows che definisce, esegue e aggiorna un profilo di assegnazione dei punteggi per ottimizzare i risultati della ricerca.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

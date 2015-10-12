@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 # Come usare l'archiviazione di accodamento da PHP
@@ -378,9 +378,11 @@ A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle co
 - Vedere la documentazione MSDN: [Archiviazione di Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visitare il [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

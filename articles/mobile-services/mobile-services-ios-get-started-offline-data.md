@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
@@ -155,7 +155,7 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
 
     #### TodoItem
 
-    | Attributo | Tipo | Nota | 
+    | Attributo | Tipo | Nota |
     |-------------- |  ------ | -------------------------------------------------------|
     | id (obbligatorio) | Stringa | chiave primaria nell'archivio remoto (obbligatoria) |
     | complete | Boolean | campo elemento ToDo |
@@ -271,4 +271,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

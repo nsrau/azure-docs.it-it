@@ -179,7 +179,7 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure SDK per Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/IT-IT/library/azure/hh694271.aspx
+  [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/it-IT/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -193,4 +193,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
   [Code, Argomenti e Sottoscrizioni]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

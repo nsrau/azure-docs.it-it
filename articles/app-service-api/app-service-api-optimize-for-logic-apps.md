@@ -2,20 +2,20 @@
 <properties
 	pageTitle="Migliorare l'app per le API per le app per la logica"
 	description="Questo articolo illustra come decorare l'app per le API perché funzioni correttamente con le app per la logica."
-	services="app-service\api"
+	services="app-service"
 	documentationCenter=".net"
 	authors="sameerch"
 	manager="wpickett"
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="sameerch;guayan;tarcher"/>
+	ms.date="09/29/2015"
+	ms.author="sameerch"/>
 
 # Migliorare l'app per le API per le app per la logica #
 
@@ -235,4 +235,4 @@ Per le app per le API che usano metadati dinamici, è possibile usare attributi 
 In questo articolo si è appreso come migliorare l'esperienza utente dell'app per le API quando questa viene usata nella finestra di progettazione delle app per la logica. In genere è consigliabile fornire nomi descrittivi appropriati per tutte le operazioni (azioni e trigger), i parametri e le proprietà. È anche consigliabile fornire non più di 5 operazioni di base. Per i parametri di input è consigliabile limitare il numero di proprietà di base a un massimo di 4, mentre per le proprietà il numero massimo consigliato è 5. Le rimanenti operazioni e proprietà dovrebbero essere contrassegnate come avanzate.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

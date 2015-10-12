@@ -36,7 +36,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 - Copiare l’**Uri di reindirizzamento** `urn:ietf:wg:oauth:2.0:oob` -è l'URL predefinito per questo esempio di codice.
 - Copiare l'**ID applicazione** assegnato all'app. perché verrà richiesto a breve.
 
-    > [AZURE.IMPORTANT]Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di Azure](https://manage.windowsazure.com/) per questa esercitazione
+[AZURE.INCLUDE [Active-Directory-B2C-devquickstarts-v2-Apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Creare i criteri
 
@@ -45,19 +45,21 @@ In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-direc
 - Scegliere **Iscrizione tramite ID utente** o **Iscrizione tramite indirizzo di posta elettronica** nel pannello dei provider di identità.
 - Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere le attestazioni **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altri criteri.
-- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
+- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve.
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
 ## 4\. Scaricare il codice
 
-Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Per creare l'esempio passo passo, è possibile [scaricare un progetto scheletro come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questa esercitazione è disponibile [in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Per creare l'esempio passo dopo passo, è possibile [scaricare un progetto scheletro come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip) o clonare lo scheletro:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
 Dopo aver scaricato il codice di esempio, per iniziare aprire il file `.sln` in Visual Studio. Osservare che nella soluzione sono presenti due progetti: un progetto `TaskClient` e un progetto `TaskService`. `TaskClient` è l'applicazione desktop WPF con cui interagisce l'utente. `TaskService` è l'API Web back-end dell'app che archivia le applicazioni "To-Do List" degli utenti. Sia il `TaskClient` che `TaskService` saranno rappresentati da una singola **ID applicazione** in questo caso, poiché entrambi includono un’applicazione per la logica.
 
@@ -76,15 +78,14 @@ Quando `TaskService` riceve le richiesta da `TaskClient`, verifica la presenza d
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
-  ```
+```
+  
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Se si desidera sapere come un'API Web autentica in modo sicuro le richieste utilizzando AD B2C di Azure, consultare l’
-[articolo sull’introduzione all’API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Se si desidera sapere come un'API Web autentica in modo sicuro le richieste utilizzando AD B2C di Azure, consultare l’[articolo sull’introduzione all’API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Eseguire i criteri
-Ora che `TaskService` è pronto ad autenticare le richieste, è possibile implementare `TaskClient`. L'app comunica con Azure AD B2C inviando richieste di autenticazione HTTP e specificando 
-i criteri da esempio come parte della richiesta. Per le applicazioni desktop .NET, è possibile utilizzare il **Active Directory Authentication Library (ADAL)**
-per inviare messaggi di autenticazione OAuth 2.0, eseguire i criteri e di ottenere token per la chiamata dell’API Web.
+## 6\. Eseguire i criteri
+Ora che `TaskService` è pronto ad autenticare le richieste, è possibile implementare `TaskClient`. L'app comunica con Azure AD B2C inviando richieste di autenticazione HTTP e specificando i criteri da esempio come parte della richiesta. Per le applicazioni desktop .NET, è possibile utilizzare il **Active Directory Authentication Library (ADAL)** per inviare messaggi di autenticazione OAuth 2.0, eseguire i criteri e di ottenere token per la chiamata dell’API Web.
 
 #### Installare ADAL
 Innanzitutto, aggiungere ADAL al progetto TaskClient usando la console di Gestione pacchetti di Visual Studio.
@@ -111,6 +112,8 @@ public static class Globals
 
 }
 ``` 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
 #### Crea un AuthenticationContext
@@ -324,7 +327,7 @@ Dopo aver aggiunto i provider di identità alla propria directory B2C, sarà nec
 
 È possibile sperimentare liberamente i criteri e osservare gli effetti generati nell'app, ad esempio aggiungere o rimuovere i provider di identità, modificare le attestazioni dell'applicazione o modificare gli attributi dell'iscrizione. Fare delle prove fino a quando non è chiaro il modo in cui criteri, richieste di autenticazione e ADAL sono collegati tra loro.
 
-Come riferimento, l'esempio completato [è disponibile in un file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Come riferimento, l'esempio completato [è disponibile qui in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
@@ -340,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

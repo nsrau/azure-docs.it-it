@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Distribuire un'app Web collegata a un repository GitHub" 
 	description="Usare un modello di Gestione risorse di Azure per distribuire un'app Web che contiene un progetto da un repository GitHub." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@ Con questo modello verrà distribuita un'app Web che contiene il codice da un pr
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 ## Parametri
 
@@ -110,4 +110,4 @@ L'app Web dispone anche di una risorsa figlio che viene definita nella sezione d
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

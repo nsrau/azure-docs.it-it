@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="09/30/2015"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app di Windows Store
@@ -197,6 +197,9 @@ L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
 	Verrà aggiunto un riferimento a Azure Notification Hubs SDK mediante il <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacchetto Microsoft.Azure.Notification Hubs NuGet</a>.
 
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+
 5. Aprire il file Program.cs e aggiungere l'istruzione `using` seguente:
 
         using Microsoft.Azure.NotificationHubs;
@@ -264,4 +267,4 @@ In questo semplice esempio le notifiche di trasmissione sono state inviate a tut
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

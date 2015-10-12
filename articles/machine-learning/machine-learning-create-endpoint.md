@@ -41,4 +41,4 @@ Ciò consente agli utenti Azure Machine Learning di creare servizi Web che posso
 Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, le API batch e i fogli di lavoro di Excel. Oltre ad aggiungere gli endpoint tramite questa interfaccia, è possibile utilizzare anche le API di gestione Endpoint a livello di codice aggiungere gli endpoint. Per altre informazioni su come usare i servizi Web di Machine Learning, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

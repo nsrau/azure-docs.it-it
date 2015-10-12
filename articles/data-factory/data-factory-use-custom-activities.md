@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Usare attività personalizzate in una pipeline di Data factory di Azure
@@ -53,7 +53,7 @@ In questa procedura dettagliata vengono fornite istruzioni dettagliate per crear
 
 4. Importare il pacchetto NuGet di archiviazione di Azure nel progetto.
 
-		Install-Package Azure.Storage -Version 4.3.0 
+		Install-Package Azure.Storage
 
 5. Aggiungere le seguenti istruzioni **using** al file di origine nel progetto.
 
@@ -478,4 +478,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -171,7 +171,7 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 * [IPython: REPL/Notebook avanzato per Python][]
 * [IPython Notebook in Azure][]
 * [Python Tools per Visual Studio su GitHub][]
-
+* [Centro per sviluppatori di Python](/develop/python/)
 
 [Distribuzione Python per l'analisi di una sequenza di valori]: http://continuum.io
 [Distribuzione Python di Enthought]: http://www.enthought.com
@@ -204,4 +204,4 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 [archiviazione in code]: storage-python-how-to-use-queue-storage.md
 [archiviazione BLOB]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

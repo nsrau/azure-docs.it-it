@@ -239,4 +239,4 @@ L'opzione ‘-q’ facoltativa può essere usata per eliminare la richiesta di c
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset-cli.md)<BR> [Eseguire operazioni sulle zone DNS](dns-operations-dnszones-cli.md)<BR> [Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

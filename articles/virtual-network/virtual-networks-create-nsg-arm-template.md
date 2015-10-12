@@ -153,7 +153,7 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure, seguire la procedura di seguito.
 
-1. Se l'interfaccia della riga di comando (CLI) di Azure non è mai stata utilizzata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
 		azure config mode arm
@@ -188,4 +188,4 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 	- **-f (o --template-file)**. Percorso del file di modello ARM.
 	- **-e (o --parameters-file)**. Percorso del file di parametri ARM.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

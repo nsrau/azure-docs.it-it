@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"
    tags="azure-portal"/>
+
 <tags
     ms.service="hdinsight"
     ms.devlang="na"
@@ -155,7 +156,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 	| Durante il provisioning | Provisioning completato |
 	| ------------------ | --------------------- |
-	| ![Indicatore del provisioning sulla schermata iniziale](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
+	| ![Indicatore del provisioning nella Schermata iniziale](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
 
 	> [AZURE.NOTE]La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Utilizzare il riquadro sulla schermata iniziale, o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
 
@@ -433,8 +434,8 @@ Le procedure seguenti sono necessarie per effettuare il provisioning di un clust
 [powershell-install-configure]: ../install-configure-powershell/
 
 
-
+[azure-preview-portal]: https://portal.azure.com
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

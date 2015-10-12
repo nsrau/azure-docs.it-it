@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015" 
 	ms.author="wesmc"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -203,4 +203,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili e Hu
 [app per Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [portale di gestione di Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

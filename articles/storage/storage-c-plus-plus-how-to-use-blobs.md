@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/23/2015" 
     ms.author="tamram"/>
 
 # Come usare l'archiviazione BLOB da C++  
@@ -242,4 +242,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

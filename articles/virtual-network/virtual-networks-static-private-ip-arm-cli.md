@@ -32,7 +32,7 @@ I comandi di esempio infrastruttura CLI di Azure riportati di seguito prevedono 
 ## Come specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale
 Per creare una macchina virtuale denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire questa procedura:
 
-1. Se non è mai stata usata l'infrastruttura CLI di Azure, vedere [Installare e configurare l'infrastruttura CLI di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
@@ -264,4 +264,4 @@ Output previsto:
 - Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -53,8 +53,8 @@ Dopo aver eseguito la migrazione di alcuni dati, è possibile passare alle attiv
 <!--Image references-->
 
 <!--Article references-->
-[documentazione per la migrazione]: https://azure.microsoft.com/IT-IT/documentation/articles/sql-data-warehouse-overview-migrate/
-[sviluppo]: https://azure.microsoft.com/IT-IT/documentation/articles/sql-data-warehouse-overview-develop/
+[documentazione per la migrazione]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-migrate/
+[sviluppo]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-overview-develop/
 [qui]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/24/2015" 
 	ms.author="wesmc"/>
 
 # Distribuire e gestire hub di notifica tramite PowerShell
@@ -171,4 +171,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

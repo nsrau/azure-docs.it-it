@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cosa succede quando si aggiungono servizi mobili a un'app Javvascript utilizzando i servizi relativi a Visual Studio" 
+	pageTitle="Cosa succede quando si aggiungono servizi mobili a un'app Javascript utilizzando i servizi relativi a Visual Studio" 
 	description="Viene descritto cosa è successo al progetto di Servizi mobili di Azure in Visual Studio .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/23/2015" 
 	ms.author="patshea"/>
 
-# Cosa accade a un progetto di Visual Studio Azure Javascript quando si aggiungono i servizi mobili utilizzando i servizi connessi?
+# Cosa accade a un progetto Javascript quando si aggiungono i servizi per dispositivi mobili di Azure utilizzando i servizi di Visual Studio connessi?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -46,4 +46,4 @@ Nella cartella dei servizi sono stati aggiunti file di configurazione dei serviz
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

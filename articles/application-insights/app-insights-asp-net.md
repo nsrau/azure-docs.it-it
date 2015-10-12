@@ -57,7 +57,7 @@ Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere Aggi
 
 #### Opzioni di configurazione
 
-Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi all'anteprima di Microsoft Azure. Questo account è diverso dall'account Visual Studio Online.
+Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi a Microsoft Azure.
 
 Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di configurazione per inserirla nello stesso gruppo di risorse degli altri componenti.
 
@@ -248,4 +248,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

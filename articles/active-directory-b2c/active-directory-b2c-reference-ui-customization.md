@@ -37,9 +37,9 @@ La funzionalità di personalizzazione dell'interfaccia utente della pagina perme
 
 Diversamente da altri servizi in cui le opzioni sono limitate o sono disponibili solo tramite le API, Azure AD B2C usa un approccio moderno e più semplice rispetto alla personalizzazione dell'interfaccia utente della pagina. Ecco come funziona: Azure AD B2C esegue il codice nel browser dell'utente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) per caricare il contenuto da un URL specificato nei criteri. È possibile specificare URL diversi per pagine diverse. Il codice unisce il contenuto (elementi dell'interfaccia utente) di Azure AD B2C e il contenuto caricato dall'URL e mostra la pagina agli utenti. È quindi sufficiente creare contenuto HTML5 con un formato valido con un elemento `<div id="api"></div>` collocato da qualche parte nell'elemento `<body>`, ovvero il punto in cui viene unito il contenuto di Azure AD B2C. E ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS. È anche possibile definire completamente lo stile degli elementi dell'interfaccia utente di Azure AD B2C.
 
-## È disponibile uno strumento di supporto che consente di testare la funzionalità di personalizzazione dell'interfaccia utente della pagina con il contenuto di esempio
+## Provare la funzionalità di personalizzazione dell'interfaccia utente
 
-Usare lo strumento di supporto (presto disponibile) per provare la funzionalità di personalizzazione dell'interfaccia utente della pagina usando il contenuto di esempio.
+Se si desidera provare la funzionalità di personalizzazione dell'esperienza utente utilizzando il contenuto HTML e CSS di esempio ospitato in archiviazione BLOB di Azure, abbiamo fornito [uno strumento di supporto semplici](active-directory-b2c-reference-ui-customization-helper-tool.md) per caricare e configurare il contenuto statico.
 
 ## Elementi principali dell'interfaccia utente in ogni tipo di pagina
 
@@ -276,4 +276,4 @@ Se si prevede di usare la funzionalità di personalizzazione dell'interfaccia ut
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

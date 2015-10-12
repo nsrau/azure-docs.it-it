@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Uso del connettore AS2 nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore AS2 e usarlo in un'app per la logica in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Uso del connettore AS2 nelle app per la logica | Microsoft Azure App Service" 
+   description="Come creare e configurare l'app per le API o il connettore AS2 e usarlo in un'app per la logica in Azure App Service" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # Uso del connettore AS2 e aggiunta all'app per la logica
 Usare il connettore AS2 per ricevere e inviare messaggi mediante il protocollo di trasporto AS2 (Applicability Statement 2) nelle comunicazioni B2B (Business to Business). I dati vengono trasportati in modo sicuro e affidabile tramite Internet. La sicurezza è garantita con i certificati digitali e la crittografia.
@@ -99,6 +99,8 @@ L'azione restituisce un codice di risposta HTTP 200 al termine dell'esecuzione.
 ## Altri vantaggi del connettore
 Altre informazioni sulle app per la logica sono disponibili nell'articolo [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
@@ -115,4 +117,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

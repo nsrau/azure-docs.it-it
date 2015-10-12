@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione classica. È inoltre possibile [creare gruppi di sicurezza di rete nel modello di distribuzione di Gestione risorse](virtual-networks-create-nsg-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]In questo articolo viene illustrato il modello di distribuzione classica. È inoltre possibile [creare gruppi di sicurezza di rete nel modello di distribuzione di Gestione risorse](virtual-networks-create-nsg-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -32,7 +32,7 @@ I comandi di esempio dell'interfaccia della riga di comando di Azure riportati d
 ## Come creare il gruppo di sicurezza di rete per la subnet front-end
 Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo scenario precedente, seguire questa procedura.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **azure config mode** per passare alla modalità classica, come illustrato di seguito.
 
@@ -239,4 +239,4 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

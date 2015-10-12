@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/30/2015" 
 	ms.author="juliako"/>
 
 
-#Usare il portale di gestione per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit (anteprima)
+#Usare il portale di gestione per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -140,7 +140,7 @@ Se non viene specificato alcun indirizzo IP e non è presente una definizione de
 
 ![standard4][standard4]
 
->[AZURE.NOTE]L'avvio del canale, attualmente in anteprima, può richiedere fino a 30 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
+>[AZURE.NOTE]Attualmente, l'avvio del canale può richiedere più di 30 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
 
 Una volta creato il canale, è possibile selezionare la scheda **CODIFICATORE** in cui sono mostrate le configurazioni dei canali. È anche possibile gestire gli annunci e gli slate.
 
@@ -266,4 +266,4 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

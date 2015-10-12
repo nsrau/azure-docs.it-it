@@ -45,7 +45,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 Aprire il pannello del Database SQL per il database che si desidera esportare come file con estensione bacpac:
 
-1.	Passare al [Portale di anteprima di Azure](https//:portal.azure.com).
+1.	Passare al [portale di anteprima di Azure](https://portal.azure.com).
 2.	Fare clic su **ESPLORA TUTTO**.
 3.	Fare clic su **Database SQL**.
 2.	Fare clic sul database che si desidera esportare come file BACPAC.
@@ -101,4 +101,4 @@ Facendo clic su **Crea** si crea una richiesta di esportazione del database e la
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

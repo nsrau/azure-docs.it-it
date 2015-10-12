@@ -116,10 +116,10 @@ Aggiungi a schermata iniziale | Selezionare questa opzione per aggiungere l'app 
 
 	Proprietà | Descrizione
 --- | --- 
-Stringa di connessione a database | Immettere la stringa di connessione ADO.NET al database SQL di Azure creato. Quando si copia la stringa di connessione, la password non viene aggiunta alla stringa di connessione. Assicurarsi di immettere la password nella stringa di connessione prima di incollare.
-Abilita archiviazione per messaggi in arrivo | Facoltativa. Abilitare questa proprietà per archiviare le proprietà di un messaggio AS2 in arrivo ricevuto da un partner. 
-Stringa di connessione ad archiviazione BLOB di Azure | Immettere la stringa di connessione per il contenitore di archiviazione BLOB di Azure creato. Quando è abilitata l'archiviazione, i messaggi codificati e decodificati vengono archiviati nel contenitore di archiviazione.
-Nome istanza TPM | Immettere il nome dell'app per le API **BizTalk Trading Partner Management** creata in precedenza. Quando si crea il connettore AS2, il connettore esegue solo i contratti AS2 all'interno di questa specifica istanza di TPM.
+Database Connection String | Immettere la stringa di connessione ADO.NET al database SQL di Azure creato. Quando si copia la stringa di connessione, la password non viene aggiunta alla stringa di connessione. Assicurarsi di immettere la password nella stringa di connessione prima di incollare.
+Enable Archiving for incoming messages | Facoltativa. Abilitare questa proprietà per archiviare le proprietà di un messaggio AS2 in arrivo ricevuto da un partner. 
+Azure Blob Storage Connection String | Immettere la stringa di connessione per il contenitore di archiviazione BLOB di Azure creato. Quando è abilitata l'archiviazione, i messaggi codificati e decodificati vengono archiviati nel contenitore di archiviazione.
+TPM Instance Name | Immettere il nome dell'app per le API **BizTalk Trading Partner Management** creata in precedenza. Quando si crea il connettore AS2, il connettore esegue solo i contratti AS2 all'interno di questa specifica istanza di TPM.
 
 4. Selezionare **Crea**.
 
@@ -145,7 +145,7 @@ Aggiungi a schermata iniziale | Selezionare questa opzione per aggiungere l'app 
 
 	Proprietà | Descrizione
 --- | --- 
-Stringa di connessione a database | Immettere la stringa di connessione ADO.NET al database SQL di Azure creato. Quando si copia la stringa di connessione, la password non viene aggiunta alla stringa di connessione. Assicurarsi di immettere la password nella stringa di connessione prima di incollare.
+Database Connection String | Immettere la stringa di connessione ADO.NET al database SQL di Azure creato. Quando si copia la stringa di connessione, la password non viene aggiunta alla stringa di connessione. Assicurarsi di immettere la password nella stringa di connessione prima di incollare.
 Spazio dei nomi del bus di servizio | Immettere lo spazio dei nomi del bus di servizio creato. Necessario solo quando è abilitato l'invio in batch. 
 Nome chiave di accesso condivisa per spazio dei nomi del bus di servizio | Immettere il nome della chiave di accesso per lo spazio dei nomi del bus di servizio creata. Necessario solo quando è abilitato l'invio in batch. 
 Valore chiave di accesso condivisa per spazio dei nomi del bus di servizio | Immettere il valore della chiave di accesso per lo spazio dei nomi del bus di servizio creata. Necessario solo quando è abilitato l'invio in batch. 
@@ -191,6 +191,7 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 4. Selezionare **OK** per salvare le modifiche.
 
+>[AZURE.NOTE]Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Altre risorse B2B
 
@@ -205,4 +206,4 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/07/2015"
+	ms.date="09/29/2015"
 	ms.author="kenhoff"/>
 
 # Ricerca di Report di Azure Active Directory
@@ -28,31 +28,32 @@ Per cercare le attività o gli eventi di controllo per un determinato utente, se
 
 Non tutti i report sono ancora inclusi nei risultati della ricerca. Questa tabella indica quali report sono inclusi.
 
-|	Report |	Incluso |
-|	------												|	--------			|
-|	Accessi da origini sconosciute |	No |
-|	Accessi dopo più errori |	No |
-|	Accessi da più aree geografiche |	No |
-|	Accessi da indirizzi IP con attività sospetta |	No |
-|	Accessi da dispositivi potenzialmente infetti |	No |
-|	Attività di accesso irregolare |	No |
-|	Utenti con anomalie dell'attività di accesso |	No |
-|	Utenti con credenziali perse |	No |
-|	Report di controllo |	Sì |
-|	Attività di reimpostazione password |	Sì |
-|	Attività di registrazione reimpostazione password |	Sì |
-|	Attività dei gruppi self-service |	Sì |
-|	Utilizzo applicazioni |	No |
-|	Attività di provisioning dell'account |	Sì |
-|	Stato rollover della password |	No |
-|	Errori di provisioning dell'account |	No |
-|	Utilizzo di RMS |	No |
-|	Utenti RMS più attivi |	No |
-|	Utilizzo dispositivi RMS |	No |
+Report | Incluso
+--------------------------------------------------- | --------
+Accessi da origini sconosciute | No
+Accessi dopo più errori | No
+Accessi da più aree geografiche | No
+Accessi da indirizzi IP con attività sospetta | No
+Accessi da dispositivi potenzialmente infetti | No
+Attività di accesso irregolare | No
+Utenti con anomalie dell'attività di accesso | No
+Utenti con credenziali perse | No
+Report di controllo | Sì
+Attività di reimpostazione password | Sì
+Attività di registrazione reimpostazione password | Sì
+Attività dei gruppi self-service | Sì
+Utilizzo applicazioni | No
+Attività di provisioning dell'account | Sì
+Stato rollover della password | No
+Errori di provisioning dell'account | No
+Utilizzo di RMS | No
+Utenti RMS più attivi | No
+Utilizzo dispositivi RMS | No
+
 
 ## Altre informazioni
 
  - [Report di Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Enti di controllo per il report di Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

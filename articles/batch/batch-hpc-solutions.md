@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/01/2015"
+   ms.date="09/29/2015"
    ms.author="danlep"/>
 
 # Batch e soluzioni HPC
@@ -94,7 +94,7 @@ La gestione del cluster e gli strumenti di pianificazione processi consentono di
 
 Azure offre una gamma di servizi di calcolo, gestione dati, reti e servizi correlati che è possibile utilizzare per i flussi di lavoro e le soluzioni Big Compute. Per informazioni dettagliate su ognuno di questi servizi, vedere la documentazione relativa ai servizi di Azure. Vedere [Scenari della soluzione](#solution-scenarios) in questo articolo per alcuni approcci comuni con le applicazioni in Batch e HPC.
 
->[AZURE.NOTE]Nuovi servizi vengono introdotti regolarmente nella piattaforma Azure e possono essere utili per lo scenario. L'utilizzo dei servizi di anteprima è consigliata solo per le distribuzioni di test o di prova, non per carichi di lavoro di produzione. In caso di domande, contattare un [partner Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) o inviare un messaggio di posta elettronica **bigcompute@microsoft.com*.
+>[AZURE.NOTE]Nuovi servizi vengono introdotti regolarmente nella piattaforma Azure e possono essere utili per lo scenario. L'utilizzo dei servizi di anteprima è consigliata solo per le distribuzioni di test o di prova, non per carichi di lavoro di produzione. In caso di domande, contattare un [partner Azure](https://pinpoint.microsoft.com/it-IT/search?keyword=azure) o inviare un messaggio di posta elettronica **bigcompute@microsoft.com*.
 
 ### Servizi di calcolo
 
@@ -164,11 +164,11 @@ Questa soluzione ibrida sfrutta un investimento esistente in un cluster locale, 
 
 >[AZURE.NOTE]Contattare il fornitore della soluzione cluster locale e applicazioni per requisiti aggiuntivi e procedure consigliate per l'esecuzione in un cloud pubblico offre un'infrastruttura come servizio (IaaS).
 
-Ad esempio, è possibile creare un cluster HPC basato su Windows Server con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) nelle macchine virtuali per i servizi infrastrutturali di Azure (IaaS) per l'esecuzione di carichi di lavoro, come illustrato nella figura seguente semplificata. Un utente del cluster può inviare un processo in modo sicuro al cluster del cloud tramite strumenti di invio a processi standard HPC Pack in esecuzione su un computer client. Vedere [Microsoft HPC Pack nelle macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx) per informazioni dettagliate e le opzioni di distribuzione.
+Ad esempio, è possibile creare un cluster HPC con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) nelle macchine virtuali per i servizi infrastrutturali di Azure (IaaS) per l'esecuzione di carichi di lavoro Windows o Linux, come illustrato nella figura seguente semplificata. Un utente del cluster può inviare un processo in modo sicuro al cluster del cloud tramite strumenti di invio a processi standard HPC Pack in esecuzione su un computer client. Vedere [Opzioni del cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 ![Cluster in IaaS][iaas_cluster]
 
-**Installazione automatizzata** per distribuire un numero elevato di macchine virtuali Windows Server o Linux è possibile utilizzare immagini di macchina virtuale standard o personalizzate e gli strumenti di Automazione di Azure, ad esempio l’[interfaccia della riga di comando di Azure](../xplat-cli.md)o[Azure PowerShell](../powershell-install-configure.md). Tra gli esempi sono inclusi:
+**Installazione automatizzata** per distribuire un numero elevato di macchine virtuali Windows Server o Linux è possibile utilizzare immagini di VM standard o personalizzate e gli strumenti di Automazione di Azure, ad esempio l’[interfaccia della riga di comando di Azure](../xplat-cli-install.md)o[Azure PowerShell](../powershell-install-configure.md). Tra gli esempi sono inclusi:
 
 * Per distribuire un cluster HPC Pack in servizi di infrastruttura di Azure, è possibile eseguire uno [script di Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx) flessibile da un computer client, lo script utilizza un'immagine di macchina virtuale Windows Server con HPC Pack preinstallato. È inoltre possibile utilizzare un[modello delle Guide rapide](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)di Azure con Azure PowerShell o la CLI di Azure per distribuire un cluster HPC Pack.
 
@@ -222,4 +222,4 @@ Vedere la figura riportata di seguito per un flusso di lavoro tipico, che uno sv
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

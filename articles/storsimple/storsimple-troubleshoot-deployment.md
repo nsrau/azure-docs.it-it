@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/29/2015"
    ms.author="alkohli" />
 
 # Risoluzione dei problemi di distribuzione del dispositivo StorSimple
@@ -575,4 +575,4 @@ L'errore potrebbe essere causato da una delle seguenti cause:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

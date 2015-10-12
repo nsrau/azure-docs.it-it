@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Aggiungere l'autenticazione a un'app esistente
@@ -84,4 +84,4 @@ Quindi, leggere le informazioni su [come utilizzare il valore dell'ID utente per
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

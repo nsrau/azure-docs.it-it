@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,7 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
 - [Introduzione a Distribuzione di contenuti Video on Demand (VoD) tramite .NET SDK](media-services-dotnet-get-started.md)
 
-- [Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit (anteprima)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [Usare .NET SDK per creare canali che eseguono la codifica live da un flusso a velocità in bit singola a un flusso a più velocità in bit](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -92,4 +92,4 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 
   [portale di Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

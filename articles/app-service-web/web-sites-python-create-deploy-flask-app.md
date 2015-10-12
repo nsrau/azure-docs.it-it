@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creazione di app Web con Flask in Azure"
-	description="Esercitazione che illustra l'esecuzione di un'app Web Python in Azure."
-	services="app-service\web"
+	pageTitle="Creazione di app Web con Flask in Azure" 
+	description="Esercitazione che illustra l'esecuzione di un'app Web Python in Azure." 
+	services="app-service\web" 
 	documentationCenter="python"
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -377,6 +377,8 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 - [Flask e MongoDB in Azure con Python Tools per Visual Studio]
 - [Flask e archiviazione tabelle di Azure con Python Tools per Visual Studio]
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](/develop/python/).
+
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -399,4 +401,4 @@ Per informazioni sull'uso di Archiviazione tabelle di Azure e MongoDB:
 [Documentazione di Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

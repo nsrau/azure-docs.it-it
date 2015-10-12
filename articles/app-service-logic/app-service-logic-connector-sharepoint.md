@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso del connettore SharePoint nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore SharePoint e usarlo in un'app per la logica in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Come creare e configurare l'app per le API o il connettore SharePoint e usarlo in un'app per la logica in Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 # Uso del connettore SharePoint e aggiunta all'app per la logica
 Connettersi a SharePoint Server o SharePoint Online per gestire documenti ed elementi elenco. È possibile eseguire varie azioni, ad esempio creare, aggiornare, ottenere ed eliminare documenti ed elementi elenco. Se si usa un ambiente SharePoint Server locale, immettere la stringa di connessione per il bus di servizio come parte della configurazione del connettore e installare l'agente listener locale per la connessione al server.
@@ -91,11 +91,13 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SharePoint c
 6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto:
  ![][5]
 
-7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato un elenco di azioni ed è possibile scegliere l'operazione appropriata da eseguire:<br/>
- ![][6] <br/>
- **URL relativo configurato per la libreria di documenti** <br/>
- ![][7] <br/>
- **URL relativo configurato per l'elenco di documenti**
+7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire: 
+![][6]
+  
+**URL relativo configurato per la raccolta documenti** 
+![][7]
+
+**URL relativo configurato per l'elenco documenti**
 
 > [AZURE.NOTE]Per i trigger seguenti si presuppone che l'utente abbia immesso "Documenti condivisi, Elenchi/attività" nelle impostazioni pacchetto del connettore, dove "Documenti condivisi" è una raccolta documenti ed "Elenchi/attività" è un elenco.
 
@@ -474,6 +476,8 @@ Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](app-service-api-manage-in-portal.md).
@@ -488,4 +492,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

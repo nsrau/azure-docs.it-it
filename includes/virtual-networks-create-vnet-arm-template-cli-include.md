@@ -2,7 +2,7 @@
 
 Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
-1. Se l'interfaccia della riga di comando (CLI) di Azure non è mai stata utilizzata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità di gestione delle risorse, come illustrato di seguito.
 
 		azure config mode arm
@@ -89,4 +89,4 @@ Per distribuire il modello di Gestione risorse di Azure scaricato tramite l'inte
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

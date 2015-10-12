@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/27/2015"
 	ms.author="tamram"/>
 
 # Monitorare un account di archiviazione nel portale di Azure
@@ -24,14 +24,14 @@
 
 > [AZURE.NOTE]All'esame dei dati di monitoraggio nel portale di Azure sono associati costi aggiuntivi. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Analisi archiviazione e fatturazione</a>. <br />
 
-> Il servizio File di Azure attualmente non supporta Analisi archiviazione.
+> L’archiviazione file di Azure attualmente supporta la metrica di analisi di archiviazione, ma non supporta ancora l'accesso. È possibile abilitare la metrica per l'archiviazione dei file di Azure tramite il [portale di anteprima di Azure](https://ms.portal.azure.com).
 
 > Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/).
 
 
 ## Procedura: Configurare il monitoraggio per un account di archiviazione
 
-1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1. Nel [portale di gestione di Azure](https://manage.windowsazure.com/) fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2. Fare clic su **Configure** e scorrere verso il basso fino alle impostazioni di **monitoraggio** per i servizi BLOB, tabelle e accodamento.
 
@@ -64,7 +64,7 @@ Le metriche vengono archiviate nell'account di archiviazione in quattro tabelle 
 
 Nel dashboard è possibile scegliere fino a sei metriche da tracciare sul grafico tra le nove disponibili. Per ogni servizio (BLOB, tabelle e accodamento) sono disponibili le metriche Availability, Success Percentage e Total Requests. Le metriche disponibili nel dashboard sono identiche per il monitoraggio minimo o dettagliato.
 
-1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Archiviazione** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2. Per cambiare le metriche da tracciare sul grafico, eseguire una delle operazioni seguenti:
 
@@ -92,7 +92,7 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
 ## Procedura: Aggiungere metriche alla relativa tabella
 
 
-1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Archiviazione** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2. Fare clic su **Monitor**.
 
@@ -140,7 +140,7 @@ Eseguire le procedure seguenti per scegliere quali metriche di archiviazione vis
 
 Per ogni servizio di archiviazione disponibile con l'account di archiviazione (BLOB, tabelle e accodamento) è possibile salvare log di diagnostica per le richieste di lettura, di scrittura e/o di eliminazione, nonché impostare i singoli criteri di conservazione dei dati.
 
-1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Storage** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1. Nel [portale di Azure](https://manage.windowsazure.com/) fare clic su **Archiviazione** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
 
 2. Fare clic su **Configure** e usare il tasto freccia GIÙ per scorrere fino a **logging**.
 
@@ -157,4 +157,4 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

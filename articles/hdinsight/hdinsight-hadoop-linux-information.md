@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -124,7 +124,7 @@ Per individuare le informazioni di archiviazione, è anche possibile usare il po
 
 Oltre che con il comando Hadoop dal cluster, è possibile procedere in diversi modi per accedere ai BLOB:
 
-* [Interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md): comandi dell’interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `azure storage` per informazioni sull'uso dell'archiviazione o `azure blob` per i comandi specifici dei BLOB.
+* [Interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md): comandi dell’interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `azure storage` per informazioni sull'uso dell'archiviazione o `azure blob` per i comandi specifici dei BLOB.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): uno script Python per l'uso con i BLOB in Archiviazione di Azure.
 
@@ -184,6 +184,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
 		2. Dall'elenco dei servizi nella parte sinistra della pagina, selezionare __Storm__. Selezionare quindi __Storm UI__ da __Quick Links__.
 
+
 			![Voce Storm UI in Quick Links](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
 
 			Verrà visualizzata l'interfaccia utente Storm:
@@ -239,4 +240,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

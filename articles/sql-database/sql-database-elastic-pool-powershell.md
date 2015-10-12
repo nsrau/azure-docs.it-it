@@ -240,4 +240,4 @@ Dopo aver creato un pool di database elastici, è possibile gestire i database e
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

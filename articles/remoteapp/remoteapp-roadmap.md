@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Novità di Azure RemoteApp"
+    pageTitle="Novità di Azure RemoteApp | Microsoft Azure"
     description="Informazioni su quando saranno disponibili nuove funzionalità per Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 # Novità di Azure RemoteApp
@@ -26,9 +26,11 @@ Microsoft è costantemente impegnata a migliorare Azure RemoteApp in base ai com
 |Distribuire a una rete virtuale senza aggiungere un dominio (connessione di una raccolta nel cloud alle macchine virtuali di Azure) ([commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th))| |X| | |
 |Riutilizzare una rete virtuale esistente per una raccolta ibrida di RemoteApp (abilita anche ExpressRoute) ([Commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
 |ExpressRoute ([commenti e suggerimenti](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
-|Azure RemoteApp disponibile nel nuovo [portale di anteprima di Azure](http://azure.microsoft.com/it-it/overview/preview-portal/)| | | |X|
+|Azure RemoteApp disponibile nel nuovo [portale di anteprima di Azure](http://azure.microsoft.com/overview/preview-portal/)| | | |X|
 |Anteprima dell’applicazione Windows 10 Universal per Azure RemoteApp| | |X| |
-|Possibilità di pubblicare le singole applicazioni per utenti specifici ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | |X| |
+|Possibilità di pubblicare le singole applicazioni per utenti specifici **Anteprima Pubblica** ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | ||X|
+|Pacchetto MSI ridistribuibile di Windows client ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| | ||X|
+
 
 Altri miglioramenti aggiunti all'inizio dell'anno:
 
@@ -39,4 +41,4 @@ Altri miglioramenti aggiunti all'inizio dell'anno:
 - Disponibilità nei data center australiani
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -7,16 +7,9 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/16/2015"
-	ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="sammehta"; "jimpark"/>
 
-# Introduzione al backup di Azure DPM
+# Preparazione del backup dei carichi di lavoro in Azure con DPM
 
 Questo articolo offre un'introduzione all'uso del servizio Backup di Microsoft Azure per proteggere i server e i carichi di lavoro DPM di System Center. Le informazioni dell'articolo riguardano:
 
@@ -67,7 +60,7 @@ Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuz
 - Usando l'opzione "Copia su nastro", non è possibile ripristinare i dati memorizzati in Backup di Azure.
 - È necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Per usare Backup di Azure è necessario che Azure Backup Agent sia installato sui server da sottoporre a backup. Ogni server deve disporre di almeno 2,5 GB di spazio di archiviazione locale dedicato al percorso della cache. Tuttavia, per il percorso della cache si consiglia di disporre di almeno 15 GB di spazio di archiviazione locale.
-- I dati verranno memorizzati nell'archiviazione relativa all'insieme di credenziali di Azure. Non esistono limiti relativi alla quantità di dati che è possibile sottoporre a backup in un insieme di credenziali di Backup di Azure, tuttavia la dimensione dell'origine dati (ad esempio, un database o una macchina virtuale) non deve superare i 1,65 TB.
+- I dati verranno memorizzati nell'archiviazione relativa all'insieme di credenziali di Azure. Non esistono limiti relativi alla quantità di dati che è possibile sottoporre a backup in un insieme di credenziali di Backup di Azure, tuttavia la dimensione dell'origine dati (ad esempio, un database o una macchina virtuale) non deve superare i 54400 GB.
 
 Il backup in Azure è supportato per i tipi di file seguenti:
 
@@ -88,4 +81,4 @@ Questi tipi di file non sono supportati:
 
 >[AZURE.NOTE]A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -19,7 +19,6 @@
 
 # Installare e usare Solr nei cluster Hadoop di HDInsight
 
-
 In questo argomento si apprenderà come installare Solr in Azure HDInsight usando un'azione script. Solr è una piattaforma di ricerca avanzata e offre funzionalità di ricerca di livello aziendale per i dati gestiti da Hadoop. Dopo l'installazione di Solr nel cluster HDInsight, verrà illustrato anche come eseguire ricerche nei dati usando Solr.
 
 > [AZURE.NOTE]I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Linux. Per informazioni sull'uso di Solr con un cluster basato su Windows, vedere [Installare e usare Solr nei cluster Hadoop HDInsight (Windows)](hdinsight-hadoop-solr-install.md)
@@ -62,7 +61,7 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 
 ## <a name="usesolr"></a>Come si usa Solr in HDInsight?
 
-###Modalità di indicizzazione
+### Modalità di indicizzazione
 
 È prima di tutto necessario indicizzare Solr con alcuni file di dati. Sarà quindi possibile usare Solr per eseguire query di ricerca sui dati indicizzati. Usare la procedura seguente per aggiungere alcuni dati di esempio a Solr e quindi eseguire una query:
 
@@ -153,7 +152,7 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 			    ]
 			  }
 
-###Uso del dashboard di Solr
+### Uso del dashboard di Solr
 
 Il dashboard di Solr è un'interfaccia utente Web che consente di utilizzare Solr con un Web browser. Il dashboard di Solr non viene esposto direttamente su Internet dal cluster HDInsight, ma è necessario accedervi tramite un tunnel SSH. Per altre informazioni sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -229,7 +228,7 @@ Dopo aver stabilito un tunnel SSH, seguire questa procedura per usare il dashboa
 			    ]
 			  }
 
-###Avviare e arrestare Solr
+### Avviare e arrestare Solr
 
 Se è necessario arrestare o avviare Solr manualmente, usare i comandi seguenti:
 
@@ -237,8 +236,7 @@ Se è necessario arrestare o avviare Solr manualmente, usare i comandi seguenti:
 
 	sudo start solr
 
-
-##Eseguire il backup dei dati indicizzati
+## Eseguire il backup dei dati indicizzati
 
 È consigliabile eseguire il backup dei dati indicizzati dai nodi del cluster Solr nell'archivio BLOB di Azure. Eseguire quindi la procedura seguente:
 
@@ -276,7 +274,7 @@ Se è necessario arrestare o avviare Solr manualmente, usare i comandi seguenti:
 Per altre informazioni sulle operazioni di backup e ripristino di Solr, vedere l'articolo relativo a [creazione e ripristino dei backup di SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 
-## Vedere anche##
+## Vedere anche
 
 - [Installare e usare Hue nei cluster HDInsight](hdinsight-hadoop-hue-linux.md). Hue è un'interfaccia utente che semplifica la creazione, l'esecuzione e il salvataggio di processi Pig e Hive, nonché l'esplorazione dell'archivio predefinito per il cluster HDInsight.
 
@@ -291,11 +289,9 @@ Per altre informazioni sulle operazioni di backup e ripristino di Solr, vedere l
 
 
 
-
-
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

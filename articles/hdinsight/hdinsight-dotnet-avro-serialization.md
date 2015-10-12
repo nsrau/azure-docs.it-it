@@ -22,6 +22,7 @@
 
 Questo argomento descrive come usare la <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">libreria Microsoft Avro</a> per serializzare oggetti e altre strutture di dati in flussi in modo da mantenerli in memoria, in un database o in un file, nonché come deserializzarli per recuperare gli oggetti originali.
 
+[AZURE.INCLUDE [solo Windows](../../includes/hdinsight-windows-only.md)]
 
 ##<a name="apacheAvro"></a>Apache Avro
 La <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">libreria Microsoft Avro</a> implementa il sistema di serializzazione dei dati Apache Avro per l'ambiente Microsoft .NET. Apache Avro offre un formato compatto di interscambio dei dati binari per la serializzazione e usa <a href="http://www.json.org" target="_blank">JSON</a> per definire lo schema indipendente dal linguaggio che assicura l'interoperabilità dei linguaggi. I dati serializzati in un unico linguaggio possono essere letti in un altro linguaggio. I formati attualmente supportati sono C, C++, C#, Java, PHP, Python e Ruby. Informazioni dettagliate sul formato sono disponibili nelle <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">specifiche di Apache Avro</a>. Notare che la versione corrente della libreria Microsoft Avro non supporta la parte relativa alle RPC (Remote Procedure Call) di queste specifiche.
@@ -1404,4 +1405,4 @@ Per pulire il cluster, eseguire il comando seguente:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/25/2015"
 	ms.author="jgao"/>
 
 # Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari
@@ -23,7 +23,7 @@ Informazioni sul monitoraggio di cluster HDInsight versioni 3.1 e 2.1 con API Am
 
 > [AZURE.NOTE]Le informazioni contenute in questo articolo sono relative principalmente ai cluster HDInsight basati su Windows, che forniscono una versione in sola lettura dell’API REST Ambari. Per i cluster basati su Linux, vedere [Gestire i cluster Hadoop tramite Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a id="whatisambari"></a> Cos'è Ambari?
+## Informazioni su Ambari
 
 [Apache Ambari][ambari-home] viene usato per il provisioning, la gestione e il monitoraggio di cluster Apache Hadoop. Comprende una raccolta di strumenti operatore intuitivi e un set affidabile di API che nascondono la complessità di Hadoop, semplificando le operazioni sui cluster. Per altre informazioni, vedere la [documentazione di riferimento dell'API Ambari][ambari-api-reference].
 
@@ -31,7 +31,7 @@ Informazioni sul monitoraggio di cluster HDInsight versioni 3.1 e 2.1 con API Am
 Attualmente HDInsight supporta solo la funzione di monitoraggio di Ambari. L'API Ambari 1.0 è supportata dai cluster HDInsight versioni 3.0 e 2.1. Questo articolo descrive l'accesso alle API Ambari su cluster HDInsight versioni 3.1 e 2.1. La differenza principale tra i due è che alcuni componenti sono cambiati con l'introduzione di nuove funzionalità (ad esempio, il server della cronologia dei processi).
 
 
-##<a id="prerequisites"></a>Prerequisiti
+**Prerequisiti**
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
@@ -54,7 +54,7 @@ Password cluster|$clusterPassword||Password dell'utente del cluster.
 
 
 
-##<a id="jumpstart"></a>Avvio rapido
+## Avvio rapido
 
 È possibile usare Ambari per monitorare cluster HDInsight in vari modi.
 
@@ -123,7 +123,7 @@ L'output è:
 
 Quando si usa l'endpoint Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", il campo *host\_name* restituisce il nome di dominio completo (FQDN) del nodo anziché il solo nome host. Prima della versione rilasciata l'10/8/2014, questo esempio restituiva semplicemente "**headnode0**". Dopo la versione dell'10/8/2014, si ottiene il nome FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**", come nell'esempio precedente. Questa modifica si è resa necessaria per facilitare scenari in cui sia possibile implementare più tipi di cluster, come HBase e Hadoop, in un'unica rete virtuale (VNET). Ciò accade, ad esempio, quando si usa HBase come piattaforma back-end per Hadoop.
 
-##<a id="monitor"></a>API Ambari di monitoraggio
+## API Ambari di monitoraggio
 
 La tabella seguente riporta alcune delle chiamate API Ambari di monitoraggio più comuni. Per altre informazioni, vedere la [documentazione di riferimento dell'API Ambari][ambari-api-reference].
 
@@ -143,7 +143,7 @@ Get configurations|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/conf
 Get configuration info.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|Config types: core-site, hdfs-site, mapred-site, hive-site
 
 
-##<a id="nextsteps"></a>Passaggi successivi
+##Passaggi successivi
 
 In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di monitoraggio. Per ulteriori informazioni, vedere:
 
@@ -175,4 +175,4 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

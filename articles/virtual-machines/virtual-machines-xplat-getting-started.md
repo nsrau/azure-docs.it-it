@@ -27,11 +27,11 @@ Solo l'installazione dell’interfaccia della riga di comando di Azure e la disp
 
 ## Installazione dell'interfaccia della riga di comando di Azure
 
-Seguire le istruzioni per l’[installazione dell’interfaccia della riga di comando di Azure](../xplat-cli.md#install).
+Seguire le istruzioni per l’[installazione dell’interfaccia della riga di comando di Azure](../xplat-cli-install.md#install).
 
 ## Connessione ad Azure utilizzando l’interfaccia della riga di comando di Azure
 
-È possibile connettere l'installazione dell’interfaccia della riga di comando di Azure a un account Azure personale oppure a un account Azure di lavoro o dell'istituto di istruzione. Per comprendere le differenze ed effettuare la scelta appropriata, vedere [Come connettersi alla sottoscrizione di Azure](../xplat-cli.md#configure).
+È possibile connettere l'installazione dell’interfaccia della riga di comando di Azure a un account Azure personale oppure a un account Azure di lavoro o dell'istituto di istruzione. Per comprendere le differenze ed effettuare la scelta appropriata, vedere [Come connettersi alla sottoscrizione di Azure](../xplat-cli-install.md#configure).
 
 ## Creazione e connessione a una macchina virtuale in Azure
 
@@ -47,7 +47,7 @@ La creazione di una macchina virtuale inizia con la scelta (o il caricamento) di
 
     A questo punto è possibile scegliere un'immagine e utilizzare il comando `show` per visualizzarne le proprietà in modo più dettagliato:
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-IT-IT-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-it-IT-30GB
 
 2. Dopo aver scelto un'immagine di macchina virtuale, utilizzare il comando `vm create` per creare l'immagine. Questo comando dispone di molte opzioni, che è possibile elencare utilizzando il comando `help`:
 
@@ -63,7 +63,7 @@ La creazione di una macchina virtuale inizia con la scelta (o il caricamento) di
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-IT-IT-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-it-IT-30GB "myadminuser" "myAdm1n@passwd"
 
 ## Passaggi successivi
 
@@ -78,4 +78,4 @@ Poiché nell'esempio precedente è stata aperta la porta SSH predefinita, la con
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Come ottenere un tenant di Azure Active Directory
@@ -65,4 +65,4 @@ Se quanto descritto finora è incomprensibile, non è il caso di preoccuparsi. P
 
 Durante la procedura di iscrizione ad Azure, verrà richiesto di indicare i dettagli della carta di credito. Non c'è nulla di cui preoccuparsi, la pubblicazione di applicazioni in Azure AD o la creazione di nuovi tenant non vengono addebitate.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

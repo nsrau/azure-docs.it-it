@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Usare Hue con Hadoop nei cluster HDInsight Linux | Microsoft Azure" 
-	description="Informazioni su come installare e usare Hue con i cluster Hadoop in HDInsight Linux." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Usare Hue con Hadoop nei cluster HDInsight Linux | Microsoft Azure"
+	description="Informazioni su come installare e usare Hue con i cluster Hadoop in HDInsight Linux."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -60,16 +60,11 @@ L'azione script [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigac
 
 Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è in esecuzione. Il tunneling tramite SSH consente al traffico di raggiungere direttamente il nodo head del cluster in cui viene eseguito Hue. Al termine del provisioning del cluster, seguire questa procedura per usare Hue in un cluster HDInsight Linux.
 
-> [AZURE.NOTE]Le istruzioni seguenti presuppongono che sia disponibile un Web browser Firefox con installata l'estensione [FoxyProxy](https://addons.mozilla.org/it-IT/firefox/addon/foxyproxy-standard/).
+1. Utilizzare le informazioni contenute in [Utilizzare SSH Tunneling per accedere all'interfaccia utente Web Ambari, a ResourceManager, JobHistory, NameNode, Oozie e ad altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md) per creare un tunnel SSH dal sistema client al cluster HDInsight e quindi configurare il browser Web per utilizzare il tunnel SSH come proxy.
 
-1. Abilitare il tunneling SSH dal computer desktop e configurare il Web browser Firefox per l'uso del tunnel SSH. Durante la configurazione del tunneling, usare una porta diversa da 8888.
+2. Dopo aver creato un tunnel SSH e configurato il browser per inoltrare il traffico attraverso di esso, utilizzare il browser per aprire il portale Hur in http://headnode0:8888.
 
-	* Per istruzioni sull'abilitazione del tunneling SSH da un computer Linux, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-linux-ambari-ssh-tunnel.md#usessh).
-	* Per istruzioni sull'abilitazione del tunneling SSH da un computer Windows, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
-
-	Mantenere in esecuzione la sessione PuTTY.
- 
-2. Sul computer usare il Web browser Firefox con FoxyProxy configurato per l'avvio del portale di Hue all'indirizzo http://headnode0:8888. Quando si accede per la prima volta, viene richiesto di creare un account per l'accesso al portale di Hue. Le credenziali specificate saranno limitate al portale e non sono correlate alle credenziali amministratore o utente SSH specificate durante il provisioning del cluster.
+    > [AZURE.NOTE]Quando si accede per la prima volta, viene richiesto di creare un account per l'accesso al portale Hue. Le credenziali specificate saranno limitate al portale e non sono correlate alle credenziali amministratore o utente SSH specificate durante il provisioning del cluster.
 
 	![Accesso al portale di Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Specificare le credenziali per il portale di Hue")
 
@@ -96,7 +91,6 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 3. Fare clic son il pulsante destro del mouse su un file o una cartella per visualizzare le operazioni disponibili. Usare il pulsante **Carica** nell'angolo destro per caricare i file nella directory corrente. Usare il pulsante **Nuovo** per creare nuovi file o directory.
 
 > [AZURE.NOTE]Il browser file Hue può mostrare solo il contenuto del contenitore predefinito associato al cluster HDInsight. Eventuali account di archiviazione o contenitori aggiuntivi associati al cluster non saranno accessibili tramite il browser file. I contenitori aggiuntivi associati al cluster saranno comunque sempre accessibili per i processi Hive. Ad esempio, se si immette il comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` nell'editor Hive, è possibile vedere il contenuto anche dei contenitori aggiuntivi. In questo comando **newcontainer** non è il contenitore predefinito associato a un cluster.
-
 
 ## Considerazioni importanti
 
@@ -131,6 +125,5 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -193,4 +193,4 @@ Pur includendo potenti funzionalità diagnostiche, MapReduce può presentare dif
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

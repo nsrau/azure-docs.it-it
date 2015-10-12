@@ -1,20 +1,20 @@
 <properties
    pageTitle="Creare un'app per la logica EAI con VETR | Microsoft Azure"
-	description="Questo argomento illustra le funzionalità Validate, Encode e Transform dei Servizi XML BizTalk."
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   description="Funzioni Validate, Encode e Transform dei Servizi XML BizTalk."
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajeshramabathiran"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="06/24/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/29/2015"
+   ms.author="rajram"/>
 
 
 # Creare un'app per la logica EAI con VETR
@@ -26,7 +26,7 @@ Nella maggior parte degli scenari di integrazione di applicazioni aziendali (EAI
 - Convertire i dati da un formato a un altro (ad esempio, da un formato dati del sistema CRM a un formato dati del sistema ERP)
 - Dirigere i dati all'applicazione o al sistema desiderati
 
-In questo articolo viene illustrato un modello comune di integrazione: "messaggio unidirezionale mediazione" o VETR (Validate, Enrich, Transform, Route). Il modello VETR esegue la mediazione dei dati tra un'entità di origine e un'entità di destinazione. solitamente origini di dati.
+Questo articolo illustra un modello comune di integrazione: "messaggio unidirezionale mediazione" o VETR (Validate, Enrich, Transform, Route). Il modello VETR esegue la mediazione dei dati tra un'entità di origine e un'entità di destinazione, solitamente origini di dati.
 
 Si prenda in considerazione un sito Web che accetta ordini: gli utenti pubblicano ordini nel sistema usando il protocollo HTTP. Dietro le quinte, il sistema convalida la correttezza dei dati in entrata, li normalizza e li mantiene in una coda del bus di servizio per elaborarli ulteriormente. Il sistema preleva gli ordini dalla coda, prevedendone un particolare formato. In tal modo, il flusso end-to-end è il seguente:
 
@@ -53,9 +53,9 @@ Vengono quindi aggiunti trigger e azioni.
 ## Aggiungere trigger HTTP
 
 1. Selezionare **Listener HTTP** dalla raccolta per creare un nuovo listener. Denominarlo **HTTP1**.
-2. Lasciare l'impostazione **Inviare risposta automaticamente?** su false. Configurare l'azione di attivazione impostando _HTTP Method_ su _POST_ e impostando _Relative URL_ su _/OneWayPipeline_.
+2. Lasciare l'impostazione **Inviare risposta automaticamente?** su false. Configurare l'azione di attivazione impostando _HTTP Method_ su _POST_ e impostando _Relative URL_ su _/OneWayPipeline_.  
 
-![Trigger HTTP][2]
+	![Trigger HTTP][2]
 
 
 ## Aggiungere un'azione di convalida
@@ -65,18 +65,18 @@ A questo punto, è possibile aggiungere azioni che verranno eseguite ogni volta 
 1. Aggiungere **BizTalk XML Validator** dalla raccolta e denominarlo _(Validate1)_ per creare un'istanza.
 2. Configurare uno schema XSD per convalidare i messaggi XML in entrata. Selezionare l'azione _Validate_ e quindi selezionare _triggers(‘httplistener’).outputs.Content_ come valore per il parametro _inputXml_.
 
-A questo punto, l'azione di convalida è la prima azione dopo il listener HTTP. In maniera analoga, si aggiungeranno le restanti azioni.
+A questo punto, l'azione di convalida è la prima azione dopo il listener HTTP.
 
 ![BizTalk XML Validator][3]
 
+In maniera analoga, si aggiungeranno le restanti azioni.
 
 ## Aggiungere un'azione di trasformazione
 È ora possibile configurare le trasformazioni per normalizzare i dati in entrata.
 
 1. Aggiungere **Transform** dalla raccolta.
-2. Per configurare una trasformazione in modo da trasformare i messaggi XML in entrata, selezionare l'azione **Transform** come quella da eseguire quando questa API viene chiamata e selezionare ```triggers(‘httplistener’).outputs.Content``` come valore per _inputXml_. Map è un parametro facoltativo perché i dati in entrata vengono confrontati con tutte le trasformazioni configurate e solo quelli che corrispondono allo schema vengono applicati.
-3. Infine, l'azione Transform viene eseguita solo se l'azione Validate ha esito positivo. Per configurare questa condizione, fare clic sull'icona a forma di ingranaggio in alto a destra e selezionare _Aggiungere una condizione da soddisfare_. Impostare la condizione su ```equals(actions('xmlvalidator').status,'Succeeded')```:
-
+2. Per configurare una trasformazione in modo da trasformare i messaggi XML in entrata, selezionare l'azione **Transform** come quella da eseguire quando questa API viene chiamata e selezionare ```triggers(‘httplistener’).outputs.Content``` come valore per _inputXml_. *Map* è un parametro facoltativo perché i dati in entrata vengono confrontati con tutte le trasformazioni configurate e solo quelli che corrispondono allo schema vengono applicati.
+3. Infine, l'azione Transform viene eseguita solo se l'azione Validate ha esito positivo. Per configurare questa condizione, fare clic sull'icona a forma di ingranaggio in alto a destra e selezionare _Aggiungere una condizione da soddisfare_. Impostare la condizione su ```equals(actions('xmlvalidator').status,'Succeeded')```:  
 
 ![Trasformazioni di BizTalk][4]
 
@@ -94,14 +94,18 @@ A questo punto, è possibile aggiungere la destinazione in cui scrivere i dati, 
 Dopo aver terminato l'elaborazione pipeline, verrà reinviata una risposta HTTP per entrambi i risultati, con i seguenti passaggi:
 
 1. Aggiungere un **Listener HTTP** dalla raccolta e selezionare l'azione **Invia risposta HTTP**.
-2. Impostare **Response Content** su *Elaborazione pipeline completata*, **Codice di stato della risposta** su *200* per indicare HTTP 200 OK e la **Condizione** sull'espressione ```@equals(actions('servicebusconnector').status,'Succeeded')```
+2. Impostare **Response Content** su *Elaborazione pipeline completata*, **Codice di stato della risposta** su *200* per indicare HTTP 200 OK e la **Condizione** sulla seguente espressione: ```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
 
-Ripetere i passaggi precedenti anche per inviare una risposta HTTP in caso di errore. Cambiare la **Condizione** su ```@not(equals(actions('servicebusconnector').status,'Succeeded')).```
+
+Ripetere i passaggi anche per inviare una risposta HTTP in caso di errore. Modifica **Condizione** sulla seguente espressione: ```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Completamento
-Ogni volta che qualcuno invia un messaggio all'endpoint HTTP attiva l'app ed esegue le azioni appena create. Per gestire eventuali app per la logica create, fare clic su **Sfoglia** nel portale di gestione di Azure e scegliere **App per la logica**. Fare clic sull'app per visualizzare altre informazioni.
+Ogni volta che qualcuno invia un messaggio all'endpoint HTTP attiva l'app ed esegue le azioni appena create. Per gestire eventuali app per la logica create, fare clic su **Sfoglia** nel portale di Azure e selezionare **App per la logica**. Selezionare l'app per visualizzare altre informazioni.
 
+Alcuni argomenti utili:
+
+[Gestire e monitorare le App API e i connettori](app-service-logic-monitor-your-connectors.md) <br/> [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -110,4 +114,4 @@ Ogni volta che qualcuno invia un messaggio all'endpoint HTTP attiva l'app ed ese
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

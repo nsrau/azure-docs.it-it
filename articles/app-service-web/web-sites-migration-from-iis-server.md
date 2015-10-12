@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migrazione di un'app Web aziendale a un servizio app di Azure" 
 	description="Illustra come usare il Migration Assistant di App Web per eseguire rapidamente la migrazione dei siti Web IIS esistenti al servizio app per app Web" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -136,4 +136,4 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

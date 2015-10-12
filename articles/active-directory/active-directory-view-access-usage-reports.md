@@ -222,7 +222,7 @@ Solo determinati tipi di eventi di accesso verranno visualizzati nel report dell
 | Accessi a un'app di business personalizzata che è stata aggiunta alla directory | No (disponibile a breve) |
 | Accessi a un'app del proxy di applicazione di Azure AD che è stata aggiunta alla directory | No (disponibile a breve) |
 
-> Nota: per ridurre la quantità di disturbo in questo report, non vengono visualizzati gli accessi all'app nativa [Lync/Skype per Business](http://products.office.com/it-IT/skype-for-business/online-meetings) ed eseguiti dall'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/it-IT/w/sso/534.aspx).
+> Nota: per ridurre la quantità di disturbo in questo report, non vengono visualizzati gli accessi all'[Assistente per l'accesso ai Microsoft Online Services](http://community.office365.com/it-IT/w/sso/534.aspx).
 
 
 
@@ -270,4 +270,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Informazioni sulle macchine virtuali di Azure | Microsoft Azure"
-	description="Informazioni di base sulle macchine virtuali in Azure."
+	description="Informazioni di base sulle macchine virtuali in Azure usando entrambi i modelli di distribuzione."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#Informazioni sulle macchine virtuali di Azure create con entrambi i modelli di distribuzione
+#Informazioni sulle macchine virtuali di Azure 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]In questo articolo vengono illustrate le risorse create sia con il modello di distribuzione di gestione delle risorse che con il modello di distribuzione classico.
 
@@ -51,4 +51,4 @@ Se le macchine virtuali di Azure sono un argomento ancora relativamente nuovo, l
 [Macchine virtuali]: #tellmevm
 [Servizi cloud]: cloud-services-choose-me.md
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

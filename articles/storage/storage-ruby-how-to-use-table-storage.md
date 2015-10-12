@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 
@@ -158,4 +158,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="09/28/2015" 
 	ms.author="tamram"/>
 
 # Introduzione ad Archiviazione di Microsoft Azure
@@ -46,14 +46,14 @@ Archiviazione di Azure è accessibile da qualsiasi luogo, da qualsiasi tipo di a
 
 Archiviazione di Azure supporta client che utilizzano vari sistemi operativi (inclusi Windows e Linux) e numerosi linguaggi di programmazione (inclusi .NET, Java e C++) per facilitare le operazioni di sviluppo. Espone inoltre le risorse di dati tramite API REST semplici, disponibili per qualsiasi client in grado di inviare e ricevere dati tramite HTTP/HTTPS.
 
-L'archiviazione premium di Azure è ora disponibile in anteprima. L'archiviazione premium di Azure offre prestazioni elevate, supporto disco a bassa latenza per carichi di lavoro con uso intensivo di I/O in esecuzione su Macchine virtuali di Azure. Con l'archiviazione premium di Azure, è possibile collegare più dischi di dati permanenti a una macchina virtuale e configurarli per poter soddisfare i requisiti di prestazioni. Ogni disco di dati è supportato da un disco SSD nell'archiviazione premium di Azure per le massime prestazioni di I/O. Per ulteriori informazioni, vedere [Archiviazione premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal).
+L'archiviazione premium di Azure offre prestazioni elevate, supporto disco a bassa latenza per carichi di lavoro con uso intensivo di I/O in esecuzione su Macchine virtuali di Azure. Con l'archiviazione premium di Azure, è possibile collegare più dischi di dati permanenti a una macchina virtuale e configurarli per poter soddisfare i requisiti di prestazioni. Ogni disco di dati è supportato da un disco SSD nell'archiviazione premium di Azure per le massime prestazioni di I/O. Per ulteriori informazioni, vedere [Archiviazione premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage-premium-storage-preview-portal).
 
 ## Presentazione dei servizi di archiviazione di Azure
 
 Un account di archiviazione di Azure è un account sicuro che consente di accedere ai servizi in Archiviazione di Azure. L'account di archiviazione offre uno spazio dei nomi univoco per le risorse di archiviazione. Sono disponibili due tipi di account di archiviazione:
 
 - Un account di archiviazione standard include l'archiviazione BLOB, tabelle, di accodamento e file.
-- Un account di archiviazione premium attualmente supporta solo dischi di macchine virtuali di Azure. L'archiviazione premium di Azure è disponibile su richiesta tramite la [pagina Anteprima di Azure](/services/preview/).
+- Un account di archiviazione premium attualmente supporta solo dischi di macchine virtuali di Azure.
 
 Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. [È possibile creare un massimo di 100 account di archiviazione con denominazione univoca con una singola sottoscrizione.](../azure-subscription-service-limits.md) Vedere i [dettagli sui prezzi di Archiviazione](http://azure.microsoft.com/pricing/details/storage/) per informazioni sui prezzi in base al volume.
 
@@ -66,7 +66,7 @@ Un account di archiviazione standard consente di accedere all'archiviazione BLOB
 - Nell'**archivio BLOB** sono archiviati i dati di file. Un BLOB può essere qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. 
 - Nell'**archivio tabelle** sono archiviati set di dati strutturati. L'archiviazione delle tabelle utilizza un archivio dati chiave-attributo NoSQL, che consente lo sviluppo e l'accesso rapido a grandi quantità di dati.
 - L'**archiviazione di accodamento** offre un sistema di messaggistica affidabile per l'elaborazione del flusso di lavoro e per la comunicazione tra i componenti dei servizi cloud.
-- **L'archiviazione file (anteprima)** offre uno spazio di archiviazione condiviso per le applicazioni tradizionali che usano il protocollo SMB 2.1 standard. Le macchine virtuali e i servizi cloud di Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API REST del servizio file. L'archiviazione file è disponibile su richiesta tramite la [pagina Anteprima di Azure](/services/preview/). 
+- **Archiviazione file** offre uno spazio di archiviazione condiviso per le applicazioni tradizionali che usano il protocollo SMB standard. Le macchine virtuali e i servizi cloud di Azure possono condividere dati file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati file in una condivisione tramite l'API REST del servizio file. 
 
 Ogni account di archiviazione standard può includere fino a 500 TB di dati combinati di BLOB, code, tabelle e file. Per informazioni sulla capacità dell'account di archiviazione standard, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure](storage-scalability-targets.md).
 
@@ -78,7 +78,7 @@ Per informazioni su come creare un account di archiviazione standard, vedere [Cr
 
 ### Account di archiviazione premium
 
-L'archiviazione premium di Azure attualmente supporta solo dischi di macchine virtuali di Azure. L'archiviazione premium di Azure è disponibile su richiesta tramite la [pagina Anteprima di Azure](/services/preview/). Per una panoramica approfondita di Archiviazione premium di Azure vedere [Archiviazione premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
+L'archiviazione premium di Azure attualmente supporta solo dischi di macchine virtuali di Azure. Per una panoramica approfondita di Archiviazione premium di Azure vedere [Archiviazione premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
 
 ## Archiviazione BLOB
 
@@ -117,11 +117,11 @@ Durante la progettazione di applicazioni scalabili, i componenti dell'applicazio
 
 Un account di archiviazione può contenere il numero desiderato di code. Una coda può contenere un numero qualsiasi di messaggi, fino al raggiungimento del limite di capacità dell'account di archiviazione. I singoli messaggi possono avere una dimensione massima di 64 KB.
 
-## Archiviazione file (anteprima)
+## Archiviazione file
 
-Archiviazione file offre condivisioni file SMB 2.1 basate sul cloud per consentire la migrazione delle applicazioni legacy ad Azure in modo veloce e senza costi di riscrittura. Archiviazione di File di Azure, le applicazioni in esecuzione in macchine virtuali di Azure o i servizi cloud consentono di montare una condivisione di file nel cloud, esattamente come un'applicazione desktop che consente di montare una condivisione SMB tipica. Non ci sono limiti per i componenti delle applicazioni che possono montare e accedere contemporaneamente alla condivisione di archiviazione file.
+Archiviazione file offre condivisioni file SMB basate sul cloud per consentire la migrazione delle applicazioni legacy ad Azure in modo veloce e senza costi di riscrittura. Archiviazione di File di Azure, le applicazioni in esecuzione in macchine virtuali di Azure o i servizi cloud consentono di montare una condivisione di file nel cloud, esattamente come un'applicazione desktop che consente di montare una condivisione SMB tipica. Non ci sono limiti per i componenti delle applicazioni che possono montare e accedere contemporaneamente alla condivisione di archiviazione file.
 
-Poiché una condivisione di archiviazione file è una condivisione file SMB 2.1 standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file system. Gli sviluppatori possono quindi riusare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di archiviazione file nell'ambito delle attività di amministrazione per le applicazioni Azure.
+Poiché una condivisione di archiviazione file è una condivisione file SMB standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file system. Gli sviluppatori possono quindi riutilizzare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di archiviazione file nell'ambito delle attività di amministrazione per le applicazioni Azure.
 
 Come altri servizi di archiviazione di Azure, archiviazione file espone un'API REST per l'accesso ai dati in una condivisione. Le applicazioni locali possono chiamare l'API REST di archiviazione file per accedere ai dati in una condivisione file. Le aziende possono quindi decidere di eseguire la migrazione di alcune applicazioni legacy ad Azure e di continuare a eseguirne altre dall'interno dell'organizzazione locale. Si noti che è possibile montare una condivisione file solo per le applicazioni in esecuzione in Azure. Le applicazioni locali possono accedere alla condivisione file solo tramite l'API REST.
 
@@ -133,7 +133,11 @@ Per impostazione predefinita, solo il proprietario dell'account di archiviazione
 
 Durante la creazione dell'account di archiviazione, vengono assegnate due chiavi di accesso private utilizzate per l'autenticazione. La presenza di due chiavi garantisce la disponibilità dell'applicazione quando si rigenerano le chiavi nell'ambito delle normali operazioni di gestione delle chiavi di sicurezza.
 
-Se è necessario consentire agli utenti l'accesso controllato alle risorse di archiviazione, è possibile creare una [firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md). Una firma di accesso condiviso è un token che può essere aggiunto a un URL per consentire l'accesso delegato a un contenitore, BLOB, tabella o coda. Coloro che possiedono il token possono accedere alla risorsa a cui esso fa riferimento con le autorizzazioni specificate e per il periodo di validità del token stesso. Si noti che l'archiviazione file di Azure attualmente non supporta le firme di accesso condiviso.
+Se è necessario consentire agli utenti l'accesso controllato alle risorse di archiviazione, è possibile creare una [firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md). Una firma di accesso condiviso (SAS) è un token che può essere aggiunto a un URL per consentire l'accesso delegato a una risorsa di archiviazione. Coloro che possiedono il token possono accedere alla risorsa a cui esso fa riferimento con le autorizzazioni specificate e per il periodo di validità del token stesso. A partire dalla versione del 4/5/2015, Archiviazione di Azure supporta due tipi di firme di accesso condiviso: firma di accesso condiviso del servizio e firma di accesso condiviso dell'account.
+
+La firma di accesso condiviso del servizio delega l'accesso a una risorsa in uno solo dei servizi di archiviazione, ovvero nel servizio BLOB, nel servizio di accodamento, nel servizio tabelle o nel servizio file.
+
+Una firma di accesso condiviso dell'account delega l'accesso alle risorse in uno o più servizi di archiviazione. È possibile delegare l'accesso alle operazioni a livello di servizio che non sono disponibili con un servizio SAS. È anche possibile delegare l'accesso alle operazioni di lettura, scrittura ed eliminazioni in contenitori BLOB, tabelle, code e condivisioni file, che con una firma di accesso condiviso del servizio non è consentito.
 
 È infine possibile specificare che un contenitore e i relativi BLOB o che un BLOB specifico sia disponibile per l'accesso pubblico. Quando si indica che un contenitore o un BLOB è pubblico, qualsiasi utente lo potrà leggere in forma anonima, in quanto non è necessaria l'autenticazione. I contenitori e i BLOB pubblici sono utili per esporre risorse come file multimediali e documenti ospitati in siti Web. Per ridurre la latenza di rete per un pubblico globale, è possibile memorizzare nella cache i dati BLOB usati dai siti Web con la rete CDN di Azure.
 
@@ -230,4 +234,4 @@ Per iniziare a usare Archiviazione di Azure, vedere le risorse seguenti:
 - [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Chiamare un'API personalizzata dal client
@@ -61,4 +61,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Definizione di un'API personalizzata che supporta le notifiche periodiche]: mobile-services-windows-store-dotnet-create-pull-notifications.md
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

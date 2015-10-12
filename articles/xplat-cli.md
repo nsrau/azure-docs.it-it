@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](powershell-install-configure.md)
-- [Azure CLI](xplat-cli.md)
+- [Azure CLI](xplat-cli-install.md)
 
 L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per usare la piattaforma Azure. L'interfaccia della riga di comando fornisce gran parte delle funzionalità disponibili nel portale di gestione di Azure, tra cui la possibilità di gestire siti Web, macchine virtuali, servizi mobili, database SQL e altri servizi della piattaforma Azure.
 
@@ -281,4 +281,4 @@ Se si scrive uno script che si basa sullo stato di uscita, verificare che i coma
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

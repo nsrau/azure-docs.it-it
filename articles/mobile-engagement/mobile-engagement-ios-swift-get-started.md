@@ -34,9 +34,11 @@ Per completare questa esercitazione, è necessario disporre di:
 + [Mobile Engagement SDK per iOS]
 + Certificato per notifiche push (.p12) che è possibile ottenere nell'Apple Dev Center.
 
+> [AZURE.NOTE]Questa esercitazione utilizza la versione 2.0 di Swift.
+
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Mobile Engagement relative ad app per iOS.
 
-> [AZURE.IMPORTANT]Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni di Mobile Engagement per app per iOS e richiede un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2FIT-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.IMPORTANT]Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni di Mobile Engagement per app per iOS e richiede un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 ##<a id="setup-azme"></a>Configurare Mobile Engagement per l'app iOS
 
@@ -74,11 +76,10 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
 	![][4]
 
-8. Modificare il file di intestazione provvisorio per esporre il codice AzME Objective-C al codice Swift e aggiungere le istruzioni import seguenti:
+8. Modificare il file di intestazione provvisorio per esporre il codice Mobile Engagement Objective-C al codice Swift e aggiungere le istruzioni import seguenti:
 
 		/* Mobile Engagement Agent */
 		#import "AEModule.h"
-		#import "AEPushDelegate.h"
 		#import "AEPushMessage.h"
 		#import "AEStorage.h"
 		#import "EngagementAgent.h"
@@ -87,6 +88,8 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 		#import "AEIdfaProvider.h"
 
 9. In Build Settings assicurarsi che per l'impostazione di compilazione Objective-C Bridging Header in Swift Compiler - Code Generation sia definito un percorso a questa intestazione. Di seguito è illustrato un esempio di percorso: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (a seconda del percorso)**
+
+	![][6]
 
 10. Tornare al portale di Azure nella pagina *Informazioni di connessione* dell'app e copiare la stringa di connessione.
 
@@ -105,13 +108,9 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
 Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno una schermata (Activity) al back-end di Mobile Engagement.
 
-1. Aprire il file **viewcontroller. H** e importare **EngagementViewController.h**:
+1. Aprire il file **ViewController.swift** e sostituire la classe di base **ViewController** per **EngagementViewController**:
 
-    `# import "EngagementViewController.h"`
-
-2. Ora sostituire la classe con privilegi dell’interfaccia **ViewController** con **EngagementViewController**:
-
-	`@interface ViewController : EngagementViewController`
+	`class ViewController : EngagementViewController {`
 
 ##<a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
 
@@ -132,10 +131,9 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 3. Passare alla cartella in cui è stato estratto l'SDK.
 4. Selezionare la cartella `EngagementReach`.
 5. Fare clic su Aggiungi.
-6. Modificare il file di intestazione provvisorio per esporre le intestazioni Reach AzME Objective-C e aggiungere le istruzioni import seguenti:
+6. Modificare il file di intestazione provvisorio per esporre le intestazioni Reach Mobile Engagement Objective-C e aggiungere le istruzioni import seguenti:
 
 		/* Mobile Engagement Reach */
-		#import "AE_TBXML.h"
 		#import "AEAnnouncementViewController.h"
 		#import "AEAutorotateView.h"
 		#import "AEContentViewController.h"
@@ -154,12 +152,13 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 		#import "AEReachModule.h"
 		#import "AEReachNotifAnnouncement.h"
 		#import "AEReachPoll.h"
+		#import "AEReachPollQuestion.h"
 		#import "AEViewControllerUtil.h"
 		#import "AEWebAnnouncementJsBridge.h"
 
 ### Modificare il delegato dell'applicazione
 
-1. In `didFinishLaunchingWithOptions` creare un modulo Reach e passarlo alla riga di inizializzazione di Engagement esistente:
+1. In `didFinishLaunchingWithOptions` - creare un modulo Reach e passarlo alla riga di inizializzazione di Engagement esistente:
 
 		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 			let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
@@ -171,16 +170,16 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 ###Abilitare l'app per la ricezione delle notifiche push APNS
 1. Aggiungere la riga seguente al metodo `didFinishLaunchingWithOptions`:
 
-		if application.respondsToSelector("registerUserNotificationSettings:")
+		/* Ask user to receive push notifications */
+		if #available(iOS 8.0, *)
 		{
-			application.registerUserNotificationSettings(UIUserNotificationSettings(
-			forTypes: (UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound),
-			categories: nil))
-			application.registerForRemoteNotifications()
+		   let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
+		   application.registerUserNotificationSettings(settings)
+		   application.registerForRemoteNotifications()
 		}
 		else
 		{
-			application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound)
+		   application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
 		}
 
 2. Aggiungere il metodo `didRegisterForRemoteNotificationsWithDeviceToken` come illustrato di seguito:
@@ -209,5 +208,6 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-swift-get-started/add-header-file.png
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
+[6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

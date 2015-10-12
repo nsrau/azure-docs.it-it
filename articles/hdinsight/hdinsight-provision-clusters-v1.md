@@ -445,7 +445,7 @@ Un'altra opzione per effettuare il provisioning di un cluster HDInsight è l'int
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **Interfaccia della riga di comando** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere l'articolo sull'[interfaccia del la riga di comando di Azure per Mac, Linux e Windows](../xplat-cli.md).
+Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere l'articolo sull'[interfaccia del la riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md).
 
 Le istruzioni seguenti illustrano come installare la riga di comando Azure in Linux e Windows e quindi come usare la riga di comando per effettuare il provisioning di un cluster.
 
@@ -810,4 +810,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

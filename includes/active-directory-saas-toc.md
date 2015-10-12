@@ -3,7 +3,10 @@
 Questo articolo fa parte di una serie dedicata alla gestione di applicazioni SaaS con Azure Active Directory. Di seguito sono elencati tutti gli articoli della serie:
 
 - [Introduzione a Single Sign-On e alla gestione dell'accesso alle App con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
+	- [Gestione di certificati per Single Sign-On federato in Azure Active Directory](active-directory-sso-certs.md)
+	- [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
+	- [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](active-directory-saas-ie-group-policy.md)
+	- [Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 - [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](active-directory-saas-app-provisioning.md)
 	- [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](active-directory-saas-customizing-attribute-mappings.md)
 	- [Scrittura di espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md)
@@ -14,8 +17,8 @@ Questo articolo fa parte di una serie dedicata alla gestione di applicazioni Saa
 	- [Modalità di integrazione delle app di Google](active-directory-saas-google-apps-tutorial.md)
 	- [Modalità di integrazione di Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [Modalità di integrazione di ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [Modalità di integrazione di Dropbox for Business](https://msdn.microsoft.com/it-it/library/azure/dn510978.aspx)
-	- [Modalità di integrazione di Workday](https://msdn.microsoft.com/it-it/library/azure/dn510972.aspx) 
+	- [Modalità di integrazione di Dropbox for Business](https://msdn.microsoft.com/library/azure/dn510978.aspx)
+	- [Modalità di integrazione di Workday](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
 	- [Altre esercitazioni di App SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

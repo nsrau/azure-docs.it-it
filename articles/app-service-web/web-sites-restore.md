@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Ripristinare un'app Web in Azure App Service" 
 	description="description=";Informazioni su come ripristinare l'app Web da un backup.";" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -98,4 +98,4 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibli corre
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

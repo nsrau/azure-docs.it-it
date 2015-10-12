@@ -5,12 +5,12 @@
 	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=""/>
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -93,4 +93,4 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 Per altre informazioni, vedere la [documentazione relativa al servizio app](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

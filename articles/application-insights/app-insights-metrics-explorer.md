@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -75,20 +75,24 @@ Ad esempio, fare clic sul grafico Richieste non riuscite dell'app Web:
 
 ## Cosa significano le cifre?
 
-La legenda sul lato mostra per impostazione predefinita il valore aggregato per il periodo del grafico.
+La legenda sul lato mostra di solito per impostazione predefinita il valore aggregato per il periodo del grafico. Se si passa il mouse sul grafico, viene visualizzato il valore in questo punto.
 
-Ogni punto dati del grafico è anche una funzione di aggregazione dei valori di dati ricevuti nell'intervallo di campionamento o nella "granularità" precedente. La granularità viene visualizzata nella parte superiore del pannello e varia in base alla scala cronologica complessiva del grafico.
+Ogni punto dati del grafico è una funzione di aggregazione dei valori di dati ricevuti nell'intervallo di campionamento o nella "granularità" precedente. La granularità viene visualizzata nella parte superiore del pannello e varia in base alla scala cronologica complessiva del grafico.
 
-Le metriche vengono aggregate in modi diversi:
+Le metriche possono essere aggregate in modi diversi:
 
- * Per una metrica, ad esempio il tempo di risposta, i valori sono **calcolati in media** sul periodo del grafico.
- * Per i conteggi degli eventi, ad esempio le richieste non riuscite, la funzione di aggregazione è la **somma** dei conteggi nel periodo.
- * Per i conteggi degli utenti, la funzione di aggregazione è il numero di utenti **univoci** nel periodo. Se un utente è rilevato più di una volta nel periodo, viene contato una sola volta.
+ * **Somma** somma i valori dei punti dati ricevuti tramite l'intervallo di campionamento o il periodo del grafico.
+ * **Media** divide la somma del numero di punti dati ricevuti tramite l'intervallo.
+ * **Unica** i conteggi vengono utilizzati per contare gli utenti e gli account. Per tutto l'intervallo di campionamento, o per il periodo del grafico, la figura mostra il numero di utenti visualizzato in quel momento.
 
-Per verificare se il valore è una somma, una media o un valore univoco, fare clic sul grafico e scorrere fino al valore selezionato. È anche possibile ottenere una breve descrizione della metrica.
 
-![Passare il puntatore (i)](./media/app-insights-metrics-explorer/06-total.png)
- 
+È possibile modificare il metodo di aggregazione:
+
+![Selezionare il grafico e poi aggregazione](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+Il metodo predefinito per ogni metrica viene visualizzato quando si crea un nuovo grafico:
+
+![Deselezionare tutte le metriche per visualizzare l'intero set](./media/app-insights-metrics-explorer/06-total.png)
 
 
 ## Modifica di grafici e griglie
@@ -128,6 +132,12 @@ Per visualizzare solo le metriche per un set di valori di proprietà selezionati
 Se non si seleziona alcun valore per una determinata proprietà, è come se si selezionassero tutti: non sono presenti filtri su quella proprietà.
 
 Si noti il numero di eventi vicino a ogni valore della proprietà. Quando si selezionano i valori di una proprietà, i conteggi vicino ad altri valori di proprietà vengono modificati.
+
+### Per aggiungere proprietà all'elenco di filtri
+
+Si desidera filtrare i dati di telemetria su una categoria di propria scelta? Ad esempio, forse se si dividono gli utenti in categorie diverse si potrebbero ottenere la segmentazione dei dati in base a queste categorie.
+
+[Creare proprietà personalizzate](app-insights-api-custom-events-metrics.md#properties). Impostazione in un [Inizializzatore di telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers) affinché venga visualizzato in tutti i dati di telemetria - compresa la telemetria standard inviata dai diversi moduli SDK.
 
 ## Rimuovere il traffico di bot e test Web
 
@@ -202,4 +212,4 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso il BLOB di Azure mediante Data factory di Azure
@@ -64,7 +64,7 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -264,7 +264,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -381,12 +381,14 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 | -------- | ----------- | -------- | 
 | folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\\myblobfolder\\ | Sì |
 | filename | <p>Nome del BLOB. fileName è facoltativo. </p><p>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul BLOB specifico.</p><p>Quando fileName non è specificato, la copia include tutti i BLOB nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
-| partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione della proprietà partitionedBy Leverage di seguito per informazioni dettagliate ed esempi. | No
+| partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione della proprietà [partitionedBy Leveraging](#Leveraging-partitionedBy-property) di seguito per informazioni dettagliate ed esempi. | No
 | format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Vedere la sezione [Supporto della compressione](#compression-support) per ulteriori dettagli. | No |
 
 ### Uso della proprietà partionedBy
 Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data factory e variabili di sistema: SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
+
+Vedere [Variabili di sistema Data factory](data-factory-scheduling-and-execution.md#data-factory-system-variables) e [Riferimento alle funzioni di Data fctory](data-factory-scheduling-and-execution.md#data-factory-functions-reference) per scoprire le variabili di sistema di Data factory e funzioni che è possibile utilizzare nella sezione partitionedBy.
 
 Per informazioni dettagliate sui set di dati delle serie temporali, sulla pianificazione e sulle sezioni, vedere gli articoli [Set di dati](data-factory-create-datasets.md) e [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md).
 
@@ -480,8 +482,21 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Specifica se aggiungere l'intestazione delle definizioni di colonna. | TRUE<br/>FALSE (impostazione predefinita) | No |
-| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | <p>Esistono tre possibili valori per la proprietà copyBehavior. </p><ul><li>**PreserveHierarchy:** mantiene la gerarchia del file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine alla cartella di origine è identica al percorso relativo del file di destinazione alla cartella di destinazione.</li><li>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente. </li><li>**MergeFiles:** unisce tutti i file dalla cartella di origine a un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</li></ul> | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | <p>Esistono tre possibili valori per la proprietà copyBehavior. </p><ul><li>**PreserveHierarchy:** mantiene la gerarchia del file nella cartella di destinazione, ad esempio, il percorso relativo del file di origine alla cartella di origine è identica al percorso relativo del file di destinazione alla cartella di destinazione.</li><li>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente. </li><li>**MergeFiles: (predefinito)** unisce tutti i file dalla cartella di origine a un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</li></ul> | No |
 
+### esempi ricorsivi e copyBehavior
+In questa sezione viene descritto il comportamento derivante dell'operazione di copia per diverse combinazioni di valori ricorsivi e copyBehavior.
+
+ricorsiva | copyBehavior | Comportamento risultante
+--------- | ------------ | --------
+true | preserveHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la stessa struttura dell’origine<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>.  
+true | flattenHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la destinazione Cartella1 avrà la seguente struttura: <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File5</p>
+true | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la destinazione Cartella1 avrà la seguente struttura: <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 + File3 + File4 + File 5 verrà unito in un file con nome del file generato automaticamente</p>
+false | preserveHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la seguente struttura<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/></p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
+false | flattenHierarchy | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la seguente struttura<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/></p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
+false | mergeFiles | <p>Per una cartella di origine Cartella1 con la seguente struttura:</p> <p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>la cartella di destinazione Cartella1 avrà la seguente struttura<p>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;il contenuto di File1 + File2 verrà unito in un file con nome del file generato automaticamente. Nome del file generato automaticamente per File1</p><p>Sottocartella1 con File3, File4 e File5 non considerati.</p>.
+
+  
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -495,4 +510,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 ## Invia commenti e suggerimenti
 I commenti e i suggerimenti su questo articolo possono essere molto utili. L'invio di commenti e suggerimenti tramite [posta elettronica](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md) richiede solo alcuni minuti.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

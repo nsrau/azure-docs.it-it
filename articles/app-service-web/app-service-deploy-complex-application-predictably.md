@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure"
 	description="Informazioni su come effettuare il provisioning di un'applicazione costituita da microservizi e come distribuirla nel servizio app di Azure come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -305,4 +305,4 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

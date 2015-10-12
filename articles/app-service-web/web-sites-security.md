@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Proteggere un'app Web nel servizio app di Azure"
 	description="Informazioni su come proteggere un'app Web di Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
@@ -88,4 +88,4 @@ Per informazioni sulla registrazione per le app Web, utili per rilevare gli atta
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -64,7 +64,7 @@ Ottenere tutte le dimensioni delle macchine virtuali disponibili | Non disponibi
 
 ## Passaggi successivi
 
-* Per altre informazioni sull'uso di CLI di Azure per lavorare con le risorse di Gestione risorse, vedere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure (Azure CLI)](../role-based-access-control-xplat-cli.md).
+* Per altre informazioni sull'uso di CLI di Azure per lavorare con le risorse di Gestione risorse, vedere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure (Azure CLI)](../role-based-access-control-xplat-cli-install.md).
 * Per altri esempi di comandi CLI, vedere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi di Azure](../virtual-machines-command-line-tools.md) e l'argomento relativo all'[uso della riga di comando di Azure con Gestione risorse di Azure](azure-cli-arm-commands.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

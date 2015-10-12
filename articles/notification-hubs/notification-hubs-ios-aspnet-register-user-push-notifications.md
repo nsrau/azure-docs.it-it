@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 
 > [AZURE.SELECTOR]
@@ -237,4 +238,4 @@ Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

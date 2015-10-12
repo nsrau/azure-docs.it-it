@@ -95,7 +95,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -239,7 +239,7 @@ I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -393,21 +393,74 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
+### SqlSource
+
 In caso di attività di copia con origine di tipo **SqlSource**, sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. | No |
+| sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. | Nome della stored procedure. | No |
+| storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No | 
+
+### Esempio SqlSource
+
+    "source": {
+        "type": "SqlSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**Definizione della stored procedure:**
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+
+
+### SqlSink 
 
 **SqlSink** supporta le proprietà seguenti:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | Nome della stored procedure specificato dall'utente per i dati upsert (aggiornamento/inserimento) nella tabella di destinazione. | Nome della stored procedure. | No |
-| sqlWriterTableType | Nome del tipo di tabella specificato dall'utente da usare nella stored procedure precedente. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. | Nome del tipo di tabella. | No |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | (Unità = intervallo di tempo) Esempio: "00:30:00" (30 minuti). | No | 
+| writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Numero intero. (Unità = conteggio righe) | No. (Predefinito = 10000)
 | sqlWriterCleanupScript | Query specificata dall'utente per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Istruzione di query. | No |
 | sliceIdentifierColumnName | Nome di colonna specificato dall'utente per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che verrà usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Nome di colonna di una colonna con tipo di dati binario (32). | No |
+| sqlWriterStoredProcedureName | Nome della stored procedure che esegue l’upsert (aggiornamenti/inserimenti) nella tabella di destinazione. | Nome della stored procedure. | No |
+| storedProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No | 
+| sqlWriterTableType | Nome del tipo di tabella specificato dall'utente da usare nella stored procedure precedente. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. | Nome del tipo di tabella. | No |
+
+#### Esempio SqlSink
+
+    "sink": {
+        "type": "SqlSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+        "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
+        "sqlWriterTableType": "CopyTestTableType",
+        "storedProcedureParameters": {
+            "id": { "value": "1", "type": "Int" },
+            "stringData": { "value": "str1" },
+            "decimalData": { "value": "1", "type": "Decimal" }
+        }
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -474,4 +527,4 @@ I commenti e i suggerimenti su questo articolo possono essere molto utili. L'inv
 
 	 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

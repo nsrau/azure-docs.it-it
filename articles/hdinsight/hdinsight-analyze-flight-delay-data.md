@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="08/12/2015"
 	ms.author="jgao"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
 
 Hive fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
+
+> [AZURE.NOTE]I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 Uno dei principali vantaggi di Azure HDInsight è la separazione tra archiviazione e calcolo dei dati. HDInsight usa l'archivio BLOB di Azure per l'archiviazione dei dati. Un comune processo di HDInsight può essere suddiviso in tre parti:
 
@@ -846,7 +848,7 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 * [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
 * [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
-* [Sviluppare programmi per la creazione di flussi Hadoop in C#per HDInsight][hdinsight-develop-streaming]
+* [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming]
 
 
 
@@ -879,4 +881,4 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

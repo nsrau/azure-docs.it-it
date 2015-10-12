@@ -122,4 +122,4 @@ Per iniziare a eseguire il backup di macchine virtuali, leggere le informazioni 
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

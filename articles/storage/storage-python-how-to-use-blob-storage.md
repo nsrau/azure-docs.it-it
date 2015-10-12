@@ -109,9 +109,11 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 -   Vedere la documentazione MSDN: [Archiviazione e accesso ai dati in Azure][]
 -   [Blog del team di Archiviazione di Azure][]
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](/develop/python/).
+
 [Archiviazione e accesso ai dati in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [pacchetto di archiviazione Python di Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

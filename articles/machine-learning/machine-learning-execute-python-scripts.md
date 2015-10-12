@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Eseguire gli script di apprendimento automatico di Python | Microsoft Azure"
-	description="Descrive i principi di progettazione di base per gli script Python in Azure Machine Learning nonché gli scenari di utilizzo di base, le funzionalità e le limitazioni."
+	pageTitle="Eseguire gli script di apprendimento automatico di Python | Microsoft Azure" 
+	description="Descrive i principi di progettazione di base per gli script Python in Azure Machine Learning nonché gli scenari di utilizzo di base, le funzionalità e le limitazioni." 
+	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
-	ms.author="bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
+	ms.author="bradsev" />
 
 
 # Eseguire gli script di apprendimento automatico di Python in Azure Machine Learning Studio
@@ -164,10 +165,13 @@ Il modulo [Execute Python Script][execute-python-script] consente ai data scient
 
 Nei prossimi mesi è prevista l'introduzione di altre funzionalità nel modulo [Execute Python Script][execute-python-script], ad esempio la capacità di eseguire il training di modelli e renderli operativi in Python, e il miglioramento del supporto per lo sviluppo e il debug del codice in Azure Machine Learning Studio.
 
+## Passaggi successivi
+
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

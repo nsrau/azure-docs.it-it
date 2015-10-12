@@ -1,20 +1,20 @@
 <properties
    pageTitle="Articolo di indice di HDInsight per il portale di Azure | Microsoft Azure"
-	description="Una pagina di indice con collegamenti ad articoli relativi a HDInsight nel portale di Azure. Microsoft consiglia di utilizzare il portale di anteprima di Azure per i nuovi cluster Hadoop in HDInsight:"
-	services="hdinsight"
-	documentationCenter="na"
-	authors="cjgronlund"
-	manager="pablissima"
-	editor=""/>
+   description="Una pagina di indice con collegamenti ad articoli relativi a HDInsight nel portale di Azure. Microsoft consiglia di utilizzare il portale di anteprima di Azure per i nuovi cluster Hadoop in HDInsight:"
+   services="hdinsight"
+   documentationCenter="na"
+   authors="cjgronlund"
+   manager="pablissima"
+   editor=""/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="cjgronlund"/>
+   ms.devlang="na"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/17/2015"
+   ms.author="cjgronlund"/>
 
 # Articolo di indice di HDInsight per il portale di Azure
 
@@ -102,6 +102,7 @@ Per gli articoli sull'utilizzo di cluster Apache Spark nativi nel portale di ant
 * [Generare raccomandazioni di film mediante Apache Mahout con Hadoop](hdinsight-mahout.md)
 * [Percorso di formazione: compilazione di soluzioni di analisi avanzate](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [Percorso di formazione: elaborazione di dati avanzati](machine-learning-data-science-advanced-data-processing.md)
+* [Stimare suggerimenti taxi con HDInsight e Machine Learning](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Estensibilità
 
@@ -132,4 +133,4 @@ Per gli articoli sull'utilizzo di cluster Apache Spark nativi nel portale di ant
 * [Interpretare i messaggi di errore](hdinsight-debug-jobs.md)
 * [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

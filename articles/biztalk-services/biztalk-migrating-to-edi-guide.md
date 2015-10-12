@@ -1,5 +1,5 @@
 <properties   
-	pageTitle="Migrazione di soluzioni EDI di BizTalk Server nei servizi BizTalk: guida tecnica"
+	pageTitle="Guida tecnica Migrazione di soluzioni EDI di BizTalk Server nei servizi BizTalk | Microsoft Azure"
 	description="Eseguire la migrazione da EDI a MABS, Servizi BizTalk di Microsoft Azure"
 	services="biztalk-services"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/24/2015"
 	ms.author="mandia"/>
 
 
@@ -142,4 +142,4 @@ I servizi BizTalk di Microsoft Azure vengono aggiornati a intervalli regolari pe
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

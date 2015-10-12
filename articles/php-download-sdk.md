@@ -105,7 +105,9 @@ Per informazioni sull'utilizzo di Azure PowerShell, vedere [Come utilizzare Azur
 
 Un’interfaccia della riga di comando di Azure è un insieme di comandi per la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali. Per informazioni sull'installazione di Azure CLI, vedere [Installare Azure CLI](xplat-cli-install.md).
 
+## Passaggi successivi
 
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -128,4 +130,4 @@ Un’interfaccia della riga di comando di Azure è un insieme di comandi per la 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

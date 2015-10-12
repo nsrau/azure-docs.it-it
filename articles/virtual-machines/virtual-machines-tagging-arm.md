@@ -182,11 +182,11 @@ Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acqu
 
 
 [ambiente PowerShell con Gestione risorse di Azure]: ../powershell-azure-resource-manager.md
-[cmdlet di Azure Resource]: https://msdn.microsoft.com/IT-IT/library/azure/dn757692.aspx
+[cmdlet di Azure Resource]: https://msdn.microsoft.com/it-IT/library/azure/dn757692.aspx
 [ambiente CLI di Azure]: ./xplat-cli-azure-resource-manager.md
 [Panoramica di Gestione risorse di Microsoft Azure]: ../resource-group-overview.md
 [Utilizzo di tag per organizzare le risorse di Azure]: ../resource-group-using-tags.md
 [Informazioni sulla fatturazione di Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

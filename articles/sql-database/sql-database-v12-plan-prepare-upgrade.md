@@ -150,7 +150,7 @@ Si consiglia di connettersi ai database SQL di Azure con Visual Studio 2013 (VS2
 - Per sviluppare un database, sia online che offline.
 
 
-È invece possibile connettersi con [Visual Studio Community 2013,](https://www.visualstudio.com/IT-IT/news/vs2013-community-vs.aspx/) una versione gratuita e completa di VS2013.
+È invece possibile connettersi con [Visual Studio Community 2013,](https://www.visualstudio.com/it-IT/news/vs2013-community-vs.aspx/) una versione gratuita e completa di VS2013.
 
 
 Nella pagina del database del portale di Azure precedente, per avviare VS2013 nel computer e connettersi al database SQL di Azure è possibile fare clic su **Apri in Visual Studio**.
@@ -254,4 +254,4 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

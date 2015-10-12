@@ -101,7 +101,6 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-
 	La prima riga chiama la libreria RHadoop rmr2, usata per le operazioni MapReduce.
 
 	La seconda riga genera i valori 1 - 100, quindi li archivia nel file system Hadoop mediante `to.dfs`.
@@ -149,4 +148,4 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

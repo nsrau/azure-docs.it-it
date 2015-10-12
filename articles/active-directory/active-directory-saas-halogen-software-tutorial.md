@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/01/2015"
 	ms.author="markusvi"/>
 
 
@@ -41,11 +41,11 @@ Per configurare l'integrazione di Azure AD con Halogen Software, sono necessari 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si ha un ambiente di prova ti Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. <br> Lo scenario descritto in questa esercitazione prevede i tre blocchi predefiniti seguenti:
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. <br> Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Halogen Software dalla raccolta 
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -124,7 +124,7 @@ L'obiettivo di questa sezione è abilitare Single Sign-On di Azure AD nel portal
 
 
 ### Creazione di un utente test di Azure AD
-L'obiettivo di questa sezione consiste nel creare un utente test nel portale di Azure chiamato Britta Simon.
+Questa sezione descrive come creare un utente test nel portale di Azure chiamato Britta Simon.
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
@@ -221,4 +221,4 @@ L'obiettivo di questa sezione consiste nel testare la configurazione dell'access
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

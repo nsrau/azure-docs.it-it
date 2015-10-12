@@ -183,10 +183,10 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[Istruzioni di installazione di AZCopy]: https://azure.microsoft.com/IT-IT/documentation/articles/storage-use-azcopy/
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/IT-IT/download/details.aspx?id=36433
-[Importazione/Esportazione]: https://azure.microsoft.com/IT-IT/documentation/articles/storage-import-export-service/
-[Documentazione di archiviazione di Azure]: https://azure.microsoft.com/IT-IT/documentation/articles/storage-create-storage-account/
+[Istruzioni di installazione di AZCopy]: https://azure.microsoft.com/it-IT/documentation/articles/storage-use-azcopy/
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/it-IT/download/details.aspx?id=36433
+[Importazione/Esportazione]: https://azure.microsoft.com/it-IT/documentation/articles/storage-import-export-service/
+[Documentazione di archiviazione di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/storage-create-storage-account/
 [documentazione di ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

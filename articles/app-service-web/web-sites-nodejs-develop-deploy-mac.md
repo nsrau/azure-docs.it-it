@@ -163,7 +163,7 @@ In questa sezione verrà creato un file **server.js** contenente l'esempio 'Hell
 
 ##Passaggi successivi
 
-Anche se nella procedura illustrata in questo articolo viene usato il portale di Azure per creare un'app Web, è anche possibile usare l'[interfaccia della riga di comando di Azure](../xplat-cli.md) per eseguire le stesse operazioni.
+Anche se nella procedura illustrata in questo articolo viene usato il portale di Azure per creare un'app Web, è anche possibile usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) per eseguire le stesse operazioni.
 
 Node.js fornisce un ecosistema completo di moduli che è possibile usare nelle applicazioni. Per informazioni sull'uso di App Web con i moduli, vedere [Uso di moduli Node.js con applicazioni Azure](../nodejs-use-node-modules-azure-apps.md).
 
@@ -175,7 +175,7 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 ##Risorse aggiuntive
 
 * [Azure PowerShell](../install-configure-powershell.md)
-* [Interfaccia della riga di comando di Azure](../xplat-cli.md)
+* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 * [Centro per sviluppatori di Node.js](/develop/nodejs/)
 
 ## Modifiche apportate
@@ -206,4 +206,4 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

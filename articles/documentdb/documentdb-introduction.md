@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introduzione a Microsoft Azure DocumentDB - Versione di prova gratuita | Microsoft Azure"
-	description="Informazioni su Azure DocumentDB, un account del database di documenti NoSQL, e su quali vantaggi può offrire alle applicazioni cloud e mobili. Viene inoltre illustrato come gestire i dati e come usarlo nello sviluppo di applicazioni."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Introduzione a Microsoft Azure DocumentDB - Versione di prova gratuita | Microsoft Azure" 
+	description="Informazioni su Azure DocumentDB, un account del database di documenti NoSQL, e su quali vantaggi può offrire alle applicazioni cloud e mobili. Viene inoltre illustrato come gestire i dati e come usarlo nello sviluppo di applicazioni." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Introduzione a Microsoft Azure DocumentDB
@@ -110,4 +110,4 @@ Quindi, quando si è pronti per ulteriori informazioni, visitare il [percorso di
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

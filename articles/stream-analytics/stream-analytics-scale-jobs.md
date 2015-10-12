@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Ridimensionare i processi di Analisi di flusso per aumentare la velocità effettiva | Microsoft Azure"
 	description="Informazioni su come ridimensionare i processi di Analisi di flusso configurando partizioni di input, ottimizzando la definizione di query e impostando le unità di streaming del processo."
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva #
@@ -153,6 +154,9 @@ Questa query può essere aumentata fino a 24 unità di streaming.
 
 ![Scalabilità delle unità di streaming di Analisi di flusso di Azure][img.stream.analytics.streaming.units.scale]
 
+Nel portale di anteprima di Azure è possibile accedere alle impostazioni di scala in Impostazioni:
+
+![Configurazione del processo di analisi di flusso del portale di anteprima di Azure][img.stream.analytics.preview.portal.settings.scale]
 
 ## Monitorare le prestazioni del processo ##
 
@@ -228,7 +232,7 @@ Di seguito sono riportati i risultati con un numero crescente di unità di strea
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Ottenere aiuto ##
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics).
 
 
 ## Passaggi successivi ##
@@ -246,6 +250,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 
@@ -260,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

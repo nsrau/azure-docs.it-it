@@ -96,6 +96,7 @@ public void ConfigureAuth(IAppBuilder app)
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
 									 Scope = "openid",
+									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
 									 {
@@ -210,4 +211,4 @@ Per altre risorse consultare:
 - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

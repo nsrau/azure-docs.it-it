@@ -84,8 +84,8 @@ Dopo essersi esercitati con i dati di esempio, è possibile vedere come [svilupp
 [connessione ed esecuzione di query]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-connect-query/
 [alla migrazione del codice]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-migrate-code/
 [caricare manualmente i dati di esempio]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[portale di Azure]: portal.azure.com
-[Power BI]: www.powerbi.com
+[portale di Azure]: https://portal.azure.com
+[Power BI]: http://www.powerbi.com
 [eseguendo la connessione a SQL Data Warehouse]: https://azure.microsoft.com/it-IT/documentation/articles/sql-data-warehouse-integrate-power-bi/
 
 <!--MSDN references-->
@@ -94,4 +94,4 @@ Dopo essersi esercitati con i dati di esempio, è possibile vedere come [svilupp
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

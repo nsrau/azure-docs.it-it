@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/09/2015" 
+    ms.date="09/24/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@
 ## Possibilità di usare l'abbonamento a Office 365 per eseguire applicazioni di Office in Azure RemoteApp
 
 È possibile usarlo. L'uso dell'abbonamento a Office 365, in effetti, è l'unico modo per portare le applicazioni di Office in Azure RemoteApp.
+
+(Nota: se la distribuzione RemoteApp di Azure viene fornita a un partner di hosting, questi potrebbe essere in grado di fornire licenze di Office in base a un [Service Provider Licensing Agreement](http://www.microsoft.com/it-IT/Licensing/licensing-programs/spla-program.aspx))
+
 
 Uno dei vantaggi dell'abbonamento a Office 365 consiste nel fatto che consente di usare la stessa licenza utente su molte piattaforme diverse e molti ambienti diversi, incluso il cloud di Azure. Quando si usano le applicazioni di Office in Azure RemoteApp, non è necessario acquistare licenze aggiuntive o configurare le licenze esistenti in modo particolare. È sufficiente avere un abbonamento a Office 365 che include [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
@@ -75,7 +78,7 @@ Il modo più semplice per distribuire Office 365 ProPlus in una raccolta consist
 
 ### Disabilitare gli aggiornamenti automatici per Office 365 ProPlus nell'immagine personalizzata. IMPORTANTE
 
-L'immagine personalizzata viene usata da Azure RemoteApp come modello per l'aggiunta di altre risorse per soddisfare l'incremento della domanda da parte degli utenti. Per evitare ritardi e problemi di connessione, disabilitare l'aggiornamento automatico per Office nell'immagine. In caso contrario, ogni risorsa creata con tale modello verrà aggiornata automaticamente all'avvio. Usare invece il processo standard di Azure RemoteApp per l'aggiornamento dell'immagine personalizzata. Le applicazioni di Office verranno quindi aggiornate una volta nell'immagine del modello e gli aggiornamenti successivi verranno forniti automaticamente agli utenti da Azure RemoteApp.
+L'immagine personalizzata viene usata da Azure RemoteApp come modello per l'aggiunta di altre risorse per soddisfare l'incremento della domanda da parte degli utenti. Per evitare ritardi e problemi di connessione, disabilitare gli aggiornamenti automatici per Office nell'immagine. In caso contrario, ogni risorsa creata con tale modello verrà aggiornata automaticamente all'avvio. Usare invece il processo standard di Azure RemoteApp per l'aggiornamento dell'immagine personalizzata. Le applicazioni di Office verranno quindi aggiornate una volta nell'immagine del modello e gli aggiornamenti successivi verranno forniti automaticamente agli utenti da Azure RemoteApp.
 
 Per disabilitare gli aggiornamenti automatici, aggiungere il file di configurazione seguente allo Strumento di distribuzione di Office:
 
@@ -84,8 +87,8 @@ Per disabilitare gli aggiornamenti automatici, aggiungere il file di configurazi
 Il file di configurazione dovrebbe ora includere le righe seguenti:
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## Modalità di aggiornamento di un'immagine con Office 365 ProPlus
 
@@ -117,4 +120,4 @@ Altre informazioni sull'uso dello Strumento di distribuzione di Office per gli a
 - [Distribuzione e aggiornamento di Office 365 ProPlus mediante lo Strumento di distribuzione di Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (video)
 - [Configurare le impostazioni di aggiornamento di Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

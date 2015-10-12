@@ -314,4 +314,4 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

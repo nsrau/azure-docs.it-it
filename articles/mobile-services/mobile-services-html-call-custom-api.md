@@ -3,17 +3,17 @@
 	description="Informazioni su come definire un'API personalizzata e quindi chiamarla da un'app HTML che usa Servizi mobili di Azure."
 	services="mobile-services"
 	documentationCenter=""
-	authors="ggailey777"
+	authors="ggailey777"  
 	manager="dwrede"
 	editor=""/>
 
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Chiamare un'API personalizzata da un'applicazione HTML
@@ -92,4 +92,4 @@ Per altre informazioni, vedere anche i seguenti argomenti su Servizi mobili:
 [Aggiungere Servizi mobili a un'app esistente]: mobile-services-html-get-started-data.md
 [Archiviazione degli script del server nel controllo del codice sorgente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

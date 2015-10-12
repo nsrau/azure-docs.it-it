@@ -122,4 +122,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

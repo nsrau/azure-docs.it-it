@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/29/2015"
 	ms.author="liviodlc"/>
 
 #Gestione di certificati per Single Sign-On federato in Azure Active Directory
@@ -26,7 +26,7 @@ Questo articolo è applicabile solo alle app configurate per usare **Single Sign
 
 ##Come personalizzare la data di scadenza per il certificato di federazione
 
-Per impostazione predefinita, i certificati sono impostati per la scadenza dopo due anni. È possibile scegliere una data di scadenza diversa per il certificato eseguendo i passaggi seguenti. Le schermate incluse usano ServiceNow per le finalità dell'esempio, ma questi passaggi possono essere applicati a qualsiasi app SaaS federata.
+Per impostazione predefinita, i certificati sono impostati per la scadenza dopo due anni. È possibile scegliere una data di scadenza diversa per il certificato eseguendo i passaggi seguenti. Le schermate incluse usano Salesforce per le finalità dell'esempio, ma questi passaggi possono essere applicati a qualsiasi app SaaS federata.
 
 1. Nella pagina di Avvio rapido per l'applicazione in Azure Active Directory fare clic su **Configura accesso Single Sign-On**.
 
@@ -76,8 +76,6 @@ I passaggi per il rinnovo illustrati di seguito non dovrebbero idealmente compor
 
 	![Scaricare e quindi caricare il certificato](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-##Vedere anche
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-[Accesso alle applicazioni e Single Sign-On in Azure AD](active-directory-appssoaccess-whatis.md)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

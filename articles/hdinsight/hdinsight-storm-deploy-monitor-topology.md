@@ -17,11 +17,13 @@
    ms.date="09/23/2015"
    ms.author="larryfr"/>
 
-#Distribuire e gestire topologie Apache Storm in HDInsight
+#Distribuire e gestire topologie Apache Storm in HDInsight basato su Windows
 
 Storm Dashboard consente di distribuire e gestire facilmente topologie Apache Storm nel cluster mediante il Web browser in uso. È possibile usare il dashboard anche per monitorare e gestire topologie in esecuzione. Se si usa Visual Studio, HDInsight Tools per Visual Studio fornisce funzionalità simili in Visual Studio.
 
 Storm Dashboard e le funzionalità Storm di HDInsight Tools si basano sull'API REST Storm, che consente di creare soluzioni di monitoraggio e gestione.
+
+> [AZURE.IMPORTANT]I passaggi descritti in questo documento richiedono uno Storm basato su Windows in cluster HDInsight. Per informazioni sull'utilizzo di un cluster basato su Linux, vedere [Distribuire e gestire le topologie di Apache Storm in HDInsight basato su Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ##Prerequisiti
 
@@ -177,4 +179,4 @@ Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm p
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

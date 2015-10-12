@@ -520,9 +520,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 	Verrà richiesto il nome e il percorso dell'app Web. Fornire un nome univoco e selezionare la stessa area geografica dell'account di Archiviazione di Azure.
 
-	Il parametro `--git` consente di creare un archivio GIT per l'app Web in Azure. Inoltre consente di inizializzare un archivio GIT nella directory corrente, se non ne esiste nessuno, e di aggiungere un [GIT remoto] denominato "azure", usato per pubblicare l'applicazione in Azure. Infine, consente di creare un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node.
-
-	> [AZURE.NOTE]Se la directory contiene già un archivio GIT, la directory non verrà reinizializzata dal comando. Inoltre, se il parametro `--git` viene omesso ma la directory contiene un archivio GIT, il comando consente di creare comunque l'archivio "azure".
+	Il parametro `--git` consente di creare un archivio GIT per l'app Web in Azure. Inoltre consente di inizializzare un archivio GIT nella directory corrente, se non ne esiste nessuno, e di aggiungere un [GIT remoto] denominato "azure", usato per pubblicare l'applicazione in Azure. Infine, consente di creare un file **web.config** contenente le impostazioni usate da Azure per ospitare le applicazioni Node. Se il parametro `--git` viene omesso ma la directory contiene un archivio GIT, il comando consente di creare comunque l'archivio "azure".
 
 	Dopo il completamento di questo comando, verrà visualizzato un output simile al seguente. Si noti che la riga che inizia con **Website created at** contiene l'URL dell'app Web.
 
@@ -616,7 +614,7 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [GIT remoto]: http://git-scm.com/docs/git-remote
 
 [App Web Node.js con MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[Interfaccia della riga di comando di Azure]: ../xplat-cli.md
+[Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -643,4 +641,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

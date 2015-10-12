@@ -109,7 +109,7 @@ Sul lato Tomcat è necessario apportare alcune modifiche alla configurazione. È
 -	Porta connettore HTTP = ${port.http}
 -	Indirizzo connettore HTTP = "127.0.0.1"
 -	Impostare come commento i connettori HTTPS e AJP
--	L'impostazione IPv4 può essere configurata anche nel file catalina.properties in cui è possibile aggiungere `java.net.preferIPv4Stack=true`
+-	L'impostazione IPv4 può essere configurata anche nel file catalina.properties in cui è possibile aggiungere ￼￼￼`java.net.preferIPv4Stack=true`
     
 Chiamate Direct3d non sono supportate in applicazione servizio Web App. Per disabilitarle, aggiungere l'opzione Java seguente nel caso in cui l'applicazione esegua chiamate di tale tipo: `-Dsun.java2d.d3d=false`
 
@@ -133,6 +133,22 @@ Come nel caso di Tomcat, i clienti possono caricare istanze personalizzate per J
 	</configuration>
 
 La configurazione Jetty deve essere modificata in start.ini per impostare `java.net.preferIPv4Stack=true`.
+
+### Springboot
+Per ottenere un’applicazione Springboot in esecuzione, è necessario caricare il file JAR o WAR e aggiungere il seguente file web.config. Il file web.config viene inserito nella cartella wwwroot. Modificare gli argomenti in modo da puntare al file JAR, nell'esempio seguente il file con estensione JAR si trova anche nella cartella wwwroot.
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar ";%HOME%\site\wwwroot\my-web-project.jar";">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
 
 ### Hudson
 
@@ -241,4 +257,4 @@ Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -49,7 +49,7 @@ In quasi tutti i flussi di OAuth e OpenID Connect, sono coinvolte nello scambio 
 
 ## Criteri
 
-Indubbiamente, i **criteri** di AD B2C di Azure sono la caratteristica più importante del servizio. AD B2C di Azure estende i protocolli standard OAuth 2.0 e OpenID Connect con l'introduzione di criteri, che consentono a AD B2C di Azure di eseguire molto di più della semplice autenticazione o autorizzazione. I criteri descrivono completamente le esperienze di identità utente, ad esempio iscrizione, accesso o modifica del profilo. Possono essere definiti in un'interfaccia utente amministrativo ed eseguiti utilizzando un parametro di query speciale nelle richieste di autenticazione HTTP. I criteri non sono una funzionalità standard di OAuth 2.0 e OpenID Connect, pertanto è consigliabile comprenderli. Per ulteriori informazioni, leggere la [Guida di riferimento dei criteri AD B2C di Azure](active-directory-b2c-reference-policies).
+Indubbiamente, i **criteri** di AD B2C di Azure sono la caratteristica più importante del servizio. AD B2C di Azure estende i protocolli standard OAuth 2.0 e OpenID Connect con l'introduzione di criteri, che consentono a AD B2C di Azure di eseguire molto di più della semplice autenticazione o autorizzazione. I criteri descrivono completamente le esperienze di identità utente, ad esempio iscrizione, accesso o modifica del profilo. Possono essere definiti in un'interfaccia utente amministrativo ed eseguiti utilizzando un parametro di query speciale nelle richieste di autenticazione HTTP. I criteri non sono una funzionalità standard di OAuth 2.0 e OpenID Connect, pertanto è consigliabile comprenderli. Per ulteriori informazioni, leggere la [Guida di riferimento dei criteri AD B2C di Azure](active-directory-b2c-reference-policies.md).
 
 
 ## Tokens
@@ -59,7 +59,7 @@ Ulteriori dettagli sui diversi tipi di token utilizzati in AD B2C Azure sono dis
 
 ## Protocolli
 
-Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle esercitazioni di seguito. Ognuna corrisponde a uno scenario di autenticazione specifico. Se è necessario determinare quale sia il flusso di destra per l’utente, consultare [i tipi di app che è possibile compilare con AD B2C di Azure](active-directory-b2c-apps).
+Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle esercitazioni di seguito. Ognuna corrisponde a uno scenario di autenticazione specifico. Se è necessario determinare quale sia il flusso di destra per l’utente, consultare [i tipi di app che è possibile compilare con AD B2C di Azure](active-directory-b2c-apps.md).
 
 - [Creazione di un’applicazione Mobile e Nativa con OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 - [Creazione di Web App con collegamento ID Open](active-directory-b2c-reference-oidc.md)
@@ -70,4 +70,4 @@ Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle eserci
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

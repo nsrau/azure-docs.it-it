@@ -3,7 +3,7 @@
 	description="Viene illustrato come eseguire l'aggiornamento alla versione 12 del database SQL di Azure da una versione precedente del medesimo database." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sonalmm" 
+	authors="stevestein" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,85 +13,76 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="05/15/2015" 
-	ms.author="sonalm"/>
+	ms.date="09/30/2015" 
+	ms.author="sstein"/>
 
 
-# Eseguire l'aggiornamento a SQL Database V12 in locale
+# Eseguire l'aggiornamento alla versione 12 del database SQL
 
 
-[Iscriversi](https://portal.azure.com) alla versione 12 del database SQL per sfruttare l'ultima generazione del database SQL in Microsoft Azure. È necessaria innanzitutto una sottoscrizione a Microsoft Azure. Iscriversi per ottenere una [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial) e prendere visione delle informazioni sui [prezzi](http://azure.microsoft.com/pricing/details/sql-database).
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-v12-upgrade.md)
+- [PowerShell](sql-database-upgrade-server.md)
 
 
-## Passaggi per eseguire l'aggiornamento alla versione 12 del database SQL
+SQL Database V12 è la versione più recente del database SQL e ha [molti vantaggi rispetto alla versione V2 precedente](sql-database-v12-whats-new.md). In questo articolo viene illustrato come aggiornare i server V2 in V12 tramite il portale di anteprima di Azure.
+
+Durante il processo di aggiornamento a SQL Database V12, è inoltre necessario [aggiornare tutti i database Web e Business a un nuovo livello di servizio](sql-database-upgrade-new-service-tiers.md). Le indicazioni riportate di seguito includono i passaggi per aggiornare i database Web e Business con indicazioni del piano tariffario in base all'utilizzo cronologico del database.
 
 
-| Passaggi dell'aggiornamento | Screenshot |
-| :--- | :--- |
-| 1\. Accedere a [http://portal.azure.com/](http://portal.azure.com/). | ![Nuovo portale di Azure][1] |
-| 2\. Fare clic su **SFOGLIA**. | ![Individuare i servizi][2] |
-| 3\. Fare clic su **SQL Server**. Viene visualizzato un elenco di nomi di server SQL. | ![Selezionare il servizio SQL Server][3] |
-| 4\. Selezionare il server da copiare in un nuovo server con l'aggiornamento del database SQL abilitato. | ![Mostra un elenco di istanze di SQL Server][4] |
-| 5\. Fare clic su **Impostazioni** o **Versione server** per aggiornare il server alla versione 12. | ![Funzionalità di anteprima più recenti][5] |
-| 6\. Fare clic su **AGGIORNA QUESTO SERVER**. | ![Aggiornamenti di SQL Server per l'anteprima][6] |
-| 7\. Quando si fa clic su **AGGIORNA QUESTO SERVER**, verrà avviata la procedura di aggiornamento. In **Versione server**, la notifica cambia da **V2** ad **Aggiornamento pianificato...**. Se si fa clic su **Aggiornamento pianificato...** si apre un pannello di notifica, con il pulsante **Annulla aggiornamento** nella parte superiore. Fare clic su **Annulla aggiornamento** nel caso in cui si decida di aggiornare il server. **Notare** che tale operazione di annullamento non funzionerà verso la fine della procedura di aggiornamento e l'aggiornamento verrà completato.|![Annulla aggiornamento][9] 
+
+1. Nel [portale di anteprima di Azure](http://portal.azure.com/) individuare il server che si desidera aggiornare selezionando **ESPLORA TUTTO** > **Server SQL**, e selezionando il server desiderato.
+2. Selezionare **Ultimo aggiornamento del database SQL**, quindi selezionare **Aggiornamento del server**.
+
+      ![aggiornamento del server][1]
+
+## Aggiornare database Web e Business
+
+2. Aggiornare tutti i database Web e Business. Se il server dispone di database Web o Business, è necessario aggiornarli. A questo scopo, il servizio database SQL consiglia un livello di servizio e un livello di prestazioni appropriato (piano tariffario) per ogni database. Analizzando l'utilizzo cronologico di ogni database, il servizio consiglia un livello più adatto per l'esecuzione del carico di lavoro del database esistente. 
+    
+    Selezionare ogni database per esaminare e selezionare il piano tariffario consigliato per l'aggiornamento. È sempre possibile scorrere i piani tariffari disponibili e selezionare quello che si ritiene più adatto al proprio ambiente.
+
+     ![database][2]
 
 
-> [AZURE.NOTE]Dopo avere selezionato l'opzione di aggiornamento, il server e i database all'interno di tale server verranno abilitati con le funzionalità della versione 12 del database SQL e non sarà possibile annullare l'operazione. Per aggiornare i server alla versione 12 del database SQL, è necessario disporre di un livello di servizio Basic, Standard o Premium. Per ulteriori informazioni sui livelli di servizio, vedere [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md).
+
+7. Dopo aver fatto clic sul livello consigliato, verrà visualizzato il pannello **Scegliere il piano tariffario**, in cui è possibile selezionare un livello e fare clic sul pulsante **Seleziona** per modificare tale livello. Selezionare un nuovo livello per ogni database Web o Business
+
+    ![raccomandazioni di film][6]
 
 
-> [AZURE.IMPORTANT]La replica geografica non è supportata con la versione 12 del database SQL (anteprima). Per ulteriori informazioni, vedere [Pianificazione e predisposizione dell'aggiornamento all'anteprima V12 del database SQL di Azure](sql-database-v12-plan-prepare-upgrade.md).
+Quando tutti i database nel server sono idonei, si è pronti per iniziare l'aggiornamento
+
+## Avviare l'aggiornamento
+
+3. Quando tutti i database nel server sono idonei per l'aggiornamento, è necessario **DIGITARE IL NOME DEL SERVER** per verificare che si desidera eseguire l'aggiornamento, quindi fare clic su **OK**. 
+
+    ![verifica dell'aggiornamento][3]
 
 
-Dopo avere fatto clic sull'opzione **AGGIORNA QUESTO SERVER**, viene visualizzato un pannello in cui è presente un messaggio relativo a un processo di convalida.
+4. L'aggiornamento viene avviato e viene visualizzato nella notifica dell’avanzamento. Il processo di aggiornamento viene avviato. L'aggiornamento a V12 può richiedere del tempo, a seconda dei dettagli dei database specifici. Durante questo periodo, tutti i database nel server rimarranno online, ma le azioni di gestione del server e del database saranno limitate.
 
+    ![aggiornamento in corso][4]
 
-- Il processo di convalida verifica il livello di servizio del database e controlla se la replica geografica è abilitata. Terminata la convalida, nel pannello vengono presentati i risultati. 
-- Al termine del processo di convalida, verrà mostrato un elenco di nomi di database sui quali occorre intervenire per soddisfare i requisiti di aggiornamento alla versione 12 del database SQL.
- - **È necessario eseguire le operazioni su ogni database per poter eseguire l'aggiornamento alla versione 12 del database SQL**.
-- Quando si fa clic sul nome dei singoli database, viene visualizzato un pannello in cui viene raccomandato un piano tariffario per i servizi in base all'utilizzo corrente. È anche possibile scorrere i vari piani tariffari disponibili e selezionare quello che si ritiene più adatto al proprio ambiente. Tutti i database configurati per la replica geografica devono essere riconfigurati in modo da interrompere la replica. 
-- Si noti che la raccomandazione sul piano tariffario non viene visualizzata in assenza di dati sufficienti. 
+    Al momento della transizione effettiva al nuovo livello di prestazioni, le connessioni al database possono interrompersi temporaneamente per un periodo molto breve (in genere, per alcuni secondi). Se un'applicazione ha una gestione degli errori temporanei (logica dei nuovi tentativi) per le interruzioni di connessione, è sufficiente impostare la protezione dalle connessioni interrotte alla fine dell'aggiornamento.
 
+5. Al termine dell'operazione di aggiornamento, le funzionalità del server SQL Database V12 vengono abilitate.
 
-| Azione | Screenshot |
-| :--- | :--- |
-| 7\. Dopo avere completato la preparazione del server per l'aggiornamento, digitare il nome del server da aggiornare e fare clic su **OK**. | ![Verificare il nome del server per eseguire l'aggiornamento][7] |
-| 8\. Il processo di aggiornamento viene avviato. L'aggiornamento può richiedere fino a 24 ore. Durante questo periodo, tutti i database nel server rimarranno online ma le azioni di gestione del server e del database saranno limitate. Al termine del processo, nel pannello del server viene visualizzato lo stato **Abilitato**. | ![Verifica che siano abilitate le funzionalità di anteprima][8] |
-
-
-## Cmdlet di PowerShell
-
-
-I cmdlet di PowerShell consentono di avviare, arrestare o monitorare un aggiornamento alla versione 12 del database SQL di Azure dalla versione 11 o qualsiasi altra versione precedente alla 12.
-
-
-Per la documentazione di riferimento sui cmdlet di Powershell, vedere:
-
-
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
-
-
-Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile riprendere un aggiornamento, è possibile solamente riavviarlo dall'inizio. Il cmdlet Stop libera e rilascia tutte le risorse appropriate.
+    ![V12 abilitato][5]
 
 
 ## Collegamenti correlati
 
--  [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md) 
+- [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
 - [Pianificazione e predisposizione dell'aggiornamento alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
-[1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[5]: ./media/sql-database-v12-upgrade/latestprview.png
-[6]: ./media/sql-database-v12-upgrade/upgrade.png
-[7]: ./media/sql-database-v12-upgrade/typeservername.png
-[8]: ./media/sql-database-v12-upgrade/enabled.png
-[9]: ./media/sql-database-v12-upgrade/cancel.PNG
- 
+[1]: ./media/sql-database-v12-upgrade/latest-sql-database-update.png
+[2]: ./media/sql-database-v12-upgrade/upgrade-server2.png
+[3]: ./media/sql-database-v12-upgrade/upgrade-server3.png
+[4]: ./media/sql-database-v12-upgrade/online-during-upgrade.png
+[5]: ./media/sql-database-v12-upgrade/enabled.png
+[6]: ./media/sql-database-v12-upgrade/recommendations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

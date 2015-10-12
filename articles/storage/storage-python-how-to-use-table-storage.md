@@ -136,9 +136,12 @@ A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle ta
 -   Vedere la documentazione MSDN: [Archiviazione di Azure][]
 -   Visitare il [Blog del team di Archiviazione di Azure][]
 
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](/develop/python/).
+
+
 [Archiviazione di Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [pacchetto Python di Azure]: https://pypi.python.org/pypi/azure
 [pacchetto di archiviazione Python di Azure]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

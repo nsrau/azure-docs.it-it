@@ -40,6 +40,8 @@ Prima di creare l'applicazione, gli utenti, o interagire con Azure AD, saranno n
 
 Dopo aver creato una directory B2C, è necessario creare un'applicazione di servizio utilizzando i cmdlet Powershell di Azure AD. Innanzitutto, scaricare e installare l’[Assistente per l’accesso a Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Quindi è possibile scaricare e installare il [modulo di Azure Active Directory a 64-bit per Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
+> [AZURE.NOTE]Per utilizzare l'API Graph con il servizio directory B2C, sarà necessario registrare un'applicazione dedicata utilizzando powershell, seguendo queste istruzioni. Non è possibile utilizzare nuovamente le applicazioni B2C già esistenti che sono state registrate nel portale di Azure. Si tratta di una limitazione dell'anteprima AD B2C Azure che verrà rimossa in futuro - in quel punto questo articolo verrà aggiornato.
+
 Dopo aver installato il modulo di powershell, aprire Powershell e connettersi alla directory B2C. Dopo aver eseguito `Get-Credential`, verrà richiesto un nome utente e una password - immetterli nell'account di amministrazione della directory B2C.
 
 ```
@@ -106,6 +108,8 @@ Aprire la soluzione Visual Studio `B2CGraphClient\B2CGraphClient.sln` in Visual 
     <add key="b2c:ClientSecret" value="{The client secret you generated above}" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 A questo punto, fare clic sulla soluzione `B2CGraphClient` e ricompilare l’esempio. Se l’operazione ha esito positivo, ci sarà un file eseguibile `B2C.exe` in `B2CGraphClient\bin\Debug`.
 
@@ -232,7 +236,8 @@ Content-Length: 338
 	"passwordProfile": {
 		"password": "P@ssword!",
 		"forceChangePasswordNextLogin": false   // always set to false
-	}
+	},
+	"passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 
@@ -250,7 +255,7 @@ Il comando `Create-User` accetta un file `.json` come parametro di input, che co
 E’ possibile osservare il modo in cui questa richiesta POST è costruita in `B2CGraphClient.SendGraphPostRequest(...)`, che:
 
 - Collega un token di accesso all’intestazione `Authorization` della richiesta.
-- Imposta `api-version=beta`.
+- Operazioni Set `api-version=beta`.
 - Include l'oggetto utente JSON nel corpo della richiesta.
 
 ### Aggiornamento degli account utente consumer
@@ -343,4 +348,4 @@ L'operazione è terminata. Con B2CGraphClient, ora si dispone di un'applicazione
 
 Per domande o richieste sulle azioni che si desidera eseguire con l'API Graph sulla directory B2C, vi preghiamo di contattarci. Lasciare un commento nell’articolo o archiviare un argomento nel repository GitHub del codice di esempio.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

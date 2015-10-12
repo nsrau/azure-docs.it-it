@@ -148,9 +148,11 @@ Assicurarsi che `buildinfo.config` sia generato dal processo di compilazione. Ne
 Quando dispone delle informazioni di compilazione, il modulo Web Application Insights aggiunge automaticamente la **versione dell'applicazione** come una proprietà per ogni elemento dei dati di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche][diagnostic] o quando si [esplorano le metriche][metrics].
 
 
-## 5\. Aggiungere i contatori delle prestazioni e del rilevamento delle dipendenze
+## 5\. Aggiungere i contatori delle prestazioni IIS e del rilevamento delle dipendenze
 
 L'SDK necessita di alcune configurazioni per ottenere l'accesso a determinati dati. In particolare, questo passaggio aggiuntivo sarà necessario per misurare automaticamente le chiamate dall'app ai database, alle API REST e ad altri componenti esterni. Queste metriche relative alle dipendenze possono essere estremamente utili per semplificare la diagnosi dei problemi di prestazioni.
+
+Se si esegue sul server IIS, questo passaggio consentirà inoltre ai contatori delle prestazioni del sistema di essere visualizzati nell’[Esplora metriche](app-insights-metrics-explorer.md).
 
 #### Se l'app è in esecuzione nel server IIS
 
@@ -166,7 +168,6 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ![Nell'app Web scegliere Impostazioni, Estensioni, Aggiungi, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(Quest’estensione è applicabile solo a un'app compilata con l'SDK e pubblicata su Azure. A differenza di Status Monitor, non è in grado di instrumentare un'app esistente.
 
 #### è un progetto di Servizi cloud di Azure
 
@@ -234,7 +235,7 @@ In questo caso, non aggiunge l'[SDK JavaScript][client] alle pagine Web; si cons
 
 #### Opzioni di configurazione
 
-Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi all'anteprima di Microsoft Azure. Questo account è diverso dall'account Visual Studio Online.
+Se si tratta del primo utilizzo, verrà richiesto di accedere o di iscriversi all'anteprima di Microsoft Azure.
 
 Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere utile usare le impostazioni di configurazione per inserirla nello stesso gruppo di risorse degli altri componenti.
 
@@ -272,4 +273,4 @@ Se l'app fa parte di un'applicazione di maggiori dimensioni, potrebbe essere uti
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

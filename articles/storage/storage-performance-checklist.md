@@ -73,11 +73,11 @@ Il servizio File di Azure è attualmente in Anteprima, ma in futuro è prevista 
 ||Tabelle| Inserimento/aggiornamento/eliminazione| [Si sta evitando di recuperare un'entità solo per determinare se chiamare un inserimento o un aggiornamento?](#subheading36)
 ||Tabelle| Inserimento/aggiornamento/eliminazione| [È stata considerata l'archiviazione di serie di dati che vengono spesso recuperate insieme in una singola entità sotto forma di proprietà invece che in più entità?](#subheading37)
 ||Tabelle| Inserimento/aggiornamento/eliminazione| [Per le entità recuperate sempre insieme e che possono essere scritte in batch (ad esempio, dati di serie temporali) è stato valutato l'uso di BLOB invece che di tabelle?](#subheading38)
-||Code| Obiettivi di scalabilità| [Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39)
+||Code| Obiettivi di scalabilità| [Si stanno raggiungendo gli obiettivi di scalabilità per i messaggi al secondo?](#subheading39) 
 ||Code| Configurazione| [Nagle è stato disattivato per migliorare le prestazioni per le piccole richieste?](#subheading40)
 ||Code| Dimensioni del messaggio| [I messaggi vengono compattati per migliorare le prestazioni della coda?](#subheading41)
 ||Code| Recupero bulk| [Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading41)
-||Code| Frequenza di polling| [Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading42)
+||Code| Frequenza di polling| [Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading42) 
 ||Code| Aggiornamento del messaggio| [Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading43)
 ||Code| Architettura| [Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading44)
 
@@ -184,7 +184,7 @@ Per altre informazioni, vedere l'articolo [Panoramica dei miglioramenti delle pr
 Il parallelismo è un metodo efficace per mantenere il livello delle prestazioni, tuttavia è necessario prestare attenzione quando si usa il parallelismo non associato (senza limiti sul numero di thread e/o di richieste parallele) per caricare o scaricare i dati, quando si usano più lavori per accedere a diverse partizioni (contenitori, code o partizioni di tabelle) nello stesso account di archiviazione o per accedere a più elementi nella stessa partizione. Se il parallelismo non è associato, l'applicazione può superare le capacità del dispositivo client o gli obiettivi di scalabilità dell'account di archiviazione producendo latenze più lunghe e limitazioni.
 
 ###<a name="subheading13"></a>Librerie e strumenti client dell'archiviazione
-Usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Al momento della redazione di questo documento, sono disponibili librerie RTM per .NET, Windows Phone, Windows Runtime e Java, nonché librerie di anteprima in altri linguaggi come node.js e C++. Inoltre, Microsoft ha rilasciato i cmdlet di PowerShell e i comandi CLI Azure da usare con l'archiviazione di Azure. Microsoft sviluppa attivamente questi strumenti concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni.
+Usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Al momento della redazione di questo documento, sono disponibili librerie client per .NET, Windows Phone, Windows Runtime, Java e C++ nonché librerie di anteprima per altri linguaggi. Inoltre, Microsoft ha rilasciato i cmdlet di PowerShell e i comandi CLI Azure da usare con l'archiviazione di Azure. Microsoft sviluppa attivamente questi strumenti concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni.
 
 ###Tentativi
 ####<a name="subheading14"></a>Limitazione/ServerBusy
@@ -384,4 +384,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

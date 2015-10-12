@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/16/2015"
+   ms.date="09/24/2015"
    ms.author="coreyp"/>
 
 # Panoramica della piattaforma DSC di Automazione di Azure #
@@ -137,11 +137,11 @@ Passando da un account di automazione vuoto a un set gestito di nodi configurati
 
 - Quando si carica una VM di Azure per la gestione con Automazione di Azure DSC tramite `Register-AzureAutomationDscNode``Set-AzureVMExtension` o l'estensione della VM di Automazione di Azure DSC nel portale di anteprima di Azure, potrebbe essere necessaria fino a un'ora prima che la VM venga visualizzata come nodo DSC di automazione di Azure. Questo comportamento è causato dall'installazione di Windows Management Framework 5.0 nella macchina virtuale da parte dell'estensione DSC della VM di Azure, necessario per caricare la VM nella piattaforma DSC di Automazione di Azure.
 
-- La registrazione dei nodi comporta la negoziazione automatica di un certificato da utilizzare per l'autenticazione del nodo specifico in Automazione di Azure DSC dopo la registrazione. Questo certificato ha una scadenza di un anno dalla creazione e il protocollo di pull DSC PS attualmente non dispone di alcun metodo per il rilascio di un nuovo certificato quando tale certificato è prossimo alla scadenza. Per questo motivo, i nodi dovranno essere registrati con Automazione di Azure DSC dopo un periodo di un anno, fino a quando questo protocollo viene implementato in una versione futura di WMF (si spera meno di un anno).
+- Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. A questo punto, il protocollo di registrazione PowerShell DSC non può rinnovare automaticamente certificati quando è prossimo alla scadenza, pertanto è necessario registrare nuovamente i nodi dopo il periodo di un anno. Prima di registrare di nuovo, verificare che ogni nodo esegua Windows Management Framework 5.0 RTM. Se il certificato di autenticazione di un nodo scade, e se il nodo non è registrato, il nodo non sarà in grado di comunicare con l'automazione di Azure e si indicherà che ’Non risponde’. La registrazione viene eseguita nello stesso modo, con cui il nodo è stato registrato inizialmente. Una registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l’ora di scadenza del certificato comporterà un nuovo certificato che viene generato e utilizzato.
 
 ##Articoli correlati##
 
 - [Cmdlet di Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Prezzi di Azure Automation DSC](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -258,8 +258,9 @@ IPython Notebook offre un'eccellente interfaccia per l'accesso interattivo alla 
 
 Le funzionalità di base di IPython sono anche disponibili all'interno di Visual Studio tramite [Python Tools for Visual Studio][] (PTVS), un plug-in open source reso disponibile da Microsoft che trasforma Visual Studio in un ambiente di sviluppo Python avanzato, con l'integrazione di un editor avanzato con IntelliSense, debug, profili ed elaborazione parallela.
 
+## Passaggi successivi
 
-
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
 [Tornado]: http://www.tornadoweb.org/ "Tornado"
 [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
@@ -272,4 +273,4 @@ Le funzionalità di base di IPython sono anche disponibili all'interno di Visual
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

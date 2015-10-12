@@ -71,8 +71,8 @@ Il database SQL di Azure prevede una quota di DTU (unità elaborate nel database
 
 [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)
 
-[Livelli di servizio e livelli di prestazioni del database SQL di Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)
 
 [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

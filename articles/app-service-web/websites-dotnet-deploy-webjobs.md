@@ -1,18 +1,18 @@
 <properties 
 	pageTitle="Distribuzione di processi Web usando Visual Studio" 
 	description="Informazioni su come distribuire processi Web di Azure in Servizio app per app Web di Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
@@ -200,4 +200,4 @@ Questo articolo ha descritto come distribuire processi Web tramite Visual Studio
 * Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

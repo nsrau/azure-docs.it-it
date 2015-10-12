@@ -253,8 +253,8 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 
 [Panoramica di Gestione risorse di Microsoft Azure][resource-group-overview] [Come utilizzare l’interfaccia della riga di comando di Azure][azure-command-line-tools] [Utilizzo di Azure PowerShell con Gestione risorse di Azure][powershell-azure-resource-manager]
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

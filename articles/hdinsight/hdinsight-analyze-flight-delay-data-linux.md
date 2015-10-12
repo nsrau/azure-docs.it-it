@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="larryfr"/>
 
 #Analizzare i dati sui ritardi dei voli con Hive in HDInsight
 
-Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDInsight basato su Linux (anteprima), quindi su come esportare i dati al database SQL di Azure mediante Sqoop.
+Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDInsight basato su Linux, quindi su come esportare i dati al database SQL di Azure mediante Sqoop.
 
 > [AZURE.NOTE]Anche se alcune parti di questo articolo possono essere usate con i cluster HDInsight basati su Windows (Python e Hive, ad esempio), molti passaggi in questo documento sono specifici dei cluster basati su Linux. Per i passaggi relativi a un cluster basato su Windows, vedere [Analizzare i dati sui ritardi dei voli con Hive in HDInsight](hdinsight-analyze-flight-delay-data.md).
 
@@ -33,7 +33,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - Un __database SQL di Azure__. Come archivio dati di destinazione verrà usato un database SQL di Azure. Se non è ancora disponibile un database SQL, vedere l'articolo relativo alla [creazione e configurazione di un database SQL di Azure](../sql-database/sql-database-create-configure.md) per crearne uno.
 
-- L'__interfaccia della riga di comando di Azure__. Se l'interfaccia della riga di comando di Azure non è installata, vedere l'articolo relativo all'[installazione e configurazione dell'interfaccia della riga di comando di Azure](../xplat-cli.md) per altri passaggi.
+- L'__interfaccia della riga di comando di Azure__. Se l'interfaccia della riga di comando di Azure non è installata, vedere l'articolo relativo all'[installazione e configurazione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per altri passaggi.
 
 
 ##Scaricare i dati relativi ai voli
@@ -305,4 +305,4 @@ Per creare un database SQL di Azure, seguire questa procedura. Il database conti
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

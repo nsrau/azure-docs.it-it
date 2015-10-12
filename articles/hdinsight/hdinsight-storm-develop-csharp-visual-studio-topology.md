@@ -23,6 +23,8 @@ Informazioni su come creare una topologia Storm C# usando HDInsight Tools per Vi
 
 Verrà inoltre spiegato come creare topologie ibride che usano componenti C# e Java.
 
+[AZURE.INCLUDE [solo Windows](../../includes/hdinsight-windows-only.md)]
+
 ##Prerequisiti
 
 -	Una delle seguenti versioni di Visual Studio
@@ -656,4 +658,4 @@ Per altre informazioni su come usare HDInsight o altri esempi su Storm in HDinsi
 
 -	[Introduzione a HBase in HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

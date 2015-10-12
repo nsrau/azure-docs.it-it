@@ -33,11 +33,7 @@ Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati
 
 > [AZURE.NOTE]Mentre Ambari per il cluster è accessibile direttamente tramite Internet, alcuni collegamenti dall'interfaccia utente Web di Ambari (ad esempio JobTracker) non sono esposte in Internet. Di conseguenza, quando si tenta di accedere a queste funzionalità, verranno visualizzati errori di "server non trovato", a meno di usare un tunnel Secure Shell (SSH) per il proxy del traffico Web al nodo head del cluster.
 
-Usare i seguenti articoli per creare un tunnel SSH da una porta nel computer locale al cluster:
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X</a>: passaggi relativi alla creazione di un tunnel SSH usando il comando `ssh`.
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Windows</a>: passaggi relativi all'uso di PuTTY per creare un tunnel SSH.
+Per informazioni sulla creazione di un tunnel SSH per lavorare con Ambari, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Interfaccia utente Web Ambari
 
@@ -141,11 +137,7 @@ Selezionando uno di questi collegamenti, verrà aperta una nuova scheda nel brow
 
 > [AZURE.NOTE]Se si seleziona un collegamento **Quick Links** per un servizio, verrà visualizzato un errore di "server non trovato" a meno che non si usi un tunnel SSL (Secure Sockets Layer) per inoltrare il traffico Web al cluster. Questo comportamento è dovuto al fatto che le applicazioni Web usate per visualizzare queste informazioni non sono esposte in Internet.
 >
-> Per informazioni sull'uso di un tunnel SSL con HDInsight, vedere uno dei seguenti argomenti:
->
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X</a>: passaggi relativi alla creazione di un tunnel SSH usando il comando `ssh`.
->
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Usare SSH con Hadoop basato su Linux in HDInsight da Windows</a>: passaggi relativi all'uso di PuTTY per creare un tunnel SSH.
+> Per informazioni sull'uso di un tunnel SSL con HDInsight, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ##gestione
 
@@ -236,4 +228,4 @@ Ambari Web si basa su un'API REST sottostante, che è possibile usare per creare
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

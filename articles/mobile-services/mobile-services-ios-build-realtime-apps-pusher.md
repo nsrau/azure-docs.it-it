@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015" 
 	ms.author="donnam"/>
 
 
@@ -440,4 +440,4 @@ Per ulteriori informazioni sulla registrazione e l'utilizzo di script del server
 
 [Riferimento per gli script del server di Servizi mobili]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

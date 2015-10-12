@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configurare le app Web nel servizio app di Azure" 
 	description="Come configurare un'app Web nel servizio app di Azure" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="erikre" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -178,4 +178,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

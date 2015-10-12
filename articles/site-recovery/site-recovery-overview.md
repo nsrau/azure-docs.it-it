@@ -74,4 +74,4 @@ Mapping dell'archiviazione|Non applicabile|Esegue il mapping delle classificazio
 Una volta completata questa panoramica [leggere le procedure consigliate](site-recovery-best-practices.md) che consentono di iniziare la pianificazione della distribuzione.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

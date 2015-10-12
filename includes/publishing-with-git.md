@@ -276,7 +276,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [Git website]: http://git-scm.com
 [Installazione di Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Come usare PowerShell per Azure]: ../articles/install-configure-powershell.md
-[Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: ../articles/xplat-cli.md
+[Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: ../articles/xplat-cli-install.md
 [Documentazione su Git]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -298,4 +298,4 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [utilizzo di Dropbox per la condivisione di archivi Git]: https://gist.github.com/trey/2722927
 [Distribuzione continua in Azure tramite Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Attività di stored procedure di SQL Server"
-	description="Informazioni sull'uso dell'attività di stored procedure di SQL Server da una pipeline di Data factory per richiamare una stored procedure in un database SQL di Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Attività di stored procedure di SQL Server" 
+	description="Informazioni sull'uso dell'attività di stored procedure di SQL Server da una pipeline di Data factory per richiamare una stored procedure in un database SQL di Azure o in Azure SQL Data Warehouse." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="spelluru"/>
 
 # Attività di stored procedure di SQL Server
 
-È possibile usare l'attività di stored procedure di SQL Server in una [pipeline](data-factory-create-pipelines.md) di Data factory per richiamare una stored procedure in un database **SQL di Azure**. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
+È possibile usare l'attività di stored procedure di SQL Server in una [pipeline](data-factory-create-pipelines.md) di Data factory per richiamare una stored procedure in un database **SQL di Azure** o in un **Azure SQL Data Warehouse**. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 ## Sintassi
 	{
@@ -46,8 +46,8 @@ name | Nome dell'attività | Sì
 description | Testo descrittivo per lo scopo dell'attività | No
 type | SqlServerStoredProcedure | Sì
 inputs | Set di dati di input che devono essere disponibili (in stato 'Ready') per l'esecuzione dell'attività di stored procedure da eseguire. Gli input per l'attività di stored procedure vengono usati solo per la gestione delle dipendenze nel concatenamento di questa attività con le altre. I set di dati di input non possono essere utilizzati nella stored procedure come parametro | No
-outputs | Set di dati di output generati dall'attività di stored procedure. Assicurarsi che la tabella di output usi un servizio collegato che collega un database SQL di Azure alla data factory. Gli output nell'attività di stored procedure possono essere utilizzati come un metodo per trasferire il risultato dell'attività di stored procedure per la successiva elaborazione e/o possono essere utilizzati per la gestione delle dipendenze quando si concatena questa attività con le altre | Sì
-storedProcedureName | Specificare il nome della stored procedure nel database SQL di Azure rappresentato dal servizio collegato che usa la tabella di output. | Sì
+outputs | Set di dati di output generati dall'attività di stored procedure. Assicurarsi che la tabella di output usi un servizio collegato che collega un database SQL di Azure o un Azure SQL Data Warehouse alla data factory. Gli output nell'attività di stored procedure possono essere utilizzati come un metodo per trasferire il risultato dell'attività di stored procedure per la successiva elaborazione e/o possono essere utilizzati per la gestione delle dipendenze quando si concatena questa attività con le altre | Sì
+storedProcedureName | Specificare il nome della stored procedure nel database SQL di Azure o Azure SQL Data Warehouse rappresentato dal servizio collegato che usa la tabella di output. | Sì
 storedProcedureParameters | Specificare i valori dei parametri della stored procedure | No
 
 ## Esempio
@@ -74,7 +74,7 @@ Datetime | Data e ora in cui è stato generato l'ID corrispondente
 Per eseguire questa stored procedure in una pipeline di Data factory, è necessario seguire questa procedura:
 
 1.	Creare un [servizio collegato](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) per registrare la stringa di connessione del database SQL di Azure in cui deve essere eseguita la stored procedure.
-2.	Creare un [set di dati](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties) che punta alla tabella di output nel database SQL di Azure. Il set di dati viene denominato sprocsampleout. Questo set di dati deve fare riferimento al servizio collegato del passaggio \#1. 
+2.	Creare un [set di dati](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties) che punta alla tabella di output nel database SQL di Azure. Il set di dati viene denominato sprocsampleout. Questo set di dati deve fare riferimento al servizio collegato del passaggio #1. 
 3.	Creare la stored procedure nel database SQL di Azure.
 4.	Creare la [pipeline](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties) seguente con l'attività SqlServerStoredProcedure per richiamare la stored procedure nel database SQL di Azure.
 
@@ -132,4 +132,4 @@ A tale scopo, passare il parametro di Scenario e il valore dall'attività di sto
 		}
 	}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

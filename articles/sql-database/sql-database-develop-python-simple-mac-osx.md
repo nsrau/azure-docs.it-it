@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-Questo argomento presenta un esempio di codice scritto in Python. L'esempio viene eseguito su un computer Mac e si connette a un database SQL di Azure tramite il driver **pymssql**.
+Questo argomento presenta un esempio di codice scritto in Python. L'esempio viene eseguito su un computer Mac e si connette a un database SQL di Azure tramite il driver **pymssql**. Inoltre, utilizzare il video [Guida introduttiva a Python su Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) per integrare questa documentazione.
 
 
 ## Requisiti
@@ -83,7 +83,7 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 
 ## Inserire una riga, passare i parametri e recuperare la chiave primaria generata
 
-Nel database SQL, per generare automaticamente i valori di [chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx), è possibile usare la proprietà [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e l'oggetto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx).
+Nel database SQL, per generare automaticamente i [valori delle chiavi primarie](https://msdn.microsoft.com/library/ms179610.aspx), è possibile usare la proprietà [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e l'oggetto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx).
 
 
 	import pymssql
@@ -102,11 +102,11 @@ Nel database SQL, per generare automaticamente i valori di [chiave primaria](htt
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
 
 
-\-Avvio di una transazione
+-Avvio di una transazione
 
-\-Inserimento di una riga di dati
+-Inserimento di una riga di dati
 
-\-Rollback della transazione per annullare l'inserimento
+-Rollback della transazione per annullare l'inserimento
 
 
 	import pymssql
@@ -118,4 +118,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

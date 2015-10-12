@@ -155,4 +155,4 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
 - Per un’introduzione all'uso del portale di anteprima, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](./resource-group-portal.md)  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

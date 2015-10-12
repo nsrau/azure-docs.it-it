@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Spostare dati da e verso Azure SQL Data Warehouse | Data factory di Azure"
-	description="Informazioni su come spostare i dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Spostare dati da e verso Azure SQL Data Warehouse | Data factory di Azure" 
+	description="Informazioni su come spostare i dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
@@ -172,7 +172,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -372,7 +372,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 type | La proprietà del tipo deve essere impostata su: **AzureSqlDW** | Sì
-**connectionString** | Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. | Sì
+**connectionString** | Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. | Sì
 
 Nota: è necessario configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). È necessario configurare il server del database per [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Inoltre, se si copiano dati in Azure SQL Data Warehouse dall’esterno di Azure e da origini dati locali con gateway di data factory, sarà necessario configurare un intervallo di indirizzi IP appropriato per la macchina che sta inviando dati a Azure SQL Data Warehouse.
 
@@ -394,22 +394,63 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
 
+### SqlDWSource
 In caso di attività di copia con origine di tipo **SqlDWSource**, sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. | No |
+| sqlReaderQuery | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. Se non specificato, l'istruzione SQL eseguita: selezionare **colonne definite nella sezione della struttura della tabella JSON** da MyTable. | No |
+| sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. | Nome della stored procedure. | No |
+| sqlReaderStoredProcedureParameters | Parametri per la stored procedure. | Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
 
+#### Esempio SqlDWSource
+
+    "source": {
+        "type": "SqlDWSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**Definizione della stored procedure:**
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+ 
+
+### SqlDWSink
 **SqlDWSink** supporta le proprietà seguenti:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | Nome della stored procedure specificato dall'utente per i dati upsert (aggiornamento/inserimento) nella tabella di destinazione. | Nome della stored procedure. | No |
-| sqlWriterTableType | Nome del tipo di tabella specificato dall'utente da usare nella stored procedure precedente. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. | Nome del tipo di tabella. | No |
 | writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. | Numero intero. (Unità = conteggio righe) | No. (Predefinito = 10000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. | (Unità = intervallo di tempo) Esempio: "00:30:00" (30 minuti). | No | 
 | sqlWriterCleanupScript | Query specificata dall'utente per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Istruzione di query. | No |
 | sliceIdentifierColumnName | Nome di colonna specificato dall'utente per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che verrà usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. Vedere di seguito la sezione ripetibilità per ulteriori dettagli. | Nome di colonna di una colonna con tipo di dati binario (32). | No |
+
+#### Esempio SqlDWSink
+
+
+    "sink": {
+        "type": "SqlDWSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -424,7 +465,7 @@ Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-da
 
 Quando si spostano dati da e verso SQL Azure, SQL Server, Sybase verranno usati i mapping seguenti dal tipo SQL di tipo .NET e viceversa.
 
-Il mapping è uguale al mapping del [tipo di dati di SQL Server per ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
+Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 
 | Tipo di motore di database di SQL Server | Tipo di .NET Framework |
 | ------------------------------- | ------------------- |
@@ -436,21 +477,21 @@ Il mapping è uguale al mapping del [tipo di dati di SQL Server per ADO.NET](htt
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
+| Decimale | Decimale |
 | FILESTREAM attribute (varbinary(max)) | Byte |
 | Float | Double |
-| image | Byte | 
+| immagine | Byte | 
 | int | Int32 | 
-| money | Decimal |
+| money | Decimale |
 | nchar | String, Char |
 | ntext | String, Char |
-| numeric | Decimal |
+| numeric | Decimale |
 | nvarchar | String, Char |
 | real | Single |
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimal | 
+| smallmoney | Decimale | 
 | sql\_variant | Object * |
 | text | String, Char |
 | time | TimeSpan |
@@ -467,4 +508,4 @@ Il mapping è uguale al mapping del [tipo di dati di SQL Server per ADO.NET](htt
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

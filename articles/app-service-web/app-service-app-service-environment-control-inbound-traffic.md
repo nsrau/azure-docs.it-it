@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Come controllare il traffico in ingresso a un ambiente del servizio app" 
 	description="Informazioni su come configurare le regole di sicurezza di rete per controllare il traffico in ingresso a un ambiente del servizio app." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -134,4 +134,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->
