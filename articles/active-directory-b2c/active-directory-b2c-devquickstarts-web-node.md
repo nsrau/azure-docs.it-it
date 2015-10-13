@@ -34,51 +34,48 @@ A questo scopo è necessario:
 
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonare la struttura:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
+```
 
-The completed application is provided at the end of this tutorial as well.
+Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
-> [AZURE.WARNING] 	For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
+> [AZURE.WARNING] 	Per l'Anteprima B2C è necessario utilizzare lo stesso ID client/ID applicazione e i criteri per il server dell’attività Web API e per il client che effettua la connessione. Questo vale per i tutorial iOS e Android. Se è stato creata in precedenza un'applicazione con una delle guide rapide, utilizzare tali valori anziché crearne di nuovi in basso.
 
-## 1. Get an Azure AD B2C directory
+## 1. Ottenere una directory di Azure AD B2C
 
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all your users, apps, groups, and so on.  If you don't have
-one already, go [create a B2C directory](active-directory-b2c-get-started.md) before moving on.
+Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, passare a [creare una directory B2C](active-directory-b2c-get-started.md) prima di continuare.
 
-## 2. Create an application
+## 2. Creare un'applicazione
 
-Now you need to create an app in your B2C directory, which gives Azure AD some information that it needs to securely communicate with your app.  Both the client app and web API will be represented by a single **Application ID** in this case, since they comprise one logical app.  To create an app,
-follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
+A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app del client che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
 
-- Include a **web app/web api** in the application
-- Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down.  You will need it shortly.
-- Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
+- Includere un'**app Web/API Web** nell'applicazione
+- Specificare `http://localhost/TodoListService` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
+- Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. Create your policies
+## 3. Creare i criteri
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
-[policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
+In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questa app contiene tre esperienze di identità: iscrizione, accesso e accesso con Facebook. Sarà necessario creare i criteri per ciascun tipo, come descritto nell'[articolo di riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
-- Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
-- Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri corrispondenti.
+- Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
+- Copiare il **Nome** dei singoli criteri dopo averli creati. Dovrebbero avere il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve. 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Once you have your three policies successfully created, you're ready to build your app.
+Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
 
-Note that this article does not cover how to use the policies you just created.  If you want to learn about how policies work in Azure AD B2C,
-you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
-
+Si noti che questo articolo non illustra come usare i criteri appena creati. Per altre informazioni sul funzionamento dei criteri in Azure AD B2C, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 
-## 4. Add pre-requisities to your directory
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+## 4. Aggiungere prerequisiti alla directory
+
+Dalla riga di comando passare alla directory della cartella radice, se non è già stato fatto, ed eseguire i comandi seguenti:
 
 - `npm install express`
 - `npm install ejs`
@@ -93,30 +90,34 @@ From the command-line, change directories to your root folder if not already the
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart. 
+- È stato anche usato `passport-azure-ad` per l'anteprima nella struttura di avvio rapido.
 
 - `npm install passport-azure-ad`
 
 
-This will install the libraries that passport-azure-ad depend on.
+Verranno installate le librerie da cui dipende passport-azure-ad.
 
-## 5. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 5. Configurare l'app per l'uso della strategia passport-node-js
+In questo caso, verrà configurato il middleware Express per l'uso del protocollo di autenticazione OpenID Connect. Passport verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `tenantName:` is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
+-	Per iniziare, aprire il file `config.js` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `exports.creds`.
+    -	`clientID:` rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
+    -	`returnURL` rappresenta l'**URI di reindirizzamento** immesso nel portale.
+    - `tenantName:` è il **nome del tenant** dell'app, ad esempio contoso.onmicrosoft.com.
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- Aprire quindi il file `app.js` nella radice del progetto e aggiungere la chiamata seguente per richiamare la strategia `OIDCStrategy` fornita con `passport-azure-ad`.
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Aggiungere alcuni log di registrazione var = bunyan.createLogger ({nome: 'Applicazione Web di Microsoft OIDC di esempio'}); ```
+// Add some logging
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
+```
 
 - Successivamente, usare la strategia a cui è stato fatto riferimento per gestire le richieste di accesso.
 
@@ -271,9 +272,9 @@ app.post('/auth/openid/return',
 
 ## 4\. Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD
 
-L'app è ora configurata correttamente per comunicare con l'endpoint v2.0 mediante il protocollo di autenticazione OpenID Connect. `passport-azure-ad` ha preso in considerazione tutti i dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione della sessione dell'utente. A questo punto, è sufficiente offrire agli utenti un modo per accedere, disconnettersi e raccogliere informazioni aggiuntive sull'utente connesso.
+L'app è ora configurata correttamente per comunicare con l'endpoint v2.0 tramite il protocollo di autenticazione OpenID Connect. `passport-azure-ad` ha gestito tutti i dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione della sessione utente. A questo punto, è sufficiente offrire agli utenti un modo per accedere, disconnettersi e raccogliere informazioni aggiuntive sull'utente connesso.
 
-- Innanzitutto, aggiungere i metodi di accesso, account e disconnessione predefiniti al file `app.js`:
+- Aggiungere prima di tutto i metodi di accesso, account e disconnessione predefiniti al file `app.js`:
 
 ```JavaScript
 
@@ -302,10 +303,10 @@ app.get('/logout', function(req, res){
 ```
 
 -	Esaminare nel dettaglio questi aspetti:
-    -	La route `/` viene reindirizzata alla vista index.ejs passando l'utente alla richiesta (se presente).
-    - La route `/account` si ***assicurerà che l'autenticazione sia stata eseguita*** (vedere di seguito l'implementazione), quindi passerà l'utente nella richiesta in modo da ottenere informazioni aggiuntive sul quest'ultimo.
-    - La route `/login` chiamerà l'autenticatore azuread-openidconnect da `passport-azuread` e, se l'operazione non ha esito positivo, l'utente verrà reindirizzato a /login.
-    - La route `/logout` chiamerà logout.ejs (e la route) che consente di cancellare i cookie e restituisce quindi l'utente a index.ejs.
+    -	La route `/` viene reindirizzata alla vista index.ejs passando l'utente nella richiesta (se presente).
+    - La route `/account` prima di tutto ***verificherà che l'autenticazione sia stata eseguita*** (vedere di seguito l'implementazione), quindi passerà l'utente nella richiesta in modo da ottenere informazioni aggiuntive su quest'ultimo.
+    - La route `/login` chiamerà l'autenticatore azuread-openidconnect da `passport-azuread` e, se l'operazione non riesce, reindirizzerà l'utente a /login.
+    - La route `/logout` chiamerà semplicemente logout.ejs (e la route) che cancellerà i cookie e restituirà quindi l'utente a index.ejs.
 
 
 - Per l'ultima parte di `app.js`, aggiungere il metodo EnsureAuthenticated usato precedentemente in `/account`.
@@ -325,7 +326,7 @@ function ensureAuthenticated(req, res, next) {
 
 ```
 
-- Infine, creare il server in `app.js`:
+- Infine, creare il server stesso in `app.js`:
 
 ```JavaScript
 
@@ -336,7 +337,7 @@ app.listen(3000);
 
 ## 5\. Creare le viste e le route in express per richiamare i criteri
 
-Il file `app.js` è stato completato. Ora è sufficiente aggiungere le route e le viste che consentono di richiamare i criteri di registrazione e accesso e gestire le route `/logout` e `/login` create.
+Il file `app.js` è così completato. Ora è sufficiente aggiungere le route e le viste che consentono di richiamare i criteri di iscrizione e accesso e gestire le route `/logout` e `/login` create.
 
 - Creare la route `/routes/index.js` nella directory radice.
 
@@ -366,7 +367,7 @@ exports.list = function(req, res){
 
 Queste semplici route passeranno la richiesta alle viste, incluso l'utente se presente.
 
-- Creare la vista `/views/index.ejs` nella directory radice. Si tratta di una pagina semplice che richiama i criteri di registrazione e accesso e consente di ottenere informazioni sull'account. Si noti che è possibile usare il parametro condizionale `if (!user)` poiché l'utente passato nella richiesta dimostra che si dispone di un utente registrato.
+- Creare la vista `/views/index.ejs` nella directory radice. Si tratta di una pagina semplice che chiama i criteri di iscrizione e accesso e consente di ottenere informazioni sull'account. Si noti che è possibile usare il parametro condizionale `if (!user)`, perché l'utente passato nella richiesta dimostra che è disponibile un utente registrato.
 
 ```JavaScript
 <% if (!user) { %>
@@ -381,7 +382,7 @@ Queste semplici route passeranno la richiesta alle viste, incluso l'utente se pr
 <% } %>
 ```
 
-- Creare la vista `/views/account.ejs` nella directory radice affinché sia possibile visualizzare informazioni aggiuntive che `passport-azuread` ha inserito nella richiesta dell'utente.
+- Creare la vista `/views/account.ejs` nella directory radice per visualizzare informazioni aggiuntive inserite da `passport-azuread` nella richiesta dell'utente.
 
 ```Javascript
 <% if (!user) { %>
@@ -411,9 +412,11 @@ Iscrizione o accesso all’app tramite posta elettronica o Facebook. Disconnette
 
 ##Passaggi successivi
 
-Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile qui in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
+```
 
 È ora possibile passare ad argomenti più avanzati. È possibile consultare:
 
@@ -430,4 +433,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

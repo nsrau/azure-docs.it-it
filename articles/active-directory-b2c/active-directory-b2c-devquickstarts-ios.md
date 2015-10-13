@@ -650,7 +650,9 @@ Osservare che le attività sono archiviate per utente nell'API, perché l'API es
 
 Come riferimento, l'esempio completato [è disponibile qui in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS
+```
 
 ## Passaggi successivi
 
@@ -660,4 +662,4 @@ Come riferimento, l'esempio completato [è disponibile qui in un file con estens
 
 [Personalizzazione dell’UX del’App B2C>>]()
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

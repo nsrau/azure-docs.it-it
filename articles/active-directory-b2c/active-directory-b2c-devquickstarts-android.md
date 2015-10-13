@@ -1000,17 +1000,19 @@ Osservare che le attività sono archiviate per utente nell'API, perché l'API es
 Come riferimento, l'esempio completato [è disponibile qui in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip).
 In alternativa, è possibile clonarlo da GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
-### Important Information
+### Informazioni importanti
 
 
-#### Encryption
+#### Crittografia
 
-ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced AndroidKeyStore for 4.3(API18) secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey
+ADAL crittografa i token e li archivia in SharedPreferences per impostazione predefinita. È possibile esaminare la classe StorageHelper per visualizzare i dettagli. Android ha introdotto AndroidKeyStore 4.3 (API18) per l'archiviazione protetta delle chiavi private. ADAL lo usa per API18 e versioni successive. Se si vuole usare ADAL per versioni precedenti dell'SDK, è necessario fornire la chiave privata in AuthenticationSettings.INSTANCE.setSecretKey.
 
-#### Session cookies in Webview
+#### Cookie di sessione in Webview
 
 Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente:
 ```
@@ -1022,4 +1024,4 @@ CookieSyncManager.getInstance().sync();
 Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
