@@ -38,4 +38,4 @@ Nel portale di Azure, la scheda **Configura** dell'applicazione creata nella sch
 
 L'URL di risposta nell'immagine è ripetuto due volte, una volta con `http:` e una volta con `https:`.
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
