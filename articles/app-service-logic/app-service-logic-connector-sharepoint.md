@@ -53,18 +53,12 @@ A questo punto è possibile creare un'app per la logica nello stesso gruppo di r
 
 	Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*. Modalità di autenticazione | Sì | Specificare la modalità di autenticazione per la connessione al sito di SharePoint. Le opzioni includono:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/>
-<br/>
-Se si sceglie Default, verranno usate le credenziali di esecuzione del connettore SharePoint. Il nome utente e la password non sono richiesti. User Name e Password sono richiesti per altri tipi di autenticazione.<br/>
-<br/>
-** Nota** L'autenticazione anonima non è supportata.
+Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*.
+Modalità di autenticazione | Sì | Specificare la modalità di autenticazione per la connessione al sito di SharePoint. Le opzioni includono:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Se si sceglie Default, verranno usate le credenziali di esecuzione del connettore SharePoint. Il nome utente e la password non sono richiesti. User Name e Password sono richiesti per altri tipi di autenticazione.<br/><br/>** Nota** L'autenticazione anonima non è supportata.
 User Name | No | Immettere un nome utente valido per la connessione al sito di SharePoint, se la modalità di autenticazione non è Default.
 Password | No | Immettere una password valida per la connessione al sito di SharePoint, se la modalità di autenticazione non è Default.
 URL relativi raccolta/elenco documenti | Sì | Immettere gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
-Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/>
-<br/>
-[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>
-[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](http://azure.microsoft.com/pricing/details/service-bus/)
 
 5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:
  ![][2]
@@ -82,19 +76,19 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SharePoint c
 
 3. Se viene selezionato all'avvio dell'app per la logica, il connettore SharePoint agisce come trigger, in caso contrario sarebbe possibile eseguire azioni sull'account SharePoint con il connettore.
 
-4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Authorize** nel connettore SharePoint:
- ![][3]
+4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Authorize** nel connettore SharePoint:  
+![][3]
 
-5. Facendo clic su Authorize, viene visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni:
- ![][4]
+5. Facendo clic su Authorize, viene visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni:  
+![][4]
 
-6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto:
- ![][5]
+6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto:  
+![][5]
 
-7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire: 
+7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire:  
 ![][6]
   
-**URL relativo configurato per la raccolta documenti** 
+**URL relativo configurato per la raccolta documenti**  
 ![][7]
 
 **URL relativo configurato per l'elenco documenti**
@@ -104,7 +98,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SharePoint c
 ##  Trigger
 Usare i trigger se si vuole avviare un'app per la logica.
 
-> [AZURE.NOTE]I trigger eliminano i file dopo averli letti. Per mantenere i file, specificare un valore per il percorso di archiviazione.
+> [AZURE.NOTE] I trigger eliminano i file dopo averli letti. Per mantenere i file, specificare un valore per il percorso di archiviazione.
 
 ### 1\. Nuovo documento in documenti condivisi (JSON)
 Questo trigger viene attivato quando un nuovo documento è disponibile in 'Documenti condivisi'.
@@ -116,8 +110,7 @@ Nome | Obbligatorio | Descrizione
 Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo.
 Percorso archiviazione | No | Immettere un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare i documenti elaborati.
 Sovrascrivi in archivio | No | Selezionare questa opzione per sovrascrivere un file nel percorso di archiviazione, se esiste già.
-Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/>
-<Value Type='Number'>10</Value></Geq></Where>`
+Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
@@ -139,8 +132,7 @@ Nome | Obbligatorio | Descrizione
 --- | --- | ---
 Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare gli elementi dell'elenco. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i nuovi elementi, lasciare vuoto questo campo.
 Percorso archiviazione | No | Immettere un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare gli elementi elenco elaborati.
-Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/>
-<Value Type='Number'>10</Value></Geq></Where>`
+Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
@@ -160,8 +152,7 @@ Nome | Obbligatorio | Descrizione
 Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo.
 Percorso archiviazione | No | Specificare un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare i documenti di elenco elaborati.
 Sovrascrivi in archivio | No | Selezionare questa opzione per sovrascrivere un file nel percorso di archiviazione, se esiste già.
-Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/>
-<Value Type='Number'>10</Value></Geq></Where>`
+Query Caml | No, avanzate | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
@@ -181,8 +172,7 @@ Nome | Obbligatorio | Descrizione
 --- | --- | ---
 Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare gli elementi dell'elenco. Ad esempio: 'Approved Orders'. Per elaborare tutti i nuovi elementi, lasciare vuoto questo campo.
 Percorso archiviazione | No | Immettere un URL di cartella valido, relativo al sito di SharePoint, in cui archiviare gli elementi elenco elaborati.
-Query Caml | No, avanzate | Immettere una query Caml valida per filtrare gli elementi elenco. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/>
-<Value Type='Number'>10</Value></Geq></Where>`
+Query Caml | No, avanzate | Immettere una query Caml valida per filtrare gli elementi elenco. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
@@ -357,8 +347,7 @@ Questa azione elenca tutti i documenti in una raccolta documenti. È possibile u
 Nome | Obbligatorio | Descrizione
 --- | --- | ---
 Nome visualizzazione | No | Immettere una visualizzazione valida usata per filtrare i documenti da selezionare. Ad esempio, immettere: "Approved Orders". Per elaborare tutti i documenti esistenti, lasciare vuoto questo campo.
-Query Caml | No | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/>
-<Value Type='Number'>10</Value></Geq></Where>`
+Query Caml | No | Immettere una query Caml valida per filtrare i documenti. Ad esempio, immettere: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
@@ -467,7 +456,7 @@ Stato | Un'esecuzione corretta dell'azione restituisce il codice di stato 200 (O
 
 ## Configurazione ibrida (facoltativo)
 
-> [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa SharePoint installato in locale e protetto da firewall.
+> [AZURE.NOTE] Questo passaggio è obbligatorio solo se si usa SharePoint installato in locale e protetto da firewall.
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa SharePoint Server in locale, è richiesta la Gestione connessione ibrida.
 
@@ -476,7 +465,7 @@ Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -492,4 +481,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
